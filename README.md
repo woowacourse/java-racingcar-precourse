@@ -21,12 +21,12 @@
 - else 예약어를 쓰지 않는다.
 
 ## 구현할 메서드
-1. goForward : 자동차가 전진하는 메서드
-2. stop : 자동차가 멈추는 메서드
-3. printCarName : 자동차 이름을 출력하는 메서드
-4. getCarNamesInput : 자동차 이름을 입력을 받는 메서드
-5. getMoveCountInput : 몇 번의 이동을 할 것인지 입력을 받는 메서드
-6. getRandomNumber : 0에서 9 사이의 random 값을 구하는 메서드
-7. moveCarByRandomNumber : random 값을 받아 전진 혹은 멈춤을 받는 메서드
-8. getWinner : 우승자가 누구인지 반환하는 메서드
-9. printWinner : 우승자와 메시지를 출력하는 메서드
+1. ``goForward()`` : 자동차가 전진하는 메서드
+2. ``stop()`` : 자동차가 멈추는 메서드
+3. ``printCarName()`` : 자동차 이름을 출력하는 메서드
+4. ``getCarNamesInput()`` : 자동차 이름을 입력을 받는 메서드
+5. ``getMoveCountInput()`` : 몇 번의 이동을 할 것인지 입력을 받는 메서드
+6. ``getRandomNumber()`` : 0에서 9 사이의 random 값을 구하는 메서드
+7. ``moveCarByRandomNumber()`` : random 값을 받아 전진 혹은 멈춤을 받는 메서드
+8. ``getWinner()`` : 우승자가 누구인지 반환하는 메서드
+9. ``printWinner()`` : 우승자와 메시지를 출력하는 메서드
