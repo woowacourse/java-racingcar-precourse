@@ -12,6 +12,14 @@ public class CarGame {
         this.runs = getRunNumbers();
     }
 
+    public ArrayList<Car> getCars() {
+        return cars;
+    }
+
+    public int getRuns() {
+        return runs;
+    }
+
     private int getRunNumbers() {
         Scanner sc = new Scanner(System.in);
         System.out.println("시도할 회수는 몇회인가요?");
@@ -33,5 +41,16 @@ public class CarGame {
         }
 
         return carArrayList;
+    }
+
+    public void printResultTitle() {
+        System.out.println("\n실행 결과");
+    }
+
+    public void printResultEachGame() {
+        for (Car car : cars) {
+            System.out.printf("%s : %s\n", car.getName(), car.getPosition());
+        }
+        System.out.println();
     }
 }
