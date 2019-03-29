@@ -84,4 +84,17 @@ public class Car
             cars[i].position += distance;
         }
     }
+
+    public static void printMovements(Car[] cars)
+    {
+        for(int i=0; i<cars.length; i++)
+        {
+            System.out.print("" + cars[i].name + ":");
+            for(int j=0; j<cars[i].position; j++)
+            {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
 }
