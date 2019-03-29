@@ -32,13 +32,13 @@
 
 #### Data
 | id  | name | desc |
-|:---:|:---:|:---|
+|:---:|:---|:---|
 | 1 | ``cars`` | Car 객체를 원소로 하는 ArrayList |
 | 2 | ``runs`` | 시도할 회수를 저장하는 int 형 변수 |
 
 #### Methods
 | id  | name | desc |
-|:---:|:---:|:---|
+|:---|:---|:---|
 | 1 | ``CarGame()`` | Default Constructor, cars 와 runs 를 초기화 |
 | 2 | ``getRuns()`` | Getter Method, runs 반환 |
 | 3 | ``getCarNames()`` | 사용자로부터 자동차 이름들을 입력 받는 메서드 |
