@@ -11,10 +11,11 @@ public class Car {
     
     public void moveCar(){
         int num=getRandom();
-        
+        if(isCarMove(num)==true)
+            position++;        
     }
     public int getRandom() {
-        randomNum = (int) (Math.random() * 10);
+        return (int) (Math.random() * 10);
     }
     
     public boolean isCarMove(int num){

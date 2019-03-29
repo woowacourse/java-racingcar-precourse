@@ -25,7 +25,7 @@ public class PlayGame {
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        carNames = scan.nextLine();
+        initCarName = sc.nextLine();
     }
     
     void splitName()
@@ -49,10 +49,12 @@ public class PlayGame {
     }
     void playGame() {
         for(int i=0;i<gameCount;i++) {
-            for(int j=0;j<carCount;j++){
-                car[i].g
-            }
-            
+            playGameForMove();            
+        }
+    }
+    void playGameForMove(){
+        for(int i=0;i<carCount;i++){
+                car[i].moveCar();
         }
     }
 }
