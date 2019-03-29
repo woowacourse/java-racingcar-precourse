@@ -46,6 +46,6 @@ public class CarGroup {
      * @return "-" * number
      */
     private String generateStateBar(int number) {
-        return new String(new char[number]).replace("\0","-");
+        return new String(new char[number]).replace("\0", "-");
     }
 }

@@ -72,4 +72,6 @@
         - Car[]를 순회하며 가장 큰 position을 가진 인스턴스를 찾는다.
     - private String generateStateBar(int number)
         - 하이픈(대시)를 number 반복시킨 문자열을 얻는다.
+    - public String getRaceState()
+        - Car[]를 순회하며 현재 레이싱 상태를 문자열로 가져온다.
     
