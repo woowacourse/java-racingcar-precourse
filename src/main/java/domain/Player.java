@@ -42,7 +42,7 @@ public class Player {
         }
     }
 
-    private void  checkInput() {
+    private void checkInput() {
         if (!shouldGetInput) {
             return;
         }

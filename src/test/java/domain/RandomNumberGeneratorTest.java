@@ -13,7 +13,7 @@ public class RandomNumberGeneratorTest {
     public void testNumberGeneration() {
         boolean lowerBoundPresence = false;
         boolean upperBoundPresence = false;
-        for(int i = 0; i < TEST_LOOP_COUNT; i++) {
+        for (int i = 0; i < TEST_LOOP_COUNT; i++) {
             int n = generator.getNumber();
             Assert.assertTrue(n >= NumberGenerator.MIN && n <= NumberGenerator.MAX);
             if (n == NumberGenerator.MIN) {
