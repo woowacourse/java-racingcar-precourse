@@ -15,6 +15,7 @@ import java.util.*;
 public class UserInput {
 
 	public String[] getRacingCarName() {
+
 		Scanner scanner = new Scanner(System.in);
 		String[] carNameList;
 		boolean result;
@@ -25,8 +26,6 @@ public class UserInput {
 			result = checkCarNameList(carNameList);
 		}
 		while (result != true);
-
-		scanner.close();
 
 		return carNameList;
 	}
@@ -41,4 +40,28 @@ public class UserInput {
 
 		return true;
 	}
+
+	public int getCarMoveCount() {
+
+		Scanner scanner = new Scanner(System.in);
+		String count;
+		boolean result;
+
+		do {
+			System.out.println("시도할 회수는 몇 회인가요?");
+			count = scanner.nextLine();
+			result = checkCarMoveCount(count);
+		}
+		while (result != false);
+
+		return Integer.parseInt(count);
+	}
+
+	public boolean checkCarMoveCount(String count) {
+		if (count.matches("[1-9][0-9]+")) {
+			return false;
+		}
+		return true;
+	}
+
 }
