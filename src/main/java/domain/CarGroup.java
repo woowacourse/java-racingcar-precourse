@@ -37,6 +37,15 @@ public class CarGroup {
                 carName = carName + ", " + c.getCarName();
             }
         }
+    }
 
+    /**
+     * 숫자를 하이픈의 반복횟수로 변환한다.
+     * ex) generateStateBar(3) -> "---"
+     * @param number
+     * @return "-" * number
+     */
+    private String generateStateBar(int number) {
+        return new String(new char[number]).replace("\0","-");
     }
 }
