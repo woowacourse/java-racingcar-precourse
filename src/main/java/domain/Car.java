@@ -60,4 +60,28 @@ public class Car
         }
         return false;
     }
+
+    public static Car[] instantiateAndReturn(String[] carNames)
+    {
+        Car[] cars = new Car[carNames.length];
+        for(int i=0; i < carNames.length; i++)
+        {
+            cars[i] = new Car(carNames[i]);
+        }
+        return cars;
+    }
+
+    public static void moveCars(Car[] cars)
+    {
+        for(int i=0; i<cars.length; i++)
+        {
+            int distance = 0;
+            int randomNumber = (int) (Math.random()*10);
+            if (randomNumber >= 4)
+            {
+                distance = 1;
+            }
+            cars[i].position += distance;
+        }
+    }
 }
