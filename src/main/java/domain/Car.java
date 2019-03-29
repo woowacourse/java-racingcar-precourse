@@ -30,6 +30,20 @@ public class Car {
     }
 
     private int getRandomNumber() {
-        return (int) (Math.random() * 9 + 1);
+        return (int) (Math.random() * 10);
+    }
+
+    public void moveByRandomNumber() {
+        int rand = getRandomNumber();
+
+        if (rand >= 4) {
+            // 4 이상일 때 전진
+            goForward();
+        }
+        
+        if (rand >= 3) {
+            // 3 이하일 때 멈춤
+            stop();
+        }
     }
 }
