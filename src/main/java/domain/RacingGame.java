@@ -24,4 +24,10 @@ public class RacingGame {
             return false;
         }
     }
+
+    private void invalidInputMessage() {
+        System.out.println("잘못된 입력입니다.");
+    }
+
+
 }
