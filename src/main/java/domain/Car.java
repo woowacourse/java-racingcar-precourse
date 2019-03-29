@@ -21,5 +21,11 @@ public class Car {
 
     }
 
-
+    public String getPosition() {
+        char[] pos = new char[this.position];
+        for (int i = 0; i < pos.length; i++) {
+            pos[i] = '-';
+        }
+        return String.copyValueOf(pos);
+    }
 }
