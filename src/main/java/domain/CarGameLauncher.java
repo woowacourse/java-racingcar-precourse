@@ -21,5 +21,6 @@ public class CarGameLauncher
             System.out.println();
             i++;
         }
+        Car.announceWinners(cars);
     }
 }
