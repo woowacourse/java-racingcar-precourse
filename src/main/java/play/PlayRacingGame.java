@@ -38,6 +38,7 @@ public class PlayRacingGame {
 		Scanner sc = new Scanner(System.in);
 		int playCntFromUser = sc.nextInt();
 		sc.close();
+		System.out.println();
 		
 		return playCntFromUser;
 	}
@@ -46,7 +47,7 @@ public class PlayRacingGame {
 		System.out.println("실행 결과");
 		//01. 레이싱 횟수만큼 실행
 		for(int i  = 0 ; i < cntPlay ; i++) {
-			// 객체별로 게임 실행 (지금은 테스트 코드 넣음)
+			// 객체별로 게임 실행
 			playCarObjsFunc(racingCars);
 			System.out.println();
 		}

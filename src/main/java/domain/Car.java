@@ -20,11 +20,8 @@ public class Car {
      * 전진 상황 출력
      * */
     public void playRacingOneTime() {
-    	// 난수 생성
     	int randNum = makeRandomNum();
-    	// 전진인지 아닌지 확인
     	isGoingForward(randNum);
-    	// 현재 전진값 출력
     	printResultStr();
     }
     
