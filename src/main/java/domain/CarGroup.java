@@ -23,4 +23,20 @@ public class CarGroup {
             c.goRace();
         }
     }
+
+    public void getMaxCar() {
+        int max_position = 0;
+        String carName = "";
+
+        for (Car c : carInstances) {
+            if (c.getPosition() > max_position) {
+                max_position = c.getPosition();
+                carName = c.getCarName();
+            }
+            if (c.getPosition() == max_position) {
+                carName = carName + ", " + c.getCarName();
+            }
+        }
+
+    }
 }
