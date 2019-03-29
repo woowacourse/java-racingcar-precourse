@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -8,5 +10,67 @@ public class Car {
         this.name = name;
     }
 
-    // ì¶”ê°€ ê¸°ëŠ¥ êµ¬í˜„
+    /* Å×½ºÆ®¸¦ À§ÇØ Ãß°¡*/
+    public String getName() {
+    	return this.name;
+    }
+    
+    /**
+     * ÀÓÀÇÀÇ ¼ıÀÚ »ı¼º
+     * ÀüÁø »óÈ² Ãâ·Â
+     * */
+    public void playRacingOneTime() {
+    	// ³­¼ö »ı¼º
+    	int randNum = makeRandomNum();
+    	// ÀüÁøÀÎÁö ¾Æ´ÑÁö È®ÀÎ
+    	isGoingForward(randNum);
+    	// ÇöÀç ÀüÁø°ª Ãâ·Â
+    	printResultStr();
+    }
+    
+    /**
+     * 0~9 »çÀÌÀÇ ÀÓÀÇÀÇ ¼ıÀÚ »ı¼º
+     * */
+    private int makeRandomNum() {
+    	Random rand = new Random();
+    	int randNum = rand.nextInt(10);
+    	
+    	return randNum;
+    }
+    
+    /**
+     * ÀÓÀÇÀÇ ¼ıÀÚ°¡ 4 ÀÌ»óÀÌ¸é ÀüÁø(true), 3 ÀÌÇÏ¸é Á¤Áö(false)
+     * ÀüÁøÀÌ¸é position °ª +1;
+     * */
+    private void isGoingForward(int randNum) {
+    	if(randNum >= 4) {
+    		this.position += 1;
+    	}
+    }
+    
+    /**
+     * Ãâ·Â ÇüÅÂ : ÀÌ¸§ : -(ÀüÁø È½¼ö)
+     * */
+    private void printResultStr() {
+    	String strResult = "";
+    	// ÀÌ¸§ ³Ö±â
+    	strResult += this.name + " : ";
+    	// ÀüÁøÇÑ Ãâ·Â ³Ö±â
+    	strResult += printForwardingCnt();
+    	
+    	System.out.println(strResult);
+    }
+    
+    /**
+     * printResultStr¿¡¼­ »ç¿ëÇÏ´Â ÇÔ¼ö.
+     * */
+    private String printForwardingCnt() {
+    	String strResult = "";
+    	
+    	for(int i  = 0 ; i < this.position ; i++) {
+    		strResult += "-";
+    	}
+    	
+    	return strResult;	
+    }
 }

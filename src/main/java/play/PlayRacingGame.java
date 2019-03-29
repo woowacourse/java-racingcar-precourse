@@ -12,6 +12,7 @@ public class PlayRacingGame {
 		Car racingCars[] = initCarObjs(carNames);
 		int cntPlay = receivePlayCntFromUser();
 		// 3. 게임 진행
+		playRacingGame(racingCars, cntPlay);
 
 	}
 	
@@ -39,6 +40,14 @@ public class PlayRacingGame {
 		sc.close();
 		
 		return playCntFromUser;
+	}
+	
+	private static void playRacingGame(Car[] racingCars, int cntPlay) {
+		//01. 레이싱 횟수만큼 실행
+		for(int i  = 0 ; i < cntPlay ; i++) {
+			// 객체별로 게임 실행 (지금은 테스트 코드 넣음)
+			racingCars[0].playRacingOneTime();
+		}
 	}
 
 }
