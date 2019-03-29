@@ -14,4 +14,10 @@ public class Car {
     public void makeRandomNumber(){
         randomNum = (int)(Math.random()*10);
     }
+
+    public void checkRandomNumberAndChangePosition(){
+        if(randomNum >= 4){
+            position++;
+        }
+    }
 }
