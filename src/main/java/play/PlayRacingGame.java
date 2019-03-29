@@ -43,10 +43,18 @@ public class PlayRacingGame {
 	}
 	
 	private static void playRacingGame(Car[] racingCars, int cntPlay) {
+		System.out.println("실행 결과");
 		//01. 레이싱 횟수만큼 실행
 		for(int i  = 0 ; i < cntPlay ; i++) {
 			// 객체별로 게임 실행 (지금은 테스트 코드 넣음)
-			racingCars[0].playRacingOneTime();
+			playCarObjsFunc(racingCars);
+			System.out.println();
+		}
+	}
+	
+	private static void playCarObjsFunc(Car[] racingCars) {
+		for(Car car : racingCars) {
+			car.playRacingOneTime();
 		}
 	}
 
