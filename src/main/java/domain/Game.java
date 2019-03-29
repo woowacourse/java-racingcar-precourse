@@ -9,10 +9,12 @@ public class Game {
     Car car[];
 
     int carNumber;
+    int raceNumber;
 
     public void run() {
         InputCarsName();
         splitCarNamesWithComma();
+        InputRaceNum();
 
     }
 
@@ -35,6 +37,11 @@ public class Game {
         }
     }
 
+    public void InputRaceNum(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("시도할 횟수는 몇회인가요?");
+        raceNumber = scan.nextInt();
+    }
 
 
 }
