@@ -48,4 +48,16 @@ public class CarGroup {
     private String generateStateBar(int number) {
         return new String(new char[number]).replace("\0", "-");
     }
+
+    public String getRaceState() {
+        StringBuilder sb = new StringBuilder();
+
+        for (Car c : carInstances) {
+            sb.append(c.getCarName() + " : ");
+            sb.append(generateStateBar(c.getPosition()));
+            sb.append("\n");
+        }
+
+        return sb.toString();
+    }
 }
