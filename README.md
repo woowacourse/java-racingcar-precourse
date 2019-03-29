@@ -70,3 +70,6 @@
         - Car[]를 순회하며 getPosition()을 실행한다.
     - public String getMaxCar()
         - Car[]를 순회하며 가장 큰 position을 가진 인스턴스를 찾는다.
+    - private String generateStateBar(int number)
+        - 하이픈(대시)를 number 반복시킨 문자열을 얻는다.
+    
