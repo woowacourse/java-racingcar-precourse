@@ -17,9 +17,9 @@ public class PlayGame {
         inputGameCount();
         createCar();
         playGame();
+        findWinner();
         
     }
-    
     
     void inputName()
     {
@@ -32,6 +32,7 @@ public class PlayGame {
     {
         carName=initCarName.split(",");
         carCount=carName.length;
+        
     }
     
     void inputGameCount()
@@ -44,7 +45,7 @@ public class PlayGame {
     {
         car = new Car[carCount];
         for(int i=0;i<carCount;i++){
-            car[i]=new Car(carName[i]);
+            car[i]=new Car(carName[i].trim());
         }
     }
     void playGame() {
@@ -54,7 +55,43 @@ public class PlayGame {
     }
     void playGameForMove(){
         for(int i=0;i<carCount;i++){
-                car[i].moveCar();
+            car[i].moveCar();
+            car[i].printCar();
         }
+        System.out.println();
     }
+    
+    void findWinner(){
+        int _max=0;
+        int carPos;
+        String winnerName[]=new String[carCount];
+        int winnerCnt=0;
+        for(int i=0;i<carCount;i++){
+            carPos=car[i].getPosition();
+            if(isLargePosition(_max,carPos)==true){
+                winnerCnt=0;
+                _max=carPos;
+                winnerName[winnerCnt++]=car[i].getName();                
+            }
+            else if(isEqualPosition(_max, carPos)==true){
+                winnerName[winnerCnt++]=car[i].getName(); 
+            }
+        } 
+        for(int i=0;i<winnerCnt;i++){
+            System.out.print(winnerName[i]);
+            if(i!=winnerCnt-1){
+                System.out.print(", ");
+            }
+        }
+        System.out.print("가 최종 우승했습니다.");
+        
+    }
+    
+    boolean isLargePosition(int _max, int carPos){
+        return _max<carPos?true:false;        
+    }
+    boolean isEqualPosition(int _max, int carPos){
+        return _max==carPos?true:false;        
+    }
+    
 }
