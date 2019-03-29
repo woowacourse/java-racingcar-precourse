@@ -17,4 +17,10 @@ public class CarGroup {
             ex.printStackTrace();
         }
     }
+
+    public void makeCarRace() {
+        for (Car c : carInstances) {
+            c.goRace();
+        }
+    }
 }
