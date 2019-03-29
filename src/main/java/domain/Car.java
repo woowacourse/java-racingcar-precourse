@@ -18,7 +18,7 @@ public class Car {
     }
 
     public void stop() {
-
+        // Do Nothing
     }
 
     public String getPosition() {
@@ -40,8 +40,8 @@ public class Car {
             // 4 이상일 때 전진
             goForward();
         }
-        
-        if (rand >= 3) {
+
+        if (rand <= 3) {
             // 3 이하일 때 멈춤
             stop();
         }

@@ -49,6 +49,28 @@
 | 5 | ``printResultTitle()`` | "실행 결과" 를 출력하는 메서드 |
 | 6 | ``printResultEachGame()`` | 시행 횟수 1당 게임 결과를 출력하는 메서드 |
 
+### Car 클래스
+
+자동차 한 대의 정보가 들어있는 클래스
+
+#### Data
+| id  | name | desc |
+|:---:|:---|:---|
+| 1 | ``name`` | 이름이 저장된 String |
+| 2 | ``position`` | 위치를 나타내는 int |
+
+#### Methods
+
+| id  | name | desc |
+|:---|:---|:---|
+| 1 | ``Car(String name)`` | Constructor, name 초기화하는 생성자 |
+| 2 | ``getName()`` | Getter Method, 인스턴스의 name 을 반환 |
+| 3 | ``goForward()`` | 전진하는 메서드, 전진하면 position 에 1이 추가된다 |
+| 4 | ``stop()`` | 멈추는 메서드, 멈춰있으면 아무것도 하지 않는다. |
+| 5 | ``getPosition() `` | 포지션 반환하는 메서드, int를 반환하는 것이 아니라, 하이픈을 position 의 수만큼 문자열로 바꿔 반환한다. |
+| 6 | ``getRandomNumber()`` | 0부터 9 사이의 숫자를 랜덤으로 생성하는 메서드 |
+| 7 | ``moveByRandomNumber()`` | 랜덤한 수가 4 이상이면 전진, 3 이하면 멈춤을 실행하는 메서드 |
+
 6. ``getRandomNumber()`` : 0에서 9 사이의 random 값을 구하는 메서드
 7. ``moveCarByRandomNumber()`` : random 값을 받아 전진 혹은 멈춤을 받는 메서드
 8. ``getWinner()`` : 우승자가 누구인지 반환하는 메서드
