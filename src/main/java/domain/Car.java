@@ -28,4 +28,8 @@ public class Car {
         }
         return String.copyValueOf(pos);
     }
+
+    private int getRandomNumber() {
+        return (int) (Math.random() * 9 + 1);
+    }
 }
