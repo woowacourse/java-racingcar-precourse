@@ -29,6 +29,11 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
+    public void notifyInvalidProgressCountInput() {
+        System.out.println("잘못된 입력입니다.");
+    }
+
+    @Override
     public void printProgress(List<Car> cars) {
         if (shouldPrintResultTitle) {
             System.out.println("\n실행결과");
