@@ -4,7 +4,12 @@ public class CarGameLauncher
 {
     public static void main(String[] args)
     {
-        String[] test = Car.getCarNames();
+        doGame();
+    }
+    public static void doGame()
+    {
+        String[] carNames = Car.getCarNames();
+        int turns = Car.askHowManyTurns();
     }
 
 }

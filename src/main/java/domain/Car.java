@@ -21,4 +21,22 @@ public class Car
         String[] userInputArray = userInput.split(",");
         return userInputArray;
     }
+
+    public static int askHowManyTurns()
+    {
+        String turns;
+        while (true)
+        {
+            System.out.println("시도할 회수는 몇회인가요?");
+            Scanner reader = new Scanner(System.in);
+            turns = reader.nextLine();
+            boolean isUserInputRight = checkUserInput(turns);
+            if(isUserInputRight)
+            {
+                break;
+            }
+        }
+        return Integer.parseInt(turns);
+    }
+
 }
