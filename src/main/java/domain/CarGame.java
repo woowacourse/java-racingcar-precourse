@@ -5,7 +5,11 @@ import java.util.Scanner;
 
 public class CarGame {
     private ArrayList<Car> cars;
-    private int runNumbers;
+
+    public CarGame() {
+        String[] tmpCarNames = getCarNamesInput();
+        this.cars = makeCarListFromArray(tmpCarNames);
+    }
 
     private String[] getCarNamesInput() {
         Scanner sc = new Scanner(System.in);
