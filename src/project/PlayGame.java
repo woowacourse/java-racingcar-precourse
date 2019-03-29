@@ -8,6 +8,7 @@ public class PlayGame {
     private String initCarName;
     private String carName[];
     private int carCount;
+    private int gameCount;
     void run()
     {
         inputName();
@@ -26,5 +27,12 @@ public class PlayGame {
     {
         carName=initCarName.split(",");
         carCount=carName.length;
+    }
+    
+    void inputGameCount()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("시도할 횟수는 몇회인가요?");
+        gameCount = sc.nextInt();
     }
 }
