@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Game {
 
-    String carNames;
-    String carName[];
-    Car car[];
+    private String carNames;
+    private String carName[];
+    private Car car[];
 
-    int carNumber;
-    int raceNumber;
+    private int carNumber;
+    private int raceNumber;
 
     public void run() {
         InputCarsName();
@@ -42,6 +42,8 @@ public class Game {
         System.out.println("시도할 횟수는 몇회인가요?");
         raceNumber = scan.nextInt();
     }
+
+
 
 
 }
