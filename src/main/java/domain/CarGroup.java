@@ -24,7 +24,7 @@ public class CarGroup {
         }
     }
 
-    public void getMaxCar() {
+    public String getMaxCar() {
         int max_position = 0;
         String carName = "";
 
@@ -37,6 +37,8 @@ public class CarGroup {
                 carName = carName + ", " + c.getCarName();
             }
         }
+
+        return carName;
     }
 
     /**
