@@ -11,6 +11,13 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public void OneTurn(){
+        makeRandomNumber();
+        checkRandomNumberAndChangePosition();
+        printNameAndPosition();
+    }
+
     public void makeRandomNumber(){
         randomNum = (int)(Math.random()*10);
     }
@@ -18,6 +25,13 @@ public class Car {
     public void checkRandomNumberAndChangePosition(){
         if(randomNum >= 4){
             position++;
+        }
+    }
+
+    public void printNameAndPosition(){
+        System.out.print(name+":");
+        for(int i = 0;i <position;i++){
+            System.out.println("-");
         }
     }
 }

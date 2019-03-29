@@ -16,6 +16,8 @@ public class Game {
         splitCarNamesWithComma();
         InputRaceNum();
 
+        System.out.println("실행 결과");
+        OneTimeRunGame();
     }
 
     public void InputCarsName(){
@@ -41,6 +43,12 @@ public class Game {
         Scanner scan = new Scanner(System.in);
         System.out.println("시도할 횟수는 몇회인가요?");
         raceNumber = scan.nextInt();
+    }
+
+    public void OneTimeRunGame(){
+        for(int i = 0;i < carNumber;i++){
+            car[i].OneTurn();
+        }
     }
 
 
