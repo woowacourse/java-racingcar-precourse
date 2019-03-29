@@ -18,5 +18,8 @@ public class Car {
         return rd.nextInt(10);
     }
 
+    private boolean isGo(int number) {
+        return number >= 4;
+    }
 
 }
