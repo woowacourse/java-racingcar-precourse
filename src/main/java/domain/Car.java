@@ -3,6 +3,7 @@ package domain;
 public class Car {
     private final String name;
     private int position = 0;
+//    public int rand;
 
     public Car(String name) {
         this.name = name;
@@ -35,6 +36,7 @@ public class Car {
 
     public void moveByRandomNumber() {
         int rand = getRandomNumber();
+//        this.rand = rand;
 
         if (rand >= 4) {
             // 4 이상일 때 전진

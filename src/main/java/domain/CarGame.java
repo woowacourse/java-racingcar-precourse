@@ -8,10 +8,10 @@ public class CarGame {
     private int runs;
 
     public CarGame() {
-        printMessageRunNumbers();
+        printMessageCarNames();
         this.cars = getCarNames();
 
-        printMessageCarNames();
+        printMessageRunNumbers();
         this.runs = getRunNumbers();
     }
 
@@ -61,7 +61,7 @@ public class CarGame {
 
     public void printResultEachGame() {
         for (Car car : cars) {
-            System.out.printf("%s : %s\n", car.getName(), car.getPosition());
+            System.out.printf("%s : %s\n", car.getName(), car.getPosition()/*, car.rand*/);
         }
         System.out.println();
     }
