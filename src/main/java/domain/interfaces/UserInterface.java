@@ -5,7 +5,7 @@ import domain.Car;
 import java.util.List;
 
 public interface UserInterface {
-    String promptCarNames();
+    String[] promptCarNames();
     int promptProgressCount();
     void notifyInvalidCarNamesInput();
     void printProgress(List<Car> cars);
