@@ -31,7 +31,16 @@ public class Car {
     public void printNameAndPosition(){
         System.out.print(name+":");
         for(int i = 0;i <position;i++){
-            System.out.println("-");
+            System.out.print("-");
         }
+        System.out.println();
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
+    public String getName(){
+        return name;
     }
 }

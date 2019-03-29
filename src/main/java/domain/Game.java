@@ -16,8 +16,12 @@ public class Game {
         splitCarNamesWithComma();
         InputRaceNum();
 
-        System.out.println("실행 결과");
-        OneTimeRunGame();
+        for(int i = 0;i < raceNumber;i++){
+            System.out.println();
+            System.out.println("실행 결과");
+            OneTimeRunGame();
+        }
+        printWinner();
     }
 
     public void InputCarsName(){
@@ -51,7 +55,26 @@ public class Game {
         }
     }
 
+    public void printWinner(){
+        int max = 0;
+        int count = 0;
+        for(int i = 0;i < carNumber;i++){
+            if(max < car[i].getPosition()){
+                max = car[i].getPosition();
+            }
+        }
 
+        for(int i = 0;i < carNumber;i++){
+            if(max == car[i].getPosition() && count == 0){
+                System.out.print(car[i].getName());
+                count++;
+            }else if(max == car[i].getPosition()){
+                System.out.print(", "+car[i].getName());
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
+
+    }
 
 
 }
