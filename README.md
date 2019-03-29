@@ -49,6 +49,8 @@
         - 콘솔 입력을 받는다.
     - private boolean isValidInput(String)
         - 인자값이 유효한지 확인한다.
+    - private boolean isNumber(String)
+        - 인자값을 숫자로 바꿀 수 있는지 확인한다.
     - private String invalidInputMessage()
         - 유효하지 않은 값이 전달되었음을 콘솔에 출력한다.
     - private String[] splitCarName(String)
