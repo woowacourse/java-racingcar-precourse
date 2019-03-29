@@ -22,5 +22,10 @@ public class CarGameLauncher
             i++;
         }
         Car.announceWinners(cars);
+        boolean wantOneMoreGame = Car.getUserAnswer();
+        if(wantOneMoreGame)
+        {
+            doGame();
+        }
     }
 }

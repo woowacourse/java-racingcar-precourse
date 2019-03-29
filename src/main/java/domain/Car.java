@@ -13,10 +13,18 @@ public class Car
 
     public static String[] getCarNames()
     {
-        System.out.print("경주할 자동차 이름을 입력하세요.");
-        System.out.println(" 이름은 쉼표(,) 기준으로 구분합니다.");
-        Scanner reader = new Scanner(System.in);
-        String userInput = reader.nextLine();
+        String userInput;
+        while(true)
+        {
+            System.out.print("경주할 자동차 이름을 입력하세요.");
+            System.out.println(" 이름은 쉼표(,) 기준으로 구분합니다.");
+            Scanner reader = new Scanner(System.in);
+            userInput = reader.nextLine();
+            if(userInput.length() >= 1)
+            {
+                break;
+            }
+        }
         userInput = userInput.replaceAll("\\s+", "");
         String[] userInputArray = userInput.split(",");
         return userInputArray;
@@ -39,7 +47,7 @@ public class Car
         return Integer.parseInt(turns);
     }
 
-    public static boolean checkUserInput(String turns)
+    private static boolean checkUserInput(String turns)
     {
         if(isNonNumberThere(turns))
         {
@@ -48,7 +56,7 @@ public class Car
         return true;
     }
 
-    public static boolean isNonNumberThere(String turns)
+    private static boolean isNonNumberThere(String turns)
     {
         for(int i=0, n = turns.length(); i<n; i++)
         {
@@ -123,5 +131,26 @@ public class Car
         }
         int lastIndex = listOfCars.size() - 1;
         System.out.println("" + listOfCars.get(lastIndex).name + "가 최종 우승했습니다.");
+    }
+
+    public static boolean getUserAnswer()
+    {
+        boolean result;
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요: ");
+            String strUserInput = scanner.nextLine();
+            if (strUserInput.length() == 1 && strUserInput.charAt(0) == '1')
+            {
+                result = true;
+                break;
+            }
+            if (strUserInput.length() == 1 && strUserInput.charAt(0) == '2')
+            {
+                result = false;
+                break;
+            }
+        }
+        return result;
     }
 }
