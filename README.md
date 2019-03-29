@@ -39,6 +39,8 @@
         - getRandomNumber와 isGo를 조합한다.
     - public int getPosition()
         - 인스턴스의 포지션을 리턴한다.
+    - public String getCarName()
+        - Car의 name 변수를 리턴한다.
 
 2. RacingGame 클래스
     - public void startRace()
