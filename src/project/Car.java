@@ -1,4 +1,4 @@
-package domain;
+package project;
 
 public class Car {
     private final String name;
