@@ -38,18 +38,14 @@ public class Car
         }
         return Integer.parseInt(turns);
     }
+
     public static boolean checkUserInput(String turns)
     {
         if(isNonNumberThere(turns))
         {
             return false;
         }
-        if(isItNonInt(turns))
-        {
-            return false;
-        }
         return true;
-
     }
 
     public static boolean isNonNumberThere(String turns)
@@ -58,20 +54,7 @@ public class Car
         {
             if (!(Character.isDigit(turns.charAt(i))))
             {
-                System.out.println("숫자만 입력해주세요!");
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean isItNonInt(String turns)
-    {
-        for(int i=0, n=turns.length()-1; i<n; i++)
-        {
-            if ((turns.charAt(i) == '.') && (Character.isDigit(turns.charAt(i+1))))
-            {
-                System.out.println("정수만 입력해 주세요!");
+                System.out.println("정수인 숫자만 입력해주세요!");
                 return true;
             }
         }
