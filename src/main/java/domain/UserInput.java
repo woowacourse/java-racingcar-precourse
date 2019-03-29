@@ -58,7 +58,7 @@ public class UserInput {
 	}
 
 	public boolean checkCarMoveCount(String count) {
-		if (count.matches("[1-9][0-9]+")) {
+		if (count.matches("[1-9]||[1-9][0-9]+")) {
 			return false;
 		}
 		return true;
