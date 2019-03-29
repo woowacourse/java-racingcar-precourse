@@ -53,6 +53,12 @@ public class CarGame {
         System.out.println("\n실행 결과");
     }
 
+    public void runEachGame() {
+        for (Car car : cars) {
+            car.moveByRandomNumber();
+        }
+    }
+
     public void printResultEachGame() {
         for (Car car : cars) {
             System.out.printf("%s : %s\n", car.getName(), car.getPosition());

@@ -7,6 +7,7 @@ public class Main {
 
         carGame.printResultTitle();
         while(runs-- > 0) {
+            carGame.runEachGame();
             carGame.printResultEachGame();
         }
     }

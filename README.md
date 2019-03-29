@@ -48,6 +48,7 @@
 | 4-1 | ``printMessageRunNumbers()`` | 4의 실행 이전에 사용자에게 메시지를 출력하는 메서드 |
 | 5 | ``printResultTitle()`` | "실행 결과" 를 출력하는 메서드 |
 | 6 | ``printResultEachGame()`` | 시행 횟수 1당 게임 결과를 출력하는 메서드 |
+| 7 | ``runEachGame()`` | 각 car 마다 car.moveByRandomNumber() 를 실행하는 메서드 |
 
 ### Car 클래스
 
