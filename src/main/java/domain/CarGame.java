@@ -8,27 +8,23 @@ public class CarGame {
     private int runs;
 
     public CarGame() {
+        printMessageRunNumbers();
         this.cars = getCarNames();
-        this.runs = getRunNumbers();
-    }
 
-    public ArrayList<Car> getCars() {
-        return cars;
+        printMessageCarNames();
+        this.runs = getRunNumbers();
     }
 
     public int getRuns() {
         return runs;
     }
 
-    private int getRunNumbers() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("시도할 회수는 몇회인가요?");
-        return sc.nextInt();
+    private void printMessageCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     private ArrayList<Car> getCarNames() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] tmp = sc.next().split(",");
         return makeCarListFromArray(tmp);
     }
@@ -42,6 +38,16 @@ public class CarGame {
 
         return carArrayList;
     }
+
+    private int getRunNumbers() {
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
+    }
+
+    private void printMessageRunNumbers() {
+        System.out.println("시도할 회수는 몇회인가요?");
+    }
+
 
     public void printResultTitle() {
         System.out.println("\n실행 결과");

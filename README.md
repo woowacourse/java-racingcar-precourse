@@ -21,11 +21,34 @@
 - else 예약어를 쓰지 않는다.
 
 ## 구현할 메서드
-1. ``goForward()`` : 자동차가 전진하는 메서드
-2. ``stop()`` : 자동차가 멈추는 메서드
-3. ``printCarName()`` : 자동차 이름을 출력하는 메서드
-4. ``getCarNamesInput()`` : 자동차 이름을 입력을 받는 메서드
-5. ``getMoveCountInput()`` : 몇 번의 이동을 할 것인지 입력을 받는 메서드
+
+### Main 클래스
+
+프로그램의 Entry Point 가 있고, 프로그램의 전체적인 흐름이 들어있는 클래스
+
+### CarGame 클래스
+
+자동차 게임을 진행하는데 필요한 데이터와 메서드를 제공하는 클래스
+
+#### Data
+| id  | name | desc |
+|:---:|:---:|:---|
+| 1 | ``cars`` | Car 객체를 원소로 하는 ArrayList |
+| 2 | ``runs`` | 시도할 회수를 저장하는 int 형 변수 |
+
+#### Methods
+| id  | name | desc |
+|:---:|:---:|:---|
+| 1 | ``CarGame()`` | Default Constructor, cars 와 runs 를 초기화 |
+| 2 | ``getRuns()`` | Getter Method, runs 반환 |
+| 3 | ``getCarNames()`` | 사용자로부터 자동차 이름들을 입력 받는 메서드 |
+| 3-1 | ``printMessageCarNames()`` | 3의 실행 이전에 사용자에게 메시지를 출력하는 메서드 |
+| 3-2 | ``makeCarListFromArray()`` | Helper Method, primitive array 를 받아 ArrayList 반환 |
+| 4 | ``getRunNumbers()`` | 사용자로부터 시도할 회수를 입력 받는 메서드 |
+| 4-1 | ``printMessageRunNumbers()`` | 4의 실행 이전에 사용자에게 메시지를 출력하는 메서드 |
+| 5 | ``printResultTitle()`` | "실행 결과" 를 출력하는 메서드 |
+| 6 | ``printResultEachGame()`` | 시행 횟수 1당 게임 결과를 출력하는 메서드 |
+
 6. ``getRandomNumber()`` : 0에서 9 사이의 random 값을 구하는 메서드
 7. ``moveCarByRandomNumber()`` : random 값을 받아 전진 혹은 멈춤을 받는 메서드
 8. ``getWinner()`` : 우승자가 누구인지 반환하는 메서드
