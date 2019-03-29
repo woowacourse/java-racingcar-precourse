@@ -8,5 +8,16 @@ public class Car {
         this.name = name;
     }
 
+    public static Car[] createCars(String[] carNames){
+        int N = carNames.length;
+        Car[] cars = new Car[N];
+
+        int idx = 0;
+        for(String carName : carNames){
+            cars[idx++] = new Car(carName);
+        }
+
+        return cars;
+    }
     // 추가 기능 구현
 }
