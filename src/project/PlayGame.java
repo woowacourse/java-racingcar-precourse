@@ -9,9 +9,14 @@ public class PlayGame {
     private String carName[];
     private int carCount;
     private int gameCount;
+    private Car car[];
     void run()
     {
         inputName();
+        splitName();
+        inputGameCount();
+        createCar();
+        playGame();
         
     }
     
@@ -34,5 +39,20 @@ public class PlayGame {
         Scanner sc = new Scanner(System.in);
         System.out.println("시도할 횟수는 몇회인가요?");
         gameCount = sc.nextInt();
+    }
+    void createCar()
+    {
+        car = new Car[carCount];
+        for(int i=0;i<carCount;i++){
+            car[i]=new Car(carName[i]);
+        }
+    }
+    void playGame() {
+        for(int i=0;i<gameCount;i++) {
+            for(int j=0;j<carCount;j++){
+                car[i].g
+            }
+            
+        }
     }
 }
