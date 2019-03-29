@@ -8,4 +8,12 @@ public class RacingGame {
 
         return sc.nextLine();
     }
+
+    private boolean isValidInput(String input) {
+        if (input.length() > 5 && !input.contains(",")) {
+            return false;
+        }
+        return true;
+    }
+
 }
