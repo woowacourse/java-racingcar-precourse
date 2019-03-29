@@ -5,10 +5,13 @@ public class Main {
         UserInterface ui = new UserInterface();
         String[] carNames;
         int cnt;
-        boolean flag = true;
+        boolean flag = false;
 
-        carNames = ui.inputCarNames();
+        while(!flag) {
+            carNames = ui.inputCarNames();
+            flag = ui.checkValidationCarNames(carNames);
+        }
+
         cnt = ui.inputCnt();
-
     }
 }
