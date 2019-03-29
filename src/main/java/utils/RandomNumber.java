@@ -14,9 +14,10 @@ import java.util.*;
 
 public class RandomNumber {
 
-	public int getRandomNumber(){
+	public int getRandomNumber() {
+
 		Random random = new Random();
-		int	randomNumber = random.nextInt(10);
+		int randomNumber = random.nextInt(10);
 
 		return randomNumber;
 	}
