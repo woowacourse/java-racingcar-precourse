@@ -18,7 +18,7 @@ public class ConsoleUserInterface implements UserInterface {
 
     @Override
     public int promptProgressCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("\n시도할 회수는 몇회인가요?");
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
