@@ -7,11 +7,15 @@ public class Main {
         int cnt;
         boolean flag = false;
 
-        while(!flag) {
+        while (!flag) {
             carNames = ui.inputCarNames();
             flag = ui.checkValidationCarNames(carNames);
         }
 
-        cnt = ui.inputCnt();
+        flag = false;
+        while (!flag) {
+            cnt = ui.inputCnt();
+            flag = ui.checkValidationCnt(cnt);
+        }
     }
 }
