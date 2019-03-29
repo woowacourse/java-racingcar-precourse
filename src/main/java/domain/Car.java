@@ -22,4 +22,12 @@ public class Car {
         return number >= 4;
     }
 
+    public void goRace() {
+        int randNumber = getRandomNumber();
+
+        if (isGo(randNumber)) {
+            this.position++;
+        }
+    }
+
 }
