@@ -6,7 +6,7 @@ public class Car {
 
     public Car(String name) {
         if (name.length() > 5) {
-            System.out.println(name + "은 잘못된 입력 값 입니다. (5글자 초과)");
+            System.out.println(name + "은 잘못된 입력 값 입니다.(5글자 초과)");
             System.exit(0);
         }
         this.name = name;
