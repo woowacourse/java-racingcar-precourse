@@ -55,4 +55,17 @@ public class RacingManager {
             cars[i] = new Car(namesArr[i]);
         }
     }
+
+    /**
+     * 실행 결과를 출력해주는 메소드
+     */
+    private static void printResult() {
+        for(int i = 0; i < carNum; i++) {
+            System.out.print(cars[i].getName() + " : ");
+            for(int j = 0; j < cars[i].getPosition(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
 }
