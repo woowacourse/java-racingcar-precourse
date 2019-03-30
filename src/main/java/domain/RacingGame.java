@@ -33,4 +33,12 @@ public class RacingGame {
         return input.split(",");
     }
 
+    private CarGroup reacyCarGroup(String input) {
+        String[] names = splitCarName(input);
+
+        CarGroup cg = new CarGroup(names);
+
+        return cg;
+    }
+
 }
