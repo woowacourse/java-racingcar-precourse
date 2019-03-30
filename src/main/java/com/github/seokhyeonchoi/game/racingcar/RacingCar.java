@@ -21,7 +21,10 @@ public class RacingCar {
 	}
 	
 	public void start() {
-		
+		for(int i=0; i<attemptNum; i++) {
+			moveAllCars();
+			printAllCars();
+		}
 	}
 	
 	private String enterCarNames() {
@@ -66,6 +69,12 @@ public class RacingCar {
 	private void moveAllCars() {
 		for(Car car : cars) {
 			car.move();
+		}
+	}
+	
+	private void printAllCars() {
+		for(Car car : cars) {
+			System.out.println(car);
 		}
 	}
 }

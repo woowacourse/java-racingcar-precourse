@@ -23,4 +23,17 @@ public class Car {
     	
     	return (flag >= MOVE_BOUNDARY);
     }
+
+	@Override
+	public String toString() {
+		String str = name + " : ";
+		
+		for(int i=0; i<position; i++) {
+			str += "-";
+		}
+		
+		return str;
+	}
+    
+    
 }
