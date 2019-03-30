@@ -23,6 +23,7 @@ public class RacingCarGame {
 
     public void startRacingGame() {
         for (int i = 0; i < this.cars.length; i++) {
+            this.cars[i].printCarPosition(isMovePosition());
         }
         System.out.println();
     }

@@ -8,5 +8,14 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void printCarPosition(boolean result){
+        if(result){
+            this.position++;
+        }
+        System.out.print(this.name + " : ");
+        for(int i=0; i<this.position; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
