@@ -8,6 +8,14 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
 	public void move() {
 		int random = setRandom();
 		if (random < 4) {
