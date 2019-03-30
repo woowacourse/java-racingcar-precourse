@@ -1,4 +1,5 @@
 package domain;
+import java.util.Random;
 
 public class Car {
     private final String name;
@@ -18,5 +19,15 @@ public class Car {
 
     public void printPosition() {
         System.out.println(name + " : " + position);
+    }
+
+    public void decideMovement() {
+        if (getNewNumber() >= 4)
+            position += 1;
+    }
+
+    private static int getNewNumber() {
+        Random randomNumber = new Random();
+        return randomNumber.nextInt(10);
     }
 }
