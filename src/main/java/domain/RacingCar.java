@@ -23,6 +23,7 @@ public class RacingCar {
             rcg.startRacingGame();
         }
         rcg.setMaxPosition();
+        rcg.printVictoryCar();
     }
 
     public static void main(String[] args) {

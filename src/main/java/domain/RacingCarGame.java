@@ -34,4 +34,14 @@ public class RacingCarGame {
             this.maxPosition = cars[i].collectMaxPosition(maxPosition);
         }
     }
+
+    public void printVictoryCar(){
+        int cnt = 0;
+        for(int i=0; i<cars.length; i++){
+            if(cars[i].isVictoryCar(maxPosition, cnt)){
+                cnt++;
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
 }

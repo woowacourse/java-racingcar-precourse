@@ -3,6 +3,7 @@
 ### Car
 1. isMovePosition 값을 이용해 위치를 이동시키고 출력하기(printCarPosition)
 2. 최대 위치가 맞는지 아닌지 확인하기(collectMaxPosition) / boolean(반환)
+3. 우승자가 맞는지 확인 및 이름 출력(isVictoryCar)
 
 ### RacingCar
 1. 게임 시작하기(gameStart)
@@ -15,3 +16,4 @@
 3. 게임 시작하기(startRacingGame())
 4. 랜덤 값이 4이상 true, 3이하 false를 반환(isMovePosition) / boolean(반환)
 5. 최대 위치 찾기(setMaxPosition)
+6. 최종 우승자 출력하기(printVictoryCar)

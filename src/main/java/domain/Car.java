@@ -22,4 +22,17 @@ public class Car {
     public int collectMaxPosition(int max) {
         return ((this.position > max) ? this.position : max);
     }
+
+    public boolean isVictoryCar(int max, int cnt){
+        String victoryCarName = "";
+        boolean result = (this.position == max) ? true : false;
+        if(result){
+            if(cnt >= 1){
+                victoryCarName += ", ";
+            }
+            victoryCarName += this.name;
+            System.out.print(victoryCarName);
+        }
+        return result;
+    }
 }
