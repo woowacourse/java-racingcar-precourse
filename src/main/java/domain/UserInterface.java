@@ -36,4 +36,18 @@ public class UserInterface {
         return (cnt >= MIN_NUMBER);
     }
 
+    public void printRacing(Car[] cars) {
+        int position;
+
+        for (Car car : cars) {
+            position = car.getPosition();
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < position; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
 }

@@ -19,5 +19,12 @@ public class Main {
         }
 
         Car[] cars = Car.createCars(carNames);
+
+        for (int i = 0; i < cnt; i++) {
+            for (Car car : cars) {
+                car.updatePosition();
+            }
+            ui.printRacing(cars);
+        }
     }
 }
