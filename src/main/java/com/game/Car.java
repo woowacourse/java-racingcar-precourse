@@ -7,4 +7,16 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+
+    public void move() {
+        final int delta = (int) (Math.random() * 10);
+        if (3 < delta) {
+            ++position;
+            return;
+        }
+        --position;
+        if (position < 0) {
+            position = 0;
+        }
+    }
 }
