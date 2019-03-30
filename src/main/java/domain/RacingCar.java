@@ -8,6 +8,7 @@ public class RacingCar {
         Scanner sc = new Scanner(System.in);
         RacingCarGame rcg = new RacingCarGame(totalCarsName(sc));
         int maxCount = totalTryCounter(sc);
+
         System.out.println("\n실행 결과");
         for (int i = 0; i < maxCount; i++) {
             rcg.startRacingGame();
@@ -24,6 +25,7 @@ public class RacingCar {
     private int totalTryCounter(Scanner sc) {
         System.out.println("시도할 회수는 몇회인가요?");
         int cnt = sc.nextInt();
+
         if (cnt < 0) {
             System.out.println("0보다 작은 수를 입력하셨습니다!");
             System.exit(0);

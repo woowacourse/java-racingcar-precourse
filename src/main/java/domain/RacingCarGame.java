@@ -11,6 +11,7 @@ public class RacingCarGame {
     private void registerCar(String carsName) {
         String[] divCarsName = carsName.split(",");
         this.cars = new Car[divCarsName.length];
+
         for (int i = 0; i < divCarsName.length; i++) {
             this.cars[i] = new Car(divCarsName[i]);
         }
@@ -25,8 +26,9 @@ public class RacingCarGame {
 
     private boolean isMovePosition() {
         int randomNumber = (int) (Math.random() * 10);
+        boolean result = (randomNumber >= 4) ? true : false;
 
-        return ((randomNumber >= 4) ? true : false);
+        return result;
     }
 
     public void setMaxPosition() {

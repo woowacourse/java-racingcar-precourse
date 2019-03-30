@@ -24,7 +24,9 @@ public class Car {
     }
 
     public int collectMaxPosition(int max) {
-        return ((this.position > max) ? this.position : max);
+        int resultMaxPosition = (this.position > max) ? this.position : max;
+
+        return resultMaxPosition;
     }
 
     public boolean isVictoryCar(int max, int cnt) {
