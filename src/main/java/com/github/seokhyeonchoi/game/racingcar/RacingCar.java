@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class RacingCar {
 	private List<Car> cars;
 	private int attemptNum;
-	private static final Scanner scanner = new Scanner(System.in);
+	private static final Scanner SCANNER = new Scanner(System.in);
 	
 	public RacingCar() {
 		cars = new ArrayList<>();
@@ -37,7 +37,7 @@ public class RacingCar {
 		while(true) {
 			System.out.println("경주할자동차이름을입력하세요.(이름은쉼표(,)기준으로구분) ");
 			
-			String carNames = scanner.nextLine();
+			String carNames = SCANNER.nextLine();
 			String[] nameArray = carNames.split(",");
 			
 			if(validNames(nameArray)) {
@@ -55,7 +55,7 @@ public class RacingCar {
 		while(!validAttemptNum(attemptNumTemp)) {
 			
 			System.out.println("시도할 횟수는 몇 회 인가요?");
-			attemptNumTemp = scanner.nextInt();
+			attemptNumTemp = SCANNER.nextInt();
 			
 			if(!validAttemptNum(attemptNumTemp)) {
 				System.out.println("0 보다 큰 수를 입력해주세요.");
