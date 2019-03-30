@@ -29,4 +29,12 @@ public class Car {
             position++;
         }
     }
+
+    /**
+     * 외부에서 position의 값을 호출할 수 있도록 해주는 메소드
+     * @return 현재 position의 값
+     */
+    public int getPosition() {
+        return position;
+    }
 }
