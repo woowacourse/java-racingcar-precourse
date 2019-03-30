@@ -1,0 +1,36 @@
+package domain;
+
+import org.junit.Test;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class GameRoundTest {
+	private GameRound testGameRound;
+	private List<Car> testCars;
+
+	{
+		testCars = new ArrayList<>();
+		testCars.add(new Car("apple"));
+		testCars.add(new Car("bad"));
+		testCars.add(new Car("cloud"));
+	}
+
+	public GameRoundTest() {
+		this.testGameRound = new GameRound(testCars);
+	}
+
+	@Test
+	public void printGameRounds() {
+		testGameRound.proceed();
+		testGameRound.proceed();
+		testGameRound.printGameRounds();
+	}
+
+	@Test
+	public void positionToLine() {
+		assertEquals("-----", testGameRound.positionToLine(5));
+		assertEquals("", testGameRound.positionToLine(0));
+	}
+}
