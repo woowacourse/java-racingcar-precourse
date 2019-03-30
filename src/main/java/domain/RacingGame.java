@@ -29,5 +29,8 @@ public class RacingGame {
         System.out.println("잘못된 입력입니다.");
     }
 
+    private String[] splitCarName(String input) {
+        return input.split(",");
+    }
 
 }
