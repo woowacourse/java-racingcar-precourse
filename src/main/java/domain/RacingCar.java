@@ -18,6 +18,10 @@ public class RacingCar {
         Scanner sc = new Scanner(System.in);
         RacingCarGame rcg = new RacingCarGame(totalCarsName(sc));
         int maxCount = totalTryCounter(sc);
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < maxCount; i++) {
+            rcg.startRacingGame();
+        }
     }
 
     public static void main(String[] args) {
