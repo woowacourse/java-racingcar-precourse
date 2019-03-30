@@ -22,12 +22,14 @@ public class Car {
     }
 
     public void decideMovement() {
-        if (getNewNumber() >= 4)
+        final int minMoveSize = 4;
+        if (getNewNumber() >= minMoveSize)
             position += 1;
     }
 
     private static int getNewNumber() {
         Random randomNumber = new Random();
-        return randomNumber.nextInt(10);
+        final int numberUpperBound = 10;
+        return randomNumber.nextInt(numberUpperBound);
     }
 }
