@@ -18,7 +18,11 @@ public class Main {
             flag = ui.checkValidationCnt(cnt);
         }
 
-        Car[] cars = Car.createCars(carNames);
+        Car[] cars = new Car[carNames.length];
+        int idx = 0;
+        for(Car car : cars){
+            cars[idx++] = new Car(car.getName());
+        }
 
         for (int i = 0; i < cnt; i++) {
             for (Car car : cars) {
