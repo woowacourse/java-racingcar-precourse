@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class RacingGame {
 	private static Scanner SCANNER = new Scanner(System.in);
-	private static final int MAX_NAME_LENGTH = 5;
-	private static final int MIN_NAME_LENGTH = 1;
 
 	private List<Car> cars;
 	private int count;
@@ -29,7 +27,7 @@ public class RacingGame {
 		setUserName();
 		setCount();
 		startRace();
-		printWinner();
+		printWinners();
 		SCANNER.close();
 	}
 
@@ -37,7 +35,8 @@ public class RacingGame {
 	private void setUserName() {
 		String inputtedUserName = "";
 		do {
-			inputtedUserName = inputUserName();
+			System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준을 구분, 이름은 최대 5자까지 가능합니다.)");
+			inputtedUserName = SCANNER.nextLine();
 		}while(Validator.isInvalidUserName(inputtedUserName));
 
 		String[] names = inputtedUserName.split(",");
@@ -48,22 +47,16 @@ public class RacingGame {
 		}
 	}
 	
-	private String inputUserName() {
-		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준을 구분, 이름은 최대 5자까지 가능합니다.)");
-		return SCANNER.nextLine();
-	}
-
 	//	setCount : 시도할 회수를 입력 받음
 	private void setCount() {
-		System.out.println("시도할 회수는 몇회인가요? (최대 100회까지 가능)");
-		String countInput = SCANNER.nextLine();
+		String inputtedCount = "";
+		do {
+			System.out.println("시도할 회수는 몇회인가요? (최대 100회까지 가능)");
+			inputtedCount = SCANNER.nextLine();
+		}while(Validator.isInvalidCount(inputtedCount));
 
-		// isValidCount
-
-		count = Integer.parseInt(countInput);
+		count = Integer.parseInt(inputtedCount);
 	}
-
-	//	isValidCount : 사용 가능한 count인지
 
 	// startRace : 레이스 시작 (move -> printResult)
 	// TODO overloading 을 통해 print 설정 (boolean printFlag) true-> 현재 상황 출력
@@ -94,13 +87,21 @@ public class RacingGame {
 	}
 
 	//	printWinner : 우승자 출력
-	public void printWinner() {
+	public void printWinners() {
 		String result = "";
-		for (Car car : cars) {
-			if(car.getPosition() == maxPosition) {
-				result += car.getName() + ", ";
-			}
+		for (Car car : findWinners()) {
+			result += car.getName() + ", ";
 		}
 		System.out.println(result.substring(0, result.length() - 2) + "가 최종 우승했습니다.");
+	}
+	
+	public List<Car> findWinners(){
+		List<Car> winners = new ArrayList<>();
+		for (Car car : cars) {
+			if(car.getPosition() == maxPosition) {
+				winners.add(car);
+			}
+		}
+		return winners;
 	}
 }
