@@ -102,4 +102,12 @@ public class RacingManager {
 
         return  winners;
     }
+
+    /**
+     * 우승한 자동차들의 이름을 출력하는 메소드
+     * @param winners 우승한 자동차들의 이름
+     */
+    private static void printWinners(ArrayList<String > winners) {
+        System.out.println(winners + "가 최종 우승했습니다.");
+    }
 }
