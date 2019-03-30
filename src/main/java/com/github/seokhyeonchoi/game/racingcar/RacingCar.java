@@ -14,10 +14,10 @@ public class RacingCar {
 	}
 	
 	public void init() {
-		String carNames = enterCarNames();
+		String[] carNameArray = enterCarNames();
 		enterAttempNum();
 		
-		addCarByCarNames(carNames);
+		addCarByCarNames(carNameArray);
 	}
 	
 	public void start() {
@@ -31,34 +31,40 @@ public class RacingCar {
 		printResult();
 	}
 	
-	private String enterCarNames() {
-		String carNames = "";
+	private String[] enterCarNames() {
+		String[] carNameArray;
 		
-		while(carNames.equals("")) {
+		while(true) {
 			System.out.println("경주할자동차이름을입력하세요.(이름은쉼표(,)기준으로구분) ");
-			carNames = scanner.nextLine();
+			
+			String carNames = scanner.nextLine();
+			String[] nameArray = carNames.split(",");
+			
+			if(validNames(nameArray)) {
+				carNameArray = nameArray;
+				break;
+			}
 		}
 		
-		return carNames;
+		return carNameArray;
 	}
 	
 	private void enterAttempNum() {
 		int attemptNumTemp = 0;
 		
-		while(attemptNumTemp < 1) {
+		while(!validAttemptNum(attemptNumTemp)) {
 			
 			System.out.println("시도할 횟수는 몇 회 인가요?");
 			attemptNumTemp = scanner.nextInt();
 			
-			if(attemptNumTemp < 1) {
+			if(!validAttemptNum(attemptNumTemp)) {
 				System.out.println("0 보다 큰 수를 입력해주세요.");
 			}
 		}
 		attemptNum = attemptNumTemp;
 	}
 	
-	private void addCarByCarNames(String carNames) {
-		String[] carNameArray = carNames.split(",");
+	private void addCarByCarNames(String[] carNameArray) {
 		
 		for(String carName : carNameArray) {
 			String carNameTrimed = carName.trim();
@@ -109,5 +115,23 @@ public class RacingCar {
 		}
 		
 		return furthermostPosition;
+	}
+	
+	private boolean validAttemptNum(int num) {
+		return (num > 0);
+	}
+	
+	private boolean validNames(String[] names) {
+		if(names.length < 1) {
+			return false;
+		}
+		
+		for(String name : names) {
+			if(!name.trim().equals("")){
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }
