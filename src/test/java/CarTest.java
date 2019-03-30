@@ -20,6 +20,11 @@ public class CarTest {
         String result = car.getName();
         assertEquals(new String("Tommi"), result);
     }
+    @Test
+    public void getPosition(){
+        int result = car.getPosition();
+        assertEquals(0,result);
+    }
 
 
     @After
