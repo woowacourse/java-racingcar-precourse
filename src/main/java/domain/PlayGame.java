@@ -8,10 +8,29 @@ public class PlayGame {
     Car[] carList;
 
     public void startGame() {
+        int gameNumber;
+
         getCarNames();
-/*        for (int i = 0; i < Array.getLength(carList); i++) {
+        gameNumber = getGameNumber();
+        System.out.print(gameNumber);
+ /*       for (int i = 0; i < Array.getLength(carList); i++) {
             System.out.println(carList[i].getName());
+            System.out.println(carList[i].getPosition());
         }*/
+
+    }
+
+    private int getGameNumber() {
+        Scanner myScanner = new Scanner(System.in);
+        int gameNumber = -1;
+
+        while (true) {
+            System.out.println("시도할 횟수를 몇회인가요? ");
+            gameNumber = myScanner.nextInt();
+            if (gameNumber > 0)
+                return gameNumber;
+            System.out.println("1 이상의 값이어야 합니다. 다시 입력해주세요.");
+        }
     }
 
     private void getCarNames() {
@@ -26,6 +45,10 @@ public class PlayGame {
             correctInput = makeCars(carNames);
             if (!correctInput)
                 System.out.println("잘못된 값이 있습니다. 다시 입력해주세요.");
+            if (Array.getLength(carList) < 2) {
+                System.out.println("경주를 위해서는 2개 이상의 자동차 이름을 입력해야합니다.");
+                correctInput = false;
+            }
         }
     }
 
