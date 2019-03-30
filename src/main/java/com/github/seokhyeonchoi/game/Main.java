@@ -1,5 +1,11 @@
 package com.github.seokhyeonchoi.game;
 
-public class Main {
+import com.github.seokhyeonchoi.game.racingcar.RacingCar;
 
+public class Main {
+	public static void main(String[] args) {
+		RacingCar racingCar = new RacingCar();
+		racingCar.init();
+		racingCar.start();
+	}
 }

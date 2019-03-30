@@ -21,10 +21,14 @@ public class RacingCar {
 	}
 	
 	public void start() {
+		System.out.println("실행 결과");
+		
 		for(int i=0; i<attemptNum; i++) {
 			moveAllCars();
 			printAllCars();
 		}
+		
+		printResult();
 	}
 	
 	private String enterCarNames() {
@@ -76,5 +80,34 @@ public class RacingCar {
 		for(Car car : cars) {
 			System.out.println(car);
 		}
+		System.out.println();
+	}
+	
+	private void printResult() {
+		int furthermostPosition = getFurthermostPosition();
+		String printString = "";
+		
+		for(Car car : cars) {
+			if(car.getPosition() == furthermostPosition) {
+				printString += car.getName();
+				printString += ", ";
+			}
+		}
+		
+		System.out.print(printString.substring(0, printString.length() - 2));
+		System.out.println("가 최종 우승했습니다.");
+	}
+	
+	private int getFurthermostPosition() {
+		int furthermostPosition = 0;
+		
+		for(Car car : cars) {
+			int position = car.getPosition();
+			if(position > furthermostPosition) {
+				furthermostPosition = position;
+			}
+		}
+		
+		return furthermostPosition;
 	}
 }

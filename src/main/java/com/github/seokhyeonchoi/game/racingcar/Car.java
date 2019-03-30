@@ -11,6 +11,14 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    
+    public String getName() {
+    	return name;
+    }
+    
+    public int getPosition() {
+    	return position;
+    }
 
     public void move() {
     	if(moveFlag()) {
@@ -19,8 +27,7 @@ public class Car {
     }
     
     private boolean moveFlag() {
-    	int flag = (int)Math.random()*MOVE_FLAG_UPPER_BOUNDARY + MOVE_FLAG_LOWER_BOUNDARY;
-    	
+    	int flag = (int)(Math.random()*MOVE_FLAG_UPPER_BOUNDARY + MOVE_FLAG_LOWER_BOUNDARY);
     	return (flag >= MOVE_BOUNDARY);
     }
 
@@ -33,7 +40,5 @@ public class Car {
 		}
 		
 		return str;
-	}
-    
-    
+	}    
 }
