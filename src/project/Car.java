@@ -3,7 +3,7 @@ package project;
 public class Car {
     private final String name;
     private int position = 0;
-
+    static final int moveValue=4; 
     public Car(String name) {
         this.name = name;
     }
@@ -18,7 +18,7 @@ public class Car {
     }
     
     public boolean isCarMove(int num){
-        return num>4?true:false;
+        return num>moveValue?true:false;
     }
     
     public void printCar(){
