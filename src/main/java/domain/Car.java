@@ -5,6 +5,10 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        if(name.length() > 5){
+            System.out.println(name + "은 잘못된 입력 값 입니다.(5자 초과)");
+            System.exit(0);
+        }
         this.name = name;
     }
 
