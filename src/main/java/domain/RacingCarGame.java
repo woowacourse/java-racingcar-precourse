@@ -16,8 +16,13 @@ public class RacingCarGame {
         }
     }
 
+    private boolean isMovePosition() {
+        int randomNumber = (int) (Math.random() * 10);
+        return ((randomNumber >= 4) ? true : false);
+    }
+
     public void startRacingGame() {
-        for (int i = 0; i < cars.length; i++) {
+        for (int i = 0; i < this.cars.length; i++) {
         }
         System.out.println();
     }
