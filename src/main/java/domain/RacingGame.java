@@ -69,17 +69,10 @@ public class RacingGame {
 		}
 	}
 
-	/**
-	 * position이 가장클 경우 maxPosition을 갱신
-	 * @param position car의 위치
-	 */
 	private void updateMaxPosition(int position) {
 		maxPosition = Math.max(position, maxPosition);
 	}
 
-	/**
-	 * 각 car의 현재 position을 막대바로 출력
-	 */
 	private void printCurrentSituation() {
 		for (Car car : cars) {
 			car.printPosition();
@@ -87,9 +80,6 @@ public class RacingGame {
 		System.out.println();
 	}
 
-	/**
-	 * race에서 우승한 사람을 출력
-	 */
 	public void printWinners() {
 		String result = "";
 		for (Car car : findWinners()) {
@@ -98,10 +88,6 @@ public class RacingGame {
 		System.out.println(result.substring(0, result.length() - 2) + "가 최종 우승했습니다.");
 	}
 
-	/**
-	 * race에서 우승한 사람을 찾아 List<Car>로 반환
-	 * @return 1명 이상의 우승한 Car
-	 */
 	private List<Car> findWinners() {
 		List<Car> winners = new ArrayList<>();
 		for (Car car : cars) {

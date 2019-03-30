@@ -25,18 +25,14 @@ public class Car {
 	 * random 값이 4 이상일 경우 position이 1증가
 	 */
 	public void move() {
-		int random = setRandom();
+		int random = make0to9RandomValue();
 		if (random < 4) {
 			return;
 		}
 		position++;
 	}
 
-	/**
-	 * 0~9까지의 무작위 값을 반환
-	 * @return 0~9까지의 random value
-	 */
-	public int setRandom() {
+	public int make0to9RandomValue() {
 		return (int)(Math.random() * 9);
 	}
 
