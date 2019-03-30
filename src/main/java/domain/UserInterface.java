@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -50,4 +52,29 @@ public class UserInterface {
         System.out.println();
     }
 
+    public void printWinners(Car[] cars) {
+        ArrayList<Integer> positions = new ArrayList<>();
+
+        for (Car car : cars) {
+            positions.add(car.getPosition());
+        }
+
+        int maxPosition = Collections.max(positions);
+        for (Car car : cars) {
+            printWinnerNames(car, maxPosition);
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
+
+    private boolean flag = true;
+    private void printWinnerNames(Car car, int maxPosition) {
+        if (car.getPosition() == maxPosition) {
+            if (flag) {
+                System.out.print(car.getName());
+                flag = false;
+            } else {
+                System.out.print(", " + car.getName());
+            }
+        }
+    }
 }

@@ -26,5 +26,7 @@ public class Main {
             }
             ui.printRacing(cars);
         }
+
+        ui.printWinners(cars);
     }
 }
