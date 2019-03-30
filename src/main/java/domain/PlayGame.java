@@ -5,19 +5,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PlayGame {
-    Car[] carList;
+    private Car[] carList;
 
     public void startGame() {
-        int gameNumber;
-
         getCarNames();
-        gameNumber = getGameNumber();
-        playGame(gameNumber);
+        playGame(getGameNumber());
         printWinner();
     }
 
     private void printWinner() {
         String resultString = getWinnerNames() + "이(가) 최종 우승했습니다.";
+        //getWinnerNames()에서 return 되는 값은 ", "으로 시작하므로 그것을 지운 substring 만 출력
         System.out.println(resultString.substring(2));
     }
 
@@ -64,22 +62,26 @@ public class PlayGame {
 
     private void getCarNames() {
         Scanner myScanner = new Scanner(System.in);
-        String carNameList = "";
-        final int minCarNumber = 2;
         Boolean correctInput = false;
 
         while (!correctInput) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            carNameList = myScanner.nextLine();
+            String carNameList = myScanner.nextLine();
             List<String> carNames = Arrays.asList(carNameList.split(","));
             correctInput = makeCars(carNames);
             if (!correctInput)
-                System.out.println("잘못된 값이 있습니다. 다시 입력해주세요.");
-            if (Array.getLength(carList) < minCarNumber) {
-                System.out.println("경주를 위해서는 2개 이상의 자동차 이름을 입력해야합니다.");
-                correctInput = false;
-            }
+                System.out.println("자동차 이름은 5자 이하만 가능합니다.");
+            correctInput = checkCarNum(correctInput);
         }
+    }
+
+    private Boolean checkCarNum(Boolean correctInput) {
+        final int minCarNumber = 2;
+        if (Array.getLength(carList) < minCarNumber) {
+            System.out.println("경주를 위해서는 2개 이상의 자동차 이름을 입력해야합니다.");
+            return false;
+        }
+        return correctInput;
     }
 
     private Boolean makeCars(List<String> carNames) {
