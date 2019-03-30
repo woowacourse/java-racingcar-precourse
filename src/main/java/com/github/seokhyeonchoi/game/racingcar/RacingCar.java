@@ -64,6 +64,8 @@ public class RacingCar {
 	}
 	
 	private void moveAllCars() {
-		
+		for(Car car : cars) {
+			car.move();
+		}
 	}
 }
