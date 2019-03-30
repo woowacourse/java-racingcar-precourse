@@ -1,24 +1,24 @@
 # 자동차 경주 게임
 
 ## 1. 구현 목록
-- Car (class)
-  - move : random 값이 4 이상일 경우 전진 (3 이하는 정지)
-  - make0to9RandomValue : 0~9 사이의 random 값 생성
-  - printPosition : 현재 Car의 position을 막대바('-')로 출력
-- RacingGame (class)
-  - runProgram : game 실행
-  - setUserName : User name을 입력 받음
-  - setCount : 시도할 회수를 입력 받음
-  - startRace : car를 움직이고 상태를 출력하는 과정을 정해진 회수만큼 실행
-  - moveCars : 각 car를 움직이고, 가장 많이 간 car의 position을 갱신
-  - updateMaxPosition : position이 가장클 경우 maxPosition을 갱신
-  - printCurrentSituation : 각 car의 현재 position을 막대바로 출력
-  - printWinner : race에서 우승한 사람을 출력
-  - findWinners : race에서 우승한 사람을 찾아 List<Car>로 반환
-- validator (class)
-  - isInvalidUserName : 사용자가 입력한 user name값이 유효한지 확인
-  - isInvalidCount : 사용자가 입력한 count값이 유효한지 확인
-- Main (class)
+### 1.1. Car
+- move : random 값이 4 이상일 경우 전진 (3 이하는 정지)
+- make0to9RandomValue : 0~9 사이의 random 값 생성
+- printPosition : 현재 Car의 position을 막대바('-')로 출력
+### 1.2. RacingGame
+- runProgram : game 실행
+- setUserName : User name을 입력 받음
+- setCount : 시도할 회수를 입력 받음
+- startRace : car를 움직이고 상태를 출력하는 과정을 정해진 회수만큼 실행
+- moveCars : 각 car를 움직이고, 가장 많이 간 car의 position을 갱신
+- updateMaxPosition : position이 가장클 경우 maxPosition을 갱신
+- printCurrentSituation : 각 car의 현재 position을 막대바로 출력
+- printWinner : race에서 우승한 사람을 출력
+- findWinners : race에서 우승한 사람을 찾아 List<Car>로 반환
+### 1.3. validator
+- isInvalidUserName : 사용자가 입력한 user name값이 유효한지 확인
+- isInvalidCount : 사용자가 입력한 count값이 유효한지 확인
+### 1.4. Main (class)
   - 실행을 위한 class
   
 
