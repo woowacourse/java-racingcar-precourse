@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class RacingGame {
 	private static Scanner SCANNER = new Scanner(System.in);
+	private static final int MAX_NAME_LENGTH = 5;
+	private static final int MIN_NAME_LENGTH = 1;
 
 	private List<Car> cars;
 	private int count;
@@ -29,9 +31,16 @@ public class RacingGame {
 			cars.add(new Car(name));
 		}
 	}
+
 	//	isValidUserName : 사용 가능한 user name 인지 검사
 	public boolean isValidUserName(String nameInput) {
 		String[] names = nameInput.split(",");
+		for (String name : names) {
+			name = name.trim();
+			if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
+				return false;
+			}
+		}
 		return true;
 	}
 
@@ -46,15 +55,15 @@ public class RacingGame {
 	}
 
 	//	isValidCount : 사용 가능한 count인지
-	
+
 	// startRace : 레이스 시작 (move -> printResult)
 	// TODO overloading 을 통해 print 설정 (boolean printFlag) true-> 현재 상황 출력
 	public void startRace() {
-		for(int i = 0; i < count; i++) {
+		for (int i = 0; i < count; i++) {
 			moveCars();
 			printCurrentSituation();
 		}
-		
+
 	}
 
 	public void moveCars() {
@@ -62,7 +71,7 @@ public class RacingGame {
 			car.move();
 		}
 	}
-	
+
 	//	printResult : 각 회수의 실행 결과 출력
 	public void printCurrentSituation() {
 		for (Car car : cars) {
@@ -70,9 +79,9 @@ public class RacingGame {
 		}
 		System.out.println();
 	}
-	
+
 	//	printWinner : 우승자 출력
 	public void printWinner() {
-		
+
 	}
 }
