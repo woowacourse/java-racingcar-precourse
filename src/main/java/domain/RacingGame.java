@@ -41,4 +41,8 @@ public class RacingGame {
         return cg;
     }
 
+    private void printConsole(String string) {
+        System.out.println(string);
+    }
+
 }
