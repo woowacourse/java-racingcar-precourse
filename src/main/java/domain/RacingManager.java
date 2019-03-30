@@ -21,6 +21,7 @@ public class RacingManager {
     private static Random random = new Random();
     private static Car[] cars;
     private static int carNum;
+
     /**
      * 0~9 사이의 랜덤한 정수를 리턴해주는 메소드
      * @return 0~9 사의 랜덤한 정수
@@ -51,6 +52,7 @@ public class RacingManager {
     private static void setCars(String names) {
         String[] namesArr = names.split(",");
         carNum = namesArr.length;
+        cars = new Car[carNum];
 
         for(int i = 0; i < carNum; i++) {
             cars[i] = new Car(namesArr[i]);
@@ -88,12 +90,11 @@ public class RacingManager {
 
     /**
      * 우승한 자동차들의 이름을 계산하는 메소드
-     * @param max 계산된 가장 멀리간 자동차의 위치 값
      * @return 우승한 자동차들의 이름들
      */
-    private static ArrayList<String> getWinners(int max) {
+    private static ArrayList<String> getWinners() {
         ArrayList<String > winners = new ArrayList<String>();
-
+        int max = getMax();
         for(int i = 0; i < carNum; i++) {
             if(max == cars[i].getPosition()) {
                 winners.add(cars[i].getName());
@@ -109,5 +110,29 @@ public class RacingManager {
      */
     private static void printWinners(ArrayList<String > winners) {
         System.out.println(winners + "가 최종 우승했습니다.");
+    }
+
+    /**
+     * 레이싱을 플레이 는 메소드
+     * @param times 전진할 횟수
+     */
+    private static void playRacing(int times) {
+        System.out.println("실행 결과");
+        for(int i = 0; i < times; i++) {
+            for(int j = 0; j < carNum; j++) {
+                cars[j].moveCar(getRndNum());
+            }
+            printResult();
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        nameEnterMsg();
+        User user = new User();
+        setCars(user.enterNames());
+        timesEnterMsg();
+        playRacing(user.enterTimes());
+        printWinners(getWinners());
     }
 }
