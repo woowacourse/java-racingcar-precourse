@@ -9,8 +9,7 @@ public class RacingCar {
     }
     private void gameStart(){
         Scanner sc = new Scanner(System.in);
-        totalCarsName(sc);
-
+        RacingCarGame rcg = new RacingCarGame(totalCarsName(sc));
     }
     public static void main(String[] args){
         RacingCar rc = new RacingCar();
