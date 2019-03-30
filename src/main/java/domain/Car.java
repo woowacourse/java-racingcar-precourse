@@ -35,4 +35,8 @@ public class Car {
     private int generateRandom() {
         return new Random().nextInt(9);
     }
+
+    public int getPosition() {
+        return position;
+    }
 }
