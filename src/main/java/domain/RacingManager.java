@@ -7,6 +7,7 @@
 
 package domain;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -67,5 +68,38 @@ public class RacingManager {
             }
             System.out.println();
         }
+    }
+
+    /**
+     * 가장 멀리간 자동차의 위치를 계산하는 메소드
+     * @return 가장 멀리간 자동차의 위치 값
+     */
+    private static int getMax() {
+        int max = cars[0].getPosition();
+
+        for(int i = 1; i < carNum; i++) {
+            if(max < cars[i].getPosition()) {
+                max = cars[i].getPosition();
+            }
+        }
+
+        return max;
+    }
+
+    /**
+     * 우승한 자동차들의 이름을 계산하는 메소드
+     * @param max 계산된 가장 멀리간 자동차의 위치 값
+     * @return 우승한 자동차들의 이름들
+     */
+    private static ArrayList<String> getWinners(int max) {
+        ArrayList<String > winners = new ArrayList<String>();
+
+        for(int i = 0; i < carNum; i++) {
+            if(max == cars[i].getPosition()) {
+                winners.add(cars[i].getName());
+            }
+        }
+
+        return  winners;
     }
 }
