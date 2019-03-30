@@ -1,5 +1,10 @@
 package domain;
 
+/**
+ * 자동차 경주 게임에 사용되는 자동차 객체
+ * @version 1.00 19.03.31
+ * @author ep1stas1s
+ */
 public class Car {
 	private final String name;
 	private int position = 0;
@@ -16,6 +21,9 @@ public class Car {
 		return position;
 	}
 
+	/**
+	 * random 값이 4 이상일 경우 position이 1증가
+	 */
 	public void move() {
 		int random = setRandom();
 		if (random < 4) {
@@ -24,10 +32,17 @@ public class Car {
 		position++;
 	}
 
+	/**
+	 * 0~9까지의 무작위 값을 반환
+	 * @return 0~9까지의 random value
+	 */
 	public int setRandom() {
 		return (int)(Math.random() * 9);
 	}
 
+	/**
+	 * 현재 Car의 position을 막대바('-')로 출력
+	 */
 	public void printPosition() {
 		System.out.print(name + " : ");
 		for (int i = 0; i < position; i++) {
