@@ -2,6 +2,7 @@ package domain;
 
 public class RacingCarGame {
     private Car[] cars;
+    private int maxPosition = 0;
 
     public RacingCarGame(String cars) {
         registerCar(cars);
@@ -26,5 +27,11 @@ public class RacingCarGame {
             this.cars[i].printCarPosition(isMovePosition());
         }
         System.out.println();
+    }
+
+    public void setMaxPosition() {
+        for (int i = 0; i < cars.length; i++) {
+            this.maxPosition = cars[i].collectMaxPosition(maxPosition);
+        }
     }
 }

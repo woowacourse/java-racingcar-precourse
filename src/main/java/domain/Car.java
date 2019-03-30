@@ -8,14 +8,18 @@ public class Car {
         this.name = name;
     }
 
-    public void printCarPosition(boolean result){
-        if(result){
+    public void printCarPosition(boolean result) {
+        if (result) {
             this.position++;
         }
         System.out.print(this.name + " : ");
-        for(int i=0; i<this.position; i++){
+        for (int i = 0; i < this.position; i++) {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public int collectMaxPosition(int max) {
+        return ((this.position > max) ? this.position : max);
     }
 }
