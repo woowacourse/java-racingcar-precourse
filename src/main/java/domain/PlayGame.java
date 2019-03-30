@@ -48,8 +48,8 @@ public class PlayGame {
 
     private int getGameNumber() {
         Scanner myScanner = new Scanner(System.in);
-        int gameNumber = -1;
         final int minGameNumber = 1;
+        int gameNumber = -1;
 
         while (true) {
             System.out.println("시도할 횟수를 몇회인가요? ");
