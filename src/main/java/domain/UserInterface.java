@@ -67,6 +67,7 @@ public class UserInterface {
     }
 
     private boolean flag = true;
+
     private void printWinnerNames(Car car, int maxPosition) {
         if (car.getPosition() == maxPosition) {
             if (flag) {

@@ -6,8 +6,6 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    private static final int STANDARD = 3;
-
     public Car(String name) {
         this.name = name;
     }
