@@ -20,10 +20,17 @@ public class CarTest {
         String result = car.getName();
         assertEquals(new String("Tommi"), result);
     }
+
     @Test
-    public void getPosition(){
+    public void getPosition() {
         int result = car.getPosition();
-        assertEquals(0,result);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void movePosition() {
+        int result = car.movePosition();
+        assertEquals(1, result);
     }
 
 
