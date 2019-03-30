@@ -1,8 +1,8 @@
 package domain;
 
 public class RacingCarGame {
-    private Car[] cars;
-    private int maxPosition = 0;
+    private Car[] cars;                 // 각각의 자동차 정보
+    private int maxPosition = 0;        // 모든 자동차 중에서 최대 이동 거리
 
     public RacingCarGame(String cars) {
         registerCar(cars);
@@ -10,8 +10,8 @@ public class RacingCarGame {
 
     private void registerCar(String carsName) {
         String[] divCarsName = carsName.split(",");
-        this.cars = new Car[divCarsName.length];
 
+        this.cars = new Car[divCarsName.length];
         for (int i = 0; i < divCarsName.length; i++) {
             this.cars[i] = new Car(divCarsName[i]);
         }

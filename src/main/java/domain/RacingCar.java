@@ -27,7 +27,7 @@ public class RacingCar {
         int cnt = sc.nextInt();
 
         if (cnt < 0) {
-            System.out.println("0보다 작은 수를 입력하셨습니다!");
+            System.out.println("0보다 작은 수를 입력하셨습니다.");
             System.exit(0);
         }
         return cnt;
