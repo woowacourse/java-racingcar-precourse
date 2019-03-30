@@ -55,6 +55,17 @@ public class ConfigTest {
         assertEquals(false,resultFalse);
     }
 
+    @Test
+    public void raceTest(){
+        Car[] garage = config.makeGarage(new String[] {"Tommi","Pride","Cago"});
+        for(int i=0; i<5; i++) {
+            config.race(garage);
+        }
+        System.out.println("Tommi : "+garage[0].getPosition());
+        System.out.println("Pride : "+garage[1].getPosition());
+        System.out.println("Cago : "+garage[2].getPosition());
+    }
+
     @After
     public void setEnd() {
         System.out.println("setEnd");

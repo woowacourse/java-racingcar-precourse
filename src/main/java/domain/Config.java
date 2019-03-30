@@ -2,18 +2,20 @@ package domain;
 
 public class Config {
 
-    public String[] splitName(String name){
+    public String[] splitName(String name) {
         String[] nameArray = name.split(",");
         return nameArray;
     }
-    public Boolean checkNameNumber(String[] nameArray){
-        for(int i=0; i<nameArray.length; i++){
-            if(nameArray[i].length()>5) {
+
+    public Boolean checkNameNumber(String[] nameArray) {
+        for (int i = 0; i < nameArray.length; i++) {
+            if (nameArray[i].length() > 5) {
                 return false;
             }
         }
         return true;
     }
+
     public Car[] makeGarage(String[] carArrays) {
         int length = carArrays.length;
         Car[] garage = new Car[length];
@@ -23,9 +25,20 @@ public class Config {
         return garage;
     }
 
-    public int makeRandom(){
+    public int makeRandom() {
         double Random = Math.random() * 10;
-        int random = (int)Random;
+        int random = (int) Random;
         return random;
     }
+
+    public void race(Car[] garage) {
+        int random;
+        for (int i = 0; i < garage.length; i++) {
+            random = makeRandom();
+            if (random > 4) {
+                garage[i].movePosition();
+            }
+        }
+    }
+
 }
