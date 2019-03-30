@@ -12,12 +12,16 @@ public class PlayGame {
 
         getCarNames();
         gameNumber = getGameNumber();
-        System.out.print(gameNumber);
- /*       for (int i = 0; i < Array.getLength(carList); i++) {
-            System.out.println(carList[i].getName());
-            System.out.println(carList[i].getPosition());
-        }*/
+        playGame(gameNumber);
+    }
 
+    private void playGame(int gameNumber) {
+        for (int i = 0; i < gameNumber; i++) {
+            for (int j = 0; j < Array.getLength(carList); j++) {
+                carList[j].decideMovement();
+                carList[j].printPosition();
+            }
+        }
     }
 
     private int getGameNumber() {
