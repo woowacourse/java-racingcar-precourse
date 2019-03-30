@@ -18,6 +18,8 @@ import java.util.Random;
 public class RacingManager {
 
     private static Random random = new Random();
+    private static Car[] cars;
+    private static int carNum;
     /**
      * 0~9 사이의 랜덤한 정수를 리턴해주는 메소드
      * @return 0~9 사의 랜덤한 정수
@@ -39,5 +41,18 @@ public class RacingManager {
      */
     private static void timesEnterMsg() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    /**
+     * 사용자가 입력한 이름들의 갯수만큼 자동차를 생성하는 기능
+     * @param names 사용자가 입력한 자동차의 이름들
+     */
+    private static void setCars(String names) {
+        String[] namesArr = names.split(",");
+        carNum = namesArr.length;
+
+        for(int i = 0; i < carNum; i++) {
+            cars[i] = new Car(namesArr[i]);
+        }
     }
 }
