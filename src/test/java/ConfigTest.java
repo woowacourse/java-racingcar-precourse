@@ -66,6 +66,20 @@ public class ConfigTest {
         System.out.println("Cago : "+garage[2].getPosition());
     }
 
+    @Test
+    public void printWinnerTest(){
+        Car[] garage = config.makeGarage(new String[] {"Tommi","Pride","Cago"});
+        garage[0].movePosition();
+        String result = config.printWinner(garage);
+        assertEquals("Tommi",result);
+        garage[2].movePosition();
+        String anotherResult = config.printWinner(garage);
+        assertEquals("Tommi,Cago",anotherResult);
+        garage[1].movePosition();
+        String otherResult = config.printWinner(garage);
+        assertEquals("Tommi,Pride,Cago",otherResult);
+    }
+
     @After
     public void setEnd() {
         System.out.println("setEnd");

@@ -41,4 +41,17 @@ public class Config {
         }
     }
 
+    public String printWinner(Car[] garage) {
+        String winner ="";
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<garage.length; i++) {
+            if (garage[i].getPosition() >= max) {
+                max = garage[i].getPosition();
+                winner = winner + garage[i].getName() + ",";
+            }
+        }
+        winner = winner.substring(0,winner.length()-1);
+        return winner;
+    }
+
 }
