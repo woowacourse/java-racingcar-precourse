@@ -10,16 +10,11 @@ public class RacingCarGame {
 
     private void registerCar(String carsName) {
         String[] divCarsName = carsName.split(",");
-
         this.cars = new Car[divCarsName.length];
+
         for (int i = 0; i < divCarsName.length; i++) {
             this.cars[i] = new Car(divCarsName[i]);
         }
-    }
-
-    private boolean isMovePosition() {
-        int randomNumber = (int) (Math.random() * 10);
-        return ((randomNumber >= 4) ? true : false);
     }
 
     public void startRacingGame() {
@@ -29,16 +24,21 @@ public class RacingCarGame {
         System.out.println();
     }
 
+    private boolean isMovePosition() {
+        int randomNumber = (int) (Math.random() * 10);
+        return ((randomNumber >= 4) ? true : false);
+    }
+
     public void setMaxPosition() {
         for (int i = 0; i < cars.length; i++) {
             this.maxPosition = cars[i].collectMaxPosition(maxPosition);
         }
     }
 
-    public void printVictoryCar(){
+    public void printVictoryCar() {
         int cnt = 0;
-        for(int i=0; i<cars.length; i++){
-            if(cars[i].isVictoryCar(maxPosition, cnt)){
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].isVictoryCar(maxPosition, cnt)) {
                 cnt++;
             }
         }

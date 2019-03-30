@@ -5,7 +5,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        if(name.length() > 5){
+        if (name.length() > 5) {
             System.out.println(name + "은 잘못된 입력 값 입니다.(5자 초과)");
             System.exit(0);
         }
@@ -27,11 +27,11 @@ public class Car {
         return ((this.position > max) ? this.position : max);
     }
 
-    public boolean isVictoryCar(int max, int cnt){
+    public boolean isVictoryCar(int max, int cnt) {
         String victoryCarName = "";
         boolean result = (this.position == max) ? true : false;
-        if(result){
-            if(cnt >= 1){
+        if (result) {
+            if (cnt >= 1) {
                 victoryCarName += ", ";
             }
             victoryCarName += this.name;
