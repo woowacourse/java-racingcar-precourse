@@ -30,6 +30,11 @@ public class RacingGame {
     return Car_arr;
   }
 
+  public static Car CreateCarObject(String car_name){
+    Car car_object = new Car(car_name);
+    return car_object;
+  }
+
   public static void main(String args[]){
 
   }
