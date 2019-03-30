@@ -31,6 +31,17 @@ public class ConfigTest {
         assertEquals(resultFalse, Boolean.FALSE);
     }
 
+    @Test
+    public void makeGarage(){
+        Car[] garage = config.makeGarage(new String[] {"Tommi","Pride","Cago"});
+        String Tommi = garage[0].getName();
+        String Pride = garage[1].getName();
+        String Cago = garage[2].getName();
+        assertEquals("Tommi",Tommi);
+        assertEquals("Pride",Pride);
+        assertEquals("Cago",Cago);
+    }
+
 
     @After
     public void setEnd() {

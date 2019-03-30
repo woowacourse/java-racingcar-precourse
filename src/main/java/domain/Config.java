@@ -14,4 +14,12 @@ public class Config {
         }
         return true;
     }
+    public Car[] makeGarage(String[] carArrays) {
+        int length = carArrays.length;
+        Car[] garage = new Car[length];
+        for (int i = 0; i < length; i++) {
+            garage[i] = new Car(carArrays[i]);
+        }
+        return garage;
+    }
 }
