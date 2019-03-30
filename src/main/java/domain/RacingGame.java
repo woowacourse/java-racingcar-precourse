@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,10 +12,24 @@ public class RacingGame {
 
 	private List<Car> cars;
 	private int count;
+	private int maxPosition = 0;
+
+	public List<Car> getCars() {
+		return cars;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public int getMaxPosition() {
+		return maxPosition;
+	}
 
 	public void runProgram() {
 		setUserName();
 		setCount();
+		startRace();
 	}
 
 	//	setUserName : User name을 입력 받고 List에 추가
@@ -23,6 +38,10 @@ public class RacingGame {
 		String nameInput = SCANNER.nextLine();
 
 		// isValidUserName
+		if (!isValidUserName(nameInput)) {
+			System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+			// TODO setUserName() 다시 반복 
+		}
 
 		// make car obejct
 		String[] names = nameInput.split(",");
@@ -69,7 +88,12 @@ public class RacingGame {
 	public void moveCars() {
 		for (Car car : cars) {
 			car.move();
+			updateMaxPosition(car.getPosition());
 		}
+	}
+	
+	private void updateMaxPosition(int position) {
+		maxPosition = Math.max(position, maxPosition);
 	}
 
 	//	printResult : 각 회수의 실행 결과 출력
