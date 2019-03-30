@@ -3,7 +3,7 @@ package View;
 import domain.Car;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class RacingGame {
@@ -43,5 +43,22 @@ public class RacingGame {
         }
     }
 
+    public List<Car> getResult() {
+        List<Car> result = new ArrayList<>();
+
+        result.add(carList.get(0));
+        for (int i = 1; i < carList.size(); i++) {
+
+            if (result.get(0).getPosition() < carList.get(i).getPosition()) {
+                result = new ArrayList<>();
+                result.add(carList.get(i));
+                continue;
+            }
+            if (result.get(0).getPosition() == carList.get(i).getPosition()) {
+                result.add(carList.get(i));
+            }
+        }
+        return  result;
+    }
 
 }

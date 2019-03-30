@@ -1,6 +1,9 @@
 package View;
 
+import domain.Car;
+
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class RacingCar {
@@ -22,6 +25,16 @@ public class RacingCar {
                 racingGame.displayCarPosition();
                 System.out.println();
             }
+
+            List<Car> carList = racingGame.getResult();
+            for (int i = 0; i < carList.size(); i++) {
+                System.out.print(carList.get(i).getName());
+                if ( i != carList.size()-1) {
+                    System.out.print(", ");
+                }
+
+            }
+            System.out.println("가 최종 우승했습니다.");
 
         } catch (InputMismatchException e) {
             System.out.println("숫자가 아닙니다.");
