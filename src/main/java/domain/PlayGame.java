@@ -20,18 +20,24 @@ public class PlayGame {
     }
 
     private String getWinnerNames() {
-        int bestResult = -1;
+        int bestPosition = getBestPosition();
         String resultString = "";
 
         for (int i = 0; i < Array.getLength(carList); i++) {
-            if (carList[i].getPosition() > bestResult)
-                bestResult = carList[i].getPosition();
-        }
-        for (int i = 0; i < Array.getLength(carList); i++) {
-            if (carList[i].getPosition() == bestResult)
+            if (carList[i].getPosition() == bestPosition)
                 resultString += ", " + carList[i].getName();
         }
         return resultString;
+    }
+
+    private int getBestPosition() {
+        int bestPosition = -1;
+
+        for (int i = 0; i < Array.getLength(carList); i++) {
+            if (carList[i].getPosition() > bestPosition)
+                bestPosition = carList[i].getPosition();
+        }
+        return bestPosition;
     }
 
     private void playGame(int gameNumber) {
