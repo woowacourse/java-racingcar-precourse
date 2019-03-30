@@ -9,4 +9,8 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public final String getName(){
+        return this.name;
+    }
 }
