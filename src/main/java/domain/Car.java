@@ -44,4 +44,12 @@ public class Car {
         }
         return carNameState;
     }
+
+    /*(,)를 기준으로 자동차 이름을 구분 하는 메소드*/
+    public static String[] divideCarName(String carName){
+
+        String[] carNameArray = carName.split(",");
+
+        return carNameArray;
+    }
 }
