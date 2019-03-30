@@ -17,7 +17,7 @@ public class RacingGame {
 
 	//	setUserName : User name을 입력 받고 List에 추가
 	private void setUserName() {
-		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준을 구분)");
+		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준을 구분, 이름은 최대 5자까지 가능합니다.)");
 		String nameInput = SCANNER.nextLine();
 
 		// isValidUserName
@@ -30,6 +30,10 @@ public class RacingGame {
 		}
 	}
 	//	isValidUserName : 사용 가능한 user name 인지 검사
+	public boolean isValidUserName(String nameInput) {
+		String[] names = nameInput.split(",");
+		return true;
+	}
 
 	//	setCount : 시도할 회수를 입력 받음
 	private void setCount() {
@@ -42,14 +46,31 @@ public class RacingGame {
 	}
 
 	//	isValidCount : 사용 가능한 count인지
+	
+	// startRace : 레이스 시작 (move -> printResult)
+	// TODO overloading 을 통해 print 설정 (boolean printFlag) true-> 현재 상황 출력
+	public void startRace() {
+		for(int i = 0; i < count; i++) {
+			moveCars();
+			printCurrentSituation();
+		}
+		
+	}
 
+	public void moveCars() {
+		for (Car car : cars) {
+			car.move();
+		}
+	}
+	
 	//	printResult : 각 회수의 실행 결과 출력
-	public void printResult() {
+	public void printCurrentSituation() {
 		for (Car car : cars) {
 			car.printPosition();
 		}
+		System.out.println();
 	}
-
+	
 	//	printWinner : 우승자 출력
 	public void printWinner() {
 		
