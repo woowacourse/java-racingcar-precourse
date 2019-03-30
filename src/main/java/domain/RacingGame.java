@@ -1,7 +1,6 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,6 +29,7 @@ public class RacingGame {
 		setUserName();
 		setCount();
 		startRace();
+		printWinner();
 	}
 
 	//	setUserName : User name을 입력 받고 List에 추가
@@ -82,7 +82,6 @@ public class RacingGame {
 			moveCars();
 			printCurrentSituation();
 		}
-
 	}
 
 	public void moveCars() {
@@ -106,6 +105,12 @@ public class RacingGame {
 
 	//	printWinner : 우승자 출력
 	public void printWinner() {
-
+		String result = "";
+		for (Car car : cars) {
+			if(car.getPosition() == maxPosition) {
+				result += car.getName() + ", ";
+			}
+		}
+		System.out.println(result.substring(0, result.length() - 2) + "가 최종 우승했습니다.");
 	}
 }
