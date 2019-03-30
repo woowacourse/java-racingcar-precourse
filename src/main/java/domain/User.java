@@ -25,4 +25,13 @@ public class User {
         String names = sc.nextLine();
         return names;
     }
+
+    /**
+     * 사용자로부터 이동 횟수를 입력 받는 메소드
+     * @return 사용자로부터 입력 받은 이동 횟수
+     */
+    public int enterTimes() {
+        int times = sc.nextInt();
+        return times;
+    }
 }
