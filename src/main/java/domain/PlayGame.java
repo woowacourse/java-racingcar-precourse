@@ -13,14 +13,39 @@ public class PlayGame {
         getCarNames();
         gameNumber = getGameNumber();
         playGame(gameNumber);
+        printWinner();
+    }
+
+    private void printWinner() {
+        String resultString = "이(가) 최종 우승했습니다.";
+        resultString = getWinnerNames() + resultString;
+        System.out.println(resultString.substring(2));
+    }
+
+    private String getWinnerNames() {
+        int bestResult = -1;
+        String resultString = "";
+
+        for (int i = 0; i < Array.getLength(carList); i++) {
+            if (carList[i].getPosition() > bestResult)
+                bestResult = carList[i].getPosition();
+        }
+        for (int i = 0; i < Array.getLength(carList); i++) {
+            if (carList[i].getPosition() == bestResult)
+                resultString += ", " + carList[i].getName();
+        }
+        return resultString;
     }
 
     private void playGame(int gameNumber) {
+        System.out.println("");
+        System.out.println("실행결과");
         for (int i = 0; i < gameNumber; i++) {
             for (int j = 0; j < Array.getLength(carList); j++) {
                 carList[j].decideMovement();
                 carList[j].printPosition();
             }
+            System.out.println("");
         }
     }
 
