@@ -8,28 +8,22 @@ import static org.junit.Assert.*;
 
 public class CarTest {
     private Car car;
-    private Config config;
+
 
     @Before
-    public void setup(){
+    public void setup() {
         car = new Car("Tommi");
-        config = new Config();
     }
 
     @Test
-    public void getNameTest(){
+    public void getNameTest() {
         String result = car.getName();
         assertEquals(new String("Tommi"), result);
     }
 
-    @Test
-    public void splitName(){
-        String[] result = config.splitName("Tommi,Pride,Cago");
-        assertEquals(new String[]{"Tommi","Pride","Cago"},result);
-    }
 
     @After
-    public void setEnd(){
+    public void setEnd() {
         System.out.println("setEnd");
     }
 }
