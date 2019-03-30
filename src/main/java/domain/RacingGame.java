@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * 자동차 게임 진행
@@ -89,12 +90,8 @@ public class RacingGame {
 	}
 
 	private List<Car> findWinners() {
-		List<Car> winners = new ArrayList<>();
-		for (Car car : cars) {
-			if (car.getPosition() == maxPosition) {
-				winners.add(car);
-			}
-		}
-		return winners;
+		return cars.stream()
+			.filter(car -> car.getPosition() == maxPosition)
+			.collect(Collectors.toList());
 	}
 }
