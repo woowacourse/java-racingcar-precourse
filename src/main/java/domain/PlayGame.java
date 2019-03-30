@@ -35,5 +35,9 @@ public class PlayGame {
         }
         return true;
     }
+
+    private boolean checkCorrectName(Car car) {
+        return car.getName().length() <= 5;
+    }
 }
 
