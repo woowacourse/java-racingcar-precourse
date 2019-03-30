@@ -22,4 +22,10 @@ public class Config {
         }
         return garage;
     }
+
+    public int makeRandom(){
+        double Random = Math.random() * 10;
+        int random = (int)Random;
+        return random;
+    }
 }
