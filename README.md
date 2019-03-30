@@ -6,3 +6,4 @@
 
 ### RacingCarGame
 1. 이름 분리하는 생성자(RacingCarGame(String cars))
+2. 자동차 이름 등록하기(registerCar(String cars))
