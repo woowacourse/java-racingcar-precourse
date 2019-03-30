@@ -17,7 +17,7 @@ public class Car {
 	}
 
 	public int setRandom() {
-		return (int)Math.random() * 9;
+		return (int)(Math.random() * 9);
 	}
 
 	public void printPosition() {
