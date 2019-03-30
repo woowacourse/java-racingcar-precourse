@@ -14,11 +14,25 @@ public class RacingCar {
 	}
 	
 	public void init() {
+		String carNames = enterCarNames();
 		enterAttempNum();
+		
+		addCarByCarNames(carNames);
 	}
 	
 	public void start() {
 		
+	}
+	
+	private String enterCarNames() {
+		String carNames = "";
+		
+		while(carNames.equals("")) {
+			System.out.println("경주할자동차이름을입력하세요.(이름은쉼표(,)기준으로구분) ");
+			carNames = scanner.nextLine();
+		}
+		
+		return carNames;
 	}
 	
 	private void enterAttempNum() {
@@ -36,9 +50,20 @@ public class RacingCar {
 		attemptNum = attemptNumTemp;
 	}
 	
+	private void addCarByCarNames(String carNames) {
+		String[] carNameArray = carNames.split(",");
+		
+		for(String carName : carNameArray) {
+			String carNameTrimed = carName.trim();
+			
+			if(!carNameTrimed.equals("")){
+				Car car = new Car(carNameTrimed);	
+				cars.add(car);
+			}
+		}
+	}
+	
 	private void moveAllCars() {
 		
 	}
-	
-	
 }
