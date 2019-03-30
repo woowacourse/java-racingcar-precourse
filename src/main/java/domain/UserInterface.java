@@ -38,6 +38,10 @@ public class UserInterface {
         return (cnt >= MIN_NUMBER);
     }
 
+    public void printResultMenu(){
+        System.out.println("\n실행결과");
+    }
+
     public void printRacing(Car[] cars) {
         int position;
 

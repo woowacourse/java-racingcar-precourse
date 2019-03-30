@@ -24,6 +24,7 @@ public class Main {
             cars[idx++] = new Car(carName);
         }
 
+        ui.printResultMenu();
         for (int i = 0; i < cnt; i++) {
             for (Car car : cars) {
                 car.updatePosition();
