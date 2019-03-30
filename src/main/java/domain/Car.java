@@ -37,4 +37,12 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    /**
+     * 외부에서 name의 값을 호출할 수 있도록 해주는 메소드
+     * @return name의 값
+     */
+    public String getName() {
+        return name;
+    }
 }
