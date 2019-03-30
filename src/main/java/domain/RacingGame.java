@@ -30,37 +30,40 @@ public class RacingGame {
 		setCount();
 		startRace();
 		printWinner();
+		SCANNER.close();
 	}
 
 	//	setUserName : User name을 입력 받고 List에 추가
 	private void setUserName() {
-		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준을 구분, 이름은 최대 5자까지 가능합니다.)");
-		String nameInput = SCANNER.nextLine();
+		String inputtedUserName = "";
+		do {
+			inputtedUserName = inputUserName();
+		}while(isInvalidUserName(inputtedUserName));
 
-		// isValidUserName
-		if (!isValidUserName(nameInput)) {
-			System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-			// TODO setUserName() 다시 반복 
-		}
-
-		// make car obejct
-		String[] names = nameInput.split(",");
+		String[] names = inputtedUserName.split(",");
 		cars = new ArrayList<>();
 		for (String name : names) {
+			name = name.trim();
 			cars.add(new Car(name));
 		}
 	}
+	
+	private String inputUserName() {
+		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준을 구분, 이름은 최대 5자까지 가능합니다.)");
+		return SCANNER.nextLine();
+	}
 
 	//	isValidUserName : 사용 가능한 user name 인지 검사
-	private boolean isValidUserName(String nameInput) {
+	private boolean isInvalidUserName(String nameInput) {
 		String[] names = nameInput.split(",");
 		for (String name : names) {
 			name = name.trim();
 			if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
-				return false;
+				System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	//	setCount : 시도할 회수를 입력 받음
