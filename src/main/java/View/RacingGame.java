@@ -3,12 +3,14 @@ package View;
 import domain.Car;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RacingGame {
 
     private Scanner sc = new Scanner(System.in);
     private ArrayList<Car> carList = new ArrayList<>();
+    private int playNum;
 
     public void inputCarName() throws Exception {
         final String delimiter = ",";
@@ -23,6 +25,10 @@ public class RacingGame {
             }
             carList.add(new Car(carNames[i]));
         }
+    }
+
+    public void inputNumOfPlay() throws InputMismatchException {
+        playNum = sc.nextInt();
     }
 
 }
