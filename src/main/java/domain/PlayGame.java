@@ -17,8 +17,7 @@ public class PlayGame {
     }
 
     private void printWinner() {
-        String resultString = "이(가) 최종 우승했습니다.";
-        resultString = getWinnerNames() + resultString;
+        String resultString = getWinnerNames() + "이(가) 최종 우승했습니다.";
         System.out.println(resultString.substring(2));
     }
 
@@ -38,25 +37,26 @@ public class PlayGame {
     }
 
     private void playGame(int gameNumber) {
-        System.out.println("");
+        System.out.println();
         System.out.println("실행결과");
         for (int i = 0; i < gameNumber; i++) {
             for (int j = 0; j < Array.getLength(carList); j++) {
                 carList[j].decideMovement();
                 carList[j].printPosition();
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 
     private int getGameNumber() {
         Scanner myScanner = new Scanner(System.in);
         int gameNumber = -1;
+        final int minGameNumber = 1;
 
         while (true) {
             System.out.println("시도할 횟수를 몇회인가요? ");
             gameNumber = myScanner.nextInt();
-            if (gameNumber > 0)
+            if (gameNumber >= minGameNumber)
                 return gameNumber;
             System.out.println("1 이상의 값이어야 합니다. 다시 입력해주세요.");
         }
@@ -65,6 +65,7 @@ public class PlayGame {
     private void getCarNames() {
         Scanner myScanner = new Scanner(System.in);
         String carNameList = "";
+        final int minCarNumber = 2;
         Boolean correctInput = false;
 
         while (!correctInput) {
@@ -74,7 +75,7 @@ public class PlayGame {
             correctInput = makeCars(carNames);
             if (!correctInput)
                 System.out.println("잘못된 값이 있습니다. 다시 입력해주세요.");
-            if (Array.getLength(carList) < 2) {
+            if (Array.getLength(carList) < minCarNumber) {
                 System.out.println("경주를 위해서는 2개 이상의 자동차 이름을 입력해야합니다.");
                 correctInput = false;
             }
@@ -94,7 +95,8 @@ public class PlayGame {
     }
 
     private boolean checkCorrectName(Car car) {
-        return car.getName().length() <= 5;
+        final int maxNameLength = 5;
+        return car.getName().length() <= maxNameLength;
     }
 }
 
