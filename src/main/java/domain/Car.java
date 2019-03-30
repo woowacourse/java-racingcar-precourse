@@ -36,6 +36,10 @@ public class Car {
         return new Random().nextInt(9);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
