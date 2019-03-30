@@ -38,7 +38,7 @@ public class RacingGame {
 		String inputtedUserName = "";
 		do {
 			inputtedUserName = inputUserName();
-		}while(isInvalidUserName(inputtedUserName));
+		}while(Validator.isInvalidUserName(inputtedUserName));
 
 		String[] names = inputtedUserName.split(",");
 		cars = new ArrayList<>();
@@ -51,19 +51,6 @@ public class RacingGame {
 	private String inputUserName() {
 		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준을 구분, 이름은 최대 5자까지 가능합니다.)");
 		return SCANNER.nextLine();
-	}
-
-	//	isValidUserName : 사용 가능한 user name 인지 검사
-	private boolean isInvalidUserName(String nameInput) {
-		String[] names = nameInput.split(",");
-		for (String name : names) {
-			name = name.trim();
-			if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
-				System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-				return true;
-			}
-		}
-		return false;
 	}
 
 	//	setCount : 시도할 회수를 입력 받음
