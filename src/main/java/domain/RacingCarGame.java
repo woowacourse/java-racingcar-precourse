@@ -25,6 +25,7 @@ public class RacingCarGame {
 
     private boolean isMovePosition() {
         int randomNumber = (int) (Math.random() * 10);
+
         return ((randomNumber >= 4) ? true : false);
     }
 
@@ -36,6 +37,7 @@ public class RacingCarGame {
 
     public void printVictoryCar() {
         int cnt = 0;
+
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].isVictoryCar(maxPosition, cnt)) {
                 cnt++;
