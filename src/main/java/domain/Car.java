@@ -11,7 +11,7 @@ public class Car
         this.name = name;
     }
 
-    public static String[] getCarNames()
+    public static String[] askCarNames()
     {
         String userInput;
         while(true)
@@ -38,7 +38,7 @@ public class Car
             System.out.println("시도할 회수는 몇회인가요?");
             Scanner reader = new Scanner(System.in);
             turns = reader.nextLine();
-            boolean isUserInputRight = checkUserInput(turns);
+            boolean isUserInputRight = checkUserInput(turns); //check for zero also.
             if(isUserInputRight)
             {
                 break;
@@ -69,7 +69,7 @@ public class Car
         return false;
     }
 
-    public static Car[] instantiateAndReturn(String[] carNames)
+    public static Car[] instantiateAndReturnCars(String[] carNames)
     {
         Car[] cars = new Car[carNames.length];
         for(int i=0; i < carNames.length; i++)
@@ -79,7 +79,7 @@ public class Car
         return cars;
     }
 
-    public static void moveCars(Car[] cars)
+    public static void updateCarMovements(Car[] cars)
     {
         for(int i=0; i<cars.length; i++)
         {
@@ -93,7 +93,7 @@ public class Car
         }
     }
 
-    public static void printMovements(Car[] cars)
+    public static void printCarMovements(Car[] cars)
     {
         for(int i=0; i<cars.length; i++)
         {
@@ -136,21 +136,22 @@ public class Car
     public static boolean getUserAnswer()
     {
         boolean result;
-        while (true) {
-            Scanner scanner = new Scanner(System.in);
+        do
+        {
             System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요: ");
-            String strUserInput = scanner.nextLine();
-            if (strUserInput.length() == 1 && strUserInput.charAt(0) == '1')
+            Scanner scanner = new Scanner(System.in);
+            String strUserAnswer = scanner.nextLine();
+            if (strUserAnswer.length() == 1 && strUserAnswer.charAt(0) == '1')
             {
                 result = true;
                 break;
             }
-            if (strUserInput.length() == 1 && strUserInput.charAt(0) == '2')
+            if (strUserAnswer.length() == 1 && strUserAnswer.charAt(0) == '2')
             {
                 result = false;
                 break;
             }
-        }
+        } while (true);
         return result;
     }
 }
