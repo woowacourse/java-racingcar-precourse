@@ -71,3 +71,4 @@
 | 5 | ``getPosition() `` | 포지션 반환하는 메서드, int를 반환하는 것이 아니라, 하이픈을 position 의 수만큼 문자열로 바꿔 반환한다. |
 | 6 | ``getRandomNumber()`` | 0부터 9 사이의 숫자를 랜덤으로 생성하는 메서드 |
 | 7 | ``moveByRandomNumber()`` | 랜덤한 수가 4 이상이면 전진, 3 이하면 멈춤을 실행하는 메서드 |
+| 8 | ``compareTo()`` | implements Comparable, Collections.max 메서드를 사용하기 위해 필요한 메서드 |
