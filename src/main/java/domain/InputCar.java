@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class InputCar {
     String carName = "";
     String[] carNameList = {""};
-    int position = 0;
 
      void scanCar(){
         Scanner scan = new Scanner(System.in);
@@ -32,10 +31,5 @@ public class InputCar {
          for(int i=0; i<length; i++) {
              carArr[i] = new Car(carNameList[i]);
          }
-    }
-
-    void setPosition(){
-         Scanner scan = new Scanner(System.in);
-         position = scan.nextInt();
     }
 }

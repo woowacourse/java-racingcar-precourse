@@ -15,5 +15,16 @@ public class Car {
     void showPosition(){
         System.out.println(name +"의 현재 위치 :" + position);
     }
-    // 추가 기능 구현
+
+    void forwardCar(){
+        position++;
+    }
+
+    void showStatus(){
+        System.out.print(name + ": ");
+        for(int i=0; i<position;i ++) {
+            System.out.print("-");
+        }
+        System.out.println("");
+    }
 }

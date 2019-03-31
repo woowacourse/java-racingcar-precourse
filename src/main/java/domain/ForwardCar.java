@@ -9,4 +9,9 @@ public class ForwardCar {
         Random random = new Random();
         randomNum = random.nextInt(10) + 1;
     }
+
+    void decideForward(Car car){
+        if(randomNum>=4)
+            car.forwardCar();
+    }
 }
