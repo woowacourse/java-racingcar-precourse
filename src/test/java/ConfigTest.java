@@ -61,9 +61,6 @@ public class ConfigTest {
         for (int i = 0; i < 5; i++) {
             config.race(garage);
         }
-        System.out.println("Tommi : " + garage[0].getPosition());
-        System.out.println("Pride : " + garage[1].getPosition());
-        System.out.println("Cago : " + garage[2].getPosition());
     }
 
     @Test
@@ -81,8 +78,9 @@ public class ConfigTest {
     }
 
     @Test
-    public void loopIfNotFiveLessTest() {
-
+    public void characterMultipleTest() {
+        String result = config.characterMultiple(5);
+        assertEquals("-----",result);
     }
 
     @After
