@@ -1,10 +1,12 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class RacingGame implements RacingGameInterface {
     private Scanner sc = new Scanner(System.in);
+    private Random random = new Random();
     private String playerName = "";
     private ArrayList<String> nameArrayList = new ArrayList<String>();
     private ArrayList<Car> carList = new ArrayList<Car>();
@@ -137,6 +139,21 @@ public class RacingGame implements RacingGameInterface {
         
         return isNotInput;
     }
+    
+    public void startRace() {
+        nameArrayList = setPlayerName();
+        carList = makePlayers(nameArrayList);
+        moveCount = inputMoveCount();
+        
+        for (int i = 0; i < moveCount; i++) {
+            for (int j = 0; j < carList.size(); j++) {
+                carList.get(j).moveCar(random.nextInt(10));
+                carList.get(j).printRaceSituation();
+            }
+            
+            System.out.println("\n\n");
+        }
+    }
 
     @Override
     public ArrayList<Car> judgeWinner() {
@@ -144,12 +161,6 @@ public class RacingGame implements RacingGameInterface {
         return null;
     }
 
-    @Override
-    public void startRace() {
-        // TODO Auto-generated method stub
-        
-    }
-    
     public static void main(String[] args) {
         
     }
