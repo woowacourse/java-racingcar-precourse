@@ -8,12 +8,12 @@ public class Car {
         this.name = name;
     }
 
-    void showName(){
-        System.out.println("Car의 이름 :" + name);
+    int getPosition(){
+        return position;
     }
 
-    void showPosition(){
-        System.out.println(name +"의 현재 위치 :" + position);
+    String getName(){
+        return name;
     }
 
     void forwardCar(){
