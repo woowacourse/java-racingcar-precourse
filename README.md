@@ -40,9 +40,11 @@
 ### 2. 자동차 이름 입력 받기
 **입력 받기**
 - inputPlayerName() : 자동차 이름 입력 받기
+- setPlayerName() : 자동차 이름을 입력 받아 유효값 검사를 마치고 리스트에 담긴 값을 최종값을 리턴 
 
 **유효값인지 검사**
-- checkPlayerNameLength() : 입력받은 이름이 5자 이하인지 확인하기
+- convertStringNameToArrayList() : 입력 받은 이름을 ,기준으로 나누어 리스트에 담기
+- checkPlayerNameLength() : 입력 받은 이름이 5자 이하인지 확인하기
 
 ### 3. 자동차 객체 생성하기
 - makePlayers() : 입력받은 이름으로 자동차 객체 생성하기
