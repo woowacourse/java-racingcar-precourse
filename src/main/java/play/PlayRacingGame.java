@@ -25,11 +25,36 @@ public class PlayRacingGame {
 	}
 	
 	private static String[] receiveCarNamesFromUser() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		Scanner sc = new Scanner(System.in);
-		String namesFromUser = sc.nextLine();
+		boolean nameOverFiveWords = false;
+		String namesFromUserArr[];
 		
-		return namesFromUser.split(",");
+		do {
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+			Scanner sc = new Scanner(System.in);
+			String namesFromUser = sc.nextLine();
+			namesFromUserArr = namesFromUser.split(",");
+			nameOverFiveWords = isNameOverFiveWords(namesFromUserArr);
+		} while (nameOverFiveWords);
+		
+		return namesFromUserArr;
+	}
+	
+	/**
+	 * 입력받은 이름이 5글자 이하인지 체크.
+	 * 5글자 초과일 경우 안내문 출력. 
+	 * */
+	private static boolean isNameOverFiveWords(String[] namesFromUserArr) {
+		boolean nameOverFiveWords = false;
+		
+		for(String names : namesFromUserArr) {
+			if(names.length() > 5) {
+				System.out.println("자동차 이름은 5글자 이하로 입력해주세요.");
+				nameOverFiveWords = true;
+				break;
+			}
+		}
+		
+		return nameOverFiveWords;
 	}
 	
 	private static int receivePlayCntFromUser() {
