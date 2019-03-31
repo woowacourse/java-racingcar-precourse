@@ -49,11 +49,26 @@ public class Car
 
     private static boolean checkUserInput(String turns)
     {
+        if(isItSmallerThanOne(turns))
+        {
+            return false;
+        }
         if(isNonNumberThere(turns))
         {
             return false;
         }
         return true;
+    }
+
+    private static boolean isItSmallerThanOne(String turns)
+    {
+        int intTurns = Integer.parseInt(turns);
+        if (intTurns < 1)
+        {
+            System.out.println("0보다 큰 숫자를 입력해 주세요!");
+            return true;
+        }
+        return false;
     }
 
     private static boolean isNonNumberThere(String turns)

@@ -22,6 +22,7 @@ public class CarGameLauncher
             turn++;
         }
         Car.announceWinners(cars);
+        System.out.println();
         boolean wantOneMoreGame = Car.getUserAnswer();
         if(wantOneMoreGame)
         {
