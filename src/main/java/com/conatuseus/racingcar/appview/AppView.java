@@ -17,13 +17,13 @@ public final class AppView {
     public static String[] inputNameOfCar(){
         String[] scannedName;
         while (true){
-            outputLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+            outputLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             scannedName=sc.nextLine().split(",");
 
             if(isNamesValid(scannedName)){
                 return scannedName;
             }
-            outputLine("잘못 입력하였습니다.");
+            outputLine("잘못 입력하였습니다.(5글자 이하 영문자, 중복되지 않는 이름을 입력하세요)");
         }
     }
 

@@ -24,8 +24,10 @@ public class Car {
 
     public void addRandomNumToPosition(){
         int random=(int)(Math.random()*MAX_RANDOM) + MIN_RANDOM;
+//        AppView.outputLine(random+"");          // 랜덤 수 확인하기 위한 코드
         if(this.isGoingPossible(random)){
             this.position+=random;
+            this.addResult(random);
         }
     }
 
@@ -33,17 +35,17 @@ public class Car {
         return random >= CAN_GOING;
     }
 
-    @Override
-    public String toString(){
-        StringBuilder sb=new StringBuilder();
-        sb.append(this.getName());
-        sb.append(" : ");
-        int distanceToGoing=this.getPosition()-this.result.length();
-        for(int i=0; i<distanceToGoing; i++){
+    private void addResult(int random){
+        StringBuilder sb=new StringBuilder(this.result);
+        for(int i=0; i<random; i++){
             sb.append("-");
         }
-        result=sb.toString();
-        return result;
+        this.result=sb.toString();
+    }
+
+    @Override
+    public String toString(){
+        return this.getName() + " : " + this.result;
     }
 
 }

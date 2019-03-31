@@ -10,7 +10,7 @@ public class AppController {
     public static ArrayList<Car> carList=new ArrayList<>();
     private int numberOfTry;
 
-    public int getNumberOfTry() {
+    private int getNumberOfTry() {
         return numberOfTry;
     }
 
@@ -29,7 +29,7 @@ public class AppController {
         this.setNumberOfTry(AppView.inputNumberOfTry());
 
         AppView.outputLine("실행결과");
-
+        racingNumberOfTry(this.getNumberOfTry());
 
         AppView.outputLine("<< 게임을 종료합니다.");
     }
@@ -42,12 +42,19 @@ public class AppController {
         }
     }
 
-    private void carsGoingOneStep(){
+    private void racingOneStep(){
         for(Car car : carList){
             car.addRandomNumToPosition();
+//            AppView.outputLine(car.getPosition()+"");   // position과 - 이 맞는지 보기위한 코드
             AppView.outputLine(car.toString());
         }
     }
 
+    private void racingNumberOfTry(int numberOfTry){
+        for(int i=0; i<numberOfTry; i++){
+            racingOneStep();
+            AppView.outputLine("");
+        }
+    }
 
 }
