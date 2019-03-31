@@ -83,14 +83,20 @@ public class Car
     {
         for(int i=0; i<cars.length; i++)
         {
-            int distance = 0;
-            int randomNumber = (int) (Math.random()*10);
-            if (randomNumber >= 4)
-            {
-                distance = 1;
-            }
+            int distance = generateDistance();
             cars[i].position += distance;
         }
+    }
+
+    private static int generateDistance()
+    {
+        int distance = 0;
+        int randomNumber = (int) (Math.random()*10);
+        if (randomNumber >= 4)
+        {
+            distance = 1;
+        }
+        return distance;
     }
 
     public static void printCarMovements(Car[] cars)
