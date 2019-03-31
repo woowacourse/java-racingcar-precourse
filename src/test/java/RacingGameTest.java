@@ -43,4 +43,20 @@ public class RacingGameTest {
         String[] result = racingGame.inputCarName(null);
         Assert.assertEquals(0,result.length);
     }
+
+    @Test
+    public void testCorrectuserInput() {
+        boolean result = racingGame.isCorrectInput(new String[]{"abc","dev","123"});
+        Assert.assertEquals(true,result);
+    }
+    @Test
+    public void testCorrectuserInput2() {
+        boolean result = racingGame.isCorrectInput(new String[]{"abc","dev","123456"});
+        Assert.assertEquals(false,result);
+    }
+    @Test
+    public void testCorrectuserInputNull() {
+        boolean result = racingGame.isCorrectInput(new String[]{""});
+        Assert.assertEquals(false,result);
+    }
 }
