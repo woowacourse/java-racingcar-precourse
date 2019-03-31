@@ -106,8 +106,17 @@ public class RacingGame implements RacingGameInterface {
     
     @Override
     public boolean checkNumberOrNot(String moveCountStr) {
-        // TODO Auto-generated method stub
-        return false;
+        boolean isNotNumber = false;
+        
+        for (int i = 0; i < moveCountStr.length(); i++) {
+            if (moveCountStr.charAt(i) < 48 || moveCountStr.charAt(i) > 57) {
+                System.out.println("시도할 회수로 숫자를 입력해야합니다.");
+                isNotNumber = true;
+                break;
+            } 
+        }
+        
+        return isNotNumber;
     }
 
     @Override
