@@ -26,9 +26,7 @@ public class AppController {
         AppView.outputLine(">> 게임을 시작합니다.");
 
         this.inputAndMakeCarList();
-//        for(Car car : carList){
-//            AppView.outputLine(car.getName());
-//        }
+        this.setNumberOfTry(AppView.inputNumberOfTry());
 
         AppView.outputLine("<< 게임을 종료합니다.");
     }

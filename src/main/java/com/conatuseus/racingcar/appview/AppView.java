@@ -21,11 +21,10 @@ public final class AppView {
             scannedName=sc.nextLine().split(",");
 
             if(isNamesValid(scannedName)){
-                break;
+                return scannedName;
             }
             outputLine("잘못 입력하였습니다.");
         }
-        return scannedName;
     }
 
     public static boolean isNamesValid(String[] scannedName){
@@ -50,8 +49,16 @@ public final class AppView {
 
     public static int inputNumberOfTry(){
         outputLine("시도할 횟수는 몇회인가요?");
+        String scannedNumberOfTry;
 
-        return 0;
+        while (true){
+            scannedNumberOfTry=sc.nextLine();
+
+            if(scannedNumberOfTry.matches("[0-9]*$")){
+                return Integer.parseInt(scannedNumberOfTry);
+            }
+            outputLine("잘못된 입력입니다. 정수만 입력하세요.");
+        }
     }
 
 
