@@ -9,8 +9,11 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    
+    public int getPosition() {
+    	return this.position;
+    }
 
-    /* 테스트를 위해 추가*/
     public String getName() {
     	return this.name;
     }
@@ -21,7 +24,8 @@ public class Car {
      * */
     public void playRacingOneTime() {
     	int randNum = makeRandomNum();
-    	isGoingForward(randNum);
+    	isGoingForwardIncreasePosition(randNum);
+
     	printResultStr();
     }
     
@@ -39,7 +43,7 @@ public class Car {
      * 임의의 숫자가 4 이상이면 전진(true), 3 이하면 정지(false)
      * 전진이면 position 값 +1;
      * */
-    private void isGoingForward(int randNum) {
+    private void isGoingForwardIncreasePosition(int randNum) {
     	if(randNum >= 4) {
     		this.position += 1;
     	}

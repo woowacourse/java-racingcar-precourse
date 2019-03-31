@@ -13,6 +13,8 @@ public class PlayRacingGame {
 		int cntPlay = receivePlayCntFromUser();
 		// 3. 게임 진행
 		playRacingGame(racingCars, cntPlay);
+		// 3.3 승리자 알려주기
+		printWinners(racingCars);
 
 	}
 	
@@ -45,18 +47,41 @@ public class PlayRacingGame {
 	
 	private static void playRacingGame(Car[] racingCars, int cntPlay) {
 		System.out.println("실행 결과");
-		//01. 레이싱 횟수만큼 실행
+		
 		for(int i  = 0 ; i < cntPlay ; i++) {
-			// 객체별로 게임 실행
-			playCarObjsFunc(racingCars);
+			executeCarObjsPlayFunc(racingCars);
 			System.out.println();
 		}
 	}
 	
-	private static void playCarObjsFunc(Car[] racingCars) {
+	private static void executeCarObjsPlayFunc(Car[] racingCars) {
 		for(Car car : racingCars) {
 			car.playRacingOneTime();
 		}
+	}
+	
+	private static void printWinners(Car[] racingCars) {
+		int winnerNum = findWinnerNum(racingCars);
+		String winnersStr = findWinnersName(racingCars, winnerNum);
+		System.out.println(winnersStr + "가 최종 우승했습니다.");
+	}
+	
+	private static int findWinnerNum(Car[] racingCars) {
+		int winnerNum = 0;
+		for(Car car : racingCars) {
+			winnerNum = car.getPosition() > winnerNum ? car.getPosition() : winnerNum;
+		}
+		return winnerNum;
+	}
+	
+	private static String findWinnersName(Car[] racingCars, int winnerNum) {
+		String winnersName = "";
+		for(Car car : racingCars) {
+			if(car.getPosition() == winnerNum) {
+				winnersName += car.getName() + ",";
+			}
+		}
+		return winnersName.substring(0, winnersName.length() - 2);
 	}
 
 }
