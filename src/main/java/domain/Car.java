@@ -7,6 +7,12 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    
+    public void moveCar(int randomCount) {
+        if ( randomCount >= 4) {
+            this.position += 1;
+        }
+    }
 
     public int getPosition() {
         return this.position;
