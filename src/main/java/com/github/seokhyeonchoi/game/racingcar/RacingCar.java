@@ -11,9 +11,10 @@ public class RacingCar {
 	
 	public RacingCar() {
 		cars = new ArrayList<>();
+		init();
 	}
 	
-	public void init() {
+	private void init() {
 		String[] carNameArray = enterCarNames();
 		enterAttempNum();
 		
