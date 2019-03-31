@@ -1,5 +1,6 @@
 
 package domain;
+import java.util.Random;
 import java.util.Scanner;
 /**
  * Car 클래스는 자동차 게임에 관련된 모든 상태를 나타내는 클래스 입니다.
@@ -59,6 +60,15 @@ public class Car {
         int carMoveNumber = racingCarMove.nextInt();
 
         return carMoveNumber;
+    }
+
+    public static int createRandomNumber(){
+
+        Random getRandomNumber = new Random();
+
+        int randomNumber = getRandomNumber.nextInt(10);
+
+        return randomNumber;
     }
 
 
