@@ -6,6 +6,7 @@ class Car {
     private final String name;
     private int position = 0;
     private Random random = new Random();
+
     Car(String name) {
         this.name = name;
     }
@@ -15,24 +16,25 @@ class Car {
         return this.name;
     }
 
-    int getPosition(){
+    int getPosition() {
         return this.position;
     }
 
-    void move(){
+    void move() {
         isMove(random.nextInt(10));
         String positionStr = positionToString();
         System.out.println(this.name + ":" + positionStr);
     }
-    private void isMove(int number){
-        if(number >= 4){
+
+    private void isMove(int number) {
+        if (number >= 4) {
             this.position++;
         }
     }
 
-    private String positionToString(){
+    private String positionToString() {
         StringBuilder result = new StringBuilder();
-        for(int i = 0 ; i < this.position; i++){
+        for (int i = 0; i < this.position; i++) {
             result.append("-");
         }
         return result.toString();
