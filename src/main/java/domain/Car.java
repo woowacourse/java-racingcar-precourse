@@ -17,7 +17,7 @@ public class Car {
     }
 
     void forwardCar(){
-        position++;
+        position+=1;
     }
 
     void showStatus(){

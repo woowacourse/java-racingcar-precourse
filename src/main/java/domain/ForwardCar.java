@@ -7,10 +7,11 @@ public class ForwardCar {
 
     void randomNum(){
         Random random = new Random();
-        randomNum = random.nextInt(10) + 1;
+        randomNum = random.nextInt(10);
     }
 
     void decideForward(Car car){
+        randomNum();
         if(randomNum>=4)
             car.forwardCar();
     }

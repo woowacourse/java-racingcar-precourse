@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class RacingGame {
     public static void main(String[] args){
         InputCar input = new InputCar();
-
+        ForwardCar forward = new ForwardCar();
         int stage = 0;
 
         infoName();
@@ -13,6 +13,7 @@ public class RacingGame {
         input.setCar();
         infoStage();
         stage = setStage();
+        startGame(input,forward,stage);
     }
 
     static void infoName(){
@@ -25,5 +26,16 @@ public class RacingGame {
     static int setStage(){
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
+    }
+
+    static void startGame(InputCar input, ForwardCar forward, int stage){
+
+        for(int i=0; i<stage; i++) {
+            for(int j=0; j<input.carNameList.length;j++) {
+                forward.decideForward(input.carArr[j]);
+                input.carArr[j].showStatus();
+            }
+            System.out.println("");
+        }
     }
 }
