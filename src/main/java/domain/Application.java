@@ -10,14 +10,16 @@
 
 package domain;
 
-import utils.RandomNumber;
-
 public class Application {
 
 	public static void main(String[] args) {
-		RandomNumber randomNumber = new RandomNumber();
 
-		System.out.println(randomNumber.getRandomNumber());
+		UserInput userInput = new UserInput();
+
+		CarGame carGame = new CarGame(userInput.getRacingCarName(), userInput.getCarMoveCount());
+
+		carGame.playGame();
+
 	}
 
 }
