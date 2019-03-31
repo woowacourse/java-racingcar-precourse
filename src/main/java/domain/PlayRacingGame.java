@@ -5,7 +5,7 @@
  * author : heebong
  * */
 
-package play;
+package domain;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ import domain.Car;
 public class PlayRacingGame {
 	private static final int LIMITED_WORD_NUMBER = 5;
 
-	public static void main(String[] args) {
+	public void play() {
 		// TODO Auto-generated method stub
 		String carNames[] = receiveCarNamesFromUser();
 		int cntPlay = receivePlayCntFromUser();
