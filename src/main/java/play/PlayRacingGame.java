@@ -1,3 +1,10 @@
+/**
+ * name : PlayRacingGame
+ * version : 1.0
+ * date : 2019.03.31
+ * author : heebong
+ * */
+
 package play;
 
 import java.util.Scanner;

@@ -1,3 +1,9 @@
+/**
+ * name : Car
+ * version : 1.0
+ * date : 2019.03.31
+ * author : heebong
+ * */
 package domain;
 
 import java.util.Random;
