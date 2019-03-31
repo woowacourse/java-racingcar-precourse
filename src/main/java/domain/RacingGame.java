@@ -174,11 +174,19 @@ public class RacingGame implements RacingGameInterface {
         
         return winner;
     }
+    
+    public void printWinner() {
+        winner = judgeWinner(carList);
+        
+        for (int i = 0; i < winner.size() - 1; i++) {
+            System.out.print(winner.get(i).getName() + ", ");
+        }
+        
+        System.out.println(winner.get(winner.size()-1).getName() + "가 최종 우승했습니다.");
+    }
 
     public static void main(String[] args) {
         
     }
-
-
 
 }

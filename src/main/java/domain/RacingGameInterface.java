@@ -23,5 +23,8 @@ public interface RacingGameInterface {
     
     /** 게임 시작 */
     abstract void startRace();
+    
+    /** 우승자 출력 */
+    public void printWinner();
 
 }
