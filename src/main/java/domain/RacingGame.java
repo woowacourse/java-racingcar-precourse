@@ -43,11 +43,26 @@ public class RacingGame implements RacingGameInterface {
         
         return nameArrayList;
     }
-
+    
+    
+    public boolean checkPlayerNameLength(ArrayList<String> nameList) {
+        boolean wrongLength = false;
+        
+        for (int i = 0; i < nameList.size(); i++) {
+            if (nameList.get(i).length() > 5) {
+                System.out.println("자동차 이름은 5자 이하여야 합니다.");
+                wrongLength = true;
+                return wrongLength;
+            }
+        }
+        
+        return wrongLength;
+    }
+    
     @Override
-    public boolean checkPlayerNameLength() {
+    public ArrayList<String> setPlayerName() {
         // TODO Auto-generated method stub
-        return false;
+        return null;
     }
 
     @Override
@@ -83,6 +98,5 @@ public class RacingGame implements RacingGameInterface {
     public static void main(String[] args) {
         
     }
-
 
 }
