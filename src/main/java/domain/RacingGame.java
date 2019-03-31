@@ -8,12 +8,18 @@ enum InputError {
     UNNAMED("이름이 올바르게 입력되지 않은 자동차가 있습니다. 다시 확인해주세요."),
     LONG_NAME("자동차의 이름은 %자 이하로 입력해주세요"),
     DUPLICATED("자동차의 이름은 중복되지 않도록 입력해주세요."),
+    NOT_INTEGER("시도 횟수는 정수로 입력해주세요."),
+    SIZE_OF_INTEGER("시도 횟수는 1 이상의 정수로 입력해주세요."),
     PASS("");
 
     private String message;
 
     InputError(String message) {
         this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public String getMessage(int len) {
@@ -45,8 +51,26 @@ public class RacingGame {
         }
         List<Car> cars = generateCars(input);
 
-        // 시도 횟수 입력받기
+        System.out.println("시도할 횟수는 몇 회인가요?");
+        String tries = null;
+        inputError = null;
+        while (inputError != InputError.PASS) {
+            tries = scan.next();
+            inputError = getCorrectTries(tries);
+            System.out.println(inputError.getMessage());
+        }
 
+    }
+
+    public InputError getCorrectTries(String input) {
+        if (!isInteger(input)) {
+            return InputError.NOT_INTEGER;
+        }
+        int tries = Integer.parseInt(input);
+        if (tries < 1) {
+            return InputError.SIZE_OF_INTEGER;
+        }
+        return InputError.PASS;
     }
 
     public InputError getCorrectNameOfCars(String inputs) {
@@ -106,6 +130,15 @@ public class RacingGame {
             list.add(new Car(name));
         }
         return list;
+    }
+
+    public boolean isInteger(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
