@@ -37,7 +37,6 @@ public class CarGame {
 		stringBuilder.append("\n실행결과\n");
 
 		while (carMoveCount-- > 0) {
-
 			for (int i = 0; i < racingCarList.size(); ++i) {
 				moveCount = racingCarList.get(i).moveCar(randomNumber);
 				printCarMoveCount(racingCarList.get(i), moveCount);
@@ -46,7 +45,8 @@ public class CarGame {
 		}
 
 		System.out.println(stringBuilder);
-
+		stringBuilder.delete(0, stringBuilder.length());
+		printWinner(getWinner());
 	}
 
 	public void printCarMoveCount(Car car, int moveCount) {
@@ -57,6 +57,37 @@ public class CarGame {
 		}
 		stringBuilder.append("\n");
 
+	}
+
+	public List<String> getWinner() {
+		List<String> winnerList = new ArrayList<>();
+		int maxCount = 0;
+
+		for (int i = 0; i < racingCarList.size(); ++i) {
+			maxCount = Math.max(maxCount, racingCarList.get(i).getPosition());
+		}
+
+		for (int i = 0; i < racingCarList.size(); ++i) {
+			if (racingCarList.get(i).getPosition() == maxCount) {
+				winnerList.add(racingCarList.get(i).getName());
+			}
+		}
+
+		return winnerList;
+	}
+
+	public void printWinner(List<String> winnerList) {
+
+		for (int i = 0; i < winnerList.size(); ++i) {
+			stringBuilder.append(winnerList.get(i));
+			if (i != winnerList.size() - 1) {
+				stringBuilder.append(", ");
+			}
+		}
+
+		stringBuilder.append("가 최종우승했습니다.");
+
+		System.out.println(stringBuilder);
 	}
 
 }
