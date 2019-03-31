@@ -15,7 +15,7 @@ public class PlayGame {
     }
 
     private void printWinner() {
-        String resultString = getWinnerNames() + "이(가) 최종 우승했습니다.";
+        String resultString = getWinnerNames() + "(이)가 최종 우승했습니다.";
         //getWinnerNames()에서 return 되는 값은 ", "으로 시작하므로 그것을 지운 substring 만 출력
         System.out.println(resultString.substring(2));
     }
