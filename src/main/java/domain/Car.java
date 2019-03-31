@@ -8,5 +8,12 @@ public class Car {
         this.name = name;
     }
 
+    void showName(){
+        System.out.println("Car의 이름 :" + name);
+    }
+
+    void showPosition(){
+        System.out.println(name +"의 현재 위치 :" + position);
+    }
     // 추가 기능 구현
 }
