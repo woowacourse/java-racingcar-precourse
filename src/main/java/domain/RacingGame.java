@@ -36,11 +36,14 @@ public class RacingGame {
 
     public void guideToInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = null;
         InputError inputError = null;
         while (inputError != InputError.PASS) {
-            inputError = getCorrectNameOfCars(scan.nextLine());
+            input = scan.nextLine();
+            inputError = getCorrectNameOfCars(input);
             System.out.println(inputError.getMessage(MAX_LEN_OF_CAR_NAME));
         }
+        List<Car> cars = generateCars(input);
 
         // 시도 횟수 입력받기
 
@@ -94,6 +97,15 @@ public class RacingGame {
             return true;
         }
         return false;
+    }
+
+    public ArrayList<Car> generateCars(String input) {
+        ArrayList<Car> list = new ArrayList<>();
+        String[] names = input.split(",");
+        for (String name : names) {
+            list.add(new Car(name));
+        }
+        return list;
     }
 
     public static void main(String[] args) {
