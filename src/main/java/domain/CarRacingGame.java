@@ -1,5 +1,5 @@
 /*
- * @CarRacingGame.java      0.2 2019/03/31
+ * @CarRacingGame.java      0.3 2019/04/01
  */
 
 package domain;
@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 자동차 경주게임을 진행하는 클래스
  *
  * @author 이도원
- * @version 0.2 2019/03/31
+ * @version 0.3 2019/04/01
  */
 public class CarRacingGame {
     private static final int ERROR = -1;
@@ -19,6 +19,14 @@ public class CarRacingGame {
     private static final int RANDOM_NUMBER_RANGE = 10;
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int CAR_MOVE_CONDITION = 4;
+
+    private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String CAR_NAME_SEPARATOR = ",";
+    private static final String INPUT_RACING_ROUND_MESSAGE = "시도할 회수는 몇 회인가요?";
+    private static final String PRINT_RACING_CARS_MESSAGE = "실행결과";
+
+    /* 자동차의 이동을 나타내는 문자열 */
+    private static final String CAR_MOVING_STRING = "-";
 
     private String[] carNames;
     private Car[] cars;
@@ -34,6 +42,8 @@ public class CarRacingGame {
     private void start() {
         inputFromPlayer();
         readyCar();
+        moveCars();
+        printRacingCars();
     }
 
     /* 사용자로부터 정보를 입력 받는 메소드 */
@@ -45,10 +55,10 @@ public class CarRacingGame {
 
     private void inputCarName(Scanner scanner) {
         do {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            System.out.println(INPUT_CAR_NAME_MESSAGE);
             String carNameString = scanner.nextLine();
 
-            carNames = carNameString.split(",");
+            carNames = carNameString.split(CAR_NAME_SEPARATOR);
         } while (isCarNameError());
     }
 
@@ -65,7 +75,7 @@ public class CarRacingGame {
 
     private void inputRacingRound(Scanner scanner) {
         do {
-            System.out.println("시도할 회수는 몇 회인가요?");
+            System.out.println(INPUT_RACING_ROUND_MESSAGE);
 
             try {
                 round = Integer.parseInt(scanner.nextLine());
@@ -102,5 +112,18 @@ public class CarRacingGame {
         Random random = new Random();
 
         return random.nextInt(RANDOM_NUMBER_RANGE) + MIN_RANDOM_NUMBER;
+    }
+
+    private void printRacingCars() {
+        System.out.println(PRINT_RACING_CARS_MESSAGE);
+
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
+
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print(CAR_MOVING_STRING);
+            }
+            System.out.println();
+        }
     }
 }
