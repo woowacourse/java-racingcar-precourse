@@ -55,9 +55,13 @@
 
 **유효값인지 검사**
 - checkNumberOrNot() : 숫자가 입력되었는지 확인하기
+- checkMoveCountInputOrNot() : 값이 입력되었는지, 입력 값이 0인지 확인하기
 
 ### 5. 우승자 파악하기
 - judgeWinner() : 우승자 파악하기
 
 ### 6. 게임 시작하기
 - startRace()
+
+### 7. 우승자 출력하기
+- printWinner()
