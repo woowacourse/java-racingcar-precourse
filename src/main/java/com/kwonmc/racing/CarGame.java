@@ -72,7 +72,7 @@ public class CarGame {
     }
 
     private String arrayJoinWithComma(String[] arr) {
-        StringBuffer builder = new StringBuffer();
+        StringBuilder builder = new StringBuilder();
 
         int lastIndex = arr.length - 1;
 
@@ -87,10 +87,20 @@ public class CarGame {
         return builder.toString();
     }
 
+    private int countElementNumber(int number) {
+        int result = 0;
+        for (Car car : this.cars) {
+            if (car.getPosition() == number) {
+                result++;
+            }
+        }
+        return result;
+    }
+
     public void printResultTotal() {
         int maxResult = Collections.max(this.cars).getPosition();
 
-        String[] tmpResult = new String[this.cars.size()];
+        String[] tmpResult = new String[countElementNumber(maxResult)];
 
         int index = 0;
 
