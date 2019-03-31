@@ -2,7 +2,7 @@
 package domain;
 import java.util.Scanner;
 /**
- * Car 클래스는 자동차에 관련된 모든 상태를 나타내는 클래스 입니다.
+ * Car 클래스는 자동차 게임에 관련된 모든 상태를 나타내는 클래스 입니다.
  *
  * @version 2019년 3월 30일
  * @author 이중혁
@@ -52,4 +52,6 @@ public class Car {
 
         return carNameArray;
     }
+
+
 }
