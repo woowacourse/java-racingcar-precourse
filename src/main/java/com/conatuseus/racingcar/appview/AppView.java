@@ -36,7 +36,7 @@ public final class AppView {
         return !isContains(scannedName);
     }
 
-    public static boolean isContains(String[] scannedName){
+    private static boolean isContains(String[] scannedName){
         Set<String> hashSet=new HashSet<>();
         for(String name : scannedName){
             if(hashSet.contains(name)){

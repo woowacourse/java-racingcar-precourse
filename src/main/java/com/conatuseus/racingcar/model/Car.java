@@ -1,6 +1,5 @@
 package com.conatuseus.racingcar.model;
 
-import java.util.Random;
 
 public class Car {
     private static final int MAX_RANDOM=9;
@@ -33,6 +32,15 @@ public class Car {
         return random >= CAN_GOING;
     }
 
-
+    @Override
+    public String toString(){
+        StringBuilder sb=new StringBuilder();
+        sb.append(this.getName());
+        sb.append(" : ");
+        for(int i=0; i<this.getPosition(); i++){
+            sb.append("-");
+        }
+        return sb.toString();
+    }
 
 }
