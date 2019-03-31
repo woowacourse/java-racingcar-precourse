@@ -32,20 +32,19 @@ public class Car {
         return randomNumber;
     }
 
+    @Override
     public String toString() {
         return this.name;
     }
 
+    @Override
     public boolean equals(Object obj) {
-        Car carObj;
-        String name;
-        try {
-            carObj = (Car) obj;
-            name = carObj.getName();
-        } catch (ClassCastException e) {
-            return false;
+        Car car = (Car) obj;
+        if (this == obj) {
+            return true;
         }
-        if (this.getName().equals(name)) {
+        if ((this.getName().equals(car.getName())) &&
+                (this.getPosition() == car.getPosition())) {
             return true;
         }
         return false;

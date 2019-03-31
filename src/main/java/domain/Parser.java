@@ -11,8 +11,8 @@ public class Parser {
 	private final static String regex = "\\s*,\\s*";
 
 	public static List<Car> stringToListOfCar(String input) {
-		String[] arrayOfCars = splitCarsWithComma(input);
 		List<Car> carList = new ArrayList<Car>();
+		String[] arrayOfCars = splitCarsWithComma(input);   // 문자열 -> 배열
 		for (int i = 0; i < arrayOfCars.length; i++) {
 			carList.add(new Car(arrayOfCars[i]));
 		}
