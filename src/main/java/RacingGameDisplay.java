@@ -8,13 +8,20 @@
 
 public class RacingGameDisplay {
 
-    public static void getRacingCarName(){
+     public static void getRacingCarName() {
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
-    }
+         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+     }
 
-    public static void getMoveNumber(){
+     public static void getMoveNumber() {
 
-        System.out.println("이동할 횟수를 입력해 주세요");
-    }
-}
+         System.out.println("이동할 횟수를 입력해 주세요");
+     }
+
+     public static void showGameResult() {
+
+         System.out.println("실행 결과");
+     }
+     
+ }
+
