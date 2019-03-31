@@ -53,5 +53,13 @@ public class Car {
         return carNameArray;
     }
 
+    public static int getRacingCarMove(){
+
+        Scanner racingCarMove = new Scanner(System.in);
+        int carMoveNumber = racingCarMove.nextInt();
+
+        return carMoveNumber;
+    }
+
 
 }
