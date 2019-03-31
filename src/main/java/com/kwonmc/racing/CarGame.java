@@ -1,4 +1,4 @@
-package domain;
+package com.kwonmc.racing;
 
 import java.util.ArrayList;
 import java.util.Scanner;

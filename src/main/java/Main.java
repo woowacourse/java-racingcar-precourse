@@ -1,8 +1,9 @@
-package domain;
+import com.kwonmc.racing.CarGame;
 
 public class Main {
     public static void main(String[] args) {
         CarGame carGame = new CarGame();
+
         int runs = carGame.getRuns();
 
         carGame.printResultTitle();

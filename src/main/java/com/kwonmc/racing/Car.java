@@ -1,9 +1,10 @@
-package domain;
+package com.kwonmc.racing;
 
-public class Car {
+import java.util.Collections;
+
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
-//    public int rand;
 
     public Car(String name) {
         this.name = name;
@@ -36,7 +37,6 @@ public class Car {
 
     public void moveByRandomNumber() {
         int rand = getRandomNumber();
-//        this.rand = rand;
 
         if (rand >= 4) {
             // 4 이상일 때 전진
@@ -47,5 +47,10 @@ public class Car {
             // 3 이하일 때 멈춤
             stop();
         }
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return Integer.compare(this.position, o.position);
     }
 }
