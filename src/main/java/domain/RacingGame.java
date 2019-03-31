@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class RacingGame implements RacingGameInterface {
     private Scanner sc = new Scanner(System.in);
     private String playerName = "";
+    private ArrayList<String> nameArrayList = new ArrayList<String>();
     
     public String inputPlayerName() {
         boolean nameNotInput = true;
@@ -20,6 +21,27 @@ public class RacingGame implements RacingGameInterface {
         }
 
         return playerName;
+    }
+    
+    /**
+     * String타입으로 입력 받은 자동차 이름을 ,를 기준으로 나누어 nameArrayList에 담는 메서드
+     */
+    public ArrayList<String> convertStringNameToArrayList(String name) {
+        String[] nameList = name.split(",");
+        
+        nameArrayList.clear();
+        
+        for (int i = 0; i < nameList.length; i++) {
+            nameList[i] = nameList[i].trim();
+            
+            if (nameList[i].length() == 0) {
+                continue;
+            }
+            
+            nameArrayList.add(nameList[i]);
+        }  // end for
+        
+        return nameArrayList;
     }
 
     @Override
@@ -61,4 +83,6 @@ public class RacingGame implements RacingGameInterface {
     public static void main(String[] args) {
         
     }
+
+
 }
