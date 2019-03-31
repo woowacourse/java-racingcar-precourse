@@ -9,4 +9,12 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public void goForward() {
+        position++;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
