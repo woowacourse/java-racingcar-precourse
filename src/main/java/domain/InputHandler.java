@@ -1,50 +1,47 @@
 package domain;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class InputHandler {
 
-    private final CarNameValidator carNameValidator;
+    private Validator validator;
     private final Scanner scanner;
-    private static final String[] NULL_OBJECT = new String[0];
 
     public InputHandler() {
-        carNameValidator = new CarNameValidator();
+        validator = null;
         scanner = new Scanner(System.in);
+    }
+
+    public int getNumOfMoves() {
+        while (true) {
+            System.out.println("시도할 횟수는 몇회인가요?");
+            String moveNum = scanner.nextLine();        // TODO moveNumString이 숫자를 표현하는 문자가 아닐 때의 예외 처리가 필요하다
+            validator = new MoveNumValidator(moveNum);
+            if (validator.doesValid()) {
+                return Integer.parseInt(moveNum);
+            }
+            printUnexpectedInput();
+        }
     }
 
     public String[] getCarNames() {
         while (true) {
             System.out.println("경주할 자동차 이름(5글자 이내)을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-            String input = scanner.nextLine();
-            String[] carNames = getCarNamesIfValidInput(input);
-            if (carNames != NULL_OBJECT) {
+            String[] carNames = splitByComma(scanner.nextLine());
+            validator = new CarNameValidator(carNames);
+            if (validator.doesValid()) {
                 return carNames;
             }
+            printUnexpectedInput();
         }
-    }
-
-    String[] getCarNamesIfValidInput(String input) {
-        String[] carNames = splitByComma(input);
-        if (doesValidCarNames(carNames)) {
-            return carNames;
-        }
-        return NULL_OBJECT;
-    }
-
-    boolean doesValidCarNames(String[] carNames) {
-        for (String carName : carNames) {
-            if (!carNameValidator.doesValidCarName(carName)) {
-                System.out.println("잘못된 입력입니다.");
-                return false;
-            }
-        }
-        return true;
     }
 
     // TODO 성능을 위해 Pattern을 미리 컴파일해놓고 matcher를 사용하는 방식으로 구현할 것
     private String[] splitByComma(String input) {
         return input.split(",");
+    }
+
+    private void printUnexpectedInput() {
+        System.out.println("잘못된 입력입니다.");
     }
 }

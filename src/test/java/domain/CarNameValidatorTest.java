@@ -8,21 +8,24 @@ public class CarNameValidatorTest {
 
     @Test
     public void testFailToValidateCarNamesIfCarNameIsNull() throws AssertionError {
-        CarNameValidator carNameValidator = new CarNameValidator();
+        String[] carNames = {null, null};
 
-        assertFalse(carNameValidator.doesValidCarName(null));
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+
+        assertFalse(carNameValidator.doesValid());
     }
 
     @Test
     public void testFailToValidateCarNamesIfCarNameLongerThanUpperBound() throws AssertionError {
-        CarNameValidator carNameValidator = new CarNameValidator();
         int aboveUpperBound = CarNameValidator.CarNameBound.UPPER.getBound() + 1;
-
         String input = "";
         for (int i = 0; i < aboveUpperBound; i++) {
             input += "a";
         }
+        String[] carNames = { input };
 
-        assertFalse(carNameValidator.doesValidCarName(input));
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+
+        assertFalse(carNameValidator.doesValid());
     }
 }

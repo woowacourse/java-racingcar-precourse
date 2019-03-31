@@ -1,12 +1,32 @@
 package domain;
 
-public class CarNameValidator {
+public class CarNameValidator implements Validator {
+
+    private final String[] carNames;
+
+    public CarNameValidator(String[] carNames) {
+        this.carNames = carNames;
+    }
+
+    @Override
+    public boolean doesValid() {
+        return doesValidCarNames(carNames);
+    }
 
     public boolean doesValidCarName(String input) {
         if (doesCarNameIsNotNull(input) && doesCarNameLessOrEqualToUpperBound(input)) {
             return true;
         }
         return false;
+    }
+
+    public boolean doesValidCarNames(String[] carNames) {
+        for (String carName : carNames) {
+            if (!doesValidCarName(carName)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private boolean doesCarNameLessOrEqualToUpperBound(String input) {
