@@ -31,7 +31,7 @@
 | ----------- | ------------ |
 | private int getRandomNumber()  | 0~9사이의 임의의 자연수를 얻는다.  |
 | private void moveCheak(int num) | 입력받은 수로 Car의 이동과 진행을 판단한다.  |
-| private void printState()  | Car의 name과 position 을 출력한다.   |
+| private void statusOutput()  | Car의 name과 position 을 출력한다.   |
 |  public void race() | 1회 레이스를 진행한다.  |
 
 
