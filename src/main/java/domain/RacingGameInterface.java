@@ -16,6 +16,7 @@ public interface RacingGameInterface {
     /** 실행 회수 입력 받기  */
     abstract int inputMoveCount();
     abstract boolean checkNumberOrNot(String moveCountStr);
+    abstract boolean checkMoveCountInputOrNot(String moveCountStr);
     
     /** 승자 판정  */
     abstract ArrayList<Car> judgeWinner();

@@ -88,15 +88,17 @@ public class RacingGame implements RacingGameInterface {
         return carList;
     }
 
-    @Override
+
     public int inputMoveCount() {
         boolean wrongInput = true;
+        boolean notInput = true;
         String moveCountStr = "0";
         
-        while (wrongInput) {
+        while (wrongInput || notInput) {
             System.out.println("시도할 회수는 몇회인가요?");
             moveCountStr = sc.nextLine();
             wrongInput = checkNumberOrNot(moveCountStr);
+            notInput = checkMoveCountInputOrNot(moveCountStr);
         }
         
         moveCount = Integer.parseInt(moveCountStr);
@@ -104,7 +106,7 @@ public class RacingGame implements RacingGameInterface {
         return moveCount;
     }
     
-    @Override
+
     public boolean checkNumberOrNot(String moveCountStr) {
         boolean isNotNumber = false;
         
@@ -117,6 +119,23 @@ public class RacingGame implements RacingGameInterface {
         }
         
         return isNotNumber;
+        }
+
+
+    public boolean checkMoveCountInputOrNot(String moveCountStr) {
+       boolean isNotInput = false;
+        
+        if (moveCountStr.length() == 0) {
+            System.out.println("시도할 회수가 입력되지 않았습니다.");
+            isNotInput = true;
+        }
+        
+        if (Integer.parseInt(moveCountStr) == 0) {
+            System.out.println("레이스를 위해 0 이상의 숫자를 입력해주세요.");
+            isNotInput = true;
+        }
+        
+        return isNotInput;
     }
 
     @Override
