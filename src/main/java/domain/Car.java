@@ -50,29 +50,31 @@ class GameManager {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         names = Arrays.asList(input.nextLine().split(","));
-        if (checkLengthsOfNames(names)) {
-            return addCars(names);
+        if (checkNames(names)) {
+            addCars(names);
+            return true;
         }
         return false;
     }
 
-    private static boolean checkLengthsOfNames(final List<String> names) {
+    private static boolean checkNames(final List<String> names) {
+        final int trueSize = (new HashSet<>(names)).size();
+
+        if (names.size() > trueSize || trueSize <= 1) {
+            return false;
+        }
         for (String name : names) {
-            if (name.length() > 5) {
+            if (name.length() == 0 || name.length() > 5) {
                 return false;
             }
         }
         return true;
     }
 
-    private static boolean addCars(final List<String> names) {
-        if (names.size() <= 1) {
-            return false;
-        }
+    private static void addCars(final List<String> names) {
         names.forEach(name -> {
             cars.add(new Car(name));
         });
-        return true;
     }
 
     private static boolean inputNumbers() {
@@ -113,7 +115,7 @@ class GameManager {
 
     private static void getWinners() {
         String message = "";
-        final String iGaDifferentiation;
+        final String iGa;
 
         for (Car car : cars) {
             if (car.getPosition() == positionOfTheWinner) {
@@ -121,9 +123,23 @@ class GameManager {
             }
         }
         message = message.substring(0, message.length() - 2);
-        iGaDifferentiation = ((message.charAt(message.length() - 1) - (0xAC00)) % 28) == 0
-                ? "가"
-                : "이";
-        System.out.println( message + iGaDifferentiation + " 최종 우승했습니다.");
+        iGa = differentiateIGa(message.charAt(message.length() - 1));
+        System.out.println( message + iGa + " 최종 우승했습니다.");
+    }
+
+    /*
+    유니코드 표 상에서 앞 글자의 받침 여부를 판단해 이/가 중 적절한 조사를 고른다.
+    알파벳이나 숫자의 경우 한글 발음으로 단순 치환.
+     */
+    private static String differentiateIGa(final char letter) {
+        final char[] CONVERSION_TABLE = ("영일이삼사오육칠팔구:;<=>?@"
+                + "이비씨디이프쥐치이이이엘엠엔오피큐알쓰티유이유스이지"
+                + "[원]^_`이비씨디이프쥐치이이이엘엠엔오피큐알쓰티유이유스이지"
+        ).toCharArray();
+        if (48 <= letter && letter <= 122) {
+            return ((CONVERSION_TABLE[letter - 48] - 0xAC00) % 28 == 0) ? "가" : "이";
+        }
+
+        return ((letter - 0xAC00) % 28 == 0) ? "가" : "이";
     }
 }
