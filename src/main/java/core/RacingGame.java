@@ -19,7 +19,7 @@ public class RacingGame {
         random = new Random();
     }
 
-    public boolean init() {
+    private boolean init() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String nameInput = scanner.next();
         scanner.nextLine();
@@ -34,10 +34,13 @@ public class RacingGame {
         return true;
     }
 
-    public void playRounds() {
-        for (Car car : carList)
+    private void playRounds() {
+        for (Car car : carList) {
             if (random.nextInt(10) >= 4)
                 car.goForward();
+            car.printPosition();
+        }
+        System.out.println();
     }
 
     public boolean progressGame() {
@@ -45,9 +48,9 @@ public class RacingGame {
             return false;
 
         System.out.println("실행결과");
-        for (int i = 0; i < round; i++) {
+        System.out.println();
+        for (int i = 0; i < round; i++)
             playRounds();
-        }
 
         return true;
     }
