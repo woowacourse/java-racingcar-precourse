@@ -15,6 +15,7 @@ public class RandomNumGenerator {
     }
 
     enum RandomNumBound {
+
         UPPER(10), LOWER(0);
 
         final int bound;

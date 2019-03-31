@@ -11,7 +11,6 @@ public class RandomNumGeneratorTest {
         RandomNumGenerator randomNumGenerator = new RandomNumGenerator();
 
         int random = randomNumGenerator.generateRandomNum();
-        System.out.println(random);
 
         assertFalse(random < RandomNumGenerator.RandomNumBound.LOWER.getBound());
     }
@@ -21,7 +20,6 @@ public class RandomNumGeneratorTest {
         RandomNumGenerator randomNumGenerator = new RandomNumGenerator();
 
         int random = randomNumGenerator.generateRandomNum();
-        System.out.println(random);
 
         assertFalse(random > RandomNumGenerator.RandomNumBound.UPPER.getBound());
     }
