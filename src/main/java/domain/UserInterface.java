@@ -29,16 +29,23 @@ public class UserInterface {
         return true;
     }
 
-    public int inputCnt() {
+    public String inputCnt() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return sc.nextInt();
+        return sc.next();
     }
 
-    public boolean checkValidationCnt(int cnt) {
-        return (cnt >= MIN_NUMBER);
+    public boolean checkValidationCnt(String cntStr) {
+        int cnt;
+        try {
+            cnt = Integer.parseInt(cntStr);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        return (cnt > MIN_NUMBER);
     }
 
-    public void printResultMenu(){
+    public void printResultMenu() {
         System.out.println("\n실행결과");
     }
 

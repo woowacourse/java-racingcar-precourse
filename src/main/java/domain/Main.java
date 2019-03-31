@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         UserInterface ui = new UserInterface();
         String[] carNames = null;
+        String cntStr = "";
         int cnt = 0;
         boolean flag = false;
 
@@ -14,10 +15,11 @@ public class Main {
 
         flag = false;
         while (!flag) {
-            cnt = ui.inputCnt();
-            flag = ui.checkValidationCnt(cnt);
+            cntStr = ui.inputCnt();
+            flag = ui.checkValidationCnt(cntStr);
         }
 
+        cnt = Integer.parseInt(cntStr);
         Car[] cars = new Car[carNames.length];
         int idx = 0;
         for (String carName : carNames) {
