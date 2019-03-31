@@ -20,7 +20,11 @@ public class RacingGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String nameInput = scanner.next();
         scanner.nextLine();
-        System.out.println("Input : " + nameInput);
+        String[] nameInputList = nameInput.split(",");
+        for (String name : nameInputList) {
+            Car car = new Car(name);
+            carList.add(car);
+        }
         System.out.println("시도할 횟수는 몇회인가요?");
         round = scanner.nextInt();
     }
