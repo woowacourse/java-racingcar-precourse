@@ -97,21 +97,27 @@ public class CarGame {
         return result;
     }
 
-    public void printResultTotal() {
-        int maxResult = Collections.max(this.cars).getPosition();
-
-        String[] tmpResult = new String[countElementNumber(maxResult)];
+    private String[] getWinnerArray() {
+        int maxPosition = Collections.max(this.cars).getPosition();
+        String[] result = new String[countElementNumber(maxPosition)];
 
         int index = 0;
-
         for (Car car : this.cars) {
-            if (car.getPosition() == maxResult) {
-                tmpResult[index] = car.getName();
+            if (car.getPosition() == maxPosition) {
+                result[index] = car.getName();
                 index++;
             }
         }
 
-        String result = arrayJoinWithComma(tmpResult);
+        return result;
+    }
+
+    public void printResultTotal() {
+        int maxResult = Collections.max(this.cars).getPosition();
+
+        String[] resultArray = getWinnerArray();
+
+        String result = arrayJoinWithComma(resultArray);
 
         System.out.println(result + "가 최종 우승하였습니다.");
     }
