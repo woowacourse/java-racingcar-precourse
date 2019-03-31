@@ -186,7 +186,9 @@ public class RacingGame implements RacingGameInterface {
     }
 
     public static void main(String[] args) {
-        
+        RacingGame rg = new RacingGame();
+        rg.startRace();  
+        rg.printWinner();
     }
 
 }
