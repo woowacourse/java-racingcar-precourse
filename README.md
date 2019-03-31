@@ -13,35 +13,46 @@
 - Car.java
 	- private int getRandomNumber()
 	- private void moveCheak(int num)
-	- private void printState()
+	- private void statusOutput()
 	- public void race()
+	- public int getPosition()
+	- public String getName()
 - GamePlay.java
 	- private void getData()
 	- private void splitString()
 	- private void setCars()
 	- public void start()
+	- private void oneTimeRace()
+	- private boolean nameLengthCheak()
+	- private void findWinner()
+	- private int getMaxIndex()
 
 ## Class & Method 설명
 
-|  Main.java | 프로그램을 실행시키기 위한 Class  |
+| Main.java | 프로그램을 실행시키기 위한 Class  |
 | ----------- | ------------ |
-|  public static void main(String[] args) |   PlayGame class 를 생성해 게임을 실행시킨다.|
+| public static void main(String[] args) |   PlayGame class 를 생성해 게임을 실행시킨다.|
 
-|  Car.java | Car의 상태와 이동 변화를 제어한다.  |
+| Car.java | Car의 상태와 이동 변화를 제어한다.  |
 | ----------- | ------------ |
 | private int getRandomNumber()  | 0~9사이의 임의의 자연수를 얻는다.  |
 | private void moveCheak(int num) | 입력받은 수로 Car의 이동과 진행을 판단한다.  |
 | private void statusOutput()  | Car의 name과 position 을 출력한다.   |
-|  public void race() | 1회 레이스를 진행한다.  |
+| public void race() | 1회 레이스를 진행한다.  |
+| public int getPosition() | 객체의 name 변수를 반환한다.  |
+| public String getName() | 객체의 position 변수를 반환한다.   |
 
 
 |  GamePlay.java | 게임을 규칙에 따라 진행하는 클레스  |
 | ----------- | ------------ |
-|  private void getData() | 경주할 자동차와 횟수를 입력받는다.  |
+| private void getData() | 경주할 자동차와 횟수를 입력받는다.  |
 | private void splitString()  | 자동차의 이름을 분리한다.  |
 | private void setCars()  | Car객체를 자동차의 수에 맞개 생성하고 세팅한다.  |
 | public void start()  | 게임을 횟수에 맞게 진행한다.  |
-
+| private void oneTimeRace()  | 레이스를 1회 진행한다.  |
+| private boolean nameLengthCheak()  |  자동차의 이름이 5자를 초과하는지 건사한다. |
+| private void findWinner()  | 경기의 승자를 찾아서 출력한다. |
+| private int getMaxIndex()  | 가장 멀리간 자동차의 index를 찾아 반환한다. |
 
 
 
