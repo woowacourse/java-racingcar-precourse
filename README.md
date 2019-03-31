@@ -10,3 +10,4 @@
 10. 승자를 알리는 announceWinners() method를 정의한다.
 10-1. 가장 높은 점수를 확인하는 decideMaxPosition() method를 정의한다.
 10-2. 승자들을 추려내는 decideWinners() method를 정의한다.
+10-3. 승자들을 출력하는 printWinners() method를 정의한다.

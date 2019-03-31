@@ -115,6 +115,8 @@ public class Car
     public static void announceWinners(Car[] cars)
     {
         int maxPosition = decideMaxPosition(cars);
+        ArrayList<Car>winners = decideWinners(cars, maxPosition);
+
     }
 
     private static int decideMaxPosition(Car[] cars)
@@ -128,6 +130,19 @@ public class Car
             }
         }
         return maxPosition;
+    }
+
+    private static ArrayList<Car> decideWinners(Car[] cars, int maxPosition)
+    {
+        ArrayList<Car>winners = new ArrayList<Car>();
+        for(int i=0; i<cars.length; i++)
+        {
+            if(cars[i].position >= maxPosition)
+            {
+                winners.add(cars[i]);
+            }
+        }
+        return winners;
     }
 
     public static boolean getUserAnswer()
