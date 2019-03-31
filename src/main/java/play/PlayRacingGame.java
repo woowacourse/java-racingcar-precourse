@@ -12,6 +12,7 @@ import java.util.Scanner;
 import domain.Car;
 
 public class PlayRacingGame {
+	private static final int LIMITED_WORD_NUMBER = 5;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -40,13 +41,13 @@ public class PlayRacingGame {
 	}
 
 	/**
-	 * 입력받은 이름이 5글자 이하인지 체크. 5글자 초과일 경우 안내문 출력.
+	 * 입력받은 이름이 5글자 이하인지 체크. 5글자 초과일 경우 안내문 출력. 글자수 제한은 상수 LIMITED_WORD_NUMBER 로 표현
 	 */
 	private static boolean isNameOverFiveWords(String[] namesFromUserArr) {
 		boolean nameOverFiveWords = false;
 
 		for (String names : namesFromUserArr) {
-			if (names.length() > 5) {
+			if (names.length() > LIMITED_WORD_NUMBER) {
 				System.out.println("자동차 이름은 5글자 이하로 입력해주세요.");
 				nameOverFiveWords = true;
 				break;
