@@ -22,7 +22,11 @@ public class Car {
         return this.name;
     }
     
-    public String toString() {
-        return "name : " + name + " position : " + position;
+    public void printRaceSituation() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
