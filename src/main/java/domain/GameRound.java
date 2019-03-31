@@ -26,12 +26,12 @@ public class GameRound {
 		}
 	}
 
-	public void printGameRound(Car car) {
+	private void printGameRound(Car car) {
 		String lines = positionToLine(car.getPosition());
 		System.out.println(car.getName() + " : " + lines);
 	}
 
-	public String positionToLine(int position) {
+	private String positionToLine(int position) {
 		StringBuilder resultString = new StringBuilder();
 		for (int i = 0; i < position; i++) {
 			resultString.append("-");

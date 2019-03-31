@@ -27,10 +27,4 @@ public class GameRoundTest {
 		testGameRound.proceed();
 		testGameRound.printGameRounds();
 	}
-
-	@Test
-	public void positionToLine() {
-		assertEquals("-----", testGameRound.positionToLine(5));
-		assertEquals("", testGameRound.positionToLine(0));
-	}
 }

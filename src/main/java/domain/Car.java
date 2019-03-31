@@ -31,4 +31,23 @@ public class Car {
         int randomNumber = randomNumberMaker.nextInt(10);
         return randomNumber;
     }
+
+    public String toString() {
+        return this.name;
+    }
+
+    public boolean equals(Object obj) {
+        Car carObj;
+        String name;
+        try {
+            carObj = (Car) obj;
+            name = carObj.getName();
+        } catch (ClassCastException e) {
+            return false;
+        }
+        if (this.getName().equals(name)) {
+            return true;
+        }
+        return false;
+    }
 }
