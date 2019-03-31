@@ -1,5 +1,13 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
+// apply plugin: 'java'
+// apply plugin: 'eclipse'
+
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+}
 
 version = '1.0.0'
 sourceCompatibility = 1.8
@@ -11,4 +19,12 @@ repositories {
 dependencies {
     testCompile('junit:junit:4.12')
     testCompile('org.assertj:assertj-core:3.11.1')
+}
+
+// Define the main class for the application
+mainClassName = 'Main'
+
+// Apply the Java source file encoding
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
