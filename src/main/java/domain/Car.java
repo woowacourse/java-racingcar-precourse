@@ -2,11 +2,11 @@ package domain;
 
 import java.util.Random;
 
-public class Car {
+class Car {
     private final String name;
     private int position = 0;
     private Random random = new Random();
-    public Car(String name) {
+    Car(String name) {
         this.name = name;
     }
 
@@ -24,14 +24,14 @@ public class Car {
         String positionStr = positionToString();
         System.out.println(this.name + ":" + positionStr);
     }
-    void isMove(int number){
+    private void isMove(int number){
         if(number >= 4){
             this.position++;
         }
     }
 
-    String positionToString(){
-        StringBuilder result = new StringBuilder("");
+    private String positionToString(){
+        StringBuilder result = new StringBuilder();
         for(int i = 0 ; i < this.position; i++){
             result.append("-");
         }
