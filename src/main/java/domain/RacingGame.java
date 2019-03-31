@@ -59,10 +59,20 @@ public class RacingGame implements RacingGameInterface {
         return wrongLength;
     }
     
-    @Override
+    /**
+     * inputPlayerName()로 자동차의 이름을 입력받고 자동차의 이름이 5자 이하인지 확인해 
+     * 최종적으로 자동차 이름을 nameArrayList에 저장합니다.
+     */
     public ArrayList<String> setPlayerName() {
-        // TODO Auto-generated method stub
-        return null;
+        boolean validatedPlayerName = true;
+
+        while (validatedPlayerName) {
+            playerName = inputPlayerName();
+            nameArrayList = convertStringNameToArrayList(playerName);
+            validatedPlayerName = checkPlayerNameLength(nameArrayList);
+        }
+        
+        return nameArrayList;
     }
 
     @Override
