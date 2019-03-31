@@ -10,6 +10,7 @@ public class RacingGame implements RacingGameInterface {
     private String playerName = "";
     private ArrayList<String> nameArrayList = new ArrayList<String>();
     private ArrayList<Car> carList = new ArrayList<Car>();
+    private ArrayList<Car> winner = new ArrayList<Car>();
     private int moveCount = 0; 
     
     public String inputPlayerName() {
@@ -156,9 +157,22 @@ public class RacingGame implements RacingGameInterface {
     }
 
     @Override
-    public ArrayList<Car> judgeWinner() {
-        // TODO Auto-generated method stub
-        return null;
+    public ArrayList<Car> judgeWinner(ArrayList<Car> carList) {
+        int maxPosition = 0;
+        
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getPosition() > maxPosition) {
+                maxPosition = carList.get(i).getPosition();
+            }
+        }
+        
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getPosition() == maxPosition) {
+                winner.add(carList.get(i));
+            }
+        }
+        
+        return winner;
     }
 
     public static void main(String[] args) {
