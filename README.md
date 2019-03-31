@@ -8,3 +8,5 @@
 7-1. 자동차들이 움직인 거리를 계산하는 generateDistance() method를 정의한다.
 8. 결과를 출력하는 printMovements() method를 정의한다.
 10. 승자를 알리는 announceWinners() method를 정의한다.
+10-1. 가장 높은 점수를 확인하는 decideMaxPosition() method를 정의한다.
+10-2. 승자들을 추려내는 decideWinners() method를 정의한다.
