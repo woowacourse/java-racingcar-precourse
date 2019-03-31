@@ -83,4 +83,20 @@ public class Car {
 
         return carState;
     }
+
+    public static int findFirstCarValue(int[] getForwardArray){
+
+        int getFirstValue = 0;                                      // 가장 많이 전진한 값을 저장하는 변수
+
+        for(int i=0;i<getForwardArray.length;i++){
+
+            if(getForwardArray[i]>getFirstValue){
+
+                /* 자동차의 전진 횟수가 이전에 저장된 횟수 보다 더 많을때 */
+                getFirstValue = getForwardArray[i];
+            }
+        }
+
+        return getFirstValue;
+    }
 }
