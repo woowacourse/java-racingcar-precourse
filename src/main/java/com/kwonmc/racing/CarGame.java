@@ -1,11 +1,7 @@
 package com.kwonmc.racing;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -66,7 +62,7 @@ public class CarGame {
 
     public void printResultEachGame() {
         for (Car car : cars) {
-            System.out.printf("%s : %s\n", car.getName(), car.getStringPosition()/*, car.rand*/);
+            System.out.printf("%s : %s\n", car.getName(), car.getStringPosition());
         }
         System.out.println();
     }
@@ -113,12 +109,8 @@ public class CarGame {
     }
 
     public void printResultTotal() {
-        int maxResult = Collections.max(this.cars).getPosition();
-
         String[] resultArray = getWinnerArray();
-
         String result = arrayJoinWithComma(resultArray);
-
-        System.out.println(result + "가 최종 우승하였습니다.");
+        System.out.println(result + "가 최종 우승했습니다.");
     }
 }
