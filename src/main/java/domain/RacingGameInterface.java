@@ -11,7 +11,7 @@ public interface RacingGameInterface {
     abstract ArrayList<String> setPlayerName();
     
     /** 자동차 객체 생성  */
-    abstract ArrayList<Car> makePlayers();
+    abstract ArrayList<Car> makePlayers(ArrayList<String> nameArrayList);
     
     /** 실행 회수 입력 받기  */
     abstract String inputMoveCount();

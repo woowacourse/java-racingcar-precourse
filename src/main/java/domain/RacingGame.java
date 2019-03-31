@@ -3,10 +3,13 @@ package domain;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.woowa.precourse2_1.CarTest;
+
 public class RacingGame implements RacingGameInterface {
     private Scanner sc = new Scanner(System.in);
     private String playerName = "";
     private ArrayList<String> nameArrayList = new ArrayList<String>();
+    private ArrayList<Car> carList = new ArrayList<Car>();
     
     public String inputPlayerName() {
         boolean nameNotInput = true;
@@ -75,10 +78,15 @@ public class RacingGame implements RacingGameInterface {
         return nameArrayList;
     }
 
-    @Override
-    public ArrayList<Car> makePlayers() {
-        // TODO Auto-generated method stub
-        return null;
+    /**
+     * 입력받은 이름을 생성자의 인자로 넘겨 Car객체를 생성합니다.
+     */
+    public ArrayList<Car> makePlayers(ArrayList<String> nameArrayList) {
+        for (int i = 0; i < nameArrayList.size(); i++) {
+            carList.add(new Car(nameArrayList.get(i)));
+        }
+
+        return carList;
     }
 
     @Override
@@ -108,5 +116,6 @@ public class RacingGame implements RacingGameInterface {
     public static void main(String[] args) {
         
     }
+
 
 }
