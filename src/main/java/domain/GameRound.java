@@ -7,7 +7,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameRound {
+class GameRound {
 
 	List<Car> carList;
 
@@ -63,8 +63,7 @@ public class GameRound {
 	}
 
 	private int getWinnerPosition() {
-		int index = 0;
-		int winner = carList.get(index).getPosition();
+		int winner = carList.get(0).getPosition();
 		for (int i = 1; i < this.carList.size(); i++) {
 			int cur = this.carList.get(i).getPosition();
 			if (cur > winner) {

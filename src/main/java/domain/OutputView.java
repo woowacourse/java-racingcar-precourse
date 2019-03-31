@@ -1,11 +1,12 @@
 /*
  * OutputView.java
  */
+
 package domain;
 
 import java.util.List;
 
-public class OutputView {
+class OutputView {
 
 	public static void printGame(List<Car> carList, int gameCount) {
 		System.out.println("실행 결과");

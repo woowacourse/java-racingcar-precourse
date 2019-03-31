@@ -7,7 +7,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Parser {
+class Parser {
 	private final static String regex = "\\s*,\\s*";
 
 	public static List<Car> stringToListOfCar(String input) {
