@@ -28,6 +28,10 @@ public class Car {
             System.out.print("-");
         }
         System.out.println();
-        System.out.println();
+    }
+
+    public void race() {
+        moveCheak(getRandomNumber());
+        statusOutput();
     }
 }
