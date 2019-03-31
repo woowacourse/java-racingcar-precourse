@@ -30,6 +30,7 @@ public class RacingGame {
         }
         System.out.println("시도할 횟수는 몇회인가요?");
         round = scanner.nextInt();
+        System.out.println();
 
         return true;
     }
@@ -43,6 +44,21 @@ public class RacingGame {
         System.out.println();
     }
 
+    private void printWinner() {
+        String winnerName = "";
+        int winnerPosition = 0;
+
+        for (Car car : carList) {
+            if (car.getPosition() > winnerPosition) {
+                winnerName = car.getName();
+                winnerPosition = car.getPosition();
+            } else if (car.getPosition() == winnerPosition)
+                winnerName += ("," + car.getName());
+        }
+
+        System.out.println(winnerName + "가 최종 우승했습니다!");
+    }
+
     public boolean progressGame() {
         if (!init())
             return false;
@@ -51,6 +67,8 @@ public class RacingGame {
         System.out.println();
         for (int i = 0; i < round; i++)
             playRounds();
+
+        printWinner();
 
         return true;
     }
