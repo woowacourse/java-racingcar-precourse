@@ -36,5 +36,13 @@ public class RacingGameDisplay {
          }
      }
 
- }
+     public static void showFinalWinnerCarName(String[] takeFirstCarName){
 
+         for(int i=0;i<takeFirstCarName.length;i++){
+
+             System.out.print(takeFirstCarName[i] + " ");
+         }
+         System.out.println("가 최종 우승 하였습니다");
+     }
+
+ }
