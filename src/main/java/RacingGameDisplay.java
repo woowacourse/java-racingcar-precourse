@@ -22,6 +22,19 @@ public class RacingGameDisplay {
 
          System.out.println("실행 결과");
      }
-     
+
+     public static void showDuringRacing(String[] playCarName, int[] getForwardArray){
+
+         for(int i=0;i<playCarName.length;i++){
+
+             System.out.print(playCarName[i] + " : ");
+             for(int k=0;k<getForwardArray[i];k++){
+
+                 System.out.print("-");
+             }
+            System.out.println("");
+         }
+     }
+
  }
 
