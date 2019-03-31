@@ -99,4 +99,32 @@ public class Car {
 
         return getFirstValue;
     }
+
+    public static String[] getSameFirstCar(int findFirstCarValue, int[] getForwardArray, String[] carNameArray){
+
+        int getFirstCarNameSize = 0;                                        // 1등 차 이름 갯수
+        int findFirstCarNamePlace = 0;                                      // 1등 차 배열 저장 위치
+
+        for(int i=0;i<getForwardArray.length;i++){
+
+            if(getForwardArray[i] == findFirstCarValue){
+
+                /* 1등과 같은 값을 가지면 */
+                getFirstCarNameSize += 1;                                   // 1등 차 이름 갯수 증가
+            }
+        }
+
+        String[] takeFirstCarName = new String[getFirstCarNameSize];        // 1등 차 이름 저장 배열
+        for(int i=0;i<getForwardArray.length;i++){
+
+            if(getForwardArray[i] == findFirstCarValue){
+
+                /* 1등과 같은 값을 가지면 */
+                takeFirstCarName[findFirstCarNamePlace] = carNameArray[i];  // 1등 차 이름 배열에 저장
+                findFirstCarNamePlace += 1;                                 // 1등 차 배열 저장 위치 증가
+            }
+        }
+
+        return takeFirstCarName;
+    }
 }
