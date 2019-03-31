@@ -1,10 +1,16 @@
 package com.kwonmc.racing;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarGame {
-    private ArrayList<Car> cars;
+    private List<Car> cars;
     private int runs;
 
     public CarGame() {
@@ -48,7 +54,6 @@ public class CarGame {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-
     public void printResultTitle() {
         System.out.println("\n실행 결과");
     }
@@ -61,8 +66,43 @@ public class CarGame {
 
     public void printResultEachGame() {
         for (Car car : cars) {
-            System.out.printf("%s : %s\n", car.getName(), car.getPosition()/*, car.rand*/);
+            System.out.printf("%s : %s\n", car.getName(), car.getStringPosition()/*, car.rand*/);
         }
         System.out.println();
+    }
+
+    private String arrayJoinWithComma(String[] arr) {
+        StringBuffer builder = new StringBuffer();
+
+        int lastIndex = arr.length - 1;
+
+        for (int i = 0; i < arr.length; i++) {
+            builder.append(arr[i]);
+
+            if (i != lastIndex) {
+                builder.append(", ");
+            }
+        }
+
+        return builder.toString();
+    }
+
+    public void printResultTotal() {
+        int maxResult = Collections.max(this.cars).getPosition();
+
+        String[] tmpResult = new String[this.cars.size()];
+
+        int index = 0;
+
+        for (Car car : this.cars) {
+            if (car.getPosition() == maxResult) {
+                tmpResult[index] = car.getName();
+                index++;
+            }
+        }
+
+        String result = arrayJoinWithComma(tmpResult);
+
+        System.out.println(result + "가 최종 우승하였습니다.");
     }
 }

@@ -1,7 +1,5 @@
 package com.kwonmc.racing;
 
-import java.util.Collections;
-
 public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
@@ -23,7 +21,11 @@ public class Car implements Comparable<Car> {
         // Do Nothing
     }
 
-    public String getPosition() {
+    public int getPosition() {
+        return position;
+    }
+
+    public String getStringPosition() {
         char[] pos = new char[this.position];
         for (int i = 0; i < pos.length; i++) {
             pos[i] = '-';

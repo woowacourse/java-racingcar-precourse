@@ -11,5 +11,6 @@ public class Main {
             carGame.runEachGame();
             carGame.printResultEachGame();
         }
+        carGame.printResultTotal();
     }
 }
