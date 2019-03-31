@@ -15,6 +15,15 @@ public class RacingGame {
             userInput = scanner.nextLine();
             carNames = inputCarName(userInput);
         }
+
+        Car cars[] = new Car[carNames.length];
+        for(int i = 0 ; i < cars.length ; i++){
+            cars[i]=  new Car(carNames[i]);
+        }
+
+        System.out.println("시도할 횟수는 몇회 인가요?");
+        int count = scanner.nextInt();
+        
     }
 
     public String[] inputCarName(String carNames){
