@@ -11,7 +11,7 @@ public class OutputView {
 		System.out.println("실행 결과");
 		GameRound gameRound = new GameRound(carList);
 		printGameRounds(gameRound, gameCount);
-		//printResult(gameRound);
+		printResult(gameRound);
 	}
 
 	private static void printGameRounds(GameRound gameRound, int gameCount) {
@@ -22,9 +22,8 @@ public class OutputView {
 		}
 	}
 
-	/*
 	private static void printResult(GameRound finalRound) {
 		System.out.println(finalRound.getWinnerString() + "가 우승했습니다");
 	}
-	*/
+
 }

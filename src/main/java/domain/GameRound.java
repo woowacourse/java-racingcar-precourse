@@ -41,7 +41,6 @@ public class GameRound {
 		return resultString.toString();
 	}
 
-	/*
 	public String getWinnerString() {
 		StringBuilder winners = new StringBuilder();
 		List<String> winnerList = getWinnerList();
@@ -74,5 +73,4 @@ public class GameRound {
 		}
 		return winner;
 	}
-	*/
 }
