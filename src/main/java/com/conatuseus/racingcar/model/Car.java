@@ -9,7 +9,6 @@ public class Car {
 
     private final String name;
     private int position = 0;
-    private int random;
 
     public Car(String name) {
         this.name = name;
@@ -23,16 +22,15 @@ public class Car {
         return this.position;
     }
 
-    private void setRandom(){
-        this.random=(int)(Math.random()*MAX_RANDOM) + MIN_RANDOM;
+    public void addRandomNumToPosition(){
+        int random=(int)(Math.random()*MAX_RANDOM) + MIN_RANDOM;
+        if(this.isGoingPossible(random)){
+            this.position+=random;
+        }
     }
 
-    public int getRandom(){
-        return this.random;
-    }
-
-    private boolean isGoingPossible(){
-        return this.random >= CAN_GOING;
+    private boolean isGoingPossible(int random){
+        return random >= CAN_GOING;
     }
 
 

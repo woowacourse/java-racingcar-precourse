@@ -42,6 +42,12 @@ public class AppController {
         }
     }
 
+    private void carsGoingOneStep(){
+
+        for(Car car : carList){
+            car.addRandomNumToPosition();
+        }
+    }
 
 
 }
