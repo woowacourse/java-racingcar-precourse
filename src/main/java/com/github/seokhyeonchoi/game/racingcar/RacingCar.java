@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+*
+* @description : RacingCar Game Class
+* @package : com.github.seokhyoenchoi.game.racingcar
+* @author : 최석현
+* 
+*/
 public class RacingCar {
 	private List<Car> cars;
 	private int attemptNum;
@@ -14,6 +21,9 @@ public class RacingCar {
 		init();
 	}
 	
+	/**
+	 * @desc Car List, 시도 횟수 초기화
+	 */
 	private void init() {
 		String[] carNameArray = enterCarNames();
 		enterAttempNum();
@@ -21,6 +31,9 @@ public class RacingCar {
 		addCarByCarNames(carNameArray);
 	}
 	
+	/**
+	 * @desc 시도 횟수만큼 move 및 중간상태 출력 후 결과 출력
+	 */
 	public void start() {
 		System.out.println("실행 결과");
 		
@@ -32,6 +45,9 @@ public class RacingCar {
 		printResult();
 	}
 	
+	/**
+	 * @desc Car name들을 입력받고 검증 후 Array로 반환
+	 */
 	private String[] enterCarNames() {
 		String[] carNameArray;
 		
@@ -50,6 +66,9 @@ public class RacingCar {
 		return carNameArray;
 	}
 	
+	/**
+	 * @desc 시도 횟수 검증 후 저장
+	 */
 	private void enterAttempNum() {
 		int attemptNumTemp = 0;
 		
@@ -65,6 +84,9 @@ public class RacingCar {
 		attemptNum = attemptNumTemp;
 	}
 	
+	/**
+	 * @desc Car 객체 생성 후 List에 추가
+	 */
 	private void addCarByCarNames(String[] carNameArray) {
 		
 		for(String carName : carNameArray) {
@@ -76,6 +98,7 @@ public class RacingCar {
 			}
 		}
 	}
+	
 	
 	private void moveAllCars() {
 		for(Car car : cars) {
@@ -105,6 +128,9 @@ public class RacingCar {
 		System.out.println("가 최종 우승했습니다.");
 	}
 	
+	/**
+	 * @desc Car 중 가장 먼 거리 반환
+	 */
 	private int getFurthermostPosition() {
 		int furthermostPosition = 0;
 		
