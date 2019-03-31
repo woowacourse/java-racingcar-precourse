@@ -1,5 +1,4 @@
 package domain;
-
 import java.util.Scanner;
 
 public class RacingGame {
@@ -33,7 +32,6 @@ public class RacingGame {
         int maxPosition = getMaxPosition();
         String winner = getWinner(maxPosition);
         System.out.println(winner + "가 최종 우승 했습니다.");
-
     }
 
     public String[] inputCarName(String carNames){
@@ -73,7 +71,7 @@ public class RacingGame {
                 result.append(", ");
             }
         }
-        result.delete(result.length()-1 , result.length());
+        result.delete(result.length()-2 , result.length());
         return result.toString();
     }
 }
