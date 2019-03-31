@@ -28,6 +28,9 @@ public class AppController {
         this.inputAndMakeCarList();
         this.setNumberOfTry(AppView.inputNumberOfTry());
 
+        AppView.outputLine("실행결과");
+
+
         AppView.outputLine("<< 게임을 종료합니다.");
     }
 
@@ -38,5 +41,6 @@ public class AppController {
             carList.add(new Car(name));
         }
     }
+
 
 }
