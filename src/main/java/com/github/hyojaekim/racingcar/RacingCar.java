@@ -1,13 +1,13 @@
-package domain;
+package com.github.hyojaekim.racingcar;
 
 import java.util.Scanner;
 
 public class RacingCar {
 
-    private void gameStart() {
-        Scanner sc = new Scanner(System.in);
-        RacingCarGame rcg = new RacingCarGame(totalCarsName(sc));
-        int maxCount = totalTryCounter(sc);
+    private void gameStart(Scanner sc) {
+        String carsName = getCarsName(sc);                      //전체 자동차 입력받기
+        RacingCarGame rcg = new RacingCarGame(carsName);        //각각의 자동차 등록
+        int maxCount = getMaxTryCount(sc);                      //시도할 횟수 입력받기
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < maxCount; i++) {
@@ -17,12 +17,12 @@ public class RacingCar {
         rcg.printVictoryCar();
     }
 
-    private String totalCarsName(Scanner sc) {
+    private String getCarsName(Scanner sc) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return sc.nextLine();
     }
 
-    private int totalTryCounter(Scanner sc) {
+    private int getMaxTryCount(Scanner sc) {
         System.out.println("시도할 회수는 몇회인가요?");
         int cnt = sc.nextInt();
 
@@ -35,6 +35,7 @@ public class RacingCar {
 
     public static void main(String[] args) {
         RacingCar rc = new RacingCar();
-        rc.gameStart();
+        Scanner sc = new Scanner(System.in);
+        rc.gameStart(sc);
     }
 }

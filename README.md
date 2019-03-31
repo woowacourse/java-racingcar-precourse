@@ -28,8 +28,8 @@
 ### RacingCar : 메인 클래스입니다.
 * 메소드
     * gameStart(void) : 게임을 진행한다.
-    * totalCarsName(String) : 전체 차의 이름을 한 줄로 입력받고 그대로 반환한다.
-    * totalTryCounter(int) : 전체 시도하는 횟수를 입력받고 그대로 반환한다.(0보다 작을 경우 종료)
+    * getCarsName(String) : 전체 차의 이름을 한 줄로 입력받고 그대로 반환한다.
+    * getMaxTryCount(int) : 전체 시도하는 횟수를 입력받고 그대로 반환한다.(0보다 작을 경우 종료)
 
 ### RacingCarGame : 게임에 필요한 기능들을 수행합니다.
 * 변수

@@ -1,4 +1,4 @@
-package domain;
+package com.github.hyojaekim.racingcar;
 
 public class Car {
     private final String name;
@@ -32,7 +32,7 @@ public class Car {
     public boolean isVictoryCar(int max, int cnt) {
         String victoryCarName = "";
         boolean result = (this.position == max) ? true : false;
-        
+
         if (result) {
             if (cnt >= 1) {
                 victoryCarName += ", ";

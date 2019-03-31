@@ -1,4 +1,4 @@
-package domain;
+package com.github.hyojaekim.racingcar;
 
 public class RacingCarGame {
     private Car[] cars;                 // 각각의 자동차 정보
