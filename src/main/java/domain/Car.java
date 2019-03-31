@@ -71,5 +71,18 @@ public class Car {
         return randomNumber;
     }
 
+    public static boolean checkCarState(int randomNumber){
+
+        boolean carState = false;
+
+        if(randomNumber>3){
+
+            /*난수의 값이 4이상 일 경우 */
+            carState = true;
+        }
+
+        return carState;
+    }
+
 
 }
