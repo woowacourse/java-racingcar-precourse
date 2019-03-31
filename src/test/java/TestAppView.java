@@ -1,4 +1,6 @@
+import com.conatuseus.racingcar.appcontroller.AppController;
 import com.conatuseus.racingcar.appview.AppView;
+import com.conatuseus.racingcar.model.Car;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -29,5 +31,18 @@ public class TestAppView {
         assertThat(AppView.isNamesValid(names[7]),is(false));
     }
 
+    @Test
+    public void 자동차_Arraylist_추가_Test(){
+        AppController.carList.add(new Car("a"));
+        AppController.carList.add(new Car("b"));
+        AppController.carList.add(new Car("c"));
+        AppController.carList.add(new Car("d"));
+
+        assertThat(AppController.carList.get(0).getName(),is("a"));
+        assertThat(AppController.carList.get(1).getName(),is("b"));
+        assertThat(AppController.carList.get(2).getName(),is("c"));
+        assertThat(AppController.carList.get(3).getName(),is("d"));
+
+    }
 
 }

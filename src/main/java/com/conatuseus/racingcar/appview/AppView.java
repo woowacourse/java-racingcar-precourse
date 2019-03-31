@@ -14,7 +14,7 @@ public final class AppView {
         System.out.println(aString);
     }
 
-    public static void inputNameOfCar(){
+    public static String[] inputNameOfCar(){
         String[] scannedName;
         while (true){
             outputLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
@@ -25,6 +25,7 @@ public final class AppView {
             }
             outputLine("잘못 입력하였습니다.");
         }
+        return scannedName;
     }
 
     public static boolean isNamesValid(String[] scannedName){
