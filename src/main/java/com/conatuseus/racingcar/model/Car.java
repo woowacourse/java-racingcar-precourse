@@ -31,7 +31,7 @@ public class Car {
         return this.random;
     }
 
-    private boolean isGoing(){
+    private boolean isGoingPossible(){
         return this.random >= CAN_GOING;
     }
 
