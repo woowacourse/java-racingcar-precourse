@@ -9,11 +9,10 @@ public class PlayRacingGame {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String carNames[] = receiveCarNamesFromUser();
-		Car racingCars[] = initCarObjs(carNames);
 		int cntPlay = receivePlayCntFromUser();
-		// 3. 게임 진행
+		
+		Car racingCars[] = initCarObjs(carNames);
 		playRacingGame(racingCars, cntPlay);
-		// 3.3 승리자 알려주기
 		printWinners(racingCars);
 
 	}
@@ -26,15 +25,6 @@ public class PlayRacingGame {
 		return namesFromUser.split(",");
 	}
 	
-	private static Car[] initCarObjs(String[] carNames) {
-		Car racingCars[] = new Car[carNames.length];
-		for(int i = 0 ; i < racingCars.length ; i++) {
-			racingCars[i] = new Car(carNames[i]);
-		}
-		
-		return racingCars;
-	}
-	
 	private static int receivePlayCntFromUser() {
 		System.out.println("시도할 횟수는 몇회인가요?");
 		Scanner sc = new Scanner(System.in);
@@ -45,16 +35,25 @@ public class PlayRacingGame {
 		return playCntFromUser;
 	}
 	
+	private static Car[] initCarObjs(String[] carNames) {
+		Car racingCars[] = new Car[carNames.length];
+		for(int i = 0 ; i < racingCars.length ; i++) {
+			racingCars[i] = new Car(carNames[i]);
+		}
+		
+		return racingCars;
+	}
+	
 	private static void playRacingGame(Car[] racingCars, int cntPlay) {
 		System.out.println("실행 결과");
 		
 		for(int i  = 0 ; i < cntPlay ; i++) {
-			executeCarObjsPlayFunc(racingCars);
+			executeCarObjsPlayRacing(racingCars);
 			System.out.println();
 		}
 	}
 	
-	private static void executeCarObjsPlayFunc(Car[] racingCars) {
+	private static void executeCarObjsPlayRacing(Car[] racingCars) {
 		for(Car car : racingCars) {
 			car.playRacingOneTime();
 		}
@@ -81,7 +80,7 @@ public class PlayRacingGame {
 				winnersName += car.getName() + ",";
 			}
 		}
-		return winnersName.substring(0, winnersName.length() - 2);
+		return winnersName.substring(0, winnersName.length() - 1);
 	}
 
 }

@@ -54,9 +54,7 @@ public class Car {
      * */
     private void printResultStr() {
     	String strResult = "";
-    	// 이름 넣기
     	strResult += this.name + " : ";
-    	// 전진한 출력 넣기
     	strResult += printForwardingCnt();
     	
     	System.out.println(strResult);
