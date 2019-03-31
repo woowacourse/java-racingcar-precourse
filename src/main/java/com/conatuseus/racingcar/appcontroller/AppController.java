@@ -43,9 +43,9 @@ public class AppController {
     }
 
     private void carsGoingOneStep(){
-
         for(Car car : carList){
             car.addRandomNumToPosition();
+            AppView.outputLine(car.toString());
         }
     }
 

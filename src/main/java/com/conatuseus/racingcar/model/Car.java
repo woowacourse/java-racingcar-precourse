@@ -8,6 +8,7 @@ public class Car {
 
     private final String name;
     private int position = 0;
+    private String result="";
 
     public Car(String name) {
         this.name = name;
@@ -37,10 +38,12 @@ public class Car {
         StringBuilder sb=new StringBuilder();
         sb.append(this.getName());
         sb.append(" : ");
-        for(int i=0; i<this.getPosition(); i++){
+        int distanceToGoing=this.getPosition()-this.result.length();
+        for(int i=0; i<distanceToGoing; i++){
             sb.append("-");
         }
-        return sb.toString();
+        result=sb.toString();
+        return result;
     }
 
 }
