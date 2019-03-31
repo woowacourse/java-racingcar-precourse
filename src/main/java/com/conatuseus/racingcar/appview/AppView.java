@@ -14,6 +14,10 @@ public final class AppView {
         System.out.println(aString);
     }
 
+    public static void output(String aString){
+        System.out.print(aString);
+    }
+
     public static String[] inputNameOfCar(){
         String[] scannedName;
         while (true){
