@@ -20,12 +20,11 @@ public class CarGame {
 	private int carMoveCount;
 	private StringBuilder stringBuilder;
 
-	public CarGame(String[] racingCarLIst, int carMoveCount) {
-
+	public CarGame() {
+		UserInput userInput = new UserInput();
 		racingCarList = new ArrayList<>();
-		Arrays.stream(racingCarLIst).forEach(s -> this.racingCarList.add(new Car(s)));
-		this.carMoveCount = carMoveCount;
-
+		Arrays.stream(userInput.getRacingCarName()).forEach(s -> this.racingCarList.add(new Car(s)));
+		this.carMoveCount = userInput.getCarMoveCount();
 	}
 
 	public void playGame() {

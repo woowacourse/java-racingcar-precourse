@@ -14,10 +14,7 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		UserInput userInput = new UserInput();
-
-		CarGame carGame = new CarGame(userInput.getRacingCarName(), userInput.getCarMoveCount());
-
+		CarGame carGame = new CarGame();
 		carGame.playGame();
 
 	}
