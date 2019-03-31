@@ -14,8 +14,8 @@ public interface RacingGameInterface {
     abstract ArrayList<Car> makePlayers(ArrayList<String> nameArrayList);
     
     /** 실행 회수 입력 받기  */
-    abstract String inputMoveCount();
-    abstract boolean checkNumberOrNot();
+    abstract int inputMoveCount();
+    abstract boolean checkNumberOrNot(String moveCountStr);
     
     /** 승자 판정  */
     abstract ArrayList<Car> judgeWinner();

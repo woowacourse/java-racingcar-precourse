@@ -3,13 +3,12 @@ package domain;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.woowa.precourse2_1.CarTest;
-
 public class RacingGame implements RacingGameInterface {
     private Scanner sc = new Scanner(System.in);
     private String playerName = "";
     private ArrayList<String> nameArrayList = new ArrayList<String>();
     private ArrayList<Car> carList = new ArrayList<Car>();
+    private int moveCount = 0; 
     
     public String inputPlayerName() {
         boolean nameNotInput = true;
@@ -90,13 +89,23 @@ public class RacingGame implements RacingGameInterface {
     }
 
     @Override
-    public String inputMoveCount() {
-        // TODO Auto-generated method stub
-        return null;
+    public int inputMoveCount() {
+        boolean wrongInput = true;
+        String moveCountStr = "0";
+        
+        while (wrongInput) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            moveCountStr = sc.nextLine();
+            wrongInput = checkNumberOrNot(moveCountStr);
+        }
+        
+        moveCount = Integer.parseInt(moveCountStr);
+        
+        return moveCount;
     }
-
+    
     @Override
-    public boolean checkNumberOrNot() {
+    public boolean checkNumberOrNot(String moveCountStr) {
         // TODO Auto-generated method stub
         return false;
     }
@@ -116,6 +125,7 @@ public class RacingGame implements RacingGameInterface {
     public static void main(String[] args) {
         
     }
+
 
 
 }
