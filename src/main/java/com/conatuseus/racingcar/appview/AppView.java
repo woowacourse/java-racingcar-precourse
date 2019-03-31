@@ -48,6 +48,11 @@ public final class AppView {
         return false;
     }
 
+    public static int inputNumberOfTry(){
+        outputLine("시도할 횟수는 몇회인가요?");
+
+        return 0;
+    }
 
 
 

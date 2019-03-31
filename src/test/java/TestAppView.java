@@ -42,6 +42,11 @@ public class TestAppView {
         assertThat(AppController.carList.get(1).getName(),is("b"));
         assertThat(AppController.carList.get(2).getName(),is("c"));
         assertThat(AppController.carList.get(3).getName(),is("d"));
+    }
+
+    @Test
+    public void 시도할_횟수_Test(){
+
 
     }
 

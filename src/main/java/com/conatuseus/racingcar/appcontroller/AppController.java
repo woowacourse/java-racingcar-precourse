@@ -8,6 +8,15 @@ import java.util.ArrayList;
 public class AppController {
 
     public static ArrayList<Car> carList=new ArrayList<>();
+    private int numberOfTry;
+
+    public int getNumberOfTry() {
+        return numberOfTry;
+    }
+
+    private void setNumberOfTry(int numberOfTry) {
+        this.numberOfTry = numberOfTry;
+    }
 
     public AppController(){
     }
