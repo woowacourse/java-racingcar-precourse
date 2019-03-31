@@ -6,14 +6,27 @@ public class CarGameLauncher
     {
         doGame();
     }
+
     public static void doGame()
     {
+        Car[] cars = prepareGame();
+        playGame(cars);
+        endGame(cars);
+    }
+
+    public static Car[] prepareGame()
+    {
         String[] carNames = Car.askCarNames();
-        int turns = Car.askHowManyTurns();
         Car[] cars = Car.instantiateAndReturnCars(carNames);
+        return cars;
+    }
+
+    public static void playGame(Car[] cars)
+    {
+        int turns = Car.askHowManyTurns();
+        int turn = 0;
         System.out.println();
         System.out.println("실행결과:");
-        int turn = 0;
         while (turn < turns)
         {
             Car.updateCarMovements(cars);
@@ -21,6 +34,10 @@ public class CarGameLauncher
             System.out.println();
             turn++;
         }
+    }
+
+    public static void endGame(Car[] cars)
+    {
         Car.announceWinners(cars);
         System.out.println();
         boolean wantOneMoreGame = Car.getUserAnswer();
