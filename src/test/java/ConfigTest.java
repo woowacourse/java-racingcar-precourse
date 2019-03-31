@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.regex.Pattern;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ConfigTest {
     private Config config;
@@ -34,50 +34,55 @@ public class ConfigTest {
     }
 
     @Test
-    public void makeGarageTest(){
-        Car[] garage = config.makeGarage(new String[] {"Tommi","Pride","Cago"});
+    public void makeGarageTest() {
+        Car[] garage = config.makeGarage(new String[]{"Tommi", "Pride", "Cago"});
         String Tommi = garage[0].getName();
         String Pride = garage[1].getName();
         String Cago = garage[2].getName();
-        assertEquals("Tommi",Tommi);
-        assertEquals("Pride",Pride);
-        assertEquals("Cago",Cago);
+        assertEquals("Tommi", Tommi);
+        assertEquals("Pride", Pride);
+        assertEquals("Cago", Cago);
     }
 
     @Test
-    public void makeRandomTest(){
+    public void makeRandomTest() {
         int randomNumber = config.makeRandom();
         String randomString = String.valueOf(randomNumber);
-        String resultCheck  = "^[0-9]{1}$";
-        boolean resultTrue = Pattern.matches(resultCheck,randomString);
-        boolean resultFalse = Pattern.matches(resultCheck,"10");
-        assertEquals(true,resultTrue);
-        assertEquals(false,resultFalse);
+        String resultCheck = "^[0-9]{1}$";
+        boolean resultTrue = Pattern.matches(resultCheck, randomString);
+        boolean resultFalse = Pattern.matches(resultCheck, "10");
+        assertEquals(true, resultTrue);
+        assertEquals(false, resultFalse);
     }
 
     @Test
-    public void raceTest(){
-        Car[] garage = config.makeGarage(new String[] {"Tommi","Pride","Cago"});
-        for(int i=0; i<5; i++) {
+    public void raceTest() {
+        Car[] garage = config.makeGarage(new String[]{"Tommi", "Pride", "Cago"});
+        for (int i = 0; i < 5; i++) {
             config.race(garage);
         }
-        System.out.println("Tommi : "+garage[0].getPosition());
-        System.out.println("Pride : "+garage[1].getPosition());
-        System.out.println("Cago : "+garage[2].getPosition());
+        System.out.println("Tommi : " + garage[0].getPosition());
+        System.out.println("Pride : " + garage[1].getPosition());
+        System.out.println("Cago : " + garage[2].getPosition());
     }
 
     @Test
-    public void printWinnerTest(){
-        Car[] garage = config.makeGarage(new String[] {"Tommi","Pride","Cago"});
+    public void printWinnerTest() {
+        Car[] garage = config.makeGarage(new String[]{"Tommi", "Pride", "Cago"});
         garage[0].movePosition();
         String result = config.printWinner(garage);
-        assertEquals("Tommi",result);
+        assertEquals("Tommi", result);
         garage[2].movePosition();
         String anotherResult = config.printWinner(garage);
-        assertEquals("Tommi,Cago",anotherResult);
+        assertEquals("Tommi,Cago", anotherResult);
         garage[1].movePosition();
         String otherResult = config.printWinner(garage);
-        assertEquals("Tommi,Pride,Cago",otherResult);
+        assertEquals("Tommi,Pride,Cago", otherResult);
+    }
+
+    @Test
+    public void loopIfNotFiveLessTest() {
+
     }
 
     @After

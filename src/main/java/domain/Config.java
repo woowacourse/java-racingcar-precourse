@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Scanner;
+
 public class Config {
 
     public String[] splitName(String name) {
@@ -9,7 +11,7 @@ public class Config {
 
     public Boolean checkNameNumber(String[] nameArray) {
         for (int i = 0; i < nameArray.length; i++) {
-            if (nameArray[i].length() > 5) {
+            if (nameArray[i].length() > 5 ||nameArray[i].length() ==0) {
                 return false;
             }
         }
@@ -42,16 +44,27 @@ public class Config {
     }
 
     public String printWinner(Car[] garage) {
-        String winner ="";
+        String winner = "";
         int max = Integer.MIN_VALUE;
-        for(int i=0;i<garage.length; i++) {
+        for (int i = 0; i < garage.length; i++) {
             if (garage[i].getPosition() >= max) {
                 max = garage[i].getPosition();
                 winner = winner + garage[i].getName() + ",";
             }
         }
-        winner = winner.substring(0,winner.length()-1);
+        winner = winner.substring(0, winner.length() - 1);
         return winner;
     }
 
+    public String[] loopIfNotFiveLess() {
+        Scanner scan = new Scanner(System.in);
+        String cars = scan.next();
+        String[] carsArray = splitName(cars);
+        Boolean checkName = checkNameNumber(carsArray);
+        if (!checkName) {
+            System.out.println("이름은 1자 이상 5자 이하로 입력해주세요.");
+            carsArray= loopIfNotFiveLess();
+        }
+        return carsArray;
+    }
 }
