@@ -42,8 +42,7 @@ public class CarRacingGame {
     private void start() {
         inputFromPlayer();
         readyCar();
-        moveCars();
-        printRacingCars();
+        progressRounds();
     }
 
     /* 사용자로부터 정보를 입력 받는 메소드 */
@@ -95,6 +94,13 @@ public class CarRacingGame {
         }
     }
 
+    private void progressRounds() {
+        for (int i = 0; i < round; i++) {
+            moveCars();
+            printRacingCars();
+        }
+    }
+
     private void moveCars() {
         for (Car car : cars) {
             if (isMove(randomNumber())) {
@@ -125,5 +131,6 @@ public class CarRacingGame {
             }
             System.out.println();
         }
+        System.out.println();
     }
 }
