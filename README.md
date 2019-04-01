@@ -50,8 +50,8 @@
 | 6 | ``printResultEachGame()`` | 시행 횟수 1당 게임 결과를 출력하는 메서드 |
 | 7 | ``runEachGame()`` | 각 car 마다 car.moveByRandomNumber() 를 실행하는 메서드 |
 | 8 | ``printResultTotal()`` | 최종 우승자와 메시지를 출력하는 메서드 |
-| 8-1 | ``arrayToStringJoin()`` | 배열의 원소들 사이이 콤마를 넣어 String 으로 반환하는 메서드 |
-| 8-2 | ``countElementNumber()`` | ArrayList<Car>의 Car 원소 중 position 의 수를 카운트하는 메서드 |
+| 8-1 | ``arrayToStringJoin(String[] arr, String delimiter)`` | input : arr, delimiter - 구분자<br>배열의 원소들 사이이 콤마를 넣어 String 으로 반환하는 메서드 |
+| 8-2 | ``countElementNumber(int number)`` | input : number - count 할 숫자<br>ArrayList<Car>의 Car 원소 중 position 의 수를 카운트하는 메서드 |
 | 8-3 | ``getWinnerArray()`` | ArrayList<Car>의 Car 원소 중 최대값들을 문자열 배열에 담아 반환하는 메서드 |
 
 ### Car 클래스
