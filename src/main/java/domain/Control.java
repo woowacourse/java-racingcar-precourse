@@ -71,6 +71,18 @@ public class Control {
     }
 
     public void gameEnd() {
+        int maxNum = getMaxNum();
+        String result = getGameResult(maxNum);
+        System.out.println(result);
+    }
 
+    public int getMaxNum() {
+        int maxNum = 0;
+        return(maxNum);
+    }
+
+    public String getGameResult(int maxNum) {
+        String result = "";
+        return(result);
     }
 }
