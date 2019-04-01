@@ -18,10 +18,28 @@ public class RacingGame {
     public void start() {
         setCars();
         playGame(getRacingNum());
+        printWinner();
+    }
+
+    private void printWinner() {
+        String winner = "";
+        int max = 0;
+
+        for (Car car : cars) {
+            if (car.getPosition() == max) {
+                winner += ", " + car.getName();
+            }
+            if (car.getPosition() > max) {
+                winner = car.getName();
+                max = car.getPosition();
+            }
+        }
+        System.out.println(winner + "가 최종 우승했습니다.");
     }
 
     private void playGame(int racingNum) {
         System.out.println("\n실행 결과");
+
         for (int i = 0; i < racingNum; i++) {
             doRace();
             System.out.println();
@@ -36,11 +54,11 @@ public class RacingGame {
     }
 
     private void printCar(Car car) {
-        String info = car.getName()+" : ";
+        String carInfo = car.getName() + " : ";
         for (int i = 0; i < car.getPosition(); i++) {
-            info += "-";
+            carInfo += "-";
         }
-        System.out.println(info);
+        System.out.println(carInfo);
     }
 
     private int getRacingNum() {
@@ -88,7 +106,6 @@ public class RacingGame {
             }
             uniqueNames.add(name);
         }
-
         return true;
     }
 }

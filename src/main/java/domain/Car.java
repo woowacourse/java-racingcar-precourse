@@ -21,8 +21,7 @@ public class Car {
 
     public void race() {
         Random random = new Random();
-        int r = random.nextInt(MAX_RANDOM + 1);
-        if (r > STANDARD_NUMBER) {
+        if (random.nextInt(MAX_RANDOM + 1) > STANDARD_NUMBER) {
             position++;
         }
     }
