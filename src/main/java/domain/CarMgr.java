@@ -27,6 +27,12 @@ public class CarMgr {
 
 	private ArrayList<Car> carList;
 
+	public void addNames(String[] names) {
+		for (String name : names) {
+			carList.add(new Car(name));
+		}
+	}
+
 	public void goOrStop() {
 		int randomNumber;
 		for (Car car : carList) {

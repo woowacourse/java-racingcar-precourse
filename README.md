@@ -19,6 +19,7 @@
 * getName : 자동차의 이름을 얻어오는 메서드
 
 #### [CarMgmt Class]
+* addNames : 자동차 이름들의 정보를 입력받아 자동차 리스트에 저장하는 메서드
 * makeRandom : 0 ~ 9 까지 random값을 추출할 메서드
 * goOrStop : 각각의 자동차에 대하여 전진할 것인지 멈춰 있을것인지 결정하는 메서드
 * printCarList : 자동차의 이름과 현재 상태를 출력할 메서드
