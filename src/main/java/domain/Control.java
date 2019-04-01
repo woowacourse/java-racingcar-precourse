@@ -6,17 +6,18 @@ import java.util.Random;
 
 public class Control {
     Scanner sc = new Scanner(System.in);
-    ArrayList<Car> cars = new ArrayList<Car>();
-    int limitN = 0;
     Random random = new Random();
+
+    ArrayList<Car> cars = new ArrayList<Car>(); // 유저로부터 입력받는 car의 이름과 위치를 저장할 변수
+    int limitN = 0; // 유저로부터 입력받는 총 시도 횟수 변수
 
     public void userInputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = sc.nextLine();
-        setCar(carNames);
+        setCars(carNames);
     }
 
-    public void setCar(String str) {
+    public void setCars(String str) {
         String[] carArray = str.split(",");
 
         for (int i = 0; i < carArray.length; i++) {
@@ -40,6 +41,7 @@ public class Control {
         }
     }
 
+    // 한 회차에서 각 자동차에 랜덤 숫자로 전진, 정지를 반영할 함수
     public void turnStart() {
         for (int i = 0; i < cars.size(); i++) {
             int ranNum = random.nextInt(10);
@@ -51,6 +53,7 @@ public class Control {
         }
     }
 
+    // 한 회차에서 각 자동차의 상태 출력 함수
     public void printTurn() {
         for (int i = 0; i < cars.size(); i++) {
             String sentence = "";
@@ -61,6 +64,7 @@ public class Control {
         }
     }
 
+    // 각 자동차의 전진길이를 '-'로 리턴하는 함수
     public String getWay(Car car) {
         String result = "";
         int position = car.getPosition();
@@ -76,6 +80,7 @@ public class Control {
         System.out.println(result);
     }
 
+    // 가장 많이 움직인 횟수를 리턴하는 함수
     public int getMaxNum() {
         int maxNum = 0;
         for (int i = 0; i < cars.size(); i++) {
@@ -86,12 +91,11 @@ public class Control {
         return(maxNum);
     }
 
+    // 가장 많은 움직임을 가진 자동차를 리턴하는 함수
     public String getGameResult(int maxNum) {
         String result = "";
-        int count = 0;
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i).getPosition() == maxNum) {
-                count ++;
                 result += cars.get(i).getName()+", ";
             }
         }
