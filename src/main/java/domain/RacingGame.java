@@ -13,10 +13,20 @@ public class RacingGame {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MIN_RACING_NUM = 1;
 
-    public void play() {
-        Car[] cars = getCars();
-        int racingNum = getRacingNum();
+    private Car[] cars;
 
+    public void play() {
+        setCars();
+        int racingNum = getRacingNum();
+        System.out.println("\n실행 결과");
+        doRace();
+    }
+
+    private void doRace() {
+        for (Car car : cars) {
+            car.race();
+            System.out.println(car.getString());
+        }
     }
 
     private int getRacingNum() {
@@ -30,9 +40,9 @@ public class RacingGame {
         return num;
     }
 
-    private Car[] getCars() {
+    private Car[] setCars() {
         String[] names = getNames();
-        Car[] cars = new Car[names.length];
+        cars = new Car[names.length];
         int i = 0;
 
         for (String name : names) {
