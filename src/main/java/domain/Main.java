@@ -61,6 +61,12 @@ public class Main {
 		return result;
 	}
 	
+	private static void gameFisish() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("가 최종우승했습니다.\n");
+		System.out.println(sb.toString());
+	}
+	
 	private static void calMax(int position) {
 		if (position > maxPosition) {
 			maxPosition = position;
