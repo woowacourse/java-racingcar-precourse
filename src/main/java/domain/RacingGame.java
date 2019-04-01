@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Scanner;
+
 public class RacingGame {
 
     private String getInputConsole() {
@@ -10,8 +11,10 @@ public class RacingGame {
     }
 
     private boolean isValidInput(String input) {
-        if (input.length() > 5 && !input.contains(",")) {
-            return false;
+        for (String s : splitCarName(input)) {
+            if (s.length() > 5) {
+                return false;
+            }
         }
         return true;
     }
