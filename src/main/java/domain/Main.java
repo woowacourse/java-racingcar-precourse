@@ -35,6 +35,7 @@ public class Main {
 		for (int i = 0; i < cars.length; i++) {
 			cars[i].run();
 			cars[i].printState();
+			calMax(cars[i].getPosition());
 		}
 		
 		if (now < total) {
