@@ -15,11 +15,13 @@
 
 #### inputCnt()
 - 책임: 반복할 횟수 입력받아 반환해주는 것
-- return: int / 반복할 횟수
+- return: String / 반복할 횟수
 
-#### checkValidationCnt(int cnt)
+#### checkValidationCnt(String cntStr)
 - 책임: 입력받은 반복 횟수가 유효한지 검사
-- 구현 방법: 반복 횟수가 0보다 큰지 확인
+- 구현 방법
+  1. cntStr의 입력 형태가 숫자인지 확인
+  2. 숫자인 경우 MIN_NUMBER보다 큰지 확인
 - parameter: 입력한 반복 횟수
 - return: boolean / 유효(true), 무효(false)
 
