@@ -25,6 +25,7 @@
 	- private void oneTimeRace()
 	- private boolean nameLengthCheak()
 	- private void findWinner()
+	- private void winnerOutput(int[] winner, int winnersNumber)
 	- private int getMaxIndex()
 
 ## Class & Method 설명
@@ -51,9 +52,9 @@
 | public void start()  | 게임을 횟수에 맞게 진행한다.  |
 | private void oneTimeRace()  | 레이스를 1회 진행한다.  |
 | private boolean nameLengthCheak()  |  자동차의 이름이 5자를 초과하는지 건사한다. |
-| private void findWinner()  | 경기의 승자를 찾아서 출력한다. |
+| private void findWinner()  | 경기의 승자를 찾는다. 승자의 인덱스를 배열에 저장한다.|
 | private int getMaxIndex()  | 가장 멀리간 자동차의 index를 찾아 반환한다. |
-
+| private void winnerOutput(int[] winner, int winnersNumber) | 승자의 이름을 출력한다. |
 
 
 ## 프로그래머
