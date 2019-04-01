@@ -15,8 +15,12 @@
 #### [Car Class]
 * go : 자동차가 전진하는 메서드
 * toString : 자동차의 이름과 현재 위치에 대한 정보를 String으로 나타내주는 메서드(오버라이딩)
+* getPosition : 자동차의 현재 위치를 얻어오는 메서드
+* getName : 자동차의 이름을 얻어오는 메서드
 
 #### [CarMgmt Class]
 * makeRandom : 0 ~ 9 까지 random값을 추출할 메서드
 * goOrStop : 각각의 자동차에 대하여 전진할 것인지 멈춰 있을것인지 결정하는 메서드
 * printCarList : 자동차의 이름과 현재 상태를 출력할 메서드
+* findFristPositionNumber : 1등 자동차의 위치를 알아오는 메서드
+* whoIsFirst : 자동차 목록 중에서 1등 자동차들의 이름을 얻어오는 메서드
