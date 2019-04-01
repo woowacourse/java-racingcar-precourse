@@ -27,7 +27,7 @@ public class Car implements Cloneable{
         position++;
     }
 
-    public boolean isMoveable() {
+    public boolean isMovable() {
         return RandomUtils.getRandomNumber(1, 9) >= 4;
     }
 

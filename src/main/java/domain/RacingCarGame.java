@@ -27,7 +27,7 @@ public class RacingCarGame {
     public void play() {
         while (!isGameOver()) {
             cars.stream()
-                    .filter(Car::isMoveable)
+                    .filter(Car::isMovable)
                     .forEach(Car::move);
 
             results.add(new Result(cars));
