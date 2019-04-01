@@ -36,4 +36,7 @@ public class CarMgr {
 		}
 	}
 	
+	private int makeRandom() {
+		return (int) (Math.random()*10);
+	}
 }
