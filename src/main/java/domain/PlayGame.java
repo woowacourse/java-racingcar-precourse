@@ -26,4 +26,11 @@ public class PlayGame {
             cars[i] = new Car(arr[i]);
         }
     }
+
+    private void oneTimeRace() {
+        for (int i = 0; i < arr.length; i++) {
+            cars[i].race();
+        }
+        System.out.println();
+    }
 }
