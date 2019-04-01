@@ -38,11 +38,16 @@ public class Main {
 	}
 
 	private static void gameStart(Car[] cars,int now, int total) {
+		if (now == 1) {
+			System.out.printf("\n실행 결과\n");
+		}
+		
 		for (int i = 0; i < cars.length; i++) {
 			cars[i].run();
 			cars[i].printState();
 			calMax(cars[i].getPosition());
 		}
+		System.out.println();
 		
 		if (now < total) {
 			gameStart(cars, now+1, total);
