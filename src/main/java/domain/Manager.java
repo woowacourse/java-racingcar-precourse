@@ -78,10 +78,11 @@ public class Manager {
         return Integer.parseInt(temp);
     }
     
-    /** 전진 가능 여부를 판정하는 메소드 */
-    public static boolean isForwardable() {
-        int dice = getRandomInt();
-        return (dice >= FORWARD_CRITERION) ? true : false;
+    /** 자동차 객체를 랜덤으로 전진시킨다 */
+    public static void randomForward(Car car) {
+        if (getRandomInt() >= FORWARD_CRITERION) {
+            car.moveForward();
+        }
     }
 
     // public static void main(String[] args) {
