@@ -72,9 +72,10 @@ public class InputGameInformation {
     }
 
     private boolean checkCar(String name) {
-        boolean CheckOverlap = checkOverlap(name);
-        boolean CheckLength = checkLimitLength(name);
-        if (CheckOverlap && CheckLength) {
+        boolean checkOverlap = checkOverlap(name);
+        boolean checkLength = checkLimitLength(name);
+        boolean checkString = checkString(name,"namesave");
+        if (checkString && checkOverlap && checkLength) {
             return true;
         }
         return false;
