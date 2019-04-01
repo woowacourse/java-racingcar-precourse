@@ -28,7 +28,22 @@ public class Control {
     }
 
     public void gameStart() {
+        System.out.println("실행 결과");
+        int count = 0;
+        while(count < limitN) {
+            count ++;
+            turnStart();
+            printTurn();
+            System.out.println();
+        }
+    }
 
+    public void turnStart() {
+
+    }
+
+    public void printTurn() {
+        
     }
 
     public void gameEnd() {
