@@ -26,17 +26,21 @@ public class RacingGame {
     Scanner sc = new Scanner(System.in);
     System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)으로 구분)");
     String Input_str = sc.nextLine();
-    String[] Car_arr = Input_str.split(",");
+    String[] carName = Input_str.split(",");
 
-    return Car_arr;
+    return carName;
   }
 
-  public static Car CreateCarObject(String car_name){
-    Car car_object = new Car(car_name);
-    return car_object;
+  public static Car CreateCarObject(String carName){
+    Car carObject = new Car(carName);
+    return carObject;
   }
 
   public static Car[] CreateCarList(String[] carName){
+    /*
+    * 저장된 차 이름에 대한 String 배열을 인자로 받아와
+    * Car 인스턴스 배열을 반환하는 메소드
+    * */
     Car[] c = new Car[10];
     for(int i=0;i<carName.length;i++){
       c[i] = CreateCarObject(carName[i]);
@@ -45,8 +49,8 @@ public class RacingGame {
   }
 
   public static void main(String args[]){
-    String[] str =  InputCarName();
-    Car[] c =CreateCarList(str);
+    String[] carName =  InputCarName();
+    Car[] carList =CreateCarList(carName);
 
     /*
     for (int i = 0; i < str.length; i++) {
