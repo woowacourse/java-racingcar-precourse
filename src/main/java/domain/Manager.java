@@ -3,7 +3,7 @@
 import java.util.*;
 import java.io.Console;
 
-// 게임 진행 관리. 실제 게임 플레이 관련 내용은 여기에 다 있다.
+// 게임 진행 관리. 실제 게임 플레이 구현에 필요한 기능은 여기에 다 있다.
 public class Manager {
     /** 메소드 길이 제한 때문에, 각종 메시지 등을 상수로 빼 버림 */
     final static String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요."
@@ -16,7 +16,7 @@ public class Manager {
     final static int NAME_LENGTH_LIMIT = 5;
 
     /** 0에서 9 사이의 임의의 정수 하나를 생성하여 반환 */
-    private static int getRandomInt() {
+    public static int getRandomInt() {
         Random random = new Random();
         return random.nextInt(10);
     }
@@ -50,7 +50,7 @@ public class Manager {
     }
     
     /** 자동차 이름을 입력받고, 5글자 제한을 실제로 적용하는 메소드 */
-    private static String[] getCarNames() {
+    public static String[] getCarNames() {
         String[] result = getInput(INPUT_CAR_NAME);
         boolean check = isLengthOk(result, NAME_LENGTH_LIMIT);
         
@@ -64,7 +64,7 @@ public class Manager {
     }
     
     /** 시도할 횟수를 입력받아 정수로 반환. */
-    private static int getTryCount() {
+    public static int getTryCount() {
         String temp = getInput(INPUT_TRY_COUNT)[0];
         boolean check = isOnlyNumber(temp);
         
