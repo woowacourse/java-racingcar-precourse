@@ -13,7 +13,20 @@ public class RacingGame {
     private static final int MAX_NAME_LENGTH = 5;
 
     public void play() {
+        Car[] cars = getCars();
+
+    }
+
+    private Car[] getCars() {
         String[] names = getNames();
+        Car[] cars = new Car[names.length];
+        int i = 0;
+
+        for (String name : names) {
+            cars[i++] = new Car(name);
+        }
+
+        return cars;
     }
 
     private String[] getNames() {
