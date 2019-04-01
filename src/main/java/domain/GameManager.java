@@ -33,4 +33,30 @@ public class GameManager {
         carLength = car.size();
         gameCount = inputgameinformation.getGameCount();
     }
+
+    private void runRacing() {
+        for (int i = 0; i < gameCount; i++) {
+            finishRacing();
+        }
+    }
+
+    private void finishRacing() {
+        System.out.println(message.gameOutputMessage.get("OUTPUT_GAMERESULT"));
+        for (int i = 0; i < carLength; i++) {
+            car.get(i).move();
+            checkRacingState(i);
+        }
+        System.out.println();
+    }
+
+    private void checkRacingState(int carnumber) {
+        int position = car.get(carnumber).getPosition();
+        maxPosition = Math.max(maxPosition, position);
+        System.out.print(car.get(carnumber).getName()+" : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
 }
