@@ -76,4 +76,12 @@ public class InputGameInformation {
         return false;
     }
 
+    public ArrayList<Car> getCar() {
+        return carName;
+    }
+
+    public int getGameCount() {
+        return gameCount;
+    }
+
 }
