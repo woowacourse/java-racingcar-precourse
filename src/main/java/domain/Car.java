@@ -12,4 +12,10 @@ public class Car {
     public String getCarName() {
         return this.name;
     }
+    public void increasePosition() {
+        position++;
+    }
+    public int getPosition() {
+        return this.position;
+    }
 }

@@ -67,4 +67,8 @@ public class Game {
 
         return false;
     }
+
+    public void increasePosition(Car car) {
+        car.increasePosition();
+    }
 }
