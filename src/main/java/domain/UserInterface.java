@@ -35,6 +35,11 @@ public class UserInterface {
         return true;
     }
 
+    /**
+     * 반복할 횟수 입력 받는 메서드
+     *
+     * @return String인 이유: 유효성 검사할 때문
+     */
     public String inputCnt() {
         System.out.println("시도할 회수는 몇회인가요?");
         return sc.next();
@@ -74,7 +79,7 @@ public class UserInterface {
      * 우승 멘트를 작성하는 함수
      */
     public void printWinners(Car[] cars) {
-        int maxPosition = maxPosition(cars);
+        int maxPosition = findMaxPosition(cars);
 
         for (Car car : cars) {
             printWinnerNames(car, maxPosition);
