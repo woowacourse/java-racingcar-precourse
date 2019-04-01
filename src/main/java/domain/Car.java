@@ -30,4 +30,8 @@ public class Car {
         }
         System.out.println();
     }
+
+    public boolean isWinner(int maxPosition) {
+        return maxPosition == this.position;
+    }
 }
