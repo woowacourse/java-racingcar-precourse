@@ -42,4 +42,19 @@ public class Racing {
         }
         return true;
     }
+
+    private int inputMovingNumber(){
+        Scanner scan = new Scanner(System.in);
+        int number;
+        do {
+            System.out.print("시도할 횟수를 입력해주세요: ");
+            while(!scan.hasNextInt()) {
+                System.out.println("자연수를 입력해주세요");
+                scan.next();
+            }
+            number = scan.nextInt();
+        }
+        while(number < 1);
+        return number;
+    }
 }
