@@ -21,6 +21,7 @@ public class Message {
             put("ERROR_NAMEEMPTY","자동차 이름을 1대 이상 입력하세요.");
             put("ERROR_GAMECOUNTLIMIT"," 시도할 횟수를 0이상으로 입력해주세요.");
             put("ERROR_GAMECOUNTTYPE"," 시도할 횟수를 숫자로 입력하세요.");
+            put("ERROR_GAMECOUNTEMPTY","시도할 횟수를 반드시 입력하세요.");
         }
     };
 }
