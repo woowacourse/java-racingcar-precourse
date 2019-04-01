@@ -31,7 +31,7 @@ public class Main {
 		round = sc.nextInt();
 		
 		gameStart(racingCars,1,round);
-		//게임 종료후 결과 출력하는 코드 추가
+		gameFisish();
 		
 		sc.close();
 	}
