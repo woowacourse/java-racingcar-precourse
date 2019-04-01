@@ -22,7 +22,7 @@ public class PlayGame {
 
     private boolean nameLengthCheak() {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length() >= 5) {
+            if (arr[i].length() > 5) {
                 System.out.println("이름이 5자 초과인 자동차가 존재합니다.");
                 return true;
             }
@@ -86,6 +86,7 @@ public class PlayGame {
     public void start() {
         do {
             getData();
+            System.out.println();
             splitString();
         } while (nameLengthCheak());
         setCars();
