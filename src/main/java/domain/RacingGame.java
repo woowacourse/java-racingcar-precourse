@@ -36,7 +36,7 @@ public class RacingGame {
         return input.split(",");
     }
 
-    private CarGroup reacyCarGroup(String input) {
+    private CarGroup readyCarGroup(String input) {
         String[] names = splitCarName(input);
 
         CarGroup cg = new CarGroup(names);
@@ -85,7 +85,7 @@ public class RacingGame {
         }
 
         gameCountNumber = Integer.parseInt(gameCountString);
-        CarGroup cg = reacyCarGroup(inputName);
+        CarGroup cg = readyCarGroup(inputName);
 
         while (gameCountNumber > 0) {
             cg.makeCarRace();
