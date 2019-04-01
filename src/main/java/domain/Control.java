@@ -78,6 +78,11 @@ public class Control {
 
     public int getMaxNum() {
         int maxNum = 0;
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getPosition() > maxNum) {
+                maxNum = cars.get(i).getPosition();
+            }
+        }
         return(maxNum);
     }
 
