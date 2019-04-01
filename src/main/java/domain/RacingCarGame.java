@@ -21,15 +21,21 @@ public class RacingCarGame {
     private static final String INPUT_REQUEST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String BLANK_ERROR_MESSAGE = "공백으로만 이루어진 이름을 생성할 수 없습니다. 다시 입력해 주새요";
     private static final String LENGTH_ERROR_MESSAGE = "길이가 5보다 큽니다. 다시 입력해 주새요";
+    private static final String ROUND_REQEUST_MESSAGE = "시도할 횟수는 몇회인가요?";
+    private static final String NUMBER_ERROR_MESSAGE = "숫자가 아닙니다. 숫자를 입력해주세요";
+    private static final String RUN_RESULT_MESSAGE = "실행 결과";
 
     private String[] carNames;
     private Car[] cars;
+    private int round;
 
     private Scanner scanner = new Scanner(System.in);
 
     public void gameStart() {
         requestCarName();
         createCar();
+        requestRound();
+        implementRound();
     }
 
     private void requestCarName() {
@@ -76,6 +82,35 @@ public class RacingCarGame {
         cars = new Car[carNames.length];
         for (int i = 0; i < cars.length; i++) {
             cars[i] = new Car(carNames[i]);
+        }
+    }
+
+    private void requestRound() {
+        String answer;
+        do {
+            System.out.println(ROUND_REQEUST_MESSAGE);
+            answer = scanner.next();
+        } while (!isNumber(answer));
+    }
+
+    private boolean isNumber(String answer) {
+        try {
+            round = Integer.parseInt(answer);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println(NUMBER_ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    private void implementRound() {
+        System.out.println();
+        System.out.println(RUN_RESULT_MESSAGE);
+        for (int i = 0; i < round; i++) {
+            for (int j = 0; j < cars.length; j++) {
+                cars[j].runOneCycle();
+            }
+            System.out.println();
         }
     }
 }
