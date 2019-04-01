@@ -16,7 +16,6 @@ public class Car {
 	}
 
 	public void printState() {
-		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
     	
     	sb.append(name+" :");
@@ -26,5 +25,7 @@ public class Car {
     	System.out.println(sb.toString());
 	}
 
-    
+    public int getPosition() {
+    	return position;
+    }
 }
