@@ -37,6 +37,12 @@
 - 구현 방법
   1. 먼저 가장 멀리간 위치를 확인하기 위해 ArrayList와 Collections class를 사용
   2. 가장 멀리간 자동차의 이름은 printWinnerNames를 통해 받아 출력
+  
+ #### findMaxPosition(Car[] cars)
+ - 책입: 경기가 끝난 자동차들의 위치 중 가장 멀리간 위치를 찾는 것
+ - 구현 방법: ArrayList에 모든 자동차 위치를 넣고 Collections 클래스를 이용해 가장 멀리간 위치를 반환
+ - parameter: 경주한 자동차 객체들
+ - return: int / 가장 멀리간 위치
 
 #### printWinnerNames(Car car, int maxPosition)
 - 책임: 가장 멀리간 자동차 객체의 이름을 반환
