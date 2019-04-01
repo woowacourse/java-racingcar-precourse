@@ -1,6 +1,6 @@
 package domain;
 
-public class Car {
+public class Car{
     private final String name;
     private int position = 0;
 
@@ -18,5 +18,14 @@ public class Car {
             position++;
         }
     }
+
+    public String printPosition(){
+        StringBuilder positionStatus = new StringBuilder(name+" : ");
+        for(int i=0; i<position; i++){
+            positionStatus.append("-");
+        }
+        return positionStatus.toString();
+    }
+
 
 }
