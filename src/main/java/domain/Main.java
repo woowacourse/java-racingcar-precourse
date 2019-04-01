@@ -6,8 +6,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String names[];
 		int round;
+		String names[];
+		Car[] racingCars;
 		Scanner sc = new Scanner(System.in);
 		
 		while (true) {
@@ -30,8 +31,16 @@ public class Main {
 	}
 
 	private static boolean isEffectiveFormat(String[] names) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = true;
+		
+		for (int i = 0; i < names.length; i++) {
+			if (names[i].length()>5) {
+				System.out.println("5자가 넘어가는 이름이 있습니다.");
+				result = false;
+				break;
+			}
+		}
+		return result;
 	}
 	
 }
