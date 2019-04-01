@@ -26,16 +26,24 @@ public class GameManager {
 
     public void startRacing() {
         init();
-        getRacingInformation();
-        runRacing();
-        judgeRacing();
+        if (!getRacingInformation()) {
+            runRacing();
+            judgeRacing();
+        }else{
+            startRacing();
+        }
     }
 
-    private void getRacingInformation() {
+    private boolean getRacingInformation() {
         inputgameinformation.inputCar();
         car = inputgameinformation.getCar();
         carLength = car.size();
+        if (carLength == 0) {
+            System.out.println(Message.errorMessage.get("ERROR_NAMEEMPTY"));
+            return true;
+        }
         gameCount = inputgameinformation.getGameCount();
+        return false;
     }
 
     private void runRacing() {
