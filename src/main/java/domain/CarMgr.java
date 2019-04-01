@@ -26,27 +26,27 @@ import java.util.ArrayList;
 public class CarMgr {
 
 	private ArrayList<Car> carList;
-	
+
 	public void goOrStop() {
 		int randomNumber;
-		for (int i = 0; i < carList.size(); i++) {
+		for (Car car : carList) {
 			randomNumber = makeRandom();
 			if (randomNumber >= 4) {
-				carList.get(i).go();
+				car.go();
 			}
 		}
 	}
-	
+
 	private int makeRandom() {
-		return (int) (Math.random()*10);
+		return (int) (Math.random() * 10);
 	}
-	
+
 	public void printCarList() {
 		for (Car car : carList) {
 			System.out.println(car);
 		}
 	}
-	
+
 	public String whoIsFirst() {
 		int firstPosition = findFirstPositionNumber();
 		int removeIndex = 2;
@@ -58,7 +58,7 @@ public class CarMgr {
 		}
 		return sb.substring(0, sb.length() - removeIndex);
 	}
-	
+
 	private int findFirstPositionNumber() {
 		int firstPositionNumber = 0;
 		for (Car car : carList) {

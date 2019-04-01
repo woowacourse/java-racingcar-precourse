@@ -18,19 +18,19 @@ package domain;
  * @author huisam
  */
 public class Car {
-    
+
     private final String name;
-    
+
     private int position = 0;
 
     public Car(String name) {
         this.name = name;
     }
-    
+
     public void go() {
         position++;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -44,7 +44,7 @@ public class Car {
         if (name == null) {
             return "No Data in Car";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(" : ");
         for (int i = 0; i < position; i++) {
@@ -52,5 +52,4 @@ public class Car {
         }
         return sb.toString();
     }
-
 }
