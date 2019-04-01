@@ -29,10 +29,12 @@ public class Manager {
         return inputData.split(",\\s*"); // 정규 표현식 적용 - 띄어쓰기 때문
     }
     
-    /** 문자열 배열 중 지정된 글자 수를 넘는 것이 없는지 테스트 */
+    /** 문자열 배열 중 글자 수에 문제는 없는지 테스트 */
     private static boolean isLengthOk(String[] array, int limit) {
+        int length;
         for (String str: array) {
-            if (str.length() > limit) {
+            length = str.length();
+            if (length > limit || length == 0) {
                 return false;
             }
         }
@@ -41,12 +43,19 @@ public class Manager {
     
     /** 입력된 문자열이 오직 0부터 9 사이의 숫자로만 이루어졌는지 테스트 */
     private static boolean isOnlyNumber(String string) {
-        for (int i = 0, j; i < string.length(); i++) {
+        int length = string.length();
+        
+        if (length == 0) {
+            return false; // 빈 문자열은 취급하지 않는다.
+        }
+        
+        for (int i = 0, j; i < length; i++) {
             j = string.charAt(i) - '0'; // type casting (char -> int)
             if (j < 0 || j > 9) {
                 return false;
             }
         }
+        
         return true;
     }
     
@@ -55,7 +64,7 @@ public class Manager {
         String[] result = getInput(INPUT_CAR_NAME);
         boolean check = isLengthOk(result, NAME_LENGTH_LIMIT);
         
-        // 이름 글자 수 초과시 계속 재입력 요구
+        // 이름 글자 수에 문제가 있으면 계속 재입력 요구
         while (!check) {
             result = getInput(NAME_TOO_LONG);
             check = isLengthOk(result, NAME_LENGTH_LIMIT);
@@ -69,7 +78,7 @@ public class Manager {
         String temp = getInput(INPUT_TRY_COUNT)[0];
         boolean check = isOnlyNumber(temp);
         
-        // 숫자로 parse할 수 없는 문자가 입력되면 계속 재입력 요구
+        // 입력에 문제가 있으면 계속 재입력 요구
         while (!check) {
             temp = getInput(NOT_INT_ERROR)[0];
             check = isOnlyNumber(temp);
