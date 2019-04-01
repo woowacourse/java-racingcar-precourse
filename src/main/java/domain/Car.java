@@ -13,10 +13,6 @@ public class Car {
 		this.name = name;
 	}
 	
-	public void move() {
-		position = position + 1;
-	}
-
 	public int getPosition() {
 		return position;
 	}
@@ -24,5 +20,11 @@ public class Car {
 	public String getName() {
 		return name;
 	}
-	
+	/**
+	 * 자동차를 전진시키는 메소드
+	 */
+	public void move() {
+		position = position + 1;
+	}
+
 }
