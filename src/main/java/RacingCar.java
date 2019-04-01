@@ -24,10 +24,14 @@ public class RacingCar {
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
         List<Car> carList = CarListMaker.getList(inputCarList());
-
+        int rumTime = inputRumTimeNumber();
         scanner.close();
     }
 
+    /**
+     * 경주할 자동차 이름 목록을 입력하는 메소드
+     * @return  ","로 구분된 자동차 이름 목록
+     */
     private static String inputCarList() {
         String stringBasedCarList;
 
@@ -36,9 +40,20 @@ public class RacingCar {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             stringBasedCarList = scanner.nextLine();
             if (InputValidation.inspectCarNames(stringBasedCarList)) {
-                break;
+                return  stringBasedCarList;
             }
         }
-        return  stringBasedCarList;
+    }
+
+    private static int inputRumTimeNumber() {
+        String input;
+
+        while (true) {
+            System.out.println("시도할 횟수는 몇회인가요?");
+            input = scanner.nextLine();
+            if (InputValidation.inspectRuntimeNumber(input)) {
+                return Integer.parseInt(input);
+            }
+        }
     }
 }
