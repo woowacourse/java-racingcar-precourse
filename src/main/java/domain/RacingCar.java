@@ -1,3 +1,9 @@
+/*
+ * class Name : RacingCar
+ *
+ * date : 2019.04.01
+ */
+
 package domain;
 
 import java.util.Scanner;
