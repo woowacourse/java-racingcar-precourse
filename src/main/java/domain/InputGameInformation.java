@@ -60,10 +60,7 @@ public class InputGameInformation {
         boolean checkOverlap = checkOverlap(name);
         boolean checkLength = checkLimitLength(name);
         boolean checkString = checkString(name,false);
-        if (checkString && checkOverlap && checkLength) {
-            return true;
-        }
-        return false;
+        return (checkString && checkOverlap && checkLength) ? true : false;
     }
 
     private boolean checkOverlap(String name) {
