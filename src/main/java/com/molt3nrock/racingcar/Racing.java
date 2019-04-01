@@ -73,14 +73,17 @@ public class Racing {
         this.cars.forEach(car -> System.out.println(car.format(1)));
     }
 
+    /**
+     * 우승 Car 목록 추출방법: 각 {@code Car} 의 {@code position} 필드값을 기준으로 내림차순 정렬하여
+     * 가장 빠른 것들 중의 하나일 첫번째 원소를 {@code List<Car>} 에서 고릅니다.
+     * 골라진 원소와 {@code position} 값이 일치하는 것들을 {@code List<Car>}에서 {@code filter}를 이용하여 추출합니다.
+     */
     private void displayWinnerCars() {
-        // Car 의 position 을 기준으로 내림차순 정렬 하여 가장빠른 Car 를 추출
         Car aFastestCar = this.cars
             .stream()
             .sorted()
             .collect(Collectors.toList())
             .get(0);
-        // 앞서 추출한 Car 와 위치가 같은 Car 들을 출력
         String winnerCars = this.cars
             .stream()
             .filter(car -> car.equals(aFastestCar))
