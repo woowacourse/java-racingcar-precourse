@@ -1,6 +1,6 @@
 package domain;
 
-public class Car{
+public class Car implements Comparable<Car>{
     private final String name;
     private int position = 0;
 
@@ -27,5 +27,11 @@ public class Car{
         return positionStatus.toString();
     }
 
-
+    /**
+     * 내림차순 정렬
+     */
+    @Override
+    public int compareTo(Car o) {
+        return o.position-this.position;
+    }
 }
