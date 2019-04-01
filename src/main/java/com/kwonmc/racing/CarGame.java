@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CarGame {
+    private static final int INT_ZERO = 0;
+
     private List<Car> cars;
     private int runs;
 
@@ -67,7 +69,7 @@ public class CarGame {
         System.out.println();
     }
 
-    private String arrayJoinWithComma(String[] arr) {
+    private String arrayToStringJoin(String[] arr, String delimiter) {
         StringBuilder builder = new StringBuilder();
 
         int lastIndex = arr.length - 1;
@@ -76,7 +78,7 @@ public class CarGame {
             builder.append(arr[i]);
 
             if (i != lastIndex) {
-                builder.append(", ");
+                builder.append(delimiter);
             }
         }
 
@@ -84,7 +86,7 @@ public class CarGame {
     }
 
     private int countElementNumber(int number) {
-        int result = 0;
+        int result = INT_ZERO;
         for (Car car : this.cars) {
             if (car.getPosition() == number) {
                 result++;
@@ -97,7 +99,7 @@ public class CarGame {
         int maxPosition = Collections.max(this.cars).getPosition();
         String[] result = new String[countElementNumber(maxPosition)];
 
-        int index = 0;
+        int index = INT_ZERO;
         for (Car car : this.cars) {
             if (car.getPosition() == maxPosition) {
                 result[index] = car.getName();
@@ -110,7 +112,7 @@ public class CarGame {
 
     public void printResultTotal() {
         String[] resultArray = getWinnerArray();
-        String result = arrayJoinWithComma(resultArray);
+        String result = arrayToStringJoin(resultArray, ", ");
         System.out.println(result + "가 최종 우승했습니다.");
     }
 }
