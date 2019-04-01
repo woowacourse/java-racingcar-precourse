@@ -66,8 +66,9 @@ public class Racing {
     }
 
     private void doOneSimulationTurn() {
+        final int CAR_NAME_FORMAT_WIDTH = 1;
         this.cars.forEach(Car::move);
-        this.cars.forEach(car -> System.out.println(car.format(1)));
+        this.cars.forEach(car -> System.out.println(car.format(CAR_NAME_FORMAT_WIDTH)));
     }
 
     /**
