@@ -25,4 +25,9 @@ public class InputValidationTest {
             assertThat(InputValidation.inspectCarNames(testCase), is(false));
         }
     }
+
+    @Test
+    public void inspectRuntimeNumberTest() {
+        assertThat(InputValidation.inspectRuntimeNumber("123sdf"), is(false));
+    }
 }

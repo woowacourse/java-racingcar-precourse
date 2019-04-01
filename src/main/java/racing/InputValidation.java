@@ -26,6 +26,16 @@ public class InputValidation {
         return true;
     }
 
+    public static boolean inspectRuntimeNumber(String stringBasedNumber) {
+        try {
+            Integer.parseInt(stringBasedNumber);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("입력 횟수가 올바르지 않습니다.");
+            return false;
+        }
+    }
+
     private static boolean inspectCarNameLength(String carName) {
         return ((carName.length() <= VALID_NAME_LENGTH) && (carName.length() > 0)
                 ? true : false);
