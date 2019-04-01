@@ -67,20 +67,24 @@
 
 ****
 ## 주요 기능
-   1. 자동차들의 이름을 입력받는 기능 (receiveCarnamesFromUser)
+   1. 자동차들의 이름을 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToReceiveCarnamesFromUser)
+   
+   2. 자동차들의 이름이 전부 5이하인지 판단하는 기능 (isValidCarNamesInput)
+   
+   3. 자동차의 이름의 길이가 5이하인지 판단하는 기능 (isValidCarName)
       
-   2. 입력받은 이름의 예외처리를 담당하는 기능 (IligalArgumentException)
+   4. 입력받은 이름의 예외처리를 담당하는 기능 (IligalArgumentException)
       
-   3. 입력받은 자동차들의 이름으로 객체를 생성하는 기능(CreateCar)
+   5. 입력받은 자동차들의 이름으로 객체를 생성하는 기능(CreateCar)
       
-   4. 자동차들의 운행 횟수를 입력받는 기능 (InputDriveCount)
+   6. 자동차들의 운행 횟수를 입력받는 기능 (InputDriveCount)
       
-   5. 입력받은 운행 횟수의 예외처리를 담당하는 기능 (IligalArgumentException)
+   7. 입력받은 운행 횟수의 예외처리를 담당하는 기능 (IligalArgumentException)
       
-   6. 난수를 생성하는 기능 (CreateRandomNumber)
+   8. 난수를 생성하는 기능 (CreateRandomNumber)
       
-   7. 생성한 난수를 토대로 갈지 멈출지를 판단하는 기능 (isGo)
+   9. 생성한 난수를 토대로 갈지 멈출지를 판단하는 기능 (isGo)
       
-   8. 앞으로 가거나 멈추는 기능 (Go, Stop)
+   10. 앞으로 가거나 멈추는 기능 (Go, Stop)
       
-   9. 결과를 출력하는 기능 (PrintResult)
+   10. 결과를 출력하는 기능 (PrintResult)
