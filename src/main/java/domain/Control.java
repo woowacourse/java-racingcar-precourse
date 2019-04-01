@@ -52,7 +52,18 @@ public class Control {
     }
 
     public void printTurn() {
+        for (int i = 0; i < cars.size(); i++) {
+            String sentence = "";
+            Car temp = cars.get(i);
+            sentence += temp.getName() + " : ";
+            sentence += getWay(temp);
+            System.out.println(sentence);
+        }
+    }
 
+    public String getWay(Car car) {
+        String result = "";
+        return(result);
     }
 
     public void gameEnd() {
