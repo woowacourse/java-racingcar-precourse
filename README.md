@@ -60,13 +60,14 @@
    * Car
    * RunningCarRacing
    * RacingResultPrinter
-   * RacingInput
-   * RacingGenerator
+   * UserInputReciever
+   * CarGenerator
+   * RandomNumberGenerator
      
 
 ****
 ## 주요 기능
-   1. 자동차들의 이름을 입력받는 기능 (InputCarName)
+   1. 자동차들의 이름을 입력받는 기능 (receiveCarnamesFromUser)
       
    2. 입력받은 이름의 예외처리를 담당하는 기능 (IligalArgumentException)
       
