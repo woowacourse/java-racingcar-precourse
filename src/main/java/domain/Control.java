@@ -88,6 +88,13 @@ public class Control {
 
     public String getGameResult(int maxNum) {
         String result = "";
-        return(result);
+        int count = 0;
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getPosition() == maxNum) {
+                count ++;
+                result += cars.get(i).getName()+", ";
+            }
+        }
+        return(result.substring(0, result.length()-2)+"가 최종 우승했습니다.");
     }
 }
