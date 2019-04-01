@@ -83,4 +83,18 @@ public class PlayGame {
         System.out.println("가 최종 우승했습니다.");
     }
 
+    public void start() {
+        do {
+            getData();
+            splitString();
+        } while (nameLengthCheak());
+        setCars();
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < this.inputNum; i++) {
+            oneTimeRace();
+        }
+        findWinner();
+    }
+
 }
