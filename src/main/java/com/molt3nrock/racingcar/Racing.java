@@ -59,6 +59,8 @@ public class Racing {
         List<String> names = Arrays.asList(line.split(","));
         long commaCount = line.chars().filter(i -> i == (int) ',').count();
         List<Car> cars = names.stream().map(Car::new).collect(Collectors.toList());
+        // 콤마기준으로 이름을 분리하므로 매 콤마문자마다 하나의 이름이 생성되어야 하고,
+        // 마지막콤마 이후 이름영역이 하나더 존재하므로 최종 List<Car>의 크기는 콤마문자 개수 + 1 이 되어야 한다.
         if (commaCount + 1 == cars.size()) {
             return cars;
         }
