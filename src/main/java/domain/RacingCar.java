@@ -24,6 +24,12 @@ public class RacingCar {
     }
 
     public boolean areValidNames(String[] carNames) {
+        for (String name : carNames) {
+            if (name.length() > 5) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public Car[] makeCars(String[] carNames) {
