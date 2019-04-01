@@ -49,10 +49,9 @@ public class InputGameInformation {
 
     private void carNameSave(String name) {
         cars = name.split(",");
-        int carslength = cars.length;
-        for (int i = 0; i < carslength; i++) {
-            if (checkCar(cars[i])) {
-                carName.add(new Car(cars[i]));
+        for (String car : cars){
+            if (checkCar(car)) {
+                carName.add(new Car(car));
             }
         }
     }
