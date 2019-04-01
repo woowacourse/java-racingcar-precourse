@@ -27,8 +27,27 @@ public class InputGameInformation {
     }
 
     private void inputCarName() {
-        System.out.println(Message.gameInputMessage.get("INPUT_CARNAME"));
-        cars = sc.next().split(",");
+        String name = "";
+        do {
+            System.out.println(Message.gameInputMessage.get("INPUT_CARNAME"));
+            name = sc.nextLine();
+            name = name.replaceAll("\\p{Z}",""); // 공백 제거
+        } while (!checkString(name,"inputname"));
+        carNameSave(name);
+    }
+
+    private boolean checkString(String name, String checktype) {
+        if (name.equals("")) {
+            if (checktype.equals("inputname")) {
+                System.out.println(Message.errorMessage.get("ERROR_NAMEEMPTY"));
+            }
+            return false;
+        }
+        return true;
+    }
+
+    private void carNameSave(String name) {
+        cars = name.split(",");
         int carslength = cars.length;
         for (int i = 0; i < carslength; i++) {
             if (checkCar(cars[i])) {
