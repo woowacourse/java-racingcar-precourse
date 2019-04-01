@@ -63,6 +63,10 @@ public class Control {
 
     public String getWay(Car car) {
         String result = "";
+        int position = car.getPosition();
+        for (int i = 0; i < position; i++) {
+            result += "-";
+        }
         return(result);
     }
 
