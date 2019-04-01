@@ -39,13 +39,13 @@ public class GameManager {
     }
 
     private void runRacing() {
+        System.out.println(message.gameOutputMessage.get("OUTPUT_GAMERESULT"));
         for (int i = 0; i < gameCount; i++) {
             finishRacing();
         }
     }
 
     private void finishRacing() {
-        System.out.println(message.gameOutputMessage.get("OUTPUT_GAMERESULT"));
         for (int i = 0; i < carLength; i++) {
             car.get(i).move();
             checkRacingState(i);
