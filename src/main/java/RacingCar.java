@@ -49,6 +49,18 @@ public class RacingCar {
         return carList;
     }
 
+    public void printCar(ArrayList<Car> carList) {
+        String carName;
+        int carPosition;
+        String carProgression;
+        for (Car car: carList) {
+            carName = car.getName();
+            carPosition = car.getPosition();
+            carProgression = getCarProgression(carPosition);
+            System.out.printf("%s : %s", carName, carProgression);
+        }
+    }
+
     public String getCarProgression(int carPosition) {
         StringBuilder carProgression = new StringBuilder();
         if (carPosition < 1) { return carProgression.toString(); }
