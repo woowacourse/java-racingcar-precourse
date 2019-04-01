@@ -16,9 +16,14 @@ public class Racing {
 
     public static void main(String[] args) throws IOException {
         Racing racing = new Racing();
-        racing.setSimulationTimes();
         racing.registerCars();
-        racing.doOneSimulationTurn();
+        racing.setSimulationTimes();
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < racing.simulationTimes; i++) {
+            racing.doOneSimulationTurn();
+            System.out.println("\n");
+        }
+        racing.displayWinnerCars();
     }
 
     private void setSimulationTimes() throws IOException {
