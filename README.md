@@ -48,3 +48,15 @@ public class Car {
 - else 예약어를 쓰지 않는다.
     + 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
     + else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
+
+&nbsp;
+
+## 구현할 기능 목록
+
+- 경주 할 자동차들 이름 입력 받기
+- 총 이동할 횟수(remainingPlayCount) 입력 받기
+- 자동차 경주 게임(RacingCarGame) 플레이
+    + 초당 조건을 만족하는 자동차는 이동
+    + 각 자동차 현재 위치 기록
+    + 총 remainingPlayCount 회 반복 진행
+- 게임 결과(시간별 위치, 우승자) 출력
