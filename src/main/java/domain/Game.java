@@ -6,6 +6,7 @@ public class Game {
 
     String carName;
     String[] carNames;
+    Car[] cars;
 
     public void run() {
         do {
@@ -13,6 +14,7 @@ public class Game {
             SplitWithComma();
         }
         while (!CheckCarNameLength());
+        createCar();
     }
 
     public void InputCarName() {
@@ -34,5 +36,13 @@ public class Game {
         }
 
         return true;
+    }
+
+    public void createCar() {
+        cars = new Car[carNames.length];
+
+        for (int i = 0; i < carNames.length; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
     }
 }
