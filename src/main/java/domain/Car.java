@@ -11,4 +11,10 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public void racingStart(){
+        if((int)(Math.random()*10) >= 4){
+            this.position++;
+        }
+    }
 }
