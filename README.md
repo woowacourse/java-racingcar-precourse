@@ -19,7 +19,7 @@
    - 입력받는 이름 글자 5글자 여부 확인.   
    - 모든글자 5자 이내면 true, 그렇지 않으면 false 반환.  
   
-  2. void gameStart(int currentRound,int totalRound)  
+  2. void gameStart(Car[] cars, int currentRound,int totalRound)  
    - currentRound번째 경기 실행  
    - 자동차 객체들의 run,printState메소드 호출  
    - totalRound에 도달할때까지 gameStart(currentRound+1,totalRound) 호출    

@@ -6,9 +6,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int round;
-		String names[];
-		Car[] racingCars;
+		int round = 0;
+		String names[] = null;
+		Car[] racingCars = null;
 		Scanner sc = new Scanner(System.in);
 		
 		while (true) {
@@ -24,10 +24,21 @@ public class Main {
 		System.out.println("시도할 회수는 몇회인가요?");
 		round = sc.nextInt();
 		
-		//round만큼 게임 실행 코드 추가
+		gameStart(racingCars,1,round);
 		//게임 종료후 결과 출력하는 코드 추가
 		
 		sc.close();
+	}
+
+	private static void gameStart(Car[] cars,int now, int total) {
+		for (int i = 0; i < cars.length; i++) {
+			cars[i].run();
+			cars[i].printState();
+		}
+		
+		if (now < total) {
+			gameStart(cars, now+1, total);
+		}
 	}
 
 	private static boolean isEffectiveFormat(String[] names) {
