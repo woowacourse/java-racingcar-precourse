@@ -14,4 +14,12 @@ public class Car {
             this.position++;
         }
     }
+
+    public void printPosition() {
+        System.out.println(this.name + " : ");
+        for (int i = 0; i < this.position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
