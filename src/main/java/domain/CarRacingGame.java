@@ -1,5 +1,5 @@
 /*
- * @CarRacingGame.java      0.4 2019/04/01
+ * @CarRacingGame.java      0.5 2019/04/01
  */
 
 package domain;
@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 자동차 경주게임을 진행하는 클래스
  *
  * @author 이도원
- * @version 0.4 2019/04/01
+ * @version 0.5 2019/04/01
  */
 public class CarRacingGame {
     private static final int ERROR = -1;
@@ -67,6 +67,10 @@ public class CarRacingGame {
 
     /* 자동차 이름이 5자 초과이면 에러를 반환하는 메소드 */
     private boolean isCarNameError() {
+        if (carNames.length == 0) {
+            return true;
+        }
+
         for (String carName : carNames) {
             if (carName.length() > CAR_NAME_LENGTH_LIMIT) {
                 return true;
@@ -85,7 +89,7 @@ public class CarRacingGame {
             } catch (NumberFormatException e) {
                 round = ERROR;
             }
-        } while (round == ERROR || round < 0);
+        } while (round == ERROR || round <= 0);
     }
 
     /* Car 객체를 생성하는 메소드 */
