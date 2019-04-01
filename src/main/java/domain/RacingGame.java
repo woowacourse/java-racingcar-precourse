@@ -36,12 +36,17 @@ public class RacingGame {
     return car_object;
   }
 
+  public static Car[] CreateCarList(String[] carName){
+    Car[] c = new Car[10];
+    for(int i=0;i<carName.length;i++){
+      c[i] = CreateCarObject(carName[i]);
+    }
+    return c;
+  }
+
   public static void main(String args[]){
     String[] str =  InputCarName();
-    Car[] c = new Car[10];
-    for(int i=0;i<str.length;i++) {
-      c[i] = CreateCarObject(str[i]);
-    }
+    Car[] c =CreateCarList(str);
 
     /*
     for (int i = 0; i < str.length; i++) {
