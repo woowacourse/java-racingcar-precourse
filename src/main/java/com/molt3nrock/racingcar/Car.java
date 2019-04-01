@@ -34,16 +34,32 @@ public class Car implements Comparable {
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     @Override
     public String toString() {
         String dottedLine = String.join("", Collections.nCopies(position, "-"));
         return String.format("%s:%s", this.name, dottedLine);
     }
 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Car) {
+            Car other = (Car) obj;
+            // position 을 기준으로 동등성 비교
+            return this.position == other.position;
+        }
+        return false;
+    }
+
     public int compareTo(Object obj) {
         if (obj instanceof Car) {
             Car other = (Car) obj;
-            return Integer.compare(this.position, other.position);
+            // position 을 기준으로 내림차순 정렬을 위해 큰값이 먼저 오도록 비교 Integer.compare 호출
+            return Integer.compare(other.position, this.position);
         }
         return 0;
     }

@@ -10,7 +10,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,11 +52,39 @@ public class RacingTest {
         assertEquals(expected, bo.toString());
     }
 
+    @Test
+    public void displayWinnerCars() {
+        int maxTestCars = 12;
+        setupMockInputStream("");
+        List<Car> cars = IntStream.range(0, maxTestCars - 2)
+            .mapToObj(i -> new Car(Integer.toString(i)))
+            .collect(Collectors.toList());
+        IntStream.range(0, cars.size()).forEach(i -> setIntField(cars.get(i), "position", i));
+        cars.add(setIntField(new Car("fast"), "position", maxTestCars));
+        cars.add(setIntField(new Car("fast"), "position", maxTestCars));
+        Collections.shuffle(cars);
+        setListField(racing, "cars", cars);
+        callMethod(racing, "displayWinnerCars");
+        assertEquals("fast, fast가 최종 우승 했습니다.\n", bo.toString());
+    }
+
     private void setupMockInputStream(String line) {
         ByteArrayInputStream bi = new ByteArrayInputStream(line.getBytes());
         bo = new ByteArrayOutputStream();
         System.setIn(bi);
         System.setOut(new PrintStream(bo));
+    }
+
+    private Car setIntField(Car car, String fieldName, int position) {
+        try {
+            Field f = car.getClass().getDeclaredField(fieldName);
+            f.setAccessible(true);
+            f.set(car, position);
+            return car;
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private int getIntField(Racing racing, String fieldName) {
@@ -76,6 +107,16 @@ public class RacingTest {
             e.printStackTrace();
         }
         return new ArrayList<>();
+    }
+
+    private void setListField(Racing racing, String fieldName, List<Car> cars) {
+        try {
+            Field f = racing.getClass().getDeclaredField(fieldName);
+            f.setAccessible(true);
+            f.set(racing, cars);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     private void callMethod(Racing racing, String methodName) {

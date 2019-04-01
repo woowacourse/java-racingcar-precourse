@@ -65,9 +65,24 @@ public class Racing {
         return new ArrayList<>();
     }
 
-     private void doOneSimulationTurn() {
+    private void doOneSimulationTurn() {
         this.cars.forEach(Car::move);
         this.cars.forEach(System.out::println);
-     }
+    }
 
+    private void displayWinnerCars() {
+        // Car 의 position 을 기준으로 내림차순 정렬 하여 가장빠른 Car 를 추출
+        Car aFastestCar = this.cars
+            .stream()
+            .sorted()
+            .collect(Collectors.toList())
+            .get(0);
+        // 앞서 추출한 Car 와 위치가 같은 Car 들을 출력
+        String winnerCars = this.cars
+            .stream()
+            .filter(car -> car.equals(aFastestCar))
+            .map(Car::getName)
+            .collect(Collectors.joining(", "));
+        System.out.println(winnerCars + "가 최종 우승 했습니다.");
+    }
 }

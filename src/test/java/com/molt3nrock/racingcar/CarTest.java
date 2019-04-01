@@ -37,7 +37,7 @@ public class CarTest {
         barCar.move();
         int fooPosition = getPosition(fooCar);
         int barPosition = getPosition(barCar);
-        assertEquals(fooCar.compareTo(barCar), Integer.compare(fooPosition, barPosition));
+        assertEquals(fooCar.compareTo(barCar), Integer.compare(barPosition, fooPosition));
     }
 
     private int getPosition(Car car) {
