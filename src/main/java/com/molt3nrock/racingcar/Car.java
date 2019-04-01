@@ -19,6 +19,10 @@ public class Car implements Comparable {
         this.name = name;
     }
 
+    /**
+     * 무작위 생성방법: 0~9까지의 숫자를 원소로하는 ArrayList 를 {@code Collections.shuffle}을 이용하여
+     * 랜덤하게 섞은후 첫번째 위치에 있는 숫자를 고릅니다.
+     */
     public void move() {
         final int VALID_RANDOM_MIN = 0;
         final int VALID_RANDOM_MAX = 9;
