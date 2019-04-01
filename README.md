@@ -22,10 +22,15 @@
   2. void gameStart(Car[] cars, int currentRound,int totalRound)  
    - currentRound번째 경기 실행  
    - 자동차 객체들의 run,printState메소드 호출  
+   - 해당 객체의 position값 과 maxPosition 비교하는 calMax메소드 호출  
    - totalRound에 도달할때까지 gameStart(currentRound+1,totalRound) 호출    
     
   3. void gameFinish()  
    - 승자 출력하는 메소드  
+  
+  4. void calMax(int position)  
+   - 이동거리 최대값을 얻기 위해 자동차들의 현위치 position과 전역변수 maxPosition 비교
+   - 둘 중 더 큰값을 maxPosition에 대입
   
  2) Car 클래스 : 경주용 자동차 클래스  
      
