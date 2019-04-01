@@ -33,7 +33,7 @@
     
 1. 사용자에게 시도 횟수 입력 받고 게임을 진행 기능
     * 사용자에게 시도할 횟수를 입력 받음(requestRound) -> RacingCarGame
-        * NumberFormatException을 이용해 숫자 여부를 체크하는 것이 좋을 듯!
+        * NumberFormatException을 이용해 숫자 여부를 체크하는 것이 좋을 듯(isNumber)!
     * 입력 받은 횟수 만큼 반복문을 실행하는 기능(implementRound) -> RacingCarGame
     
 1. 1위를 나타내 주는 기능
