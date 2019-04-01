@@ -21,7 +21,7 @@ public class Racing {
         System.out.println("\n실행 결과");
         for (int i = 0; i < racing.simulationTimes; i++) {
             racing.doOneSimulationTurn();
-            System.out.println("\n");
+            System.out.println();
         }
         racing.displayWinnerCars();
     }
