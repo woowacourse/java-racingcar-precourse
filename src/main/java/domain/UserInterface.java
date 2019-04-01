@@ -74,17 +74,22 @@ public class UserInterface {
      * 우승 멘트를 작성하는 함수
      */
     public void printWinners(Car[] cars) {
+        int maxPosition = maxPosition(cars);
+
+        for (Car car : cars) {
+            printWinnerNames(car, maxPosition);
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
+
+    private int findMaxPosition(Car[] cars) {
         ArrayList<Integer> positions = new ArrayList<>();
 
         for (Car car : cars) {
             positions.add(car.getPosition());
         }
 
-        int maxPosition = Collections.max(positions);
-        for (Car car : cars) {
-            printWinnerNames(car, maxPosition);
-        }
-        System.out.println("가 최종 우승했습니다.");
+        return Collections.max(positions);
     }
 
     private boolean flag = true;        // printWinnerNames 메소드에서 처음 출력인지 아닌지 확인하기 위한 변수
