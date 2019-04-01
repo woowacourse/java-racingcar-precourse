@@ -90,7 +90,8 @@ public class RacingGame {
             gameCountNumber--;
         }
 
-        printConsole(getWinner(cg));
+        String winner = getWinner(cg);
+        printConsole(winner + "가 최종 우승하셨습니다.");
     }
 
 }
