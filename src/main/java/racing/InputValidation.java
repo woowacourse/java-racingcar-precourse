@@ -20,6 +20,7 @@ public class InputValidation {
         String[] carNames = input.split(",");
         for (String carName : carNames) {
             if (!inspectCarNameLength(carName.trim())) {
+                System.out.println("입력된 자동차 이름이 올바르지 않습니다.");
                 return false;
             }
         }
