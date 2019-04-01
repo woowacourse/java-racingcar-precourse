@@ -1,7 +1,7 @@
 /*
- * @Car.java		1.00 2019/04/01
+ * @Car.java        1.01 2019/04/02
  * 
- * Copyright(c)2019	HwiJin Hong.
+ * Copyright(c)2019 HwiJin Hong.
  * All right reserved.
  * 
  * 자동차 경주 프로그램
@@ -14,11 +14,11 @@ package domain;
 /**
  * 자동차의 정보를 가지고 있는 클래스
  * 
- * @version 1.00 2019년 4월 1일
+ * @version 1.01 2019년 4월 2일
  * @author huisam
  */
 public class Car {
-	
+    
     private final String name;
     
     private int position = 0;
@@ -28,21 +28,29 @@ public class Car {
     }
     
     public void go() {
-    	position++;
+        position++;
     }
     
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public String toString() {
-    	if (name == null) {
-    		return "No Data in Car";
-    	}
-    	
-    	StringBuilder sb = new StringBuilder();
-    	sb.append(name).append(" : ");
-    	for (int i = 0; i < position; i++) {
-			sb.append('-');
-		}
-    	return sb.toString();
+        if (name == null) {
+            return "No Data in Car";
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(" : ");
+        for (int i = 0; i < position; i++) {
+            sb.append('-');
+        }
+        return sb.toString();
     }
 
 }
