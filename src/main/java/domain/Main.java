@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -65,6 +66,18 @@ public class Main {
 		StringBuffer sb = new StringBuffer();
 		sb.append("가 최종우승했습니다.\n");
 		System.out.println(sb.toString());
+	}
+	
+	private static ArrayList<Car> getWinner(Car[] cars){
+		ArrayList<Car> result = new ArrayList<Car>();
+		
+		for (int i = 0; i < cars.length; i++) {
+			if (cars[i].getPosition() == maxPosition) {
+				result.add(cars[i]);
+			}
+		}
+		
+		return result;
 	}
 	
 	private static void calMax(int position) {
