@@ -11,6 +11,9 @@ public class Car implements Comparable<Car>{
     public String getName(){
         return name;
     }
+    public int getPosition(){
+        return position;
+    }
     /**
      * 랜덤값에 따라 전진할지 멈출지 결정하는 함수
      * 전진하면 position은 1증가한다.
