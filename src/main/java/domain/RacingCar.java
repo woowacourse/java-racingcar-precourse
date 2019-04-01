@@ -59,5 +59,14 @@ public class RacingCar {
     }
 
     public void decideWinner(Car[] cars) {
+        String printWinner = "";
+        for (Car car : cars) {
+            if (car.isWinner(maxPosition)) {
+                printWinner += car.getName() + ", ";
+            }
+        }
+        printWinner = printWinner.substring(0, printWinner.length() - 2);
+        printWinner += "가 최종 우승했습니다.";
+        System.out.println(printWinner);
     }
 }
