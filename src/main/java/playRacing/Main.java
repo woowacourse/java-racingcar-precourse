@@ -32,7 +32,7 @@ public class Main {
 
         for(int i=0; i<trial; i++){
             startAction();
-            printAllPostion();
+            printAllPosition();
         }
 
         System.out.println(judgeWinner());
@@ -67,7 +67,7 @@ public class Main {
         }
     }
 
-    public static void printAllPostion() {
+    public static void printAllPosition() {
         StringBuilder allPosition = new StringBuilder();
         for (int i = 0; i < cars.length; i++) {
             allPosition.append(cars[i].printPosition() + "\n");
