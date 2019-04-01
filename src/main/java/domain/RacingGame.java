@@ -16,10 +16,16 @@ public class RacingGame {
     private Car[] cars;
 
     public void play() {
+        int racingNum;
+
         setCars();
-        int racingNum = getRacingNum();
+        racingNum = getRacingNum();
+
         System.out.println("\n실행 결과");
-        doRace();
+        for (int i = 0; i < racingNum; i++) {
+            doRace();
+            System.out.println();
+        }
     }
 
     private void doRace() {
