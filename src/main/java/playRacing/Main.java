@@ -3,12 +3,14 @@ package playRacing;
 import domain.Car;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     static Car[] cars;
     static final String WINNER_MESSAGE="가 최종 우승했습니다.";
 
     public static void main(String[] args) {
+       
 
     }
 
