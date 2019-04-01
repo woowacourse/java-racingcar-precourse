@@ -44,4 +44,43 @@ public class PlayGame {
         System.out.println();
     }
 
+    private int getMaxIndex() {
+        int max = 0;
+        int index = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (max < cars[i].getPosition()) {
+                max = cars[i].getPosition();
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    private void findWinner() {
+        int max = getMaxIndex();
+        int winnersNumber = 0;
+        int[] winner = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            if (cars[max].getPosition() == cars[i].getPosition()) {
+                winner[i] = 1;
+                winnersNumber++;
+            }
+        }
+        winnerOutput(winner, winnersNumber);
+    }
+
+    private void winnerOutput(int[] winner, int winnersNumber) {
+        int winnersCount = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (winner[i] == 1) {
+                System.out.print(cars[i].getName());
+                winnersCount++;
+            }
+            if ((winner[i] == 1) && (winnersCount < winnersNumber)) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
+
 }
