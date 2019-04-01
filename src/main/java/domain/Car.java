@@ -9,4 +9,27 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public void move(){
+        randomNumber();
+    }
+
+    private void randomNumber() {
+        int number = (int) (Math.random() * 10); // 0~9
+        checkMove(number);
+    }
+
+    private void checkMove(int number) {
+        if (number >= 4) {
+            position++;
+        }
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
