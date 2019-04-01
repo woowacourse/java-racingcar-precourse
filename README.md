@@ -6,6 +6,35 @@
   - 시뮬레이션이 끝나면 최종 우승 자동차 목록을 출력합니다.
 
 
+# 실행 예제
+  > 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)<br>
+  > flash,hwak,widow<br>
+  > 시도할 회수는 몇회인가요?<br>
+  > 5<br>
+  > <br>
+  > 실행 결과<br>
+  > flash : -<br>
+  > hwak : -<br>
+  > widow : <br>
+  > <br>
+  > flash : -<br>
+  > hwak : --<br>
+  > widow : <br>
+  > <br>
+  > flash : -<br>
+  > hwak : ---<br>
+  > widow : <br>
+  > <br>
+  > flash : --<br>
+  > hwak : ----<br>
+  > widow : <br>
+  > <br>
+  > flash : ---<br>
+  > hwak : ----<br>
+  > widow : -<br>
+  > <br>
+  > hwak가 최종 우승 했습니다.<br>
+
 
 # 기능 요구사항
 
