@@ -20,6 +20,16 @@ public class PlayGame {
         this.arr = inputString.split(",");
     }
 
+    private boolean nameLengthCheak() {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length() >= 5) {
+                System.out.println("이름이 5자 초과인 자동차가 존재합니다.");
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void setCars() {
         cars = new Car[arr.length];
         for (int i = 0; i < arr.length; i++) {
@@ -33,4 +43,5 @@ public class PlayGame {
         }
         System.out.println();
     }
+
 }
