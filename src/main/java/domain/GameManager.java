@@ -76,7 +76,7 @@ public class GameManager {
         boolean winnercheck = true;
         int carnumber = 0;
         while (winnercheck) {
-            winnercheck = maxPositionCarCheck(carnumber++);
+            winnercheck = checkForMaxPositionFromCar(carnumber++);
         }
         winnerOfRacing();
     }
@@ -102,9 +102,9 @@ public class GameManager {
     }
 
     /*
-     * MaxPositionCarCheck() : MaxPosition RacingCar check
+     * checkForMaxPositionFromCar() : MaxPosition RacingCar
      */
-    private boolean maxPositionCarCheck(int carnumber) {
+    private boolean checkForMaxPositionFromCar(int carnumber) {
         if (carnumber >= carLength) {
             return false;
         }
