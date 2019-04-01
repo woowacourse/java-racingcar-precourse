@@ -49,6 +49,13 @@ public class RacingCar {
     }
 
     public void doGame(Car[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            cars[i].doRacing();
+            cars[i].printPosition();
+            if (cars[i].getPosition() > maxPosition) {
+                maxPosition = cars[i].getPosition();
+            }
+        }
     }
 
     public void decideWinner(Car[] cars) {
