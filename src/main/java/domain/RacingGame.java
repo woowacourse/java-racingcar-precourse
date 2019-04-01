@@ -17,6 +17,7 @@ public class RacingGame {
   /*
   * Car 객체에 접근하여 게임을 진행하는 클래스
   * */
+
   public static String[] InputCarName(){
     /*
     * 차를 입력받는 메소드 1차 구현
@@ -36,6 +37,15 @@ public class RacingGame {
   }
 
   public static void main(String args[]){
+    String[] str =  InputCarName();
+    Car[] c = new Car[10];
+    for(int i=0;i<str.length;i++) {
+      c[i] = CreateCarObject(str[i]);
+    }
 
+    /*
+    for (int i = 0; i < str.length; i++) {
+      System.out.println(c[i].getCarName());
+    }*/
   }
 }
