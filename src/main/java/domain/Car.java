@@ -27,12 +27,11 @@ public class Car {
         }
     }
 
-    public String getString() {
-        String result = name+" : ";
-        for (int i = 0; i < position; i++) {
-            result += "-";
-        }
-        return result;
+    public String getName() {
+        return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
 }

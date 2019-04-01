@@ -15,12 +15,12 @@ public class RacingGame {
 
     private Car[] cars;
 
-    public void play() {
-        int racingNum;
-
+    public void start() {
         setCars();
-        racingNum = getRacingNum();
+        playGame(getRacingNum());
+    }
 
+    private void playGame(int racingNum) {
         System.out.println("\n실행 결과");
         for (int i = 0; i < racingNum; i++) {
             doRace();
@@ -31,8 +31,16 @@ public class RacingGame {
     private void doRace() {
         for (Car car : cars) {
             car.race();
-            System.out.println(car.getString());
+            printCar(car);
         }
+    }
+
+    private void printCar(Car car) {
+        String info = car.getName()+" : ";
+        for (int i = 0; i < car.getPosition(); i++) {
+            info += "-";
+        }
+        System.out.println(info);
     }
 
     private int getRacingNum() {
