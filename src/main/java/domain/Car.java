@@ -19,7 +19,7 @@ public class Car implements Comparable<Car>{
      * 전진하면 position은 1증가한다.
      */
     public void goOrStop(){
-        int ran=(int)Math.random()*10;
+        int ran=(int)(Math.random()*10);
         if(ran>=4){
             position++;
         }
