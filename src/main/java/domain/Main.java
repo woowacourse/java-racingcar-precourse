@@ -55,4 +55,9 @@ public class Main {
 		return result;
 	}
 	
+	private static void calMax(int position) {
+		if (position > maxPosition) {
+			maxPosition = position;
+		}
+	}
 }
