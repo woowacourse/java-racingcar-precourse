@@ -11,7 +11,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,6 +25,18 @@ public class RacingTest {
     }
 
     @Test
+    public void registerCars() {
+        setupMockInputStream("a,123456,c\na,ab,abc,1234,,12345\n");
+        callMethod(racing, "registerCars");
+        List<Car> cars = getListField(racing, "cars");
+        assertEquals(6, cars.size());
+        List<String> outputList = Arrays.asList("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)",
+                                                "Car: 123456은 너무 깁니다. 5자이내로 입력해주세요.");
+        String expected = outputList.stream().map(s -> s + "\n").reduce("", (a, b) -> a + b);
+        assertEquals(expected, bo.toString());
+    }
+
+    @Test
     public void setSimulationTimes() {
         setupMockInputStream("-10\nabc\n42\n");
         callMethod(racing, "setSimulationTimes");
@@ -34,7 +45,7 @@ public class RacingTest {
         List<String> outputList = Arrays.asList("시도할 회수는 몇회인가요?",
                                                 "잘못된 시도 휫수 입력입니다: -10",
                                                 "잘못된 시도 휫수 입력입니다: abc");
-        String expected = outputList.stream().map(s -> s + "\n").reduce("", (a,b) -> a + b);
+        String expected = outputList.stream().map(s -> s + "\n").reduce("", (a, b) -> a + b);
         assertEquals(expected, bo.toString());
     }
 
@@ -54,6 +65,17 @@ public class RacingTest {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    private List<Car> getListField(Racing racing, String fieldName) {
+        try {
+            Field f = racing.getClass().getDeclaredField(fieldName);
+            f.setAccessible(true);
+            return (ArrayList<Car>) f.get(racing);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
     }
 
     private void callMethod(Racing racing, String methodName) {
