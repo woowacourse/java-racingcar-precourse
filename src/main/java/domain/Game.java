@@ -8,8 +8,11 @@ public class Game {
     String[] carNames;
 
     public void run() {
-        InputCarName();
-        SplitWithComma();
+        do {
+            InputCarName();
+            SplitWithComma();
+        }
+        while (!CheckCarNameLength());
     }
 
     public void InputCarName() {
@@ -20,5 +23,16 @@ public class Game {
 
     public void SplitWithComma() {
         carNames = carName.split(",");
+    }
+
+    public boolean CheckCarNameLength() {
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].length() > 5) {
+                System.out.println("자동차 이름을 5자리 이하로 입력해주세요.");
+                return false;
+            }
+        }
+
+        return true;
     }
 }
