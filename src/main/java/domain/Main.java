@@ -3,7 +3,8 @@ package domain;
 import java.util.Scanner;
 
 public class Main {
-
+	static int maxPosition;
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int round = 0;
