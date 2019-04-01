@@ -13,6 +13,7 @@
  * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 
 ## 프로그래밍 요구 사항
+
  * Car 객체를 활용해 구현해야 한다.
  * Car 기본 생성자를 추가할 수 없다.
  * name, position 변수의 접근 제어자인 private을 변경할 수 없다. 
@@ -28,6 +29,15 @@
  	* 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
 	* else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
 	
+## 미션 목표
+```
+ * 해당 미션에 대해 객체를 나눠본다.(Car객체, User객체, GameController객체 등)
+ * 객체를 통해 클래스를 분리해 활용해 본다.
+ * 정적인 타입으로 추상화 한 뒤 타입간의 관계를 설정후 객체지향을 설계하고 구현해본다.
+``` 
+ * (참고) <http://woowabros.github.io/study/2016/07/07/think_object_oriented.html>
+
+	
 ## 구현 기능 목록
 
  1. Car 모델을 담을 Car 클래스 생성 -> name, position 설정
@@ -36,4 +46,3 @@
  4. 전반적으로 게임을 진행하기 위한 GameController 클래스 생성 -> gameStart()구현
  5. 예외처리 할 Exception 클래스 생성
  6. 게임을 돌릴 Main 클래스 생성
- 	 
