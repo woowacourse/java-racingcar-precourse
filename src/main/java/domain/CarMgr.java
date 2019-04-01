@@ -1,5 +1,5 @@
 /*
- * @CarMgr.java	1.00 2019/04/01
+ * @CarMgr.java	1.00 	2019/04/01
  * 
  * Copyright(c)2019	HwiJin Hong.
  * All right reserved.
@@ -25,5 +25,15 @@ import java.util.ArrayList;
 public class CarMgr {
 
 	private ArrayList<Car> carList;
+	
+	public void goOrStop() {
+		int randomNumber;
+		for (int i = 0; i < carList.size(); i++) {
+			randomNumber = makeRandom();
+			if (randomNumber >= 4) {
+				carList.get(i).go();
+			}
+		}
+	}
 	
 }
