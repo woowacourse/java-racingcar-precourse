@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * 사용자에게 입력을 받거나 보여줘야 하는 역활을 하는 객체
+ *
+ * @author 송윤재
+ * @version 1.0
+ */
 public class UserInterface {
     private Scanner sc = new Scanner(System.in);
 
@@ -63,6 +69,10 @@ public class UserInterface {
         System.out.println();
     }
 
+    /*
+     * printWinnerNames로부터 받은 승리한 자동차 이름을 통해
+     * 우승 멘트를 작성하는 함수
+     */
     public void printWinners(Car[] cars) {
         ArrayList<Integer> positions = new ArrayList<>();
 
@@ -77,7 +87,7 @@ public class UserInterface {
         System.out.println("가 최종 우승했습니다.");
     }
 
-    private boolean flag = true;
+    private boolean flag = true;        // printWinnerNames 메소드에서 처음 출력인지 아닌지 확인하기 위한 변수
 
     private void printWinnerNames(Car car, int maxPosition) {
         if (car.getPosition() == maxPosition) {
