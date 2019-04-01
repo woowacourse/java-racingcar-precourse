@@ -1,3 +1,11 @@
+/**
+ * 이 클레스는  java-racingcar game이 구현된 클레스이다.
+ *
+ * className    PlayGame
+ * version      1.0.0
+ * Date		    01/04/2019
+ * author	    권경동
+ */
 package domain;
 
 import java.util.Scanner;

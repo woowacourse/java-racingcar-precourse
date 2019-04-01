@@ -1,3 +1,12 @@
+/**
+ * 이 클레스는  Car 객체에 관한 클래스 이다.
+ *
+ *className     Car
+ *version 	    1.0.0
+ *Date		    01/04/2019
+ *author	    권경동
+ */
+
 package domain;
 
 import java.util.Random;
