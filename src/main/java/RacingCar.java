@@ -9,9 +9,18 @@ public class RacingCar {
         return splitCarName;
     }
 
+    public static boolean namingRule(String[] carNames) {
+        for (String name: carNames) {
+            if (name.length() > 5) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         String[] carNames = inputCarName();
-        System.out.println(carNames);
+        System.out.println(namingRule(carNames));
     }
 
 }
