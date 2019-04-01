@@ -1,6 +1,8 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GameManager {
     private Message message;
@@ -25,6 +27,8 @@ public class GameManager {
     public void startRacing() {
         init();
         getRacingInformation();
+        runRacing();
+        judgeRacing();
     }
 
     private void getRacingInformation() {
@@ -57,6 +61,68 @@ public class GameManager {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    private void judgeRacing() {
+        maxPositionArray();
+        boolean winnercheck = true;
+        int carnumber = 0;
+        while (winnercheck) {
+            winnercheck = maxPositionCarCheck(carnumber++);
+        }
+        winnerOfRacing();
+    }
+
+    /*
+     * MaxPositionArray() : Position이 높은 순으로 정렬
+     */
+    private void maxPositionArray() {
+        Collections.sort(car, new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                if (o1.getPosition() > o2.getPosition()) {
+                    return -1;
+                }
+                if (o1.getPosition() == o2.getPosition()) {
+                    return 0;
+                }
+                else {
+                    return 1;
+                }
+            }
+        });
+    }
+
+    /*
+     * MaxPositionCarCheck() : MaxPosition RacingCar check
+     */
+    private boolean maxPositionCarCheck(int carnumber) {
+        if (carnumber >= carLength) {
+            return false;
+        }
+        if (car.get(carnumber).getPosition() == maxPosition) {
+            maxPositionCar.add(car.get(carnumber).getName());
+            return true;
+        }
+        return false;
+    }
+
+    private void winnerOfRacing() {
+        maxPositionCarLength = maxPositionCar.size();
+        winner = new StringBuilder();
+        int winnerLength = maxPositionCar.size();
+        for (int i = 0; i < winnerLength; i++) {
+            winner.append(maxPositionCar.get(i));
+            commaCheck(i + 1);
+        }
+        System.out.println(winner.toString() + message.gameOutputMessage.get("OUTPUT_GAMEWINNER"));
+    }
+
+    private void commaCheck(int Lastindex) {
+        if (Lastindex == maxPositionCarLength) {
+            return;
+        }
+        winner.append(", ");
     }
 
 }
