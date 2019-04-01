@@ -10,6 +10,7 @@ public class Draw {
                 System.out.print("-");
             System.out.println();
         }
+        System.out.println();
     }
 
     public void drawWhoIsWinners(String[] winners) {
