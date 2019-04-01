@@ -23,6 +23,14 @@ public class RacingCarGame {
     }
 
     public void play() {
-        System.out.println("RacingCarGame.play Called");
+        while(!isGameOver()) {
+            cars.stream()
+                    .filter(Car::isMoveable)
+                    .forEach(Car::move);
+        }
+    }
+
+    private boolean isGameOver() {
+        return remainingPlayCount-- <= 0;
     }
 }
