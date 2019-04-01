@@ -26,4 +26,11 @@ public class Main {
             cars[i].goOrStop();
         }
     }
+    public static void printAllPostion(){
+        StringBuilder allPosition = new StringBuilder();
+        for(int i=0; i<cars.length; i++){
+            allPosition.append(cars[i].printPosition()+"\n");
+        }
+        System.out.println(allPosition.toString());
+    }
 }
