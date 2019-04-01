@@ -15,5 +15,16 @@ public class Car {
     	}
 	}
 
+	public void printState() {
+		// TODO Auto-generated method stub
+		StringBuffer sb = new StringBuffer();
+    	
+    	sb.append(name+" :");
+    	for (int i = 0; i < position; i++) {
+    		sb.append("-");
+    	}
+    	System.out.println(sb.toString());
+	}
+
     
 }
