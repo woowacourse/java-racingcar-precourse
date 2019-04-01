@@ -2,6 +2,7 @@
 2. CarGameLauncher.java 안에 main method를 정의한다.
 2-1 main method에서 작동할 doGame(), prepareGame(), playGame(), endGame()을 정의한다.
 3. 자동차 이름을 묻는 getCarNames() method를 정의한다.
+3-1. User가 조건에 맞는 input을 제시하는 것을 돕기 위해 isNameLengthBetweenOneAndFive() method와 isDuplicate() method 추가."
 4. 경주를 몇번 할 것인지 묻는 askHowManyTurns() method를 정의한다.
 5. User의 input이 맞는지 확인하는 ckechUserInput(), isNonNumberThere(), isItSmallerThanOne() method를 정의한다.
 6. Class car를 instantiage하는 insatntiateAndReturn() method정의.

@@ -14,20 +14,64 @@ public class Car
     public static String[] askCarNames()
     {
         String userInput;
+        String[] userInputArray;
         while(true)
         {
-            System.out.print("경주할 자동차 이름을 입력하세요.");
-            System.out.println(" 이름은 쉼표(,) 기준으로 구분합니다.");
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분합니다)");
             Scanner reader = new Scanner(System.in);
             userInput = reader.nextLine();
-            if(userInput.length() >= 1)
+            userInput = userInput.replaceAll("\\s+", "");
+            userInputArray = userInput.split(",");
+            if ((isNameLengthBetweenOneAndFive(userInputArray)== false) && (isDuplicate(userInputArray) == false))
             {
                 break;
             }
         }
-        userInput = userInput.replaceAll("\\s+", "");
-        String[] userInputArray = userInput.split(",");
         return userInputArray;
+    }
+
+    private static boolean isDuplicate(String[] userInputArray)
+    {
+        for (int i=0; i<userInputArray.length; i++)
+        {
+            if (count(userInputArray, userInputArray[i]) > 1)
+            {
+                System.out.println("중복되는 이름의 선수들이 있습니다! 모두 다른 이름으로 해주세요!");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static int count(String[] userInputArray, String userInput)
+    {
+        int count = 0;
+        for(int i =0; i<userInputArray.length; i++)
+        {
+            if(userInput.equals(userInputArray[i]))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private static boolean isNameLengthBetweenOneAndFive(String[] userInputArray)
+    {
+        if (userInputArray.length == 0)
+        {
+            System.out.println("선수들의 이름의 길이는 1이상 5이하로 해주십시오");
+            return true;
+        }
+        for(int i=0; i<userInputArray.length; i++)
+        {
+            if (userInputArray[i].length() > 5 || userInputArray[i].length() < 1)
+            {
+                System.out.println("선수들의 이름의 길이는 1이상 5이하로 해주십시오");
+                return true;
+            }
+        }
+        return false;
     }
 
     public static int askHowManyTurns()
