@@ -26,19 +26,28 @@ public class CarGroup {
 
     public String getMaxCar() {
         int max_position = 0;
-        String carName = "";
+        ArrayList<String> winnerNames = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
 
         for (Car c : carInstances) {
             if (c.getPosition() > max_position) {
                 max_position = c.getPosition();
-                carName = c.getCarName();
-            }
-            if (c.getPosition() == max_position) {
-                carName = carName + ", " + c.getCarName();
             }
         }
 
-        return carName;
+        for (Car c : carInstances) {
+            if (c.getPosition() == max_position) {
+                winnerNames.add(c.getCarName());
+            }
+        }
+
+        for (String s : winnerNames) {
+            sb.append(",");
+            sb.append(s);
+        }
+
+
+        return sb.toString().substring(1);
     }
 
     /**
