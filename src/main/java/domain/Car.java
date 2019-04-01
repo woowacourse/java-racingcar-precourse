@@ -1,5 +1,5 @@
 /*
- * @(#)Main.java        0.1 2019/04/01
+ * @(#)Main.java        0.2 2019/04/02
  *
  *
  */
@@ -12,10 +12,10 @@ import java.util.Random;
  * Car 객체 생성을 위한 클래스입니다.
  *
  * @author 반선호
- * @version 0.1 2019년 4월 01일
+ * @version 0.2 2019년 4월 02일
  */
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int MAXIMUM_RANDOM_VALUE = 10;
     private static final int MOVE_DECISION_VALUE = 4;
 
@@ -33,6 +33,14 @@ public class Car {
             movePosition();
         }
         printCurrentPosition();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     private void createRandomDistance() {
@@ -54,5 +62,10 @@ public class Car {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return car.getPosition() - position;
     }
 }

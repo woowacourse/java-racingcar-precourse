@@ -1,18 +1,19 @@
 /*
- * @(#)Main.java        0.1 2019/04/01
+ * @(#)Main.java        0.2 2019/04/02
  *
  *
  */
 
 package domain;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * 자동차 경주 게임을 위한 클래스 입니다.
  *
  * @author 반선호
- * @version 0.1 2019년 4월 01일
+ * @version 0.2 2019년 4월 02일
  */
 public class RacingCarGame {
 
@@ -24,6 +25,8 @@ public class RacingCarGame {
     private static final String ROUND_REQEUST_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String NUMBER_ERROR_MESSAGE = "숫자가 아닙니다. 숫자를 입력해주세요";
     private static final String RUN_RESULT_MESSAGE = "실행 결과";
+    private static final int FIRST_RANK_POSITION = 0;
+    private static final String RANK_RESULT_MESSAGE = "가 최종 우승했습니다.";
 
     private String[] carNames;
     private Car[] cars;
@@ -36,6 +39,7 @@ public class RacingCarGame {
         createCar();
         requestRound();
         implementRound();
+        printFirstRank();
     }
 
     private void requestCarName() {
@@ -112,5 +116,19 @@ public class RacingCarGame {
             }
             System.out.println();
         }
+    }
+
+    private void printFirstRank() {
+        StringBuilder stringbuilder = new StringBuilder();
+        Arrays.sort(cars);
+        stringbuilder.append(cars[FIRST_RANK_POSITION].getName());
+        for (int i = 1; i < cars.length; i++) {
+            if (cars[FIRST_RANK_POSITION].getPosition() != cars[i].getPosition()) {
+                break;
+            }
+            stringbuilder.append(", " + cars[i].getName());
+        }
+        stringbuilder.append(RANK_RESULT_MESSAGE);
+        System.out.println(stringbuilder);
     }
 }
