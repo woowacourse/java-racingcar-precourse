@@ -35,6 +35,11 @@ public class RacingCar {
         return true;
     }
 
+    public static int moveCount() {
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
+    }
+
     public static void main(String[] args) {
         Set<String> carNames = inputCarName();
         System.out.println(carNames);
