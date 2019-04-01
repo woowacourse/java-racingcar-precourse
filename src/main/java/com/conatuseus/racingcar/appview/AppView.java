@@ -25,9 +25,10 @@ public final class AppView {
     /* Scanner 변수 */
     private static final Scanner sc = new Scanner(System.in);
 
-    /* String matches에 사용할 regex 정의 */
+    /* String matches에 사용할 알파벳 REGEX 정의 */
     private static final String ALPHABET_REGEX = "^[a-zA-Z]*$";
 
+    /* String matches에 사용할 숫자 REGEX 정의*/
     private static final String NUMBER_REGEX = "[0-9]*$";
 
     /* 가능한 이름의 최대 길이 저장 */
