@@ -27,6 +27,10 @@ public class CarMgr {
 
 	private ArrayList<Car> carList;
 
+	public CarMgr() {
+		carList = new ArrayList<>();
+	}
+
 	public void addNames(String[] names) {
 		for (String name : names) {
 			carList.add(new Car(name));
