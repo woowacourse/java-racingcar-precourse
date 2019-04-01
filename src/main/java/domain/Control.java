@@ -21,7 +21,10 @@ public class Control {
         String[] carArray = str.split(",");
 
         for (int i = 0; i < carArray.length; i++) {
-            this.cars.add(new Car(carArray[i], 0));
+            String temp = carArray[i];
+            if(temp.length() <= 5) {
+                this.cars.add(new Car(temp, 0));
+            }
         }
     }
 
@@ -51,7 +54,7 @@ public class Control {
                        : preCar; 
             // 랜덤 숫자가 4 이상이면 해당 자동차의 포지션이 1 증가한 Car인스턴스 생성해 temp에 저장
             // 랜덤 숫자가 4 미만이면 이전 Car객체를 그대로 temp에 저장
-            
+
             cars.set(i, temp);
             // 전진할지 정지할지 반영된 temp를 cars에 셋팅
         }
