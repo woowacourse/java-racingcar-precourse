@@ -10,6 +10,7 @@
  * 1.자동차에 대한 정보들 저장한다.
  * 2.자동차에게 전진 또는 정지 명령을 내린다.
  * 3.자동차들의 상태 정보를 콘솔창에 출력해준다.
+ * 4.1등 자동차들의 이름을 가져온다.
  */
 
 package domain;
@@ -56,5 +57,13 @@ public class CarMgr {
 			}
 		}
 		return sb.substring(0, sb.length() - removeIndex);
+	}
+	
+	private int findFirstPositionNumber() {
+		int firstPositionNumber = 0;
+		for (Car car : carList) {
+			firstPositionNumber = Math.max(car.getPosition(), firstPositionNumber);
+		}
+		return firstPositionNumber;
 	}
 }
