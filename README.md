@@ -25,13 +25,13 @@
    - 해당 객체의 position값 과 maxPosition 비교하는 calMax메소드 호출  
    - totalRound에 도달할때까지 gameStart(currentRound+1,totalRound) 호출    
     
-  3. void gameFinish()  
+  3. void gameFinish(Car[] cars)  
    - 게임 결과 출력하는 메소드  
    - getWinner 메소드를 호출한 뒤, 반환문에서 이긴 차 이름들 가져온다.  
   
-  4. ArrayList<Car> getWinner()  
+  4. ArrayList<Car> getWinner(Car[] cars)  
     - maxPosition과 position이 같은 차 객체 배열을 반환한다.  
-    - gameFinish() 메소드에서 사용한다.   
+    - gameFinish(cars) 메소드에서 사용한다.   
   
   5. void calMax(int position)  
    - 이동거리 최대값을 얻기 위해 자동차들의 현위치 position과 전역변수 maxPosition 비교

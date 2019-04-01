@@ -32,7 +32,7 @@ public class Main {
 		round = sc.nextInt();
 		
 		gameStart(racingCars,1,round);
-		gameFisish();
+		gameFisish(racingCars);
 		
 		sc.close();
 	}
@@ -62,8 +62,17 @@ public class Main {
 		return result;
 	}
 	
-	private static void gameFisish() {
+	private static void gameFisish(Car[] cars) {
+		ArrayList<Car> winner = getWinner(cars);
 		StringBuffer sb = new StringBuffer();
+		
+		for (int i = 0; i < winner.size(); i++) {
+			//자동차 이름 하나씩 출력하는 기능 넣어야해.
+			//이를 위해선. 자동차 객체에서 이름 가져오는 메소드 추가
+			if (i != winner.size()-1) {
+				sb.append(", ");
+			}
+		}
 		sb.append("가 최종우승했습니다.\n");
 		System.out.println(sb.toString());
 	}
