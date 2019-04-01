@@ -39,4 +39,10 @@ public class CarMgr {
 	private int makeRandom() {
 		return (int) (Math.random()*10);
 	}
+
+	public void printCarList() {
+		for (Car car : carList) {
+			System.out.println(car);
+		}
+	}
 }
