@@ -1,4 +1,4 @@
-package domain;
+package com.codemcd.racingcar;
 
 public class Car {
     private final String name;
