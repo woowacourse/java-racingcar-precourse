@@ -1,4 +1,4 @@
-package domain;
+package com.molt3nrock.racingcar;
 
 public class Car {
     private final String name;
