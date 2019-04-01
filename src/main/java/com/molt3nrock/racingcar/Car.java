@@ -38,12 +38,24 @@ public class Car implements Comparable {
         return this.name;
     }
 
-    @Override
-    public String toString() {
-        String dottedLine = String.join("", Collections.nCopies(position, "-"));
-        return String.format("%s:%s", this.name, dottedLine);
+    public String getPositionAsDashLine() {
+        return String.join("", Collections.nCopies(position, "-"));
     }
 
+    /**
+     * Car 클래스의 {@code name} 과 {@code position} 을 주어진 형식값에 맞게 {@code String}으로 변환합니다.
+     * 예시) car.name = "fo", car.position = 3 일 때, car.format(3) == " fo : ---"
+     *
+     * @param nameWidth {@code name} 공백 채우기의 넓이. {@code name}의 길이가
+     *                  {@code nameWidth}보다 짧을 경우 왼쪽에 공백 문자를 채웁니다.
+     */
+    public String format(int nameWidth) {
+        if (nameWidth < 1) {
+            throw new IllegalArgumentException("Invalid Car name width format specifier.");
+        }
+        String formatString = String.format("%%%ds", nameWidth);
+        return String.format(formatString + " : " + getPositionAsDashLine(), this.name);
+    }
 
     @Override
     public boolean equals(Object obj) {

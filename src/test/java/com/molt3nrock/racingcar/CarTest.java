@@ -9,9 +9,11 @@ import org.junit.Test;
 public class CarTest {
 
     @Test
-    public void toStringNormal() {
+    public void displayCar() {
         Car car = new Car("foo");
-        assertEquals(car.toString(), "foo:");
+        setIntField(car, "position", 3);
+        String actual = car.format(1);
+        assertEquals("foo : ---", actual);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -25,8 +27,9 @@ public class CarTest {
         Car car = new Car(name);
         car.move();
         int position = getPosition(car);
-        String expected = name + ":" + String.join("", Collections.nCopies(position, "-"));
-        assertEquals(expected, car.toString());
+        String expected = name + " : " + String.join("", Collections.nCopies(position, "-"));
+        String actual = car.format(1);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -49,5 +52,18 @@ public class CarTest {
             e.printStackTrace();
         }
         return 0;
+    }
+
+
+    private Car setIntField(Car car, String fieldName, int position) {
+        try {
+            Field f = car.getClass().getDeclaredField(fieldName);
+            f.setAccessible(true);
+            f.set(car, position);
+            return car;
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
