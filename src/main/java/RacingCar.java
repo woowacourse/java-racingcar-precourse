@@ -1,10 +1,10 @@
 /**
  * class : RacingCar.java
- *
+ * <p>
  * version : 1.0
- *
+ * <p>
  * date : 2019.04.01
- *
+ * <p>
  * author : icarus8050
  */
 
@@ -27,13 +27,15 @@ public class RacingCar {
         int rumTime = inputRumTimeNumber();
 
         startRacing(carList, rumTime);
+        printFirstCarList(carList);
 
         scanner.close();
     }
 
     /**
      * 경주할 자동차 이름 목록을 입력하는 메소드
-     * @return  ","로 구분된 자동차 이름 목록
+     *
+     * @return ","로 구분된 자동차 이름 목록
      */
     private static String inputCarList() {
         String stringBasedCarList;
@@ -43,7 +45,7 @@ public class RacingCar {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             stringBasedCarList = scanner.nextLine();
             if (InputValidation.inspectCarNames(stringBasedCarList)) {
-                return  stringBasedCarList;
+                return stringBasedCarList;
             }
         }
     }
@@ -51,6 +53,7 @@ public class RacingCar {
     private static int inputRumTimeNumber() {
         String input;
 
+        /* 유효한 시도 횟수가 입력될 때까지 루프 순회 */
         while (true) {
             System.out.println("시도할 횟수는 몇회인가요?");
             input = scanner.nextLine();
@@ -70,5 +73,27 @@ public class RacingCar {
             });
             System.out.println();
         }
+    }
+
+    private static void printFirstCarList(List<Car> carList) {
+        int mostDistance = getMostDistance(carList);
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Car car : carList) {
+            if (car.getPosition() == mostDistance) {
+                stringBuilder.append(car.getName()).append(", ");
+            }
+        }
+
+        /* 마지막에 추가된 ", "를 제거하기 위한 코드 */
+        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+        System.out.println(stringBuilder + "가 최종 우승했습니다.");
+    }
+
+    private static int getMostDistance(List<Car> carList) {
+        return carList.stream()
+                .max((car_1, car_2) -> Integer.compare(car_1.getPosition(), car_2.getPosition()))
+                .get()
+                .getPosition();
     }
 }

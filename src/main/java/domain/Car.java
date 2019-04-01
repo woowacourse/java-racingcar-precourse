@@ -12,6 +12,10 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     /**
      * 자동차를 이동시킨다.
      * 랜덤한 숫자를 뽑아서 4이상일 경우 전진, 3이하일 경우 멈춤.
