@@ -15,7 +15,7 @@ public class Car {
     }
 
     private void randomNumber() {
-        int number = (int) (Math.random() * 10); // 0~9
+        int number = (int) (Math.random() * 10); // 0~9 random number
         checkMove(number);
     }
 
