@@ -13,4 +13,9 @@ public class Car {
     public void moveForward() {
         this.position++;
     }
+    
+    /** 현재 진행상황을 문자열로 반환 */
+    public String getStatus() {
+        return this.name + " : " + "-".repeat(position);
+    }
 }
