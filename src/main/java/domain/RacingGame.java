@@ -49,4 +49,8 @@ public class RacingGame {
         return cg.getRaceState();
     }
 
+    private String getWinner(CarGroup cg) {
+        return cg.getMaxCar();
+    }
+
 }
