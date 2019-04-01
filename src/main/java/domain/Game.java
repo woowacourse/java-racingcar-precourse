@@ -7,6 +7,7 @@ public class Game {
     String carName;
     String[] carNames;
     Car[] cars;
+    int times;
 
     public void run() {
         do {
@@ -15,6 +16,7 @@ public class Game {
         }
         while (!CheckCarNameLength());
         createCar();
+        InputTimes();
     }
 
     public void InputCarName() {
@@ -44,5 +46,17 @@ public class Game {
         for (int i = 0; i < carNames.length; i++) {
             cars[i] = new Car(carNames[i]);
         }
+    }
+
+    public void InputTimes() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("시도할 횟수는 몇회인가요?");
+        times = sc.nextInt();
+    }
+
+    public int createRandomNumber() {
+        int randomNumber = (int)Math.random() * 10;
+
+        return randomNumber;
     }
 }
