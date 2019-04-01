@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 자동차들의 이름들을 입력받는 클래스
  * 
  * @author wschoi8640
- * @version 1.0
+ * @version 1.1
  */
 public class CarNameReceiver {
 
@@ -15,8 +15,6 @@ public class CarNameReceiver {
 	private Scanner sc = null;
 	private String carNames = "";
 	private String[] carNameArr = null;
-	private boolean isValid = false;
-
 	
 	/**
 	 * 차 이름을 한꺼번에 입력 받는 메소드
@@ -51,16 +49,11 @@ public class CarNameReceiver {
 	 * @param 차 이름 배열
 	 */
 	public void checkValid(String[] carNameArr) {
-		isValid = true;
 		for (String carName : carNameArr) {
 			if ((carName.length() > 5) || carName.equals("")) {
-				isValid = false;
-				break;
+				System.out.println(errMsg);
+				readCarNames();
 			}
-		}
-		if (!isValid) {
-			System.out.println(errMsg);
-			readCarNames();
 		}
 	}
 
