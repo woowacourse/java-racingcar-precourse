@@ -1,11 +1,10 @@
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import domain.Car;
+
+import java.util.*;
 
 public class RacingCar {
 
-    public static Set<String> inputCarName() {
+    public Set<String> inputCarName() {
         Scanner sc = new Scanner(System.in);
         String carNames;
         String[] splitCarNames;
@@ -25,7 +24,7 @@ public class RacingCar {
         return distinctCarName;
     }
 
-    public static boolean namingRule(String[] carNames) {
+    public boolean namingRule(String[] carNames) {
         for (String name: carNames) {
             if (name.length() > 5) {
                 System.out.printf("자동차 이름의 길이는 5입니다(%s: %d).\n", name, name.length());
@@ -35,14 +34,27 @@ public class RacingCar {
         return true;
     }
 
-    public static int moveCount() {
+    public int moveCount() {
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
 
+    public ArrayList<Car> getCarList(Set<String> carNames) {
+        ArrayList<Car> carList = new ArrayList<Car>();
+        Car car;
+        for (String name: carNames) {
+            car = new Car(name);
+            carList.add(car);
+        }
+        return carList;
+    }
+
     public static void main(String[] args) {
-        Set<String> carNames = inputCarName();
-        System.out.println(carNames);
+//        Set<String> carNames = inputCarName();
+//        ArrayList<Car> carList = getCarList(carNames);
+//        for (Car car: carList) {
+//            System.out.println(car.getName());
+//        }
     }
 
 }
