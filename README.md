@@ -46,4 +46,6 @@
   메소드  
   1. void run() :  임의의 수 생성해 결과에 따라 position 변경  
   2. void printState() : 해당 객체의 경기진행내용을 출력  
+  3. int getPosition() : 해당 객체의 위치 반환    
+  4. String getName() : 해당 객체의 이름 반환      
 

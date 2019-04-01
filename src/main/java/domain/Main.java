@@ -78,6 +78,7 @@ public class Main {
 			}
 		}
 		sb.append("가 최종우승했습니다.\n");
+		
 		System.out.println(sb.toString());
 	}
 	
