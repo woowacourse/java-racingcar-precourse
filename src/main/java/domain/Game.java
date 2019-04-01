@@ -17,12 +17,16 @@ public class Game {
         while (!CheckCarNameLength());
         createCar();
         InputTimes();
+
+        System.out.println("실행 결과");
         while (times-- > 0) {
             for (int i = 0; i < cars.length; i++) {
                 oneGame(cars[i]);
             }
             System.out.println();
         }
+
+        printWinner(maxPosition());
     }
 
     public void InputCarName() {
@@ -95,5 +99,36 @@ public class Game {
             increasePosition(car);
         }
         printCarNameAndStatus(car);
+    }
+
+    public int maxPosition() {
+        int max = 0;
+
+        for (int i = 0; i < cars.length; i++) {
+            if (max < cars[i].getPosition()) {
+                max = cars[i].getPosition();
+            }
+        }
+
+        return max;
+    }
+
+    public void printWinner(int max) {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < cars.length; i++) {
+            if (max == cars[i].getPosition()) {
+                sb.append(cars[i].getCarName() + ", ");
+            }
+        }
+
+        if (sb.lastIndexOf(",") != -1) {
+            sb.deleteCharAt(sb.lastIndexOf(","));
+        }
+
+        sb.append("가 최종 우승했습니다.");
+
+        System.out.println(sb);
     }
 }
