@@ -9,4 +9,8 @@ public class Car {
         this.position = position;
     }
 
+    public String getName() {
+        return(name);
+    }
+
 }
