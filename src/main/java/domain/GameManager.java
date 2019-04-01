@@ -94,9 +94,7 @@ public class GameManager {
                 if (o1.getPosition() == o2.getPosition()) {
                     return 0;
                 }
-                else {
-                    return 1;
-                }
+                return 1;
             }
         });
     }
