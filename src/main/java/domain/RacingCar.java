@@ -33,6 +33,12 @@ public class RacingCar {
     }
 
     public Car[] makeCars(String[] carNames) {
+        int numOfCars = carNames.length;
+        Car[] cars = new Car[numOfCars];
+        for (int i = 0; i < numOfCars; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
+        return cars;
     }
 
     public int setNumOfGames() {
