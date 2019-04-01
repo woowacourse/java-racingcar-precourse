@@ -29,7 +29,7 @@ public class GameManager {
         if (!getRacingInformation()) {
             runRacing();
             judgeRacing();
-        }else{
+        } else {
             startRacing();
         }
     }
