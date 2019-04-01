@@ -12,8 +12,8 @@ public class Car implements Comparable {
     private int position = 0;
 
     public Car(String name) {
-        if (name.length() > 5) {
-            String errorMessage = String.format("Car: %s은 너무 깁니다. 5자이내로 입력해주세요.", name);
+        if (name.length() > 5 || name.length() < 1) {
+            String errorMessage = String.format("Car: %s은 잘못된 이름입니다. 1~5자 사이의 길이로 입력해주세요.", name);
             throw new IllegalArgumentException(errorMessage);
         }
         this.name = name;

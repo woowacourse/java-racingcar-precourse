@@ -29,12 +29,12 @@ public class RacingTest {
 
     @Test
     public void registerCars() {
-        setupMockInputStream("a,123456,c\na,ab,abc,1234,,12345\n");
+        setupMockInputStream("a,123456,c\na,ab,abc,1234,12345\n");
         callMethod(racing, "registerCars");
         List<Car> cars = getListField(racing, "cars");
-        assertEquals(6, cars.size());
+        assertEquals(5, cars.size());
         List<String> outputList = Arrays.asList("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)",
-                                                "Car: 123456은 너무 깁니다. 5자이내로 입력해주세요.");
+                                                "Car: 123456은 잘못된 이름입니다. 1~5자 사이의 길이로 입력해주세요.");
         String expected = outputList.stream().map(s -> s + "\n").reduce("", (a, b) -> a + b);
         assertEquals(expected, bo.toString());
     }

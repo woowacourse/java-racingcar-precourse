@@ -45,27 +45,25 @@ public class Racing {
     private void registerCars() throws IOException {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while (true) {
+        do {
             String line = br.readLine();
-            List<Car> cars = parseInputAsCars(line);
-            if (!cars.isEmpty()) {
-                this.cars = cars;
-                break;
+            try {
+                this.cars = parseInputAsCars(line);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
-        }
+        } while (this.cars.isEmpty());
     }
 
-    private List<Car> parseInputAsCars(String line) {
-        String[] foo = line.split(",");
-        List<String> names = Arrays.asList(foo);
+    private List<Car> parseInputAsCars(String line) throws IllegalArgumentException {
+        List<String> names = Arrays.asList(line.split(","));
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException("잘못된 형식의 이름목록 입력입니다.");
+        }
         long commaCount = line.chars().filter(i -> i == (int) ',').count();
-        try {
-            List<Car> cars = names.stream().map(Car::new).collect(Collectors.toList());
-            if (commaCount + 1 == cars.size()) {
-                return cars;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+        List<Car> cars = names.stream().map(Car::new).collect(Collectors.toList());
+        if (commaCount + 1 == cars.size()) {
+            return cars;
         }
         return new ArrayList<>();
     }
