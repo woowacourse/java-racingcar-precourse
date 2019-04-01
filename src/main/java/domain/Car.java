@@ -9,4 +9,8 @@ public class Car {
     }
 
     // 추가 기능 구현
+    /** 자동차를 1칸 앞으로 전진 */
+    public void moveForward() {
+        this.position++;
+    }
 }
