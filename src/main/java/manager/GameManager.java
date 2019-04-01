@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class GameManager {
     private Car[] cars;
     private int carNumber;
+    private StringBuilder sb = new StringBuilder();
 
     public void startGame() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -45,21 +46,20 @@ public class GameManager {
 
     public void printWinner(ArrayList<String> winnerList) {
         int checkWinnerNum = 0;
-        String winnerStr = "";
 
         if (winnerList.size() == 1) {
             System.out.println(winnerList.get(0) + "가 최종 우승했습니다.");
             return;
         }
         for (int i = 0; i < winnerList.size(); i++) {
-            winnerStr += winnerList.get(i);
+            sb.append(winnerList.get(i));
             checkWinnerNum++;
             if (checkWinnerNum < winnerList.size()) {
-                winnerStr += ", ";
+                sb.append(", ");
             }
         }
-        winnerStr += "가 최종 우승했습니다.";
-        System.out.println(winnerStr);
+        sb.append("가 최종 우승했습니다.");
+        System.out.println(sb.toString());
     }
 
     public void findWinner() {
