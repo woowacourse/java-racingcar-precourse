@@ -17,6 +17,12 @@ public class Game {
         while (!CheckCarNameLength());
         createCar();
         InputTimes();
+        while (times-- > 0) {
+            for (int i = 0; i < cars.length; i++) {
+                oneGame(cars[i]);
+            }
+            System.out.println();
+        }
     }
 
     public void InputCarName() {
@@ -55,7 +61,7 @@ public class Game {
     }
 
     public int createRandomNumber() {
-        int randomNumber = (int)Math.random() * 10;
+        int randomNumber = (int)(Math.random() * 10);
 
         return randomNumber;
     }
@@ -82,5 +88,12 @@ public class Game {
         }
 
         System.out.println(sb);
+    }
+
+    public void oneGame(Car car) {
+        if (checkGoAndStop(createRandomNumber())) {
+            increasePosition(car);
+        }
+        printCarNameAndStatus(car);
     }
 }
