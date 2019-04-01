@@ -9,10 +9,13 @@
 - Car instance 생성
   - 입력받은 자동차 이름으로 각각의 instance 생성
   - ArrayList에 저장 후 반환
-- 자동차 이름과 이동거리 출력
-  - Car class : getName method 추가
-- 이동할 거리 생성
-  - 자동차 마다 0 ~ 9의 임의의 정수 생성
-  - 4 이상인 경우 전진, 그렇지 않으면 정지
+- Car class
+  - access method
+    - getPosition
+    - getName
+  - move
+    - 0 ~ 9 임의의 정수 생성 
+    - 4 이상인 경우 전진, 그렇지 않으면 정지
+- 매 시행 마다 자동차 이름, 위치 출력하기
 - 우승자 출력
   - 이동 거리와 이름으로 정렬하여 우승자(혹은 공동 우승자) 출력
