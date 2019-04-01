@@ -8,5 +8,10 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void doRacing() {
+        int randomNum = (int) (Math.random() * 9);
+        if (randomNum >= 4) {
+            this.position++;
+        }
+    }
 }
