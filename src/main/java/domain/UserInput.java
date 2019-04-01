@@ -14,4 +14,18 @@ public class UserInput {
     public static String getString() {
         return sc.nextLine();
     }
+
+    public static int getInteger() {
+        int input;
+
+        while (true) {  //정수값을 입력받을 때까지 반복
+            try {
+                input = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (Exception e) {
+                System.out.println("숫자만 입력가능합니다.");
+            }
+        }
+        return input;
+    }
 }

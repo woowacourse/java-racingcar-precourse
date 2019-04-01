@@ -11,10 +11,23 @@ import java.util.Set;
 
 public class RacingGame {
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_RACING_NUM = 1;
 
     public void play() {
         Car[] cars = getCars();
+        int racingNum = getRacingNum();
 
+    }
+
+    private int getRacingNum() {
+        int num;
+
+        do {
+            System.out.println("시도할 회수는 몇회인가요?");
+            num = UserInput.getInteger();
+        } while (num < MIN_RACING_NUM);
+
+        return num;
     }
 
     private Car[] getCars() {
