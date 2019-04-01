@@ -59,4 +59,12 @@ public class Game {
 
         return randomNumber;
     }
+
+    public boolean checkGoAndStop(int randomNumber) {
+        if (randomNumber >= 4) {
+            return true;
+        }
+
+        return false;
+    }
 }
