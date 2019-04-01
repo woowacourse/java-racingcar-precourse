@@ -15,7 +15,7 @@ public class Main {
 			System.out.println("(이름은 쉼표(,)를 기준으로 구분)");
 			names = sc.next().split(",");
 			
-			//글자수 예외처리 조건 통과못하면 continue 시키는 코드 추가
+			if(!isEffectiveFormat(names)) continue;
 			//names로 Car 객체들을 생성코드 추가.
 			
 			break;
@@ -29,4 +29,9 @@ public class Main {
 		sc.close();
 	}
 
+	private static boolean isEffectiveFormat(String[] names) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 }
