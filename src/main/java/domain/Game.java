@@ -71,4 +71,16 @@ public class Game {
     public void increasePosition(Car car) {
         car.increasePosition();
     }
+
+    public void printCarNameAndStatus(Car car) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(car.getCarName());
+        sb.append(":");
+        for (int i = 0; i < car.getPosition(); i++) {
+            sb.append("-");
+        }
+
+        System.out.println(sb);
+    }
 }
