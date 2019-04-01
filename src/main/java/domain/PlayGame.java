@@ -16,4 +16,14 @@ public class PlayGame {
         this.inputNum = sc.nextInt();
     }
 
+    private void splitString() {
+        this.arr = inputString.split(",");
+    }
+
+    private void setCars() {
+        cars = new Car[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            cars[i] = new Car(arr[i]);
+        }
+    }
 }
