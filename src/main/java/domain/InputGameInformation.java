@@ -75,10 +75,7 @@ public class InputGameInformation {
     }
 
     private boolean checkLimitLength(String name) {
-        if (name.length() <= limitedCarNameLength) {
-            return true;
-        }
-        return false;
+        return (name.length() <= limitedCarNameLength) ? true : false;
     }
 
     private void inputGameCount() {
