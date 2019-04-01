@@ -34,6 +34,7 @@
 - 멤버 함수
   - ```Car(String name)```: Car 인스턴스를 생성할 생성자
   - ```goStraight()```: 자동차가 앞으로 한 칸 전진한다.
+  - ```getPosition()```: 현재 자동차의 위치를 반환한다.
 
 #### 3. GameProcess 클래스 구현하기
 - 멤버 변수

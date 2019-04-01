@@ -8,5 +8,11 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void goStraight() {
+        this.position++;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
