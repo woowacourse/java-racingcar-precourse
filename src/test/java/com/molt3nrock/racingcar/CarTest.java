@@ -24,13 +24,30 @@ public class CarTest {
         String name = "foo";
         Car car = new Car(name);
         car.move();
+        int position = getPosition(car);
+        String expected = name + ":" + String.join("", Collections.nCopies(position, "-"));
+        assertEquals(expected, car.toString());
+    }
+
+    @Test
+    public void compareTo() {
+        Car fooCar = new Car("foo");
+        Car barCar = new Car("bar");
+        fooCar.move();
+        barCar.move();
+        int fooPosition = getPosition(fooCar);
+        int barPosition = getPosition(barCar);
+        assertEquals(fooCar.compareTo(barCar), Integer.compare(fooPosition, barPosition));
+    }
+
+    private int getPosition(Car car) {
         try {
             Field f = car.getClass().getDeclaredField("position");
             f.setAccessible(true);
-            String expected = name + ":" + String.join("", Collections.nCopies((int)f.get(car), "-"));
-            assertEquals(expected, car.toString());
+            return (int) f.get(car);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
+        return 0;
     }
 }

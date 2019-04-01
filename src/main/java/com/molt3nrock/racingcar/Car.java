@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Car {
+public class Car implements Comparable {
 
     private final static int POSITION_INCREMENT = 1;
     private final String name;
@@ -18,7 +18,6 @@ public class Car {
         }
         this.name = name;
     }
-
 
     public void move() {
         final int VALID_RANDOM_MIN = 0;
@@ -39,5 +38,13 @@ public class Car {
     public String toString() {
         String dottedLine = String.join("", Collections.nCopies(position, "-"));
         return String.format("%s:%s", this.name, dottedLine);
+    }
+
+    public int compareTo(Object obj) {
+        if (obj instanceof Car) {
+            Car other = (Car) obj;
+            return Integer.compare(this.position, other.position);
+        }
+        return 0;
     }
 }
