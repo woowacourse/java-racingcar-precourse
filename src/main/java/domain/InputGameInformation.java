@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -56,21 +57,6 @@ public class InputGameInformation {
         }
     }
 
-    private void inputGameCount() {
-        do {
-            System.out.println(Message.gameInputMessage.get("INPUT_GAMECOUNT"));
-            gameCount = sc.nextInt();
-        } while (checkGameCount(gameCount));
-    }
-
-    private boolean checkGameCount(int number) {
-        if (number <= 0) {
-            System.out.println(Message.errorMessage.get("ERROR_GAMECOUNTLIMIT"));
-            return true;
-        }
-        return false;
-    }
-
     private boolean checkCar(String name) {
         boolean checkOverlap = checkOverlap(name);
         boolean checkLength = checkLimitLength(name);
@@ -96,6 +82,28 @@ public class InputGameInformation {
         return false;
     }
 
+    private void inputGameCount() {
+        do {
+            try {
+                System.out.println(Message.gameInputMessage.get("INPUT_GAMECOUNT"));
+                gameCount = sc.nextInt();
+            } catch (InputMismatchException nfe) {
+                sc = new Scanner(System.in);
+                System.out.println(Message.errorMessage.get("ERROR_GAMECOUNTTYPE"));
+                inputGameCount();
+                return ;
+            }
+        } while (checkGameCount(gameCount));
+    }
+
+    private boolean checkGameCount(int number) {
+        if (number <= 0) {
+            System.out.println(Message.errorMessage.get("ERROR_GAMECOUNTLIMIT"));
+            return true;
+        }
+        return false;
+    }
+    
     public ArrayList<Car> getCar() {
         return carName;
     }
