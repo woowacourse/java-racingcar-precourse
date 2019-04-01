@@ -1,4 +1,5 @@
 package domain;
+
 import java.util.Scanner;
 
 public class RacingCar {
@@ -12,7 +13,7 @@ public class RacingCar {
     public void play() {
         String[] carNames = setCarNames();
         Car[] cars = makeCars(carNames);
-        int numOfGames = setNumOfGames();
+        final int numOfGames = setNumOfGames();
 
         System.out.println("실행 결과");
         for (int i = 0; i < numOfGames; i++) {
