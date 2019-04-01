@@ -1,5 +1,5 @@
 /*
- * @CarMgr.java	1.00 	2019/04/01
+ * @CarMgr.java	1.01 	2019/04/02
  * 
  * Copyright(c)2019	HwiJin Hong.
  * All right reserved.
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * 자동차의 전체 리스트를 관리해주는 클래스
  * 
- * @version 1.00 2019년 4월 1일
+ * @version 1.01 2019년 4월 2일
  * @author huisam
  */
 public class CarMgr {
@@ -39,10 +39,22 @@ public class CarMgr {
 	private int makeRandom() {
 		return (int) (Math.random()*10);
 	}
-
+	
 	public void printCarList() {
 		for (Car car : carList) {
 			System.out.println(car);
 		}
+	}
+	
+	public String whoIsFirst() {
+		int firstPosition = findFirstPositionNumber();
+		int removeIndex = 2;
+		StringBuilder sb = new StringBuilder();
+		for (Car car : carList) {
+			if (car.getPosition() == firstPosition) {
+				sb.append(car.getName()).append(", ");
+			}
+		}
+		return sb.substring(0, sb.length() - removeIndex);
 	}
 }
