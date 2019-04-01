@@ -65,7 +65,7 @@
         - CarGroup 인스턴스로부터 우승자를 받아온다.
 
 3. CarGroup 클래스
-    - 멤버변수중 Car[]가 있음.
+    - 멤버변수중 Car[]가 있음. => Car[]보다는 ArrayList<Car>가 나아보여 바꾸었다. 이하 ArrayList<Car>.
     - 생성자(String[])
         - String[]에 따라 Car 인스턴스를 생성하고 Car[]에 담는다.
     - public void makeCarRace()
