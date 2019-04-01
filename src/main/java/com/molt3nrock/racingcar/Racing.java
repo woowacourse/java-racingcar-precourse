@@ -57,15 +57,12 @@ public class Racing {
 
     private List<Car> parseInputAsCars(String line) throws IllegalArgumentException {
         List<String> names = Arrays.asList(line.split(","));
-        if (names.isEmpty()) {
-            throw new IllegalArgumentException("잘못된 형식의 이름목록 입력입니다.");
-        }
         long commaCount = line.chars().filter(i -> i == (int) ',').count();
         List<Car> cars = names.stream().map(Car::new).collect(Collectors.toList());
         if (commaCount + 1 == cars.size()) {
             return cars;
         }
-        return new ArrayList<>();
+        throw new IllegalArgumentException("잘못된 형식의 이름목록 입력입니다.");
     }
 
     private void doOneSimulationTurn() {
