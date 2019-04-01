@@ -33,13 +33,13 @@ public class InputGameInformation {
             System.out.println(Message.gameInputMessage.get("INPUT_CARNAME"));
             name = sc.nextLine();
             name = name.replaceAll("\\p{Z}",""); // 공백 제거
-        } while (!checkString(name,"inputname"));
+        } while (!checkString(name, true));
         carNameSave(name);
     }
 
-    private boolean checkString(String name, String checktype) {
+    private boolean checkString(String name, boolean checktype) {
         if (name.equals("")) {
-            if (checktype.equals("inputname")) {
+            if (checktype) {
                 System.out.println(Message.errorMessage.get("ERROR_NAMEEMPTY"));
             }
             return false;
@@ -60,7 +60,7 @@ public class InputGameInformation {
     private boolean checkCar(String name) {
         boolean checkOverlap = checkOverlap(name);
         boolean checkLength = checkLimitLength(name);
-        boolean checkString = checkString(name,"namesave");
+        boolean checkString = checkString(name,false);
         if (checkString && checkOverlap && checkLength) {
             return true;
         }
@@ -103,7 +103,7 @@ public class InputGameInformation {
         }
         return false;
     }
-    
+
     public ArrayList<Car> getCar() {
         return carName;
     }
