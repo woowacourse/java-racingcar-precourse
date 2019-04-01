@@ -3,13 +3,40 @@ package playRacing;
 import domain.Car;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     static Car[] cars;
     static final String WINNER_MESSAGE="가 최종 우승했습니다.";
-    static final String EXCEPTION_MESSAGE="자동차의 이름은 5글자 이하로 입력해주세요."
+    static final String EXCEPTION_MESSAGE="자동차의 이름은 5글자 이하로 입력해주세요.";
+    static final String INPUT_NAMES_MESSAGE="경주할 자동차의 이름을 입력해주세요.(이름은 쉼표(,)기준으로 구분";
+    static final String INPUT_TRIAL_MESSAGE="시도할 횟수는 몇 회인가요?";
+
 
     public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        String[] carNames;
+
+        while(true){
+            System.out.println(INPUT_NAMES_MESSAGE);
+            carNames=sc.nextLine().split(",");
+            if(isNameValid(carNames)){
+                break;
+            }
+        }
+
+        System.out.println(INPUT_TRIAL_MESSAGE);
+        int trial=Integer.parseInt(sc.nextLine());
+
+        namesMappingToCars(carNames);
+
+        for(int i=0; i<trial; i++){
+            startAction();
+            printAllPostion();
+        }
+
+        System.out.println(judgeWinner());
+
 
 
     }
