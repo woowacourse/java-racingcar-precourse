@@ -70,7 +70,7 @@ public class Racing {
 
     private void doOneSimulationTurn() {
         this.cars.forEach(Car::move);
-        this.cars.forEach(System.out::println);
+        this.cars.forEach(car -> System.out.println(car.format(1)));
     }
 
     private void displayWinnerCars() {

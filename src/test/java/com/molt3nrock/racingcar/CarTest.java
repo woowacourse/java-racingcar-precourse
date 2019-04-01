@@ -9,7 +9,7 @@ import org.junit.Test;
 public class CarTest {
 
     @Test
-    public void displayCar() {
+    public void carFormat() {
         Car car = new Car("foo");
         setIntField(car, "position", 3);
         String actual = car.format(1);
