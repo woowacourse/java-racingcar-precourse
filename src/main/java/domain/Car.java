@@ -8,5 +8,18 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void accelerate() {
+        int rand = (int) (Math.random() * 10);
+        if (rand >= 4) {
+            position++;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
