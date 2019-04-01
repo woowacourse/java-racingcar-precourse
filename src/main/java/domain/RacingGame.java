@@ -7,6 +7,7 @@ import java.util.Scanner;
  * 우아한 테크코스 2주차 MISSION "자동차경주게임"
  * 프리코스 참가자 : 최유성
  * Date : 2019/03/31
+ *
  */
 public class RacingGame {
     public static void main(String[] args) {
