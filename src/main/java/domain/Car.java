@@ -30,5 +30,19 @@ public class Car {
     public void go() {
     	position++;
     }
+    
+    @Override
+    public String toString() {
+    	if (name == null) {
+    		return "No Data in Car";
+    	}
+    	
+    	StringBuilder sb = new StringBuilder();
+    	sb.append(name).append(" : ");
+    	for (int i = 0; i < position; i++) {
+			sb.append('-');
+		}
+    	return sb.toString();
+    }
 
 }
