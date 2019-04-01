@@ -54,17 +54,17 @@ public class GameManager {
     }
 
     private void finishRacing() {
-        for (int i = 0; i < carLength; i++) {
-            car.get(i).move();
-            checkRacingState(i);
+        for (Car c : car){
+            c.move();
+            checkRacingState(c);
         }
         System.out.println();
     }
 
-    private void checkRacingState(int carnumber) {
-        int position = car.get(carnumber).getPosition();
+    private void checkRacingState(Car c) {
+        int position = c.getPosition();
         maxPosition = Math.max(maxPosition, position);
-        System.out.print(car.get(carnumber).getName()+" : ");
+        System.out.print(c.getName()+" : ");
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
