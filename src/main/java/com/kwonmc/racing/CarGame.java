@@ -1,3 +1,14 @@
+/*
+ * @(#)CarGame.java
+ *
+ * v 0.0.0
+ *
+ * 2019.04.01
+ *
+ * Copyright (c) 2019 KwonMC.
+ * WoowahanTechCamp, Seoul, KOREA
+ * All right Reserved
+ */
 package com.kwonmc.racing;
 
 import java.util.ArrayList;
@@ -5,8 +16,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 자동차 게임 한판에 필요한 정보들을 담고 있는 클래스
+ *
+ * @version 0.0.0
+ * @author kwonmc
+ */
 public class CarGame {
     private static final int INT_ZERO = 0;
+
+    private static final String CAR_NAME_REQUEST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String CAR_NAME_INPUT_DELIMITER = ",";
+    private static final String TIMES_REQUEST_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String RESULT_EACH_GAME_MESSAGE = "%s : %s\n";
+    private static final String RESULT_TITLE_MESSAGE = "\n실행 결과";
+    private static final String RESULT_TOTAL_MESSAGE = "가 최종 우승했습니다.";
+
 
     private List<Car> cars;
     private int runs;
@@ -24,12 +49,12 @@ public class CarGame {
     }
 
     private void printMessageCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CAR_NAME_REQUEST_MESSAGE);
     }
 
     private ArrayList<Car> getCarNames() {
         Scanner sc = new Scanner(System.in);
-        String[] tmp = sc.next().split(",");
+        String[] tmp = sc.next().split(CAR_NAME_INPUT_DELIMITER);
         return makeCarListFromArray(tmp);
     }
 
@@ -49,11 +74,11 @@ public class CarGame {
     }
 
     private void printMessageRunNumbers() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(TIMES_REQUEST_MESSAGE);
     }
 
     public void printResultTitle() {
-        System.out.println("\n실행 결과");
+        System.out.println(RESULT_TITLE_MESSAGE);
     }
 
     public void runEachGame() {
@@ -64,7 +89,7 @@ public class CarGame {
 
     public void printResultEachGame() {
         for (Car car : cars) {
-            System.out.printf("%s : %s\n", car.getName(), car.getStringPosition());
+            System.out.printf(RESULT_EACH_GAME_MESSAGE, car.getName(), car.getStringPosition());
         }
         System.out.println();
     }
@@ -74,7 +99,7 @@ public class CarGame {
 
         int lastIndex = arr.length - 1;
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = INT_ZERO; i < arr.length; i++) {
             builder.append(arr[i]);
 
             if (i != lastIndex) {
@@ -113,6 +138,6 @@ public class CarGame {
     public void printResultTotal() {
         String[] resultArray = getWinnerArray();
         String result = arrayToStringJoin(resultArray, ", ");
-        System.out.println(result + "가 최종 우승했습니다.");
+        System.out.println(result + RESULT_TOTAL_MESSAGE);
     }
 }
