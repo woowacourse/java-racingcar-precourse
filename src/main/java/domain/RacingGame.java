@@ -45,4 +45,8 @@ public class RacingGame {
         System.out.println(string);
     }
 
+    private String getResult(CarGroup cg) {
+        return cg.getRaceState();
+    }
+
 }
