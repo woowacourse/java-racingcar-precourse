@@ -17,6 +17,8 @@ public class Racing {
     public static void main(String[] args) throws IOException {
         Racing racing = new Racing();
         racing.setSimulationTimes();
+        racing.registerCars();
+        racing.doOneSimulationTurn();
     }
 
     private void setSimulationTimes() throws IOException {
@@ -62,4 +64,10 @@ public class Racing {
         }
         return new ArrayList<>();
     }
+
+     private void doOneSimulationTurn() {
+        this.cars.forEach(Car::move);
+        this.cars.forEach(System.out::println);
+     }
+
 }
