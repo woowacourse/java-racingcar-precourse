@@ -48,8 +48,12 @@ public class Control {
             Car preCar = cars.get(i);
             Car temp = (ranNum >= 4) 
                        ? new Car(preCar.getName(), preCar.getPosition() + 1) 
-                       : preCar;
+                       : preCar; 
+            // 랜덤 숫자가 4 이상이면 해당 자동차의 포지션이 1 증가한 Car인스턴스 생성해 temp에 저장
+            // 랜덤 숫자가 4 미만이면 이전 Car객체를 그대로 temp에 저장
+            
             cars.set(i, temp);
+            // 전진할지 정지할지 반영된 temp를 cars에 셋팅
         }
     }
 
