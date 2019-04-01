@@ -1,11 +1,11 @@
-// package domain;
+package domain;
 
 import java.util.*;
 import java.io.Console;
 
 // 게임 진행 관리. 실제 게임 플레이 구현에 필요한 기능은 여기에 다 있다.
 public class Manager {
-    /** 메소드 길이 제한 때문에, 각종 메시지 등을 상수로 빼 버림 */
+    /** 메소드 길이 제한 때문에, 각종 메시지나 값을 상수로 빼 버림 */
     final static String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요."
             + " (이름은 쉼표(,) 기준으로 구분)";
     final static String NAME_TOO_LONG = "자동차 이름은 5글자 이내여야 합니다."
@@ -14,13 +14,14 @@ public class Manager {
     final static String NOT_INT_ERROR = "올바른 숫자가 입력되지 않았습니다."
             + " 다시 입력해 주세요.";
     final static int NAME_LENGTH_LIMIT = 5;
-
+    final static int FORWARD_CRITERION = 4;
+    
     /** 0에서 9 사이의 임의의 정수 하나를 생성하여 반환 */
-    public static int getRandomInt() {
+    private static int getRandomInt() {
         Random random = new Random();
         return random.nextInt(10);
     }
-
+    
     /** 문자열을 입력받아, 쉼표를 기준으로 나누어 문자열 배열로 반환 */
     private static String[] getInput(String message) {
         Console console = System.console();
@@ -76,9 +77,14 @@ public class Manager {
         
         return Integer.parseInt(temp);
     }
-
-    public static void main(String[] args) {
-        // 메소드 테스트용 공간.
-        // todo
+    
+    /** 전진 가능 여부를 판정하는 메소드 */
+    public static boolean isForwardable() {
+        int dice = getRandomInt();
+        return (dice >= FORWARD_CRITERION) ? true : false;
     }
+
+    // public static void main(String[] args) {
+    //     // 메소드 테스트용 공간.
+    // }
 }
