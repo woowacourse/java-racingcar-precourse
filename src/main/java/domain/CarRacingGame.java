@@ -1,5 +1,5 @@
 /*
- * @CarRacingGame.java      0.3 2019/04/01
+ * @CarRacingGame.java      0.4 2019/04/01
  */
 
 package domain;
@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 자동차 경주게임을 진행하는 클래스
  *
  * @author 이도원
- * @version 0.3 2019/04/01
+ * @version 0.4 2019/04/01
  */
 public class CarRacingGame {
     private static final int ERROR = -1;
@@ -20,10 +20,13 @@ public class CarRacingGame {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int CAR_MOVE_CONDITION = 4;
 
-    private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요." +
+            "(이름은 쉼표(,) 기준으로 구분)";
     private static final String CAR_NAME_SEPARATOR = ",";
     private static final String INPUT_RACING_ROUND_MESSAGE = "시도할 회수는 몇 회인가요?";
     private static final String PRINT_RACING_CARS_MESSAGE = "실행결과";
+    private static final String WINNER_CAR_NAME_SEPARATOR = ", ";
+    private static final String PRINT_WINNER_MESSAGE = "가 최종 우승했습니다.";
 
     /* 자동차의 이동을 나타내는 문자열 */
     private static final String CAR_MOVING_STRING = "-";
@@ -43,6 +46,7 @@ public class CarRacingGame {
         inputFromPlayer();
         readyCar();
         progressRounds();
+        printWinner();
     }
 
     /* 사용자로부터 정보를 입력 받는 메소드 */
@@ -95,6 +99,8 @@ public class CarRacingGame {
     }
 
     private void progressRounds() {
+        System.out.println(PRINT_RACING_CARS_MESSAGE);
+
         for (int i = 0; i < round; i++) {
             moveCars();
             printRacingCars();
@@ -103,14 +109,14 @@ public class CarRacingGame {
 
     private void moveCars() {
         for (Car car : cars) {
-            if (isMove(randomNumber())) {
+            if (isMoving(randomNumber())) {
                 car.move();
             }
         }
     }
 
     /* 자동차를 전진시킬지 정지할지 판단하는 메소드 */
-    private boolean isMove(int randomNumber) {
+    private boolean isMoving(int randomNumber) {
         return randomNumber >= CAR_MOVE_CONDITION;
     }
 
@@ -121,16 +127,39 @@ public class CarRacingGame {
     }
 
     private void printRacingCars() {
-        System.out.println(PRINT_RACING_CARS_MESSAGE);
-
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
 
+            /* 자동차가 전진한 거리 출력 */
             for (int i = 0; i < car.getPosition(); i++) {
                 System.out.print(CAR_MOVING_STRING);
             }
             System.out.println();
         }
         System.out.println();
+    }
+
+    private void printWinner() {
+        StringBuilder winners = new StringBuilder();
+
+        for (Car car : cars) {
+            if (car.getPosition() == getMaxDistance()) {
+                winners.append(car.getName()).append(WINNER_CAR_NAME_SEPARATOR);
+            }
+        }
+
+        /* 마지막 WINNER_CAR_NAME_SEPARATOR 제거 */
+        winners.delete(winners.length() - WINNER_CAR_NAME_SEPARATOR.length(), winners.length());
+        System.out.print(winners.toString() + PRINT_WINNER_MESSAGE);
+    }
+
+    private int getMaxDistance() {
+        int max = 0;
+
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+
+        return max;
     }
 }
