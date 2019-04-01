@@ -12,9 +12,14 @@ public class Car {
         return name;
     }
 
-    public void racingStart(){
+    public void movePosition(){
         if((int)(Math.random()*10) >= 4){
             this.position++;
         }
     }
+
+    public int getPosition() {
+        return position;
+    }
+
 }
