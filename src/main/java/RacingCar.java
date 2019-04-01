@@ -49,12 +49,23 @@ public class RacingCar {
         return carList;
     }
 
+    public String getCarProgression(int carPosition) {
+        StringBuilder carProgression = new StringBuilder();
+        if (carPosition < 1) { return carProgression.toString(); }
+        for (int i = 0; i < carPosition; i++) {
+            carProgression.append("-");
+        }
+        return carProgression.toString();
+    }
+
     public static void main(String[] args) {
 //        Set<String> carNames = inputCarName();
 //        ArrayList<Car> carList = getCarList(carNames);
 //        for (Car car: carList) {
 //            System.out.println(car.getName());
 //        }
+//        String aa = (String) getCarProgression(3);
+//        System.out.println(aa);
     }
 
 }
