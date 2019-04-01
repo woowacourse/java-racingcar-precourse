@@ -2,6 +2,8 @@ package playRacing;
 
 import domain.Car;
 
+import java.util.Arrays;
+
 public class Main {
     static Car[] cars;
 
@@ -33,4 +35,6 @@ public class Main {
         }
         System.out.println(allPosition.toString());
     }
+
+   
 }
