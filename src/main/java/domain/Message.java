@@ -18,6 +18,7 @@ public class Message {
     public static HashMap<String, String> errorMessage = new HashMap<String, String>() {
         {
             put("ERROR_NAMELENGTH"," 자동차 이름이 5글자가 초과되어 제외합니다.");
+            put("ERROR_NAMEEMPTY","자동차 이름을 1대 이상 입력하세요.");
             put("ERROR_GAMECOUNTLIMIT"," 시도할 횟수를 0이상으로 입력해주세요.");
             put("ERROR_GAMECOUNTTYPE"," 시도할 횟수를 숫자로 입력하세요.");
         }
