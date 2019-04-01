@@ -11,12 +11,12 @@ public class Game {
 
     public void run() {
         do {
-            InputCarName();
-            SplitWithComma();
+            inputCarName();
+            splitWithComma();
         }
-        while (!CheckCarNameLength());
+        while (!checkCarNameLength());
         createCar();
-        InputTimes();
+        inputTimes();
 
         System.out.println("실행 결과");
         while (times-- > 0) {
@@ -29,17 +29,17 @@ public class Game {
         printWinner(maxPosition());
     }
 
-    public void InputCarName() {
+    public void inputCarName() {
         Scanner sc = new Scanner(System.in);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         carName = sc.nextLine();
     }
 
-    public void SplitWithComma() {
+    public void splitWithComma() {
         carNames = carName.split(",");
     }
 
-    public boolean CheckCarNameLength() {
+    public boolean checkCarNameLength() {
         for (int i = 0; i < carNames.length; i++) {
             if (carNames[i].length() > 5) {
                 System.out.println("자동차 이름을 5자리 이하로 입력해주세요.");
@@ -58,14 +58,14 @@ public class Game {
         }
     }
 
-    public void InputTimes() {
+    public void inputTimes() {
         Scanner sc = new Scanner(System.in);
         System.out.println("시도할 횟수는 몇회인가요?");
         times = sc.nextInt();
     }
 
     public int createRandomNumber() {
-        int randomNumber = (int)(Math.random() * 10);
+        int randomNumber = (int) (Math.random() * 10);
 
         return randomNumber;
     }
