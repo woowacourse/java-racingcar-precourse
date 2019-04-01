@@ -84,9 +84,10 @@ public class UserInterface {
             if (flag) {
                 System.out.print(car.getName());
                 flag = false;
-            } else {
-                System.out.print(", " + car.getName());
+                return;
             }
+
+            System.out.print(", " + car.getName());
         }
     }
 }
