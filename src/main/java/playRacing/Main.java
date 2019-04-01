@@ -3,11 +3,11 @@ package playRacing;
 import domain.Car;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
     static Car[] cars;
     static final String WINNER_MESSAGE="가 최종 우승했습니다.";
+    static final String EXCEPTION_MESSAGE="자동차의 이름은 5글자 이하로 입력해주세요."
 
     public static void main(String[] args) {
 
@@ -17,6 +17,7 @@ public class Main {
     public static boolean isNameValid(String[] names) {
         for (int i = 0; i < names.length; i++) {
             if (names[i].length() > 5) {
+                System.out.println(EXCEPTION_MESSAGE);
                 return false;
             }
         }
