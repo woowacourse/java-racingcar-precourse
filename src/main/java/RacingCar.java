@@ -25,6 +25,9 @@ public class RacingCar {
         scanner = new Scanner(System.in);
         List<Car> carList = CarListMaker.getList(inputCarList());
         int rumTime = inputRumTimeNumber();
+
+        startRacing(carList, rumTime);
+
         scanner.close();
     }
 
@@ -52,8 +55,20 @@ public class RacingCar {
             System.out.println("시도할 횟수는 몇회인가요?");
             input = scanner.nextLine();
             if (InputValidation.inspectRuntimeNumber(input)) {
+                System.out.println();
                 return Integer.parseInt(input);
             }
+        }
+    }
+
+    private static void startRacing(List<Car> carList, int runTime) {
+        System.out.println("실행 결과");
+        while (runTime-- > 0) {
+            carList.forEach(car -> {
+                car.move();
+                car.printPosition();
+            });
+            System.out.println();
         }
     }
 }
