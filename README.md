@@ -85,7 +85,7 @@
     
    8. 자동차의 운행 횟수가 1이상인지 판단하는 기능(isValidRaceAttempt)
      
-   9. 난수를 생성하는 기능 (CreateRandomNumber)
+   9. 난수를 생성하는 기능 (GenerateRandomNumber)
          
    10. 생성한 난수를 토대로 갈지 멈출지를 판단하는 기능 (isGo)
       

@@ -7,12 +7,13 @@ public class RaceAttemptReciever {
     private Scanner scanner = new Scanner(System.in);
     private int raceAttempt;
 
+
     private void RecieveRaceAttemptFromUser() {
         try {
             tryToRecieveRaceAttemptFromUser();
         } catch (IllegalArgumentException e) {
             System.out.println("잘못된 입력입니다. 다시 입력해 주세요.");
-            tryToRecieveRaceAttemptFromUser();
+            RecieveRaceAttemptFromUser();
         }
     }
 
