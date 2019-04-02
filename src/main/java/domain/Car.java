@@ -18,7 +18,7 @@ public class Car {
     	if (randomNumber >= 4) {
     		this.position++;
     		
-    		if(Car.maxPosition == this.position) {
+    		if(Car.maxPosition < this.position) {
     			Car.maxPosition = position;
     		}
     	}
@@ -31,6 +31,14 @@ public class Car {
     		System.out.print("-");
     	}
     	System.out.println();
+    }
+    
+    public boolean isMaxPosition() {
+    	return (this.position == Car.maxPosition);
+    }
+    
+    public String getCarName() {
+    	return this.name;
     }
 
    

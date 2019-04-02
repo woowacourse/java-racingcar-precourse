@@ -14,6 +14,7 @@ public class CarRacingGame {
 		}
 		
 		scanTryNumberDoGame(cars);
+		printWinner(cars);
 	}
 	
 	public static String[] scanCarName() {
@@ -51,5 +52,16 @@ public class CarRacingGame {
 			}
 			System.out.println();
 		}
+	}
+	
+	public static void printWinner(Car[] cars) {
+		String result = "";
+		
+		for (int i = 0; i < Car.carNum; ++i) {
+			if (cars[i].isMaxPosition()) {
+				result += cars[i].getCarName() + ", ";
+			}
+		}
+		System.out.print(result.substring(0, result.length() -2) + "가 최종우승하였습니다!");
 	}
 }
