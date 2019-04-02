@@ -1,7 +1,19 @@
+/*
+ * @(#) Game.java     1.0   2019/04/02
+ *
+ * Released under the MIT license
+ */
+
 package domain;
 
 import java.util.ArrayList;
 
+/**
+ * Game 클래스는 자동차경주 게임을 진행한다.
+ *
+ * @author 조남균
+ * @version 1.00  2019년 04월 02일
+ */
 public class Game {
 	private ArrayList<Car> cars;
 

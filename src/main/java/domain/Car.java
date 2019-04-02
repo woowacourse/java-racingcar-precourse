@@ -1,7 +1,19 @@
+/*
+ * @(#) Car.java     1.0   2019/04/02
+ *
+ * Released under the MIT license
+ */
+
 package domain;
 
 import java.util.Random;
 
+/**
+ * Car 클래스는 자동차경주에 참여하는 자동차다.
+ *
+ * @version  1.00  2019년 04월 02일
+ * @author   조남균
+ */
 public class Car {
 	private final String name;
 	private int position = 0;
