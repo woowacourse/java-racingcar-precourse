@@ -86,5 +86,34 @@ public class RacingCar {
             moveCars(carList);
             printCar(carList);
         }
+        printWinner(carList);
     }
+
+    public void printWinner(ArrayList<Car> carList) {
+        int maxPosition = getMaxPosition(carList);
+        int carPosition;
+        String carName;
+        String winnerNotice;
+        StringJoiner winnerName = new StringJoiner(", ");
+        for (Car car: carList) {
+            carPosition = car.getPosition();
+            carName = car.getName();
+            if (carPosition == maxPosition) {
+                winnerName.add(carName);
+            }
+        }
+        winnerNotice = winnerName + "가 최종우승했습니다.";
+        System.out.println(winnerNotice);
+    }
+
+    public int getMaxPosition(ArrayList<Car> carList) {
+        int maxPosition = 0;
+        int carPosition;
+        for (Car car: carList) {
+            carPosition = car.getPosition();
+            maxPosition = Math.max(maxPosition, carPosition);
+        }
+        return maxPosition;
+    }
+
 }
