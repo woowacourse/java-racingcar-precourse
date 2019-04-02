@@ -21,6 +21,11 @@ public class Racing {
     private ArrayList<Car> carList;
     private int numberOfTimes;
 
+    public Racing(){
+        this.carList = new ArrayList<Car>();
+        this.numberOfTimes = 0;
+    }
+
     public void runGame() {
         inputCarName();
         inputMovingNumber();
