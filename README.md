@@ -81,10 +81,10 @@
       
    6. 자동차들의 운행 횟수를 입력받은 예외를 처리하는 기능 (RecieveRaceAttemptsFromUser)
       
-   7. 입력받은 운행 횟수의 예외처리를 담당하는 기능 (IligalArgumentException)
+   7. 자동차들의 운행 횟수를 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToRecieveRaceAttemptsFromUser)
       
    8. 난수를 생성하는 기능 (CreateRandomNumber)
-      
+         
    9. 생성한 난수를 토대로 갈지 멈출지를 판단하는 기능 (isGo)
       
    10. 앞으로 가거나 멈추는 기능 (Go, Stop)

@@ -11,18 +11,18 @@ public class CarNameReciever {
     public String[] RecieveCarNamesFromUser() {
         try {
             tryToRecieveCarNamesFromUser();
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("잘못된 입력입니다. 다시 입력해 주세요.");
             RecieveCarNamesFromUser();
         }
         return this.carNames;
     }
 
-    private void tryToRecieveCarNamesFromUser() throws Exception {
+    private void tryToRecieveCarNamesFromUser() throws IllegalArgumentException {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)기준으로 구분");
         carNames = scanner.nextLine().split(",");
         if (!isValidCarNamesInput()) {
-            throw new Exception();
+            throw new IllegalArgumentException();
         }
     }
 
