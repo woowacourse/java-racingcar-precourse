@@ -55,7 +55,7 @@
 
 
 
-![](.\screenshot\normalcase.jpg)
+![](./screenshot/normalcase.jpg)
 
 
 
@@ -65,16 +65,16 @@
 
 ##### 자동차 이름이 5자를 넘을 경우
 
-![](.\screenshot\name5over.jpg)
+![](./screenshot/name5over.jpg)
 
 
 
 ##### 시도 횟수가 1미만인 경우
 
-![](.\screenshot\wrongrange.jpg)
+![](./screenshot/wrongrange.jpg)
 
 
 
 ##### 시도횟수가 정수가 아닐경우
 
-![](.\screenshot\wrongtype.jpg)
+![](./screenshot/wrongtype.jpg)
