@@ -4,13 +4,12 @@ public class InputError {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
-    public static boolean isOverlapComma(String str) {
+    private static boolean isOverlapComma(String str) {
         for (int i = 0; i < str.length() - 1; ++i) {
             if (str.charAt(i) == ',' && str.charAt(i + 1) == ',') {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -27,12 +26,12 @@ public class InputError {
         return result;
     }
 
-    public static boolean isOverrunMaxSize(String[] input) {
+    private static boolean isOverrunMaxSize(String[] input) {
         for (int i = 0; i < input.length; ++i) {
-            if (input[i].length() > MAX_CAR_NAME_LENGTH)
+            if (input[i].length() > MAX_CAR_NAME_LENGTH) {
                 return true;
+            }
         }
-
         return false;
     }
 
@@ -43,12 +42,10 @@ public class InputError {
             System.out.println("<오류>: 잘못된 형식입니다. 쉼표는 하나만 사용하세요.");
             return false;
         }
-
         if (isOverrunMaxSize(splitedInput)) {
             System.out.println("<오류>: 자동차 이름이 5글자를 초과하였습니다.");
             return false;
         }
-
         return true;
     }
 
