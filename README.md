@@ -73,22 +73,26 @@
    
    2. 자동차들의 이름을 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToReceiveCarnamesFromUser)
    
-   3. 자동차들의 이름이 전부 5이하인지 판단하는 기능 (isNotValidCarNames)
+   3. 자동차의 이름을 입력받은것이 타당하지않으면 예외를 생성해 던지는 기능(ThrowExceptionIfInvalidCarName)   
    
-   4. 자동차의 이름의 길이가 5이하인지 판단하는 기능 (isNotValidCarName)
+   4. 자동차들의 이름이 전부 5이하인지 판단하는 기능 (isInValidCarNames)
+   
+   5. 자동차의 이름의 길이가 5이하인지 판단하는 기능 (isInValidCarName)
       
-   5. 입력받은 자동차들의 이름으로 객체를 생성하는 기능(GenerateCar)
+   6. 입력받은 자동차들의 이름으로 객체를 생성하는 기능(GenerateCar)
       
-   6. 자동차들의 운행 횟수를 입력받은 예외를 처리하는 기능 (RecieveRaceAttemptFromUser)
+   7. 자동차들의 운행 횟수를 입력받은 예외를 처리하는 기능 (RecieveRaceAttemptFromUser)
       
-   7. 자동차들의 운행 횟수를 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToRecieveRaceAttemptFromUser)
+   8. 자동차들의 운행 횟수를 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToRecieveRaceAttemptFromUser)
+   
+   9. 자동차들의 운행횟수가 타당하지 않으면 예외를 생성해서 던지는 기능(ThrowExceptionIfInvalidRaceAttempt)
     
-   8. 자동차의 운행 횟수가 1이상인지 판단하는 기능(isNotValidRaceAttempt)
+   10. 자동차의 운행 횟수가 1이상인지 판단하는 기능(isInValidRaceAttempt)
      
-   9. 난수를 생성하는 기능 (GenerateRandomNumber)
+   11. 난수를 생성하는 기능 (GenerateRandomNumber)
          
-   10. 생성한 난수를 토대로 갈지 멈출지를 판단하는 기능 (isGo)
+   12. 생성한 난수를 토대로 갈지 멈출지를 판단하는 기능 (isGo)
       
-   11. 앞으로 가거나 멈추는 기능 (Go, Stop)
+   13. 앞으로 가거나 멈추는 기능 (Go, Stop)
       
-   12. 결과를 출력하는 기능 (PrintResult)
+   14. 결과를 출력하는 기능 (PrintResult)
