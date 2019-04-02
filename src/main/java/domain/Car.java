@@ -27,7 +27,7 @@ public class Car {
         }
 
         public int getPosition() {
-                return 0;
+                return this.position;
         }
 
         // 추가 기능 구현
