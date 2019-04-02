@@ -32,13 +32,6 @@ public class GameMain {
 		}
 	}
 	
-	//시도 횟수만큼 반복하는 메소드
-	static void repeat(int moveNum){
-		while( moveNum!=0 ){
-			moveNum--;
-		}
-	}
-	
 	//0~9 까지 난수 생성 메소드
 	static int randomNum(){
 		return (int)(Math.random()*10);
@@ -48,6 +41,27 @@ public class GameMain {
 	static void isMoreThan4(int num, int index){
 		if(num>=4){
 			cars[index].addPosition();
+		}
+	}
+	
+	//실행결과 출력하는 메소드
+	static void printState(int index){
+		System.out.print(nameArray[index] + " : ");
+		for(int i=0; i<cars[index].getPosition(); ++i){
+			System.out.print("-");
+		}
+		System.out.println();
+	}
+	
+	//시도 횟수만큼 반복하는 메소드
+	static void repeat(int moveNum){
+		while( moveNum!=0 ){
+			moveNum--;
+			for(int i=0; i<nameArray.length; ++i){
+				isMoreThan4( randomNum(), i );	//random 값이 4이상인지 확인
+				printState(i);					//상황  출력
+			}
+			System.out.println();
 		}
 	}
 		
