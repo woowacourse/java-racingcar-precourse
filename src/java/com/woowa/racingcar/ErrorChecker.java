@@ -30,7 +30,6 @@ public class ErrorChecker {
                 System.out.println(COMMENT_WHEN_CAR_NAME_LENGTH_ERROR);
                 return true;
             }
-
         }
         return false;
     }

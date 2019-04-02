@@ -62,18 +62,15 @@ public class RacingGame {
             if (carList.get(i).getPosition() != maxPosition) {
                 continue;
             }
-
             returnCarList.add(carList.get(i));
         }
         return returnCarList;
     }
 
     public void printChampions() {
-        int maxPosition = getMaxDistance();
         ArrayList<Car> champions = getChampions();
 
         for (int i = 0; i < champions.size(); i++) {
-
             if (i != 0) {
                 System.out.print(",");
             }
