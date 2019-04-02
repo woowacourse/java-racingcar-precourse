@@ -67,4 +67,14 @@ public class MainApp {
         }
         return -1;
     }
+
+    /**
+     * 입력받은 자동차의 배열에서 우승자(들)를 가립니다.
+     * @param candidates - 우승 후보 자동차들입니다.
+     * @return 우승한 자동차들의 이름을 합쳐 하나의 문자열로 반환합니다.
+     */
+    public static String getWinners(Car[] candidates) {
+        String result = "";
+        return result;
+    }
 }
