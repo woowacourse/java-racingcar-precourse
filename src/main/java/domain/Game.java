@@ -9,10 +9,14 @@ public class Game {
 		this.cars = new ArrayList<Car>();
 	}
 
-	public void joinRace(String carNames) {
+	public void joinRace(String carNames) throws Exception {
 		String req = ",";
+		Exception errCarName = new Exception("이름이 5자 초과");
 
 		for (String carName : carNames.split(req)) {
+			if (carName.length() > 5) {
+				throw errCarName;
+			}
 			this.cars.add(new Car(carName));
 		}
 	}
