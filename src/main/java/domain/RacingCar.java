@@ -26,8 +26,14 @@ public class RacingCar {
         carList = receiveCarName();
         System.out.println("시도할 회수는 몇회인가요?");
         gameCount = s.nextInt();
-        //printCarList();                   // 각 시도 회수마다 결과 출력
-        //printResult();                    // 결과 출력: 우승자1, 우승자2 가 최종 우승했습니다.
+        System.out.println("실행 결과");
+        for (int i = 0; i < gameCount; i++) {
+            for (int j = 0; j < carList.size(); j++) {
+                printOneResult(carList.get(j));
+            }
+            System.out.println();
+        }
+        //printAllResult();                    // 결과 출력: 우승자1, 우승자2 가 최종 우승했습니다.
     }
 
     /*
@@ -55,5 +61,18 @@ public class RacingCar {
             carList.add(tempCar);
         }
         return carList;
+    }
+
+    private static void printOneResult(Car car) {
+        int randomNumber = 5;
+        //randomNumber = generateRandomNumber(); 구현 필요.
+        System.out.print(car.getCarName() + " : ");
+        if (randomNumber >= 4) {
+            car.addOnePosition();
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print("-");
+            }
+        }
+        System.out.println();
     }
 }
