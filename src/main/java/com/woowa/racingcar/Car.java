@@ -1,3 +1,10 @@
+/*
+ * Class: Car.java
+ * Version: 1.0
+ * Date: 2019-04-02
+ * Author: Kibaek Yoo
+ */
+
 package com.woowa.racingcar;
 
 import java.util.Random;
