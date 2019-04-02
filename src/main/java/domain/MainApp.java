@@ -57,6 +57,14 @@ public class MainApp {
      * @return 확률변수 값으로 0 부터 9 사이의 값입니다.
      */
     public static int randomlyMoveCar(Car c) {
-        return 5;
+        int randomNumber = (int)(Math.random() * 10);   // 0 ~ 9
+        if (randomNumber < 4 && randomNumber >= 0) {
+            return randomNumber;
+        }
+        if (randomNumber >= 4 && randomNumber <= 9) {
+            c.moveForward();
+            return randomNumber;
+        }
+        return -1;
     }
 }
