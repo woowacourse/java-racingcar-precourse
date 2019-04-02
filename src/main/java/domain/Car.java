@@ -7,8 +7,8 @@ package domain;
 /**
  * 자동차 클래스
  *
- * @version 1.00 2019년 4월 2일
  * @author 최훈하
+ * @version 1.00 2019년 4월 2일
  */
 
 public class Car {
@@ -31,7 +31,7 @@ public class Car {
     /* 전진 */
     public int Forward() {
         if (Forward_Util.random_Number_Create() > 3) {
-            position+=1;
+            position += 1;
             return position;
         }
         return position;
@@ -39,7 +39,7 @@ public class Car {
 
     /* 자동차 전진 상태 */
     public void forward_Status() {
-        for (int i = Forward_Util.ZERO; i < position; i++){
+        for (int i = Forward_Util.ZERO; i < position; i++) {
             System.out.print("-");
         }
         System.out.print(" ");

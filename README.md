@@ -38,7 +38,8 @@
   - 우승자 출력
     - 자동차 중 최고 전진 값 찾기 winner_Max_Position()
     - 우승 자동차 찾아서 이름 변수에 저장 후 반환 winner_Result()
-    - 우승 자동차 출력 winner_Print() 
+    - 우승 자동차 출력 winner_Print()
+    - 우승자 한명 이상일 경우 , 추가 기능 winner_Comma()
     
 
 - Process 클래스

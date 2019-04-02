@@ -77,6 +77,9 @@ public class Forward_Util {
     private static String winner_Result() {
         for (int i = ZERO; i < Input.race_Car.length; i++) {
             if (Input.race_Car[i].getPosition() == winner_Max_Position()) {
+
+                /* 우승자가 한명 이상일 경우 , 추가한다 */
+                winner_Comma(i);
                 winner += Input.race_Car[i].toString();
             }
         }
@@ -87,5 +90,11 @@ public class Forward_Util {
         System.out.println(winner_Result() + "가 최종 우승했습니다");
     }
 
+
+    private static void winner_Comma(int i) {
+        if ((!winner.equals("")) && i < Input.race_Car.length) {
+            winner += ", ";
+        }
+    }
 
 }
