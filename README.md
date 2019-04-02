@@ -30,9 +30,9 @@
   - 자동차 객체 출력 race_Result()
     - Car 클래스 toString() 추가
   - 사용자 횟수 입력 try_Number()
-  - 랜덤 숫자 생성
-  - 전진 조건 생성 및 포지션 값 증가
-  - 포지션 값 dash 출력
+  - 랜덤 숫자 생성 random_Number_Create()
+  - 전진 조건 생성 및 포지션 값 증가 Car.Forward()
+  - 포지션 값만큼 dash 출력
   - 우승자 출력
 
 - Process 클래스

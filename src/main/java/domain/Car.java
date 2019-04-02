@@ -20,8 +20,19 @@ public class Car {
     }
 
     // 추가 기능 구현
-
     public String toString() {
         return name;
     }
+
+    /* 전진 */
+    public int Forward(){
+        if (Forward_Util.random_Number_Create() > 3) {
+            position+=1;
+            return position;
+        }
+        return position;
+    }
+
+
+
 }
