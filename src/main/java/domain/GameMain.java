@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class GameMain {
 
 	static String nameArray [];
+	static Car cars [];
 	
 	//쉼표 기준으로 이름 구분하는 메소드
 	static void nameDistinguish(String names){
@@ -22,6 +23,14 @@ public class GameMain {
 		}
 		return true;
 	}
+	
+	//자동차 객체 생성하는 메소드
+	static void makeCars(){
+		cars = new Car[nameArray.length];	//자동차 수만큼 객체배열 선언.
+		for(int i=0; i<nameArray.length; ++i){
+			cars[i] = new Car(nameArray[i]);
+		}
+	}
 		
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
@@ -31,7 +40,8 @@ public class GameMain {
 			String names = in.next();	//자동차 이름 입력
 			nameDistinguish(names);		//쉼표 기준으로 이름 구분
 		}while( !isNameLessThan5() );	//이름이 5자 이하일 때 까지 반복
-
+		makeCars();						//자동차 객체 생성
+		
 	}
 
 }
