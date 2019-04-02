@@ -24,24 +24,20 @@
 TrackingCenter는 위치 자동차들의 위치 추적 기능 이외에도 위치와 관련된 여러가지 기능을
 제공하는 통합 센터입니다. 그래서 경기장에는 심판이 필요 없습니다. 이제 자동화의 시대니까요!
 - TrackingCenter는 각각의 자동차로부터 위치를 수신받습니다.
+- 각 자동차들의 실시간 위치를 보여줄 수 있습니다.
 - 자동차들의 위치를 비교해서 순위를 매길 수 있습니다.
-- 자동차들의 순위를 비교해 누가 우승인지 알려줄 수 있습니다.
-
-## 3. DisplayBoard Class
-현재 경기 상황을 보여주는 전광판입니다.
-- 현재 자동차들의 위치정보를 TrackingCenter로부터 넘겨받아 각 자동차들의 실시간 위치를
-보여줄 수 있습니다.
 - TrackingCenter가 넘겨준 실시간 순위 3위까지 보여줄 수 있습니다. 실시간 순위를 지켜보며 관람하면
 훨씬 박진감 넘치는 경기를 즐길 수 있겠지요?
+- 자동차들의 순위를 비교해 누가 우승인지 알려줄 수 있습니다.
 - 누가 우승을 했는지 보여줄 수 있습니다.
 
-## 4. RacingManager
+## 3. RacingManager
 레이싱 게임을 주관하는 매니저입니다.
 - 참가자들의 이름을 입력받을 수 있습니다.
 - 자동차들이 몇 번이나 이동할지 입력받을 수 있습니다.
 - 자동차들에게 전진 신호를 보냅니다.
 
-## 5. RacingGame Class
+## 4. RacingGame Class
 RacingGame class는 Car, RacingManager, DisplayBoard와 TrackingCenter로 이루어져 있습니다.
 - RacingGame을 실행합니다.
 
@@ -50,3 +46,4 @@ RacingGame class는 Car, RacingManager, DisplayBoard와 TrackingCenter로 이루
 - UML 클래스 다이어그램 작성법 : https://gmlwjd9405.github.io/2018/07/04/class-diagram.html
 - 객체지향 모델링 : http://www.dbguide.net/db.db?boardUid=12843&boardConfigUid=9&boardIdx=31
 - main() function 은 어디에 위치해야 하는가 : https://www.thoughtco.com/main-class-2034233
+
