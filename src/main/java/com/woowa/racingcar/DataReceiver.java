@@ -1,8 +1,33 @@
 package com.woowa.racingcar;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataReceiver {
+
+    private static final String COMMENT_WHEN_REQUEST_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String COMMENT_WHEN_REQUEST_RUN_COUNT = "시도할 횟수는 몇회인가요?";
+    private static final String COMMENT_WHEN_RUN_COUNT_NOT_PARSED = "1과 같거나 큰 정수를 입력해 주세요";
+
+    /**
+     * 유저에게 자동차이름 입력을 요청해, 조건이 맞다면, 이를 객체화 해 반환하는 함수
+     *
+     * @return ArrayList<Car>
+     */
+    public static ArrayList<Car> getCarListFromUserInput(Scanner scanner) {
+
+        while (true) {
+            System.out.println(COMMENT_WHEN_REQUEST_CAR_NAME);
+            String carNameTotalString = scanner.next();
+
+            if (ErrorChecker.checkCarStringHaveError(carNameTotalString)) {
+                continue;
+            }
+
+            return makeCarList(carNameTotalString);
+        }
+
+    }
 
     /**
      * 자동차 이름 String으로 Car 객체를 생성해 반환하는 함수
