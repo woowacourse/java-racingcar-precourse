@@ -12,10 +12,32 @@ public class Car {
         this.name = name;
     }
 
+    public void tryOneTurn() {
+        Random random = new Random();
+        int randomNum = random.nextInt(RANDOM_MAX_NUMBER);
+
+        if (decideMoveOrNot()) {
+            moveOnce();
+        }
+        printNameAndPosition();
+    }
+
     public boolean decideMoveOrNot() {
         Random random = new Random();
         int randomNum = random.nextInt(RANDOM_MAX_NUMBER);
 
         return (randomNum >= RANDOM_THRESHOLD_NUMBER);
+    }
+
+    public void moveOnce() {
+        position++;
+    }
+
+    public void printNameAndPosition() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
