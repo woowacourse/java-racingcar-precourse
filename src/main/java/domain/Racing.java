@@ -84,4 +84,8 @@ public class Racing {
 		}
 		return true;
 	}
+	
+	private boolean isValidTime(int raceTime) {
+		return (raceTime >= 0) ? true : false;
+	}
 }
