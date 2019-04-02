@@ -88,7 +88,7 @@ public class RacingCar {
      * shuffle된 list의 index 0번째 값을 return 한다.
      */
     private static int generateRandomNumber() {
-        List<Integer> numList = new ArrayList<Integer>();       // 0 to 9 number List
+        ArrayList<Integer> numList = new ArrayList<Integer>();       // 0 to 9 number List
         for(int i = 0; i < 10; i++) {
             numList.add(i);
         }
@@ -114,9 +114,9 @@ public class RacingCar {
      * Method for get Winner's name
      * getMaxPosition 사용 하여 최종 승자의 name list를 return 한다.
      */
-    private static List<String> getWinner(ArrayList<Car> carList) {
+    private static ArrayList<String> getWinner(ArrayList<Car> carList) {
         int max = getMaxPosition(carList);
-        List<String> winnerList = new ArrayList<String>();
+        ArrayList<String> winnerList = new ArrayList<String>();
         for (int i = 0; i < carList.size(); i++) {
             if (max == carList.get(i).getPosition()) {
                 winnerList.add(carList.get(i).getCarName());
@@ -130,7 +130,7 @@ public class RacingCar {
      * getWinner method 사용하여 최종 승자의 이름을 출력한다.
      */
     private static void printWinner(ArrayList<Car> carList) {
-        List<String> winnerList = getWinner(carList);
+        ArrayList<String> winnerList = getWinner(carList);
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.print(winnerList.get(i));
             if (i != (winnerList.size() - 1)) {
