@@ -18,6 +18,7 @@ public class RaceingGameController {
     }
 
     private void gameResult(ArrayList<Car> carNameList, int tryNumber) {
+        System.out.println(Output.outputOngoing);
         for (int i = 0; i < tryNumber; i++) {
             racingStart(carNameList);
             System.out.println();
