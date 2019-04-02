@@ -1,7 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import domain.Car;
-
-import javax.naming.Name;
 
 public class Main {
     static Car[] cars;
@@ -18,8 +17,11 @@ public class Main {
         int num = sc.nextInt();
 
         NameMapping();
-    
 
+        System.out.println("실행 결과");
+        for(int i=0;i<num;i++){
+            gameStart();
+        }
     }
 
     public static boolean checkName(String[] names) {
@@ -38,4 +40,10 @@ public class Main {
             cars[i] = new Car(car_names[i]);
         }
     }
+
+    public static void gameStart(){
+        for(int i=0; i<cars.length;i++)
+            cars[i].chooseGoOrStop();
+    }
+
 }

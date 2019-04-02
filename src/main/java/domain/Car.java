@@ -1,6 +1,6 @@
 package domain;
 
-public class Car {
+public class Car{
     private final String name;
     private int position = 0;
 
@@ -8,5 +8,13 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    /*
+     * 랜덤값에 따라 position을 1만큼 증가시키거나 변화를 주지 않는 함수
+     */
+    public void chooseGoOrStop(){
+        int random = (int) (Math.random() * 10);
+        if(random > 4)
+            position++;
+    }
+
 }
