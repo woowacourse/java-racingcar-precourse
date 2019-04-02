@@ -3,6 +3,7 @@ package domain;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
 
@@ -11,14 +12,14 @@ public class Main {
 
         public static void main(String args[]) throws IOException{
                 inputNames();
-                inputRandomNumber();
+                inputGameNumber();
                 playRace();
                 compare();
                 outputWinner();
         }
 
         public static void inputNames() throws IOException {
-                System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
+                System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
                 BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
                 String names = bf.readLine();
                 String[] name = names.split(",");
@@ -32,8 +33,10 @@ public class Main {
                 }
         }
 
-        public static void inputRandomNumber(){
-
+        public static void inputGameNumber(){
+                System.out.println("시도할 회수는 몇회인가요?");
+                Scanner scanner = new Scanner(System.in);
+                n = scanner.nextInt();
         }
 
         public static void playRace(){
