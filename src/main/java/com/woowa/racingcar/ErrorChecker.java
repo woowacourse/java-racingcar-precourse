@@ -27,4 +27,18 @@ public class ErrorChecker {
         }
         return false;
     }
+
+    public static boolean checkRunCountStringHasError(String userInput) {
+
+        try {
+            int parsedInt = Integer.parseInt(userInput);
+            if (parsedInt <= 0) {
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        return true;
+    }
 }
