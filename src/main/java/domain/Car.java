@@ -89,6 +89,7 @@ public class Car {
         return carMoveNumber;
     }
 
+    /* 난수 생성 메소드 */
     public static int createRandomNumber() {
 
         Random getRandomNumber = new Random();
@@ -197,6 +198,7 @@ public class Car {
         System.out.println(String.join(",", getWinnerCarName) + "가 최종 우승 했습니다");
     }
 
+    /* 실행 결과 문구 */
     public static void showResult(){
 
         System.out.println("실행 결과");

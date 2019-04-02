@@ -25,6 +25,6 @@ public class RacingGame {
         }
 
         showWinner(racingCar,setFinalWinnerCarName(racingCar),
-                showWinnerSize(racingCar,setFinalWinnerCarName(racingCar)));
+                   showWinnerSize(racingCar,setFinalWinnerCarName(racingCar)));
     }
 }
