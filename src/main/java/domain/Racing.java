@@ -17,6 +17,7 @@ import java.util.Scanner;
  *
  * @author 김성훈
  * @version 1.0 2019/04/02 사용자로부터 자동차 이름, 이동 횟수를 입력 받는 메소드 구현 / 입력받은 자동차 이름으로 객체 생성
+ *          1.1 2019/04/02 입력받은 자동차 이름에 빈칸 제거 / 이름 길이에 오류가 난 경우 다시 입력 받게 처리
  */
 public class Racing {
     private static Scanner sc = new Scanner(System.in);
