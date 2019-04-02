@@ -44,4 +44,13 @@ public class MainAppTest extends TestCase {
         assertEquals(5, numOfTrials);
         System.setIn(System.in);
     }
+
+    /* 메인 프로그램이 확률적으로 자동차를 전진 혹은 멈추게 하는 기능을 테스트합니다. */
+    @Test
+    public void testRandomlyMoveCar() throws Exception {
+        Car testCar = new Car("pobi");
+
+        MainApp.randomlyMoveCar(testCar);
+        assertTrue(testCar.getPosition() == 0 || testCar.getPosition() == 1);
+    }
 }
