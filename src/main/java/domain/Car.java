@@ -10,6 +10,12 @@ public class Car {
         this.name = name;
     }
 
+    public void tryMove() {
+        if (checkMove()) {
+            position += 1;
+        }
+    }
+
     private boolean checkMove() {
         Random random = new Random();
         int randomNum = random.nextInt(10);
