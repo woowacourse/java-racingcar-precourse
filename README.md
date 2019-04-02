@@ -20,7 +20,7 @@
     * 0 ~ 9의 Random 숫자 생성 메소드(createRandomDistance) -> Car
     * 만들어진 Random 숫자가 4 이상인지 검사하는 메소드(lagerThanFour) -> Car
     * 전진 메소드(movePosition) -> Car
-    * Car 인스턴스의 현재 위치 출력 메소드(printCurrentPosition) -> Car
+    * Car 인스턴스의 현재 위치 출력 메소드(printCurrentPosition) -> RacingCarGame
 
 1. 사용자에게 입력을 받고 자동차를 생성하는 기능
     * 메인 게임 메소드(gameStart) -> RacingCarGame

@@ -1,5 +1,5 @@
 /*
- * @(#)Main.java        0.3 2019/04/02
+ * @(#)Main.java        0.4 2019/04/02
  *
  *
  */
@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 자동차 경주 게임을 위한 클래스 입니다.
  *
  * @author 반선호
- * @version 0.3 2019년 4월 02일
+ * @version 0.4 2019년 4월 02일
  */
 public class RacingCarGame {
 
@@ -113,9 +113,18 @@ public class RacingCarGame {
         for (int i = 0; i < round; i++) {
             for (int j = 0; j < cars.length; j++) {
                 cars[j].runOneCycle();
+                printCurrentPosition(cars[j]);
             }
             System.out.println();
         }
+    }
+
+    private void printCurrentPosition(Car car) {
+        System.out.print(car.getName() + " : ");
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     private void printWinner() {
@@ -126,7 +135,7 @@ public class RacingCarGame {
             if (cars[FIRST_RANK_POSITION].getPosition() != cars[i].getPosition()) {
                 break;
             }
-            stringbuilder.append(", " + cars[i].getName());
+            stringbuilder.append(", ").append(cars[i].getName());
         }
         stringbuilder.append(RANK_RESULT_MESSAGE);
         System.out.println(stringbuilder);
