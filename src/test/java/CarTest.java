@@ -8,6 +8,7 @@ public class CarTest extends TestCase {
     @Test
     public void testMoveForward() throws Exception {
         Car testCar = new Car("test");
+
         testCar.moveForward();
         assertEquals(1, testCar.getPosition());
         testCar.moveForward();
@@ -21,7 +22,7 @@ public class CarTest extends TestCase {
         Car testCar2 = new Car("1234");
         Car testCar3 = new Car("abc");
 
-        assertFalse(testCar.name == testCar2.name);
-        assertEquals(testCar.name, testCar3.name);
+        assertFalse(testCar.getName() == testCar2.getName());
+        assertEquals(testCar.getName(), testCar3.getName());
     }
 }
