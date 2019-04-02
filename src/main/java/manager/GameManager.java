@@ -24,12 +24,26 @@ public class GameManager {
 
     private void makeCarObjects(String carNames) {
         String[] carNameArray = carNames.split(",");
-        cars = new Car[carNameArray.length];
         carNumber = carNameArray.length;
+        cars = new Car[carNameArray.length];
+
+        while (!checkCarNameLength(carNameArray)) {
+            startGame();
+        }
 
         for (int i = 0; i < carNameArray.length; i++) {
             cars[i] = new Car(carNameArray[i]);
         }
+    }
+
+    private boolean checkCarNameLength(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].length() > 5) {
+                System.out.println("자동차의 이름은 5글자 이하로 입력해주세요!");
+                return false;
+            }
+        }
+        return true;
     }
 
     private void printGameState(int gameRepeat) {
@@ -44,7 +58,7 @@ public class GameManager {
         findWinner();
     }
 
-    public void printWinner(ArrayList<String> winnerList) {
+    private void printWinner(ArrayList<String> winnerList) {
         int checkWinnerNum = 0;
 
         if (winnerList.size() == 1) {
@@ -62,7 +76,7 @@ public class GameManager {
         System.out.println(sb.toString());
     }
 
-    public void findWinner() {
+    private void findWinner() {
         int winnerPosition = cars[0].getPosition();
         ArrayList<String> winnerList = new ArrayList<>();
 

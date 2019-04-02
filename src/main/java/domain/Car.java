@@ -11,17 +11,17 @@ public class Car {
 
     // 추가 기능 구현
 
-    public void makeRandomNumber(){
+    private void makeRandomNumber(){
         randomNumber = (int)(Math.random() * 10);
     }
 
-    public void checkCarFoward(){
+    private void checkCarFoward(){
         if (randomNumber >= 4){
-            position++;
+            this.position++;
         }
     }
 
-    public void printCarPosition(){
+    private void printCarPosition(){
         System.out.print(name + " : ");
         for (int i = 0; i < position; i++) {
             System.out.print("-");
