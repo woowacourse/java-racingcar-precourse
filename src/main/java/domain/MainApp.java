@@ -75,6 +75,22 @@ public class MainApp {
      */
     public static String getWinners(Car[] candidates) {
         String result = "";
-        return result;
+
+        int maxPosition = 0;
+
+        /* 후보 자동차들 중 가장 높은 점수를 찾습니다. */
+        for (Car c : candidates) {
+            if (c.getPosition() > maxPosition) {
+                maxPosition = c.getPosition();
+            }
+        }
+
+        /* 가장 높은 점수를 얻은 후보 자동차들은 모두 우승후보입니다. */
+        for (Car c : candidates) {
+            if (c.getPosition() == maxPosition) {
+                result += c.getName() + ", ";
+            }
+        }
+        return result.substring(0, result.length()-2);  // 맨 뒤에 붙은 ", " 를 제거합니다.
     }
 }

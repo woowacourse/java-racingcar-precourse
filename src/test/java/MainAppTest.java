@@ -65,14 +65,18 @@ public class MainAppTest extends TestCase {
     /* 메인 프로그램이 우승자를 가려내는 기능을 테스트합니다. */
     @Test
     public void testGetWinners() throws Exception {
-        Car testCars[] = new Car[5];
+        Car testCars[] = new Car[3];
         testCars[0] = new Car("pobi");
         testCars[1] = new Car("crong");
         testCars[2] = new Car("honux");
 
         testCars[0].moveForward();
+        testCars[0].moveForward();
         testCars[1].moveForward();
+        testCars[2].moveForward();
+        testCars[2].moveForward();
+
         String winnerNames = MainApp.getWinners(testCars);
-        assertEquals("pobi, crong", winnerNames);
+        assertEquals("pobi, honux", winnerNames);
     }
 }
