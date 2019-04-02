@@ -14,7 +14,7 @@ public class GameManager {
     private int validGameLoop;
 
     public void start() {
-        initRacing();
+        initRacing(); /* 게임시작 전 올바른 자동차 이름,시도할 횟수 입력받기 위한 함수 */
         racing();
     }
 
@@ -25,13 +25,13 @@ public class GameManager {
         boolean gameLoopChecker = false;
         String gameLoop;
 
-        while (!nameLengthChecker) {
+        while (!nameLengthChecker) {    /* 자동차 이름길이 검사를 위한 while 문 */
             carNames = enterCarNames();
             nameLengthChecker = checkCarNameLength(carNames);
         }
-        makeCarObjects(carNames);
+        makeCarObjects(carNames);   /* 검사를 통과하면 입력한 자동차이름만큼 객체를 생성 */
 
-        while (!gameLoopChecker) {
+        while (!gameLoopChecker) {  /* 시도할 횟수의 유효성을 체크하는 while 문 */
             gameLoop = enterLoopCount();
             gameLoopChecker = checkGameLoopFormat(gameLoop);
         }
@@ -60,10 +60,10 @@ public class GameManager {
     private void makeCarObjects(String[] carNames) {
 
         carNumber = carNames.length;
-        cars = new Car[carNames.length];
+        cars = new Car[carNames.length]; //자동차 이름의 개수만큼 배열 생성
 
         for (int i = 0; i < carNames.length; i++) {
-            cars[i] = new Car(carNames[i]);
+            cars[i] = new Car(carNames[i]);  //Car 타입배열에 입력한 자동차이름을 넣음
         }
 
     }
@@ -71,40 +71,41 @@ public class GameManager {
     private boolean checkGameLoopFormat(String gameLoop) {
 
         try {
-            Integer.parseInt(gameLoop);
             validGameLoop = Integer.valueOf(gameLoop);
             return true;
         } catch (NumberFormatException e) {
-            System.out.println(ErrorCodes.INPUT_FORMAT_ERROR);
+            System.out.println(ErrorCodes.INPUT_FORMAT_ERROR); //시도할 횟수가 숫자 이외의 입력이라면 에러 출력
             return false;
         }
+
     }
 
     private boolean checkCarNameLength(String[] carNames) {
 
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_NAME_LENGTH) {
-                System.out.println(ErrorCodes.INPUT_LENGTH_ERROR);
+                System.out.println(ErrorCodes.INPUT_LENGTH_ERROR); //자동차 이름의 길이가 5를 넘는다면 에러 출력 및 다시입력
                 return false;
             }
         }
         return true;
+
     }
 
     private void racing() {
-
+        /* 모든 입력을 끝낸뒤 결과 출력을 시작하게하는 메소드 */
         printGameState(validGameLoop);
 
     }
 
 
-    private void printGameState(int gameRepeat) {
+    private void printGameState(int gameRepeat) { /* 자동차 개수를 입력 횟수만큼 */
 
         System.out.println("실행결과");
 
         for (int i = 0; i < gameRepeat; i++) {
             for (int j = 0; j < carNumber; j++) {
-                cars[j].oneLoop();
+                cars[j].oneLoop(); // 입력횟수만큼 차이름과 위치를 출력하기위한 oneLoop() 메소드 호출
             }
             System.out.println();
         }
@@ -120,13 +121,13 @@ public class GameManager {
 
         for (int i = 1; i < carNumber; i++) {
             if (winnerPosition < cars[i].getPosition()) {
-                winnerPosition = cars[i].getPosition();
+                winnerPosition = cars[i].getPosition(); //레이싱이 끝난후 position의 최대값
             }
         }
 
         for (int i = 0; i < carNumber; i++) {
             if (cars[i].getPosition() == winnerPosition) {
-                winnerList.add(cars[i].getName());
+                winnerList.add(cars[i].getName()); // position 최대값과 현재위치가 같은 car 이름을 list에 추가
             }
         }
 
@@ -138,12 +139,12 @@ public class GameManager {
 
         int checkWinnerNum = 0;
 
-        if (winnerList.size() == 1) {
+        if (winnerList.size() == 1) { //우승자가 한명일경우 실행
             System.out.println(winnerList.get(0) + "가 최종 우승했습니다.");
             return;
         }
 
-        for (int i = 0; i < winnerList.size(); i++) {
+        for (int i = 0; i < winnerList.size(); i++) { //우승자가 2명이상일 때 실행
             sb.append(winnerList.get(i));
             checkWinnerNum++;
             if (checkWinnerNum < winnerList.size()) {
@@ -152,7 +153,7 @@ public class GameManager {
         }
         sb.append("가 최종 우승했습니다.");
 
-        System.out.println(sb.toString());
+        System.out.println(sb.toString()); //최종 결과 출력문
 
     }
 

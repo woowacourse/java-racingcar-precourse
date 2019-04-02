@@ -16,23 +16,30 @@ public class Car {
     }
 
     private void checkCarFoward(){
+
         if (randomNumber >= 4){
             this.position++;
         }
+
     }
 
     private void printCarPosition(){
+
         System.out.print(name + " : ");
+
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.println();
+
     }
 
     public void oneLoop(){
+
         makeRandomNumber();
         checkCarFoward();
         printCarPosition();
+
     }
 
     public String getName() {
