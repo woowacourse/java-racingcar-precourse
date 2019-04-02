@@ -15,6 +15,8 @@ import java.util.Random;
  * @author   조남균
  */
 public class Car {
+	private static final int RANDOM_BOUND = 10;
+	private static final int MOVE_BOUND = 4;
 	private final String name;
 	private int position = 0;
 
@@ -24,14 +26,14 @@ public class Car {
 
 	public void tryMove() {
 		if (checkMove()) {
-			position += 1;
+			position++;
 		}
 	}
 
 	private boolean checkMove() {
 		Random random = new Random();
-		int randomNum = random.nextInt(10);
-		if (randomNum >= 4) {
+		int randomNum = random.nextInt(RANDOM_BOUND);
+		if (randomNum >= MOVE_BOUND) {
 			return true;
 		}
 		return false;
