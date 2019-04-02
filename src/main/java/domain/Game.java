@@ -15,4 +15,10 @@ public class Game {
 			this.cars.add(new Car(carName));
 		}
 	}
+
+	public void runLap() {
+		for (Car car : this.cars) {
+			car.tryMove();
+		}
+	}
 }
