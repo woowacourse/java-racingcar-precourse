@@ -4,8 +4,9 @@ import java.util.Scanner;
 public class racingcar {
 	public static void main(String[] args) {
 		String[] carName = getCarName();
-		int recingTime = getRacingTime();
+		int racingTime = getRacingTime();
 		Car[] cars = setCars(carName);
+		int res = racing(cars, racingTime);
 	}
 	
 	
@@ -30,5 +31,23 @@ public class racingcar {
 			cars[i] = temp;
 		}
 		return cars;
+	}
+	
+	public static int racing(Car[] cars, int time) {
+		int[] res = new int[cars.length];
+		int max=0;
+		System.out.println("\n실행결과");
+		for(int i=0; i<time; i++) {
+			for(int j=0; j<cars.length; j++) {
+				cars[j].goOrStop();
+			}
+			System.out.println("");
+		}
+		for(int i=0; i<cars.length; i++) {
+			if(max < cars[i].getPosition()) {
+				max = cars[i].getPosition();
+			}
+		}
+		return max;
 	}
 }
