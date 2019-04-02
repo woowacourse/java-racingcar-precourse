@@ -11,6 +11,7 @@ public class Main {
         static int n;
         static int counter = 0;
         static int max = -1;
+        static String[] winner;
 
         public static void main(String args[]) throws IOException {
                 inputNames();
@@ -18,6 +19,7 @@ public class Main {
                 playRace();
                 compare();
                 outputWinner();
+
         }
 
         public static void inputNames() throws IOException {
@@ -61,6 +63,12 @@ public class Main {
                 for(int i=0; i< cars.length;i++){
                         findMaximum(cars[i].getPosition());
                 }
+                winner = new String[counter];
+                for(int i=0; i<cars.length;i++){
+                        if(cars[i].getPosition() == max){
+                                winner[i] = cars[i].getName();
+                        }
+                }
         }
 
         public static void findMaximum(int pos) {
@@ -69,7 +77,10 @@ public class Main {
                         counter = 1;
                         return;
                 }
-                counter++;
+                if(pos == max){
+                        counter++;
+                        return;
+                }
         }
 
         public static void outputWinner() {
