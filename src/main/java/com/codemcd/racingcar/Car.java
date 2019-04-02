@@ -1,6 +1,9 @@
 package com.codemcd.racingcar;
 
 public class Car {
+
+    private static final int MIN_MOVE_NUMBER = 4;
+
     private final String name;
     private int position = 0;
 
@@ -8,8 +11,9 @@ public class Car {
         this.name = name;
     }
 
-    public void goStraight() {
-        this.position++;
+    public void goStraight(int moveNumber) {
+        if (moveNumber >= MIN_MOVE_NUMBER)
+            this.position++;
     }
 
     public String getName() {

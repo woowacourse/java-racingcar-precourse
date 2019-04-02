@@ -4,27 +4,31 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Car[] cars;
-
-        String[] carNames = Input.inputCarName();
+        String[] carName = Input.inputCarName();
         int numberOfMove = Input.inputHowManyMove();
-        int numberOfCar = carNames.length;
-
-        cars = new Car[numberOfCar];
+        int numberOfCar = carName.length;
+        Car[] cars = new Car[numberOfCar];
         for (int i = 0; i < numberOfCar; ++i) {
-            cars[i] = new Car(carNames[i]);
+            cars[i] = new Car(carName[i]);
         }
 
-        for (int i = 0; i < numberOfMove; ++i) {
-            for (int j = 0; j < numberOfCar; ++j) {
-                int moveNumber = GameProcess.makeRandomNumber();
-                if (moveNumber >= 4)
-                    cars[j].goStraight();
-            }
+        startRacing(cars, numberOfMove);
+        endGameAndOutputWinner(cars);
+    }
 
+    private static void startRacing(Car[] cars, int numberOfMove) {
+        System.out.println();
+        System.out.println("실행 결과");
+        for (int i = 0; i < numberOfMove; ++i) {
+            for (int j = 0; j < cars.length; ++j) {
+                int moveNumber = GameProcess.makeRandomNumber();
+                cars[j].goStraight(moveNumber);
+            }
             Output.outputMoveResult(cars);
         }
+    }
 
+    private static void endGameAndOutputWinner(Car[] cars) {
         String[] winners = GameProcess.tellWinner(cars);
         Output.outputWhoIsWinners(winners);
     }
