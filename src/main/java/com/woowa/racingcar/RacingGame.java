@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class RacingGame {
 
+    private static final String COMMENT_WHEN_PRINT_CHAMPIONS = "가 최종 우승했습니다";
     private ArrayList<Car> carList;
     private int runCount;
 
@@ -29,5 +30,33 @@ public class RacingGame {
             }
         }
         return maxPosition;
+    }
+
+    public ArrayList<Car> getChampions() {
+        int maxPosition = getMaxDistance();
+        ArrayList<Car> returnCarList = new ArrayList<Car>();
+
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getPosition() != maxPosition) {
+                continue;
+            }
+
+            returnCarList.add(carList.get(i));
+        }
+        return returnCarList;
+    }
+
+    public void printChampions() {
+        int maxPosition = getMaxDistance();
+        ArrayList<Car> champions = getChampions();
+
+        for (int i = 0; i < champions.size(); i++) {
+
+            if(i != 0){
+                System.out.print(",");
+            }
+            System.out.print(champions.get(i).getName());
+        }
+        System.out.println(COMMENT_WHEN_PRINT_CHAMPIONS);
     }
 }

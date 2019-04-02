@@ -32,6 +32,8 @@
 |---|---|
 |progressAllCarsOneTurn| 모든자동차를 1턴 진행시키는 함수|
 |getMaxDistance|자동차의 최대거리를 구하는 함수|
+|printChampions|우승자동차를 출력하는 함수|
+|getChampions|우승 자동차를 반환하는 함수|
 
 |Car.java|개별 자동차 데이터,로직 담당|
 |---|---|
