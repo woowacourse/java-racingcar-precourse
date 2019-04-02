@@ -24,8 +24,8 @@ public class Racing {
     public void runGame() {
         inputCarName();
         inputMovingNumber();
-        //startRacing();
-        //printResult();
+        startRacing();
+        printResult();
     }
 
     private void inputCarName() {
@@ -86,5 +86,22 @@ public class Racing {
             }
             System.out.println();
         }
+    }
+
+    private void printResult() {
+        int maxPosition = 0;
+        String winner = "";
+        for(int i = 0; i < carList.size(); i++) {
+            //maxPosition = Math.max(maxPosition, carList.get(i).getPosition());
+        }
+        for(int i = 0; i < carList.size(); i++) {
+            /*
+            if(maxPosition == carList.get(i).getPosition()) {
+                winner+=carList.get(i).getName() + ",";
+            }
+            */
+        }
+        winner = winner.substring(0, winner.length()-1);
+        System.out.println(winner + "가 우승했습니다.");
     }
 }
