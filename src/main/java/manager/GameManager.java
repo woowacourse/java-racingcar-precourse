@@ -11,25 +11,33 @@ public class GameManager {
     private StringBuilder sb = new StringBuilder();
     private Scanner scanner = new Scanner(System.in);
     private static final int MAX_CAR_NAME_LENGTH = 5;
-    private int gameLoop;
+    private int validGameLoop;
 
     public void start() {
+
         initRacing();
-        printGameState(gameLoop);
+        racing();
+
     }
 
     private void initRacing() {
 
         boolean nameLengthChecker = false;
         String[] carNames = null;
+        boolean gameLoopChecker = false;
+        String gameLoop;
 
         while (!nameLengthChecker) {
             carNames = enterCarNames();
             nameLengthChecker = checkCarNameLength(carNames);
         }
-        
         makeCarObjects(carNames);
-        enterLoopCount();
+
+        while (!gameLoopChecker) {
+            gameLoop = enterLoopCount();
+            gameLoopChecker = checkGameLoopFormat(gameLoop);
+        }
+
     }
 
     private String[] enterCarNames() {
@@ -41,13 +49,13 @@ public class GameManager {
 
     }
 
-    private void enterLoopCount() {
+    private String enterLoopCount() {
 
         System.out.println("시도할 횟수는 몇회인가요?");
-        
-        gameLoop = scanner.nextInt();
-
+        String inputGameLoop = scanner.next();
         System.out.println();
+
+        return inputGameLoop;
 
     }
 
@@ -62,16 +70,35 @@ public class GameManager {
 
     }
 
+    private boolean checkGameLoopFormat(String gameLoop) {
+
+        try {
+            Integer.parseInt(gameLoop);
+            validGameLoop = Integer.valueOf(gameLoop);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("게임 횟수는 숫자만 입력해주세요!!");
+            return false;
+        }
+    }
+
     private boolean checkCarNameLength(String[] carNames) {
 
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_NAME_LENGTH) {
-                System.out.println("자동차의 이름은 5글자 이하로 입력해주세요!");
+                System.out.println("자동차의 이름은 5글자 이하로 입력해주세요!!");
                 return false;
             }
         }
         return true;
     }
+
+    private void racing() {
+
+        printGameState(validGameLoop);
+
+    }
+
 
     private void printGameState(int gameRepeat) {
 
@@ -85,6 +112,27 @@ public class GameManager {
         }
 
         findWinner();
+
+    }
+
+    private void findWinner() {
+
+        int winnerPosition = cars[0].getPosition();
+        ArrayList<String> winnerList = new ArrayList<>();
+
+        for (int i = 1; i < carNumber; i++) {
+            if (winnerPosition < cars[i].getPosition()) {
+                winnerPosition = cars[i].getPosition();
+            }
+        }
+
+        for (int i = 0; i < carNumber; i++) {
+            if (cars[i].getPosition() == winnerPosition) {
+                winnerList.add(cars[i].getName());
+            }
+        }
+
+        printWinner(winnerList);
 
     }
 
@@ -107,27 +155,6 @@ public class GameManager {
         sb.append("가 최종 우승했습니다.");
 
         System.out.println(sb.toString());
-
-    }
-
-    private void findWinner() {
-
-        int winnerPosition = cars[0].getPosition();
-        ArrayList<String> winnerList = new ArrayList<>();
-
-        for (int i = 1; i < carNumber; i++) {
-            if (winnerPosition < cars[i].getPosition()) {
-                winnerPosition = cars[i].getPosition();
-            }
-        }
-
-        for (int i = 0; i < carNumber; i++) {
-            if (cars[i].getPosition() == winnerPosition) {
-                winnerList.add(cars[i].getName());
-            }
-        }
-
-        printWinner(winnerList);
 
     }
 
