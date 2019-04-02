@@ -5,17 +5,22 @@ import java.util.Scanner;
 public class User {
 
     private String[] carNames;
+    private Car[] car;
     private int numberOfTrials;
 
     public User() {
-        //intro()
+        input();
     }
 
-    public void input() {
+    private void input() {
         inputCarNames();
         inputNumberOfTrials();
     }
 
+    /**
+     * 경주할 자동차 전체를 문자열로 입력 받음
+     * 자동차 이름을 분리하여 저장
+     */
     private void inputCarNames() {
         String carNamesInput;
         String[] carNamesArray;
@@ -34,7 +39,7 @@ public class User {
      * @param str   : 자동차 이름을 ,로 구분하여 입력한 문자열
      * @return      : 슬라이싱하여 구분된 자동차 이름
      */
-    private String[] inputSlicing(String carNamesInput){
+    private String[] inputSlicing(String carNamesInput) {
         String[] carNameArray;
 
         carNamesInput = carNamesInput.replace(" ","");      // 공백 제거

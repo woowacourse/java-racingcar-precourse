@@ -52,3 +52,12 @@
 
 ***
 
+### Class 설명
+
+- class RacingGame
+
+>1. void main(String[] args) {}	// 프로그램 실행, RacingGamePlay 객체 생성
+
+- class RacingGamePlay
+>1. RacingGamePlay() {}	// user 객체 생성
+>2. void play() {}	// 게임을 진행하는 함수

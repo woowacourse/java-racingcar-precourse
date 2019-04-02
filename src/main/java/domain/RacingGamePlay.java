@@ -3,14 +3,21 @@ package domain;
 public class RacingGamePlay {
 
     private User user;
+    private ManageCars cars;
 
     public RacingGamePlay() {
         user = new User();
+        cars = new ManageCars(user.getCarNames());
     }
 
     public void play() {
-        user.input();
-        System.out.println(java.util.Arrays.toString(user.getCarNames()));
-        System.out.println(user.getNumberOfTrials());
+        int trialCount;
+
+        System.out.println("실행 결과");
+        trialCount = user.getNumberOfTrials();
+        while(trialCount > 0){
+
+            trialCount--;
+        }
     }
 }
