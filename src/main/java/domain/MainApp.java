@@ -23,4 +23,13 @@ public class MainApp {
         return arrCarNames;
     }
 
+    /**
+     * 입력으로 받은 이름을 갖는 자동차의 배열을 생성하고 반환합니다.
+     * @param carNames - 자동차의 이름의 배열로, 문자열의 배열입니다.
+     * @return 자동차 객체의 배열을 반환합니다.
+     */
+    public static Car[] createArrayOfCars(String[] carNames) {
+        Car cars[] = new Car[carNames.length];
+        return cars;
+    }
 }
