@@ -20,12 +20,12 @@ public class RaceAttemptReciever {
     private void tryToRecieveRaceAttemptFromUser() throws IllegalArgumentException {
         System.out.println("시도할 횟수는 몇회인가요?");
         this.raceAttempt = scanner.nextInt();
-        if (!isValidRaceAttempt()) {
+        if (isNotValidRaceAttempt()) {
             throw new IllegalArgumentException();
         }
     }
 
-    private boolean isValidRaceAttempt() {
-        return this.raceAttempt >= MINIMUM_RACE_ATTEMPT ? true : false;
+    private boolean isNotValidRaceAttempt() {
+        return this.raceAttempt < MINIMUM_RACE_ATTEMPT ? true : false;
     }
 }

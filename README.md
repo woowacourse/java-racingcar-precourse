@@ -73,9 +73,9 @@
    
    2. 자동차들의 이름을 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToReceiveCarnamesFromUser)
    
-   3. 자동차들의 이름이 전부 5이하인지 판단하는 기능 (isValidCarNamesInput)
+   3. 자동차들의 이름이 전부 5이하인지 판단하는 기능 (isNotValidCarNames)
    
-   4. 자동차의 이름의 길이가 5이하인지 판단하는 기능 (isValidCarName)
+   4. 자동차의 이름의 길이가 5이하인지 판단하는 기능 (isNotValidCarName)
       
    5. 입력받은 자동차들의 이름으로 객체를 생성하는 기능(GenerateCar)
       
@@ -83,7 +83,7 @@
       
    7. 자동차들의 운행 횟수를 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToRecieveRaceAttemptFromUser)
     
-   8. 자동차의 운행 횟수가 1이상인지 판단하는 기능(isValidRaceAttempt)
+   8. 자동차의 운행 횟수가 1이상인지 판단하는 기능(isNotValidRaceAttempt)
      
    9. 난수를 생성하는 기능 (GenerateRandomNumber)
          
