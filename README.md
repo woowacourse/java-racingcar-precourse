@@ -4,6 +4,8 @@
 
 2. Car Class
 * 게임에 필요한 Car를 정의하는 객체 클래스
+    - String name : 자동차의 이름을 저장할 변수
+    - int position : 자동차의 위치를 저장할 변수
 
 3. Control Class
 * 유저의 입력 part
