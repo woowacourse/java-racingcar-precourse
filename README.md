@@ -23,6 +23,7 @@
   * 입력받은 이름으로 Car객체 생성 createCar()
   * 이동 횟수 입력 inputMovingNumber()
   * 게임 시작 runGame()
+  * 이동 횟수만큼 Car객체에 대해 게임을 진행하고 상태 출력 startRacing()
   * 결과 출력 printResult()
 
 
