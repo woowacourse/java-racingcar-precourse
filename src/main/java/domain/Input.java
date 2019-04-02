@@ -20,7 +20,7 @@ public class Input {
 
     public ArrayList<Car> enrollCarName() {
         ArrayList<Car> carList = new ArrayList<>();
-        String[] inputCarName = scanner.nextLine().split(" ");
+        String[] inputCarName = scanner.nextLine().split(",");
 
         for (int i = 0; i < inputCarName.length; i++) {
             carList.add(new Car(inputCarName[i]));
@@ -32,7 +32,6 @@ public class Input {
     public int tryNumber(){
         int tryNumber = Integer.parseInt(scanner.nextLine());
         scanner.close();
-
         return tryNumber;
     }
 }
