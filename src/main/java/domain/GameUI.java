@@ -30,6 +30,17 @@ public class GameUI {
 		return lapNum;
 	}
 
+	public void startRace(int lapNum) {
+		String info = "\n실행결과";
+
+		System.out.println(info);
+		for (int i = 0; i < lapNum; i++) {
+			this.game.runLap();
+			showLapResult();
+		}
+		showRaceChampion();
+	}
+
 	public void showLapResult() {
 		StringBuilder sb = new StringBuilder();
 
