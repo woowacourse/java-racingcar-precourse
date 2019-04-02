@@ -41,8 +41,8 @@ public class User {
     public String[] inputSlicing(String carNamesInput) {
         String[] carNameArray;
 
-        carNamesInput = carNamesInput.replace(" ","");      // 공백 제거
-        carNameArray = carNamesInput.split(",");                        // 쉼표로 구분
+        carNamesInput = carNamesInput.replace(" ","");  // 공백 제거
+        carNameArray = carNamesInput.split(",");                    // 쉼표로 구분
 
         return carNameArray;
     }

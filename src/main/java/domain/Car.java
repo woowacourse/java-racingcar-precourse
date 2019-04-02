@@ -2,14 +2,16 @@ package domain;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private int position = ConstValue.START_POSITION;
 
-    public Car(String name) { this.name = name; }
+    public Car(String name) {
+        this.name = name;
+    }
 
     /**
      * 자동차의 위치를 정해진 거리만큼 이동시킨다.
      */
-    public void move(){
+    public void move() {
         this.position += ConstValue.MOVE_DISTANCE;
     }
 

@@ -11,7 +11,7 @@ public class Action {
      * 전진 할 경우 자동차 객체를 이동시킨다.
      */
     public void actBasedOnDecision() {
-        if(decideAction()) {
+        if (decideAction()) {
             car.move();
         }
     }
