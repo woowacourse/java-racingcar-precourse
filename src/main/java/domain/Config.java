@@ -70,6 +70,7 @@ public class Config {
 
     /**
      * Garage는 차고로써 Car의 인스턴스들을 담는다.
+     *
      * @param carArrays
      * @return Car인스턴스를 담은 배열
      */
@@ -90,6 +91,7 @@ public class Config {
 
     /**
      * 자동차 레이스 시에 경기 상황을 중계(출력)한다.
+     *
      * @param garage
      * @param i
      */
@@ -98,7 +100,7 @@ public class Config {
         System.out.println(garage[i].getName() + ": " + counter);
     }
 
-    public void printWinner(Car[] garage) {
+    public String printWinner(Car[] garage) {
         String winner = "";
         int max = findMaxPosition(garage);
         for (int i = 0; i < garage.length; i++) {
@@ -108,6 +110,7 @@ public class Config {
         }
         winner = winner.substring(0, winner.length() - 1);
         System.out.println(winner + "님이 최종 우승하셨습니다!");
+        return winner;
     }
 
     public Car[] decideMoveForward(Car[] garage) {
@@ -123,7 +126,7 @@ public class Config {
         return garage;
     }
 
-    public void race(Car[] garage){
+    public void race(Car[] garage) {
         System.out.println("게임을 몇 회 실시시키겠습니까?");
         int count = scan.nextInt();
         System.out.println("레이스 시작");
