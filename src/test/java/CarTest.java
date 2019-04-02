@@ -25,4 +25,13 @@ public class CarTest extends TestCase {
         assertFalse(testCar.getName() == testCar2.getName());
         assertEquals(testCar.getName(), testCar3.getName());
     }
+
+    /* 자동차가 적절히 자신의 이름과 이동한 거리를 출력하는 지 테스트합니다. */
+    @Test
+    public void testPrintStatus() throws Exception {
+        Car testCar = new Car("pobi");
+        assertEquals("pobi : ", testCar.printStatus());
+        testCar.moveForward();
+        assertEquals("pobi : -", testCar.printStatus());
+    }
 }

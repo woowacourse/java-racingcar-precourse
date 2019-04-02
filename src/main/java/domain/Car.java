@@ -10,13 +10,6 @@ public class Car {
 
     // 추가 기능 구현
 
-    /**
-     * 자동차의 전진 기능을 담당하는 메소드입니다.
-     */
-    public void moveForward() {
-        position++;
-    }
-
     public int getPosition() {
         return position;
     }
@@ -24,4 +17,12 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    /**
+     * 자동차의 전진 기능을 담당하는 메소드입니다.
+     */
+    public void moveForward() {
+        position++;
+    }
+
 }
