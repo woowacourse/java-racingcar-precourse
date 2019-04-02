@@ -1,6 +1,6 @@
 package domain;
 
-public class Car{
+public class Car implements Comparable<Car>{
     private final String name;
     private int position = 0;
 
@@ -23,6 +23,14 @@ public class Car{
         int random = (int) (Math.random() * 10);
         if(random > 4)
             position++;
+    }
+
+    /*
+    * descending order
+    */
+    @Override
+    public int compareTo(Car car){
+        return car.position - this.position;
     }
 
 }

@@ -23,6 +23,8 @@ public class Main {
             gameStart();
             printCarsPosition();
         }
+
+        whoIsWinner();
     }
 
     public static boolean checkName(String[] names) {
@@ -58,4 +60,14 @@ public class Main {
         }
     }
 
+    public static void whoIsWinner(){
+        Arrays.sort(cars);
+        int max_position = cars[0].getPosition();
+        System.out.print(cars[0].getName());
+        for(int i=1;i<cars.length;i++){
+            if(cars[i].getPosition() == max_position)
+                System.out.print(", "+cars[i].getName());
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
 }
