@@ -23,6 +23,15 @@ public class Car {
     		}
     	}
     }
+    
+    public void printResult() {
+    	System.out.println(this.name + " : ");
+    	
+    	for (int i = 0; i<this.position; ++i) {
+    		System.out.print("-");
+    	}
+    	System.out.println();
+    }
 
    
 }
