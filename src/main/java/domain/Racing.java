@@ -1,7 +1,7 @@
 /*
  * Racing
  *
- * version 1.1
+ * version 1.3
  *
  * 2019/04/02
  *
@@ -19,6 +19,7 @@ import java.util.Scanner;
  * @version 1.0 2019/04/02  사용자로부터 자동차 이름, 이동 횟수를 입력 받는 메소드 구현 / 입력받은 자동차 이름으로 객체 생성
  *          1.1 2019/04/02  입력받은 자동차 이름에 빈칸 제거 / 이름 길이에 오류가 난 경우 다시 입력 받게 처리
  *          1.2 2019/04/02  자동차들중에서 제일 큰 position 값을 구하는 메소드 구현 / 시도할 회수를 받는 메소드 재 구현
+ *          1.3 2019/04/02  우승자를 계산하는 메소드 구현
  */
 public class Racing {
     private static Scanner sc = new Scanner(System.in);
@@ -65,5 +66,18 @@ public class Racing {
             }
         }
         return max;
+    }
+
+    public String calcWinners(List<Car> cars) {
+        String winners = "";
+        int max = calcMaximunPostion(cars);
+
+        for (Car car : cars) {
+            if (max == car.getPosition()) {
+                winners += car.getName() + " ";
+            }
+        }
+
+        return winners.substring(0, winners.length() - 2);
     }
 }
