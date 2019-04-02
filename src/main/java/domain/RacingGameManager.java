@@ -57,4 +57,10 @@ public class RacingGameManager {
 		}
 		return false;
 	}
+
+	public void raceCars() {
+		for (int i = 0; i < totalCarCount; i++) {
+			cars[i].race();
+		}
+	}
 }
