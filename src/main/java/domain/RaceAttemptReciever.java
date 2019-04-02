@@ -3,28 +3,28 @@ package domain;
 import java.util.Scanner;
 
 public class RaceAttemptReciever {
+    private static final int MINIMUM_RACE_ATTEMPT = 1;
     private Scanner scanner = new Scanner(System.in);
     private int raceAttempt;
 
-    private void RecieveRaceAttemptsFromUser() {
+    private void RecieveRaceAttemptFromUser() {
         try {
-            tryToRecieveRaceAttemptsFromUser();
+            tryToRecieveRaceAttemptFromUser();
         } catch (IllegalArgumentException e) {
             System.out.println("잘못된 입력입니다. 다시 입력해 주세요.");
-            tryToRecieveRaceAttemptsFromUser();
+            tryToRecieveRaceAttemptFromUser();
         }
     }
 
-    private void tryToRecieveRaceAttemptsFromUser() throws IllegalArgumentException {
+    private void tryToRecieveRaceAttemptFromUser() throws IllegalArgumentException {
         System.out.println("시도할 횟수는 몇회인가요?");
-        raceAttempt = scanner.nextInt();
+        this.raceAttempt = scanner.nextInt();
         if (!isValidRaceAttempt()) {
             throw new IllegalArgumentException();
         }
     }
 
     private boolean isValidRaceAttempt() {
-        System.out.println("이후 구현 예정");
-        return true;
+        return this.raceAttempt >= MINIMUM_RACE_ATTEMPT ? true : false;
     }
 }
