@@ -20,9 +20,6 @@ public class Car {
     }
 
     public void tryOneTurn() {
-        Random random = new Random();
-        int randomNum = random.nextInt(RANDOM_MAX_NUMBER);
-
         if (decideMoveOrNot()) {
             moveOnce();
         }
