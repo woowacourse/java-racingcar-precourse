@@ -21,4 +21,14 @@ public class MainAppTest extends TestCase {
         }
         System.setIn(System.in);                                               // 입력을 원래대로 돌려 놓습니다.
     }
+
+    /* 메인 프로그램의 자동차 배열을 만드는 기능을 테스트합니다. */
+    @Test
+    public void testCreateArrayOfCars() throws Exception {
+        String testCarNames[] = {"pobi", "crong", "honux"};
+        Car testCars[] = MainApp.createArrayOfCars(testCarNames);
+        for (int i=0; i<testCarNames.length; i++) {
+            assertEquals(testCarNames[i], testCars[i].getName());
+        }
+    }
 }
