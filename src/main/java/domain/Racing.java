@@ -33,4 +33,8 @@ public class Racing {
 
 	private CarMgr carmgr;
 
+	public Racing() {
+		sc = new Scanner(System.in);
+		carmgr = new CarMgr();
+	}
 }
