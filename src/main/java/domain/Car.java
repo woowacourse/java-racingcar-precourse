@@ -11,17 +11,22 @@ public class Car {
         }
 
         public void movePosition() {
-                if(drawRandomNumber()){
+                if (drawRandomNumber()) {
                         position++;
                 }
 
         }
 
-        public boolean drawRandomNumber(){ //뼈대 구축
-                return true;
+        public boolean drawRandomNumber() { //뼈대 구축
+                Random random = new Random();
+                int n = random.nextInt(10);
+                if (n >= 4) {
+                        return true;
+                }
+                return false;
         }
 
-        public int getPosition(){
+        public int getPosition() {
                 return 0;
         }
 
