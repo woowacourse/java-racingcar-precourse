@@ -63,6 +63,7 @@
    * UserInputReciever
    * CarGenerator
    * RandomNumberGenerator
+   * RaceAttemptReciever
      
 
 ****
@@ -78,7 +79,7 @@
       
    5. 입력받은 자동차들의 이름으로 객체를 생성하는 기능(GenerateCar)
       
-   6. 자동차들의 운행 횟수를 입력받는 기능 (InputDriveCount)
+   6. 자동차들의 운행 횟수를 입력받은 예외를 처리하는 기능 (RecieveRaceAttemptsFromUser)
       
    7. 입력받은 운행 횟수의 예외처리를 담당하는 기능 (IligalArgumentException)
       

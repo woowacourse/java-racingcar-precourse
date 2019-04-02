@@ -2,7 +2,7 @@ package domain;
 
 import java.util.Scanner;
 
-public class UserInputReciever {
+public class CarNameReciever {
     static final int MAX_CAR_NAME_LENGTH = 5;
     private String[] carNames;
     private Scanner scanner = new Scanner(System.in);
