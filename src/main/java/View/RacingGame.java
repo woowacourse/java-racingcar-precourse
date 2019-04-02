@@ -3,6 +3,7 @@ package View;
 import domain.Car;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +11,7 @@ public class RacingGame {
 
     private Scanner sc = new Scanner(System.in);
     private ArrayList<Car> carList = new ArrayList<>();
+    private int count; /*시행할 게임 횟수*/
 
     public void inputCarName() throws Exception {
         final String delimiter = ",";
@@ -26,9 +28,28 @@ public class RacingGame {
         }
     }
 
+    public void inputNum() throws Exception {
+        final String mismatchException = "숫자를 입력해주세요";
+        final String boundException = "양수를 입력해주세요";
+
+        try {
+            count = sc.nextInt();
+            if (count < 1) {
+                throw new Exception(boundException);
+            }
+        } catch (InputMismatchException e) {
+            throw new Exception(mismatchException);
+        }
+
+    }
+
     public void play() {
-        for (int i = 0; i < carList.size(); i++) {
-            carList.get(i).goOrStop();
+        for (int i = 0; i < count; i ++) {
+            for (int j = 0; j < carList.size(); j++) {
+                carList.get(j).goOrStop();
+            }
+            displayCarPosition();
+            System.out.println();
         }
     }
 
@@ -60,5 +81,18 @@ public class RacingGame {
         }
         return  result;
     }
+
+    public void displayResult() {
+        List<Car> carList = getResult();
+        for (int i = 0; i < carList.size(); i++) {
+            System.out.print(carList.get(i).getName());
+            if ( i != carList.size()-1) {
+                System.out.print(", ");
+            }
+
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
+
 
 }
