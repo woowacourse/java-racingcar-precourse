@@ -71,4 +71,20 @@ public class RacingGameManager {
 		}
 		System.out.println();
 	}
+	
+	public String getWinnerNames() {
+		int maxPosition = -1;
+		String winnerNames = "";
+		for (int i = 0; i < totalCarCount; i++) {
+			if (cars[i].getPostion() == maxPosition) {
+				winnerNames += cars[i].getName() + ", ";
+			}
+			if (cars[i].getPostion() > maxPosition) {
+				winnerNames = cars[i].getName() + ", ";
+				maxPosition = cars[i].getPostion();
+			}
+		}
+		winnerNames = winnerNames.substring(0, winnerNames.length() - 2);
+		return winnerNames;
+	}
 }
