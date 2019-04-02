@@ -40,10 +40,10 @@ public class GameManager {
      */
     private void notifynameState() {
         if (inputgameinformation.getCheckOverlapstate()) {
-            System.out.println(Message.errorMessage.get("ERROR_NAMESTATE_OVERLAP"));
+            System.out.println(Message.notifyMessage.get("ERROR_NAMESTATE_OVERLAP"));
         }
         if (inputgameinformation.getCheckLengthstate()) {
-            System.out.println(Message.errorMessage.get("ERROR_NAMESTATE_LENGTH"));
+            System.out.println(Message.notifyMessage.get("ERROR_NAMESTATE_LENGTH"));
         }
     }
 
