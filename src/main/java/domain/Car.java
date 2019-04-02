@@ -25,4 +25,12 @@ public class Car {
         position++;
     }
 
+    /**
+     * 자동차의 이름과 이동한 거리를 출력하는 메소드입니다.
+     * (e.g., "pobi : ---")
+     */
+    public String printStatus() {
+        return "pobi : ";
+    }
+
 }
