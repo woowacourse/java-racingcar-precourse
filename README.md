@@ -10,6 +10,7 @@
 * Car Class : 자동차의 정보를 가지고 있는 클래스
 * CarMgmt Class : 자동차의 정보들을 리스트로 관리해주는 클래스
 * Racing Class : 자동차의 경주가 진행되는 클래스
+* Play Class : 자동차 경주대회를 실행할 클래스
 
 ### 클래스별 구현해야 될 메서드
 #### [Car Class]
@@ -36,3 +37,6 @@
 * isValidUsers : 입력받은 유저의 정보가 유효한지 판별하는 메서드
 * isValidTime : 입력받은 진행 횟수가 적합한지 판별하는 메서드
 * timeWaitForResult : 박진감 있는 경기 진행을 위해, 한 단계씩 출력하는 메서드
+
+#### [Play Class]
+> **자동차의 경주**가 시작된다!!
