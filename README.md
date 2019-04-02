@@ -13,11 +13,11 @@
 1. RacingCarGame - 자동차 이름, 횟수를 입력 받고 1위를 출력해주는 클래스이다.
 
 ## 구현해야할 기능들
-1. Main.java 생성
+1. Main 클래스 생성
 
 1. Car 이동 및 출력 기능
     * Random 숫자 생성부터 출력 기능까지 실행 해주는 메소드(runOneCycle) -> Car
-    * 0 ~ 9의 Random 숫자 생성 메소드(createRandomDistance) -> Car
+    * 0 ~ 9의 Random 숫자 생성 메소드(createRandomNumber) -> Car
     * 만들어진 Random 숫자가 4 이상인지 검사하는 메소드(lagerThanFour) -> Car
     * 전진 메소드(movePosition) -> Car
     * Car 인스턴스의 현재 위치 출력 메소드(printCurrentPosition) -> RacingCarGame
