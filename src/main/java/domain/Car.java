@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Car {
     private final String name;
@@ -12,6 +13,8 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+
+    public int getPosition() { return this.position; }
 
     static public void enterCarName() {
         String carName[];
@@ -67,8 +70,18 @@ public class Car {
 
     static public void printWinner() {
         /* 우승자 판단 */
+        List<String> winnersList;
+        int winnersPosition = carList.stream()
+                        .max(Comparator.comparing(Car::getPosition)).get().getPosition();
 
-        System.out.println("가 최종 우승했습니다.");
+        winnersList = carList.stream()
+                .filter(c -> c.getPosition() == winnersPosition)
+                .map(c -> c.name)
+                .collect(Collectors.toList());
+
+        String winner = String.join(",", winnersList);
+
+        System.out.println(winner+"가 최종 우승했습니다.");
     }
 
 
