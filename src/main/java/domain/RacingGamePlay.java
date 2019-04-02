@@ -40,7 +40,8 @@ public class RacingGamePlay {
     private void actionAllCars() {
         for(int i = 0; i < cars.length; i++) {
             act = new Action(cars[i]);
-            System.out.println(act.decideAction());
+            act.actBasedOnDecision();
+            System.out.println(cars[i].getPosition());
         }
     }
 }

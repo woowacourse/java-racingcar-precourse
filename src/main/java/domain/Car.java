@@ -8,7 +8,18 @@ public class Car {
 
     // 추가 기능 구현
 
+    /**
+     * 자동차의 위치를 정해진 거리만큼 이동시킨다.
+     */
+    public void move(){
+        this.position += ConstValue.MOVE_DISTANCE;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
