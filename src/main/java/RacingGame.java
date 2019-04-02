@@ -5,9 +5,11 @@ import static domain.Car.*;
 public class RacingGame {
     public static void main(String[] args){
 
+        getRacingCarName();
         String getRacingCarName = getCarName();
         String[] getRacingCarNameArray = divideCarName(getRacingCarName);
         Car[] racingCar = new Car[getRacingCarNameArray.length];
+
 
         racingCar = inputCarName(getRacingCarNameArray);
 
