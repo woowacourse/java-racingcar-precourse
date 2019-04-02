@@ -86,8 +86,8 @@ public class Racing {
         System.out.println("실행결과");
         for(int i = 0; i < numberOfTimes; i++){
             for(int j = 0; j < carList.size(); j++) {
-                //carList.get(i).updatePosition();
-                //carList.get(i).printPosition();
+                carList.get(j).updatePosition();
+                carList.get(j).printPosition();
             }
             System.out.println();
         }
@@ -97,14 +97,13 @@ public class Racing {
         int maxPosition = 0;
         String winner = "";
         for(int i = 0; i < carList.size(); i++) {
-            //maxPosition = Math.max(maxPosition, carList.get(i).getPosition());
+            maxPosition = Math.max(maxPosition, carList.get(i).getPosition());
         }
         for(int i = 0; i < carList.size(); i++) {
-            /*
             if(maxPosition == carList.get(i).getPosition()) {
                 winner+=carList.get(i).getName() + ",";
             }
-            */
+
         }
         winner = winner.substring(0, winner.length()-1);
         System.out.println(winner + "가 우승했습니다.");

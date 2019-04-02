@@ -32,9 +32,24 @@ public class Car {
         }
     }
 
+    public void printPosition() {
+        System.out.print(name + " : ");
+        for(int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
     private int getRandomNumber() {
         Random ran = new Random();
         return ran.nextInt(RANDOM_CONDITION);
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
