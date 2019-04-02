@@ -4,23 +4,23 @@ import java.util.Scanner;
 
 public class Input {
 
-    public String[] inputCarName() {
+    public static String[] inputCarName() {
 
         Scanner scanner = new Scanner(System.in);
-        String carNames;
-        String[] splitedNames;
+        String inputCarName;
+        String[] splitedName;
         System.out.println("경주할 자동차의 이름을 입력하세오(이름은 쉼표(,) 기준으로 구분");
         while (true) {
-            carNames = scanner.nextLine();
-            if (InputError.isInputCarNameFormat(carNames)) {
-                carNames = InputError.removeFirstAndLastComma(carNames);
-                splitedNames = carNames.split(",");
-                return splitedNames;
+            inputCarName = scanner.nextLine();
+            if (InputError.isInputCarNameFormat(inputCarName)) {
+                inputCarName = InputError.removeFirstAndLastComma(inputCarName);
+                splitedName = inputCarName.split(",");
+                return splitedName;
             }
         }
     }
 
-    public int inputHowManyMove() {
+    public static int inputHowManyMove() {
 
         Scanner scanner = new Scanner(System.in);
         String inputNumber;

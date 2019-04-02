@@ -5,11 +5,10 @@ public class Main {
     public static void main(String[] args) {
 
         Car[] cars;
-        Input input = new Input();
         Draw draw = new Draw();
 
-        String[] carNames = input.inputCarName();
-        int numberOfMove = input.inputHowManyMove();
+        String[] carNames = Input.inputCarName();
+        int numberOfMove = Input.inputHowManyMove();
         int numberOfCar = carNames.length;
 
         cars = new Car[numberOfCar];
