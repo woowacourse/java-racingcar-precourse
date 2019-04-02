@@ -20,8 +20,15 @@ public class Racing {
 
     private ArrayList<Car> carList;
     private int numberOfTimes;
+    
+    public void runGame() {
+        inputCarName();
+        inputMovingNumber();
+        //startRacing();
+        //printResult();
+    }
 
-    private String inputCarName() {
+    private void inputCarName() {
         Scanner scan = new Scanner(System.in);
         String carName;
         do {
@@ -29,7 +36,30 @@ public class Racing {
             carName = scan.nextLine();
         }
         while(!isCorrectCarName(carName));
-        return carName;
+        createCar(carName);
+    }
+
+    private void createCar(String str) {
+        String[] names = str.split(",");
+        for (String name : names) {
+            Car car = new Car(name);
+            this.carList.add(car);
+        }
+    }
+
+    private void inputMovingNumber(){
+        Scanner scan = new Scanner(System.in);
+        int number;
+        do {
+            System.out.print("시도할 횟수를 입력해주세요: ");
+            while(!scan.hasNextInt()) {
+                System.out.println("자연수를 입력해주세요");
+                scan.next();
+            }
+            number = scan.nextInt();
+        }
+        while(number < 1);
+        this.numberOfTimes = number;
     }
 
     private boolean isCorrectCarName(String str){
@@ -45,28 +75,5 @@ public class Racing {
             }
         }
         return true;
-    }
-
-    private int inputMovingNumber(){
-        Scanner scan = new Scanner(System.in);
-        int number;
-        do {
-            System.out.print("시도할 횟수를 입력해주세요: ");
-            while(!scan.hasNextInt()) {
-                System.out.println("자연수를 입력해주세요");
-                scan.next();
-            }
-            number = scan.nextInt();
-        }
-        while(number < 1);
-        return number;
-    }
-
-    private void createCar(String str) {
-        String[] names = str.split(",");
-        for (String name : names) {
-            Car car = new Car(name);
-            this.carList.add(car);
-        }
     }
 }
