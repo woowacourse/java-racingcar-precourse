@@ -61,6 +61,18 @@ public class Racing {
 		}
 	}
 
+	private int enterRaceTime() {
+		int raceTime;
+		while (true) {
+			System.out.println("시도할 회수는 몇 회인가요? 0이상의 정수로 입력해주세요!");
+			raceTime = sc.nextInt();
+			if (isValidTime(raceTime)) {
+				return raceTime;
+			}
+			System.out.println("----잘못된 횟수 정보를 입력하셨습니다! 반드시 0이상의 정수로 입력해주세요!----");
+		}
+	}
+
 	private boolean isValidUsers(String[] names) {
 		if (names.length == 0) {
 			return false;
