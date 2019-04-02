@@ -1,5 +1,5 @@
 /*
- * @(#)Main.java        0.2 2019/04/02
+ * @(#)Main.java        0.3 2019/04/02
  *
  *
  */
@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 자동차 경주 게임을 위한 클래스 입니다.
  *
  * @author 반선호
- * @version 0.2 2019년 4월 02일
+ * @version 0.3 2019년 4월 02일
  */
 public class RacingCarGame {
 
@@ -24,9 +24,9 @@ public class RacingCarGame {
     private static final String LENGTH_ERROR_MESSAGE = "길이가 5보다 큽니다. 다시 입력해 주새요";
     private static final String ROUND_REQEUST_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String NUMBER_ERROR_MESSAGE = "숫자가 아닙니다. 숫자를 입력해주세요";
-    private static final String RUN_RESULT_MESSAGE = "실행 결과";
-    private static final int FIRST_RANK_POSITION = 0;
+    private static final String RUN_START_MESSAGE = "실행 결과";
     private static final String RANK_RESULT_MESSAGE = "가 최종 우승했습니다.";
+    private static final int FIRST_RANK_POSITION = 0;
 
     private String[] carNames;
     private Car[] cars;
@@ -39,7 +39,7 @@ public class RacingCarGame {
         createCar();
         requestRound();
         implementRound();
-        printFirstRank();
+        printWinner();
     }
 
     private void requestCarName() {
@@ -49,7 +49,7 @@ public class RacingCarGame {
             answer = scanner.nextLine();
             carNames = splitCarName(answer);
             trimCarName();
-        } while (isLessThanFive() || isLagerThanZero());
+        } while (lessThanFive() || lagerThanZero());
     }
 
     private String[] splitCarName(String answer) {
@@ -62,7 +62,7 @@ public class RacingCarGame {
         }
     }
 
-    private boolean isLagerThanZero() {
+    private boolean lagerThanZero() {
         for (int i = 0; i < carNames.length; i++) {
             if (carNames[i].length() == MINIMUM_NAME_LENGTH) {
                 System.out.println(BLANK_ERROR_MESSAGE);
@@ -72,7 +72,7 @@ public class RacingCarGame {
         return false;
     }
 
-    private boolean isLessThanFive() {
+    private boolean lessThanFive() {
         for (int i = 0; i < carNames.length; i++) {
             if (carNames[i].length() > MAXIMUM_NAME_LENGTH) {
                 System.out.println("[" + carNames[i] + "]" + LENGTH_ERROR_MESSAGE);
@@ -94,10 +94,10 @@ public class RacingCarGame {
         do {
             System.out.println(ROUND_REQEUST_MESSAGE);
             answer = scanner.next();
-        } while (!isNumber(answer));
+        } while (!checkNumberException(answer));
     }
 
-    private boolean isNumber(String answer) {
+    private boolean checkNumberException(String answer) {
         try {
             round = Integer.parseInt(answer);
             return true;
@@ -109,7 +109,7 @@ public class RacingCarGame {
 
     private void implementRound() {
         System.out.println();
-        System.out.println(RUN_RESULT_MESSAGE);
+        System.out.println(RUN_START_MESSAGE);
         for (int i = 0; i < round; i++) {
             for (int j = 0; j < cars.length; j++) {
                 cars[j].runOneCycle();
@@ -118,7 +118,7 @@ public class RacingCarGame {
         }
     }
 
-    private void printFirstRank() {
+    private void printWinner() {
         StringBuilder stringbuilder = new StringBuilder();
         Arrays.sort(cars);
         stringbuilder.append(cars[FIRST_RANK_POSITION].getName());
