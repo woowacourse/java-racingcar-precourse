@@ -12,6 +12,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
     public void moveForward() {
         this.position += this.TRAVEL_DISTANCE_BY_ONE_MOVE;
     }
