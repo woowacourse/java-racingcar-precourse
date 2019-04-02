@@ -23,18 +23,18 @@ public class Car {
     private boolean canMove() {
 		Random random = new Random();
 
-		if(random.nextInt(10) >= 4) return true;
+		if (random.nextInt(10) >= 4) return true;
 		return false;
 	}
     
     public void move() {
-    	if(this.canMove()) this.position++;
+    	if (this.canMove()) this.position++;
 	}
     
     public void printPosition() {
     	String result = this.name + " : ";
     	
-    	for(int i = 0; i < position; i++) {
+    	for (int i = 0; i < position; i++) {
     		result += "-";
     	}
     	System.out.println(result);

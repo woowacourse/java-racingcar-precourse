@@ -35,7 +35,7 @@ public class RacingGame {
 	}
 	
 	private void makeCars(String[] carNameArray) {
-		for(int i = 0; i < carNameArray.length; i++) {
+		for (int i = 0; i < carNameArray.length; i++) {
 			Cars.add(new Car(carNameArray[i]));
 		}
 	}
