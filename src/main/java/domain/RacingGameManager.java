@@ -42,8 +42,19 @@ public class RacingGameManager {
 	}
 
 	public int getGameCountFromUser() {
-		System.out.println("시도할 회수는 몇 회인가요?");
-		int gameCountFromUser = scanner.nextInt();
+		int gameCountFromUser;
+		do {
+			System.out.println("시도할 회수는 몇 회인가요?");
+			gameCountFromUser = scanner.nextInt();
+		} while (!checkGameCount(gameCountFromUser));
 		return gameCountFromUser;
+	}
+
+	// 게임 횟수가 1회 이상인지 확인합니다.
+	public boolean checkGameCount(int gameCountFromUser) {
+		if (gameCountFromUser > 0) {
+			return true;
+		}
+		return false;
 	}
 }
