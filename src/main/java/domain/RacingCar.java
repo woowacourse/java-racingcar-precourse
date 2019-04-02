@@ -39,29 +39,51 @@ public class RacingCar {
 
     /*
      * Method for receive Car Name
-     * 차의 이름을 사용자로부터 받는다. ","를 기준으로 이름을 나누어 ArrayList에 저장하고 최종 List를 return한다.
+     * 자동차 이름 List를 받아서 ArrayList에 Car 객체로 넣고 최종 List를 return 한다.
      * 이름은 5자 이하여야 한다.
      */
     private static ArrayList<Car> receiveCarName() {
-        Scanner s = new Scanner(System.in);
         ArrayList<Car> carList = new ArrayList<Car>();
-        String nameLine;
         String[] nameList;
-        int nameCount = 0;
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        nameLine = s.nextLine();
-
-        nameList = nameLine.split(",");
+        nameList = receiveInput();
         for (String name : nameList) {
-            if (name.length() > 5) {
-                System.out.println("자동차의 이름은 5자까지만 허용합니다. 다시 입력해주세요.");
+            if (checkInvalidName(name)) {
                 return receiveCarName();
             }
             Car tempCar = new Car(name);
             carList.add(tempCar);
         }
         return carList;
+    }
+
+    /*
+     * Method for receive User Input
+     * 사용자로부터 자동차 이름을 입력 받는다. ","를 기준으로 이름을 나누어 String에 넣고 최종 return 한다.
+     */
+    private static String[] receiveInput() {
+        Scanner s = new Scanner(System.in);
+        String nameLine;
+        String[] nameList;
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        nameLine = s.nextLine();
+
+        nameList = nameLine.split(",");
+
+        return nameList;
+    }
+
+    /*
+     * Method for check Invalid Name
+     * 이름이 6글자 이상이면 Invalid Name이므로 true return
+     */
+    private static boolean checkInvalidName(String name) {
+        if (name.length() > 5) {
+            System.out.println("자동차의 이름은 5자까지만 허용합니다. 다시 입력해주세요.");
+            return true;
+        }
+        return false;
     }
 
     /*

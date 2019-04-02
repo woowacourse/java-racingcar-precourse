@@ -4,6 +4,8 @@
 3. printOneResult (하나의 Car 객체의 현재 position 출력)
 4. printWinner
 5. getMaxPosition (printWinner를 위한 기능, 최종 우승자의 현재 position을 return 한다.)
+6. receiveInput (사용자로부터 input을 받는다.)
+7. checkInvalidName (2에서 valid 값 check하는 기능 분리)
 
 #### 구현 중 고려해야 할 사항
 1. Car Class의 name과 position이 private이기 때문에 클래스 내부에서 값을 수정해야 한다.
