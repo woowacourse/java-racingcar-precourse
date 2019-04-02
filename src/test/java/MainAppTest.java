@@ -31,4 +31,17 @@ public class MainAppTest extends TestCase {
             assertEquals(testCarNames[i], testCars[i].getName());
         }
     }
+
+    /* 메인 프로그램이 사용자로부터 경주 시도 횟수를 입력받는 기능을 테스트합니다. */
+    @Test
+    public void testGetNumOfTrials() throws Exception {
+        int numOfTrials;
+
+        String testInput = "5";
+        InputStream in = new ByteArrayInputStream(testInput.getBytes());
+        System.setIn(in);
+        numOfTrials = MainApp.getNumOfTrials();
+        assertEquals(5, numOfTrials);
+        System.setIn(System.in);
+    }
 }
