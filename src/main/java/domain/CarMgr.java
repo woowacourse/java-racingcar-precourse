@@ -60,6 +60,7 @@ public class CarMgr {
 		for (Car car : carList) {
 			System.out.println(car);
 		}
+		System.out.println();
 	}
 
 	public String whoIsFirst() {
