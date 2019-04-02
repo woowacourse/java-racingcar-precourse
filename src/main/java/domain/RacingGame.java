@@ -23,18 +23,18 @@ public class RacingGame {
 		this.makeCars(carNameArray);
 	}
 	
-	public String inputCarNameList() {
+	private String inputCarNameList() {
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
 		return scan.nextLine();
 	}
 	
-	public String[] parseCarNameList(String carNameList) {
+	private String[] parseCarNameList(String carNameList) {
 		return carNameList.split(",");
 	}
 	
-	public void makeCars(String[] carNameArray) {
+	private void makeCars(String[] carNameArray) {
 		for(int i = 0; i < carNameArray.length; i++) {
 			Cars.add(new Car(carNameArray[i]));
 		}
