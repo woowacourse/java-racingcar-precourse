@@ -1,11 +1,33 @@
 # 구현할 기능 목록
-1. GenerateRandomNumber
-2. receiveCarName (Valid한 값인지 check 할 것)
-3. printOneResult (하나의 Car 객체의 현재 position 출력)
-4. printWinner
-5. getMaxPosition (printWinner를 위한 기능, 최종 우승자의 현재 position을 return 한다.)
-6. receiveInput (사용자로부터 input을 받는다.)
-7. checkInvalidName (2에서 valid 값 check하는 기능 분리)
+* GenerateRandomNumber 
+
+
+1주차에서 구현한 방식대로 0 - 9 number list를 만들고 shuffle하여 index 0번째만 사용했다.
+
+* receiveCarName (Valid한 값인지 check 할 것)
+ 
+자동차의 이름을 사용자로부터 받아서 Car 객체를 만들어 ArrayList에 추가 한다.
+
+* printOneResult (하나의 Car 객체의 현재 position 출력)
+
+현재 Car 객체의 현재 position 값 만큼 "-" 출력
+
+* printWinner
+
+최종 승자를 출력한다. "," 출력을 위해 리스트의 맨 마지막일 때를 제외하고 ", "를 출력한다.
+리스트의 맨 마지막일 경우엔 나머지 문장을 출력하고 종료한다.
+ 
+* getMaxPosition
+
+printWinner를 위해 최종 우승자의 현재 position을 return 한다.
+ 
+* receiveInput (사용자로부터 input을 받는다.)
+ 
+사용자로부터 input을 받아서 List에 넣고 return 한다.
+
+* checkInvalidName (2에서 valid 값 check하는 기능 분리)
+ 
+받아온 자동차 이름이 6자보다 큰 경우엔 다시 사용자로부터 자동차 이름을 받는다.
 
 #### 구현 중 고려해야 할 사항
 1. Car Class의 name과 position이 private이기 때문에 클래스 내부에서 값을 수정해야 한다.

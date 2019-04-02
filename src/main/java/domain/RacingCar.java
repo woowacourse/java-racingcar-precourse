@@ -11,6 +11,9 @@ package domain;
 import java.util.*;
 
 public class RacingCar {
+    private final static int nameLengthLimit = 5;
+    private final static int runNumberLimit = 4;
+
     public static void main(String[] args) {
         goRacing();
     }
@@ -80,7 +83,7 @@ public class RacingCar {
      * 이름이 6글자 이상이면 Invalid Name이므로 true return
      */
     private static boolean checkInvalidName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > nameLengthLimit) {
             System.out.println("자동차의 이름은 5자까지만 허용합니다. 다시 입력해주세요.");
             return true;
         }
@@ -96,7 +99,7 @@ public class RacingCar {
         int randomNumber = generateRandomNumber();
 
         System.out.print(car.getCarName() + " : ");
-        if (randomNumber >= 4) {
+        if (randomNumber >= runNumberLimit) {
             car.addOnePosition();
         }
         for (int i = 0; i < car.getPosition(); i++) {
