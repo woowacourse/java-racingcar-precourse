@@ -6,7 +6,8 @@ public class racingcar {
 		String[] carName = getCarName();
 		int racingTime = getRacingTime();
 		Car[] cars = setCars(carName);
-		int res = racing(cars, racingTime);
+		racing(cars, racingTime);
+		printWinners(cars);
 	}
 	
 	
@@ -33,7 +34,7 @@ public class racingcar {
 		return cars;
 	}
 	
-	public static int racing(Car[] cars, int time) {
+	public static void racing(Car[] cars, int time) {
 		int[] res = new int[cars.length];
 		int max=0;
 		System.out.println("\n실행결과");
@@ -43,11 +44,20 @@ public class racingcar {
 			}
 			System.out.println("");
 		}
+	}
+	
+	public static void printWinners(Car[] cars) {
+		int max =0;
 		for(int i=0; i<cars.length; i++) {
 			if(max < cars[i].getPosition()) {
 				max = cars[i].getPosition();
 			}
 		}
-		return max;
+		for(int i=0; i<cars.length; i++) {
+			if(cars[i].getPosition() == max) {
+				System.out.print(cars[i].getName() + ", ");
+			}
+		}
+		System.out.println("\b \b가 최종 우승했습니다.");
 	}
 }
