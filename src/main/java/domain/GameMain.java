@@ -43,6 +43,13 @@ public class GameMain {
 	static int randomNum(){
 		return (int)(Math.random()*10);
 	}
+	
+	//4 이상이면 전진시켜주는 메소드
+	static void isMoreThan4(int num, int index){
+		if(num>=4){
+			cars[index].addPosition();
+		}
+	}
 		
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
