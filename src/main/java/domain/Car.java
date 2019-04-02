@@ -20,13 +20,12 @@ public class Car {
         return random;
     }
 
-    public boolean DecideToMove(){
+    public int DecideToMove(){
         int random = RandomMove();
         if(random>=4){
-            this.position += 4;
-            return true;
+            return random;
         }
-        return false;
+        return 0;
     }
     // 추가 기능 구현
 }
