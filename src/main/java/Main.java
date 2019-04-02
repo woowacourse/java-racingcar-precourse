@@ -12,6 +12,9 @@ public class Main {
             if(checkName(car_names))
                 break;
         }
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        int num = sc.nextInt();
     }
 
     public static boolean checkName(String[] names) {
