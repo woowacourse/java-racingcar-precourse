@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java        0.6 2019/04/02
+ * @(#)Car.java        1.0 2019/04/02
  *
  *
  */
@@ -12,7 +12,7 @@ import java.util.Random;
  * Car 객체 생성을 위한 클래스입니다.
  *
  * @author 반선호
- * @version 0.6 2019년 4월 02일
+ * @version 1.0 2019년 4월 02일
  */
 
 public class Car implements Comparable<Car> {
@@ -28,6 +28,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void runOneCycle() {
+
         int randomNumber = createRandomNumber();
 
         if (lagerThanFour(randomNumber)) {
