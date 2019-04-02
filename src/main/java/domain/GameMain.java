@@ -38,6 +38,11 @@ public class GameMain {
 			moveNum--;
 		}
 	}
+	
+	//0~9 까지 난수 생성 메소드
+	static int randomNum(){
+		return (int)(Math.random()*10);
+	}
 		
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
