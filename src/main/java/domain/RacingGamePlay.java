@@ -57,7 +57,7 @@ public class RacingGamePlay {
     }
 
     /**
-     * 매 시도마다 자동차의 action 을 결정한다.
+     * 매 시도마다 car 객체의 action 을 결정한다.
      * 결정된 action 에 따라서 이동 or 정지한다.
      * 정지 일 경우 이동하지 않는다(따로 함수 호출 안함)
      */
@@ -69,7 +69,7 @@ public class RacingGamePlay {
     }
 
     /**
-     * 전체 자동차 객체의 상태를 출력한다.
+     * 전체 car 객체의 상태를 출력
      */
     public void output() {
         for (int i = 0; i < cars.length; i++) {
@@ -78,7 +78,7 @@ public class RacingGamePlay {
     }
 
     /**
-     * 자동차 객체 이름과 현재 위치를 출력한다.
+     * car 객체 이름과 현재 position 을 출력한다.
      * @param car   : 자동차 객체
      */
     public void print(Car car) {

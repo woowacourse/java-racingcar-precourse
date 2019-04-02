@@ -14,7 +14,7 @@ public class Winner {
 
     /* 우승자를 찾아내서 출력하는 과정 */
     public void getWinner() {
-        getMaxDistance();
+        findMaxDistance();
         findWinner();
         printWinner();
     }
@@ -23,7 +23,7 @@ public class Winner {
      * 각각의 자동차의 position 을 비교하여
      * 최대값을 갖는 position 값을 maxDistance 로 설정한다.
      */
-    public void getMaxDistance() {
+    public void findMaxDistance() {
         int maxValue;
 
         maxValue = ConstValue.MINIMUM_DISTANCE_VALUE;
@@ -34,26 +34,18 @@ public class Winner {
         setMaxDistance(maxValue);
     }
 
-    public void setMaxDistance(int maxDistance) {
-        this.maxDistance = maxDistance;
-    }
-
-    public int max(int a, int b) {
-        return a > b ? a : b;
-    }
-
     /**
      * 각각의 자동차 객체에 대하여 우승자를 찾는다.
      * 현재 position 과 maxDistance 값과 비교한다.
      */
     public void findWinner() {
         for(int i = 0; i < cars.length; i++) {
-            isValidWinner(cars[i]);
+            putValidWinner(cars[i]);
         }
     }
 
-    /* car 객체가 우승자인지 판단 */
-    public void isValidWinner(Car car) {
+    /* car 객체가 우승자인지 판단 후 우승자 리스트에 추가 */
+    public void putValidWinner(Car car) {
         if (isMaxPosition(car)) {
             winnerList.add(car.getName());
         }
@@ -74,5 +66,13 @@ public class Winner {
 
         System.out.printf(winners);
         System.out.println("가 최종 우승했습니다.");
+    }
+
+    public int max(int a, int b) {
+        return a > b ? a : b;
+    }
+
+    public void setMaxDistance(int maxDistance) {
+        this.maxDistance = maxDistance;
     }
 }
