@@ -21,6 +21,7 @@ public class RacingGame {
 		String[] carNameArray = this.parseCarNameList(carNameList);
 		
 		this.makeCars(carNameArray);
+		this.moveCars();
 	}
 	
 	private String inputCarNameList() {
@@ -37,6 +38,16 @@ public class RacingGame {
 	private void makeCars(String[] carNameArray) {
 		for (int i = 0; i < carNameArray.length; i++) {
 			Cars.add(new Car(carNameArray[i]));
+		}
+	}
+	
+	private void moveCars() {
+		Car car;
+		
+		for (int i = 0; i < Cars.size(); i++) {
+			car = Cars.elementAt(i);
+			car.move();
+			car.printPosition();
 		}
 	}
 }
