@@ -19,7 +19,7 @@ import java.util.List;
 public interface UserInterface {
     String[] inputCarName();
 
-    int inputGameCount();
+    String inputGameCount();
 
     void alertInvalidCarName();
 

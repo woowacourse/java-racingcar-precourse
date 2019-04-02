@@ -36,11 +36,11 @@ public class UserInterfaceImpl implements UserInterface {
     }
 
     @Override
-    public int inputGameCount() {
-        int times;
+    public String inputGameCount() {
+        String times;
 
         System.out.println("시도할 회수는 몇회인가요?");
-        times = scanner.nextInt();
+        times = scanner.nextLine();
         return times;
     }
 
