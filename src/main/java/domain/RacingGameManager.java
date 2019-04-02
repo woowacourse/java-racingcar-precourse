@@ -63,4 +63,12 @@ public class RacingGameManager {
 			cars[i].race();
 		}
 	}
+
+	public void printNowSituation() {
+		System.out.println();
+		for (int i = 0; i < totalCarCount; i++) {
+			cars[i].printNameAndPosition();
+		}
+		System.out.println();
+	}
 }
