@@ -2,6 +2,8 @@
 package domain;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.ArrayList;
+
 /**
  * Car 클래스는 자동차 게임에 관련된 모든 상태를 나타내는 클래스 입니다.
  *
@@ -12,24 +14,30 @@ import java.util.Scanner;
 public class Car {
     private final String name;
     private int position = 0;
+    private ArrayList<String> saveCarResult = new ArrayList<String>();
+    private static int RAMDOM_NUMBER_MAX = 10;
+    private static int SET = 0;
 
     public Car(String name) {
         this.name = name;
     }
 
     public static String getCarName() {
-
         Scanner inputCarName = new Scanner(System.in);
-        Car carName = new Car(inputCarName.nextLine());
+        String checkCarName = inputCarName.nextLine();
 
-        return carName.name;
+        if(separateCarNameState(checkCarName) == false){
+
+            checkCarName = inputCarName.nextLine();
+        }
+
+        return checkCarName;
     }
 
     /*(,) 를 기준으로 단어를 나눴을때 5자 이내 조건을 만족하는지 확인 하는 메소드*/
-    public static boolean separateCarNameState(String carName) {
+    public static boolean separateCarNameState(String checkCarName) {
 
-        String[] carNameArray = carName.split(",");         //매개변수를 (,)기준으로 구분후에 배열저장
-
+        String[] carNameArray = checkCarName.split(",");         //매개변수를 (,)기준으로 구분후에 배열저장
         boolean carNameState = true;
 
         for (int i = 0; i < carNameArray.length; i++) {
@@ -47,14 +55,24 @@ public class Car {
     }
 
     /*(,)를 기준으로 자동차 이름을 구분 하는 메소드*/
-    public static String[] divideCarName(String carName) {
+    public static String[] divideCarName(String getName) {
 
-        String[] carNameArray = carName.split(",");
+        String[] carNameArray = getName.split(",");
 
         return carNameArray;
     }
+    public static Car[] inputCarName(String[] getCarNameArray){
 
+        Car[] saveCarName = new Car[getCarNameArray.length];
+        for(int i=0;i<getCarNameArray.length;i++){
+            saveCarName[i] = new Car(getCarNameArray[i]);
+        }
+        System.out.println("실행 결과");
+        return saveCarName;
+    }
     public static int getRacingCarMove() {
+
+        System.out.println("이동할 횟수를 입력해 주세요");
 
         Scanner racingCarMove = new Scanner(System.in);
         int carMoveNumber = racingCarMove.nextInt();
@@ -66,8 +84,7 @@ public class Car {
 
         Random getRandomNumber = new Random();
 
-        int randomNumber = getRandomNumber.nextInt(10);
-
+        int randomNumber = getRandomNumber.nextInt(RAMDOM_NUMBER_MAX);
         return randomNumber;
     }
 
@@ -84,47 +101,77 @@ public class Car {
         return carState;
     }
 
-    public static int findFirstCarValue(int[] getForwardArray){
+    public static void showDuringRace(Car[] saveCarName){
 
-        int getFirstValue = 0;                                      // 가장 많이 전진한 값을 저장하는 변수
 
-        for(int i=0;i<getForwardArray.length;i++){
+        for(int i=0;i<saveCarName.length;i++){
 
-            if(getForwardArray[i]>getFirstValue){
+            System.out.print(saveCarName[i].name + " : ");
 
-                /* 자동차의 전진 횟수가 이전에 저장된 횟수 보다 더 많을때 */
-                getFirstValue = getForwardArray[i];
+            for(int j=0;j<saveCarName[i].saveCarResult.size();j++){
+                System.out.print(saveCarName[i].saveCarResult.get(j));
+            }
+            System.out.println(" ");
+        }
+        System.out.println(" ");
+    }
+    public static void saveDuringRacing(Car[] saveCarName){
+
+        int saveRandom = 0;
+        for(int i=0; i<saveCarName.length;i++){
+
+            saveRandom = createRandomNumber();
+
+            if(checkCarState(saveRandom) == true){
+                saveCarName[i].saveCarResult.add("-");
+                saveCarName[i].position++;
             }
         }
-
-        return getFirstValue;
     }
 
-    public static String[] getSameFirstCar(int findFirstCarValue, int[] getForwardArray, String[] carNameArray){
+    public static void getRacingCarName() {
 
-        int getFirstCarNameSize = 0;                                        // 1등 차 이름 갯수
-        int findFirstCarNamePlace = 0;                                      // 1등 차 배열 저장 위치
-
-        for(int i=0;i<getForwardArray.length;i++){
-
-            if(getForwardArray[i] == findFirstCarValue){
-
-                /* 1등과 같은 값을 가지면 */
-                getFirstCarNameSize += 1;                                   // 1등 차 이름 갯수 증가
-            }
-        }
-
-        String[] takeFirstCarName = new String[getFirstCarNameSize];        // 1등 차 이름 저장 배열
-        for(int i=0;i<getForwardArray.length;i++){
-
-            if(getForwardArray[i] == findFirstCarValue){
-
-                /* 1등과 같은 값을 가지면 */
-                takeFirstCarName[findFirstCarNamePlace] = carNameArray[i];  // 1등 차 이름 배열에 저장
-                findFirstCarNamePlace += 1;                                 // 1등 차 배열 저장 위치 증가
-            }
-        }
-
-        return takeFirstCarName;
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
     }
+
+    public static int setFinalWinnerCarName(Car[] saveCarName){
+
+        int setFirstValue = saveCarName[0].position;
+
+        for(int i=1;i<saveCarName.length;i++){
+
+            if(saveCarName[i].position>setFirstValue){
+                setFirstValue = saveCarName[i].position;
+            }
+        }
+        return setFirstValue;
+    }
+
+    public static int showWinnerSize(Car[] saveCarName, int saveFirstValue){
+
+        int getWinnerCarNameSize = 0;
+
+        for(int i=0;i<saveCarName.length;i++){
+            if(saveCarName[i].position == saveFirstValue){
+                getWinnerCarNameSize++;
+            }
+        }
+        return getWinnerCarNameSize;
+    }
+
+    public static void showWinner(Car[] saveCarName, int saveFirstValue,int getWinnerCarNameSize){
+
+        String[] getWinnerCarName = {,};
+
+        getWinnerCarName = new String[getWinnerCarNameSize];
+        for(int i=0;i<saveCarName.length;i++){
+            if(saveCarName[i].position == saveFirstValue){
+                getWinnerCarName[SET] = saveCarName[i].name;
+                SET++;
+            }
+        }
+        System.out.println(String.join(",",getWinnerCarName) + "가 최종 우승 했습니다");
+    }
+
+
 }
