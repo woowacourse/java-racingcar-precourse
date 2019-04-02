@@ -2,7 +2,11 @@
 
 
 
+
+
 ### 구현할 기능
+
+
 
 1. 자동차 이름, 시도 횟수 입력 
 2. 자동차 이름 구분 규칙에 따라 구분
@@ -14,6 +18,8 @@
 
 
 ### 기능 요구사항
+
+
 
 1. 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 
@@ -31,6 +37,8 @@
 
 ### 프로그래밍 요구사항
 
+
+
 1. 자바 코드 컨벤션을 지키면서 프로그래밍한다.
 2. indent depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
 3. 함수의 길이가 15라인을 넘어가지 않도록 구현한다.
@@ -40,3 +48,33 @@
 7. 불필요하게 공백 라인을 만들지 않는다.
 8. 반복하지 않는다.
 9. 의미없는 주석을 달지 않는다.
+
+
+
+### 게임 화면
+
+
+
+![](C:\Users\JH\Desktop\java-racingcar\screenshot\normalcase.jpg)
+
+
+
+### 에러 값에 대한 처리
+
+
+
+##### 자동차 이름이 5자를 넘을 경우
+
+![](C:\Users\JH\Desktop\java-racingcar\screenshot\name5over.jpg)
+
+
+
+##### 시도 횟수가 1미만인 경우
+
+![](C:\Users\JH\Desktop\java-racingcar\screenshot\wrongrange.jpg)
+
+
+
+##### 시도횟수가 정수가 아닐경우
+
+![](C:\Users\JH\Desktop\java-racingcar\screenshot\wrongtype.jpg)
