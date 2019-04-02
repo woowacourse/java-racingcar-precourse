@@ -23,7 +23,7 @@
 # 기능 구현
 - Input 클래스 생성
   - 자동차 입력 및 저장 enter_Car_Name()
-  - 자동차 이름 검사 및 재 입력
+  - 자동차 이름 검사 car_Name_Check() , name_Error()
   - Car 객체 생성 및 자동차 이름 초기화
 
 - Forward_Util 클래스 

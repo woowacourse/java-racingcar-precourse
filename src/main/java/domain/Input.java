@@ -17,4 +17,18 @@ public class Input {
         return car_Name_Enter;
     }
 
+    private void car_Name_Check() {
+        for (int i = 0; i < car_Name_Enter.length; i++){
+            if (car_Name_Enter[i].length() > 5){
+                name_Error();
+                break;
+            }
+        }
+    }
+
+    private void name_Error() {
+        System.out.println("이름은 5자 이하만 가능합니다. 다시입력하세요");
+        enter_Car_Name();
+    }
+
 }
