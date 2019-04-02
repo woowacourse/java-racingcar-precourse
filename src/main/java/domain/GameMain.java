@@ -78,6 +78,15 @@ public class GameMain {
 		}
 		return maxPosition;
 	}
+	
+	//결과 출력 메소드
+	static void result(int maxPosition){
+		for(int i=0; i<nameArray.length; ++i){
+			if(position[i]==maxPosition){
+			}
+		}
+		System.out.println(" 가 최종 우승했습니다.");
+	}
 		
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
