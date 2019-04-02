@@ -35,4 +35,19 @@ public class MainApp {
         }
         return cars;
     }
+
+    /**
+     * 사용자로부터 경주 시도 횟수를 입력받고 반환합니다.
+     * @return 경주 시도 횟수를 반환합니다.
+     */
+    public static int getNumOfTrials() {
+        int numOfTrials;
+        try {
+            Scanner rd = new Scanner(System.in);
+            numOfTrials = rd.nextInt();
+        } catch (Exception e) {
+            return -1;
+        }
+        return numOfTrials;
+    }
 }
