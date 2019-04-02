@@ -14,10 +14,11 @@ public class Car {
      * 자동차의 전진 기능을 담당하는 메소드입니다.
      */
     public void moveForward() {
+        position++;
     }
 
     public int getPosition() {
-        return 1;
+        return position;
     }
 
 }

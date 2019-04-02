@@ -10,5 +10,7 @@ public class CarTest extends TestCase {
         Car testCar = new Car("test");
         testCar.moveForward();
         assertEquals(1, testCar.getPosition());
+        testCar.moveForward();
+        assertEquals(2, testCar.getPosition());
     }
 }
