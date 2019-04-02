@@ -10,10 +10,7 @@ package core;
 
 import domain.Car;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class RacingGame {
     private int round;                  /* 게임에서 시도 횟수를 저장하는 변수 */
@@ -27,16 +24,10 @@ public class RacingGame {
         random = new Random();
     }
 
-    /**
-     * 자동차의 이름과 시도 횟수를 입력받는 메소드
-     *
-     * @return 정상적인 값을 입력받으면 True, 예외처리를 통해 비정상적인 값이면 False
-     */
-    private boolean init() {
+    private boolean inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String nameInput = scanner.nextLine();
         nameInput = nameInput.replaceAll(" ", "");      /* 입력 받은 문자열에 공백이 있을경우 제거 */
-        System.out.println(nameInput);
         String[] nameInputList = nameInput.split(",|, ");           /* 쉼표(,)나 쉼표+공백(, )을 기준으로 분리 */
         for (String name : nameInputList) {
             if (name.length() > 5) {                                       /* 이름의 길이가 5이상이면 게임 종료 */
@@ -46,8 +37,22 @@ public class RacingGame {
             Car car = new Car(name);
             carList.add(car);
         }
+
+        return true;
+    }
+
+    private boolean inputRoundNum() {
         System.out.println("시도할 횟수는 몇회인가요?");
-        round = scanner.nextInt();
+        try {
+            round = scanner.nextInt();
+            if (round < 1) {                                                    /* 입력 받은 값이 1보다 작으면 종료 */
+                System.out.println("잘못된 범위입니다.\n게임을 종료합니다.");
+                return false;
+            }
+        } catch (InputMismatchException ime) {
+            System.out.println("잘못된 값을 입력하셨습니다.\n게임을 종료합니다.");  /* 입력받은 값이 정수가 아니면 종료 */
+            return false;
+        }
         System.out.println();
 
         return true;
@@ -90,7 +95,7 @@ public class RacingGame {
      * @return 정상적으로 게임이 종료되면 True, 비정상적으로 종료되었을 경우 False
      */
     public boolean progressGame() {
-        if (!init()) {
+        if (!inputCarName() || !inputRoundNum()) {
             finish();
             return false;
         }
