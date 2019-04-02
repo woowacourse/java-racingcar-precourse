@@ -62,7 +62,7 @@
    * RacingResultPrinter
    * UserInputReciever
    * CarGenerator
-   * RandomNumberGenerator
+   * CarRacer
    * RaceAttemptReciever
    * RacingGame
      

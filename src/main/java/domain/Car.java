@@ -8,7 +8,7 @@ public class Car {
         this.name = name;
     }
 
-    public void goForward(){
+    public void Go(){
         this.position++;
     }
     // 추가 기능 구현
