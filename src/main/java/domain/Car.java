@@ -33,6 +33,7 @@ public class Car {
 
     private void statusOutput() {
         System.out.print(this.name);
+        System.out.print(" : ");
         for (int i = 0; i < this.position; i++) {
             System.out.print("-");
         }
