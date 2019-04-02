@@ -60,4 +60,16 @@ public class Racing {
 			System.out.println("----잘못된 정보를 입력하셨습니다! 5자 이하의 이름들을 반드시 쉼표(,)로 구분해주세요!----");
 		}
 	}
+
+	private boolean isValidUsers(String[] names) {
+		if (names.length == 0) {
+			return false;
+		}
+		for (String name : names) {
+			if (name.length() > 5) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
