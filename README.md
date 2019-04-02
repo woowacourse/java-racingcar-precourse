@@ -30,3 +30,7 @@
 
 |Car.java|개별 자동차 데이터,로직 담당|
 |---|---|
+
+|ErrorChecker.java|데이터 에러 체크 로직 담당|
+|---|---|
+|checkCarStringHaveError|자동차이름 입력의 에러여부 반환하는 함수|
