@@ -36,6 +36,10 @@
   - 시도할 횟수만큼 race_Result()출력 기능 count_Repeat()
     - race_Result()에 Forward, Status 메소드 추가
   - 우승자 출력
+    - 자동차 중 최고 전진 값 찾기 winner_Max_Position()
+    - 우승 자동차 찾아서 이름 변수에 저장 후 반환 winner_Result()
+    - 우승 자동차 출력 winner_Print() 
+    
 
 - Process 클래스
     - 게임 진행 메소드 game_Process()

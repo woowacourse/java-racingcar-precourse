@@ -42,7 +42,7 @@ public class Car {
         for (int i = Forward_Util.ZERO; i < position; i++){
             System.out.print("-");
         }
-        System.out.println(" ");
+        System.out.print(" ");
     }
 
 

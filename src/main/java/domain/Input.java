@@ -31,7 +31,7 @@ public class Input {
 
     /**
      *  car_Name_Check() car_Name_Enter의 글자 길이가 5 이상을 찾는다면 새로 입력하게 합니다.
-     *  */
+     */
     private static void car_Name_Check() {
         for (int i = Forward_Util.ZERO; i < car_Name_Enter.length; i++){
             if (car_Name_Enter[i].length() > 5){
