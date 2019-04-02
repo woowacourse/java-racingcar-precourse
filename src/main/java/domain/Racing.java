@@ -7,10 +7,15 @@ import java.util.Scanner;
 public class Racing {
     public void run() {
         List<Car> carList = getCarList(inputCarNames());
+        int roundCount = getRoundCount();
 
-        for (Car carNames : carList) {
-            System.out.println(carNames.getName());
-        }
+        System.out.println(roundCount);
+    }
+
+    private int getRoundCount() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("시도할 횟수는 몇회인가요?");
+        return scan.nextInt();
     }
 
     private List<Car> getCarList(String[] carNameList) {
