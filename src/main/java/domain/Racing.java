@@ -14,8 +14,12 @@
 package domain;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Racing {
+
+    private ArrayList<Car> carList;
+    private int numberOfTimes;
 
     private String inputCarName() {
         Scanner scan = new Scanner(System.in);
@@ -56,5 +60,13 @@ public class Racing {
         }
         while(number < 1);
         return number;
+    }
+
+    private void createCar(String str) {
+        String[] names = str.split(",");
+        for (String name : names) {
+            Car car = new Car(name);
+            this.carList.add(car);
+        }
     }
 }
