@@ -48,9 +48,18 @@ public class RacingGame {
     return c;
   }
 
+  public static int InputTryNumber(){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("시도할 회수는 몇회인가요?");
+    int tryNum = sc.nextInt();
+    return tryNum;
+  }
+
   public static void main(String args[]){
     String[] carName =  InputCarName();
     Car[] carList =CreateCarList(carName);
+    int tryNum = InputTryNumber();
+
 
     /*
     for (int i = 0; i < str.length; i++) {
