@@ -1,4 +1,4 @@
-import domain.Car;
+package domain;
 
 import java.util.*;
 
@@ -59,6 +59,7 @@ public class RacingCar {
             carProgression = getCarProgression(carPosition);
             System.out.printf("%s : %s\n", carName, carProgression);
         }
+        System.out.println();
     }
 
     public String getCarProgression(int carPosition) {
@@ -76,14 +77,14 @@ public class RacingCar {
         }
     }
 
-    public void main(String[] args) {
-//        Set<String> carNames = inputCarName();
-//        ArrayList<Car> carList = getCarList(carNames);
-//        for (Car car: carList) {
-//            System.out.println(car.getName());
-//        }
-//        String aa = (String) getCarProgression(3);
-//        System.out.println(aa);
+    public void play() {
+        Set<String> carNames = inputCarName();
+        ArrayList<Car> carList = getCarList(carNames);
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int count = moveCount();
+        for (int i = 0; i < count; i++) {
+            moveCars(carList);
+            printCar(carList);
+        }
     }
-
 }
