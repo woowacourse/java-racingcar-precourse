@@ -11,6 +11,7 @@ public class Game {
 
 	public void joinRace(String carNames) {
 		String req = ",";
+
 		for (String carName : carNames.split(req)) {
 			this.cars.add(new Car(carName));
 		}
@@ -26,8 +27,21 @@ public class Game {
 		return this.cars;
 	}
 
+	public ArrayList<String> getRaceChampion() {
+		ArrayList<String> champions = new ArrayList<String>();
+		int maxPosition = getMaxPosition();
+
+		for (Car car : this.cars) {
+			if (car.getPosition() == maxPosition) {
+				champions.add(car.getName());
+			}
+		}
+		return champions;
+	}
+
 	private int getMaxPosition() {
 		int maxPosition = 0;
+
 		for (Car car : this.cars) {
 			if (car.getPosition() > maxPosition) {
 				maxPosition = car.getPosition();
