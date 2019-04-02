@@ -10,7 +10,7 @@ public class Main {
         static Car[] cars;
         static int n;
 
-        public static void main(String args[]) throws IOException{
+        public static void main(String args[]) throws IOException {
                 inputNames();
                 inputGameNumber();
                 playRace();
@@ -26,36 +26,48 @@ public class Main {
                 makeCars(name);
         }
 
-        public static void makeCars(String[] name){
+        public static void makeCars(String[] name) {
                 cars = new Car[name.length];
-                for(int i=0; i<name.length; i++){
+                for (int i = 0; i < name.length; i++) {
                         cars[i] = new Car(name[i]);
                 }
         }
 
-        public static void inputGameNumber(){
+        public static void inputGameNumber() {
                 System.out.println("시도할 회수는 몇회인가요?");
                 Scanner scanner = new Scanner(System.in);
                 n = scanner.nextInt();
+                System.out.println();
         }
 
-        public static void playRace(){
+        public static void playRace() {
+                System.out.println("실행 결과");
+                for (int i = 0; i < n; i++) {
+                        gameOnce();
+                }
+        }
+
+        public static void gameOnce() {
+                for (int i=0; i< cars.length; i++){
+                        cars[i].movePosition();
+                        //outputPosition(cars[i]);
+                }
+                System.out.println();
+        }
+
+        public static void compare() {
 
         }
 
-        public static void gameOnce(){
+        public static void findMaximum() {
 
         }
 
-        public static void compare(){
+        public static void outputWinner() {
 
         }
 
-        public static void findMaximum(){
-
-        }
-
-        public static void outputWinner(){
+        public static void outputPosition(Car car){
 
         }
 }

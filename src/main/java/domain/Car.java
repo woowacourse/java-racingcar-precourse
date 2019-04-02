@@ -17,7 +17,7 @@ public class Car {
 
         }
 
-        public boolean drawRandomNumber() { //뼈대 구축
+        private boolean drawRandomNumber() { //뼈대 구축
                 Random random = new Random();
                 int n = random.nextInt(10);
                 if (n >= 4) {
