@@ -24,11 +24,11 @@ public class RacingGame {
 		
 		this.inputRound();
 		this.makeCars(carNameArray);
-		this.moveCars();
+		this.runRounds();
 	}
 	
 	private void inputRound() {
-		System.out.println("시도할 횟수는 몇회인가요?");
+		System.out.println("\n시도할 횟수는 몇회인가요?");
 		while (!scanner.hasNextInt()) {
 			scanner.next();
 			System.out.println("올바른 수를 입력하세요.");
@@ -48,6 +48,14 @@ public class RacingGame {
 	private void makeCars(String[] carNameArray) {
 		for (int i = 0; i < carNameArray.length; i++) {
 			Cars.add(new Car(carNameArray[i]));
+		}
+	}
+	
+	private void runRounds() {
+		System.out.println("\n실행 결과");
+		for (int i = 0; i < this.round; i++) {
+			this.moveCars();
+			System.out.println("\n");
 		}
 	}
 	
