@@ -4,9 +4,10 @@ import java.util.*;
 
 public class Car {
     private final String name;
-    private static int times;
+    private static int moveTimes;
     private static List<Car> carList;
     private int position = 0;
+    public static Random random = new Random();
 
     public Car(String name) {
         this.name = name;
@@ -28,7 +29,16 @@ public class Car {
     static public void enterHowManyTime() {
         Scanner scan = new Scanner(System.in);
         System.out.println("시도할 회수는 몇회인가요?");
-        times = scan.nextInt();
+        moveTimes = scan.nextInt();
+    }
+
+    public static int move() {
+        //0에서 9사이 random, 4이상 전진, 3이하 그대로
+        int moveOrStop = random.nextInt(10);
+        if(moveOrStop >= 4) {
+            return 1;
+        }
+        return 0;
     }
     public void printNameAndPosition() {
         System.out.print(name+":");
@@ -38,14 +48,22 @@ public class Car {
         System.out.println();
     }
 
-    static public void printRacingResult() {
-        System.out.println("실행 결과");
-        /* 실행 */
-
+    static public void moveAndPrint() {
         for (Car c  : carList) {
+            c.position += move();
             c.printNameAndPosition();
         }
     }
+
+    static public void playRacingCar() {
+        System.out.println("실행 결과");
+        /* 실행 */
+        for (int i = 0; i < moveTimes; i++) {
+            moveAndPrint();
+            System.out.println();
+        }
+    }
+
 
     static public void printWinner() {
         /* 우승자 판단 */
@@ -57,7 +75,7 @@ public class Car {
     public static void main(String[] args) {
         Car.enterCarName();
         Car.enterHowManyTime();
-        Car.printRacingResult();
+        Car.playRacingCar();
         Car.printWinner();
     }
 
