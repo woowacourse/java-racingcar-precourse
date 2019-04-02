@@ -86,6 +86,10 @@ public class Racing {
 		System.out.println(winners + "가 최종 우승했습니다.");
 	}
 
+	private void raceEnd() {
+		sc.close();
+	}
+
 	private boolean isValidUsers(String[] names) {
 		if (names.length == 0) {
 			return false;
