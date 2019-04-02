@@ -9,6 +9,8 @@ package domain;
 import java.util.Scanner;
 
 public class RacingGameManager {
+	int totalCarCount; // 게임에 참여하는 자동차의 수
+	Car[] cars; // 게임에 참여하는 자동차 객체
 	Scanner scanner = new Scanner(System.in);
 
 	public String getCarNamesFromUser() {
@@ -27,5 +29,15 @@ public class RacingGameManager {
 			return false;
 		}
 		return true;
+	}
+
+	public void makeCars(String carNames) {
+		String[] splitedCarNames = carNames.split(",");
+		totalCarCount = splitedCarNames.length;
+		cars = new Car[totalCarCount];
+
+		for (int i = 0; i < totalCarCount; i++) {
+			cars[i] = new Car(splitedCarNames[i]);
+		}
 	}
 }
