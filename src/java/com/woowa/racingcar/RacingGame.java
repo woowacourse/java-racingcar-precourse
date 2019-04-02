@@ -13,8 +13,8 @@ import java.util.Scanner;
 public class RacingGame {
 
     private static final String COMMENT_WHEN_PRINT_CHAMPIONS = "가 최종 우승했습니다";
-    private ArrayList<Car> carList;
-    private int runCount;
+    private ArrayList<Car> carList;     /* 자동차 객체 리스트 */
+    private int runCount;               /* 총 라운드 수 */
 
     public void startGame() {
         Scanner scanner = new Scanner(System.in);
