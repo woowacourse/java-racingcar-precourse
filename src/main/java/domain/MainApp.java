@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carNames[] = getCarNames();
+        Car cars[] = createArrayOfCars(carNames);
+        System.out.println("시도할 회수는 몇회인가요?");
+        int numOfTrials = getNumOfTrials();
+        System.out.println("\n실행 결과");
+        raceCars(cars, numOfTrials);
+        System.out.println(getWinners(cars) + "가 최종 우승했습니다.");
     }
 
     /**
@@ -92,5 +100,20 @@ public class MainApp {
             }
         }
         return result.substring(0, result.length()-2);  // 맨 뒤에 붙은 ", " 를 제거합니다.
+    }
+
+    /**
+     * 자동차들을 경주시키는 메소드입니다.
+     * @param cars - 경주하는 자동차 객체들의 배열입니다.
+     * @param numOfTrials - 경주 시도 횟수입니다.
+     */
+    private static void raceCars(Car cars[], int numOfTrials) {
+        for (int i=0; i<numOfTrials; i++) {
+            for (Car c : cars) {
+                randomlyMoveCar(c);
+                System.out.println(c.printStatus());
+            }
+            System.out.println();
+        }
     }
 }

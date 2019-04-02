@@ -2,6 +2,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import domain.Car;
 import domain.MainApp;
+import sun.rmi.rmic.Main;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
