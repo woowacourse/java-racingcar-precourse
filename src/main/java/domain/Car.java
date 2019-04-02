@@ -30,7 +30,12 @@ public class Car {
      * (e.g., "pobi : ---")
      */
     public String printStatus() {
-        return "pobi : ";
+        String status = name;
+        status += " : ";
+        for (int i=0; i<position; i++) {
+            status += "-";
+        }
+        return status;
     }
 
 }
