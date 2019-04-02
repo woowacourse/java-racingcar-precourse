@@ -53,11 +53,10 @@
   - ```inputCarName()```: 자동차의 이름을 입력하고 입력 결과를 반환한다.
   - ```inputHowManyMove()```: 자동차가 몇 번 움직일지 입력하고 입력 결과를 반환한다.
 
-#### 5. Draw 클래스 구현하기
-- 멤버 변수
+#### 5. Output 클래스 구현하기
 - 멤버 함수
-  - ```drawMoveResult()```: 각 자동차가 움직인 결과를 출력한다.
-  - ```drawWhoIsWinners()```: 게임 우승자를 출력한다.
+  - ```outputMoveResult()```: 각 자동차가 움직인 결과를 출력한다.
+  - ```outputWhoIsWinners()```: 게임 우승자를 출력한다.
 
 #### 6. Main 클래스 구현하기
 게임 전체 진행 과정을 구현한다.

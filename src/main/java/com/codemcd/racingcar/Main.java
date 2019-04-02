@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
 
         Car[] cars;
-        Draw draw = new Draw();
 
         String[] carNames = Input.inputCarName();
         int numberOfMove = Input.inputHowManyMove();
@@ -23,10 +22,10 @@ public class Main {
                     cars[j].goStraight();
             }
 
-            draw.drawMoveResult(cars, numberOfCar);
+            Output.outputMoveResult(cars);
         }
 
         String[] winners = GameProcess.tellWinner(cars);
-        draw.drawWhoIsWinners(winners);
+        Output.outputWhoIsWinners(winners);
     }
 }
