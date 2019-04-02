@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Racing {
@@ -9,7 +10,12 @@ public class Racing {
         List<Car> carList = getCarList(inputCarNames());
         int roundCount = getRoundCount();
 
-        System.out.println(roundCount);
+        System.out.println(getRandomNumber());
+    }
+
+    private int getRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(9);
     }
 
     private int getRoundCount() {
