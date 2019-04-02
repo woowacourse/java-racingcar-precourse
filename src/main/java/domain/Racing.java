@@ -73,6 +73,14 @@ public class Racing {
 		}
 	}
 
+	private void startRace(int raceTime) {
+		System.out.println("실행 결과");
+		for (int i = 0; i < raceTime; i++) {
+			carmgr.goOrStop();
+			carmgr.printCarList();
+		}
+	}
+
 	private boolean isValidUsers(String[] names) {
 		if (names.length == 0) {
 			return false;
@@ -84,7 +92,7 @@ public class Racing {
 		}
 		return true;
 	}
-	
+
 	private boolean isValidTime(int raceTime) {
 		return (raceTime >= 0) ? true : false;
 	}
