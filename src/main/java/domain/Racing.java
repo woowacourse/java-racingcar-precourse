@@ -43,11 +43,13 @@ public class Racing {
                 return true;
             }
         }
+
         return false;
     }
 
     public List<Car> createCars(String[] carNames) {
         List<Car> cars = new ArrayList<>();
+
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
@@ -55,7 +57,8 @@ public class Racing {
     }
 
     public int inputRound() {
-        String round;
+        String round = "";
+
         do {
             System.out.println("시도할 회수는 몇회인가요?");
             round = sc.nextLine();
@@ -101,7 +104,6 @@ public class Racing {
                 winners.append(car.getName() + ", ");
             }
         }
-
         return winners.toString().substring(0, winners.length() - 2);
     }
 
