@@ -28,6 +28,7 @@ https://myeonguni.tistory.com/1596
 * Car
 * Game
 * GameUI
+* Main
 
 #### Car
 * tryMove()
@@ -62,3 +63,7 @@ https://myeonguni.tistory.com/1596
   * 자동차 경주 결과 출력
 * showRaceChampion()
   * 자동차 경주 우승자 결과 출력
+  
+#### Main
+* main()
+  * 프로그램 시작
