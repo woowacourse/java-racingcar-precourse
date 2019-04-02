@@ -87,4 +87,10 @@ public class RacingGameManager {
 		winnerNames = winnerNames.substring(0, winnerNames.length() - 2);
 		return winnerNames;
 	}
+	
+	public void printWinnerNames() {
+		System.out.println();
+		System.out.println();
+		System.out.println(getWinnerNames() + "가 최종 우승했습니다.");
+	}
 }
