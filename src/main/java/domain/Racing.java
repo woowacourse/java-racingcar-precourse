@@ -1,7 +1,7 @@
 /*
  * Racing
  *
- * version 1.3
+ * version 1.4
  *
  * 2019/04/02
  */
@@ -19,6 +19,7 @@ import java.util.Scanner;
  *          1.1 2019/04/02  입력받은 자동차 이름에 빈칸 제거 / 이름 길이에 오류가 난 경우 다시 입력 받게 처리
  *          1.2 2019/04/02  자동차들중에서 제일 큰 position 값을 구하는 메소드 구현 / 시도할 회수를 받는 메소드 재 구현
  *          1.3 2019/04/02  우승자를 계산하는 메소드 구현
+ *          1.4 2019/04/02  경주중인 모든 자동차가 난수에 의해 이동하는 메소드 구현 / 우승자 출력 메소드 구현
  */
 public class Racing {
     private static Scanner sc = new Scanner(System.in);
@@ -57,7 +58,15 @@ public class Racing {
         return sc.nextInt();
     }
 
-    public int calcMaximunPostion(List<Car> cars) {
+    public void moveAllCarsOnRace(List<Car> cars) {
+        for (Car car : cars) {
+            car.moveCar(car.makeRandomNumber());
+            car.printTotalDistance();
+        }
+        System.out.println();
+    }
+
+    public int calcMaximumPosition(List<Car> cars) {
         int max = 0;
         for (Car car : cars) {
             if (max < car.getPosition()) {
@@ -69,14 +78,18 @@ public class Racing {
 
     public String calcWinners(List<Car> cars) {
         String winners = "";
-        int max = calcMaximunPostion(cars);
+        int max = calcMaximumPosition(cars);
 
         for (Car car : cars) {
             if (max == car.getPosition()) {
-                winners += car.getName() + " ";
+                winners += car.getName() + ", ";
             }
         }
 
         return winners.substring(0, winners.length() - 2);
+    }
+
+    public void printWinners(String winners) {
+        System.out.println(winners + "가 최종 우승했습니다.");
     }
 }
