@@ -24,7 +24,7 @@
 - Input 클래스 생성
   - 자동차 입력 및 저장 enter_Car_Name()
   - 자동차 이름 검사 car_Name_Check() , name_Error()
-  - Car 객체 생성 및 자동차 이름 초기화
+  - Car 객체 생성 및 자동차 이름 초기화 car_Object_Create()
 
 - Forward_Util 클래스 
   - 자동차 객체 출력
@@ -35,4 +35,4 @@
   - 우승자 출력
 
 - Process 클래스
-    - 게임 진행 메소드
+    - 게임 진행 메소드 game_Process()
