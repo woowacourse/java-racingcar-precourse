@@ -13,10 +13,10 @@ public class Car{
 		Random generator = new Random();
 		int rand = generator.nextInt(9)+1;
 		if(rand >4) {
-			position++;
+			this.position++;
 		}
-		System.out.print(name + ":");
-		for(int i=0; i<position; i++) {
+		System.out.print(this.name + ":");
+		for(int i=0; i<this.position; i++) {
 			System.out.print("-");
 		}
 		System.out.print("\n");

@@ -5,6 +5,7 @@ public class racingcar {
 	public static void main(String[] args) {
 		String[] carName = getCarName();
 		int recingTime = getRacingTime();
+		Car[] cars = setCars(carName);
 	}
 	
 	
@@ -21,8 +22,13 @@ public class racingcar {
 		int racingTime = scan.nextInt();
 		return racingTime;
 	}
+	
+	public static Car[] setCars(String[] name) {
+		Car[] cars = new Car[name.length];
+		for(int i=0; i<name.length; i++) {
+			Car temp = new Car(name[i]);
+			cars[i] = temp;
+		}
+		return cars;
+	}
 }
-
-
-
-
