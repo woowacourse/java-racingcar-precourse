@@ -6,7 +6,7 @@ public class RacingGame {
         CarNameReciever carNameReciever = new CarNameReciever();
         CarGenerator carGenerator =new CarGenerator();
         RaceAttemptReciever raceAttemptReciever = new RaceAttemptReciever();
-        CarRacer carRacer = new CarRacer();
+        CarNavigator carNavigator = new CarNavigator(carGenerator.getCarList());
 
         String[] carNames =carNameReciever.RecieveCarNamesFromUser();
         carGenerator.GenerateCar(carNames);

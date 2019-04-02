@@ -62,7 +62,7 @@
    * RacingResultPrinter
    * UserInputReciever
    * CarGenerator
-   * CarRacer
+   * CarNavigator
    * RaceAttemptReciever
    * RacingGame
      
@@ -89,13 +89,15 @@
    9. 자동차들의 운행횟수가 타당하지 않으면 예외를 생성해서 던지는 기능(ThrowExceptionIfInvalidRaceAttempt)
     
    10. 자동차의 운행 횟수가 1이상인지 판단하는 기능(isInValidRaceAttempt)
-     
-   11. 난수를 생성하는 기능 (GenerateRandomNumber)
-         
-   12. 생성한 난수를 토대로 갈지 멈출지를 판단하는 기능 (isGo)
-      
-   13. 앞으로 가거나 멈추는 기능 (go)
    
-   14. 실제로 차를 움직이는 기능(MoveCar)
+   11. 실제로 차 여러대를 움직이는 기능(MoveCars)
+        
+   12. 차가 움직일 수 있는지 없는지 판단해서 차를 움직이는 메소드를 호출하는 기능(MoveCarIfPossible)
       
-   14. 결과를 출력하는 기능 (PrintResult)
+   13. 차가 움직일 수 있는지 없는지 난수를 생성해서 판단하는 기능 (isMove)
+       
+   14. 난수를 생성하는 기능(GenerateRandomNumber)
+      
+   15. 실제로 차한대를를움직이는 기능(MoveCar)  
+   
+   16. 결과를 출력하는 기능 (PrintResult)

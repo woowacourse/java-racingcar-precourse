@@ -10,4 +10,8 @@ public class CarGenerator {
             carList.add(new Car(carNames[i]));
         }
     }
+
+    public ArrayList<Car> getCarList() {
+        return carList;
+    }
 }
