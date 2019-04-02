@@ -1,4 +1,4 @@
-package domain;
+package com.woowa.racingcar;
 
 public class Car {
     private final String name;
