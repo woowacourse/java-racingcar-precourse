@@ -13,10 +13,12 @@ public class GameUI {
 	public void run() {
 		try (Scanner sc = new Scanner(System.in)) {
 			String carNames = askCarNames(sc);
-			int lapNum = askLapNum(sc);
-
 			this.game.joinRace(carNames);
+
+			int lapNum = askLapNum(sc);
 			startRace(lapNum);
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 
