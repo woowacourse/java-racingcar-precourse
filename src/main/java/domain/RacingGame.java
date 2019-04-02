@@ -10,7 +10,7 @@ public class RacingGame {
         scan = new Scanner(System.in);
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String names = getNameOfCars();
+        String[] names = getNameOfCars();
         ArrayList<Car> cars = generateCars(names);
 
         System.out.println("시도할 횟수는 몇 회인가요?");
@@ -21,7 +21,7 @@ public class RacingGame {
         scan.close();
     }
 
-    public String getNameOfCars() {
+    public String[] getNameOfCars() {
         String input = null;
         InputError inputError = null;
         while (inputError != InputError.PASS) {
@@ -29,7 +29,7 @@ public class RacingGame {
             inputError = checkAccuracyOfNames(input);
             System.out.println(inputError.getMessage(MAX_LEN_OF_CAR_NAME));
         }
-        return input;
+        return input.split(",");
     }
 
     public int getTries() {
@@ -101,9 +101,8 @@ public class RacingGame {
         return false;
     }
 
-    public ArrayList<Car> generateCars(String input) {
+    public ArrayList<Car> generateCars(String[] names) {
         ArrayList<Car> list = new ArrayList<>();
-        String[] names = input.split(",");
         for (String name : names) {
             list.add(new Car(name));
         }

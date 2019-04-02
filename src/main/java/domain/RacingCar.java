@@ -28,9 +28,7 @@ public class RacingCar {
     public void calculateMaxLenOfName() {
         for (Car car : cars) {
             int lenOfName = car.getName().length();
-            if (lenOfName > maxLenOfName) {
-                maxLenOfName = lenOfName;
-            }
+            maxLenOfName = (lenOfName > maxLenOfName) ? lenOfName : maxLenOfName;
         }
     }
 
@@ -65,9 +63,8 @@ public class RacingCar {
     }
 
     public void updatePositionOfWinners(Car car) {
-        if (car.getPosition() > positionOfWinners) {
-            positionOfWinners = car.getPosition();
-        }
+        int pos = car.getPosition();
+        positionOfWinners = (pos > positionOfWinners) ? pos : positionOfWinners;
     }
 
     public ArrayList<String> getWinners() {
