@@ -1,5 +1,15 @@
+/*
+ * @Car.java   1.0 2019/04/02
+ */
+
 package domain;
 
+/**
+ * 자동차 클래스
+ *
+ * @version 1.00 2019년 4월 2일
+ * @author 최훈하
+ */
 
 public class Car {
     private final String name;
@@ -10,4 +20,8 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public String toString() {
+        return name;
+    }
 }

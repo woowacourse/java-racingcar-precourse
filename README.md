@@ -27,7 +27,8 @@
   - Car 객체 생성 및 자동차 이름 초기화 car_Object_Create()
 
 - Forward_Util 클래스 
-  - 자동차 객체 출력
+  - 자동차 객체 출력 race_Result()
+    - Car 클래스 toString() 추가
   - 사용자 횟수 입력
   - 랜덤 숫자 생성
   - 전진 조건 생성 및 포지션 값 증가
