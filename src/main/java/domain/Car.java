@@ -2,7 +2,7 @@ package domain;
 
 import utils.RandomUtils;
 
-public class Car implements Cloneable{
+public class Car {
     private final String name;
     private int position = 0;
 
@@ -13,6 +13,10 @@ public class Car implements Cloneable{
 
     public static Car fromName(String name) {
         return new Car(name, 0);
+    }
+
+    public static Car newInstance(Car car) {
+        return new Car(car.name, car.position);
     }
 
     public String getName() {
@@ -29,14 +33,5 @@ public class Car implements Cloneable{
 
     public boolean isMovable() {
         return RandomUtils.getRandomNumber(1, 9) >= 4;
-    }
-
-    @Override
-    public Car clone() {
-        try {
-            return (Car) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
     }
 }

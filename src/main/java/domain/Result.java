@@ -11,7 +11,7 @@ public class Result {
 
     Result(List<Car> cars) {
         this.cars = cars.stream()
-                .map(Car::clone)
+                .map(Car::newInstance)
                 .collect(Collectors.toList());
     }
 
