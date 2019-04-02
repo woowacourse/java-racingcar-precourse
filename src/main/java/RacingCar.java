@@ -57,7 +57,7 @@ public class RacingCar {
             carName = car.getName();
             carPosition = car.getPosition();
             carProgression = getCarProgression(carPosition);
-            System.out.printf("%s : %s", carName, carProgression);
+            System.out.printf("%s : %s\n", carName, carProgression);
         }
     }
 
@@ -70,7 +70,13 @@ public class RacingCar {
         return carProgression.toString();
     }
 
-    public static void main(String[] args) {
+    public void moveCars(ArrayList<Car> carList) {
+        for (Car car: carList) {
+            car.move();
+        }
+    }
+
+    public void main(String[] args) {
 //        Set<String> carNames = inputCarName();
 //        ArrayList<Car> carList = getCarList(carNames);
 //        for (Car car: carList) {
