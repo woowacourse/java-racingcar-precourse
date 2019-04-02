@@ -79,10 +79,20 @@ public class GameMain {
 		return maxPosition;
 	}
 	
+	//이름과 이름사이에 쉼표를 넣어 결과를 출력하는 메소드
+	static void printResult(int index, boolean rest){
+		if(rest)
+			System.out.print(", ");
+		System.out.print(nameArray[index]);
+	}
+	
 	//결과 출력 메소드
 	static void result(int maxPosition){
+		boolean rest = false;
 		for(int i=0; i<nameArray.length; ++i){
 			if(position[i]==maxPosition){
+				printResult(i, rest);
+				rest = true;
 			}
 		}
 		System.out.println(" 가 최종 우승했습니다.");
@@ -102,6 +112,9 @@ public class GameMain {
 		int moveNum = in.nextInt();
 		System.out.println("실행 결과");
 		repeat(moveNum);	//n회 반복
+		
+		int maxPosition = max();
+		result(maxPosition);
 	}
 
 }
