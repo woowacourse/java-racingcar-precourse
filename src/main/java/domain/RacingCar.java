@@ -63,16 +63,35 @@ public class RacingCar {
         return carList;
     }
 
+    /*
+     * Method for One Car Instance
+     * 0에서 9 사이의 Random Number를 만들어 해당 숫자가 4이상일 경우 한칸 전진(position 값 +1), 아닐 경우 멈춘다.(아무것도 안함)
+     * 현재까지의 각 Car 객체의 position 값을 받아와서 개수 만큼 - 출력한다.
+     */
     private static void printOneResult(Car car) {
-        int randomNumber = 5;
-        //randomNumber = generateRandomNumber(); 구현 필요.
+        int randomNumber = generateRandomNumber();
+
         System.out.print(car.getCarName() + " : ");
         if (randomNumber >= 4) {
             car.addOnePosition();
-            for (int i = 0; i < car.getPosition(); i++) {
-                System.out.print("-");
-            }
+        }
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print("-");
         }
         System.out.println();
+    }
+
+    /*
+     * Method for Generate Random Number
+     * numList에 0부터 9까지 List를 담아놓은후 shuffle method를 이용해 randomize 한다.
+     * shuffle된 list의 index 0번째 값을 return 한다.
+     */
+    private static int generateRandomNumber() {
+        List<Integer> numList = new ArrayList<Integer>();       // 0 to 9 number List
+        for(int i = 0; i < 10; i++) {
+            numList.add(i);
+        }
+        Collections.shuffle(numList);
+        return numList.get(0);
     }
 }
