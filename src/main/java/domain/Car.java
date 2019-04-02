@@ -10,6 +10,8 @@
 
 package domain;
 
+import java.util.Random;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -18,5 +20,10 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+   public boolean canMove() {
+		Random random = new Random();
+
+		if(random.nextInt(10) >= 4) return true;
+		return false;
+   }
 }
