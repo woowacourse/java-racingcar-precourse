@@ -11,26 +11,28 @@
 
 
 ## 구현할 기능
-* Car 클래스
+* __Car 클래스__
   * 자동차 이름 setter 함수
     * _setName()_
   * 자동차 이름 getter 함수
     * _getName()_
-  * 자동차 이름 setter 함수
+  * 자동차 위치 setter 함수
     * _setPosition()_
-  * 자동차 이름 getter 함수
-    * _setPosition()_
+  * 자동차 위치 getter 함수
+    * _getPosition()_
   * 자동차 상태 setter 함수
     * _setStatus()_
   * 자동차 상태 getter 함수
     * _getStatus()_
-* Game 클래스
-  * 게임 실행
-    * _playGame()_
+
+* __Race 클래스__
+  * 레이스 실행
+    * _doGame()_
   * 조건 확인
     * _isValid()_
   * 우승자 리턴
-    * _getWinner()_
-* Main 클래스
+    * _printWinner()_
+
+* __Main 클래스__
   * 프로그램 실행
     * _main()_
