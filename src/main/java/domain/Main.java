@@ -26,7 +26,10 @@ public class Main {
         }
 
         public static void makeCars(String[] name){
-
+                cars = new Car[name.length];
+                for(int i=0; i<name.length; i++){
+                        cars[i] = new Car(name[i]);
+                }
         }
 
         public static void inputRandomNumber(){
