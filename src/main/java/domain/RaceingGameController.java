@@ -1,11 +1,21 @@
+/*
+ * 클래스 이름: RaceingGameController.java
+ * 버전 정보: 1.0.0
+ * 날짜: 2019/04/03
+ * Copyright 2019 Inkwon Lee
+ */
 package domain;
 
 import java.util.ArrayList;
 
+/*
+ * RacingGame 에 대한 컨트롤러 클래스
+ * gameStart 를 통하여 순차적으로 진행
+ * raceStart() 함수에서 자동차 위치가 움직이는지 확인
+ */
 public class RaceingGameController {
 
     public void gameStart() {
-
         System.out.println(Output.outputEnrollCarName);
         ArrayList<Car> carNameList = Input.getInstance().enrollCarName();
 

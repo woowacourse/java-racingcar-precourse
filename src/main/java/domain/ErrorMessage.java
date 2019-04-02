@@ -1,5 +1,14 @@
+/*
+ * 클래스 이름: ErrorMessage.java
+ * 버전 정보: 1.0.0
+ * 날짜: 2019/04/03
+ * Copyright 2019 Inkwon Lee
+ */
 package domain;
 
+/*
+ * ErrorMessage 를 등록 및 사용 하는 클래스
+ */
 public enum ErrorMessage {
 
     ERROR_OVERLAP_NAME("중복된 이름이 있습니다. 다시 입력해 주세요."),
