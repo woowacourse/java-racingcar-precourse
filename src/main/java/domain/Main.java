@@ -95,8 +95,8 @@ public class Main {
         }
 
         public static void outputWinner() {
-                
-
+                String winnerName = arrayJoin(",", winner);
+                System.out.println(winnerName + "가 최종 우승 했습니다.");
         }
 
         public static void outputPosition(Car car){
