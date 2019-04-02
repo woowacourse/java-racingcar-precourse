@@ -22,7 +22,24 @@ public class Racing {
     private static Scanner sc = new Scanner(System.in);
 
     public String[] inputCarName() {
-        return sc.nextLine().split(",");
+        String[] carNames;
+
+        do{
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            carNames= sc.nextLine().replaceAll(" ", "").split(",");
+        }while(hasCarNameException(carNames));
+
+        return carNames;
+    }
+
+    public boolean hasCarNameException (String[] carNames) {
+        for(String carName : carNames){
+            if(carName.length() == 0 || carName.length() > 5) {
+                System.out.println("자동차 이름이 잘못된 형식으로 입력됐습니다");
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Car> createCars(String[] carNames) {
