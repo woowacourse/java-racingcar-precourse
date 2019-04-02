@@ -34,7 +34,7 @@ public class RacingCar {
             }
             System.out.println();
         }
-        //printWinner(carList);
+        printWinner(carList);
     }
 
     /*
@@ -125,4 +125,18 @@ public class RacingCar {
         return winnerList;
     }
 
+    /*
+     * Method for print Winner's name
+     * getWinner method 사용하여 최종 승자의 이름을 출력한다.
+     */
+    private static void printWinner(ArrayList<Car> carList) {
+        List<String> winnerList = getWinner(carList);
+        for (int i = 0; i < winnerList.size(); i++) {
+            System.out.print(winnerList.get(i));
+            if (i != (winnerList.size() - 1)) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("이(가) 최종 우승했습니다.");
+    }
 }
