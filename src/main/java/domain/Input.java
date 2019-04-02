@@ -28,6 +28,7 @@ public class Input {
         car_Name_Check();
         return car_Name_Enter;
     }
+
     /**
      *  car_Name_Check() car_Name_Enter의 글자 길이가 5 이상을 찾는다면 새로 입력하게 합니다.
      *  */

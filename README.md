@@ -28,11 +28,13 @@
 
 - Forward_Util 클래스 
   - 자동차 객체 출력 race_Result()
-    - Car 클래스 toString() 추가
+    - Car 클래스 toString() 추가 
   - 사용자 횟수 입력 try_Number()
   - 랜덤 숫자 생성 random_Number_Create()
   - 전진 조건 생성 및 포지션 값 증가 Car.Forward()
-  - 포지션 값만큼 dash 출력
+  - 포지션 값만큼 dash 출력 forward_Status()
+  - 시도할 횟수만큼 race_Result()출력 기능 count_Repeat()
+    - race_Result()에 Forward, Status 메소드 추가
   - 우승자 출력
 
 - Process 클래스

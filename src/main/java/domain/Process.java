@@ -16,5 +16,6 @@ public class Process {
         Input.enter_Car_Name();
         Input.car_Object_Create();
         Forward_Util.try_Number();
+        Forward_Util.count_Repeat();
     }
 }

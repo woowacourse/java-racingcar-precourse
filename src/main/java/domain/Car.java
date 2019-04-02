@@ -24,8 +24,12 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     /* 전진 */
-    public int Forward(){
+    public int Forward() {
         if (Forward_Util.random_Number_Create() > 3) {
             position+=1;
             return position;
@@ -33,6 +37,13 @@ public class Car {
         return position;
     }
 
+    /* 자동차 전진 상태 */
+    public void forward_Status() {
+        for (int i = Forward_Util.ZERO; i < position; i++){
+            System.out.print("-");
+        }
+        System.out.println(" ");
+    }
 
 
 }

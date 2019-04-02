@@ -23,9 +23,14 @@ public class Forward_Util {
 
     private static int random_number;
 
-    static void race_Result() {
+    /*
+    *
+    * */
+    private static void race_Result() {
         for (int i = ZERO; i < Input.race_Car.length; i++) {
+            Input.race_Car[i].Forward();
             System.out.print(Input.race_Car[i] + ":");
+            Input.race_Car[i].forward_Status();
         }
     }
 
@@ -39,5 +44,15 @@ public class Forward_Util {
         random_number = rand.nextInt(10);
         return random_number;
     }
+
+    static void count_Repeat() {
+        System.out.println("실행결과");
+        for (int i = ZERO; i < count; i++){
+            race_Result();
+        }
+    }
+
+
+
 
 }
