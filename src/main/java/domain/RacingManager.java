@@ -22,10 +22,13 @@ public class RacingManager {
     public int getTotalTrial() {
         System.out.println("시도할 회수는 몇회인가요?");
         int totalTrial = sc.nextInt();
+
         return totalTrial;
     }
 
     public void sendMoveSignals(ArrayList<Car> cars) {
-
+        for (int i = 0; i < cars.size(); i++) {
+            cars.get(i).randomMove();
+        }
     }
 }
