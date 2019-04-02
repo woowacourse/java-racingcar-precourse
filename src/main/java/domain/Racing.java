@@ -81,6 +81,11 @@ public class Racing {
 		}
 	}
 
+	private void raceResult() {
+		String winners = carmgr.whoIsFirst();
+		System.out.println(winners + "가 최종 우승했습니다.");
+	}
+
 	private boolean isValidUsers(String[] names) {
 		if (names.length == 0) {
 			return false;
