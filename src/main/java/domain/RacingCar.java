@@ -1,0 +1,32 @@
+/**
+ * RacingCar 클래스는 자동차 경주를 하기 위한 클래스이다.
+ * 구성 Method는 goRacing, generateRandomNumber, 필요한 것들..?
+ * Last modified: 2019.04.02
+ * Author: SM Jeon
+ */
+
+package domain;
+
+import java.util.*;
+
+public class RacingCar {
+    public static void main(String[] args) {
+        goRacing();
+    }
+
+    /*
+     * Method for Start Racing
+     * Print Information and Receive car name, count
+     */
+    private static void goRacing() {
+        Scanner s = new Scanner(System.in);
+        int gameCount = 0;
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        //receiveCarName();
+        System.out.println("시도할 회수는 몇회인가요?");
+        gameCount = s.nextInt();
+        //printCarList();                   // 각 시도 회수마다 결과 출력
+        //printResult();                    // 결과 출력: 우승자1, 우승자2 가 최종 우승했습니다.
+    }
+}
