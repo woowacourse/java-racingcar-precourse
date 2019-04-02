@@ -64,3 +64,5 @@ Car 클래스
 
 'GetMaxPosition' - 자동차 Positon의 Max 값 반환
 
+'WhoIsWin' - 최종 우승자 출력
+

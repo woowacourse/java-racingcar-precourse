@@ -13,7 +13,7 @@ public class RacingGame {
             System.out.println();
         }
         int MaxPosition=GetMaxPosition(CarList);
-
+        WhoIsWin(CarList, MaxPosition);
     }
 
     public static String[] InputCarNames(){
@@ -72,7 +72,19 @@ public class RacingGame {
 
         return MaxNum;
     }
-
+    public static void WhoIsWin(Car[] CarList, int MaxNum)
+    {
+        String Winner = "";
+        for(int i=0; i<CarList.length; i++){
+            if(MaxNum==CarList[i].getPosition())
+            {
+                Winner += CarList[i].getName() + ", ";
+            }
+        }
+        Winner = Winner.substring(0, Winner.length() - 2);
+        Winner += "가 최종 우승했습니다.";
+        System.out.println(Winner);
+    }
 }
 
 
