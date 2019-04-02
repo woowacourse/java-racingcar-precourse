@@ -33,4 +33,13 @@ public class User {
         }
         return false;
     }
+
+    public ArrayList<Car> getCar() {
+        return cars;
+    }
+
+    public int getcount() {
+        return count;
+    }
+
 }
