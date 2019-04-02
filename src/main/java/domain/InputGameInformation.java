@@ -13,6 +13,8 @@ public class InputGameInformation {
     private HashSet<String> carOverlapCheck;
     private int gameCount = 0;
     private final int limitedCarNameLength = 5;
+    private Boolean checkOverapState = false;
+    private Boolean checkLengthState = false;
 
     private void init() {
         sc = new Scanner(System.in);
@@ -39,7 +41,7 @@ public class InputGameInformation {
 
     private boolean checkString(String name, boolean checktype) {
         if (name.equals("")) {
-            if (checktype) {
+            if (checktype) { // checktype true 일때만 errorMessage
                 System.out.println(Message.errorMessage.get("ERROR_NAMEEMPTY"));
             }
             return false;
@@ -68,11 +70,18 @@ public class InputGameInformation {
             carOverlapCheck.add(name);
             return true;
         }
+        if (!name.equals("")) {
+            checkOverapState = true;
+        }
         return false;
     }
 
     private boolean checkLimitLength(String name) {
-        return (name.length() <= limitedCarNameLength) ? true : false;
+        if (name.length() <= limitedCarNameLength) {
+            return true;
+        }
+        checkLengthState = true;
+        return false;
     }
 
     private void inputGameCount() {
@@ -103,6 +112,14 @@ public class InputGameInformation {
 
     public int getGameCount() {
         return gameCount;
+    }
+
+    public boolean getCheckOverlapstate() {
+        return checkOverapState;
+    }
+
+    public boolean getCheckLengthstate() {
+        return checkLengthState;
     }
 
 }
