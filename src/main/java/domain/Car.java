@@ -19,11 +19,15 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
-
-   public boolean canMove() {
+    
+    private boolean canMove() {
 		Random random = new Random();
 
 		if(random.nextInt(10) >= 4) return true;
 		return false;
-   }
+	}
+    
+    public void move() {
+    	if(this.canMove()) this.position++;
+	}
 }
