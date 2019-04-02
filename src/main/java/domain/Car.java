@@ -10,6 +10,10 @@ public class Car {
         this.name = name;
     }
 
+    public static Car createCarWithName(String name) {
+        return new Car(name);
+    }
+
     public void ForwardOrStop(int random) {
         prevPosition = position;
 

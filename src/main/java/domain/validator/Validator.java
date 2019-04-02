@@ -1,4 +1,4 @@
-package domain;
+package domain.validator;
 
 public interface Validator {
 

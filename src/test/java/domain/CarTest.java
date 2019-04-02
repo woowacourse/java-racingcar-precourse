@@ -8,7 +8,7 @@ public class CarTest {
 
     @Test
     public void testFailToForwardCarIfRandomNumBelowMeanOfUpperBoundAndLowerBound() throws AssertionError {
-        Car car = new Car("car1");
+        Car car = Car.createCarWithName("car1");
         int mean = (RandomNumGenerator.RandomNumBound.UPPER.getBound()
                 + RandomNumGenerator.RandomNumBound.LOWER.getBound()) / 2;
 
@@ -19,7 +19,7 @@ public class CarTest {
 
     @Test
     public void testFailToStopCarIfRandomNumAboveMeanOfUpperBoundAndLowerBound() throws AssertionError {
-        Car car = new Car("car1");
+        Car car = Car.createCarWithName("car1");
         int mean = (RandomNumGenerator.RandomNumBound.UPPER.getBound()
                 + RandomNumGenerator.RandomNumBound.LOWER.getBound()) / 2;
 

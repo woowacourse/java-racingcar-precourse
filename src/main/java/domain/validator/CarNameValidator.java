@@ -1,11 +1,15 @@
-package domain;
+package domain.validator;
 
 public class CarNameValidator implements Validator {
 
     private final String[] carNames;
 
-    public CarNameValidator(String[] carNames) {
+    private CarNameValidator(String[] carNames) {
         this.carNames = carNames;
+    }
+
+    public static CarNameValidator createCarNameValidatorWithCarNames(String[] carNames) {
+        return new CarNameValidator(carNames);
     }
 
     @Override
@@ -29,8 +33,12 @@ public class CarNameValidator implements Validator {
         return true;
     }
 
+    public static int getCarNameLengthBound() {
+        return CarNameBound.UPPER.getBound();
+    }
+
     private boolean doesCarNameLessOrEqualToUpperBound(String input) {
-        return input.length() <= CarNameBound.UPPER.getBound();
+        return input.length() <= getCarNameLengthBound();
     }
 
     private boolean doesCarNameIsNotNull(String input) {

@@ -1,5 +1,8 @@
 package domain;
 
+import domain.handler.InputHandler;
+import domain.handler.OutputHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +79,7 @@ public class CarRacing {
         String[] carNames = inputHandler.getCarNames();
         carList.clear();
         for (String carName : carNames) {
-            carList.add(new Car(carName));      // TODO Car 생성을 팩토리로 할 것
+            carList.add(Car.createCarWithName(carName));
         }
     }
 

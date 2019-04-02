@@ -1,15 +1,17 @@
-package domain;
+package domain.handler;
+
+import domain.Car;
 
 import java.util.List;
 import java.util.ListIterator;
 
 public class OutputHandler {
 
-    void printCarPosition(Car car) {
+    public void printCarPosition(Car car) {
         System.out.println(car.getName() + ": " + car.getPosition());
     }
 
-    void printWinner(List<Car> winnerCars) {
+    public void printWinner(List<Car> winnerCars) {
         ListIterator<Car> listIterator = winnerCars.listIterator();
         String result = listIterator.next().getName();
         while (listIterator.hasNext()) {
