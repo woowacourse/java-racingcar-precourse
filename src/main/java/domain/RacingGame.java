@@ -12,6 +12,7 @@ public class RacingGame {
             GameStart(CarList);
             System.out.println();
         }
+        int MaxPosition=GetMaxPosition(CarList);
 
     }
 
@@ -57,6 +58,19 @@ public class RacingGame {
             CarList[i].MakeRandomNum();
             CarList[i].ResultPositon();
         }
+    }
+    public static int GetMaxPosition(Car[] CarList)
+    {
+        int MaxNum =0;
+        for(int i=0; i<CarList.length; i++)
+        {
+            if(MaxNum<CarList[i].getPosition())
+            {
+                MaxNum=CarList[i].getPosition();
+            }
+        }
+
+        return MaxNum;
     }
 
 }

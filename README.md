@@ -62,3 +62,5 @@ Car 클래스
 
 'GameStart' - 게임 시작 
 
+'GetMaxPosition' - 자동차 Positon의 Max 값 반환
+
