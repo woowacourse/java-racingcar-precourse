@@ -10,7 +10,19 @@ public class Racing {
         List<Car> carList = getCarList(inputCarNames());
         int roundCount = getRoundCount();
 
-        System.out.println(getRandomNumber());
+        runOneRound(carList);
+
+        for (Car car : carList) {
+            System.out.println(car.getName() + "의 포지션: " + car.getPosition());
+        }
+    }
+
+    private void runOneRound(List<Car> carList) {
+        for (Car car : carList) {
+            if (getRandomNumber() >= 4) {
+                car.moveCar();
+            }
+        }
     }
 
     private int getRandomNumber() {
