@@ -6,9 +6,21 @@ import java.util.Scanner;
 
 public class Racing {
     public void run() {
-        for (String str : inputCarNames()) {
-            System.out.println(str);
+        List<Car> carList = getCarList(inputCarNames());
+
+        for (Car carNames : carList) {
+            System.out.println(carNames.getName());
         }
+    }
+
+    public List<Car> getCarList(String[] carNameList) {
+        List<Car> carList = new ArrayList<>();
+
+        for (String carName : carNameList) {
+            carList.add(new Car(carName));
+        }
+
+        return carList;
     }
 
     public String[] inputCarNames() {
