@@ -21,10 +21,12 @@ public class RacingGame {
 	public void play() {
 		String carNameList = this.inputCarNameList();
 		String[] carNameArray = this.parseCarNameList(carNameList);
+		String winnerCarNameList;
 		
 		this.inputRound();
 		this.makeCars(carNameArray);
 		this.runRounds();
+		winnerCarNameList = this.findWinner();
 	}
 	
 	private void inputRound() {
@@ -67,5 +69,23 @@ public class RacingGame {
 			car.move();
 			car.printPosition();
 		}
+	}
+	
+	private String findWinner() {
+		String winnerCarNameList = "";
+		int farthestPosition = -1;
+		
+		for (int i = 0; i < Cars.size(); i++) {
+			Car car = Cars.elementAt(i);
+			if (farthestPosition < car.getPosition()) {
+				winnerCarNameList = car.getName();
+				farthestPosition = car.getPosition();
+				continue;
+			}
+			if (farthestPosition == car.getPosition()) {
+				winnerCarNameList += ", " + car.getName();
+			}
+		}
+		return winnerCarNameList;
 	}
 }
