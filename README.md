@@ -18,10 +18,20 @@
 * getPosition : 자동차의 현재 위치를 얻어오는 메서드
 * getName : 자동차의 이름을 얻어오는 메서드
 
-#### [CarMgmt Class]
+#### [CarMgr Class]
 * addNames : 자동차 이름들의 정보를 입력받아 자동차 리스트에 저장하는 메서드
 * makeRandom : 0 ~ 9 까지 random값을 추출할 메서드
 * goOrStop : 각각의 자동차에 대하여 전진할 것인지 멈춰 있을것인지 결정하는 메서드
 * printCarList : 자동차의 이름과 현재 상태를 출력할 메서드
 * findFristPositionNumber : 1등 자동차의 위치를 알아오는 메서드
 * whoIsFirst : 자동차 목록 중에서 1등 자동차들의 이름을 얻어오는 메서드
+
+#### [Racing Class]
+* raceBegin : 자동차 경주를 준비, 진행, 결과, 종료 에 대한 전체적인 과정이 실행되는 메서드
+* enterUsers : 자동차의 이름을 입력받는 메서드
+* enterRaceTime : 경주의 진행 횟수를 입력받는 메서드
+* startRace : 자동차 경주가 진행되는 메서드
+* raceResult : 자동차 경주의 결과를 콘솔에 출력하는 메서드
+* raceEnd : 자동차의 경주가 끝난 뒤 정리하는 메서드
+* isValidUsers : 입력받은 유저의 정보가 유효한지 판별하는 메서드
+* isValidTime : 입력받은 진행 횟수가 적합한지 판별하는 메서드
