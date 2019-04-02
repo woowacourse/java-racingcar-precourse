@@ -1,5 +1,18 @@
+/*
+ * @(#)Car.java        1.00    2019/04/02
+ *
+ * Copyright (c) 2019 Yumin Kim.
+ * All rights reserved
+ */
+
 package domain;
 
+/**
+ * 레이싱 경주 게임의 자동차 클래스입니다.
+ *
+ * @author 김유민
+ * @version 1.00    2019/04/02
+ */
 public class Car {
     private final String name;
     private int position = 0;
@@ -32,7 +45,7 @@ public class Car {
     public String printStatus() {
         String status = name;
         status += " : ";
-        for (int i=0; i<position; i++) {
+        for (int i = 0; i < position; i++) {
             status += "-";
         }
         return status;

@@ -2,7 +2,6 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import domain.Car;
 import domain.MainApp;
-import sun.rmi.rmic.Main;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -13,11 +12,10 @@ public class MainAppTest extends TestCase {
     public void testGetCarNames() throws Exception {
         String testCarNames[] = {"pobi", "crong", "honux"};                    // 정답으로 사용될 자동차 이름들입니다.
         String testInput = "pobi,crong,honux";
-
         InputStream in = new ByteArrayInputStream(testInput.getBytes());       // 사용자 입력을 모방하는 트릭입니다.
         System.setIn(in);
         String inputCarNames[] = MainApp.getCarNames();
-        for (int i=0; i<testCarNames.length; i++) {
+        for (int i = 0; i < testCarNames.length; i++) {
             assertEquals(testCarNames[i], inputCarNames[i]);
         }
         System.setIn(System.in);                                               // 입력을 원래대로 돌려 놓습니다.
@@ -28,7 +26,7 @@ public class MainAppTest extends TestCase {
     public void testCreateArrayOfCars() throws Exception {
         String testCarNames[] = {"pobi", "crong", "honux"};
         Car testCars[] = MainApp.createArrayOfCars(testCarNames);
-        for (int i=0; i<testCarNames.length; i++) {
+        for (int i = 0; i < testCarNames.length; i++) {
             assertEquals(testCarNames[i], testCars[i].getName());
         }
     }
@@ -60,7 +58,7 @@ public class MainAppTest extends TestCase {
             assertEquals(1, testCar.getPosition());
             return;
         }
-        fail();  // randomNumber 는 반드시 0 ~ 9 사이의 값이어야 합니다.
+        fail();                                                                 // randomNumber 는 반드시 0 ~ 9 사이의 값이어야 합니다.
     }
 
     /* 메인 프로그램이 우승자를 가려내는 기능을 테스트합니다. */
