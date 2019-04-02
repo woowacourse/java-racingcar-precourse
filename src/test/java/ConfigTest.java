@@ -83,6 +83,7 @@ public class ConfigTest {
         assertEquals("-----", result);
     }
 
+
     @After
     public void setEnd() {
         System.out.println("setEnd");

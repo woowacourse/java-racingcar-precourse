@@ -1,5 +1,9 @@
 package domain;
 
+/**
+ * Car : 자동차 클래스
+ * Sort : alphabetically
+ */
 public class Car {
     private final String name;
     private int position = 0;
@@ -8,14 +12,12 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
-
     public final String getName() {
         return this.name;
     }
 
     public int getPosition() {
-        return position;
+        return this.position;
     }
 
     public int movePosition() {
