@@ -6,6 +6,12 @@ public class RacingGame {
     public static void main(String[] args){
         String[] CarName = InputCarNames();
         Car[] CarList = SetCarList(CarName);
+        int GameNumber = HowManyGame();
+        for(int i=0; i<GameNumber; i++)
+        {
+            GameStart(CarList);
+            System.out.println();
+        }
 
     }
 
@@ -38,7 +44,20 @@ public class RacingGame {
         }
         return Cars;
     }
-
+    public static int HowManyGame(){
+        int number;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("몇 번 시도할 것인가요? : ");
+        number= sc.nextInt();
+        return number;
+    }
+    public static void GameStart(Car[] CarList){
+        for(int i=0; i<CarList.length; i++)
+        {
+            CarList[i].MakeRandomNum();
+            CarList[i].ResultPositon();
+        }
+    }
 
 }
 

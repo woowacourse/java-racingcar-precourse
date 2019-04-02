@@ -58,6 +58,7 @@ Car 클래스
 
 'SetCarList' - 입력받은 자동차를 등록
 
+'HowManyGame' - 몇 번의 게임을 할지 입력
 
-
+'GameStart' - 게임 시작 
 
