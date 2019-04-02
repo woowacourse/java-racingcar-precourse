@@ -1,14 +1,15 @@
 # 구현할 기능 목록
 1. GenerateRandomNumber
-2. ReceiveInput
-3. ReceiveName (Valid한 값인지 check 할 것)
-4. PrintWinner
-5. ...?
+2. receiveCarName (Valid한 값인지 check 할 것)
+3. printOneResult (하나의 Car 객체의 현재 position 출력)
+4. printWinner
+5. getMaxPosition (printWinner를 위한 기능, 최종 우승자의 현재 position을 return 한다.)
 
 #### 구현 중 고려해야 할 사항
 1. Car Class의 name과 position이 private이기 때문에 클래스 내부에서 값을 수정해야 한다.
+2. 하지만 name은 final로 선언되어 처음 선언한 값에서 바꿀수 없고, position은 setPosition을 쓰지 않아야 한다.
 2. 기본 생성자를 수정하면 안된다.
-3. if문은 있지만 else문을 쓰면 안된다.
+3. if문이 있더라도, else문을 쓰지 않는다.
 
 
 ## 기능 요구 사항

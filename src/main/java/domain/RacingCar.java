@@ -17,6 +17,7 @@ public class RacingCar {
     /*
      * Method for Start Racing
      * Print Information and Receive car name, count
+     * Print each result, and total result
      */
     private static void goRacing() {
         Scanner s = new Scanner(System.in);
@@ -33,7 +34,7 @@ public class RacingCar {
             }
             System.out.println();
         }
-        //printAllResult();                    // 결과 출력: 우승자1, 우승자2 가 최종 우승했습니다.
+        //printWinner(carList);
     }
 
     /*
@@ -94,4 +95,19 @@ public class RacingCar {
         Collections.shuffle(numList);
         return numList.get(0);
     }
+
+    /*
+     * Method for getting max position value
+     * 최종 우승자를 알아내기 위해 최종 우승자의 position 값을 return 한다.
+     */
+    private static int getMaxPosition(ArrayList<Car> carList) {
+        int max = 0;
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getPosition() >= max) {
+                max = carList.get(i).getPosition();
+            }
+        }
+        return max;
+    }
+
 }
