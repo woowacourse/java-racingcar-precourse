@@ -19,5 +19,14 @@ public class Car {
         int random = r.nextInt(9) + 1;
         return random;
     }
+
+    public boolean DecideToMove(){
+        int random = RandomMove();
+        if(random>=4){
+            this.position += 4;
+            return true;
+        }
+        return false;
+    }
     // 추가 기능 구현
 }
