@@ -1,12 +1,27 @@
 package com.woowa.racingcar;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RacingGame {
 
     private static final String COMMENT_WHEN_PRINT_CHAMPIONS = "가 최종 우승했습니다";
     private ArrayList<Car> carList;
     private int runCount;
+
+    public void startGame() {
+        Scanner scanner = new Scanner(System.in);
+        carList = DataReceiver.getCarListFromUserInput(scanner);
+        runCount = DataReceiver.getRunCountFromUserInput(scanner);
+
+        // runCount 만큼 자동차 달리기
+        for (int i = 0; i < runCount; i++) {
+            progressAllCarsOneTurn();
+            System.out.println();
+        }
+
+        printChampions();
+    }
 
     /**
      * 모든 자동차를 한턴 진행한다.
@@ -52,7 +67,7 @@ public class RacingGame {
 
         for (int i = 0; i < champions.size(); i++) {
 
-            if(i != 0){
+            if (i != 0) {
                 System.out.print(",");
             }
             System.out.print(champions.get(i).getName());
