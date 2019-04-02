@@ -37,12 +37,27 @@ public class Racing {
 		sc = new Scanner(System.in);
 		carmgr = new CarMgr();
 	}
-	
+
 	public void raceBegin() {
 		enterUsers();
 		int raceTime = enterRaceTime();
 		startRace(raceTime);
 		raceResult();
 		raceEnd();
+	}
+
+	private void enterUsers() {
+		String carNames;
+		String[] names;
+		while (true) {
+			System.out.println("경주할 자동차 이름을 입력하세요.(각각의 이름은 5자 이하! 이름은 쉼표(,)기준으로 구분)");
+			carNames = sc.next();
+			names = carNames.split(",");
+			if (isValidUsers(names)) {
+				carmgr.addNames(names);
+				break;
+			}
+			System.out.println("----잘못된 정보를 입력하셨습니다! 5자 이하의 이름들을 반드시 쉼표(,)로 구분해주세요!----");
+		}
 	}
 }
