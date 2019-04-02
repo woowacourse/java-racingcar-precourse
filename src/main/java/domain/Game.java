@@ -39,4 +39,14 @@ public class Game {
         }
         display.showWinners(ans);
     }
+
+    public void playGames(int turns) {
+        while (turns > 0) {
+            goOneTurnForEachCar();
+            System.out.println();
+            turns--;
+        }
+        Arrays.sort(cars);
+        decidesWinner();
+    }
 }
