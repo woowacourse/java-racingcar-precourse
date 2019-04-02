@@ -1,7 +1,7 @@
 # 우아한 테크코스 프리코스 미션 진행 저장소
 우아한 테크코스 과정에 참여하기 위해 Delf(이상훈)가 3주간 주어진 미션을 열심히 수행하는 저장소입니다.
-- 1주차 미션([PR](), [과정 및 느낀점](https://github.com/Delf-Lee/study-archive/blob/master/woowacourse/tech-corce-mission-1.md))
-- 2주차 미션 - HERE!
+- 1주차 미션 - [PR](), [과정 및 느낀점](https://github.com/Delf-Lee/study-archive/blob/master/woowacourse/tech-corce-mission-1.md)
+- 2주차 미션 - [과정](https://github.com/Delf-Lee/study-archive/blob/master/woowacourse/tech-corce-mission-2.md)
 
 # 2주차 미션 - 자동차 경주 게임
 
@@ -41,7 +41,7 @@ public class Car {
     - 메소드 길이가 15라인을 넘어가지 않도록 구현한다.
     - `else` 예약어를 쓰지 않는다.
     
-## 구현 기능 목록
+## 초기 구현 기능 목록
 - 난수 발생기 구현
   - 확률 조정 가능하도록 구현(요구사항에서는 0.6의 확률로 전진, 0.4의 확률로 정지)
 - 경주 기능 구현
@@ -51,3 +51,11 @@ public class Car {
 - 테스트 구현
 - 예외 처리
 - 코드 리팩토링
+
+### 변경 사항
+- 난수 발생기를 가지고 있는 `자동차 전진 결정자` 클래스를 작성.
+  - 클래스가 아닌 인터페이스로 작성
+
+## 최종 구현 기능 목록
+- `자동차 전진 결정자` 인터페이스 작성
+  - `Car`는 이 인터페이스를 구현한 구현체를 가진다.
