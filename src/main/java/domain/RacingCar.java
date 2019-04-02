@@ -110,4 +110,19 @@ public class RacingCar {
         return max;
     }
 
+    /*
+     * Method for get Winner's name
+     * getMaxPosition 사용 하여 최종 승자의 name list를 return 한다.
+     */
+    private static List<String> getWinner(ArrayList<Car> carList) {
+        int max = getMaxPosition(carList);
+        List<String> winnerList = new ArrayList<String>();
+        for (int i = 0; i < carList.size(); i++) {
+            if (max == carList.get(i).getPosition()) {
+                winnerList.add(carList.get(i).getCarName());
+            }
+        }
+        return winnerList;
+    }
+
 }
