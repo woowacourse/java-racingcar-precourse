@@ -8,5 +8,25 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void move() {
+        int num = (int) (Math.random() * 10); // 0~9
+        if (num >= 4)
+            position++;
+    }
+
+    public void print() {
+        System.out.print(name +" : " );
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
