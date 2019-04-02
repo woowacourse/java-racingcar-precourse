@@ -23,6 +23,7 @@ public class Car {
 
     public static String getCarName() {
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         Scanner inputCarName = new Scanner(System.in);
         String checkCarName = inputCarName.nextLine();
 
@@ -73,7 +74,7 @@ public class Car {
             /* 분리된 이름배열을 Car배열 각각의 name에 인스턴스 생성과 동시에 name 변수 초기화 하는 반복문*/
             saveCarName[i] = new Car(getCarNameArray[i]);
         }
-        System.out.println("실행 결과");
+
         return saveCarName;
     }
 
@@ -113,7 +114,6 @@ public class Car {
     /* 자동차 경주 과정을 저장하는 메소드  */
     public static void showDuringRace(Car[] saveCarName){
 
-
         for(int i=0;i<saveCarName.length;i++){
 
             /* Car배열의 크기 만큼 반복 */
@@ -129,12 +129,10 @@ public class Car {
         System.out.println(" ");
     }
 
-    /* 자동차 경주 과정을 보여주는 메소드 */
+    /* 자동차 경주 과정을 주는 메소드 */
     public static void saveDuringRacing(Car[] saveCarName){
 
-
         for(int i=0; i<saveCarName.length;i++){
-
 
             if(checkCarState(createRandomNumber()) == true){
 
@@ -143,11 +141,6 @@ public class Car {
                 saveCarName[i].position++;
             }
         }
-    }
-
-    public static void getRacingCarName() {
-
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
     }
 
     /* 가장 많이 전진한 횟수를 저장하는 메소드 */
@@ -203,4 +196,10 @@ public class Car {
 
         System.out.println(String.join(",", getWinnerCarName) + "가 최종 우승 했습니다");
     }
+
+    public static void showResult(){
+
+        System.out.println("실행 결과");
+    }
+
 }
