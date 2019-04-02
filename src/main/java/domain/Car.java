@@ -8,6 +8,14 @@ public class Car{
         this.name = name;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
     /*
      * 랜덤값에 따라 position을 1만큼 증가시키거나 변화를 주지 않는 함수
      */

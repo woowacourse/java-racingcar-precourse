@@ -21,6 +21,7 @@ public class Main {
         System.out.println("실행 결과");
         for(int i=0;i<num;i++){
             gameStart();
+            printCarsPosition();
         }
     }
 
@@ -44,6 +45,17 @@ public class Main {
     public static void gameStart(){
         for(int i=0; i<cars.length;i++)
             cars[i].chooseGoOrStop();
+    }
+
+    public static void printCarsPosition(){
+        for(int i=0;i<cars.length;i++){
+            System.out.print(cars[i].getName()+": ");
+            int position = cars[i].getPosition();
+            for(int j=0; j<position; j++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
     }
 
 }
