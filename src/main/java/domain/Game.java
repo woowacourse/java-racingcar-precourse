@@ -21,4 +21,8 @@ public class Game {
 			car.tryMove();
 		}
 	}
+
+	public ArrayList<Car> getCars() {
+		return this.cars;
+	}
 }
