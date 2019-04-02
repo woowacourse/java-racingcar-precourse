@@ -11,11 +11,16 @@
 package domain;
 
 import java.util.Scanner;
+import java.util.Vector;
 
 public class RacingGame {
+	Vector<Car> Cars = new Vector<Car>();
+	
 	public void play() {
 		String carNameList = this.inputCarNameList();
 		String[] carNameArray = this.parseCarNameList(carNameList);
+		
+		this.makeCars(carNameArray);
 	}
 	
 	public String inputCarNameList() {
@@ -27,5 +32,11 @@ public class RacingGame {
 	
 	public String[] parseCarNameList(String carNameList) {
 		return carNameList.split(",");
+	}
+	
+	public void makeCars(String[] carNameArray) {
+		for(int i = 0; i < carNameArray.length; i++) {
+			Cars.add(new Car(carNameArray[i]));
+		}
 	}
 }
