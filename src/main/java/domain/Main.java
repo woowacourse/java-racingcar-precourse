@@ -83,7 +83,19 @@ public class Main {
                 }
         }
 
+        public static String arrayJoin(String glue, String array[]) {
+                StringBuffer result = new StringBuffer();
+
+                for (int i = 0; i < array.length; i++) {
+                        result.append(array[i]);
+                        if (i < array.length - 1) result.append(glue);
+                }
+
+                return result.toString();
+        }
+
         public static void outputWinner() {
+                
 
         }
 
