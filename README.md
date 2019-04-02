@@ -36,3 +36,19 @@
 5. 횟수 만큼 게임 진행 / 출력
 6. 전진 횟수 순으로 자동차 정렬
 7. 가장 많이 전진한 자동차 우승자 선정
+
+프로그래밍 요구 사항
+---
+####객체구현  
+1. Car 객체를 활용해 구현
+2. Car 기본 생성를 추가할 수 없음
+3. name, position 변수의 접근 제어인 private을 변경할 수 없다.
+4. 가능하면 setPosition(int position)메소드를 추가하지 않고 구현한다.
+
+####코드구현
+1. 컨벤션 주의
+    - https://google.github.io/styleguide/javaguide.html
+    - https://myeonguni.tistory.com/1596
+2. indent 3미만  
+3. 함수(또는 메소드)는 15라인 이하 / 한번에 한가지 일
+4. else 예약어 사용 X, switch/Case도 X
