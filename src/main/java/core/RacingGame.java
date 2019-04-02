@@ -34,10 +34,15 @@ public class RacingGame {
      */
     private boolean init() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
-        String nameInput = scanner.next();
-        scanner.nextLine();
-        String[] nameInputList = nameInput.split(",");
+        String nameInput = scanner.nextLine();
+        nameInput = nameInput.replaceAll(" ", "");      /* 입력 받은 문자열에 공백이 있을경우 제거 */
+        System.out.println(nameInput);
+        String[] nameInputList = nameInput.split(",|, ");           /* 쉼표(,)나 쉼표+공백(, )을 기준으로 분리 */
         for (String name : nameInputList) {
+            if (name.length() > 5) {                                       /* 이름의 길이가 5이상이면 게임 종료 */
+                System.out.println("자동차의 이름이 5자 이상입니다.\n게임을 종료합니다.");
+                return false;
+            }
             Car car = new Car(name);
             carList.add(car);
         }
@@ -85,8 +90,10 @@ public class RacingGame {
      * @return 정상적으로 게임이 종료되면 True, 비정상적으로 종료되었을 경우 False
      */
     public boolean progressGame() {
-        if (!init())
+        if (!init()) {
+            finish();
             return false;
+        }
 
         System.out.println("실행결과");
         System.out.println();
