@@ -64,7 +64,12 @@ public class Main {
         }
 
         public static void findMaximum(int pos) {
-
+                if(pos > max){
+                        max = pos;
+                        counter = 1;
+                        return;
+                }
+                counter++;
         }
 
         public static void outputWinner() {
