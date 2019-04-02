@@ -27,6 +27,7 @@ public class RacingGame {
 		this.makeCars(carNameArray);
 		this.runRounds();
 		winnerCarNameList = this.findWinner();
+		this.printWinner(winnerCarNameList);
 	}
 	
 	private void inputRound() {
@@ -87,5 +88,9 @@ public class RacingGame {
 			}
 		}
 		return winnerCarNameList;
+	}
+	
+	private void printWinner(String winnerCarNameList) {
+		System.out.println(winnerCarNameList + "가 최종 우승했습니다.");
 	}
 }
