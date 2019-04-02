@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class RacingGame {
     public static void main(String[] args){
         String[] CarName = InputCarNames();
+        Car[] CarList = SetCarList(CarName);
 
     }
 
@@ -19,6 +20,7 @@ public class RacingGame {
         return InputCar;
     }
 
+
     public static boolean CheckCarNameLength(String[] InputCarName){
         for(int i=0; i<InputCarName.length; i++){
             if(InputCarName[i].length()>5){
@@ -28,6 +30,15 @@ public class RacingGame {
         }
         return true;
     }
+
+    public static Car[] SetCarList(String[] CarNameList){
+        Car[] Cars = new Car[CarNameList.length];
+        for(int i=0; i<CarNameList.length; i++){
+            Cars[i] = new Car(CarNameList[i]);
+        }
+        return Cars;
+    }
+
 
 }
 

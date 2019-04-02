@@ -56,6 +56,8 @@ Car 클래스
 
 'CheckCarNameLength' - 입력 받은 이름의 길이가 5 이상인지 체크
 
+'SetCarList' - 입력받은 자동차를 등록
+
 
 
 
