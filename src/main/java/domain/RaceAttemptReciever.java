@@ -8,7 +8,7 @@ public class RaceAttemptReciever {
     private int raceAttempt;
 
 
-    private void RecieveRaceAttemptFromUser() {
+    public void RecieveRaceAttemptFromUser() {
         try {
             tryToRecieveRaceAttemptFromUser();
         } catch (IllegalArgumentException e) {
