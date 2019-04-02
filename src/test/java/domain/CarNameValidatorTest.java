@@ -22,7 +22,7 @@ public class CarNameValidatorTest {
         for (int i = 0; i < aboveUpperBound; i++) {
             input += "a";
         }
-        String[] carNames = { input };
+        String[] carNames = {input};
 
         CarNameValidator carNameValidator = new CarNameValidator(carNames);
 

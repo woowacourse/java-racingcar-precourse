@@ -6,10 +6,12 @@ public class InputHandler {
 
     private Validator validator;
     private final Scanner scanner;
+    private final OutputHandler outputHandler;
 
     public InputHandler() {
         validator = null;
         scanner = new Scanner(System.in);
+        outputHandler = new OutputHandler();
     }
 
     public int getNumOfMoves() {
@@ -20,7 +22,7 @@ public class InputHandler {
             if (validator.doesValid()) {
                 return Integer.parseInt(moveNum);
             }
-            printUnexpectedInput();
+            outputHandler.printUnexpectedInput();
         }
     }
 
@@ -32,16 +34,12 @@ public class InputHandler {
             if (validator.doesValid()) {
                 return carNames;
             }
-            printUnexpectedInput();
+            outputHandler.printUnexpectedInput();
         }
     }
 
     // TODO 성능을 위해 Pattern을 미리 컴파일해놓고 matcher를 사용하는 방식으로 구현할 것
     private String[] splitByComma(String input) {
         return input.split(",");
-    }
-
-    private void printUnexpectedInput() {
-        System.out.println("잘못된 입력입니다.");
     }
 }

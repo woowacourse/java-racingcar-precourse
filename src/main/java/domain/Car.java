@@ -20,11 +20,19 @@ public class Car {
         int mean = (RandomNumGenerator.RandomNumBound.UPPER.getBound()
                 + RandomNumGenerator.RandomNumBound.LOWER.getBound()) / 2;
         if (random >= mean) {
-            position += mean;
+            position++;
         }
     }
 
     public boolean doesCarMoved() {
         return position > prevPosition;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
