@@ -1,5 +1,5 @@
 /*
- * @Racing.java		1.00 2019/04/02
+ * @Racing.java		1.01 2019/04/02
  * 
  * Copyright(c)2019	HwiJin Hong.
  * All right reserved.
@@ -23,7 +23,7 @@ import java.util.Scanner;
 /**
  * 레이싱 정보를 가지고 있는 클래스
  * 
- * @version 1.00 2019년 4월 2일
+ * @version 1.01 2019년 4월 2일
  * @author huisam
  *
  */
@@ -77,6 +77,7 @@ public class Racing {
 		System.out.println("실행 결과");
 		for (int i = 0; i < raceTime; i++) {
 			carmgr.goOrStop();
+			timeWaitForResult();
 			carmgr.printCarList();
 		}
 	}
@@ -104,5 +105,13 @@ public class Racing {
 
 	private boolean isValidTime(int raceTime) {
 		return (raceTime >= 0) ? true : false;
+	}
+
+	private void timeWaitForResult() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }

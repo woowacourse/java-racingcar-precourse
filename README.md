@@ -35,3 +35,4 @@
 * raceEnd : 자동차의 경주가 끝난 뒤 정리하는 메서드
 * isValidUsers : 입력받은 유저의 정보가 유효한지 판별하는 메서드
 * isValidTime : 입력받은 진행 횟수가 적합한지 판별하는 메서드
+* timeWaitForResult : 박진감 있는 경기 진행을 위해, 한 단계씩 출력하는 메서드
