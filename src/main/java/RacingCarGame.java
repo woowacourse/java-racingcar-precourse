@@ -17,7 +17,7 @@ public class RacingCarGame {
     }
 
     public void setCars() {
-
+        this.cars = this.racingManager.initializeCars();
     }
 
     public void setTotalTrial() {
