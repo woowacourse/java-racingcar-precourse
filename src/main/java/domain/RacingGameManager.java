@@ -17,10 +17,9 @@ public class RacingGameManager {
 	public void run() {
 		String carNamesFromUser = getCarNamesFromUser();
 		makeCars(carNamesFromUser);
-
-		System.out.println("실행 결과");
-
 		totalGameCount = getGameCountFromUser();
+		
+		System.out.println("실행 결과");
 		while (totalGameCount-- > 0) {
 			raceCars();
 			printNowSituation();
@@ -71,6 +70,7 @@ public class RacingGameManager {
 		if (gameCountFromUser > 0) {
 			return true;
 		}
+		System.out.println("시도 회수는 1회 이상이여야 합니다.");
 		return false;
 	}
 
