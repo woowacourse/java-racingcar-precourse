@@ -40,4 +40,10 @@ public class RacingGameManager {
 			cars[i] = new Car(splitedCarNames[i]);
 		}
 	}
+
+	public int getGameCountFromUser() {
+		System.out.println("시도할 회수는 몇 회인가요?");
+		int gameCountFromUser = scanner.nextInt();
+		return gameCountFromUser;
+	}
 }
