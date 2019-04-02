@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class CarRacingGame {
 	public static Scanner scan = new Scanner(System.in);
 	public static void main(String[] args) {
+		String carName[] = scanCarName();
+		Car.carNum = carName.length;
+		Car cars[] = new Car[Car.carNum];
 		
 	}
 	
@@ -16,4 +19,5 @@ public class CarRacingGame {
 		return carName;
 	}
 
+	
 }
