@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Display {
@@ -32,5 +33,14 @@ public class Display {
             System.out.print("-");
         }
         System.out.println("");
+    }
+
+    public void showWinners(ArrayList<String> ans) {
+        if (ans.size() != 1) {
+            for (int i = 0; i < ans.size() - 1; i++) {
+                System.out.print(ans.get(i) + ". ");
+            }
+        }
+        System.out.println(ans.get(ans.size() - 1) + "이/가 최종 우승했습니다.");
     }
 }
