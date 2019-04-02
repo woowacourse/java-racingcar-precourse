@@ -1,6 +1,7 @@
 /**
  * RacingCar 클래스는 자동차 경주를 하기 위한 클래스이다.
- * 구성 Method는 goRacing, receiveCarName, generateRandomNumber, 필요한 것들..?
+ * 구성 Method는 goRacing, receiveCarName, printWinner
+ * 기능 단위로 최소화 하여 method를 분리하기 위해 노력하였다.
  * Last modified: 2019.04.02
  * Author: SM Jeon
  */
