@@ -45,4 +45,24 @@ public class DataReceiver {
 
         return tmpCarList;
     }
+
+    /**
+     * 1. 유저에게 라운드횟수 입력 요청
+     * 2. 조건검사(int로 변환불가시 1로 돌아감)
+     * 3. 반환
+     *
+     * @return runCount
+     */
+    public static int getRunCountFromUserInput(Scanner scanner) {
+
+        while (true) {
+            System.out.println(COMMENT_WHEN_REQUEST_RUN_COUNT);
+            String inputString = scanner.next();
+
+            if (ErrorChecker.checkRunCountStringHasError(inputString)) {
+                return Integer.parseInt(inputString);
+            }
+            System.out.println(COMMENT_WHEN_RUN_COUNT_NOT_PARSED);
+        }
+    }
 }
