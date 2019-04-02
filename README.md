@@ -36,3 +36,14 @@ while 문 안에 if 문이 있으면 들여쓰기는 2이다.
 else 예약어 쓰지 말기
 if 조건절에서 값을 return하는 방식으로 구현하면 else 사용안해도 됨
 switch/case 도 쓰지 말자
+
+
+-클래스 기능 구현
+
+Car 클래스
+
+'getPosition' - Position 반환
+
+'getName' - Name 반환 
+
+
