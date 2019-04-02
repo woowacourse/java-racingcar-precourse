@@ -6,7 +6,6 @@ public class Main {
 
         Car[] cars;
         Input input = new Input();
-        GameProcess gameProcess = new GameProcess();
         Draw draw = new Draw();
 
         String[] carNames = input.inputCarName();
@@ -20,7 +19,7 @@ public class Main {
 
         for (int i = 0; i < numberOfMove; ++i) {
             for (int j = 0; j < numberOfCar; ++j) {
-                int moveNumber = gameProcess.makeRandomNumber();
+                int moveNumber = GameProcess.makeRandomNumber();
                 if (moveNumber >= 4)
                     cars[j].goStraight();
             }
@@ -28,7 +27,7 @@ public class Main {
             draw.drawMoveResult(cars, numberOfCar);
         }
 
-        String[] winners = gameProcess.tellWinner(cars, numberOfCar);
+        String[] winners = GameProcess.tellWinner(cars);
         draw.drawWhoIsWinners(winners);
     }
 }

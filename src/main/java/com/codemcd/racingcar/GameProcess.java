@@ -4,55 +4,48 @@ import java.util.Random;
 
 public class GameProcess {
 
-    private static int MAX_NUMBER_SIZE = 10;
+    private static final int MAX_NUMBER_SIZE = 10;
 
-    public int makeRandomNumber() {
+    public static int makeRandomNumber() {
 
         Random random = new Random();
-
-        return random.nextInt(MAX_NUMBER_SIZE);
+        int randomNumber = random.nextInt(MAX_NUMBER_SIZE);
+        return randomNumber;
     }
 
-    private int getMaxPosition(Car[] cars, int carsArraySize) {
+    private static int getMaxPosition(Car[] cars) {
 
         int maxPosition = 0;
-
-        for (int i = 0; i < carsArraySize; ++i) {
+        for (int i = 0; i < cars.length; ++i) {
             if (maxPosition < cars[i].getPosition()) {
                 maxPosition = cars[i].getPosition();
             }
         }
-
         return maxPosition;
     }
 
-    private int getNumberOfWinner(Car[] cars, int carsArraySize, int maxPosition) {
+    private static int getNumberOfWinner(Car[] cars, int maxPosition) {
 
         int numberOfWinner = 0;
-
-        for (int i = 0; i < carsArraySize; ++i) {
+        for (int i = 0; i < cars.length; ++i) {
             if (cars[i].getPosition() == maxPosition) {
                 numberOfWinner++;
             }
         }
-
         return numberOfWinner;
     }
 
-    public String[] tellWinner(Car[] cars, int carsArraySize) {
+    public static String[] tellWinner(Car[] cars) {
 
-        String[] winners;
-        int maxPosition = getMaxPosition(cars, carsArraySize);
-        int numberOfWinner = getNumberOfWinner(cars, carsArraySize, maxPosition);
-        winners = new String[numberOfWinner];
-        int wIndex = 0;
-
-        for (int i = 0; i < carsArraySize; ++i) {
+        int maxPosition = getMaxPosition(cars);
+        int numberOfWinner = getNumberOfWinner(cars, maxPosition);
+        String[] winners = new String[numberOfWinner];
+        int winnerIndex = 0;
+        for (int i = 0; i < cars.length; ++i) {
             if (cars[i].getPosition() == maxPosition) {
-                winners[wIndex++] = cars[i].getName();
+                winners[winnerIndex++] = cars[i].getName();
             }
         }
-
         return winners;
     }
 }
