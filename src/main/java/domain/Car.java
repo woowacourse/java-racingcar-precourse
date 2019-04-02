@@ -45,6 +45,7 @@ public class Car implements Comparable<Car> {
     }
 
     private int createRandomNumber() {
+
         Random random = new Random();
 
         return random.nextInt(MAXIMUM_RANDOM_VALUE);
