@@ -20,7 +20,7 @@ public class Racing {
 
     private ArrayList<Car> carList;
     private int numberOfTimes;
-    
+
     public void runGame() {
         inputCarName();
         inputMovingNumber();
@@ -75,5 +75,16 @@ public class Racing {
             }
         }
         return true;
+    }
+
+    private void startRacing(){
+        System.out.println("실행결과");
+        for(int i = 0; i < numberOfTimes; i++){
+            for(int j = 0; j < carList.size(); j++) {
+                //carList.get(i).updatePosition();
+                //carList.get(i).printPosition();
+            }
+            System.out.println();
+        }
     }
 }
