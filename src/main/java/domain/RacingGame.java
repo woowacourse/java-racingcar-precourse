@@ -14,21 +14,31 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class RacingGame {
-	Vector<Car> Cars = new Vector<Car>();
+	private Scanner scanner = new Scanner(System.in);
+	private Vector<Car> Cars = new Vector<Car>();
+	private int round = 0;
 	
 	public void play() {
 		String carNameList = this.inputCarNameList();
 		String[] carNameArray = this.parseCarNameList(carNameList);
 		
+		this.inputRound();
 		this.makeCars(carNameArray);
 		this.moveCars();
 	}
 	
+	private void inputRound() {
+		System.out.println("시도할 횟수는 몇회인가요?");
+		while (!scanner.hasNextInt()) {
+			scanner.next();
+			System.out.println("올바른 수를 입력하세요.");
+		}
+		round = scanner.nextInt();
+	}
+	
 	private String inputCarNameList() {
-		Scanner scan = new Scanner(System.in);
-		
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
-		return scan.nextLine();
+		return scanner.nextLine();
 	}
 	
 	private String[] parseCarNameList(String carNameList) {
