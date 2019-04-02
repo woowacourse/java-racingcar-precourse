@@ -28,13 +28,13 @@ import java.util.Scanner;
  */
 public class Racing {
 
-	private Scanner sc;
+	private Scanner scanner;
 
-	private CarMgr carmgr;
+	private CarManager carManager;
 
 	public Racing() {
-		sc = new Scanner(System.in);
-		carmgr = new CarMgr();
+		scanner = new Scanner(System.in);
+		carManager = new CarManager();
 	}
 
 	public void raceBegin() {
@@ -50,10 +50,10 @@ public class Racing {
 		String[] names;
 		while (true) {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 5자 이하! 쉼표(,)기준으로 구분)");
-			carNames = sc.next();
+			carNames = scanner.next();
 			names = carNames.split(",");
 			if (isValidUsers(names)) {
-				carmgr.addNames(names);
+				carManager.addNames(names);
 				break;
 			}
 			System.out.println("[입력 오류!] 5자 이하의 이름들을 반드시 쉼표(,)로 구분해주세요!");
@@ -64,7 +64,7 @@ public class Racing {
 		int raceTime;
 		while (true) {
 			System.out.println("시도할 회수는 몇 회인가요? 0이상의 정수로 입력해주세요!");
-			raceTime = sc.nextInt();
+			raceTime = scanner.nextInt();
 			if (isValidTime(raceTime)) {
 				return raceTime;
 			}
@@ -75,19 +75,19 @@ public class Racing {
 	private void startRace(int raceTime) {
 		System.out.println("실행 결과");
 		for (int i = 0; i < raceTime; i++) {
-			carmgr.goOrStop();
+			carManager.goOrStop();
 			timeWaitForResult();
-			carmgr.printCarList();
+			carManager.printCarList();
 		}
 	}
 
 	private void raceResult() {
-		String winners = carmgr.whoIsFirst();
+		String winners = carManager.whoIsFirst();
 		System.out.println(winners + "가 최종 우승했습니다.");
 	}
 
 	private void raceEnd() {
-		sc.close();
+		scanner.close();
 	}
 
 	private boolean isValidUsers(String[] names) {

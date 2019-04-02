@@ -13,7 +13,7 @@
 
 ### 구현한 클래스
 * Car Class : `자동차의 정보`를 가지고 있는 클래스
-* CarMgmt Class : 자동차의 정보들을 `리스트로 관리`해주는 클래스
+* CarManager Class : 자동차의 정보들을 `리스트로 관리`해주는 클래스
 * Racing Class : 자동차의 `경주가 진행`되는 클래스
 * Play Class : 자동차 경주대회를 `실행`할 클래스
 
@@ -24,7 +24,7 @@
 * getPosition : 자동차의 `현재 위치`를 얻어오는 메서드
 * getName : 자동차의 `이름`을 얻어오는 메서드
 
-#### [CarMgr Class]
+#### [CarManager Class]
 * addNames : 자동차 이름들의 정보를 입력받아 자동차 `리스트에 저장`하는 메서드
 * makeRandom : 0 ~ 9 까지 `random값`을 추출할 메서드
 * goOrStop : 각각의 자동차에 대하여 전진할 것인지 멈춰 있을것인지 `결정`하는 메서드

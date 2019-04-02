@@ -1,5 +1,5 @@
 /*
- * @CarMgr.java		1.02 2019/04/02
+ * @CarManager.java	1.02 2019/04/02
  * 
  * Copyright(c)2019	HwiJin Hong.
  * All right reserved.
@@ -21,14 +21,14 @@ import java.util.HashSet;
  * 3.자동차들의 상태 정보를 콘솔창에 출력해준다.
  * 4.1등 자동차들의 이름을 가져온다.
  * 
- * @version 1.02 2019년 4월 2일
+ * @version 1.10 2019년 4월 2일
  * @author 홍휘진
  */
-public class CarMgr {
+public class CarManager {
 
 	private ArrayList<Car> carList;
 
-	public CarMgr() {
+	public CarManager() {
 		carList = new ArrayList<>();
 	}
 
