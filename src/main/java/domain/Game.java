@@ -25,4 +25,14 @@ public class Game {
 	public ArrayList<Car> getCars() {
 		return this.cars;
 	}
+
+	private int getMaxPosition() {
+		int maxPosition = 0;
+		for (Car car : this.cars) {
+			if (car.getPosition() > maxPosition) {
+				maxPosition = car.getPosition();
+			}
+		}
+		return maxPosition;
+	}
 }
