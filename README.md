@@ -50,4 +50,12 @@ Car 클래스
 
 'ResultPositon'  - 위치를 '-' 으로 표현
 
+-RacingGame 클래스
+
+'InputCarNames' - 자동차 이름을 입력 받음
+
+'CheckCarNameLength' - 입력 받은 이름의 길이가 5 이상인지 체크
+
+
+
 
