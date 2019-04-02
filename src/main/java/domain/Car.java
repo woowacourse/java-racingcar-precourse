@@ -4,7 +4,6 @@
  * version 1.3
  *
  * 2019/04/02
- *
  */
 
 package domain;
