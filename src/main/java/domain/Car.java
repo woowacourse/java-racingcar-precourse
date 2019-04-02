@@ -1,5 +1,7 @@
 package domain;
 
+import com.sun.javafx.css.CalculatedValue;
+import java.util.Calendar;
 import java.util.Random;
 
 public class Car {
@@ -20,12 +22,18 @@ public class Car {
         return random;
     }
 
-    public int DecideToMove(){
-        int random = RandomMove();
+    public boolean DecideToMove(int random){
         if(random>=4){
-            return random;
+            return true;
         }
-        return 0;
+        return false;
+    }
+
+    public void CalculateLocation(int random){
+        if(!DecideToMove(random)){
+            this.position += random;
+        }
+        return;
     }
     // 추가 기능 구현
 }
