@@ -10,6 +10,16 @@ public class GameUI {
 		this.game = new Game();
 	}
 
+	public void run() {
+		try (Scanner sc = new Scanner(System.in)) {
+			String carNames = askCarNames(sc);
+			int lapNum = askLapNum(sc);
+
+			this.game.joinRace(carNames);
+			startRace(lapNum);
+		}
+	}
+
 	public String askCarNames(Scanner sc) {
 		String carNames;
 		String info = "경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)";
