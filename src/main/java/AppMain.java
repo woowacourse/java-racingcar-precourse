@@ -1,7 +1,7 @@
 /*
  * AppMain
  *
- * version 1.0
+ * version 1.1
  *
  * 2019/04/02
  */
@@ -16,12 +16,13 @@ import java.util.List;
  *
  * @author 김성훈
  * @version 1.0 2019/04/02  main 클래스 생성
+ *          1.1 2019/04/02  프로그래밍 요구사항에 맞게 구현될 수 있도록 메소드 호출
  */
 public class AppMain {
-    public static List<Car> cars;
-    public static String[] carNames;
-    public static int round;
-    public static String winners;
+    private static List<Car> cars;
+    private static String[] carNames;
+    private static int round;
+    private static String winners;
 
     public static void main(String[] args) {
         Racing racing = new Racing();
