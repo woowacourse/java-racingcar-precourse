@@ -16,4 +16,12 @@ public class Display {
         }
         return inputString;
     }
+
+    public int getTrialNums() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        sc = new Scanner(System.in);
+        int trialNums = sc.nextInt();
+        System.out.println();
+        return trialNums;
+    }
 }
