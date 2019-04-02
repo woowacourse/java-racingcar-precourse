@@ -41,43 +41,43 @@
 
 ###1. Car 모델을 담을 Car 클래스
 
- 	* 자동차의 이름(name)과 위치(position)를 생성
- 	* 자동차를 전진할지 말지 movePosition() 구현 -> 4이상이면 position 1증가
+ * 자동차의 이름(name)과 위치(position)를 생성
+ * 자동차를 전진할지 말지 **movePosition()** 구현 -> 4이상이면 position 1증가
  	
 ###2. 유저가 자동차 정보 및 시도 횟수를 입력할 Input 클래스
 
-  	* 사용자가 출전 시킬 자동차의 이름들을 입력할 enrollCarName() 구현
-  	* 몇번 시도 할지 정하는 tryNumber() 구현
-  	* 사용자의 입력들을 유효성 검사 시작(Exception 처리)
+  * 사용자가 출전 시킬 자동차의 이름들을 입력할 **enrollCarName()** 구현
+  * 몇번 시도 할지 정하는 **tryNumber()** 구현
+  * 사용자의 입력들을 유효성 검사 시작
   	  	
 ###3. 게임의 진행 및 결과 내용을 console에서 출력할 Output 클래스
 
- 	* gameOngoingMessage()을 통해 자동차의 이름과 현재 위치 출력
- 	* 누가 이겼는지 console에 출력할 gameResultMessage() 구현 -> getWinner()를 통해 우승자 리스트를 생성
+ * **gameOngoingMessage()**을 통해 자동차의 이름과 현재 위치 출력
+ * 누가 이겼는지 console에 출력할 **gameResultMessage()** 구현 -> **getWinner()**를 통해 우승자 리스트를 생성
  	 
 ###4. 전반적으로 게임에 컨트롤을 위한 RaceingGameController 클래스
 
- 	* 레이싱 게임을 시작하는 gameStart() 구현
- 	* 자동차 객체들은(자동차 이름,위치) ArrayList<Car>로 등록
- 	* 게임 결과를 알려주는 gameResult() 구현 -> raceingStart()를 통해 자동차 위치가 움직이기 시작
+ * 레이싱 게임을 시작하는 **gameStart()** 구현
+ * 자동차 객체들은(자동차 이름,위치) ArrayList<Car>로 등록
+ * 게임 결과를 알려주는 **gameResult()** 구현 -> **raceingStart()**를 통해 자동차 위치가 움직이기 시작
  	
 ###5. 사용자 입력에 예외처리 하는 InputException 클래스
 
- 	* enrollCarOverlapName() : 자동차 이름이 중복되는게 있는지 확인
- 	* enrollCarOverLength() : 자동차 이름이 5이하 인지 확인
- 	* enrollCarBlankName() : 자동차 이름에 빈칸이 있는지 확인
- 	* enrollCarOneName() : 자동차가 한대인지 확인
- 	* enrollCarNullName() : 자동차가 이름이 없는지 확인
- 	* enrollCarLastComma() : 마지막에 콤마를 붙였는지 확인
- 	* tryNumberBlank() : 시도 횟수가 빈칸인지 확인
+ * **enrollCarOverlapName()** : 자동차 이름이 중복되는게 있는지 확인
+ * **enrollCarOverLength()** : 자동차 이름이 5이하 인지 확인
+ * **enrollCarBlankName()** : 자동차 이름에 빈칸이 있는지 확인
+ * **enrollCarOneName()** : 자동차가 한대인지 확인
+ * **enrollCarNullName()** : 자동차가 이름이 없는지 확인
+ * **enrollCarLastComma()** : 마지막에 콤마를 붙였는지 확인
+ * **tryNumberBlank()** : 시도 횟수가 빈칸인지 확인
  	
 ###6. 예외 메세지 등록할 ErrorMessage 클래스
 
- 	* 입력부분이 유효하지 않는다면 에러메세지 출력
+ * 입력부분이 유효하지 않는다면 에러메세지 출력
  	
 ###7. 게임을 진행할 Main 클래스
 
- 	* RaceingGameController 객체 생성하고 gameStart메소드 호출해 게임 시작
+ * RaceingGameController 객체 생성하고 gameStart메소드 호출해 게임 시작
 
 ###8. Input,Output,InputException은 싱글톤으로 제작
 
