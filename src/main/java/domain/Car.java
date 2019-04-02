@@ -30,4 +30,13 @@ public class Car {
     public void move() {
     	if(this.canMove()) this.position++;
 	}
+    
+    public void printPosition() {
+    	String result = this.name + " : ";
+    	
+    	for(int i = 0; i < position; i++) {
+    		result += "-";
+    	}
+    	System.out.println(result);
+    }
 }
