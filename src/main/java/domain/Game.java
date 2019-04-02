@@ -12,6 +12,15 @@ public class Game {
         display = new Display();
     }
 
+    public void initGame() {
+        String[] names = display.getNames();
+        cars = new Car[names.length];
+        makeCars(names);
+        int trialNums = display.getTrialNums();
+        System.out.println("실행 결과");
+        playGames(trialNums);
+    }
+
     public Car[] makeCars(String[] names) {
         for (int i = 0; i < names.length; i++) {
             cars[i] = new Car(names[i]);
