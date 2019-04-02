@@ -1,6 +1,23 @@
+/*
+ * @(#)Car.java	1.8.0_191 2019/04/02
+ * 
+ * Copyright (c) 2019 Youngbae Son
+ * ComputerScience, ProgrammingLanguage, Java, Busan, KOREA
+ * All rights reserved.
+ * 
+ * */
+
 package domain;
 
-import java.util.ArrayList;
+/*
+ * 자동차의 기본정보 : 이름, 위치 
+ * randomValueCreate: 랜덤난수 생성(1~9)
+ * acceleratorAndbreak : 전진and멈춤에 따란 위치변화
+ * printDistance : 현재까지 달려온 거리를 출력 
+ * 
+ * @author 손영배
+ * 
+ * */
 
 public class Car {
 	
@@ -21,6 +38,7 @@ public class Car {
 			
 			if (randomNumber == 0)
 				continue;
+			
 			return randomNumber;
 		}
 	}
@@ -32,12 +50,14 @@ public class Car {
 
 	}
 
-	public void playRacing() {
+	public void printDistance() {
 
 		System.out.print(this.name + ":");
+		
 		for (int i = 0; i < this.position; i++) {
 			System.out.print("-");
 		}
+		
 		System.out.println();
 	} 
 
