@@ -18,10 +18,30 @@ public class RacingCar {
             isNamingRule = namingRule(splitCarNames);
             if (isNamingRule) {
                 Collections.addAll(distinctCarName, splitCarNames);
+                printWarningMessage(splitCarNames, distinctCarName);
                 break;
             }
         }
         return distinctCarName;
+    }
+
+    public void printWarningMessage(String[] splitCarNames, Set<String> distinctCarName) {
+        int duplicatedCount;
+        StringJoiner duplicatedName = new StringJoiner(", ");
+        for (String distinctName: distinctCarName) {
+            duplicatedCount = 0;
+            for (String carName: splitCarNames) {
+                if (carName.equals(distinctName)) {
+                    duplicatedCount ++;
+                }
+            }
+            if (duplicatedCount > 1) {
+                duplicatedName.add(distinctName);
+            }
+        }
+        if (duplicatedName.length() > 0) {
+            System.out.printf("[Warning]중복된 이름(%s)이 발생하였습니다.\n", duplicatedName);
+        }
     }
 
     public boolean namingRule(String[] carNames) {
@@ -93,7 +113,6 @@ public class RacingCar {
         int maxPosition = getMaxPosition(carList);
         int carPosition;
         String carName;
-        String winnerNotice;
         StringJoiner winnerName = new StringJoiner(", ");
         for (Car car: carList) {
             carPosition = car.getPosition();
@@ -102,8 +121,7 @@ public class RacingCar {
                 winnerName.add(carName);
             }
         }
-        winnerNotice = winnerName + "가 최종우승했습니다.";
-        System.out.println(winnerNotice);
+        System.out.printf("%s가 최종 우승했습니다.\n", winnerName);
     }
 
     public int getMaxPosition(ArrayList<Car> carList) {
