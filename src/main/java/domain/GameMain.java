@@ -6,6 +6,7 @@ public class GameMain {
 
 	static String nameArray [];
 	static Car cars [];
+	static int position [];
 	
 	//쉼표 기준으로 이름 구분하는 메소드
 	static void nameDistinguish(String names){
@@ -63,6 +64,19 @@ public class GameMain {
 			}
 			System.out.println();
 		}
+	}
+	
+	//가장 큰 position값 구하는 메소드
+	static int max(){
+		position = new int[nameArray.length];
+		int maxPosition = 0;		
+		for(int i=0; i<nameArray.length; ++i){
+			position[i] = cars[i].getPosition();
+			if(maxPosition < position[i]){
+				maxPosition = position[i];
+			}
+		}
+		return maxPosition;
 	}
 		
 	public static void main(String[] args) {
