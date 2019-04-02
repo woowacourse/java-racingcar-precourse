@@ -89,7 +89,7 @@ public class RacingCar {
      */
     private static int generateRandomNumber() {
         ArrayList<Integer> numList = new ArrayList<Integer>();       // 0 to 9 number List
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             numList.add(i);
         }
         Collections.shuffle(numList);
