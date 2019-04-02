@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Game {
 
     private Car[] cars;
@@ -22,5 +25,18 @@ public class Game {
             cars[i].increasePosition(randomNum);
             display.showResults(cars[i]);
         }
+    }
+
+    public void decidesWinner() {
+        int maxPosition = cars[0].getPosition();
+        ArrayList<String> ans = new ArrayList<String>();
+        ans.add(cars[0].getName());
+        for (int i = 1; i < cars.length; i++) {
+            if (maxPosition != cars[i].getPosition()) {
+                break;
+            }
+            ans.add(cars[i].getName());
+        }
+        display.showWinners(ans);
     }
 }
