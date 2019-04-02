@@ -20,18 +20,42 @@ public class Input {
 
     public ArrayList<Car> enrollCarName() {
         ArrayList<Car> carList = new ArrayList<>();
-        String[] inputCarName = scanner.nextLine().split(",");
+        String input;
+        String[] inputCarName;
 
-        for (int i = 0; i < inputCarName.length; i++) {
-            carList.add(new Car(inputCarName[i]));
+        while (true) {
+            input = scanner.nextLine();
+            inputCarName = input.split(",");
+
+            if (!InputException.getInstance().enrollCarNullName(inputCarName) || !InputException.getInstance().enrollCarOneName(inputCarName)
+                    || !InputException.getInstance().enrollCarOverLength(inputCarName) || !InputException.getInstance().enrollCarBlankName(inputCarName)
+                    || !InputException.getInstance().enrollCarOverlapName(inputCarName) || !InputException.getInstance().enrollCarLastComma(input)) {
+                continue;
+            }
+
+            for (String name : inputCarName) {
+                carList.add(new Car(name));
+            }
+            return carList;
         }
-
-        return carList;
     }
 
-    public int tryNumber(){
-        int tryNumber = Integer.parseInt(scanner.nextLine());
-        scanner.close();
-        return tryNumber;
+    public int tryNumber() {
+        String inputNumber;
+        int tryNumber;
+        while (true) {
+            inputNumber = scanner.nextLine();
+            if (!InputException.getInstance().tryNumberBlank(inputNumber)) {
+                continue;
+            }
+            try {
+                tryNumber = Integer.parseInt(inputNumber);
+                scanner.close();
+                return tryNumber;
+            } catch (NumberFormatException e) {
+                System.out.println(ErrorMessage.ERROR_OTHER_TRY_NUMBER.getMessage());
+            }
+        }
     }
+
 }
