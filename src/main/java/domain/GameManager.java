@@ -1,5 +1,16 @@
 package domain;
 
+/*
+ * Class GameManager
+ *
+ *
+ *
+ * 2019.04.02
+ *
+ * @author jins408
+ *
+ */
+
 import java.util.ArrayList;
 
 public class GameManager {

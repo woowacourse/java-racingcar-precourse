@@ -1,5 +1,16 @@
 package domain;
 
+/*
+ * Class Car
+ *
+ *
+ *
+ * 2019.04.02
+ *
+ * @author jins408
+ *
+ */
+
 public class Car {
     private final String name;
     private int position = 0;

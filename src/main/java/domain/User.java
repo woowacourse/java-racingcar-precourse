@@ -1,5 +1,16 @@
 package domain;
 
+/*
+ * Class User
+ *
+ *
+ *
+ * 2019.04.02
+ *
+ * @author jins408
+ *
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
