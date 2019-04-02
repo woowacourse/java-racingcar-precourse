@@ -17,10 +17,37 @@ public class Racing {
             printResult(carList);
             System.out.printf("\n\n");
         }
+        printWinnerName(carList);
+    }
+
+    private void printWinnerName(List<Car> carList) {
+        List<String> winner = getWinnerName(carList);
+        System.out.println(String.join(",",winner) + "가 최종 우승했습니다.");
+    }
+
+    private List<String> getWinnerName(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
+        int maxPosition = getPositionMax(carList);
 
         for (Car car : carList) {
-            System.out.println(car.getName() + "의 포지션: " + car.getPosition());
+            if (car.getPosition() == maxPosition) {
+                winnerList.add(car.getName());
+            }
         }
+
+        return winnerList;
+    }
+
+    private int getPositionMax(List<Car> carList) {
+        int maxPosition = 0;
+
+        for (Car car : carList) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+
+        return maxPosition;
     }
 
     private void printResult(List<Car> carList) {
