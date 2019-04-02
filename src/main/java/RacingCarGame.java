@@ -21,7 +21,7 @@ public class RacingCarGame {
     }
 
     public void setTotalTrial() {
-
+        this.totalTrial = this.racingManager.getTotalTrial();
     }
 
     public void start() {

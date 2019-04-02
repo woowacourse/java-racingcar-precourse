@@ -18,4 +18,10 @@ public class RacingManager {
         }
         return cars;
     }
+
+    public int getTotalTrial() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int totalTrial = sc.nextInt();
+        return totalTrial;
+    }
 }
