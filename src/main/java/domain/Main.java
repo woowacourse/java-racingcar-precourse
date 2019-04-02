@@ -9,6 +9,8 @@ public class Main {
 
         static Car[] cars;
         static int n;
+        static int counter = 0;
+        static int max = -1;
 
         public static void main(String args[]) throws IOException {
                 inputNames();
@@ -50,16 +52,18 @@ public class Main {
         public static void gameOnce() {
                 for (int i=0; i< cars.length; i++){
                         cars[i].movePosition();
-                        //outputPosition(cars[i]);
+                        outputPosition(cars[i]);
                 }
                 System.out.println();
         }
 
         public static void compare() {
-
+                for(int i=0; i< cars.length;i++){
+                        findMaximum(cars[i].getPosition());
+                }
         }
 
-        public static void findMaximum() {
+        public static void findMaximum(int pos) {
 
         }
 
