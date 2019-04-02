@@ -46,4 +46,8 @@ Car 클래스
 
 'getName' - Name 반환 
 
+'MakeRandomNum'  - 0에서 9 사이의 값을 구한후 4 이상이면 위치 증가
+
+'ResultPositon'  - 위치를 '-' 으로 표현
+
 

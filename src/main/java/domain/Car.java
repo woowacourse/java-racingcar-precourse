@@ -17,4 +17,20 @@ public class Car {
         return this.name;
     }
 
+    public void MakeRandomNum(){
+        int RandomNum = (int)(Math.random()*10);
+        if(RandomNum >=4){
+            this.position++;
+        }
+    }
+
+    public void ResultPositon(){
+        System.out.print(this.name + " : ");
+
+        for(int i=0; i<this.position; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
 }
