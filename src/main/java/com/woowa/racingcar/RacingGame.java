@@ -15,4 +15,19 @@ public class RacingGame {
             carList.get(j).tryOneTurn();
         }
     }
+
+    /**
+     * @return int 자동차중 최대 position 값
+     */
+    public int getMaxDistance() {
+        int maxPosition = 0;
+
+        for (int i = 0; i < carList.size(); i++) {
+            int tmpPosition = carList.get(i).getPosition();
+            if (maxPosition < tmpPosition) {
+                maxPosition = tmpPosition;
+            }
+        }
+        return maxPosition;
+    }
 }
