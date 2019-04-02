@@ -27,10 +27,23 @@ public class GameManager {
     public void startRacing() {
         init();
         if (!getRacingInformation()) {
+            notifynameState();
             runRacing();
             judgeRacing();
         } else {
             startRacing();
+        }
+    }
+
+    /*
+     * 자동차 경주에 참여한 자동차의 상태를 공지 (중복된 자동차 유,이름길이 제한초과된 자동차 유)
+     */
+    private void notifynameState() {
+        if (inputgameinformation.getCheckOverlapstate()) {
+            System.out.println(Message.errorMessage.get("ERROR_NAMESTATE_OVERLAP"));
+        }
+        if (inputgameinformation.getCheckLengthstate()) {
+            System.out.println(Message.errorMessage.get("ERROR_NAMESTATE_LENGTH"));
         }
     }
 
