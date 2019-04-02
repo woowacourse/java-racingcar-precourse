@@ -52,7 +52,7 @@ public class Main {
         }
 
         public static void gameOnce() {
-                for (int i=0; i< cars.length; i++){
+                for (int i = 0; i < cars.length; i++) {
                         cars[i].movePosition();
                         outputPosition(cars[i]);
                 }
@@ -60,24 +60,26 @@ public class Main {
         }
 
         public static void compare() {
-                for(int i=0; i< cars.length;i++){
+                for (int i = 0; i < cars.length; i++) {
                         findMaximum(cars[i].getPosition());
                 }
                 winner = new String[counter];
-                for(int i=0; i<cars.length;i++){
-                        if(cars[i].getPosition() == max){
-                                winner[i] = cars[i].getName();
+                int j = 0;
+                for (int i = 0; i < cars.length; i++) {
+                        if (cars[i].getPosition() == max) {
+                                winner[j] = cars[i].getName();
+                                j++;
                         }
                 }
         }
 
         public static void findMaximum(int pos) {
-                if(pos > max){
+                if (pos > max) {
                         max = pos;
                         counter = 1;
                         return;
                 }
-                if(pos == max){
+                if (pos == max) {
                         counter++;
                         return;
                 }
@@ -99,9 +101,9 @@ public class Main {
                 System.out.println(winnerName + "가 최종 우승 했습니다.");
         }
 
-        public static void outputPosition(Car car){
-                System.out.print(car.getName()+":");
-                for(int i=0; i<car.getPosition();i++){
+        public static void outputPosition(Car car) {
+                System.out.print(car.getName() + ":");
+                for (int i = 0; i < car.getPosition(); i++) {
                         System.out.print("-");
                 }
                 System.out.println();
