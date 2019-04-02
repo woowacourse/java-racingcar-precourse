@@ -22,6 +22,6 @@ public class Car {
     }
 
     public String getName() {
-        return "Crong";
+        return name;
     }
 }
