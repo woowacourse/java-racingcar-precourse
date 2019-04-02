@@ -21,8 +21,8 @@ public class RacingCar {
      */
     private static void goRacing() {
         Scanner s = new Scanner(System.in);
-        int gameCount = 0;
-        ArrayList<Car> carList = new ArrayList<Car>();
+        int gameCount;
+        ArrayList<Car> carList = new ArrayList<>();
 
         carList = receiveCarName();
         System.out.println("시도할 회수는 몇회인가요?");
@@ -43,7 +43,7 @@ public class RacingCar {
      * 이름은 5자 이하여야 한다.
      */
     private static ArrayList<Car> receiveCarName() {
-        ArrayList<Car> carList = new ArrayList<Car>();
+        ArrayList<Car> carList = new ArrayList<>();
         String[] nameList;
 
         nameList = receiveInput();
@@ -110,7 +110,7 @@ public class RacingCar {
      * shuffle된 list의 index 0번째 값을 return 한다.
      */
     private static int generateRandomNumber() {
-        ArrayList<Integer> numList = new ArrayList<Integer>();       // 0 to 9 number List
+        ArrayList<Integer> numList = new ArrayList<>();       // 0 to 9 number List
         for (int i = 0; i < 10; i++) {
             numList.add(i);
         }
@@ -138,7 +138,7 @@ public class RacingCar {
      */
     private static ArrayList<String> getWinner(ArrayList<Car> carList) {
         int max = getMaxPosition(carList);
-        ArrayList<String> winnerList = new ArrayList<String>();
+        ArrayList<String> winnerList = new ArrayList<>();
         for (int i = 0; i < carList.size(); i++) {
             if (max == carList.get(i).getPosition()) {
                 winnerList.add(carList.get(i).getCarName());
