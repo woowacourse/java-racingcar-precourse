@@ -11,7 +11,7 @@ public class User {
         input();
     }
 
-    private void input() {
+    public void input() {
         inputCarNames();
         inputNumberOfTrials();
     }
@@ -20,7 +20,7 @@ public class User {
      * 경주할 자동차 전체를 문자열로 입력 받음
      * 자동차 이름을 분리하여 저장
      */
-    private void inputCarNames() {
+    public void inputCarNames() {
         String carNamesInput;
         String[] carNamesArray;
         Scanner sc = new Scanner(System.in);
@@ -38,7 +38,7 @@ public class User {
      * @param str   : 자동차 이름을 ,로 구분하여 입력한 문자열
      * @return      : 슬라이싱하여 구분된 자동차 이름
      */
-    private String[] inputSlicing(String carNamesInput) {
+    public String[] inputSlicing(String carNamesInput) {
         String[] carNameArray;
 
         carNamesInput = carNamesInput.replace(" ","");      // 공백 제거
@@ -50,7 +50,7 @@ public class User {
     /**
      * 사용자가 몇 번을 시도할 것인지를 입력
      */
-    private void inputNumberOfTrials() {
+    public void inputNumberOfTrials() {
         int count;
         Scanner sc = new Scanner(System.in);
 
@@ -60,11 +60,11 @@ public class User {
         setNumberOfTrials(count);
     }
 
-    private void setCarNames(String[] carNames) {
+    public void setCarNames(String[] carNames) {
         this.carNames = carNames;
     }
 
-    private void setNumberOfTrials(int numberOfTrials) {
+    public void setNumberOfTrials(int numberOfTrials) {
         this.numberOfTrials = numberOfTrials;
     }
 

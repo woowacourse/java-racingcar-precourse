@@ -8,5 +8,9 @@ public class ConstValue {
     /* move 와 stop 을 결정하는 기준 */
     public static final int ACTION_DECISION_VALUE = 4;
 
+    /**
+     * 랜덤으로 생성되는 수의 범위
+     * 0 ~ (RANDOM_NUMBER_RANGE - 1)
+     */
     public static final int RANDOM_NUMBER_RANGE = 10;
 }
