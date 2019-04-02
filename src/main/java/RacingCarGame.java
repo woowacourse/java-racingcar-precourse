@@ -7,6 +7,7 @@ public class RacingCarGame {
     private TrackingCenter trackingCenter;
     private DisplayBoard displayBoard;
     private ArrayList<Car> cars;
+    private int totalTrial = 0;
 
     public RacingCarGame() {
         this.racingManager = new RacingManager();
@@ -15,8 +16,23 @@ public class RacingCarGame {
         this.cars = new ArrayList<Car>();
     }
 
+    public void setCars() {
+
+    }
+
+    public void setTotalTrial() {
+
+    }
+
+    public void start() {
+
+    }
+
     public static void main(String args[]) {
         RacingCarGame racingCarGame = new RacingCarGame();
 
+        racingCarGame.setCars();
+        racingCarGame.setTotalTrial();
+        racingCarGame.start();
     }
 }
