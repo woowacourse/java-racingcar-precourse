@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameUI {
@@ -39,6 +40,19 @@ public class GameUI {
 			}
 			sb.append("\n");
 		}
+
+		System.out.println(sb.toString());
+	}
+
+	public void showRaceChampion() {
+		StringBuilder sb = new StringBuilder();
+		ArrayList<String> champions = this.game.getRaceChampion();
+		int championsSize = champions.size();
+
+		for (int i = 0; i < (championsSize - 1); i++) {
+			sb.append(champions.get(i)).append(", ");
+		}
+		sb.append(champions.get(championsSize - 1)).append("가 최종 우승했습니다.");
 
 		System.out.println(sb.toString());
 	}
