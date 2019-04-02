@@ -11,8 +11,15 @@ public class MainApp {
      * @return 자동차의 이름을 각 원소로 하는 문자열 배열
      */
     public static String[] getCarNames() {
-        String arrCarNames[] = new String[0];
+        String arrCarNames[];
 
+        try {
+            Scanner rd = new Scanner(System.in);
+            String strCarNames = rd.nextLine();
+            arrCarNames = strCarNames.split(",");
+        } catch (Exception e) {
+            return null;
+        }
         return arrCarNames;
     }
 }
