@@ -59,6 +59,10 @@ public class RacingGame {
         System.out.println(winnerName + "가 최종 우승했습니다!");
     }
 
+    private void finish() {
+        scanner.close();
+    }
+
     public boolean progressGame() {
         if (!init())
             return false;
@@ -70,7 +74,8 @@ public class RacingGame {
 
         printWinner();
 
+        finish();
+
         return true;
     }
-
 }
