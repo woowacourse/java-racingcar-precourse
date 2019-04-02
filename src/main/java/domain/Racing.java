@@ -10,11 +10,33 @@ public class Racing {
         List<Car> carList = getCarList(inputCarNames());
         int roundCount = getRoundCount();
 
-        runOneRound(carList);
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < roundCount; i++) {
+            runOneRound(carList);
+            printResult(carList);
+            System.out.printf("\n\n");
+        }
 
         for (Car car : carList) {
             System.out.println(car.getName() + "의 포지션: " + car.getPosition());
         }
+    }
+
+    private void printResult(List<Car> carList) {
+        for (Car car : carList) {
+            System.out.println(car.getName() + " : " + getHyphen(car.getPosition()));
+        }
+    }
+
+    private String getHyphen(int position) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < position; i++) {
+            sb.append("-");
+        }
+
+        return sb.toString();
     }
 
     private void runOneRound(List<Car> carList) {
