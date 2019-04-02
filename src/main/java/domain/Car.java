@@ -8,5 +8,12 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public int getPosition() {
+        return this.position;
+    }
+
+    public void increasePosition(int randomNum) {
+        if (randomNum >= 4)
+            position += 1;
+    }
 }
