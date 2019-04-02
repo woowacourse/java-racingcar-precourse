@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Config {
 
-    public String[] splitName(String name) {
+    public String[] makeArrayByString(String name) {
         String[] nameArray = name.split(",");
         return nameArray;
     }
@@ -40,7 +40,7 @@ public class Config {
             if (random > 4) {
                 garage[i].movePosition();
             }
-            printRaceRelay(garage,i);
+            printRaceRelay(garage, i);
         }
         System.out.println("");
         return garage;
@@ -48,17 +48,17 @@ public class Config {
 
     public String printWinner(Car[] garage) {
         String winner = "";
-        int max = findMaxposition(garage);
-        for(int i=0; i<garage.length;i++){
-            if(max == garage[i].getPosition()){
-                winner = winner + garage[i].getName()+",";
+        int max = findMaxPosition(garage);
+        for (int i = 0; i < garage.length; i++) {
+            if (max == garage[i].getPosition()) {
+                winner = winner + garage[i].getName() + ",";
             }
         }
         winner = winner.substring(0, winner.length() - 1);
         return winner;
     }
 
-    public int findMaxposition(Car[] garage){
+    public int findMaxPosition(Car[] garage) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < garage.length; i++) {
             if (garage[i].getPosition() >= max) {
@@ -68,28 +68,39 @@ public class Config {
         return max;
     }
 
-    public String characterMultiple(int count){
+    public String characterMultiple(char value, int count) {
         String position = "";
-        for(int i=0; i<count; i++){
-            position = position + "-";
+        for (int i = 0; i < count; i++) {
+            position = position + value;
         }
         return position;
     }
 
-    public void printRaceRelay(Car[] garage, int i){
-        String counter = characterMultiple(garage[i].getPosition());
-        System.out.println(garage[i].getName() +": "+counter);
+    public void printRaceRelay(Car[] garage, int i) {
+        String counter = characterMultiple('-', garage[i].getPosition());
+        System.out.println(garage[i].getName() + ": " + counter);
     }
 
-    public String[] loopIfNotFiveLess() {
-        Scanner scan = new Scanner(System.in);
-        String cars = scan.next();
-        String[] carsArray = splitName(cars);
+    public String[] loopIfNotOneToFive(String[] carsArray) {
         Boolean checkName = checkNameNumber(carsArray);
         if (!checkName) {
             System.out.println("이름은 1자 이상 5자 이하로 입력해주세요.");
-            carsArray = loopIfNotFiveLess();
+            carsArray = makeCarNameArray(inputCarsName());
+            loopIfNotOneToFive(carsArray);
         }
+        return carsArray;
+    }
+
+    public String inputCarsName() {
+        Scanner scan = new Scanner(System.in);
+        String cars = scan.next();
+        return cars;
+    }
+
+    public String[] makeCarNameArray(String name) {
+        String cars = name;
+        String[] carsArray = makeArrayByString(cars);
+        carsArray = loopIfNotOneToFive(carsArray);
         return carsArray;
     }
 }

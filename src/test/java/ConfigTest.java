@@ -18,16 +18,16 @@ public class ConfigTest {
 
 
     @Test
-    public void splitNameTest() {
-        String[] result = config.splitName("Tommi,Pride,Cago");
+    public void makeArrayByStringTest() {
+        String[] result = config.makeArrayByString("Tommi,Pride,Cago");
         assertEquals(new String[]{"Tommi", "Pride", "Cago"}, result);
     }
 
     @Test
     public void checkNameNumberTest() {
-        String[] nameArrayTrue = config.splitName("Tommi,Pride,Cago");
+        String[] nameArrayTrue = config.makeArrayByString("Tommi,Pride,Cago");
         Boolean resultTrue = config.checkNameNumber(nameArrayTrue);
-        String[] nameArrayFalse = config.splitName("Tommi,Pride,Genesis");
+        String[] nameArrayFalse = config.makeArrayByString("Tommi,Pride,Genesis");
         Boolean resultFalse = config.checkNameNumber(nameArrayFalse);
         assertEquals(resultTrue, Boolean.TRUE);
         assertEquals(resultFalse, Boolean.FALSE);
@@ -79,8 +79,8 @@ public class ConfigTest {
 
     @Test
     public void characterMultipleTest() {
-        String result = config.characterMultiple(5);
-        assertEquals("-----",result);
+        String result = config.characterMultiple('-', 5);
+        assertEquals("-----", result);
     }
 
     @After
