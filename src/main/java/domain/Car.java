@@ -6,8 +6,6 @@ public class Car {
 
     public Car(String name) { this.name = name; }
 
-    // 추가 기능 구현
-
     /**
      * 자동차의 위치를 정해진 거리만큼 이동시킨다.
      */

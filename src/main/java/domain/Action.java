@@ -7,6 +7,9 @@ public class Action {
         this.car = car;
     }
 
+    /**
+     * 전진 할 경우 자동차 객체를 이동시킨다.
+     */
     public void actBasedOnDecision(){
         if(decideAction()){
             car.move();
@@ -20,10 +23,10 @@ public class Action {
      */
     private boolean decideAction() {
         int value = randomNumber();
-        return value >= 4;
+        return value >= ConstValue.ACTION_DECISION_VALUE;
     }
 
     private int randomNumber() {
-        return (int) (Math.random() * 10 + 1);
+        return (int) (Math.random() * ConstValue.RANDOM_NUMBER_RANGE + 1);
     }
 }
