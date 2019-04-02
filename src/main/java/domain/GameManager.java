@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class GameManager {
     private int carsize;
     private int count;
+    private int maxPosition;
+    private StringBuilder winner;
     private ArrayList<Car> cars;
 
     GameManager() {
@@ -12,6 +14,8 @@ public class GameManager {
         cars = user.getCar();
         carsize = cars.size();
         count = user.getcount();
+        maxPosition = 0;
+        winner = new StringBuilder();
     }
 
     public void start() {
@@ -27,6 +31,7 @@ public class GameManager {
             Car c = cars.get(j);
             c.move();
             c.print();
+            maxPosition = Math.max(maxPosition, c.getPosition());
         }
     }
 
@@ -36,6 +41,20 @@ public class GameManager {
     private void gamefinish() {
         for (int i = 0; i < carsize; i++) {
             Car c = cars.get(i);
+            win(c);
+        }
+        winPrint();
+    }
+
+    private void win(Car c) {
+        if (c.getPosition() == maxPosition) {
+            winner.append(c.getName() + " ,");
         }
     }
+
+    private void winPrint() {
+        System.out.println(winner.toString() + "가 최종 우승했습니다.");
+    }
+
 }
+
