@@ -6,18 +6,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameManager {
+    private static final int MAX_CAR_NAME_LENGTH = 5;
     private Car[] cars;
     private int carNumber;
     private StringBuilder sb = new StringBuilder();
     private Scanner scanner = new Scanner(System.in);
-    private static final int MAX_CAR_NAME_LENGTH = 5;
     private int validGameLoop;
 
     public void start() {
-
         initRacing();
         racing();
-
     }
 
     private void initRacing() {
@@ -77,7 +75,7 @@ public class GameManager {
             validGameLoop = Integer.valueOf(gameLoop);
             return true;
         } catch (NumberFormatException e) {
-            System.out.println("게임 횟수는 숫자만 입력해주세요!!");
+            System.out.println(ErrorCodes.INPUT_FORMAT_ERROR);
             return false;
         }
     }
@@ -86,7 +84,7 @@ public class GameManager {
 
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_NAME_LENGTH) {
-                System.out.println("자동차의 이름은 5글자 이하로 입력해주세요!!");
+                System.out.println(ErrorCodes.INPUT_LENGTH_ERROR);
                 return false;
             }
         }
