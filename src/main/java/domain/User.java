@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class User {
 
     private String[] carNames;
-    private Car[] car;
     private int numberOfTrials;
 
     public User() {
@@ -49,7 +48,7 @@ public class User {
     }
 
     /**
-     * 사용자가 몇 번을 이동할 것인지를 입력
+     * 사용자가 몇 번을 시도할 것인지를 입력
      */
     private void inputNumberOfTrials() {
         int count;
