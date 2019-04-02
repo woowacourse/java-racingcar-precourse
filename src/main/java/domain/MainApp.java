@@ -50,4 +50,13 @@ public class MainApp {
         }
         return numOfTrials;
     }
+
+    /**
+     * 입력받은 자동차를 확률적으로 전진시키거나, 멈춥니다.
+     * @param c - 자동차 객체의 참조변수입니다.
+     * @return 확률변수 값으로 0 부터 9 사이의 값입니다.
+     */
+    public static int randomlyMoveCar(Car c) {
+        return 5;
+    }
 }

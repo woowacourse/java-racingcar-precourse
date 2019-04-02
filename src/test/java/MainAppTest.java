@@ -50,7 +50,15 @@ public class MainAppTest extends TestCase {
     public void testRandomlyMoveCar() throws Exception {
         Car testCar = new Car("pobi");
 
-        MainApp.randomlyMoveCar(testCar);
-        assertTrue(testCar.getPosition() == 0 || testCar.getPosition() == 1);
+        int randomNumber = MainApp.randomlyMoveCar(testCar);
+        if (randomNumber < 4 && randomNumber >= 0) {
+            assertEquals(0, testCar.getPosition());
+            return;
+        }
+        if (randomNumber >= 4 && randomNumber <= 9) {
+            assertEquals(1, testCar.getPosition());
+            return;
+        }
+        fail();  // randomNumber 는 반드시 0 ~ 9 사이의 값이어야 합니다.
     }
 }
