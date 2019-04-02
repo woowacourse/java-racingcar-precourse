@@ -24,4 +24,13 @@ public class Display {
         System.out.println();
         return trialNums;
     }
+
+    public void showResults(Car car) {
+        int position = car.getPosition();
+        System.out.print(car.getName() + ":");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println("");
+    }
 }
