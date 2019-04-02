@@ -10,8 +10,24 @@ import java.util.Scanner;
 
 public class RacingGameManager {
 	int totalCarCount; // 게임에 참여하는 자동차의 수
+	int totalGameCount = 0; // 게임 횟수
 	Car[] cars; // 게임에 참여하는 자동차 객체
 	Scanner scanner = new Scanner(System.in);
+
+	public void run() {
+		String carNamesFromUser = getCarNamesFromUser();
+		makeCars(carNamesFromUser);
+
+		System.out.println("실행 결과");
+
+		totalGameCount = getGameCountFromUser();
+		while (totalGameCount-- > 0) {
+			raceCars();
+			printNowSituation();
+		}
+
+		printWinnerNames();
+	}
 
 	public String getCarNamesFromUser() {
 		String carNames;
@@ -71,7 +87,7 @@ public class RacingGameManager {
 		}
 		System.out.println();
 	}
-	
+
 	public String getWinnerNames() {
 		int maxPosition = -1;
 		String winnerNames = "";
@@ -87,7 +103,7 @@ public class RacingGameManager {
 		winnerNames = winnerNames.substring(0, winnerNames.length() - 2);
 		return winnerNames;
 	}
-	
+
 	public void printWinnerNames() {
 		System.out.println();
 		System.out.println();
