@@ -12,6 +12,8 @@ public class CarRacingGame {
 		for (int i=0; i<Car.carNum; ++i) {
 			cars[i] = new Car(carName[i]);
 		}
+		
+		scanTryNumberDoGame(cars);
 	}
 	
 	public static String[] scanCarName() {
@@ -35,5 +37,19 @@ public class CarRacingGame {
 			}
 		}
 		return true;
+	}
+	
+	public static void scanTryNumberDoGame(Car[] cars) {
+		System.out.println("시도할 회수는 몇회인가요?");
+		int tryNumber = scan.nextInt();
+		
+		System.out.println("실행 결과");
+		for (int i = 0; i < tryNumber; ++i) {
+			for(int j = 0; j < Car.carNum; j++) {
+				cars[j].bringRandomNumberMovePosition();
+				cars[j].printResult();
+			}
+			System.out.println();
+		}
 	}
 }

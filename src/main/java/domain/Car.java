@@ -25,7 +25,7 @@ public class Car {
     }
     
     public void printResult() {
-    	System.out.println(this.name + " : ");
+    	System.out.print(this.name + " : ");
     	
     	for (int i = 0; i<this.position; ++i) {
     		System.out.print("-");
