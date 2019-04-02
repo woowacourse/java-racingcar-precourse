@@ -37,4 +37,12 @@ public class Racing {
 		sc = new Scanner(System.in);
 		carmgr = new CarMgr();
 	}
+	
+	public void raceBegin() {
+		enterUsers();
+		int raceTime = enterRaceTime();
+		startRace(raceTime);
+		raceResult();
+		raceEnd();
+	}
 }
