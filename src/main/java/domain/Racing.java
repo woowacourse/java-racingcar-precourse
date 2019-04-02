@@ -13,7 +13,7 @@ public class Racing {
         }
     }
 
-    public List<Car> getCarList(String[] carNameList) {
+    private List<Car> getCarList(String[] carNameList) {
         List<Car> carList = new ArrayList<>();
 
         for (String carName : carNameList) {
@@ -23,7 +23,7 @@ public class Racing {
         return carList;
     }
 
-    public String[] inputCarNames() {
+    private String[] inputCarNames() {
         Scanner scan = new Scanner(System.in);
         String[] carNameList;
 
@@ -35,7 +35,7 @@ public class Racing {
         return carNameList;
     }
 
-    public boolean checkFiveWords(String[] carNameList) {
+    private boolean checkFiveWords(String[] carNameList) {
         for (String carName : carNameList) {
             if (carName.length() > 5) {
                 System.out.println("이름이 5자가 넘었습니다. 다시 작성해주세요.");
