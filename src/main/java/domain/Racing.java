@@ -22,7 +22,7 @@ public class Racing {
 
     private void printWinnerName(List<Car> carList) {
         List<String> winner = getWinnerName(carList);
-        System.out.println(String.join(",",winner) + "가 최종 우승했습니다.");
+        System.out.println(String.join(",", winner) + "가 최종 우승했습니다.");
     }
 
     private List<String> getWinnerName(List<Car> carList) {
