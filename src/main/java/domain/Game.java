@@ -5,10 +5,6 @@ import java.util.ArrayList;
 public class Game {
 	private ArrayList<Car> cars;
 
-	public Game() {
-		this.cars = new ArrayList<Car>();
-	}
-
 	public void joinRace(String carNames) throws Exception {
 		this.cars = new ArrayList<Car>();
 		Exception errCarName = new Exception("이름이 5자 초과");
