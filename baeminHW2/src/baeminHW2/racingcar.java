@@ -1,5 +1,4 @@
 package baeminHW2;
-import java.io.InputStream;
 import java.util.Scanner;
 
 public class racingcar {
