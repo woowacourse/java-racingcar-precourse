@@ -28,4 +28,18 @@ public class GameUI {
 
 		return lapNum;
 	}
+
+	public void showLapResult() {
+		StringBuilder sb = new StringBuilder();
+
+		for (Car car : this.game.getCars()) {
+			sb.append(car.getName()).append(":");
+			for (int i = 0; i < car.getPosition(); i++) {
+				sb.append("-");
+			}
+			sb.append("\n");
+		}
+
+		System.out.println(sb.toString());
+	}
 }
