@@ -31,6 +31,13 @@ public class GameMain {
 			cars[i] = new Car(nameArray[i]);
 		}
 	}
+	
+	//시도 횟수만큼 반복하는 메소드
+	static void repeat(int moveNum){
+		while( moveNum!=0 ){
+			moveNum--;
+		}
+	}
 		
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
@@ -42,6 +49,10 @@ public class GameMain {
 		}while( !isNameLessThan5() );	//이름이 5자 이하일 때 까지 반복
 		makeCars();						//자동차 객체 생성
 		
+		System.out.println("시도할 회수는 몇회인가요?");
+		int moveNum = in.nextInt();
+		System.out.println("실행 결과");
+		repeat(moveNum);	//n회 반복
 	}
 
 }
