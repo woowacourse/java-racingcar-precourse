@@ -15,39 +15,39 @@
 
 기능 프리뷰
 -------------
-###Class Index
+### Class Index
 * 인덱스 - 실제로 게임이 진행되는 메인 메소드를 가지는 클래스
 
 
 ### Class Car
 * 자동차 - 자동차 인스턴스를 생성하기 위한 클래스
     * Method :
-            * String getName() -> 생성된 인스턴스의 이름을 리턴하는 함수
-            * int getPosition() -> 생성된 인스턴스의 위치를 리턴하는 함수
-            * int movePosition() -> 생성된 인스턴스의 위치를 이동시키는 함수
+      * String getName() -> 생성된 인스턴스의 이름을 리턴하는 함수
+      * int getPosition() -> 생성된 인스턴스의 위치를 리턴하는 함수
+      * int movePosition() -> 생성된 인스턴스의 위치를 이동시키는 함수
     * Variable :
-            * private final String name -> 생성된 인스턴스의 이름 (상수)
-            * private int position -> 생성된 인스턴스의 위치(초기값은 0)
+             * private final String name -> 생성된 인스턴스의 이름 (상수)
+             * private int position -> 생성된 인스턴스의 위치(초기값은 0)
 
 
 ### Class Config
 * 기능 - 게임에 필요한 메소드를 담아두는 클래스
     * Method :
-            * String characterMultiple(char value, int count) -> char타입의 문자를 count만큼 리턴하는 함수
-            * Boolean checkNameNumber(String[] nameArray) -> 입력받을 자동차 이름 수가 조건에 만족하는지 확인하는 함수
-            * int findMaxPosition(Car[] garage) -> 가장 멀리 간 위치를 찾는 함수
-            * String inputCarsName() -> 자동차의 이름을 받아 리턴하는 함수
-            * String[] loopIfNotOneToFive(String[] carsArray) -> 자동차 이름이 1이상 5이하가 아닐 경우 반복하는 함수
-            * String[] makeArrayByString(String name) -> 문자열을 ,를 기준으로 배열로 만드는 함수
-            * String[] divideCarNameArray(String name) -> 조건에 만족할 시 자동차의 이름을 배열로 나눠 리턴하는 함수
-            * Car[] makeGarage(String[] carArrays) -> Car인스턴스를 담은 배열을 생성
-            * int makeRandom() -> 랜덤 값을 생성
-            * void printRaceRelay(Car[] garage, int i) -> 레이스 상황을 중계(출력)하는 함수
-            * String printWinner(Car[] garage) -> 승리자들을 형식에 맞춰 출력하는 함수
-            * Car[] race(Car[] garage) -> 0.4이상일 경우 전진하는 레이스를 진행하는 함수
+      * String characterMultiple(char value, int count) -> char타입의 문자를 count만큼 리턴하는 함수
+      * Boolean checkNameNumber(String[] nameArray) -> 입력받을 자동차 이름 수가 조건에 만족하는지 확인하는 함수
+      * int findMaxPosition(Car[] garage) -> 가장 멀리 간 위치를 찾는 함수
+      * String inputCarsName() -> 자동차의 이름을 받아 리턴하는 함수
+      * String[] loopIfNotOneToFive(String[] carsArray) -> 자동차 이름이 1이상 5이하가 아닐 경우 반복하는 함수
+      * String[] makeArrayByString(String name) -> 문자열을 ,를 기준으로 배열로 만드는 함수
+      * String[] divideCarNameArray(String name) -> 조건에 만족할 시 자동차의 이름을 배열로 나눠 리턴하는 함수
+      * Car[] makeGarage(String[] carArrays) -> Car인스턴스를 담은 배열을 생성
+      * int makeRandom() -> 랜덤 값을 생성
+      * void printRaceRelay(Car[] garage, int i) -> 레이스 상황을 중계(출력)하는 함수
+      * String printWinner(Car[] garage) -> 승리자들을 형식에 맞춰 출력하는 함수
+      * Car[] race(Car[] garage) -> 0.4이상일 경우 전진하는 레이스를 진행하는 함수
     * Variable :
-            * final int LIMIT_TOP_NAME_NUMBER -> 받을 이름의 최대값
-            * final int LIMIT_LOW_NAME_NUMBER -> 받을 이름의 최소값
+       * final int LIMIT_TOP_NAME_NUMBER -> 받을 이름의 최대값
+       * final int LIMIT_LOW_NAME_NUMBER -> 받을 이름의 최소값
 기능 단위 Commit 체크
 -----------------------
 - [x] 1. 마크다운 작성 & Index클래스와 test폴더에 테스트코드 클래스 생성

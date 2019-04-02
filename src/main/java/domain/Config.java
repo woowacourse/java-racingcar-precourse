@@ -10,6 +10,7 @@ public class Config {
 
     static final int LIMIT_TOP_NAME_NUMBER = 5;
     static final int LIMIT_LOW_NAME_NUMBER = 1;
+    Scanner scan = new Scanner(System.in);
 
     public String characterMultiple(char value, int count) {
         String position = "";
@@ -40,7 +41,7 @@ public class Config {
     }
 
     public String inputCarsName() {
-        Scanner scan = new Scanner(System.in);
+        System.out.println("경주할 자동차의 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String cars = scan.nextLine();
         return cars;
     }
@@ -97,7 +98,7 @@ public class Config {
         System.out.println(garage[i].getName() + ": " + counter);
     }
 
-    public String printWinner(Car[] garage) {
+    public void printWinner(Car[] garage) {
         String winner = "";
         int max = findMaxPosition(garage);
         for (int i = 0; i < garage.length; i++) {
@@ -106,10 +107,10 @@ public class Config {
             }
         }
         winner = winner.substring(0, winner.length() - 1);
-        return winner;
+        System.out.println(winner + "님이 최종 우승하셨습니다!");
     }
 
-    public Car[] race(Car[] garage) {
+    public Car[] decideMoveForward(Car[] garage) {
         int random;
         for (int i = 0; i < garage.length; i++) {
             random = makeRandom();
@@ -120,5 +121,14 @@ public class Config {
         }
         System.out.println("");
         return garage;
+    }
+
+    public void race(Car[] garage){
+        System.out.println("게임을 몇 회 실시시키겠습니까?");
+        int count = scan.nextInt();
+        System.out.println("레이스 시작");
+        for (int i = 0; i < count; i++) {
+            garage = decideMoveForward(garage);
+        }
     }
 }

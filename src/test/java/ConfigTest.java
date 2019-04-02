@@ -29,8 +29,11 @@ public class ConfigTest {
         Boolean resultTrue = config.checkNameNumber(nameArrayTrue);
         String[] nameArrayFalse = config.makeArrayByString("Tommi,Pride,Genesis");
         Boolean resultFalse = config.checkNameNumber(nameArrayFalse);
+        String[] nameArrayFalseSpace = config.makeArrayByString(" Tommi ,Pride,Cago");
+        Boolean resultFalseSpace = config.checkNameNumber(nameArrayFalseSpace);
         assertEquals(resultTrue, Boolean.TRUE);
         assertEquals(resultFalse, Boolean.FALSE);
+        assertEquals(resultFalseSpace, Boolean.FALSE);
     }
 
     @Test
