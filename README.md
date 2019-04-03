@@ -62,8 +62,8 @@ public class Car {
  - ### variables
   |변수 명|변수 설명|수행 여부|
   |:-------|:-------|:-------:|
-  |**name**|차의 이름을 저장할 변수|X|
-  |**position**|차의 위치를 저장할 변수|X|
+  |**name**|차의 이름을 저장할 변수|O|
+  |**position**|차의 위치를 저장할 변수|O|
   
  - ### methods
   |메소드 명|메소드 설명|수행 여부|
@@ -78,25 +78,25 @@ public class Car {
  - ### constants
   |상수 명|상수 설명|수행 여부|
   |:-------|:-------|:-------:|
-  |**MAXCARNAMENUMBER**|자동차 이름 입력 최대값 나타내는 상수|X|
-  |**MAXRANDOMNUMBER**|랜덤 값 생성 시 최대값 나타내는 상수|X|
+  |**MAXCARNAMENUMBER**|자동차 이름 입력 최대값 나타내는 상수|O|
+  |**MAXRANDOMNUMBER**|랜덤 값 생성 시 최대값 나타내는 상수|O|
   
   
  - ### variables
   |변수 명|변수 설명|수행 여부|
   |:-------|:-------|:-------:|
-  |**cars**|자동차 객체들을 저장할 배열|X|
-  |**trialNumber**|시도횟수를 저장할 변수|X|
+  |**cars**|자동차 객체들을 저장할 배열|O|
+  |**trialNumber**|시도횟수를 저장할 변수|O|
   
   
  - ### methods
   |메소드 명|메소드 설명|수행 여부|
   |:-------|:-------|:-------:|
   |**start()**|게임을 시작하는 메서드|X|
-  |**printCarNamesInputMessage()**|자동차 이름 입력을 지시하는 메세지를 출력하는 메서드|X|
-  |**inputCarNames()**|자동차 이름을 입력받는 메서드|X|
-  |**printTrialNumberInputMessage()**|시도 횟수 입력을 지시하는 메세지를 출력하는 메서드|X|
-  |**inputTrialNumber()**|시도 횟수를 입력받는 메서드|X|
+  |**printCarNamesInputMessage()**|자동차 이름 입력을 지시하는 메세지를 출력하는 메서드|O|
+  |**inputCarNames()**|자동차 이름을 입력받는 메서드|O|
+  |**printTrialNumberInputMessage()**|시도 횟수 입력을 지시하는 메세지를 출력하는 메서드|O|
+  |**inputTrialNumber()**|시도 횟수를 입력받는 메서드|O|
   |**printResultMessage()**|실행결과 메세지를 출력하는 메서드|X|
   |**playOneCycle()**|게임을 1회 시도하는 메서드|X|
   |**isMove()**|전진/정지 조건을 생성하는 메서드 (0~9까지 랜덤 값 발생 후 4이상 전진)|X|
@@ -113,6 +113,7 @@ public class Car {
 
 
 ## *예외처리 목록*
+##### (수행 시 취소선 적용)
 ---------------------------------------------
 + 자동차 이름 입력, 알파벳이 아닐 경우 ex) asd30, asd1a, vsf!
 + 자동차 이름 입력, 자동차 이름 길이가 6이상일 경우 ex) abcdef, asdasdas
