@@ -59,25 +59,16 @@ public class Oracle {
 
 
 
-    /*static boolean checkFaultyInput(Vector<String> names, int max) {
-        boolean faulty = false;
+    static boolean checkFaultyInput(Vector<String> names, int max) {
+        Vector<InputReport> reports = InputReportHandler.gatherReports(names, max);
+        InputReport error = InputReportHandler.findErrorReport(reports);
 
-        faulty = checkLength(names, max);
-        if(faulty) {
-            System.out.println("다섯 글자 이하의 이름을 입력해야 합니다.");
+        if(error == null) {
+            return false;
         }
 
-        faulty = checkRepetition(names);
-        if(faulty) {
-            System.out.println("차의 이름들은 모두 고유해야 합니다.(중복되면 안 됩니다)");
-        }
-
-        faulty = checkEmptyString(names);
-        if(faulty) {
-            System.out.println("공백이 아닌 문자를 입력해주세요.");
-        }
-
-        return faulty;
+        System.out.println(error);
+        return true;
     }
-    */
+
 }

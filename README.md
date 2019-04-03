@@ -45,9 +45,10 @@ InputHandler.countName 함수를 사용한다.
 - boolean checkEmptyString(Vector<String> names)
 names의 size가 0인 경우 true를 반환한다.
 
-- boolean checkFaultyInput
-입력된 이름 길이가 6 이상인지, 빈 문자열인지, 중복되는 이름이 있는지 검사한다. 하나라도 맞다면 true를 반환한다.
-checklength, checkRepetition, checkEmptyString 함수를 사용한다.
+- boolean checkFaultyInput(Vector<String names, int max)
+길이 에러, 중복되는 이름 에러, 빈 문자열 에러 등을 검사한다. 에러가 하나라도 있다면 true를 반환한다.
+findErrorReport로 찾은 InputReport 객체의 errorMessage를 출력한다.
+class InputReport의 gatherReport, findErrorReport 함수를 사용한다.
 
 
 

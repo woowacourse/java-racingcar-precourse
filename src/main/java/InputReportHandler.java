@@ -23,7 +23,6 @@ public class InputReportHandler {
         }
 
         return null;
-
     }
 
 
