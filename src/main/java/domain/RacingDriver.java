@@ -19,6 +19,9 @@ public class RacingDriver {
 
         for (int i = 0; i < cars.length; i++) {
             cars[i] = cars[i].trim();
+            if (cars[i].length() > 5) {
+                cars[i] = cars[i].substring(0, 5);
+            }
         }
 
         return cars;
