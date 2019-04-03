@@ -8,5 +8,10 @@ public class Car {
         this.name = name;
     }
 
+    public boolean isGo(int val) {
+        if(val >= 4) return true;
+        return false;
+    }
+
     // 추가 기능 구현
 }
