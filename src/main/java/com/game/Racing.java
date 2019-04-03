@@ -5,29 +5,40 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
+    private GameManager gameManager = null;
+    private String[] names;
+    private int moveCount;
+
     public static void main(String[] args) {
         Racing racing = new Racing();
-        Scanner scanner = new Scanner(System.in);
 
-        String[] names;
+        racing.userInput();
+
+        racing.gameManager = new GameManager(racing.names);
+        while (0 < racing.moveCount--) {
+            racing.gameManager.moveCars();
+            racing.gameManager.boardPrint();
+        }
+
+        racing.winnerPrint();
+    }
+
+    void userInput() {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             names = scanner.nextLine().split(",");
-            if (racing.checkNames(names)) {
+            if (checkNames(names)) {
                 break;
             }
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int moveCount = scanner.nextInt();
+        moveCount = scanner.nextInt();
         scanner.nextLine();
+    }
 
-        GameManager gameManager = new GameManager(names);
-        while (0 < moveCount--) {
-            gameManager.moveCars();
-            gameManager.boardPrint();
-        }
-
+    void winnerPrint() {
         final List<String> winner = gameManager.getWinnerNames();
         for (int i = 0; i < winner.size() - 1; ++i) {
             System.out.print(winner.get(i) + ", ");
