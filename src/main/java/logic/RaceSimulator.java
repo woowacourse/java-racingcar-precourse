@@ -1,7 +1,7 @@
 package logic;
 
 import domain.Track;
-import ui.ConsolIOInterface;
+import ui.ConsoleIOInterface;
 import ui.RaceIOInterface;
 
 import java.util.Objects;
@@ -18,15 +18,19 @@ public class RaceSimulator {
         return this;
     }
 
-    public void run() {
+    public void run(String[] racer, int nRaceSimulTry) {
         checkIOInterfaceAssertion();
-
-        String[] racer = raceIOInterface.inputRacersName("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        int nRaceSimulTry = raceIOInterface.inputNumber("시도할 회수는 몇회인가요?");
 
         track = new Track(racer);
         raceStart(nRaceSimulTry);
         raceIOInterface.showWinner(track);
+    }
+
+    public void run() {
+        String[] racer = raceIOInterface.inputRacersName();
+        int nRaceSimulTry = raceIOInterface.inputTryNumber();
+
+        run(racer, nRaceSimulTry);
     }
 
     private void raceStart(int nRaceSimulTry) {
@@ -39,7 +43,7 @@ public class RaceSimulator {
     private void checkIOInterfaceAssertion() {
         if (Objects.nonNull(raceIOInterface)) {
             /* 벌다른 구현체가 없기 때문에 예외를 던지는 것이 아니라, 기본 구현체를 할당해준다. */
-            raceIOInterface = new ConsolIOInterface();
+            raceIOInterface = new ConsoleIOInterface();
         }
     }
 

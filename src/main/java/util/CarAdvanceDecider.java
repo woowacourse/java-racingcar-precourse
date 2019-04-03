@@ -10,6 +10,7 @@ public class CarAdvanceDecider {
     private final static Random random = new Random();
 
     public boolean getTrueOrFalseByChance(int trueRatio, int falseRatio) {
+        /* 요구사항에서는 전진과 정지에 지정된 숫자가 존재하지만, 단순하게 확률만 생각한다. */
         int gcd = getGcd(trueRatio, falseRatio);
         return random.nextInt((trueRatio + falseRatio) / gcd) > trueRatio;
     }

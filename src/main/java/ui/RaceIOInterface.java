@@ -6,9 +6,9 @@ import domain.Track;
  * @author delf
  */
 public interface RaceIOInterface {
-    String[] inputRacersName(String helpMessage);
+    String[] inputRacersName();
 
-    int inputNumber(String helpMessage);
+    int inputTryNumber();
 
     void showTrack(Track track);
 
