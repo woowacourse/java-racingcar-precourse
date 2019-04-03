@@ -82,6 +82,27 @@ public class GameFunction {
         System.out.println();
     }
 
+    public void checkWinner() {
+
+        int manyPeople = 0;
+
+        for (int i = 0; i < carlist.size(); i++) {
+
+            if (this.winnerPoint == carlist.get(i).getPosition()) {
+
+                if (manyPeople > 0) {
+                    System.out.print(",");
+                }
+
+                System.out.print(carlist.get(i).getName());
+                manyPeople++;
+            }
+        }
+
+        System.out.println("가 최종 우승했습니다");
+
+    }
+
 
 
     public String getSetCarname() {
