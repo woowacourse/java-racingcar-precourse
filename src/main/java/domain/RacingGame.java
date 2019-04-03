@@ -55,11 +55,18 @@ public class RacingGame {
     return tryNum;
   }
 
+  public static void CarRacing(Car[] carList){
+    for(int i=0;i<carList.length;i++){
+      int random = carList[i].RandomMove();
+      carList[i].CalculateLocation(random);
+    }
+  }
+
   public static void main(String args[]){
     String[] carName =  InputCarName();
     Car[] carList =CreateCarList(carName);
     int tryNum = InputTryNumber();
-
+    CarRacing(carList);
 
     /*
     for (int i = 0; i < str.length; i++) {
