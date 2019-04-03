@@ -99,9 +99,11 @@
    14. 난수를 생성하는 기능(GenerateRandomNumber)
       
    15. 실제로 차한대를움직이는 기능(MoveCar)  
+  
+   17. 차의 대수만큼 루프를 돌면서 각 차의 경주결과를 출력해주는 메소드를 호출하는 기능 (PrintEachRaceAttemptResult)
    
-   16. 차의 대수만큼 루프를 돌면서 각 차의 경주결과를 출력해주는 메소드를 호출하는 기능 (PrintEachRaceAttemptResult)
+   18. 각 차의 경주결과를 출력해주는 메소드를 호출하는 기능 (PrintEachCarResult)
    
-   17. 각 차의 경주결과를 출력해주는 메소드를 호출하는 기능 (PrintEachCarResult)
+   19. 각 차의 이동거리만을 출력해주는 메소드 (PrintRacingDistance)
    
    

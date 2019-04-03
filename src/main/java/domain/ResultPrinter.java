@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 
 public class ResultPrinter {
+    private static final Character CAR_DISTANCE ='-';
     private ArrayList<Car> carList;
 
     ResultPrinter(ArrayList<Car> carList) {
@@ -23,6 +24,9 @@ public class ResultPrinter {
     }
 
     private void PrintRacingDistance(int carPosition){
-        System.out.println("추후 구현예정");
+        for(int i=0; i<carPosition; i++){
+            System.out.print(CAR_DISTANCE);
+        }
+        System.out.println();
     }
 }
