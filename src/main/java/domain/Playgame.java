@@ -7,18 +7,15 @@ public class Playgame {
 
     public static void main(String[] args) {
 
+        GameFunction module = new GameFunction();
 
-        public static void main(String[] args) {
+        module.initSetup();
 
-            GameFunction module = new GameFunction();
-
-            module.initSetup();
-
-            for (int i = 0; i < module.getSetRounds(); i++) {
-                module.race();
-            }
-
-            module.checkWinner();
-
+        for (int i = 0; i < module.getRounds(); i++) {
+            module.racing();
         }
+
+        module.checkWinner();
+
+    }
 }
