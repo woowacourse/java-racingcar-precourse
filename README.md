@@ -20,7 +20,7 @@
 다음 `Car` 객체를 활용해 구현해야 한다.
 - `Car` 기본 생성자를 추가할 수 없다.
 - name, position 변수의 접근 제어자인 `private`을 변경할 수 없다. 
-- 가능하면 `setPosition(int position)` 메소드를 추가하지 않고 구현한다.
+- 가능하면 `setPosition(int position)` 메서드를 추가하지 않고 구현한다.
 ``` java
 public class Car {
     private final String name;
@@ -38,7 +38,7 @@ public class Car {
     - 자바 코드 컨벤션을 지키면서 프로그래밍
     - indent depth는 2까지 허용
 - 2주차 요구사항
-    - 메소드 길이가 15라인을 넘어가지 않도록 구현한다.
+    - 메서드 길이가 15라인을 넘어가지 않도록 구현한다.
     - `else` 예약어를 쓰지 않는다.
     
 ## 초기 구현 기능 목록
@@ -61,7 +61,12 @@ public class Car {
 - 경주 기능 구현
   - `Car` 클래스 구현
     - 이름과 현재 위치, 그리고 `CarAdvanceDecider`의 구현체를 가진다.
-    - `CarAdvanceDecider`에 따라 전진과 정지를 결정하여 위치를 이동하는 메소드를 구현.
-    - 현재 위치를 출력해주는 `toString`메소드를 오버라이딩.
+    - `CarAdvanceDecider`에 따라 전진과 정지를 결정하여 위치를 이동하는 메서드를 구현.
+    - 현재 위치를 출력해주는 `toString`메서드를 오버라이딩.
   - `Track` 클래스 구현
-    - 
+    - 트랙 위의 모든 자동차들이 1회 전진할 기회가 주어지는 `next`메서드 구현
+    - 자동으로 경기가 끝날때 까지 `next`메서드를 반복 실행하는 `excuteRaceUntilEnd`메서드 구현
+    - 승자 결과를 반환하는 `getWinners`메서드 구현
+    - 현재 트랙의 상태를 출력하기 위한 `toString`메서드를 오버라이딩.
+    - 경기 상태를 직관적으로 알기 위한 enum 클래스 `RaceStatus` 추가 구현
+  - 경주를 진행할 `RaceGameSimulation`
