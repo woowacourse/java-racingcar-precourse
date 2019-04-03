@@ -1,3 +1,12 @@
+/*
+ * @RacingGameInterface.java            1.00 2019/03/26
+ * 
+ * Copyright(c) 2019                    Soojin Roh
+ * All rights reserved.
+ * 
+ * RacingGame.java에서 작성할  method를 구현한 interface입니다.
+ */
+
 package domain;
 
 import java.util.ArrayList;
