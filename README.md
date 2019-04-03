@@ -10,7 +10,7 @@
 
 ## TODO-List
 
-- [ ] create startGame()
+- [x] create start()
 - [ ] create giveCarName()
 - [ ] create goOrStop()
 - [ ] create getRandomNum()
