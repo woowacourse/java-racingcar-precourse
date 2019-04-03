@@ -21,4 +21,4 @@
     - void repeatRace() : 시도횟수 n을 받아서 그만큼 for문을 돌림. race()를 반복 실행한다..
     - void race() : Car[]를 받아서 각 Car에 boostOrStop()를 실행한다. 실행 후 showStatus()를 실행한다.
     - ArrayList<String> findWinner() : Car[] 중에서 getPosition()한 값이 가장 큰 것들을 모음.
-    
+    - String getWinnerText() : winnerList를 토대로 승자 메시지를 따로 얻어냅니다.
