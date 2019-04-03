@@ -26,6 +26,6 @@ public class Car {
     
     /** 현재 진행상황을 문자열로 반환 */
     public String getStatus() {
-        return this.name + " : " + "-".repeat(position);
+        return this.name + " : " + "-".repeat(position); // Since Java 11
     }
 }
