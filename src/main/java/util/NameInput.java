@@ -35,7 +35,7 @@ public class NameInput {
 
     /**
      * 유효한 이름 입력값인지 확인.
-     * @param name string array
+     * @param inputArray 입력된 이름 배열
      */
     private static boolean validateNameInput(String [] inputArray){
         for(String inputString: inputArray) {
