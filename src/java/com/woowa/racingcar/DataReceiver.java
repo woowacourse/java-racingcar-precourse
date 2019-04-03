@@ -25,7 +25,7 @@ public class DataReceiver {
 
         while (true) {
             System.out.println(COMMENT_WHEN_REQUEST_CAR_NAME);
-            String carNameTotalString = scanner.next();
+            String carNameTotalString = scanner.nextLine();
 
             if (ErrorChecker.checkCarStringHaveError(carNameTotalString)) {
                 continue;
