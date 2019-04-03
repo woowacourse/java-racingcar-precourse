@@ -1,8 +1,11 @@
 package domain;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class RacingDriver {
+    static ArrayList<Car> cars;
+
     public static getWinners() {
 
     }
@@ -15,8 +18,8 @@ public class RacingDriver {
         return scan.nextLine();
     }
 
-    public static String[] parseCarNames() {
-        String cars[] = getCarNames().split(",");
+    public static String[] parseCarNames(String carsString) {
+        String cars[] = carsString.split(",");
 
         for (int i = 0; i < cars.length; i++) {
             cars[i] = cars[i].trim();
@@ -25,7 +28,13 @@ public class RacingDriver {
         return cars;
     }
 
+    public static void makeCars(String[] carsStr) {
+        cars = new ArrayList<>();
 
+        for (String carName: carsStr) {
+            cars.add(new Car(carName));
+        }
+    }
     public  static void main(String args[]) {
 
     }
