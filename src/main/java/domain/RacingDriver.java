@@ -10,8 +10,6 @@ public class RacingDriver {
     public static String getCarNames() {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉽표(,) 기준으로 구분)");
-
         return scan.nextLine();
     }
 
@@ -36,8 +34,6 @@ public class RacingDriver {
     public static void getTurns() {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("시도할 회수는 몇회인가요?");
-
         nTurns = scan.nextInt();
     }
 
@@ -51,8 +47,6 @@ public class RacingDriver {
     }
 
     public static void doRace() {
-        System.out.println("실행결과");
-
         for (int i = 0; i < nTurns; i++) {
             for (Car car: cars) {
                 car.proceed();
@@ -79,6 +73,19 @@ public class RacingDriver {
     }
 
     public  static void main(String args[]) {
+        String[] carNames;
 
+        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉽표(,) 기준으로 구분)");
+
+        carNames = parseCarNames(getCarNames());
+        makeCars(carNames);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        getTurns();
+
+        System.out.println("실행결과");
+        doRace();
+
+        System.out.println(String.join(",", getWinners()) + "가 최종 우승했습니다.");
     }
 }
