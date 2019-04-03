@@ -35,7 +35,7 @@ public class Main {
             String[] strings = separateStrings(sc.next());
 
             if (isStringsValid(strings)) {
-                break;
+                return strings;
             }
             System.out.println("자동차의 이름은 5자 이하어야 합니다!!");
         }
