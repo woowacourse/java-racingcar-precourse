@@ -7,10 +7,6 @@ public class RacingDriver {
     static int nTurns;
     static ArrayList<Car> cars;
 
-    public static getWinners() {
-
-    }
-
     public static String getCarNames() {
         Scanner scan = new Scanner(System.in);
 
@@ -63,6 +59,23 @@ public class RacingDriver {
             }
             printRaceStatus();
         }
+    }
+
+    public static String[] getWinners() {
+        int max = 0;
+        ArrayList<String> result = new ArrayList<>();
+
+        for (Car car: cars) {
+            max = Math.max(max, car.getPosition());
+        }
+
+        for (Car car: cars) {
+            if (max == car.getPosition()) {
+                result.add(car.getName());
+            }
+        }
+
+        return (String[]) result.toArray();
     }
 
     public  static void main(String args[]) {
