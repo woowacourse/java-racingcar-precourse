@@ -34,7 +34,7 @@ public class UserInput {
 		return carNameList;
 	}
 
-	public boolean checkCarNameList(String[] carNameList) {
+	private boolean checkCarNameList(String[] carNameList) {
 		for (int i = 0; i < carNameList.length; ++i) {
 			if (carNameList[i].length() > MAX_CAR_NAME_LENGTH) {
 				System.out.println(DEMAND_RULE_FOR_CAR_NAME);
@@ -57,10 +57,11 @@ public class UserInput {
 		}
 		while (result != true);
 
+		scanner.close();
 		return Integer.parseInt(count);
 	}
 
-	public boolean checkTryCount(String count) {
+	private boolean checkTryCount(String count) {
 		if (!count.matches("[1-9]||[1-9][0-9]+")) {
 			System.out.println(DEMAND_RULE_FOR_TRY_COUNT);
 			return false;
