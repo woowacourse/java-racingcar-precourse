@@ -4,7 +4,7 @@
 ##class들 설명:
 
 #### Car.java: 
-####Car이라는 class/object의 attributes와 methods를 정의한 class이다.
+#### Car이라는 class/object의 attributes와 methods를 정의한 class이다.
 
 |attibute명|attribute유형|설명|
 |---|---|---|
