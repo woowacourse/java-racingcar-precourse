@@ -68,9 +68,9 @@ public class Car {
  - ### methods
   |메소드 명|메소드 설명|수행 여부|
   |:-------|:-------|:-------:|
-  |**printName()**|차의 이름을 출력하는 메서드|X|
-  |**moveCar()**|차가 전진하는 메서드|X|
-  |**printPosition()**|차의 위치를 출력하는 메서드|X|
+  |**printName()**|차의 이름을 출력하는 메서드|O|
+  |**moveCar()**|차가 전진하는 메서드|O|
+  |**printPosition()**|차의 위치를 출력하는 메서드|O|
   
 <br/>
   
