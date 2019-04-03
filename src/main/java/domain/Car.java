@@ -16,14 +16,10 @@ public class Car {
         return generator.nextInt(10) >= 4;
     }
 
-     public boolean proceed() {
-        boolean result = goOrStop();
-
-        if (result) {
+     public void proceed() {
+        if (goOrStop()) {
             this.position++;
         }
-
-        return result;
     }
 
     public int getPosition() {
