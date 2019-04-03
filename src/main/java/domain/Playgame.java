@@ -7,7 +7,7 @@ public class Playgame {
 
     public static void main(String[] args) {
 
-        private static int initSetup() {
+        private static int initSetup () {
 
             Scanner scan = new Scanner(System.in);
 
@@ -25,7 +25,7 @@ public class Playgame {
 
         }
 
-        private static void createCar(String input, ArrayList<Car> carlist) {
+        private static void createCar (String input, ArrayList < Car > carlist){
 
             String[] carNameSplite = input.split(",");
 
