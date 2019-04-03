@@ -11,17 +11,18 @@ public class User {
         scanner = new Scanner(System.in);
     }
 
-    public void inputCarName(){
+    public Vector<String> inputCarName(){
         String input;
         input = scanner.next();
-        tokenize(input);
+        return tokenize(input);
     }
 
-    public void tokenize(String input){
-        carList = new Vector<String>();
+    public Vector<String> tokenize(String input){
+        Vector<String> carList = new Vector<String>();
         StringTokenizer token = new StringTokenizer(input, ",");
         while(token.hasMoreTokens()){
             carList.add(token.nextToken());
         }
+        return carList;
     }
 }
