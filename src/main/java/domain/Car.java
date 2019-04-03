@@ -17,7 +17,7 @@ public class Car {
     }
 
     public void tryRide() {
-
+        if (checkRide()) position++;
     }
 
     private boolean checkRide() {
