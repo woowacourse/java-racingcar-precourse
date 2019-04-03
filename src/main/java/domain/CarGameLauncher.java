@@ -23,16 +23,16 @@ public class CarGameLauncher
 
     public static void playGame(Car[] cars)
     {
-        int turns = Car.askHowManyTurns();
-        int turn = 0;
+        int totalTurns = Car.askHowManyTurns();
+        int currentTurn = 0;
         System.out.println();
         System.out.println("실행결과:");
-        while (turn < turns)
+        while (currentTurn < totalTurns)
         {
             Car.updateCarMovements(cars);
             Car.printCarMovements(cars);
             System.out.println();
-            turn++;
+            currentTurn++;
         }
     }
 

@@ -93,11 +93,11 @@ public class Car
 
     private static boolean checkUserInput(String turns)
     {
-        if(isItSmallerThanOne(turns))
+        if(isNonNumberThere(turns))
         {
             return false;
         }
-        if(isNonNumberThere(turns))
+        if(isItSmallerThanOne(turns))
         {
             return false;
         }
