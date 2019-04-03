@@ -6,16 +6,19 @@
 
 package domain;
 
+import err.NameRuleException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * GameUI 클래스는 사용자와 자동차경주게임을 위한 사용자 인터페이스다.
  *
- * @version  1.00  2019년 04월 02일
- * @author   조남균
+ * @author 조남균
+ * @version 1.00  2019년 04월 02일
  */
 public class GameUI {
+	private static final String DELIMITER = ",";
 	private Game game;
 
 	public GameUI() {
@@ -29,8 +32,6 @@ public class GameUI {
 
 			int lapNum = askLapNum(sc);
 			startRace(lapNum);
-		} catch(Exception e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -42,6 +43,14 @@ public class GameUI {
 		carNames = sc.nextLine();
 
 		return carNames;
+	}
+
+	private void isValidCarNames(String carNames) throws NameRuleException {
+		for (String carName : carNames.split(DELIMITER)) {
+			if (carName.length() > Car.NAME_LENGTH) {
+				throw new NameRuleException("5글자 이상");
+			}
+		}
 	}
 
 	public int askLapNum(Scanner sc) {
