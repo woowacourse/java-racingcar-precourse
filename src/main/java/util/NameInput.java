@@ -1,7 +1,6 @@
 package util;
 
 import java.util.Scanner;
-import util.Constants;
 
 public class NameInput {
     static Scanner scan = new Scanner(System.in);
@@ -36,7 +35,7 @@ public class NameInput {
 
     /**
      * 유효한 이름 입력값인지 확인.
-     * @param input String
+     * @param name string array
      */
     private static boolean validateNameInput(String [] inputArray){
         for(String inputString: inputArray) {
