@@ -19,8 +19,9 @@ public class InputHandler {
         stringArray = input.split(Separator);
         for (String string : stringArray
              ) {
+            string = string.trim();
             if(string.equals("")==false) {
-                names.add(string.trim());
+                names.add(string);
             }
         }
 

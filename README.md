@@ -35,14 +35,15 @@ cars 속에서 챔피언들을 찾는다.
 Vector 속 모든 String의 길이가 모두 MAX 이하면 true를 반환한다.
 
 - boolean checkRepetition(Vector<String> names)
-names 속에서 중복되는 문자열이 존재하는지 검사한다.
+names 속에서 중복되는 문자열이 존재하는지 검사한다. 중복이 존재하면 true를 반환한다.
 checkRepeatedName 함수를 사용한다.
 
 - boolean checkRepeatedName(String specificName, Vector<String> names)
-specificName이 vector에서 중복되는지 검사한다.
+specificName이 vector에서 중복되는지 검사한다. 중복이 발견되면 true를 반환한다.
 InputHandler.countName 함수를 사용한다.
 
 - boolean checkEmptyString(Vector<String> names)
+names의 size가 0인 경우 true를 반환한다.
 
 - boolean checkFaultyInput
 

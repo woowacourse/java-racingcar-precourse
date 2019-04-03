@@ -25,6 +25,9 @@ public class Solution {
         bool = Oracle.checkRepetition( vector);
         System.out.print("repeated:");
         System.out.println(bool);
+        //bool = Oracle.checkEmptyString(vector);
+        System.out.print("empty:");
+        System.out.println(bool);
     }
 
 }

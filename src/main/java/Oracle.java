@@ -40,4 +40,15 @@ public class Oracle {
 
         return repetition;
     }
+/*
+    static boolean checkEmptyString(Vector<String> names) {
+        boolean empty = false;
+
+        if(names.size() == 0) {
+            empty = true;
+        }
+
+        return empty;
+    }
+*/
 }
