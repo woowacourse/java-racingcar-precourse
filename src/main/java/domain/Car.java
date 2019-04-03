@@ -17,6 +17,7 @@ public class Car {
         this.position++;
     }
 
+    @Override
     public String toString() {
         return this.name;
     }
