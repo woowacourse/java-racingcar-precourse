@@ -13,23 +13,27 @@
 
 ### 프로그램 기능 구현 목록
 
-* Main class
-  * 프로그램 실행을 위한 main()
+1. Main class
+  * main(): 프로그램 실행
 
 
-* Racing class
-  * 자동차 이름을 입력 inputCarName()
-  * 자동차 이름에 대해 올바른 입력인지 확인 isCorrectCarName()
-  * 입력받은 이름으로 Car객체 생성 createCar()
-  * 이동 횟수 입력 inputMovingNumber()
-  * 게임 시작 runGame()
-  * 이동 횟수만큼 Car객체에 대해 게임을 진행하고 상태 출력 startRacing()
-  * 결과 출력 printResult()
+2. Racing class
+  * 게임 실행 runGame()
+  * 입력
+    * inputCarName(): 자동차 이름을 입력
+    * isCorrectCarName(): 자동차 이름에 대해 올바른 입력인지 확인
+    * createCar(): 입력받은 이름으로 Car객체 생성
+    * inputMovingNumber(): 이동 횟수 입력
+    * isCorrectMovingNumber(): 이동 횟수에 대해 올바른 입력인지 확인
+  * 경주 시작
+    * startRacing(): 이동 횟수만큼 Car객체에 대해 게임을 진행하고 상태 출력
+  * 결과 출력
+    * printResult(): 각 Car 객체당 position을 비교하여 최대값을 찾고, 가장 큰 position을 가진 Car 객체의 name을 출력
 
 
-* Car class
-  * 랜덤 숫자에 대해 위치 갱신 updatePosition()
-  * 랜덤 숫자 생성 getRandomNumber()
-  * 현재 위치를 출력 printPosition()
-  * 위치 반환 getPosition()
-  * 이름 반환 getName()
+3. Car class
+  * updatePosition(): 랜덤 숫자에 대해 위치 갱신
+  * getRandomNumber(): 랜덤 숫자 생성
+  * printPosition(): 현재 위치를 출력
+  * getPosition(): 위치 반환
+  * getName(): 이름 반환
