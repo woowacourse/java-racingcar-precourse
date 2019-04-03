@@ -3,15 +3,14 @@ package domain;
 import java.io.IOException;
 import java.util.List;
 
-public class Game {
+class Game {
     private final GameService gameService;
 
-    Game(){
+    Game() {
         gameService = new GameService();
     }
 
-    public void play() throws IOException {
-
+    void play() throws IOException {
         List<Car> carList = gameService.getCarList();
         int roundCount = gameService.getRoundCount();
 
@@ -23,18 +22,18 @@ public class Game {
         endGame(carList);
     }
 
-    private void round(List<Car> carList){
-        for (Car car : carList){
+    private void round(List<Car> carList) {
+        for (Car car : carList) {
             car.move(moveOrNot());
         }
         gameService.setRoundResult(carList);
     }
 
-    private int moveOrNot(){
-        return (int)(Math.random()*10) > 3 ? 1 : 0;
+    private int moveOrNot() {
+        return (int) (Math.random() * 10) > 3 ? 1 : 0;
     }
 
-    private void endGame(List<Car> carList){
+    private void endGame(List<Car> carList) {
         gameService.makeWinnerList(carList);
     }
 

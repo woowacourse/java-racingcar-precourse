@@ -9,15 +9,15 @@ class GameService {
 
     private final Console console;
 
-    GameService(){
+    GameService() {
         console = new Console();
     }
 
-    List<Car> getCarList() throws IOException{
+    List<Car> getCarList() throws IOException {
         String[] cars = getCars();
         List<Car> carList = new ArrayList<>();
 
-        for (String carName : cars){
+        for (String carName : cars) {
             carList.add(new Car(carName));
         }
 
@@ -28,19 +28,19 @@ class GameService {
         return console.readCars().split(",");
     }
 
-    int getRoundCount() throws IOException{
+    int getRoundCount() throws IOException {
         return console.readRoundCount();
     }
 
-    void roundStart(){
+    void roundStart() {
         console.writeRoundStartMessage();
     }
 
-    void setRoundResult(List<Car> carList){
+    void setRoundResult(List<Car> carList) {
         console.writeRoundResult(carList);
     }
 
-    void makeWinnerList(List<Car> carList){
+    void makeWinnerList(List<Car> carList) {
         int max = maxPosition(carList);
 
         console.writeGameResult(carList.stream()
@@ -49,14 +49,10 @@ class GameService {
                 .collect(Collectors.toList()));
     }
 
-    private int maxPosition(List<Car> carList){
-        int max = 0;
-
-        for (Car car : carList){
-            if (max < car.getPosition()){
-                max = car.getPosition();
-            }
-        }
-        return max;
+    private int maxPosition(List<Car> carList) {
+        return carList.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo)
+                .orElse(-1);
     }
 }
