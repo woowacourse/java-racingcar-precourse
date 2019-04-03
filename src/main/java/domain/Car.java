@@ -30,5 +30,4 @@ public class Car {
             position++;
         }
     }
-    // 추가 기능 구현
 }
