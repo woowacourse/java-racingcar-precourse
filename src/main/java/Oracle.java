@@ -12,7 +12,8 @@ public class Oracle {
         for (String name : names
         ) {
             if(name.length() > MAX) {
-                error.setCode(InputErrorCode.);
+                error.setCode(InputErrorCode.LENGTH_ERROR);
+                error.setErrorMessage(InputError);
             }
         }
 
