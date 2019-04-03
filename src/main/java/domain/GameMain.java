@@ -1,3 +1,13 @@
+/*
+ * Class	: GameMain
+ * 
+ * Version	: 1.0.0
+ * 
+ * Date		: 2019-04-03
+ * 
+ * Copyright: Jeongho Park
+ */
+
 package domain;
 
 import java.util.Scanner;
@@ -7,7 +17,7 @@ public class GameMain {
 	static String nameArray[];
 	static Car cars[];
 	static int position[];
-	
+
 	static final int LIMIT_NAME_LENGTH = 5;
 	static final int GO_STRAIGHT = 4;
 
