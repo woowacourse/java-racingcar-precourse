@@ -14,6 +14,7 @@ public class CarRacing {
 	public void run() {
 		initialize();
 		raceCars();
+		printResultOfRace();
 	}
 
 	private void initialize() {
@@ -41,7 +42,7 @@ public class CarRacing {
 			cars[i] = new Car(names[i].trim());
 		}
 	}
-	
+
 	private void raceCars() {
 		System.out.println("실행결과");
 		for (int i = 0; i < times; i++) {
@@ -49,7 +50,7 @@ public class CarRacing {
 			System.out.println();
 		}
 	}
-	
+
 	private void raceEachCar() {
 		for (Car car : cars) {
 			car.race();
@@ -65,8 +66,27 @@ public class CarRacing {
 		}
 		System.out.println();
 	}
-	
+
 	private void setFarthestPosition(int position) {
-		farthestPosition = farthestPosition < position ? position : farthestPosition; 
+		farthestPosition = farthestPosition < position ? position : farthestPosition;
+	}
+
+	private void printResultOfRace() {
+		String champName = getChampName();
+		System.out.println(champName.substring(0, champName.length() - 2) + "가 최종우승했습니다.");
+	}
+
+	private String getChampName() {
+		String champName = "";
+		for (Car car : cars) {
+			if (isFirstCar(car)) {
+				champName += car.getName() + ", ";
+			}
+		}
+		return champName;
+	}
+
+	private boolean isFirstCar(Car car) {
+		return car.getPosition() == farthestPosition;
 	}
 }
