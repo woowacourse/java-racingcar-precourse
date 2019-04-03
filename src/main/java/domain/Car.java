@@ -1,19 +1,19 @@
 package domain;
 
 public class Car {
-    private final String name;
-    private int position = 0;
+	private final String name;
+	private int position = 0;
 
-    public Car(String name) {
-        this.name = name;
-    }
-    
-    public void addPosition(){
+	public Car(String name) {
+		this.name = name;
+	}
+
+	public void addPosition() {
 		this.position++;
 	}
-    
-	public int getPosition(){
+
+	public int getPosition() {
 		return this.position;
 	}
-    
+
 }
