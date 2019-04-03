@@ -16,7 +16,8 @@
 - [x] create Input.countNumberOfCars()
 - [x] create Input.countMovings()
 - [x] create Input.giveCarName()
-- [ ] create goOrStop()
-- [ ] create getRandomNum()
+- [x] specify class Car
+- [x] create getter
+- [x] create Car.goOrStop() - use Math.random()
 - [ ] create noticeWinner()
 - [ ] create compareWhoIsWinner()
