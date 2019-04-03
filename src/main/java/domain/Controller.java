@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class Controller {
 
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Car> cars = new ArrayList<Car>();
+    ArrayList<Car> cars = new ArrayList<>();
     int laps;
+    private int winnerPosition = 0;
     String[] racers;
 
     public void askCarsName() {
@@ -44,7 +45,7 @@ public class Controller {
 
     public void startGame() {
 
-        for(String racer : racers){
+        for (String racer : racers) {
             Car car = new Car(racer);
             cars.add(car);
         }
@@ -52,14 +53,28 @@ public class Controller {
     }
 
     public void checkCarsPosition() {
+        int carPosition;
 
+        for (Car eachCar : cars) {
+            carPosition = eachCar.getPosition();
+            eachCar.goForward();
+            System.out.printf("%s : ", eachCar.getCarsName());
+
+            if (winnerPosition > carPosition) {
+                winnerPosition = carPosition;
+            }
+
+            printCarRoad(carPosition);
+        }
+
+        System.out.println();
     }
 
     public void checkWinner() {
 
     }
 
-    public int getLaps(){
+    public int getLaps() {
         return laps;
     }
 
