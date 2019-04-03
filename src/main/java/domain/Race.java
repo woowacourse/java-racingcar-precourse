@@ -27,7 +27,8 @@ public class Race {
         StringTokenizer name = new StringTokenizer(input, ",");
 
         while (name.hasMoreTokens()) {
-            cars.add(new Car(name.nextToken()));
+            String car = name.nextToken();
+            cars.add(new Car(isNameValid(car) ? car : car.substring(0, 5)));
         }
     }
 
