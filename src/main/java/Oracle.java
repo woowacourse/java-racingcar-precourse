@@ -40,7 +40,7 @@ public class Oracle {
 
         return repetition;
     }
-/*
+
     static boolean checkEmptyString(Vector<String> names) {
         boolean empty = false;
 
@@ -50,5 +50,5 @@ public class Oracle {
 
         return empty;
     }
-*/
+
 }
