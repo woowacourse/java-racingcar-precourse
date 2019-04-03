@@ -8,22 +8,22 @@ public class Car {
                 this.name = name;
         }
 
-        private void printName() {
-                System.out.println(this.name + " : ");
-        }
-
-        private void moveCar() {
-                this.position++;
-        }
-
-        private void printPosition() {
-                for (int i = 0; i<this.position;i++){
+        public void printPosition() {
+                for (int i = 0; i < this.position; i++) {
                         System.out.print("-");
                 }
                 System.out.println();
         }
 
-        private int getPosiotion(){
+        public void printName() {
+                System.out.print(this.name + " : ");
+        }
+
+        public void moveCar() {
+                this.position++;
+        }
+
+        private int getPosiotion() {
                 return this.position;
         }
 

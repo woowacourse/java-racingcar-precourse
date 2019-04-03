@@ -11,15 +11,21 @@ public class Game {
         private Car[] cars;
         private int trialNumber;
 
-        Game() {
-        }
+        Game() {}
 
         public void start() {
 
         }
 
         private void playOneCycle() {
-
+                for (Car car : cars) {
+                        car.printName();
+                        if (isMove()) {
+                                car.moveCar();
+                        }
+                        car.printPosition();
+                }
+                System.out.println();
         }
 
         private void printCarNamesInputMessage() {
@@ -56,6 +62,5 @@ public class Game {
                 Random random = new Random();
                 return random.nextInt(MAXRANDOMNUMBER) >= MINMOVENUMBER ? true : false;
         }
-
 
 }
