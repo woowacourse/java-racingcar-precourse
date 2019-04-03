@@ -1,6 +1,7 @@
 import domain.InputReport;
 import domain.InputReportCode;
 import domain.InputReportMessage;
+
 import java.util.Vector;
 
 public class Oracle {
@@ -10,7 +11,7 @@ public class Oracle {
 
         for (String name : names
         ) {
-            if(name.length() > MAX) {
+            if (name.length() > MAX) {
                 report.set(InputReportCode.LENGTH_ERROR, InputReportMessage.LENGTH_ERROR_MESSAGE);
             }
         }
@@ -23,7 +24,7 @@ public class Oracle {
         int count;
 
         count = InputHandler.countName(specificName, names);
-        if(count > 1) {
+        if (count > 1) {
             repetition = true;
         }
 
@@ -35,9 +36,9 @@ public class Oracle {
         boolean repetition = false;
 
         for (String name : names
-             ) {
+        ) {
             repetition = checkRepeatedName(name, names);
-            if(repetition == true) {
+            if (repetition == true) {
                 report.set(InputReportCode.REPETITION_ERROR, InputReportMessage.REPETITION_ERROR_MESSAGE);
                 break;
             }
@@ -49,7 +50,7 @@ public class Oracle {
     static InputReport checkEmptyString(Vector<String> names) {
         InputReport report = new InputReport();
 
-        if(names.size() == 0) {
+        if (names.size() == 0) {
             report.set(InputReportCode.EMPTY_ERROR, InputReportMessage.EMPTY_ERROR_MESSAGE);
         }
 
@@ -58,8 +59,8 @@ public class Oracle {
 
     static boolean isThereError(Vector<InputReport> reports) {
         for (InputReport report : reports
-             ) {
-            if(report.showCode() != 0) {
+        ) {
+            if (report.showCode() != 0) {
                 return true;
             }
         }
