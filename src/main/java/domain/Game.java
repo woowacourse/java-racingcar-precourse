@@ -21,6 +21,7 @@ public class Game {
         private void playOneCycle() {
                 for (Car car : cars) {
                         car.printName();
+                        System.out.println(" : ");
                         if (isMove()) {
                                 car.moveCar();
                         }
@@ -73,5 +74,20 @@ public class Game {
                         }
                 }
                 return max;
+        }
+
+        private void printWinnerMessage() {
+                int maxPosiotion = getMaxPosition();
+                boolean isFirst = true;
+                System.out.println();
+                for (Car car : cars) {
+                        if (isFirst && car.getPosiotion() == maxPosiotion) {
+                                car.printName();
+                        } else (!isFirst && car.getPosiotion() == maxPosiotion) {
+                                System.out.print(", ");
+                                car.printName();
+                        }
+                }
+                System.out.println("가 최종 우승했습니다.");
         }
 }

@@ -16,7 +16,7 @@ public class Car {
         }
 
         public void printName() {
-                System.out.print(this.name + " : ");
+                System.out.print(this.name);
         }
 
         public void moveCar() {
