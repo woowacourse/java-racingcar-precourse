@@ -1,5 +1,5 @@
 /*
- * @Racing.java		1.03 2019/04/03
+ * @Racing.java		1.04 2019/04/03
  * 
  * Copyright(c)2019	HwiJin Hong.
  * All right reserved.
@@ -23,7 +23,7 @@ import java.util.Scanner;
  * 4.레이싱 결과를 출력한다.
  * 5.경주가 끝났다!
  * 
- * @version 1.03 2019년 4월 3일
+ * @version 1.04 2019년 4월 3일
  * @author 홍휘진
  */
 public class Racing {
@@ -35,6 +35,21 @@ public class Racing {
 	private static final int MIN_TIME = 0;
 	
 	private static final long WAIT_TIME = 1000L;
+	
+	private static final String CAR_NAME_READY = "경주할 자동차 이름을 입력하세요."
+							+ "(이름은 5자 이하! 쉼표(,)기준으로 구분)";
+	
+	private static final String CAR_NAME_ERROR = "[입력 오류!] 5자 이하의 이름들을"
+							+ " 반드시 쉼표(,)로 구분해주세요!";
+	
+	private static final String RACE_TIME_READY = "시도할 회수는 몇 회인가요?"
+							+ " 0이상의 정수로 입력해주세요!";
+	
+	private static final String RACE_TIME_ERROR = "[입력 오류!] 0이상의 정수로 입력해주세요!";
+	
+	private static final String RESULT = "실행 결과";
+	
+	private static final String WINNER_IS = "가 최종 우승했습니다.";
 	
 	private Scanner scanner;
 
@@ -57,31 +72,31 @@ public class Racing {
 		String carNames;
 		String[] names;
 		while (true) {
-			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 5자 이하! 쉼표(,)기준으로 구분)");
+			System.out.println(CAR_NAME_READY);
 			carNames = scanner.next();
 			names = carNames.split(",");
 			if (isValidUsers(names)) {
 				carManager.addNames(names);
 				break;
 			}
-			System.out.println("[입력 오류!] 5자 이하의 이름들을 반드시 쉼표(,)로 구분해주세요!");
+			System.out.println(CAR_NAME_ERROR);
 		}
 	}
 
 	private int enterRaceTime() {
 		int raceTime;
 		while (true) {
-			System.out.println("시도할 회수는 몇 회인가요? 0이상의 정수로 입력해주세요!");
+			System.out.println(RACE_TIME_READY);
 			raceTime = scanner.nextInt();
 			if (isValidTime(raceTime)) {
 				return raceTime;
 			}
-			System.out.println("[입력 오류!] 0이상의 정수로 입력해주세요!");
+			System.out.println(RACE_TIME_ERROR);
 		}
 	}
 
 	private void startRace(int raceTime) {
-		System.out.println("실행 결과");
+		System.out.println(RESULT);
 		for (int i = MIN_TIME; i < raceTime; i++) {
 			carManager.goOrStop();
 			timeWaitForResult();
@@ -91,7 +106,7 @@ public class Racing {
 
 	private void raceResult() {
 		String winners = carManager.whoIsFirst();
-		System.out.println(winners + "가 최종 우승했습니다.");
+		System.out.println(winners + WINNER_IS);
 	}
 
 	private void raceEnd() {
