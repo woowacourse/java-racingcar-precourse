@@ -6,7 +6,7 @@ import edu.woowa.course.racing.utils.Utils;
 *@version 1.00 2019/04/03
 *@author 조재훈
 */
-public class Car {
+public class Car implements Comparable<Car>{
     private final String name;
     private int position = 0;
 
@@ -19,11 +19,11 @@ public class Car {
     		position++;
     	}
     }
-    
+
     public String getName() {
     	return this.name;
     }
-    
+
     public int getPosition() {
     	return this.position;
     }
@@ -36,5 +36,10 @@ public class Car {
 			sb.append("-");
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public int compareTo(Car o) {
+		return o.getPosition() - position;
 	}
 }

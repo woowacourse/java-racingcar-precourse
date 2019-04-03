@@ -1,5 +1,7 @@
 package edu.woowa.course.racing;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 import edu.woowa.course.racing.domain.Car;
@@ -9,18 +11,15 @@ import edu.woowa.course.racing.domain.Car;
 *@author 조재훈
 */
 public class RacingGame {
-
 	private static final String REQ_CAR_NAME ="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String REQ_COUNT = "시도할 횟수는 몇회인가요?";
 	private static final String RESULT = "실행 결과";
 	private static final String FINISH = "가 최종 우승했습니다.";
-	private static final String NO_ONE_FINISHED = "가 최종 우승했습니다.";
 	private static final String LF = "\n\n";
 	private static final int NAME_LIMIT = 5;
 	private Scanner scanner;
 	private Car[] cars;
 	private int count;
-	private int maxPosition = 0;
 
 	public RacingGame() {
 		this.scanner = new Scanner(System.in);
@@ -52,7 +51,7 @@ public class RacingGame {
 
 		for (int i = 0; i < len; i++) {
 			carNames[i] = carNames[i].trim();
-			if(carNames[i].length() > NAME_LIMIT || carNames[i].length() < 1) {
+			if (carNames[i].length() > NAME_LIMIT || carNames[i].length() < 1) {
 				return false;
 			}
 			cars[i] = new Car(carNames[i]);
@@ -80,7 +79,7 @@ public class RacingGame {
 	}
 
 	private void notifyCars() {
-		for(Car car: cars) {
+		for (Car car: cars) {
 			car.move();
 			System.out.println(car);
 		}
@@ -88,7 +87,20 @@ public class RacingGame {
 	}
 
 	private String getWinner() {
-		return null;
+		Arrays.sort(cars);
+		int maxPosition = cars[0].getPosition();
+		StringBuilder sb = new StringBuilder();
+
+		int i = 0;
+		int len = cars.length;
+		while ((i < len) && (cars[i].getPosition() == maxPosition)) {
+			sb.append(cars[i].getName());
+			sb.append(", ");
+			i++;
+		}
+		sb.deleteCharAt(sb.length()-1);
+		sb.deleteCharAt(sb.length()-1);
+		return sb.append(FINISH).toString();
 	}
 
 	public static void main(String[] args) {

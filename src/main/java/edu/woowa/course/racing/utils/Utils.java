@@ -7,15 +7,12 @@ import java.util.Random;
 *@author 조재훈
 */
 public class Utils {
-
 	private static Random random = new Random();
 	private static final int RANDOM_SCOPE = 10;
 	private static final int MOVE_THRESHOLD = 4;
-	
+
 	public static boolean isMove() {
-		int i = getRandomInt();
-		System.out.println(i);
-		return ( i < MOVE_THRESHOLD ? false : true );
+		return ( getRandomInt() < MOVE_THRESHOLD ? false : true );
 	}
 
 	private static int getRandomInt() {
