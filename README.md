@@ -24,12 +24,16 @@
 * __Race 클래스__
   * 게임 실행
     * _playGame()_
-  * 레이스 실행
-    * _doRace()_
   * 경주할 자동차들의 초기설정
     * _initCar()_
+  * 레이스 실행
+    * _doRace()_
   * 이름 조건 확인
     * _isNameValid()_
+  * 실행 결과 리턴
+    * _printResult()_
+  * 자동차 위치를 문자열로 바꿈
+    * _positionToResult()_
   * 우승자 리턴
     * _printWinner()_
 

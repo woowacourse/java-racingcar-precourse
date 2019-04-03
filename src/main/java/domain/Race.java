@@ -51,12 +51,22 @@ public class Race {
 
     // 실행결과 출력
     private void printResult() {
-        System.out.println("실행 결과");
+        StringBuilder result = new StringBuilder("실행 결과");
         for (int i = 0; i < cars.size(); i++) {
-            System.out.println(cars.get(i).getName() + " : " + cars.get(i).getPosition());
+            result.append(cars.get(i).getName()).append(" : ");
+            result.append(positionToResult(cars.get(i).getPosition())).append("\n");
         }
 
         System.out.println();
+    }
+
+    // 자동차 위치를 문자열로 바꿈
+    private String positionToResult(int position) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < position; i++)
+            result.append("-");
+
+        return result.toString();
     }
 
     // 우승자 출력
