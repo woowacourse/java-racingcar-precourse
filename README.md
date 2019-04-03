@@ -55,62 +55,79 @@
     pobi,honux가 최종 우승했습니다.
  
  ****
-## 클래스
+## 클래스 및 메소드설명
  
-   * Car
-   * RaceResultPrinter
-   * UserInputReciever
-   * CarGenerator
-   * CarNavigator
-   * RaceAttemptReciever
-   * RacingGame
-   * WinnerPrinter
-   
-     
-
-****
-## 주요 기능
-
-   1. 자동차의 이름을 입력받은 예외를 처리하는 기능 (RecieveCarNamesFromUser)
-   
-   2. 자동차들의 이름을 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToReceiveCarnamesFromUser)
-   
-   3. 자동차의 이름을 입력받은것이 타당하지않으면 예외를 생성해 던지는 기능(ThrowExceptionIfInvalidCarName)   
-   
-   4. 자동차들의 이름이 전부 5이하인지 판단하는 기능 (isInValidCarNames)
-   
-   5. 자동차의 이름의 길이가 5이하인지 판단하는 기능 (isInValidCarName)
-      
-   6. 입력받은 자동차들의 이름으로 객체를 생성하는 기능(GenerateCar)
-      
-   7. 자동차들의 운행 횟수를 입력받은 예외를 처리하는 기능 (RecieveRaceAttemptFromUser)
-      
-   8. 자동차들의 운행 횟수를 입력받긴 하지만 예외가 있다면 예외를 던지는 기능 (tryToRecieveRaceAttemptFromUser)
-   
-   9. 자동차들의 운행횟수가 타당하지 않으면 예외를 생성해서 던지는 기능(ThrowExceptionIfInvalidRaceAttempt)
-    
-   10. 자동차의 운행 횟수가 1이상인지 판단하는 기능(isInValidRaceAttempt)
-   
-   11. 실제로 차 여러대를 움직이는 기능(MoveCars)
-        
-   12. 차가 움직일 수 있는지 없는지 판단해서 차를 움직이는 메소드를 호출하는 기능(MoveCarIfPossible)
-      
-   13. 차가 움직일 수 있는지 없는지 난수를 생성해서 판단하는 기능 (isMove)
-       
-   14. 난수를 생성하는 기능(GenerateRandomNumber)
-      
-   15. 실제로 차한대를움직이는 기능(MoveCar)  
+  * **(Class) RacingGame (Main메소드 포함)**<br/>
   
-   17. 차의 대수만큼 루프를 돌면서 각 차의 경주결과를 출력해주는 메소드를 호출하는 기능 (PrintEachRaceAttemptResult)
-   
-   18. 각 차의 경주결과를 출력해주는 메소드를 호출하는 기능 (PrintEachCarResult)
-   
-   19. 각 차의 이동거리만을 출력해주는 메소드 (PrintRacingDistance)
-   
-   20. 최대 거리를 찾는기능과 우승자를 찾는 기능을 하는 메소드를 호출하는 메소드 (PrintWinner)
-   
-   21. 루프돌면서 최대거리를 찾는 기능 (FindMaxDistance )
-   
-   22. 현재 길이가 최대라면 최대거리변수에 현재 길이가 최대인 변수를 넣는 기능(SaveIfIsMaxDistance)
-   
-   
+    * Start : 전체적인 게임을 진행하는 기능입니다. <br/>
+        * MoveCarsAndPrintAllResults : 차를 움직이고 결과를 출력하는 메소드들을 호출하는 기능입니다.<br/>
+  
+  * *(Class)CarNameReciever*
+  
+    * RecieveCarNamesFromUser : 사용자로부터 입력을 받는 기능을 시도하는 메소드를 호출하고 예외를 처리합니다,
+     
+        * tryToRecieveCarNamesFromUser : 사용자로부터 입력을 실제로받고 예외가있는지 판단하는 메소드를 호출합니다.
+        
+            * ThrowExceptionIfInvalidCarName : 차의이름들이 올바른지 판단하는 메소드를 호출하고 판단해서 예뢰를 생성해 던집니다.
+            
+                * isInValidCarNames : 차의 이름들이 올바른지 판단하기위해 차의수만큼 루프를돌고 각 차가 올바른 입력인지 판단하는 메소드를 호출합니다.
+                
+                    * isValidCarName : 차의 이름이 올바른지 판단합니다.        
+  
+  * *(Class)CarGenerator*
+  
+    * GeneraterCar : 리스트에 차의객체를 생성해서 넣는 메소드입니다.
+    
+    * getCarList : 차 객체를 담고있는 리스트의 Getter입니다. 
+  
+  * *(Class)RaceAttemptReciever*
+  
+    * RecieveRaceAttemptFromUser : 사용자에게 실제로 시도할 횟수를 입력받는 메소드를 호출하고 예외를 처리합니다.
+    
+        * tryToRecieveRaceAttemptFromUse : 사용자에게 실제로 시도할 횟수를 입력받고 예외를 생성하는 메소드를 호출합니다.
+        
+            * ThrowExceptionIfInavlidRaceAttempt : 예외인지 판단하는 메소드를 호출하고 예외라면 예외를 생성합니다.
+            
+                * isInValidRaceAttempt : 시도할 횟수가 예외인지 판단합니다.
+  
+  * *(Class)CarNavigator*
+  
+    * MoveCars : 차의수만큼 루프를돌며 차가 이동할 수 있다면 이동하는 메소드를 호출합니다.
+    
+        * MoveCarIfPossible : 차가 이동할 수 있는지 판단하는 메소드를 호출하고 차를 움직이는 메소드를 호출합니다.
+            
+            * isMove : 난수를 토대로 차가 이동가능한지를 확인합니다.
+            
+                * GenerateRandomNumber : 이동가능한지를 확인하기 위한 난수를 생성합니다.
+               
+            * MoveCar : 차를 실제로 움직입니다.
+               
+  * *(Class)RaceResultPrinter*
+  
+    * PrintEachRaceAttemptResult : 차의 수만큼 루프를 돌면서 각 시도별 차 한대의 결과를 출력해주는 메소드를 호출합니다.
+        
+        * PrintEachCarResult : 각 차 한대당 경주 결과의 거리를 출력하는 메소드를 호출하고 종합해 각 차 한대의 경주 결과를 출력합니다.
+        
+            * PrintRacingDistance : 각 차 한대의 경주 거리만을 출력하는 메소드 입니다.
+  
+  * *(Class)WinnerPrinter*
+  
+    * PrintWinner : 최대 경주 거리를 찾고, 최종 우승자를 찾아 우승자의 수만큼 루프를 돌며 우승자를 출력하는 메소드 입니다.
+    
+        * FindMaxDistance : 차의 수만큼 루프를 돌며 최대 경주 거리를 구하는 메소드 입니다.
+        
+            * SaveMaxDistanceIfIsTrue : 각 차가 현재의 최대 경주 거리보다 크면 최대 경주 거리를 갱신하는 메소드입니다.  
+            
+        * FindWinner : 차의 수만큼 루프를 돌며 우승자를 찾는 메소드입니다.
+        
+            * SaveWinnerNameIfIsTrue : 우승자를 찾았다면 리스트에 저장하는 메소드입니다. 
+                
+  * *(Class)Car*
+  
+    * Move : 차의 position을 1증가시켜 전진하는 메소드 입니다.
+    
+    * getName : 차의 이름을 리턴하는 Getter 입니다.
+    
+    * getPosition : 차의 위치를 리턴하는 Getter 입니다.  
+    
+ 

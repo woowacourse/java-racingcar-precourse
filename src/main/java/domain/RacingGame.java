@@ -16,15 +16,13 @@ public class RacingGame {
     }
 
     private void Start() {
-
         String[] carNames = carNameReciever.RecieveCarNamesFromUser();
         carGenerator.GenerateCar(carNames);
         int raceAttempt = raceAttemptReciever.RecieveRaceAttemptFromUser();
-        this.PrintAllResults(raceAttempt);
-
+        this.MoveCarsAndPrintAllResults(raceAttempt);
     }
 
-    private void PrintAllResults(int raceAttempt) {
+    private void MoveCarsAndPrintAllResults(int raceAttempt) {
         for (int i = 0; i < raceAttempt; i++) {
             carNavigator.MoveCars();
             resultPrinter.PrintEachRaceAttemptResult();

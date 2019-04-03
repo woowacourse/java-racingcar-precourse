@@ -15,10 +15,10 @@ public class WinnerPrinter {
     public void PrintWinner() {
         FindMaxDistance();
         FindWinner();
-        for(int winner=0; winner<winnerList.size()-1;winner++){
-            System.out.print(winnerList.get(winner)+",");
+        for (int winner = 0; winner < winnerList.size() - 1; winner++) {
+            System.out.print(winnerList.get(winner) + ",");
         }
-        System.out.println(winnerList.get(winnerList.size()-1)+"가 최종 우승했습니다.");
+        System.out.println(winnerList.get(winnerList.size() - 1) + "가 최종 우승했습니다.");
     }
 
     private void FindMaxDistance() {
@@ -34,15 +34,15 @@ public class WinnerPrinter {
         }
     }
 
-    private void FindWinner(){
-        for(int carOrder =0 ; carOrder<this.carList.size(); carOrder++){
+    private void FindWinner() {
+        for (int carOrder = 0; carOrder < this.carList.size(); carOrder++) {
             SaveWinnerNameIfIsTrue(carOrder);
         }
     }
 
-    private void SaveWinnerNameIfIsTrue(int carOrder){
+    private void SaveWinnerNameIfIsTrue(int carOrder) {
         Car car = this.carList.get(carOrder);
-        if(maxDistance == car.getPosition()){
+        if (maxDistance == car.getPosition()) {
             winnerList.add(car.getName());
         }
     }

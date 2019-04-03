@@ -8,7 +8,7 @@ public class Car {
         this.name = name;
     }
 
-    public void Move(){
+    public void Move() {
         this.position++;
     }
 
@@ -20,5 +20,4 @@ public class Car {
         return position;
     }
 
-    // 추가 기능 구현
 }
