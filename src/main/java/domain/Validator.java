@@ -41,4 +41,14 @@ public class Validator {
     public boolean hasInvalid(String[] carNames) {
         return hasInvalidLength(carNames) || hasDuplicate(carNames) || hasEmpty(carNames);
     }
+
+    public boolean isNumber(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                System.out.println("숫자만 입력할 수 있습니다.");
+                return false;
+            }
+        }
+        return true;
+    }
 }

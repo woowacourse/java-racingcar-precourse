@@ -12,7 +12,7 @@ public class RacingManager {
         do {
             System.out.println("경주할 자동차 이름을 입력하세요. 이름은 쉼표를 기준으로 구분합니다.");
             carNames = sc.nextLine().split("[\\s]*,[\\s]*");
-        } while(validator.hasInvalid(carNames));
+        } while (validator.hasInvalid(carNames));
         return carNames;
     }
 
@@ -29,18 +29,14 @@ public class RacingManager {
     }
 
     public int getTotalTrial() {
-        int totalTrial;
+        String totalTrial;
+        Validator validator = new Validator();
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        while (true) {
-            try {
-                totalTrial = sc.nextInt();
-                return totalTrial;
-            } catch (InputMismatchException e) {
-                System.out.print("숫자만 입력해 주세요: ");
-                sc = new Scanner(System.in);
-            }
-        }
+        do {
+            System.out.println("시도할 회수는 몇회인가요?");
+            totalTrial = sc.nextLine();
+        } while (!validator.isNumber(totalTrial));
+        return Integer.parseInt(totalTrial);
     }
 
     public void sendMoveSignalsTo(ArrayList<Car> cars) {
