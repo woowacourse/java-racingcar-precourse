@@ -40,11 +40,8 @@ public class Console {
         return message.toString();
     }
 
-    public void writeGameResult(List<Car> carList){
-        StringBuilder result = new StringBuilder();
-        for (Car car : carList){
-            result.append(car.getName()).append(",");
-        }
-        System.out.println(result + "가 최종 우승했습니다");
+    public void writeGameResult(List<String> winners){
+
+        System.out.println(String.join(" , " ,winners)+ "가 최종 우승했습니다");
     }
 }

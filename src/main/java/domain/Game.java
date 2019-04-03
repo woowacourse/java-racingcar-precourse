@@ -3,6 +3,7 @@ package domain;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     private final Console console;
@@ -52,20 +53,17 @@ public class Game {
         return (int)(Math.random()*10) > 3 ? 1 : 0;
     }
 
-    private void endGame(List<Car> winnerList){
+    private void endGame(List<String> winnerList){
         console.writeGameResult(winnerList);
     }
 
-    private List<Car> makeWinnerList(List<Car> carList){
+    private List<String> makeWinnerList(List<Car> carList){
         int max = maxPosition(carList);
 
-        for (int i = 0 ; i < carList.size() ; i++){
-            if (max != carList.get(i).getPosition()){
-                carList.remove(i);
-                i--;
-            }
-        }
-        return carList;
+        return carList.stream()
+                .filter(car -> car.getPosition() == max)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private int maxPosition(List<Car> carList){
