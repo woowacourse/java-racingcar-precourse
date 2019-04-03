@@ -1,9 +1,9 @@
 package domain;
 
 public class Car {
-	private final static int ONE_SPACE = 1;
-	private final static int MULTIPLES_FOR_DIGIT = 10;
-	private final static int STANDARD_NUMBER_OF_MOVING = 3;
+	private static final int ONE_SPACE = 1;
+	private static final int MULTIPLES_FOR_DIGIT = 10;
+	private static final int STANDARD_NUMBER_OF_MOVING = 3;
 	private final String name;
 	private int position = 0;
 
