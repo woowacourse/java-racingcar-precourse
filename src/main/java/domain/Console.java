@@ -27,9 +27,14 @@ public class Console {
         return Integer.parseInt(bufferedReader.readLine());
     }
 
-    public void writeRoundResult(List<Car> carList){
+    public void writeRoundStartMessage(){
         System.out.println();
-        carList.stream().forEachOrdered(car -> System.out.println(car.getName() + " : "+positionMessage(car.getPosition())));
+        System.out.println("실행결과");
+    }
+
+    public void writeRoundResult(List<Car> carList){
+        carList.forEach(car -> System.out.println(car.getName() + " : "+positionMessage(car.getPosition())));
+        System.out.println();
     }
 
     private String positionMessage(int carPosition){
