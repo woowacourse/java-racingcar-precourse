@@ -8,6 +8,7 @@ public class Game {
 	private Car[] cars;
 	private int carCount;
 	private int attemptCount;
+	private int max = 0;
 
 	Scanner scanner = new Scanner(System.in);
 
@@ -66,7 +67,7 @@ public class Game {
 			return;
 		}
 	}
-	
+
 	public boolean isnotNumber(String userinput) {
 		try {
 			Integer.parseInt(userinput);
@@ -77,9 +78,19 @@ public class Game {
 		}
 	}
 
-	private void playGame() {
-		// TODO
+	public void playGame() {
+		for (int i = 0; i < carCount; i++) {
+			cars[i].oneRound();
+		}
+	}
 
+	public int getMaxPosition() {
+		for (int i = 0; i < carCount; i++) {
+			if (cars[i].getPosition() > max) {
+				max = cars[i].getPosition();
+			}
+		}
+		return max;
 	}
 
 	private void printWinner() {
