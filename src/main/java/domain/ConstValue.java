@@ -19,4 +19,6 @@ public class ConstValue {
 
     /* max position 을 구하기 위해 초기값 설정용 */
     public static final int MINIMUM_DISTANCE_VALUE = -1;
+
+    public static final int MAXIMUM_NAME_LENGTH = 5;
 }
