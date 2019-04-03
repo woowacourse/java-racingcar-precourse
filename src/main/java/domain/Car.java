@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -8,5 +10,9 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public boolean goOrStop() {
+        Random generator = new Random();
+
+        return generator.nextInt(10) >= 4;
+    }
 }
