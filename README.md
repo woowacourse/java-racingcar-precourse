@@ -14,7 +14,7 @@ names 속 name이 부여된 Car 객체를 names 개수만큼 생성한다.
 - void doRace(Car[] cars, numOfRound)
 numOfRound만큼 Game.doRound를 호출한다.
 
--void doRound(Car[] cars)
+-void doRound(Vector<Car> cars)
 하나의 라운드 내에서, 확률에 따라 각 car의 position을 변경하고, round의 결과를 출력한다.
 Oracle class의 TellGoOrStop, showRoundResult 함수를 사용한다.
 

@@ -23,13 +23,7 @@ public class Solution {
         cars = Game.generateCarsByNames(names);
 
         for(int i = 0; i < count; i++) {
-            for (Car car : cars
-            ) {
-                if (Oracle.tellGoOrStop(9, 0, 4)) {
-                    car.move();
-                }
-            }
-            Oracle.showRoundResult(cars, '-');
+            Game.doRound(cars);
         }
 
 
