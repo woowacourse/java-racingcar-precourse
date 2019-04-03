@@ -56,8 +56,9 @@ public class Race {
             result.append(cars.get(i).getName()).append(" : ");
             result.append(positionToResult(cars.get(i).getPosition())).append("\n");
         }
+        result.append("\n");
 
-        System.out.println();
+        System.out.println(result.toString());
     }
 
     // 자동차 위치를 문자열로 바꿈
