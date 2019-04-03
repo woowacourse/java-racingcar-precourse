@@ -103,7 +103,8 @@ public class Car {
   |**playOneCycle()**|게임을 1회 시도하는 메서드|X|
   |**isMove()**|전진/정지 조건을 생성하는 메서드 (0~9까지 랜덤 값 발생 후 4이상 전진)|O|
   |**getMaxPosition()**|가장 많이 이동한 차의 위치를 반환하는 메서드|X|
-  |**printWinnerMessage()**|우승자 메세지를 출력하는 메서드|X|
+  |**printWinnerMessage()**|우승자 메세지를 출력하는 메서드|O|
+  |**printComma()**|우승자 메세지 출력에서 첫번째 차의 이름이 아닐 경우 앞에 ", "를 출력하는 메서드|O|
 
 
 
