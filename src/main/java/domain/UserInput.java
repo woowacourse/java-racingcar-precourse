@@ -13,7 +13,7 @@ package domain;
 import java.util.*;
 
 public class UserInput {
-	static final String DEMAND_RACING_CAR_NAME = "경주할 자동차이름을 입력하세요.";
+	static final String DEMAND_RACING_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)";
 	static final String DEMAND_CAR_GAME_TRY_COUNT = "시도할 회수는 몇 회인가요?";
 	static final String DEMAND_RULE_FOR_CAR_NAME = "자동차의 이름은 5자 이하만 가능합니다.";
 	static final String DEMAND_RULE_FOR_TRY_COUNT = "올바르지 않은 입력입니다.";

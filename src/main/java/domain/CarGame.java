@@ -18,7 +18,7 @@ public class CarGame {
 	private List<Car> racingCarList;
 	private int tryCount;
 	static final String RESULT_TITLE = "실행결과";
-	static final String RESULT_MESSAGE = "가 최종우승했습니다.";
+	static final String RESULT_MESSAGE = "가 최종 우승했습니다.";
 	static final int CAR_MOVE_CONDITION = 4;
 
 	public CarGame(UserInput userInput) {
@@ -35,7 +35,7 @@ public class CarGame {
 	}
 
 	public void playGame() {
-		System.out.println("\n"+RESULT_TITLE);
+		System.out.println("\n" + RESULT_TITLE);
 
 		while (tryCount-- > 0) {
 			for (int i = 0; i < racingCarList.size(); ++i) {
