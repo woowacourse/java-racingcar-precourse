@@ -1,7 +1,10 @@
 package domain;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.StringTokenizer;
@@ -21,31 +24,37 @@ public class Car {
 
 	private final int threshold = 4;
 
-	public String getName() {
-		return this.name;
-	}
-
-	public int getPosition() {
-		return this.position;
-	}
-
-	public int getThreshold() {
-		return this.threshold;
-	}
+//	public String getName() {
+//		return this.name;
+//	}
+//
+//	public int getPosition() {
+//		return this.position;
+//	}
+//
+//	public int getThreshold() {
+//		return this.threshold;
+//	}
 
 	public static void playGame() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		inputCarsName(br);
+		inputCarsNames(br);
 		inputNumMove(br);
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		System.out.println("\n실행결과");
-		for (int i = 0; i < numMove; i++) {
-			moveOneRound();
-			printState();
+		try {
+			for (int i = 0; i < numMove; i++) {
+				moveOneRound();
+				printState(bw);
+			}
+			printResult(bw);
+			bw.flush();
+			bw.close();
+		} catch (IOException e) {
 		}
-
 	}
 
-	private static void inputCarsName(BufferedReader br) {
+	private static void inputCarsNames(BufferedReader br) {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		try {
 			StringTokenizer st = new StringTokenizer(br.readLine(), ",");
@@ -53,7 +62,7 @@ public class Car {
 				cars.add(new Car(validName(st.nextToken())));
 			}
 		} catch (Exception e) {
-			inputCarsName(br);
+			inputCarsNames(br);
 		}
 	}
 
@@ -84,16 +93,31 @@ public class Car {
 
 	private static void moveOrNot(Car c) {
 		int tmp = (int) (Math.random() * 10);
-		if (tmp >= c.getThreshold())
+		if (tmp >= c.threshold)
 			c.position++;
 	}
 
-	private static void printState() {
+	private static void printState(BufferedWriter bw) throws IOException {
 		Iterator<Car> it = cars.iterator();
 		while (it.hasNext()) {
-			System.out.println(it.next().toString());
+			bw.write(it.next().toString() + "\n");
 		}
-		System.out.println();
+		bw.write("\n");
+	}
+
+	private static void printResult(BufferedWriter bw) throws IOException {
+		int maxPosition = 0;
+		Iterator<Car> it = cars.iterator();
+		while (it.hasNext()) {
+			maxPosition = Math.max(maxPosition, it.next().position);
+		}
+		it = cars.iterator();
+		ArrayList<String> winner = new ArrayList<>();
+		while (it.hasNext()) {
+			Car c = it.next();
+			if(c.position == maxPosition) winner.add(c.name);
+		}
+		bw.write(String.join(", ", winner)+"가 최종 우승 했습니다.");
 	}
 
 	@Override

@@ -15,25 +15,34 @@
 + 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
 + 자바 코드 컨벤션을 지키면서 프로그래밍한다.
 + indent(들여쓰기) depth를 3이 넘지 않도록 구현한다.
-+ 함수(또는 메소드)의 길기가 15라인을 넘어가지 않도록 구현한다.
-+ else 예약어를 쓰지 않는다.
++ 함수(또는 메소드)의 길기가 15라인을 넘어가지 않도록 구현한다. 
++ else 예약어를 쓰지 않는다.  
 
 ### 구현 기능 목록
-+ Car객체에서 변수 값을 받아오는 기능(getPosition, getName) 
++ ~~Car객체에서 변수 값을 받아오는 기능(getPosition, getName)~~ : 필요 없음.
 
-+ 입력을 받는 기능(static : carArr, numMove, numCar)
-  + 입력된 이름들을 ','로 split하여 ArrayList에 저장하는 기능
-  + 주어진 String이 이름에 적합한지(length<5) 판별하는 기능
++ 변수 선언
+  + static
+    + ArrayList<Car> cars
+    + int numMove
+  +instance
+    + String name
+    + int position
+    + int threshold
 
-+ 이번 라운드에서 갈지 말지 boolean 값 리턴하는 기능(final instance : threshold = 4;) : moveOrNot
-+ 이동을 한번 하는 기능 (position 업데이트 ) : moveOneRound
-+ 이동을 주어진 횟수만큼 반복하며 1등 차와 이동거리를 기록하는 기능 : 실행시간만 쓸데 없이 길어지므로 생략. 
++ 입력을 받는 기능(inputCarNames, inputNumMove)
+  + 입력된 이름들을 ','로 split하여 cars에 저장하는 기능
+  + 주어진 String이 이름에 적합한지(length<5) 판별하는 기능(validName)
+  + 올바른 입력이 들어올 때 까지 recursion  
 
-+ 현재 상태 출력 기능(print())
-  + static StringBuilder forPrint (name:\t-*position) 
-  + toString override 
++ cars의 모든 Car객체에 대해 한 번 움직이는 기능  (moveOneRound)
+  + Car객체에 한 번 움직일 기회를 주는 기능 (moveOrNot(Car c))
+  + ~~이동을 주어진 횟수만큼 반복하며 1등 차와 이동거리를 기록하는 기능 : 실행시간만 쓸데 없이 길어지므로 생략. ~~
 
-+ 최종 결과 출력 (1등한 모든 차 이름을 출력) 하는 기능
++ 현재 상태 및 최종 결과 출력 기능(printState, printResult)
+  + toString override (name: -*position) 
+  + cars의 각 객체에 대해 toString 리턴 받아 출력하는 기능
+  + 최대 포지션(maxPosition)을 구한 뒤, winners 출력 하는 기능
   
 ### 실행결과 예
 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)  
