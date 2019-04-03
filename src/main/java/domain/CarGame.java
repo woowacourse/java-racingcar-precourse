@@ -17,7 +17,6 @@ import java.util.*;
 public class CarGame {
 	private List<Car> racingCarList;
 	private int tryCount;
-	private StringBuilder stringBuilder;
 	static final String RESULT_TITLE = "실행결과";
 	static final String RESULT_MESSAGE = "가 최종우승했습니다.";
 	static final int CAR_MOVE_CONDITION = 4;
@@ -36,20 +35,16 @@ public class CarGame {
 	}
 
 	public void playGame() {
-		stringBuilder = new StringBuilder();
-
-		stringBuilder.append("\n" + RESULT_TITLE + "\n");
+		System.out.println("\n"+RESULT_TITLE);
 
 		while (tryCount-- > 0) {
 			for (int i = 0; i < racingCarList.size(); ++i) {
 				goOrNotCar(racingCarList.get(i));
 				printCarPosition(racingCarList.get(i));
 			}
-			stringBuilder.append("\n");
+			System.out.println();
 		}
 
-		System.out.println(stringBuilder);
-		stringBuilder.delete(0, stringBuilder.length());
 		printWinner(getWinner());
 	}
 
@@ -61,11 +56,11 @@ public class CarGame {
 	}
 
 	public void printCarPosition(Car car) {
-		stringBuilder.append(car.getName() + " : ");
+		System.out.print(car.getName() + " : ");
 		for (int i = 0; i < car.getPosition(); ++i) {
-			stringBuilder.append("-");
+			System.out.print("-");
 		}
-		stringBuilder.append("\n");
+		System.out.println();
 	}
 
 	public int getCarsMaxPosition() {
@@ -93,14 +88,13 @@ public class CarGame {
 
 	public void printWinner(List<String> winnerList) {
 		for (int i = 0; i < winnerList.size(); ++i) {
-			stringBuilder.append(winnerList.get(i));
+			System.out.print(winnerList.get(i));
 			if (i != winnerList.size() - 1) {
-				stringBuilder.append(", ");
+				System.out.print(", ");
 			}
 		}
 
-		stringBuilder.append(RESULT_MESSAGE);
-		System.out.println(stringBuilder);
+		System.out.println(RESULT_MESSAGE);
 	}
 
 }
