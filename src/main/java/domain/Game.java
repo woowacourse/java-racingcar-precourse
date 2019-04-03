@@ -93,8 +93,14 @@ public class Game {
 		return max;
 	}
 
-	private void printWinner() {
-		// TODO
-
+	public void printWinner() {
+		max = getMaxPosition();
+		String winner = "";
+		for (int i = 0; i < carCount; i++) {
+			if (cars[i].getPosition() == max) {
+				winner += ", " + cars[i].getName();
+			}
+		}
+		System.out.println(winner.substring(2) + "가 최종 우승했습니다.");
 	}
 }
