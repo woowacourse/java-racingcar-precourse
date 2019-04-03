@@ -18,6 +18,9 @@ public class CarGame {
 	private List<Car> racingCarList;
 	private int tryCount;
 	private StringBuilder stringBuilder;
+	static final String RESULT_TITLE = "실행결과";
+	static final String RESULT_MESSAGE = "가 최종우승했습니다.";
+	static final int CAR_MOVE_CONDITION = 4;
 
 	public CarGame(UserInput userInput) {
 		racingCarList = createRacingCarList(userInput.getRacingCarName());
@@ -33,10 +36,9 @@ public class CarGame {
 	}
 
 	public void playGame() {
-		RandomNumber randomNumber = new RandomNumber();
 		stringBuilder = new StringBuilder();
 
-		stringBuilder.append("\n실행결과\n");
+		stringBuilder.append("\n" + RESULT_TITLE + "\n");
 
 		while (tryCount-- > 0) {
 			for (int i = 0; i < racingCarList.size(); ++i) {
@@ -53,7 +55,7 @@ public class CarGame {
 
 	public void goOrNotCar(Car car) {
 		RandomNumber randomNumber = new RandomNumber();
-		if (randomNumber.getRandomNumber() >= 4) {
+		if (randomNumber.getRandomNumber() >= CAR_MOVE_CONDITION) {
 			car.moveCar();
 		}
 	}
@@ -97,8 +99,7 @@ public class CarGame {
 			}
 		}
 
-		stringBuilder.append("가 최종우승했습니다.");
-
+		stringBuilder.append(RESULT_MESSAGE);
 		System.out.println(stringBuilder);
 	}
 
