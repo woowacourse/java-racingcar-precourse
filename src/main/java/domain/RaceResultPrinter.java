@@ -14,6 +14,7 @@ public class RaceResultPrinter {
         for(int carOrder = 0; carOrder < carList.size(); carOrder++){
             PrintEachCarResult(carOrder);
         }
+        System.out.println();
     }
 
     private void PrintEachCarResult(int carOrder){

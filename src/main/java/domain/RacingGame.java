@@ -29,6 +29,8 @@ public class RacingGame {
             carNavigator.MoveCars();
             resultPrinter.PrintEachRaceAttemptResult();
         }
+        WinnerPrinter winnerPrinter = new WinnerPrinter(carGenerator.getCarList());
+        winnerPrinter.PrintWinner();
     }
 
     public static void main(String[] args) {
