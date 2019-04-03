@@ -1,124 +1,112 @@
 package domain;
 
+import java.io.IOException;
 import java.util.*;
 
 public class RacingGame {
-    private static final int MAX_LEN_OF_CAR_NAME = 5;
-    private Scanner scan;
+    private static final int TIME_TO_BREAK = 1000;
+    private ArrayList<Car> cars;
+    private int tries;
+    private int maxLenOfName = 0;
+    private int positionOfWinners = 0;
 
-    public RacingGame() {
-        scan = new Scanner(System.in);
-
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] names = getNameOfCars();
-        ArrayList<Car> cars = generateCars(names);
-
-        System.out.println("시도할 횟수는 몇 회인가요?");
-        int tries = getTries();
-
-        new RacingCar(cars, tries);     /* start Game */
-
-        scan.close();
+    public RacingGame(RacingGameConfig config) {
+        cars = config.getCars();
+        tries = config.getTries();
     }
 
-    public String[] getNameOfCars() {
-        String input = null;
-        InputError inputError = null;
-        while (inputError != InputError.PASS) {
-            input = scan.nextLine();
-            inputError = checkAccuracyOfNames(input);
-            System.out.println(inputError.getMessage(MAX_LEN_OF_CAR_NAME));
-        }
-        return input.split(",");
+    public void start() {
+        calculateMaxLenOfName();
+
+        System.out.println("실행 결과");
+        pause();
+        progressGame();
+
+        ArrayList<String> winners = getWinners();
+        showResults(winners);
+        pause();
     }
 
-    public int getTries() {
-        String tries = null;
-        InputError inputError = null;
-        while (inputError != InputError.PASS) {
-            tries = scan.next();
-            inputError = checkAccuracyOfTries(tries);
-            System.out.println(inputError.getMessage());
+    public void calculateMaxLenOfName() {
+        for (Car car : cars) {
+            int lenOfName = car.getName().length();
+            maxLenOfName = (lenOfName > maxLenOfName) ? lenOfName : maxLenOfName;
         }
-        return Integer.parseInt(tries);
     }
 
-    public InputError checkAccuracyOfNames(String input) {
-        String[] names = input.split(",");
-        if (hasBlank(input) || hasUnnamed(names)) {
-            return InputError.BLANK;
+    public void progressGame() {
+        while (tries-- > 0) {
+            for (Car car : cars) {
+                car.accelerate();
+                System.out.println(getAlignedName(car) + " : "
+                        + getDisplayOfPosition(car));
+
+                updatePositionOfWinners(car);
+            }
+            System.out.println();
+            sleep(TIME_TO_BREAK);
         }
-        if (names.length == 1) {
-            return InputError.COUNT_OF_CARS;
-        }
-        if (hasTooLongName(names)) {
-            return InputError.LONG_NAME;
-        }
-        if (hasDuplicated(names)) {
-            return InputError.DUPLICATED;
-        }
-        return InputError.PASS;
     }
 
-    public InputError checkAccuracyOfTries(String input) {
-        if (!isInteger(input)) {
-            return InputError.NOT_INTEGER;
+    public String getAlignedName(Car car) {
+        String name = car.getName();
+        while (name.length() < maxLenOfName) {
+            name += " ";
         }
-        int tries = Integer.parseInt(input);
-        if (tries < 1) {
-            return InputError.SIZE_OF_INTEGER;
-        }
-        return InputError.PASS;
+        return name;
     }
 
-    public boolean hasBlank(String str) {
-        return str.contains(" ");
+    public String getDisplayOfPosition(Car car) {
+        StringBuffer hyphens = new StringBuffer();
+        for (int i = 0; i < car.getPosition(); i++) {
+            hyphens.append("-");
+        }
+        return hyphens.toString();
     }
 
-    public boolean hasUnnamed(String[] names) {
-        for (String name : names) {
-            if (name.equals("")) {
-                return true;
+    public void updatePositionOfWinners(Car car) {
+        int pos = car.getPosition();
+        positionOfWinners = (pos > positionOfWinners) ? pos : positionOfWinners;
+    }
+
+    public ArrayList<String> getWinners() {
+        ArrayList<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == positionOfWinners) {
+                winners.add(car.getName());
             }
         }
-        return false;
+        return winners;
     }
 
-    public boolean hasTooLongName(String[] names) {
-        for (String name : names) {
-            if (name.length() > MAX_LEN_OF_CAR_NAME) {
-                return true;
+    public void showResults(ArrayList<String> winners) {
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i != winners.size() - 1) {
+                System.out.print(", ");
             }
         }
-        return false;
+        System.out.println("(이)가 최종 우승했습니다.");
     }
 
-    public boolean hasDuplicated(String[] names) {
-        Set<String> set = new HashSet<>(Arrays.asList(names));
-        if (names.length != set.size()) {
-            return true;
-        }
-        return false;
-    }
-
-    public ArrayList<Car> generateCars(String[] names) {
-        ArrayList<Car> list = new ArrayList<>();
-        for (String name : names) {
-            list.add(new Car(name));
-        }
-        return list;
-    }
-
-    public boolean isInteger(String input) {
+    public void sleep(int timeToBreak) {
         try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            return false;
+            Thread.sleep(timeToBreak);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        return true;
+    }
+
+    public static void pause() {
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
-        new RacingGame();
+        RacingGameConfig racingGameConfig = new RacingGameConfig();
+        new RacingGame(racingGameConfig).start();
     }
 }

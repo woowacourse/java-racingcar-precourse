@@ -1,6 +1,8 @@
 package domain;
 
 public class Car {
+    private static final int RANDOM_SCOPE = 10;
+    private static final int POINT_TO_ACCELERATE = 4;
     private final String name;
     private int position = 0;
 
@@ -9,8 +11,8 @@ public class Car {
     }
 
     public void accelerate() {
-        int rand = (int) (Math.random() * 10);
-        if (rand >= 4) {
+        int rand = (int) (Math.random() * RANDOM_SCOPE);
+        if (rand >= POINT_TO_ACCELERATE) {
             position++;
         }
     }
