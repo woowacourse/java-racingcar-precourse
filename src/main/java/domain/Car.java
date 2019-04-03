@@ -8,16 +8,22 @@ public class Car {
         this.name = name;
     }
     
-    public void getLocate() {
-    	
+    public int getLocate() {
+    	return this.position;
     }
     
-    public void getName() {
-    	
+    public String getName() {
+    	return this.name;
+    }
+    public int creatRanNum() {
+    	return (int) (Math.random() * 9 + 1);
     }
     
-    public void carMove() {
-    	
+    public void carMove(int ranNum) {
+    	if (ranNum >= 4) {
+    		this.position++;
+    	}
     }
+    
     
 }
