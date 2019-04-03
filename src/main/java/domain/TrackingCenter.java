@@ -42,7 +42,24 @@ public class TrackingCenter {
 
     }
 
-    public void showWinners() {
+    public String pickWinners(HashMap<String, Integer> positionsOfCar) {
+        int maxPosition = 0;
+        StringBuffer winners = new StringBuffer();
 
+        for (Map.Entry<String, Integer> positionOfCar: positionsOfCar.entrySet()) {
+            if (positionOfCar.getValue() > maxPosition) {
+                winners = new StringBuffer().append(positionOfCar.getKey());
+                maxPosition = positionOfCar.getValue();
+            } else if (positionOfCar.getValue() == maxPosition) {
+                winners.append(", " + positionOfCar.getKey());
+            }
+        }
+        return winners.toString();
+    }
+
+    public void showWinners() {
+        String winners = pickWinners(this.realTimePositionsOfCars);
+
+        System.out.println(winners + "(이)가 최종 우승했습니다.");
     }
 }
