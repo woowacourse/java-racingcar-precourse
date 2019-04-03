@@ -26,10 +26,15 @@ https://myeonguni.tistory.com/1596
 
 ### class
 * Car
+  * 자동차경주에 참여하는 자동차다.
 * Game
+  * 자동차경주 게임을 진행한다.
 * GameUI
+  * 사용자와 자동차경주게임을 위한 UI 클래스다.
 * Main
+  * 자동차경주 게임 프로그램을 시작한다.
 * NameRuleException
+  * 명명규칙 에러를 담당한다.
 
 #### Car
 * tryMove()
@@ -45,11 +50,13 @@ https://myeonguni.tistory.com/1596
 * joinRace()
   * 자동차 경주 참여
 * runLap()
-  * 자동차 1랩 실행
+  * 자동차 1트랙 실행
 * getCars()
   * 자동차 경주에 참여한 자동차의 상태
 * getRaceChampion()
   * 자동차 경주 우승자 반환
+* getMaxPosition()
+  * 자동차 경주의 최대 위치 반환
   
 #### GameUI
 * run()
@@ -63,13 +70,13 @@ https://myeonguni.tistory.com/1596
 * startRace()
   * 자동차 트랙 횟수만큼 경기시작
 * showLapResult()
-  * 자동차 경주 결과 출력
+  * 자동차 1트랙의 결과를 출력
 * showRaceChampion()
   * 자동차 경주 우승자 결과 출력
   
 #### Main
 * main()
-  * 프로그램 시작
+  * 자동차 경주 프로그램 시작
   
 #### NameRuleException
-* 명명규칙 에러 클래스
+* 명명규칙 에러를 담당한다.
