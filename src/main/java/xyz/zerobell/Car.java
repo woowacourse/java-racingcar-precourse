@@ -1,4 +1,4 @@
-package domain;
+package xyz.zerobell;
 
 public class Car {
     private final String name;
