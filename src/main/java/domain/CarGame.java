@@ -17,14 +17,13 @@ import java.util.*;
 public class CarGame {
 
 	private List<Car> racingCarList;
-	private int carMoveCount;
+	private int tryCount;
 	private StringBuilder stringBuilder;
 
-	public CarGame() {
-		UserInput userInput = new UserInput();
+	public CarGame(UserInput userInput) {
 		racingCarList = new ArrayList<>();
 		Arrays.stream(userInput.getRacingCarName()).forEach(s -> this.racingCarList.add(new Car(s)));
-		this.carMoveCount = userInput.getCarMoveCount();
+		this.tryCount = userInput.getTryCount();
 	}
 
 	public void playGame() {
@@ -35,10 +34,10 @@ public class CarGame {
 
 		stringBuilder.append("\n실행결과\n");
 
-		while (carMoveCount-- > 0) {
+		while (tryCount-- > 0) {
 			for (int i = 0; i < racingCarList.size(); ++i) {
 				moveCount = racingCarList.get(i).moveCar(randomNumber);
-				printCarMoveCount(racingCarList.get(i), moveCount);
+				printCarMove(racingCarList.get(i), moveCount);
 			}
 			stringBuilder.append("\n");
 		}
@@ -48,7 +47,7 @@ public class CarGame {
 		printWinner(getWinner());
 	}
 
-	public void printCarMoveCount(Car car, int moveCount) {
+	public void printCarMove(Car car, int moveCount) {
 
 		stringBuilder.append(car.getName() + " : ");
 		for (int i = 0; i < moveCount; ++i) {
