@@ -14,8 +14,8 @@ public class Validator {
 	private static final int MAX_NAME_LENGTH = 5;
 	private static final int MIN_NAME_LENGTH = 1;
 
-	private static final int MAX_COUNT = 3;
-	private static final int MIN_COUNT = 1;
+	private static final int MAX_COUNT_LENGTH = 3;
+	private static final int MIN_COUNT_LENGTH = 1;
 
 	private static final String COUNT_PATTERN = "^[0-9]*$";
 
@@ -53,12 +53,12 @@ public class Validator {
 	 * @return 이용할 수 없는 값일 경우 true, 그렇지 않을 경우 false를 반환
 	 */
 	public static boolean isInvalidCount(String inputtedCount) {
-		if (inputtedCount == null) {
+		if (inputtedCount == null || inputtedCount.equals("")) {
 			System.out.println("입력된 값이 없습니다. 다시 입력해주세요.");
 			return true;
 		}
 
-		if (inputtedCount.length() < MIN_COUNT || inputtedCount.length() > MAX_COUNT) {
+		if (inputtedCount.length() < MIN_COUNT_LENGTH || inputtedCount.length() > MAX_COUNT_LENGTH) {
 			System.out.println("숫자가 너무 작거나 큽니다. 다시 입력해주세요.");
 			return true;
 		}
