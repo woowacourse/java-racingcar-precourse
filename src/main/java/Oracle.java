@@ -99,16 +99,7 @@ public class Oracle {
         System.out.println();
     }
 
-    static void swapCarArrayIndex(Car[] cars, int i, int j) {
-        Car car;
-        car = cars[i];
-        cars[i] = cars[j];
-        cars[j] = car;
-    }
 
-    static void sortCarArray(Car[] cars) {
-
-    }
 
     /*
     static Vector<Car> findChampions(Vector<Car> cars) {
