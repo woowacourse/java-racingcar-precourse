@@ -11,7 +11,11 @@
 ## TODO-List
 
 - [x] create start()
-- [ ] create giveCarName()
+- [x] create class Input 
+- [x] create Input.readName()
+- [x] create Input.countNumberOfCars()
+- [x] create Input.countMovings()
+- [x] create Input.giveCarName()
 - [ ] create goOrStop()
 - [ ] create getRandomNum()
 - [ ] create noticeWinner()
