@@ -27,8 +27,8 @@ public class RacingManager {
     }
 
     public void sendMoveSignalsTo(ArrayList<Car> cars) {
-        for (int i = 0; i < cars.size(); i++) {
-            cars.get(i).randomMove();
+        for (Car car: cars) {
+            car.randomMove();
         }
     }
 }
