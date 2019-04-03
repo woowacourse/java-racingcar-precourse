@@ -21,27 +21,27 @@ public class RacingCarGame {
     private int totalTrial = 0;
 
     public RacingCarGame() {
-        this.racingManager = new RacingManager();
-        this.trackingCenter = new TrackingCenter();
-        this.cars = new ArrayList<Car>();
+        racingManager = new RacingManager();
+        trackingCenter = new TrackingCenter();
+        cars = new ArrayList<Car>();
     }
 
     public void setCars() {
-        this.cars = this.racingManager.getInitializedCars();
+        cars = racingManager.getInitializedCars();
     }
 
     public void setTotalTrial() {
-        this.totalTrial = this.racingManager.getTotalTrial();
+        totalTrial = racingManager.getTotalTrial();
     }
 
     public void start() {
         System.out.println("\n실행 결과");
         for (int trial = 1; trial <= totalTrial; trial++) {
-            this.racingManager.sendMoveSignalsTo(cars);
-            this.trackingCenter.detectPositionsOf(cars);
-            this.trackingCenter.showPositions();
+            racingManager.sendMoveSignalsTo(cars);
+            trackingCenter.detectPositionsOf(cars);
+            trackingCenter.showPositions();
         }
-        this.trackingCenter.showWinners();
+        trackingCenter.showWinners();
     }
 
     public static void main(String args[]) {

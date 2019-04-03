@@ -8,7 +8,7 @@ public class TrackingCenter {
 
     public void detectPositionsOf(ArrayList<Car> cars) {
         for (Car car: cars) {
-            this.carPositions.put(car.getName(), car.getPosition());
+            carPositions.put(car.getName(), car.getPosition());
         }
     }
 
@@ -22,9 +22,9 @@ public class TrackingCenter {
     }
 
     public void showPositions() {
-        for (String carName: this.carPositions.keySet()) {
+        for (String carName: carPositions.keySet()) {
             System.out.print(carName + " : ");
-            System.out.println(repeat("-", this.carPositions.get(carName)));
+            System.out.println(repeat("-", carPositions.get(carName)));
         }
         System.out.print("\n");
     }
@@ -33,11 +33,11 @@ public class TrackingCenter {
         int maxPosition = -1;
         StringBuffer winners = new StringBuffer();
 
-        for (String carName: this.carPositions.keySet()) {
-            if (this.carPositions.get(carName) > maxPosition) {
+        for (String carName: carPositions.keySet()) {
+            if (carPositions.get(carName) > maxPosition) {
                 winners = new StringBuffer().append(carName);
-                maxPosition = this.carPositions.get(carName);
-            } else if (this.carPositions.get(carName) == maxPosition) {
+                maxPosition = carPositions.get(carName);
+            } else if (carPositions.get(carName) == maxPosition) {
                 winners.append(", " + carName);
             }
         }
