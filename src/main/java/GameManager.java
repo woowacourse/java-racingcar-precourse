@@ -1,6 +1,8 @@
 import domain.Car;
 import util.InputUtil;
+import util.OutputUtil;
 import util.RandomGenerator;
+import view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +31,10 @@ public class GameManager {
     }
 
     private void playGame() {
+        OutputView.printResult();
         while (time != 0) {
             tryOneTime(cars);
+            OutputView.printProcess(cars);
             time--;
         }
         endGame();
@@ -39,13 +43,14 @@ public class GameManager {
     private void endGame() {
         List<String> winners;
         winners = getWinner();
+        OutputUtil.printWinners(winners);
     }
 
     private List<String> getWinner() {
         List<String> winners = new ArrayList<>();
         int maxNum = getMaxNum();
-        for(Car car:cars){
-            if(car.getPosition()==maxNum){
+        for (Car car : cars) {
+            if (car.getPosition() == maxNum) {
                 winners.add(car.getName());
             }
         }
@@ -54,8 +59,8 @@ public class GameManager {
 
     private int getMaxNum() {
         int maxNum = -1;
-        for(Car car : cars){
-            if(maxNum < car.getPosition())
+        for (Car car : cars) {
+            if (maxNum < car.getPosition())
                 maxNum = car.getPosition();
         }
         return maxNum;
