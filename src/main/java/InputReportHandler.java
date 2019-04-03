@@ -13,5 +13,16 @@ public class InputReportHandler {
         return reports;
     }
 
+    static boolean isThereError(Vector<InputReport> reports) {
+        for (InputReport report : reports
+        ) {
+            if (report.showCode() != 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
 }

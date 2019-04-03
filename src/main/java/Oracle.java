@@ -57,16 +57,7 @@ public class Oracle {
         return report;
     }
 
-    static boolean isThereError(Vector<InputReport> reports) {
-        for (InputReport report : reports
-        ) {
-            if (report.showCode() != 0) {
-                return true;
-            }
-        }
 
-        return false;
-    }
 
     /*static boolean checkFaultyInput(Vector<String> names, int max) {
         boolean faulty = false;

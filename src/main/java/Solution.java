@@ -30,7 +30,7 @@ public class Solution {
             System.out.println(report);
         }
 
-        bool = Oracle.isThereError(reports);
+        bool = InputReportHandler.isThereError(reports);
         System.out.print("Error:");
         System.out.println(bool);
     }
