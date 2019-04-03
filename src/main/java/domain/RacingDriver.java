@@ -1,20 +1,21 @@
 package domain;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class RacingDriver {
-    static int nTurns;
-    static ArrayList<Car> cars;
+    private static int nTurns;
+    private static ArrayList<Car> cars;
 
-    public static String getCarNames() {
+    private static String getCarNames() {
         Scanner scan = new Scanner(System.in);
 
         return scan.nextLine();
     }
 
-    public static String[] parseCarNames(String carsString) {
-        String cars[] = carsString.split(",");
+    private static String[] parseCarNames(String carsString) {
+        String[] cars = carsString.split(",");
 
         for (int i = 0; i < cars.length; i++) {
             cars[i] = cars[i].trim();
@@ -23,7 +24,7 @@ public class RacingDriver {
         return cars;
     }
 
-    public static void makeCars(String[] carsStr) {
+    private static void makeCars(String[] carsStr) {
         cars = new ArrayList<>();
 
         for (String carName: carsStr) {
@@ -31,22 +32,22 @@ public class RacingDriver {
         }
     }
 
-    public static void getTurns() {
+    private static void getTurns() {
         Scanner scan = new Scanner(System.in);
 
         nTurns = scan.nextInt();
     }
 
-    public static void printRaceStatus() {
+    private static void printRaceStatus() {
         for (Car car: cars) {
-            String status = car.getName() + " : " + String.format("%0" + car.getPosition() + "d", 0).replace("0", "-");
+            String status = car.getName() + " : " + String.join("", Collections.nCopies(car.getPosition(), "-"));
             System.out.println(status);
         }
 
         System.out.println("");
     }
 
-    public static void doRace() {
+    private static void doRace() {
         for (int i = 0; i < nTurns; i++) {
             for (Car car: cars) {
                 car.proceed();
@@ -55,7 +56,7 @@ public class RacingDriver {
         }
     }
 
-    public static String[] getWinners() {
+    private static String[] getWinners() {
         int max = 0;
         ArrayList<String> result = new ArrayList<>();
 
@@ -69,10 +70,10 @@ public class RacingDriver {
             }
         }
 
-        return (String[]) result.toArray();
+        return result.toArray(new String[0]);
     }
 
-    public  static void main(String args[]) {
+    public  static void main(String[] args) {
         String[] carNames;
 
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉽표(,) 기준으로 구분)");

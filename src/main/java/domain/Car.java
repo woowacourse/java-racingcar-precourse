@@ -16,7 +16,7 @@ public class Car {
         return generator.nextInt(10) >= 4;
     }
 
-    public boolean proceed() {
+     public boolean proceed() {
         boolean result = goOrStop();
 
         if (result) {
