@@ -5,7 +5,7 @@ class Game
 사용자로부터 받은 차 이름들을 가공된 형태로 반환한다.
 InputHandler class의 getInput과 parse 함수를, Oracle class의 checkFaultyInput 함수를 사용한다.
 
-- Car[] generateCarsByNames(String[] names)
+- Vector<Car> generateCarsByNames(Vector<String> names)
 names 속 name이 부여된 Car 객체를 names 개수만큼 생성한다.
 
 - int getNumberOfRound()

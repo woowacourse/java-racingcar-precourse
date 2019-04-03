@@ -1,3 +1,4 @@
+import domain.Car;
 import domain.InputReport;
 import java.util.Vector;
 
@@ -8,13 +9,23 @@ public class Solution {
         String s;
         String[] sarray;
         Boolean bool;
-        Vector<String> vector;
+        Vector<String> names;
         int count;
-        Vector<InputReport> reports;
+        Vector<Car> cars;
+
         InputReport error;
 
+        names = Game.getCarNames();
         count = Game.getNumberOfRound();
         System.out.println(count);
+        cars = Game.generateCarsByNames(names);
+
+        for (Car car: cars
+             ) {
+            System.out.println(car);
+        }
+
+
 
 
     }

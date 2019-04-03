@@ -1,3 +1,6 @@
+import domain.Car;
+
+import javax.print.attribute.standard.MediaSize;
 import java.util.Vector;
 
 public class Game {
@@ -37,5 +40,16 @@ public class Game {
         }
     }
 
+    static Vector<Car> generateCarsByNames(Vector<String> names) {
+        Vector<Car> cars = new Vector<>();
+
+        for (String name : names
+             ) {
+            Car car = new Car(name);
+            cars.add(car);
+        }
+
+        return cars;
+    }
 
 }
