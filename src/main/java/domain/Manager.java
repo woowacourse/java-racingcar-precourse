@@ -5,6 +5,7 @@ import java.util.Vector;
 public class Manager {
     private Vector<String> carList;
     private User user;
+    private int tryCount;
 
     public Manager(){
         user = new User();
@@ -12,6 +13,20 @@ public class Manager {
 
     public void startGame(){
         while(firstQuery() == false);
+        while(secondQuery() == false);
+    }
+
+    public boolean secondQuery(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        String ret = user.inputTryCount();
+        try{
+            Integer.parseInt(ret);
+        }catch(NumberFormatException e){
+            System.out.println(InputError.NUMBER_FORMAT_ERROR);
+            return false;
+        }
+        tryCount = Integer.parseInt(ret);
+        return true;
     }
 
     public boolean firstQuery(){
