@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class RacingDriver {
+    static int nTurns;
     static ArrayList<Car> cars;
 
     public static getWinners() {
@@ -36,12 +37,31 @@ public class RacingDriver {
         }
     }
 
-    public static int getTurns() {
+    public static void getTurns() {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return scan.nextInt();
+        nTurns = scan.nextInt();
+    }
+
+    public static void printRaceStatus() {
+        System.out.println("실행결과");
+
+        for (Car car: cars) {
+            String status = car.getName() + " : " + String.format("%0" + car.getPosition() + "d", 0).replace("0", "-");
+            System.out.println(status);
+        }
+
+        System.out.println("");
+    }
+
+    public static void doRace() {
+        for (int i = 0; i < nTurns; i++) {
+            for (Car car: cars) {
+                car.proceed();
+            }
+        }
     }
 
     public  static void main(String args[]) {
