@@ -16,6 +16,7 @@
 |private static final int NAME_MIN_LENGTH|자동차의 이름의 최소 길이|
 |private static final int NAME_MAX_LENGTH|자동차 이름의 최고 길이|
 |private static final boolean IS_SOEMTHING_WRONG|조건을 체크할 수 있는 boolean value|
+|private static final int STOP_OR_GO|자동차가 전진할지 멈출지 정하는 기준|
 
 |  순서 |  method명 |  설명 |
 |---|---|---|
