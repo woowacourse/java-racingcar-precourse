@@ -33,6 +33,32 @@ public class GameManager {
             tryOneTime(cars);
             time--;
         }
+        endGame();
+    }
+
+    private void endGame() {
+        List<String> winners;
+        winners = getWinner();
+    }
+
+    private List<String> getWinner() {
+        List<String> winners = new ArrayList<>();
+        int maxNum = getMaxNum();
+        for(Car car:cars){
+            if(car.getPosition()==maxNum){
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxNum() {
+        int maxNum = -1;
+        for(Car car : cars){
+            if(maxNum < car.getPosition())
+                maxNum = car.getPosition();
+        }
+        return maxNum;
     }
 
     private void tryOneTime(List<Car> cars) {
