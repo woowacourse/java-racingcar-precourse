@@ -71,6 +71,7 @@ public class Car {
   |**printName()**|차의 이름을 출력하는 메서드|O|
   |**moveCar()**|차가 전진하는 메서드|O|
   |**printPosition()**|차의 위치를 출력하는 메서드|O|
+  |**getPosition()**|차의 위치를 반환하는 메서드|X|
   
 <br/>
   
@@ -100,6 +101,7 @@ public class Car {
   |**printResultMessage()**|실행결과 메세지를 출력하는 메서드|X|
   |**playOneCycle()**|게임을 1회 시도하는 메서드|X|
   |**isMove()**|전진/정지 조건을 생성하는 메서드 (0~9까지 랜덤 값 발생 후 4이상 전진)|X|
+  |**getMaxPosition()**|가장 많이 이동한 차의 위치를 반환하는 메서드|X|
   |**printWinnerMessage()**|우승자 메세지를 출력하는 메서드|X|
 
 
