@@ -23,7 +23,7 @@ public class Car {
                 this.position++;
         }
 
-        private int getPosiotion() {
+        public int getPosiotion() {
                 return this.position;
         }
 

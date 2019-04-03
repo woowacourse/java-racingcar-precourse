@@ -11,7 +11,8 @@ public class Game {
         private Car[] cars;
         private int trialNumber;
 
-        Game() {}
+        Game() {
+        }
 
         public void start() {
 
@@ -63,4 +64,14 @@ public class Game {
                 return random.nextInt(MAXRANDOMNUMBER) >= MINMOVENUMBER ? true : false;
         }
 
+        private int getMaxPosition() {
+                int max = trialNumber;
+                for (Car car : cars) {
+                        int position = car.getPosiotion();
+                        if (position > max) {
+                                max = position;
+                        }
+                }
+                return max;
+        }
 }
