@@ -1,5 +1,5 @@
 /*
- * @Car.java        1.03 2019/04/03
+ * @Car.java        1.04 2019/04/03
  * 
  * Copyright(c)2019 HwiJin Hong.
  * All right reserved.
@@ -15,12 +15,12 @@ package domain;
  * 자동차에 대한 데이터 포맷을 정의하기 위해 사용되는 클래스이다.
  * 자동차의 이름,현재 위치에 대한 정보를 가지고 있는 객체이다.
  * 
- * @version 1.03 2019년 4월 3일
+ * @version 1.04 2019년 4월 3일
  * @author 홍휘진
  */
 public class Car {
 
-    private static final int MIN_POSITION = 0;
+    public static final int MIN_POSITION = 0;
     
     private final String name;
 
