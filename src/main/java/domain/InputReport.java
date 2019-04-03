@@ -2,11 +2,11 @@ package domain;
 
 public class InputReport {
     private int code = InputReportCode.NO_ERROR;
-    private String errorMessage = InputReportMessage.NO_ERROR_MESSAGE;
+    private String message = InputReportMessage.NO_ERROR_MESSAGE;
 
-    public void set(int code, String errorMessage) {
+    public void set(int code, String message) {
         this.code = code;
-        this.errorMessage = errorMessage;
+        this.message = message;
     }
 
     public int showCode() {
@@ -15,6 +15,6 @@ public class InputReport {
 
     @Override
     public String toString() {
-        return this.errorMessage;
+        return this.message;
     }
 }

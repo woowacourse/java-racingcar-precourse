@@ -25,7 +25,6 @@ public class Solution {
 
         count = InputHandler.countName("car",vector);
         System.out.println(count);
-        reports = InputReportHandler.gatherReports(vector, 5);
 
         bool = Oracle.checkFaultyInput(vector, 5);
         System.out.print("error:");
