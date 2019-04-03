@@ -1,11 +1,11 @@
 import util.MakeCar;
-
+import util.Race;
 public class Main {
     /**
      * 게임 진행 메인 함수
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        System.out.println(Race.randomNum());
         MakeCar.makingCar();
     }
 }
