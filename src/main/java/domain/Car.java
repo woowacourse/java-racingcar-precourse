@@ -8,5 +8,8 @@ public class Car {
         this.name = name;
     }
 
+    public int generateRandomNum(){
+        return (int)(Math.random() * 9);
+    }
     // 추가 기능 구현
 }
