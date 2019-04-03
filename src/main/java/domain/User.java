@@ -6,7 +6,6 @@ import java.util.Vector;
 
 public class User {
     private Scanner scanner;
-    private Vector<String> carList;
     public User(){
         scanner = new Scanner(System.in);
     }
