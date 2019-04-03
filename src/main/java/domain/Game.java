@@ -6,6 +6,8 @@
 
 package domain;
 
+import err.NameRuleException;
+
 import java.util.ArrayList;
 
 /**
@@ -15,17 +17,13 @@ import java.util.ArrayList;
  * @version 1.00  2019년 04월 02일
  */
 public class Game {
+	private static final String DELIMITER = ",";
 	private ArrayList<Car> cars;
 
-	public void joinRace(String carNames) throws Exception {
+	public void joinRace(String carNames) {
 		this.cars = new ArrayList<Car>();
-		Exception errCarName = new Exception("이름이 5자 초과");
-		String req = ",";
 
-		for (String carName : carNames.split(req)) {
-			if (carName.length() > 5) {
-				throw errCarName;
-			}
+		for (String carName : carNames.split(DELIMITER)) {
 			this.cars.add(new Car(carName));
 		}
 	}
