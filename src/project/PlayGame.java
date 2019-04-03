@@ -4,15 +4,14 @@ import java.util.Scanner;
 
 public class PlayGame {
         
-    private String initCarName;
+    
     private String carName[];
     private int carCount;
     private int gameCount;
     private Car car[];
     
     void run() {
-        inputName();
-        splitName();
+        inputName();        
         inputGameCount();
         createCar();
         playGame();
@@ -20,15 +19,13 @@ public class PlayGame {
     }
     
     void inputName() {
+        String initCarName;
         Scanner sc = new Scanner(System.in);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        initCarName = sc.nextLine();
-    }
-    
-    void splitName() {
+        initCarName = sc.nextLine();        
         carName=initCarName.split(",");
-        carCount=carName.length;        
-    }
+        carCount=carName.length;
+    }    
     
     void inputGameCount() {
         Scanner sc = new Scanner(System.in);
