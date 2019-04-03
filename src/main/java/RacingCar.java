@@ -7,6 +7,7 @@ public class RacingCar {
 
         RacingCarGame racingCarGame = RacingCarGame.of(carNamesWithComma, remainingPlayCount);
         racingCarGame.play();
-        UserInterface.printResults(racingCarGame.getResults());
+        UserInterface.printRecords(racingCarGame.getRecorder());
+        UserInterface.printWinners(racingCarGame.getWinners());
     }
 }

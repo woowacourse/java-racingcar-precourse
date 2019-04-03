@@ -9,11 +9,9 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    private Car(String name, int position) {
+    private Car(String name) {
         validateNameLength(name);
-
         this.name = name;
-        this.position = position;
     }
 
     private void validateNameLength(String name) {
@@ -23,11 +21,7 @@ public class Car {
     }
 
     public static Car fromName(String name) {
-        return new Car(name, 0);
-    }
-
-    public static Car newInstance(Car car) {
-        return new Car(car.name, car.position);
+        return new Car(name);
     }
 
     public String getName() {
