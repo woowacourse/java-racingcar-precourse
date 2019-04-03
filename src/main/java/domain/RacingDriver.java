@@ -7,9 +7,6 @@ public class RacingDriver {
 
     }
 
-    public static String parseCarNames(String carsString) {
-    }
-
     public static String getCarNames() {
         Scanner scan = new Scanner(System.in);
 
@@ -17,6 +14,17 @@ public class RacingDriver {
 
         return scan.nextLine();
     }
+
+    public static String[] parseCarNames() {
+        String cars[] = getCarNames().split(",");
+
+        for (int i = 0; i < cars.length; i++) {
+            cars[i] = cars[i].trim();
+        }
+
+        return cars;
+    }
+
 
     public  static void main(String args[]) {
 
