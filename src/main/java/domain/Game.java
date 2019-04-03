@@ -35,10 +35,14 @@ public class Game {
 			if (isnotValidName()) {
 				continue;
 			}
-			for (int i = 0; i < carCount; i++) {
-				cars[i] = new Car(car_names[i]);
-			}
+			inputCar();
 			return;
+		}
+	}
+
+	public void inputCar() {
+		for (int i = 0; i < carCount; i++) {
+			cars[i] = new Car(car_names[i]);
 		}
 	}
 
