@@ -29,7 +29,7 @@ public class UserInput {
 			carNameList = scanner.nextLine().split(",");
 			result = checkCarNameList(carNameList);
 		}
-		while (result != true);
+		while (!result);
 
 		return carNameList;
 	}
@@ -55,7 +55,7 @@ public class UserInput {
 			count = scanner.nextLine();
 			result = checkTryCount(count);
 		}
-		while (result != true);
+		while (!result);
 
 		scanner.close();
 		return Integer.parseInt(count);
