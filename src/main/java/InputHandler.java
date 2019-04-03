@@ -12,19 +12,25 @@ public class InputHandler {
     }
 
     static Vector<String> parse(String input, String Separator) {
-        Vector<String> vector = new Vector<>();
+        Vector<String> names = new Vector<>();
         String[] stringArray;
 
         stringArray = input.split(Separator);
         for (String string:stringArray
              ) {
             if(string.equals("")==false) {
-                vector.add(string.trim());
+                names.add(string.trim());
             }
         }
 
-        return vector;
+        return names;
     }
+    /*
+    static boolean checkLength(Vector<String> names) {
+        String name;
+        Boolean flag
+        for ()
+    }*/
 
 
 }
