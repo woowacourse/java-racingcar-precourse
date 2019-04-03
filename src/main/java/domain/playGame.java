@@ -48,7 +48,10 @@ public class playGame {
 	}
 	
 	public void raceStart() {
-		
+		for (int i = 0; i < car.length; i++) {
+			race[i].oneRace();
+		}
+		System.out.println();
 	}
 	
 	public void gameResult() {

@@ -15,6 +15,7 @@ public class Car {
     public String getName() {
     	return this.name;
     }
+    
     public int createRanNum() {
     	return (int) (Math.random() * 9 + 1);
     }
@@ -32,7 +33,7 @@ public class Car {
     public void RoundResult() {
     	System.out.print(this.name + " : ");
     	for (int i = 0; i < this.position; i++) {
-    		System.out.println("-");
+    		System.out.print("-");
     	}
     	System.out.println();
     }
