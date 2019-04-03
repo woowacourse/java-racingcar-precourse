@@ -19,7 +19,8 @@ public class Controller {
     }
 
     public void askNumberOfAttempts() {
-
+        System.out.println("시도할 회수는 몇회인가요?");
+        laps = scanner.nextInt();
     }
 
     /* 이름의 정당성 확인 및 split 기능 구현 */
