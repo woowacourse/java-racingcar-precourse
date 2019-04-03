@@ -15,13 +15,21 @@ public class Game {
         }
 
         public void start() {
-
+                printCarNamesInputMessage();
+                inputCarNames();
+                printTrialNumberInputMessage();
+                inputTrialNumber();
+                printResultMessage();
+                for (int i = 0; i < trialNumber; i++) {
+                        playOneCycle();
+                }
+                printWinnerMessage();
         }
 
         private void playOneCycle() {
                 for (Car car : cars) {
                         car.printName();
-                        System.out.println(" : ");
+                        System.out.print(" : ");
                         if (isMove()) {
                                 car.moveCar();
                         }
@@ -66,7 +74,7 @@ public class Game {
         }
 
         private int getMaxPosition() {
-                int max = trialNumber;
+                int max = -1;
                 for (Car car : cars) {
                         int position = car.getPosiotion();
                         if (position > max) {
@@ -79,7 +87,6 @@ public class Game {
         private void printWinnerMessage() {
                 int maxPosiotion = getMaxPosition();
                 boolean isFirst = true;
-                System.out.println();
                 for (Car car : cars) {
                         if (car.getPosiotion() == maxPosiotion) {
                                 printComma(isFirst);
