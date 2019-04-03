@@ -41,8 +41,17 @@ public class Game {
 		}
 	}
 
-	private boolean isnotValidName() {
-		// TODO
+	public boolean isnotValidName() {
+		for (int i = 0; i < carCount; i++) {
+			if (car_names[i].trim().length() == 0) {
+				System.out.println("이름은 1글자 이상이어야 합니다.");
+				return true;
+			}
+			if (car_names[i].length() > 5) {
+				System.out.println("이름은 5자 이하만 가능합니다.");
+				return true;
+			}
+		}
 		return false;
 	}
 
