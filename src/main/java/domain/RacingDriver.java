@@ -46,8 +46,6 @@ public class RacingDriver {
     }
 
     public static void printRaceStatus() {
-        System.out.println("실행결과");
-
         for (Car car: cars) {
             String status = car.getName() + " : " + String.format("%0" + car.getPosition() + "d", 0).replace("0", "-");
             System.out.println(status);
@@ -57,10 +55,13 @@ public class RacingDriver {
     }
 
     public static void doRace() {
+        System.out.println("실행결과");
+
         for (int i = 0; i < nTurns; i++) {
             for (Car car: cars) {
                 car.proceed();
             }
+            printRaceStatus();
         }
     }
 
