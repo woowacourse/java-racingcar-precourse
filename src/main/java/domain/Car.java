@@ -15,6 +15,7 @@ import java.util.Random;
  * @author   조남균
  */
 public class Car {
+	public static final int NAME_LENGTH = 5;
 	private static final int RANDOM_BOUND = 10;
 	private static final int MOVE_BOUND = 4;
 	private final String name;
