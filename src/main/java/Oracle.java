@@ -112,14 +112,19 @@ public class Oracle {
         return count;
     }
 
-    /*
+
     static Vector<Car> findChampions(Vector<Car> cars) {
         Vector<Car> champions = new Vector<>();
         Collections.sort(cars);
+        int numberOfChampions = numberOfChapmionsAtSortedCarArray(cars);
 
+        for(int i = 0; i < numberOfChampions; i++) {
+            champions.add(cars.get(i));
+        }
 
+        return champions;
     }
-    */
+
 
 
 

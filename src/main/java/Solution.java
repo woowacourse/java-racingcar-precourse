@@ -10,7 +10,7 @@ public class Solution {
 
         Vector<String> names;
         int numberOfRound, count;
-        Vector<Car> cars;
+        Vector<Car> cars, champions;
 
         names = Game.getCarNames();
         numberOfRound = Game.getNumberOfRound();
@@ -18,13 +18,14 @@ public class Solution {
 
         Game.doRace(cars, numberOfRound);
         Collections.sort(cars);
-        for (Car car : cars
+
+
+        champions = Oracle.findChampions(cars);
+        for (Car car : champions
              ) {
+            System.out.print("champion: ");
             System.out.println(car);
         }
-
-        count = Oracle.numberOfChapmionsAtSortedCarArray(cars);
-        System.out.println(count);
     }
 
 }

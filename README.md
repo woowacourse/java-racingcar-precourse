@@ -35,7 +35,7 @@ cars의 position을 name:(position수만큼 character 출력) 형태로 출력�
 count만큼 character를 출력한다.
 
 - Vector<Car> findChampions(Vector<Car> cars)
-cars 속에서 챔피언들을 찾는다.
+cars 속에서 챔피언들을 찾아서 Vector<Car> 형태로 리턴한다.
 
 - void showChampions(Car[] cars)
 챔피언 차들의 이름을 출력한다.
