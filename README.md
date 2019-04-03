@@ -81,6 +81,7 @@ public class Car {
   |:-------|:-------|:-------:|
   |**MAXCARNAMENUMBER**|자동차 이름 입력 최대값 나타내는 상수|O|
   |**MAXRANDOMNUMBER**|랜덤 값 생성 시 최대값 나타내는 상수|O|
+  |**MINMOVENUMBER**|차가 움직일 수 있는 최소 숫자|O|
   
   
  - ### variables
