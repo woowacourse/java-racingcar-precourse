@@ -2,8 +2,10 @@ package utils;
 
 import java.util.Random;
 
-public interface RandomUtils {
-    Random random = new Random();
+public class RandomUtils {
+    private final static Random random = new Random();
+
+    private RandomUtils(){}
 
     public static int getRandomNumber(int start, int end) {
         int rangeCount = end  - start + 1;
