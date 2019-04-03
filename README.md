@@ -14,3 +14,4 @@
 1. 사용자에게 자동차의 이름과 시도할 회수를 입력받는 initSetup 함수 구현
 2. 자동차 객체를 만드는 createCar 함수 구현
 3. 랜덤 값을 생성하는 randomNumGenerator 함수 구현
+4. 3에서 생성한 값에따라 자동차를 이동시키는 goAndStop 함수 구현

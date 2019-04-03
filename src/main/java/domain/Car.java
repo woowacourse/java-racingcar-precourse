@@ -22,5 +22,12 @@ public class Car {
         }
     }
 
+    public void goAndStop() {
+
+        if (randomNumGenerator() >= 4)
+            this.position++;
+
+    }
+
 
 }
