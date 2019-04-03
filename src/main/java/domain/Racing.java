@@ -24,7 +24,10 @@ public class Racing {
 
     private static final String MESSAGE_INPUT_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String MESSAGE_INPUT_NUMBER = "시도할 횟수를 입력해주세요: ";
-    private static final String MESSAGE_RESULT = "가 우승했습니다.";
+    private static final String MESSAGE_ERROR_NAME= "5자 이하의 이름으로 입력해주세요";
+    private static final String MESSAGE_ERROR_NEGATIVE_NUMBER = "0보다 큰 숫자로 입력해주세요";
+    private static final String MESSAGE_ERROR_NOT_NUMBER= "숫자를 입력해주세요";
+    private static final String MESSAGE_RESULT = "가 최종 우승했습니다.";
 
     public Racing() {
         this.carList = new ArrayList<Car>();
@@ -60,17 +63,28 @@ public class Racing {
 
     private void inputMovingNumber() {
         Scanner scan = new Scanner(System.in);
-        int number;
+        String number;
         do {
             System.out.print(MESSAGE_INPUT_NUMBER);
-            while (!scan.hasNextInt()) {
-                System.out.println("자연수를 입력해주세요");
-                scan.next();
-            }
-            number = scan.nextInt();
+            number = scan.nextLine();
         }
-        while (number < 1);
-        this.numberOfTimes = number;
+        while (!isCorrectMovingNumber(number));
+        this.numberOfTimes = Integer.parseInt(number);
+    }
+
+    private boolean isCorrectMovingNumber(String num) {
+        try {
+            int integerNum = Integer.parseInt(num);
+            if(integerNum <= 0) {
+                System.out.println(MESSAGE_ERROR_NEGATIVE_NUMBER);
+                return false;
+            }
+        }
+        catch(NumberFormatException e) {
+            System.out.println(MESSAGE_ERROR_NOT_NUMBER);
+            return false;
+        }
+        return true;
     }
 
     private boolean isCorrectCarName(String str) {
@@ -81,7 +95,7 @@ public class Racing {
                 charCount = 0;
             }
             if (str.charAt(i) == ' ' || charCount > MAX_NAME_LENGTH) {
-                System.out.println("올바르지 않은 입력입니다.");
+                System.out.println(MESSAGE_ERROR_NAME);
                 return false;
             }
         }
