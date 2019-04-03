@@ -13,7 +13,7 @@ public class User {
 
     public void input() {
         inputValidCarNames();
-        inputNumberOfTrials();
+        inputValidNumberOfTrials();
     }
 
     /**
@@ -26,9 +26,7 @@ public class User {
         while (true) {
             carNamesArray = inputCarNames();
 
-            if (checkValidInput(carNamesArray)) {
-                break;
-            }
+            if (checkValidNames(carNamesArray)) { break; }
             System.out.println("자동차 이름은 1자 이상 5자 이하로 작성해주세요.");
         }
 
@@ -69,13 +67,9 @@ public class User {
      * @param slicedInput   : 슬라이싱한 name 들
      * @return  :   true : 적합, false : 부적합
      */
-    public boolean checkValidInput(String[] slicedInput) {
-        if (isOnlyComma(slicedInput)) {
-            return false;
-        }
-        if (isBlankOrOverLength(slicedInput)) {
-            return false;
-        }
+    public boolean checkValidNames(String[] slicedInput) {
+        if (isOnlyComma(slicedInput)) { return false; }
+        if (isBlankOrOverLength(slicedInput)) { return false; }
         return true;
     }
 
@@ -99,16 +93,54 @@ public class User {
     }
 
     /**
+     * 사용자가 숫자만 입력 할 때 까지
+     * 검증을 반복
+     */
+    public void inputValidNumberOfTrials() {
+        int validCount;
+        String count;
+
+        while (true) {
+            count = inputNumberOfTrials();
+            count = count.replace(" ", "");
+
+            if (checkValidNumber(count)) { break; }
+            System.out.println("올바른 숫자를 입력하세요.");
+        }
+        validCount = Integer.parseInt(count);
+        setNumberOfTrials(validCount);
+    }
+
+    /**
      * 사용자가 몇 번을 시도할 것인지를 입력
      */
-    public void inputNumberOfTrials() {
-        int count;
+    public String inputNumberOfTrials() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("시도할 횟수는 몇회인가요?");
-        count = sc.nextInt();
+        return sc.nextLine();
+    }
 
-        setNumberOfTrials(count);
+    /* 입력을 안했거나 숫자가 아니거나 */
+    public boolean checkValidNumber(String input) {
+        if (isBlankInput(input)) { return false; }
+        if (!isNumber(input)) { return false; }
+        return true;
+    }
+
+    public boolean isNumber(String input) {
+        char c;
+        for (int i = 0; i < input.length(); i++) {
+            c = input.charAt(i);
+            if (c < '0' || c >'9') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isBlankInput(String input) {
+        return input.equals("");
     }
 
     public void setCarNames(String[] carNames) {
@@ -119,11 +151,7 @@ public class User {
         this.numberOfTrials = numberOfTrials;
     }
 
-    public String[] getCarNames() {
-        return carNames;
-    }
+    public String[] getCarNames() { return carNames; }
 
-    public int getNumberOfTrials() {
-        return numberOfTrials;
-    }
+    public int getNumberOfTrials() { return numberOfTrials; }
 }
