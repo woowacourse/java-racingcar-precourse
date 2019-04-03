@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Manager {
@@ -11,9 +12,14 @@ public class Manager {
         user = new User();
     }
 
-    public void startGame(){
-        while(firstQuery() == false);
-        while(secondQuery() == false);
+    public void startGame() {
+        while (firstQuery() == false) ;
+        while (secondQuery() == false) ;
+    }
+
+    public int getRandomNumber(){
+        Random generator = new Random();
+        return generator.nextInt(10);
     }
 
     public boolean secondQuery(){
