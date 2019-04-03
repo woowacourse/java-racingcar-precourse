@@ -1,6 +1,4 @@
 import domain.Car;
-import domain.InputReport;
-
 import java.util.Collections;
 import java.util.Vector;
 
