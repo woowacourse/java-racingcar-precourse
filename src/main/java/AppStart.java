@@ -23,6 +23,12 @@ public class AppStart {
             car[i] = new Car(name[i]);
         }
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        int tryNum = sc.nextInt();
+
+        for(int i = 0; i < tryNum; ++i){
+            // 시도
+        }
 
     }
 }
