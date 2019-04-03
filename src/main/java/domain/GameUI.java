@@ -98,12 +98,12 @@ public class GameUI {
 	private void showRaceChampion() {
 		StringBuilder sb = new StringBuilder();
 		ArrayList<String> champions = this.game.getRaceChampion();
-		int championsSize = champions.size();
+		int lastChampionIndex = champions.size() - 1;
 
-		for (int i = 0; i < (championsSize - 1); i++) {
+		for (int i = 0; i < lastChampionIndex; i++) {
 			sb.append(champions.get(i)).append(", ");
 		}
-		sb.append(champions.get(championsSize - 1)).append("가 최종 우승했습니다.");
+		sb.append(champions.get(lastChampionIndex)).append("가 최종 우승했습니다.");
 
 		System.out.println(sb.toString());
 	}
