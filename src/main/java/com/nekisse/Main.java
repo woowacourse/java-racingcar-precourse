@@ -10,9 +10,8 @@ public class Main {
         String inputString = InputView.getInputCarName();
 
         List<CarName> carNames = Utils.parseStringToGetCarNames(inputString);
-        for (CarName carName : carNames) {
-            System.out.println("carName = " + carName);
-        }
+
+        int inputTryCount = InputView.getInputTryCount();
 
     }
 
