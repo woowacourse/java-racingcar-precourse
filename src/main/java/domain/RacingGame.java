@@ -32,8 +32,8 @@ public class RacingGame {
 
   public void move(){
     for(Car thisCar : carArrayList){
-      thisCar.move();
-      thisCar.show();
+      thisCar.movePos();
+      thisCar.showPos();
     }
   }
 
