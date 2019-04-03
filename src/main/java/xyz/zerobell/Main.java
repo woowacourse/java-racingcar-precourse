@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    static private Scanner sc;
+    static private Scanner staticSc;
 
     static private Scanner getScanner() {
-        if (sc==null) {
-            sc = new Scanner(System.in);
+        if (staticSc==null) {
+            staticSc = new Scanner(System.in);
         }
 
-        return sc;
+        return staticSc;
     }
 
     static private String[] separateStrings(String str) {
@@ -34,9 +34,10 @@ public class Main {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
             String[] strings = separateStrings(sc.next());
 
-            for (String s : strings) {
-
+            if (isStringsValid(strings)) {
+                break;
             }
+            System.out.println("자동차의 이름은 5자 이하어야 합니다!!");
         }
     }
 
