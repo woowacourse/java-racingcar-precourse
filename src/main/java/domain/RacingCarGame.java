@@ -8,6 +8,12 @@ public class RacingCarGame {
         controller.askCarsName();
         controller.askNumberOfAttempts();
 
+        controller.startGame();
+        System.out.println("\n실행 결과");
+        for(int i =0; i<controller.getLaps(); i++){
+            controller.checkCarsPosition();
+        }
+
     }
 
 }
