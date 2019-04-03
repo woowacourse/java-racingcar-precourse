@@ -1,5 +1,5 @@
 /*
- * @(#) GameUI.java     1.0   2019/04/02
+ * @(#) GameUI.java     1.0   2019/04/03
  *
  * Released under the MIT license
  */
@@ -15,7 +15,7 @@ import java.util.Scanner;
  * GameUI 클래스는 사용자와 자동차경주게임을 위한 사용자 인터페이스다.
  *
  * @author 조남균
- * @version 1.00  2019년 04월 02일
+ * @version 1.00  2019년 04월 03일
  */
 public class GameUI {
 	private static final String DELIMITER = ",";

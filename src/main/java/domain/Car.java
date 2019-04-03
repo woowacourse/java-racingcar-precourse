@@ -1,5 +1,5 @@
 /*
- * @(#) Car.java     1.0   2019/04/02
+ * @(#) Car.java     1.0   2019/04/03
  *
  * Released under the MIT license
  */
@@ -12,7 +12,7 @@ import java.util.Random;
  * Car 클래스는 자동차경주에 참여하는 자동차다.
  *
  * @author 조남균
- * @version 1.00  2019년 04월 02일
+ * @version 1.00  2019년 04월 03일
  */
 public class Car {
 	public static final int MAX_NAME_LENGTH = 5;
