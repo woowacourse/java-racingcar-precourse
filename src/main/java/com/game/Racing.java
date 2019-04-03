@@ -38,7 +38,6 @@ public class Racing {
     boolean checkNames(final String[] names) {
         HashSet<String> nameSet = new HashSet<>();
         for (String i : names) {
-            System.out.println(i);
             if (5 < i.length()) {
                 System.out.println("이름은 5자 이하여야 합니다.");
                 return false;
