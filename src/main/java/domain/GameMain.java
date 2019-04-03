@@ -7,6 +7,9 @@ public class GameMain {
 	static String nameArray[];
 	static Car cars[];
 	static int position[];
+	
+	static final int LIMIT_NAME_LENGTH = 5;
+	static final int GO_STRAIGHT = 4;
 
 	// 쉼표 기준으로 이름 구분하는 메소드
 	static void nameDistinguish(String names) {
@@ -16,7 +19,7 @@ public class GameMain {
 	// 이름이 5자 이하인지 확인하는 메소드
 	static boolean isNameLessThan5() {
 		for (int i = 0; i < nameArray.length; ++i) {
-			if (nameArray[i].length() > 5) {
+			if (nameArray[i].length() > LIMIT_NAME_LENGTH) {
 				System.out.println("자동차 이름은 5자 이하만 가능합니다.");
 				System.out.println("경주할 자동차 이름을 입력하세요. 이름은 쉼표(,) 기준으로 구분");
 				return false;
@@ -40,7 +43,7 @@ public class GameMain {
 
 	// 4 이상이면 전진시켜주는 메소드
 	static void isMoreThan4(int randomNum, int index) {
-		if (randomNum >= 4) {
+		if (randomNum >= GO_STRAIGHT) {
 			cars[index].addPosition();
 		}
 	}
