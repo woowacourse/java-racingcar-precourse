@@ -14,6 +14,7 @@ public class RacingCarGame {
             controller.checkCarsPosition();
         }
 
+        controller.checkWinner();
     }
 
 }
