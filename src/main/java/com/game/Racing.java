@@ -9,14 +9,16 @@ public class Racing {
         Racing racing = new Racing();
         Scanner scanner = new Scanner(System.in);
 
-        String[] names = null;
+        String[] names;
         while (true) {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             names = scanner.nextLine().split(",");
-            if (!racing.checkNames(names)) {
+            if (racing.checkNames(names)) {
                 break;
             }
         }
 
+        System.out.println("시도할 회수는 몇회인가요?");
         int moveCount = scanner.nextInt();
         scanner.nextLine();
 
@@ -36,6 +38,7 @@ public class Racing {
     boolean checkNames(final String[] names) {
         HashSet<String> nameSet = new HashSet<>();
         for (String i : names) {
+            System.out.println(i);
             if (5 < i.length()) {
                 System.out.println("이름은 5자 이하여야 합니다.");
                 return false;
