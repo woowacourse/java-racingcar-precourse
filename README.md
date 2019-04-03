@@ -64,6 +64,7 @@
    * CarNavigator
    * RaceAttemptReciever
    * RacingGame
+   * WinnerPrinter
    
      
 
@@ -105,5 +106,11 @@
    18. 각 차의 경주결과를 출력해주는 메소드를 호출하는 기능 (PrintEachCarResult)
    
    19. 각 차의 이동거리만을 출력해주는 메소드 (PrintRacingDistance)
+   
+   20. 최대 거리를 찾는기능과 우승자를 찾는 기능을 하는 메소드를 호출하는 메소드 (PrintWinner)
+   
+   21. 루프돌면서 최대거리를 찾는 기능 (FindMaxDistance )
+   
+   22. 현재 길이가 최대라면 최대거리변수에 현재 길이가 최대인 변수를 넣는 기능(SaveIfIsMaxDistance)
    
    
