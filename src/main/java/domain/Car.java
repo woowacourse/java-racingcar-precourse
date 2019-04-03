@@ -37,9 +37,10 @@ public class Car {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		inputCarsName(br);
 		inputNumMove(br);
+		System.out.println("\n실행결과");
 		for (int i = 0; i < numMove; i++) {
 			moveOneRound();
-			// printState();
+			printState();
 		}
 
 	}
@@ -82,9 +83,26 @@ public class Car {
 	}
 
 	private static void moveOrNot(Car c) {
-		int tmp = (int) Math.random() * 10;
-		if (tmp > c.getThreshold())
+		int tmp = (int) (Math.random() * 10);
+		if (tmp >= c.getThreshold())
 			c.position++;
+	}
+
+	private static void printState() {
+		Iterator<Car> it = cars.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next().toString());
+		}
+		System.out.println();
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder(Car.numMove + 10);
+		sb.append(String.format("%-7s", this.name + ":"));
+		for (int i = 0; i < this.position; i++)
+			sb.append("-");
+		return sb.toString();
 	}
 
 }

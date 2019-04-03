@@ -25,9 +25,9 @@
   + 입력된 이름들을 ','로 split하여 ArrayList에 저장하는 기능
   + 주어진 String이 이름에 적합한지(length<5) 판별하는 기능
 
-+ 이번 라운드에서 갈지 말지 boolean 값 리턴하는 기능(final instance : threshold = 4;)
-+ 이동을 한번 하는 기능 (position, static maxPosition 업데이트 ) 
-+ 이동을 주어진 횟수만큼 반복하며 1등 차와 이동거리를 기록하는 기능 
++ 이번 라운드에서 갈지 말지 boolean 값 리턴하는 기능(final instance : threshold = 4;) : moveOrNot
++ 이동을 한번 하는 기능 (position 업데이트 ) : moveOneRound
++ 이동을 주어진 횟수만큼 반복하며 1등 차와 이동거리를 기록하는 기능 : 실행시간만 쓸데 없이 길어지므로 생략. 
 
 + 현재 상태 출력 기능(print())
   + static StringBuilder forPrint (name:\t-*position) 
