@@ -44,10 +44,9 @@ public class Track {
         return new ArrayList<>(winners);
     }
 
-    public void excuteRaceUntilEnd() {
-        while (raceState.now) {
-            next();
-        }
+    public void initTrack() {
+        winners.clear();
+        raceState = RaceStatus.ONGOING;
     }
 
     @Override
