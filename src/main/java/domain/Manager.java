@@ -21,6 +21,12 @@ public class Manager {
     }
 
     public boolean checkCarName(){
+        for(int i=0; i<carList.size(); i++) {
+            if(carList.get(i).length() > 5) {
+                System.out.println(InputError.LENGTH_ERROR);
+                return false;
+            }
+        }
         return true;
     }
 }
