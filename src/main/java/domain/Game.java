@@ -41,4 +41,5 @@ public class Game {
         private void printResultMessage() {
                 System.out.println("\n실행 결과");
         }
+
 }

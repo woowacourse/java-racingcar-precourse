@@ -22,4 +22,8 @@ public class Car {
                 }
                 System.out.println();
         }
+
+        private int getPosiotion(){
+                return this.position;
+        }
 }
