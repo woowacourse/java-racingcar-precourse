@@ -48,7 +48,8 @@
 
 ## 구현해야될 객체
 - Car  
-  - setName(); // 차에 이름을 부여하는 기능 => 삭제
+  - getName(); // 차 이름(name)을 가져오는 기능
+  - getPosition(); // 차 포지션(position)을 가져오는 기능
   - increasePosition(); // 차 포지션을 1칸 올리는 기능
   - makeRandomNums(); // 랜덤 숫자를 생성하는 기능
   - compareTo(); // 여러 차의 각각 포지션을 비교하는 기능
