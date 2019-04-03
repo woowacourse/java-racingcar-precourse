@@ -31,9 +31,13 @@ public class Game {
         private void printTrialNumberInputMessage(){
                 System.out.println("시도할 회수는 몇회인가요?");
         }
-        
+
         private void inputTrialNumber(){
                 Scanner scan = new Scanner(System.in);
                 this.trialNumber = scan.nextInt();
+        }
+
+        private void printResultMessage(){
+                System.out.println("\n실행 결과");
         }
 }
