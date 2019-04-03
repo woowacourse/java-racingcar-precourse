@@ -1,4 +1,5 @@
 import domain.Car;
+import util.InputUtil;
 import util.RandomGenerator;
 
 import java.util.ArrayList;
@@ -21,9 +22,28 @@ public class GameManager {
         return GameManagerHolder.GAME_MANAGER_INSTANCE;
     }
 
-    private void goOrStop(Car car){
+    public void initGame() {
+        cars = InputUtil.getCars();
+        time = InputUtil.getTime();
+        playGame();
+    }
+
+    private void playGame() {
+        while (time != 0) {
+            tryOneTime(cars);
+            time--;
+        }
+    }
+
+    private void tryOneTime(List<Car> cars) {
+        for (Car car : cars) {
+            goOrStop(car);
+        }
+    }
+
+    private void goOrStop(Car car) {
         int randomNum = RandomGenerator.getRandomNumber();
-        if(randomNum>3){
+        if (randomNum > 3) {
             car.move();
         }
     }
