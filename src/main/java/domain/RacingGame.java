@@ -62,12 +62,17 @@ public class RacingGame {
     }
   }
 
+  public static void StartGame(Car[] carList, int tryNum){
+    for(int i=0;i<tryNum;i++){
+      CarRacing(carList);
+    }
+  }
+
   public static void main(String args[]){
     String[] carName =  InputCarName();
     Car[] carList =CreateCarList(carName);
     int tryNum = InputTryNumber();
-    CarRacing(carList);
-
+    StartGame(carList, tryNum);
     /*
     for (int i = 0; i < str.length; i++) {
       System.out.println(c[i].getCarName());
