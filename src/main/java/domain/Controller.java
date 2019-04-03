@@ -56,8 +56,8 @@ public class Controller {
         int carPosition;
 
         for (Car eachCar : cars) {
-            carPosition = eachCar.getPosition();
             eachCar.goForward();
+            carPosition = eachCar.getPosition();
             System.out.printf("%s : ", eachCar.getCarsName());
 
             if (winnerPosition < carPosition) {
