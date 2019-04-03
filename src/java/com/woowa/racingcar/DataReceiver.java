@@ -64,7 +64,7 @@ public class DataReceiver {
 
         while (true) {
             System.out.println(COMMENT_WHEN_REQUEST_RUN_COUNT);
-            String inputString = scanner.next();
+            String inputString = scanner.nextLine();
 
             if (ErrorChecker.checkRunCountStringHasError(inputString)) {
                 return Integer.parseInt(inputString);
