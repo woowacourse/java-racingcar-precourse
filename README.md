@@ -56,6 +56,8 @@ https://myeonguni.tistory.com/1596
   * 게임 시작
 * askCarNames()
   * 자동차들 이름 요청하기
+* isValidCarNames()
+  * 자동차 이름 유효성 검사
 * askLapNum()
   * 자동차 트랙 횟수
 * startRace()
