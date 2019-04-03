@@ -61,7 +61,7 @@ public class Oracle {
 
         faulty = checkRepetition(names);
         if(faulty) {
-            System.out.println("차의 이름들은 모두 고유해야 합니다.(중복되면 안 됩니다.");
+            System.out.println("차의 이름들은 모두 고유해야 합니다.(중복되면 안 됩니다)");
         }
 
         faulty = checkEmptyString(names);
