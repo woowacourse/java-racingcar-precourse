@@ -12,9 +12,9 @@ public class Car {
         this.name = name;
     }
 
-    public String getCarName(){
-        return name;
-    }
+    public String getCarName(){ return this.name;}
+
+    public int getCarPosition() {return this.position;}
 
     public int RandomMove(){
         Random r = new Random();
