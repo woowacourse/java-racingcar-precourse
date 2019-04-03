@@ -1,5 +1,6 @@
 package xyz.zerobell;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -63,5 +64,38 @@ public class Main {
             System.out.println();
         }
     }
+
+    static private ArrayList<String> findWinner(Car[] cars) {
+        ArrayList<String> winnerList = new ArrayList<>();
+        int maximum = 0;
+
+        for (Car car : cars) {
+            if (car.getPosition() == maximum) {
+                winnerList.add(car.getName());
+            }
+            if (car.getPosition() > maximum) {
+                winnerList.clear();
+                winnerList.add(car.getName());
+                maximum = car.getPosition();
+            }
+        }
+
+        return winnerList;
+    }
+
+//    public static void main(String[] args) {
+//        Scanner sc;
+//        Car[] cars;
+//        int trial;
+//
+//        sc = getScanner();
+//        cars = makeCars(getStrings());
+//
+//        System.out.println("시도할 회수는 몇회인가요?");
+//        trial = sc.nextInt();
+//
+//        System.out.println("실행 결과");
+//        repeatRace(cars, trial);
+//    }
 
 }
