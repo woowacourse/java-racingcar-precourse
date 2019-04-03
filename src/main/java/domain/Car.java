@@ -62,6 +62,7 @@ public class Car {
 				cars.add(new Car(validName(st.nextToken())));
 			}
 		} catch (Exception e) {
+			cars.clear();
 			inputCarsNames(br);
 		}
 	}
