@@ -6,6 +6,7 @@ import domain.InputReportMessage;
 import java.util.Vector;
 
 public class Oracle {
+    static final String STRING_BETWEEN_CAR_NAME_AND_DASH = " : ";
 
     static InputReport checkLength(Vector<String> names, int MAX) {
         InputReport report = new InputReport();
@@ -84,7 +85,8 @@ public class Oracle {
         for (Car car : cars
              ) {
             System.out.print(car);
-
+            System.out.print(STRING_BETWEEN_CAR_NAME_AND_DASH);
+            drawCharacters(car.positionIs(), character);
         }
     }
 

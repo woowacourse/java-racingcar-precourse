@@ -9,7 +9,7 @@ public class Car {
     }
 
 
-    public int showPosition() {
+    public int positionIs() {
         return this.position;
     }
 
