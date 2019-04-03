@@ -1,6 +1,11 @@
 package domain;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Vector;
+import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.InputMismatchException;
 
 
 public class Car {
@@ -33,23 +38,24 @@ public class Car {
 class GameManager {
     private static final Scanner input = new Scanner(System.in);
     private static final List<Car> cars = new Vector<>();
-    private static int numbersToTry;
+    private static int numbersToTry = 0;
     private static int positionOfTheWinner = 0;
 
     public static void main(String args[]) {
-        if (!inputNames() || !inputNumbers()) {
+        while (!inputNames() || !inputNumbers()) {
             System.out.println("잘못된 입력입니다.");
-            System.exit(0);
+            cars.clear();
         }
         playGame();
         getWinners();
+        printWinners();
     }
 
     private static boolean inputNames() {
         final List<String> names;
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        names = Arrays.asList(input.nextLine().split(","));
+        names = Arrays.asList(input.next().split(","));
         if (checkNames(names)) {
             addCars(names);
             return true;
@@ -58,9 +64,9 @@ class GameManager {
     }
 
     private static boolean checkNames(final List<String> names) {
-        final int trueSize = (new HashSet<>(names)).size();
+        final int TRUE_SIZE = (new HashSet<>(names)).size();
 
-        if (names.size() > trueSize || trueSize <= 1) {
+        if (names.size() > TRUE_SIZE || TRUE_SIZE <= 1) {
             return false;
         }
         for (String name : names) {
@@ -94,11 +100,11 @@ class GameManager {
         System.out.println("\n실행 결과");
         for (int i = 0; i < numbersToTry; i++) {
             cars.forEach(car -> {
-                final int temp = car.tryToMoveAndReturnPosition();
-                if (temp > positionOfTheWinner) {
-                    positionOfTheWinner = temp;
-                }
-                System.out.println(car.getName() + " : " + printTrail(temp));
+                System.out.println(
+                    car.getName()
+                            + " : "
+                            + printTrail(car.tryToMoveAndReturnPosition())
+                );
             });
             System.out.println();
         }
@@ -114,6 +120,14 @@ class GameManager {
     }
 
     private static void getWinners() {
+        for (Car car : cars) {
+            if (car.getPosition() > positionOfTheWinner) {
+                positionOfTheWinner = car.getPosition();
+            }
+        }
+    }
+
+    private static void printWinners() {
         String message = "";
         final String iGa;
 
@@ -130,7 +144,7 @@ class GameManager {
     /*
     유니코드 표 상에서 앞 글자의 받침 여부를 판단해 이/가 중 적절한 조사를 고른다.
     알파벳이나 숫자의 경우 한글 발음으로 단순 치환.
-     */
+    */
     private static String differentiateIGa(final char letter) {
         final char[] CONVERSION_TABLE = ("영일이삼사오육칠팔구:;<=>?@"
                 + "이비씨디이프쥐치이이이엘엠엔오피큐알쓰티유이유스이지"
