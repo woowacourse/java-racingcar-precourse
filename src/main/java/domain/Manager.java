@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Vector;
 
 public class Manager {
-    private Vector<String> carList;
+    private Vector<Car> carList;
     private User user;
     private int tryCount;
 
@@ -15,6 +15,11 @@ public class Manager {
     public void startGame() {
         while (firstQuery() == false) ;
         while (secondQuery() == false) ;
+
+        System.out.println("실행 결과");
+        for(int i=0; i<tryCount; i++){
+
+        }
     }
 
     public int getRandomNumber(){
@@ -43,7 +48,7 @@ public class Manager {
 
     public boolean checkCarName(){
         for(int i=0; i<carList.size(); i++) {
-            if(carList.get(i).length() > 5) {
+            if(carList.get(i).getName().length() > 5) {
                 System.out.println(InputError.LENGTH_ERROR);
                 return false;
             }

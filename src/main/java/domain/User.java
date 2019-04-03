@@ -16,17 +16,17 @@ public class User {
         return input;
     }
 
-    public Vector<String> inputCarName(){
+    public Vector<Car> inputCarName(){
         String input;
         input = scanner.next();
         return tokenize(input);
     }
 
-    public Vector<String> tokenize(String input){
-        Vector<String> carList = new Vector<String>();
+    public Vector<Car> tokenize(String input){
+        Vector<Car> carList = new Vector<Car>();
         StringTokenizer token = new StringTokenizer(input, ",");
         while(token.hasMoreTokens()){
-            carList.add(token.nextToken());
+            carList.add(new Car(token.nextToken()));
         }
         return carList;
     }
