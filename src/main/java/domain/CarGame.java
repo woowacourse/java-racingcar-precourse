@@ -21,9 +21,16 @@ public class CarGame {
 	private StringBuilder stringBuilder;
 
 	public CarGame(UserInput userInput) {
-		racingCarList = new ArrayList<>();
-		Arrays.stream(userInput.getRacingCarName()).forEach(s -> this.racingCarList.add(new Car(s)));
+		racingCarList = createRacingCarList(userInput.getRacingCarName());
 		this.tryCount = userInput.getTryCount();
+	}
+
+	public List<Car> createRacingCarList(String[] racingCarNameList){
+		List<Car> carList = new ArrayList<>();
+		for(int i=0; i<racingCarNameList.length; ++i){
+			carList.add(new Car(racingCarNameList[i]));
+		}
+		return carList;
 	}
 
 	public void playGame() {
