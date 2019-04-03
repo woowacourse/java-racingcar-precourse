@@ -81,13 +81,18 @@ public class Game {
                 boolean isFirst = true;
                 System.out.println();
                 for (Car car : cars) {
-                        if (isFirst && car.getPosiotion() == maxPosiotion) {
+                        if (car.getPosiotion() == maxPosiotion) {
+                                printComma(isFirst);
                                 car.printName();
-                        } else (!isFirst && car.getPosiotion() == maxPosiotion) {
-                                System.out.print(", ");
-                                car.printName();
+                                isFirst = false;
                         }
                 }
                 System.out.println("가 최종 우승했습니다.");
+        }
+
+        private void printComma(boolean isFirst) {
+                if (!isFirst) {
+                        System.out.print(", ");
+                }
         }
 }
