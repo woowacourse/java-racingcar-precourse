@@ -46,14 +46,14 @@ public class Oracle {
         return error;
     }
 
-    static boolean checkEmptyString(Vector<String> names) {
-        boolean empty = false;
+    static InputError checkEmptyString(Vector<String> names) {
+        InputError error = new InputError();
 
         if(names.size() == 0) {
-            empty = true;
+            error.set(InputErrorCode.EMPTY_ERROR, InputErrorMessage.EMPTY_ERROR_MESSAGE);
         }
 
-        return empty;
+        return error;
     }
 
     /*static boolean checkFaultyInput(Vector<String> names, int max) {
