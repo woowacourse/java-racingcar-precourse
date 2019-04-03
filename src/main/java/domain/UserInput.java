@@ -41,7 +41,7 @@ public class UserInput {
 		return true;
 	}
 
-	public int getCarMoveCount() {
+	public int getTryCount() {
 
 		Scanner scanner = new Scanner(System.in);
 		String count;
@@ -50,14 +50,14 @@ public class UserInput {
 		do {
 			System.out.println("시도할 회수는 몇 회인가요?");
 			count = scanner.nextLine();
-			result = checkCarMoveCount(count);
+			result = checkTryCount(count);
 		}
 		while (result != false);
 
 		return Integer.parseInt(count);
 	}
 
-	public boolean checkCarMoveCount(String count) {
+	public boolean checkTryCount(String count) {
 		if (count.matches("[1-9]||[1-9][0-9]+")) {
 			return false;
 		}
