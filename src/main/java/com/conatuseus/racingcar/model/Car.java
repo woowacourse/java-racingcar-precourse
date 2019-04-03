@@ -11,9 +11,10 @@ package com.conatuseus.racingcar.model;
 /**
  * Car class
  * 자동차가 랜덤 수를 생성해서 조건에 만족하면 자신의 position을 변경하도록 한다
+ * toString 메소드는 출력을 위해 재정의하였다.
  *
- * @version             2.00    2019년 4월 1일
- * @author              사명기
+ * @author 사명기
+ * @version 2.00    2019년 4월 1일
  */
 public class Car {
 
@@ -26,10 +27,8 @@ public class Car {
     /* 랜덤 수가 4 이상 되야 갈 수 있음에 사용하기 위한 변수 */
     private static final int GOING_POSSIBLE = 4;
 
-    /* 자동차 이름 */
     private final String name;
 
-    /* 자동차 위치 */
     private int position = 0;
 
     /* -을 저장하기 위한 변수 */
@@ -40,12 +39,10 @@ public class Car {
         this.name = name;
     }
 
-    /* 이름 getter */
     public String getName() {
         return this.name;
     }
 
-    /* 위치 getter */
     public int getPosition() {
         return this.position;
     }

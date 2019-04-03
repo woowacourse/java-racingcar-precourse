@@ -14,8 +14,8 @@ import com.conatuseus.racingcar.appcontroller.AppController;
  * 자동차 게임의 Main 클래스
  * appController 객체를 생성해서, run 함수 실행
  *
- * @version             2.00    2019년 4월 1일
- * @author              사명기
+ * @author 사명기
+ * @version 2.00    2019년 4월 1일
  */
 public class RacingCar {
     public static void main(String[] args) {

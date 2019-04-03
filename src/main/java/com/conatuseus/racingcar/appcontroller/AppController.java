@@ -10,6 +10,7 @@ package com.conatuseus.racingcar.appcontroller;
 
 import com.conatuseus.racingcar.appview.AppView;
 import com.conatuseus.racingcar.model.Car;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,8 @@ import java.util.List;
  * 레이싱을 시도할 횟수만큼 수행하는 메소드, 우승자를 찾아 출력하는 메소드
  * 위의 메소드를 사용해 실행 로직을 담당하는 메소드가 있다.
  *
- * @version             2.00    2019년 4월 1일
- * @author              사명기
+ * @author 사명기
+ * @version 2.00    2019년 4월 1일
  */
 public class AppController {
 
@@ -32,7 +33,7 @@ public class AppController {
     private int numberOfTry;
 
     /* 우승자의 position을 저장할 변수 */
-    private int maxPosition=0;
+    private int maxPosition = 0;
 
     /* 마지막 레이싱 회차를 저장할 변수 */
     private int lastRacingNumber;
@@ -48,22 +49,18 @@ public class AppController {
         this.numberOfTry = numberOfTry;
     }
 
-    /* maxPosition(가장 큰 position)의 getter */
     private int getMaxPosition() {
         return maxPosition;
     }
 
-    /* maxPosition(가장 큰 position)의 setter */
     private void setMaxPosition(int maxPosition) {
         this.maxPosition = maxPosition;
     }
 
-    /* 마지막 회차 변수의 getter */
     private int getLastRacingNumber() {
         return lastRacingNumber;
     }
 
-    /* 마지막 회차 변수의 setter */
     private void setLastRacingNumber(int lastRacingNumber) {
         this.lastRacingNumber = lastRacingNumber;
     }
@@ -73,15 +70,15 @@ public class AppController {
     }
 
     /*
-    * run 메소드는 게임을 순차적으로 실행하기 위한 메소드
-    * 자동차 이름 입력, 시도할 횟수 입력, 실행 결과  를 순차적으로 실행한다.
-    */
+     * run 메소드는 게임을 순차적으로 실행하기 위한 메소드
+     * 자동차 이름 입력, 시도할 횟수 입력, 실행 결과  를 순차적으로 실행한다.
+     */
     public void run() {
         AppView.outputLine(">> 게임을 시작합니다.");
 
         this.inputNameAndMakeCarList();                         //  자동차 이름 입력받는 메소드 실행
         this.setNumberOfTry(AppView.inputNumberOfTry());        //  시도할 횟수 입력받는 메소드 실행
-        this.setLastRacingNumber(this.getNumberOfTry()-1);      //  마지막 회차 저장
+        this.setLastRacingNumber(this.getNumberOfTry() - 1);      //  마지막 회차 저장
 
         AppView.outputLine("실행결과");
         racingNumberOfTry(this.getNumberOfTry());               //  시도할 횟수만큼 racing 진행 메소드 실행
@@ -91,10 +88,10 @@ public class AppController {
     }
 
     /**
-    * 자동차의 이름을 입력받아 자동차 객체를 생성해 List에 넣는 메소드
-    * AppView클래스의 이름 입력받는 메소드를 실행해 자동차 이름의 배열을 가져옴
-    * 가져온 자동차 이름들로 자동차 객체를 생성해서 List에 넣음
-    */
+     * 자동차의 이름을 입력받아 자동차 객체를 생성해 List에 넣는 메소드
+     * AppView클래스의 이름 입력받는 메소드를 실행해 자동차 이름의 배열을 가져옴
+     * 가져온 자동차 이름들로 자동차 객체를 생성해서 List에 넣음
+     */
     private void inputNameAndMakeCarList() {
         String[] carsName = AppView.inputNameOfCar();       // AppView class의 메소드를 통해 자동차 이름 배열을 받아옴
 
@@ -108,6 +105,7 @@ public class AppController {
      * Car List의 자동차 객체마다 랜덤 숫자를 생성해 position을 변경하는 메소드를 실행
      * 그리고 position(-)를 출력한다.
      * 시도할 횟수 중 마지막 횟수에는 가장 큰 Position을 저장한다.
+     *
      * @param step
      */
     private void racingOnce(int step) {
@@ -123,6 +121,7 @@ public class AppController {
 
     /**
      * 시도할 횟수만큼 레이싱을 실행하는 메소드
+     *
      * @param numberOfTry 시도할 횟수가 파라미터로 들어간다
      */
     private void racingNumberOfTry(int numberOfTry) {

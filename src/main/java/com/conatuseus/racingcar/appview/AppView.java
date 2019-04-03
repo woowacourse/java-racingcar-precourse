@@ -101,6 +101,7 @@ public final class AppView {
 
     /**
      * 시도할 횟수 입력받는 메소드
+     *
      * @return 입력 받은 횟수 반환
      */
     public static int inputNumberOfTry() {
