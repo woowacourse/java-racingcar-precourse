@@ -28,8 +28,9 @@ public class Car {
     private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 5;
     private static final boolean IS_SOMETHING_WRONG = false;
-    //보통 위 3개와 같은 java constant를 class맨위에 두지만
-    //저는 제공해주신 Car.java를 최대한 건들지 않기 위해 밑에 정의합니다.
+    private static final int STOP_OR_GO = 4;
+    /*보통 위 4개와 같은 java 상수를 class 맨위에 두지만*/
+    /*제공해주신 Car.java의 code를 최대한 건들지 않기 위해 밑에 정의합니다.*/
 
     public static String[] askCarNames() {
         String userInput;
@@ -141,7 +142,7 @@ public class Car {
     private static int generateDistance() {
         int distance = 0;
         int randomNumber = (int) (Math.random() * 10);
-        if (randomNumber >= 4) {
+        if (randomNumber >= STOP_OR_GO) {
             distance = 1;
         }
         return distance;
