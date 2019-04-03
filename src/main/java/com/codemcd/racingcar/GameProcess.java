@@ -1,7 +1,19 @@
+/*
+ * @(#)GameProcess.java
+ * v2.0
+ * 2019/04/03
+ */
+
 package com.codemcd.racingcar;
 
 import java.util.Random;
 
+/**
+ * 게임에 필요한 기능을 수행하는 클래스
+ *
+ * @version v2.0
+ * @author 박성범
+ */
 public class GameProcess {
 
     private static final int MAX_NUMBER_SIZE = 10;

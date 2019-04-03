@@ -1,5 +1,17 @@
+/*
+ * @(#)InputError.java
+ * v2.0
+ * 2019/04/03
+ */
+
 package com.codemcd.racingcar;
 
+/**
+ * 입력 오류를 처리하기 위한 클래스
+ *
+ * @version v2.0
+ * @author 박성범
+ */
 public class InputError {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;

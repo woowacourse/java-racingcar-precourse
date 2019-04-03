@@ -1,7 +1,19 @@
+/*
+ * @(#)Input.java
+ * v2.0
+ * 2019/04/03
+ */
+
 package com.codemcd.racingcar;
 
 import java.util.Scanner;
 
+/**
+ * 사용자의 입력을 받는 클래스
+ *
+ * @version v2.0
+ * @author 박성범
+ */
 public class Input {
 
     public static String[] inputCarName() {

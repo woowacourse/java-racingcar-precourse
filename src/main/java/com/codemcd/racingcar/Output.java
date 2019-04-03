@@ -1,5 +1,17 @@
+/*
+ * @(#)Output.java
+ * v2.0
+ * 2019/04/03
+ */
+
 package com.codemcd.racingcar;
 
+/**
+ * 게임 진행에 필요한 화면을 출력하는 클래스
+ *
+ * @version v2.0
+ * @author 박성범
+ */
 public class Output {
 
     public static void outputMoveResult(Car[] cars) {

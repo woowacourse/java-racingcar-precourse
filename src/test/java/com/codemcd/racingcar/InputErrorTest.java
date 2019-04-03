@@ -1,9 +1,21 @@
+/*
+ * @(#)InputErrorTest.java
+ * v2.0
+ * 2019/04/03
+ */
+
 package com.codemcd.racingcar;
 
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Junit을 사용하여 유저 입력을 테스트하는 클래스
+ *
+ * @version v2.0
+ * @author 박성범
+ */
 public class InputErrorTest {
 
     @Test
