@@ -8,4 +8,8 @@ public class Car {
         this.name = name;
     }
 
+    private void printName(){
+        System.out.println(this.name + " : ");
+    }
+
 }
