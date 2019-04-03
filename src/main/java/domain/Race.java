@@ -15,9 +15,14 @@ public class Race {
     public void playGame() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         initCar(sc.nextLine());
+
         System.out.println("시도할 회수는 몇회인가요?");
         count = sc.nextInt();
         sc.nextLine();
+
+        while (count-- > 0) {
+            doRace();
+        }
 
         printWinner();
     }

@@ -8,8 +8,6 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
-
     public String getName() {
         return name;
     }
@@ -18,7 +16,12 @@ public class Car {
         return position;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
+    public void tryRide() {
+
+    }
+
+    private boolean checkRide() {
+        int ran = (int)(Math.random() * 10);
+        return ran <= 4;
     }
 }

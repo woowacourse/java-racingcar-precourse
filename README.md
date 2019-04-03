@@ -12,18 +12,14 @@
 
 ## 구현할 기능
 * __Car 클래스__
-  * 자동차 이름 setter 함수
-    * _setName()_
-  * 자동차 이름 getter 함수
+  * 자동차 이름 getter
     * _getName()_
-  * 자동차 위치 setter 함수
-    * _setPosition()_
-  * 자동차 위치 getter 함수
+  * 자동차 위치 getter
     * _getPosition()_
-  * 자동차 상태 setter 함수
-    * _setStatus()_
-  * 자동차 상태 getter 함수
-    * _getStatus()_
+  * 자동차 이동
+    * _tryRide()_
+  * 자동차가 전진하는지 안하는지 확인
+    * _checkRide()_
 
 * __Race 클래스__
   * 게임 실행
