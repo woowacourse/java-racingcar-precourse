@@ -19,6 +19,7 @@ import java.util.Scanner;
  */
 public class GameUI {
 	private static final String DELIMITER = ",";
+	private static final String ERR_MESSAGE_CAR_NAME_LENGTH = String.format("자동차 이름은 %d글자 이하입니다.", Car.NAME_LENGTH);
 	private Game game;
 
 	public GameUI() {
@@ -48,7 +49,7 @@ public class GameUI {
 	private void isValidCarNames(String carNames) throws NameRuleException {
 		for (String carName : carNames.split(DELIMITER)) {
 			if (carName.length() > Car.NAME_LENGTH) {
-				throw new NameRuleException("5글자 이상");
+				throw new NameRuleException(ERR_MESSAGE_CAR_NAME_LENGTH);
 			}
 		}
 	}
