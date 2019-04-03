@@ -15,7 +15,26 @@ public class Car {
     }
 
     public void move() {
-    	Utils.getRandomInt();
+    	if ( Utils.isMove() ) {
+    		position++;
+    	}
+    }
+    
+    public String getName() {
+    	return this.name;
+    }
+    
+    public int getPosition() {
+    	return this.position;
     }
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder(name);
+		sb.append(":");
+		for (int i =0; i < position; i++) {
+			sb.append("-");
+		}
+		return sb.toString();
+	}
 }

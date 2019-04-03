@@ -8,10 +8,17 @@ import java.util.Random;
 */
 public class Utils {
 
-	public static Random random = new Random();
-	public static final int RANDOM_SCOPE = 9;
+	private static Random random = new Random();
+	private static final int RANDOM_SCOPE = 10;
+	private static final int MOVE_THRESHOLD = 4;
 	
-	public static int getRandomInt() {
-		return 1 + random.nextInt(RANDOM_SCOPE);
+	public static boolean isMove() {
+		int i = getRandomInt();
+		System.out.println(i);
+		return ( i < MOVE_THRESHOLD ? false : true );
+	}
+
+	private static int getRandomInt() {
+		return random.nextInt(RANDOM_SCOPE);
 	}
 }
