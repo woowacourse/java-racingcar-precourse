@@ -14,7 +14,7 @@ public class Car {
     private final String name;
     private int position = 0;
     private ArrayList<String> saveCarResult = new ArrayList<String>();                  // 진행도를 입력받는 ArrayList
-    private static int RAMDOM_NUMBER_MAX = 10;                                     // 난수 범위
+    private static final int RAMDOM_NUMBER_MAX = 10;                                     // 난수 범위
     private static int SET = 0;
 
     public Car(String name) {
@@ -27,7 +27,7 @@ public class Car {
         Scanner inputCarName = new Scanner(System.in);
         String checkCarName = inputCarName.nextLine();
 
-        if(separateCarNameState(checkCarName) == false){
+        while(!separateCarNameState(checkCarName)){
 
             /* 입력받은 이름이 요구 조건(차이름은 5자이하)에 만족하지 않을경우 */
             checkCarName = inputCarName.nextLine();
