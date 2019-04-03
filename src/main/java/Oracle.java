@@ -88,6 +88,7 @@ public class Oracle {
             System.out.print(STRING_BETWEEN_CAR_NAME_AND_DASH);
             drawCharacters(car.positionIs(), character);
         }
+        System.out.println();
     }
 
     static void drawCharacters(int count, char character) {

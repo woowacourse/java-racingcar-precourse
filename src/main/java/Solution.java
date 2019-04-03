@@ -21,11 +21,16 @@ public class Solution {
         count = Game.getNumberOfRound();
         System.out.println(count);
         cars = Game.generateCarsByNames(names);
-        /*
-        Oracle.drawCharacters(10,'*');
-        Oracle.drawCharacters(10,'-');
-        */
 
+        for(int i = 0; i < count; i++) {
+            for (Car car : cars
+            ) {
+                if (Oracle.tellGoOrStop(9, 0, 4)) {
+                    car.move();
+                }
+            }
+            Oracle.showRoundResult(cars, '-');
+        }
 
 
     }
