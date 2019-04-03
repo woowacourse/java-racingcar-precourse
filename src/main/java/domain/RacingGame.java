@@ -7,10 +7,13 @@ public class RacingGame {
         CarGenerator carGenerator =new CarGenerator();
         RaceAttemptReciever raceAttemptReciever = new RaceAttemptReciever();
         CarNavigator carNavigator = new CarNavigator(carGenerator.getCarList());
+        ResultPrinter resultPrinter = new ResultPrinter(carGenerator.getCarList());
 
         String[] carNames =carNameReciever.RecieveCarNamesFromUser();
         carGenerator.GenerateCar(carNames);
-        raceAttemptReciever.RecieveRaceAttemptFromUser();
+        int raceAttempt = raceAttemptReciever.RecieveRaceAttemptFromUser();
+        carNavigator.MoveCars();
+        resultPrinter.PrintAllResults(raceAttempt);
 
     }
     public static void main(String[] args) {

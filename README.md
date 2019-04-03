@@ -58,13 +58,13 @@
 ## 클래스
  
    * Car
-   * RunningCarRacing
-   * RacingResultPrinter
+   * ResultPrinter
    * UserInputReciever
    * CarGenerator
    * CarNavigator
    * RaceAttemptReciever
    * RacingGame
+   
      
 
 ****
@@ -98,6 +98,6 @@
        
    14. 난수를 생성하는 기능(GenerateRandomNumber)
       
-   15. 실제로 차한대를를움직이는 기능(MoveCar)  
+   15. 실제로 차한대를움직이는 기능(MoveCar)  
    
-   16. 결과를 출력하는 기능 (PrintResult)
+   16. 모든 결과를 출력하는 기능 (PrintAllResults)

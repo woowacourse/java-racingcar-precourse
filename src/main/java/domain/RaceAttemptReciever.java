@@ -8,13 +8,14 @@ public class RaceAttemptReciever {
     private int raceAttempt;
 
 
-    public void RecieveRaceAttemptFromUser() {
+    public int RecieveRaceAttemptFromUser() {
         try {
             tryToRecieveRaceAttemptFromUser();
         } catch (IllegalArgumentException e) {
             System.out.println("잘못된 입력입니다. 다시 입력해 주세요.");
             RecieveRaceAttemptFromUser();
         }
+        return raceAttempt;
     }
 
     private void tryToRecieveRaceAttemptFromUser() throws IllegalArgumentException {
@@ -32,4 +33,6 @@ public class RaceAttemptReciever {
     private boolean isInValidRaceAttempt() {
         return this.raceAttempt < MINIMUM_RACE_ATTEMPT ? true : false;
     }
+
+
 }

@@ -11,7 +11,7 @@ public class CarNavigator {
         this.carList = carList;
     }
 
-    private void MoveCars() {
+    public void MoveCars() {
         for (int carOrder = 0; carOrder < this.carList.size(); carOrder++) {
             MoveCarIfPossible(carOrder);
         }
