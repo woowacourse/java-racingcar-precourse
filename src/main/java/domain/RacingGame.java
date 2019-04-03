@@ -26,6 +26,8 @@ public class RacingGame implements RacingGameInterface {
 	private ArrayList<Car> carList = new ArrayList<Car>();
 	private ArrayList<Car> winnerList = new ArrayList<Car>();
 	private int moveCount = 0;
+	private final int ASCII_CODE_ZERO = 48;
+	private final int ASCII_CODE_NINE = 57;
 
 	public String inputPlayerName() {
 		boolean nameNotInput = true;
@@ -50,7 +52,6 @@ public class RacingGame implements RacingGameInterface {
 	 */
 	public ArrayList<String> convertStringNameToArrayList(String name) {
 		String[] nameList = name.split(",");
-
 		playerNameArrayList.clear();
 
 		for (int i = 0; i < nameList.length; i++) {
@@ -128,8 +129,6 @@ public class RacingGame implements RacingGameInterface {
 	}
 
 	public boolean checkNumberOrNot(String moveCountStr) {
-		final int ASCII_CODE_ZERO = 48;
-		final int ASCII_CODE_NINE = 57;
 		boolean isWrongInputNumber = false;
 
 		for (int i = 0; i < moveCountStr.length(); i++) {
