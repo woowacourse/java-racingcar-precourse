@@ -37,7 +37,7 @@
 
 + cars의 모든 Car객체에 대해 한 번 움직이는 기능  (moveOneRound)
   + Car객체에 한 번 움직일 기회를 주는 기능 (moveOrNot(Car c))
-  + ~~이동을 주어진 횟수만큼 반복하며 1등 차와 이동거리를 기록하는 기능 : 실행시간만 쓸데 없이 길어지므로 생략. ~~
+  + ~~이동을 주어진 횟수만큼 반복하며 1등 차와 이동거리를 기록하는 기능~~ 실행시간만 쓸데 없이 길어짐.
 
 + 현재 상태 및 최종 결과 출력 기능(printState, printResult)
   + toString override (name: -*position) 
