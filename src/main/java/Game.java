@@ -9,7 +9,7 @@ public class Game {
         Vector<String> names;
 
         while(true) {
-            input = InputHandler.getInput();
+            input = InputHandler.getFirstInput();
             names = InputHandler.parse(input, SEPERATOR);
             if(!Oracle.checkFaultyInput(names, MAX)) {
                 break;

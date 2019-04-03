@@ -91,7 +91,9 @@ checklength, checkRepetition, checkEmptyString 함수를 사용한다.
 
 
 *구현순서:
-getInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepetition -> checkEmptyString
+getFirstInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepetition -> checkEmptyString
 -> checkFaultyInput -> getCarNames
--> generateCarsByNames -> tellGoOrStop -> showRoundResult -> doRace
+-> generateCarsByNames
+-> getSecondInput -> checkNumber
+tellGoOrStop -> showRoundResult -> doRace
 ->  findChampions -> showChampions -> findAndShowChampions
