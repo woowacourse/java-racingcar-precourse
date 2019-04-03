@@ -32,6 +32,7 @@
 <pre>
     1. goForward
     2. getPosition
+    3. getCarsName
 </pre>
 
 ## 3.3 Controller
@@ -43,5 +44,6 @@
     4. startGame
     5. checkCarsPosition
     6. checkWinner
+    7. getLaps
 </pre>
 
