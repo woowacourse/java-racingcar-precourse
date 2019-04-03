@@ -27,4 +27,8 @@ public class Game {
                         cars[i] = new Car(splitedCarNames[i]);
                 }
         }
+
+        private void printTrialNumberInputMessage(){
+                System.out.println("시도할 회수는 몇회인가요?");
+        }
 }
