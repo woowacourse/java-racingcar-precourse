@@ -9,4 +9,8 @@ public class InputError {
         this.errorMessage = errorMessage;
     }
 
+    @Override
+    public String toString() {
+        return this.errorMessage;
+    }
 }
