@@ -1,6 +1,6 @@
-#2주차 미션 : 자동차 경주 게임 구현
-##구현한 기능
-###class Game
+# 2주차 미션 : 자동차 경주 게임 구현
+## 구현한 기능
+### class Game
 - Vector<String> getCarNames()
 사용자로부터 받은 차 이름들을 가공된 형태로 반환한다.
 InputHandler class의 getInput과 parse 함수를, Oracle class의 checkFaultyInput 함수를 사용한다.
@@ -14,7 +14,7 @@ names 속 name이 부여된 Car 객체를 names 개수만큼 생성한다.
 - void doRace(Vector<Car> cars, numOfRound)
 numOfRound만큼 Game.doRound를 호출한다.
 
--void doRound(Vector<Car> cars)
+- void doRound(Vector<Car> cars)
 하나의 라운드 내에서, 확률에 따라 각 car의 position을 변경하고, round의 결과를 출력한다.
 Oracle class의 TellGoOrStop, showRoundResult 함수를 사용한다.
 
@@ -26,7 +26,7 @@ cars 안에서 champion들을 선별하고 출력한다.
 Oracle class의 findChampions, Game class의 showChampions 함수를 사용한다.
 
 
-###class Oracle
+### class Oracle
 - boolean tellGoOrStop(int TOP, int BOTTOM, int BOUNDARY)
 (TOP - BOUNDARY + 1)/(TOP-BOTTOM) 의 확률로 true를 반환한다.
 
@@ -63,7 +63,7 @@ cars가 내림차순으로 배열됐다는 가정하에, 최고 position에 동�
 
 
 
-###class InputHandler
+### class InputHandler
 - String getInput()
 사용자로부터 입력을 받는다.
 
@@ -75,19 +75,19 @@ String 배열 중 빈 string을 제외한 나머지 string들을 vector 객체�
 sepecificName이 names안에 몇 개 있는지에 대한 정보를 반환한다.
 
 
-###class InputReport
+### class InputReport
 int code와 String message를 멤버변수로 갖는다.
 
-###class InputReportCode
+### class InputReportCode
 에러 코드에 관한 int 상수들이 있다.
 
-###class InputReportMessage
+### class InputReportMessage
 error message string 상수들이 있다.
 
-###class Car
+### class Car
 int position, String name을 멤버변수로 갖는다.
 
-###class InputReportHandler
+### class InputReportHandler
 - Vector<InputReport> gatherReport(Vector<String> names, int max)
 입력된 이름 길이가 6 이상인지, 빈 문자열인지, 중복되는 이름이 있는지 검사한다. 검사 후 생성된 InputError 객체들을 Vector에 모아서 리턴한다.
 checklength, checkRepetition, checkEmptyString 함수를 사용한다.
@@ -100,7 +100,7 @@ checklength, checkRepetition, checkEmptyString 함수를 사용한다.
 
 
 
-##구현순서:
+## 구현순서:
 getInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepetition -> checkEmptyString
 ->gatherError -> findErrorReport -> checkFaultyInput -> getCarNames
 -> getNumberOfRound
