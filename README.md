@@ -18,6 +18,8 @@
     - boolean IsStringsValid() : 전달받은 String[]을 검사하여 유효성 검증.
     - Car[] makeCars() : String 배열을 이용해 Car를 생성한 후에 Car[]를 반환
     - Scanner getScanner() : Scanner 객체가 없다면 새로 생성, 있다면 전역변수로 있는 Scanner를 반환.
-    - void race() : 시도횟수 n을 받아서 그만큼 for문을 돌림. 각 Car에 boostOrStop() 실행한다.
+    - void repeatRace() : 시도횟수 n을 받아서 그만큼 for문을 돌림. race()를 반복 실행한다..
+    - void race() : Car[]를 받아서 각 Car에 boostOrStop()를 실행한다. 실행 후 showStatus()를 실행한다.
+    - void showStatus() : Car[]를 받아서 각각 toString()을 행한 후, 공백 줄을 하나 출력한다.
     - ArrayList<String> findWinner() : Car[] 중에서 getPosition()한 값이 가장 큰 것들을 모음.
     

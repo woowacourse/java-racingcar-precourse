@@ -50,4 +50,10 @@ public class Main {
         return cars;
     }
 
+    static private void race(Car[] cars, int trial) {
+        for (int i = 0; i < trial; i++) {
+
+        }
+    }
+
 }
