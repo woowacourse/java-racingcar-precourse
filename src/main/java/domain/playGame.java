@@ -10,6 +10,11 @@ public class playGame {
 	public void play() {
 		getCarName();
 		makeRace();
+		System.out.println("실행 결과");
+		
+		for(int i = 0; i < this.roundNum; i++) {
+			raceStart();
+		}
 	}
 	
 	public void getCarName() {
@@ -42,7 +47,7 @@ public class playGame {
 		}
 	}
 	
-	public void setGameNum() {
+	public void raceStart() {
 		
 	}
 	

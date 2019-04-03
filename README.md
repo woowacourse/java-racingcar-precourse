@@ -25,7 +25,6 @@
  	- getCarName() : 사용자에게 입력을 받아 Car 객체 배열을 만든다.
  	- nameVaild() : 입력한 Car 이름에 입력에 오류가 있는지 검증
  	- makeRace() : 검증 된 차량이름을 객체 배열에 각각 배열함 
- 	- setGameNum () : 사용자에게 게임 횟수를 입력 받음
  	- gameResult() : 1회 게임을 진행 할때마다 진행결과를 출력하고 max 값을 저장함 
  	- gameWinner() : max 값을 가진 차에 대하여 출력하고 게임 종료!
  

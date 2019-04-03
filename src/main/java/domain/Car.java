@@ -15,14 +15,26 @@ public class Car {
     public String getName() {
     	return this.name;
     }
-    public int creatRanNum() {
+    public int createRanNum() {
     	return (int) (Math.random() * 9 + 1);
     }
     
-    public void carMove(int ranNum) {
+    public void isCarMove(int ranNum) {
     	if (ranNum >= 4) {
     		this.position++;
     	}
+    }
+    public void oneRace() {
+    	isCarMove(createRanNum());
+    	RoundResult();
+    }
+    
+    public void RoundResult() {
+    	System.out.print(this.name + " : ");
+    	for (int i = 0; i < this.position; i++) {
+    		System.out.println("-");
+    	}
+    	System.out.println();
     }
     
     
