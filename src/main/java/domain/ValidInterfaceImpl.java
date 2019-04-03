@@ -35,6 +35,7 @@ public class ValidInterfaceImpl implements ValidInterface {
         } catch (Exception e) {
             return false;
         }
+
         if (gameRepeatCount <= 0)
             return false;
         return true;

@@ -16,5 +16,4 @@ public interface ValidInterface {
     boolean validCarName(String[] carNames);
 
     boolean validGameCount(String times);
-
 }

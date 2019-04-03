@@ -1,7 +1,7 @@
 /*
  * UserInterfaceimpl Class
  *
- * @version 1
+ * @version 1.1
  *
  * @date 2019-04-02
  *
@@ -51,7 +51,7 @@ public class UserInterfaceImpl implements UserInterface {
 
     @Override
     public void alertInvalidGameCount() {
-        System.out.println("게임의 횟수는 정수입니다.");
+        System.out.println("게임의 횟수는 양수입니다.");
     }
 
     @Override
