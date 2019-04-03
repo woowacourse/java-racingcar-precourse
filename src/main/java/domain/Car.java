@@ -5,8 +5,25 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        checkNameSize(name);
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public int getPosition(){
+        return position;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void move(int result){
+        position += result;
+    }
+
+    private void checkNameSize(String name){
+        if (name.length() > 6){
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
 }
