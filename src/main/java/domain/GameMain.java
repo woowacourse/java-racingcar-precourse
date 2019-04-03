@@ -39,8 +39,8 @@ public class GameMain {
 	}
 	
 	//4 이상이면 전진시켜주는 메소드
-	static void isMoreThan4(int num, int index){
-		if(num>=4){
+	static void isMoreThan4(int randomNum, int index){
+		if(randomNum>=4){
 			cars[index].addPosition();
 		}
 	}
@@ -67,7 +67,7 @@ public class GameMain {
 	}
 	
 	//가장 큰 position값 구하는 메소드
-	static int max(){
+	static int maxValue(){
 		position = new int[nameArray.length];
 		int maxPosition = 0;		
 		for(int i=0; i<nameArray.length; ++i){
@@ -113,7 +113,7 @@ public class GameMain {
 		System.out.println("실행 결과");
 		repeat(moveNum);	//n회 반복
 		
-		int maxPosition = max();
+		int maxPosition = maxValue();
 		result(maxPosition);
 	}
 
