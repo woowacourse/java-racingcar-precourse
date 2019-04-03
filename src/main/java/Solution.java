@@ -29,6 +29,10 @@ public class Solution {
              ) {
             System.out.println(report);
         }
+
+        bool = Oracle.isThereError(reports);
+        System.out.print("Error:");
+        System.out.println(bool);
     }
 
 }
