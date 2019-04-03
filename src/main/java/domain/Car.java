@@ -10,9 +10,15 @@ public class Car {
         this.name = name;
     }
 
-    public boolean goOrStop() {
+    private boolean goOrStop() {
         Random generator = new Random();
 
         return generator.nextInt(10) >= 4;
+    }
+
+    public void proceed() {
+        if (goOrStop()) {
+            this.position++;
+        }
     }
 }
