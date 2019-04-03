@@ -28,8 +28,8 @@
 * __Race 클래스__
   * 레이스 실행
     * _doGame()_
-  * 조건 확인
-    * _isValid()_
+  * 이름 조건 확인
+    * _isNameValid()_
   * 우승자 리턴
     * _printWinner()_
 

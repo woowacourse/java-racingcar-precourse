@@ -19,9 +19,9 @@ public class Race {
         printWinner();
     }
 
-    // 조건 확인
-    protected void isValid() {
-
+    // 이름 조건 확인
+    protected boolean isNameValid(String name) {
+        return name.length() <= 5;
     }
 
     // 우승자 리턴
