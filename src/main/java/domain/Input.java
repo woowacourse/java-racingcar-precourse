@@ -4,6 +4,15 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+/*
+ *
+ * 경주게임에 필요한 Input 클래스
+ *
+ * @ver 1.0
+ * @author 이준규
+ *
+ * */
+
 public class Input {
     static String[] readName(BufferedReader br) throws IOException {
         String carNames = br.readLine();
@@ -14,6 +23,7 @@ public class Input {
             carNamesList[i] = st.nextToken();
         }
         return carNamesList;
+
     }
 
     static int countNumberOfCars(String carNames) {

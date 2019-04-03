@@ -22,5 +22,5 @@
 - [x] create printResult()
 - [x] create FarthestLocation()
 - [x] create printWinner()
-- [ ] create noticeWinner()
-- [ ] create compareWhoIsWinner()
+- [x] create class Output
+- [x] move methods into Output class : printResult(), FarthestLocation(), printWinner() --> Output 

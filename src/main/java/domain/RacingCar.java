@@ -2,6 +2,15 @@ package domain;
 
 import java.io.*;
 
+/*
+ *
+ * 자동차경주게임 클래스
+ *
+ * @ver 1.0
+ * @author 이준규
+ *
+ * */
+
 public class RacingCar {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,45 +25,14 @@ public class RacingCar {
         bw.write("시도할 회수는 몇회인가요?" + "\n");
         bw.flush();
         int movings = Input.countMovings(br);
-        printResult(carNamesList,carList,movings);
-        int farthest = FarthestLocation(carList,numberOfCars);
-        printWinner(carList,farthest);
+
+        //Output out = new Output();
+        //out.printResult(carNamesList,carList,movings);
+        Output.printResult(carNamesList,carList,movings);
+        int farthest = Output.FarthestLocation(carList,numberOfCars);
+        Output.printWinner(carList,farthest);
     }
 
-    public void printResult(String[] carNamesList, Car[] carList, int movings) throws IOException {
-        System.out.println("실행 결과");
-        for (int i = 0; i < movings; ++i) {
-            for (int j = 0; j < carNamesList.length; ++j) {
-                carList[j].goOrStop();
-                carList[j].printLocation();
-            }
-            bw.write("\n");
-            bw.flush();
-        }
-    }
-
-    public int FarthestLocation(Car[] carList, int numberOfCars) {
-        int farthest = -1;
-        for (int i=0;i<numberOfCars;++i){
-            int howFar = carList[i].location.length();
-            if (howFar>farthest){
-                farthest = howFar;
-            }
-        }
-        return farthest;
-    }
-
-    public void printWinner(Car[] carList, int farthest) {
-        StringBuilder winnerList = new StringBuilder();
-        for (int i=0;i<carList.length;++i){
-            if(carList[i].getPosition() == farthest){
-                winnerList.append(carList[i].getName()+", ");
-            }
-        }
-        int len = winnerList.length();
-        winnerList.delete(len-2,len);
-        System.out.println(winnerList+"가 최종 우승했습니다.");
-    }
 
 
     public static void main(String[] args) throws IOException {
