@@ -1,6 +1,20 @@
+/*
+ * @(#)Car.java
+ * 2019년 4월 3일
+ * version: 1.0.0
+ * by KIM JUNG MIN
+ * testprogramms9104@gmail.com
+ */
 package domain;
 
 import java.util.*;
+
+/**
+ * Car.java는 자동차의 attibutes와 class/instance의 method를 정의하는 class입니다.
+ *
+ * @version 1.0.0
+ * @author KIM JUNG MIN
+ */
 
 public class Car {
     private final String name;
@@ -14,6 +28,8 @@ public class Car {
     private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 5;
     private static final boolean IS_SOMETHING_WRONG = false;
+    //보통 위 3개와 같은 java constant를 class맨위에 두지만
+    //저는 제공해주신 Car.java를 최대한 건들지 않기 위해 밑에 정의합니다.
 
     public static String[] askCarNames() {
         String userInput;
@@ -29,8 +45,6 @@ public class Car {
         }
         return userInputArray;
     }
-
-    //userInput = userInput.replaceAll("\\s+", "");
 
     private static boolean isDuplicate(String[] userInputArray) {
         for (int i = 0; i < userInputArray.length; i++) {
