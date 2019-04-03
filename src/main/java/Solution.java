@@ -11,6 +11,7 @@ public class Solution {
         Vector<String> vector;
         int count;
         Vector<InputReport> reports;
+        InputReport error;
 
         s = InputHandler.getInput();
         vector = InputHandler.parse(s, ",");
@@ -30,9 +31,9 @@ public class Solution {
             System.out.println(report);
         }
 
-        bool = InputReportHandler.isThereError(reports);
+        error = InputReportHandler.findErrorReport(reports);
         System.out.print("Error:");
-        System.out.println(bool);
+        System.out.println(error);
     }
 
 }

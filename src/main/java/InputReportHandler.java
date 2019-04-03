@@ -24,5 +24,17 @@ public class InputReportHandler {
         return false;
     }
 
+    static InputReport findErrorReport(Vector<InputReport> reports) {
+        for (InputReport report : reports
+             ) {
+            if(report.showCode() != 0) {
+                return report;
+            }
+        }
+
+        return null;
+
+    }
+
 
 }
