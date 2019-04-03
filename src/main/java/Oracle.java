@@ -6,16 +6,16 @@ import java.util.Vector;
 public class Oracle {
 
     static InputReport checkLength(Vector<String> names, int MAX) {
-        InputReport error = new InputReport();
+        InputReport report = new InputReport();
 
         for (String name : names
         ) {
             if(name.length() > MAX) {
-                error.set(InputReportCode.LENGTH_ERROR, InputReportMessage.LENGTH_ERROR_MESSAGE);
+                report.set(InputReportCode.LENGTH_ERROR, InputReportMessage.LENGTH_ERROR_MESSAGE);
             }
         }
 
-        return error;
+        return report;
     }
 
     static boolean checkRepeatedName(String specificName, Vector<String> names) {
@@ -31,29 +31,36 @@ public class Oracle {
     }
 
     static InputReport checkRepetition(Vector<String> names) {
-        InputReport error = new InputReport();
+        InputReport report = new InputReport();
         boolean repetition = false;
 
         for (String name : names
              ) {
             repetition = checkRepeatedName(name, names);
             if(repetition == true) {
-                error.set(InputReportCode.REPETITION_ERROR, InputReportMessage.REPETITION_ERROR_MESSAGE);
+                report.set(InputReportCode.REPETITION_ERROR, InputReportMessage.REPETITION_ERROR_MESSAGE);
                 break;
             }
         }
 
-        return error;
+        return report;
     }
 
     static InputReport checkEmptyString(Vector<String> names) {
-        InputReport error = new InputReport();
+        InputReport report = new InputReport();
 
         if(names.size() == 0) {
-            error.set(InputReportCode.EMPTY_ERROR, InputReportMessage.EMPTY_ERROR_MESSAGE);
+            report.set(InputReportCode.EMPTY_ERROR, InputReportMessage.EMPTY_ERROR_MESSAGE);
         }
 
-        return error;
+        return report;
+    }
+
+    static boolean isThereError(Vector<InputReport> reports) {
+        for (InputReport report : reports
+             ) {
+
+        }
     }
 
     /*static boolean checkFaultyInput(Vector<String> names, int max) {

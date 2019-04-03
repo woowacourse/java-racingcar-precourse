@@ -9,6 +9,10 @@ public class InputReport {
         this.errorMessage = errorMessage;
     }
 
+    public int showCode() {
+        return this.code;
+    }
+
     @Override
     public String toString() {
         return this.errorMessage;

@@ -50,7 +50,9 @@ names의 size가 0인 경우 true를 반환한다.
 checklength, checkRepetition, checkEmptyString 함수를 사용한다.
 
 - boolean isThereInputError(Vector<InputReport> reports)
-errors
+reports속에서 error report가 있는지 확인한다.(error code 0인 report를 제외한 모든 report는 error report로 취급한다.)
+error report가 있다면 true를 리턴한다.
+
 
 class InputHandler
 
@@ -64,11 +66,15 @@ String 배열 중 빈 string을 제외한 나머지 string들을 vector 객체�
 - int countName(string specificName, Vector<String> names)
 sepecificName이 names안에 몇 개 있는지에 대한 정보를 반환한다.
 
+
 class InputReport
+
 
 class InputReportCode
 
+
 class InputReportMessage
+
 
 class InputReportHandler
 
