@@ -1,6 +1,4 @@
 import domain.Car;
-
-import javax.print.attribute.standard.MediaSize;
 import java.util.Vector;
 
 public class Game {

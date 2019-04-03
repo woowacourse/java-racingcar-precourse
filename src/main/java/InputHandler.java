@@ -2,8 +2,6 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class InputHandler {
-    private static final String FIRST_WORD = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String SECOND_WORD = "시도할 횟수는 몇회인가요?";
 
     static String getInput(String word) {
         Scanner s = new Scanner(System.in);

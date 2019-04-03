@@ -89,7 +89,7 @@ class InputReportHandler
 입력된 이름 길이가 6 이상인지, 빈 문자열인지, 중복되는 이름이 있는지 검사한다. 검사 후 생성된 InputError 객체들을 Vector에 모아서 리턴한다.
 checklength, checkRepetition, checkEmptyString 함수를 사용한다.
 
--
+
 
 
 
