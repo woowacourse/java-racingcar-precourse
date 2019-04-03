@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Recorder {
     private final List<String> records = new ArrayList<>();
 
-    public void saveRecord(List<Car> cars) {
+    void saveRecord(List<Car> cars) {
         String query = cars.stream()
                 .map(this::parseToRecordingFormat)
                 .collect(Collectors.joining());

@@ -2,7 +2,7 @@ package domain;
 
 import utils.RandomUtils;
 
-public class Car {
+class Car {
 
     private static final int MAX_NAME_LENGTH = 5;
 
@@ -20,23 +20,23 @@ public class Car {
         }
     }
 
-    public static Car fromName(String name) {
+    static Car fromName(String name) {
         return new Car(name);
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getPosition() {
+    int getPosition() {
         return position;
     }
 
-    public void move() {
+    void move() {
         position++;
     }
 
-    public boolean isMovable() {
+    boolean isMovable() {
         return RandomUtils.getRandomNumberBetween(1, 9) >= 4;
     }
 }
