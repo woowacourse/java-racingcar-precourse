@@ -8,16 +8,19 @@ public class CarRacing {
 	private static final String NAME_SEPARATOR = ",";
 	private int times;
 	private Car[] cars;
+	private int farthestPosition;
 	private Scanner scanner;
 
 	public void run() {
 		initialize();
+		raceCars();
 	}
 
 	private void initialize() {
-		Scanner scanner = new Scanner(System.in);
+		this.scanner = new Scanner(System.in);
 		String[] names = receiveInputNames().split(NAME_SEPARATOR);
 		this.times = recieveInputTimes();
+		this.farthestPosition = 0;
 		setCars(names);
 		scanner.close();
 	}
@@ -37,5 +40,33 @@ public class CarRacing {
 		for (int i = 0; i < names.length; i++) {
 			cars[i] = new Car(names[i].trim());
 		}
+	}
+	
+	private void raceCars() {
+		System.out.println("실행결과");
+		for (int i = 0; i < times; i++) {
+			raceEachCar();
+			System.out.println();
+		}
+	}
+	
+	private void raceEachCar() {
+		for (Car car : cars) {
+			car.race();
+			printCarPosition(car);
+			setFarthestPosition(car.getPosition());
+		}
+	}
+
+	private void printCarPosition(Car car) {
+		System.out.print(car.getName() + " : ");
+		for (int i = 0; i < car.getPosition(); i++) {
+			System.out.print("-");
+		}
+		System.out.println();
+	}
+	
+	private void setFarthestPosition(int position) {
+		farthestPosition = farthestPosition < position ? position : farthestPosition; 
 	}
 }
