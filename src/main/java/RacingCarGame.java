@@ -1,3 +1,15 @@
+/*
+ * @(#)RacingCarGame.java           2019/04/03
+ *
+ * Copyright (c) 2019 Deocksoo Kim.
+ * java-racingcar, woowacourse, Java, Seoul, KOREA
+ * All rights reserved.
+ *
+ * This software is created for the submission of woowacourse
+ * 2nd precourse project. All Copyrights to this code are on
+ * woowacourse.
+ */
+
 import domain.*;
 
 import java.util.ArrayList;
