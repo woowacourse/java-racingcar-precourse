@@ -72,7 +72,7 @@ public class Car {
             return true;
         }
         for (int i = 0; i < userInputArray.length; i++) {
-            if (userInputArray[i].length() < NAME_MIN_LENGTH || userInputArray[i].length() > NAME_MAX_LENGTH) {
+            if ((userInputArray[i].length() < NAME_MIN_LENGTH) || (userInputArray[i].length() > NAME_MAX_LENGTH)) {
                 System.out.println("선수들의 이름의 길이는 1이상 5이하로 해주십시오");
                 return true;
             }
@@ -196,10 +196,10 @@ public class Car {
             System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요: ");
             Scanner scanner = new Scanner(System.in);
             String strUserAnswer = scanner.nextLine();
-            if (strUserAnswer.length() == 1 && strUserAnswer.charAt(0) == '1') {
+            if ((strUserAnswer.length() == 1) && (strUserAnswer.charAt(0) == '1')) {
                 return true;
             }
-            if (strUserAnswer.length() == 1 && strUserAnswer.charAt(0) == '2') {
+            if ((strUserAnswer.length() == 1) && (strUserAnswer.charAt(0) == '2')) {
                 return false;
             }
         } while (true);
