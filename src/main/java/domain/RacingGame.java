@@ -12,6 +12,7 @@ public class RacingGame {
     System.out.println("시도할 횟수는 몇회인가요?");
     Scanner scan = new Scanner(System.in);
     int num = scan.nextInt();
+    System.out.println("실행 결과");
     for(int i = 0 ; i < num ; i++){
       move();
     }
