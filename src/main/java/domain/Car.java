@@ -6,6 +6,10 @@ public class Car
     private final String name;
     private int position = 0;
 
+    private static final int NAME_MIN_LENGTH = 1;
+    private static final int NAME_MAX_LENGTH = 5;
+    private static final boolean IS_SOMETHING_WRONG = false;
+
     public Car(String name)
     {
         this.name = name;
@@ -22,7 +26,7 @@ public class Car
             userInput = reader.nextLine();
             userInput = userInput.replaceAll("\\s+", "");
             userInputArray = userInput.split(",");
-            if ((isNameLengthBetweenOneAndFive(userInputArray)== false) && (isDuplicate(userInputArray) == false))
+            if ((isNameLengthBetweenOneAndFive(userInputArray) == IS_SOMETHING_WRONG) && (isDuplicate(userInputArray) == IS_SOMETHING_WRONG))
             {
                 break;
             }
@@ -65,7 +69,7 @@ public class Car
         }
         for(int i=0; i<userInputArray.length; i++)
         {
-            if (userInputArray[i].length() > 5 || userInputArray[i].length() < 1)
+            if (userInputArray[i].length() < NAME_MIN_LENGTH || userInputArray[i].length() > NAME_MAX_LENGTH)
             {
                 System.out.println("선수들의 이름의 길이는 1이상 5이하로 해주십시오");
                 return true;
