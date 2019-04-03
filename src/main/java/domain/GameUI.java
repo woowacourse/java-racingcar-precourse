@@ -19,6 +19,7 @@ import java.util.Scanner;
  */
 public class GameUI {
 	private static final String DELIMITER = ",";
+	private static final String INFO_MESSAGE_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)";
 	private static final String ERR_MESSAGE_CAR_NAME_LENGTH = String.format("자동차 이름은 %d글자 이하입니다.", Car.NAME_LENGTH);
 	private Game game;
 
@@ -38,10 +39,17 @@ public class GameUI {
 
 	public String askCarNames(Scanner sc) {
 		String carNames;
-		String info = "경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)";
-
-		System.out.println(info);
-		carNames = sc.nextLine();
+		while (true) {
+			System.out.println(INFO_MESSAGE_CAR_NAME);
+			carNames = sc.nextLine();
+			try {
+				isValidCarNames(carNames);
+			} catch (NameRuleException e) {
+				System.err.println(e.getMessage());
+				continue;
+			}
+			break;
+		}
 
 		return carNames;
 	}
