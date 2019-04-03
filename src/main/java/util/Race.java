@@ -3,21 +3,24 @@ import java.util.ArrayList;
 import domain.Car;
 public class Race {
     private int winnerNum;
+    private static final String RESULT_PRINT = "실행 결과";
 
     /**
      * 게임 전체 시작
      */
     public static void startGame() {
-        doRace();
+        int times = TimesInput.getTimes();
+        System.out.println("\n\n" + RESULT_PRINT + "\n");
+        doRace(times);
     }
 
     /**
      * 입력된 횟수 만큼 레이스 시작
      */
-    private static void doRace(){
-        int times = TimesInput.getTimes();
+    private static void doRace(int times){
         for (int i = 0; i < times; i++){
             eachRound(MakeCar.carArray);
+            printProgress(MakeCar.carArray);
         }
     }
 
@@ -44,8 +47,14 @@ public class Race {
         return false;
     }
 
-    private void printProgress(){
-
+    /**
+     * 각 라운드의 진행결과를 출력하는 함수
+     */
+    private static void printProgress(ArrayList<Car> cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            cars.get(i).printProgress();
+        }
+        System.out.print("\n");
     }
 
     private void printResult(){
