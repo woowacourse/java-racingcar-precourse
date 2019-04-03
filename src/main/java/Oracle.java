@@ -14,4 +14,16 @@ public class Oracle {
 
         return flag;
     }
+
+    static boolean checkRepeatedName(String specificName, Vector<String> names) {
+        boolean repetition = false;
+        int count;
+
+        count = InputHandler.countName(specificName, names);
+        if(count > 1) {
+            repetition = true;
+        }
+
+        return repetition;
+    }
 }

@@ -36,7 +36,10 @@ Vector 속 모든 String의 길이가 모두 MAX 이하면 true를 반환한다.
 
 - boolean checkRepetition
 
-- boolean checkRepeatedName
+- boolean checkRepeatedName(String specificName, Vector<String names)
+specificName이 vector에서 중복되는지 검사한다.
+InputHandler.countName 함수를 사용한다.
+
 
 - boolean checkFaultyInput
 

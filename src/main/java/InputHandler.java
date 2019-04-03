@@ -41,24 +41,6 @@ public class InputHandler {
 
         return count;
     }
-    /*
-    static boolean checkRepeatedName(String specificName, Vector<String> names) {
-        Boolean repetition = false;
-        int count = 0;
 
-        for (String name: names
-             ) {
-            if(name.equals(specificName)) {
-                count++;
-            }
-            if(count > 1) {
-                repetition = true;
-                break;
-            }
-        }
-
-        return repetition;
-    }
-    */
 
 }
