@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class RacingGame {
-
+  ArrayList<Car> carArrayList;
   public void run() {
-    ArrayList<Car> carArrayList = initCar();
+    carArrayList = initCar();
     //initialize car names to each car object
     System.out.println("시도할 횟수는 몇회인가요?");
     Scanner scan = new Scanner(System.in);
@@ -31,7 +31,10 @@ public class RacingGame {
   }
 
   public void move(){
-
+    for(Car thisCar : carArrayList){
+      thisCar.move();
+      thisCar.show();
+    }
   }
 
 }
