@@ -8,6 +8,10 @@ public class Car {
         this.name = name;
     }
 
+    public static boolean isNameValid(String str) {
+        return str.length() <= 5;
+    }
+
     public int getPosition() {
         return this.position;
     }
@@ -24,4 +28,12 @@ public class Car {
         }
     }
 
+    @Override
+    public String toString() {
+        String distance = "";
+        for (int i = 0; i < this.position; i++) {
+            distance += "-";
+        }
+        return String.format("%s : %s", this.name, distance);
+    }
 }
