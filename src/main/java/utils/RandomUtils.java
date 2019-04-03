@@ -7,7 +7,7 @@ public class RandomUtils {
 
     private RandomUtils(){}
 
-    public static int getRandomNumber(int start, int end) {
+    public static int getRandomNumberBetween(int start, int end) {
         int rangeCount = end  - start + 1;
         return start + random.nextInt(rangeCount);
     }
