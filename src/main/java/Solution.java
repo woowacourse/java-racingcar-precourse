@@ -1,4 +1,4 @@
-import domain.InputError;
+import domain.InputReport;
 import java.util.Vector;
 
 public class Solution {
@@ -10,7 +10,7 @@ public class Solution {
         Boolean bool;
         Vector<String> vector;
         int count;
-        Vector<InputError> errors;
+        Vector<InputReport> errors;
 
         s = InputHandler.getInput();
         vector = InputHandler.parse(s, ",");
@@ -25,7 +25,7 @@ public class Solution {
         count = InputHandler.countName("car",vector);
         System.out.println(count);
         errors = InputErrorHandler.gatherError(vector, 5);
-        for (InputError error : errors
+        for (InputReport error : errors
              ) {
             System.out.println(error);
         }

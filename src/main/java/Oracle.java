@@ -1,12 +1,12 @@
-import domain.InputError;
+import domain.InputReport;
 import domain.InputErrorCode;
 import domain.InputErrorMessage;
 import java.util.Vector;
 
 public class Oracle {
 
-    static InputError checkLength(Vector<String> names, int MAX) {
-        InputError error = new InputError();
+    static InputReport checkLength(Vector<String> names, int MAX) {
+        InputReport error = new InputReport();
 
         for (String name : names
         ) {
@@ -30,8 +30,8 @@ public class Oracle {
         return repetition;
     }
 
-    static InputError checkRepetition(Vector<String> names) {
-        InputError error = new InputError();
+    static InputReport checkRepetition(Vector<String> names) {
+        InputReport error = new InputReport();
         boolean repetition = false;
 
         for (String name : names
@@ -46,8 +46,8 @@ public class Oracle {
         return error;
     }
 
-    static InputError checkEmptyString(Vector<String> names) {
-        InputError error = new InputError();
+    static InputReport checkEmptyString(Vector<String> names) {
+        InputReport error = new InputReport();
 
         if(names.size() == 0) {
             error.set(InputErrorCode.EMPTY_ERROR, InputErrorMessage.EMPTY_ERROR_MESSAGE);

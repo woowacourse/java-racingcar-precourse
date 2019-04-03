@@ -1,10 +1,10 @@
-import domain.InputError;
+import domain.InputReport;
 import java.util.Vector;
 
 public class InputErrorHandler {
 
-    static Vector<InputError> gatherError(Vector<String> names, int max) {
-        Vector<InputError> errors = new Vector<>();
+    static Vector<InputReport> gatherError(Vector<String> names, int max) {
+        Vector<InputReport> errors = new Vector<>();
 
         errors.add(Oracle.checkLength(names, max));
         errors.add(Oracle.checkRepetition(names));
@@ -12,5 +12,6 @@ public class InputErrorHandler {
 
         return errors;
     }
+
 
 }

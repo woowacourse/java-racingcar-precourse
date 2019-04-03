@@ -49,6 +49,8 @@ names의 size가 0인 경우 true를 반환한다.
 입력된 이름 길이가 6 이상인지, 빈 문자열인지, 중복되는 이름이 있는지 검사한다. 하나라도 맞다면 true를 반환한다.
 checklength, checkRepetition, checkEmptyString 함수를 사용한다.
 
+- boolean isThereInputError(Vector<InputError> errors)
+errors
 
 class InputHandler
 

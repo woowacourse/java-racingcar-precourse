@@ -1,6 +1,6 @@
 package domain;
 
-public class InputError {
+public class InputReport {
     private int code = InputErrorCode.NO_ERROR;
     private String errorMessage = InputErrorMessage.NO_ERROR_MESSAGE;
 
