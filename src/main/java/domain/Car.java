@@ -3,12 +3,23 @@ package domain;
 import utils.RandomUtils;
 
 public class Car {
+
+    private static final int MAX_NAME_LENGTH = 5;
+
     private final String name;
     private int position = 0;
 
     private Car(String name, int position) {
+        validateNameLength(name);
+
         this.name = name;
         this.position = position;
+    }
+
+    private void validateNameLength(String name) {
+        if(name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("유효하지 않은 이름 길이" + "name : " + name);
+        }
     }
 
     public static Car fromName(String name) {
