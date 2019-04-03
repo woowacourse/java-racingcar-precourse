@@ -15,3 +15,19 @@
 - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
 - 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
 - else 예약어를 쓰지 않는다.
+
+
+### 메소드 설명
+- public void run() : 로직을 실행시키는 메소드
+- private boolean checkFiveWords(String[] carNameList) : ","로 구분된 이름이 5자인지 체크하는 메소드
+- private String[] inputCarNames() : 자동차 이름을 입력 받아 ","로 구분하는 메소드
+- private List<Car> getCarList(String[] carNameList) : 생성자를 이용해 Car 객체를 list에 add하는 메소드
+- private int getRoundCount() : 게임을 돌릴 횟수를 입력 받는 메소드
+- private int getRandomNumber() : 게임 도중 필요한 랜덤한 숫자를 주는 메소드
+- private void runOneRound(List<Car> carList) : 한번의 게임 실행 결과를 판별해주는 메소드
+- private String getHyphen(int position) : 게임 위치를 알려줄 "-"을 주는 메소드 
+- private void printResult(List<Car> carList) : 결과를 출력해 주는 메소드
+- private int getPositionMax(List<Car> carList) : 포지션의 최고값을 리턴해 주는 메소드
+- private List<String> getWinnerName(List<Car> carList) : 우승자의 이름을 리스트에 add해주고 우승자 이름 리스트를 리턴해주는 메소드
+- private void printWinnerName(List<Car> carList) : 우승 시 결과를 출력해주는 메소드
+ 
