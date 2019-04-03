@@ -1,5 +1,5 @@
 /*
- * @CarManager.java	1.12 2019/04/03
+ * @CarManager.java	1.13 2019/04/03
  * 
  * Copyright(c)2019	HwiJin Hong.
  * All right reserved.
@@ -21,7 +21,7 @@ import java.util.HashSet;
  * 3.자동차들의 상태 정보를 콘솔창에 출력해준다.
  * 4.1등 자동차들의 이름을 가져온다.
  * 
- * @version 1.12 2019년 4월 3일
+ * @version 1.13 2019년 4월 3일
  * @author 홍휘진
  */
 public class CarManager {
@@ -33,6 +33,8 @@ public class CarManager {
 	private static final int REMOVE_INDEX = 2;
 	
 	private static final int START_INDEX = 0;
+	
+	private static final String MORE = ", ";
 	
 	private ArrayList<Car> carList;
 
@@ -76,7 +78,7 @@ public class CarManager {
 		StringBuilder firstCars = new StringBuilder();
 		for (Car car : carList) {
 			if (car.getPosition() == firstPosition) {
-				firstCars.append(car.getName()).append(", ");
+				firstCars.append(car.getName()).append(MORE);
 			}
 		}
 		return firstCars.substring(START_INDEX, firstCars.length() - REMOVE_INDEX);
