@@ -64,16 +64,24 @@ public class CarGame {
 
 	}
 
-	public List<String> getWinner() {
-		List<String> winnerList = new ArrayList<>();
-		int maxCount = 0;
+	public int getCarsMaxPosition(){
+
+		int carMaxPosition = 0;
 
 		for (int i = 0; i < racingCarList.size(); ++i) {
-			maxCount = Math.max(maxCount, racingCarList.get(i).getPosition());
+			carMaxPosition = Math.max(carMaxPosition, racingCarList.get(i).getPosition());
 		}
 
+		return carMaxPosition;
+	}
+
+	public List<String> getWinner() {
+
+		List<String> winnerList = new ArrayList<>();
+		int maxPosition = getCarsMaxPosition();
+
 		for (int i = 0; i < racingCarList.size(); ++i) {
-			if (racingCarList.get(i).getPosition() == maxCount) {
+			if (racingCarList.get(i).getPosition() == maxPosition) {
 				winnerList.add(racingCarList.get(i).getName());
 			}
 		}
