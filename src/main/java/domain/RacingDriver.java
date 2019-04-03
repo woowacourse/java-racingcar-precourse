@@ -35,6 +35,15 @@ public class RacingDriver {
             cars.add(new Car(carName));
         }
     }
+
+    public static int getTurns() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        return scan.nextInt();
+    }
+
     public  static void main(String args[]) {
 
     }
