@@ -55,9 +55,26 @@ public class Game {
 		return false;
 	}
 
-	private void numOfAttempts() {
-		// TODO
-
+	public void numOfAttempts() {
+		while (true) {
+			System.out.println("시도할 횟수를 입력하세요.");
+			String userinput = scanner.next();
+			if (isnotNumber(userinput)) {
+				continue;
+			}
+			attemptCount = Integer.parseInt(userinput);
+			return;
+		}
+	}
+	
+	public boolean isnotNumber(String userinput) {
+		try {
+			Integer.parseInt(userinput);
+			return false;
+		} catch (NumberFormatException e) {
+			System.out.println("숫자만 입력하세요.");
+			return true;
+		}
 	}
 
 	private void playGame() {
