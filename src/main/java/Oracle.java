@@ -1,7 +1,6 @@
 import domain.InputError;
 import domain.InputErrorCode;
-import jdk.internal.util.xml.impl.Input;
-
+import domain.InputErrorMessage;
 import java.util.Vector;
 
 public class Oracle {
@@ -12,12 +11,11 @@ public class Oracle {
         for (String name : names
         ) {
             if(name.length() > MAX) {
-                error.setCode(InputErrorCode.LENGTH_ERROR);
-                error.setErrorMessage(InputError);
+                error.set(InputErrorCode.LENGTH_ERROR, InputErrorMessage.LENGTH_ERROR_MESSAGE);
             }
         }
 
-        return flag;
+        return error;
     }
 
     static boolean checkRepeatedName(String specificName, Vector<String> names) {
