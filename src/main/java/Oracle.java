@@ -3,6 +3,7 @@ import domain.InputReport;
 import domain.InputReportCode;
 import domain.InputReportMessage;
 
+import java.util.Collections;
 import java.util.Vector;
 
 public class Oracle {
@@ -105,13 +106,19 @@ public class Oracle {
         cars[j] = car;
     }
 
+    static void sortCarArray(Car[] cars) {
+
+    }
+
     /*
     static Vector<Car> findChampions(Vector<Car> cars) {
         Vector<Car> champions = new Vector<>();
+        Collections.sort(cars);
 
 
     }
     */
+
 
 
 

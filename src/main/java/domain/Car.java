@@ -1,6 +1,8 @@
 package domain;
 
-public class Car {
+import java.util.Comparator;
+
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
 
@@ -16,6 +18,19 @@ public class Car {
     public void move() {
         this.position++;
     }
+
+    @Override
+    public int compareTo(Car o) {
+        if(o.position > this.position) {
+            return 1;
+        }
+        if(o.position == this.position) {
+            return 0;
+        }
+
+        return -1;
+    }
+
 
     @Override
     public String toString() {

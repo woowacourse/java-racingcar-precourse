@@ -1,5 +1,7 @@
 import domain.Car;
 import domain.InputReport;
+
+import java.util.Collections;
 import java.util.Vector;
 
 public class Solution {
@@ -18,7 +20,12 @@ public class Solution {
         cars = Game.generateCarsByNames(names);
 
         Game.doRace(cars, numberOfRound);
+        Collections.sort(cars);
+        for (Car car : cars
+             ) {
+            System.out.println(car);
 
+        }
 
     }
 
