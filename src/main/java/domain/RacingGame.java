@@ -9,6 +9,12 @@ public class RacingGame {
   public void run() {
     ArrayList<Car> carArrayList = initCar();
     //initialize car names to each car object
+    System.out.println("시도할 횟수는 몇회인가요?");
+    Scanner scan = new Scanner(System.in);
+    int num = scan.nextInt();
+    for(int i = 0 ; i < num ; i++){
+      move();
+    }
   }
 
   public ArrayList<Car> initCar() {
@@ -17,10 +23,15 @@ public class RacingGame {
     String carNames = scan.next();
     ArrayList<String> carNameList = new ArrayList<String>(Arrays.asList(carNames.split(",")));
     ArrayList<Car> carArrayList = new ArrayList<Car>();
-    for(String car : carNameList){
+    for (String car : carNameList) {
       Car realCar = new Car(car);
       carArrayList.add(realCar);
     }
     return carArrayList;
   }
+
+  public void move(){
+
+  }
+
 }
