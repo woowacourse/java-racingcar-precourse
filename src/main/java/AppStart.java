@@ -26,11 +26,15 @@ public class AppStart {
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNum = sc.nextInt();
 
+        System.out.println();
+        System.out.println("실행결과");
         for(int i = 0; i < tryNum; ++i){
             start(car, length);
             printResult(car, length, tryNum);
             System.out.println();
         }
+
+        decideWinner(car, length);
     }
 
     public static void start(Car[] car, int length) {
@@ -38,6 +42,7 @@ public class AppStart {
             car[i].decideGoStop();
         }
     }
+
     public static void printResult(Car[] car, int length, int tryNum){
         for (int i = 0; i < length; ++i) {
             System.out.print(car[i].getName() + " : ");
@@ -46,6 +51,25 @@ public class AppStart {
             }
             System.out.println();
         }
+    }
+
+    public static void decideWinner(Car[] car, int length){
+        int max = 0;
+        for (int i = 0; i < length; ++i){
+            if (car[i].getPosition() > max){
+                max = car[i].getPosition();
+            }
+        }
+        printWinner(car, length, max);
+    }
+
+    public static void printWinner(Car[] car, int length, int max){
+        for (int i = 0; i < length; ++i){
+            if (car[i].getPosition() == max){
+                System.out.print(car[i].getName() + ",");
+            }
+        }
+        System.out.println("\b가 최종 우승했습니다.");
     }
 }
 
