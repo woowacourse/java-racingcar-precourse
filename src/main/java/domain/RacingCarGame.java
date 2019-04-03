@@ -24,16 +24,21 @@ public class RacingCarGame {
 
     public void play() {
         while (!isGameOver()) {
+            changeCount();
             cars.stream()
                     .filter(Car::isMovable)
                     .forEach(Car::move);
-
             recorder.saveRecord(cars);
+
         }
     }
 
     private boolean isGameOver() {
-        return remainingPlayCount-- <= 0;
+        return remainingPlayCount <= 0;
+    }
+
+    private void changeCount() {
+        remainingPlayCount--;
     }
 
     public Recorder getRecorder() {
@@ -41,15 +46,17 @@ public class RacingCarGame {
     }
 
     public List<String> getWinners() {
-        int maxPosition = cars.stream()
+        return cars.stream()
+                .filter(car -> car.getPosition() == getMaxPosition())
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
                 .map(Car::getPosition)
                 .max(Comparator.naturalOrder())
                 .orElseThrow(RuntimeException::new);
-
-        return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getName)
-                .collect(Collectors.toList());
     }
 
 
