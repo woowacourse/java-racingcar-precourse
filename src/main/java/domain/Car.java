@@ -11,11 +11,11 @@ import java.util.Random;
 /**
  * Car 클래스는 자동차경주에 참여하는 자동차다.
  *
- * @version  1.00  2019년 04월 02일
- * @author   조남균
+ * @author 조남균
+ * @version 1.00  2019년 04월 02일
  */
 public class Car {
-	public static final int NAME_LENGTH = 5;
+	public static final int MAX_NAME_LENGTH = 5;
 	private static final int RANDOM_BOUND = 10;
 	private static final int MOVE_BOUND = 4;
 	private final String name;
@@ -34,6 +34,7 @@ public class Car {
 	private boolean checkMove() {
 		Random random = new Random();
 		int randomNum = random.nextInt(RANDOM_BOUND);
+
 		if (randomNum >= MOVE_BOUND) {
 			return true;
 		}

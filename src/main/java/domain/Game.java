@@ -46,6 +46,7 @@ public class Game {
 				champions.add(car.getName());
 			}
 		}
+
 		return champions;
 	}
 
@@ -57,6 +58,7 @@ public class Game {
 				maxPosition = car.getPosition();
 			}
 		}
+
 		return maxPosition;
 	}
 }

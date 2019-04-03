@@ -19,8 +19,8 @@ import java.util.Scanner;
  */
 public class GameUI {
 	private static final String DELIMITER = ",";
-	private static final String INFO_MESSAGE_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)";
-	private static final String ERR_MESSAGE_CAR_NAME_LENGTH = String.format("자동차 이름은 %d글자 이하입니다.", Car.NAME_LENGTH);
+	private static final String INFO_MESSAGE_CAR_NAME = String.format("경주할 자동차 이름을 입력하세요.(이름은쉼표(%s)기준으로구분)", DELIMITER);
+	private static final String ERR_MESSAGE_CAR_NAME_LENGTH = String.format("자동차 이름은 %d글자 이하입니다.", Car.MAX_NAME_LENGTH);
 	private static final String INFO_MESSAGE_LAP_NUM = "시도할 회수는 몇회인가요?";
 	private static final String INFO_MESSAGE_RACING_RESULT = "\n실행결과";
 	private Game game;
@@ -40,26 +40,24 @@ public class GameUI {
 	}
 
 	private String askCarNames(Scanner sc) {
-		String carNames;
-
 		while (true) {
 			System.out.println(INFO_MESSAGE_CAR_NAME);
-			carNames = sc.nextLine();
+			String carNames = sc.nextLine();
+
+			/* 유효성 검사를 통과할 때까지 사용자 정확한 입력 요청한다. */
 			try {
 				isValidCarNames(carNames);
 			} catch (NameRuleException e) {
 				System.err.println(e.getMessage());
 				continue;
 			}
-			break;
+			return carNames;
 		}
-
-		return carNames;
 	}
 
 	private void isValidCarNames(String carNames) throws NameRuleException {
 		for (String carName : carNames.split(DELIMITER)) {
-			if (carName.length() > Car.NAME_LENGTH) {
+			if (carName.length() > Car.MAX_NAME_LENGTH) {
 				throw new NameRuleException(ERR_MESSAGE_CAR_NAME_LENGTH);
 			}
 		}
