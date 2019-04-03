@@ -34,7 +34,7 @@ cars의 position을 name:(position수만큼 character 출력) 형태로 출력�
 - void drawCharacters(int count, char character)
 count만큼 character를 출력한다.
 
-- Car[] findChampions(Car[] cars)
+- Vector<Car> findChampions(Vector<Car> cars)
 cars 속에서 챔피언들을 찾는다.
 
 - void showChampions(Car[] cars)
@@ -59,12 +59,8 @@ names의 size가 0인 경우 true를 반환한다.
 findErrorReport로 찾은 InputReport 객체의 errorMessage를 출력한다.
 class InputReport의 gatherReport, findErrorReport 함수를 사용한다.
 
-- void swapCarArrayIndex(Car[] cars, index i, index j)
-cars 배열에서 cars[i]와 cars[j]를 서로 바꾼다.
-
-- void sortCarArray(Car[] cars)
-
-- int numberOfFrontMultipleRepetition(Car[] cars)
+- int numberOfFrontMultipleRepetition(Vector<Car> cars)
+cars가 내림차순으로 배열됐다는 가정하에, 최고 position에 동일하게 위치한 car들이 총 몇 개인지를 반환한다.
 
 
 

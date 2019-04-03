@@ -8,11 +8,8 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        String s;
-        String[] sarray;
-        Boolean bool;
         Vector<String> names;
-        int numberOfRound;
+        int numberOfRound, count;
         Vector<Car> cars;
 
         names = Game.getCarNames();
@@ -24,9 +21,10 @@ public class Solution {
         for (Car car : cars
              ) {
             System.out.println(car);
-
         }
 
+        count = Oracle.numberOfChapmionsAtSortedCarArray(cars);
+        System.out.println(count);
     }
 
 }

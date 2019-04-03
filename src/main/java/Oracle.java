@@ -8,6 +8,7 @@ import java.util.Vector;
 
 public class Oracle {
     private static final String STRING_BETWEEN_CAR_NAME_AND_DASH = " : ";
+    private static final int INDEX_OF_CHAMPION_AT_DESCENDING_ORDER_CAR_ARRAY = 0;
 
     static InputReport checkLength(Vector<String> names, int MAX) {
         InputReport report = new InputReport();
@@ -99,7 +100,17 @@ public class Oracle {
         System.out.println();
     }
 
+    static int numberOfChapmionsAtSortedCarArray(Vector<Car> cars) {
+        int count = 0;
 
+        for (Car car: cars
+             ) {
+            if(cars.get(INDEX_OF_CHAMPION_AT_DESCENDING_ORDER_CAR_ARRAY).positionIs() == car.positionIs()) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     /*
     static Vector<Car> findChampions(Vector<Car> cars) {
