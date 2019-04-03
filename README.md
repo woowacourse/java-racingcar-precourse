@@ -50,7 +50,8 @@ class InputHandler
 separator를 구분자로 이용해 input을 String 배열로 변환한다.
 String 배열 중 빈 string을 제외한 나머지 string들을 vector 객체에 보관해서 vector 객체를 반환한다.
 
-- int countName
+- int countName(string specificName, Vector<String> names)
+sepecificName이 names안에 몇 개 있는지에 대한 정보를 반환한다.
 
 
 

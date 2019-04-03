@@ -28,7 +28,7 @@ public class InputHandler {
     }
 
 
-    /*
+
     static int countName(String specificName, Vector<String> names) {
         int count = 0;
 
@@ -41,7 +41,7 @@ public class InputHandler {
 
         return count;
     }
-
+    /*
     static boolean checkRepeatedName(String specificName, Vector<String> names) {
         Boolean repetition = false;
         int count = 0;

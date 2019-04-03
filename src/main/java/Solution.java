@@ -20,8 +20,8 @@ public class Solution {
             System.out.println(s);
         }
 
-        bool = Oracle.checkLength(vector, 5);
-        System.out.println(bool);
+        count = InputHandler.countName("car",vector);
+        System.out.println(count);
     }
 
 }
