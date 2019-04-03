@@ -30,9 +30,11 @@ public class Car {
 		return random.nextInt(10);
 	}
 
-	private void move() {
-		// TODO
-
+	public void move() {
+		int randomNumber = makeRandomNumber();
+		if (randomNumber > 3) {
+			position += 1;
+		}
 	}
 
 	private void printResult() {
