@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import domain.Car;
 import util.Constants;
 
-public class Input {
+public class NameInput {
     private Scanner scan = new Scanner(System.in);
     final String INPUT_CAR_TEXT = "경주할 자동차 이름을 쉼표(,)로 구분해 입력해 주세요.";
     final String NAME_INPUT_ERROR = "5자 이하의 이름을 입력해주세요";
@@ -49,7 +49,6 @@ public class Input {
         System.out.println(NAME_INPUT_ERROR);
         return false;
     }
-
 
 
 }
