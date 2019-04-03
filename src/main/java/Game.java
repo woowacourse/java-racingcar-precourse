@@ -13,7 +13,7 @@ public class Game {
     private static final int TOP = 9;
     private static final int BOTTOM = 0;
     private static final int BOUNDARY = 4;
-    private static final char dash = '-';
+    private static final char DASH = '-';
 
     static Vector<String> getCarNames() {
         String input;
@@ -65,7 +65,7 @@ public class Game {
                 car.move();
             }
         }
-        Oracle.showRoundResult(cars, dash);
+        Oracle.showRoundResult(cars, DASH);
     }
 
     static void doRace(Vector<Car> cars, int rumberOfRound) {

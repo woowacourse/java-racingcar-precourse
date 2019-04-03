@@ -20,7 +20,7 @@ Oracle class의 TellGoOrStop, showRoundResult 함수를 사용한다.
 
 - void findAndShowChampions(Car[] cars)
 cars 안에서 champion들을 선별하고 출력한다.
-Oracle class의 findChampions, showChampions 함수를 사용한다.
+Oracle class의 findChampions, Game class의 showChampions 함수를 사용한다.
 
 
 class Oracle
