@@ -16,5 +16,12 @@ public class Car {
         return this.name;
     }
 
+    public void boostOrStop() {
+        int dice = (int)Math.floor(Math.random() * 10);
+
+        if (dice >= 4) {
+            this.position++;
+        }
+    }
 
 }
