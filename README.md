@@ -22,6 +22,7 @@
 |1|  askCarNames() |  자동차들의 이름을 User에게 묻는다. |
 |1-1| isNameLengthBetweenOneAndFive() | User가 제공한 자동차 이름의 길이가 1에서 5인지 확인한다.|
 |1-2|  isDuplicate()  |   User가 제공한 이름의 중복이 있는지 확인한다.|
+|1-3| count()| 자동차의 이름이 String[]로 주어졌을 때 이름의 갯수를 세는 method|
 |2| askHowManyTurns| 경주를 몇번 진행할 것인가 묻는다.|
 |2-1| checkUserInput()|User가 제공한 횟수가 조건에 맞는지 확인한다.|
 |2-2|isNonNumberThere()|User가 제공한 대답에 숫자가 아닌 문자가 있는지 확인한다.|
@@ -53,7 +54,7 @@
 2. CarGameLauncher.java 안에 main method를 정의한다.
 <br/>2-1. main method에서 작동할 doGame(), prepareGame(), playGame(), endGame()을 정의한다.
 3. 자동차 이름을 묻는 getCarNames() method를 정의한다.
-<br/>3-1. User가 조건에 맞는 input을 제시하는 것을 돕기 위해 isNameLengthBetweenOneAndFive() method와 isDuplicate() method 추가."
+<br/>3-1. User가 조건에 맞는 input을 제시하는 것을 돕기 위해 isNameLengthBetweenOneAndFive(),isDuplicate(), count() method 추가.
 4. 경주를 몇번 할 것인지 묻는 askHowManyTurns() method를 정의한다.
 5. User의 input이 맞는지 확인하는 ckechUserInput(), isNonNumberThere(), isItSmallerThanOne() method를 정의한다.
 6. Class car를 instantiate하는 insatntiateAndReturn() method정의.

@@ -6,13 +6,14 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    private static final int NAME_MIN_LENGTH = 1;
-    private static final int NAME_MAX_LENGTH = 5;
-    private static final boolean IS_SOMETHING_WRONG = false;
-
     public Car(String name) {
         this.name = name;
     }
+
+    //추가 기능 구현
+    private static final int NAME_MIN_LENGTH = 1;
+    private static final int NAME_MAX_LENGTH = 5;
+    private static final boolean IS_SOMETHING_WRONG = false;
 
     public static String[] askCarNames() {
         String userInput;
