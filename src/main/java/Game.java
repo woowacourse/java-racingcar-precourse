@@ -3,12 +3,21 @@ import java.util.Vector;
 public class Game {
     private static final String SEPERATOR = ",";
     private static final int MAX = 5;
-    /*
-    Vector<String> getCarNames() {
-        String input = InputHandler.getInput();
-        Vector<String> names = InputHandler.parse(input, SEPERATOR);
-        boolean faulty = Oracle.checkFaultyInput(names, MAX);
+
+    static Vector<String> getCarNames() {
+        String input;
+        Vector<String> names;
+
+        while(true) {
+            input = InputHandler.getInput();
+            names = InputHandler.parse(input, SEPERATOR);
+            if(!Oracle.checkFaultyInput(names, MAX)) {
+                break;
+            }
+        }
+
+        return names;
     }
-    */
+
 
 }

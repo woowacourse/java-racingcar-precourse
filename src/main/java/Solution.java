@@ -13,22 +13,11 @@ public class Solution {
         Vector<InputReport> reports;
         InputReport error;
 
-        s = InputHandler.getInput();
-        vector = InputHandler.parse(s, ",");
-
-        System.out.print("size: ");
-        System.out.println(vector.size());
-        for(int i = 0; i < vector.size(); i++) {
-            s = vector.get(i);
-            System.out.println(s);
+        vector = Game.getCarNames();
+        for (String name : vector
+             ) {
+            System.out.println(name);
         }
-
-        count = InputHandler.countName("car",vector);
-        System.out.println(count);
-
-        bool = Oracle.checkFaultyInput(vector, 5);
-        System.out.print("error:");
-        System.out.println(bool);
 
     }
 
