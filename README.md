@@ -59,6 +59,12 @@ names의 size가 0인 경우 true를 반환한다.
 findErrorReport로 찾은 InputReport 객체의 errorMessage를 출력한다.
 class InputReport의 gatherReport, findErrorReport 함수를 사용한다.
 
+- void swapCarArrayIndex(Car[] cars, index i, index j)
+cars 배열에서 cars[i]와 cars[j]를 서로 바꾼다.
+
+- void sortCarArray(Car[] cars)
+
+- int numberOfFrontMultipleRepetition(Car[] cars)
 
 
 
@@ -105,4 +111,5 @@ getInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepet
 -> getNumberOfRound
 -> generateCarByNames
 tellGoOrStop -> showRoundResult -> doRound -> doRace
-->  findChampions -> showChampions -> findAndShowChampions
+-> swapCarArrayIndex -> sortCarArray -> numberOfFrontMultipleRepetition
+-> findChampions -> showChampions -> findAndShowChampions

@@ -98,4 +98,21 @@ public class Oracle {
         System.out.println();
     }
 
+    static void swapCarArrayIndex(Car[] cars, int i, int j) {
+        Car car;
+        car = cars[i];
+        cars[i] = cars[j];
+        cars[j] = car;
+    }
+
+    /*
+    static Vector<Car> findChampions(Vector<Car> cars) {
+        Vector<Car> champions = new Vector<>();
+
+
+    }
+    */
+
+
+
 }

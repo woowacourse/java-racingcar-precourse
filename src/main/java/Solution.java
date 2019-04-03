@@ -12,14 +12,9 @@ public class Solution {
         Vector<String> names;
         int numberOfRound;
         Vector<Car> cars;
-        int falseNum = 0;
-        int trueNum = 0;
-
-        InputReport error;
 
         names = Game.getCarNames();
         numberOfRound = Game.getNumberOfRound();
-        System.out.println(numberOfRound);
         cars = Game.generateCarsByNames(names);
 
         Game.doRace(cars, numberOfRound);
