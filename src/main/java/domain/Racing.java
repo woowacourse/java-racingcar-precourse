@@ -1,5 +1,5 @@
 /*
- * @Racing.java		1.02 2019/04/02
+ * @Racing.java		1.03 2019/04/03
  * 
  * Copyright(c)2019	HwiJin Hong.
  * All right reserved.
@@ -23,11 +23,19 @@ import java.util.Scanner;
  * 4.레이싱 결과를 출력한다.
  * 5.경주가 끝났다!
  * 
- * @version 1.02 2019년 4월 2일
+ * @version 1.03 2019년 4월 3일
  * @author 홍휘진
  */
 public class Racing {
 
+	private static final int NAME_LENGTH_BOUND = 5;
+	
+	private static final int MIN_SIZE = 0;
+	
+	private static final int MIN_TIME = 0;
+	
+	private static final long WAIT_TIME = 1000L;
+	
 	private Scanner scanner;
 
 	private CarManager carManager;
@@ -74,7 +82,7 @@ public class Racing {
 
 	private void startRace(int raceTime) {
 		System.out.println("실행 결과");
-		for (int i = 0; i < raceTime; i++) {
+		for (int i = MIN_TIME; i < raceTime; i++) {
 			carManager.goOrStop();
 			timeWaitForResult();
 			carManager.printCarList();
@@ -91,11 +99,11 @@ public class Racing {
 	}
 
 	private boolean isValidUsers(String[] names) {
-		if (names.length == 0) {
+		if (names.length == MIN_SIZE) {
 			return false;
 		}
 		for (String name : names) {
-			if (name.length() > 5) {
+			if (name.length() > NAME_LENGTH_BOUND) {
 				return false;
 			}
 		}
@@ -103,12 +111,12 @@ public class Racing {
 	}
 
 	private boolean isValidTime(int raceTime) {
-		return (raceTime >= 0) ? true : false;
+		return (raceTime >= MIN_TIME) ? true : false;
 	}
 
 	private void timeWaitForResult() {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(WAIT_TIME);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
