@@ -2,11 +2,11 @@ package domain;
 
 import java.util.ArrayList;
 
-public class ResultPrinter {
+public class RaceResultPrinter {
     private static final Character CAR_DISTANCE ='-';
     private ArrayList<Car> carList;
 
-    ResultPrinter(ArrayList<Car> carList) {
+    RaceResultPrinter(ArrayList<Car> carList) {
         this.carList = carList;
     }
 

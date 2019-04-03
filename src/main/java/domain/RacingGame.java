@@ -1,23 +1,36 @@
 package domain;
 
 public class RacingGame {
+    private CarNameReciever carNameReciever;
+    private CarGenerator carGenerator;
+    private RaceAttemptReciever raceAttemptReciever;
+    private CarNavigator carNavigator;
+    private RaceResultPrinter resultPrinter;
 
-    private void Start(){
-        CarNameReciever carNameReciever = new CarNameReciever();
-        CarGenerator carGenerator =new CarGenerator();
-        RaceAttemptReciever raceAttemptReciever = new RaceAttemptReciever();
-        CarNavigator carNavigator = new CarNavigator(carGenerator.getCarList());
-        ResultPrinter resultPrinter = new ResultPrinter(carGenerator.getCarList());
+    public RacingGame() {
+        carNameReciever = new CarNameReciever();
+        carGenerator = new CarGenerator();
+        raceAttemptReciever = new RaceAttemptReciever();
+        carNavigator = new CarNavigator(carGenerator.getCarList());
+        resultPrinter = new RaceResultPrinter(carGenerator.getCarList());
+    }
 
-        String[] carNames =carNameReciever.RecieveCarNamesFromUser();
+    private void Start() {
+
+        String[] carNames = carNameReciever.RecieveCarNamesFromUser();
         carGenerator.GenerateCar(carNames);
         int raceAttempt = raceAttemptReciever.RecieveRaceAttemptFromUser();
-        for(int i=0;i<raceAttempt;i++){
+        this.PrintAllResults(raceAttempt);
+
+    }
+
+    private void PrintAllResults(int raceAttempt) {
+        for (int i = 0; i < raceAttempt; i++) {
             carNavigator.MoveCars();
             resultPrinter.PrintEachRaceAttemptResult();
         }
-
     }
+
     public static void main(String[] args) {
         RacingGame racingGame = new RacingGame();
         racingGame.Start();

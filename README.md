@@ -58,7 +58,7 @@
 ## 클래스
  
    * Car
-   * ResultPrinter
+   * RaceResultPrinter
    * UserInputReciever
    * CarGenerator
    * CarNavigator
