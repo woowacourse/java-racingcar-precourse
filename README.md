@@ -19,5 +19,8 @@
 - [x] specify class Car
 - [x] create getter
 - [x] create Car.goOrStop() - use Math.random()
+- [x] create printResult()
+- [x] create FarthestLocation()
+- [x] create printWinner()
 - [ ] create noticeWinner()
 - [ ] create compareWhoIsWinner()
