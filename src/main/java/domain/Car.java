@@ -1,5 +1,5 @@
 /*
- * @Car.java        1.04 2019/04/03
+ * @Car.java        1.05 2019/04/03
  * 
  * Copyright(c)2019 HwiJin Hong.
  * All right reserved.
@@ -15,12 +15,18 @@ package domain;
  * 자동차에 대한 데이터 포맷을 정의하기 위해 사용되는 클래스이다.
  * 자동차의 이름,현재 위치에 대한 정보를 가지고 있는 객체이다.
  * 
- * @version 1.04 2019년 4월 3일
+ * @version 1.05 2019년 4월 3일
  * @author 홍휘진
  */
 public class Car {
 
     public static final int MIN_POSITION = 0;
+    
+    private static final String NO_CAR = "No Data in Car";
+    
+    private static final String COLON = " : ";
+    
+    private static final String POSITION_SYMBOL = "-";
     
     private final String name;
 
@@ -45,13 +51,13 @@ public class Car {
     @Override
     public String toString() {
         if (name == null) {
-            return "No Data in Car";
+            return NO_CAR;
         }
 
         StringBuilder car = new StringBuilder();
-        car.append(name).append(" : ");
+        car.append(name).append(COLON);
         for (int i = MIN_POSITION; i < position; i++) {
-            car.append('-');
+            car.append(POSITION_SYMBOL);
         }
         return car.toString();
     }
