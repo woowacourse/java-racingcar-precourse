@@ -6,7 +6,7 @@ import java.io.*;
  *
  * 자동차경주게임 클래스
  *
- * @ver 1.1
+ * @ver 1.2
  * @author 이준규
  *
  * */
@@ -22,10 +22,10 @@ public class RacingCar {
         String[] carNamesList = Input.readName(br);
         Car[] carList = Input.giveCarName(carNamesList);
         int numberOfCars = carNamesList.length;
-        bw.write("시도할 회수는 몇회인가요?" + "\n\n");
+        bw.write("시도할 회수는 몇회인가요?" + "\n");
         bw.flush();
         int movings = Input.countMovings(br);
-
+        System.out.println();
         //Output out = new Output();
         //out.printResult(carNamesList,carList,movings);
         Output.printResult(carNamesList,carList,movings);
