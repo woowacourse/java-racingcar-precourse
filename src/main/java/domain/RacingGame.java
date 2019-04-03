@@ -11,7 +11,7 @@ public class RacingGame {
   public void run() {
     carArrayList = initCar();
     //initialize car names to each car object
-    System.out.println("시도할 횟수는 몇회인가요?");
+    System.out.print("시도할 횟수는 몇회인가요?");
     Scanner scan = new Scanner(System.in);
     int num = scan.nextInt();
     System.out.println("실행 결과");
@@ -19,7 +19,7 @@ public class RacingGame {
       move();
       System.out.println();
     }
-    getWinner();
+    showWinner(getWinner());
   }
 
   public ArrayList<Car> initCar() {
@@ -58,5 +58,14 @@ public class RacingGame {
     return winner;
   }
 
+  public void showWinner(ArrayList<String> winner) {
+    for (int i = 0; i < winner.size(); i++) {
+      System.out.print(winner.get(i));
+      if (i != winner.size() - 1) {
+        System.out.print(",");
+      }
+    }
+    System.out.println("가 최종 우승했습니다.");
+  }
 
 }
