@@ -44,7 +44,7 @@ public class RacingDriver {
             System.out.println(status);
         }
 
-        System.out.println("");
+        System.out.println();
     }
 
     private static void doRace() {
