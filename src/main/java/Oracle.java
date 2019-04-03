@@ -1,6 +1,6 @@
 import domain.InputReport;
 import domain.InputErrorCode;
-import domain.InputErrorMessage;
+import domain.InputReportMessage;
 import java.util.Vector;
 
 public class Oracle {
@@ -11,7 +11,7 @@ public class Oracle {
         for (String name : names
         ) {
             if(name.length() > MAX) {
-                error.set(InputErrorCode.LENGTH_ERROR, InputErrorMessage.LENGTH_ERROR_MESSAGE);
+                error.set(InputErrorCode.LENGTH_ERROR, InputReportMessage.LENGTH_ERROR_MESSAGE);
             }
         }
 
@@ -38,7 +38,7 @@ public class Oracle {
              ) {
             repetition = checkRepeatedName(name, names);
             if(repetition == true) {
-                error.set(InputErrorCode.REPETITION_ERROR, InputErrorMessage.REPETITION_ERROR_MESSAGE);
+                error.set(InputErrorCode.REPETITION_ERROR, InputReportMessage.REPETITION_ERROR_MESSAGE);
                 break;
             }
         }
@@ -50,7 +50,7 @@ public class Oracle {
         InputReport error = new InputReport();
 
         if(names.size() == 0) {
-            error.set(InputErrorCode.EMPTY_ERROR, InputErrorMessage.EMPTY_ERROR_MESSAGE);
+            error.set(InputErrorCode.EMPTY_ERROR, InputReportMessage.EMPTY_ERROR_MESSAGE);
         }
 
         return error;

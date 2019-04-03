@@ -2,7 +2,7 @@ package domain;
 
 public class InputReport {
     private int code = InputErrorCode.NO_ERROR;
-    private String errorMessage = InputErrorMessage.NO_ERROR_MESSAGE;
+    private String errorMessage = InputReportMessage.NO_ERROR_MESSAGE;
 
     public void set(int code, String errorMessage) {
         this.code = code;
