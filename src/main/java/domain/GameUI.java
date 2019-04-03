@@ -32,7 +32,7 @@ public class GameUI {
 	public void run() {
 		try (Scanner sc = new Scanner(System.in)) {
 			String carNames = askCarNames(sc);
-			this.game.joinRace(carNames);
+			this.game.joinRace(carNames, DELIMITER);
 
 			int lapNum = askLapNum(sc);
 			startRace(lapNum);
@@ -41,6 +41,7 @@ public class GameUI {
 
 	private String askCarNames(Scanner sc) {
 		String carNames;
+
 		while (true) {
 			System.out.println(INFO_MESSAGE_CAR_NAME);
 			carNames = sc.nextLine();
@@ -66,6 +67,7 @@ public class GameUI {
 
 	private int askLapNum(Scanner sc) {
 		int lapNum;
+
 		System.out.println(INFO_MESSAGE_LAP_NUM);
 		lapNum = Integer.parseInt(sc.nextLine());
 
