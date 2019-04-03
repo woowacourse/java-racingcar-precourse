@@ -1,4 +1,6 @@
 import domain.Car;
+
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.Vector;
 
 public class Game {
@@ -7,6 +9,7 @@ public class Game {
     private static final String FIRST_WORD = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String SECOND_WORD = "시도할 횟수는 몇회인가요?";
     private static final String RESULT_STRING = "\n실행 결과";
+    private static final String LAST_WORD = "가 최종 우승했습니다.";
     private static final int TOP = 9;
     private static final int BOTTOM = 0;
     private static final int BOUNDARY = 4;
@@ -70,6 +73,21 @@ public class Game {
         for(int i = 0; i < rumberOfRound; i++) {
             doRound(cars);
         }
+    }
+
+    static void showChampion(Vector<Car> champions) {
+        for(int i = 0; i < champions.size(); i++) {
+            System.out.print(champions.get(i));
+            if(i != champions.size() - 1) {
+                System.out.print(SEPERATOR);
+            }
+        }
+        System.out.println(LAST_WORD);
+    }
+
+    static void findAndShowChampions(Vector<Car> cars) {
+        Vector<Car> champions = Oracle.findChampions(cars);
+        showChampion(champions);
     }
 
 }

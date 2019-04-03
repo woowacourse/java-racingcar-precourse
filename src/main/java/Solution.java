@@ -7,10 +7,9 @@ import java.util.Vector;
 public class Solution {
 
     public static void main(String[] args) {
-
         Vector<String> names;
-        int numberOfRound, count;
-        Vector<Car> cars, champions;
+        int numberOfRound;
+        Vector<Car> cars;
 
         names = Game.getCarNames();
         numberOfRound = Game.getNumberOfRound();
@@ -19,13 +18,7 @@ public class Solution {
         Game.doRace(cars, numberOfRound);
         Collections.sort(cars);
 
-
-        champions = Oracle.findChampions(cars);
-        for (Car car : champions
-             ) {
-            System.out.print("champion: ");
-            System.out.println(car);
-        }
+        Game.findAndShowChampions(cars);
     }
 
 }
