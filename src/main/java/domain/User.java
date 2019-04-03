@@ -10,6 +10,12 @@ public class User {
         scanner = new Scanner(System.in);
     }
 
+    public String inputTryCount(){
+        String input;
+        input = scanner.next();
+        return input;
+    }
+
     public Vector<String> inputCarName(){
         String input;
         input = scanner.next();
