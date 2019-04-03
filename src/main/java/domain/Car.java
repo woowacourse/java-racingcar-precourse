@@ -12,4 +12,7 @@ public class Car {
         System.out.println(this.name + " : ");
     }
 
+    private void moveCar(){
+        this.position++;
+    }
 }
