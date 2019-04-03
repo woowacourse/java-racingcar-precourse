@@ -14,4 +14,8 @@ public class Main {
         return sc;
     }
 
+    static private String[] separateStrings(String str) {
+        return str.split(",");
+    }
+
 }
