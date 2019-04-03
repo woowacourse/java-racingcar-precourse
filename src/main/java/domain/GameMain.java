@@ -10,7 +10,7 @@ public class GameMain {
 
 	// 쉼표 기준으로 이름 구분하는 메소드
 	static void nameDistinguish(String names) {
-		nameArray = names.split(","); // 쉼표로 자동차 이름 분리해 배열로 저장
+		nameArray = names.split(",");
 	}
 
 	// 이름이 5자 이하인지 확인하는 메소드
@@ -27,7 +27,7 @@ public class GameMain {
 
 	// 자동차 객체 생성하는 메소드
 	static void makeCars() {
-		cars = new Car[nameArray.length]; // 자동차 수만큼 객체배열 선언.
+		cars = new Car[nameArray.length];
 		for (int i = 0; i < nameArray.length; ++i) {
 			cars[i] = new Car(nameArray[i]);
 		}
@@ -105,11 +105,11 @@ public class GameMain {
 		do {
 			String names = in.next(); // 자동차 이름 입력
 			nameDistinguish(names); // 쉼표 기준으로 이름 구분
-		} while (!isNameLessThan5()); // 이름이 5자 이하일 때 까지 반복
+		} while (!isNameLessThan5());
 		makeCars(); // 자동차 객체 생성
 
-		System.out.println("시도할 회수는 몇회인가요?");
-		int moveNum = in.nextInt();
+		System.out.println("시도할 횟수는 몇회인가요?");
+		int moveNum = in.nextInt(); // 시행 횟수 입력
 		System.out.println("실행 결과");
 		repeat(moveNum); // n회 반복
 
