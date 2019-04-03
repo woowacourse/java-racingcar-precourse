@@ -71,4 +71,12 @@ public class Oracle {
         return true;
     }
 
+    static boolean tellGoOrStop(int top, int bottom, int boundary) {
+        int randomNumber = (int)(Math.random() * (top - bottom ));
+        if (randomNumber >= boundary) {
+            return true;
+        }
+        return false;
+    }
+
 }

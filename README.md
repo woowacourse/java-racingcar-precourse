@@ -12,7 +12,10 @@ names 속 name이 부여된 Car 객체를 names 개수만큼 생성한다.
 라운드 횟수에 대한 정보를 사용자로부터 입력받는다.
 
 - void doRace(Car[] cars, numOfRound)
-cars의 position을 조작하고, round에 따른 결과를 사용자에게 보여준다.
+numOfRound만큼 Game.doRound를 호출한다.
+
+-void doRound(Car[] cars)
+하나의 라운드 내에서, 확률에 따라 각 car의 position을 변경하고, round의 결과를 출력한다.
 Oracle class의 TellGoOrStop, showRoundResult 함수를 사용한다.
 
 - void findAndShowChampions(Car[] cars)
@@ -23,7 +26,7 @@ Oracle class의 findChampions, showChampions 함수를 사용한다.
 class Oracle
 
 - boolean tellGoOrStop(int TOP, int BOTTOM, int BOUNDARY)
-BOUNDARY/(TOP-BOTTOM) 의 확률에 따라 true 아니면 false를 반환한다.
+(TOP - BOUNDARY + 1)/(TOP-BOTTOM) 의 확률로 true를 반환한다.
 
 - void showRoundResult(Car[] cars)
 cars의 position을 name:--(position수만큼 '-'출력) 형태로 출력한다.
@@ -98,5 +101,5 @@ getInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepet
 -> checkFaultyInput -> getCarNames
 -> getNumberOfRound
 -> generateCarByNames
-tellGoOrStop -> showRoundResult -> doRace
+tellGoOrStop -> showRoundResult -> doRound -> doRace
 ->  findChampions -> showChampions -> findAndShowChampions
