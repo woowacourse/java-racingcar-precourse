@@ -5,8 +5,18 @@ import java.util.Scanner;
 
 
 /*
+ * Main class
+ *
+ * ver 2.0
+ *
+ * 2019-04-04
+ *
+ * MIT License
+ *
+ * author : zerobell-lee
  *
  */
+
 public class Main {
 
     static private Scanner staticSc;
@@ -114,7 +124,7 @@ public class Main {
         System.out.println("실행 결과");
         repeatRace(cars, trial);
 
-
+        System.out.println(getWinnerText(findWinner(cars)));
     }
 
 }

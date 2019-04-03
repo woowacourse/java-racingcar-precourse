@@ -1,5 +1,18 @@
 package xyz.zerobell;
 
+/*
+ * Car class
+ *
+ * ver 2.0
+ *
+ * 2019-04-04
+ *
+ * MIT License
+ *
+ * author : zerobell-lee
+ *
+ */
+
 public class Car {
     private final String name;
     private int position = 0;
