@@ -19,13 +19,8 @@ public class Car {
 		return position;
 	}
 
-	public int moveCar(RandomNumber randomNumber) {
-		int carMoveCount = randomNumber.getRandomNumber();
-		if (carMoveCount >= 4) {
-			this.position += carMoveCount;
-		}
-
-		return carMoveCount;
+	public void moveCar() {
+		this.position++;
 	}
 
 

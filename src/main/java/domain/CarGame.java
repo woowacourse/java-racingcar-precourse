@@ -34,15 +34,14 @@ public class CarGame {
 
 	public void playGame() {
 		RandomNumber randomNumber = new RandomNumber();
-		int moveCount;
 		stringBuilder = new StringBuilder();
 
 		stringBuilder.append("\n실행결과\n");
 
 		while (tryCount-- > 0) {
 			for (int i = 0; i < racingCarList.size(); ++i) {
-				moveCount = racingCarList.get(i).moveCar(randomNumber);
-				printCarMove(racingCarList.get(i), moveCount);
+				goOrNotCar(racingCarList.get(i));
+				printCarPosition(racingCarList.get(i));
 			}
 			stringBuilder.append("\n");
 		}
@@ -52,9 +51,16 @@ public class CarGame {
 		printWinner(getWinner());
 	}
 
-	public void printCarMove(Car car, int moveCount) {
+	public void goOrNotCar(Car car) {
+		RandomNumber randomNumber = new RandomNumber();
+		if (randomNumber.getRandomNumber() >= 4) {
+			car.moveCar();
+		}
+	}
+
+	public void printCarPosition(Car car) {
 		stringBuilder.append(car.getName() + " : ");
-		for (int i = 0; i < moveCount; ++i) {
+		for (int i = 0; i < car.getPosition(); ++i) {
 			stringBuilder.append("-");
 		}
 		stringBuilder.append("\n");
