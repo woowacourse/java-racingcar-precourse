@@ -37,15 +37,22 @@ class InputHandler
 - String getInput()
 사용자로부터 입력을 받는다.
 
-- String[] parse(String separator)
-separator(구분자)를 활용해 String을 나누어서 배열로 반환한다.
+- Vector<String> parse(String input, String separator)
+separator를 구분자로 이용해 input을 String 배열로 변환한다.
+String 배열 중 빈 string을 제외한 나머지 string들을 vector 객체에 보관해서 vector 객체를 반환한다.
 
-- boolean checkLength(String[] names, int MAX)
-String 배열 속 모든 String의 길이가 모두 MAX 이하면 true를 반환한다.
+- boolean checkLength(Vector<String> names, int MAX)
+Vector 속 모든 String의 길이가 모두 MAX 이하면 true를 반환한다.
 
+- boolean checkRepetition
+
+- boolean checkRepeatedName
+
+- boolean checkFaultyInput
 
 
 
 *구현순서:
-getInput -> parse -> checkLength -> getCarNames -> generateCarsByNames -> tellGoOrStop -> showRoundResult
- -> doRace ->  findChampions -> showChampions -> findAndShowChampions
+getInput -> parse -> checkLength -> checkRepeatedName -> checkRepetition -> checkFaultyOverall -> getCarNames
+-> generateCarsByNames -> tellGoOrStop -> showRoundResult -> doRace
+->  findChampions -> showChampions -> findAndShowChampions
