@@ -1,4 +1,4 @@
-1. # 2주차 미션 : 자동차 경주 게임
+# 2주차 미션 : 자동차 경주 게임
 
 ------
 
@@ -16,6 +16,8 @@
 
 ### 기능  목록
 
+- 메인 기능
+
 > 1. 자동차 이름 입력
 > 2. 자동차 이름 파싱
 > 3. 각각의 자동차 객체 생성
@@ -26,7 +28,7 @@
 > 8. 실행 결과 출력
 > 9. 입력 횟수 수행 후 우승자 판단
 > 10. 우승자 출력
-> 11. 사용자 입력 유효성 검사
+> 11. 사용자 입력 검증
 
 ------
 
@@ -52,15 +54,23 @@
 
 - User
 
-> 1. User()								// 사용자 입력을 받는 함수 호출
+> 1. User()							// 사용자 입력을 받는 함수_input() 호출
 > 2. void input()							// 자동차 이름과 시행 횟수를 입력받는 함수 호출
-> 3. void inputCarNames()					// 자동차 이름 전체를 문자열로 받는 함수
-> 4. String[] inputSlicing(String carNames)		// 자동차 이름을 쉼표(,)로 구분
-> 5. void inputNumberOfTrials()				// 시행 횟수 입력
-> 6. void setCarNames(String[] carNames)
-> 7. void setNumberOfTrials(int numberOfTrials)
-> 8. String[] getCarNames()
-> 9. int getNumberOfTrials()
+> 3. void inputValidCarNames() 				// 자동차 이름 유효성 검사 후 세팅 
+> 4. String[] inputCarNames()					// 자동차 이름 전체를 문자열로 받는 함수
+> 5. String[] inputSlicing(String carNames)			// 자동차 이름을 쉼표(,)로 구분
+> 6. boolean checkValidNames(String[] slicedInput)		// 이름 유효성 검사 함수들 호출
+> 7. boolean isOnlyComma(String[] slicedInput)			// 쉼표(, ) 만 입력하는 경우
+> 8. boolean isBlankOrOverLength(String[] slicedInput)		// 공백, 글자 수 제한 검사
+> 9. void inputValidNumberOfTrails()					// 시행 횟수 유효성 검사 후 세팅
+> 10. void inputNumberOfTrials()						// 시행 횟수 입력
+> 11. boolean checkValidNumber(String input)			// 숫자 유효성 검사 함수들 호출
+> 12. boolean isNumber(String input)
+> 13. boolean isBlankInput(String input)				// 입력을 안했을 경우
+> 14. void setCarNames(String[] carNames)
+> 15. void setNumberOfTrials(int numberOfTrials)
+> 16. String[] getCarNames()
+> 17. int getNumberOfTrials()
 
 
 
