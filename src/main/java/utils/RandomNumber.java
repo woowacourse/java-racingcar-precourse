@@ -13,11 +13,10 @@ package utils;
 import java.util.*;
 
 public class RandomNumber {
-	static final int MAX_RANDOM_NUMBER = 9;
 
 	public int getRandomNumber() {
 		Random random = new Random();
-		int randomNumber = random.nextInt(MAX_RANDOM_NUMBER) + 1;
+		int randomNumber = random.nextInt(10);
 
 		return randomNumber;
 	}
