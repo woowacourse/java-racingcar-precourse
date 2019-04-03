@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class RacingGame {
+
   ArrayList<Car> carArrayList;
+
   public void run() {
     carArrayList = initCar();
     //initialize car names to each car object
@@ -13,9 +15,11 @@ public class RacingGame {
     Scanner scan = new Scanner(System.in);
     int num = scan.nextInt();
     System.out.println("실행 결과");
-    for(int i = 0 ; i < num ; i++){
+    for (int i = 0; i < num; i++) {
       move();
+      System.out.println();
     }
+    getWinner();
   }
 
   public ArrayList<Car> initCar() {
@@ -31,11 +35,28 @@ public class RacingGame {
     return carArrayList;
   }
 
-  public void move(){
-    for(Car thisCar : carArrayList){
+  public void move() {
+    for (Car thisCar : carArrayList) {
       thisCar.movePos();
       thisCar.showPos();
     }
   }
+
+  public ArrayList<String> getWinner() {
+    int max = 0;
+    for (Car arrCar : carArrayList) {
+      if (arrCar.getPosition() > max) {
+        max = arrCar.getPosition();
+      }
+    }
+    ArrayList<String> winner = new ArrayList<String>();
+    for (Car arrCar : carArrayList) {
+      if (arrCar.getPosition() == max) {
+        winner.add(arrCar.getName());
+      }
+    }
+    return winner;
+  }
+
 
 }
