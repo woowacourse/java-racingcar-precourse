@@ -60,7 +60,7 @@ public class Controller {
             eachCar.goForward();
             System.out.printf("%s : ", eachCar.getCarsName());
 
-            if (winnerPosition > carPosition) {
+            if (winnerPosition < carPosition) {
                 winnerPosition = carPosition;
             }
 
@@ -78,7 +78,12 @@ public class Controller {
     }
 
     public void checkWinner() {
-
+        for(Car eachCar : cars) {
+            if(eachCar.getPosition() == winnerPosition){
+                System.out.print(eachCar.getCarsName());
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
     }
 
     public int getLaps() {
