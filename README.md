@@ -101,9 +101,9 @@ checklength, checkRepetition, checkEmptyString 함수를 사용한다.
 
 
 ## 구현순서:
-getInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepetition -> checkEmptyString
-->gatherError -> findErrorReport -> checkFaultyInput -> getCarNames
--> getNumberOfRound
--> generateCarByNames
-tellGoOrStop -> drawCharacters -> showRoundResult -> doRound -> doRace
--> numberOfChampionsAtSortedArray -> findChampions -> showChampions -> findAndShowChampions
+1. getInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepetition -> checkEmptyString
+->gatherError -> findErrorReport -> checkFaultyInput -> getCarNames.  
+2. getNumberOfRound.  
+3. generateCarByNames.  
+4. tellGoOrStop -> drawCharacters -> showRoundResult -> doRound -> doRace.  
+5. numberOfChampionsAtSortedArray -> findChampions -> showChampions -> findAndShowChampions
