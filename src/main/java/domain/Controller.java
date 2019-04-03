@@ -70,6 +70,13 @@ public class Controller {
         System.out.println();
     }
 
+    public void printCarRoad(int position) {
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
     public void checkWinner() {
 
     }

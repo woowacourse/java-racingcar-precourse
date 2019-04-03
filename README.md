@@ -45,5 +45,6 @@
     5. checkCarsPosition
     6. checkWinner
     7. getLaps
+    8. printCarRoad
 </pre>
 
