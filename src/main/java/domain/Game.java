@@ -1,15 +1,25 @@
 package domain;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Game {
         private static final int MAXCARNAMENUMBER = 5;
-        private static final int MAXRANDOMNUMBER = 9;
+        private static final int MAXRANDOMNUMBER = 10;
+        private static final int MINMOVENUMBER = 4;
 
         private Car[] cars;
         private int trialNumber;
 
         Game() {
+        }
+
+        public void start() {
+
+        }
+
+        private void playOneCycle() {
+
         }
 
         private void printCarNamesInputMessage() {
@@ -41,5 +51,11 @@ public class Game {
         private void printResultMessage() {
                 System.out.println("\n실행 결과");
         }
+
+        private boolean isMove() {
+                Random random = new Random();
+                return random.nextInt(MAXRANDOMNUMBER) >= MINMOVENUMBER ? true : false;
+        }
+
 
 }

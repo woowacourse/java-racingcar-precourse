@@ -26,4 +26,6 @@ public class Car {
         private int getPosiotion(){
                 return this.position;
         }
+
+
 }
