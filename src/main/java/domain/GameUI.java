@@ -21,8 +21,8 @@ public class GameUI {
 	private static final String DELIMITER = ",";
 	private static final String INFO_MESSAGE_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)";
 	private static final String ERR_MESSAGE_CAR_NAME_LENGTH = String.format("자동차 이름은 %d글자 이하입니다.", Car.NAME_LENGTH);
-
 	private static final String INFO_MESSAGE_LAP_NUM = "시도할 회수는 몇회인가요?";
+	private static final String INFO_MESSAGE_RACING_RESULT = "\n실행결과";
 	private Game game;
 
 	public GameUI() {
@@ -73,9 +73,7 @@ public class GameUI {
 	}
 
 	public void startRace(int lapNum) {
-		String info = "\n실행결과";
-
-		System.out.println(info);
+		System.out.println(INFO_MESSAGE_RACING_RESULT);
 		for (int i = 0; i < lapNum; i++) {
 			this.game.runLap();
 			showLapResult();
