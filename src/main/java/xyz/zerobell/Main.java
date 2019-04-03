@@ -57,4 +57,11 @@ public class Main {
         }
     }
 
+    static private void repeatRace(Car[] cars, int trial) {
+        for (int i = 0; i < trial; i++) {
+            race(cars);
+            System.out.println();
+        }
+    }
+
 }
