@@ -1,7 +1,7 @@
 import domain.InputReport;
 import java.util.Vector;
 
-public class InputErrorHandler {
+public class InputReportHandler {
 
     static Vector<InputReport> gatherError(Vector<String> names, int max) {
         Vector<InputReport> errors = new Vector<>();

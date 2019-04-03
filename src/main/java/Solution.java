@@ -24,7 +24,7 @@ public class Solution {
 
         count = InputHandler.countName("car",vector);
         System.out.println(count);
-        errors = InputErrorHandler.gatherError(vector, 5);
+        errors = InputReportHandler.gatherError(vector, 5);
         for (InputReport error : errors
              ) {
             System.out.println(error);

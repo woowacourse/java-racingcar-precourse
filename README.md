@@ -70,7 +70,7 @@ class InputErrorCode
 
 class InputErrorMessage
 
-class InputErrorHandler
+class InputReportHandler
 
 - Vector<InputError> gatherError(Vector<String> names, int max)
 입력된 이름 길이가 6 이상인지, 빈 문자열인지, 중복되는 이름이 있는지 검사한다. 검사 후 생성된 InputError 객체들을 Vector에 모아서 리턴한다.
