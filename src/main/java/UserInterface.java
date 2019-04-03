@@ -1,6 +1,5 @@
-import domain.Result;
+import domain.Results;
 
-import java.util.List;
 import java.util.Scanner;
 
 public interface UserInterface {
@@ -17,14 +16,14 @@ public interface UserInterface {
         return scanner.nextInt();
     }
 
-    static void printResults(List<Result> results) {
+    static void printResults(Results results) {
         System.out.println("실행 결과");
-        results.forEach(System.out::println);
+        System.out.println(results.getResults());
         printWinner(results);
     }
 
-    static void printWinner(List<Result> results) {
-        System.out.println(String.join(", ", results.get(results.size() - 1).getWinners()) + "가 최종 우승했습니다.");
+    static void printWinner(Results results) {
+        System.out.println(String.join(", ", results.getWinners()) + "가 최종 우승했습니다.");
     }
 
 }

@@ -15,8 +15,7 @@ public class Result {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public String toString() {
+    public String getResult() {
         return cars.stream()
                 .map(car -> car.getName() + " : " + StringUtils.hyphenParser(car.getPosition()) + "\n")
                 .collect(Collectors.joining());
