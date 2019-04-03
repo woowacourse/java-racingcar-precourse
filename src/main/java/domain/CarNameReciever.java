@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CarNameReciever {
     static final int MAX_CAR_NAME_LENGTH = 5;
     static final int MIN_CAR_NAME_LENGTH = 1;
-    static final int NO_INPUT =0;
+    static final int NO_INPUT = 0;
     private String[] carNames;
     private Scanner scanner = new Scanner(System.in);
 
@@ -33,7 +33,7 @@ public class CarNameReciever {
     }
 
     private boolean isInValidCarNames() {
-        if(carNames.length == NO_INPUT){
+        if (carNames.length == NO_INPUT) {
             return true;
         }
         for (int i = 0; i < carNames.length; i++) {
