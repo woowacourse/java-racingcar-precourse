@@ -12,8 +12,10 @@ public class RacingGame {
         String[] carNames =carNameReciever.RecieveCarNamesFromUser();
         carGenerator.GenerateCar(carNames);
         int raceAttempt = raceAttemptReciever.RecieveRaceAttemptFromUser();
-        carNavigator.MoveCars();
-        resultPrinter.PrintAllResults(raceAttempt);
+        for(int i=0;i<raceAttempt;i++){
+            carNavigator.MoveCars();
+            resultPrinter.PrintEachRaceAttemptResult();
+        }
 
     }
     public static void main(String[] args) {

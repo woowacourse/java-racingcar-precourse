@@ -9,19 +9,20 @@ public class ResultPrinter {
         this.carList = carList;
     }
 
-    public void PrintAllResults(int raceAttempt) {
-        for (int i = 0; i < raceAttempt; i++) {
-            PrintEachRaceAttemptResult();
-        }
-    }
-
-    private void PrintEachRaceAttemptResult(){
+    public void PrintEachRaceAttemptResult(){
         for(int carOrder = 0; carOrder < carList.size(); carOrder++){
             PrintEachCarResult(carOrder);
         }
     }
 
     private void PrintEachCarResult(int carOrder){
-        System.out.println("이후 구현 예정");
+        Car car = carList.get(carOrder);
+        String carName = car.getName();
+        System.out.print(carName+" : ");
+        PrintRacingDistance(car.getPosition());
+    }
+
+    private void PrintRacingDistance(int carPosition){
+        System.out.println("추후 구현예정");
     }
 }
