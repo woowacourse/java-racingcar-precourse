@@ -17,13 +17,12 @@ import java.util.ArrayList;
  * @version 1.00  2019년 04월 02일
  */
 public class Game {
-	private static final String DELIMITER = ",";
 	private ArrayList<Car> cars;
 
-	public void joinRace(String carNames) {
+	public void joinRace(String carNames, String delimiter) {
 		this.cars = new ArrayList<Car>();
 
-		for (String carName : carNames.split(DELIMITER)) {
+		for (String carName : carNames.split(delimiter)) {
 			this.cars.add(new Car(carName));
 		}
 	}
