@@ -24,5 +24,15 @@ public class Playgame {
             return Round;
 
         }
+
+        private static void createCar(String input, ArrayList<Car> carlist) {
+
+            String[] carNameSplite = input.split(",");
+
+            for (int i = 0; i < carNameSplite.length; i++) {
+                carlist.add(new Car(carNameSplite[i]));
+            }
+
+        }
     }
 }
