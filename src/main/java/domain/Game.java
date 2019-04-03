@@ -49,11 +49,11 @@ public class Game {
 	public boolean isnotValidName() {
 		for (int i = 0; i < carCount; i++) {
 			if (car_names[i].trim().length() == 0) {
-				System.out.println("이름은 1글자 이상이어야 합니다.");
+				System.out.println("이름은 1글자 이상이어야 합니다.\n");
 				return true;
 			}
 			if (car_names[i].length() > 5) {
-				System.out.println("이름은 5자 이하만 가능합니다.");
+				System.out.println("이름은 5자 이하만 가능합니다.\n");
 				return true;
 			}
 		}
@@ -68,6 +68,9 @@ public class Game {
 				continue;
 			}
 			attemptCount = Integer.parseInt(userinput);
+			if (isnotValidNumber(attemptCount)) {
+				continue;
+			}
 			return;
 		}
 	}
@@ -77,9 +80,17 @@ public class Game {
 			Integer.parseInt(userinput);
 			return false;
 		} catch (NumberFormatException e) {
-			System.out.println("숫자만 입력하세요.");
+			System.out.println("숫자만 입력하세요.\n");
 			return true;
 		}
+	}
+
+	public boolean isnotValidNumber(int attemptCount) {
+		if (attemptCount <= 0) {
+			System.out.println("0 이상의 수를 입력하세요.\n");
+			return true;
+		}
+		return false;
 	}
 
 	public void playGame() {
