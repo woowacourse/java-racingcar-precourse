@@ -32,11 +32,30 @@ public class RacingGame {
 
 	private void inputRound() {
 		System.out.println("\n시도할 횟수는 몇회인가요?");
-		while (!scanner.hasNextInt()) {
-			scanner.next();
+		while (true) {
+			this.round = this.parseRound(scanner.next());
+			if (this.round != -1) {
+				break;
+			}
 			System.out.println("올바른 수를 입력하세요.");
 		}
-		round = scanner.nextInt();
+	}
+	
+	/**
+	 * String 형태의 round가 유효한 정수로 변환될 수 있는지 판단하는 메소드
+	 * @param round
+	 * @return 유효한 값이면 round를 파싱한 정수형 값을 출력, 유효하지 않은 경우 -1을 출력
+	 */
+	private int parseRound(String round) {
+		try {
+			int intRound = Integer.parseInt(round);
+			if (intRound > 0) {
+				return intRound; 
+			}
+			return -1;
+		} catch (NumberFormatException error) {
+			return -1;
+		}
 	}
 
 	private String inputCarNameList() {
