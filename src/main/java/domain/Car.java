@@ -29,5 +29,22 @@ public class Car {
 
     }
 
+    public void playRacing() {
 
+        System.out.print(this.name + ":");
+        for (int i = 0; i < this.position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public int getPosition() {
+        return position;
+    }
 }
