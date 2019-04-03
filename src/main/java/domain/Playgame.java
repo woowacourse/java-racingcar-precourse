@@ -7,32 +7,18 @@ public class Playgame {
 
     public static void main(String[] args) {
 
-        private static int initSetup () {
 
-            Scanner scan = new Scanner(System.in);
+        public static void main(String[] args) {
 
-            String input = null;
-            int Round = 0;
+            GameFunction module = new GameFunction();
 
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉽표(,) 기준으로 구분)");
-            input = scan.nextLine();
+            module.initSetup();
 
-            System.out.println("시도할 회수는 몇회인가요?");
-            Round = scan.nextInt();
-            System.out.println();
-
-            return Round;
-
-        }
-
-        private static void createCar (String input, ArrayList < Car > carlist){
-
-            String[] carNameSplite = input.split(",");
-
-            for (int i = 0; i < carNameSplite.length; i++) {
-                carlist.add(new Car(carNameSplite[i]));
+            for (int i = 0; i < module.getSetRounds(); i++) {
+                module.race();
             }
 
+            module.checkWinner();
+
         }
-    }
 }

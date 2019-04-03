@@ -17,9 +17,9 @@ public class GameFunction {
 
     private static int initSetup() {
 
-        while (!inputCarname());
+        while (!inputCarname()) ;
 
-        while (!inputRoundturn());
+        while (!inputRoundturn()) ;
 
         createCar();
 
@@ -67,6 +67,29 @@ public class GameFunction {
             carlist.add(new Car(carNameSplite[i]));
         }
 
+    }
+
+    public void race() {
+
+        System.out.println("실행결과");
+
+        for (int j = 0; j < carlist.size(); j++) {
+            this.carlist.get(j).goAndStop();
+            this.carlist.get(j).printDistance();
+            this.winnerPoint = Math.max(this.winnerPoint, this.carlist.get(j).getPosition());
+        }
+
+        System.out.println();
+    }
+
+
+
+    public String getSetCarname() {
+        return inputCarname;
+    }
+
+    public int getSetRounds() {
+        return Integer.parseInt(inputRound);
     }
 
 }
