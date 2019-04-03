@@ -26,8 +26,12 @@
     * _getStatus()_
 
 * __Race 클래스__
+  * 게임 실행
+    * _playGame()_
   * 레이스 실행
-    * _doGame()_
+    * _doRace()_
+  * 경주할 자동차들의 초기설정
+    * _initCar()_
   * 이름 조건 확인
     * _isNameValid()_
   * 우승자 리턴
