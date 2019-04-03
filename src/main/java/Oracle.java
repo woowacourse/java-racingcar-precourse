@@ -1,14 +1,18 @@
+import domain.InputError;
+import domain.InputErrorCode;
+import jdk.internal.util.xml.impl.Input;
+
 import java.util.Vector;
 
 public class Oracle {
 
-    static boolean checkLength(Vector<String> names, int MAX) {
-        boolean flag = true;
+    static InputError checkLength(Vector<String> names, int MAX) {
+        InputError error = new InputError();
 
         for (String name : names
         ) {
             if(name.length() > MAX) {
-                flag = false;
+                error.setCode(InputErrorCode.);
             }
         }
 
