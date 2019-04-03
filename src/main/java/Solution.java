@@ -10,7 +10,7 @@ public class Solution {
         String[] sarray;
         Boolean bool;
         Vector<String> names;
-        int count;
+        int numberOfRound;
         Vector<Car> cars;
         int falseNum = 0;
         int trueNum = 0;
@@ -18,13 +18,11 @@ public class Solution {
         InputReport error;
 
         names = Game.getCarNames();
-        count = Game.getNumberOfRound();
-        System.out.println(count);
+        numberOfRound = Game.getNumberOfRound();
+        System.out.println(numberOfRound);
         cars = Game.generateCarsByNames(names);
 
-        for(int i = 0; i < count; i++) {
-            Game.doRound(cars);
-        }
+        Game.doRace(cars, numberOfRound);
 
 
     }

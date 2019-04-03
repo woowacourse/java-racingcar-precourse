@@ -28,13 +28,13 @@ public class Game {
 
     static int getNumberOfRound() {
         String input;
-        int roundNumber;
+        int numberOfRound;
 
         while(true) {
             try {
                 input = InputHandler.getInput(SECOND_WORD);
-                roundNumber = Integer.parseInt(input);
-                return roundNumber;
+                numberOfRound = Integer.parseInt(input);
+                return numberOfRound;
             }
             catch (Exception e) {
                 System.out.println("숫자가 아닙니다. 입력을 다시 해 주세요.");
@@ -62,6 +62,12 @@ public class Game {
             }
         }
         Oracle.showRoundResult(cars, dash);
+    }
+
+    static void doRace(Vector<Car> cars, int rumberOfRound) {
+        for(int i = 0; i < rumberOfRound; i++) {
+            doRound(cars);
+        }
     }
 
 }
