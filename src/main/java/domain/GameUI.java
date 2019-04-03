@@ -39,7 +39,7 @@ public class GameUI {
 		}
 	}
 
-	public String askCarNames(Scanner sc) {
+	private String askCarNames(Scanner sc) {
 		String carNames;
 		while (true) {
 			System.out.println(INFO_MESSAGE_CAR_NAME);
@@ -64,7 +64,7 @@ public class GameUI {
 		}
 	}
 
-	public int askLapNum(Scanner sc) {
+	private int askLapNum(Scanner sc) {
 		int lapNum;
 		System.out.println(INFO_MESSAGE_LAP_NUM);
 		lapNum = Integer.parseInt(sc.nextLine());
@@ -72,7 +72,7 @@ public class GameUI {
 		return lapNum;
 	}
 
-	public void startRace(int lapNum) {
+	private void startRace(int lapNum) {
 		System.out.println(INFO_MESSAGE_RACING_RESULT);
 		for (int i = 0; i < lapNum; i++) {
 			this.game.runLap();
@@ -81,7 +81,7 @@ public class GameUI {
 		showRaceChampion();
 	}
 
-	public void showLapResult() {
+	private void showLapResult() {
 		StringBuilder sb = new StringBuilder();
 
 		for (Car car : this.game.getCars()) {
@@ -95,7 +95,7 @@ public class GameUI {
 		System.out.println(sb.toString());
 	}
 
-	public void showRaceChampion() {
+	private void showRaceChampion() {
 		StringBuilder sb = new StringBuilder();
 		ArrayList<String> champions = this.game.getRaceChampion();
 		int championsSize = champions.size();
