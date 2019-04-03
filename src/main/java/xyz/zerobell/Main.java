@@ -41,4 +41,13 @@ public class Main {
         }
     }
 
+    static private Car[] makeCars(String[] strings) {
+        Car[] cars = new Car[strings.length];
+        for (int i = 0; i < strings.length; i++) {
+            cars[i] = new Car(strings[i]);
+        }
+
+        return cars;
+    }
+
 }
