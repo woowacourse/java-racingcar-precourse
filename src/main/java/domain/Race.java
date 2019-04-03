@@ -39,7 +39,9 @@ public class Race {
 
     // 레이스 실행
     public void doRace() {
-
+        for (int i = 0; i < cars.size(); i++) {
+            cars.get(i).tryRide();
+        }
     }
 
     // 이름 조건 확인
