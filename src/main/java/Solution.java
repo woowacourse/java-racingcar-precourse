@@ -8,6 +8,7 @@ public class Solution {
         String[] sarray;
         Boolean bool;
         Vector<String> vector;
+        int count;
 
         s = InputHandler.getInput();
         vector = InputHandler.parse(s, ",");
@@ -18,6 +19,9 @@ public class Solution {
             s = vector.get(i);
             System.out.println(s);
         }
+
+        bool = Oracle.checkLength(vector, 5);
+        System.out.println(bool);
     }
 
 }
