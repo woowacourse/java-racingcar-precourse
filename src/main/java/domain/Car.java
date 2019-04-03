@@ -3,9 +3,9 @@ package domain;
 import java.util.Random;
 
 public class Car implements Comparable<Car> {
+
     private final String name;
     private int position = 0;
-
 
     public Car(String name) {
         this.name = name;
@@ -30,6 +30,7 @@ public class Car implements Comparable<Car> {
         return randomNums;
     }
 
+    /*Car 객체 내 position을 하기 위하여 구현한 메소드*/
     public int compareTo(Car car) {
         if (this.position > car.position) {
             return -1;

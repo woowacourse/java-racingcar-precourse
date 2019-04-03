@@ -11,19 +11,21 @@ public class Display {
     public String[] getNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기분으로 구분)");
         sc = new Scanner(System.in);
+        /*','을 기준으로, 사용자로부터 받은 String을 나눈다.*/
         inputString = sc.nextLine().split(",");
         for (int i = 0; i < inputString.length; i++) {
+            /*만약 사용자가 ','뒤에 공백을 넣었다면 공백을 제거해준다. 예를 들어 pobi, crong, honux같은 String을 입력했을 경우이다.*/
             inputString[i] = inputString[i].replaceAll(" ", "");
         }
         return inputString;
     }
 
-    public int getTrialNums() {
+    public int getTrialNumbers() {
         System.out.println("시도할 회수는 몇회인가요?");
         sc = new Scanner(System.in);
-        int trialNums = sc.nextInt();
+        int trialNumbers = sc.nextInt();
         System.out.println();
-        return trialNums;
+        return trialNumbers;
     }
 
     public void showResults(Car car) {
@@ -36,6 +38,7 @@ public class Display {
     }
 
     public void showWinners(ArrayList<String> ans) {
+        /*우승자의 개수가 2개 이상이라면 ','가 들어간 다른 포멧을 출력한다.*/
         if (ans.size() != 1) {
             for (int i = 0; i < ans.size() - 1; i++) {
                 System.out.print(ans.get(i) + ". ");

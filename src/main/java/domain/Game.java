@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class Game {
 
+    private static final int TURN_END_LIMIT = 0;
     private Car[] cars;
     private Display display;
 
@@ -16,9 +17,9 @@ public class Game {
         String[] names = display.getNames();
         cars = new Car[names.length];
         makeCars(names);
-        int trialNums = display.getTrialNums();
+        int trialNumbers = display.getTrialNumbers();
         System.out.println("실행 결과");
-        playGames(trialNums);
+        playGames(trialNumbers);
     }
 
     public Car[] makeCars(String[] names) {
@@ -37,10 +38,12 @@ public class Game {
     }
 
     public void decidesWinner() {
+        /*cars배열은 정렬되어 있기 때문에 첫번째 Car가 position이 최대인 Car이다.*/
         int maxPosition = cars[0].getPosition();
         ArrayList<String> ans = new ArrayList<String>();
         ans.add(cars[0].getName());
         for (int i = 1; i < cars.length; i++) {
+            /*이미 정렬되어 있는 배열이기 때문에 maxPosition과 position값이 다르면 position이 maxPosition보다 작은 값이다.*/
             if (maxPosition != cars[i].getPosition()) {
                 break;
             }
@@ -50,7 +53,7 @@ public class Game {
     }
 
     public void playGames(int turns) {
-        while (turns > 0) {
+        while (turns > TURN_END_LIMIT) {
             goOneTurnForEachCar();
             System.out.println();
             turns--;
