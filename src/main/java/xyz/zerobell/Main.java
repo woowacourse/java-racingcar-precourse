@@ -50,9 +50,10 @@ public class Main {
         return cars;
     }
 
-    static private void race(Car[] cars, int trial) {
-        for (int i = 0; i < trial; i++) {
-
+    static private void race(Car[] cars) {
+        for (Car car: cars) {
+            car.boostOrStop();
+            System.out.println(car.toString());
         }
     }
 
