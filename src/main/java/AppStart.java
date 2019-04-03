@@ -27,8 +27,25 @@ public class AppStart {
         int tryNum = sc.nextInt();
 
         for(int i = 0; i < tryNum; ++i){
-            // 시도
+            start(car, length);
+            printResult(car, length, tryNum);
+            System.out.println();
         }
+    }
 
+    public static void start(Car[] car, int length) {
+        for(int i = 0; i < length; ++i){
+            car[i].decideGoStop();
+        }
+    }
+    public static void printResult(Car[] car, int length, int tryNum){
+        for (int i = 0; i < length; ++i) {
+            System.out.print(car[i].getName() + " : ");
+            for (int j = 0; j < car[i].getPosition(); ++j){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
     }
 }
+

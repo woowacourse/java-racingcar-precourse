@@ -8,8 +8,20 @@ public class Car {
         this.name = name;
     }
 
-    public int generateRandomNum(){
+    public String getName(){
+        return this.name;
+    }
+    public int getPosition(){
+        return this.position;
+    }
+
+    private int generateRandomNum(){
         return (int)(Math.random() * 9);
+    }
+    public void decideGoStop(){
+        if (this.generateRandomNum() >= 4){
+            position++;
+        }
     }
     // 추가 기능 구현
 }
