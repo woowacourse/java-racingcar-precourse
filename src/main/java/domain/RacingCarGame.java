@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,9 +15,8 @@ public class RacingCarGame {
         this.remainingPlayCount = remainingPlayCount;
     }
 
-    public static RacingCarGame of(String carNamesWithComma, int remainingPlayCount) {
-        String[] carNames = carNamesWithComma.split(",");
-        List<Car> cars = Arrays.stream(carNames)
+    public static RacingCarGame of(List<String> carNames, int remainingPlayCount) {
+        List<Car> cars = carNames.stream()
                 .map(Car::fromName)
                 .collect(Collectors.toList());
         return new RacingCarGame(cars, remainingPlayCount);
