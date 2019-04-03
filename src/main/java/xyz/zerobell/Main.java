@@ -87,6 +87,18 @@ public class Main {
         return winnerList;
     }
 
+    static private String getWinnerText(ArrayList<String> winners) {
+        String text = "";
+        for (int i = 0; i < winners.size(); i++) {
+            text += winners.get(i);
+            if (i != winners.size() - 1) {
+                text += ", ";
+            }
+        }
+
+        return text + "가 최종 우승했습니다.";
+    }
+
     public static void main(String[] args) {
         Scanner sc;
         Car[] cars;
