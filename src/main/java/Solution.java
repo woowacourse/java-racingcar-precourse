@@ -22,7 +22,7 @@ public class Solution {
 
         count = InputHandler.countName("car",vector);
         System.out.println(count);
-        bool = Oracle.checkRepeatedName("car", vector);
+        bool = Oracle.checkRepetition( vector);
         System.out.print("repeated:");
         System.out.println(bool);
     }

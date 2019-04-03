@@ -26,4 +26,18 @@ public class Oracle {
 
         return repetition;
     }
+
+    static boolean checkRepetition(Vector<String> names) {
+        boolean repetition = false;
+
+        for (String name : names
+             ) {
+            repetition = checkRepeatedName(name, names);
+            if(repetition == true) {
+                break;
+            }
+        }
+
+        return repetition;
+    }
 }
