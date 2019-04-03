@@ -74,8 +74,16 @@
   - 쉼표를 두 개 이상 사용한 경우: 다시 입력
   - 입력의 가장 앞 또는 뒤에 쉼표가 한 개있는 경우: 내부에서 쉼표를 지워준다.
 
-#### 8. 리팩토링
+#### 8. 테스트 클래스 추가하기
+- InputErrorTest 클래스: Junit을 사용하여 유저 입력을 테스트하는 클래스
+  - ```isInputCarNameFormat_Normal_Input()```: 정상적인 자동차 이름을 입력한 경우
+  - ```isInputCarNameFormat_Overlap_Comma_Input()```: 자동차 이름 입력에서 2개 이상의 쉼표를 사용한 경우
+  - ```isInputCarNameFormat_Overrun_Name_Size_Input()```: 자동차 이름 입력에서 5글자를 넘어선 이름이 포함되어 있는 경우
+  - ```isNumeric_Normal_Input()```: 이동 횟수 입력에서 정상적인 숫자를 입력한 경우
+  - ```isNumeric_Not_Number_Input()```: 이동 횟수 입력에서 숫자가 아닌 경우
+
+#### 9. 리팩토링
 - 자바 코드 컨벤션에 부합하는지 확인하기
 - 프로그래밍 요구사항에 부합하는지 확인하기
 
-#### 9. 주석 달기
+#### 10. 주석 달기
