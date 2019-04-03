@@ -5,9 +5,11 @@ public class playGame {
 	private String carInputString;
 	private int roundNum;
 	private String[] car;
+	private Car[] race;
 	
 	public void play() {
 		getCarName();
+		makeRace();
 	}
 	
 	public void getCarName() {
@@ -34,7 +36,10 @@ public class playGame {
 	}
 		
 	public void makeRace() {
-		
+		race = new Car[car.length];
+		for (int i = 0; i < car.length; i++) {
+			race[i] = new Car(car[i]);
+		}
 	}
 	
 	public void setGameNum() {
