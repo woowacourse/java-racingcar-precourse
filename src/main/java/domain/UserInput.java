@@ -15,7 +15,6 @@ import java.util.*;
 public class UserInput {
 
 	public String[] getRacingCarName() {
-
 		Scanner scanner = new Scanner(System.in);
 		String[] carNameList;
 		boolean result;
@@ -31,7 +30,6 @@ public class UserInput {
 	}
 
 	public boolean checkCarNameList(String[] carNameList) {
-
 		for (int i = 0; i < carNameList.length; ++i) {
 			if (carNameList[i].length() > 5) {
 				return false;
@@ -42,7 +40,6 @@ public class UserInput {
 	}
 
 	public int getTryCount() {
-
 		Scanner scanner = new Scanner(System.in);
 		String count;
 		boolean result;

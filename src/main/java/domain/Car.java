@@ -10,7 +10,6 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
 
 	public String getName() {
 		return name;
@@ -21,9 +20,7 @@ public class Car {
 	}
 
 	public int moveCar(RandomNumber randomNumber) {
-
 		int carMoveCount = randomNumber.getRandomNumber();
-
 		if (carMoveCount >= 4) {
 			this.position += carMoveCount;
 		}

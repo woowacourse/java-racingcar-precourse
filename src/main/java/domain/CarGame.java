@@ -15,7 +15,6 @@ import utils.RandomNumber;
 import java.util.*;
 
 public class CarGame {
-
 	private List<Car> racingCarList;
 	private int tryCount;
 	private StringBuilder stringBuilder;
@@ -25,16 +24,15 @@ public class CarGame {
 		this.tryCount = userInput.getTryCount();
 	}
 
-	public List<Car> createRacingCarList(String[] racingCarNameList){
+	public List<Car> createRacingCarList(String[] racingCarNameList) {
 		List<Car> carList = new ArrayList<>();
-		for(int i=0; i<racingCarNameList.length; ++i){
+		for (int i = 0; i < racingCarNameList.length; ++i) {
 			carList.add(new Car(racingCarNameList[i]));
 		}
 		return carList;
 	}
 
 	public void playGame() {
-
 		RandomNumber randomNumber = new RandomNumber();
 		int moveCount;
 		stringBuilder = new StringBuilder();
@@ -55,17 +53,14 @@ public class CarGame {
 	}
 
 	public void printCarMove(Car car, int moveCount) {
-
 		stringBuilder.append(car.getName() + " : ");
 		for (int i = 0; i < moveCount; ++i) {
 			stringBuilder.append("-");
 		}
 		stringBuilder.append("\n");
-
 	}
 
-	public int getCarsMaxPosition(){
-
+	public int getCarsMaxPosition() {
 		int carMaxPosition = 0;
 
 		for (int i = 0; i < racingCarList.size(); ++i) {
@@ -76,7 +71,6 @@ public class CarGame {
 	}
 
 	public List<String> getWinner() {
-
 		List<String> winnerList = new ArrayList<>();
 		int maxPosition = getCarsMaxPosition();
 
@@ -90,7 +84,6 @@ public class CarGame {
 	}
 
 	public void printWinner(List<String> winnerList) {
-
 		for (int i = 0; i < winnerList.size(); ++i) {
 			stringBuilder.append(winnerList.get(i));
 			if (i != winnerList.size() - 1) {
