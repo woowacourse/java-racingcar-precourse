@@ -46,7 +46,6 @@ public class Console {
     }
 
     public void writeGameResult(List<String> winners){
-
         System.out.println(String.join(" , " ,winners)+ "가 최종 우승했습니다");
     }
 }
