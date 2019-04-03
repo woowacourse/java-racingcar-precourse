@@ -50,7 +50,7 @@ random 값을 만들고, 4 이상이면 전진, 3 이하면 정지하는 기능�
 ### 3. 주요 변수
 
 - `cars` - `ArrayList<Car>`, 사용자가 입력한 이름을 가진 자동차 객체를 담는다.
-- 
+- `playTime` - `int`, 사용자가 입력한 시도 횟수를 담는다.
 
 ### 4. 주요 메서드
 
@@ -58,4 +58,4 @@ random 값을 만들고, 4 이상이면 전진, 3 이하면 정지하는 기능�
     - `getInputCarNames` - `String`, 사용자에게 자동차의 이름을 입력 받아 리턴한다.
     - `validateUserInput` - `ArrayList<String>`, 사용자의 입력이 유효한지(자동차 이름의 길이가 5 이하 인지) 확인 한 후 콤마(",")로 분리된 입력값을 `ArrayList<String>`의 형태로 리턴한다.
     - `parseInputString` - `ArrayList<String>`, 사용자의 입력 값을 콤마(",")로 분리한 후 `ArrayList<String>`으로 리턴한다.
- - 
+ - `setPlayTime` - `void`, 사용자에게 시도 횟수를 입력받아 `playTime` 변수에 담는다.
