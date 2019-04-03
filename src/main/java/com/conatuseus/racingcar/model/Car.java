@@ -52,8 +52,7 @@ public class Car {
         int random = (int) (Math.random() * MAX_RANDOM) + MIN_RANDOM;           // 0 - 9 사이의 수를 생성
 //        AppView.outputLine(random+"");          // 랜덤 수 확인하기 위한 코드
         if (this.isGoingPossible(random)) {       // 이 랜덤 수가 갈 수 있으면 = 4 이상이면
-            this.position += 1;              // 위치 이동
-            this.addResult();               // result에 -(작대기) 1개 추가하기
+            this.goOneStep();               //   1칸 전진
         }
     }
 
@@ -62,8 +61,9 @@ public class Car {
         return random >= GOING_POSSIBLE;
     }
 
-    /* result에 -(작대기)를 붙여주는 메소드 */
-    private void addResult() {
+    /* 자동차 위치를 1칸 더해주고, result에 -(작대기)를 붙여주는 메소드 */
+    private void goOneStep() {
+        this.position += 1;              // 위치 이동
         StringBuilder sb = new StringBuilder(this.result);
         this.result = sb.append("-").toString();
     }
