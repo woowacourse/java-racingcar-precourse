@@ -30,18 +30,20 @@ public class Oracle {
         return repetition;
     }
 
-    static boolean checkRepetition(Vector<String> names) {
+    static InputError checkRepetition(Vector<String> names) {
+        InputError error = new InputError();
         boolean repetition = false;
 
         for (String name : names
              ) {
             repetition = checkRepeatedName(name, names);
             if(repetition == true) {
+                error.set(InputErrorCode.REPETITION_ERROR, InputErrorMessage.REPETITION_ERROR_MESSAGE);
                 break;
             }
         }
 
-        return repetition;
+        return error;
     }
 
     static boolean checkEmptyString(Vector<String> names) {
