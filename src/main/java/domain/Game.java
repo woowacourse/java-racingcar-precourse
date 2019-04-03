@@ -31,7 +31,6 @@ public class Game {
 			String value = scanner.nextLine();
 			car_names = value.split(",");
 			carCount = car_names.length;
-			cars = new Car[carCount];
 			if (isnotValidName()) {
 				continue;
 			}
@@ -41,6 +40,7 @@ public class Game {
 	}
 
 	public void inputCar() {
+		cars = new Car[carCount];
 		for (int i = 0; i < carCount; i++) {
 			cars[i] = new Car(car_names[i]);
 		}
