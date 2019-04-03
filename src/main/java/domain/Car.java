@@ -8,6 +8,7 @@ package domain;
 public class Car {
 	private final String name;
 	private int position = 0;
+	private static final int LIMIT = 4;
 
 	public Car(String name) {
 		this.name = name;
@@ -22,14 +23,13 @@ public class Car {
 	}
 
 	/**
-	 * random 값이 4 이상일 경우 position이 1증가
+	 * random 값이 LIMIT(4) 이상일 경우 position이 1증가
 	 */
 	public void move() {
 		int random = make0to9RandomValue();
-		if (random < 4) {
-			return;
+		if (random >= LIMIT) {
+			position++;
 		}
-		position++;
 	}
 
 	public int make0to9RandomValue() {
