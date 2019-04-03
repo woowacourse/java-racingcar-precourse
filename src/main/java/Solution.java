@@ -10,7 +10,7 @@ public class Solution {
         Boolean bool;
         Vector<String> vector;
         int count;
-        Vector<InputReport> errors;
+        Vector<InputReport> reports;
 
         s = InputHandler.getInput();
         vector = InputHandler.parse(s, ",");
@@ -24,10 +24,10 @@ public class Solution {
 
         count = InputHandler.countName("car",vector);
         System.out.println(count);
-        errors = InputReportHandler.gatherError(vector, 5);
-        for (InputReport error : errors
+        reports = InputReportHandler.gatherReports(vector, 5);
+        for (InputReport report : reports
              ) {
-            System.out.println(error);
+            System.out.println(report);
         }
     }
 

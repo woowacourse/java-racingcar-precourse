@@ -3,14 +3,14 @@ import java.util.Vector;
 
 public class InputReportHandler {
 
-    static Vector<InputReport> gatherError(Vector<String> names, int max) {
-        Vector<InputReport> errors = new Vector<>();
+    static Vector<InputReport> gatherReports(Vector<String> names, int max) {
+        Vector<InputReport> reports = new Vector<>();
 
-        errors.add(Oracle.checkLength(names, max));
-        errors.add(Oracle.checkRepetition(names));
-        errors.add(Oracle.checkEmptyString(names));
+        reports.add(Oracle.checkLength(names, max));
+        reports.add(Oracle.checkRepetition(names));
+        reports.add(Oracle.checkEmptyString(names));
 
-        return errors;
+        return reports;
     }
 
 
