@@ -20,8 +20,13 @@ public class Racing {
 
     private ArrayList<Car> carList;
     private int numberOfTimes;
+    private static final int MAX_NAME_LENGTH = 5;
 
-    public Racing(){
+    private static final String MESSAGE_INPUT_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String MESSAGE_INPUT_NUMBER = "시도할 횟수를 입력해주세요: ";
+    private static final String MESSAGE_RESULT = "가 우승했습니다.";
+
+    public Racing() {
         this.carList = new ArrayList<Car>();
         this.numberOfTimes = 0;
     }
@@ -29,6 +34,7 @@ public class Racing {
     public void runGame() {
         inputCarName();
         inputMovingNumber();
+        System.out.println("실행결과");
         startRacing();
         printResult();
     }
@@ -37,10 +43,10 @@ public class Racing {
         Scanner scan = new Scanner(System.in);
         String carName;
         do {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            System.out.println(MESSAGE_INPUT_NAME);
             carName = scan.nextLine();
         }
-        while(!isCorrectCarName(carName));
+        while (!isCorrectCarName(carName));
         createCar(carName);
     }
 
@@ -52,29 +58,29 @@ public class Racing {
         }
     }
 
-    private void inputMovingNumber(){
+    private void inputMovingNumber() {
         Scanner scan = new Scanner(System.in);
         int number;
         do {
-            System.out.print("시도할 횟수를 입력해주세요: ");
-            while(!scan.hasNextInt()) {
+            System.out.print(MESSAGE_INPUT_NUMBER);
+            while (!scan.hasNextInt()) {
                 System.out.println("자연수를 입력해주세요");
                 scan.next();
             }
             number = scan.nextInt();
         }
-        while(number < 1);
+        while (number < 1);
         this.numberOfTimes = number;
     }
 
-    private boolean isCorrectCarName(String str){
-        int charCount= 0;
-        for(int i = 0; i<str.length(); i++) {
+    private boolean isCorrectCarName(String str) {
+        int charCount = 0;
+        for (int i = 0; i < str.length(); i++) {
             charCount++;
-            if(str.charAt(i) == ',') {
+            if (str.charAt(i) == ',') {
                 charCount = 0;
             }
-            if(str.charAt(i) == ' ' || charCount > 5) {
+            if (str.charAt(i) == ' ' || charCount > MAX_NAME_LENGTH) {
                 System.out.println("올바르지 않은 입력입니다.");
                 return false;
             }
@@ -82,10 +88,9 @@ public class Racing {
         return true;
     }
 
-    private void startRacing(){
-        System.out.println("실행결과");
-        for(int i = 0; i < numberOfTimes; i++){
-            for(int j = 0; j < carList.size(); j++) {
+    private void startRacing() {
+        for (int i = 0; i < numberOfTimes; i++) {
+            for (int j = 0; j < carList.size(); j++) {
                 carList.get(j).updatePosition();
                 carList.get(j).printPosition();
             }
@@ -96,16 +101,16 @@ public class Racing {
     private void printResult() {
         int maxPosition = 0;
         String winner = "";
-        for(int i = 0; i < carList.size(); i++) {
+        for (int i = 0; i < carList.size(); i++) {
             maxPosition = Math.max(maxPosition, carList.get(i).getPosition());
         }
-        for(int i = 0; i < carList.size(); i++) {
-            if(maxPosition == carList.get(i).getPosition()) {
-                winner+=carList.get(i).getName() + ",";
+        for (int i = 0; i < carList.size(); i++) {
+            if (maxPosition == carList.get(i).getPosition()) {
+                winner += carList.get(i).getName() + ",";
             }
 
         }
-        winner = winner.substring(0, winner.length()-1);
-        System.out.println(winner + "가 우승했습니다.");
+        winner = winner.substring(0, winner.length() - 1);
+        System.out.println(winner + MESSAGE_RESULT);
     }
 }

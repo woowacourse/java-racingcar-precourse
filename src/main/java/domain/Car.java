@@ -18,8 +18,8 @@ import java.util.Random;
 public class Car {
     private final String name;
     private int position = 0;
-    private static final int GO = 4;
-    private static final int RANDOM_CONDITION = 9;
+    private static final int GO = 4;    //random number에 대해 자동차가 전진할 수 있는 조건
+    private static final int MAX_RANDOM_NUMBER = 10;     //random number 생성 범위
 
     public Car(String name) {
         this.name = name;
@@ -27,14 +27,14 @@ public class Car {
 
     public void updatePosition() {
         int randomNumber = getRandomNumber();
-        if(randomNumber >= GO) {
+        if (randomNumber >= GO) {
             position++;
         }
     }
 
     public void printPosition() {
         System.out.print(name + " : ");
-        for(int i = 0; i < position; i++) {
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.println();
@@ -42,7 +42,7 @@ public class Car {
 
     private int getRandomNumber() {
         Random ran = new Random();
-        return ran.nextInt(RANDOM_CONDITION);
+        return ran.nextInt(MAX_RANDOM_NUMBER);
     }
 
     public int getPosition() {
