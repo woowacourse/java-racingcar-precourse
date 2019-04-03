@@ -21,7 +21,6 @@ public class Car {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분합니다)");
             Scanner reader = new Scanner(System.in);
             userInput = reader.nextLine();
-            userInput = userInput.replaceAll("\\s+", "");
             userInputArray = userInput.split(",");
             if ((isNameLengthBetweenOneAndFive(userInputArray) == IS_SOMETHING_WRONG) && (isDuplicate(userInputArray) == IS_SOMETHING_WRONG)) {
                 break;
@@ -29,6 +28,8 @@ public class Car {
         }
         return userInputArray;
     }
+
+    //userInput = userInput.replaceAll("\\s+", "");
 
     private static boolean isDuplicate(String[] userInputArray) {
         for (int i = 0; i < userInputArray.length; i++) {
