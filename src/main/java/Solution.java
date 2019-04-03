@@ -1,3 +1,4 @@
+import domain.InputError;
 import java.util.Vector;
 
 public class Solution {
@@ -9,6 +10,7 @@ public class Solution {
         Boolean bool;
         Vector<String> vector;
         int count;
+        Vector<InputError> errors;
 
         s = InputHandler.getInput();
         vector = InputHandler.parse(s, ",");
@@ -22,12 +24,11 @@ public class Solution {
 
         count = InputHandler.countName("car",vector);
         System.out.println(count);
-        bool = Oracle.checkRepetition( vector);
-        System.out.print("repeated:");
-        System.out.println(bool);
-        bool = Oracle.checkEmptyString(vector);
-        System.out.print("empty:");
-        System.out.println(bool);
+        errors = InputErrorHandler.gatherError(vector, 5);
+        for (InputError error : errors
+             ) {
+            System.out.println(error);
+        }
     }
 
 }
