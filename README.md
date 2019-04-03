@@ -1,7 +1,7 @@
 
 class Game
 
-- String[] getCarNames()
+- Vector<String> getCarNames()
 사용자로부터 받은 차 이름들을 가공된 형태로 반환한다.
 InputHandler class의 getInput, parse, checkFaultyInput 함수를 사용한다.
 
