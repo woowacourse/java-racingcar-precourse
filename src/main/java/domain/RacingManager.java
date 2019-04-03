@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RacingManager {
@@ -20,10 +21,18 @@ public class RacingManager {
     }
 
     public int getTotalTrial() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        int totalTrial = sc.nextInt();
+        int totalTrial;
 
-        return totalTrial;
+        System.out.println("시도할 회수는 몇회인가요?");
+        while (true) {
+            try {
+                totalTrial = sc.nextInt();
+                return totalTrial;
+            } catch (InputMismatchException e) {
+                System.out.print("숫자만 입력해 주세요: ");
+                sc = new Scanner(System.in);
+            }
+        }
     }
 
     public void sendMoveSignalsTo(ArrayList<Car> cars) {
