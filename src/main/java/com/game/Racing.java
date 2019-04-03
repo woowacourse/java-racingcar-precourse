@@ -1,6 +1,7 @@
 package com.game;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
@@ -22,7 +23,14 @@ public class Racing {
         GameManager gameManager = new GameManager(names);
         while (0 < moveCount--) {
             gameManager.moveCars();
+            gameManager.boardPrint();
         }
+
+        final List<String> winner = gameManager.getWinnerNames();
+        for (int i = 0; i < winner.size() - 1; ++i) {
+            System.out.print(winner.get(i) + ", ");
+        }
+        System.out.println(winner.get(winner.size() - 1) + "가 최종 우승했습니다.");
     }
 
     boolean checkNames(final String[] names) {
