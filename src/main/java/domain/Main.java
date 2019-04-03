@@ -5,5 +5,6 @@ public class Main {
         Race race = new Race();
 
         race.setCarNames();
+        race.setPlayTime();
     }
 }

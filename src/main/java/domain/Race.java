@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Race {
     ArrayList<Car> cars = new ArrayList<>();
+    int playTime;
 
     public void setCarNames() {
         String userInputString;
@@ -20,6 +21,13 @@ public class Race {
             Car car = new Car(carName);
             cars.add(car);
         }
+    }
+
+    public void setPlayTime() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+        playTime = scan.nextInt();
     }
 
     private String getInputCarNames() {
