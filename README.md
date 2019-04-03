@@ -28,8 +28,11 @@ class Oracle
 - boolean tellGoOrStop(int TOP, int BOTTOM, int BOUNDARY)
 (TOP - BOUNDARY + 1)/(TOP-BOTTOM) 의 확률로 true를 반환한다.
 
-- void showRoundResult(Car[] cars)
-cars의 position을 name:--(position수만큼 '-'출력) 형태로 출력한다.
+- void showRoundResult(Car[] cars, char character)
+cars의 position을 name:(position수만큼 character 출력) 형태로 출력한다.
+
+- void drawCharacters(int count, char character)
+count만큼 character를 출력한다.
 
 - Car[] findChampions(Car[] cars)
 cars 속에서 챔피언들을 찾는다.

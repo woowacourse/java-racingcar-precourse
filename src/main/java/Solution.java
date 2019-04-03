@@ -21,18 +21,10 @@ public class Solution {
         count = Game.getNumberOfRound();
         System.out.println(count);
         cars = Game.generateCarsByNames(names);
-
-        for(int i = 0; i < 1000; i++) {
-            bool = Oracle.tellGoOrStop(9,0,4);
-            if(bool) trueNum++;
-            if(!bool) falseNum++;
-        }
-
-        System.out.print("trueNum: ");
-        System.out.println(trueNum);
-        System.out.print("falseNum: ");
-        System.out.println(falseNum);
-
+        /*
+        Oracle.drawCharacters(10,'*');
+        Oracle.drawCharacters(10,'-');
+        */
 
 
 

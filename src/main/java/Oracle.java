@@ -1,3 +1,4 @@
+import domain.Car;
 import domain.InputReport;
 import domain.InputReportCode;
 import domain.InputReportMessage;
@@ -77,6 +78,21 @@ public class Oracle {
             return true;
         }
         return false;
+    }
+
+    static void showRoundResult(Vector<Car> cars, char character) {
+        for (Car car : cars
+             ) {
+            System.out.print(car);
+
+        }
+    }
+
+    static void drawCharacters(int count, char character) {
+        for(int i = 0; i < count; i++) {
+            System.out.print(character);
+        }
+        System.out.println();
     }
 
 }
