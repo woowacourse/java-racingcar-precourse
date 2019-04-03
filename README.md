@@ -29,6 +29,7 @@ https://myeonguni.tistory.com/1596
 * Game
 * GameUI
 * Main
+* NameRuleException
 
 #### Car
 * tryMove()
@@ -67,3 +68,6 @@ https://myeonguni.tistory.com/1596
 #### Main
 * main()
   * 프로그램 시작
+  
+#### NameRuleException
+* 명명규칙 에러 클래스
