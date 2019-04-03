@@ -8,7 +8,7 @@ public class Game {
 	private Car[] cars;
 	private int carCount;
 	private int attemptCount;
-	private int max = 0;
+	private int maxPosition = 0;
 
 	Scanner scanner = new Scanner(System.in);
 
@@ -99,20 +99,20 @@ public class Game {
 		}
 	}
 
-	public int getMaxPosition() {
+	public int getmaxPositionPosition() {
 		for (int i = 0; i < carCount; i++) {
-			if (cars[i].getPosition() > max) {
-				max = cars[i].getPosition();
+			if (cars[i].getPosition() > maxPosition) {
+				maxPosition = cars[i].getPosition();
 			}
 		}
-		return max;
+		return maxPosition;
 	}
 
 	public void printWinner() {
-		max = getMaxPosition();
+		maxPosition = getmaxPositionPosition();
 		String winner = "";
 		for (int i = 0; i < carCount; i++) {
-			if (cars[i].getPosition() == max) {
+			if (cars[i].getPosition() == maxPosition) {
 				winner += ", " + cars[i].getName();
 			}
 		}
