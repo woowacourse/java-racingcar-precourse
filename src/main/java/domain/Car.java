@@ -5,6 +5,7 @@ import java.util.Random;
 public class Car {
 	private final String name;
 	private int position = 0;
+	static final int CRITERION = 3;
 
 	public Car(String name) {
 		this.name = name;
@@ -32,7 +33,7 @@ public class Car {
 
 	public void move() {
 		int randomNumber = makeRandomNumber();
-		if (randomNumber > 3) {
+		if (randomNumber > CRITERION) {
 			position += 1;
 		}
 	}

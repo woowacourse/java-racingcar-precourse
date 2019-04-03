@@ -9,6 +9,7 @@ public class Game {
 	private int carCount;
 	private int attemptCount;
 	private int maxPosition = 0;
+	static final int MAX_NAME_LENGTH = 5;
 
 	Scanner scanner = new Scanner(System.in);
 
@@ -52,7 +53,7 @@ public class Game {
 				System.out.println("이름은 1글자 이상이어야 합니다.\n");
 				return true;
 			}
-			if (car_names[i].length() > 5) {
+			if (car_names[i].length() > MAX_NAME_LENGTH) {
 				System.out.println("이름은 5자 이하만 가능합니다.\n");
 				return true;
 			}
