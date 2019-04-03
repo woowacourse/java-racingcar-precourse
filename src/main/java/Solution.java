@@ -13,11 +13,8 @@ public class Solution {
         Vector<InputReport> reports;
         InputReport error;
 
-        vector = Game.getCarNames();
-        for (String name : vector
-             ) {
-            System.out.println(name);
-        }
+        count = Game.getNumberOfRound();
+        System.out.println(count);
 
 
     }

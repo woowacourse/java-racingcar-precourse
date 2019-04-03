@@ -20,16 +20,22 @@ public class Game {
 
         return names;
     }
-    /*
-    static int getRoundNumber() {
+
+    static int getNumberOfRound() {
         String input;
+        int roundNumber;
 
         while(true) {
             try {
-
+                input = InputHandler.getInput(SECOND_WORD);
+                roundNumber = Integer.parseInt(input);
+                return roundNumber;
+            }
+            catch (Exception e) {
+                System.out.println("숫자가 아닙니다. 입력을 다시 해 주세요.");
             }
         }
     }
-    */
+
 
 }

@@ -8,7 +8,7 @@ InputHandler class의 getInput과 parse 함수를, Oracle class의 checkFaultyIn
 - Car[] generateCarsByNames(String[] names)
 names 속 name이 부여된 Car 객체를 names 개수만큼 생성한다.
 
-- int getRoundNumber()
+- int getNumberOfRound()
 라운드 횟수에 대한 정보를 사용자로부터 입력받는다.
 
 - void doRace(Car[] cars, numOfRound)
@@ -94,9 +94,9 @@ checklength, checkRepetition, checkEmptyString 함수를 사용한다.
 
 
 *구현순서:
-getFirstInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepetition -> checkEmptyString
+getInput -> parse -> checkLength -> countName -> checkRepeatedName -> checkRepetition -> checkEmptyString
 -> checkFaultyInput -> getCarNames
--> getSecondInput -> checkNumber
+-> getNumberOfRound
 -> generateCarByNames
 tellGoOrStop -> showRoundResult -> doRace
 ->  findChampions -> showChampions -> findAndShowChampions
