@@ -23,11 +23,11 @@ public class RacingCarGame {
     }
 
     public void start() {
+        System.out.println("\n실행 결과");
         for (int trial = 1; trial <= totalTrial; trial++) {
-            this.racingManager.sendMoveSignals(cars);
-            this.trackingCenter.detectPositions(cars);
+            this.racingManager.sendMoveSignalsTo(cars);
+            this.trackingCenter.detectPositionsOf(cars);
             this.trackingCenter.showPositions();
-            this.trackingCenter.showRanks();
         }
         this.trackingCenter.showWinners();
     }

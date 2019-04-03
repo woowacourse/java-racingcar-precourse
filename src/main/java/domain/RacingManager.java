@@ -26,7 +26,7 @@ public class RacingManager {
         return totalTrial;
     }
 
-    public void sendMoveSignals(ArrayList<Car> cars) {
+    public void sendMoveSignalsTo(ArrayList<Car> cars) {
         for (int i = 0; i < cars.size(); i++) {
             cars.get(i).randomMove();
         }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class TrackingCenter {
     private HashMap<String, Integer> carPositions = new HashMap<String, Integer>();
 
-    public void detectPositions(ArrayList<Car> cars) {
+    public void detectPositionsOf(ArrayList<Car> cars) {
         for (Car car: cars) {
             this.carPositions.put(car.getName(), car.getPosition());
         }
