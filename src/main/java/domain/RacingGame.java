@@ -72,7 +72,7 @@ public class RacingGame {
 	private int parseRound(String round) {
 		try {
 			int intRound = Integer.parseInt(round);
-			if (intRound > 0) {
+			if (1 <= intRound && intRound <= 10000) {
 				return intRound; 
 			}
 			return -1;
