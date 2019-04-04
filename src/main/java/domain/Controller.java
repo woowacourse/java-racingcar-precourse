@@ -44,13 +44,14 @@ public class Controller {
 
     public void startGame() {
 
-        for (String racer : racers) {
+        for (String racer : racers) {       //자동차만 다루기 쉽게 하기 위해서 리스트에 삽입
             Car car = new Car(racer);
             cars.add(car);
         }
 
     }
 
+    /* 각 자동차 우선 출발 시키고 그 상황에서 가장 멀리간 값을 winnerPosition에 넣는다 */
     public void checkCarsPosition() {
         int carPosition;
 
@@ -80,6 +81,7 @@ public class Controller {
     }
 
     public void checkWinner() {
+
         for (Car eachCar : cars) {
 
             if (eachCar.getPosition() == winnerPosition) {

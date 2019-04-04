@@ -8,6 +8,7 @@ public class Car {
         this.name = name;
     }
 
+    /* 4이상일때는 움직이고 그 외에는 움직이지 않는다. */
     public void goForward() {
         int go = (int) (Math.random() * 9);
 
