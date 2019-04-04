@@ -11,10 +11,10 @@
 있는 기능입니다.
 * 게임 진행 기능(feature/play-game) : 입력한 이동 횟수만큼 임의로 추출된 숫자에 따라 전진 
 또는 정지를 반복합니다.
+* 진행과정 출력 기능(feature/display-progress) : 진행된 게임결과를 사용자들이 함께 확인할 수 있습니다.
 * 우승자 결정 기능(feature/winners-decision) : 진행된 게임 결과에 따라 우승자를 가립니다. 
 여기서 우승자는 한 명 이상일 수 있습니다.
-* 게임 결과 출력 기능(feature/display-game-result) : 진행된 게임 결과를 사용자들이 함께 
-확인할 수 있습니다. 게임 진행과정과 우승자를 확인할 수 있습니다.
+* 게임 결과 출력 기능(feature/display-winners) : 진행된 게임결과에 따른 최종 우승자를 확인할 수 있습니다.
 
 ## 게임 진행방법(How to play game?)
 
