@@ -17,7 +17,7 @@ public class RacingGame {
 		printCarNames();
 		
 		numberOfAttemp = user.setNumberOfAttep();
-		System.out.println();
+		System.out.println("\n실행결과");
 		for (int i = 0; i < numberOfAttemp; i++) {
 			moveCar();
 		}
