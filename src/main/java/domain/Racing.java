@@ -10,6 +10,27 @@ package domain;
 
 public class Racing {
     public void run() {
+        setCar();
+        setMovingNumber();
+
+        startRacing();
+
+        grading();
+    }
+
+    public void setCar() {
+        
+    }
+
+    public void setMovingNumber() {
+
+    }
+
+    public void startRacing() {
+
+    }
+
+    public void grading() {
 
     }
 }
