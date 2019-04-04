@@ -19,6 +19,9 @@ public class Game {
          * 전체적인 게임 흐름을 통해 게임을 실행할 클래스
          *  */
 
+        private final int trialNumber;
+        private final Car[] cars;
+
         /*입력 관련 작업을 할 객체*/
         private InputUtility inputer;
 
@@ -27,9 +30,6 @@ public class Game {
 
         /*내부동작 관련 작업을 할 객체*/
         private InternalOperation operator;
-
-        private final int trialNumber;
-        private final Car[] cars;
 
         Game() {
                 inputer = new InputUtility();
