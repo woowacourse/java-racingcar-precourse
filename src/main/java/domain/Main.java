@@ -34,7 +34,13 @@ public class Main {
 			carArr[i] = new Car(carNameArr[i]);
 		}
 		
+		System.out.println(REPETITION_QUESTION);
 		
+		int repetitionCount = Integer.parseInt(in.readLine());
+		
+		while(repetitionCount-- > 0) {
+			
+		}	
 	}
 	
 	private static  boolean checkCarNameLength(String[] carNameArr) {
