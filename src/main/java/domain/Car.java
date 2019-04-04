@@ -29,5 +29,8 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
     
 }
