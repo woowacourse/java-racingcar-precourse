@@ -1,4 +1,4 @@
-package domain;
+import domain.Game;
 
 import java.io.IOException;
 
