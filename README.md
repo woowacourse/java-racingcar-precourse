@@ -97,6 +97,7 @@ public class Car {
   |**start()**|게임을 시작하는 메서드|O|
   |**printCarNamesInputMessage()**|자동차 이름 입력을 지시하는 메세지를 출력하는 메서드|O|
   |**inputCarNames()**|자동차 이름을 입력받는 메서드|O|
+  |**checkInputCarNames()**|자동차 이름 입력을 예외처리하는 메서드|O|
   |**printTrialNumberInputMessage()**|시도 횟수 입력을 지시하는 메세지를 출력하는 메서드|O|
   |**inputTrialNumber()**|시도 횟수를 입력받는 메서드|O|
   |**printResultMessage()**|실행결과 메세지를 출력하는 메서드|O|
