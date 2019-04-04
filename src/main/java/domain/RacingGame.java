@@ -15,16 +15,15 @@ public class RacingGame {
         tries = config.getTries();
     }
 
-    public void start() {
-        calculateMaxLenOfName();
+    public RacingGameResult start() {
+        calculateMaxLenOfName();        /* for alignedName() */
 
+        System.out.println();
         System.out.println("실행 결과");
         pause();
         progressGame();
 
-        ArrayList<String> winners = getWinners();
-        showResults(winners);
-        pause();
+        return new RacingGameResult(cars, positionOfWinners);
     }
 
     public void calculateMaxLenOfName() {
@@ -66,26 +65,6 @@ public class RacingGame {
         positionOfWinners = (pos > positionOfWinners) ? pos : positionOfWinners;
     }
 
-    public ArrayList<String> getWinners() {
-        ArrayList<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() == positionOfWinners) {
-                winners.add(car.getName());
-            }
-        }
-        return winners;
-    }
-
-    public void showResults(ArrayList<String> winners) {
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i != winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("(이)가 최종 우승했습니다.");
-    }
-
     public void sleep(int timeToBreak) {
         try {
             Thread.sleep(timeToBreak);
@@ -104,6 +83,8 @@ public class RacingGame {
 
     public static void main(String[] args) {
         RacingGameConfig config = new RacingGameConfig();
-        new RacingGame(config).start();
+        RacingGame racingGame = new RacingGame(config);
+        RacingGameResult racingGameResult = racingGame.start();
+        racingGameResult.show();
     }
 }
