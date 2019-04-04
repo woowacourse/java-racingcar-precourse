@@ -31,7 +31,7 @@ public class Car {
 
     public void CalculateLocation(int random){
         if(!DecideToMove(random)){
-            this.position += random;
+            this.position++;
         }
         return;
     }
