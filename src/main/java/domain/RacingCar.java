@@ -63,11 +63,11 @@ public class RacingCar {
      * @return Set<String> 중복을 제거한 자동차 이름
      */
     public Set<String> inputCarName() {
-        Scanner sc = new Scanner(System.in);
+        boolean isNamingRule;
         String carNames;
         String[] splitCarNames;
         Set<String> distinctCarName = new HashSet<>();
-        boolean isNamingRule;
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -96,6 +96,7 @@ public class RacingCar {
                                     Set<String> distinctCarName) {
         int duplicatedCount; // 각 이름마다 중복된 횟수, 1을 넘어가면 duplicatedName에 추가
         StringJoiner duplicatedName = new StringJoiner(", ");
+
         for (String distinctName : distinctCarName) { // 중복 제거한 이름
             duplicatedCount = countingCarName(distinctName, splitCarNames);
             if (duplicatedCount > 1) {
@@ -118,6 +119,7 @@ public class RacingCar {
     public int countingCarName(String distinctName,
                                String[] splitCarNames) {
         int count = 0;
+
         for (String carName : splitCarNames) {
             if (carName.equals(distinctName)) {
                 count++;
@@ -162,8 +164,9 @@ public class RacingCar {
      * @return ArrayList<Car> Car object 저장한 배열
      */
     public ArrayList<Car> getCarList(Set<String> carNames) {
-        ArrayList<Car> carList = new ArrayList<Car>();
         Car car;
+        ArrayList<Car> carList = new ArrayList<>();
+
         for (String name : carNames) {
             car = new Car(name);
             carList.add(car);
@@ -177,9 +180,10 @@ public class RacingCar {
      * @param carList Car object 저장한 배열
      */
     public void printCar(ArrayList<Car> carList) {
-        String carName;
         int carPosition;
+        String carName;
         String carProgression;
+
         for (Car car : carList) {
             carName = car.getName();
             carPosition = car.getPosition();
@@ -197,6 +201,7 @@ public class RacingCar {
      */
     public String getCarProgression(int carPosition) {
         StringBuilder carProgression = new StringBuilder();
+
         if (carPosition < 1) {
             return carProgression.toString();
         }
@@ -221,9 +226,10 @@ public class RacingCar {
      * Racing-Car game 실행
      */
     public void play() {
+        int count = moveCount();
         Set<String> carNames = inputCarName();
         ArrayList<Car> carList = getCarList(carNames);
-        int count = moveCount();
+
         for (int i = 0; i < count; i++) {
             moveCars(carList);
             printCar(carList);
@@ -237,10 +243,11 @@ public class RacingCar {
      * @param carList Car object 저장한 배열
      */
     public void printWinner(ArrayList<Car> carList) {
-        int maxPosition = getMaxPosition(carList);
         int carPosition;
         String carName;
+        int maxPosition = getMaxPosition(carList);
         StringJoiner winnerName = new StringJoiner(", ");
+
         for (Car car : carList) {
             carPosition = car.getPosition();
             carName = car.getName();
@@ -260,11 +267,11 @@ public class RacingCar {
     public int getMaxPosition(ArrayList<Car> carList) {
         int maxPosition = 0;
         int carPosition;
+
         for (Car car : carList) {
             carPosition = car.getPosition();
             maxPosition = Math.max(maxPosition, carPosition);
         }
         return maxPosition;
     }
-
 }
