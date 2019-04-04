@@ -4,6 +4,7 @@ import interfaces.GameServiceInterface;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,9 +20,7 @@ class GameService implements GameServiceInterface {
         String[] cars = getCars();
         List<Car> carList = new ArrayList<>();
 
-        for (String carName : cars) {
-            carList.add(new Car(carName));
-        }
+        Arrays.asList(cars).forEach(carName -> carList.add(new Car(carName)));
 
         return carList;
     }
