@@ -17,7 +17,6 @@ public class Controller {
         do {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉽표(,) 기준으로 구분");
             names = scanner.nextLine();
-
         } while (!checkNamesCriterion(names));
 
     }
@@ -58,6 +57,7 @@ public class Controller {
         for (Car eachCar : cars) {
             eachCar.goForward();
             carPosition = eachCar.getPosition();
+
             System.out.printf("%s : ", eachCar.getCarsName());
 
             if (winnerPosition < carPosition) {
@@ -71,18 +71,23 @@ public class Controller {
     }
 
     public void printCarRoad(int position) {
+
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
+
         System.out.println();
     }
 
     public void checkWinner() {
-        for(Car eachCar : cars) {
-            if(eachCar.getPosition() == winnerPosition){
+        for (Car eachCar : cars) {
+
+            if (eachCar.getPosition() == winnerPosition) {
                 System.out.print(eachCar.getCarsName());
             }
+
         }
+
         System.out.println("가 최종 우승했습니다.");
     }
 

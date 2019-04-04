@@ -13,21 +13,27 @@
 
 * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 
-#
+# 2. 프로젝트 설명
 
-# 2. 클래스
+* Controller를 통해서 전체적인 게임 흐름을 조정한다.
+
+* 자동자 경주 게임을 예로 들면 시스템을 담당하는 부서가 있고 경주장이 있고 레이서가 있다면
+
+* 시스템 담당이 Controller, 경주장 RacingCarGame, 레이서가 Car가 된다.
+
+# 3. 클래스
 <pre>
     1. RacingCarGame
     2. Car
     3. Controller
 </pre>
 
-# 3. 기능 구현
+# 4. 기능 구현
 
-## 3.1 RacingCarGame
+## 4.1 RacingCarGame
     * 전체적인 게임 플로우를 갖고 있는 클래스
 
-## 3.2 Car
+## 4.2 Car
     * 자동차와 관련된 모든 기능을 갖고 있는 클래스
 <pre>
     1. goForward
@@ -35,7 +41,7 @@
     3. getCarsName
 </pre>
 
-## 3.3 Controller
+## 4.3 Controller
     * 게임이 진행되는데 전체적인 조정 기능 갖고 있는 클래스
 <pre>
     1. askCarsName
