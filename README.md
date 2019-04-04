@@ -21,6 +21,13 @@
 
 * 시스템 담당이 Controller, 경주장 RacingCarGame, 레이서가 Car가 된다.
 
+## 2.1 로직
+
+* 우선 각 Car 안에서 goForward를 통해서 랜덤한 값을 받아 조건에 따라 전진을 하고 Controller에서 현 상황에서
+  가장 멀리 전진한 자동차의 Position을 새로 winnerPosition 변수 값에 갱신해준다.
+
+* 마지막에 모든 자동차의 위치와 비교해서 winnerPosition과 같은 위치에 있는 Car.name을 반환해서 보여준다.
+
 # 3. 클래스
 <pre>
     1. RacingCarGame
