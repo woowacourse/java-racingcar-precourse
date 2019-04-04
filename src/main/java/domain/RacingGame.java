@@ -8,6 +8,7 @@ public class RacingGame {
     private String carNames;
     private Car[] cars;
     private int racingCnt;
+    private int maxPosition;
     private BufferedReader br;
 
     public RacingGame() {
@@ -76,6 +77,17 @@ public class RacingGame {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public void setMaxPosition(int position) {
+        this.maxPosition = position;
+    }
+
+    public void init() {
+        while (!this.setCarNames()) ;
+        this.createCars();
+        while (!this.setRacingCount()) ;
+        this.setMaxPosition(0);
     }
 
     public void showMessage(String msg) {
