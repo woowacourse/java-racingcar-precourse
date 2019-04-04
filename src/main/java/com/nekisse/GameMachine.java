@@ -18,11 +18,12 @@ public class GameMachine {
         this.cars = setupCar(carNames);
     }
 
-    public void runCar() {
+    public TurnResult runCar() {
         for (Car car : cars) {
             car.move(randomNumberGenerator.generateRandomNumber());
         }
         currentCount++;
+        return new TurnResult(cars);
     }
 
     private List<Car> setupCar(List<CarName> carNames) {

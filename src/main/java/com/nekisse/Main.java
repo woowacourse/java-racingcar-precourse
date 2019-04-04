@@ -14,8 +14,15 @@ public class Main {
         int inputTryCount = InputView.getInputTryCount();
 
         GameMachine gameMachine = new GameMachine(inputTryCount, carNames, new GameRandomNumberGenerator());
+        int startnumber = 0;
+        while (startnumber<inputTryCount) {
+            TurnResult turnResult = gameMachine.runCar();
+            OutPutView.showTurnResult(turnResult);
+            OutPutView.printEmptyLine();
 
-        gameMachine.runCar();
+            startnumber++;
+        }
+
 
 
     }

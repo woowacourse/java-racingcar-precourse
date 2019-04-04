@@ -7,13 +7,13 @@ public class CarName {
 
     private CarName(String carName) {
         if (!validFiveLength(carName)) {
-            throw new IllegalArgumentException("자동차의 이름은 5자리 이하입니다.");
+            throw new IllegalArgumentException("자동차의 이름은 1글자 이상 5자리 이하입니다.");
         }
         this.carName = carName;
     }
 
     private boolean validFiveLength(String carName) {
-        return carName.trim().length() <= MAXIMUM_NAME_LENGTH;
+        return carName.trim().length() <= MAXIMUM_NAME_LENGTH && 0 == carName.trim().length();
     }
 
     public static CarName newCarName(String carName) {
