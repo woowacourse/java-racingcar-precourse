@@ -31,7 +31,13 @@ public class Race {
     }
 
     public void showRaceResult() {
-        showSingleResult();
+        System.out.println();
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < playTime; i++) {
+            showSingleResult();
+            System.out.println();
+        }
     }
 
     private String getInputCarNames() {
