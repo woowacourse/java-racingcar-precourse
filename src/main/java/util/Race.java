@@ -2,7 +2,6 @@ package util;
 import java.util.ArrayList;
 import domain.Car;
 public class Race {
-    private int winnerNum;
     private static final String RESULT_PRINT = "실행 결과";
 
     /**
@@ -55,10 +54,6 @@ public class Race {
             cars.get(i).printProgress();
         }
         System.out.print("\n");
-    }
-
-    private void printResult(){
-
     }
 
     /**
