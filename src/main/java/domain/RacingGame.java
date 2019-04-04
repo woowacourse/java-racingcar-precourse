@@ -1,10 +1,14 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import domain.Car;
 
 public class RacingGame {
 	private Car[] cars;
 	private String[] arrCarNames;
+	private List<Car> winner;
 	
 	public RacingGame() {
 		UserInput user = new UserInput();
@@ -19,6 +23,8 @@ public class RacingGame {
 		for (int i = 0; i < numberOfAttemp; i++) {
 			moveCar();
 		}
+		
+		getWinner();
 	}
 	
 	private void setCarObject () {
@@ -47,6 +53,21 @@ public class RacingGame {
 			car.printMovingDistance();
 		}
 		System.out.println();
+	}
+	
+	private void getWinner() {
+		int maxNum = cars[0].getPosition();
+		
+		for (int i = 1; i < cars.length; i++) {
+			maxNum = Math.max(maxNum, cars[i].getPosition());
+		}
+		
+		winner = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getPosition() == maxNum) {
+				winner.add(car);
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
