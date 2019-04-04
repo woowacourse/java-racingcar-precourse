@@ -2,6 +2,8 @@ package domain;
 
 import java.util.Scanner;
 
+import test.InputValidator;
+
 public class UserInput {
 	private String carNames;
 	private String[] arrCarNames;
@@ -15,6 +17,17 @@ public class UserInput {
 		} while (!validator.isValidCarNames(arrCarNames));
 		
 		return arrCarNames;
+	}
+	
+	public int setNumberOfAttep() {
+		InputValidator validator = new InputValidator();
+		String number;
+		
+		do {
+			number = inputNumberOfAttemp().trim();
+		} while (!validator.isValidNumberOfAttemp(number));
+		
+		return Integer.parseInt(number);
 	}
 	
 	private void inputCarNames() {
@@ -31,4 +44,14 @@ public class UserInput {
 			arrCarNames[i] = arrCarNames[i].trim();
 		}
 	}
+	
+	private String inputNumberOfAttemp() {
+		Scanner sc = new Scanner(System.in);
+		String strNumberOfAttemp;
+		
+		System.out.println("시도할 회수는 몇회인가요? ");
+		strNumberOfAttemp = sc.nextLine();
+		
+		return strNumberOfAttemp;
+    } 
 }

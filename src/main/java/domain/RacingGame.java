@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class RacingGame {
 	private Car[] cars;
@@ -14,6 +12,8 @@ public class RacingGame {
 		arrCarNames = user.setCarNames();
 		setCarObject();
 		printCarNames();
+		
+		numberOfAttemp = user.setNumberOfAttep();
 	}
 	
 	private void setCarObject () {
