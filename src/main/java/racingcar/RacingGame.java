@@ -1,10 +1,11 @@
 package racingcar;
 
+import racingcar.utils.CarListGenerator;
 import racingcar.view.InputView;
 
 public class RacingGame {
     public void run(){
-        String carNames = InputView.inputCarNames();
+        CarListGenerator.generate(InputView.inputCarNames());
 
     }
 }
