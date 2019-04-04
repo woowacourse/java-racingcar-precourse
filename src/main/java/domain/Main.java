@@ -52,4 +52,22 @@ public class Main {
         String[] carFinish = saveCarName(tempCarName, check);
         return carFinish;
     }
+
+    public static void printResult(Car[] cars) {
+        String winners = "";
+        int max = 0;
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getPosition() > max) {
+                max = cars[i].getPosition();
+            }
+        }
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getPosition() == max) {
+                winners = winners.concat(cars[i].getName() + ", ");
+            }
+        }
+        winners = winners.substring(0, winners.length() - 2);
+        System.out.println(winners + "가(이) 최종우승 했습니다.");
+    }
 }
