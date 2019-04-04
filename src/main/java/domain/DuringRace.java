@@ -52,7 +52,7 @@ public class DuringRace {
 
                 /* 자동차가 전진할때 */
                 cars[i].carResult.add("-");                                 // 자동차 전진 횟수 문자열 저장
-                cars[i].increasePosition(cars[i]);                          // 자동차 전진
+                cars[i].increasePosition();                          // 자동차 전진
             }
         }
     }
@@ -94,22 +94,22 @@ public class DuringRace {
     /* 우승 자동차 출력*/
     public void showWinner(Car[] cars){
 
-        int mostGoValue = cars[0].getPosition(cars[0]);                     // 가장 많이 전진한 값을 저장하기 위한 변수
+        int mostGoValue = cars[0].getPosition();                     // 가장 많이 전진한 값을 저장하기 위한 변수
 
         for(int i=1;i<cars.length;i++){
 
             /* cars 배열의 크기 만큼 반복 */
-            if(cars[i].getPosition(cars[i]) > mostGoValue){
+            if(cars[i].getPosition() > mostGoValue){
 
                 /* i번째 전진 횟수를 이전과 비교하여 클경우  */
-                mostGoValue = cars[i].getPosition(cars[i]);                 // 최대 전진횟수 값 변경
+                mostGoValue = cars[i].getPosition();                 // 최대 전진횟수 값 변경
             }
         }
 
         for(int i=0;i<cars.length;i++){
 
             /* cars 배열의 크기 만큼 반복 */
-            if(cars[i].getPosition(cars[i]) == mostGoValue){
+            if(cars[i].getPosition() == mostGoValue){
 
                 /* 최대 전진 횟수 하고 같을 경우 */
                 cars[SET].firstCarName.add(cars[i].getName(cars[i]));       // SET 위치의 ArrayList에 저장

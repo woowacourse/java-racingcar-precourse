@@ -83,19 +83,19 @@ public class Car {
     /* 자동차 이름 반환 하는 메소드 */
     public String getName(Car car){
 
-        return car.name;
+        return this.name;
     }
 
     /* 자동차 위치 반환 하는 메소드 */
-    public int getPosition(Car car){
+    public int getPosition(){
 
-        return car.position;
+        return this.position;
     }
 
     /* 자동차 위치 증가 시키는 메소드 */
-    public void increasePosition(Car car){
+    public void increasePosition(){
 
-        car.position++;
+        this.position++;
     }
 
 }
