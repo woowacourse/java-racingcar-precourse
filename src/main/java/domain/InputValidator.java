@@ -11,6 +11,10 @@ public class InputValidator {
 				return false;
 			}
 		}
+		if (!isOverlapCarName(carNames)) {
+			System.out.println("자동차 이름을 서로 다르게 입력해주세요.");
+			return false;
+		}
 		return true;
 	}
 
@@ -28,6 +32,17 @@ public class InputValidator {
 		}
 		System.out.println("자동차 이름은 1글자 이상 5글자 이하로 입력해주세요.");
 		return false;
+	}
+	
+	private boolean isOverlapCarName(String[] carNames) {
+		for (int i = 0; i < carNames.length-1; i++) {
+			for (int j = i+1; j < carNames.length; j++) {
+				if (carNames[i].equals(carNames[j])) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	
 	private boolean isPositiveInteger(String numberOfAttemp) {

@@ -22,9 +22,10 @@
 	* inputNumberOfAttemp() : 시도할 회수 입력 받는 함수  
 	
 2. InputValidator 클래스 : 입력값을 유효성 검사하는 클래스
-	* isValidCarNames(String[]) : 모든 자동차의 이름이 5자 이하의 문자인지 검사하는 함수
+	* isValidCarNames(String[]) : 모든 자동차의 이름이 5자 이하의 문자이고 유일한지 검사하는 함수
 	* isValidNumberOfAttemp(String) : 시도할 회수가 1이상의 정수인지 검사하는 함수
 	* checkCarNameLength(String) : 각 자동차의 이름이  5자 이하의 문자인지 검사하는 함수
+	* isOverlapCarName(String[]) : 각 자동차의 이름이  유일한지 검사하는 함수
 	* isPositiveInteger(String) : 시도할 회수가 1이상의 정수인지 검사하는 함수
 	* isBlank(String) : 빈값을 입력했는지 검사하는 클래스  
 	
