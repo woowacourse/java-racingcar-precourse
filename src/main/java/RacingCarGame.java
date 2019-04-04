@@ -43,6 +43,6 @@ public class RacingCarGame {
         int totalTrial = racingManager.getTotalTrial();
 
         racingCarGame.start(cars, positionRecorder, totalTrial);
-        positionRecorder.showHIstoryOf("Woowahan Championship");
+        positionRecorder. showHistoryOf("Woowahan Championship");
     }
 }
