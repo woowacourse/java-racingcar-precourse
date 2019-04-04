@@ -26,15 +26,13 @@ public class RacingGame {
 		private static final String EXECUTION_RESULT = "\n실행 결과";
 		private static final String POSITION_OF_CAR = "-";
 		private static final String BLANK = "";
-		private static final String PREDICATE_OF_WINNER_MESSAGE = "(이)가 최종 우승했습니다.";
 		
-		/** 우승자를 출력할 때 앞 부분(, )을 지우기 위한 상수 */
-		private static final int SUBSTRING_COMMA_AND_SPACING = 2;
+		private static final int INITIAL_VALUE = 0;
 		
 		private String[] carNameList;
 		private Car[] racingCars;
-		private String winner;
 		private int numOfTry;
+		private int maxPosition;
 	
 		public void runGame() {
 				getCarNames(); 
@@ -125,7 +123,12 @@ public class RacingGame {
 		}
 	
 		private void getMaxPosition() {
-
+				maxPosition = INITIAL_VALUE;
+				for (Car racingCar : racingCars) {
+						if (racingCar.getPosition() >= maxPosition) {
+								maxPosition = racingCar.getPosition();
+						}
+				}
 		}
 		
 		private void getCarsNameInMaxPosition() {
@@ -133,6 +136,6 @@ public class RacingGame {
 		}
 
 		private void printWinner() {
-				System.out.print(winner.substring(SUBSTRING_COMMA_AND_SPACING) + PREDICATE_OF_WINNER_MESSAGE);
+				
 		}
 }
