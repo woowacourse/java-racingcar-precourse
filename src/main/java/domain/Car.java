@@ -10,14 +10,24 @@ public class Car {
         this.name = name;
     }
     
-    // 추가 기능 구현  
-    public void move() {
+    // 추가 기능 구현
+    
+    public String getName() {
+    	return this.name;
+    }
+    
+    public int getPosition() {
+    	return this.position;
+    }
+    
+    public boolean move() {
     	Random rand = new Random();
     	int randNum = rand.nextInt(10);
     	if (randNum < 4) {
-    		return;
+    		return false;
     	}
     	this.position += 1;
+    	return true;
     }
     
     public void printStatus() {

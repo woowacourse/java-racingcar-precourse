@@ -14,6 +14,7 @@ public class CarRacingGame {
 		String input = sc.next();
 		if (!this.validInput(input)) {
 			System.out.println("잘못된 입력값입니다. 다시 시도해주세요");
+			sc.close();
 			return;
 		}
 		System.out.println("시도할 회수는 몇회인가요?");
@@ -24,14 +25,40 @@ public class CarRacingGame {
 
 	private void racing(int n) {
 		System.out.println("실행 결과");
+		int maxMove = Integer.MIN_VALUE;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < this.cars.length; j++) {
 				Car car = cars[j];
 				car.move();
+				maxMove = Math.max(maxMove, car.getPosition());
 				car.printStatus();				
 			}
 			System.out.println();
 		}
+		this.whoWinner(maxMove);
+	}
+	
+	private void whoWinner(int maxMove) {
+		String winnerNames = "";
+		for (int i = 0; i < this.cars.length; i++) {
+			Car car = cars[i];
+			if (car.getPosition() == maxMove) {
+				winnerNames += car.getName() + " ";
+			}
+		}
+		String [] winners = winnerNames.split(" ");
+		this.printWinners(winners);
+	}
+	
+	private void printWinners(String [] winners) {
+		int numWinner = winners.length;
+		for (int i = 0; i < numWinner; i++) {
+			System.out.print(winners[i]);
+			if (i != numWinner-1) {
+				System.out.print(",");
+			}
+		}
+		System.out.println("가 최종 우승했습니다.");
 	}
 	
 	private void settingCars(String [] carNames, int amount) {
