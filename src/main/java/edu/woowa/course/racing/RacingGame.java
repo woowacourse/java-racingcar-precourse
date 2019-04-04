@@ -7,11 +7,11 @@ import java.util.Scanner;
 import edu.woowa.course.racing.domain.Car;
 
 /**
-*@version 1.00 2019/04/03
-*@author 조재훈
-*/
+ * @version 1.00 2019/04/03
+ * @author 조재훈
+ */
 public class RacingGame {
-	private static final String REQ_CAR_NAME ="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+	private static final String REQ_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String REQ_COUNT = "시도할 횟수는 몇회인가요?";
 	private static final String RESULT = "실행 결과";
 	private static final String FINISH = "가 최종 우승했습니다.";
@@ -71,7 +71,7 @@ public class RacingGame {
 	}
 
 	private void play() {
-		while ( count > 0 ) {
+		while (count > 0) {
 			notifyCars();
 			count--;
 		}
@@ -79,7 +79,7 @@ public class RacingGame {
 	}
 
 	private void notifyCars() {
-		for (Car car: cars) {
+		for (Car car : cars) {
 			car.move();
 			System.out.println(car);
 		}
@@ -87,10 +87,8 @@ public class RacingGame {
 	}
 
 	private String getWinner() {
-		Arrays.sort(cars);
-		int maxPosition = cars[0].getPosition();
+		int maxPosition = getMaxPosition();
 		StringBuilder sb = new StringBuilder();
-
 		int i = 0;
 		int len = cars.length;
 		while ((i < len) && (cars[i].getPosition() == maxPosition)) {
@@ -98,9 +96,14 @@ public class RacingGame {
 			sb.append(", ");
 			i++;
 		}
-		sb.deleteCharAt(sb.length()-1);
-		sb.deleteCharAt(sb.length()-1);
+		sb.deleteCharAt(sb.length() - 1);
+		sb.deleteCharAt(sb.length() - 1);
 		return sb.append(FINISH).toString();
+	}
+
+	private int getMaxPosition() {
+		Arrays.sort(cars);
+		return cars[0].getPosition();
 	}
 
 	public static void main(String[] args) {
