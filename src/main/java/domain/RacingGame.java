@@ -116,6 +116,22 @@ public class RacingGame {
         return dash;
     }
 
+    public void showFinalWinner() {
+        String winnerCarNames = "";
+        for (int index = 0; index < this.cars.length; index++) {
+            Car car = this.cars[index];
+            if (car.getPosition() == this.maxPosition) {
+                winnerCarNames += car.getName() + ",";
+            }
+        }
+        winnerCarNames = winnerCarNames.substring(0, winnerCarNames.length() - 1);
+        this.showMessage(winnerCarNames + "가 최종 우승했습니다.");
+    }
+
+    public void showEmptySpace() {
+        System.out.println("\n");
+    }
+
     public void showMessage(String msg) {
         System.out.println(msg);
     }
