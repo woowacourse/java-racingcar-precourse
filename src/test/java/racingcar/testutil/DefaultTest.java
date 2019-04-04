@@ -26,6 +26,4 @@ abstract class DefaultTest {
     public void printResult() {
         System.out.format("%d/%d CORRECT!\n", correctAnswer, testCount);
     }
-
-    ;
 }
