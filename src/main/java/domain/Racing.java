@@ -8,7 +8,12 @@
 
 package domain;
 
+import java.util.*;
+
 public class Racing {
+    private List<Car> cars = new ArrayList<>();
+    private int movingNumber = 0;
+
     public void run() {
         setCar();
         setMovingNumber();
@@ -19,11 +24,17 @@ public class Racing {
     }
 
     public void setCar() {
-        
+        UserInput userInput = new UserInput();
+        String[] names = userInput.enterCar();
+
+        for (String name : names) {
+            cars.add(new Car(name));
+        }
     }
 
     public void setMovingNumber() {
-
+        UserInput userInput = new UserInput();
+        movingNumber = userInput.enterMovingNumber();
     }
 
     public void startRacing() {
