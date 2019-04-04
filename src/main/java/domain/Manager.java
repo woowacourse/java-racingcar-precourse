@@ -18,7 +18,15 @@ public class Manager {
 
         System.out.println("실행 결과");
         for(int i=0; i<tryCount; i++){
+            playIthTurn();
+        }
+    }
 
+    public void playIthTurn(){
+        for(int i=0; i<carList.size(); i++){
+            if(3 < getRandomNumber()){
+                carList.get(i).forward();
+            }
         }
     }
 
