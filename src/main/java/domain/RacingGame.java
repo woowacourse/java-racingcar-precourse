@@ -26,7 +26,7 @@ public class RacingGame {
 		private static final String EXECUTION_RESULT = "\n실행 결과";
 		private static final String POSITION_OF_CAR = "-";
 		private static final String BLANK = "";
-
+		
 		private String[] carNameList;
 		private Car[] racingCars;
 		private int numOfTry;
@@ -36,6 +36,7 @@ public class RacingGame {
 				getNumOfTry();
 				prepareRacingCars();
 				startRacing();
+				finishRacing();
 		}
 
 		private void getCarNames() {
@@ -98,5 +99,26 @@ public class RacingGame {
 						System.out.print(POSITION_OF_CAR);
 				}
 				System.out.println(BLANK);
+		}
+	
+		/**
+		 * 경기를 마치는 메소드로 우승자를 선정하는 메소드와 출력하는 메소드로 이루어져
+		 * 있습니다.
+		 */
+		private void finishRacing() {
+				decideWinner();
+				printWinner();
+		}
+	
+		/**
+		 * 우승자를 선정하는 메소드로 가장 많이 이동한 거리를 구하는 메소드와 가장 많은
+		 * 거리를 이동한 자동차의 이름을 구하는 메소드로 구성되어 있습니다.
+		 */
+		private void decideWinner() {
+
+		}
+		
+		private void printWinner() {
+				
 		}
 }
