@@ -17,6 +17,27 @@ public class RacingCars {
         this.cars = cars;
     }
 
+    public List<Car> getWinners() {
+        List<Car> winners = new ArrayList<>();
+
+        int maxPosition = calculateMaxPosition();
+
+        for (Car car : cars) {
+            if (maxPosition == car.getPosition())
+                winners.add(car);
+        }
+
+        return winners;
+    }
+
+    private int calculateMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars)
+            maxPosition = Math.max(car.getPosition(), maxPosition);
+
+        return maxPosition;
+    }
+
     private void validateSize(List<Car> cars) {
         if (cars.size() < MIN_CAR_SIZE)
             throw new IllegalArgumentException("자동차 이름을 " + MIN_CAR_SIZE + "개 이상 입력해주세요.");
