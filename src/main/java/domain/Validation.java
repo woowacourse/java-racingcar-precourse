@@ -22,7 +22,13 @@ public class Validation {
 		
 		/** 사용자로부터 입력 받은 차 이름의 개수가 하나인지 확인하는 함수에서 사용되는 상수 */
 		private static final int ONLY_ONE_CAR = 1;
-			
+		private static final int MIN_NUMBER_OF_MOVING_CONDITION = 4;
+		private static final int MAX_NUMBER_OF_MOVING_CONDITION = 9;
+		
+		/** 실제 코드에 쓰이는 상수(RANDOM_NUMBER)와 랜덤 숫자의 최대 범위가 1 차이가 있어서 만든 상수
+		 * 움직이는 조건을 변경하고자 하면 상수 MAX_NUMBER_OF_MOVING_CONDITION 에서 변경 */
+		private static final int RANDOM_NUMBER = MAX_NUMBER_OF_MOVING_CONDITION + 1;
+	
 		private static final String NAME_LENGTH_ERROR = "자동차 이름은 1자 이상 5자 이하만 가능합니다.";
 		private static final String NUM_OF_NAME_ERROR = "두 대 이상의 자동차 이름이 필요합니다.";
 		private static final String NUM_OF_TRY_ERROR = MIN_NUMBER_OF_TRY + " 이상 " 
@@ -80,5 +86,10 @@ public class Validation {
 				System.out.println(NUM_OF_TRY_ERROR);
 				return false;
 
+		}
+
+		public static boolean isValidMovingCondition() {
+				int randomNum = (int)(Math.random() * RANDOM_NUMBER);
+				return (randomNum >= MIN_NUMBER_OF_MOVING_CONDITION ? true : false);
 		}
 }
