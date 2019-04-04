@@ -1,12 +1,12 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class DuringRace {
 
     private static final int RAMDOM_NUMBER_MAX = 10;                        // 난수 범위
-    private static final int SET = 1;                                       // 저장 위치
     private static final int ALLOW_GO = 3;                                  // 전진 가능한 최소 난수
 
     /* 시도 횟수를 입력받는 메소드 */
@@ -78,10 +78,9 @@ public class DuringRace {
     /* 시도 횟수만큼 진행하는 메소드 */
     public void runRacingGame(Car[] cars){
 
-        System.out.println("실행 결과");
-
         int moveNumber = getRacingCarMove();
 
+        System.out.println("실행 결과");
         for(int i = moveNumber; i>0; i--){
 
             /* 입력받은 값만큼 반복*/
@@ -91,8 +90,8 @@ public class DuringRace {
         showWinner(cars);                                                   // 우승 자동차 출력
     }
 
-    /* 우승 자동차 출력*/
-    public void showWinner(Car[] cars){
+    /* 1등 자동차 전진 횟수 반환 하는 메소드 */
+    public int mostGoValue(Car[] cars){
 
         int mostGoValue = cars[0].getPosition();                     // 가장 많이 전진한 값을 저장하기 위한 변수
 
@@ -105,17 +104,30 @@ public class DuringRace {
                 mostGoValue = cars[i].getPosition();                 // 최대 전진횟수 값 변경
             }
         }
+        return mostGoValue;
+    }
 
+    /* 1등 자동차이름 저장 하는 메소드 */
+    public ArrayList<String> winnerCarList(Car[] cars){
+
+        ArrayList<String> winnerCarList = new ArrayList<String>();
+        int mostGoNumber = mostGoValue(cars);
         for(int i=0;i<cars.length;i++){
 
             /* cars 배열의 크기 만큼 반복 */
-            if(cars[i].getPosition() == mostGoValue){
+            if(cars[i].getPosition() == mostGoNumber){
 
                 /* 최대 전진 횟수 하고 같을 경우 */
-                cars[SET].firstCarName.add(cars[i].getName());       // SET 위치의 ArrayList에 저장
+                winnerCarList.add(cars[i].getName());       // SET 위치의 ArrayList에 저장
             }
         }
+        return winnerCarList;
+    }
 
-        System.out.println(String.join(",",cars[SET].firstCarName) + "가 최종 우승 했습니다");
+    /* 우승 자동차 출력*/
+    public void showWinner(Car[] cars){
+
+        ArrayList<String> finalWinner = winnerCarList(cars);
+        System.out.println(String.join(",",finalWinner) + "가 최종 우승 했습니다");
     }
 }
