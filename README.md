@@ -1,5 +1,5 @@
 # java-racingcar
-Car Racing Game을 하기 위한 객체와 필드, 메소드 등을 구현하는 프로젝트
+Car Racing Game을 하기 위한 클래스와 필드, 메소드 등을 구현하는 프로젝트
 
 ## 기능목록
 **1. Car 클래스**: 레이싱 게임을 하는 주체인 Car를 생성하고 기능을 정의
