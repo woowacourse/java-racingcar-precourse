@@ -37,6 +37,6 @@ class Car {
     }
 
     boolean isMovable() {
-        return RandomUtils.getRandomNumberBetween(1, 9) >= 4;
+        return RandomUtils.getRandomNumberBetween(0, 9) >= 4;
     }
 }
