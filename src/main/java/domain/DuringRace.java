@@ -63,7 +63,7 @@ public class DuringRace {
         for(int i=0;i<cars.length;i++){
 
             /* Car배열의 크기 만큼 반복 */
-            System.out.print(cars[i].getName(cars[i]) + " : ");
+            System.out.print(cars[i].getName() + " : ");
 
             for(int j=0;j<cars[i].carResult.size();j++){
 
@@ -112,7 +112,7 @@ public class DuringRace {
             if(cars[i].getPosition() == mostGoValue){
 
                 /* 최대 전진 횟수 하고 같을 경우 */
-                cars[SET].firstCarName.add(cars[i].getName(cars[i]));       // SET 위치의 ArrayList에 저장
+                cars[SET].firstCarName.add(cars[i].getName());       // SET 위치의 ArrayList에 저장
             }
         }
 

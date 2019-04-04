@@ -81,7 +81,7 @@ public class Car {
     }
 
     /* 자동차 이름 반환 하는 메소드 */
-    public String getName(Car car){
+    public String getName(){
 
         return this.name;
     }
