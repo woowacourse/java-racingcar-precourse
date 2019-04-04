@@ -1,5 +1,17 @@
 # 2주차 미션 - 자동차 경주 게임
 ***
+
+## 기능 흐름도
+1. 자동차 이름 입력 - UserInput.java - setCarNames()
+2. 자동차 객체 생성 - RacingGame.java - setCarObject()
+3. 자동차 이름 출력 - RacingGame.java - printCarNames()
+4. 시도할 회수 입력 - UserInput.java - setNumberOfAttep()
+5. 자동차 이동 - RacingGame.java - moveCar()
+6. 우승자 확인 - RacingGame.java - getWinner()
+7. 우승자 출력 - RacingGame.java - printWinner()
+8. 게임 진행 - RacingGame.java - main()
+
+***
 	
 ## 기능
 1. UserInput 클래스 : 사용자의 입력을 처리하는 클래스
