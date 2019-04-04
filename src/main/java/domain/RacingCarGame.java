@@ -47,8 +47,10 @@ public class RacingCarGame {
     }
 
     public List<String> getWinners() {
+        final int MAX_POSITION = getMaxPosition();
+
         return cars.stream()
-                .filter(car -> car.isEqualPosition(getMaxPosition()))
+                .filter(car -> car.isEqualPosition(MAX_POSITION))
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
