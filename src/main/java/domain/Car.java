@@ -40,13 +40,34 @@ public class Car {
             Scanner reader = new Scanner(System.in);
             userInput = reader.nextLine();
             userInputArray = userInput.split(",");
-            if ((isNameLengthBetweenOneAndFive(userInputArray) == IS_SOMETHING_WRONG) && (isDuplicate(userInputArray) == IS_SOMETHING_WRONG)) {
+            if ((isNameLengthBetweenOneAndFive(userInputArray) == IS_SOMETHING_WRONG) && (isDuplicate(userInputArray) == IS_SOMETHING_WRONG)
+            && (isNameAllWhitespace(userInputArray) == IS_SOMETHING_WRONG)) {
                 break;
             }
         }
         return userInputArray;
     }
 
+    private static boolean isNameAllWhitespace(String[] userInputArray) {
+        for (int i=0; i<userInputArray.length; i++) {
+            if(countWhitespaces(userInputArray[i]) == userInputArray[i].length()) {
+                System.out.println("이름중에 Whitespace만으로 이루어진 이름이 있습니다. 한글자라도 넣어주세요!");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static int countWhitespaces(String userInput) {
+        int count = 0;
+        int n = userInput.length();
+        for (int i=0; i < n; i++) {
+            if(userInput.charAt(i) == ' ') {
+                count++;
+            }
+        }
+        return count;
+    }
     private static boolean isDuplicate(String[] userInputArray) {
         for (int i = 0; i < userInputArray.length; i++) {
             if (count(userInputArray, userInputArray[i]) > 1) {
