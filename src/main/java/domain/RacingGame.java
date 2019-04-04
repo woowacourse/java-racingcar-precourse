@@ -90,6 +90,32 @@ public class RacingGame {
         this.setMaxPosition(0);
     }
 
+    public void doRacing() {
+        for (int i = 0; i < this.cars.length; i++) {
+            Car car = this.cars[i];
+            car.race();
+
+            int newPosition = car.getPosition();
+            if (newPosition > this.maxPosition) {
+                this.setMaxPosition(newPosition);
+            }
+
+            this.showCarStatus(car.getName(), newPosition);
+        }
+    }
+
+    public void showCarStatus(String name, int newPosition) {
+        this.showMessage(name + ": " + makePositionToDash(newPosition));
+    }
+
+    public String makePositionToDash(int position) {
+        String dash = "";
+        for (int index = 0; index < position; index++) {
+            dash += "-";
+        }
+        return dash;
+    }
+
     public void showMessage(String msg) {
         System.out.println(msg);
     }
