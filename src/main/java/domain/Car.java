@@ -36,4 +36,14 @@ public class Car {
         }
         this.position += distance;
     }
+
+    public String visualizePosition() {
+        int currentPosition = this.getPosition();
+        String visualizedPosition = "";
+        String hyphen = "-";
+        for (int i = 0; i < currentPosition; i++) {
+            visualizedPosition += hyphen;
+        }
+        return visualizedPosition;
+    }
 }
