@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class RacingStation {
 
 	private Scanner scan = new Scanner(System.in);
-	public Car[] carArray;
+	private Car[] carArray;
 
 	public void getCarArray() {
 		CarFactory factory = new CarFactory();
