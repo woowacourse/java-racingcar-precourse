@@ -55,8 +55,8 @@ public class Car {
 <br/>
 <br/>
 
-
-## *구현 할 기능 목록*
+# version 1 - 클래스 분리 
+## *구현 할 기능 목록* 
 ---------------------------------------------
 ## 1. class Car
  - ### variables
@@ -81,7 +81,7 @@ public class Car {
   |:-------|:-------|:-------:|
   |**MAXCARNAMENUMBER**|자동차 이름 입력 최대값 나타내는 상수|O|
   |**MAXRANDOMNUMBER**|랜덤 값 생성 시 최대값 나타내는 상수|O|
-  |**MINMOVENUMBER**|차가 움직일 수 있는 최소 숫자|O|
+  |**MAXCARNAMENUMBER**|차 이름 최대 길이|O|
   
   
  - ### variables
@@ -116,10 +116,123 @@ public class Car {
 
 
 
+# version 2 - 클래스 분리 작업 완료
+## *기능 목록* 
+---------------------------------------------
+## 1. class Car
+ - ### variables
+  |변수 명|변수 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**name**|차의 이름을 저장할 변수|O|
+  |**position**|차의 위치를 저장할 변수|O|
+  
+ - ### methods
+  |메소드 명|메소드 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**printName()**|차의 이름을 출력하는 메서드|O|
+  |**moveCar()**|차가 전진하는 메서드|O|
+  |**printPosition()**|차의 위치를 출력하는 메서드|O|
+  |**getPosition()**|차의 위치를 반환하는 메서드|O|
+  
+<br/>
+  
+  ## 2. class Game
+ - ### variables
+  |변수 명|변수 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**inputer**|입력 관련 작업을 할 객체|O|
+  |**printer**|출력 관련 작업을 할 객체|O|
+  |**operator**|내부 동작 작업을 할 객체|O|
+  |**trialNumber**|시도 횟수를 저장할 변수|O|
+  |**cars**|Car형 배열을 저장할 배열|O|  
+  
+ - ### methods
+  |메소드 명|메소드 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**start()**|게임을 시작하는 메서드|O|
+  |**playOneCycle()**|게임을 1회 시도하는 메서드|O|
+  |**settingInputValue()**|초기 입력 화면 출력 및 값 입력 동작 수행하는 메서드|O|
+  |**settingCarNames()**|차의 이름을 세팅하는 메서드|O|
+  |**settingTrialNumber()**|시도 횟수를 세팅하는 메서드|O|
+  |**playGame()**|게임 진행하는 메서드|O|
+  |**printResult()**|결과를 출력하는 메서드|O|
+  |**excutingOneCar()**|차의 이름을 세팅하는 메서드|O|
+    
+<br/>
+  
+  ## 3. class InputUtility
+ - ### constants
+  |상수 명|상수 설명|값|수행 여부|
+  |:-------|:-------|:-------:|:-------:|
+  |**MAXCARNAMENUMBER**|차의 이름 최대 길이|5|O|
+  
+ - ### variables
+  |변수 명|변수 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**trialNumber**|시도 횟수를 저장할 변수|O|
+  |**cars**|Car형 배열을 저장할 배열|O|   
+  
+ - ### methods
+  |메소드 명|메소드 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**getCars()**|차 배열을 반환|O|
+  |**getTrialNumber()**|시도 횟수를 반환|O|
+  |**inputCarNames()**|자동차 이름들을 입력받는 메서드|O|
+  |**inputTrialNumber()**|시도 횟수 입력하는 메서드|O|
+  |**checkInputCarNames()**|각각의 자동차 이름에 대한 예외 검사하는 메서드|O|
+  |**checkInputOneCarNames()**|하나의 자동차 이름이 올바른지 검사하는 메서드|O|
+  |**checkCarNameLength()**|자동차 이름 길이에 대한 검사를 하는 메서드|O|
+  |**checkCarNameFormat()**|자동차 이름 형식에 대한 검사를 하는 메서드|O|
+  |**makeCars()**|자동차 배열을 생성하는 메서드|O|
+    
+<br/>
+  
+  ## 4. class InternalOperation
+ - ### constants
+  |상수 명|상수 설명|값|수행 여부|
+  |:-------|:-------|:-------:|:-------:|
+  |**MAXRANDOMNUMBER**|차의 이름 최대 길이|10|O|
+  |**MINMOVENUMBER**|차의 이름 최대 길이|5|O|
+  
+ - ### methods
+  |메소드 명|메소드 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**isMove()**|전진할지 정지할지를 결정하는 메서드|O|
+  |**getMaxPosition()**|최대로 이동한 위치를 구하는 메서드|O|
+  |**compareOneCarPosition()**|각각의 자동차에 대해 최대 전진 수보다 큰지 비교하는 메서드|O|
+    
+<br/>
+  
+  ## 5. PrintUtility
+ - ### variables
+  |변수 명|변수 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**isFirstWinner**|첫번째 우승자인지 구분하기 위한 변수|O|
+  
+ - ### methods
+  |메소드 명|메소드 설명|수행 여부|
+  |:-------|:-------|:-------:|
+  |**printCarNamesInputMessage()**|자동차 이름 입력 지시하는 메세지 출력 메서드|O|
+  |**printTrialNumberInputMessage()**|시도 횟수 입력을 지시하는 메서드|O|
+  |**printResultMessage()**|'실행 결과'메세지 출력하는 메서드|O|
+  |**printWinnerMessage()**|우승자 메세지를 출력하는 메서드|O|
+  |**printCarName()**|하나의 차 이름 + ':"를 출력하는 메서드|O|
+  |**printOneWinnerCarName()**|하나의 우승자 차 이름을 출력하는 메서드|O|
+  |**printComma()**|우승자가 여러명일 경우 이름 사이에 ','를 출력하는 메서드|O|
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
 
 ## *예외처리 목록*
 ##### (수행 시 취소선 적용)
 ---------------------------------------------
-+ 자동차 이름 입력, 알파벳이 아닐 경우 ex) asd30, asd1a, vsf!
-+ 자동차 이름 입력, 자동차 이름 길이가 6이상일 경우 ex) abcdef, asdasdas
-+ 시도 횟수 입력, 양의 정수가 아닐 경우 ex) -1, 0, a, !
++ ~~자동차 이름 입력, 알파벳이 아닐 경우 ex) asd30, asd1a, vsf!~~
++ ~~자동차 이름 입력, 자동차 이름 길이가 6이상일 경우 ex) abcdef, asdasdas~~
++ ~~시도 횟수 입력, 양의 정수가 아닐 경우 ex) -1, 0, a, !~~
