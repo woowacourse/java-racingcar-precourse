@@ -30,7 +30,6 @@
 3. 메서드 3 _ static public int userInMove() 실행
 4. 메서드 4 _ static public void doRace(int moveIn) 실행
 5. 메서드 5 _ static public void selectWinner() 실행
-6. 메서드 6 _ static public void printWinner() 실행
 
 
 
@@ -72,11 +71,12 @@
 
  cars에 담겨있는 객체들의 position 변수에 접근하여 우승자를 찾는 메서드이다. Car class의 getPos메서드를 사용하여 우승자를 찾는다.
 
+- **메서드 5-1. static public void printWinner()**
+  -  메서드 6에서 구한 우승자를 콘솔창에 출력하는 메서드이다.
 
 
-#### 메서드 6. static public void printWinner()
 
- 메서드 6에서 구한 우승자를 콘솔창에 출력하는 메서드이다.
+
 
 
 
@@ -98,7 +98,14 @@
 
 #### 메서드 2. public int getPos()
 
- Car class 필드중 private position 변수의 값을 알아내는 메서드이다.
+ Car class 필드 중 private position 변수의 값을 알아내는 메서드이다.
 
 - @return position: 자동차 클래스의 private position 변수
 
+
+
+#### 메서드 3. public String getName()
+
+ Car class 필드 중 private name 문자열의 값을 알아내는 메서드이다.
+
+- @return name: 자동차 클래스의 private name 문자열

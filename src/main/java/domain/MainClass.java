@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * MainClass: 자동차 경주 게임을 담당하는 클래스이다.
  *
- * @author 김선관
+ * @author  김선관
  * @version ver1.0.0
  */
 public class MainClass {
@@ -29,8 +29,8 @@ public class MainClass {
         cars = makeCar(names);
         moveIn = userInMove();
         doRace(moveIn);
-//        selectWinner();
-//        printWinner();
+        selectWinner();
+
         scanner.close();
     }
 
@@ -87,7 +87,7 @@ public class MainClass {
             if (moveIn <= 0) {
                 break;
             }
-            //TODO
+
             for (int i = 0; i < names.length; ++i) {
                 cars[i].goStop();
             }
@@ -111,6 +111,29 @@ public class MainClass {
         System.out.print("\n\n");
     }
 
-//    selectWinner;
-//    printWinner;
+    /**
+     * selectWinner:
+     */
+    static public void selectWinner() {
+        int maxPos = cars[0].getPos();
+
+        for (int i = 1; i < names.length; ++i) {
+            if (cars[i].getPos() > maxPos) {
+                maxPos = cars[i].getPos();          //전체 Car 객체 중 가장 높은 최대 position값을 구한다.
+            }
+        }
+        for (int i = 0; i < names.length; ++i) {
+            if (cars[i].getPos() == maxPos) {
+                printWinner(i);                     //최대 position값과 같은 position값을 갖고 있는 객체의 이름을 전부 출력.
+            }
+        }
+        System.out.println("\b\b가 최종 우승했습니다.");
+    }
+
+    /**
+     * printWinner:
+     */
+    static public void printWinner(int carIndex) {
+        System.out.print(cars[carIndex].getName() + ", ");
+    }
 }
