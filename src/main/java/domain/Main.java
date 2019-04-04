@@ -6,6 +6,12 @@
 
 package domain;
 
+/**
+ * Main class
+ *
+ * @author 김효건
+ * @version 1.1 2019년 04월 04일
+ */
 
 public class Main {
         /*메인 클래스
