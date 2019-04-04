@@ -7,5 +7,6 @@ public class Main {
         race.setCarNames();
         race.setPlayTime();
         race.showRaceResult();
+        race.showWinner();
     }
 }

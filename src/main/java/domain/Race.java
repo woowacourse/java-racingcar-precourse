@@ -39,6 +39,13 @@ public class Race {
         }
     }
 
+    public void showWinner() {
+        ArrayList<String> winnerList = determineWinner();
+        String winners = String.join(", ", winnerList);
+
+        System.out.println(winners + "가 최종 우승했습니다.");
+    }
+
     private String getInputCarNames() {
         Scanner scan = new Scanner(System.in);
 
@@ -51,6 +58,7 @@ public class Race {
 
         for (String names : parsedNames) {
             if (names.length() > 5) {
+                System.out.println("자동차 이름은 5자 이하만 가능합니다.");
                 return new ArrayList<>();
             }
         }
