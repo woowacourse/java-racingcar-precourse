@@ -19,7 +19,6 @@ java-racingcar
 4. tryMove() : 랜덤 정수(0~9)가 4 이상이면 앞으로 한칸 이동한다.
 5. printPosition() : 자동차의 현재 위치를 출력한다.
 
-
 # CarFactory
 1. getCarNameArray : 자동차 이름을 입력받아 ","으로 split하여 저장한다.
 2. makeCars() : 입력받은 자동차 이름을 바탕으로 Car[] Array를 생성하여 반환한다.
