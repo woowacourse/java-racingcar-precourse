@@ -1,5 +1,6 @@
 package domain;
 
+import domain.Car;
 
 public class RacingGame {
 	private Car[] cars;
@@ -14,6 +15,10 @@ public class RacingGame {
 		printCarNames();
 		
 		numberOfAttemp = user.setNumberOfAttep();
+		System.out.println();
+		for (int i = 0; i < numberOfAttemp; i++) {
+			moveCar();
+		}
 	}
 	
 	private void setCarObject () {
@@ -31,6 +36,15 @@ public class RacingGame {
 			if (i != cars.length-1) {
 				System.out.print(",");
 			}
+		}
+		System.out.println();
+	}
+	
+	private void moveCar() {
+		for (Car car : cars) {
+			car.randomMovingDistance();
+			car.increasePosition();
+			car.printMovingDistance();
 		}
 		System.out.println();
 	}
