@@ -1,11 +1,8 @@
 package domain;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class OutputViewTest {
 	List<Car> testCarList1 = new ArrayList<Car>();

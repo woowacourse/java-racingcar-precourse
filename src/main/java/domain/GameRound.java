@@ -6,6 +6,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 class GameRound {
 
@@ -17,8 +18,14 @@ class GameRound {
 
 	public void proceed() {
 		for (Car car : this.carList) {
-			car.moveCar();
+			car.moveCar(getRandomNumber());
 		}
+	}
+
+	private int getRandomNumber() {
+		Random randomNumberMaker = new Random();
+		int randomNumber = randomNumberMaker.nextInt(10);
+		return randomNumber;
 	}
 
 	public void printOneRound() {

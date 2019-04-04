@@ -4,8 +4,6 @@
 
 package domain;
 
-import java.util.Random;
-
 class Car {
     private final String name;
     private int position = 0;
@@ -23,17 +21,10 @@ class Car {
         return this.position;
     }
 
-    public void moveCar() {
-        int randomNumber = getRandomNumber();
+    public void moveCar(int randomNumber) {
         if (randomNumber >= MIN_MOVE_NUMBER) {
             this.position++;
         }
-    }
-
-    public int getRandomNumber() {
-        Random randomNumberMaker = new Random();
-        int randomNumber = randomNumberMaker.nextInt(10);
-        return randomNumber;
     }
 
     @Override
