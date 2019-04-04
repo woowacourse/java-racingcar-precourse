@@ -39,4 +39,8 @@ class Car {
     boolean isMovable() {
         return RandomUtils.getRandomNumberBetween(0, 9) >= 4;
     }
+
+    boolean isEqualPosition(int position) {
+        return this.position == position;
+    }
 }
