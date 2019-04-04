@@ -1,5 +1,7 @@
-package domain;
+package game;
 
+import domain.Car;
+import service.GameService;
 import java.util.ArrayList;
 
 /**

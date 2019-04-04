@@ -1,4 +1,6 @@
-package domain;
+package service;
+
+import domain.Car;
 
 import java.util.ArrayList;
 import java.util.Scanner;

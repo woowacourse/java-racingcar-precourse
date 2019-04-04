@@ -1,5 +1,7 @@
 package domain;
 
+import service.NamingService;
+
 import java.util.Random;
 
 /**
