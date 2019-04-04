@@ -22,9 +22,11 @@ public class Validation {
 		
 		/** 사용자로부터 입력 받은 차 이름의 개수가 하나인지 확인하는 함수에서 사용되는 상수 */
 		private static final int ONLY_ONE_CAR = 1;
-			
+	
 		private static final String NAME_LENGTH_ERROR = "자동차 이름은 1자 이상 5자 이하만 가능합니다.";
 		private static final String NUM_OF_NAME_ERROR = "두 대 이상의 자동차 이름이 필요합니다.";
+		private static final String NUM_OF_TRY_ERROR = MIN_NUMBER_OF_TRY + " 이상 " 
+				+ MAX_NUMBER_OF_TRY + " 이하의 자연수만 가능합니다.";
 
 		public static boolean isValidCarName(String[] nameList) {
 				return isValidCarNameLength(nameList) && isValidNumOfCarName(nameList);
@@ -61,7 +63,13 @@ public class Validation {
 		}
 
 		private static boolean isNumber(String strOfTry) {
-
+				try {
+						Integer.parseInt(strOfTry);
+						return true;
+				} catch (NumberFormatException e) {
+						System.out.println(NUM_OF_TRY_ERROR);
+						return false;
+				}
 		}
 
 		private static boolean isValidRangeOfTryNum(String strOfTry) {
