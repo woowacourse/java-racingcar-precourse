@@ -18,14 +18,19 @@ public class CarRacingGame {
 		}
 		System.out.println("시도할 회수는 몇회인가요?");
 		int n = sc.nextInt();
+		this.racing(n);
 		sc.close();
 	}
 
 	private void racing(int n) {
+		System.out.println("실행 결과");
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < this.cars.length; j++) {
 				Car car = cars[j];
+				car.move();
+				car.printStatus();				
 			}
+			System.out.println();
 		}
 	}
 	
