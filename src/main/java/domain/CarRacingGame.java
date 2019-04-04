@@ -1,3 +1,14 @@
+
+/*
+ * CarRacingGame
+ *
+ * ver 1.0
+ *
+ * 2019/04/24
+ *
+ * Copyright 2019. Jieun Jeong. All ringts reserved.
+ */
+
 package domain;
 
 import java.util.ArrayList;
