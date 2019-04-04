@@ -4,7 +4,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CarTest {
-
 	private final static int MOVE_LIMIT = 6;
 	Car testCar = new Car("test");
 
@@ -16,7 +15,6 @@ public class CarTest {
 			testCar.moveCar();
 			System.out.print(testCar.getPosition() + " ");
 		}
-		System.out.println();
 	}
 
 	@Test

@@ -1,3 +1,7 @@
+/*
+ * Car.java
+ */
+
 package domain;
 
 import java.util.Random;

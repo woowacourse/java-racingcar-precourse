@@ -1,48 +1,59 @@
 /*
  * Parser.java
  */
+
 package domain;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
 class Parser {
-	private final static String regex = "\\s*,\\s*";
+	private final static String COMMA_PATTERN = ",";
+	private final static String BLANK_PATTERN = "\\s*";
+	private static final int NAME_MAX = 5;
 
-	public static List<Car> stringToListOfCar(String input) {
-		List<Car> carList = new ArrayList<Car>();
-		String[] arrayOfCars = splitCarsWithComma(input);   // 문자열 -> 배열
-		for (int i = 0; i < arrayOfCars.length; i++) {
-			carList.add(new Car(arrayOfCars[i]));
+	public static List<Car> strToListOfCar(String input) throws IllegalArgumentException {
+		checkBlank(input);
+		return makeListOfCars(input);
+	}
+
+	private static List<Car> makeListOfCars(String input) {
+		List<Car> carList = new ArrayList<>();
+		String[] strArr = splitStrWithComma(input);
+		for (String carName : strArr) {
+			carList.add(makeCar(carName.trim()));
 		}
 		return carList;
 	}
 
-	public static int stringToInt(String input) throws InvalidParameterException {
-		if (isNumber(input)) {
-			return Integer.parseInt(input);
-		}
-		throw new InvalidParameterException("숫자를 입력하세요");
+	private static Car makeCar(String carName) {
+		checkBlank(carName);
+		checkCarName(carName);
+		return new Car(carName);
 	}
 
-	private static boolean isNumber(String input) {
+	private static String[] splitStrWithComma(String inputOfCarNames) {
+		return inputOfCarNames.split(COMMA_PATTERN);
+	}
+
+	private static void checkBlank(String input) throws IllegalArgumentException {
+		if (input.matches(BLANK_PATTERN)) {
+			throw new IllegalArgumentException("빈 칸을 입력했습니다");
+		}
+	}
+
+	private static void checkCarName(String input) throws IllegalArgumentException {
+		if (input.length() > NAME_MAX) {
+			throw new IllegalArgumentException("자동차 이름을 5자 이상 입력했습니다");
+		}
+	}
+
+	public static int strToInt(String input) throws IllegalArgumentException {
 		try {
-			Integer.parseInt(input);
-			return true;
+			return Integer.parseInt(input);
 		} catch (NumberFormatException e) {
-			return false;
+			throw new IllegalArgumentException("숫자를 입력해주세요");
 		}
 	}
 
-	private static String[] splitCarsWithComma(String inputOfCarNames) {
-		String[] arrayOfCarName;
-		inputOfCarNames = eraseBlank(inputOfCarNames);
-		arrayOfCarName = inputOfCarNames.split(regex);
-		return arrayOfCarName;
-	}
-
-	private static String eraseBlank(String input) {
-		return input.trim();
-	}
 }

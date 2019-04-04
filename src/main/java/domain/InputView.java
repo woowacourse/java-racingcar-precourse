@@ -8,33 +8,27 @@ import java.util.List;
 import java.util.Scanner;
 
 class InputView {
-	private static final int NAME_MAX = 5;
 
 	public static List<Car> getCarsList() {
-		List<Car> carList = null;
 		while (true) {
-			System.out.println("경주할 자동차 이름을 입력하세요.(이름을 쉼표(,) 기준으로 구분");
-			carList = Parser.stringToListOfCar(getInput());
-			if (checkValidCarList(carList)) {
-				break;
-			}
-			System.out.println("5자 이하의 자동차 이름을 입력하세요.");
-		}
-		return carList;
-	}
-
-	private static boolean checkValidCarList(List<Car> carList) {
-		for (Car car : carList) {
-			if (car.getName().length() > NAME_MAX) {
-				return false;
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름을 쉼표(,) 기준으로 구분)");
+			try {
+				return Parser.strToListOfCar(getInput());
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
 			}
 		}
-		return true;
 	}
 
 	public static int getGameCount() {
-		System.out.println("시도할 회수는 몇 회인가요?");
-		return Parser.stringToInt(getInput());
+		while (true) {
+			System.out.println("시도할 회수는 몇 회인가요?");
+			try {
+				return Parser.strToInt(getInput());
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+			}
+		}
 	}
 
 	private static String getInput() {

@@ -25,6 +25,6 @@ public class GameRoundTest {
 	public void printGameRounds() {
 		testGameRound.proceed();
 		testGameRound.proceed();
-		testGameRound.printGameRounds();
+		testGameRound.printOneRound();
 	}
 }

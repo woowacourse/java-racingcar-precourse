@@ -12,19 +12,21 @@ class OutputView {
 		System.out.println("실행 결과");
 		GameRound gameRound = new GameRound(carList);
 		printGameRounds(gameRound, gameCount);
-		printResult(gameRound);
+		if (gameCount > 0) {
+			printResult(gameRound);
+		}
 	}
 
 	private static void printGameRounds(GameRound gameRound, int gameCount) {
 		for (int i = 0; i < gameCount; i++) {
 			gameRound.proceed();
-			gameRound.printGameRounds();
+			gameRound.printOneRound();
 			System.out.println();
 		}
 	}
 
 	private static void printResult(GameRound finalRound) {
-		System.out.println(finalRound.getWinnerString() + "가 우승했습니다");
+		System.out.println(finalRound.getWinnerString() + "가 최종 우승했습니다");
 	}
 
 }
