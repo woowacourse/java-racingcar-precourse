@@ -1,5 +1,11 @@
 package domain;
 
+/**
+ * RacingGame 을 진행하는 class
+ * car 객체를 생성하고 현재 상태를 출력한다.
+ *
+ * @author 강연욱
+ */
 public class RacingGamePlay {
 
     private User user;
@@ -7,48 +13,35 @@ public class RacingGamePlay {
     private Action act;
     private Winner win;
 
-    /**
-     * User 의 입력을 받아 경주할 자동차를 셋팅한다.
-     */
+    /* User 의 입력을 받아 경주할 자동차를 셋팅한다. */
     public RacingGamePlay() {
         user = new User();
-        createCars(user.getCarNames());
+        createCarObjects(user.getCarNames());
     }
 
-    /**
-     * 게임을 진행하는 함수
-     * 실행이 완료된 후 우승자를 알려준다.
-     */
     public void play() {
         System.out.println("실행 결과");
 
-        excuteRacing();
+        excuteRacingBasedOnTrialCount();
 
         win = new Winner(cars);
-        win.getWinner();
+        win.callFindWinnerFunctions();
     }
 
-    /**
-     * 사용자가 입력한 시도 횟수에 따라 이동을 진행한다.
-     */
-    public void excuteRacing() {
+    private void excuteRacingBasedOnTrialCount() {
         int trialCount;
 
         trialCount = user.getNumberOfTrials();
         while (trialCount > 0) {
             actionAllCars();
-            output();
+            callAllCarsPrintFunction();
 
             trialCount--;
             System.out.println();
         }
     }
 
-    /**
-     * car 객체 생성(name 개수 만큼)
-     * @param carNames  : car's name 을 저장한 String 배열
-     */
-    public void createCars(String[] carNames) {
+    private void createCarObjects(String[] carNames) {
         cars = new Car[carNames.length];
 
         for (int i = 0; i < cars.length; i++) {
@@ -61,27 +54,25 @@ public class RacingGamePlay {
      * 결정된 action 에 따라서 이동 or 정지한다.
      * 정지 일 경우 이동하지 않는다(따로 함수 호출 안함)
      */
-    public void actionAllCars() {
+    private void actionAllCars() {
         for (int i = 0; i < cars.length; i++) {
             act = new Action(cars[i]);
             act.actBasedOnDecision();
         }
     }
 
-    /**
-     * 전체 car 객체의 상태를 출력
-     */
-    public void output() {
+    private void callAllCarsPrintFunction() {
         for (int i = 0; i < cars.length; i++) {
-            print(cars[i]);
+            printNowCarPosition(cars[i]);
         }
     }
 
     /**
      * car 객체 이름과 현재 position 을 출력한다.
-     * @param car   : 자동차 객체
+     *
+     * @param car : 자동차 객체
      */
-    public void print(Car car) {
+    private void printNowCarPosition(Car car) {
         System.out.format("%s : ", car.getName());
         for (int i = 0; i < car.getPosition(); i++) {
             System.out.printf("-");
