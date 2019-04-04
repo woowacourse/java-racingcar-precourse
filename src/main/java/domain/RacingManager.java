@@ -38,10 +38,4 @@ public class RacingManager {
         } while (!validator.isNumber(totalTrial));
         return Integer.parseInt(totalTrial);
     }
-
-    public void sendMoveSignalsTo(ArrayList<Car> cars) {
-        for (Car car: cars) {
-            car.randomMove();
-        }
-    }
 }

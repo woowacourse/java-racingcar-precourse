@@ -15,29 +15,22 @@ import domain.*;
 import java.util.ArrayList;
 
 public class RacingCarGame {
-    private RacingManager racingManager;
     private TrackingCenter trackingCenter;
-    private ArrayList<Car> cars;
-    private int totalTrial = 0;
 
     public RacingCarGame() {
-        racingManager = new RacingManager();
         trackingCenter = new TrackingCenter();
-        cars = new ArrayList<Car>();
     }
 
-    public void setCars() {
-        cars = racingManager.getInitializedCars();
+    public void moveCars(ArrayList<Car> cars) {
+        for (Car car: cars) {
+            car.randomMove();
+        }
     }
 
-    public void setTotalTrial() {
-        totalTrial = racingManager.getTotalTrial();
-    }
-
-    public void start() {
+    public void start(ArrayList<Car> cars, int totalTrial) {
         System.out.println("\n실행 결과");
         for (int trial = 1; trial <= totalTrial; trial++) {
-            racingManager.sendMoveSignalsTo(cars);
+            moveCars(cars);
             trackingCenter.detectPositionsOf(cars);
             trackingCenter.showPositions();
         }
@@ -46,9 +39,10 @@ public class RacingCarGame {
 
     public static void main(String args[]) {
         RacingCarGame racingCarGame = new RacingCarGame();
+        RacingManager racingManager = new RacingManager();
+        ArrayList<Car> cars = racingManager.getInitializedCars();
+        int totalTrial = racingManager.getTotalTrial();
 
-        racingCarGame.setCars();
-        racingCarGame.setTotalTrial();
-        racingCarGame.start();
+        racingCarGame.start(cars, totalTrial);
     }
 }
