@@ -21,7 +21,7 @@ public class Car {
     }
 
     /**
-     * 자동차가 전진하거나 멈춰있는 기능을 구현한 메소드
+     * goStop: 자동차가 전진하거나 멈춰있는 기능을 구현한 메소드
      */
     public void goStop() {
         Random random = new Random();
