@@ -18,7 +18,11 @@ public class Validation {
 		private static final int MIN_LENGTH_OF_NAME = 1;
 		private static final int MAX_LENGTH_OF_NAME = 5;
 		
+		/** 사용자로부터 입력 받은 차 이름의 개수가 하나인지 확인하는 함수에서 사용되는 상수 */
+		private static final int ONLY_ONE_CAR = 1;
+	
 		private static final String NAME_LENGTH_ERROR = "자동차 이름은 1자 이상 5자 이하만 가능합니다.";
+		private static final String NUM_OF_NAME_ERROR = "두 대 이상의 자동차 이름이 필요합니다.";
 
 		public static boolean isValidCarName(String[] nameList) {
 				return isValidCarNameLength(nameList) && isValidNumOfCarName(nameList);
@@ -36,7 +40,17 @@ public class Validation {
 				return true;
 		}
 
+		/**
+		 * 사용자로부터 입력받은 자동차의 이름이 하나인지 아닌지 확인합니다.
+		 * @param nameList - 사용자로부터 입력받은 자동차 이름들의 리스
+		 * @return false - 입력받은 이름이 하나인 경우
+		 * 		   true - 입력받은 이름이 두 개 이상인 경우
+		 */
 		private static boolean isValidNumOfCarName(String[] nameList) {
-
+				if (nameList.length == ONLY_ONE_CAR) {
+						System.out.println(NUM_OF_NAME_ERROR);
+						return false;
+				}
+				return true;
 		}
 }
