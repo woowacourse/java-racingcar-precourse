@@ -138,7 +138,7 @@ public class Car {
     private static boolean isNonNumberThere(String turns) {
         for (int i = 0, n = turns.length(); i < n; i++) {
             if (!(Character.isDigit(turns.charAt(i)))) {
-                System.out.println("정수인 숫자만 입력해주세요!");
+                System.out.println("양의 정수인 숫자만 입력해주세요!");
                 return true;
             }
         }
