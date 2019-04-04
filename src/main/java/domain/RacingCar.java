@@ -152,6 +152,7 @@ public class RacingCar {
      * @return int 시행할 횟수
      * */
     public int moveCount() {
+        System.out.println("시도할 횟수는 몇회인가요?");
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
@@ -229,7 +230,6 @@ public class RacingCar {
     public void play() {
         Set<String> carNames = inputCarName();
         ArrayList<Car> carList = getCarList(carNames);
-        System.out.println("시도할 횟수는 몇회인가요?");
         int count = moveCount();
         for (int i = 0; i < count; i++) {
             moveCars(carList);
