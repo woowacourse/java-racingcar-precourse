@@ -37,7 +37,7 @@ public class InputErrorTest {
     }
 
     @Test
-    public void isInputCarNameFormat_Overrun_Name_Size_Input() {
+    public void isInputCarNameFormat_Exceed_Name_Size_Input() {
         String input = "pobi,crong,honux,Antonio";
 
         boolean isValid = InputError.isInputCarNameFormat(input);

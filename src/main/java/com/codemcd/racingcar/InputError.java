@@ -38,7 +38,7 @@ public class InputError {
         return result;
     }
 
-    private static boolean isOverrunMaxSize(String[] input) {
+    private static boolean isExceedMaxSize(String[] input) {
         for (int i = 0; i < input.length; ++i) {
             if (input[i].length() > MAX_CAR_NAME_LENGTH) {
                 return true;
@@ -54,7 +54,7 @@ public class InputError {
             System.out.println("<오류>: 잘못된 형식입니다. 쉼표는 하나만 사용하세요.");
             return false;
         }
-        if (isOverrunMaxSize(splitedInput)) {
+        if (isExceedMaxSize(splitedInput)) {
             System.out.println("<오류>: 자동차 이름이 5글자를 초과하였습니다.");
             return false;
         }
