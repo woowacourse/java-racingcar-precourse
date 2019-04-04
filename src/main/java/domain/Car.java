@@ -14,7 +14,9 @@ public class Car {
         this.name = name;
     }
 
-    public int getPosition() { return this.position; }
+    public int getPosition() {
+        return this.position;
+    }
 
     static public void enterCarName() {
         String carName[];
@@ -24,7 +26,7 @@ public class Car {
         /* 쉼표로 구분 된 이름들을 carList에 추가 */
         carName = scan.nextLine().split(",");
         carList = new ArrayList<>();
-        for (String token  :carName) {
+        for (String token : carName) {
             carList.add(new Car(token));
         }
     }
@@ -38,13 +40,14 @@ public class Car {
     public static int move() {
         //0에서 9사이 random, 4이상 전진, 3이하 그대로
         int moveOrStop = random.nextInt(10);
-        if(moveOrStop >= 4) {
+        if (moveOrStop >= 4) {
             return 1;
         }
         return 0;
     }
+
     public void printNameAndPosition() {
-        System.out.print(name+":");
+        System.out.print(name + ":");
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
@@ -52,7 +55,7 @@ public class Car {
     }
 
     static public void moveAndPrint() {
-        for (Car c  : carList) {
+        for (Car c : carList) {
             c.position += move();
             c.printNameAndPosition();
         }
@@ -67,12 +70,12 @@ public class Car {
         }
     }
 
-
     static public void printWinner() {
         /* 우승자 판단 */
         List<String> winnersList;
         int winnersPosition = carList.stream()
-                        .max(Comparator.comparing(Car::getPosition)).get().getPosition();
+                .max(Comparator.comparing(Car::getPosition))
+                .get().getPosition();
 
         winnersList = carList.stream()
                 .filter(c -> c.getPosition() == winnersPosition)
@@ -81,9 +84,8 @@ public class Car {
 
         String winner = String.join(",", winnersList);
 
-        System.out.println(winner+"가 최종 우승했습니다.");
+        System.out.println(winner + "가 최종 우승했습니다.");
     }
-
 
     public static void main(String[] args) {
         Car.enterCarName();
@@ -91,6 +93,4 @@ public class Car {
         Car.playRacingCar();
         Car.printWinner();
     }
-
-    // 추가 기능 구현
 }
