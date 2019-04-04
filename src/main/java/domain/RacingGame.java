@@ -17,6 +17,7 @@ public class RacingGame {
 	private Scanner scanner = new Scanner(System.in);
 	private Vector<Car> Cars = new Vector<Car>();
 	private int round = 0;
+	private static final int ROUND_LIMIT = 10000;
 
 	public void play() {
 		String carNameList;
@@ -72,7 +73,7 @@ public class RacingGame {
 	private int parseRound(String round) {
 		try {
 			int intRound = Integer.parseInt(round);
-			if (1 <= intRound && intRound <= 10000) {
+			if (1 <= intRound && intRound <= ROUND_LIMIT) {
 				return intRound; 
 			}
 			return -1;
