@@ -1,13 +1,13 @@
 package domain;
 
-import interfaces.ConsoleInterface;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-class Console implements ConsoleInterface {
+import static constants.ConsoleConstants.*;
+
+class Console {
 
     private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 

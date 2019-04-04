@@ -1,8 +1,8 @@
 package domain;
 
-import interfaces.CarInterface;
+import static constants.CarConstants.*;
 
-public class Car implements CarInterface {
+public class Car {
     private final String name;
     private int position = 0;
 
