@@ -12,6 +12,4 @@ public class RacingTrial {
 
         board.Print(cars);
     }
-
-
 }

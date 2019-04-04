@@ -12,7 +12,7 @@ import static org.mockito.Mockito.when;
 public class CarTest {
 
     @Test
-    public void tryMoveValidV() {
+    public void tryMoveValidValues() {
         IntStream validRandValues = IntStream.of(4, 5, 6, 7, 8, 9);
 
         validRandValues.forEach((v) -> {
@@ -31,10 +31,10 @@ public class CarTest {
     }
 
     @Test
-    public void tryMoveInvalidV() {
-        IntStream validRandValues = IntStream.of(0, 1, 2, 3);
+    public void tryMoveInvalidValues() {
+        IntStream inValidRandValues = IntStream.of(0, 1, 2, 3);
 
-        validRandValues.forEach((v) -> {
+        inValidRandValues.forEach((v) -> {
             Random mockedRand = mock(Random.class);
             when(mockedRand.nextInt(Car.MAX_RAND)).thenReturn(v);
             Car car = new Car("", mockedRand);

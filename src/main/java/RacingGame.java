@@ -12,11 +12,9 @@ public class RacingGame {
         this.trials = trials;
     }
 
-    private void hello() {
-
-    }
-
     public void play(RacingTrial racingTrial, ScoreBoard board) {
+        System.out.println("실행결과");
+
         // trials 만큼 시도하는지
         IntStream.range(0, trials).forEach((t) -> {
             racingTrial.doTrial(this.cars, board);
