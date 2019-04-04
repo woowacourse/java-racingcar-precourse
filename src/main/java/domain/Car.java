@@ -34,6 +34,4 @@ public class Car {
     public String name() {
         return this.name;
     }
-
-    // 추가 기능 구현
 }
