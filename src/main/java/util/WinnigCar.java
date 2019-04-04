@@ -19,6 +19,7 @@ public class WinnigCar {
 
     /**
      * 가장 많이 전진한 차의 전진 횟수
+     *
      * @param cars
      * @return 최대값
      */
@@ -34,6 +35,7 @@ public class WinnigCar {
 
     /**
      * 최대 횟수와 동일한 횟수로 전진한 차의 이름을 리스트에 저장
+     *
      * @param cars
      * @param maxNum
      */
@@ -54,7 +56,7 @@ public class WinnigCar {
         for (int i = 0; i < winnerSize - 1; i++) {
             System.out.print(winnerNameList.get(i) + ", ");
         }
+        //마지막 출력 우승자 뒤에는 ',' 이 붙지 않도록 따로 출력
         System.out.println(winnerNameList.get(winnerSize - 1) + FINAL_WIN);
     }
-
 }
