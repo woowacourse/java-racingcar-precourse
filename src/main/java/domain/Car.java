@@ -1,4 +1,3 @@
-package domain;
 
 public class Car {
     private final String name;  // Car class인스턴스의 name값
