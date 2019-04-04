@@ -54,7 +54,7 @@
 
 - User
 
-> 1. User()							    // 사용자 입력을 받는 함수_input() 호출
+> 1. User()							// 사용자 입력을 받는 함수_input() 호출
 > 2. void callInputFunction()					// 자동차 이름과 시행 횟수를 입력받는 함수 호출
 > 3. void inputValidCarNames() 				// 자동차 이름 유효성 검사 후 세팅 
 > 4. String[] inputStringCarNames()				// 자동차 이름 전체를 문자열로 받는 함수
