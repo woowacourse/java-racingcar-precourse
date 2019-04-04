@@ -8,7 +8,7 @@ public class RacingCarGame {
 
     private List<Car> cars;
     private int remainingPlayCount;
-    private Recorder recorder = new Recorder();
+    private Records records = new Records();
 
     private RacingCarGame(List<Car> cars, int remainingPlayCount) {
         this.cars = cars;
@@ -28,7 +28,7 @@ public class RacingCarGame {
             cars.stream()
                     .filter(Car::isMovable)
                     .forEach(Car::move);
-            recorder.saveRecord(cars);
+            records.saveRecord(cars);
 
         }
     }
@@ -41,8 +41,8 @@ public class RacingCarGame {
         remainingPlayCount--;
     }
 
-    public Recorder getRecorder() {
-        return recorder;
+    public Records getRecords() {
+        return records;
     }
 
     public List<String> getWinners() {

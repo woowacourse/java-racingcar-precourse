@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Recorder {
+public class Records {
     private final List<String> records = new ArrayList<>();
 
     void saveRecord(List<Car> cars) {
-        String query = cars.stream()
+        String record = cars.stream()
                 .map(this::parseToRecordingFormat)
                 .collect(Collectors.joining());
-        records.add(query);
+        records.add(record);
     }
 
     private String parseToRecordingFormat(Car car) {

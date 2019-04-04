@@ -1,4 +1,4 @@
-import domain.Recorder;
+import domain.Records;
 
 import java.util.List;
 import java.util.Scanner;
@@ -17,9 +17,9 @@ final class UserInterface {
         return scanner.nextInt();
     }
 
-    static void printRecords(Recorder recorder) {
+    static void printRecords(Records records) {
         System.out.println("실행 결과");
-        System.out.println(recorder.getRecords());
+        System.out.println(records.getRecords());
     }
 
     static void printWinners(List<String> winners) {

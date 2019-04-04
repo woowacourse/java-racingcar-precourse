@@ -15,7 +15,7 @@ public class RacingCar {
         final RacingCarGame racingCarGame = RacingCarGame.of(carNames, remainingPlayCount);
         racingCarGame.play();
 
-        UserInterface.printRecords(racingCarGame.getRecorder());
+        UserInterface.printRecords(racingCarGame.getRecords());
         UserInterface.printWinners(racingCarGame.getWinners());
     }
 }
