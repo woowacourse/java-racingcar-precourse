@@ -16,6 +16,20 @@ public class CarRacingGame {
         return checkResult;
     }
 
+    public static void showTrace(Car car) {
+        int oldPosition = car.getPosition();
+        int newPosition = oldPosition;
+
+        if (car.tryRun()) {
+            newPosition = oldPosition + 1;
+            car.setPosition(newPosition);
+        }
+
+        String progress = new String(new char[newPosition]).replace("\0", "-");
+
+        System.out.println(String.format("%s : %s", car.getName(), progress));
+    }
+
     public static void main(String[] args) {
         boolean isRightNames = false;
         String[] carName = new String[0];
@@ -31,18 +45,25 @@ public class CarRacingGame {
         }
 
         ArrayList<Car> carList = new ArrayList<>();
-        ArrayList<String> carTraces = new ArrayList<>();
 
         for (String e : carName) {
             Car car = new Car(e);
-            String trace = "";
 
             carList.add(car);
-            carTraces.add(trace);
         }
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("시도할 횟수는 몇회인가요? \n");
         int trialNumber = scanner.nextInt();
+
+        System.out.println("\n실행 결과");
+
+        for (int i = 0; i < trialNumber; i++) {
+            for (Car e : carList) {
+                showTrace(e);
+            }
+
+            System.out.println("\n");
+        }
     }
 }
