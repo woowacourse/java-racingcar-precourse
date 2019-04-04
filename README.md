@@ -23,6 +23,8 @@
 
 각각의 차의 위치를 다른 클래스로 반환하기 위한 메소드 ReturnCarLocation()
 
++ 차의 이름, 위치를 반환하는 메소드 getCarName(), getCarPosition()
+
 
 ### RacingGame Class
 
@@ -30,7 +32,11 @@
 
 이름에 따라 자동차 객체를 생성하는 메소드 CreateCarObject()
 
++ 자동차 객체를 생성하여 자동차 배열을 생성하는 메소드 CreateCarList()
+
 시도할 회수를 입력받는 메소드 InputTryNumber()
+
+각각의 경기에 대해 전진/정지를 실행하는 메소드 CarRacing()
 
 게임을 진행하는 메소드 StartGame()
 
@@ -38,7 +44,7 @@
 
 우승한 차를 가려내는 메소드 WhoseCarWin()
 
-우승한 차를 출력하는 메소드()
+우승한 차를 출력하는 메소드 PrintWinCar()
 
 
 ## 구현시 유의할 점
