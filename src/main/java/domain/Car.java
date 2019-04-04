@@ -17,6 +17,10 @@ public class Car {
         if(num>=4) return true;
         return false;
     }
+    public void move(){
+        if(gostop())
+            this.position++;
+    }
 
     // 추가 기능 구현
 }
