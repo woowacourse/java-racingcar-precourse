@@ -43,6 +43,14 @@ public class Racing {
             System.out.println();
         }
     }
+    public static int find_max_distance(){
+        int max=-1;
+        for(int i=0; i<car_num; i++){
+            if(cars[i].position()>max)
+                max=cars[i].position();
+        }
+        return max;
+    }
     public static void main(String[] args){
         get_input();
         racing();
