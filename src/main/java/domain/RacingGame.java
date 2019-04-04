@@ -3,8 +3,6 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Car;
-
 public class RacingGame {
 	private Car[] cars;
 	private String[] arrCarNames;
@@ -25,6 +23,7 @@ public class RacingGame {
 		}
 		
 		getWinner();
+		printWinner();
 	}
 	
 	private void setCarObject () {
@@ -68,6 +67,17 @@ public class RacingGame {
 				winner.add(car);
 			}
 		}
+	}
+	
+	private void printWinner() {
+		for (int i = 0; i < winner.size(); i++) {
+			System.out.print(winner.get(i).getName());
+			
+			if (i != winner.size()-1) {
+				System.out.print(",");
+			}
+		}
+		System.out.print("가 최종 우승했습니다.");
 	}
 	
 	public static void main(String[] args) {
