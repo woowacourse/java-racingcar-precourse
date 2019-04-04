@@ -18,7 +18,7 @@ public class User {
 
     public Vector<Car> inputCarName(){
         String input;
-        input = scanner.next();
+        input = scanner.nextLine();
         return tokenize(input);
     }
 

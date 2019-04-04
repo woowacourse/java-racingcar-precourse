@@ -19,8 +19,8 @@ public class Manager {
     public void startGame() {
         int winnerPostion=0;
 
-        while (firstQuery() == false) ;
-        while (secondQuery() == false) ;
+        while (!firstQuery()) ;
+        while (!secondQuery()) ;
 
         System.out.println("실행 결과");
         for(int i=0; i<tryCount; i++){
@@ -43,7 +43,7 @@ public class Manager {
     }
 
     public void firstWinnerOrNot(boolean isFirst, String carName){
-        if(isFirst == false) System.out.print(", ");
+        if(!isFirst) System.out.print(", ");
         System.out.print(carName);
     }
 
@@ -64,7 +64,7 @@ public class Manager {
      */
     public void printCurrentState(){
         for(int i=0; i<carList.size(); i++){
-            System.out.print(carList.get(i).getName() + ":");
+            System.out.print(carList.get(i).getName() + " : ");
 
             for(int j=0; j<carList.get(i).getPosition(); j++){
                 System.out.print("-");
