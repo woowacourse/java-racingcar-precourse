@@ -20,8 +20,8 @@ public class RacingGame {
 
   public static String[] InputCarName(){
     /*
-    * 차를 입력받는 메소드 1차 구현
-    * 아직 Car 객체를 생성하는 부분을 구현하지 않았기때문에 임시로 배열 반환
+    * 차의 이름을 입력받는 메소드
+    * 문자열을 입력받아 ,(콤마)를 기준으로 분리하여 문자열 배열 반환
     * */
     Scanner sc = new Scanner(System.in);
     System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)으로 구분)");
@@ -32,6 +32,9 @@ public class RacingGame {
   }
 
   public static Car CreateCarObject(String carName){
+    /*
+    * 차의 이름을 인자로 받아 Car 인스턴스를 생성하여 반환하는 메소드
+    * */
     Car carObject = new Car(carName);
     return carObject;
   }
@@ -49,6 +52,9 @@ public class RacingGame {
   }
 
   public static int InputTryNumber(){
+    /*
+    * 경기 횟수를 입력받아 반환하는 메소드
+    * */
     Scanner sc = new Scanner(System.in);
     System.out.println("시도할 회수는 몇회인가요?");
     int tryNum = sc.nextInt();
@@ -56,7 +62,11 @@ public class RacingGame {
   }
 
   public static void CarRacing(Car[] carList, int carNum){
+    /*
+    * Car 배열과 숫자르 인자로 받아 각각의 경기를 진행하는 메소드
+    * */
     for(int i=0;i<carNum;i++){
+      /* 각각의 차량에 랜덤 정수를 발생시켜 위치를 계산하고 현재 위치를 출력 */
       int random = carList[i].RandomMove();
       carList[i].CalculateLocation(random);
       PrintCarMove(carList[i]);
@@ -64,6 +74,9 @@ public class RacingGame {
   }
 
   public static void PrintCarMove(Car racingCar){
+    /*
+    * 차량 인스턴스를 인자로 받아 현재 위치를 출력하는 메소드
+    * */
     System.out.print(racingCar.getCarName()+":");
     for(int i=0;i<racingCar.getCarPosition();i++){
       System.out.print("-");
@@ -72,6 +85,9 @@ public class RacingGame {
   }
 
   public static void StartGame(Car[] carList, int carNum, int tryNum){
+    /*
+    * 정해진 경기횟수에 따라 게임을 진행하는 메소드
+    * */
     for(int i=0;i<tryNum;i++){
       CarRacing(carList, carNum);
       System.out.println();
@@ -79,16 +95,21 @@ public class RacingGame {
   }
 
   public static void WhoseCarWin(Car[] carList, int carNum){
-    int max = 0;
-    int idx = 0;
+    /*
+    * 경기가 끝난 후 이긴 차량의 목록을 계산하는 메소드
+    * */
+    int max = 0;  //최대 위치 저장 변수
+    int idx = 0;  //이긴 차량의 숫자 저장 변수
     Car[] winnerList = new Car[10];
     for(int i=0;i<carNum;i++){
       if(carList[i].getCarPosition()>max){
+        /* 최대 위치를 max 변수에 저장 */
         max = carList[i].getCarPosition();
       }
     }
     for(int i=0;i<carNum;i++){
       if(carList[i].getCarPosition()==max){
+        /*이긴 차량의 목록을 winnerList에 저장*/
         winnerList[idx++] = carList[i];
       }
     }
@@ -96,6 +117,9 @@ public class RacingGame {
   }
 
   public static void PrintWinCar(Car[] winnerList, int winNum){
+    /*
+    * 경기 결과를 출력하는 메소드
+    * */
     for(int i=0;i<winNum-1;i++){
       System.out.print(winnerList[i].getCarName()+", ");
     }
@@ -104,11 +128,11 @@ public class RacingGame {
   }
 
   public static void main(String args[]){
-    String[] carName =  InputCarName();
-    int carNum = carName.length;
-    Car[] carList =CreateCarList(carName);
-    int tryNum = InputTryNumber();
-    StartGame(carList, carNum, tryNum);
-    WhoseCarWin(carList, carNum);
+    String[] carName =  InputCarName(); //차량의 목록을 저장하는 문자열 배열
+    int carNum = carName.length;  //차량의 개수 저장 변수
+    Car[] carList =CreateCarList(carName);  //차량 인스턴스 저장 배열
+    int tryNum = InputTryNumber();  //경기 횟수 저장
+    StartGame(carList, carNum, tryNum); //경기 횟수에 따른 게임 진행
+    WhoseCarWin(carList, carNum); //이긴 차량 이름 출력
   }
 }
