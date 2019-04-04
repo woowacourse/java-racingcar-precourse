@@ -13,7 +13,14 @@ java-racingcar
 클래스 별 보유 기능
 -------------
 # Car
+1. 생성자
+2. tryMove()
+
 # CarFactory
+1. 생성자
+2. makeCars()
+3. isValidName() 
+
 # RacingStation
 
 주의 사항
