@@ -3,8 +3,9 @@ package domain;
 import java.util.Scanner;
 public class RacingGame {
     public static Scanner sc = new Scanner(System.in);
-    private final String name;
-    private int position = 0;
+    private String carUsers[] = InitCarName();  //자동차 입력
+    private int testNumber = 0; //시도 횟수
+
 
     public RacingGame(String name) {
         this.name = name;
@@ -30,8 +31,8 @@ public class RacingGame {
         return true;
     }
 
-    public static int Game(){
-        return 0;
+    public static void Game(Car[] cars){
+
     }
 
     public static int EndGame(){
