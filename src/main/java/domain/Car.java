@@ -33,5 +33,12 @@ public class Car {
         return false;
     }
 
+    public void calculatePosition() {
+        boolean go = goOrNot();
+        if (go) {
+            this.position++;
+        }
+    }
+
 
 }
