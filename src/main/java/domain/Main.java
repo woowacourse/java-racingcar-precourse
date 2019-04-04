@@ -70,4 +70,29 @@ public class Main {
         winners = winners.substring(0, winners.length() - 2);
         System.out.println(winners + "가(이) 최종우승 했습니다.");
     }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String[] carsArray = checkCarName();
+        int round = 0;
+        Car[] cars = new Car[carsArray.length];
+
+        // 객체 형성
+        for (int i = 0; i < carsArray.length; i++) {
+            cars[i] = new Car(carsArray[i]);
+        }
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int plays = scan.nextInt(); // 사용자가 시도할 횟수 입력
+
+        System.out.println("실행 결과");
+        while (round < plays) {
+            System.out.println("");
+            for (int i = 0; i < carsArray.length; i++) {
+                cars[i].gameResult();
+            }
+            round++;
+        }
+        printResult(cars);
+    }
 }
