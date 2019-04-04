@@ -94,15 +94,15 @@ public class Car {
  - ### methods
   |메소드 명|메소드 설명|수행 여부|
   |:-------|:-------|:-------:|
-  |**start()**|게임을 시작하는 메서드|X|
+  |**start()**|게임을 시작하는 메서드|O|
   |**printCarNamesInputMessage()**|자동차 이름 입력을 지시하는 메세지를 출력하는 메서드|O|
   |**inputCarNames()**|자동차 이름을 입력받는 메서드|O|
   |**printTrialNumberInputMessage()**|시도 횟수 입력을 지시하는 메세지를 출력하는 메서드|O|
   |**inputTrialNumber()**|시도 횟수를 입력받는 메서드|O|
   |**printResultMessage()**|실행결과 메세지를 출력하는 메서드|O|
-  |**playOneCycle()**|게임을 1회 시도하는 메서드|X|
+  |**playOneCycle()**|게임을 1회 시도하는 메서드|O|
   |**isMove()**|전진/정지 조건을 생성하는 메서드 (0~9까지 랜덤 값 발생 후 4이상 전진)|O|
-  |**getMaxPosition()**|가장 많이 이동한 차의 위치를 반환하는 메서드|X|
+  |**getMaxPosition()**|가장 많이 이동한 차의 위치를 반환하는 메서드|O|
   |**printWinnerMessage()**|우승자 메세지를 출력하는 메서드|O|
   |**printComma()**|우승자 메세지 출력에서 첫번째 차의 이름이 아닐 경우 앞에 ", "를 출력하는 메서드|O|
 
