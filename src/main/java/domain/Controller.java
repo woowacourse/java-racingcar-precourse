@@ -85,12 +85,12 @@ public class Controller {
         for (Car eachCar : cars) {
 
             if (eachCar.getPosition() == winnerPosition) {
-                System.out.print(eachCar.getCarsName());
+                System.out.printf("%s ",eachCar.getCarsName());
             }
 
         }
 
-        System.out.println("가 최종 우승했습니다.");
+        System.out.println(" 가 최종 우승했습니다.");
     }
 
     public int getLaps() {
