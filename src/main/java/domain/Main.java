@@ -24,4 +24,19 @@ public class Main {
         }
         return count;
     }
+
+    public static String[] saveCarName(String[] tempCarName, boolean[] check) {
+
+        int trial = 0;
+        int count = countCleanName(check);
+
+        String[] carSave = new String[count];
+        for (int i = 0; i < check.length; i++) {
+            if (!check[i]) {
+                carSave[trial] = tempCarName[i]; //carSave에 순서대로 값 저장
+                trial++;
+            }
+        }
+        return carSave;
+    }
 }
