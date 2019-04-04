@@ -28,6 +28,9 @@ public class Car {
         }
         System.out.println();
     }
+    public int position(){
+        return this.position;
+    }
 
     // 추가 기능 구현
 }
