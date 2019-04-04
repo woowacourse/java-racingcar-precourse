@@ -15,6 +15,7 @@ public class playGame {
 		for(int i = 0; i < this.roundNum; i++) {
 			raceStart();
 		}
+		findGameWinner();
 	}
 	
 	public void getCarName() {
@@ -32,7 +33,7 @@ public class playGame {
 		this.car = inputString.split(",");
 		
 		for (int i = 0; i < car.length; i++) {
-			if(car[i].length() > 5) {
+			if (car[i].length() > 5) {
 				System.out.println("입력한 자동차 이름 중에 5자리 초과가 있습니다.");
 				return true;
 			}
@@ -58,7 +59,14 @@ public class playGame {
 		
 	}
 	public void findGameWinner() {
-		getMaxPosition();
+		int maxResult = getMaxPosition();
+		
+		for(int i =0; i < car.length; i++) {
+			if ( race[i].getLocate() == maxResult) {
+				System.out.println(race[i].getName() + "가 우승하였습니다");
+			}
+		}
+		
 	}
 	public int getMaxPosition() {
 		int max = 0;
