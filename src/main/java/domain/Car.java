@@ -27,6 +27,9 @@ public class Car {
 			position++;
 			stringPosition.append('-');
 		}
+	}
+	
+	public void printPosition() {
 		System.out.println(this.name + " : " + stringPosition);
 	}
 	
@@ -37,7 +40,9 @@ public class Car {
 		
 		for(int count = 0; count < 10; count++) {
 			pobi.tryMove();
+			pobi.printPosition();
 			crong.tryMove();
+			crong.printPosition();
 			System.out.println();
 		}
 	}
