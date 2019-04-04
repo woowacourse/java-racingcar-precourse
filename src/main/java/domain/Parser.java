@@ -12,12 +12,12 @@ class Parser {
 	private final static String BLANK_PATTERN = "\\s*";
 	private static final int NAME_MAX = 5;
 
-	public static List<Car> strToListOfCar(String input) throws IllegalArgumentException {
+	public static List<Car> strToListOfCar(String input) throws InputException {
 		checkBlank(input);
-		return makeListOfCars(input);
+		return makeCarList(input);
 	}
 
-	private static List<Car> makeListOfCars(String input) {
+	private static List<Car> makeCarList(String input) throws InputException {
 		List<Car> carList = new ArrayList<>();
 		String[] strArr = splitStrWithComma(input);
 		for (String carName : strArr) {
@@ -26,7 +26,7 @@ class Parser {
 		return carList;
 	}
 
-	private static Car makeCar(String carName) {
+	private static Car makeCar(String carName) throws InputException {
 		checkBlank(carName);
 		checkCarName(carName);
 		return new Car(carName);
@@ -36,23 +36,23 @@ class Parser {
 		return inputOfCarNames.split(COMMA_PATTERN);
 	}
 
-	private static void checkBlank(String input) throws IllegalArgumentException {
+	private static void checkBlank(String input) throws InputException {
 		if (input.matches(BLANK_PATTERN)) {
-			throw new IllegalArgumentException("빈 칸을 입력했습니다");
+			throw new InputException("빈 칸을 입력했습니다");
 		}
 	}
 
-	private static void checkCarName(String input) throws IllegalArgumentException {
+	private static void checkCarName(String input) throws InputException {
 		if (input.length() > NAME_MAX) {
-			throw new IllegalArgumentException("자동차 이름을 5자 이상 입력했습니다");
+			throw new InputException("자동차 이름을 5자 이상 입력했습니다");
 		}
 	}
 
-	public static int strToInt(String input) throws IllegalArgumentException {
+	public static int strToInt(String input) throws InputException {
 		try {
 			return Integer.parseInt(input);
 		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException("숫자를 입력해주세요");
+			throw new InputException ("숫자를 입력해주세요");
 		}
 	}
 

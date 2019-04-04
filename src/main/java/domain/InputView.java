@@ -14,7 +14,7 @@ class InputView {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름을 쉼표(,) 기준으로 구분)");
 			try {
 				return Parser.strToListOfCar(getInput());
-			} catch (IllegalArgumentException e) {
+			} catch (InputException e) {
 				System.out.println(e.getMessage());
 			}
 		}
@@ -25,7 +25,7 @@ class InputView {
 			System.out.println("시도할 회수는 몇 회인가요?");
 			try {
 				return Parser.strToInt(getInput());
-			} catch (IllegalArgumentException e) {
+			} catch (InputException e) {
 				System.out.println(e.getMessage());
 			}
 		}
