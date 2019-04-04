@@ -1,15 +1,14 @@
 package domain;
 
-import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Validator {
     private final int ZERO = 0;
-    private final int ONE = 1;
     private final int MAXIMUM_LENGTH_OF_NAME = 5;
 
-    public boolean hasInvalidLength(String[] carNames) {
+    public boolean hasInvalidLength(List<String> carNames) {
         for (String name: carNames) {
             if (name.length() > MAXIMUM_LENGTH_OF_NAME) {
                 System.out.println("이름의 길이는 " + MAXIMUM_LENGTH_OF_NAME + " 이하만 가능합니다.");
@@ -19,26 +18,25 @@ public class Validator {
         return false;
     }
 
-    public boolean hasDuplicate(String[] carNames) {
-        Set<String> nameSet = new HashSet(Arrays.asList(carNames));
+    public boolean hasDuplicate(List<String> carNames) {
+        Set<String> nameSet = new HashSet(carNames);
 
-        if (carNames.length != nameSet.size()) {
+        if (carNames.size() != nameSet.size()) {
             System.out.println("중복된 이름은 포함할 수 없습니다.");
             return true;
         }
         return false;
     }
 
-    public boolean hasEmpty(String[] carNames) {
-        if ((carNames.length == ZERO)
-                || ((carNames.length == ONE) && (Arrays.asList(carNames).contains("")))) {
+    public boolean hasEmpty(List<String> carNames) {
+        if (carNames.size() == ZERO) {
             System.out.println("아무것도 입력하지 않으셨습니다.");
             return true;
         }
         return false;
     }
 
-    public boolean hasInvalid(String[] carNames) {
+    public boolean hasInvalid(List<String> carNames) {
         return hasInvalidLength(carNames) || hasDuplicate(carNames) || hasEmpty(carNames);
     }
 

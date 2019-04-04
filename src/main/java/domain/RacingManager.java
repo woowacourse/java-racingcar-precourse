@@ -1,24 +1,28 @@
 package domain;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RacingManager {
     private Scanner sc = new Scanner(System.in);
 
-    public String[] inputCarNames() {
-        String[] carNames;
+    public List<String> inputCarNames() {
+        List<String> carNames;
         Validator validator = new Validator();
 
         do {
             System.out.println("경주할 자동차 이름을 입력하세요. 이름은 쉼표를 기준으로 구분합니다.");
-            carNames = sc.nextLine().split("[\\s]*,[\\s]*");
+            carNames = Arrays.stream(sc.nextLine().split(","))
+                    .map(name -> name.trim()) //이름 앞뒤로 whitespace 제거
+                    .filter(name -> !name.equals("")) //비어있는 이름 제거
+                    .collect(Collectors.toList());
         } while (validator.hasInvalid(carNames));
         return carNames;
     }
 
     public ArrayList<Car> getInitializedCars() {
         ArrayList<Car> cars = new ArrayList<>();
-        String[] carNames = inputCarNames();
+        List<String> carNames = inputCarNames();
 
         for (String name: carNames) {
             if (!name.isEmpty()) {
