@@ -21,6 +21,10 @@ public class RacingCarGame {
         this.leagueName = leagueName;
     }
 
+    public String getLeagueName() {
+        return leagueName;
+    }
+
     public void moveCars(ArrayList<Car> cars) {
         for (Car car: cars) {
             car.randomMove();
@@ -43,6 +47,7 @@ public class RacingCarGame {
         int totalTrial = racingManager.getTotalTrial();
 
         racingCarGame.start(cars, positionRecorder, totalTrial);
-        positionRecorder. showHistoryOf("Woowahan Championship");
+        positionRecorder.showHistoryOf(racingCarGame.getLeagueName());
+        positionRecorder.showWinnersOf(racingCarGame.getLeagueName(), totalTrial);
     }
 }
