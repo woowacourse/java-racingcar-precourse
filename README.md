@@ -2,7 +2,7 @@
 
 -[x] 메인 부분
 -[x] Movable            // 움직일 수 있는 객체를 위한 인터페이스
--[ ] Car 를 구현          // Movable의 구현으로 만들기
+-[x] Car 를 구현          // Movable의 구현으로 만들기
 -[x] RacingGame         // 게임을 실행 (흐름을 담당)
     - trials만큼 반복하는 부분
     - 각 trial 의 내용은 다른 클래스로 관리하자
