@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
 	private Car[] cars;
@@ -7,9 +9,11 @@ public class RacingGame {
 	
 	public RacingGame() {
 		UserInput user = new UserInput();
+		int numberOfAttemp;
 		
 		arrCarNames = user.setCarNames();
 		setCarObject();
+		printCarNames();
 	}
 	
 	private void setCarObject () {
@@ -18,6 +22,17 @@ public class RacingGame {
 		for (int i = 0; i < cars.length; i++) {
 			cars[i] = new Car(arrCarNames[i]);
 		}
+	}
+	
+	private void printCarNames() {
+		for (int i = 0; i < cars.length; i++) {
+			System.out.print(cars[i].getName());
+			
+			if (i != cars.length-1) {
+				System.out.print(",");
+			}
+		}
+		System.out.println();
 	}
 	
 	public static void main(String[] args) {

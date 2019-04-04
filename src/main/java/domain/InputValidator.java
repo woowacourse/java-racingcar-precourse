@@ -13,7 +13,7 @@ public class InputValidator {
 	}
 
 	private boolean checkCarNameLength(String carName) {
-		if (isBlank(carName) && (carName.length() < MAX_NAME_LENGHT)) {
+		if (isBlank(carName) && (carName.length() <= MAX_NAME_LENGHT)) {
 			return true;
 		}
 		System.out.println("자동차 이름은 1글자 이상 5글자 이하로 입력해주세요.");
