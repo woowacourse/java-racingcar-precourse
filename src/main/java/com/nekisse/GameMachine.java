@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameMachine {
-
+    private RandomNumberGenerator randomNumberGenerator;
     private final int inputTryCount;
     private  List<Car> cars;
 
-    public GameMachine(int inputTryCount, List<CarName> carNames) {
+    public GameMachine(int inputTryCount, List<CarName> carNames, RandomNumberGenerator randomNumberGenerator) {
         this.inputTryCount = inputTryCount;
+        this.randomNumberGenerator = randomNumberGenerator;
         this.cars = setupCar(carNames);
+
     }
 
     private List<Car> setupCar(List<CarName> carNames) {
