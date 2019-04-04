@@ -18,6 +18,6 @@ public class Main {
         int trials = sc.nextInt();
 
         RacingGame game = new RacingGame(cars, trials);
-        game.play();
+        game.play(new RacingTrial(), new ScoreBoard());
     }
 }
