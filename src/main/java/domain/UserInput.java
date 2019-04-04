@@ -2,7 +2,6 @@ package domain;
 
 import java.util.Scanner;
 
-import domain.InputValidator;
 
 public class UserInput {
 	private String carNames;

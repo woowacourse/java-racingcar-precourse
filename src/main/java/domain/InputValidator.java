@@ -42,7 +42,6 @@ public class InputValidator {
 		if (Integer.parseInt(numberOfAttemp) == 0) {
 			return false;
 		}
-		
 		return true;
 	}
 
