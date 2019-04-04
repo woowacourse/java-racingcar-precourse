@@ -1,16 +1,18 @@
 package domain;
 
+import interfaces.ConsoleInterface;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-class Console {
+class Console implements ConsoleInterface {
 
     private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     private void writeStartMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(START_MESSAGE);
     }
 
     String readCars() throws IOException {
@@ -19,7 +21,7 @@ class Console {
     }
 
     private void writeRoundMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(ASK_COUNT_ROUND);
     }
 
     int readRoundCount() throws IOException {
@@ -29,7 +31,7 @@ class Console {
 
     void writeRoundStartMessage() {
         System.out.println();
-        System.out.println("실행결과");
+        System.out.println(ROUND_START_MESSAGE);
     }
 
     void writeRoundResult(List<Car> carList) {
@@ -40,12 +42,12 @@ class Console {
     private String positionMessage(int carPosition) {
         StringBuilder message = new StringBuilder();
         for (int i = 0; i < carPosition; i++) {
-            message.append("-");
+            message.append(POSITION_MESSAGE);
         }
         return message.toString();
     }
 
     void writeGameResult(List<String> winners) {
-        System.out.println(String.join(" , ", winners) + "가 최종 우승했습니다");
+        System.out.println(String.join(DELIMITER, winners) + WINNER_MESSAGE);
     }
 }

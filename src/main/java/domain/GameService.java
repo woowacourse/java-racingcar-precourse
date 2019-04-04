@@ -1,11 +1,13 @@
 package domain;
 
+import interfaces.GameServiceInterface;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class GameService {
+class GameService implements GameServiceInterface {
 
     private final Console console;
 
@@ -25,7 +27,7 @@ class GameService {
     }
 
     private String[] getCars() throws IOException {
-        return console.readCars().split(",");
+        return console.readCars().split(REGEX);
     }
 
     int getRoundCount() throws IOException {
@@ -53,6 +55,6 @@ class GameService {
         return carList.stream()
                 .map(Car::getPosition)
                 .max(Integer::compareTo)
-                .orElse(-1);
+                .orElse(NOT_FOUND_MAXIMUM);
     }
 }

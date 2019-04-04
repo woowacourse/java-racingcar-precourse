@@ -1,6 +1,8 @@
 package domain;
 
-public class Car {
+import interfaces.CarInterface;
+
+public class Car implements CarInterface {
     private final String name;
     private int position = 0;
 
@@ -9,23 +11,23 @@ public class Car {
         this.name = name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void move(int result){
-        if (result == 1){
+    public void move(int result) {
+        if (result == 1) {
             position++;
         }
     }
 
-    private void checkNameSize(String name){
-        if (name.length() > 5){
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다." + name);
+    private void checkNameSize(String name) {
+        if (name.length() < 1 || name.length() > 5) {
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE + name);
         }
     }
 }
