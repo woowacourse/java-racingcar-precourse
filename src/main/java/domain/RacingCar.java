@@ -1,6 +1,6 @@
 package domain;
 
-public class Main {
+public class RacingCar {
     public static void main(String[] args) {
         Control control = new Control();
 
