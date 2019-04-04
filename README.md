@@ -19,6 +19,8 @@ class:
     - 기본 생성자
   - goStop
     - 자동차의 전진을 결정
+  - getPos
+    - private position 값을 반환
 
 
 
@@ -29,7 +31,9 @@ class:
   - main(String arg)
     - 메인 메소드
   - userInName
-    - 사용자로부터 자동차의 이름을 입력받은 후 객체화
+    - 사용자로부터 자동차의 이름을 입력받음
+  - makeCar
+    - 이름을 이용해 각각의 자동차 객체를 생성
   - userInMove
     - 사용자로부터 몇번의 이동을 할 것인지를 입력받음
   - doRace
