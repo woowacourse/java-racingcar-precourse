@@ -7,9 +7,6 @@ import domain.Car;
 public class Race {
     private static final String RESULT_PRINT = "실행 결과";
 
-    /**
-     * 게임 전체 시작
-     */
     public static void startGame() {
         int times = TimesInput.getTimes();
         System.out.println("\n\n" + RESULT_PRINT + "\n");

@@ -8,9 +8,6 @@ public class NameInput {
     private static final String NAME_LENGTH_ERROR = "5자 이하의 이름을 입력해주세요";
     private static final String NAME_BLANK_ERROR = "공백이 아닌 이름을 입력해주세요";
 
-    /**
-     * 이름 입력 함수.
-     */
     public static String[] getCarName() {
         boolean isValidNameInput = false;
         String[] carNames;
@@ -34,11 +31,6 @@ public class NameInput {
         return nameArray;
     }
 
-    /**
-     * 유효한 이름 입력값인지 확인.
-     *
-     * @param inputArray 입력된 이름 배열
-     */
     private static boolean validateNameInput(String[] inputArray) {
         for (String inputString : inputArray) {
             if (inputString.length() > Constants.MAX_NAME_LENGTH) {
