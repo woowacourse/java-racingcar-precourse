@@ -17,10 +17,8 @@ class GameService implements GameServiceInterface {
     }
 
     List<Car> getCarList() throws IOException {
-        String[] cars = getCars();
         List<Car> carList = new ArrayList<>();
-
-        Arrays.asList(cars).forEach(carName -> carList.add(new Car(carName)));
+        Arrays.asList(getCars()).forEach(carName -> carList.add(new Car(carName)));
 
         return carList;
     }
