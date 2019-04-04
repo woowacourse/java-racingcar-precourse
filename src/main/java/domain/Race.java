@@ -1,8 +1,7 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Race {
     ArrayList<Car> cars = new ArrayList<>();
@@ -68,5 +67,19 @@ public class Race {
             car.play();
             car.showPosition();
         }
+    }
+
+    private ArrayList<String> determineWinner() {
+        ArrayList<String> winnerList = new ArrayList<>();
+        List<Integer> positions = cars.stream().map(car -> car.getPosition()).collect(Collectors.toList());
+        int winnerPosition = Collections.max(positions);
+
+        for (Car car : cars) {
+            if (car.getPosition() == winnerPosition) {
+                winnerList.add(car.getName());
+            }
+        }
+
+        return winnerList;
     }
 }

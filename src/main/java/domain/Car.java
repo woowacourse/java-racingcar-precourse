@@ -26,4 +26,12 @@ public class Car {
 
         System.out.println(this.name + " : " + tempCarPosition);
     }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
