@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * MainClass: 자동차 경주 게임을 담당하는 클래스이다.
  *
- * @author  김선관
+ * @author 김선관
  * @version ver1.0.0
  */
 public class MainClass {
@@ -18,7 +18,6 @@ public class MainClass {
     /**
      * names:  사용자로부터 입력받은 자동차의 이름들이 저장되는 배열
      * cars:   객체화한 자동차들이 저장되는 배열
-     * moveIn: 사용자로부터 입력받은 이동 횟수가 저장되는 변수
      */
     static String[] names;
     static Car[] cars;
@@ -36,7 +35,11 @@ public class MainClass {
      * @param args: 사용하지 않음.
      */
     static public void main(String[] args) {
+        /**
+         *  moveIn: 사용자로부터 입력받은 이동 횟수가 저장되는 변수
+         */
         int moveIn;
+
         names = userInName().split(",");    //사용자로부터 입력받은 문자열 원본을 구분자 ','로 분할하여 names 배열에 저장.
         cars = makeCar();
         moveIn = userInMove();
