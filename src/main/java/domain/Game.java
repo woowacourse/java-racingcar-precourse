@@ -18,10 +18,10 @@ public class Game {
         public void start() {
                 do {
                         printCarNamesInputMessage();
-                }while(!inputCarNames());
-                do{
+                } while (!inputCarNames());
+                do {
                         printTrialNumberInputMessage();
-                }while(!inputTrialNumber());
+                } while (!inputTrialNumber());
                 printResultMessage();
                 for (int i = 0; i < trialNumber; i++) {
                         playOneCycle();
@@ -50,8 +50,8 @@ public class Game {
                 String inputCarNames = scan.nextLine();
 
                 String[] splitedCarNames = inputCarNames.split(",");
-                for(int i =0;i<splitedCarNames.length;i++){
-                        if(!checkInputCarNames(splitedCarNames[i]))
+                for (int i = 0; i < splitedCarNames.length; i++) {
+                        if (!checkInputCarNames(splitedCarNames[i]))
                                 return false;
                 }
                 cars = new Car[splitedCarNames.length];
@@ -62,14 +62,14 @@ public class Game {
         }
 
         private boolean checkInputCarNames(String inputCarNames) {
-                if(inputCarNames.length()>MAXCARNAMENUMBER){
+                if (inputCarNames.length() > MAXCARNAMENUMBER) {
                         System.err.println("차 이름 길이 초과 오류");
                         return false;
                 }
 
-                for(int i=0;i<inputCarNames.length();i++){
-                        if(!(inputCarNames.charAt(i) >= 'a' && inputCarNames.charAt(i)<='z')
-                                && !(inputCarNames.charAt(i) >= 'A' && inputCarNames.charAt(i)<='Z')){
+                for (int i = 0; i < inputCarNames.length(); i++) {
+                        if (!(inputCarNames.charAt(i) >= 'a' && inputCarNames.charAt(i) <= 'z')
+                                && !(inputCarNames.charAt(i) >= 'A' && inputCarNames.charAt(i) <= 'Z')) {
                                 System.err.println("차 이름 입력 형식 오류 (알파벳만 입력)");
                                 return false;
                         }
@@ -85,19 +85,20 @@ public class Game {
                 Scanner scan = new Scanner(System.in);
                 try {
                         this.trialNumber = scan.nextInt();
-                        if(trialNumber < 1)
+                        if (trialNumber < 1)
                                 throw new InputTrialNumberNotNaturalNumber();
-                }catch(InputMismatchException e){
+                } catch (InputMismatchException e) {
                         System.err.println("입력 형식 오류");
                         return false;
-                }catch(InputTrialNumberNotNaturalNumber e){
+                } catch (InputTrialNumberNotNaturalNumber e) {
                         System.err.println("0이하 입력 오류");
                         return false;
-                };
+                }
+                ;
                 return true;
         }
 
-        private class InputTrialNumberNotNaturalNumber extends RuntimeException{
+        private class InputTrialNumberNotNaturalNumber extends RuntimeException {
         }
 
         private void printResultMessage() {
