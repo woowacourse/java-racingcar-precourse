@@ -52,12 +52,8 @@ public class Car {
 - 예외 처리
 - 코드 리팩토링
 
-### 변경 사항
-- 난수 발생기를 가지고 있는 `자동차 전진 결정자` 클래스를 작성.
-  - 클래스가 아닌 인터페이스로 작성
-
 ## 최종 구현 기능 목록
-- `자동차 전진 결정자`(이하 `CarAdvanceDecider`) 인터페이스 작성
+- `자동차 전진 결정자`(이하 `CarAdvanceDecider`) 클래스 작성
 - 경주 기능 구현
   - `Car` 클래스 구현
     - 이름과 현재 위치, 그리고 `CarAdvanceDecider`의 구현체를 가진다.
@@ -68,5 +64,13 @@ public class Car {
     - 자동으로 경기가 끝날때 까지 `next`메서드를 반복 실행하는 `excuteRaceUntilEnd`메서드 구현
     - 승자 결과를 반환하는 `getWinners`메서드 구현
     - 현재 트랙의 상태를 출력하기 위한 `toString`메서드를 오버라이딩.
-    - 경기 상태를 직관적으로 알기 위한 enum 클래스 `RaceStatus` 추가 구현
-  - 경주를 진행할 `RaceGameSimulation`
+  - 경주를 진행할 `RaceSimulator` 클래스 구현
+- 입출력 기능 구현
+  - 레이싱 게임에 필요한 변수 입력을 받는 인터페이스 `RaceIOInterface` 구현
+  - 위의 인터페이스를 구현하여 콘솔에서 조작 가능한 클래스 `ConsoleIOInterface` 작성
+- 예외처리
+  - 사용자 입력에 대한 예외처리(이름과 시도 횟수에 대한 제한)
+- 코드 리펙토링
+  - 주석 추가
+  - 예외 입력 처리 루틴 변경
+  - `CarAdvanceDecider` 매개 변수를 직관적으로
