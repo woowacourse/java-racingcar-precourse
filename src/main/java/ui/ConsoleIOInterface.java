@@ -1,6 +1,5 @@
 package ui;
 
-import domain.Car;
 import domain.Track;
 
 import java.util.InputMismatchException;
@@ -12,7 +11,7 @@ import java.util.Scanner;
  */
 public class ConsoleIOInterface implements RaceIOInterface {
     private Scanner scanner = new Scanner(System.in);
-    private final static String DELIM = "'";
+    private final static String DELIM = ",";
     private final static int MAX_RACER = 5;
     private final static int MIN_RACER = 1;
     private final static int MAX_TRY_COUNT = 1000;
@@ -28,7 +27,7 @@ public class ConsoleIOInterface implements RaceIOInterface {
 
             try {
                 racersNames = checkInputRacersName(input.split(DELIM));
-                return racersNames;
+                return trimStrings(racersNames);
 
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -42,6 +41,13 @@ public class ConsoleIOInterface implements RaceIOInterface {
             throw new IllegalArgumentException();
         }
         return result;
+    }
+
+    private String[] trimStrings(String[] strArr) {
+        for (int i = 0; i < strArr.length; i++) {
+            strArr[i] = strArr[i].trim();
+        }
+        return strArr;
     }
 
     @Override
@@ -66,18 +72,18 @@ public class ConsoleIOInterface implements RaceIOInterface {
 
     @Override
     public void showTrack(Track track) {
-        System.out.println(track + "\n");
+        System.out.println(track);
     }
 
     @Override
     public void showWinner(Track track) {
-        List<Car> winners = track.getWinners();
+        List<String> winners = track.getWinners();
 
         StringBuilder sb = new StringBuilder();
-        for (Car winner : winners) {
-            sb.append(winner.getName()).append(" ,");
+        for (String winner : winners) {
+            sb.append(winner).append(", ");
         }
-        sb.deleteCharAt(sb.length() - 1).append("가 최종 우승했습니다.");
+        sb.delete(sb.length() - 2, sb.length()).append("이(가) 최종 우승했습니다.");
 
         System.out.println(sb.toString());
     }

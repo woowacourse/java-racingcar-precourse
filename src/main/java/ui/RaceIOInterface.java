@@ -13,4 +13,8 @@ public interface RaceIOInterface {
     void showTrack(Track track);
 
     void showWinner(Track track);
+
+    static void showPlaneText(String s) {
+        System.out.println(s);
+    }
 }
