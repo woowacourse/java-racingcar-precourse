@@ -1,4 +1,4 @@
-package domain;
+package error;
 
 public enum InputError {
     UNNAMED("이름이 올바르게 않은 자동차가 있습니다. 공백 등이 입력되지 않았는지 다시 확인해주세요."),

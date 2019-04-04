@@ -1,5 +1,7 @@
 package domain;
 
+import error.InputError;
+import error.Validator;
 import java.util.*;
 
 public class RacingGameConfig {
