@@ -7,6 +7,8 @@ import ui.RaceIOInterface;
 import java.util.Objects;
 
 /**
+ * domain과 ui객체를 이용한 실직적인 로직을 구현한 클래스
+ *
  * @author delf
  */
 public class RaceSimulator {
@@ -18,26 +20,13 @@ public class RaceSimulator {
         return this;
     }
 
-    public void run(String[] racer, int nRaceSimulTry) {
+    public void run(String[] racer, int nRaceSimulTry) throws IllegalArgumentException {
         checkIOInterfaceAssertion();
 
         track = new Track(racer);
         raceStart(nRaceSimulTry);
+
         raceIOInterface.showWinner(track);
-    }
-
-    public void run() {
-        String[] racer = raceIOInterface.inputRacersName();
-        int nRaceSimulTry = raceIOInterface.inputTryNumber();
-
-        run(racer, nRaceSimulTry);
-    }
-
-    private void raceStart(int nRaceSimulTry) {
-        for (int i = 0; i < nRaceSimulTry; i++) {
-            track.initTrack();
-            raceIOInterface.showTrack(track);
-        }
     }
 
     private void checkIOInterfaceAssertion() {
@@ -47,5 +36,19 @@ public class RaceSimulator {
         }
     }
 
+    public void run() {
+        String[] racer = raceIOInterface.inputRacersName();
+        int nRaceSimulTry = raceIOInterface.inputTryCount();
 
+        run(racer, nRaceSimulTry);
+    }
+
+    private void raceStart(int nRaceSimulTry) {
+        RaceIOInterface.showPlaneText("\n실행 결과");
+
+        for (int i = 0; i < nRaceSimulTry; i++) {
+            track.next();
+            raceIOInterface.showTrack(track);
+        }
+    }
 }

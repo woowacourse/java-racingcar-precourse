@@ -1,16 +1,19 @@
 package domain;
 
+import exeption.IncorrectRacerNameException;
 import util.CarAdvanceDecider;
 
 public class Car {
-    private final int DEFAULT_TRUE_RATIO = 6;
-    private final int DEFAULT_FALSE_RATIO = 4;
-    private final int DEFAULT_MOVE_POSITION = 1;
+    private final static int DEFAULT_TRUE_RATIO = 6;
+    private final static int DEFAULT_FALSE_RATIO = 4;
+    private final static int DEFAULT_MOVE_POSITION = 1;
 
-    private final char CAR = '*';
-    private final char TRACE = '-';
+    private final static char CAR = '*';
+    private final static char TRACE = '-';
 
+    public final static int MAX_LENGTH_RACER_NAME = 5;
     private final String name;
+
     private int position = 0;
 
     private CarAdvanceDecider carAdvanceDecider = new CarAdvanceDecider();
@@ -31,11 +34,11 @@ public class Car {
         return position;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public boolean isPositionOn(int position) {
+    boolean isPositionOn(int position) {
         return this.position == position;
     }
 
