@@ -14,7 +14,7 @@ public class RacingGame {
 		String allCarNames = sc.nextLine();
 		String carUsers[] = allCarNames.split(",");
         while (!isVaild(carUsers)) {
-			System.out.println("자동차의 이름은 5글자 이하여야합니다. 다시 입력하세요.");
+			System.out.println("5글자 초과. 다시 입력하세요.");
 			allCarNames = sc.nextLine();
 			carUsers = allCarNames.split(",");
 		}
@@ -22,6 +22,11 @@ public class RacingGame {
     }
 
     public static boolean isVaild(String[] carUsers){
+        for(int i = 0; i<carUsers.length; i++){
+            if(carUsers[i].length()>5){
+                return false;
+            }
+        }
         return true;
     }
 
