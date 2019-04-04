@@ -21,6 +21,13 @@ public class Car {
         if(gostop())
             this.position++;
     }
+    public void print_status(){
+        System.out.print(this.name + " : ");
+        for(int i=1; i<=position; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 
     // 추가 기능 구현
 }
