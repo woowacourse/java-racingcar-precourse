@@ -31,6 +31,9 @@ public class Car {
     public int position(){
         return this.position;
     }
+    public String name() {
+        return this.name;
+    }
 
     // 추가 기능 구현
 }
