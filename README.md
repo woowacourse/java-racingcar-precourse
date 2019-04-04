@@ -57,10 +57,14 @@ Car 클래스에 random 값을 만들고, 4 이상이면 전진, 3 이하면 정
     - `getInputCarNames` - `String`, 사용자에게 자동차의 이름을 입력 받아 리턴한다.
     - `validateUserInput` - `ArrayList<String>`, 사용자의 입력이 유효한지(자동차 이름의 길이가 5 이하 인지) 확인 한 후 콤마(",")로 분리된 입력값을 `ArrayList<String>`의 형태로 리턴한다.
     - `parseInputString` - `ArrayList<String>`, 사용자의 입력 값을 콤마(",")로 분리한 후 `ArrayList<String>`으로 리턴한다.
- - `setPlayTime` - `void`, 사용자에게 시도 횟수를 입력받아 `playTime` 변수에 담는다.
- - `showRaceResult` - `void`, 실행 결과를 화면에 출력한다.
+- `setPlayTime` - `void`, 사용자에게 시도 횟수를 입력받아 `playTime` 변수에 담는다.
+- `showRaceResult` - `void`, 실행 결과를 화면에 출력한다.
     - `showSingleResult` - `void`, 자동차 경주를 1회 실시하고 결과를 화면에 출력한다.
+- `showWinner` - `void`, 최종 우승자를 가려서 화면에 출력한다.
+    - `determineWinner` - `ArrayList<String>`, 최종 우승자의 리스트를 추려 리턴한다.
  
  **Car Class**
  - `play` - `void`, 0~9 사이의 랜덤 값을 구한 뒤, 해당 값이 4 이상일 경우 자동차를 한 칸 전진한다.
  - `showPosition` - `void`, 자동차의 위치를 정해진 양식대로 화면에 출력한다.
+ - `getPosition` - `int`, 자동차의 위치를 반환한다.
+ - `getName` - `String`, 자동차의 이름을 반환한다.
