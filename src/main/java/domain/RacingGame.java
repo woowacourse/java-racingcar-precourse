@@ -24,6 +24,7 @@ public class RacingGame {
 		private static final String DELIMITER_COMMA = ",";
 		private static final String INPUT_TRY_NUMBER_MESSAGE = "시도할 횟수는 몇 회인가요?";
 		private static final String EXECUTION_RESULT = "\n실행 결과";
+		private static final String POSITION_OF_CAR = "-";
 		private static final String BLANK = "";
 		
 		private String[] carNameList;
@@ -82,6 +83,20 @@ public class RacingGame {
 		 * 있습니다.
 		 */
 		private void progressRound() {
-
+				for (int i = 0; i < numOfTry; i++) {
+						for (int j = 0; j < racingCars.length; j++) {
+								racingCars[j].updatePositionOfCar();
+								printPositionOfCar(racingCars[j]);
+						}
+						System.out.println(BLANK);
+				}
+		}
+	
+		private void printPositionOfCar(Car racingCars) {
+				System.out.print(racingCars.getName() + " : ");
+				for (int i = 0; i < racingCars.getPosition(); i++) {
+						System.out.print(POSITION_OF_CAR);
+				}
+				System.out.println(BLANK);
 		}
 }
