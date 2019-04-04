@@ -6,13 +6,16 @@ public class CarRacingGame {
     private ArrayList<Car> cars = new ArrayList<>();
     private int moveCount = 0;
     private final String RESULT_HEADING = "실행 결과";
-    private final String DELIMITER = " : ";
+    private final String RESULT_DELIMITER = " : ";
+    private ArrayList<Car> winners = new ArrayList<>();
+    private final String WINNER_DELIMITER = ", ";
 
     public static void main(String[] args) {
         CarRacingGame racingGame = new CarRacingGame();
         racingGame.setConfiguration();
         racingGame.playGame();
-        racingGame.decideWinners();
+        racingGame.winners = racingGame.decideWinners();
+        racingGame.displayWinners();
     }
 
     private void setConfiguration() {
@@ -37,7 +40,7 @@ public class CarRacingGame {
             Car car = this.cars.get(i);
             String carName = car.getName();
             String visualizedPosition = car.visualizePosition();
-            System.out.println(carName + this.DELIMITER + visualizedPosition);
+            System.out.println(carName + this.RESULT_DELIMITER + visualizedPosition);
         }
         System.out.println();
     }
@@ -73,5 +76,15 @@ public class CarRacingGame {
         if (!isWinner(winners, car)) {
             winners.add(car);
         }
+    }
+
+    private void displayWinners() {
+        for (int i = 0; i < this.winners.size(); i++) {
+            String carName = this.winners.get(i).getName();
+            String winnerName = (i != winners.size() - 1)
+                ? carName + this.WINNER_DELIMITER : carName;
+            System.out.print(winnerName);
+        }
+        System.out.println("가 최종 우승했습니다.");
     }
 }
