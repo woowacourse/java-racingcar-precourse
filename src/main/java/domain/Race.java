@@ -28,7 +28,7 @@ public class Race {
         printResult();
     }
 
-    public void initCar(String input) {
+    private void initCar(String input) {
         StringTokenizer name = new StringTokenizer(input, ",");
 
         while (name.hasMoreTokens()) {
@@ -37,20 +37,19 @@ public class Race {
         }
     }
 
-    public void doRace() {
-        for (int i = 0; i < cars.size(); i++) {
-            cars.get(i).tryRide();
-        }
+    private void doRace() {
+        for (Car car : cars)
+            car.tryRide();
     }
 
-    protected boolean isNameValid(String name) {
+    private boolean isNameValid(String name) {
         return name.length() <= 5;
     }
 
     private void makeResult() {
-        for (int i = 0; i < cars.size(); i++) {
-            result.append(cars.get(i).getName()).append(" : ");
-            result.append(positionToResult(cars.get(i).getPosition())).append("\n");
+        for (Car car : cars) {
+            result.append(car.getName()).append(" : ");
+            result.append(positionToResult(car.getPosition())).append("\n");
         }
         result.append("\n");
     }
@@ -69,14 +68,14 @@ public class Race {
 
     private void getWinner() {
         int max = 0;
-        for (int i = 0; i < cars.size(); i++)
-            max = Math.max(max, cars.get(i).getPosition());
+        for (Car car : cars)
+            max = Math.max(max, car.getPosition());
 
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getPosition() < max) continue;
-            result.append(cars.get(i).getName()).append(", ");
+        for (Car car : cars) {
+            if (car.getPosition() < max) continue;
+            result.append(car.getName()).append(", ");
         }
-        result.delete(result.length()-2, result.length());
+        result.delete(result.length()-2, result.length()); // 맨 뒤 쉼표 삭제
         result.append("가 최종 우승했습니다.");
     }
 }
