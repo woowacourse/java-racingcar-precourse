@@ -16,6 +16,7 @@ public class Racing {
     private List<String> winners = new ArrayList<>();
 
     public static final String MSG_EXECUTION_RESULT = "실행 결과";
+    public static final String MSG_PRINT_WINNER = "가 최종 우승했습니다.";
 
     public void run() {
         setCar();
@@ -24,6 +25,7 @@ public class Racing {
         startRacing();
 
         grading();
+        printWinner();
     }
 
     public void setCar() {
@@ -64,5 +66,15 @@ public class Racing {
                 topScore = cars.get(i).getPosition();
             }
         }
+    }
+
+    public void printWinner() {
+        System.out.print(winners.get(0));
+        if (winners.size() > 1) {
+            for (int i = 1; i < winners.size(); i++) {
+                System.out.print(", " + winners.get(i));
+            }
+        }
+        System.out.println(MSG_PRINT_WINNER);
     }
 }
