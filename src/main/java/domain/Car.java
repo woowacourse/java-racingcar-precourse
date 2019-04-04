@@ -19,4 +19,11 @@ public class Car {
             this.position++;
         }
     }
+
+    public void showPosition() {
+        String tempCarPosition = new String(new char[this.position])
+                .replace('\0', '-');
+
+        System.out.println(this.name + " : " + tempCarPosition);
+    }
 }

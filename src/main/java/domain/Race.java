@@ -30,6 +30,10 @@ public class Race {
         playTime = scan.nextInt();
     }
 
+    public void showRaceResult() {
+        showSingleResult();
+    }
+
     private String getInputCarNames() {
         Scanner scan = new Scanner(System.in);
 
@@ -51,5 +55,12 @@ public class Race {
 
     private ArrayList<String> parseInputString(String inputString) {
         return new ArrayList<> (Arrays.asList(inputString.split(",")));
+    }
+
+    private void showSingleResult() {
+        for (Car car : cars) {
+            car.play();
+            car.showPosition();
+        }
     }
 }
