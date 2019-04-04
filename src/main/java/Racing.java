@@ -58,6 +58,12 @@ public class Racing {
                 winners[winner_num++] = cars[i].name();
         }
     }
+    public static void print_winner(){
+        for(int i=0; i<winner_num-1; i++){
+            System.out.print(winners[i] + ", ");
+        }
+        System.out.print(winners[winner_num-1] + "가 최종 우승했습니다.");
+    }
     public static void main(String[] args){
         get_input();
         racing();
