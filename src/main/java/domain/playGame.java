@@ -57,8 +57,17 @@ public class playGame {
 	public void gameResult() {
 		
 	}
-	public void gameWinner() {
-		
+	public void findGameWinner() {
+		getMaxPosition();
+	}
+	public int getMaxPosition() {
+		int max = 0;
+		for (int i = 0; i < car.length; i++) {
+			if (max < race[i].getLocate()) {
+				max = race[i].getLocate();
+			}
+		}
+		return max;
 	}
 	
 }
