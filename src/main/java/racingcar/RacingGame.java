@@ -9,13 +9,15 @@ public class RacingGame {
         RacingCars racingCars = new RacingCars(CarListGenerator.generate(InputView.inputCarNames()));
 
         printResult(racingCars);
+
+        ResultView.printWinner(racingCars.getWinners());
     }
 
     private void printResult(RacingCars racingCars) {
-        System.out.println("실행 결과");
 
         int moveCount = InputView.inputGameCount();
 
+        System.out.println("실행 결과");
         while (moveCount-- > 0) {
             CarDriving.move(racingCars);
 

@@ -24,4 +24,11 @@ public class ResultView {
 
         return sb.toString();
     }
+
+    public static void printWinner(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.print(car.getName() + " ");
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
 }
