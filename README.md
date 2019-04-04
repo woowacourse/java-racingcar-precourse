@@ -41,30 +41,37 @@
 6. 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다. 
 
 ###기능 정리
-+ Car
-    + getName() : 객체의 name값을 반환 한다.
-    + getPosition() : 객체의 position값을 반환 한다.
-    + move() : position값을 변경한다.
-    + checkNameSize() : 객체 생성시 name값이 유효한지 검사 한다.
-+ Game
-    + play() : 게임 실행   
-    + round() : 라운드 진행
-    + moveOrNot() : car 객체의 position을 변경할지 정한다.
-    + endGame() : 게임을 종료하며 결과 List를 넘겨 준다.
-+ GameService
-    + getCars() : Console에서 입력 받은 car의 이름을 받는다.
-    + getCarList() : 입력 받은 car의 이름으로 객체를 생성하고 List로 변환한다
-    + getRoundCount() : Console에서 입력 받은 round횟수를 넘겨 받는다.
-    + roundStart() : 라운드 시작 메세지 출력을 위함.
-    + setRoundResult() : round 결과값을 반환한다.
-    + makeWinnerList() : List에서 position이 가장 큰 객체들만 남기고 나머지를 모두 삭제한다.
-    + maxPosition() : List의 객체 중 가장 큰 position값을 가지고 온다.
-+ Console
-    + writeStartMessage() : 게임 시작 메세지 출력한다.
-    + readCars() : 사용자에게 car들의 이름을 입력 받는다.
-    + writeRoundMessage() : 라운드 횟수를 입력 받기 위해 출력한다.
-    + readRoundCount() : 사용자에게 라운드 횟수를 입력 받는다.
-    + writeRoundStartMessage() : 라운드 시작을 위해 출력한다.
-    + writeRoundResult() : 라운드의 결과를 출력한다.
-    + positionMessage() : position 값을 받아 "-"로 변환 한다.
-    + writeGameResult() : 게임의 결과(승자)를 출력한다.
++ Class
+    + Car
+        + getName() : 객체의 name값을 반환 한다.
+        + getPosition() : 객체의 position값을 반환 한다.
+        + move() : position값을 변경한다.
+        + checkNameSize() : 객체 생성시 name값이 유효한지 검사 한다.
+    + Game
+        + play() : 게임 실행   
+        + round() : 라운드 진행
+        + moveOrNot() : car 객체의 position을 변경할지 정한다.
+        + endGame() : 게임을 종료하며 결과 List를 넘겨 준다.
+    + GameService
+        + getCars() : Console에서 입력 받은 car의 이름을 받는다.
+        + getCarList() : 입력 받은 car의 이름으로 객체를 생성하고 List로 변환한다
+        + getRoundCount() : Console에서 입력 받은 round횟수를 넘겨 받는다.
+        + roundStart() : 라운드 시작 메세지 출력을 위함.
+        + setRoundResult() : round 결과값을 반환한다.
+        + makeWinnerList() : List에서 position이 가장 큰 객체들만 남기고 나머지를 모두 삭제한다.
+        + maxPosition() : List의 객체 중 가장 큰 position값을 가지고 온다.
+    + Console
+        + writeStartMessage() : 게임 시작 메세지 출력한다.
+        + readCars() : 사용자에게 car들의 이름을 입력 받는다.
+        + writeRoundMessage() : 라운드 횟수를 입력 받기 위해 출력한다.
+        + readRoundCount() : 사용자에게 라운드 횟수를 입력 받는다.
+        + writeRoundStartMessage() : 라운드 시작을 위해 출력한다.
+        + writeRoundResult() : 라운드의 결과를 출력한다.
+        + positionMessage() : position 값을 받아 "-"로 변환 한다.
+        + writeGameResult() : 게임의 결과(승자)를 출력한다.
+    + Main
+    
++ Interface
+    + CarInterface : Car 관련 상수 정리
+    + ConsoleInterface : Console 관련 상수 정리
+    + GameServiceInterface : GameService 관련 상수 정리
