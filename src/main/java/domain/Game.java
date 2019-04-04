@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -15,10 +16,12 @@ public class Game {
         }
 
         public void start() {
-                printCarNamesInputMessage();
-                inputCarNames();
-                printTrialNumberInputMessage();
-                inputTrialNumber();
+                do {
+                        printCarNamesInputMessage();
+                }while(!inputCarNames());
+                do{
+                        printTrialNumberInputMessage();
+                }while(!inputTrialNumber());
                 printResultMessage();
                 for (int i = 0; i < trialNumber; i++) {
                         playOneCycle();
@@ -42,26 +45,59 @@ public class Game {
                 System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         }
 
-        private void inputCarNames() {
+        private boolean inputCarNames() {
                 Scanner scan = new Scanner(System.in);
                 String inputCarNames = scan.nextLine();
 
                 String[] splitedCarNames = inputCarNames.split(",");
-
+                for(int i =0;i<splitedCarNames.length;i++){
+                        if(!checkInputCarNames(splitedCarNames[i]))
+                                return false;
+                }
                 cars = new Car[splitedCarNames.length];
-
                 for (int i = 0; i < splitedCarNames.length; i++) {
                         cars[i] = new Car(splitedCarNames[i]);
                 }
+                return true;
+        }
+
+        private boolean checkInputCarNames(String inputCarNames) {
+                if(inputCarNames.length()>MAXCARNAMENUMBER){
+                        System.err.println("차 이름 길이 초과 오류");
+                        return false;
+                }
+
+                for(int i=0;i<inputCarNames.length();i++){
+                        if(!(inputCarNames.charAt(i) >= 'a' && inputCarNames.charAt(i)<='z')
+                                && !(inputCarNames.charAt(i) >= 'A' && inputCarNames.charAt(i)<='Z')){
+                                System.err.println("차 이름 입력 형식 오류 (알파벳만 입력)");
+                                return false;
+                        }
+                }
+                return true;
         }
 
         private void printTrialNumberInputMessage() {
                 System.out.println("시도할 회수는 몇회인가요?");
         }
 
-        private void inputTrialNumber() {
+        private boolean inputTrialNumber() {
                 Scanner scan = new Scanner(System.in);
-                this.trialNumber = scan.nextInt();
+                try {
+                        this.trialNumber = scan.nextInt();
+                        if(trialNumber < 1)
+                                throw new InputTrialNumberNotNaturalNumber();
+                }catch(InputMismatchException e){
+                        System.err.println("입력 형식 오류");
+                        return false;
+                }catch(InputTrialNumberNotNaturalNumber e){
+                        System.err.println("0이하 입력 오류");
+                        return false;
+                };
+                return true;
+        }
+
+        private class InputTrialNumberNotNaturalNumber extends RuntimeException{
         }
 
         private void printResultMessage() {
