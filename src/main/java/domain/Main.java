@@ -8,6 +8,7 @@ public class Main {
 	
 	static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	static final String REPETITION_QUESTION = "시도할 회수는 몇회인가요?";
+	static final String SHOW_RESULT = "실행 결과";
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -38,12 +39,33 @@ public class Main {
 		
 		int repetitionCount = Integer.parseInt(in.readLine());
 		
+		System.out.println(SHOW_RESULT);
 		while(repetitionCount-- > 0) {
-			
-		}	
+			for(int i = 0; i < numOfCars; i++) {
+				carArr[i].moveOrStop();
+			}
+			printResult(carArr);
+		}
 	}
 	
-	private static  boolean checkCarNameLength(String[] carNameArr) {
+	private static void printResult(Car[] carArr) {
+		for(int i = 0; i < carArr.length; i++) {
+			String currentCarName = carArr[i].getName();
+			int currentCarPossition = carArr[i].getPosition();
+			System.out.println(currentCarName + ":" + movedDistance(currentCarPossition));
+		}
+		System.out.println();
+	}
+	
+	private static String movedDistance(int movedCount) {
+		StringBuffer sb = new StringBuffer();
+		for(int i= 0; i < movedCount; i++) {
+			sb.append("-");
+		}
+		return sb.toString();
+	}
+	
+	private static boolean checkCarNameLength(String[] carNameArr) {
 		for(int i = 0; i < carNameArr.length; i++) {
 			if(carNameArr[i].length() > 5) {
 				return false;
