@@ -57,6 +57,8 @@
     * Variable :
        * final int LIMIT_TOP_NAME_NUMBER -> 받을 이름의 최대값
        * final int LIMIT_LOW_NAME_NUMBER -> 받을 이름의 최소값
+       * final int RANDOMNUMBER_FOR_GOING -> 앞으로 가기 위한 랜덤값의 크기 
+       
 기능 단위 Commit 체크
 -----------------------
 - [x] 1. 마크다운 작성 & Index클래스와 test폴더에 테스트코드 클래스 생성

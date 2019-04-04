@@ -10,6 +10,7 @@ public class Config {
 
     static final int LIMIT_TOP_NAME_NUMBER = 5;
     static final int LIMIT_LOW_NAME_NUMBER = 1;
+    static final int RANDOMNUMBER_FOR_GOING = 4;
     Scanner scan = new Scanner(System.in);
 
     public String characterMultiple(char value, int count) {
@@ -67,7 +68,7 @@ public class Config {
         int random;
         for (int i = 0; i < garage.length; i++) {
             random = makeRandom();
-            if (random > 4) {
+            if (random > RANDOMNUMBER_FOR_GOING) {
                 garage[i].movePosition();
             }
             printRaceRelay(garage, i);
