@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class PositionRecorder {
     private LeagueHistoryDB leagueHistories = new LeagueHistoryDB();
@@ -28,7 +29,39 @@ public class PositionRecorder {
         return repeated.toString();
     }
 
-    public void showHistoryOf(String leagueName) {
+    public void showPositions(HashMap<String, Integer> carPositions) {
+        for (String carName: carPositions.keySet()) {
+            System.out.print(carName + " : ");
+            System.out.println(repeat("-", carPositions.get(carName)));
+        }
+        System.out.print("\n");
+    }
 
+    public void showHistoryOf(String leagueName) {
+        LinkedHashMap<Integer, HashMap> trialRecords = leagueHistories.getHistoryOf(leagueName);
+        for (int trial: trialRecords.keySet()) {
+            showPositions(trialRecords.get(trial));
+        }
+    }
+
+    public String pickWinners(HashMap<String, Integer> carPositions) {
+        int maxPosition = -1;
+        StringBuffer winners = new StringBuffer();
+
+        for (String carName: carPositions.keySet()) {
+            if (carPositions.get(carName) > maxPosition) {
+                winners = new StringBuffer().append(carName);
+                maxPosition = carPositions.get(carName);
+            } else if (carPositions.get(carName) == maxPosition) {
+                winners.append(", " + carName);
+            }
+        }
+        return winners.toString();
+    }
+
+    public void showWinnersOf(String leagueName, int trial) {
+        String winners = pickWinners(leagueHistories.getHistoryOf(leagueName, trial));
+
+        System.out.println(winners + "(이)가 최종 우승했습니다.");
     }
 }
