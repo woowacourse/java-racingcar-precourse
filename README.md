@@ -30,12 +30,14 @@
     * _doRace()_
   * 이름 조건 확인
     * _isNameValid()_
+  * 실행 결과 append
+    * _makeResult()_
   * 실행 결과 리턴
     * _printResult()_
   * 자동차 위치를 문자열로 바꿈
     * _positionToResult()_
-  * 우승자 리턴
-    * _printWinner()_
+  * 우승자 구하기
+    * _getWinner()_
 
 * __Main 클래스__
   * 프로그램 실행

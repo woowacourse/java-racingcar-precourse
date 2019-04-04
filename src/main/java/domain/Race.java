@@ -8,7 +8,8 @@ public class Race {
 
     private Scanner sc = new Scanner(System.in);
 
-    private ArrayList<Car> cars = new ArrayList<>();;
+    private StringBuilder result = new StringBuilder("실행 결과\n");
+    private ArrayList<Car> cars = new ArrayList<>();
     private int count;
 
     // 레이스 실행
@@ -22,9 +23,10 @@ public class Race {
 
         while (count-- > 0) {
             doRace();
+            makeResult();
         }
-
-        printWinner();
+        getWinner();
+        printResult();
     }
 
     // 자동차 초기화
@@ -49,15 +51,17 @@ public class Race {
         return name.length() <= 5;
     }
 
-    // 실행결과 출력
-    private void printResult() {
-        StringBuilder result = new StringBuilder("실행 결과");
+    // 실행결과 append
+    private void makeResult() {
         for (int i = 0; i < cars.size(); i++) {
             result.append(cars.get(i).getName()).append(" : ");
             result.append(positionToResult(cars.get(i).getPosition())).append("\n");
         }
         result.append("\n");
+    }
 
+    // 실행결과 출력
+    private void printResult() {
         System.out.println(result.toString());
     }
 
@@ -71,8 +75,8 @@ public class Race {
     }
 
     // 우승자 출력
-    private void printWinner() {
-        System.out.println("");
+    private void getWinner() {
+        result.append("가 최종 우승했습니다.");
 
     }
 }
