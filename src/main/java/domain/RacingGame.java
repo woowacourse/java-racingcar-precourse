@@ -35,7 +35,7 @@ public class RacingGame {
     }
 
     public void progressGame() {
-        while (tries-- > 0) {
+        for (int i = 0; i < tries; i++) {
             for (Car car : cars) {
                 car.accelerate();
                 System.out.println(getAlignedName(car) + " : "
@@ -50,10 +50,7 @@ public class RacingGame {
 
     public String getAlignedName(Car car) {
         String name = car.getName();
-        while (name.length() < maxLenOfName) {
-            name += " ";
-        }
-        return name;
+        return String.format("%-" + maxLenOfName + "s", name);
     }
 
     public String getDisplayOfPosition(Car car) {
@@ -106,7 +103,7 @@ public class RacingGame {
     }
 
     public static void main(String[] args) {
-        RacingGameConfig racingGameConfig = new RacingGameConfig();
-        new RacingGame(racingGameConfig).start();
+        RacingGameConfig config = new RacingGameConfig();
+        new RacingGame(config).start();
     }
 }
