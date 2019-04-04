@@ -22,11 +22,23 @@ public class MainClass {
      */
     static String[] names;
     static Car[] cars;
-    static int moveIn;
 
+    /**
+     * main: 다음의 기능을 순차적으로 실행한다.
+     * - 사용자로부터 자동차의 이름을 입력받는다.
+     * - 입력받은 이름으로 자동차를 객체화한다.
+     * - 사용자로부터 경주 횟수를 입력받는다.
+     * - 입력받은 경주 횟수만큼 자동차 경주를 실행한다.
+     * - 매 경주가 끝날 때 마다 경주 현황을 출력한다.
+     * - 자동차 경주가 끝난 후 우승자를 고른다
+     * - 우승자를 출력한다.
+     *
+     * @param args: 사용하지 않음.
+     */
     static public void main(String[] args) {
+        int moveIn;
         names = userInName().split(",");    //사용자로부터 입력받은 문자열 원본을 구분자 ','로 분할하여 names 배열에 저장.
-        cars = makeCar(names);
+        cars = makeCar();
         moveIn = userInMove();
         doRace(moveIn);
         selectWinner();
@@ -51,10 +63,9 @@ public class MainClass {
     /**
      * makeCar: 입력받은 이름을 이용하여 Car class 를 객체화하는 메소드
      *
-     * @param names: 사용자로부터 입력받은 이름들이 저장된 배열
      * @return cars: Car 객체들이 저장된 배열
      */
-    static public Car[] makeCar(String[] names) {
+    static public Car[] makeCar() {
         Car[] cars = new Car[names.length];
         for (int i = 0; i < names.length; ++i) {
             cars[i] = new Car(names[i]);
@@ -80,7 +91,7 @@ public class MainClass {
      * moveIn 만큼 루프를 돈다. 매 루프마다 각 자동차를 Car class 의 goStop 메서드를 사용한다.
      * 그 후 printRace(메서드 5)를 통해 경기 현황을 출력한다.
      *
-     * @param moveIn
+     * @param moveIn: 경주 횟수를 저장한 변수
      */
     static public void doRace(int moveIn) {
         while (true) {
@@ -97,8 +108,8 @@ public class MainClass {
     }
 
     /**
-     * cars에 담겨있는 객체들의 position 변수에 접근하여 경기 현황을 출력하는 메서드이다.
-     * Car class의 getPos메서드를 사용한다.
+     * cars 에 담겨있는 객체들의 position 변수에 접근하여 경기 현황을 출력하는 메서드이다.
+     * Car class 의 getPos 메서드를 사용한다.
      */
     static public void printRace() {
         for (int i = 0; i < names.length; ++i) {
@@ -112,26 +123,33 @@ public class MainClass {
     }
 
     /**
-     * selectWinner:
+     * selectWinner: 자동차 경주의 우승자를 찾는 메서드이다.
+     */
+    /*
+     *  우승자를 찾는 알고리즘은 다음과 같다.
+     * 1. cars 배열에 있는 객체 중 가장 높은 position 값을 구한다.
+     * 2. 최대 position 값과 같은 position 값을 갖고 있는 객체의 이름을 전부 출력한다.
      */
     static public void selectWinner() {
         int maxPos = cars[0].getPos();
 
         for (int i = 1; i < names.length; ++i) {
             if (cars[i].getPos() > maxPos) {
-                maxPos = cars[i].getPos();          //전체 Car 객체 중 가장 높은 최대 position값을 구한다.
+                maxPos = cars[i].getPos();          //전체 Car 객체 중 가장 높은 최대 position 값을 구한다.
             }
         }
         for (int i = 0; i < names.length; ++i) {
             if (cars[i].getPos() == maxPos) {
-                printWinner(i);                     //최대 position값과 같은 position값을 갖고 있는 객체의 이름을 전부 출력.
+                printWinner(i);                     //최대 position 값과 같은 position 값을 갖고 있는 객체의 이름을 전부 출력.
             }
         }
         System.out.println("\b\b가 최종 우승했습니다.");
     }
 
     /**
-     * printWinner:
+     * printWinner(carIndex): cars 배열의 carIndex 번째 객체의 이름을 출력한다.
+     *
+     * @param carIndex: selectWinner 메서드에서 찾은 우승자 car 객체의 index
      */
     static public void printWinner(int carIndex) {
         System.out.print(cars[carIndex].getName() + ", ");
