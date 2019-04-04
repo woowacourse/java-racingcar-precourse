@@ -26,5 +26,7 @@ public class RacingCarController {
                 car.moveOrStopCar();
             racingCarOutputView.printTryResult(new RacingCarResult(cars));
         }
+
+        racingCarOutputView.printWinner(new RacingCarResult(cars));
     }
 } 
