@@ -17,5 +17,17 @@ public class Car {
         return this.position;
     }
 
+    public int getRandomNum() {
+        return (int) (Math.random() * 9);
+    }
 
+    public void moveForward() {
+        this.position++;
+    }
+
+    public void race() {
+        if (this.getRandomNum() >= 4) {
+            this.moveForward();
+        }
+    }
 }
