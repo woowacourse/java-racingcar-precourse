@@ -24,4 +24,10 @@ public class Car {
             addPosition();
         }
     }
+    
+    public String getName() {
+        return name;
+    }
+
+    
 }
