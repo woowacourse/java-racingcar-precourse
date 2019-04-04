@@ -26,7 +26,7 @@ public class RacingGame {
 		private static final String EXECUTION_RESULT = "\n실행 결과";
 		private static final String POSITION_OF_CAR = "-";
 		private static final String BLANK = "";
-		
+
 		private String[] carNameList;
 		private Car[] racingCars;
 		private int numOfTry;
