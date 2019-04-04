@@ -33,6 +33,16 @@ public class Racing {
         System.out.println(("시도할 회수는 몇회인가요?"));
         racing_num = scan.nextInt();
     }
+    public static void racing(){
+        System.out.println("실행 결과");
+        for(int i=1; i<=racing_num; i++){
+            for(int j=0; j<car_num; j++){
+                cars[j].move();
+                cars[j].print_status();
+            }
+            System.out.println();
+        }
+    }
     public static void main(String[] args){
         get_input();
         racing();
