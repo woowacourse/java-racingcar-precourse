@@ -35,7 +35,7 @@ public class RacingGame {
 	}
 	
 	private String inputCarNameList() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
+		System.out.println(Message.REQUEST_CAR_NAME_LIST);
 		return scanner.nextLine();
 	}
 
@@ -46,7 +46,7 @@ public class RacingGame {
 	private boolean isCollectCarNameLength(String[] carNames) {
 		for (int i = 0; i < carNames.length; i++) {
 			if (carNames[i].length() > 5) {
-				System.out.println("자동차 이름은 5자 이하만 가능합니다.");
+				System.out.println(Message.NAME_LENGTH_ERROR);
 				return false;
 			}
 		}
@@ -54,13 +54,13 @@ public class RacingGame {
 	}
 
 	private void inputRound() {
-		System.out.println("\n시도할 횟수는 몇회인가요?");
+		System.out.println(Message.REQUEST_NUMBER_OF_ROUND);
 		while (true) {
 			this.round = this.parseRound(scanner.next());
 			if (this.round != -1) {
 				break;
 			}
-			System.out.println("올바른 수를 입력하세요.");
+			System.out.println(Message.INVAILD_NUMBER_ERROR);
 		}
 	}
 	
@@ -88,7 +88,7 @@ public class RacingGame {
 	}
 
 	private void runRounds() {
-		System.out.println("\n실행 결과");
+		System.out.println(Message.RUN_RESULT);
 		for (int i = 0; i < this.round; i++) {
 			this.moveCars();
 			System.out.println("\n");
@@ -124,6 +124,6 @@ public class RacingGame {
 	}
 
 	private void printWinner(String winnerCarNameList) {
-		System.out.println(winnerCarNameList + "가 최종 우승했습니다.");
+		System.out.println(winnerCarNameList + Message.END_OF_WINNER_MESSAGE);
 	}
 }
