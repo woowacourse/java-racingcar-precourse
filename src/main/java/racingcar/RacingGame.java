@@ -5,7 +5,7 @@ import racingcar.view.InputView;
 
 public class RacingGame {
     public void run(){
-        CarListGenerator.generate(InputView.inputCarNames());
+        RacingCars racingCars = new RacingCars(CarListGenerator.generate(InputView.inputCarNames()));
 
     }
 }
