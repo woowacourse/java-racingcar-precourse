@@ -28,5 +28,4 @@ class OutputView {
 	private static void printResult(GameRound finalRound) {
 		System.out.println(finalRound.getWinnerString() + "가 최종 우승했습니다");
 	}
-
 }

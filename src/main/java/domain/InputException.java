@@ -4,8 +4,9 @@
 
 package domain;
 
-class InputException extends RuntimeException{
-	InputException(String msg) {
+class InputException extends RuntimeException {
+
+	public InputException(String msg) {
 		super(msg);
 	}
 }

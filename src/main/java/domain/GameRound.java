@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 
 class GameRound {
-
 	List<Car> carList;
 
 	public GameRound(List<Car> carList) {
@@ -18,7 +17,7 @@ class GameRound {
 
 	public void proceed() {
 		for (Car car : this.carList) {
-			car.moveCar(getRandomNumber());
+			car.moveCar(this.getRandomNumber());
 		}
 	}
 
