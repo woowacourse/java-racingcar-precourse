@@ -12,6 +12,11 @@ public class Car {
         Random generator = new Random();
         return generator.nextInt(10);
     }
+    public boolean gostop(){
+        int num = random_value();
+        if(num>=4) return true;
+        return false;
+    }
 
     // 추가 기능 구현
 }
