@@ -13,7 +13,7 @@
   * 길이가 모두 5 이하이면 true, 그 외 false 리턴
 
 * showTrace
-  * 입력값 : Car 자동차 인스턴스, String 자동차이름Trace
+  * 입력값 : Car 자동차 인스턴스, String 자동차 trace
   * 리턴값 : void
   * if문으로 자동차 인스턴스.tryRun()이면 Trace += "-"
   * println String "자동차 이름 : " + 자동차이름Trace
@@ -28,8 +28,9 @@
   * String[] cars ","로 split
   * while문으로 checkNameLength 메소드가 true를 리턴할 때까지 반복
  
-* 경주 자동차 인스턴스 생성
-  * for문으로 각 자동차이름 + "Trace" 이름의 String 변수 생성 = ""
+* 경주 자동차 인스턴스&Trace 생성
+  * for문으로 각 자동차이름을 가진 Car 인스턴스 생성
+  * for문으로 각 자동차의 trace = "" 선언 + add
   * String[] traces
 
 * 시도 횟수 입력받기
