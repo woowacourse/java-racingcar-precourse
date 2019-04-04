@@ -1,7 +1,7 @@
 /*
  * ValidInterface interface
  *
- * @version 1
+ * @version 2
  *
  * @date 2019-04-02
  *
@@ -13,7 +13,11 @@ package domain.interfaces;
 
 public interface ValidInterface {
 
-    boolean validCarName(String[] carNames);
+    boolean validCarNameLength(String[] carNames);
+
+    boolean validCarNameDuplicate(String[] carNames);
+
+    boolean validCarCount(String[] carNames);
 
     boolean validGameCount(String times);
 }

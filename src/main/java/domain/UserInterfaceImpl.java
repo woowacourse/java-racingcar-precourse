@@ -1,7 +1,7 @@
 /*
  * UserInterfaceimpl Class
  *
- * @version 1.1
+ * @version 2
  *
  * @date 2019-04-02
  *
@@ -45,13 +45,23 @@ public class UserInterfaceImpl implements UserInterface {
     }
 
     @Override
-    public void alertInvalidCarName() {
-        System.out.println("자동차의 이름의 길이는 1자 이상, 5 이하 입니다.");
+    public void alertInvalidCarCount() {
+        System.out.println("자동차의 갯수가 0개 입니다.\n");
+    }
+
+    @Override
+    public void alertInvalidCarNameLength() {
+        System.out.println("5자 이하의 이름을 입력하세요.\n");
+    }
+
+    @Override
+    public void alertCarNameDuplicate() {
+        System.out.println("자동차 이름이 중복되었습니다.\n");
     }
 
     @Override
     public void alertInvalidGameCount() {
-        System.out.println("게임의 횟수는 양수입니다.");
+        System.out.println("게임의 횟수는 양수입니다.\n");
     }
 
     @Override

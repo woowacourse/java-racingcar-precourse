@@ -1,7 +1,7 @@
 /*
  * Game Class
  *
- * @version 1
+ * @version 2
  *
  * @date 2019-04-03
  *
@@ -56,12 +56,28 @@ public class Game {
     }
 
     private String[] getNameByUser() {
-        String[] carNames = userinterface.inputCarName();
+        String[] carNames;
 
-        while (!validInterface.validCarName(carNames)) {
-            userinterface.alertInvalidCarName();
+        while(true){
             carNames = userinterface.inputCarName();
+            // 자동차 이름의 길이를 검사한다.
+            if(!validInterface.validCarNameLength(carNames)){
+                userinterface.alertInvalidCarNameLength();
+                continue;
+            }
+            // 자동차 이름 중복을 검사한다.
+            if(!validInterface.validCarNameDuplicate(carNames)){
+                userinterface.alertCarNameDuplicate();
+                continue;
+            }
+            // 자동차 갯수를 검사한다.
+            if(!validInterface.validCarCount(carNames)) {
+                userinterface.alertInvalidCarCount();
+                continue;
+            }
+            break;
         }
+
         return carNames;
     }
 
@@ -85,7 +101,7 @@ public class Game {
     }
 
     /**
-     * 각각의 자동차들을 랜덤하게 이동 또는 정지를 수행.
+     * 각각의 자동차들을 랜덤하게 이동 또는 정지 수행.
      *
      * @param carList : 모든 자동차들의 List
      */
@@ -97,7 +113,7 @@ public class Game {
     }
 
     /**
-     * 랜덤으로 자동차가 이동할지 안 할지 결정한다.
+     * 랜덤으로 자동차가 이동할지 안 할지 결정.
      *
      * @return 자동차 행동에 대한 결정값.
      */

@@ -1,7 +1,7 @@
 /*
  * UserInterface Interface
  *
- * @version 1
+ * @version 2
  *
  * @date 2019-04-02
  *
@@ -22,7 +22,11 @@ public interface UserInterface {
 
     String inputGameCount();
 
-    void alertInvalidCarName();
+    void alertInvalidCarNameLength();
+
+    void alertCarNameDuplicate();
+
+    void alertInvalidCarCount();
 
     void alertInvalidGameCount();
 
