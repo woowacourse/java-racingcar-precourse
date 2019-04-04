@@ -47,5 +47,15 @@
 
   * 게임 진행
 
+ * ##### 변경 사항
+    * package 생성 및 Class 위치 변경
+
+      [domain] - Car.class
+
+      [game] - RacingGame.class
+
+      [service] - GameService.class
+
+      ​	        - NamingService.class	
 ---
 
