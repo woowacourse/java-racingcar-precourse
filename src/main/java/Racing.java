@@ -51,6 +51,13 @@ public class Racing {
         }
         return max;
     }
+    public static void find_winner(){
+        int max_distance = find_max_distance();
+        for(int i=0; i<car_num; i++){
+            if(cars[i].position()==max_distance)
+                winners[winner_num++] = cars[i].name();
+        }
+    }
     public static void main(String[] args){
         get_input();
         racing();
