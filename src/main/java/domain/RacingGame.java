@@ -2,9 +2,9 @@
 *
 * 클래스 이름 : RacingGame.java
 *
-* 버전 정보 : 1.0.1
+* 버전 정보 : 1.0.0
 *
-* 날짜 : 2019.03.30
+* 날짜 : 2019.04.04
 *
 * 작성자 : 483759
 * */
@@ -92,9 +92,15 @@ public class RacingGame {
         winnerList[idx++] = carList[i];
       }
     }
-    for(int i=0;i<idx;i++){
-      System.out.print(winnerList[i].getCarName()+ " ");
+    PrintWinCar(winnerList, idx);
+  }
+
+  public static void PrintWinCar(Car[] winnerList, int winNum){
+    for(int i=0;i<winNum-1;i++){
+      System.out.print(winnerList[i].getCarName()+", ");
     }
+    System.out.print(winnerList[winNum-1].getCarName());
+    System.out.println("가 최종 우승했습니다.");
   }
 
   public static void main(String args[]){
