@@ -55,24 +55,31 @@ public class RacingGame {
     return tryNum;
   }
 
-  public static void CarRacing(Car[] carList){
-    for(int i=0;i<carList.length;i++){
+  public static void CarRacing(Car[] carList, int carNum){
+    for(int i=0;i<carNum;i++){
       int random = carList[i].RandomMove();
       carList[i].CalculateLocation(random);
+      System.out.print(carList[i].getCarName()+":");
+      for(int j=0;j<carList[i].getCarPosition();j++) {
+        System.out.print("-");
+      }
+      System.out.println();
     }
   }
 
-  public static void StartGame(Car[] carList, int tryNum){
+  public static void StartGame(Car[] carList, int carNum, int tryNum){
     for(int i=0;i<tryNum;i++){
-      CarRacing(carList);
+      CarRacing(carList, carNum);
+      System.out.println();
     }
   }
 
   public static void main(String args[]){
     String[] carName =  InputCarName();
+    int carNum = carName.length;
     Car[] carList =CreateCarList(carName);
     int tryNum = InputTryNumber();
-    StartGame(carList, tryNum);
+    StartGame(carList, carNum, tryNum);
     /*
     for (int i = 0; i < str.length; i++) {
       System.out.println(c[i].getCarName());
