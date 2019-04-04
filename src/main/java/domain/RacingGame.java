@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 public class RacingGame {
 
     private String carNames;
+    private Car[] cars;
     private BufferedReader br;
 
     public RacingGame() {
@@ -38,6 +39,16 @@ public class RacingGame {
             }
         }
         return isValidate;
+    }
+
+    public void createCars() {
+        String[] carNamesArr = this.carNames.split(",");
+        int carCnt = carNamesArr.length;
+        this.cars = new Car[carCnt];
+
+        for (int i = 0; i < carCnt; i++) {
+            this.cars[i] = new Car(carNamesArr[i]);
+        }
     }
 
     public void showMessage(String msg) {
