@@ -17,7 +17,7 @@ public class PositionRecorder {
     }
 
     public void recordPositionsOf(String leagueName, int trial, ArrayList<Car> cars) {
-        leagueHistories.writeHIstory(leagueName, trial, detectPositionsOf(cars));
+        leagueHistories.record(leagueName, trial, detectPositionsOf(cars));
     }
 
     public String repeat(String str, int repeatTime) {
@@ -38,9 +38,10 @@ public class PositionRecorder {
     }
 
     public void showHistoryOf(String leagueName) {
-        LinkedHashMap<Integer, HashMap> trialRecords = leagueHistories.getHistoryOf(leagueName);
-        for (int trial: trialRecords.keySet()) {
-            showPositions(trialRecords.get(trial));
+        LinkedHashMap<Integer, HashMap> history = leagueHistories.getHistoryOf(leagueName);
+
+        for (int trial: history.keySet()) {
+            showPositions(history.get(trial));
         }
     }
 

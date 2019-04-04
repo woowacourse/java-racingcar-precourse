@@ -11,7 +11,7 @@ public class LeagueHistoryDB {
         leagueHistories.put(leagueName, trialRecords);
     }
 
-    public void writeHIstory(String leagueName, int trial, HashMap<String, Integer> carPositions) {
+    public void record(String leagueName, int trial, HashMap<String, Integer> carPositions) {
         if (!leagueHistories.containsKey(leagueName)) {
             createNewHistroy(leagueName);
         }
