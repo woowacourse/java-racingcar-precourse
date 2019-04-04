@@ -7,6 +7,7 @@ public class RacingGame {
 
     private String carNames;
     private Car[] cars;
+    private int racingCnt;
     private BufferedReader br;
 
     public RacingGame() {
@@ -48,6 +49,32 @@ public class RacingGame {
 
         for (int i = 0; i < carCnt; i++) {
             this.cars[i] = new Car(carNamesArr[i]);
+        }
+    }
+
+    public boolean setRacingCount() {
+        this.showMessage("시도할 회수는 몇회인가요?");
+
+        try {
+            String inputRacingCnt = br.readLine();
+            if (isValidateRacingCount(inputRacingCnt)) {
+                racingCnt = Integer.parseInt(inputRacingCnt);
+                return true;
+            }
+            this.showMessage("유효하지 않은 입력 입니다.");
+        } catch (Exception e) {
+            this.showMessage("입력 오류 입니다.");
+        }
+
+        return false;
+    }
+
+    public boolean isValidateRacingCount(String inputRacingCount) {
+        try {
+            Integer.parseInt(inputRacingCount);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
