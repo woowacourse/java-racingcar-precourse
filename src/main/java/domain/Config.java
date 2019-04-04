@@ -56,11 +56,6 @@ public class Config {
         return carsArray;
     }
 
-    public String[] makeArrayByString(String name) {
-        String[] nameArray = name.split(",");
-        return nameArray;
-    }
-
     public String[] divideCarNameArray(String name) {
         String cars = name;
         String[] carsArray = makeArrayByString(cars);
@@ -68,11 +63,29 @@ public class Config {
         return carsArray;
     }
 
+    public Car[] decideMoveForward(Car[] garage) {
+        int random;
+        for (int i = 0; i < garage.length; i++) {
+            random = makeRandom();
+            if (random > 4) {
+                garage[i].movePosition();
+            }
+            printRaceRelay(garage, i);
+        }
+        System.out.println("");
+        return garage;
+    }
+
+    public String[] makeArrayByString(String name) {
+        String[] nameArray = name.split(",");
+        return nameArray;
+    }
+
     /**
      * Garage는 차고로써 Car의 인스턴스들을 담는다.
      *
      * @param carArrays
-     * @return Car인스턴스를 담은 배열
+     * @return garage Car인스턴스를 담은 배열
      */
     public Car[] makeGarage(String[] carArrays) {
         int length = carArrays.length;
@@ -92,8 +105,8 @@ public class Config {
     /**
      * 자동차 레이스 시에 경기 상황을 중계(출력)한다.
      *
-     * @param garage
-     * @param i
+     * @param garage Car를 담은 배열
+     * @param i      garage의 인덱스
      */
     public void printRaceRelay(Car[] garage, int i) {
         String counter = characterMultiple('-', garage[i].getPosition());
@@ -111,19 +124,6 @@ public class Config {
         winner = winner.substring(0, winner.length() - 1);
         System.out.println(winner + "님이 최종 우승하셨습니다!");
         return winner;
-    }
-
-    public Car[] decideMoveForward(Car[] garage) {
-        int random;
-        for (int i = 0; i < garage.length; i++) {
-            random = makeRandom();
-            if (random > 4) {
-                garage[i].movePosition();
-            }
-            printRaceRelay(garage, i);
-        }
-        System.out.println("");
-        return garage;
     }
 
     public void race(Car[] garage) {

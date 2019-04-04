@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.regex.Pattern;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class ConfigTest {
@@ -16,11 +17,10 @@ public class ConfigTest {
         config = new Config();
     }
 
-
     @Test
-    public void makeArrayByStringTest() {
-        String[] result = config.makeArrayByString("Tommi,Pride,Cago");
-        assertEquals(new String[]{"Tommi", "Pride", "Cago"}, result);
+    public void characterMultipleTest() {
+        String result = config.characterMultiple('-', 5);
+        assertEquals("-----", result);
     }
 
     @Test
@@ -34,6 +34,39 @@ public class ConfigTest {
         assertEquals(resultTrue, Boolean.TRUE);
         assertEquals(resultFalse, Boolean.FALSE);
         assertEquals(resultFalseSpace, Boolean.FALSE);
+    }
+
+    @Test
+    public void divideCarNameArrayTest() {
+        String name = "Tom,Tim,Tommy,Tammy,Timon";
+        String[] nameArray = {"Tom", "Tim", "Tommy", "Tammy", "Timon"};
+        String[] result = config.divideCarNameArray(name);
+        assertArrayEquals(nameArray, result);
+        /** 블랭크가 있을시 출력문이 있어 테스트 불가능 */
+//        String nameMiddleBlank = "Tom,,Tommy,Tammy,Timon";
+//        String[] nameArrayMiddleBlank = {"Tom","","Tommy","Tammy","Timon"};
+//        String[] resultMiddleBlank = config.divideCarNameArray(nameMiddleBlank);
+//        assertArrayEquals(nameArrayMiddleBlank,resultMiddleBlank);
+    }
+
+    @Test
+    public void findMaxPositionTest() {
+        Car[] garage = {new Car("Tommi"), new Car("monster")};
+        garage[0].movePosition();
+        garage[0].movePosition();
+        garage[0].movePosition();
+        int result = config.findMaxPosition(garage);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void makeArrayByStringTest() {
+        String[] trueResult = config.makeArrayByString("Tommi,Pride,Cago");
+        String[] falseResult = config.makeArrayByString("Tommi,Pride,Jimmi");
+        String[] falseResultLength = config.makeArrayByString("Tommi,Pride");
+        assertArrayEquals(new String[]{"Tommi", "Pride", "Cago"}, trueResult);
+//        assertEquals(new String[]{"Tommi", "Pride","Cago"}, falseResult);
+//        assertEquals(new String[]{"Tommi", "Pride","Cago"},falseResultLength);
     }
 
     @Test
@@ -58,13 +91,6 @@ public class ConfigTest {
         assertEquals(false, resultFalse);
     }
 
-    @Test
-    public void raceTest() {
-        Car[] garage = config.makeGarage(new String[]{"Tommi", "Pride", "Cago"});
-        for (int i = 0; i < 5; i++) {
-            config.race(garage);
-        }
-    }
 
     @Test
     public void printWinnerTest() {
@@ -78,12 +104,6 @@ public class ConfigTest {
         garage[1].movePosition();
         String otherResult = config.printWinner(garage);
         assertEquals("Tommi,Pride,Cago", otherResult);
-    }
-
-    @Test
-    public void characterMultipleTest() {
-        String result = config.characterMultiple('-', 5);
-        assertEquals("-----", result);
     }
 
 

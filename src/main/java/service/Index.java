@@ -3,12 +3,12 @@ package service;
 import domain.Car;
 import domain.Config;
 
-import java.util.Scanner;
-
+/**
+ * Index : 실제 앱의 동작을 담은 클래스
+ */
 public class Index {
     public static void main(String[] args) {
         Config config = new Config();
-        Scanner scan = new Scanner(System.in);
 
         String carsName = config.inputCarsName();
         String[] carArrays = config.divideCarNameArray(carsName);
