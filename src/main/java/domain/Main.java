@@ -13,4 +13,15 @@ public class Main {
         String[] inputCar = input_car_name_user.split(CAR_NAME_SEPARATOR);
         return inputCar;
     }
+
+    public static int countCleanName(boolean[] check) {
+        int count = 0;
+
+        for (int i = 0; i < check.length; i++) {
+            if (check[i] == false) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
