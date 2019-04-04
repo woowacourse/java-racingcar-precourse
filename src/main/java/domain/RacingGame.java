@@ -59,12 +59,16 @@ public class RacingGame {
     for(int i=0;i<carNum;i++){
       int random = carList[i].RandomMove();
       carList[i].CalculateLocation(random);
-      System.out.print(carList[i].getCarName()+":");
-      for(int j=0;j<carList[i].getCarPosition();j++) {
-        System.out.print("-");
-      }
-      System.out.println();
+      PrintCarMove(carList[i]);
     }
+  }
+
+  public static void PrintCarMove(Car racingCar){
+    System.out.print(racingCar.getCarName()+":");
+    for(int i=0;i<racingCar.getCarPosition();i++){
+      System.out.print("-");
+    }
+    System.out.println();
   }
 
   public static void StartGame(Car[] carList, int carNum, int tryNum){
@@ -80,9 +84,5 @@ public class RacingGame {
     Car[] carList =CreateCarList(carName);
     int tryNum = InputTryNumber();
     StartGame(carList, carNum, tryNum);
-    /*
-    for (int i = 0; i < str.length; i++) {
-      System.out.println(c[i].getCarName());
-    }*/
   }
 }

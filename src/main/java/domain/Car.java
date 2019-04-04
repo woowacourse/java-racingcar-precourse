@@ -1,7 +1,5 @@
 package domain;
 
-import com.sun.javafx.css.CalculatedValue;
-import java.util.Calendar;
 import java.util.Random;
 
 public class Car {
@@ -18,7 +16,7 @@ public class Car {
 
     public int RandomMove(){
         Random r = new Random();
-        int random = r.nextInt(9) + 1;
+        int random = r.nextInt(10);
         return random;
     }
 
