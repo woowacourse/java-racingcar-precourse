@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class NameInput {
     static Scanner scan = new Scanner(System.in);
-    private static final String INPUT_CAR_TEXT = "경주할 자동차 이름을 쉼표(,)로 구분해 입력해 주세요.";
-    private static final String NAME_INPUT_ERROR = "5자 이하의 이름을 입력해주세요";
-
+    private static final String INPUT_CAR_TEXT = "경주할 자동차 이름을 쉼표(,)로 구분해 입력해주세요.";
+    private static final String NAME_LENGTH_ERROR = "5자 이하의 이름을 입력해주세요";
+    private static final String NAME_BLANK_ERROR = "공백이 아닌 이름을 입력해주세요";
     /**
      * 이름 입력 함수.
      */
@@ -40,7 +40,11 @@ public class NameInput {
     private static boolean validateNameInput(String [] inputArray){
         for(String inputString: inputArray) {
             if (inputString.length() > Constants.MAX_NAME_LENGTH) {
-                System.out.println(NAME_INPUT_ERROR);
+                System.out.println(NAME_LENGTH_ERROR);
+                return false;
+            }
+            if (inputString.length()==0){
+                System.out.println(NAME_BLANK_ERROR);
                 return false;
             }
         }
