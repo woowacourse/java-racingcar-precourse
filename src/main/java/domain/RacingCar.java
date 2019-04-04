@@ -99,12 +99,7 @@ public class RacingCar {
         int duplicatedCount; // 각 이름마다 중복된 횟수, 1을 넘어가면 duplicatedName에 추가
         StringJoiner duplicatedName = new StringJoiner(", ");
         for (String distinctName: distinctCarName) { // 중복 제거한 이름
-            duplicatedCount = 0;
-            for (String carName: splitCarNames) { // 중복 허용한 이름
-                if (carName.equals(distinctName)) {
-                    duplicatedCount ++;
-                }
-            }
+            duplicatedCount = countingCarName(distinctName, splitCarNames);
             if (duplicatedCount > 1) {
                 duplicatedName.add(distinctName);
             }
@@ -113,6 +108,25 @@ public class RacingCar {
             System.out.printf("[Warning]중복된 이름(%s)이 발생하였습니다.\n",
                     duplicatedName);
         }
+    }
+
+    /**
+     * countingCarName
+     * @param distinctName 갯수를 확인할 이름
+     * @param splitCarNames 각 이름이 5글자 이하인 배열
+     * @return int 중복도
+     *
+     * distinctName이 splitCarNames에 몇개 있는지 확인
+     * */
+    public int countingCarName(String distinctName,
+                               String[] splitCarNames) {
+        int count = 0;
+        for (String carName: splitCarNames) {
+            if (carName.equals(distinctName)) {
+                count ++;
+            }
+        }
+        return count;
     }
 
     /**
