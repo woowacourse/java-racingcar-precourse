@@ -30,7 +30,7 @@ public class Game {
     }
 
     private boolean moveOrNot() {
-        return (int) (Math.random() * 10) > 3 ? true : false;
+        return (int) (Math.random() * 10) > 3;
     }
 
     private void endGame(List<Car> carList) {
