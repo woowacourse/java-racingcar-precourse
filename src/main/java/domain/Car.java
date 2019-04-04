@@ -8,5 +8,14 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public boolean tryRun() {
+        int decidingNumber = (int)(Math.random() * 9 + 0);
+        boolean isRun = false;
+
+        if (decidingNumber > 3) {
+            isRun = true;
+        }
+
+        return isRun;
+    }
 }
