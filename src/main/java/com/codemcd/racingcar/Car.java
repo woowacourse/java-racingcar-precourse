@@ -9,8 +9,8 @@ package com.codemcd.racingcar;
 /**
  * 레이싱에 참여하는 자동차의 정보 및 동작을 가지는 클래스
  *
- * @version v2.0
  * @author 박성범
+ * @version v2.0
  */
 public class Car {
 

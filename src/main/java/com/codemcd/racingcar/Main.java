@@ -9,8 +9,8 @@ package com.codemcd.racingcar;
 /**
  * 레이싱 게임을 진행하는 클래스
  *
- * @version v2.0
  * @author 박성범
+ * @version v2.0
  */
 public class Main {
 

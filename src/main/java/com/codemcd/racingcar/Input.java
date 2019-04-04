@@ -11,8 +11,8 @@ import java.util.Scanner;
 /**
  * 사용자의 입력을 받는 클래스
  *
- * @version v2.0
  * @author 박성범
+ * @version v2.0
  */
 public class Input {
 

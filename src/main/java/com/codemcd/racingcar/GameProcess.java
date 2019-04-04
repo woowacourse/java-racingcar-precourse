@@ -11,8 +11,8 @@ import java.util.Random;
 /**
  * 게임에 필요한 기능을 수행하는 클래스
  *
- * @version v2.0
  * @author 박성범
+ * @version v2.0
  */
 public class GameProcess {
 

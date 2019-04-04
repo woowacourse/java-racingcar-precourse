@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Junit을 사용하여 유저 입력을 테스트하는 클래스
  *
- * @version v2.0
  * @author 박성범
+ * @version v2.0
  */
 public class InputErrorTest {
 

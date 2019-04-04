@@ -9,8 +9,8 @@ package com.codemcd.racingcar;
 /**
  * 입력 오류를 처리하기 위한 클래스
  *
- * @version v2.0
  * @author 박성범
+ * @version v2.0
  */
 public class InputError {
 
