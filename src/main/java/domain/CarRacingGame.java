@@ -12,6 +12,7 @@ public class CarRacingGame {
         CarRacingGame racingGame = new CarRacingGame();
         racingGame.setConfiguration();
         racingGame.playGame();
+        racingGame.decideWinners();
     }
 
     private void setConfiguration() {
@@ -39,5 +40,38 @@ public class CarRacingGame {
             System.out.println(carName + this.DELIMITER + visualizedPosition);
         }
         System.out.println();
+    }
+
+    private ArrayList<Car> decideWinners() {
+        int headPosition = 0;
+        ArrayList<Car> winners = new ArrayList<>();
+        for (int i = 0; i < this.cars.size(); i++) {
+            Car car = this.cars.get(i);
+            int carPosition = car.getPosition();
+            if (carPosition > headPosition) {
+                winners.clear();
+                headPosition = carPosition;
+                joinWinners(winners, car);
+            }
+            if (carPosition == headPosition) {
+                joinWinners(winners, car);
+            }
+        }
+        return winners;
+    }
+
+    private boolean isWinner(ArrayList<Car> winners, Car car) {
+        for (int i = 0; i < winners.size(); i++) {
+            if (winners.get(i) == car) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void joinWinners(ArrayList<Car> winners, Car car) {
+        if (!isWinner(winners, car)) {
+            winners.add(car);
+        }
     }
 }
