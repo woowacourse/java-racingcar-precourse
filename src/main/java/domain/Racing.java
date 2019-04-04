@@ -14,6 +14,8 @@ public class Racing {
     private List<Car> cars = new ArrayList<>();
     private int movingNumber = 0;
 
+    public static final String MSG_EXECUTION_RESULT = "실행 결과";
+
     public void run() {
         setCar();
         setMovingNumber();
@@ -38,7 +40,14 @@ public class Racing {
     }
 
     public void startRacing() {
-
+        System.out.println("\n" + MSG_EXECUTION_RESULT);
+        for (int i = 0; i < movingNumber; i++) {
+            for (Car car : cars) {
+                car.move();
+                car.printCurrentPosition();
+            }
+            System.out.println();
+        }
     }
 
     public void grading() {
