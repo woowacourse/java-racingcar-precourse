@@ -23,6 +23,35 @@ public class Manager {
             playIthTurn();
             printCurrentState();
         }
+        winnerPostion = getMaxPostion();
+        printWinner(winnerPostion);
+    }
+
+    public void printWinner(int winnerPosition) {
+        boolean isFirst = true;
+        for (int i = 0; i < carList.size(); i++) {
+            if(carList.get(i).getPosition() == winnerPosition){
+                firstWinnerOrNot(isFirst, carList.get(i).getName());
+                isFirst = false;
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
+
+    public void firstWinnerOrNot(boolean isFirst, String carName){
+        if(isFirst == false) System.out.print(", ");
+        System.out.print(carName);
+    }
+
+    public int getMaxPostion() {
+        int maxPosition = 0;
+        for (int i = 0; i < carList.size(); i++) {
+            maxPosition = max(maxPosition, carList.get(i).getPosition());
+        }
+        return maxPosition;
+    }
+    public int max(int a, int b){
+        return (a > b) ? a : b;
     }
 
     public void printCurrentState(){
