@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     private static final String CAR_NAME_SEPARATOR = ",";
+    private static final int NAME_LENGTH_UPPER_BOUNDARY = 5;
 
     public static String[] inputCarName() {
         Scanner scan = new Scanner(System.in);
@@ -26,7 +27,6 @@ public class Main {
     }
 
     public static String[] saveCarName(String[] tempCarName, boolean[] check) {
-
         int trial = 0;
         int count = countCleanName(check);
 
@@ -38,5 +38,18 @@ public class Main {
             }
         }
         return carSave;
+    }
+
+    public static String[] checkCarName() {
+        String[] tempCarName = inputCarName();
+        boolean[] check = new boolean[tempCarName.length];
+
+        for (int i = 0; i < tempCarName.length; i++) {
+            if (tempCarName[i].length() > NAME_LENGTH_UPPER_BOUNDARY || tempCarName[i].equals("")) {
+                check[i] = true; // 적합하지 않은 입력값 true로 구분
+            }
+        }
+        String[] carFinish = saveCarName(tempCarName, check);
+        return carFinish;
     }
 }
