@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class RacingTrialTest {
-    private final int N_CARS = 100;
+    private final int N_CARS = 50000;
 
     private RacingTrial racingTrial;
 
