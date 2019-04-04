@@ -11,15 +11,16 @@ public class TimesInput {
 
     /**
      * 횟수를 입력받아 반환
+     *
      * @return 횟수
      */
-    public static int getTimes(){
+    public static int getTimes() {
         boolean isValidNumberInput = false;
         int times;
-        do{
+        do {
             times = timesInput();
             isValidNumberInput = validateNumberInput(times);
-        }while(isValidNumberInput == false);
+        } while (isValidNumberInput == false);
 
         return times;
     }
@@ -27,7 +28,7 @@ public class TimesInput {
     /**
      * 정수를 입력할 떄 까지 반복해서 입력 받는 함수
      */
-    private static int timesInput(){
+    private static int timesInput() {
         System.out.println(INPUT_TIMES_TEXT);
         int inputInt = 0;
         while (true) {
@@ -44,10 +45,11 @@ public class TimesInput {
 
     /**
      * 유효한 횟수 입력값인지 확인.
+     *
      * @param number
      */
-    private static boolean validateNumberInput(int number){
-        if (number < Constants.MIN_TIMES){
+    private static boolean validateNumberInput(int number) {
+        if (number < Constants.MIN_TIMES) {
             System.out.println(SMALL_INPUT_NUMBER);
             return false;
         }

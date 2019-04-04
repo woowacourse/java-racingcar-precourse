@@ -8,20 +8,21 @@ public class Car {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public int getPosition(){
+
+    public int getPosition() {
         return position;
     }
 
-    public void moveForward(){
-        this.position ++;
+    public void moveForward() {
+        this.position++;
     }
 
-    public void printProgress(){
+    public void printProgress() {
         System.out.print(name + " : ");
-        for(int i = 0; i < position; i++) {
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.print("\n");
