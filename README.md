@@ -11,11 +11,13 @@ _run racing game as Main class._
 _include racing game detail info._
   - List<Car>&nbsp; &nbsp; cars
   - int&nbsp; &nbsp; movingNumber
+  - List<String>&nbsp; &nbsp; winners
   - run()&nbsp; : _main method in Racing class. run racing game using other methods._
   - setCar()&nbsp; : _fork car and designate name using UserInput class._
   - setMovingNumber()&nbsp; : _set moving times using UserInput class._
   - startRacing()&nbsp; : _start racing for each cars._
-  - grading()&nbsp; : _grading score and print winners._
+  - grading()&nbsp; : _grading score._
+  - printWinner()&nbsp; : _print winners._
   
 ### 3. Car class
 _include car info._
