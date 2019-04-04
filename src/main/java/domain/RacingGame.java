@@ -33,6 +33,7 @@ public class RacingGame {
 				getCarNames(); 
 				getNumOfTry();
 				prepareRacingCars();
+				startRacing();
 		}
 
 		private void getCarNames() {
@@ -60,5 +61,26 @@ public class RacingGame {
 				for (int i = 0; i < carNameList.length; i++) {
 						racingCars[i] = new Car(carNameList[i].trim());
 				}
+		}
+		
+		/**
+		 * 레이싱을 시작하는 메소드로 '실행 결과'라는 제목을 출력하는 메소드와 각 라운드를
+		 * 진행하는 메소드로 이루어져 있습니다.
+		 */
+		private void startRacing() {
+				printTitle();
+				progressRound();
+		}
+	
+		private void printTitle() {
+
+		}
+	
+		/**
+		 * 각 라운드를 진행하는 메소드로 자동차의 위치를 갱신하고 출력하는 메소드를 내포하고
+		 * 있습니다.
+		 */
+		private void progressRound() {
+
 		}
 }
