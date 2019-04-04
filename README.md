@@ -28,9 +28,11 @@ _include car info._
   - printCurrentPosition()&nbsp; : _print current car position._
   
 ### 4. UserInput class
-_receive user input._
+_receive user input and verify._
   - enterCar()&nbsp; : _receive user input of car._
   - enterMovingNumber()&nbsp; : _receive user input of moving number._
+  - checkFormat()&nbsp; : _verify user input format._
+  - checkDuplication()&nbsp; : _verify user input duplicate._
   
 ### 5. Random class
 _just generate random number._
