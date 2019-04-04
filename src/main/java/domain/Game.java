@@ -3,14 +3,14 @@ package domain;
 import java.io.IOException;
 import java.util.List;
 
-class Game {
+public class Game {
     private final GameService gameService;
 
-    Game() {
+    public Game() {
         gameService = new GameService();
     }
 
-    void play() throws IOException {
+    public void play() throws IOException {
         List<Car> carList = gameService.getCarList();
         int roundCount = gameService.getRoundCount();
 
