@@ -21,7 +21,7 @@ java-racingcar
 
 
 # CarFactory
-1. 생성자 : 자동차 이름을 입력받아 ","으로 split하여 저장한다.
+1. getCarNameArray : 자동차 이름을 입력받아 ","으로 split하여 저장한다.
 2. makeCars() : 입력받은 자동차 이름을 바탕으로 Car[] Array를 생성하여 반환한다.
 3. isValidName(String[] carNamesArray) : 입력받은 자동차 이름이 유효한지 판단한다. 
 
