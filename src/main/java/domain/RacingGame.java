@@ -26,11 +26,13 @@ public class RacingGame {
 		private static final String EXECUTION_RESULT = "\n실행 결과";
 		private static final String POSITION_OF_CAR = "-";
 		private static final String BLANK = "";
+		private static final String WINNTER_DELIMITER = ", ";
 		
 		private static final int INITIAL_VALUE = 0;
 		
 		private String[] carNameList;
 		private Car[] racingCars;
+		private String winner;
 		private int numOfTry;
 		private int maxPosition;
 	
@@ -132,10 +134,15 @@ public class RacingGame {
 		}
 		
 		private void getCarsNameInMaxPosition() {
-
+				winner = BLANK;
+				for (Car racingCar : racingCars) {
+						if (racingCar.getPosition() == maxPosition) {
+								winner += WINNTER_DELIMITER + racingCar.getName();
+						}
+				}
 		}
 
 		private void printWinner() {
-				
+
 		}
 }
