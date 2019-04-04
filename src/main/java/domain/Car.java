@@ -7,6 +7,7 @@ public class Car {
     private int position = 0;
     private static final int LOWER_BOUNDARY = 4;
     private static final int UPPER_BOUNDARY = 9;
+    private static final String CAR_COUNTER = "-";
 
 
     public Car(String name) {
@@ -40,5 +41,13 @@ public class Car {
         }
     }
 
+    public void gameResult() {
+        String ing = "";
+        this.calculatePosition();
 
+        for (int i = 0; i < this.getPosition(); i++) {
+            ing = ing.concat(CAR_COUNTER);
+        }
+        System.out.println(this.getName() + " : " + ing);
+    }
 }
