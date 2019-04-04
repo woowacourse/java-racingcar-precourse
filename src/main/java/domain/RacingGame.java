@@ -90,6 +90,20 @@ public class RacingGame {
         this.setMaxPosition(0);
     }
 
+    public void start() {
+        this.init();
+        int count = 0;
+        this.showMessage("\n실행결과");
+
+        while (count < this.racingCnt) {
+            this.doRacing();
+            this.showEmptySpace();
+            count++;
+        }
+
+        this.showFinalWinner();
+    }
+
     public void doRacing() {
         for (int i = 0; i < this.cars.length; i++) {
             Car car = this.cars[i];
