@@ -22,10 +22,13 @@
   * if문으로 자동차 인스턴스.tryRun()이면 car.position += 1
   * println String "자동차 이름 : " + Trace
 
-* getMaxTrace
-  * 입력값 : String[] traces
-  * 리턴값 : int Trace 길이 최댓값
-  * for 문으로 각 Trace의 길이를 구해 최댓값(MAX) 찾기
+* getWinner
+  * 입력값 : ArrayList<Car>
+  * 리턴값 : String
+  * for 문으로 최댓값(MAX) 찾기
+  * 각 자동차의 position 값이 최댓값과 같으면 우승자 선정
+  * 선정된 우승자 이름 +
+  * println "누구누구가 최종 우승했습니다."
 
 3. main 메소드
 * 경주 자동차 이름 입력받기
@@ -45,7 +48,5 @@
   * 안쪽 for문이 다 돌면 "\n" 개행
 
 * 우승자 발표
-  * int winTraceLength = getMaxTrace 메소드로 우승 Trace 길이 구하기
-  * for문으로 자동차이름Trace의 length가 최댓값과 같으면 우승자 선정
-  * 선정된 우승자 ArrayList<String>.add
-  * String.format() 이용, println "누구누구가 최종 우승했습니다."
+  * getMaxPostion 메소드로 우승자 발표
+  

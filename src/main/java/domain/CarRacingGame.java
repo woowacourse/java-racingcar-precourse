@@ -30,6 +30,27 @@ public class CarRacingGame {
         System.out.println(String.format("%s : %s", car.getName(), progress));
     }
 
+    private static String getWinner(ArrayList<Car> carList) {
+        int maxPosition = 0;
+
+        for (Car e : carList) {
+            if (e.getPosition() > maxPosition) {
+                maxPosition = e.getPosition();
+            }
+        }
+
+        String winner = "";
+
+        for (Car e : carList) {
+            if (e.getPosition() == maxPosition) {
+                winner = winner + e.getName() + " ";
+            }
+        }
+
+        return winner;
+    }
+
+
     public static void main(String[] args) {
         boolean isRightNames = false;
         String[] carName = new String[0];
@@ -65,5 +86,9 @@ public class CarRacingGame {
 
             System.out.println("\n");
         }
+
+        String winner = getWinner(carList);
+
+        System.out.println(winner + "가 최종 우승했습니다.");
     }
 }
