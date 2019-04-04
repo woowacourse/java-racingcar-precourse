@@ -17,6 +17,12 @@ import domain.interfaces.ValidInterface;
 public class ValidInterfaceImpl implements ValidInterface {
     public static final int MAX_CAR_NAME_LENGTH = 5;
 
+    /**
+     * 자동차의 이름이 길이 5 이하 인지 검사.
+     *
+     * @param carNames 사용자 입력으로 받아온, 자동차 이름들.
+     * @return 유효한 자동차 이름 판단 값.
+     */
     @Override
     public boolean validCarName(String[] carNames) {
         for (String carName : carNames) {
@@ -26,6 +32,12 @@ public class ValidInterfaceImpl implements ValidInterface {
         return true;
     }
 
+    /**
+     * Int 변환 불가, 양이 아닌 정수인지 검사.
+     *
+     * @param gameRepeatCounts 사용자 입력으로 받아온, 게임 횟수.
+     * @return 유효한 횟수 판단 값.
+     */
     @Override
     public boolean validGameCount(String gameRepeatCounts) {
         int gameRepeatCount;

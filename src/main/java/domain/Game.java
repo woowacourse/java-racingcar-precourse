@@ -35,6 +35,7 @@ public class Game {
         this.carList = new ArrayList<>();
     }
 
+
     public void run() {
         settingCars();
         settingGameCount();
@@ -46,6 +47,9 @@ public class Game {
         printWinner();
     }
 
+    /**
+     * 자동차의 이름을 받고, 자동차 객체 생성.
+     */
     private void settingCars() {
         String[] carNames = getNameByUser();
         makeCars(carNames);
@@ -80,6 +84,11 @@ public class Game {
         return Integer.parseInt(gameCount);
     }
 
+    /**
+     * 각각의 자동차들을 랜덤하게 이동 또는 정지를 수행.
+     *
+     * @param carList : 모든 자동차들의 List
+     */
     private void carsRandomlyForward(List<Car> carList) {
         for (Car car : carList) {
             if (isCarForward())
@@ -87,6 +96,11 @@ public class Game {
         }
     }
 
+    /**
+     * 랜덤으로 자동차가 이동할지 안 할지 결정한다.
+     *
+     * @return 자동차 행동에 대한 결정값.
+     */
     private boolean isCarForward() {
         int randNum = getRandomNumber();
 
@@ -107,6 +121,11 @@ public class Game {
         userinterface.printWinner(getWinnerList());
     }
 
+    /**
+     * 자동차들의 최대 이동 거리를 기준으로 승리자 리스트를 생성.
+     *
+     * @return 승리 자동차 리스트를 받아온다.
+     */
     private List<Car> getWinnerList() {
         List<Car> winnerCarList = new ArrayList<>();
         int maxCarPosition = getMaxCarPosition();
@@ -114,6 +133,7 @@ public class Game {
         for (Car car : carList) {
             int carPosition = car.getPosition();
 
+            //최대 거리와 현재 자동차의 거리가 같으면 승리자에 추가.
             if (carPosition == maxCarPosition)
                 winnerCarList.add(car);
         }
@@ -126,6 +146,7 @@ public class Game {
         for (Car car : carList) {
             int carPosition = car.getPosition();
 
+            // 최대 위치보다 현재 차의 위치가 더 크면 갱신.
             if (maxPosition < carPosition)
                 maxPosition = carPosition;
         }
