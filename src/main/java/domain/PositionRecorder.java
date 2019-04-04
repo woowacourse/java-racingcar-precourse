@@ -3,13 +3,19 @@ package domain;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TrackingCenter {
+public class PositionRecorder {
+    private HashMap<String, HashMap> leagueHIstories;
+    private HashMap<Integer, HashMap> trialHistories;
     private HashMap<String, Integer> carPositions = new HashMap<String, Integer>();
 
     public void detectPositionsOf(ArrayList<Car> cars) {
         for (Car car: cars) {
             carPositions.put(car.getName(), car.getPosition());
         }
+    }
+
+    public void recordHistoryOf(String leagueName, int trial, ArrayList<Car> cars) {
+
     }
 
     public String repeat(String str, int repeatTime) {
@@ -19,6 +25,10 @@ public class TrackingCenter {
             repeated.append(str);
         }
         return repeated.toString();
+    }
+
+    public void showHistoryOf(String leagueName) {
+
     }
 
     public void showPositions() {

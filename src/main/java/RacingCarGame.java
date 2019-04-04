@@ -15,10 +15,10 @@ import domain.*;
 import java.util.ArrayList;
 
 public class RacingCarGame {
-    private TrackingCenter trackingCenter;
+    private String leagueName;
 
-    public RacingCarGame() {
-        trackingCenter = new TrackingCenter();
+    public RacingCarGame(String leagueName) {
+        this.leagueName = leagueName;
     }
 
     public void moveCars(ArrayList<Car> cars) {
@@ -27,22 +27,22 @@ public class RacingCarGame {
         }
     }
 
-    public void start(ArrayList<Car> cars, int totalTrial) {
+    public void start(ArrayList<Car> cars, PositionRecorder positionRecorder, int totalTrial) {
         System.out.println("\n실행 결과");
         for (int trial = 1; trial <= totalTrial; trial++) {
             moveCars(cars);
-            trackingCenter.detectPositionsOf(cars);
-            trackingCenter.showPositions();
+            positionRecorder.recordPositionsOf(leagueName, trial, cars);
         }
-        trackingCenter.showWinners();
     }
 
     public static void main(String args[]) {
-        RacingCarGame racingCarGame = new RacingCarGame();
+        RacingCarGame racingCarGame = new RacingCarGame("Woowahan Championship");
         RacingManager racingManager = new RacingManager();
+        PositionRecorder positionRecorder = new PositionRecorder();
         ArrayList<Car> cars = racingManager.getInitializedCars();
         int totalTrial = racingManager.getTotalTrial();
 
-        racingCarGame.start(cars, totalTrial);
+        racingCarGame.start(cars, positionRecorder, totalTrial);
+        positionRecorder.showHIstoryOf("Woowahan Championship");
     }
 }
