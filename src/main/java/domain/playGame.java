@@ -55,9 +55,6 @@ public class playGame {
 		System.out.println();
 	}
 	
-	public void gameResult() {
-		
-	}
 	public void findGameWinner() {
 		int maxResult = getMaxPosition();
 		
@@ -65,8 +62,7 @@ public class playGame {
 			if ( race[i].getLocate() == maxResult) {
 				System.out.println(race[i].getName() + "가 우승하였습니다");
 			}
-		}
-		
+		}	
 	}
 	public int getMaxPosition() {
 		int max = 0;
