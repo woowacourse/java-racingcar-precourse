@@ -12,11 +12,21 @@ public class CarRacingGame {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String input = sc.next();
-		if (this.validInput(input)) {
-			String [] carNames = input.split(",");
-			this.settingCars(carNames, carNames.length);
+		if (!this.validInput(input)) {
+			System.out.println("잘못된 입력값입니다. 다시 시도해주세요");
+			return;
 		}
+		System.out.println("시도할 회수는 몇회인가요?");
+		int n = sc.nextInt();
 		sc.close();
+	}
+
+	private void racing(int n) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < this.cars.length; j++) {
+				Car car = cars[j];
+			}
+		}
 	}
 	
 	private void settingCars(String [] carNames, int amount) {
@@ -27,6 +37,10 @@ public class CarRacingGame {
 	}
 	
 	private boolean validInput(String input) {
-		return input.matches("([a-zA-Z가-힣]{1,6},)*([a-zA-Z가-힣]{1,6})");
+		boolean valid = input.matches("([a-zA-Z가-힣]{1,6},)*([a-zA-Z가-힣]{1,6})");
+		if (!valid) return false;
+		String [] carNames = input.split(",");
+		this.settingCars(carNames, carNames.length);
+		return true;
 	}
 }
