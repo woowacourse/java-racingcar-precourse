@@ -60,7 +60,7 @@ public class RacingTrialTest {
             InOrder inOrder = inOrder(mockedCar, mockedScoreBoard);
 
             inOrder.verify(mockedCar).tryMove();
-            inOrder.verify(mockedScoreBoard).Print();
+            inOrder.verify(mockedScoreBoard).Print(mockedCars);
         }
     }
 }

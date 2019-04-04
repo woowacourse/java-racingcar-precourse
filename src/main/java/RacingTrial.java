@@ -10,7 +10,7 @@ public class RacingTrial {
     void doTrial(List<Car> cars, ScoreBoard board) {
         cars.forEach((car) -> car.tryMove());
 
-        board.Print();
+        board.Print(cars);
     }
 
 

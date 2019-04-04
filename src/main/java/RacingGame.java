@@ -1,4 +1,5 @@
 import domain.Car;
+
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -10,6 +11,7 @@ public class RacingGame {
         this.cars = cars;
         this.trials = trials;
     }
+
     private void hello() {
 
     }
@@ -19,5 +21,7 @@ public class RacingGame {
         IntStream.range(0, trials).forEach((t) -> {
             racingTrial.doTrial(this.cars, board);
         });
+
+        board.PrintWinners(this.cars);
     }
 }

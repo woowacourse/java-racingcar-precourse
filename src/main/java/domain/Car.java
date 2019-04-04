@@ -7,6 +7,10 @@ public class Car implements Movable {
     public static final int MAX_RAND = 10;
     public static final int MOVE = 4;
 
+    public String getName() {
+        return name;
+    }
+
     private final String name;
 
     public int getPosition() {
