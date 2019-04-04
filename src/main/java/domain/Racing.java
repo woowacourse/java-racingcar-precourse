@@ -13,6 +13,7 @@ import java.util.*;
 public class Racing {
     private List<Car> cars = new ArrayList<>();
     private int movingNumber = 0;
+    private List<String> winners = new ArrayList<>();
 
     public static final String MSG_EXECUTION_RESULT = "실행 결과";
 
@@ -51,6 +52,17 @@ public class Racing {
     }
 
     public void grading() {
+        int topScore = 0;
 
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getPosition() == topScore) {
+                winners.add(cars.get(i).getName());
+            }
+            if (cars.get(i).getPosition() > topScore) {
+                winners.clear();
+                winners.add(cars.get(i).getName());
+                topScore = cars.get(i).getPosition();
+            }
+        }
     }
 }
