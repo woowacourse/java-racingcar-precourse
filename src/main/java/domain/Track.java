@@ -7,46 +7,31 @@ import java.util.List;
  * @author delf
  */
 public class Track {
-    private final static int DEFAULT_GOAL_POSITION = 5;
     private List<Car> cars = new ArrayList<>();
-    private List<Car> winners = new ArrayList<>();
-    /* 경기가 진행중인지 아닌지에 대한 여부 */
-    private RaceStatus raceState = RaceStatus.ONGOING;
+    private int maxPosition = 0;
 
-    private int goal;
-
-    private Track(String[] racers, int goal) {
+    public Track(String[] racers) {
         for (String racer : racers) {
             cars.add(new Car(racer));
         }
-        this.goal = goal;
-    }
-
-    public Track(String[] racers) {
-        this(racers, DEFAULT_GOAL_POSITION);
-    }
-
-    public boolean isEnd() {
-        return raceState.now;
     }
 
     public void next() {
         for (Car car : cars) {
             int position = car.forwardOrStop();
-            if (position > goal) {
-                winners.add(car);
-                raceState = RaceStatus.END;
-            }
+            maxPosition = Math.max(position, maxPosition);
         }
     }
 
-    public List<Car> getWinners() {
-        return new ArrayList<>(winners);
-    }
-
-    public void initTrack() {
-        winners.clear();
-        raceState = RaceStatus.ONGOING;
+    // TODO: String 대신 Car?
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.isPositionOn(maxPosition)) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 
     @Override
@@ -56,14 +41,5 @@ public class Track {
             sb.append(car).append("\n");
         }
         return sb.toString();
-    }
-
-    enum RaceStatus {
-        ONGOING(true), END(false);
-        private boolean now;
-
-        RaceStatus(boolean status) {
-            this.now = status;
-        }
     }
 }
