@@ -40,5 +40,9 @@ public class CarRacingGame {
             carList.add(car);
             carTraces.add(trace);
         }
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("시도할 횟수는 몇회인가요? \n");
+        int trialNumber = scanner.nextInt();
     }
 }
