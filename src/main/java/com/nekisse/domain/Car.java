@@ -10,12 +10,20 @@ public class Car {
         this.carName = carName;
     }
 
+    public int compareToMovePosition(int position) {
+        return this.position > position ? this.position : position;
+    }
+
     public String getCarName() {
         return String.valueOf(carName.getCarName());
     }
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isMaxPosition(int highScore) {
+        return this.position == highScore;
     }
 
     public void move(int generateRandomNumber) {

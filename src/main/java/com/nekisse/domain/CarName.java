@@ -13,7 +13,7 @@ public class CarName {
     }
 
     private boolean validFiveLength(String carName) {
-        return carName.trim().length() <= MAXIMUM_NAME_LENGTH && 0 == carName.trim().length();
+        return carName.trim().length() <= MAXIMUM_NAME_LENGTH && 0 != carName.trim().length() && !carName.isEmpty();
     }
 
     public static CarName newCarName(String carName) {

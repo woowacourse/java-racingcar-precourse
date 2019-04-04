@@ -18,6 +18,10 @@ public class GameMachine {
         this.cars = setupCar(carNames);
     }
 
+    public boolean isEndGame() {
+        return currentCount < inputTryCount;
+    }
+
     public TurnResult runCar() {
         for (Car car : cars) {
             car.move(randomNumberGenerator.generateRandomNumber());
