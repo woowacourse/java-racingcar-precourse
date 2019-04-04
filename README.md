@@ -44,7 +44,7 @@ pobi,honux 가 최종 우승했습니다.
 하의 값이면 멈춘다.
 6. 자동차 경주게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 
-## 기능별 모듈 분리
+## 기능 구현을 위한 모듈 분리
 1. Car class
     1. public String getName()
         * 이름 반환 메서드.
@@ -81,9 +81,13 @@ pobi,honux 가 최종 우승했습니다.
         * 가장 앞선 위치 반환 메서드
     
 3. Valid interface
-    1. public boolean validCarName(String[])
-        * 자동차들 이름 검증 메서드.
-    2. public boolean validGameCount(String)
+    1. public boolean validCarNameLength(String[])
+        * 자동차들 이름 길이 검증 메서드.
+    2. public boolean validCarNameDuplicate(String[])
+        * 자동차들 이름 중복 검증 메서드.
+    3. public boolean validCarCount(String[])
+        * 자동차들 자동차 개수 검증 메서드.
+    4. public boolean validGameCount(String)
         * 게임 횟수 검증 메서드.
         
 4. UserInterface interface
@@ -91,13 +95,17 @@ pobi,honux 가 최종 우승했습니다.
         * 사용자로 부터, 자동차들 이름 입력 요청 메서드.
     2. public String inputGameCount()
         * 사용자로 부터, 게임횟수 입력 요청 메서드.
-    3. public void alertInvalidCarName()
-        * 유효하지 않은 자동차이름 알림 메서드.
-    4. public void alertInvalidGameCount()
+    3. public void alertInvalidCarNameLength()
+        * 유효하지 않은 자동차 이름 길이 알림 메서드.
+    4. public void alertCarNameDuplicate()
+        * 자동차 이름 중복 알림 메서드.
+    5. public void alertInvalidCarCount()
+        * 유효하지 않은 자동차 개수 알림 메서드.
+    6. public void alertInvalidGameCount()
         * 유효하지 않은 게임횟수 알림 메서드.
-    5. public void printGameState(List<Car> carList)
+    7. public void printGameState(List<Car> carList)
         * 게임 진행 상태 프린트 메서드.
-    6. public void printWinner(List<Car> carList)
+    8. public void printWinner(List<Car> carList)
         * 게임 승자 프린트 메서드.
 
 
