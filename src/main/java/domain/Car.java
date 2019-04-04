@@ -7,6 +7,9 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    
+    private void addPosition() {
+        position++;
+    }
 
-    // 추가 기능 구현
 }
