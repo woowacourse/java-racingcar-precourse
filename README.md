@@ -36,7 +36,7 @@
     * _printResult()_
   * 자동차 위치를 문자열로 바꿈
     * _positionToResult()_
-  * 우승자 구하기
+  * 우승자 가리기
     * _getWinner()_
 
 * __Main 클래스__
