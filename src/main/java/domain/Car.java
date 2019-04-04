@@ -1,20 +1,19 @@
 /*
-* @Car.java     0.1 2019-04-04
-* Copyright(c) 2019 LeeYunSeop All rights reserved.
-* */
+ * @Car.java     0.1 2019-04-04
+ * Copyright(c) 2019 LeeYunSeop All rights reserved.
+ * */
 
 package domain;
 
 import java.util.Random;
 
 /**
-* Car class
- * @version 0.1
- * @author yun
- *
  * Racing-Car game의 Car object
  * move method로 Car의 위치가 결정됨
-* */
+ *
+ * @author yun
+ * @version 0.1
+ */
 public class Car {
     private final String name;
     private int position = 0;
@@ -33,11 +32,9 @@ public class Car {
     } // 위치 반환
 
     /**
-     * move
-     *
      * position을 증가시키는 method
      * 0 ~ 9의 임의의 수를 생성하고 THRESHOLD보다 크면 position + 1
-    * */
+     */
     public void move() {
         Random rand = new Random();
         int randomValue = rand.nextInt(10);

@@ -6,12 +6,11 @@
 import domain.RacingCar;
 
 /**
- * Run class
- * @version 0.1
- * @author yun
- *
  * RacingCar 실행
- * */
+ *
+ * @author yun
+ * @version 0.1
+ */
 public class Run {
     public static void main(String[] args) {
         RacingCar racingCar = new RacingCar();
