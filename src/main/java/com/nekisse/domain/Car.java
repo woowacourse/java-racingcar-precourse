@@ -1,6 +1,8 @@
 package com.nekisse.domain;
 
 public class Car {
+
+    public static final int MOVEABLE_NUMBER = 3;
     private final CarName carName;
     private int position = 0;
 
@@ -14,6 +16,12 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public void move(int generateRandomNumber) {
+        if (generateRandomNumber > MOVEABLE_NUMBER) {
+            position++;
+        }
     }
 
 

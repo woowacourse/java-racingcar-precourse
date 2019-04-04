@@ -13,7 +13,10 @@ public class Main {
 
         int inputTryCount = InputView.getInputTryCount();
 
-        GameMachine gameMachine = new GameMachine(inputTryCount, carNames);
+        GameMachine gameMachine = new GameMachine(inputTryCount, carNames, new GameRandomNumberGenerator());
+
+        gameMachine.runCar();
+
 
     }
 
