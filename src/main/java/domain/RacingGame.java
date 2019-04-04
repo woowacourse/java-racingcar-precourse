@@ -78,11 +78,31 @@ public class RacingGame {
     }
   }
 
+  public static void WhoseCarWin(Car[] carList, int carNum){
+    int max = 0;
+    int idx = 0;
+    Car[] winnerList = new Car[10];
+    for(int i=0;i<carNum;i++){
+      if(carList[i].getCarPosition()>max){
+        max = carList[i].getCarPosition();
+      }
+    }
+    for(int i=0;i<carNum;i++){
+      if(carList[i].getCarPosition()==max){
+        winnerList[idx++] = carList[i];
+      }
+    }
+    for(int i=0;i<idx;i++){
+      System.out.print(winnerList[i].getCarName()+ " ");
+    }
+  }
+
   public static void main(String args[]){
     String[] carName =  InputCarName();
     int carNum = carName.length;
     Car[] carList =CreateCarList(carName);
     int tryNum = InputTryNumber();
     StartGame(carList, carNum, tryNum);
+    WhoseCarWin(carList, carNum);
   }
 }
