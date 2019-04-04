@@ -24,13 +24,15 @@ public class RacingGame {
 		private static final String DELIMITER_COMMA = ",";
 		private static final String INPUT_TRY_NUMBER_MESSAGE = "시도할 횟수는 몇 회인가요?";
 		private static final String BLANK = "";
-
+		
 		private String[] carNameList;
+		private Car[] racingCars;
 		private int numOfTry;
 	
 		public void runGame() {
 				getCarNames(); 
 				getNumOfTry();
+				prepareRacingCars();
 		}
 
 		private void getCarNames() {
@@ -48,5 +50,15 @@ public class RacingGame {
 						strOfTry = SCANNER.nextLine();
 				} while (!Validation.isValidTryNum(strOfTry));
 				numOfTry = Integer.parseInt(strOfTry);
+		}
+		
+		/**
+		 * 각각의 경주용 차를 준비하기 위해 Car 객체를 이용해 구성합니다.
+		 */
+		private void prepareRacingCars() {
+				racingCars = new Car[carNameList.length];
+				for (int i = 0; i < carNameList.length; i++) {
+						racingCars[i] = new Car(carNameList[i].trim());
+				}
 		}
 }
