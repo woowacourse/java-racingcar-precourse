@@ -13,6 +13,7 @@ public class Car {
     public Car(String name) {
         assertName(name);
         this.name = name;
+        random = new Random();
     }
 
     private void assertName(String name) {
