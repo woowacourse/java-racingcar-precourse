@@ -26,6 +26,7 @@ public class Car {
         return forwardOrStop(DEFAULT_MOVE_POSITION, DEFAULT_TRUE_RATIO, DEFAULT_FALSE_RATIO);
     }
 
+    /* 제시한 확률에 따라 자동차를 전진시키고 위치를 변경한다. */
     int forwardOrStop(int movePosition, int trueRatio, int falseRatio) {
         boolean canForward = carAdvanceDecider.getTrueOrFalseByChance(trueRatio, falseRatio);
         if (canForward) {
