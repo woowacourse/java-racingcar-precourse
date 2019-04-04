@@ -25,11 +25,12 @@ public class RacingCarGame {
     public void play() {
         while (!isGameOver()) {
             changeCount();
+
             cars.stream()
                     .filter(Car::isMovable)
                     .forEach(Car::move);
-            records.saveRecord(cars);
 
+            records.saveRecord(cars);
         }
     }
 
@@ -58,6 +59,4 @@ public class RacingCarGame {
                 .max(Comparator.naturalOrder())
                 .orElseThrow(RuntimeException::new);
     }
-
-
 }
