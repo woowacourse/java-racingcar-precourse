@@ -7,7 +7,7 @@ public class TimesInput {
     static Scanner scan = new Scanner(System.in);
     private static final String INPUT_TIMES_TEXT = "시도할 횟수는 몇회인가요";
     private static final String WRONG_INPUT_NUMBER = "숫자를 입력해주세요!";
-    private static final String SMALL_INPUT_NUMBER = "0보다 큰 숫자를 입력해주세요";
+    private static final String SMALL_INPUT_NUMBER = "0보다 큰 숫자를 입력해주세";
 
     /**
      * 횟수를 입력받아 반환
@@ -30,20 +30,21 @@ public class TimesInput {
     private static int timesInput(){
         System.out.println(INPUT_TIMES_TEXT);
         int inputInt = 0;
+        while (true) {
             try {
-                inputInt = scan.nextInt();
-            } catch (InputMismatchException ime) {
+                inputInt = Integer.parseInt(scan.nextLine());
+                break;
+            } catch (Exception e) {
                 //정수가 아닌 문자열이 들어 왔을 때 에러 캐치
                 System.out.println(WRONG_INPUT_NUMBER);
-                scan.next();
-                timesInput();
             }
+        }
         return inputInt;
     }
 
     /**
      * 유효한 횟수 입력값인지 확인.
-     * @param times number
+     * @param number
      */
     private static boolean validateNumberInput(int number){
         if (number < Constants.MIN_TIMES){
