@@ -29,8 +29,8 @@ public class Game {
         gameService.setRoundResult(carList);
     }
 
-    private int moveOrNot() {
-        return (int) (Math.random() * 10) > 3 ? 1 : 0;
+    private boolean moveOrNot() {
+        return (int) (Math.random() * 10) > 3 ? true : false;
     }
 
     private void endGame(List<Car> carList) {

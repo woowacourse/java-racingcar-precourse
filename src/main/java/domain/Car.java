@@ -19,8 +19,8 @@ public class Car implements CarInterface {
         return name;
     }
 
-    public void move(int result) {
-        if (result == 1) {
+    public void move(boolean result) {
+        if (result) {
             position++;
         }
     }
