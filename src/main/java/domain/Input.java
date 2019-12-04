@@ -43,7 +43,7 @@ public class Input {
 	}
 	
 	public static int enterRounds() {
-		int rounds = enterNumber();
+		int rounds = enterInt();
 		
 		if (rounds < MIN_ROUNDS) {
 			System.out.println("0 이상의 숫자를 입력해주세요");
@@ -53,13 +53,13 @@ public class Input {
 		return rounds;
 	}
 	
-	private static int enterNumber() {
+	private static int enterInt() {
 		try {
 			System.out.println("시도할 회수는 몇회인가요?");
 			return Integer.parseInt(scanner.nextLine());
 		} catch (IllegalArgumentException e) {
 			System.out.println("숫자를 입력해주세요");
-			return enterNumber();
+			return enterInt();
 		}
 	}
 }
