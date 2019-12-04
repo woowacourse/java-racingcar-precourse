@@ -25,7 +25,22 @@ public class RacingGame {
 				break;
 			}
 		}
+		System.out.println("실행 결과");
+		for (int i = 0; i < racingCount; i++) {
+			startRace();
+		}
+	}
 
+	private void startRace() {
+		for (Car car : carList) {
+			car.go();
+			System.out.print(car.getName() + ": ");
+			for (int i = 0; i < car.getPosition(); i++) {
+				System.out.print("-");
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 
 	private boolean inputCarName() {
