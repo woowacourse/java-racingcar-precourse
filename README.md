@@ -66,7 +66,7 @@
 
 #### View
 
-- [ ]
+- [x] Input initTest
 
 #### Service
 
