@@ -11,9 +11,25 @@ public class Main {
 
     private static void init() {
         List<Car> carsList = inputCarNames();
+        int turnNumber = inputTurn();
+        System.out.println("턴 수: "+turnNumber);
         for(int i = 0; i < carsList.size(); i++) {
             carsList.get(i).proceed();
         }
+    }
+
+    private static int inputTurn() {
+        int turnNumber = 0;
+        Scanner scan = new Scanner(System.in);
+        while(true) {
+            System.out.println("시도할 횟수는 몇 회인가요?");
+            turnNumber = scan.nextInt();
+            if(turnNumber > 0 ) {
+                break;
+            }
+            System.out.println("다시 입력해 주세요.");
+        }
+        return turnNumber;
     }
 
     private static List<Car> inputCarNames() {
@@ -30,6 +46,8 @@ public class Main {
             System.out.println("다시 입력해 주세요.");
         }
     }
+    
+    
 
     private static List<Car> enrollPlayers(String carNames) {
         String[] carArray = carNames.split(",");
