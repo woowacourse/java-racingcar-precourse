@@ -24,6 +24,12 @@ public class StartGame {
 
         for (int i = 0 ; i < cars.length ; i++) {
             int number = r.nextInt(9);
+            if (decideMove(number)) cars[i].increasePosition();
         }
+    }
+
+    private boolean decideMove (int number) {
+        if (number >= 4) return true;
+        return false;
     }
 }
