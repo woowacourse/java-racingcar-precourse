@@ -19,7 +19,7 @@ public class Car {
         System.out.println(name+" : "+getBar());
     }
 
-    public void proceed() {
+    private void proceed() {
         position++;
     }
 

@@ -23,6 +23,7 @@ public class Main {
                 winnerList.add(oneCar.getName());
             }
         }
+        System.out.println(winnerList);
     }
 
     private static int getMaxScore(List<Car> carsList) {
