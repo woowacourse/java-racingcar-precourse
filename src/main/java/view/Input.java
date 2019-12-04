@@ -28,6 +28,10 @@ public class Input {
         return names.stream().allMatch(this::isNameLengthUnderMax);
     }
 
+    public boolean isNoBlankNames(List<String> names) {
+        return names.stream().allMatch(x -> !x.equals(" ") && x.length() != 0);
+    }
+
     public boolean isPositiveInteger(String times) {
         try {
             return Integer.parseInt(times) > 0;

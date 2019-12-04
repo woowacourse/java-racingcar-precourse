@@ -40,4 +40,12 @@ class InputTest {
         assertThat(input.isNamesLengthUnderMax(input.splitAsComma("가,나다,라마바," +
                 "사아자차,666666"))).isFalse();
     }
+
+    @Test
+    public void isNoBlankNamesTest() {
+        Input input = new Input();
+        assertThat(input.isNoBlankNames(input.splitAsComma("1,우,2"))).isTrue();
+        assertThat(input.isNoBlankNames(input.splitAsComma("1,,2"))).isFalse();
+        assertThat(input.isNoBlankNames(input.splitAsComma("1, ,2"))).isFalse();
+    }
 }

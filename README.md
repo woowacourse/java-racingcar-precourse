@@ -43,7 +43,7 @@
 - [x] 자동차 입력받기
 - [x] 입력받은 문자열 구분하기
 - [x] 5자 이하 check
-- [ ] 공백 문자 check
+- [x] 공백 자동차이름 check
 - [x] 횟수 입력받기
 - [x] 횟수는 1이상 정수 check
 
@@ -71,8 +71,9 @@
 
 - [x] Input initTest
 - [x] Input splitTest
-- [x] Input times positiveIntegerTest
-
+- [x] Input times positiveInteger Test
+- [x] Input names LengthUnderMax Test
+- [x] Input names NoBlank Test
 #### Service
 
 - [ ]
