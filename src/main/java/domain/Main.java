@@ -12,6 +12,17 @@ public class Main {
     private static void init() {
         List<Car> carsList = inputCarNames();
         startRace(carsList, getTurnNumber());
+        printWinner(carsList);
+    }
+
+    private static void printWinner(List<Car> carsList) {
+        int maxScore = 0;
+        for(Car oneCar: carsList) {
+            int thisCarPosition = oneCar.getPosition();
+            if (thisCarPosition > maxScore) {
+                maxScore = thisCarPosition;
+            }
+        }
     }
 
     private static void startRace(List<Car> carsList, int turnNumber) {
