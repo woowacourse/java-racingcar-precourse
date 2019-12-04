@@ -13,7 +13,6 @@ public class RandomGenerator {
 
     public boolean isGoingForward() {
         int number = this.random.nextInt(BOUND_NUMBER);
-        System.out.println("Random number: " + number);
         if (number >= FORWARD_NUMBER) {
             return true;
         }
