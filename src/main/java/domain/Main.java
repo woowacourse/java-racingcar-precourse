@@ -16,6 +16,17 @@ public class Main {
     }
 
     private static void printWinner(List<Car> carsList) {
+        List<String> winnerList = getWinner(carsList);
+        for(int i = 0; i < winnerList.size(); i++) {
+            System.out.printf("%s", winnerList.get(i));
+            if(i != winnerList.size()-1) {
+                System.out.printf(", ");
+            }
+        }
+        System.out.printf("님이 최종 우승했습니다.\n");
+    }
+
+    private static List<String> getWinner(List<Car> carsList) {
         int maxScore = getMaxScore(carsList);
         List<String> winnerList = new ArrayList<String>();
         for(Car oneCar: carsList) {
@@ -23,7 +34,7 @@ public class Main {
                 winnerList.add(oneCar.getName());
             }
         }
-        System.out.println(winnerList);
+        return winnerList;
     }
 
     private static int getMaxScore(List<Car> carsList) {
