@@ -15,6 +15,16 @@ public class RacingGame {
 	}
 
 	public void startGame() {
+		while (true) {
+			if (inputCarName()) {
+				break;
+			}
+		}
+		while (true) {
+			if (inputRacingCount()) {
+				break;
+			}
+		}
 
 	}
 
@@ -22,10 +32,15 @@ public class RacingGame {
 		boolean isAvailable = true;
 
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String carNames = sc.nextLine();
-		if (!splitCarNames(carNames)) {
-			System.out.println("잘못된 입력입니다!!!!!!");
-			isAvailable = false;
+		try {
+			String carNames = sc.nextLine();
+			if (!splitCarNames(carNames)) {
+				System.out.println("잘못된 입력입니다!!!!!!");
+				carList = new ArrayList<>();
+				isAvailable = false;
+			}
+		} catch (Exception e) {
+			System.out.println("입력 오류입니다!!!!!!");
 		}
 		return isAvailable;
 	}
@@ -37,7 +52,8 @@ public class RacingGame {
 		try {
 			racingCount = Integer.parseInt(sc.nextLine());
 		} catch (Exception e) {
-			System.out.println("숫자를 입력해 주세요!!!!!!");
+			System.out.println("입력 오류입니다!!!!!!");
+			isAvailable = false;
 		}
 
 		return isAvailable;
@@ -47,6 +63,10 @@ public class RacingGame {
 		boolean isAvailable = true;
 
 		String[] splitedCarNames = carNames.split(",");
+		if (splitedCarNames.length == 0) {
+			return false;
+		}
+
 		for (String carName : splitedCarNames) {
 			if (carName.length() > 5) {
 				isAvailable = false;

@@ -3,8 +3,8 @@ package domain;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		RacingGame racingGame = new RacingGame();
+		racingGame.startGame();
 	}
 
 }
