@@ -31,5 +31,13 @@ public class Car {
         return bar;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
 
 }
