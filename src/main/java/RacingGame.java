@@ -9,12 +9,12 @@ public class RacingGame {
         play();
     }
 
-    public static void play() {
-        System.out.println("게임을 시작합니다.");
+    private static void play() {
         InputController inputController = new InputController();
         List<Car> cars = inputController.getNameOfCars();
         int timesToRun = inputController.getTimesToRun();
         RaceController raceController = new RaceController(cars);
-        raceController.loopThroughCars();
+        raceController.loopThroughCars(timesToRun);
+        raceController.getWinner();
     }
 }
