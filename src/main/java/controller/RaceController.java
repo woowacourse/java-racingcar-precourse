@@ -39,7 +39,7 @@ public class RaceController {
         }
     }
 
-    public void getWinners() {
+    public void printWinners() {
         int maxPosition = getMaxPosition();
         if (maxPosition == 0) {
             winnerDoesNotExists();
@@ -49,11 +49,19 @@ public class RaceController {
     }
 
     private void winnerExists(int maxPosition) {
-        // TODO: cars를 모두 순회할 것이 아니고 maxPosition보다 작으면 바로 break
-        for (int i = 0; i < cars.size(); i++) {
+        for (int i = 0; isEqualToMaxPosition(i, maxPosition); i++) {
             addWinners(cars.get(i), maxPosition);
         }
         InputOutputHandler.printWinners(winners);
+    }
+
+    private boolean getPositionOfNth(List<Car> cars, int i, int maxPosition) {
+        Car car = cars.get(i);
+        return car.getPosition() >= maxPosition;
+    }
+
+    private boolean isEqualToMaxPosition(int i, int maxPosition) {
+        return i < cars.size() && getPositionOfNth(cars, i, maxPosition);
     }
 
     private void winnerDoesNotExists() {
