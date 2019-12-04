@@ -48,7 +48,14 @@ public class GameBoard {
 
 
     public void printBoard() {
-        System.out.println("printBoard");
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.print(cars.get(i).getName() + " : ");
+
+            for (int j = 0; j <cars.get(i).getPosition(); j++){
+                System.out.print("-");
+            }
+            System.out.println("");
+        }
     }
 
     public void createCars(String inputCarNames) {

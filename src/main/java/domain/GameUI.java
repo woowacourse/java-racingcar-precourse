@@ -41,6 +41,7 @@ public class GameUI {
     }
 
     public void playGame() {
+        System.out.println("실행 결과");
         board.play();
 
     }
