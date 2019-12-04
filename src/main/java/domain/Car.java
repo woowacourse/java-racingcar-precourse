@@ -8,16 +8,16 @@ public class Car implements Comparable<Car> {
         this.name = name;
     }
 
-    public void goForward() {
-        this.position++;
-    }
-
     public String getName() {
         return name;
     }
 
     public int getPosition() {
         return this.position;
+    }
+
+    public void goForward() {
+        this.position++;
     }
 
     @Override
