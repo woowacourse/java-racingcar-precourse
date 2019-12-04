@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Method {
 	
-	static ArrayList<Car> cars=new ArrayList<Car>();
+	static Car[] cars;
 	Scanner scan=new Scanner(System.in);
 	
 	public void SetCarName() {
@@ -17,12 +17,14 @@ public class Method {
 	}
 
 	private boolean SplitCarName(String car) {
-		
+		int i=0;
 		for(String num : car.split(",")) {
-			System.out.println(num);
-		}
-		
-		return false;
+			cars[i]=new Car(num);
+			i++;
+		}	
+		if(CheckStringLength());
+			SetCarName();
+		InputRunCount();	
 	}
 	
 	
