@@ -11,7 +11,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        StartGame game = new StartGame();
-        game.start();
+        Car[] cars;
+        PrepareGame prepareGame = new PrepareGame();
+        cars = prepareGame.prepare();
+
+        StartGame startGame = new StartGame();
+        startGame.start(cars);
     }
 }
