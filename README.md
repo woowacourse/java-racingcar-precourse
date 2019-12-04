@@ -30,6 +30,8 @@ v0.1 by
 
 ### 1.2 프로그램 실행방법
 
+- 프로젝트 Repository를 로컬로 Clone
+- Intellij, Eclipse 등 IDE에서 프로젝트를 Gradle Project로 import
 - `src/main/java/RacingGame`의 `main()` 함수 실행.
 
 ## 기능적 요구사항
