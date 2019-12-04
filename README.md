@@ -10,9 +10,9 @@ Car class
 
 GameUI class
 1. input string을 GameBoard로 전달
-    -2개 이상의 car name이 존재
+    - 2개 이상의 car name이 존재
 2. 게임 횟수 n을 gameboard로 전달
-    -0이상의 값
+    - 0이상의 값
 3. 출력문
 
 GameBoard
