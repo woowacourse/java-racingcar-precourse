@@ -22,8 +22,15 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        // TODO: getPosition() 대신 "-" * int 형식으로 출력
-        return getName() + ": " + getPosition();
+        return getName() + ": " + repeat(getPosition());
+    }
+
+    private String repeat(int times) {
+        String result = "";
+        for (int i = 0; i < times; i++) {
+            result += "-";
+        }
+        return result;
     }
 
     @Override
