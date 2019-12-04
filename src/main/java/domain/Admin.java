@@ -40,7 +40,7 @@ public class Admin {
         Boolean ifValidInput;
         String carNameValidPattern = "(^[a-zA-Z0-9]{1,5})";         // 1~5 글자의 영문 알파벳, 숫자를 의미
 
-        System.out.println("이름 입력");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         input = scan.nextLine();
         carNames = input.split(",");
         for (int i = 0; i < carNames.length; i++) {
