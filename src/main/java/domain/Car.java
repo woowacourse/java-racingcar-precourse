@@ -1,3 +1,10 @@
+/*
+ * 클래스 이름   Car
+ * 버전 정보    1.0
+ * 날짜        2019.12.04
+ * 저작권      woowacourse
+ */
+
 package domain;
 
 public class Car {
@@ -9,4 +16,11 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
