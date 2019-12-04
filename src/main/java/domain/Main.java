@@ -11,7 +11,7 @@ public class Main {
 
     private static void init() {
         List<Car> carsList = inputCarNames();
-        int turnNumber = inputTurn();
+        int turnNumber = getTurn();
         System.out.println("턴 수: "+turnNumber);
         startRace(carsList, turnNumber);
     }
@@ -30,7 +30,7 @@ public class Main {
         System.out.println();
     }
 
-    private static int inputTurn() {
+    private static int getTurn() {
         int turnNumber = 0;
         Scanner scan = new Scanner(System.in);
         while(true) {
