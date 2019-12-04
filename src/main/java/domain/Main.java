@@ -16,6 +16,16 @@ public class Main {
     }
 
     private static void printWinner(List<Car> carsList) {
+        int maxScore = getMaxScore(carsList);
+        List<String> winnerList = new ArrayList<String>();
+        for(Car oneCar: carsList) {
+            if (oneCar.getPosition() == maxScore) {
+                winnerList.add(oneCar.getName());
+            }
+        }
+    }
+
+    private static int getMaxScore(List<Car> carsList) {
         int maxScore = 0;
         for(Car oneCar: carsList) {
             int thisCarPosition = oneCar.getPosition();
@@ -23,6 +33,7 @@ public class Main {
                 maxScore = thisCarPosition;
             }
         }
+        return maxScore;
     }
 
     private static void startRace(List<Car> carsList, int turnNumber) {
