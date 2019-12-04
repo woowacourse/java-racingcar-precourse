@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
+import domain.Car;
+
 /**
  * Admin class - 프로그램 진행에 필요한 메소드를 모아둔 클래스
  *
@@ -23,6 +25,9 @@ public class Admin {
 
     /** 입력받은 차 이름을 저장하기 위한 String Array */
     private String[] carNames;
+
+    /** Car 객체를 저장하기 위한 Car array */
+    private Car[] cars;
 
     /**
      * 쉼표로 구분된 차 이름을 입력받아 carNames 변수에 저장하는 메소드
@@ -46,6 +51,17 @@ public class Admin {
             }
         }
         return true;
+    }
+
+    /**
+     * Car 객체를 생성하여 반환하는 함수
+     * @return Car[] 입력받은 이름으로 초기화된 Car Array
+     */
+    public void makeCars() {
+        cars = new Car[carNames.length];
+        for (int i = 0; i < cars.length; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
     }
 
     /**
