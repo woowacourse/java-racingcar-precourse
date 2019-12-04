@@ -35,6 +35,10 @@ public class InputOutputHandler {
         printLine(String.join(", ", winners) + "가 최종 우승했습니다.");
     }
 
+    public static void printNoWinners() {
+        printLine("우승자가 없습니다.");
+    }
+
     public static void printCars(List<Car> cars) {
         for (Car car : cars) {
             printLine(car);

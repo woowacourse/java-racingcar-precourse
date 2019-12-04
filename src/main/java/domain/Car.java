@@ -13,11 +13,11 @@ public class Car implements Comparable<Car> {
     }
 
     public int getPosition() {
-        return this.position;
+        return position;
     }
 
     public void goForward() {
-        this.position++;
+        position++;
     }
 
     @Override
@@ -26,11 +26,11 @@ public class Car implements Comparable<Car> {
     }
 
     private String repeat(int times) {
-        String result = "";
+        String repeatedString = "";
         for (int i = 0; i < times; i++) {
-            result += "-";
+            repeatedString += "-";
         }
-        return result;
+        return repeatedString;
     }
 
     @Override

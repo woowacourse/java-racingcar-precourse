@@ -19,44 +19,60 @@ public class RaceController {
         this.randomGenerator = new RandomGenerator();
     }
 
-    public void loopThroughCars(int times) {
+    public void executeRace(int times) {
         InputOutputHandler.printResult();
         for (int i = 0; i < times; i++) {
-            executeRandomCars();
-            InputOutputHandler.printCars(this.cars);
+            race();
+            InputOutputHandler.printCars(cars);
         }
     }
 
-    public void getWinner() {
-        int maxScore = getMaxScore();
-        System.out.println("max: " + maxScore);
-        for (int i = 0; i < this.cars.size(); i++) {
-            addToWinners(this.cars.get(i), maxScore);
-        }
-        InputOutputHandler.printWinners(this.winners);
-    }
-
-    private void addToWinners(Car car, int maxScore) {
-        // TODO: maxScore가 0일 경우 예외처리
-        if (car.getPosition() == maxScore) {
-            this.winners.add(car.getName());
+    private void race() {
+        for (Car car : cars) {
+            goForwardRandomly(car);
         }
     }
 
-    private void executeRandomCars() {
-        for (Car car : this.cars) {
-            goOrStop(car);
-        }
-    }
-
-    private void goOrStop(Car car) {
-        if (this.randomGenerator.isGoingForward()) {
+    private void goForwardRandomly(Car car) {
+        if (randomGenerator.isGoingForward()) {
             car.goForward();
         }
     }
 
-    private int getMaxScore() {
-        Collections.sort(this.cars);
-        return this.cars.get(0).getPosition();
+    public void getWinners() {
+        int maxPosition = getMaxPosition();
+        System.out.println(maxPosition);
+        if (maxPosition < 1) {
+            winnerDoesNotExists();
+            return;
+        }
+        winnerExists(maxPosition);
+    }
+
+    private void winnerExists(int maxPosition) {
+        // TODO: cars를 모두 순회할 것이 아니고 maxPosition보다 작으면 바로 break
+        for (int i = 0; i < cars.size(); i++) {
+            addWinners(cars.get(i), maxPosition);
+        }
+        InputOutputHandler.printWinners(winners);
+    }
+
+    private void winnerDoesNotExists() {
+        InputOutputHandler.printNoWinners();
+    }
+
+    private void addWinners(Car car, int maxPosition) {
+        if (car.getPosition() == maxPosition) {
+            winners.add(car.getName());
+        }
+    }
+
+    private Car getLongestPositionedCar() {
+        Collections.sort(cars);
+        return cars.get(0);
+    }
+
+    private int getMaxPosition() {
+        return getLongestPositionedCar().getPosition();
     }
 }
