@@ -33,6 +33,11 @@ public class Admin {
     private Car[] cars;
 
     /**
+     * 전진을 시도할 횟수를 저장하는 변수
+     */
+    private int maxNumOfMoving;
+
+    /**
      * 쉼표로 구분된 차 이름을 입력받아 carNames 변수에 저장하는 메소드
      *
      * @return Boolean 쉼표로 구분된 각 이름이 모두 유효한지 여부
@@ -68,7 +73,7 @@ public class Admin {
     }
 
     /**
-     * 자동차를 최대 몇 번 이동시킬지 사용자에게 물어보는 메소드
+     * 자동차를 최대 몇 번 이동시킬지 사용자에게 물어보고 maxNumOFMoving 변수에 저장하는 메소드
      *
      * @return Boolean 입력받은 문자열이 숫자인지 여부
      */
@@ -83,6 +88,7 @@ public class Admin {
         if (!ifValidInput) {
             return false;
         }
+        maxNumOfMoving = Integer.parseInt(input);
         return true;
     }
 
