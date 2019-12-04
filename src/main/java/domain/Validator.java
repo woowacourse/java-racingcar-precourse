@@ -8,11 +8,11 @@ import java.util.List;
 public class Validator {
 
     public List<String> splitName(String name) {
-        List<String> carNames = new LinkedList<>();
+        List<String> carName = new LinkedList<>();
 
-        Collections.addAll(carNames, name.split(","));
+        Collections.addAll(carName, name.split(","));
 
-        return carNames;
+        return carName;
     }
 
     public boolean isNotNull(List<String> carName) {
