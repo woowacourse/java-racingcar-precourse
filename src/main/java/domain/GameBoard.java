@@ -76,8 +76,12 @@ public class GameBoard {
         }
 
         for (int j = 0; j < winner.size(); j++){
-            System.out.println(winner.get(j).getName());
+            System.out.print(winner.get(j).getName());
+            if (j != (winner.size() - 1)) {
+                System.out.print(",");
+            }
         }
+        System.out.println("가 최종 우승했습니다.");
     }
 
     public void createCars(String inputCarNames) {
