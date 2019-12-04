@@ -8,5 +8,21 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void goForward() {
+        this.position++;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private int getPosition() {
+        return this.position;
+    }
+
+    @Override
+    public String toString() {
+        // TODO: getPosition() 대신 "-" * int 형식으로 출력
+        return getName() + ": " + getPosition();
+    }
 }
