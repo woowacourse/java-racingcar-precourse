@@ -8,7 +8,18 @@ public class Car {
         this.name = name;
     }
 
+    public void proceed() {
+        position++;
+        System.out.println(name+" : "+getBar());
+    }
 
+    private String getBar() {
+        String bar = "";
+        for (int i = 0; i < position; i++) {
+            bar += "-";
+        }
+        return bar;
+    }
 
 
 }

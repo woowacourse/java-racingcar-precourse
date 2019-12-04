@@ -58,7 +58,7 @@
 ## 구현할 기능 목록
 
 1. 게임을 시작한다. (init())
-2. 각 자동차의 이름을 받고(inputCarNames()), 쉼표를 기준으로 나눈 후 5자 이내인지 검사하고(verifyCarName()), Car 객체로 이루어진 ArrayList를 만든다. (StringToArrayList()).
+2. 각 자동차의 이름을 받고(inputCarNames()), 쉼표를 기준으로 나눈 후 5자 이내인지 검사하고(verifyCarName()), Car 객체로 이루어진 ArrayList를 만든다. (enrollPlayers()).
 3. 시행횟수(turnNumber)를 입력받는다.
 4. turnNumber만큼 경주(race()) 한다. 이 때 Car 클래스의 각 인스턴스는 0부터 9까지의 수를 임의로 뽑아 4 이상이어야 전진(proceed())한다.
 5. 시행횟수만큼 시행한 뒤 각 Car의 위치를 보고받아 (getPosition()) MAX값과 동일한 유저만큼 winner ArrayList에 넣는다.
