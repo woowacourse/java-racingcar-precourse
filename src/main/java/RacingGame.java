@@ -11,8 +11,8 @@ public class RacingGame {
 
     private static void play() {
         InputController inputController = new InputController();
-        List<Car> cars = inputController.getNameOfCars();
-        int timesToRun = inputController.getTimesToRun();
+        List<Car> cars = inputController.generateCars();
+        int timesToRun = inputController.generateTimes();
         RaceController raceController = new RaceController(cars);
         raceController.loopThroughCars(timesToRun);
         raceController.getWinner();

@@ -14,18 +14,16 @@ public class InputController {
         this.scanner = new Scanner(System.in);
     }
 
-    public List<Car> getNameOfCars() {
+    public List<Car> generateCars() {
         List<Car> cars = new ArrayList<>();
-        String names = InputOutputHandler.askForNames(scanner);
-        //    TODO: 예외 처리
-        String[] carNames = names.split(",");
-        for (String name : carNames) {
+        String[] names = InputOutputHandler.askForNames(scanner);
+        for (String name : names) {
             cars.add(new Car(name));
         }
         return cars;
     }
 
-    public int getTimesToRun() {
+    public int generateTimes() {
         return InputOutputHandler.askForTimes(scanner);
     }
 }
