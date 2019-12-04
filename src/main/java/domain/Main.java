@@ -11,9 +11,7 @@ public class Main {
 
     private static void init() {
         List<Car> carsList = inputCarNames();
-        int turnNumber = getTurn();
-        System.out.println("턴 수: "+turnNumber);
-        startRace(carsList, turnNumber);
+        startRace(carsList, getTurnNumber());
     }
 
     private static void startRace(List<Car> carsList, int turnNumber) {
@@ -24,13 +22,13 @@ public class Main {
     }
 
     private static void playOneTurn(List<Car> carsList) {
-        for(int i = 0; i < carsList.size(); i++) {
-            carsList.get(i).playTurn();
+        for(Car oneCar : carsList) {
+            oneCar.playTurn();
         }
         System.out.println();
     }
 
-    private static int getTurn() {
+    private static int getTurnNumber() {
         int turnNumber = 0;
         Scanner scan = new Scanner(System.in);
         while(true) {
@@ -64,11 +62,11 @@ public class Main {
     private static List<Car> enrollPlayers(String carNames) {
         String[] carArray = carNames.split(",");
         List<Car> carsList = new ArrayList<Car>();
-        for (int i = 0; i < carArray.length; i++) {
-            if(!verifyCarName(carArray[i])) {
+        for (String oneCar : carArray) {
+            if(!verifyCarName(oneCar)) {
                 return null;
             }
-            carsList.add(new Car(carArray[i]));
+            carsList.add(new Car(oneCar));
         }
         return carsList;
     }
