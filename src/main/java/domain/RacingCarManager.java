@@ -5,9 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RacingCarManager {
-    List<String> carName = new LinkedList<>();
-    List<Car> registeredCars = new LinkedList<>();
-    private String carNames;
+    private List<String> carName = new LinkedList<>();
+    private List<Car> registeredCar = new LinkedList<>();
     private int tryTimes;
 
     public boolean start() {
@@ -15,9 +14,11 @@ public class RacingCarManager {
             return false;
         }
 
-       if (!tryTimeGenerator()) {
-           return false;
-       }
+        if (!tryTimeGenerator()) {
+            return false;
+        }
+
+        carGenerator(registeredCar, carName);
 
         return true;
     }
@@ -26,7 +27,7 @@ public class RacingCarManager {
         Validator validator = new Validator();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        carNames = new Scanner(System.in).next();
+        String carNames = new Scanner(System.in).next();
 
         carName = validator.splitName(carNames);
 
@@ -38,5 +39,13 @@ public class RacingCarManager {
         tryTimes = new Scanner(System.in).nextInt();
 
         return new Validator().isNotBelowZero(tryTimes);
+    }
+
+    public int carGenerator(List<Car> target, List<String> source) {
+        for (String name : source) {
+            target.add(new Car(name));
+        }
+
+        return target.size();
     }
 }

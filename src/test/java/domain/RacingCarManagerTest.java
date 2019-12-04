@@ -52,7 +52,7 @@ class RacingCarManagerTest {
     }
 
     @Test
-    public void carNameBelowZero() {
+    public void carNameBelowZeroTest() {
         Validator validator = new Validator();
         List<String> carNames = new LinkedList<>();
         List<String> carNamesWrong = new LinkedList<>();
@@ -70,12 +70,25 @@ class RacingCarManagerTest {
     }
 
     @Test
-    public void tryTimeBelowZero() {
+    public void tryTimeBelowZeroTest() {
         Validator validator = new Validator();
 
         assertThat(validator.isNotBelowZero(1)).isEqualTo(true);
         assertThat(validator.isNotBelowZero(12321)).isEqualTo(true);
         assertThat(validator.isNotBelowZero(0)).isEqualTo(false);
         assertThat(validator.isNotBelowZero(-3)).isEqualTo(false);
+    }
+
+    @Test
+    public void carRegisterSizeTest() {
+        RacingCarManager racingCarManager = new RacingCarManager();
+        List<String> carName = new LinkedList<>();
+        List<Car> registeredCar = new LinkedList<>();
+
+        carName.add("John");
+        carName.add("Kim");
+        carName.add("Hans");
+
+        assertThat(racingCarManager.carGenerator(registeredCar, carName)).isEqualTo(3);
     }
 }
