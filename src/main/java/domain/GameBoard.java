@@ -11,6 +11,8 @@
  */
 
 package domain;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GameBoard {
     ArrayList<Car> cars = new ArrayList<Car>();
@@ -32,7 +34,24 @@ public class GameBoard {
     }
 
     public void play() {
-        System.out.println("Play");
+        while ((cycle--) > 0) {
+
+        }
+    }
+
+    public boolean condition() {
+        Random rand = new Random();
+
+        int dice = rand.nextInt(10);
+
+        if (dice >= 4) {
+            return true;
+        }
+        if (dice >= 0) {
+            return false
+        }
+
+
     }
 
 }

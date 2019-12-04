@@ -14,12 +14,16 @@
 package domain;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class GameUI {
     Scanner sc = new Scanner(System.in);
     GameBoard board = new GameBoard();
 
+    public GameUI() {
+        inputCarNames();
+        inputCycle();
+        playGame();
+    }
     public void inputCarNames() {
         String input;
 

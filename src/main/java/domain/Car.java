@@ -26,8 +26,8 @@ public class Car {
         position++;
     }
 
-    public void printName() {
-        System.out.println(this.name);
+    public String getName() {
+        return this.name;
     }
 
 
