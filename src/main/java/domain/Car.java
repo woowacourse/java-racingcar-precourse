@@ -13,10 +13,10 @@ public class Car {
 
     public void playTurn() {
         Random random = new Random();
-        if(random.nextInt(10) >= 4) {
+        if (random.nextInt(10) >= 4) {
             this.proceed();
         }
-        System.out.println(name+" : "+getBar());
+        System.out.println(name + " : " + getBar());
     }
 
     private void proceed() {
