@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Input {
+    private static final int MAX_NAME_LENGTH = 5;
+
     private Scanner scanner = new Scanner(System.in);
 
     public Input() {
@@ -16,6 +18,14 @@ public class Input {
 
     public List<String> splitAsComma(String inputs) {
         return Arrays.asList(inputs.split(","));
+    }
+
+    public boolean isNameLengthUnderMax(String name) {
+        return name.length() <= MAX_NAME_LENGTH;
+    }
+
+    public boolean isNamesLengthUnderMax(List<String> names) {
+        return names.stream().allMatch(this::isNameLengthUnderMax);
     }
 
     public boolean isPositiveInteger(String times) {

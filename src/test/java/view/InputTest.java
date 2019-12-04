@@ -20,7 +20,7 @@ class InputTest {
     }
 
     @Test
-    public void isPositiveIntegerTest(){
+    public void isPositiveIntegerTest() {
         Input input = new Input();
         assertThat(input.isPositiveInteger("8")).isTrue();
         assertThat(input.isPositiveInteger("0")).isFalse();
@@ -30,5 +30,14 @@ class InputTest {
         assertThat(input.isPositiveInteger("")).isFalse();
         assertThat(input.isPositiveInteger(" ")).isFalse();
         assertThat(input.isPositiveInteger("\n")).isFalse();
+    }
+
+    @Test
+    public void isNamesLengthUnderMaxTest() {
+        Input input = new Input();
+        assertThat(input.isNamesLengthUnderMax(input.splitAsComma("가,나다,라마바," +
+                "사아자차,카타파하가"))).isTrue();
+        assertThat(input.isNamesLengthUnderMax(input.splitAsComma("가,나다,라마바," +
+                "사아자차,666666"))).isFalse();
     }
 }
