@@ -8,11 +8,27 @@
  *
  * copyright :
  *
- * description : 자동차의 움직임과 위치를 가지는 Car class
+ * description : input, output, 게임 진행을 담당하는 클래
  */
-
 
 package domain;
 
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class GameUI {
+    Scanner sc = new Scanner(System.in);
+    ArrayList<Car> cars = new ArrayList<Car>();
+
+    public void createCars() {
+        String inputCarName = sc.nextLine();
+        String[] carNames = inputCarName.split(",");
+
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].length() <= 5) {
+                Car car = new Car(carNames[i]);
+                cars.add(car);
+            }
+        }
+    }
 }

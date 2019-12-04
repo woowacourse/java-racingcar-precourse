@@ -14,6 +14,7 @@
 package domain;
 
 public class Car {
+
     private final String name;
     private int position = 0;
 
@@ -24,5 +25,10 @@ public class Car {
     public void forward() {
         position++;
     }
+
+    public void printName() {
+        System.out.println(this.name);
+    }
+
 
 }
