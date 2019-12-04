@@ -13,6 +13,11 @@ public class Main {
         List<Car> carsList = inputCarNames();
         int turnNumber = inputTurn();
         System.out.println("턴 수: "+turnNumber);
+        startRace(carsList, turnNumber);
+    }
+
+    private static void startRace(List<Car> carsList, int turnNumber) {
+        System.out.println("실행 결과");
         for(int i = 0; i < turnNumber; i++) {
             playOneTurn(carsList);
         }
@@ -22,6 +27,7 @@ public class Main {
         for(int i = 0; i < carsList.size(); i++) {
             carsList.get(i).playTurn();
         }
+        System.out.println();
     }
 
     private static int inputTurn() {
