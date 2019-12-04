@@ -4,8 +4,6 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-import domain.Car;
-
 /**
  * Admin class - 프로그램 진행에 필요한 메소드를 모아둔 클래스
  *
