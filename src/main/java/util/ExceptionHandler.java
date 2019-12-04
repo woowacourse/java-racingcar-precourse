@@ -32,6 +32,7 @@ class ExceptionHandler {
     }
 
     private static String[] namesExceptionThrower(String input) {
+        checkIfEndsWithComma(input);
         checkIfIsBlank(input);
         String[] names = input.split(",");
         checkIfSplitIsBlank(names);
@@ -39,6 +40,12 @@ class ExceptionHandler {
             checkNameValidity(name);
         }
         return names;
+    }
+
+    private static void checkIfEndsWithComma(String input) {
+        if (input.endsWith(",")) {
+            throw new InputMismatchException();
+        }
     }
 
     private static void checkIfIsBlank(String input) {
