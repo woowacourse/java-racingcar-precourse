@@ -41,8 +41,7 @@ public class RaceController {
 
     public void getWinners() {
         int maxPosition = getMaxPosition();
-        System.out.println(maxPosition);
-        if (maxPosition < 1) {
+        if (maxPosition == 0) {
             winnerDoesNotExists();
             return;
         }
