@@ -24,7 +24,10 @@ public class Main {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             carNames = scan.nextLine();
             carsList = enrollPlayers(carNames);
-            return carsList;
+            if (carsList != null) {
+                return carsList;
+            }
+            System.out.println("다시 입력해 주세요.");
         }
     }
 
@@ -32,8 +35,19 @@ public class Main {
         String[] carArray = carNames.split(",");
         List<Car> carsList = new ArrayList<Car>();
         for (int i = 0; i < carArray.length; i++) {
+            if(!verifyCarName(carArray[i])) {
+                return null;
+            }
             carsList.add(new Car(carArray[i]));
         }
         return carsList;
     }
+
+    private static boolean verifyCarName(String carName) {
+        if(carName.length() > 5 || carName.length() == 0) {
+            return false;
+        }
+        return true;
+    }
 }
+
