@@ -8,7 +8,6 @@ public class Game {
     private User user = new User();
 
     public void startGame() {
-
         List<Car> carsList = enrollPlayers();
         startRace(carsList, user.getTurnNumber());
         printWinner(carsList);
@@ -69,4 +68,5 @@ public class Game {
         }
         return maxScore;
     }
+
 }
