@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RacingCarManager {
+    List<String> carNames = new LinkedList<>();
     List<Car> registeredCars = new LinkedList<>();
 
     public boolean start() {
@@ -22,12 +23,8 @@ public class RacingCarManager {
     public boolean carName(String name) {
         Validator validator = new Validator();
 
-        //registeredCars = validator.splitName(name);
-        /*if (validator.isNotNull(registeredCars)
-                && validator.isNotExcess(registeredCars) && validator.isNotBelowZero(registeredCars)) {
-            return true;
-        }*/
-        return false;
+        carNames = validator.splitName(name);
+        return validator.isNotNull(carNames) && validator.isNotExcess(carNames) && validator.isNotBelowZero(carNames);
     }
 
 }
