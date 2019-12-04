@@ -93,6 +93,26 @@ public class Admin {
     }
 
     /**
+     * 자동차를 전진시키고 전진과정을 출력하는 메소드
+     */
+    public void moveCars() {
+        /* position 변수를 사용하지 않기 위해 각 Car 객체에서 입력받은 횟수만큼 전진했는지 여부를 담은 배열을 반환
+         * 그 배열을 확인해서 하나씩 출력하는 식으로 구현
+         * */
+
+        Boolean[][] actualMoving = new Boolean[cars.length][maxNumOfMoving];
+        for (int i = 0; i < cars.length; i++) {
+            actualMoving[i] = cars[i].moveCar(maxNumOfMoving);
+        }
+        for (int i = 0; i < maxNumOfMoving; i++) {
+            for (int j = 0; j < cars.length; j++) {
+                printMoving(actualMoving, j, i);
+            }
+            System.out.println();
+        }
+    }
+
+    /**
      * 문자열이 유효한 패턴을 갖고 있는지 체크하는 함수
      *
      * @param string       체크할 문자열
@@ -103,5 +123,22 @@ public class Admin {
         Pattern namePattern = Pattern.compile(validPattern);
         Matcher nameMatcher = namePattern.matcher(string);
         return nameMatcher.find();
+    }
+
+    /**
+     * 자동차의 전진과정을 실제로 출력하는 메소드
+     *
+     * @param actualMoving 자동차가 전진했는지 여부가 담겨있는 2차원 배열
+     * @param carNumber    출력할 자동차의 번호
+     * @param episode      현재까지 진행된 에피소드
+     */
+    private void printMoving(Boolean[][] actualMoving, int carNumber, int episode) {
+        System.out.print(cars[carNumber].getName() + ": ");
+        for (int i = 0; i <= episode; i++) {
+            if (actualMoving[carNumber][i]) {
+                System.out.print('-');
+            }
+        }
+        System.out.println();
     }
 }
