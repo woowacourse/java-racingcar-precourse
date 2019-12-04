@@ -5,35 +5,37 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Input {
+	private static final int MAX_NAME_LEN = 5;
 	private static Scanner scanner = new Scanner(System.in);
-	
+
 	public static List<String> enterCarNames() {
 		String carNames;
 		String[] dividedCarNames;
-		
-		do{
+
+		do {
 			carNames = scanner.nextLine();
-			dividedCarNames = divideNames(carNames);
-		} while(!isValidDivision(dividedCarNames));
-		
+			dividedCarNames = carNames.split(",");
+		} while (!isValidInput(dividedCarNames));
+
 		return convertArrToList(dividedCarNames);
 	}
-	
-	public static String[] divideNames(String inputString) {
-		String[] temp;
-		
-		temp = inputString.split(",");
-		
-		return temp;
-	}
-	
-	private static boolean isValidDivision(String[] inputString) {
+
+	private static boolean isValidInput(String[] inputString) {
+		for (int i = 0; i < inputString.length; i++) {
+			if (inputString[i].length() > MAX_NAME_LEN) {
+				return false;
+			}
+		}
 		
 		return true;
 	}
-	
+
 	private static List<String> convertArrToList(String[] inputString) {
-		ArrayList<String> temp = new ArrayList<String>();
+		List<String> temp = new ArrayList<String>();
+
+		for (int i = 0; i < inputString.length; i++) {
+			temp.add(inputString[i]);
+		}
 		
 		return temp;
 	}
