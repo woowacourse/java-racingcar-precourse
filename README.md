@@ -58,7 +58,7 @@
 
 #### Domain
 
-- [ ] Car initTest
+- [x] Car initTest
 - [ ] Car fieldTest
 
 #### View
