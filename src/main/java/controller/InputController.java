@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import domain.Car;
+import util.FormattedPrinter;
 
 public class InputController {
     private Scanner scanner;
@@ -15,7 +16,8 @@ public class InputController {
 
     public List<Car> getNameOfCars() {
         List<Car> cars = new ArrayList<>();
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+        FormattedPrinter.askForNames();
         String userInput = this.scanner.nextLine();
         //    TODO: 예외 처리
         String[] carNames = userInput.split(",");
@@ -26,7 +28,7 @@ public class InputController {
     }
 
     public int getTimesToRun() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        FormattedPrinter.askForTimes();
         String userInput = this.scanner.nextLine();
         //    TODO: 예외 처리
         return Integer.parseInt(userInput);

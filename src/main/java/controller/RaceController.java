@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import domain.Car;
+import util.FormattedPrinter;
 import util.RandomGenerator;
 
 public class RaceController {
@@ -19,10 +20,10 @@ public class RaceController {
     }
 
     public void loopThroughCars(int times) {
-        System.out.println("\n실행결과");
+        FormattedPrinter.printResult();
         for (int i = 0; i < times; i++) {
             executeRandomCars();
-            printCars();
+            FormattedPrinter.printCars(this.cars);
         }
     }
 
@@ -32,7 +33,7 @@ public class RaceController {
         for (int i = 0; i < this.cars.size(); i++) {
             addToWinners(this.cars.get(i), maxScore);
         }
-        System.out.println(String.join(", ", this.winners) + "가 최종 우승했습니다.");
+        FormattedPrinter.printWinners(this.winners);
     }
 
     private void addToWinners(Car car, int maxScore) {
@@ -46,13 +47,6 @@ public class RaceController {
         for (Car car : this.cars) {
             goOrStop(car);
         }
-    }
-
-    private void printCars() {
-        for (Car car : this.cars) {
-            System.out.println(car);
-        }
-        System.out.println();       // 공백 줄 추가
     }
 
     private void goOrStop(Car car) {
