@@ -23,8 +23,9 @@ public class GameBoard {
         while ((cycle--) > 0) {
             moveCars();
             printBoard();
-
         }
+
+        winner();
     }
 
     public void moveCars() {
@@ -46,7 +47,6 @@ public class GameBoard {
         return false;
     }
 
-
     public void printBoard() {
         for (int i = 0; i < cars.size(); i++) {
             System.out.print(cars.get(i).getName() + " : ");
@@ -54,7 +54,29 @@ public class GameBoard {
             for (int j = 0; j <cars.get(i).getPosition(); j++){
                 System.out.print("-");
             }
+
             System.out.println("");
+        }
+        System.out.println("");
+    }
+
+    public void winner() {
+        ArrayList<Car> winner = new ArrayList<Car>();
+
+        winner.add(cars.get(0));
+
+        for (int i = 1; i < cars.size(); i++) {
+            if (winner.get(0).getPosition() == cars.get(i).getPosition()) {
+                winner.add(cars.get(i));
+            }
+            if (winner.get(0).getPosition() < cars.get(i).getPosition()) {
+                winner.clear();
+                winner.add(cars.get(i));
+            }
+        }
+
+        for (int j = 0; j < winner.size(); j++){
+            System.out.println(winner.get(j).getName());
         }
     }
 
