@@ -10,6 +10,10 @@ public class Car {
 		this.name = name;
 	}
 	
+	public int getPosition() {
+		return this.position;
+	}
+	
 	public int randomizeNumber() {
 		Random generator = new Random();
 		int randomNumber = generator.nextInt(10);
