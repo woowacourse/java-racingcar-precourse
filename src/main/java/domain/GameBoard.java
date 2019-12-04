@@ -18,6 +18,39 @@ public class GameBoard {
     ArrayList<Car> cars = new ArrayList<Car>();
     int cycle;
 
+
+    public void play() {
+        while ((cycle--) > 0) {
+            moveCars();
+            printBoard();
+
+        }
+    }
+
+    public void moveCars() {
+        for (int i = 0; i < cars.size(); i++) {
+            if (condition()) {
+                cars.get(i).forward();
+            }
+        }
+    }
+
+    public boolean condition() {
+        Random rand = new Random();
+        int dice = rand.nextInt(10);
+
+        if (dice >= 4) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public void printBoard() {
+        System.out.println("printBoard");
+    }
+
     public void createCars(String inputCarNames) {
         String[] carNames = inputCarNames.split(",");
 
@@ -33,25 +66,6 @@ public class GameBoard {
         this.cycle = cycle;
     }
 
-    public void play() {
-        while ((cycle--) > 0) {
 
-        }
-    }
-
-    public boolean condition() {
-        Random rand = new Random();
-
-        int dice = rand.nextInt(10);
-
-        if (dice >= 4) {
-            return true;
-        }
-        if (dice >= 0) {
-            return false
-        }
-
-
-    }
 
 }
