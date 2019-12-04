@@ -41,10 +41,13 @@
 ##### Input
 
 - [x] 자동차 입력받기
-- [ ] 입력받은 문자열 구분하기
+- [x] 입력받은 문자열 구분하기
 - [ ] 5자 이하 check
 - [ ] 공백 문자 check
-- [ ] 횟수 입력받기
+- [x] 횟수 입력받기
+- [x] 횟수는 1이상 정수 check
+
+
 
 ##### Output
 
@@ -67,6 +70,8 @@
 #### View
 
 - [x] Input initTest
+- [x] Input splitTest
+- [x] Input times positiveIntegerTest
 
 #### Service
 
