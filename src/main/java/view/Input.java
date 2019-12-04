@@ -10,8 +10,11 @@ public class Input {
     public Input() {
     }
 
-    public String inputCars(){
+    public String inputCars() {
         return scanner.nextLine();
     }
 
+    public List<String> splitAsComma(String inputs) {
+        return Arrays.asList(inputs.split(","));
+    }
 }

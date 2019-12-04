@@ -12,4 +12,10 @@ class InputTest {
         assertThat(input).isNotNull();
     }
 
+    @Test
+    public void splitAsCommaTest() {
+        Input input = new Input();
+        assertThat(input.splitAsComma("pobi,crong,honux").toString())
+                .isEqualTo("[pobi, crong, honux]");
+    }
 }
