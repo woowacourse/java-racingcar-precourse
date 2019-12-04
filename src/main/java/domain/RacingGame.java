@@ -8,10 +8,12 @@ public class RacingGame {
 	private Scanner sc;
 	private List<Car> carList;
 	private int racingCount;
+	private int maxPosition;
 
 	public RacingGame() {
 		sc = new Scanner(System.in);
 		carList = new ArrayList<>();
+		maxPosition = 0;
 	}
 
 	public void startGame() {
@@ -25,22 +27,37 @@ public class RacingGame {
 				break;
 			}
 		}
-		System.out.println("실행 결과");
+		System.out.println("\n실행 결과");
 		for (int i = 0; i < racingCount; i++) {
 			startRace();
 		}
+		printWinner();
 	}
 
 	private void startRace() {
 		for (Car car : carList) {
 			car.go();
+			int position = car.getPosition();
+			if (position > maxPosition) {
+				maxPosition = position;
+			}
 			System.out.print(car.getName() + ": ");
-			for (int i = 0; i < car.getPosition(); i++) {
+			for (int i = 0; i < position; i++) {
 				System.out.print("-");
 			}
 			System.out.println();
 		}
 		System.out.println();
+	}
+
+	private void printWinner() {
+		for (Car car : carList) {
+			int position = car.getPosition();
+			if(position==maxPosition) {
+				System.out.print(car.getName()+" ");
+			}
+		}
+		System.out.println("가 최종 우승했습니다.");
 	}
 
 	private boolean inputCarName() {
