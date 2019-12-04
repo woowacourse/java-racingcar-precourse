@@ -16,11 +16,9 @@ public class InputController {
 
     public List<Car> getNameOfCars() {
         List<Car> cars = new ArrayList<>();
-
-        FormattedPrinter.askForNames();
-        String userInput = this.scanner.nextLine();
+        String names = FormattedPrinter.askForNames(scanner);
         //    TODO: 예외 처리
-        String[] carNames = userInput.split(",");
+        String[] carNames = names.split(",");
         for (String name : carNames) {
             cars.add(new Car(name));
         }
@@ -28,9 +26,7 @@ public class InputController {
     }
 
     public int getTimesToRun() {
-        FormattedPrinter.askForTimes();
-        String userInput = this.scanner.nextLine();
-        //    TODO: 예외 처리
-        return Integer.parseInt(userInput);
+        int times = FormattedPrinter.askForTimes(scanner);
+        return times;
     }
 }
