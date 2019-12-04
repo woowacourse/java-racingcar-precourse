@@ -9,10 +9,16 @@ public class Car {
 	public Car(String name) {
 		this.name = name;
 	}
-
+	
 	public int randomizeNumber() {
 		Random generator = new Random();
 		int randomNumber = generator.nextInt(10);
 		return randomNumber;
+	}
+
+	public void go() {
+		if (randomizeNumber() >= 4) {
+			this.position++;
+		}
 	}
 }
