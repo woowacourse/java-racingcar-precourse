@@ -54,15 +54,13 @@ public class Admin {
      */
     public Boolean getCarName() {
         String input;
-        Boolean ifValidInput;
         String carNameValidPattern = "(^[a-zA-Z0-9]{1,5})";         // 유효한 패턴은 1~5 글자의 영문 알파벳, 숫자를 의미
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         input = scan.nextLine();
         carNames = input.split(",");
         for (int i = 0; i < carNames.length; i++) {
-            ifValidInput = ifStringHasValidPattern(carNames[i], carNameValidPattern);
-            if (!ifValidInput) {
+            if (!ifStringHasValidPattern(carNames[i], carNameValidPattern)) {
                 carNames = null;
                 return false;
             }
@@ -89,13 +87,11 @@ public class Admin {
      */
     public Boolean getNumberOfMoving() {
         String input;
-        Boolean ifValidInput;
         String numberValidPattern = "(^[0-9]+)";         // 한자리 이상의 숫자를 의미
 
         System.out.println("시도할 횟수는 몇회인가요?");
         input = scan.nextLine();
-        ifValidInput = ifStringHasValidPattern(input, numberValidPattern);
-        if (!ifValidInput) {
+        if (!ifStringHasValidPattern(input, numberValidPattern)) {
             return false;
         }
         maxNumOfMoving = Integer.parseInt(input);
