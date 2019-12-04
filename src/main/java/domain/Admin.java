@@ -12,6 +12,16 @@ import java.util.regex.Matcher;
  */
 public class Admin {
     /**
+     * 전진여부 결정 시 나올 수 있는 최대 정수
+     */
+    protected static final int maxRandomNumber = 10;
+
+    /**
+     * 전진여부 결정 시 전진할 수 있는 최소 정수
+     */
+    protected static final int minMovingNumber = 4;
+
+    /**
      * 입력받은 값이 valid하지 않은 값이라는 것을 확인할 때 사용하는 class 변수
      */
     public static final Boolean IS_NOT_VALID = false;

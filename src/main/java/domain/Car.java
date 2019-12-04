@@ -13,16 +13,6 @@ public class Car {
     private final String name;
 
     /**
-     * 전진여부 결정 시 나올 수 있는 최대 정수
-     */
-    private final int maxRandomNumber = 10;
-
-    /**
-     * 전진여부 결정 시 전진할 수 있는 최소 정수
-     */
-    private final int minMovingNumber = 4;
-
-    /**
      * Car의 생성자
      *
      * @param name 입력받은 이름으로 name 변수 초기화
@@ -60,8 +50,8 @@ public class Car {
      */
     private Boolean ifCarCanMove() {
         int randomNumber;
-        randomNumber = (int) (Math.random() * maxRandomNumber);
-        if (randomNumber >= minMovingNumber) {
+        randomNumber = (int) (Math.random() * Admin.maxRandomNumber);
+        if (randomNumber >= Admin.minMovingNumber) {
             return true;
         }
         return false;
