@@ -41,11 +41,15 @@ public class RacingGame {
 			if (position > maxPosition) {
 				maxPosition = position;
 			}
-			System.out.print(car.getName() + ": ");
-			for (int i = 0; i < position; i++) {
-				System.out.print("-");
-			}
-			System.out.println();
+			printResult(car.getName(), position);
+		}
+		System.out.println();
+	}
+
+	private void printResult(String name, int position) {
+		System.out.print(name + ": ");
+		for (int i = 0; i < position; i++) {
+			System.out.print("-");
 		}
 		System.out.println();
 	}
@@ -53,8 +57,8 @@ public class RacingGame {
 	private void printWinner() {
 		for (Car car : carList) {
 			int position = car.getPosition();
-			if(position==maxPosition) {
-				System.out.print(car.getName()+" ");
+			if (position == maxPosition) {
+				System.out.print(car.getName() + " ");
 			}
 		}
 		System.out.println("가 최종 우승했습니다.");
