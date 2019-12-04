@@ -33,4 +33,8 @@ public class RacingCarSystem {
             cars.add(new Car(carNameArr[i]));
         }
     }
+
+    public int generateRandomNumber() {
+        return (int) (Math.random() * 9) + 1;
+    }
 }
