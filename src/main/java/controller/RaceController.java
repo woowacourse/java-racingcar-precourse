@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import domain.Car;
-import util.FormattedPrinter;
+import util.InputOutputHandler;
 import util.RandomGenerator;
 
 public class RaceController {
@@ -20,10 +20,10 @@ public class RaceController {
     }
 
     public void loopThroughCars(int times) {
-        FormattedPrinter.printResult();
+        InputOutputHandler.printResult();
         for (int i = 0; i < times; i++) {
             executeRandomCars();
-            FormattedPrinter.printCars(this.cars);
+            InputOutputHandler.printCars(this.cars);
         }
     }
 
@@ -33,7 +33,7 @@ public class RaceController {
         for (int i = 0; i < this.cars.size(); i++) {
             addToWinners(this.cars.get(i), maxScore);
         }
-        FormattedPrinter.printWinners(this.winners);
+        InputOutputHandler.printWinners(this.winners);
     }
 
     private void addToWinners(Car car, int maxScore) {

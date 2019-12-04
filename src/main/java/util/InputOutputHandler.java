@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import domain.Car;
 
-public class FormattedPrinter {
+public class InputOutputHandler {
     static void printLine(Object obj) {
         System.out.println(obj);
     }

@@ -7,8 +7,8 @@ class ExceptionHandler {
         try {
             return parsedPositiveNumber(Integer.parseInt(input));
         } catch (NumberFormatException e) {
-            FormattedPrinter.printLine("잘못된 형식입니다.");
-            return FormattedPrinter.askForTimes(scanner);
+            InputOutputHandler.printLine("잘못된 형식입니다.");
+            return InputOutputHandler.askForTimes(scanner);
         }
     }
 

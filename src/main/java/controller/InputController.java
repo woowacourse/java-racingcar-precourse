@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import domain.Car;
-import util.FormattedPrinter;
+import util.InputOutputHandler;
 
 public class InputController {
     private Scanner scanner;
@@ -16,7 +16,7 @@ public class InputController {
 
     public List<Car> getNameOfCars() {
         List<Car> cars = new ArrayList<>();
-        String names = FormattedPrinter.askForNames(scanner);
+        String names = InputOutputHandler.askForNames(scanner);
         //    TODO: 예외 처리
         String[] carNames = names.split(",");
         for (String name : carNames) {
@@ -26,7 +26,6 @@ public class InputController {
     }
 
     public int getTimesToRun() {
-        int times = FormattedPrinter.askForTimes(scanner);
-        return times;
+        return InputOutputHandler.askForTimes(scanner);
     }
 }
