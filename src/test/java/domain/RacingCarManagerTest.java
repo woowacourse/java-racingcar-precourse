@@ -68,4 +68,14 @@ class RacingCarManagerTest {
         assertThat(validator.isNotBelowZero(carNames)).isEqualTo(true);
         assertThat(validator.isNotBelowZero(carNamesWrong)).isEqualTo(false);
     }
+
+    @Test
+    public void tryTimeBelowZero() {
+        Validator validator = new Validator();
+
+        assertThat(validator.isNotBelowZero(1)).isEqualTo(true);
+        assertThat(validator.isNotBelowZero(12321)).isEqualTo(true);
+        assertThat(validator.isNotBelowZero(0)).isEqualTo(false);
+        assertThat(validator.isNotBelowZero(-3)).isEqualTo(false);
+    }
 }
