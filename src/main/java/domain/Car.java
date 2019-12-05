@@ -8,11 +8,15 @@ public class Car {
         this.name = name;
     }
 
-    public String getCarName(){
+    public String getCarName() {
         return name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
+    }
+
+    public void move() {
+        position += 1;
     }
 }

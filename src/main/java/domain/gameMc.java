@@ -1,12 +1,14 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class gameMc {
     private String[] userInput;
     private int round = 0;
     private ArrayList<Car> carList;
+
+    private Queue<String> winner;
+    private ArrayList<Integer> scoreList;
 
     public String Input() {
         Scanner input = new Scanner(System.in);
@@ -42,7 +44,7 @@ public class gameMc {
         }
     }
 
-    
+
     public void setCarList() {
         carList = new ArrayList<Car>();
         for (int i = 0; i < userInput.length; i++) {
@@ -54,5 +56,62 @@ public class gameMc {
         for (int i = 0; i < carList.size(); i++) {
             System.out.println(carList.get(i).getCarName());
         }
+    }
+
+
+    public int generateRanNum() {
+        Random ranNum = new Random();
+        return ranNum.nextInt(9);
+    }
+
+    public void moveOrStay(ArrayList<Car> carList) {
+        for (int i = 0; i < carList.size(); i++) {
+            if (generateRanNum() > 3) {
+                carList.get(i).move();
+            }
+        }
+    }
+
+    public void broadcast() {
+        for (int i = 0; i < carList.size(); i++) {
+            String score = new String(new char[carList.get(i).getPosition()]).replace('\0', '-');
+            System.out.println(carList.get(i).getCarName() + " " + score);
+        }
+    }
+
+    public void gameProcess() {
+        for (int i = 0; i < round; i++) {
+            moveOrStay(carList);
+            System.out.println("----" + i + "회차----");
+            broadcast();
+            System.out.println("");
+        }
+    }
+
+
+    public void scoring() {
+        scoreList = new ArrayList<Integer>();
+        winner = new LinkedList<String>();
+
+        for (int i = 0; i < carList.size(); i++) {
+            scoreList.add(carList.get(i).getPosition());
+        }
+        Integer maxScore = Collections.max(scoreList);
+
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getPosition() == maxScore) {
+                winner.add(carList.get(i).getCarName());
+            }
+            ;
+        }
+
+
+    }
+
+    public void awarding() {
+        while (winner.size() > 1) {
+            System.out.print(winner.poll() + ", ");
+        }
+        System.out.println(winner.poll() + "가 최종 우승했습니다.");
     }
 }

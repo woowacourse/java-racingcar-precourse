@@ -5,6 +5,9 @@ public class main {
         gameMc Mc = new gameMc();
         Mc.gameStart();
         Mc.setCarList();
-        Mc.getCarList();
+        Mc.gameProcess();
+        Mc.scoring();
+        Mc.awarding();
+
     }
 }
