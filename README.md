@@ -3,13 +3,13 @@
 - [x] 1. 경주할 차량의 이름`name`을 사용자에게 입력 받기
   - [x] 1.1. 입력받은 문자열을 쉼표로 구분하여 각각 구분하기
   - [x] 1.2. 각 name의 길이가 5자 이하일 경우 재입력받기
-- [ ] 2. 사용자 입력 값을 통해 `name`을 가진 instance 생성
+- [x] 2. 사용자 입력 값을 통해 `name`을 가진 instance 생성
 - [x] 3. 총 이동 횟수`totalMove` 입력받기
   - [x] 3.1. `totalMove` 입력이 숫자가 아닐 경우 재입력받기
   - [x] 3.2. `totalMove` 입력이 0이거나 음수일 경우 재입력받기
-- [ ] 4. 경주차 각각에 대한 `random` 값(0~9) 생성
-- [ ] 5. `random`값에 따른 `isFoward`의 여부(`random > 4`) 계산
-- [ ] 6. `isFoward`에 따른 `position` 변화 계산
+- [x] 4. 경주차 각각에 대한 `random` 값(0~9) 생성
+- [x] 5. `random`값에 따른 `isFoward`의 여부(`random > 4`) 계산
+- [x] 6. `isFoward`에 따른 `position` 변화 계산
 - [ ] 7. 4~6 실행에 따른 각 instance의 `position` 결과를 출력하기
 - [ ] 8. 4~7 실행을 `totalMove` 만큼 반복하기
 - [ ] 9. 각 instance의 `position`을 비교하여 가장 큰 `position`을 가진 instance를 구해 `winner`로 선정
