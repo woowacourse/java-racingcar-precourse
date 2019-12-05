@@ -14,9 +14,10 @@ public class RacingGame {
 		carList = new ArrayList<>();
 		inputManager = new InputManager();
 	}
-	
+
 	public void play() {
 		prepareRacing();
+		raceCars();
 	}
 
 	/*
@@ -27,6 +28,17 @@ public class RacingGame {
 		trialTime = inputManager.getTrialTime();
 		for (String name : inputManager.getCarNames()) {
 			carList.add(new Car(name));
+		}
+	}
+
+	private void raceCars() {
+		System.out.println("실행 결과");
+		for (int i = 0; i < trialTime; i++) {
+			for (Car car : carList) {
+				car.goForwardOrNot();
+				car.showPosition();
+			}
+			System.out.println();
 		}
 	}
 }
