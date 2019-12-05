@@ -17,14 +17,12 @@
 - ### RacingGame
   - [x] Car 생성 기능
 
-- ### CarHandler
-  - [ ] 자동차 전진 기능
-
 - ### Rule
-  - [ ] 전진 & 멈춤 판단 기능
+  - [x] 전진 & 멈춤 판단 기능
 
 - ### Car
   - [ ] getName, getPosition 메소드
+  - [x] 자동차 전진 기능
 
 ## 기능 요구사항
 
