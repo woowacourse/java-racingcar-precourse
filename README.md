@@ -9,7 +9,7 @@
 
 - ### InputView
   - [x] Car name 입력
-  - [ ] 게임 진행 횟수 입력
+  - [x] 게임 진행 횟수 입력
 
 - ### InputHandler
   - [x] Car name 쉼표 기준 구분
