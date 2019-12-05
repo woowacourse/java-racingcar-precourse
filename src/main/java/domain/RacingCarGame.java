@@ -108,9 +108,10 @@ public class RacingCarGame {
     }
     
     private boolean isAttemptsNumCorrect(int attemptsNum) {
-        boolean ret = false;
-        
-        return ret;
+        if (attemptsNum < 0) {
+            return false;
+        }
+        return true;
     }
     
     /**
