@@ -22,29 +22,29 @@ public class Game {
 
     private List<Car> enrollPlayers() {
         String[] carArray = user.getCarNames();
-        List<Car> carsList = new ArrayList<Car>();
+        List<Car> cars = new ArrayList<Car>();
         for (String oneCar : carArray) {
-            carsList.add(new Car(oneCar));
+            cars.add(new Car(oneCar));
         }
-        return carsList;
+        return cars;
     }
 
-    private void startRace(List<Car> carsList, int turnNumber) {
+    private void startRace(List<Car> cars, int turnNumber) {
         System.out.println("실행 결과");
         for (int i = 0; i < turnNumber; i++) {
-            playOneTurn(carsList);
+            playOneTurn(cars);
         }
     }
 
-    private void playOneTurn(List<Car> carsList) {
-        for (Car oneCar : carsList) {
+    private void playOneTurn(List<Car> cars) {
+        for (Car oneCar : cars) {
             oneCar.playTurn();
         }
         System.out.println();
     }
 
-    private void printWinner(List<Car> carsList) {
-        List<String> winnerList = getWinner(carsList);
+    private void printWinner(List<Car> cars) {
+        List<String> winnerList = getWinner(cars);
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.printf("%s", winnerList.get(i));
             if (i != winnerList.size() - 1) {
