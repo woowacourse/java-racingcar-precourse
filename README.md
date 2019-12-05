@@ -12,10 +12,14 @@
   - userInput
   - round
 - method
+  - isOverFiveWords
+  - input
   - gameStart
     - Input car name
     - Input round
   - broadcast
   - Scoring
 
-# main
+--------------
+# 예외
+- [x] 시도할 회수 입력시 0 또는 숫자가 아닌 문자 입력
