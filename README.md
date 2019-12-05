@@ -36,3 +36,48 @@ public class Car {
 ##### • else 예약어를 쓰지 않는다.
 ###### - 힌트 : if 조건절에서 값을 return 하는 방식으로 구현하면 else 를 사용하지 않아도 된다.
 ###### - else 를 쓰지 말라고하니 switch/case 로 구현하는 경우가 있는데 switch/case 도 허용하지 않는다.
+
+## 메소드 구현 목록 작성
+### Class Car
+```
+void drive(int position)
+void getPosition()
+void printDistance()
+```
+##### drive 메소드
+###### 차 객체의 position 을 하나 증가시켜주는 메소드
+##### getPosition 메소드
+###### 차 객체의 position 의 값을 반환해주는 메소드
+##### printDistance() 메소드
+###### 차 객체의 position 이 얼만큼인지 시각적으로 print 해주는 메소드
+
+
+
+### Class CarComparator implements Comparator<Car>
+```
+@override
+int compare(Car car1, Car car2)
+```
+##### compare 메소드
+###### Comparator 클래스는 이 메소드를 필수적으로 override 하며, 이 메소드를 통해 position 이 가장 큰 값을 가지는 순대로 Car 객체를 정렬할 것이다.
+
+
+
+#### Class CarRacing
+```
+ArrayList<Car> getCarName(String carName)
+boolean canDrive()
+void play(ArrayList<Car> CarList)
+int howManyWin(ArrayList<Car> CarList)
+boolean isSamePosition(Car carA, Car carB)
+```
+##### getCarName 메소드
+###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
+##### canDrive 메소드
+###### 랜덤 클래스를 불러와서 0~9 까지 숫자 중 4이상이 나오면 TRUE 를 반환하는 메소드
+##### play 메소드
+###### 각 차 객체들을 경주시키고 그 결과를 print 해주는 메소드
+##### howManyWin 메소드
+###### 공동 1등인 Car 객체가 몇 대인지 반환하는 메소드
+##### isSamePosition 메소드
+###### 두 차 객체의 position 이 같은 값이면 TRUE 를 반환하는 메소드
