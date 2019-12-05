@@ -66,8 +66,10 @@
 #### Domain
 
 - [x] Car initTest
-- [ ] Car fieldTest
-- [ ] Car randomNumber Test
+- [x] Car fieldTest (position)
+- [x] Car randomNumber Test
+- [x] Car isForward Test
+- [x] Car goForward Test
 
 #### View
 

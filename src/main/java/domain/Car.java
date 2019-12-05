@@ -18,10 +18,6 @@ public class Car {
         return position;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
     public int randomGenerator() {
         return ThreadLocalRandom.current().ints(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE)
                 .limit(1)
