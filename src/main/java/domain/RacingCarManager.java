@@ -21,6 +21,7 @@ public class RacingCarManager {
         makeCars();
         race();
         List<Car> winner = getWinner();
+        printWinner(winner);
     }
 
     void getInfoFromUser(){
@@ -115,5 +116,14 @@ public class RacingCarManager {
                 winner.add(cars[i]);
         }
         return winner;
+    }
+
+    public void printWinner(List<Car> winner) {
+        for (int i = 0; i < winner.size(); i++){
+            System.out.print(winner.get(i).getName());
+            if(i != winner.size() -1)
+                System.out.print(",");
+        }
+        System.out.println("가 최종 우승했습니다.");
     }
 }
