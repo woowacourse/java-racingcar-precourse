@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -174,8 +175,17 @@ public class RacingCarGame {
      * @return 위치 값이 가장 큰 자동차들의 이름 목록
      */
     private String[] getCarNamesWithLargestPosition() {
-        String[] ret = new String[0];
+        ArrayList<String> ret = new ArrayList<String>();
         
-        return ret;
+        Car.sortByPosition(cars);        /* cars 배열을 position에 대해 내림차순으로 정렬 */
+        
+        ret.add(cars[0].getName());      /* position 값 크기로 1등인 자동차들 중 하나의 이름을 가져옴 */
+        for (int i = 1; i < cars.length
+                && cars[i].getPosition() == cars[0].getPosition(); i++) {
+            /* position값 크기로 공동 1등인 다른 자동차 이름들을 가져옴 */
+            ret.add(cars[i].getName());
+        }
+        
+        return ret.toArray(new String[ret.size()]);
     }
 }
