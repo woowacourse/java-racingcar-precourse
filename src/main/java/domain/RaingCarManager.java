@@ -18,7 +18,10 @@ public class RaingCarManager {
             splitedCarName = splitCarName(carNamesFromUser);
         } while (!checkCarName(splitedCarName));
 
-        int gameCount = getGameCountFromUser();
+        int gameCount;
+        do{
+            gameCount = getGameCountFromUser();
+        }while(gameCount <= 0);
     }
 
     String getCarNamesFromUser() {
@@ -51,7 +54,13 @@ public class RaingCarManager {
 
     public int getGameCountFromUser() {
         System.out.println("시도할 회수는 몇 회인가요?");
-        int gameCountFromUser = Integer.parseInt(scanner.nextLine());
+        int gameCountFromUser;
+        try {
+            gameCountFromUser = Integer.parseInt(scanner.nextLine());
+        } catch (Exception e) {
+            System.out.println("1이상의 자연수를 입력해주세요.");
+            gameCountFromUser = 0; // 문자이거나 정수가 아니라면 0을 반환한다.
+        }
         return gameCountFromUser;
     }
 }
