@@ -16,12 +16,21 @@ public class User {
         String[] carArray;
         Scanner scan = new Scanner(System.in);
         while (true) {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            carArray = scan.nextLine().split(",");
-            if (verifyCarName(carArray)) {
+            carArray = getCarString(scan);
+            if (carArray != null) {
                 break;
             }
+        }
+        return carArray;
+    }
+
+    private String[] getCarString(Scanner scan) {
+        String[] carArray;
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        carArray = scan.nextLine().split(",");
+        if (!verifyCarName(carArray)) {
             System.out.println("다시 입력해 주세요.");
+            return null;
         }
         return carArray;
     }
@@ -40,14 +49,18 @@ public class User {
             System.out.println("시도할 횟수는 몇 회인가요?");
             Scanner scan = new Scanner(System.in);
             try {
-                int turnNumber = scan.nextInt();
-                if (turnNumber <= 0) {
-                    throw new InputMismatchException();
-                }
-                return turnNumber;
+                return getPositiveInt(scan);
             } catch (InputMismatchException e) {
                 System.out.println("다시 입력해 주세요.");
             }
         }
+    }
+
+    private int getPositiveInt(Scanner scan) {
+        int turnNumber = scan.nextInt();
+        if (turnNumber <= 0) {
+            throw new InputMismatchException();
+        }
+        return turnNumber;
     }
 }
