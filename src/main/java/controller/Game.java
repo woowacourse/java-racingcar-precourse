@@ -5,7 +5,6 @@ import view.Input;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Game {
     private int round;
@@ -35,8 +34,9 @@ public class Game {
                 .orElse(0);
     }
 
-    public List<Car> getWinner() {
+    public List<String> getWinner() {
         return cars.stream().filter(x -> x.getPosition() == getWinnerScore())
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }
