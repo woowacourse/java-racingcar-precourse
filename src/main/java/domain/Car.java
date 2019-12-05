@@ -33,4 +33,10 @@ public class Car {
         return number >= FORWARD_PIVOT;
     }
 
+    public void goForward(boolean go) {
+        if (go) {
+            position++;
+        }
+    }
+
 }

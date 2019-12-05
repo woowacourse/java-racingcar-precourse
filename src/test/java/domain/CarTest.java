@@ -35,4 +35,11 @@ class CarTest {
         Car car = new Car("");
         assertThat(car.getPosition()).isEqualTo(0);
     }
+
+    @Test
+    public void goForwardTest() {
+        Car car = new Car("");
+        car.goForward(true);
+        assertThat(car.getPosition()).isNotEqualTo(0);
+    }
 }
