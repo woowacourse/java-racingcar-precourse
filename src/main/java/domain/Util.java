@@ -78,4 +78,19 @@ public class Util {
         Arrays.sort(finalCarPositions);
         return finalCarPositions[carObjectArray.length - 1];
     }
+
+    // 최종 우승자 출력
+    void printFinalWinners() {
+        String tempWinners = "";
+        String divider = ", ";
+        int maxPosition = getMaxPositions();
+        for (int i = 0; i < carObjectArray.length; i++) {
+            if (carObjectArray[i].getPosition() == maxPosition) {
+                tempWinners += carObjectArray[i].getName();
+                tempWinners += divider;
+            }
+        }
+        System.out.println(tempWinners.substring(0, tempWinners.length()-2)
+                + "가 최종 우승했습니다.");
+    }
 }
