@@ -22,6 +22,16 @@ public class RacingGame {
 		
 		Car[] Cars = GetCarInstancesFromCarNames(carNames);
 		
+		System.out.println("시도할 회수는 몇회인가요?");
+		numberOfAttempts = scan.nextInt();
+		
+		System.out.println("\n실행결과");
+		for (int i = 0; i < numberOfAttempts; i++) {
+			
+			
+			
+		}
+		
 	}
 	
 	public static Car[] GetCarInstancesFromCarNames(String[] carNames) {

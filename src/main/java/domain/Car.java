@@ -6,10 +6,18 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        position = 0;
+        this.position = 0;
     }
 
     public void progressCar() {
     	this.position++;
+    }
+    
+    public String getName() {
+    	return this.name;
+    }
+    
+    public int getPosition() {
+    	return this.position;
     }
 }
