@@ -16,11 +16,26 @@ public class Racing {
     this.rounds = rounds;
   }
 
-  private void raceOneRound(){
+  private int generateRandomNumber() {
+    return (int) (Math.random() * 10);
   }
 
-  public void start(){
-    for(int i = 0; i < rounds; i++){
+  private void moveCars() {
+    for (int i = 0; i < cars.length; i++) {
+      int number = generateRandomNumber();
+
+      if (number >= 4) {
+        cars[i].go();
+      }
+    }
+  }
+
+  private void raceOneRound() {
+    moveCars();
+  }
+
+  public void start() {
+    for (int i = 0; i < rounds; i++) {
       raceOneRound();
     }
 
