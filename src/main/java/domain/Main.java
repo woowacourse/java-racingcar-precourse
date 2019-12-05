@@ -23,12 +23,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
         String carNames;
         String[] splitedCarNames;
         int iterationNumber;
-
 
 
         while (true) {
@@ -56,12 +56,18 @@ public class Main {
         System.out.println("시도할 횟수는 몇회인가요?");
         iterationNumber = scanner.nextInt();
 
+
+
         for (int i = 0; i < iterationNumber; i++) {
-            System.out.println((i+1) +"번");
+            System.out.println((i + 1) + "번");
         }
 
-
+        for (int i = 0; i < splitedCarNames.length; i++) {
+            for (int j = 0; j < splitedCarNames.length; j++) {
+                cars[j].canYouGo();
+                System.out.println(cars[j].getName() +" : "
+                        + cars[j].getPosition());
+            }
+        }
     }
-
-
 }
