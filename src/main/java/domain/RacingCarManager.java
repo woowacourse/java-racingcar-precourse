@@ -8,7 +8,7 @@ package domain;
 
 import java.util.Scanner;
 
-public class RaingCarManager {
+public class RacingCarManager {
     Car[] cars;
     String[] splitedCarName;
     int gameCount;
