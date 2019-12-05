@@ -17,4 +17,9 @@ public class Car {
     public int makeRandomNumber(){
         return (int) (Math.random() * 10);
     }
+
+    public void move(int randomNumber){
+        if(randomNumber >= 4)
+            position++;
+    }
 }
