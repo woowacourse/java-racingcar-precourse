@@ -19,7 +19,7 @@ public class InputManager {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
 		carNames = input.next().split(",");
 
-		while (isDuplicated(carNames)) {
+		while (isDuplicated(carNames) | isOverLength(carNames)) {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
 			carNames = input.next().split(",");
 		}
@@ -30,4 +30,12 @@ public class InputManager {
 		return set.size() < carNames.length;
 	}
 
+	private boolean isOverLength(String[] carNames) {
+		for (String name : carNames) {
+			if (name.length() > 5) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
