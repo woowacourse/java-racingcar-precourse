@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RacingCarGame {
@@ -83,7 +84,27 @@ public class RacingCarGame {
      * moveAttemptsNum 속성을 업데이트하는 메서드
      */
     private void getAttemptsNumInputWithCUI() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        attemptsNum = oneTimeScanAttemptsNum();
+        while (!isAttemptsNumCorrect(attemptsNum)) {
+            scanner.nextLine();                         /* 숫자를 입력받기 전에 버퍼 비우기 */
+            System.out.println("잘못된 입력입니다. 음이아닌 정수만 입력해주세요.");
+            System.out.println("시도할 회수는 몇회인가요?");
+            attemptsNum = oneTimeScanAttemptsNum();
+        }
+    }
+    
+    private int oneTimeScanAttemptsNum() {
+        int ret = -1;
         
+        try {
+            /* 정상적으로 정수입력이 이루어지면, 입력받은 값을 return */
+            ret = scanner.nextInt();
+            return ret;
+        } catch (InputMismatchException e) {
+            /* 정수입력이 정상적으로 이루어지지 않으면 -1을 입력받은 것과 같은것으로 처리함 */
+            return -1;
+        }
     }
     
     private boolean isAttemptsNumCorrect(int attemptsNum) {
