@@ -4,6 +4,12 @@ import domain.Car;
 
 import java.util.List;
 
+/**
+ * @author 김시영
+ * @since 2019-12-05
+ * @apiNote 출력과 관련된 모든 메서드이 모여있는 클래스입니다.
+ * @apiNote 입력 규칙을 알려주거나 , 우승자 및 현재 유저들의 position을 출력하는 메서드로 구성되어 있습니다.
+ */
 public class PrintHandler {
     private static final String SPACING_WORDS = " : ";
     private static final String HYPHEN_FOR_POSITION = "-";
@@ -11,7 +17,7 @@ public class PrintHandler {
     private static final String COMMA = ", ";
     private static final String notificationForCarName = "경주 할 자동차의 이름을 입력해주세요 ','를 기준으 구분합니다.";
     private static final String notificationForHowMany = "시도 할 횟수는 몇번인가요?";
-    private static final String carNameInputError = "각 자동차의 이름은 5글자 이하로만 가능합니다. ','를 기준으로 입력해주세요.";
+    private static final String carNameInputError = "각 자동차의 이름은 1글자 이상 5글자 이하로만 가능합니다. ','를 기준으로 입력해주세요.";
     private static final String formatError = "올바르지 않은 입력입니다. 원하는 횟수를 숫자로 입력해주세요.";
     private static final String gameResult = "실행 결과";
     private static final String WINNER = "최종우승자는 : ";

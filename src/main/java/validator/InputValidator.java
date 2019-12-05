@@ -1,26 +1,31 @@
 package validator;
 
+/**
+ * @author 김시영
+ * @since 2019-12-05
+ * @apiNote 사용자 입력값 에러를 검증하기 위한 클래스로 문자열 길이 확인, 공백제거의 메서드로 이루어져있습니다.
+ */
 public class InputValidator {
     private static final int ZERO = 0;
     private static final int CAR_NAME_MAX_SIZE = 5;
 
-    private int passCount = ZERO;
+    private int correctInputCount = ZERO;
 
     public static InputValidator getInstance() {
         return new InputValidator();
     }
 
     public boolean checkCarNames(String[] userInput) {
-        passCount = ZERO;
+        correctInputCount = ZERO;
         String[] Input = deleteFrontBackBlank(userInput);
         for (int i = 0; i < Input.length; i++) {
             checkCarNameSize(Input[i]);
         }
-        return carNameOkOrNot(passCount, Input.length);
+        return carNameIsOkOrNot(correctInputCount, Input.length);
     }
 
-    private boolean carNameOkOrNot(int passCount, int inputLength) {
-        return passCount == inputLength;
+    private boolean carNameIsOkOrNot(int correctInputCount, int inputCount) {
+        return correctInputCount == inputCount;
     }
 
     private String[] deleteFrontBackBlank(String[] userInput) {
@@ -33,6 +38,6 @@ public class InputValidator {
     private void checkCarNameSize(String input) {
         int length = input.length();
         if (length <= CAR_NAME_MAX_SIZE && length > ZERO)
-            passCount++;
+            correctInputCount++;
     }
 }

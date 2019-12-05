@@ -55,10 +55,11 @@
 - 리팩토링 문제 해결
     - RacingController를 통해, 경기 관련 처리를 모두 위임함으로써 Car와 Computer 클래스의 기능이 줄어듦
     - PrintHandler에게 모든 출력을 위임함으로써 출력 단순화     
-    
+
+- 주석 추가(O)    
 ## 결과 화면
 
 <div>
-<img width="900" alt="스크린샷 2019-12-05 오후 3 49 04" src="https://user-images.githubusercontent.com/49060374/70211026-75048900-1777-11ea-9b38-cdd7f3307041.png">
+<img width="800" alt="스크린샷 2019-12-05 오후 3 49 04" src="https://user-images.githubusercontent.com/49060374/70211026-75048900-1777-11ea-9b38-cdd7f3307041.png">
 </div>
 

@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author 김시영
+ * @since 2019-12-05
+ * @apiNote 자동차 경주를 위한 클래스로 게임시작, 사용자별 전진&스탑 여부, 우승자찾기 등의 메서드로 이루어져있습니다.
+ */
 public class RacingController {
     private static final int MIN_OF_GO = 4;
 
-    public static void gameStart(List<Car> users, int howMany) {
+    public void gameStart(List<Car> users, int howMany) {
         PrintHandler.gameResult();
         for (int i = 0; i < howMany; i++) {
             for (int k = 0; k < users.size(); k++) {
@@ -20,12 +25,25 @@ public class RacingController {
         }
     }
 
-    public static List<String> getWinner(List<Car> users) {
-        int maxPosition = maxPositionNumber(users);
-        return whoIsTheSameAsMaxPosition(users, maxPosition);
+    private boolean notifyGoOrStop() {
+        return Computer.makeRandomNumber() >= MIN_OF_GO;
     }
 
-    private static List<String> whoIsTheSameAsMaxPosition(List<Car> users, int maxPosition) {
+    public List<String> getWinner(List<Car> users) {
+        int maxPositionValue = maxPositionNumber(users);
+        return whoIsTheSameAsMaxPosition(users, maxPositionValue);
+    }
+
+
+    private int maxPositionNumber(List<Car> users) {
+        List<Integer> positionList = new ArrayList<>();
+        for (int i = 0; i < users.size(); i++) {
+            positionList.add(users.get(i).getPosition());
+        }
+        return Collections.max(positionList);
+    }
+
+    private List<String> whoIsTheSameAsMaxPosition(List<Car> users, int maxPosition) {
         List<String> winners = new ArrayList<>();
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getPosition() == maxPosition) {
@@ -35,15 +53,4 @@ public class RacingController {
         return winners;
     }
 
-    private static int maxPositionNumber(List<Car> users) {
-        List<Integer> positionList = new ArrayList<>();
-        for (int i = 0; i < users.size(); i++) {
-            positionList.add(users.get(i).getPosition());
-        }
-        return Collections.max(positionList);
-    }
-
-    private static boolean notifyGoOrStop() {
-        return Computer.makeRandomNumber() >= MIN_OF_GO;
-    }
 }

@@ -9,6 +9,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author 김시영
+ * @since 2019-12-05
+ * @apiNote 사용자 입력과 관련된 메서드와 데이터가 모인 클래스입니다.
+ * @apiNote 사용자를 입력하고, 몇 번을 플레이 할지를 결정하는 메서드로 이루어져 있습니다.
+ */
 public class UserInput {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static final String COMMA = ",";
