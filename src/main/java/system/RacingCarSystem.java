@@ -2,6 +2,7 @@ package system;
 
 import domain.Car;
 import io.InputRacingCar;
+import io.OutputRacingCar;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -41,11 +42,13 @@ public class RacingCarSystem {
     }
 
     public void startRacing() {
-        System.out.println("\n실행 결과");
+        OutputRacingCar.printGameResult();
         for (int i = 0; i < repeatTime; i++) {
             for(Car car : cars){
+                OutputRacingCar.printCarProgress(car);
                 decideToMoveCar(car);
             }
+            System.out.println();
         }
     }
 
