@@ -54,9 +54,27 @@ public class RacingCarGame {
     }
     
     private boolean isCarNamesCorrect(String[] carNames) {
-        boolean ret = false;
+        boolean ret = true;
         
+        if (carNames.length < 1) {
+            /* 자동차 이름이 한개도 없을 경우 수행된다. */
+            return false;
+        }
+        
+        for (int i = 0; i < carNames.length && ret == true; i++) {
+            /* 앞 인덱스까지의 자동차 이름들 중에서
+             * 올바르지 않은 이름이
+             * 아직 발견되지 않았으면 수행 */
+            ret = isCarNameCorrect(carNames[i]);
+        }
         return ret;
+    }
+    
+    private boolean isCarNameCorrect(String carName) {
+        if (carName.length() > 5) {
+            return false;
+        }
+        return true;
     }
     
     /**
