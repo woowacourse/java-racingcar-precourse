@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -12,6 +13,7 @@ public class InputManager {
 
 	public void initialize() {
 		inputCarNames();
+		inputTrialTime();
 	}
 
 	private void inputCarNames() {
@@ -37,5 +39,11 @@ public class InputManager {
 			}
 		}
 		return false;
+	}
+	
+	private void inputTrialTime() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("시도할 회수는 몇회인가요?");
+		trialTime = input.nextInt();
 	}
 }
