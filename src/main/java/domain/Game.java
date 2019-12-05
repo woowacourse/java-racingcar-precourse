@@ -2,7 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.InputMismatchException;
+import java.util.Random;
 
 public class Game {
 	private ArrayList<Car> myCar;
@@ -10,16 +10,27 @@ public class Game {
 	private Scanner in;
 	private String[] carName;
 	private int gameCount;
+	private Random random;
+	private boolean isEnd;
 
 	public Game() {
 		myCar = new ArrayList<Car>();
 		myPrinter = new Printer();
 		in = new Scanner(System.in);
+		isEnd = false;
 	}
 
 	private void run() {
 		getCarName();
 		getGameCount();
+		initializeCar();
+		myPrinter.printPlayResult();
+		do {
+			moveCar();
+			myPrinter.printCarInfomation(myCar);
+			checkGameEnd();
+		} while (!isEnd);
+		myPrinter.printWinner(myCar);
 	}
 
 	private void getCarName() {
@@ -114,6 +125,29 @@ public class Game {
 
 	private void convertNumber(String number) {
 		gameCount = Integer.parseInt(number);
+	}
+
+	private void initializeCar() {
+		for (String s : carName) {
+			myCar.add(new Car(s));
+		}
+	}
+
+	private void moveCar() {
+		random = new Random();
+
+		for (Car c : myCar) {
+			c.movePosition(random.nextInt(10));
+		}
+	}
+
+	private void checkGameEnd() {
+		for (Car c : myCar) {
+			if (c.getPosition() == gameCount) {
+				isEnd = true;
+				c.setPrize();
+			}
+		}
 	}
 
 	public static void main(String[] args) {

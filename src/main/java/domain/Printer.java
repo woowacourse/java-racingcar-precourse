@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class Printer {
 
 	public void printInputCarName() {
@@ -24,5 +26,46 @@ public class Printer {
 
 	public void printInputNumber() {
 		System.out.println("숫자를 입력해 주세요");
+	}
+
+	public void printPlayResult() {
+		System.out.println("\r\n실행 결과");
+	}
+
+	public void printCarInfomation(ArrayList<Car> list) {
+		for (Car c : list) {
+			System.out.print(c.getName() + Constant.COLON);
+			printCarPosition(c.getPosition());
+			System.out.println();
+		}
+		System.out.println();
+	}
+
+	private void printCarPosition(int position) {
+		for (int i = 0; i < position; i++) {
+			System.out.print(Constant.BAR);
+		}
+	}
+
+	public void printWinner(ArrayList<Car> list) {
+		ArrayList<String> prizeList = makePrizeList(list);
+		
+		System.out.print(prizeList.get(0));
+		for (int i = 1; i < prizeList.size(); i++) {
+			System.out.print(Constant.COMMA_WITH_SPACE);
+			System.out.print(prizeList.get(i));
+		}
+		System.out.println("가 최종 우승했습니다.");
+	}
+
+	private ArrayList<String> makePrizeList(ArrayList<Car> list) {
+		ArrayList<String> prizeList = new ArrayList<String>();
+		
+		for (Car c : list) {
+			if (c.getPrize()) {
+				prizeList.add(c.getName());
+			}
+		}
+		return prizeList;
 	}
 }
