@@ -20,4 +20,13 @@ class CarTest {
         IntStream.range(1, 1000).mapToObj(x -> new Car("").randomGenerator())
                 .forEach(x -> assertThat(x).isBetween(0, 9));
     }
+
+    @Test
+    public void isForwardTest(){
+        Car car  = new Car("");
+        assertThat(car.isForward(0)).isFalse();
+        assertThat(car.isForward(3)).isFalse();
+        assertThat(car.isForward(4)).isTrue();
+        assertThat(car.isForward(9)).isTrue();
+    }
 }
