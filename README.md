@@ -8,7 +8,7 @@
   - [ ] 우승자 출력
 
 - ### InputView
-  - [ ] Car name 입력
+  - [x] Car name 입력
   - [ ] 게임 진행 횟수 입력
 
 - ### CarHandler
