@@ -1,8 +1,11 @@
 package domain;
 
+import java.util.Scanner;
+
 public class RacingCarGame {
     private int attemptsNum;
     private Car[] cars;
+    private Scanner scanner = new Scanner(System.in);
     
     public void playOneGame() {
         createCarInstances(getCarNamesInputWithCUI());    /* 자동차이름들을 입력받아 자동차들을 생성 */
@@ -27,9 +30,25 @@ public class RacingCarGame {
      * @return 입력받은 자동차 이름들이 담긴 String 배열
      */
     private String[] getCarNamesInputWithCUI() {
-        String[] ret = new String[0];
+        String[] ret;
+        String carNamesInput;
+        
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        carNamesInput = scanner.nextLine();
+        ret = splitCarNamesByComma(carNamesInput);
+        
+        while (!isCarNamesCorrect(ret)) {
+            System.out.println("잘못된 이름입니다. 다시 입력해주세요.");
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            carNamesInput = scanner.nextLine();
+            ret = splitCarNamesByComma(carNamesInput);
+        }
         
         return ret;
+    }
+    
+    private String[] splitCarNamesByComma(String carNamesInput) {
+        return carNamesInput.split(",");
     }
     
     private boolean isCarNamesCorrect(String[] carNames) {
