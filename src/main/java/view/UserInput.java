@@ -17,7 +17,7 @@ public class UserInput {
         String[] userInputArray = br.readLine().split(",");
         while (!validator.checkCarNames(userInputArray)) {
             OutputForNotify.notifyCarNameError();
-            makeCars();
+            userInputArray = br.readLine().split(",");
         }
         return makeCarArrayToList(userInputArray);
     }

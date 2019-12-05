@@ -1,6 +1,10 @@
 package view;
 
+import domain.Car;
+import domain.Computer;
+
 import java.io.IOException;
+import java.util.List;
 
 public class Output {
 
@@ -8,9 +12,10 @@ public class Output {
         UserInput userInput = new UserInput();
 
         OutputForNotify.notifyCarName();
-        userInput.makeCars();
+        List<Car> users = userInput.makeCars();
         OutputForNotify.notifyHowManyTimes();
-        userInput.chooseHowManyPlay();
+        int howMany = userInput.chooseHowManyPlay();
+        Computer.gameStart(users,howMany);
 
     }
 }
