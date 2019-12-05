@@ -34,4 +34,9 @@ public class Game {
                 .max(Integer::compareTo)
                 .orElse(0);
     }
+
+    public List<Car> getWinner() {
+        return cars.stream().filter(x -> x.getPosition() == getWinnerScore())
+                .collect(Collectors.toList());
+    }
 }
