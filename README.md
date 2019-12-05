@@ -62,6 +62,8 @@
     - OutputStreamWriter를 이용해 출력하기 때문에 스트림을 닫은 이후에는 System.out.print도 되지 않았다.
     - 버퍼 스트림은 모든 작업이 끝난 후에 마지막으로 close 하는 것이 맞을 것 같다.
 
+> 출처 : [Java BufferedReader, BufferedWriter를 활용한 입출력](https://coding-factory.tistory.com/251)
+
 #### ArrayList
 
 - c나 c++와 달리 java는 jvm에서 직접 메모리를 관리하기 때문에 따로 동적할당의 개념은 존재하지 않는다.
