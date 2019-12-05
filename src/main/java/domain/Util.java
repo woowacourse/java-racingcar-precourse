@@ -32,4 +32,25 @@ public class Util {
             carObjectArray[i] = new Car(carNameArray[i]);
         }
     }
+
+    // 각 객체의 현재 전진 상태를 이름과 하이픈으로 출력
+    void printStateOfCars(int index) {
+        System.out.print(carObjectArray[index].getName() + " : ");
+        for (int i = 0; i < carObjectArray[index].getPosition(); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    // 사용자가 입력한 시도횟수 만큼 반복
+    void repeatGameAndPrint(int repeatTimes) {
+        while (repeatTimes != 0) {
+            repeatTimes--;
+            for (int i = 0; i < carObjectArray.length; i++) {
+                // 포지션 연산
+                printStateOfCars(i);
+            }
+            System.out.println();
+        }
+    }
 }
