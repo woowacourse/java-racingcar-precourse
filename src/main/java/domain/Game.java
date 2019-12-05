@@ -3,6 +3,7 @@ package domain;
 public class Game {
 
   IOController ioController = new IOController();
+  Racing racing;
 
   public void play() {
     String[] carNames = {};
@@ -13,5 +14,8 @@ public class Game {
 
     ioController.askRounds();
     rounds = ioController.getRounds();
+
+    this.racing = new Racing(carNames, rounds);
+
   }
 }
