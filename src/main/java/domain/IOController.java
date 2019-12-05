@@ -25,6 +25,18 @@ public class IOController {
 
     carNames = input.split(",");
 
+    boolean availability = validateName(carNames);
+
     return carNames;
+  }
+
+  private boolean validateName(String[] names) {
+    for (int i = 0; i < names.length; i++) {
+      if (names[i].length() == 0 || names[i].length() > 5) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
