@@ -1,5 +1,5 @@
 /*
- * Car.java                        1.1.0   2019-12-05
+ * Car.java                        1.2.0   2019-12-05
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -11,7 +11,7 @@ package com.precourse.racingcar;
 /**
  * 자동차 클래스입니다.
  *
- * @version 1.1.0            차가 전진할지 말지 정하는 기능 추가
+ * @version 1.2.0            0~9사이의 랜덤값을 구하는 기능 추가
  * @date 2019-12-05
  * @author HyungjuAn
  */
@@ -29,12 +29,16 @@ public class Car {
 
 	private boolean isMove() {
 		boolean move = false;
-		int randomNumber = MOVE_THRESHOLD; // randomNumber를 구하는 기능 이 들어갈 위치
+		int randomNumber = getRandomNumber();
 
 		if (randomNumber >= MOVE_THRESHOLD) {
 			move = true;
 		}
 
 		return move;
+	}
+
+	private int getRandomNumber() {
+		return (int)(Math.random() * TEN);
 	}
 }
