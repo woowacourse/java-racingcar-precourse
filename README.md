@@ -5,7 +5,7 @@
 - ### OutputView
   - [x] 결과 메세지 출력
   - [x] 결과 출력
-  - [ ] 우승자 출력
+  - [x] 우승자 출력
 
 - ### InputView
   - [x] Car name 입력
