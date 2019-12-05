@@ -59,6 +59,6 @@
 ## 결과 화면
 
 <div>
-<img width="575" alt="스크린샷 2019-12-05 오후 3 49 04" src="https://user-images.githubusercontent.com/49060374/70211026-75048900-1777-11ea-9b38-cdd7f3307041.png">
+<img width="900" alt="스크린샷 2019-12-05 오후 3 49 04" src="https://user-images.githubusercontent.com/49060374/70211026-75048900-1777-11ea-9b38-cdd7f3307041.png">
 </div>
 
