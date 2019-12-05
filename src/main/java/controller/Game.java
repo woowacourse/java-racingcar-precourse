@@ -16,10 +16,16 @@ public class Game {
         this.round = new Input().asRounds();
     }
 
-    public void start() {
-    }
-
     public List<Car> setCars(List<String> names) {
         return names.stream().map(Car::new).collect(Collectors.toList());
+    }
+
+    public void start() {
+        while (round > 0) {
+            System.out.println();
+            cars.forEach(Car::goForward);
+            cars.stream().map(Car::toString).forEach(System.out::println);
+            round--;
+        }
     }
 }
