@@ -12,7 +12,7 @@
   - [ ] 게임 진행 횟수 입력
 
 - ### InputHandler
-  - [ ] Car name 쉼표 기준 구분
+  - [x] Car name 쉼표 기준 구분
   
 - ### RacingGame
   - [ ] Car 생성 기능
