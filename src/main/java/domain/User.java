@@ -14,25 +14,23 @@ public class User {
     private static final int MAX_NAME_DIGIT = 5;
 
     public String[] getCarNames() {
-        String[] carArray;
-        Scanner scan = new Scanner(System.in);
         while (true) {
-            carArray = getCarString(scan);
+            String[] carArray = getCarArray();
             if (carArray != null) {
-                break;
+                return carArray;
             }
         }
-        return carArray;
     }
 
-    private String[] getCarString(Scanner scan) {
+    private String[] getCarArray() {
+        Scanner scan = new Scanner(System.in);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carArray = scan.nextLine().split(",");
-        if (!verifyCarName(carArray)) {
-            System.out.println("다시 입력해 주세요.");
-            return null;
+        if (verifyCarName(carArray)) {
+            return carArray;
         }
-        return carArray;
+        System.out.println("다시 입력해 주세요.");
+        return null;
     }
 
     private boolean verifyCarName(String[] carArray) {
@@ -47,16 +45,16 @@ public class User {
     public int getTurnNumber() {
         while (true) {
             System.out.println("시도할 횟수는 몇 회인가요?");
-            Scanner scan = new Scanner(System.in);
             try {
-                return getPositiveInt(scan);
+                return getPositiveInt();
             } catch (InputMismatchException e) {
                 System.out.println("다시 입력해 주세요.");
             }
         }
     }
 
-    private int getPositiveInt(Scanner scan) {
+    private int getPositiveInt() {
+        Scanner scan = new Scanner(System.in);
         int turnNumber = scan.nextInt();
         if (turnNumber <= 0) {
             throw new InputMismatchException();
