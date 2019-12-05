@@ -11,9 +11,12 @@ import java.util.Scanner;
 public class RaingCarManager {
     Scanner scanner = new Scanner(System.in);
 
-    void run(){
-        String carNamesFromUser = getCarNamesFromUser();
-        String[] splitedCarName = splitCarName(carNamesFromUser);
+    void run() {
+        String[] splitedCarName;
+        do {
+            String carNamesFromUser = getCarNamesFromUser();
+            splitedCarName = splitCarName(carNamesFromUser);
+        } while (!checkCarName(splitedCarName));
     }
 
     String getCarNamesFromUser() {
@@ -25,5 +28,21 @@ public class RaingCarManager {
     String[] splitCarName(String carNamesFromUser) {
         String[] splitedCarNames = carNamesFromUser.split(",");
         return splitedCarNames;
+    }
+
+    Boolean checkCarName(String[] splitedCarName) {
+        boolean result = true;
+        if (splitedCarName.length == 0)
+            result = false;
+
+        for (int i = 0; i < splitedCarName.length; i++) {
+            if (splitedCarName[i].length() > 5 || splitedCarName[i].length() == 0) {
+                result = false;
+                break;
+            }
+        }
+        if (!result)
+            System.out.println("자동차 이름을 5자이하로 입력해주세요.");
+        return result;
     }
 }
