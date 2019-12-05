@@ -1,19 +1,23 @@
 package view;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Input {
     private static final int MAX_NAME_LENGTH = 5;
 
     private Scanner scanner = new Scanner(System.in);
+    private String input;
 
     public Input() {
+        input = scanner.nextLine();
     }
 
-    public String input() {
-        return scanner.nextLine();
+    public List<String> asCarNames() {
+        List<String> nameList = splitAsComma(input);
+        if (isNamesLengthUnderMax(nameList) && isNoBlankNames(nameList)) {
+            return nameList;
+        }
+        return Collections.emptyList();
     }
 
     public List<String> splitAsComma(String inputs) {
