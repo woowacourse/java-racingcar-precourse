@@ -66,4 +66,12 @@ public class InputManager {
 		}
 	}
 	
+	public int getTrialTime() {
+		return trialTime;
+	}
+
+	public String[] getCarNames() {
+		return carNames;
+	}
+	
 }
