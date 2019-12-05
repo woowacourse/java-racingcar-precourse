@@ -9,13 +9,30 @@ public class IOController {
   }
 
   public int getRounds() {
-    int rounds;
+    try {
+      int rounds;
+      Scanner scanner = new Scanner(System.in);
 
-    Scanner scanner = new Scanner(System.in);
+      rounds = scanner.nextInt();
 
-    rounds = scanner.nextInt();
+      if (rounds <= 0) {
+        return getAgainRounds();
+      }
 
-    return rounds;
+      return rounds;
+
+    } catch (Exception e) {
+      return getAgainRounds();
+    }
+  }
+
+  private void askAgainRounds() {
+    System.out.println("0보다 큰 숫자로만 입력해주세요.");
+  }
+
+  private int getAgainRounds() {
+    askAgainRounds();
+    return getRounds();
   }
 
   public void askCarsNames() {
