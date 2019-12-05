@@ -30,11 +30,11 @@ https://myeonguni.tistory.com/1596
 
 
 Git Commit Keywords:  
-Complete : Complete function list. (title)
-Add: Adding class or file. (body)
+Complete : Complete function list. (title)  
+Add: Adding class or file. (body)  
 Fix: Fixing functional bugs.  
 Modify: Modifying code for better readability and logic.  
-Update : Updating document. (README.md, ETC)
+Update : Updating document. (README.md, javadoc, ETC)
 
 
 Function list :
