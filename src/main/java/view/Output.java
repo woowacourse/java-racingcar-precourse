@@ -16,6 +16,7 @@ public class Output {
         OutputForNotify.notifyHowManyTimes();
         int howMany = userInput.chooseHowManyPlay();
         Computer.gameStart(users,howMany);
+        System.out.println(Computer.whosWin(users));
 
     }
 }

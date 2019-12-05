@@ -1,5 +1,7 @@
 package domain;
 
+import view.OutputForNotify;
+
 import java.util.List;
 
 public class Computer {
@@ -7,11 +9,17 @@ public class Computer {
     private static final int RANGE_OF_NUMBER = 9;
 
     public static void gameStart(List<Car> users, int howMany) {
-        for(int i =0; i<users.size(); i++){
-            for(int k =0; k<howMany; k++){
-                Car.makeResult(users.get(i),notifyGoOrStop());
+        OutputForNotify.gameResult();
+        for(int i =0; i<howMany; i++){
+            for(int k =0; k<users.size(); k++){
+                Car.makeResult(users.get(k),notifyGoOrStop());
+                Car.printResult(users.get(k));
             }
+            OutputForNotify.nextLine();
         }
+    }
+    public static String whosWin(List<Car> users){
+        return Car.getWinner(users);
     }
 
     private static int makeRandomNumber(){
