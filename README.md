@@ -55,6 +55,8 @@
 
 #### Controller
 
+- [x] Game 에 자동차 세팅 기능
+
 #### Game 
 
 - [x] 생성자
