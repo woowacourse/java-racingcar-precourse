@@ -17,10 +17,10 @@
 #### 2. 기능목록
 
 - [x] Main Class 만들기
-- [ ] Method 구현하는 Class 만들기
+- [x] Method 구현하는 Class 만들기
 - [ ] Random(); //구현 값 0~9 
-- [ ] printResult(); //결과 출력
-- [ ] SetCarName(); // 차 이름 설정
+- [ ] printResult(); //결과 출력 
+- [x] SetCarName(); // 차 이름 설정 
 - [ ] InputRunCount() //사용자 입력 
 - [ ] ++
 
