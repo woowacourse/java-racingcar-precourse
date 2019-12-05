@@ -1,11 +1,13 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Method {
 
 	static Car[] cars;
+	Random rd=new Random();
 	Scanner scan = new Scanner(System.in);
 
 	public void SetCarName() {
@@ -19,12 +21,12 @@ public class Method {
 
 	private boolean SplitCarName(String car) {
 		int i = 0;
-		for (String num : car.split(",")) {
-			if (!CheckStringLength(num)) {
+		for (String name : car.split(",")) {
+			if (!CheckStringLength(name)) {
 				System.out.println("5자를 초과하셨습니다");
 				return true;
 			}
-			//cars[i] = new Car(num);
+			//cars[i] = new Car(name);
 			i++;
 		}
 		return false;
@@ -36,5 +38,18 @@ public class Method {
 
 		return false;
 	}
+	
+	public boolean CheckForward() {
+		if(RandomNumber()<4)
+			return false;
+		return true;
+			
+	}
+	
+	private  int RandomNumber() {
+		return rd.nextInt(9)+1;	
+	}
+	
+	
 
 }
