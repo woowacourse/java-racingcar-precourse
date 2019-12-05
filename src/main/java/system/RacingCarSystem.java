@@ -43,10 +43,15 @@ public class RacingCarSystem {
     public void startRacing() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < repeatTime; i++) {
-            if (generateRandomNumber() > 3) {
-                // TODO: 2019-12-04 전진
+            for(Car car : cars){
+                decideToMoveCar(car);
             }
-            // TODO: 2019-12-04 이동 결과 출력
+        }
+    }
+
+    public void decideToMoveCar(Car car) {
+        if (generateRandomNumber() > 3) {
+            car.move();
         }
     }
 }
