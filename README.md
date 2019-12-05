@@ -22,7 +22,9 @@
 - variable
   - userInput
   - round
-  - ArrayList<Car> carList
+  - carList
+  - scoreList
+  - winner
 - method
   - isOverFiveWords
   - input

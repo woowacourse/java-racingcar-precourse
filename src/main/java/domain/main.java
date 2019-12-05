@@ -8,6 +8,5 @@ public class main {
         Mc.gameProcess();
         Mc.scoring();
         Mc.awarding();
-
     }
 }
