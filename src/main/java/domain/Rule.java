@@ -13,7 +13,7 @@ public class Rule {
 		return randomNumber >= GO_BOUNDARY_NUMBER;
 	}
 
-	public static ArrayList<String> getWinners(ArrayList<Car> cars) {
+	public static ArrayList<String> getWinnersName(ArrayList<Car> cars) {
 		ArrayList<String> result = new ArrayList<>();
 		int maxPosition = getMaxPosition(cars);
 
