@@ -16,6 +16,11 @@ public class InputManager {
 		inputTrialTime();
 	}
 
+	/*
+	 * 자동차 이름을 입력받는 메서드
+	 * 중복된 이름이거나, 이름이 다섯글자 이상이면 재입력 요청
+	 * 쉼표(,)기준으로 나눠서 배열에 저장
+	 */
 	private void inputCarNames() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
@@ -41,6 +46,10 @@ public class InputManager {
 		return false;
 	}
 	
+	/*
+	 * 시도횟수 입력받는 메서드
+	 * 음수, 0, 문자 포함시 재입력 요청
+	 */
 	private void inputTrialTime() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("시도할 회수는 몇회인가요?");
