@@ -66,6 +66,17 @@ public class RacingStadium {
             }
         }
         return Integer.parseInt(inputString);
+    }
 
+    public void startRace() {
+        for (int i = 0; i < moveCount; i++) {
+            playRace();
+        }
+    }
+
+    private void playRace() {
+        for (Car raceCar : raceCars) {
+            raceCar.tryToGoForward();
+        }
     }
 }
