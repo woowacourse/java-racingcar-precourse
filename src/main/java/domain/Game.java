@@ -14,6 +14,12 @@ public class Game {
 		scan = new Scanner(System.in);
 
 		requestCarName();
+		requestTryGame();
+	}
+
+	private void requestTryGame() {
+		System.out.println("시도할 회수는 몇회인가요?");
+		tryGame = scan.nextInt();
 	}
 
 	private void requestCarName() {
