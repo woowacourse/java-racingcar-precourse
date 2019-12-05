@@ -31,4 +31,13 @@ public class UserInput {
         return carList;
     }
 
+    public int chooseHowManyPlay() throws IOException {
+        while(true){
+            try {
+                return Integer.parseInt(br.readLine().trim());
+            }catch (NumberFormatException e){
+                OutputForNotify.notifyFormatError();
+            }
+        }
+    }
 }
