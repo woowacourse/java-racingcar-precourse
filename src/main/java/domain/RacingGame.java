@@ -8,6 +8,7 @@ public class RacingGame {
 
         ArrayList<String> carNamesArray;
         boolean isCarNameCorrect;
+        int gameNumber;
 
         do {
             carNamesArray = GetCarNameInput.getCarNameInput();
@@ -15,6 +16,8 @@ public class RacingGame {
             GetCarNameInput.returnCarNameInput(carNamesArray);
         } while (!isCarNameCorrect);
 
-        System.out.println(carNamesArray);
+        gameNumber = GetGameNumberInput.getGameNumberInput();
+
+        System.out.println("Cars: " + carNamesArray + ", Number of games: " + gameNumber);
     }
 }
