@@ -16,6 +16,15 @@ public class Racing {
     this.rounds = rounds;
   }
 
+  private void raceOneRound(){
+  }
+
+  public void start(){
+    for(int i = 0; i < rounds; i++){
+      raceOneRound();
+    }
+
+  }
 
 
 }

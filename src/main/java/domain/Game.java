@@ -16,6 +16,7 @@ public class Game {
     rounds = ioController.getRounds();
 
     this.racing = new Racing(carNames, rounds);
+    racing.start();
 
   }
 }
