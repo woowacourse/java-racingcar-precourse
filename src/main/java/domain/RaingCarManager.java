@@ -9,10 +9,11 @@ package domain;
 import java.util.Scanner;
 
 public class RaingCarManager {
+    Car[] cars;
+    String[] splitedCarName;
     Scanner scanner = new Scanner(System.in);
 
     void run() {
-        String[] splitedCarName;
         do {
             String carNamesFromUser = getCarNamesFromUser();
             splitedCarName = splitCarName(carNamesFromUser);
@@ -22,6 +23,9 @@ public class RaingCarManager {
         do{
             gameCount = getGameCountFromUser();
         }while(gameCount <= 0);
+
+        makeCars();
+        race(gameCount);
     }
 
     String getCarNamesFromUser() {
@@ -62,5 +66,21 @@ public class RaingCarManager {
             gameCountFromUser = 0; // 문자이거나 정수가 아니라면 0을 반환한다.
         }
         return gameCountFromUser;
+    }
+
+    public void makeCars() {
+        cars = new Car[splitedCarName.length];
+        for (int i = 0; i < splitedCarName.length; i++) {
+            cars[i] = new Car(splitedCarName[i]);
+        }
+    }
+
+    public void race(int gameCount) {
+        for (int nowGameCount = 0; nowGameCount < gameCount; nowGameCount++) {
+            for (int carIndex = 0; carIndex < cars.length; carIndex++) {
+                int randomNumber = cars[carIndex].makeRandomNumber();
+                cars[carIndex].move(randomNumber);
+            }
+        }
     }
 }
