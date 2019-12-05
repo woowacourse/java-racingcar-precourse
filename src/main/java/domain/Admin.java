@@ -30,14 +30,19 @@ public class Admin {
     private static final Scanner scan = new Scanner(System.in);
 
     /**
+     * 유효하지 않은 자동차 이름을 나타내는 클래스 변수
+     */
+    private static final String[] INVALID_CAR_NAME = null;
+
+    /**
+     * 유요하지 않은 숫자를 나타내는 클래스 변수
+     */
+    private static final int INVALID_NUMBER = -1;
+
+    /**
      * Car 객체를 저장하기 위한 Car array
      */
     private Car[] cars;
-
-    /**
-     * 전진을 시도할 횟수를 저장하는 변수
-     */
-    private int maxNumOfMoving;
 
     /**
      * 자동차의 전진여부를 저장하는 배열
@@ -58,39 +63,16 @@ public class Admin {
     }
 
     /**
-     * 자동차를 최대 몇 번 이동시킬지 사용자에게 물어보고 maxNumOFMoving 변수에 저장하는 메소드
-     *
-     * @return Boolean 입력받은 문자열이 숫자인지 여부
-     */
-    public Boolean getNumberOfMoving() {
-        String input;
-        String numberValidPattern = "(^[0-9]+)";         // 한자리 이상의 숫자를 의미
-
-        System.out.println("시도할 횟수는 몇회인가요?");
-        input = scan.nextLine();
-        if (!ifStringHasValidPattern(input, numberValidPattern)) {
-            return false;
-        }
-        maxNumOfMoving = Integer.parseInt(input);
-        return true;
-    }
-
-    /**
-     * 자동차를 전진시키고 전진과정을 출력하는 메소드
+     * 움직일 횟수를 입력받고 전진시키는 과정을 출력하는 메소드
      */
     public void moveCars() {
-        /* position 변수를 사용하지 않기 위해 각 Car 객체에서 입력받은 횟수만큼 전진했는지 여부를 담은 배열을 반환
-         * 그 배열을 확인해서 하나씩 출력하는 식으로 구현
-         * */
+        /* input이 유효할 때까지 숫자를 입력받고, 입력받은 숫자만큼 각 Car 객체를 이동시키고, 그 과정을 출력함 */
 
-        actualMoving = new Boolean[cars.length][maxNumOfMoving];
-        for (int i = 0; i < cars.length; i++) {
-            actualMoving[i] = cars[i].moveCar(maxNumOfMoving);
-        }
-        for (int episode = 0; episode < maxNumOfMoving; episode++) {
-            for (int carNumber = 0; carNumber < cars.length; carNumber++) {
-                printMoving(carNumber, episode);
-            }
+        int numOfMoving = getNumOfMovingUntilValid();
+        actualMoving = new Boolean[cars.length][numOfMoving];
+        for (int episode = 0; episode < numOfMoving; episode++) {
+            doOneEpisode(episode);
+            printEpisode(episode);
             System.out.println();
         }
     }
@@ -114,7 +96,7 @@ public class Admin {
 
         while (true) {
             carNames = getCarNames();
-            if (carNames == null) {
+            if (carNames == INVALID_CAR_NAME) {
                 System.out.println("다시 입력해주세요.");
                 continue;
             }
@@ -125,7 +107,7 @@ public class Admin {
     /**
      * 쉼표로 구분된 차 이름을 입력받아 반환하는 메소드
      *
-     * @return 유효한 이름이라면 이름들이 담긴 String Array, 유효하지 않다면 null
+     * @return 차 이름들이 담긴 String Array, 유효하지 읺은 input에 대하여 INVALID_CAR_NAME
      */
     private String[] getCarNames() {
         String input;
@@ -137,7 +119,7 @@ public class Admin {
         carNames = input.split(",");
         for (int i = 0; i < carNames.length; i++) {
             if (!ifStringHasValidPattern(carNames[i], carNameValidPattern)) {
-                return null;
+                return INVALID_CAR_NAME;
             }
         }
         return carNames;
@@ -154,6 +136,43 @@ public class Admin {
     }
 
     /**
+     * 입력한 숫자가 유효할때까지 입력을 받는 메소드
+     *
+     * @return 움직일 횟수
+     */
+    private int getNumOfMovingUntilValid() {
+        int numOfMoving;
+
+        while (true) {
+            numOfMoving = getNumOfMoving();
+            if (numOfMoving == INVALID_NUMBER) {
+                System.out.println("다시 입력해주세요.");
+                continue;
+            }
+            return numOfMoving;
+        }
+    }
+
+    /**
+     * 자동차를 최대 몇 번 이동시킬지 입력받는 메소드
+     *
+     * @return 움직일 횟수, 유효하지 않은 input에 대하여 INVALID_NUMBER
+     */
+    private int getNumOfMoving() {
+        String input;
+        int numOfMoving;
+        String numberValidPattern = "(^[0-9]+)";         // 한자리 이상의 숫자를 의미
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+        input = scan.nextLine();
+        if (!ifStringHasValidPattern(input, numberValidPattern)) {
+            return INVALID_NUMBER;
+        }
+        numOfMoving = Integer.parseInt(input);
+        return numOfMoving;
+    }
+
+    /**
      * 문자열이 유효한 패턴을 갖고 있는지 체크하는 함수
      *
      * @param string       체크할 문자열
@@ -167,17 +186,24 @@ public class Admin {
     }
 
     /**
+     * 자동차들의 전진을 한 에피소드만큼 진행하는 메소드
+     *
+     * @param episode 몇 번째 에피소드인지 알려주는 변수
+     */
+    private void doOneEpisode(int episode) {
+        for (int i = 0; i < cars.length; i++) {
+            actualMoving[i][episode] = Car.canMove();
+        }
+    }
+
+    /**
      * 자동차의 전진과정을 실제로 출력하는 메소드
      *
-     * @param carNumber 출력할 자동차의 번호
-     * @param episode   현재까지 진행된 에피소드
+     * @param episode 현재까지 진행된 에피소드
      */
-    private void printMoving(int carNumber, int episode) {
-        System.out.print(cars[carNumber].getName() + ": ");
-        for (int i = 0; i <= episode; i++) {
-            if (actualMoving[carNumber][i]) {
-                System.out.print('-');
-            }
+    private void printEpisode(int episode) {
+        for (int i = 0; i <= cars.length; i++) {
+            cars[i].printMove(actualMoving[i], episode);
         }
         System.out.println();
     }
@@ -208,7 +234,7 @@ public class Admin {
      * 배열에서 true인 원소의 갯수를 반환하는 메소드
      *
      * @param targetArr 갯수를 셀 Boolean 배열
-     * @return int true인 원소의 갯수
+     * @return true인 원소의 갯수
      */
     private int countTrue(Boolean[] targetArr) {
         int counter = 0;

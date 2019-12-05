@@ -22,6 +22,20 @@ public class Car {
     }
 
     /**
+     * 자동차가 한 번 전진했는지 반환하는 클래스 메소드
+     *
+     * @return Boolean 전진했으면 true, 하지 않았으면 false
+     */
+    protected static Boolean canMove() {
+        int randomNumber;
+        randomNumber = (int) (Math.random() * Admin.maxRandomNumber);
+        if (randomNumber >= Admin.minMovingNumber) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 자동차의 전진여부를 반환하는 메소드
      *
      * @param maxNumOfMoving 앞으로 전진할 수 있는 최대횟수
@@ -30,31 +44,28 @@ public class Car {
     protected Boolean[] moveCar(int maxNumOfMoving) {
         Boolean[] actualMoving = new Boolean[maxNumOfMoving];
         for (int i = 0; i < maxNumOfMoving; i++) {
-            actualMoving[i] = ifCarCanMove();
+            actualMoving[i] = canMove();
         }
         return actualMoving;
     }
 
     /**
-     * 자동차의 이름을 반환하는 메소드
-     *
-     * @return string 자동차 이름
+     * Car 객체의 전진과정을 출력하는 메소드
      */
-    protected String getName() {
-        return this.name;
+    protected void printMove(Boolean[] actualMoving, int episode) {
+        System.out.print(name + ": ");
+        for (int i = 0; i <= episode; i++) {
+            if (actualMoving[i]) {
+                System.out.print('-');
+            }
+        }
+        System.out.println();
     }
 
     /**
-     * 자동차가 한 번 전진했는지 반환하는 메소드
-     *
-     * @return Boolean 전진했으면 true, 하지 않았으면 false
+     * name 변수의 getter
      */
-    private Boolean ifCarCanMove() {
-        int randomNumber;
-        randomNumber = (int) (Math.random() * Admin.maxRandomNumber);
-        if (randomNumber >= Admin.minMovingNumber) {
-            return true;
-        }
-        return false;
+    protected String getName() {
+        return this.name;
     }
 }

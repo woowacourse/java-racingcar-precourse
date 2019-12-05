@@ -11,9 +11,6 @@ public class Main {
         Admin admin = new Admin();
 
         admin.makeCars();
-        while (admin.getNumberOfMoving() == false){
-            System.out.println("다시 입력해주세요.");
-        }
         admin.moveCars();
         admin.printWinner();
     }
