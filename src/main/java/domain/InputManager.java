@@ -47,14 +47,23 @@ public class InputManager {
 		while (true) {
 			try {
 				trialTime = input.nextInt();
+				createException(trialTime);
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("숫자를 입력해주세요.");
 			} catch (Exception e) {
+				System.out.println("양의 정수를 입력해주세요.");
 			} finally {
 				System.out.println("시도할 회수는 몇회인가요?");
 				input = new Scanner(System.in);
 			}
 		}
 	}
+	
+	private void createException(int trialTime) throws Exception {
+		if (trialTime <= 0) {
+			throw new Exception();
+		}
+	}
+	
 }
