@@ -99,4 +99,7 @@ public class IOController {
     System.out.println();
   }
 
+  public void printWinner(String winner){
+    System.out.println(winner+"이(가) 최종 우승했습니다.");
+  }
 }

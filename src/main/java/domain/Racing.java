@@ -4,6 +4,9 @@ public class Racing {
 
   private Car[] cars;
   private int rounds;
+  private String winner = "";
+  private int positionOfWinner = 0;
+
   IOController ioController = new IOController();
 
   public Racing(String[] carNames, int rounds) {
@@ -31,6 +34,28 @@ public class Racing {
     }
   }
 
+  private void setWinner(Car car) {
+    int position = car.getPosition();
+
+    if (position > this.positionOfWinner) {
+      this.positionOfWinner = position;
+      this.winner = car.getName() + ", ";
+      return;
+    }
+
+    this.winner += car.getName() + ", ";
+  }
+
+  private void defineWinner() {
+    for (int i = 0; i < this.cars.length; i++) {
+      int currentPosition = this.cars[i].getPosition();
+      if (currentPosition >= this.positionOfWinner) {
+        setWinner(this.cars[i]);
+      }
+    }
+    this.winner = this.winner.substring(0, this.winner.length() - 2);
+  }
+
   private void raceOneRound() {
     moveCars();
   }
@@ -42,6 +67,8 @@ public class Racing {
       ioController.printRoundResult(this.cars);
     }
 
+    defineWinner();
+    ioController.printWinner(this.winner);
   }
 
 
