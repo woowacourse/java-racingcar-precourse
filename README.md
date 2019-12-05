@@ -4,7 +4,7 @@
 
 - ### OutputView
   - [x] 결과 메세지 출력
-  - [ ] 결과 출력
+  - [x] 결과 출력
   - [ ] 우승자 출력
 
 - ### InputView
@@ -21,7 +21,7 @@
   - [x] 전진 & 멈춤 판단 기능
 
 - ### Car
-  - [ ] getName, getPosition 메소드
+  - [x] getName, getPosition 메소드
   - [x] 자동차 전진 기능
 
 ## 기능 요구사항

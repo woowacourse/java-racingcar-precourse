@@ -8,7 +8,15 @@ public class Car {
         this.name = name;
     }
 
-    public void tryToGo() {
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void tryToGo() {
         if(Rule.isGo()) {
             position++;
         }
