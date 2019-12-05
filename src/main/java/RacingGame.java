@@ -10,6 +10,8 @@ public class RacingGame {
     private RacingGame() {
         scanner = new Scanner(System.in);    //어디 둘지, 곤란
         String[] carNames = nameCars();
+        int numberOfTrial = getNumberOfTrial();
+        //System.out.println(numberOfTrial);
     }
 
     public static void main(String[] args) {
@@ -40,5 +42,28 @@ public class RacingGame {
             }
         }
         return true;
+    }
+
+    private int getNumberOfTrial() {
+        String numberOfTrial;
+        do {
+            System.out.println("시도할 회수는 몇 회인가요?");
+            numberOfTrial = scanner.nextLine();
+
+        } while (!validateNaturalNumber(numberOfTrial));
+
+        return Integer.parseInt(numberOfTrial);
+    }
+
+    private boolean validateNaturalNumber(String numberOfTrial) {
+        try {
+            if (Integer.parseInt(numberOfTrial) < 1) {
+                throw new Exception();
+            }
+            return true;
+        } catch (Exception e) {
+            System.out.println("0이 아닌 자연수가 아닙니다. 0이 아닌 자연수를 입력해주세요.");
+            return false;
+        }
     }
 }
