@@ -11,12 +11,14 @@
 - variable
   - userInput
   - round
+  - ArrayList<Car> carList
 - method
   - isOverFiveWords
   - input
   - gameStart
     - Input car name
     - Input round
+  - setCarList
   - broadcast
   - Scoring
 

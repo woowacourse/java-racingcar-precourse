@@ -1,41 +1,58 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class gameMc {
     private String[] userInput;
     private int round = 0;
+    private ArrayList<Car> carList;
 
-
-    public String Input(){
+    public String Input() {
         Scanner input = new Scanner(System.in);
         return input.next();
     }
-    public boolean isOverFiveWords(String[] userInput){
-        for(int i=0;i<userInput.length;i++){
-            if(userInput[i].length() > 5){
+
+    public boolean isOverFiveWords(String[] userInput) {
+        for (int i = 0; i < userInput.length; i++) {
+            if (userInput[i].length() > 5) {
                 return true;
             }
         }
         return false;
     }
-    public void gameStart(){
+
+    public void gameStart() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         userInput = Input().split(",");
-        while(isOverFiveWords(userInput)){
+        while (isOverFiveWords(userInput)) {
             System.out.println("자동차 이름은 5글자 이하만 가능합니다. 다시 입력하세요.");
             userInput = Input().split(",");
         }
         System.out.println("시도할 회수는 몇회인가요.");
-        while(round == 0){
-            try{
+        while (round == 0) {
+            try {
                 round = Integer.parseInt(Input());
-                if(round==0){
+                if (round == 0) {
                     throw new NumberFormatException();
                 }
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("0 이상의 숫자만 입력해주세요.");
             }
+        }
+    }
+
+    
+    public void setCarList() {
+        carList = new ArrayList<Car>();
+        for (int i = 0; i < userInput.length; i++) {
+            carList.add(new Car(userInput[i]));
+        }
+    }
+
+    public void getCarList() {
+        for (int i = 0; i < carList.size(); i++) {
+            System.out.println(carList.get(i).getCarName());
         }
     }
 }
