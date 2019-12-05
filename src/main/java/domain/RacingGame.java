@@ -8,6 +8,7 @@ package domain;
 
 import java.util.Scanner;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class RacingGame {
 	public static void main(String[] args){
@@ -15,7 +16,7 @@ public class RacingGame {
 		String input;
 		String[] carNames;
 		int numberOfAttempts;
-		String[] winners;
+		ArrayList<String> winners;
 		
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		input = scan.nextLine();
@@ -35,9 +36,12 @@ public class RacingGame {
 			System.out.println();
 		}
 		
-		//winners = getNamesOfWinnersFrom
-		
-		
+		winners = getNamesOfWinnersFromCars(Cars);
+		System.out.print(winners.get(0));
+		for (int i = 1; i<winners.size(); i++) {
+			System.out.print(", " + winners.get(i));
+		}
+		System.out.println("가 최종 우승했습니다.");
 	}
 	
 	public static Car[] GetCarInstancesFromCarNames(String[] carNames) {
@@ -71,5 +75,22 @@ public class RacingGame {
 			System.out.print("-");
 		}
 		System.out.println();
+	}
+	
+	public static ArrayList<String> getNamesOfWinnersFromCars(Car[] cars) {
+		ArrayList<String> names = new ArrayList<String>();
+		int longestPosition = 0;
+		for (int i = 0; i < cars.length; i++) {
+			if (longestPosition < cars[i].getPosition()) {
+				longestPosition = cars[i].getPosition();
+			}
+		}
+		
+		for (int i = 0; i < cars.length; i++) {
+			if (longestPosition == cars[i].getPosition()) {
+				names.add(cars[i].getName());
+			}
+		}
+		return names;
 	}
 }
