@@ -3,8 +3,19 @@ package domain;
 import java.util.Scanner;
 
 public class IOController {
-  public void askRounds(){
+
+  public void askRounds() {
     System.out.println("시도할 횟수는 몇회인가요?");
+  }
+
+  public int getRounds() {
+    int rounds;
+
+    Scanner scanner = new Scanner(System.in);
+
+    rounds = scanner.nextInt();
+
+    return rounds;
   }
 
   public void askCarsNames() {

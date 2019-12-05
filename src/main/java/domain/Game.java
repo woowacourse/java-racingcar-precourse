@@ -6,10 +6,12 @@ public class Game {
 
   public void play() {
     String[] carNames = {};
+    int rounds;
 
     ioController.askCarsNames();
     carNames = ioController.getCarsNames();
 
     ioController.askRounds();
+    rounds = ioController.getRounds();
   }
 }
