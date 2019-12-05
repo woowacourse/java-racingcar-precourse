@@ -1,14 +1,18 @@
 package domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
+import java.util.Scanner;
 
 public class gameMc {
     private String[] userInput;
     private int round = 0;
     private ArrayList<Car> carList;
-
-    private Queue<String> winner;
     private ArrayList<Integer> scoreList;
+    private Queue<String> winner;
 
     public String Input() {
         Scanner input = new Scanner(System.in);
@@ -24,6 +28,7 @@ public class gameMc {
         return false;
     }
 
+
     public void gameStart() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         userInput = Input().split(",");
@@ -31,7 +36,7 @@ public class gameMc {
             System.out.println("자동차 이름은 5글자 이하만 가능합니다. 다시 입력하세요.");
             userInput = Input().split(",");
         }
-        System.out.println("시도할 회수는 몇회인가요.");
+        System.out.println("시도할 횟수는 몇회인가요.");
         while (round == 0) {
             try {
                 round = Integer.parseInt(Input());
@@ -74,6 +79,7 @@ public class gameMc {
 
     public void broadcast() {
         for (int i = 0; i < carList.size(); i++) {
+            // String score = '-' * position
             String score = new String(new char[carList.get(i).getPosition()]).replace('\0', '-');
             System.out.println(carList.get(i).getCarName() + " " + score);
         }
@@ -102,10 +108,7 @@ public class gameMc {
             if (carList.get(i).getPosition() == maxScore) {
                 winner.add(carList.get(i).getCarName());
             }
-            ;
         }
-
-
     }
 
     public void awarding() {
