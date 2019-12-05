@@ -39,7 +39,7 @@ class CarTest {
     @Test
     public void goForwardTest() {
         Car car = new Car("");
-        car.goForward(true);
+        IntStream.range(1,100).forEach(x -> car.goForward());
         assertThat(car.getPosition()).isNotEqualTo(0);
     }
 }
