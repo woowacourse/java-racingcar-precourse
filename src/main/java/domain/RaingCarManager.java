@@ -58,7 +58,6 @@ public class RaingCarManager {
         return result;
     }
 
-
     public int getGameCountFromUser() {
         System.out.println("시도할 회수는 몇 회인가요?");
         int gameCountFromUser;
@@ -79,11 +78,24 @@ public class RaingCarManager {
     }
 
     public void race() {
+        System.out.println();
+        System.out.println("실행 결과");
         for (int nowGameCount = 0; nowGameCount < gameCount; nowGameCount++) {
             for (int carIndex = 0; carIndex < cars.length; carIndex++) {
                 int randomNumber = cars[carIndex].makeRandomNumber();
                 cars[carIndex].move(randomNumber);
+                printPosition(carIndex);
             }
+            System.out.println();
+            System.out.println();
         }
+    }
+
+    public void printPosition(int index) {
+        System.out.print(cars[index].getName() + ":");
+        for (int positionCount = 0; positionCount < cars[index].getPosition(); positionCount++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
