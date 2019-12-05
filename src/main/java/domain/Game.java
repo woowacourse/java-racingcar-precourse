@@ -14,56 +14,45 @@ public class Game {
 
     private User user = new User();
     private List<Car> cars = new ArrayList<Car>();
-    private List<String> winnerList = new ArrayList<String>();
 
     public void startGame() {
-        enrollPlayers();
-        startRace(cars, user.getTurnNumber());
-        printWinner(cars);
+        enrollPlayers(user.getCarNames());
+        startRace(user.getTurnNumber());
+        printWinner(getWinner());
     }
 
-    private void enrollPlayers() {
-        String[] carArray = user.getCarNames();
+    private void enrollPlayers(String[] carArray) {
         for (String oneCar : carArray) {
             cars.add(new Car(oneCar));
         }
     }
 
-    private void startRace(List<Car> cars, int turnNumber) {
+    private void startRace(int turnNumber) {
         System.out.println("실행 결과");
         for (int i = 0; i < turnNumber; i++) {
-            playOneTurn(cars);
+            playOneTurn();
         }
     }
 
-    private void playOneTurn(List<Car> cars) {
+    private void playOneTurn() {
         for (Car oneCar : cars) {
             oneCar.playTurn();
         }
         System.out.println();
     }
 
-    private void printWinner(List<Car> cars) {
-        getWinner(cars);
-        for (int i = 0; i < winnerList.size(); i++) {
-            System.out.printf("%s", winnerList.get(i));
-            if (i != winnerList.size() - 1) {
-                System.out.printf(", ");
-            }
-        }
-        System.out.printf("님이 최종 우승했습니다.\n");
-    }
-
-    private void getWinner(List<Car> cars) {
-        int maxScore = getMaxScore(cars);
+    private List<String> getWinner() {
+        List<String> winnerList = new ArrayList<String>();
+        int maxScore = getMaxScore();
         for (Car oneCar : cars) {
             if (oneCar.getPosition() == maxScore) {
                 winnerList.add(oneCar.getName());
             }
         }
+        return winnerList;
     }
 
-    private int getMaxScore(List<Car> cars) {
+    private int getMaxScore() {
         int maxScore = 0;
         for (Car oneCar : cars) {
             int thisCarPosition = oneCar.getPosition();
@@ -72,6 +61,16 @@ public class Game {
             }
         }
         return maxScore;
+    }
+
+    private void printWinner(List<String> winnerList) {
+        for (int i = 0; i < winnerList.size(); i++) {
+            System.out.printf("%s", winnerList.get(i));
+            if (i != winnerList.size() - 1) {
+                System.out.printf(", ");
+            }
+        }
+        System.out.printf("님이 최종 우승했습니다.\n");
     }
 
 }
