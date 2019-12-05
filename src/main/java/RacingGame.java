@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import domain.Car;
+import domain.Rule;
 import utils.InputHandler;
 import view.InputView;
 import view.OutputView;
@@ -11,9 +12,11 @@ public class RacingGame {
 
 	public void play() {
 		buildCars();
+		int tryNumber = getTryNumber();
 		OutputView.printResultMessage();
-		int tryNumber = InputView.tryNumber();
-		for(int i = 0; i < tryNumber; i++) {}
+		getResult(tryNumber);
+		OutputView.printCarsPosition(cars);
+		OutputView.printWinners(Rule.getWinnersName(cars));
 	}
 
 	private void buildCars() {
@@ -30,5 +33,16 @@ public class RacingGame {
 
 		Collections.addAll(result, carNames);
 		return result;
+	}
+
+	private int getTryNumber() {
+		return InputView.tryNumber();
+	}
+
+	private void getResult(int tryNumber) {
+		for (int i = 0; i < tryNumber; i++) {
+			cars.forEach(Car::tryToGo);
+			OutputView.printCarsPosition(cars);
+		}
 	}
 }
