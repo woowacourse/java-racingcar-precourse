@@ -2,6 +2,7 @@ package domain;
 
 public class Util {
     static String carNameArray[];
+    static Car carObjectArray[];
 
     static final int MINIMUM_NAME_LENGTH = 1;
     static final int LIMIT_NAME_LENGTH = 5;
@@ -22,5 +23,13 @@ public class Util {
             }
         }
         return true;
+    }
+
+    // 각 이름별로 객체 배열 생성
+    static void makeCarObjects() {
+        carObjectArray = new Car[carNameArray.length];
+        for (int i = 0; i < carNameArray.length; i++) {
+            carObjectArray[i] = new Car(carNameArray[i]);
+        }
     }
 }
