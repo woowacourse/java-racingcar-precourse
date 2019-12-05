@@ -9,7 +9,8 @@
 package com.precourse.racingcar;
 
 /**
- * 자동차 클래스입니다.
+ * Car 클래스입니다.
+ * 자동차 경주를 하기위한 기능들이 있습니다.
  *
  * @version 1.4.4            finalize()를 사용하지 않도록 final, 빈 메소드로 재정의
  * @date 2019-12-05
