@@ -22,8 +22,7 @@
 	private int position;
 
 ##### 멤버 함수
-	public String getName();	
-	public void setName(String name);
+	public String getName();
 	public int getPosition();
 
 	public void Drive();
