@@ -22,7 +22,7 @@ public class Util {
             if ((MINIMUM_NAME_LENGTH > carNameArray[i].length())
                     || (carNameArray[i].length() > LIMIT_NAME_LENGTH)) {
                 System.out.println("유효하지 않은 자동차 이름이 있습니다.");
-                System.out.println("공백이 아니고 길이가 5이하인 이름을 쉼표로 구분하여 입력해주세요.");
+                System.out.println("공백이 아니고 길이가 5이하인 이름을 쉼표로 구분하여 입력해주세요.\n");
                 return false;
             }
         }
@@ -63,6 +63,7 @@ public class Util {
         return (int) (Math.random() * 10);
     }
 
+    // 전진 또는 정지 수행
     void goForwordOrStop(int index) {
         if (generateRandomNumber() >= JUDGE_TO_GO) {
             carObjectArray[index].addPosition();
