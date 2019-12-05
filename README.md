@@ -1,14 +1,14 @@
-# ±â´É¸ñ·Ï
+# ê¸°ëŠ¥ëª©ë¡
 
-ID|ÀÌ¸§|¼³¸í
+ID|ì´ë¦„|ì„¤ëª…
 ----|----|----
-1|playOneGame|°ÔÀÓ ÇÑ ÆÇ¿¡ ´ëÇÑ CUI
-2|getCarNamesInputWithCUI|ÀÚµ¿Â÷ ÀÌ¸§µéÀ» ÀÔ·Â¹Ş±â CUI
-3|isCarNamesCorrect|ÀÔ·Â¹ŞÀº ÀÚµ¿Â÷ ÀÌ¸§µéÀÌ ¿Ã¹Ù¸¥Áö °Ë»ç
-4|getAttemptsNumInputWithCUI|½ÃµµÇÒ È½¼ö ÀÔ·Â¹Ş±â CUI
-5|isAttemptsNumCorrect|ÀÔ·Â¹ŞÀº ½Ãµµ È½¼ö°¡ ¿Ã¹Ù¸¥Áö °Ë»ç
-6|createCarInstances|ÀÚµ¿Â÷°´Ã¼ ¸®½ºÆ® »ı¼ºÇÏ±â
-7|randomMoveCarsByOnePosition|ÀÚµ¿Â÷µéÀÇ À§Ä¡¸¦ ·£´ıÇÏ°Ô 1 ¶Ç´Â 0¸¸Å­ ÀÌµ¿½ÃÅ°±â
-8|printCarsPositions|ÀÚµ¿Â÷µéÀÇ À§Ä¡ Ãâ·ÂÇÏ±â CUI
-9|getCarsWithLargestPosition|°¡Àå ¸¹ÀÌ ¿òÁ÷ÀÎ ÀÚµ¿Â÷µé ¾ò±â
-10|printWinners|¿ì½ÂÇÑ ÀÚµ¿Â÷µé Ãâ·ÂÇÏ±â CUI
+1|playOneGame|ê²Œì„ í•œ íŒì— ëŒ€í•œ CUI
+2|getCarNamesInputWithCUI|ìë™ì°¨ ì´ë¦„ë“¤ì„ ì…ë ¥ë°›ê¸° CUI
+3|isCarNamesCorrect|ì…ë ¥ë°›ì€ ìë™ì°¨ ì´ë¦„ë“¤ì´ ì˜¬ë°”ë¥¸ì§€ ê²€ì‚¬
+4|getAttemptsNumInputWithCUI|ì‹œë„í•  íšŸìˆ˜ ì…ë ¥ë°›ê¸° CUI
+5|isAttemptsNumCorrect|ì…ë ¥ë°›ì€ ì‹œë„ íšŸìˆ˜ê°€ ì˜¬ë°”ë¥¸ì§€ ê²€ì‚¬
+6|createCarInstances|ìë™ì°¨ê°ì²´ ë¦¬ìŠ¤íŠ¸ ìƒì„±í•˜ê¸°
+7|randomMoveCarsByOnePosition|ìë™ì°¨ë“¤ì˜ ìœ„ì¹˜ë¥¼ ëœë¤í•˜ê²Œ 1 ë˜ëŠ” 0ë§Œí¼ ì´ë™ì‹œí‚¤ê¸°
+8|printCarsPositions|ìë™ì°¨ë“¤ì˜ ìœ„ì¹˜ ì¶œë ¥í•˜ê¸° CUI
+9|getCarsWithLargestPosition|ê°€ì¥ ë§ì´ ì›€ì§ì¸ ìë™ì°¨ë“¤ ì–»ê¸°
+10|printWinners|ìš°ìŠ¹í•œ ìë™ì°¨ë“¤ ì¶œë ¥í•˜ê¸° CUI
