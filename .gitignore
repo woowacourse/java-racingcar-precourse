@@ -19,3 +19,6 @@ bin/
 *.iws
 *.iml
 *.ipr
+src/test/java/test/Car.java
+src/test/java/test/GameManager.java
+src/test/java/test/Util.java
