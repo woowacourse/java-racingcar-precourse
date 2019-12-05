@@ -9,5 +9,7 @@ public class Game {
 
     ioController.askCarsNames();
     carNames = ioController.getCarsNames();
+
+    ioController.askRounds();
   }
 }
