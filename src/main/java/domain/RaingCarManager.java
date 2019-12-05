@@ -17,6 +17,8 @@ public class RaingCarManager {
             String carNamesFromUser = getCarNamesFromUser();
             splitedCarName = splitCarName(carNamesFromUser);
         } while (!checkCarName(splitedCarName));
+
+        int gameCount = getGameCountFromUser();
     }
 
     String getCarNamesFromUser() {
@@ -44,5 +46,12 @@ public class RaingCarManager {
         if (!result)
             System.out.println("자동차 이름을 5자이하로 입력해주세요.");
         return result;
+    }
+
+
+    public int getGameCountFromUser() {
+        System.out.println("시도할 회수는 몇 회인가요?");
+        int gameCountFromUser = Integer.parseInt(scanner.nextLine());
+        return gameCountFromUser;
     }
 }
