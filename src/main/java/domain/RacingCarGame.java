@@ -120,7 +120,10 @@ public class RacingCarGame {
      * @param carNames : 생성될 Car 객체들 각각의 이름(name)목록
      */
     private void createCarInstances(String [] carNames) {
-        
+        cars = new Car[carNames.length];
+        for (int i = 0; i < cars.length; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
     }
     
     /**
