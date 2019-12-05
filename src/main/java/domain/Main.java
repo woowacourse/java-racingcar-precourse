@@ -28,7 +28,8 @@ public class Main {
         String carNames;
         String[] splitedCarNames;
         int iterationNumber;
-        int traceIterationNumber = 0;
+
+
 
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
@@ -43,7 +44,13 @@ public class Main {
             } else {
                 System.out.println("자동차의 이름은 5글자 이하로 입력해주세요!");
             }
+        }
 
+        Car[] cars = new Car[splitedCarNames.length];
+
+        for (int i = 0; i < splitedCarNames.length; i++) {
+            cars[i] = new Car(splitedCarNames[i]);
+            System.out.println(cars[i].getName());
         }
 
         System.out.println("시도할 횟수는 몇회인가요?");
