@@ -17,4 +17,12 @@ public class Printer {
 	public void printEmptyCarName() {
 		System.out.println("비어있는 자동차 이름이 있습니다. 다시 입력해 주세요.");
 	}
+
+	public void printGameCount() {
+		System.out.println("시도할 횟수는 몇회인가요?");
+	}
+
+	public void printInputNumber() {
+		System.out.println("숫자를 입력해 주세요");
+	}
 }

@@ -2,12 +2,14 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Game {
 	private ArrayList<Car> myCar;
 	private Printer myPrinter;
 	private Scanner in;
 	private String[] carName;
+	private int gameCount;
 
 	public Game() {
 		myCar = new ArrayList<Car>();
@@ -17,6 +19,7 @@ public class Game {
 
 	private void run() {
 		getCarName();
+		getGameCount();
 	}
 
 	private void getCarName() {
@@ -67,7 +70,7 @@ public class Game {
 
 	private void isEmptyCarName() {
 		for (String s : carName) {
-			if (s.equals("")) {
+			if (s.equals(Constant.EMPTY)) {
 				myPrinter.printEmptyCarName();
 				throw new InputException();
 			}
@@ -76,11 +79,41 @@ public class Game {
 
 	private void checkCarNameLength() {
 		for (String s : carName) {
-			if (s.length() > 5) {
+			if (s.length() > Constant.CAR_NAME_LENGTH) {
 				myPrinter.printCarNameLength();
 				throw new InputException();
 			}
 		}
+	}
+
+	private void getGameCount() {
+		String inputCount;
+
+		try {
+			myPrinter.printGameCount();
+			inputCount = in.next();
+			checkCountValidation(inputCount);
+		} catch (InputException e) {
+			getGameCount();
+		}
+	}
+
+	private void checkCountValidation(String number) {
+		isNumber(number);
+		convertNumber(number);
+	}
+
+	private void isNumber(String number) {
+		for (char c : number.toCharArray()) {
+			if (!(c >= Constant.ASCII_ZERO && c <= Constant.ASCII_NINE)) {
+				myPrinter.printInputNumber();
+				throw new InputException();
+			}
+		}
+	}
+
+	private void convertNumber(String number) {
+		gameCount = Integer.parseInt(number);
 	}
 
 	public static void main(String[] args) {
