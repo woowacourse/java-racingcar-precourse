@@ -11,6 +11,17 @@ import java.util.Scanner;
 
 public class Main {
 
+    static boolean isLessThanFive(String[] splitedCarNames) {
+        for (String isLessThanFive : splitedCarNames) {
+            if (isLessThanFive.length() < 6) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -19,13 +30,20 @@ public class Main {
         int iterationNumber;
         int traceIterationNumber = 0;
 
+        while (true) {
+            System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+            carNames = scanner.next();
+            splitedCarNames = carNames.split(",");
 
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        carNames = scanner.next();
-        splitedCarNames = carNames.split(",");
+            for (String isLessThanFive : splitedCarNames) { // 테스트 코드
+                System.out.println("이름 : " + isLessThanFive + " 이름의 길이 : " + isLessThanFive.length());
+            }
+            if (isLessThanFive(splitedCarNames)) {
+                break;
+            } else {
+                System.out.println("자동차의 이름은 5글자 이하로 입력해주세요!");
+            }
 
-        for (String isLessThanFive : splitedCarNames) {
-            System.out.println("이름 : " + isLessThanFive + " 이름의 길이 : " + isLessThanFive.length());
         }
 
         System.out.println("시도할 횟수는 몇회인가요?");
