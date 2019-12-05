@@ -1,5 +1,5 @@
 /*
- * Car.java                        1.4.0   2019-12-05
+ * Car.java                        1.4.1   2019-12-05
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -11,19 +11,19 @@ package com.precourse.racingcar;
 /**
  * 자동차 클래스입니다.
  *
- * @version 1.4.0            자동차의 현재 위치를 출력해주는 기능 추가
+ * @version 1.4.1            상수를 표시하기 위해 final -> static final로 수정
  * @date 2019-12-05
  * @author HyungjuAn
  */
 public class Car {
-	private final String name;
-	private final char COLON = ':';
-	private final char BAR = '-';
-	private final char SPACE = ' ';
-	private final int ZERO = 0;
-	private final int TEN = 10;
-	private final int MOVE_THRESHOLD = 4;
+	private static final char COLON = ':';
+	private static final char BAR = '-';
+	private static final char SPACE = ' ';
+	private static final int ZERO = 0;
+	private static final int TEN = 10;
+	private static final int MOVE_THRESHOLD = 4;
 
+	private final String name;
 	private int position = ZERO;
 
 	public Car(String name) {
