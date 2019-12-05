@@ -133,7 +133,15 @@ public class RacingCarGame {
      * 각 자동차들은 위치가 1 증가하거나, 위치가 변하지 않는다.
      */
     private void randomMoveCarsByOnePosition() {
-        
+        for (int i = 0; i < cars.length; i++) {
+            circumstantialMoveOneCarByOnePosition(i, (int)(Math.random() * 10));
+        }
+    }
+    
+    private void circumstantialMoveOneCarByOnePosition(int carIdx, int randomNum) {
+        if (randomNum >= 4) {
+            cars[carIdx].movePositionByOne();
+        }
     }
     
     /**
