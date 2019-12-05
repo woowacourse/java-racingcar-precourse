@@ -32,6 +32,11 @@ public class Method {
 		return false;
 	}
 
+	private void InputRunCount() {
+		System.out.println("시도할 횟수는 몇 회 인가요?");
+		int runCount=scan.nextInt();
+		printResult(runCount);
+	}
 	private boolean CheckStringLength(String carName) {
 		if(carName.length()<6)
 			return true;
@@ -49,7 +54,10 @@ public class Method {
 	private  int RandomNumber() {
 		return rd.nextInt(9)+1;	
 	}
-	
-	
+	public void printResult(int count) {
+		for(int i=0;i<count;i++) {
+			
+		}
+	}
 
 }
