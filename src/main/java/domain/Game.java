@@ -13,20 +13,20 @@ import java.util.List;
 public class Game {
 
     private User user = new User();
+    private List<Car> cars = new ArrayList<Car>();
+    private List<String> winnerList = new ArrayList<String>();
 
     public void startGame() {
-        List<Car> cars = enrollPlayers();
+        enrollPlayers();
         startRace(cars, user.getTurnNumber());
         printWinner(cars);
     }
 
-    private List<Car> enrollPlayers() {
+    private void enrollPlayers() {
         String[] carArray = user.getCarNames();
-        List<Car> cars = new ArrayList<Car>();
         for (String oneCar : carArray) {
             cars.add(new Car(oneCar));
         }
-        return cars;
     }
 
     private void startRace(List<Car> cars, int turnNumber) {
@@ -44,7 +44,7 @@ public class Game {
     }
 
     private void printWinner(List<Car> cars) {
-        List<String> winnerList = getWinner(cars);
+        getWinner(cars);
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.printf("%s", winnerList.get(i));
             if (i != winnerList.size() - 1) {
@@ -54,15 +54,13 @@ public class Game {
         System.out.printf("님이 최종 우승했습니다.\n");
     }
 
-    private List<String> getWinner(List<Car> cars) {
+    private void getWinner(List<Car> cars) {
         int maxScore = getMaxScore(cars);
-        List<String> winnerList = new ArrayList<String>();
         for (Car oneCar : cars) {
             if (oneCar.getPosition() == maxScore) {
                 winnerList.add(oneCar.getName());
             }
         }
-        return winnerList;
     }
 
     private int getMaxScore(List<Car> cars) {
