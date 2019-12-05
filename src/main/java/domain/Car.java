@@ -1,6 +1,7 @@
 package domain;
 
 public class Car {
+	private final static int RANGE = 10;
     private final String name;
     private int position = 0;
 
@@ -8,5 +9,10 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void goForwardOrNot() {
+		if ((int) (Math.random() * RANGE) >= 4) {
+			position++;
+		}
+	}
+    
 }
