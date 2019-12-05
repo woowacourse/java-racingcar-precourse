@@ -14,12 +14,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        String carNames;
+        String[] splitedCarNames;
+        int iterationNumber;
+
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        String carNames = scanner.next();
+        carNames = scanner.next();
+        splitedCarNames = carNames.split(",");
+
+        for (String isLessThanFive : splitedCarNames) {
+            System.out.println("이름 : " + isLessThanFive + " 이름의 길이 : " + isLessThanFive.length());
+        }
+
         System.out.println("시도할 횟수는 몇회인가요?");
-        int iterationNumber = scanner.nextInt();
-
-
+        iterationNumber = scanner.nextInt();
 
 
     }
