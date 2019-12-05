@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class RacingStadium {
     private final Car[] raceCars;
+    private final int moveCount;
 
     public RacingStadium() {
         this.raceCars = getReady();
+        this.moveCount = inputMoveCount();
     }
 
     private Car[] getReady() {
@@ -27,12 +29,12 @@ public class RacingStadium {
             Scanner scanner = new Scanner(System.in);
             String waiters = scanner.nextLine();
             waiterList = waiters.split(",");
-        } while (!isValid(waiterList));
+        } while (!isLengthValid(waiterList));
 
         return waiterList;
     }
 
-    private boolean isValid(String[] waiterList) {
+    private boolean isLengthValid(String[] waiterList) {
         for (String waiter : waiterList) {
             if (waiter.length() > 5 || waiter.length() == 0) {
                 System.out.println("이름은 없거나, 5글자를 초과할 수 없습니다.");
@@ -40,5 +42,30 @@ public class RacingStadium {
             }
         }
         return true;
+    }
+
+    private int inputMoveCount() {
+        String inputString;
+        int moveCount;
+
+        do {
+            System.out.println("시도할 회수는 몇 회인가요?");
+            Scanner scanner = new Scanner(System.in);
+            inputString = scanner.nextLine();
+            moveCount = getNumber(inputString);
+        } while (moveCount == 0);
+
+        return moveCount;
+    }
+
+    private int getNumber(String inputString) {
+        for (int i = 0; i < inputString.length(); i++) {
+            if (!Character.isDigit(inputString.charAt(i))) {
+                System.out.println("1 이상의 '숫자'를 입력해주세요.");
+                return 0;
+            }
+        }
+        return Integer.parseInt(inputString);
+
     }
 }
