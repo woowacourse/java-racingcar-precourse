@@ -3,9 +3,20 @@ package domain;
 import java.util.Scanner;
 
 public class RacingStadium {
+    private final Car[] raceCars;
 
     public RacingStadium() {
+        this.raceCars = getReady();
+    }
+
+    private Car[] getReady() {
         String[] participants = recruitParticipants();
+        Car[] startLine = new Car[participants.length];
+
+        for (int i = 0; i < participants.length; i++) {
+            startLine[i] = new Car(participants[i]);
+        }
+        return startLine;
     }
 
     private String[] recruitParticipants() {
