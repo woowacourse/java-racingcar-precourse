@@ -6,6 +6,7 @@ public class Util {
 
     static final int MINIMUM_NAME_LENGTH = 1;
     static final int LIMIT_NAME_LENGTH = 5;
+    static final int JUDGE_TO_GO = 4;
 
     // 쉼표를 기준으로 자동차의 이름들을 분류
     void splitCarName(String rawCarName) {
@@ -47,10 +48,22 @@ public class Util {
         while (repeatTimes != 0) {
             repeatTimes--;
             for (int i = 0; i < carObjectArray.length; i++) {
-                // 포지션 연산
+                goForwordOrStop(i);
                 printStateOfCars(i);
             }
             System.out.println();
+        }
+    }
+
+    // 0 ~ 9 사이의 랜덤한 정수 반환
+    int generateRandomNumber() {
+        return (int) (Math.random() * 10);
+    }
+
+    // 전진 또는 정지 수행 
+    void goForwordOrStop(int index) {
+        if (generateRandomNumber() >= JUDGE_TO_GO) {
+            carObjectArray[index].addPosition();
         }
     }
 }
