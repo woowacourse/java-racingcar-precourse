@@ -15,6 +15,7 @@ public class RacingGame {
 		String input;
 		String[] carNames;
 		int numberOfAttempts;
+		String[] winners;
 		
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		input = scan.nextLine();
@@ -27,13 +28,15 @@ public class RacingGame {
 		
 		System.out.println("\n실행결과");
 		for (int i = 0; i < numberOfAttempts; i++) {
-			for (int j = 0; j < Cars.length; i++) {
+			for (int j = 0; j < Cars.length; j++) {
 				attempt(Cars[j]);
 				printInformationOfCar(Cars[j]);	
 			}
-			
-			
+			System.out.println();
 		}
+		
+		//winners = getNamesOfWinnersFrom
+		
 		
 	}
 	
@@ -59,5 +62,14 @@ public class RacingGame {
 			return true;
 		}		
 		return false;		
+	}
+	
+	public static void printInformationOfCar(Car car) {
+		System.out.print(car.getName());
+		System.out.print(" : ");
+		for (int i = 0; i < car.getPosition(); i++) {
+			System.out.print("-");
+		}
+		System.out.println();
 	}
 }
