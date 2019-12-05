@@ -5,7 +5,19 @@ public class RacingCarGame {
     private Car[] cars;
     
     public void playOneGame() {
+        createCarInstances(getCarNamesInputWithCUI());    /* 자동차이름들을 입력받아 자동차들을 생성 */
+        getAttemptsNumInputWithCUI();                     /* 시도 횟수를 입력받음 */
         
+        System.out.println();
+        System.out.println("실행 결과");
+        
+        for (int i = 0; i < attemptsNum; i++) {
+            randomMoveCarsByOnePosition();                /* 자동차들 이동시키기 */
+            printCarsPositions();                         /* 자동차들의 위치 출력 */
+            System.out.println();
+        }
+        System.out.println();
+        printWinners();
     }
     
     /**
