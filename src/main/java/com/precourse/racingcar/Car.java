@@ -1,5 +1,5 @@
 /*
- * Car.java                        1.4.2   2019-12-05
+ * Car.java                        1.4.3   2019-12-05
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -11,7 +11,7 @@ package com.precourse.racingcar;
 /**
  * 자동차 클래스입니다.
  *
- * @version 1.4.2            Getter methods 추가
+ * @version 1.4.3            재정의한 toString method 추가
  * @date 2019-12-05
  * @author HyungjuAn
  */
@@ -62,6 +62,20 @@ public class Car {
 		}
 
 		System.out.println(builder);
+	}
+
+	/**
+	 * 이 차의 이름과 현재 포지션을 반환합니다.
+	 * 다음은 이 설명의 일반적인 형태이나,
+	 * 상세 형식은 정해지지 않았으며 향후 변경될 수 있다.
+	 * <p>
+	 * "Name: pobi, Position: 3"
+	 *
+	 * @return 클래스를 나타낼 수 있는 정보를 가진 문자열
+	 */
+	@Override
+	public String toString() {
+		return "Name: " + name + ", Position: " + position;
 	}
 
 	/* Getter methods */
