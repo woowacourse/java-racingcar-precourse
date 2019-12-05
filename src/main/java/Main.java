@@ -10,11 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Admin admin = new Admin();
 
-        while (admin.getCarName() == admin.IS_NOT_VALID) {
-            System.out.println("다시 입력해주세요");
-        }
         admin.makeCars();
-        while (admin.getNumberOfMoving() == admin.IS_NOT_VALID){
+        while (admin.getNumberOfMoving() == false){
             System.out.println("다시 입력해주세요.");
         }
         admin.moveCars();

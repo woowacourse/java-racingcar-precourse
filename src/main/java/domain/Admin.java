@@ -24,20 +24,10 @@ public class Admin {
     protected static final int minMovingNumber = 4;
 
     /**
-     * 입력받은 값이 valid하지 않은 값이라는 것을 확인할 때 사용하는 class 변수
-     */
-    public static final Boolean IS_NOT_VALID = false;
-
-    /**
      * 값을 입력받기 위한 Scanner class
      * 한번만 초기화하면 되기 때문에 class 변수로 선언
      */
     private static final Scanner scan = new Scanner(System.in);
-
-    /**
-     * 입력받은 차 이름을 저장하기 위한 String Array
-     */
-    private String[] carNames;
 
     /**
      * Car 객체를 저장하기 위한 Car array
@@ -55,35 +45,15 @@ public class Admin {
     private Boolean[][] actualMoving;
 
     /**
-     * 쉼표로 구분된 차 이름을 입력받아 carNames 변수에 저장하는 메소드
-     *
-     * @return Boolean 쉼표로 구분된 각 이름이 모두 유효한지 여부
-     */
-    public Boolean getCarName() {
-        String input;
-        String carNameValidPattern = "(^[a-zA-Z0-9]{1,5})";         // 유효한 패턴은 1~5 글자의 영문 알파벳, 숫자를 의미
-
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        input = scan.nextLine();
-        carNames = input.split(",");
-        for (int i = 0; i < carNames.length; i++) {
-            if (!ifStringHasValidPattern(carNames[i], carNameValidPattern)) {
-                carNames = null;
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Car 객체를 생성하여 반환하는 메소드
-     *
-     * @return Car[] 입력받은 이름으로 초기화된 Car Array
+     * 이름을 입력받고 Car 객체를 생성하는 메소드
      */
     public void makeCars() {
+        /* input이 유효할 때까지 이름을 입력받고, 입력받은 String을 기준으로 Car 객체 생성 */
+        String[] carNames = getCarNameUntilValid();
+
         cars = new Car[carNames.length];
         for (int i = 0; i < cars.length; i++) {
-            cars[i] = new Car(carNames[i]);
+            cars[i] = makeCar(carNames[i]);
         }
     }
 
@@ -132,6 +102,55 @@ public class Admin {
         /* 가장 많이 움직인 자동차들의 이름들을 actualMoving 변수를 통해 구하고, 그 문자열을 join해서 출력 */
         ArrayList<String> winnerList = getWinnerList();
         System.out.println(String.join(", ", winnerList) + "가 최종 우승했습니다.");
+    }
+
+    /**
+     * 입력한 이름이 유효할때까지 입력을 받는 메소드
+     *
+     * @return Car 객체 각각 이름이 담긴 String Array
+     */
+    private String[] getCarNameUntilValid() {
+        String[] carNames;
+
+        while (true) {
+            carNames = getCarNames();
+            if (carNames == null) {
+                System.out.println("다시 입력해주세요.");
+                continue;
+            }
+            return carNames;
+        }
+    }
+
+    /**
+     * 쉼표로 구분된 차 이름을 입력받아 반환하는 메소드
+     *
+     * @return 유효한 이름이라면 이름들이 담긴 String Array, 유효하지 않다면 null
+     */
+    private String[] getCarNames() {
+        String input;
+        String[] carNames;
+        String carNameValidPattern = "(^[a-zA-Z0-9]{1,5})";         // 유효한 패턴은 1~5 글자의 영문 알파벳, 숫자를 의미
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        input = scan.nextLine();
+        carNames = input.split(",");
+        for (int i = 0; i < carNames.length; i++) {
+            if (!ifStringHasValidPattern(carNames[i], carNameValidPattern)) {
+                return null;
+            }
+        }
+        return carNames;
+    }
+
+    /**
+     * Car 객체를 생성하여 반환하는 메소드
+     *
+     * @param name Car 객체의 이름
+     * @return 입력받은 이름으로 생성된 Car 객체
+     */
+    private Car makeCar(String name) {
+        return new Car(name);
     }
 
     /**
