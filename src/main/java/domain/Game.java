@@ -2,7 +2,9 @@ package domain;
 
 public class Game {
 
-  public void play() {
+  IOController ioController = new IOController();
 
+  public void play() {
+    ioController.askCarsNames();
   }
 }
