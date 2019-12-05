@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Car {
     private final String name;
+    private final int MOVEMENT_VALUE = 1;
     private int position = 0;
     private List<Integer> goForward = new LinkedList<>();
 
@@ -12,5 +13,27 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void goForwardPosition() {
+        position += MOVEMENT_VALUE;
+    }
+
+    public void setGoForward(List<Integer> goForward) {
+        this.goForward = goForward;
+    }
+
+    public List<Integer> getGoForward() {
+        return goForward;
+    }
+
+    public int getGoForward(int index) {
+        return goForward.get(index);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }

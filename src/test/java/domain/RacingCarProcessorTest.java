@@ -3,6 +3,8 @@ package domain;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,9 +16,9 @@ class RacingCarProcessorTest {
         assertThat(racingCarProcessor.carMovementRandomGenerator(10).size()).isEqualTo(10);
         assertThat(racingCarProcessor
                 .carMovementRandomGenerator(1000)
-                .stream()
-                .filter(num -> num < 10)
-                .count())
+                        .stream()
+                        .filter(num -> num < 10)
+                        .count())
                 .isEqualTo(1000);
         assertThat(racingCarProcessor
                 .carMovementRandomGenerator(1000)
@@ -33,4 +35,5 @@ class RacingCarProcessorTest {
         assertThat(racingCarProcessor.goForwardPermission(Arrays.asList(3,6,8,2,1,9), 3)).isEqualTo(false);
         assertThat(racingCarProcessor.goForwardPermission(Arrays.asList(3,6,8,2,1,9), 5)).isEqualTo(true);
     }
+
 }

@@ -20,4 +20,20 @@ public class RacingCarProcessor {
     public boolean goForwardPermission(List<Integer> goForward, int round) {
         return goForward.get(round) > GO_PERMISSION_MINIMUM_VALUE;
     }
+
+    public void carState(List<Car> registeredCar) {
+        for (int i = 0 ; i < registeredCar.size(); i++) {
+            System.out.println(registeredCar.get(i).getName() + " : " + getCarPosition(registeredCar, i));
+        }
+    }
+
+    private String getCarPosition(List<Car> registeredCar, int index) {
+        String progressState = "";
+
+        for (int i = 0; i < registeredCar.get(index).getPosition(); i++) {
+            progressState += "-";
+        }
+
+        return progressState;
+    }
 }

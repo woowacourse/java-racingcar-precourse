@@ -10,15 +10,16 @@ public class RacingCarManager {
     private int tryTimes;
 
     public boolean start() {
-        if (!carNameGenerator()) {
+        RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
+
+        if (!carNameGenerator() || !tryTimeGenerator()) {
             return false;
         }
-
-        if (!tryTimeGenerator()) {
-            return false;
-        }
-
         carGenerator(registeredCar, carName);
+
+        for (Car car : registeredCar) {
+            car.setGoForward(racingCarProcessor.carMovementRandomGenerator(tryTimes));
+        }
 
         return true;
     }
@@ -48,4 +49,5 @@ public class RacingCarManager {
 
         return target.size();
     }
+
 }
