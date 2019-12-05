@@ -1,6 +1,9 @@
 package domain;
 
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class InputManager {
 
@@ -10,11 +13,21 @@ public class InputManager {
 	public void initialize() {
 		inputCarNames();
 	}
-	
+
 	private void inputCarNames() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
 		carNames = input.next().split(",");
+
+		while (isDuplicated(carNames)) {
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
+			carNames = input.next().split(",");
+		}
 	}
-	
+
+	private boolean isDuplicated(String[] carNames) {
+		Set<String> set = Arrays.stream(carNames).collect(Collectors.toSet());
+		return set.size() < carNames.length;
+	}
+
 }
