@@ -53,6 +53,14 @@
 - [ ] 라운드별 상태 출력하기
 - [ ] 우승자 출력하기
 
+#### Controller
+
+#### Game 
+
+- [x] 생성자
+    - Input 객체로부터 필드(이름들, 라운드) 입력을 받아야함 
+- [ ] 라운드 돌리는 기능
+
 #### Service
 
 - [ ] 예외처리 서비스 모음....
@@ -76,6 +84,11 @@
 - [x] Input times positiveInteger Test
 - [x] Input names LengthUnderMax Test
 - [x] Input names NoBlank Test
+
+#### Controller 
+
+- [ ] Game initTest
+
 #### Service
 
 - [ ]
