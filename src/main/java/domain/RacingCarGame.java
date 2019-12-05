@@ -149,7 +149,19 @@ public class RacingCarGame {
      * 자동차들의 현재 위치를 보여주는 CUI
      */
     private void printCarsPositions() {
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println(cars[i].getName() + ":" + presentCarPositionWithHyphens(i));
+        }
+    }
+    
+    private String presentCarPositionWithHyphens(int carIdx) {
+        StringBuilder ret = new StringBuilder();
         
+        for (int i = 0; i < cars[carIdx].getPosition(); i++) {
+            ret.append("-");
+        }
+        
+        return ret.toString();
     }
     
     private void printWinners() {
