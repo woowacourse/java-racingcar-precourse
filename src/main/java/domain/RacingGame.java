@@ -27,7 +27,10 @@ public class RacingGame {
 		
 		System.out.println("\n실행결과");
 		for (int i = 0; i < numberOfAttempts; i++) {
-			
+			for (int j = 0; j < Cars.length; i++) {
+				attempt(Cars[j]);
+				printInformationOfCar(Cars[j]);	
+			}
 			
 			
 		}
@@ -40,5 +43,21 @@ public class RacingGame {
 			carInstances[i] = new Car(carNames[i]);
 		}
 		return carInstances;
+	}
+	
+	public static void attempt(Car car) {
+		boolean isProgress = progressOrNot();
+		if (isProgress) {
+			car.progressCar();
+		}
+	}
+	
+	public static boolean progressOrNot() {
+		Random random = new Random();
+		int randomInt = random.nextInt(10);
+		if (randomInt >= 4) {
+			return true;
+		}		
+		return false;		
 	}
 }
