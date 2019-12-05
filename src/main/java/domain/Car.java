@@ -27,4 +27,8 @@ public class Car {
         int randomValue = random.nextInt(maxValue - minValue + 1) + minValue;
         return randomValue;
     }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
