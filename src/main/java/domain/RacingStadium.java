@@ -69,14 +69,17 @@ public class RacingStadium {
     }
 
     public void startRace() {
+        System.out.println("\n실행결과");
         for (int i = 0; i < moveCount; i++) {
             playRace();
+            System.out.println("\n");
         }
     }
 
     private void playRace() {
         for (Car raceCar : raceCars) {
             raceCar.tryToGoForward();
+            raceCar.printCurrentStatus();
         }
     }
 }

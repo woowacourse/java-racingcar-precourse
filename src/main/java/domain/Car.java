@@ -14,8 +14,12 @@ public class Car {
         Random random = new Random();
         int randomNumber = random.nextInt(9);
 
-        if (randomNumber >= 4){
+        if (randomNumber >= 4) {
             this.position += 1;
         }
+    }
+
+    public void printCurrentStatus() {
+        System.out.printf("%s : %s\n", this.name, "-".repeat(this.position));
     }
 }
