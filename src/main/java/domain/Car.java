@@ -29,8 +29,8 @@ public class Car {
         return number >= FORWARD_PIVOT;
     }
 
-    public void goForward(boolean go) {
-        if (go) {
+    public void goForward() {
+        if (isForward(randomGenerator())) {
             position++;
         }
     }
