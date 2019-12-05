@@ -22,11 +22,17 @@ class CarTest {
     }
 
     @Test
-    public void isForwardTest(){
-        Car car  = new Car("");
+    public void isForwardTest() {
+        Car car = new Car("");
         assertThat(car.isForward(0)).isFalse();
         assertThat(car.isForward(3)).isFalse();
         assertThat(car.isForward(4)).isTrue();
         assertThat(car.isForward(9)).isTrue();
+    }
+
+    @Test
+    public void getPositionTest() {
+        Car car = new Car("");
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 }

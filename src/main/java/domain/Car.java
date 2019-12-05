@@ -14,6 +14,14 @@ public class Car {
         this.name = name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
     public int randomGenerator() {
         return ThreadLocalRandom.current().ints(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE)
                 .limit(1)
@@ -24,4 +32,5 @@ public class Car {
     public boolean isForward(int number) {
         return number >= FORWARD_PIVOT;
     }
+
 }
