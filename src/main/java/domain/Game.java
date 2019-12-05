@@ -24,7 +24,6 @@ public class Game {
 			Car car = new Car(st.nextToken());
 			cars.addList(car); //입력받은 이름마다 Car 객체를 생성하고 Cars에 추가 
 		}
-		bw.close();
 		
 		System.out.println("실행결과 ");
 		for(int i=0; i<iter; i++) {
@@ -35,5 +34,6 @@ public class Game {
 		}
 		cars.putResult();
 		cars.printResult();
+		bw.close();
 	}
 }
