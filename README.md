@@ -32,7 +32,7 @@
 
 #####  Car
 
-- [ ] 자신의 랜덤수 설정
+- [x] 자신의 랜덤수 생성
 - [ ] 라운드 진행시 전진 또는 정지
 - [ ] 현재 자신의 위치 반환
 
@@ -66,6 +66,7 @@
 
 - [x] Car initTest
 - [ ] Car fieldTest
+- [ ] Car randomNumber Test
 
 #### View
 
