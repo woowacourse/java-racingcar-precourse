@@ -16,7 +16,7 @@ public class InputValidator {
         for (int i = 0; i < Input.length; i++) {
             checkCarNameSize(Input[i]);
         }
-        return carNameOkOrNot(passCount,Input.length);
+        return carNameOkOrNot(passCount, Input.length);
     }
 
     private boolean carNameOkOrNot(int passCount, int inputLength) {
@@ -24,7 +24,7 @@ public class InputValidator {
     }
 
     private String[] deleteFrontBackBlank(String[] userInput) {
-        for(int i=0; i<userInput.length; i++){
+        for (int i = 0; i < userInput.length; i++) {
             userInput[i] = userInput[i].trim();
         }
         return userInput;

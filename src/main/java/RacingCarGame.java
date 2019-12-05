@@ -1,5 +1,4 @@
 import domain.Car;
-import domain.Computer;
 import domain.RacingController;
 import view.PrintHandler;
 import view.UserInput;
@@ -16,7 +15,7 @@ public class RacingCarGame {
     public static void play() throws IOException {
         UserInput userInput = new UserInput();
 
-        PrintHandler.notifyCarName();
+        PrintHandler.notifyCarNameRule();
         List<Car> users = userInput.makeCars();
 
         PrintHandler.notifyHowManyTimes();

@@ -26,7 +26,6 @@ public class UserInput {
 
     private static List<Car> makeCarArrayToList(String[] carNames) {
         List<Car> carList = new ArrayList<>();
-
         for (int i = 0; i < carNames.length; i++) {
             carList.add(new Car(carNames[i]));
         }

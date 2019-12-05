@@ -1,8 +1,8 @@
 package domain;
 
 public class Car {
-
     private final String name;
+
     private int position = 0;
 
     public Car(String name) {
@@ -17,8 +17,8 @@ public class Car {
         return position;
     }
 
-    public void goForwardPosition(boolean goOrStop){
-        if(goOrStop){
+    public void goForwardPosition(boolean goOrStop) {
+        if (goOrStop) {
             position++;
         }
     }

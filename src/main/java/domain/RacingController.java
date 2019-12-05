@@ -27,8 +27,8 @@ public class RacingController {
 
     private static List<String> whoIsTheSameAsMaxPosition(List<Car> users, int maxPosition) {
         List<String> winners = new ArrayList<>();
-        for(int i=0; i<users.size(); i++){
-            if(users.get(i).getPosition() == maxPosition){
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getPosition() == maxPosition) {
                 winners.add(users.get(i).getName());
             }
         }
