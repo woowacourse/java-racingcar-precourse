@@ -166,7 +166,10 @@ public class RacingCarGame {
     }
     
     private void printWinners() {
+        String[] carNamesWithLargestPosition = getCarNamesWithLargestPosition();
         
+        System.out.println(combineStrings(carNamesWithLargestPosition, ", ")
+                + "이(가) 최종 우승했습니다.");
     }
     
     /**
@@ -187,5 +190,21 @@ public class RacingCarGame {
         }
         
         return ret.toArray(new String[ret.size()]);
+    }
+    
+    /**
+     * 여러 문자열들을 하나의 문자열로 합침.
+     * 예를들어 strings = ["hi", "yelim"]이고 seperator = "?"이면
+     * return 값은 "hi?yelim" 이 된다. 
+     */
+    private String combineStrings(String[] strings, String seperator) {
+        StringBuilder ret = new StringBuilder();
+        
+        for (int i = 0; i < strings.length - 1; i++) {
+            ret.append(strings[i] + seperator);
+        }
+        ret.append(strings[strings.length - 1]);
+        
+        return ret.toString();
     }
 }
