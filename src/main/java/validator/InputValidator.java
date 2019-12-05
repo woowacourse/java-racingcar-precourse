@@ -12,12 +12,20 @@ public class InputValidator {
 
     public boolean checkCarNames(String[] userInput) {
         passCount = ZERO;
-        for (int i = 0; i < userInput.length; i++) {
-            checkCarNameSize(userInput[i]);
+        String[] Input = deleteFrontBackBlank(userInput);
+        for (int i = 0; i < Input.length; i++) {
+            checkCarNameSize(Input[i]);
         }
-        if (passCount == userInput.length)
+        if (passCount == Input.length)
             return true;
         return false;
+    }
+
+    private String[] deleteFrontBackBlank(String[] userInput) {
+        for(int i=0; i<userInput.length; i++){
+            userInput[i] = userInput[i].trim();
+        }
+        return userInput;
     }
 
     private void checkCarNameSize(String input) {

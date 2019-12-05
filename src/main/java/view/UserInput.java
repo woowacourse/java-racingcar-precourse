@@ -11,13 +11,15 @@ import java.util.List;
 
 public class UserInput {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private static final String COMMA = ",";
+
     private static InputValidator validator = InputValidator.getInstance();
 
     public List<Car> makeCars() throws IOException {
-        String[] userInputArray = br.readLine().split(",");
+        String[] userInputArray = br.readLine().split(COMMA);
         while (!validator.checkCarNames(userInputArray)) {
             OutputForNotify.notifyCarNameError();
-            userInputArray = br.readLine().split(",");
+            userInputArray = br.readLine().split(COMMA);
         }
         return makeCarArrayToList(userInputArray);
     }
@@ -32,10 +34,10 @@ public class UserInput {
     }
 
     public int chooseHowManyPlay() throws IOException {
-        while(true){
+        while (true) {
             try {
                 return Integer.parseInt(br.readLine().trim());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 OutputForNotify.notifyFormatError();
             }
         }
