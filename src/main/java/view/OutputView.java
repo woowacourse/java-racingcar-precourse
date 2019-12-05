@@ -9,7 +9,7 @@ public class OutputView {
 	private static String IS_WINNER_MESSAGE = "가 최종 우승했습니다.";
 
 	public static void printResultMessage() {
-		System.out.println(RESULT_MESSAGE);
+		System.out.println('\n' + RESULT_MESSAGE);
 	}
 
 	public static void printCarsPosition(ArrayList<Car> cars) {
