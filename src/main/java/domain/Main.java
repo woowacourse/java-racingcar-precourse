@@ -7,6 +7,8 @@
  */
 package domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -23,12 +25,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> positionList = new ArrayList<>();
 
         String carNames;
         String[] splitedCarNames;
         int iterationNumber;
+        int maxPosition;
+        
 
 
         while (true) {
@@ -69,5 +73,19 @@ public class Main {
                         + cars[j].getPosition());
             }
         }
+
+
+        for (Car car : cars) {
+            positionList.add(car.getPosition());
+        }
+
+        maxPosition = Collections.max(positionList);
+
+        for (int i = 0; i < splitedCarNames.length; i++) {
+            if (cars[i].getPosition() == maxPosition) {
+               System.out.print(cars[i].getName()+" ");
+            }
+        }
+        System.out.println("최종 우승!!");
     }
 }
