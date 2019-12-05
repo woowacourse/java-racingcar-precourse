@@ -1,4 +1,10 @@
 package domain;
+/*
+ * 클래스 이름 : Car
+ * 작성자 : Moonyoung Chae
+ * 날짜 : 2019/12/05
+ * Copyright (c) 2019 Moonyoung Chae
+ */
 
 public class Car {
     private final String name;
@@ -8,5 +14,7 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public int makeRandomNumber(){
+        return (int) (Math.random() * 10);
+    }
 }
