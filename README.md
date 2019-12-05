@@ -15,7 +15,7 @@
   - [x] Car name 쉼표 기준 구분
   
 - ### RacingGame
-  - [ ] Car 생성 기능
+  - [x] Car 생성 기능
 
 - ### CarHandler
   - [ ] 자동차 전진 기능
