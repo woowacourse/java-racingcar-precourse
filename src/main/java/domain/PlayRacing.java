@@ -22,6 +22,16 @@ public class PlayRacing {
     public static void playRacing() {
         // 테스트용
         System.out.println("RACING START!");
+        Car car = new Car("toney");
+        System.out.println(car.getName());
+        System.out.println(car.getPosition());
+        for (int i = 0; i < 4; i++) {
+            car.moveForward(car.decideGoOrNot(car.getRandomInt()));
+            System.out.println("move?");
+            System.out.println(car.getPosition());
+        }
+
+
     }
 
 }
