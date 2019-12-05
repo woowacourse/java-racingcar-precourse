@@ -25,7 +25,7 @@
 	public String getName();
 	public int getPosition();
 
-	public void Drive();
+	public void drive();
 
 ### Race
 ##### 멤버 변수
