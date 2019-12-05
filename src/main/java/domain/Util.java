@@ -1,8 +1,11 @@
 package domain;
 
+import java.util.Arrays;
+
 public class Util {
     private String carNameArray[];
     private Car carObjectArray[];
+    private int finalCarPositions[];
 
     static final int MINIMUM_NAME_LENGTH = 1;
     static final int LIMIT_NAME_LENGTH = 5;
@@ -60,10 +63,19 @@ public class Util {
         return (int) (Math.random() * 10);
     }
 
-    // 전진 또는 정지 수행 
     void goForwordOrStop(int index) {
         if (generateRandomNumber() >= JUDGE_TO_GO) {
             carObjectArray[index].addPosition();
         }
+    }
+
+    // 최종 포지션 중 최대값을 찾아 반환
+    int getMaxPositions() {
+        finalCarPositions = new int[carObjectArray.length];
+        for (int i = 0; i < carObjectArray.length; i++) {
+            finalCarPositions[i] = carObjectArray[i].getPosition();
+        }
+        Arrays.sort(finalCarPositions);
+        return finalCarPositions[carObjectArray.length - 1];
     }
 }
