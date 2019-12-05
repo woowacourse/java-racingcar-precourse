@@ -13,12 +13,13 @@
 
 - ### InputHandler
   - [x] Car name 쉼표 기준 구분
-  
+
 - ### RacingGame
   - [x] Car 생성 기능
 
 - ### Rule
   - [x] 전진 & 멈춤 판단 기능
+  - [x] 우승자 판단 기능
 
 - ### Car
   - [x] getName, getPosition 메소드
