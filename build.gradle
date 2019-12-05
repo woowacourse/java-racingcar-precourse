@@ -1,3 +1,7 @@
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'    
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
@@ -11,4 +15,10 @@ repositories {
 dependencies {
     testCompile('org.junit.jupiter:junit-jupiter:5.5.2')
     testCompile('org.assertj:assertj-core:3.14.0')
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class':'domain.RacingGame'
+	}
 }
