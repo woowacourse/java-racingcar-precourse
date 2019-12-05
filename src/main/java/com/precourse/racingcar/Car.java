@@ -1,5 +1,5 @@
 /*
- * Car.java                        1.4.3   2019-12-05
+ * Car.java                        1.4.4   2019-12-05
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -11,7 +11,7 @@ package com.precourse.racingcar;
 /**
  * 자동차 클래스입니다.
  *
- * @version 1.4.3            재정의한 toString method 추가
+ * @version 1.4.4            finalize()를 사용하지 않도록 final, 빈 메소드로 재정의
  * @date 2019-12-05
  * @author HyungjuAn
  */
@@ -62,6 +62,10 @@ public class Car {
 		}
 
 		System.out.println(builder);
+	}
+
+	@Override
+	protected final void finalize() throws Throwable {
 	}
 
 	/**
