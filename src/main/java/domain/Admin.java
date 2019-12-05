@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Admin class - 프로그램 진행에 필요한 메소드를 모아둔 클래스
  *
  * @author 김범준(ddaaac)
- * @version 1.00 2019-12-04
+ * @version 1.01 2019-12-05
  */
 public class Admin {
     /**
@@ -49,7 +49,7 @@ public class Admin {
      */
     public void makeCars() {
         /* input이 유효할 때까지 이름을 입력받고, 입력받은 String을 기준으로 Car 객체 생성 */
-        String[] carNames = getCarNameUntilValid();
+        String[] carNames = getCarNamesUntilValid();
 
         cars = new Car[carNames.length];
         for (int i = 0; i < cars.length; i++) {
@@ -109,7 +109,7 @@ public class Admin {
      *
      * @return Car 객체 각각 이름이 담긴 String Array
      */
-    private String[] getCarNameUntilValid() {
+    private String[] getCarNamesUntilValid() {
         String[] carNames;
 
         while (true) {

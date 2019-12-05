@@ -3,7 +3,7 @@ import domain.Admin;
 /**
  * Main class
  *
- * @version         1.00 2019-12-04
+ * @version         1.01 2019-12-05
  * @author          김범준(ddaaac)
  */
 public class Main {

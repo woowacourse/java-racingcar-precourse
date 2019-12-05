@@ -4,7 +4,7 @@ package domain;
  * Car class - 경주에 사용할 자동차 Class
  *
  * @author 김범준(ddaaac)
- * @version 1.00 2019-12-04
+ * @version 1.01 2019-12-05
  */
 public class Car {
     /**
@@ -37,6 +37,7 @@ public class Car {
 
     /**
      * 자동차의 이름을 반환하는 메소드
+     *
      * @return string 자동차 이름
      */
     protected String getName() {
