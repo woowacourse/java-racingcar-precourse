@@ -18,6 +18,7 @@ public class RacingGame {
 	public void play() {
 		prepareRacing();
 		raceCars();
+		showWinner();
 	}
 
 	/*
@@ -40,5 +41,24 @@ public class RacingGame {
 			}
 			System.out.println();
 		}
+	}
+	
+	private void showWinner() {
+		int MAX = 0;
+		for (Car car : carList) {
+			MAX = updateMAX(MAX, car);
+			if (MAX == car.getPosition() && winner != car.getName()) {
+				winner += ", " + car.getName();
+			}
+		}
+		System.out.println(winner + "가 최종 우승했습니다.");
+	}
+
+	private int updateMAX(int MAX, Car car) {
+		if (MAX < car.getPosition()) {
+			winner = car.getName();
+			return car.getPosition();
+		}
+		return MAX;
 	}
 }
