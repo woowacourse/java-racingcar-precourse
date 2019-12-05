@@ -15,9 +15,9 @@ public class Game {
     private User user = new User();
 
     public void startGame() {
-        List<Car> carsList = enrollPlayers();
-        startRace(carsList, user.getTurnNumber());
-        printWinner(carsList);
+        List<Car> cars = enrollPlayers();
+        startRace(cars, user.getTurnNumber());
+        printWinner(cars);
     }
 
     private List<Car> enrollPlayers() {
@@ -54,10 +54,10 @@ public class Game {
         System.out.printf("님이 최종 우승했습니다.\n");
     }
 
-    private static List<String> getWinner(List<Car> carsList) {
-        int maxScore = getMaxScore(carsList);
+    private static List<String> getWinner(List<Car> cars) {
+        int maxScore = getMaxScore(cars);
         List<String> winnerList = new ArrayList<String>();
-        for (Car oneCar : carsList) {
+        for (Car oneCar : cars) {
             if (oneCar.getPosition() == maxScore) {
                 winnerList.add(oneCar.getName());
             }
@@ -65,9 +65,9 @@ public class Game {
         return winnerList;
     }
 
-    private static int getMaxScore(List<Car> carsList) {
+    private static int getMaxScore(List<Car> cars) {
         int maxScore = 0;
-        for (Car oneCar : carsList) {
+        for (Car oneCar : cars) {
             int thisCarPosition = oneCar.getPosition();
             if (thisCarPosition > maxScore) {
                 maxScore = thisCarPosition;
