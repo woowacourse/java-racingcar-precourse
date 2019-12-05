@@ -11,6 +11,12 @@
   - [x] Car name 입력
   - [ ] 게임 진행 횟수 입력
 
+- ### InputHandler
+  - [ ] Car name 쉼표 기준 구분
+  
+- ### RacingGame
+  - [ ] Car 생성 기능
+
 - ### CarHandler
   - [ ] 자동차 전진 기능
 
