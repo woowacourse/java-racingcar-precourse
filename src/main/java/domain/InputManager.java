@@ -44,6 +44,17 @@ public class InputManager {
 	private void inputTrialTime() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("시도할 회수는 몇회인가요?");
-		trialTime = input.nextInt();
+		while (true) {
+			try {
+				trialTime = input.nextInt();
+				break;
+			} catch (InputMismatchException e) {
+				System.out.println("숫자를 입력해주세요.");
+			} catch (Exception e) {
+			} finally {
+				System.out.println("시도할 회수는 몇회인가요?");
+				input = new Scanner(System.in);
+			}
+		}
 	}
 }
