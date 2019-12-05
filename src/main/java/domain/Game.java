@@ -43,7 +43,7 @@ public class Game {
         System.out.println();
     }
 
-    private static void printWinner(List<Car> carsList) {
+    private void printWinner(List<Car> carsList) {
         List<String> winnerList = getWinner(carsList);
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.printf("%s", winnerList.get(i));
@@ -54,7 +54,7 @@ public class Game {
         System.out.printf("님이 최종 우승했습니다.\n");
     }
 
-    private static List<String> getWinner(List<Car> cars) {
+    private List<String> getWinner(List<Car> cars) {
         int maxScore = getMaxScore(cars);
         List<String> winnerList = new ArrayList<String>();
         for (Car oneCar : cars) {
@@ -65,7 +65,7 @@ public class Game {
         return winnerList;
     }
 
-    private static int getMaxScore(List<Car> cars) {
+    private int getMaxScore(List<Car> cars) {
         int maxScore = 0;
         for (Car oneCar : cars) {
             int thisCarPosition = oneCar.getPosition();
