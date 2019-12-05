@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class Car {
     static final int MIN_RANDOM_VALUE = 0;
     static final int MAX_RANDOM_VALUE = 9;
@@ -13,10 +15,16 @@ public class Car {
 
     private void moveOrStop() {
         int randomValue = 0;
-//        randomValue = getRandomValue(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
+        randomValue = getRandomValue(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
 
         if (randomValue >= MOVE_OR_STOP_BOUNDARY_VALUE) {
             position++;
         }
+    }
+
+    private int getRandomValue(int minValue, int maxValue) {
+        Random random = new Random();
+        int randomValue = random.nextInt(maxValue - minValue + 1) + minValue;
+        return randomValue;
     }
 }
