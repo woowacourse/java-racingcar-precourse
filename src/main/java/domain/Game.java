@@ -21,7 +21,7 @@ public class Game {
     }
 
     private List<Car> enrollPlayers() {
-        String[] carArray = user.inputCarNames();
+        String[] carArray = user.getCarNames();
         List<Car> carsList = new ArrayList<Car>();
         for (String oneCar : carArray) {
             carsList.add(new Car(oneCar));
