@@ -28,4 +28,10 @@ public class Game {
             round--;
         }
     }
+
+    public int getWinnerScore() {
+        return cars.stream().map(Car::getPosition)
+                .max(Integer::compareTo)
+                .orElse(0);
+    }
 }
