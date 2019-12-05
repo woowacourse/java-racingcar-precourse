@@ -33,11 +33,13 @@ public class RacingCarGame {
         String[] ret;
         String carNamesInput;
         
+        /* 자동차 이름들을 입력받아, 각 이름을 String 배열 ret의 원소로 넣는다. */
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         carNamesInput = scanner.nextLine();
         ret = splitCarNamesByComma(carNamesInput);
         
         while (!isCarNamesCorrect(ret)) {
+            /* 입력받은 자동차 이름 중 올바르지 않은 이름이 있으면 실행 */
             System.out.println("잘못된 이름입니다. 다시 입력해주세요.");
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             carNamesInput = scanner.nextLine();
