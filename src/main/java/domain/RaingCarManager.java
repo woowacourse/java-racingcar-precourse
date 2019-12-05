@@ -11,21 +11,24 @@ import java.util.Scanner;
 public class RaingCarManager {
     Car[] cars;
     String[] splitedCarName;
+    int gameCount;
     Scanner scanner = new Scanner(System.in);
 
     void run() {
+        getInfoFromUser();
+        makeCars();
+        race();
+    }
+
+    void getInfoFromUser(){
         do {
             String carNamesFromUser = getCarNamesFromUser();
             splitedCarName = splitCarName(carNamesFromUser);
         } while (!checkCarName(splitedCarName));
 
-        int gameCount;
         do{
             gameCount = getGameCountFromUser();
         }while(gameCount <= 0);
-
-        makeCars();
-        race(gameCount);
     }
 
     String getCarNamesFromUser() {
@@ -75,7 +78,7 @@ public class RaingCarManager {
         }
     }
 
-    public void race(int gameCount) {
+    public void race() {
         for (int nowGameCount = 0; nowGameCount < gameCount; nowGameCount++) {
             for (int carIndex = 0; carIndex < cars.length; carIndex++) {
                 int randomNumber = cars[carIndex].makeRandomNumber();
