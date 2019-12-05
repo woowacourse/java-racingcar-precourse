@@ -43,6 +43,10 @@
     - 에러메세지 변경(,를 기준으로 입력 요구) (O)
 
 - 리팩토링
-    - Output과 Computer의 역할이 모호
-    - Computer과 Car
-    - 클래스들 사이의 관계 및 역할 재정의
+    - Output과 Computer의 역할이 모호 (O)
+    - Computer과 Car (O)
+    - 클래스들 사이의 관계 및 역할 재정의 (O)
+    
+- 리팩토링 문제 해결
+    - RacingController를 통해, 경기 관련 처리를 모두 위임함으로써 Car와 Computer 클래스의 기능이 줄어듦
+    - PrintHandler에게 모든 출력을 위임함으로써 출력 단순화     

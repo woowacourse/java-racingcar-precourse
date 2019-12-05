@@ -18,7 +18,7 @@ public class UserInput {
     public List<Car> makeCars() throws IOException {
         String[] userInputArray = br.readLine().split(COMMA);
         while (!validator.checkCarNames(userInputArray)) {
-            OutputForNotify.notifyCarNameError();
+            PrintHandler.notifyCarNameError();
             userInputArray = br.readLine().split(COMMA);
         }
         return makeCarArrayToList(userInputArray);
@@ -38,7 +38,7 @@ public class UserInput {
             try {
                 return Integer.parseInt(br.readLine().trim());
             } catch (NumberFormatException e) {
-                OutputForNotify.notifyFormatError();
+                PrintHandler.notifyFormatError();
             }
         }
     }

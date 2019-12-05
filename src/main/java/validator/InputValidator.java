@@ -16,9 +16,11 @@ public class InputValidator {
         for (int i = 0; i < Input.length; i++) {
             checkCarNameSize(Input[i]);
         }
-        if (passCount == Input.length)
-            return true;
-        return false;
+        return carNameOkOrNot(passCount,Input.length);
+    }
+
+    private boolean carNameOkOrNot(int passCount, int inputLength) {
+        return passCount == inputLength;
     }
 
     private String[] deleteFrontBackBlank(String[] userInput) {
