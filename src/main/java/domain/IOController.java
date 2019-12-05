@@ -83,4 +83,20 @@ public class IOController {
 
     return true;
   }
+
+  private void printCurrentPosition(Car car) {
+    for (int i = 0; i < car.getPosition(); i++) {
+      System.out.print("-");
+    }
+    System.out.println();
+  }
+
+  public void printRoundResult(Car[] cars) {
+    for (int i = 0; i < cars.length; i++) {
+      System.out.print(cars[i].getName() + " : ");
+      printCurrentPosition(cars[i]);
+    }
+    System.out.println();
+  }
+
 }

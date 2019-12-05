@@ -4,6 +4,7 @@ public class Racing {
 
   private Car[] cars;
   private int rounds;
+  IOController ioController = new IOController();
 
   public Racing(String[] carNames, int rounds) {
     this.cars = new Car[carNames.length];
@@ -21,11 +22,11 @@ public class Racing {
   }
 
   private void moveCars() {
-    for (int i = 0; i < cars.length; i++) {
+    for (int i = 0; i < this.cars.length; i++) {
       int number = generateRandomNumber();
 
       if (number >= 4) {
-        cars[i].go();
+        this.cars[i].go();
       }
     }
   }
@@ -35,8 +36,10 @@ public class Racing {
   }
 
   public void start() {
+    System.out.println("\n실행 결과");
     for (int i = 0; i < rounds; i++) {
       raceOneRound();
+      ioController.printRoundResult(this.cars);
     }
 
   }
