@@ -20,12 +20,25 @@ public class IOController {
     return carNames;
   }
 
+  private void askAgainCarsNames() {
+    System.out.println("다시 입력해주세요.(이름은 쉼표(,) 기준으로 구분, 5자 이하)");
+  }
+
+  private String[] getAgainCarsNames() {
+    askAgainCarsNames();
+    return getCarsNames();
+  }
+
   private String[] parseNames(String input) {
     String[] carNames = {};
 
     carNames = input.split(",");
 
     boolean availability = validateName(carNames);
+
+    if (!availability) {
+      return getAgainCarsNames();
+    }
 
     return carNames;
   }
