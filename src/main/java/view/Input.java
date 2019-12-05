@@ -20,6 +20,13 @@ public class Input {
         return Collections.emptyList();
     }
 
+    public int asRounds() {
+        if (isPositiveInteger(input)) {
+            return Integer.parseInt(input);
+        }
+        return -1;
+    }
+
     public List<String> splitAsComma(String inputs) {
         return Arrays.asList(inputs.split(","));
     }
