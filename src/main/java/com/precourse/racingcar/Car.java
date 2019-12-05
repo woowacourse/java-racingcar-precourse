@@ -1,5 +1,5 @@
 /*
- * Car.java                        1.4.1   2019-12-05
+ * Car.java                        1.4.2   2019-12-05
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -11,7 +11,7 @@ package com.precourse.racingcar;
 /**
  * 자동차 클래스입니다.
  *
- * @version 1.4.1            상수를 표시하기 위해 final -> static final로 수정
+ * @version 1.4.2            Getter methods 추가
  * @date 2019-12-05
  * @author HyungjuAn
  */
@@ -62,5 +62,14 @@ public class Car {
 		}
 
 		System.out.println(builder);
+	}
+
+	/* Getter methods */
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
 	}
 }
