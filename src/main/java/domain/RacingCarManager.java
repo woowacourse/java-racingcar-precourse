@@ -6,6 +6,8 @@ package domain;
  * Copyright (c) 2019 Moonyoung Chae
  */
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class RacingCarManager {
@@ -18,6 +20,7 @@ public class RacingCarManager {
         getInfoFromUser();
         makeCars();
         race();
+        List<Car> winner = getWinner();
     }
 
     void getInfoFromUser(){
@@ -97,5 +100,20 @@ public class RacingCarManager {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public List<Car> getWinner() {
+        int maxPosition = 0;
+        for (int i = 0; i < cars.length; i++) {
+            if (maxPosition < cars[i].getPosition())
+                maxPosition = cars[i].getPosition();
+        }
+
+        List<Car> winner = new ArrayList<>();
+        for (int i = 0; i < cars.length; i++) {
+            if (maxPosition == cars[i].getPosition())
+                winner.add(cars[i]);
+        }
+        return winner;
     }
 }
