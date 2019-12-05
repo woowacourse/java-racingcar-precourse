@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 
 public class Car {
     private static final int MIN_RANDOM_RANGE = 0;
@@ -12,6 +13,10 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPosition() {
@@ -33,6 +38,18 @@ public class Car {
         if (isForward(randomGenerator())) {
             position++;
         }
+    }
+
+    public String positionToDash(int pos) {
+        if (pos == 0) {
+            return "";
+        }
+        return positionToDash(--pos) + "-";
+    }
+
+    @Override
+    public String toString() {
+        return name + ":" + positionToDash(position);
     }
 
 }
