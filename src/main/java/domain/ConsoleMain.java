@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ConsoleMain {
     private String[] carName;
-
+    private int movementNumber;
     public static void main(String[] args){
 
     }
@@ -23,5 +23,12 @@ public class ConsoleMain {
                 inputCarName();
             }
         }
+    }
+
+    private void inputMovementNumber(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        movementNumber = sc.nextInt();
     }
 }
