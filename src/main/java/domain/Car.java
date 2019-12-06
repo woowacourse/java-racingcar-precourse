@@ -8,7 +8,6 @@ package domain;
 public class Car {
     private static final String HYPHEN_FOR_POSITION = "-";
     private static final String SPACING_WORDS = " : ";
-
     private final String name;
 
     private int position = 0;

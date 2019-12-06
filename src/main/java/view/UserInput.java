@@ -39,12 +39,11 @@ public class UserInput {
     }
 
     public int chooseHowManyPlay() throws IOException {
-        while (true) {
-            try {
-                return Integer.parseInt(br.readLine().trim());
-            } catch (NumberFormatException e) {
-                PrintHandler.notifyFormatError();
-            }
+        try {
+            return Integer.parseInt(br.readLine().trim());
+        } catch (NumberFormatException e) {
+            PrintHandler.notifyFormatError();
+            return chooseHowManyPlay();
         }
     }
 }
