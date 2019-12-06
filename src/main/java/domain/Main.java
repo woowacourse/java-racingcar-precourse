@@ -20,11 +20,6 @@ public class Main {
 
         RacingManager racingmanager = new RacingManager();
 
-        String carNames;
-        int numberOfLaps;
-        int maxPosition;
-        int numberOfCars;
-
         racingmanager.start();
 
 

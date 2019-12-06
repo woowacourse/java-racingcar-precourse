@@ -5,6 +5,7 @@ import domain.Model.Car;
 public class RacingManager {
     private InputManager inputmanager;
     private String[] carNamesArray;
+    private int numberOfLaps;
 
 
     public RacingManager() {
@@ -48,13 +49,18 @@ public class RacingManager {
         System.out.println(">> 최종 우승!!");
     }
 
-    public void carSetting() {
+    private void carSetting() {
         do {
-            carNamesArray = inputmanager.inputCarNamesArray();
+            this.carNamesArray = inputmanager.inputCarNamesArray();
         } while (namesLengthGraterThanFive(carNamesArray));
+    }
+
+    private void lapSetting() {
+        this.numberOfLaps = inputmanager.inputNumberOfLaps();
     }
 
     public void start() {
         carSetting();
+        lapSetting();
     }
 }
