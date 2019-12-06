@@ -24,4 +24,10 @@ public class CarRacing {
         return (random.nextInt(RANDOM_MAX_NUMBER) >= RANDOM_PARTITION_NUMBER);
     }
 
+    private static void play(ArrayList<Car> carList) {
+        for(int i = 0; i < carList.size(); i ++) {
+            carList.get(i).printDistance();
+        }
+    }
+
 }
