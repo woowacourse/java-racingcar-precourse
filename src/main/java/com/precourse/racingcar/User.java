@@ -1,5 +1,5 @@
 /*
- * User.java                       1.4.0   2019-12-06
+ * User.java                       1.5.0   2019-12-06
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -19,11 +19,13 @@ import java.util.StringTokenizer;
  * 사용자에 대한 입력과 출력을 하는 기능들이 있습니다.
  * 입력이 올바르지 않은 경우 예외처리를 하는 기능이 있습니다.
  *
- * @version 1.4.0            자동차 이름 입력이 올바른지 확인하는 기능 추가
+ * @version 1.5.0            각 자동차 이름 길이가 1~5인지 확인하는 기능 추가
  * @date 2019-12-06
  * @author HyungjuAn
  */
 public class User {
+	private static final int MINIMUM_LENGTH_CAR_NAME = 1;
+	private static final int MAXIMUM_LENGTH_CAR_NAME = 5;
 	private static final int MINIMUM_CARS = 2;
 	private static final int SPLIT_LIMIT = -1;
 	private static final String COMMA = ",";
@@ -66,7 +68,7 @@ public class User {
 		String[] carNames = input.split(COMMA, SPLIT_LIMIT);
 
 		for (int i = 0; i < carNames.length; i++) {
-			if (carNames[i].isEmpty()) { // || 각 차 이름이 5자 이하인지 확인하는 기능
+			if (!isRightLengthName(carNames[i])) {
 				result = false;
 				break;
 			}
@@ -78,7 +80,18 @@ public class User {
 		return result;
 	}
 
+	private boolean isRightLengthName(String carName) {
+		boolean result = false;
+
+		if ((carName.length() >= MINIMUM_LENGTH_CAR_NAME) && (carName.length() <= MAXIMUM_LENGTH_CAR_NAME)) {
+			result = true;
+		}
+
+		return result;
+	}
+
 	@Override
+
 	protected final void finalize() throws Throwable {
 	}
 
