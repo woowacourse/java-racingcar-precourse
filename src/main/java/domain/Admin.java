@@ -16,12 +16,12 @@ public class Admin {
     /**
      * 전진여부 결정 시 나올 수 있는 최대 정수
      */
-    protected static final int maxRandomNumber = 10;
+    protected static final int MAX_RANDOM_NUMBER = 9;
 
     /**
-     * 전진여부 결정 시 전진할 수 있는 최소 정수
+     * 전진여부 결정 시 threshold 값 이상이면 전진
      */
-    protected static final int minMovingNumber = 4;
+    protected static final int MIN_THRESHOLD = 4;
 
     /**
      * 값을 입력받기 위한 Scanner class

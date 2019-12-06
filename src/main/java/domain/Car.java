@@ -32,9 +32,9 @@ public class Car {
      * @return Boolean 전진했으면 true, 하지 않았으면 false
      */
     protected void moveForward() {
-        int randomNumber = (int) (Math.random() * Admin.maxRandomNumber);
+        int randomNumber = (int) (Math.random() * Admin.MAX_RANDOM_NUMBER);
 
-        if (randomNumber >= Admin.minMovingNumber) {
+        if (randomNumber >= Admin.MIN_THRESHOLD) {
             position++;
         }
     }
