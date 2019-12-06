@@ -6,8 +6,11 @@ public class RacingRefereeImpl implements RacingReferee {
 
     private int maxPosition;
 
-    RacingRefereeImpl() {
+    public RacingRefereeImpl() {
         maxPosition = RacingGameConfig.DEFAULT_MAX_POSITION;
+    }
+    RacingRefereeImpl(int maxPosition) {
+        this.maxPosition = maxPosition;
     }
 
     @Override
@@ -25,5 +28,14 @@ public class RacingRefereeImpl implements RacingReferee {
     @Override
     public void announceResult(List<RacingCar> champions) {
 
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if ((object == null) || object.getClass() != this.getClass()) {
+            return false;
+        }
+
+        return this.maxPosition == ((RacingRefereeImpl) object).maxPosition;
     }
 }
