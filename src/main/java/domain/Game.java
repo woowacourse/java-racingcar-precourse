@@ -23,7 +23,6 @@ public class Game {
         String carsInputString = scanner.nextLine();
         parseCarNames(carsInputString);
     }
-
     private static void parseCarNames(String input) {
         String[] parsedInput = input.split(",");
         cars = new Car[parsedInput.length];
@@ -43,7 +42,6 @@ public class Game {
         }
         printGameResult();
     }
-
     private static void printGameResult() {
         for (Car car : cars) {
             System.out.printf("%s: %d\n", car.getName(), car.getPosition());
@@ -51,27 +49,31 @@ public class Game {
         System.out.println();
     }
 
+    private static void printWinnerName() {
+        System.out.printf("%s가 최종 우승했습니다.", getWinnerName());
+    }
     private static String getWinnerName() {
         String winnerName = "";
-        int maxPosition = -1;
-        for (Car car : cars) {
-            if (car.getPosition() > maxPosition) maxPosition = car.getPosition();
-        }
         boolean firstWinnerFlag = true;
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition && firstWinnerFlag) {
+            if (car.getPosition() == getMaxPosition() && firstWinnerFlag) {
                 winnerName += car.getName();
                 firstWinnerFlag = false;
                 continue;
             }
-            if (car.getPosition() == maxPosition) {
-                winnerName += ", "+car.getName();
+            if (car.getPosition() == getMaxPosition()) {
+                winnerName += ", " + car.getName();
             }
         }
         return winnerName;
     }
-
-    private static void printWinnerName() {
-        System.out.printf("%s가 최종 우승했습니다.", getWinnerName());
+    private static int getMaxPosition() {
+        int maxPosition = -1;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
     }
 }
