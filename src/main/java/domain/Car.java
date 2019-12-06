@@ -37,5 +37,14 @@ public class Car implements RacingCar {
         return 0;
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if ((object == null) || object.getClass() != this.getClass()) {
+            return false;
+        }
+
+        return this.name.equals(((Car)object).name) && (this.position == ((Car)object).position);
+    }
+
     // 추가 기능 구현
 }
