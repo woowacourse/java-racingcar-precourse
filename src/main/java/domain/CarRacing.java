@@ -47,4 +47,8 @@ public class CarRacing {
         return (carA.getPosition() == carB.getPosition());
     }
 
+    private static void println(String string) {
+        System.out.println(string);
+    }
+
 }
