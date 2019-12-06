@@ -18,7 +18,10 @@ class Controller {
     }
 
     public void stringCommaSplit(String carListText) {
-        carListText.split(",");
+        // 길이가 6자 이상인 경우 예외처리가 필요하다.
+        for(String st : carListText.split(",")){
+            cars.add(new Car(st));
+        }
     }
 
     public void runCarsForward() {
@@ -35,7 +38,22 @@ class Controller {
         }
     }
 
-    public void getMaximumDistanceCar() {
+    private void getMaximumDistanceCars(int length) {
+        for (int i = 0; i < cars.size(); i++) {
+            // 최장거리라면?
+            if(length == cars.get(i).getPosition()){
+                resultCars.add(cars.get(i));
+            }
+        }
+    }
 
+    public void getMaximumDistanceCar() {
+        int index = 0;
+        for (int i = 1; i < cars.size(); i++) {
+            if (cars.get(index).getPosition() < cars.get(i).getPosition()) {
+                index = i;
+            }
+        }
+        getMaximumDistanceCars(cars.get(index).getPosition());
     }
 }
