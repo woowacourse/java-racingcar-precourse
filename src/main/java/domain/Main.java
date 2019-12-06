@@ -7,52 +7,50 @@
  */
 package domain;
 
+import domain.Controller.RacingManager;
+import domain.Model.Car;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 
 public class Main {
-
 
     public static void main(String[] args) {
         ArrayList<Integer> positionList = new ArrayList<>();
 
+        RacingManager racingmanager = new RacingManager();
+
         String carNames;
-        String[] splitedCarNames;
         int numberOfLaps;
         int maxPosition;
         int numberOfCars;
 
-
-        do {
-            carNames = RacingManager.inputCarNames();
-            splitedCarNames = RacingManager.splitCarNames(
-                    carNames, ",");
-        } while (RacingManager
-                .namesLengthGraterThanFive(splitedCarNames));
-
-        numberOfCars = splitedCarNames.length;
-        Car[] cars = new Car[numberOfCars];
-
-        for (int i = 0; i < numberOfCars; i++) {
-            cars[i] = new Car(splitedCarNames[i]);
-        }
-
-        numberOfLaps = RacingManager.inputNumberOfLaps();
-        RacingManager.runOrStop(numberOfLaps, numberOfCars, cars);
+        racingmanager.start();
 
 
-        for (Car car : cars) {
-            positionList.add(car.getPosition());
-        }
-
-        maxPosition = Collections.max(positionList);
-
-        for (int i = 0; i < numberOfCars; i++) {
-            if (cars[i].getPosition() == maxPosition) {
-                System.out.print(cars[i].getName() + " ");
-            }
-        }
-        System.out.println("최종 우승!!");
+//        do {
+//            carNames = racingmanager.inputCarNames();
+//            splitedCarNames = racingmanager.splitCarNames(
+//                    carNames, ",");
+//        } while (racingmanager
+//                .namesLengthGraterThanFive(splitedCarNames));
+//
+//        numberOfCars = splitedCarNames.length;
+//        Car[] cars = new Car[numberOfCars];
+//
+//        for (int i = 0; i < numberOfCars; i++) {
+//            cars[i] = new Car(splitedCarNames[i]);
+//        }
+//
+//        numberOfLaps = racingmanager.inputNumberOfLaps();
+//        racingmanager.runOrStop(numberOfLaps, numberOfCars, cars);
+//
+//
+//        for (Car car : cars) {
+//            positionList.add(car.getPosition());
+//        }
+//
+//        maxPosition = Collections.max(positionList);
+//        racingmanager.whoIsWinner(numberOfCars, maxPosition, cars);
     }
 }

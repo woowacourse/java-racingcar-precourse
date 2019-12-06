@@ -1,4 +1,4 @@
-package domain;
+package domain.Model;
 
 import java.util.Random;
 
@@ -12,23 +12,23 @@ public class Car {
         this.name = name;
     }
 
-    String getName() {
+    public String getName() {
         return this.name;
     }
 
-    void isOverFour(int randomNumber) {
+    public void isOverFour(int randomNumber) {
         if (randomNumber >= 4) {
             this.position++;
         }
     }
 
-    void canYouGo() {
+    public void canYouGo() {
         if (rand.nextInt() >= 4) {
             position++;
         }
     }
 
-    int getPosition() {
+    public int getPosition() {
         return position;
     }
 }
