@@ -31,6 +31,7 @@ public class PlayRacing {
             System.out.println(car.getPosition());
         }
 
+        CarNameGenerator.carNameGenerator();
 
     }
 
