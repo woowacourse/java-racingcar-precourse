@@ -29,4 +29,14 @@ public class Computer {
             c.goFoward();
         }
     }
+
+    public void showPosition() {
+        for (int i = 0; i < carList.length; i++) {
+            System.out.print(carList[i].getName() + " : ");
+            for (int j = 0; j < carList[i].getPosition(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
 }
