@@ -24,10 +24,13 @@ public class Computer {
         return r.nextInt(RANDOM_MAX);
     }
 
-    public void checkFoward(Car c, int n) {
-        if (n >= FOWARD_POINT) {
-            c.goFoward();
+    public void checkFoward() {
+        for(int i = 0; i < carList.length; i++) {
+            if (makeRandom() >= FOWARD_POINT) {
+                carList[i].goFoward();
+            }
         }
+        showPosition();
     }
 
     public void showPosition() {
@@ -39,12 +42,5 @@ public class Computer {
             System.out.println();
         }
         System.out.println();
-    }
-
-    public void playOnce() {
-        for(int i = 0; i < carList.length; i++) {
-            checkFoward(carList[i], makeRandom());
-        }
-        showPosition();
     }
 }
