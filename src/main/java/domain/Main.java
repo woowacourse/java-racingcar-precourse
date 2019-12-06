@@ -61,6 +61,7 @@ public class Main {
             //난수만큼 게임 진행
             advanceAccordingToARandomNum(randomNum);
         }
+        findWinner();
     }
 
     private static void makeRandomNumber(int[] randomNum) {
@@ -75,5 +76,31 @@ public class Main {
                 car[i].addPosition();
             }
         }
+    }
+
+    private static void findWinner() {
+        int max = car[0].currPosition();
+        ArrayList winner = new ArrayList();
+
+        for(int i=0; i<carName.length; i++){
+            if(max < car[i].currPosition()) {
+                max = car[i].currPosition();
+                winner.clear();
+                winner.add(car[i].getName());
+            }else if(max == car[i].currPosition()) {
+                winner.add(car[i].getName());
+            }else if(max > car[i].currPosition()) {
+                continue;
+            }
+        }
+        printWinner(winner);
+    }
+
+    private static void printWinner(ArrayList winner) {
+        for(int i = 0; i < winner.size() - 1; i++) {
+            System.out.print(winner.get(i)+", ");
+        }
+        System.out.print(winner.get(winner.size() - 1));
+        System.out.print("가 최종 우승했습니다.");
     }
 }
