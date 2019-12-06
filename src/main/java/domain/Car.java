@@ -6,6 +6,9 @@ package domain;
  * @since 2019-12-05
  */
 public class Car {
+    private static final String HYPHEN_FOR_POSITION = "-";
+    private static final String SPACING_WORDS = " : ";
+
     private final String name;
 
     private int position = 0;
@@ -28,4 +31,13 @@ public class Car {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(SPACING_WORDS);
+        for(int i=0; i<position; i++){
+            sb.append(HYPHEN_FOR_POSITION);
+        }
+        return sb.toString();
+    }
 }
