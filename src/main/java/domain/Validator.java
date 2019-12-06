@@ -14,12 +14,21 @@ public class Validator {
         return carName;
     }
 
+    public boolean isContainsSpace(String name) {
+        return name.contains(" ");
+    }
+
     public boolean isNotNull(List<String> carName) {
         return !(carName.isEmpty());
     }
 
     public boolean isNotExcess(List<String> carName) {
         return carName.stream().allMatch(name -> name.length() < 6);
+    }
+
+
+    public boolean isNotOverlap(List<String> carName) {
+        return carName.size() == carName.stream().distinct().count();
     }
 
     public boolean isNotBelowZero(List<String> carName) {

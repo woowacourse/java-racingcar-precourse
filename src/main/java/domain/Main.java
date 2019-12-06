@@ -21,6 +21,7 @@ public class Main {
             resultValue = rm.start();
         } catch (InputMismatchException e) {
             System.out.println("올바른 타입이 아닙니다.");
+            return resultValue;
         }
 
         return resultValue;

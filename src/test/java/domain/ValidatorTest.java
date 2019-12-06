@@ -2,6 +2,7 @@ package domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,6 +19,22 @@ class ValidatorTest {
         carNames.add("James");
 
         assertThat(validator.isNotNull(carNames)).isEqualTo(true);
+    }
+
+    @Test
+    public void carNameSpaceTest() {
+        Validator validator = new Validator();
+
+        assertThat(validator.isContainsSpace("hell,o f,every,body")).isEqualTo(true);
+        assertThat(validator.isContainsSpace("hell,o,every,body")).isEqualTo(false);
+    }
+
+    @Test
+    public void carOverlapTest() {
+        Validator validator = new Validator();
+
+        assertThat(validator.isNotOverlap(Arrays.asList("hello", "every", "hello", "body"))).isEqualTo(false);
+        assertThat(validator.isNotOverlap(Arrays.asList("hello", "every", "body"))).isEqualTo(true);
     }
 
     @Test

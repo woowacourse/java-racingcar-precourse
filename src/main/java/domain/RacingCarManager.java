@@ -27,13 +27,17 @@ public class RacingCarManager {
         Validator validator = new Validator();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNames = new Scanner(System.in).next();
+        String carNames = new Scanner(System.in).nextLine();
 
+        if (validator.isContainsSpace(carNames)) {
+            return false;
+        }
         carName = validator.splitName(carNames);
 
         return validator.isNotNull(carName)
                 && validator.isNotExcess(carName)
-                && validator.isNotBelowZero(carName);
+                && validator.isNotBelowZero(carName)
+                && validator.isNotOverlap(carName);
     }
 
     private boolean tryTimeGenerator() {
