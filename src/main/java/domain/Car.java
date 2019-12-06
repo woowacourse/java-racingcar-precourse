@@ -21,10 +21,11 @@ public class Car {
     }
 
     public void printDistance() {
-        System.out.print(this.name+" : ");
+        print(this.name+" : ");
         for (int i = 0; i < this.position; i ++) {
-            System.out.print("-");
+            print("-");
         }
+        print("\n");
     }
 
     private void print(String string) {
