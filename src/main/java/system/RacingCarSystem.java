@@ -10,41 +10,34 @@ import java.util.StringTokenizer;
 
 public class RacingCarSystem {
     private int repeatTime;
-    private String[] carNameArr;
     private List<Car> cars = new LinkedList<>();
 
     public void setUpRacing() {
         String carsName = InputRacingCar.inputCarsName();
-        setCarNameArr(carsName);
-        setCarList();
+        setCarList(carsName);
         repeatTime = InputRacingCar.inputRepeatTime();
     }
 
-    public void setCarNameArr(String carsName) {
-        StringTokenizer st = new StringTokenizer(carsName, ",");
-        carNameArr = new String[st.countTokens()];
+    public void setCarList(String carsName) {
+        StringTokenizer st = splitCarName(carsName);
 
-        int index = 0;
         while (st.hasMoreTokens()) {
-            carNameArr[index] = st.nextToken();
-            index++;
+            createCar(st.nextToken());
         }
     }
 
-    public void setCarList() {
-        for (int i = 0; i < carNameArr.length; i++) {
-            cars.add(new Car(carNameArr[i]));
-        }
+    public StringTokenizer splitCarName(String carsName) {
+        return new StringTokenizer(carsName, ",");
     }
 
-    public int generateRandomNumber() {
-        return (int) (Math.random() * 10);
+    public void createCar(String carName) {
+        cars.add(new Car(carName));
     }
 
     public void startRacing() {
         OutputRacingCar.printGameResult();
         for (int i = 0; i < repeatTime; i++) {
-            for(Car car : cars){
+            for (Car car : cars) {
                 OutputRacingCar.printCarProgress(car);
                 decideToMoveCar(car);
             }
@@ -53,8 +46,12 @@ public class RacingCarSystem {
     }
 
     public void decideToMoveCar(Car car) {
-        if (generateRandomNumber() > 3) {
+        if (createRandomNumber() > 3) {
             car.move();
         }
+    }
+
+    public int createRandomNumber() {
+        return (int) (Math.random() * 10);
     }
 }
