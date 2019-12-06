@@ -42,7 +42,7 @@ public class Car {
     /**
      * 자동차의 이름과 현재 포지션만큼 '-'를 출력하는 메소드
      */
-    protected void printMove() {
+    protected void printPosition() {
         System.out.print(name + ": ");
         for (int i = 0; i <= position; i++) {
             System.out.print('-');

@@ -2,8 +2,6 @@ package domain;
 
 import java.util.Collections;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 import java.util.ArrayList;
 
 /**
@@ -110,18 +108,14 @@ public class Admin {
      */
     private String[] getCarNames() {
         String input;
-        String[] carNames;
-        String carNameValidPattern = "(^[a-zA-Z0-9]{1,5})";         // 유효한 패턴은 1~5 글자의 영문 알파벳, 숫자를 의미
+        String carNameValidPattern = "([a-zA-Z][a-zA-Z0-9]{0,4}(,|$))+";         // 유효한 패턴은 1~5 글자의 영문 알파벳, 숫자를 의미
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         input = scan.nextLine();
-        carNames = input.split(",");
-        for (int i = 0; i < carNames.length; i++) {
-            if (!ifStringHasValidPattern(carNames[i], carNameValidPattern)) {
-                return INVALID_CAR_NAME;
-            }
+        if (!input.matches(carNameValidPattern)) {
+            return INVALID_CAR_NAME;
         }
-        return carNames;
+        return input.split(",");
     }
 
     /**
@@ -160,28 +154,15 @@ public class Admin {
     private int getNumOfMoving() {
         String input;
         int numOfMoving;
-        String numberValidPattern = "(^[0-9]+)";         // 한자리 이상의 숫자를 의미
+        String numberValidPattern = "^[1-9][0-9]*";       // 한자리 이상의 숫자를 의미
 
         System.out.println("시도할 횟수는 몇회인가요?");
         input = scan.nextLine();
-        if (!ifStringHasValidPattern(input, numberValidPattern)) {
+        if (!input.matches(numberValidPattern)) {
             return INVALID_NUMBER;
         }
         numOfMoving = Integer.parseInt(input);
         return numOfMoving;
-    }
-
-    /**
-     * 문자열이 유효한 패턴을 갖고 있는지 체크하는 함수
-     *
-     * @param string       체크할 문자열
-     * @param validPattern 찾고 싶은 유효한 패턴
-     * @return Boolean 문자열이 유효한 패턴을 갖고 있는지 여부
-     */
-    private Boolean ifStringHasValidPattern(String string, String validPattern) {
-        Pattern namePattern = Pattern.compile(validPattern);
-        Matcher nameMatcher = namePattern.matcher(string);
-        return nameMatcher.find();
     }
 
     /**
@@ -197,8 +178,8 @@ public class Admin {
      * 자동차의 전진과정을 출력하는 메소드
      */
     private void printPosition() {
-        for (int i = 0; i <= cars.length; i++) {
-            cars[i].printMove();
+        for (int i = 0; i < cars.length; i++) {
+            cars[i].printPosition();
         }
         System.out.println();
     }
@@ -209,12 +190,12 @@ public class Admin {
      * return 자동차들의 position이 저장된 ArrayList
      */
     private ArrayList<Integer> getCarsPosition() {
-        ArrayList<Integer> countMoving = new ArrayList<>();         // 각 자동차별로 전진한 횟수를 저장하는 ArrayList
+        ArrayList<Integer> carsPosition = new ArrayList<>();
 
         for (int i = 0; i < cars.length; i++) {
-            countMoving.add(cars[i].getPosition());
+            carsPosition.add(cars[i].getPosition());
         }
-        return countMoving;
+        return carsPosition;
     }
 
     /**
