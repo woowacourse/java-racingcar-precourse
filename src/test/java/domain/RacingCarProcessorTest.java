@@ -13,7 +13,10 @@ class RacingCarProcessorTest {
     public void carMovementRandomGeneratorTest() {
         RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
 
-        assertThat(racingCarProcessor.carMovementRandomGenerator(10).size()).isEqualTo(10);
+        assertThat(racingCarProcessor
+                .carMovementRandomGenerator(10)
+                .size())
+                .isEqualTo(10);
         assertThat(racingCarProcessor
                 .carMovementRandomGenerator(1000)
                         .stream()
@@ -32,8 +35,12 @@ class RacingCarProcessorTest {
     public void goPermissionTest() {
         RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
 
-        assertThat(racingCarProcessor.goForwardPermission(Arrays.asList(3,6,8,2,1,9), 3)).isEqualTo(false);
-        assertThat(racingCarProcessor.goForwardPermission(Arrays.asList(3,6,8,2,1,9), 5)).isEqualTo(true);
+        assertThat(racingCarProcessor
+                .goForwardPermission(Arrays.asList(3,6,8,2,1,9), 3))
+                .isEqualTo(false);
+        assertThat(racingCarProcessor
+                .goForwardPermission(Arrays.asList(3,6,8,2,1,9), 5))
+                .isEqualTo(true);
     }
 
 }

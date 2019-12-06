@@ -11,12 +11,10 @@ class RacingCarManagerTest {
     @Test
     public void createTest() {
         RacingCarManager racingCarManager = new RacingCarManager();
-        RacingCarPosition racingCarPosition = new RacingCarPosition();
         RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
         Validator validator = new Validator();
 
         assertThat(racingCarManager).isNotNull();
-        assertThat(racingCarPosition).isNotNull();
         assertThat(racingCarProcessor).isNotNull();
         assertThat(validator).isNotNull();
     }
@@ -31,7 +29,9 @@ class RacingCarManagerTest {
         carName.add("Kim");
         carName.add("Hans");
 
-        assertThat(racingCarManager.carGenerator(registeredCar, carName)).isEqualTo(3);
+        assertThat(racingCarManager
+                .carGenerator(registeredCar, carName))
+                .isEqualTo(3);
     }
 
     @Test
@@ -46,6 +46,8 @@ class RacingCarManagerTest {
         registeredCar.get(0).goForwardPosition();
         registeredCar.get(1).goForwardPosition();
 
-        assertThat(racingCarManager.gameFinish(registeredCar)).isEqualTo("John, Kim");
+        assertThat(racingCarManager
+                .gameFinish(registeredCar))
+                .isEqualTo("John, Kim");
     }
 }

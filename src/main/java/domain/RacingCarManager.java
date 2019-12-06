@@ -55,7 +55,8 @@ public class RacingCarManager {
         RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
 
         for (Car car : registeredCar) {
-            car.setGoForward(racingCarProcessor.carMovementRandomGenerator(tryTimes));
+            car.setGoForward(racingCarProcessor
+                    .carMovementRandomGenerator(tryTimes));
         }
         System.out.println("실행 결과");
         for (int i = 0; i < tryTimes; i++) {
@@ -71,6 +72,9 @@ public class RacingCarManager {
     }
 
     public int hightestPosition(List<Car> registeredCar) {
-        return registeredCar.stream().mapToInt(Car::getPosition).max().orElseThrow(NoSuchElementException::new);
+        return registeredCar.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(NoSuchElementException::new);
     }
 }
