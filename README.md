@@ -10,8 +10,8 @@
 - [x] 4. 경주차 각각에 대한 `random` 값(0~9) 생성
 - [x] 5. `random`값에 따른 `isFoward`의 여부(`random > 4`) 계산
 - [x] 6. `isFoward`에 따른 `position` 변화 계산
-- [ ] 7. 4~6 실행에 따른 각 instance의 `position` 결과를 출력하기
-- [ ] 8. 4~7 실행을 `totalMove` 만큼 반복하기
+- [x] 7. 4~6 실행에 따른 각 instance의 `position` 결과를 출력하기
+- [x] 8. 4~7 실행을 `totalMove` 만큼 반복하기
 - [ ] 9. 각 instance의 `position`을 비교하여 가장 큰 `position`을 가진 instance를 구해 `winner`로 선정
 - [ ] 10. `winner`로 선정된 instance를 화면에 출력
 ## 기능 요구사항
