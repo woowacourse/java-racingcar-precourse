@@ -17,7 +17,7 @@
 3. 현재 상태거리를 출력하는 positionPrint() 함수 구현 
 
 
-## System
+## IoSystem
 1. printCarList() 차량 리스트를 입력요청을 안내해주는 함수.
 2. printCount() 시도할 횟수를 입력요청을 안내하는 함수
 3. inputCarList() 차량을 입력받는 함수를 구현.

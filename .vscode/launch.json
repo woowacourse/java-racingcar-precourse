@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "mainClass": "io.test",
+            "projectName": "java-racingcar-precourse"
+        }
+    ]
+}
