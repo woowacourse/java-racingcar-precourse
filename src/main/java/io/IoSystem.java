@@ -12,9 +12,10 @@ public class IoSystem {
         sc = new Scanner(System.in);
     }
 
-    public int getCount(){
+    public int getCount() {
         return count;
     }
+
     public void printCarList() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
@@ -24,11 +25,27 @@ public class IoSystem {
     }
 
     public String inputCarList() {
-        return sc.nextLine();
+        String temp = sc.nextLine();
+        for (String st : temp.split(",")) {
+            if (st.length() >= 6) {
+                System.out.println("차량이름은 5글자 이내로 해주세요! 다시 입력해주세요.");
+                return inputCarList();
+            }
+        }
+        return temp;
     }
 
     public void inputCount() {
-        this.count = sc.nextInt();
+        try {
+            this.count = sc.nextInt();
+            if (count < 0) {
+                System.out.println("양수를 입력해주세요!");
+                inputCount();
+            }
+        } catch (Exception e) {
+            System.out.println("숫자를 입력해주세요!");
+            inputCount();
+        }
     }
 
     public void printResult() {

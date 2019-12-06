@@ -19,7 +19,6 @@ public class Controller {
     }
 
     public void stringCommaSplit(String carListText) {
-        // 길이가 6자 이상인 경우 예외처리가 필요하다.
         for (String st : carListText.split(",")) {
             cars.add(new Car(st));
         }
