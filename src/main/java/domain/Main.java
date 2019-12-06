@@ -15,42 +15,36 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> positionList = new ArrayList<>();
 
         String carNames;
         String[] splitedCarNames;
         int iterationNumber;
         int maxPosition;
+        int numberOfCars;
 
 
         do {
             carNames = RacingManager.inputCarNames();
             splitedCarNames = RacingManager.splitCarNames(
                     carNames, ",");
-        } while (RacingManager.namesLengthGraterThanFive(splitedCarNames));
+        } while (RacingManager
+                .namesLengthGraterThanFive(splitedCarNames));
 
+        numberOfCars = splitedCarNames.length;
+        Car[] cars = new Car[numberOfCars];
 
-        Car[] cars = new Car[splitedCarNames.length];
-
-        for (int i = 0; i < splitedCarNames.length; i++) {
+        for (int i = 0; i < numberOfCars; i++) {
             cars[i] = new Car(splitedCarNames[i]);
-            System.out.println(cars[i].getName());
         }
 
-        System.out.println("시도할 횟수는 몇회인가요?");
-        iterationNumber = scanner.nextInt();
-
+        iterationNumber = RacingManager.inputNumberOfLaps();
 
         for (int i = 0; i < iterationNumber; i++) {
-            System.out.println((i + 1) + "번");
-        }
-
-        for (int i = 0; i < splitedCarNames.length; i++) {
-            for (int j = 0; j < splitedCarNames.length; j++) {
+            for (int j = 0; j < iterationNumber; j++) {
                 cars[j].canYouGo();
-                System.out.println(cars[j].getName() + " : "
-                        + cars[j].getPosition());
+                System.out.println(cars[j].getName()
+                        + " : " + cars[j].getPosition());
             }
         }
 
@@ -61,7 +55,7 @@ public class Main {
 
         maxPosition = Collections.max(positionList);
 
-        for (int i = 0; i < splitedCarNames.length; i++) {
+        for (int i = 0; i < numberOfCars; i++) {
             if (cars[i].getPosition() == maxPosition) {
                 System.out.print(cars[i].getName() + " ");
             }

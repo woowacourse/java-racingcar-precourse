@@ -4,15 +4,12 @@ import java.util.Scanner;
 
 public class RacingManager {
     String[] splitedCarNames;
+    static Scanner scanner = new Scanner(System.in);
 
     static String inputCarNames() {
-        Scanner scanner = new Scanner(System.in);
-
         String carNames;
-
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        carNames = scanner.next();
-        return carNames;
+        return carNames = scanner.next();
     }
 
     static String[] splitCarNames(String carNames,
@@ -29,5 +26,11 @@ public class RacingManager {
             }
         }
         return false;
+    }
+
+    static int inputNumberOfLaps() {
+        int numberOfLaps;
+        System.out.println("시도할 횟수는 몇회인가요?");
+        return numberOfLaps = scanner.nextInt();
     }
 }
