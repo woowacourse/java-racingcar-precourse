@@ -27,5 +27,20 @@ public class Game {
         scanner = new Scanner(System.in);
         System.out.println("시도할 횟수는 몇회인가요?");
         numGames = scanner.nextInt();
+        scanner.close();
+    }
+
+    public static void runGame() {
+        for (Car car : cars) {
+            car.March();
+        }
+        printGameResult();
+    }
+
+    private static void printGameResult() {
+        for (Car car : cars) {
+            System.out.printf("%s: %d\n", car.getName(), car.getPosition());
+        }
+        System.out.println();
     }
 }

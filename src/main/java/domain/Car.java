@@ -17,4 +17,13 @@ public class Car {
         double randomInt = Math.floor(Math.random() * 10);
         return randomInt >= 4.0;
     }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
