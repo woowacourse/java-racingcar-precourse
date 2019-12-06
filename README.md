@@ -27,7 +27,7 @@
  - name, position 변수의 접근 제어자인 private을 변경할 수 없다.
  - setPosition() 메소드를 추가하지 않고 구현한다.
  
-```{.java}
+```java
 public class Car {
     private final String name;
     private int position = 0;
