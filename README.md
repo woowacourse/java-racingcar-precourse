@@ -41,11 +41,14 @@ public class Car {
 ### Class Car
 ```
 void drive(int position)
+String getName()
 int getPosition()
 void printDistance()
 ```
 ##### drive 메소드
 ###### 차 객체의 position 을 하나 증가시켜주는 메소드
+##### getName 메소드
+###### 차 객체의 name 을 반환하는 메소드
 ##### getPosition 메소드
 ###### 차 객체의 position 의 값을 반환해주는 메소드
 ##### printDistance() 메소드
