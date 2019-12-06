@@ -23,11 +23,12 @@
 3. inputCarList() 차량을 입력받는 함수를 구현.
 4. inputCount() 시도할 횟수를 입력받는 함수 구현
 5. printResult() 실행결과 메시지를 출력하는 함수 구현
-6. 랜덤 값을 반환하는 함수 구현 getRandomInt()
-7. 최고거리를 도달한 차량의 이름을 출력하는 함수 구현 printResultCars()
+6. 최고거리를 도달한 차량의 이름을 출력하는 함수 구현 printResultCars()
 
 ## Controller
 1. System 클래스의 있는 문자열을 ',' 단위로 나누어 Car에 담는 함수 구현 stringCommaSplit()
 2. N만큼 for문 반복하여 차를 이동시키는 함수 실행하는 함수 구현 runCarsForward()
 3. N만큼 for문 반복하여 차량상태를 출력하는 함수 구현 runCarsPirnt()
-4. N만큼 for문 반복하여 최장거리의 차량을 리스트에 담는 getMaximumDistanceCars() 함수 구현
+4. N만큼 for문 반복하여 최장거리의 차량 하나을 리스트에 담는 함수 구현 getMaximumDistanceCar()
+5. getMaximumDistanceCar()의 결과와 값이 같은 차량을 리스트에 담는 함수 구현 getMaximumDistanceCar()
+6. 랜덤 값을 반환하는 함수 구현 getRandomInt()

@@ -4,7 +4,7 @@ import domain.Car;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class IoSystem {
+public class IoSystem {
     private Scanner sc;
     private int count;
 
@@ -32,19 +32,15 @@ class IoSystem {
         System.out.println("실행결과");
     }
 
-    public int getRandomInt() {
-        return (int) (Math.random() * 10);
-    }
-
-    public void printResultCars(ArrayList<Car> Cars) {
-        if (Cars.size() > 1) {
-            for (int i = 0; i < Cars.size() - 1; i++) {
-                System.out.print(Cars.get(i).getName());
+    public void printResultCars(ArrayList<Car> cars) {
+        if (cars.size() > 1) {
+            for (int i = 0; i < cars.size() - 1; i++) {
+                System.out.print(cars.get(i).getName());
                 System.out.print(", ");
             }
         }
-        for (int i = Cars.size() - 1; i < Cars.size(); i++) {
-            System.out.print(Cars.get(i).getName());
+        for (int i = cars.size() - 1; i < cars.size(); i++) {
+            System.out.print(cars.get(i).getName());
         }
         System.out.println("가 최종 우승했습니다.");
     }
