@@ -10,6 +10,10 @@ public class Stadium {
 
 	private static final int ZERO = 0;
 	private static final int MAX_LENGTH = 5;
+	private static final String COLON = ": ";
+	private static final String COMMA = ",";
+	private static final String POSITION_MARK = "-";
+	private static final String WINNING_MESSAGE = "가 최종 우승했습니다.";
 
 	private Scanner scanner = new Scanner(System.in);
 	private ArrayList<Car> carList;
@@ -30,7 +34,7 @@ public class Stadium {
 		do {
 			printMessageAskingNamesOfCars();
 			String input = scanner.nextLine();
-			carNames = Arrays.asList(input.replaceAll("\\s", "").split(","));
+			carNames = Arrays.asList(input.replaceAll("\\s", "").split(COMMA));
 		} while (isNull(carNames) || !isValidLengthOfName(carNames));
 
 		return carNames;
@@ -99,7 +103,7 @@ public class Stadium {
 			car.move();
 			printPositions(car);
 		}
-		System.out.println("");
+		System.out.println();
 	}
 
 	private void printPositions(Car car) {
@@ -107,10 +111,10 @@ public class Stadium {
 
 		StringBuilder sb = new StringBuilder();
 		sb.append(car.getName());
-		sb.append(": ");
+		sb.append(COLON);
 
 		for (int i = 0; i < position; i++) {
-			sb.append("-");
+			sb.append(POSITION_MARK);
 		}
 		System.out.println(sb.toString());
 	}
@@ -146,12 +150,12 @@ public class Stadium {
 
 		for (String firstRunner : firstRunners) {
 			if (sb.length() > ZERO) {
-				sb.append(",");
+				sb.append(COMMA);
 			}
 			sb.append(firstRunner);
 		}
 
-		sb.append("가 최종 우승했습니다.");
+		sb.append(WINNING_MESSAGE);
 		System.out.println(sb.toString());
 
 	}
