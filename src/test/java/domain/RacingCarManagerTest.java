@@ -33,4 +33,19 @@ class RacingCarManagerTest {
 
         assertThat(racingCarManager.carGenerator(registeredCar, carName)).isEqualTo(3);
     }
+
+    @Test
+    public void gameFinishTest() {
+        RacingCarManager racingCarManager = new RacingCarManager();
+        List<Car> registeredCar = new LinkedList<>();
+
+        registeredCar.add(new Car("John"));
+        registeredCar.add(new Car("Kim"));
+        registeredCar.add(new Car("Hans"));
+
+        registeredCar.get(0).goForwardPosition();
+        registeredCar.get(1).goForwardPosition();
+
+        assertThat(racingCarManager.gameFinish(registeredCar)).isEqualTo("John, Kim");
+    }
 }

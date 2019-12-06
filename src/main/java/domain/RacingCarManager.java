@@ -1,13 +1,12 @@
 package domain;
 
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class RacingCarManager {
-    private final int BEST_DRIVER_POSITION = 0;
     private List<String> carName = new LinkedList<>();
     private List<Car> registeredCar = new LinkedList<>();
     private int tryTimes;
@@ -19,6 +18,7 @@ public class RacingCarManager {
 
         carGenerator(registeredCar, carName);
         gameProgressing();
+        System.out.println(gameFinish(registeredCar) + "가 최종 우승했습니다.");
 
         return true;
     }
@@ -61,5 +61,16 @@ public class RacingCarManager {
         for (int i = 0; i < tryTimes; i++) {
             racingCarProcessor.iteratorCarPositionCheck(registeredCar, i);
         }
+    }
+
+    public String gameFinish(List<Car> registeredCar) {
+        return registeredCar.stream()
+                .filter(car -> car.getPosition() == hightestPosition(registeredCar))
+                .map(car -> car.getName())
+                .collect(Collectors.joining(", "));
+    }
+
+    public int hightestPosition(List<Car> registeredCar) {
+        return registeredCar.stream().mapToInt(Car::getPosition).max().orElseThrow(NoSuchElementException::new);
     }
 }
