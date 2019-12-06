@@ -3,13 +3,13 @@ package domain;
 import java.util.Arrays;
 
 public class Util {
-    private String carNameArray[];
-    private Car carObjectArray[];
-    private int finalCarPositions[];
+    private String[] carNameArray;
+    private Car[] carObjectArray;
+    private int[] finalCarPositions;
 
-    static final int MINIMUM_NAME_LENGTH = 1;
-    static final int LIMIT_NAME_LENGTH = 5;
-    static final int JUDGE_TO_GO = 4;
+    private static final int MINIMUM_NAME_LENGTH = 1;
+    private static final int LIMIT_NAME_LENGTH = 5;
+    private static final int JUDGE_TO_GO = 4;
 
     // 쉼표를 기준으로 자동차의 이름들을 분류
     void splitCarName(String rawCarName) {
@@ -91,7 +91,7 @@ public class Util {
                 tempWinners += divider;
             }
         }
-        System.out.println(tempWinners.substring(0, tempWinners.length()-2)
+        System.out.println(tempWinners.substring(0, tempWinners.length() - 2)
                 + "가 최종 우승했습니다.");
     }
 }
