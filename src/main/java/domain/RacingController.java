@@ -14,6 +14,18 @@ import java.util.List;
  */
 public class RacingController {
     private static final int MIN_OF_GO = 4;
+    private static RacingController INSTANCE;
+
+    private RacingController() {
+        throw new AssertionError();
+    }
+
+    public static RacingController getInstance(){
+        if(INSTANCE ==null){
+            INSTANCE = new RacingController();
+        }
+        return INSTANCE;
+    }
 
     public void gameStart(List<Car> users, int howMany) {
         PrintHandler.gameResult();

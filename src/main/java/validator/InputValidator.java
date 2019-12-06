@@ -8,11 +8,19 @@ package validator;
 public class InputValidator {
     private static final int ZERO = 0;
     private static final int CAR_NAME_MAX_SIZE = 5;
+    private static InputValidator INSTANCE;
 
     private int correctInputCount = ZERO;
 
+    private InputValidator() {
+        throw new AssertionError();
+    }
+
     public static InputValidator getInstance() {
-        return new InputValidator();
+        if(INSTANCE == null){
+            INSTANCE = new InputValidator();
+        }
+        return INSTANCE;
     }
 
     public boolean checkCarNames(String[] userInput) {
