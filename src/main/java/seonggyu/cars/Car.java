@@ -35,4 +35,11 @@ public class Car {
     	}
     	System.out.println();
     }
+    
+    public boolean isWinner(int maxDistance) {
+    	if (this.position >= maxDistance) {
+    		return true;
+    	}
+    	return false;
+    }
 }

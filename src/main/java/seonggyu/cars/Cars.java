@@ -15,19 +15,22 @@ public class Cars {
 		Car newCar = new Car(carName);
 		this.cars.add(newCar);
 	}
-	
-	public void printNames() {
-		cars.stream()
-			.forEach(car -> System.out.println(car.getName()));
-	}
 
 	public void printNamesAndPositions() {
-		cars.stream()
+		this.cars.stream()
 			.forEach(car -> car.printNameAndPosition());
 	}
 	
 	public void decidePositions() {
-		cars.stream()
+		this.cars.stream()
 			.forEach(car -> car.decidePosition());
+	}
+	
+	public Winners getWinners() {
+		Winners winners = new Winners();
+		this.cars.stream()
+			.filter(car -> car.isWinner(winners.getMaxDistance()))
+			.forEach(car -> winners.add(car));
+		return winners;
 	}
 }
