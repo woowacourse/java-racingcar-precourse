@@ -1,25 +1,24 @@
 package domain;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class RacingCarManager {
+    private final int BEST_DRIVER_POSITION = 0;
     private List<String> carName = new LinkedList<>();
     private List<Car> registeredCar = new LinkedList<>();
     private int tryTimes;
 
     public boolean start() {
-        RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
-
         if (!carNameGenerator() || !tryTimeGenerator()) {
             return false;
         }
-        carGenerator(registeredCar, carName);
 
-        for (Car car : registeredCar) {
-            car.setGoForward(racingCarProcessor.carMovementRandomGenerator(tryTimes));
-        }
+        carGenerator(registeredCar, carName);
+        gameProgressing();
 
         return true;
     }
@@ -32,7 +31,9 @@ public class RacingCarManager {
 
         carName = validator.splitName(carNames);
 
-        return validator.isNotNull(carName) && validator.isNotExcess(carName) && validator.isNotBelowZero(carName);
+        return validator.isNotNull(carName)
+                && validator.isNotExcess(carName)
+                && validator.isNotBelowZero(carName);
     }
 
     public boolean tryTimeGenerator() {
@@ -50,4 +51,15 @@ public class RacingCarManager {
         return target.size();
     }
 
+    public void gameProgressing() {
+        RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
+
+        for (Car car : registeredCar) {
+            car.setGoForward(racingCarProcessor.carMovementRandomGenerator(tryTimes));
+        }
+        System.out.println("실행 결과");
+        for (int i = 0; i < tryTimes; i++) {
+            racingCarProcessor.iteratorCarPositionCheck(registeredCar, i);
+        }
+    }
 }

@@ -36,4 +36,18 @@ public class RacingCarProcessor {
 
         return progressState;
     }
+
+    public void iteratorCarPositionCheck(List<Car> registeredCar, int round) {
+        for (int i = 0; i < registeredCar.size(); i++) {
+            isCarPermissionOn(registeredCar, round, i);
+        }
+        carState(registeredCar);
+        System.out.println();
+    }
+
+    public void isCarPermissionOn(List<Car> registeredCar, int round, int carType) {
+        if (registeredCar.get(carType).getGoForward(round) > 3) {
+            registeredCar.get(carType).goForwardPosition();
+        }
+    }
 }
