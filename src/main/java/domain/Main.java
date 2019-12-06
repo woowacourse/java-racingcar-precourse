@@ -8,12 +8,15 @@ import java.util.Scanner;
 
 public class Main {
     static String[] carName;
+    static Car[] car;
     static int movingNum;
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         inputCarName();
+        car = new Car[carName.length];
         inputMovingNum();
+        createCar();
     }
 
     private static void inputCarName() {
@@ -40,6 +43,12 @@ public class Main {
     private static void inputMovingNum() {
         System.out.println("시도할 횟수는 몇회인가요?");
         movingNum = sc.nextInt();
+    }
+
+    private static void createCar() {
+        for(int i = 0; i < carName.length; i++) {
+            car[i] = new Car(carName[i]);
+        }
     }
 
 }
