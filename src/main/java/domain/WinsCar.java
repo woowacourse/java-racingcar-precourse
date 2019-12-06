@@ -11,6 +11,7 @@ public class WinsCar {
                 winsCar = new StringBuilder(car[i].getName());
             }
             else if(car[i].getPosition() == temp){
+                winsCar.append(",");
                 winsCar.append(car[i].getName());
             }
         }

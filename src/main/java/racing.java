@@ -1,5 +1,3 @@
-import java.util.*;
-
 import domain.*;
 
 public class racing {
