@@ -78,7 +78,11 @@ public class Admin {
     public void printWinner() {
         /* 각 자동차의 position 변수를 확인해서 그 값이 가장 큰 자동차들의 이름을 출력 */
 
-        System.out.println(getWinnersName() + "이/가 최종 우승했습니다.");
+        ArrayList<Integer> carsPosition = getCarsPosition();
+        ArrayList<String> winnersList = getWinnersList(carsPosition);
+        String winnersName = String.join(", ", winnersList);
+
+        System.out.println(winnersName + "이/가 최종 우승했습니다.");
     }
 
     /**
@@ -200,18 +204,6 @@ public class Admin {
     }
 
     /**
-     * 가장 많이 전진한 자동차들의 이름을 구하는 함수
-     *
-     * @return 우승 자동차들의 이름이 쉼표(,)로 join 된 String
-     */
-    private String getWinnersName() {
-        ArrayList<Integer> carsPosition = getCarsPosition();
-        ArrayList<String> winnerList = getWinnersList(carsPosition);
-
-        return String.join(", ", winnerList);
-    }
-
-    /**
      * 자동차들의 position 을 구하는 메소드
      *
      * return 자동차들의 position이 저장된 ArrayList
@@ -232,14 +224,14 @@ public class Admin {
      * @return 포지션이 가장 큰 자동차들의 이름이 담긴 ArrayList
      */
     private ArrayList<String> getWinnersList(ArrayList<Integer> carsPosition) {
-        ArrayList<String> winnerList = new ArrayList<>();
+        ArrayList<String> winnersList = new ArrayList<>();
         int maxPosition = Collections.max(carsPosition);
 
         for (int i = 0; i < carsPosition.size(); i++) {
             if (carsPosition.get(i) == maxPosition) {
-                winnerList.add(cars[i].getName());
+                winnersList.add(cars[i].getName());
             }
         }
-        return winnerList;
+        return winnersList;
     }
 }
