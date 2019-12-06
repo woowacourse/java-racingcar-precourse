@@ -48,7 +48,7 @@ public class User {
 	public int Attempt() {
 		int result=0;
 		while (true) {
-			System.out.print("시도할 회수는 몇회인가요?(1 이상의 숫자만 입력) : ");
+			System.out.print("시도할 횟수는 몇회인가요?(1 이상의 숫자만 입력) : ");
 			int[] ErrorCheck_and_Num = Attempt_Exception();
 
 			if (ErrorCheck_and_Num[0] == 0) {
