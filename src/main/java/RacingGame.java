@@ -9,14 +9,15 @@ import view.OutputView;
 
 public class RacingGame {
 	private ArrayList<Car> cars = new ArrayList<>();
+	private int tryNumber = 0;
 
 	public void play() {
 		buildCars();
-		int tryNumber = getTryNumber();
+		getTryNumber();
 		OutputView.printResultMessage();
-		getResult(tryNumber);
+		getResult();
 		OutputView.printCarsPosition(cars);
-		OutputView.printWinners(Rule.getWinnersName(cars));
+		OutputView.printWinners(Rule.getWinnerNames(cars));
 	}
 
 	private void buildCars() {
@@ -35,11 +36,11 @@ public class RacingGame {
 		return result;
 	}
 
-	private int getTryNumber() {
-		return InputView.tryNumber();
+	private void getTryNumber() {
+		tryNumber = InputView.tryNumber();
 	}
 
-	private void getResult(int tryNumber) {
+	private void getResult() {
 		for (int i = 0; i < tryNumber; i++) {
 			cars.forEach(Car::tryToGo);
 			OutputView.printCarsPosition(cars);
