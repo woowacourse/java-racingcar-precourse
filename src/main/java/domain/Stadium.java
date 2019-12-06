@@ -13,6 +13,7 @@ public class Stadium {
 
 	public void runRacingCar() {
 		List<String> carNames = getCarNamesFromUser();
+		int numOfRace = getNumberOfRace();
 	}
 
 	private List<String> getCarNamesFromUser() {
@@ -48,5 +49,29 @@ public class Stadium {
 			}
 		}
 		return true;
+	}
+
+	private int getNumberOfRace() {
+		String numberOfRace;
+
+		while (true) {
+			System.out.println("시도할 횟수는 몇회인가요");
+			numberOfRace = scanner.nextLine();
+
+			if (!isNumeric(numberOfRace)) {
+				System.out.println("숫자만 입력 가능합니다.");
+				continue;
+			}
+
+			return Integer.parseInt(numberOfRace);
+		}
+
+	}
+
+	private boolean isNumeric(String input) {
+		if (input == null || input.length() == 0) {
+			return false;
+		}
+		return input.chars().allMatch(Character::isDigit);
 	}
 }
