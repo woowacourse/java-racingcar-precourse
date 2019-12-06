@@ -2,7 +2,7 @@ package domain;
 
 import java.util.List;
 
-public interface Referee {
+public interface RacingReferee {
     void updateMaxPosition(int position);
 
     boolean guaranteeChampion(RacingCar racingCar);
