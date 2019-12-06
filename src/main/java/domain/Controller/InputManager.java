@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class InputManager {
     Scanner scanner;
 
-    String[] splitedNames;
-
     public InputManager() {
         this.scanner = new Scanner(System.in);
     }

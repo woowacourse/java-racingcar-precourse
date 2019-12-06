@@ -48,14 +48,8 @@ public class RacingManager {
         printResultEachLap();
     }
 
-    private void whoIsWinner(int numberOfCars, int maxPosition, Car[] cars) {
-        System.out.print("<< ");
-        for (int i = 0; i < numberOfCars; i++) {
-            if (cars[i].getPosition() == maxPosition) {
-                System.out.print(cars[i].getName() + " ");
-            }
-        }
-        System.out.println(">> 최종 우승!!");
+    private void printWinner() {
+        carmanager.whoIsWinner();
     }
 
     private void carSetting() {
@@ -73,6 +67,7 @@ public class RacingManager {
         carSetting();
         lapSetting();
         race();
+        printWinner();
 
     }
 }
