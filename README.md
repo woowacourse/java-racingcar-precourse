@@ -12,7 +12,7 @@
 
 ### Car Class
 
-**print_car_name Method**
+**getName Method**
 
 **getPosition Method**
 
