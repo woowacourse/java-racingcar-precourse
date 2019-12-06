@@ -1,4 +1,4 @@
-package seonggyu.domain;
+package seonggyu.cars;
 
 import java.util.Random;
 
@@ -26,5 +26,13 @@ public class Car {
 		if(RANDOM.nextInt(RAND_NUM_RANGE) > THRESHOLD ) {
 			this.position++;
 		}
+    }
+    
+    public void printNameAndPosition() {
+    	System.out.print(this.name + " : ");
+    	for (int i = 0; i < this.position; i++) {
+    		System.out.print("-");
+    	}
+    	System.out.println();
     }
 }
