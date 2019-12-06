@@ -23,18 +23,18 @@ public class RacingCarProcessor {
 
     public void carState(List<Car> registeredCar) {
         for (int i = 0; i < registeredCar.size(); i++) {
-            System.out.println(registeredCar.get(i).getName() + " : " + getCarPosition(registeredCar, i));
+            System.out.println(registeredCar.get(i).getName()
+                    + " : "
+                    + getCarPosition(
+                            registeredCar.get(i).getPosition(), ""));
         }
     }
 
-    private String getCarPosition(List<Car> registeredCar, int index) {
-        String progressState = "";
-
-        for (int i = 0; i < registeredCar.get(index).getPosition(); i++) {
-            progressState += "-";
+    private String getCarPosition(int position, String bar) {
+        if (position == 0) {
+            return bar;
         }
-
-        return progressState;
+        return getCarPosition(--position, bar + "-");
     }
 
     public void iteratorCarPositionCheck(List<Car> registeredCar, int round) {

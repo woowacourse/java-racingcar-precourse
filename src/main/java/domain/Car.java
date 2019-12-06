@@ -21,10 +21,6 @@ public class Car {
         this.goForward = goForward;
     }
 
-    public List<Integer> getGoForward() {
-        return goForward;
-    }
-
     public int getGoForward(int index) {
         return goForward.get(index);
     }
