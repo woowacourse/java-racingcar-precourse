@@ -34,7 +34,16 @@ public class Car {
         return status.toString();
     }
 
+    public boolean isSamePosition(int position) {
+        return this.position == position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
+
 }
