@@ -18,9 +18,9 @@ public class Util {
 
     // 공백이 아니고 길이가 5이하인 이름만으로 구성되어있는지 검사
     boolean isNameLengthValid() {
-        for (int i = 0; i < carNameArray.length; i++) {
-            if ((MINIMUM_NAME_LENGTH > carNameArray[i].length())
-                    || (carNameArray[i].length() > LIMIT_NAME_LENGTH)) {
+        for (String car : carNameArray) {
+            if ((MINIMUM_NAME_LENGTH > car.length())
+                    || (car.length() > LIMIT_NAME_LENGTH)) {
                 System.out.println("유효하지 않은 자동차 이름이 있습니다.");
                 System.out.println("공백이 아니고 길이가 5이하인 이름을 쉼표로 구분하여 입력해주세요.\n");
                 return false;
