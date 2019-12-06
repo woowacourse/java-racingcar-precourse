@@ -6,12 +6,12 @@ public class Game {
     private static Car[] cars;
     private static int numCars = 0;
     private static int numGames;
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void initGames() {
         setCars();
         setNumGames();
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for (int i = 0; i < numGames; i++) {
             runGame();
         }
@@ -19,11 +19,9 @@ public class Game {
     }
 
     private static void setCars() {
-        scanner = new Scanner(System.in);
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carsInputString = scanner.nextLine();
         parseCarNames(carsInputString);
-        scanner.close();
     }
 
     private static void parseCarNames(String input) {
@@ -35,10 +33,8 @@ public class Game {
     }
 
     private static void setNumGames() {
-        scanner = new Scanner(System.in);
         System.out.println("시도할 횟수는 몇회인가요?");
         numGames = scanner.nextInt();
-        scanner.close();
     }
 
     private static void runGame() {

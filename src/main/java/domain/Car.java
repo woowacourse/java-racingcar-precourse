@@ -18,7 +18,6 @@ public class Car {
         return randomInt >= 4.0;
     }
 
-
     public String getName() {
         return name;
     }
