@@ -1,15 +1,22 @@
 package domain;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ConsoleMain {
-    private String[] carName;
-    private int movementNumber;
-    public static void main(String[] args){
+    private static String[] carName;
+    private static int movementNumber;
 
+    public static void main(String[] args){
+        ArrayList<Car> car = new ArrayList<>();
+        inputCarName();
+        inputMovementNumber();
+        for(int i = 0; i < carName.length; i++){
+            car.add(new Car(carName[i]));
+        }
     }
 
-    private void inputCarName() {
+    private static void inputCarName() {
         Scanner sc = new Scanner(System.in);
         String carName_Line;
 
@@ -25,7 +32,7 @@ public class ConsoleMain {
         }
     }
 
-    private void inputMovementNumber(){
+    private static void inputMovementNumber(){
         Scanner sc = new Scanner(System.in);
 
         System.out.println("시도할 회수는 몇회인가요?");
