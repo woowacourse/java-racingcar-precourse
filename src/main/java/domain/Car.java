@@ -8,6 +8,10 @@ public class Car {
         this.name = name;
     }
 
+    public void drive() {
+        position ++;
+    }
+
     public int getPosition() {
         return position;
     }
