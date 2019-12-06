@@ -16,29 +16,30 @@ public class Stadium {
 
 	public void runRacingCar() {
 		List<String> carNames = getCarNamesFromUser();
-		int numOfRace = getNumberOfRace();
+		int numberOfRace = getNumberOfRace();
 		getReadyRacingCars(carNames);
-		runRace(numOfRace);
+		runRace(numberOfRace);
 
 		ArrayList<String> firstRunners = getFirstRunners();
 		printWinners(firstRunners);
 	}
 
 	private List<String> getCarNamesFromUser() {
-		List<String> cars;
+		List<String> carNames;
 
 		do {
-			System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)");
+			printMessageAskingNamesOfCars();
 			String input = scanner.nextLine();
-			cars = Arrays.asList(input.replaceAll("\\s", "").split(","));
-		} while (isNull(cars) || !isValidLengthOfName(cars));
+			carNames = Arrays.asList(input.replaceAll("\\s", "").split(","));
 
-		return cars;
+		} while (isNull(carNames) || !isValidLengthOfName(carNames));
+
+		return carNames;
 	}
 
 	private boolean isNull(List<String> cars) {
 		if (cars.size() == ZERO) {
-			System.out.println("입력값 형식이 잘못되었습니다.");
+			printInputIsNullMessage();
 			return true;
 		}
 		return false;
@@ -47,7 +48,7 @@ public class Stadium {
 	private boolean isValidLengthOfName(List<String> cars) {
 		for (String car : cars) {
 			if (car.length() > MAX_LENGTH || car.isEmpty()) {
-				System.out.println("차량 이름은 1이상 5이하로 입력 해주세요.");
+				printValidLengthOfCarNameMessage();
 				return false;
 			}
 		}
@@ -58,11 +59,11 @@ public class Stadium {
 		String numberOfRace;
 
 		while (true) {
-			System.out.println("시도할 횟수는 몇회인가요");
+			printMessageAskingNumberOfRace();
 			numberOfRace = scanner.nextLine();
 
 			if (!isNumeric(numberOfRace)) {
-				System.out.println("숫자만 입력 가능합니다.");
+				printNumericOnlyMessage();
 				continue;
 			}
 
@@ -141,6 +142,30 @@ public class Stadium {
 		sb.append("가 최종 우승했습니다.");
 		System.out.println(sb.toString());
 
+	}
+
+	private void printInputIsNullMessage() {
+		System.out.println("입력값 형식이 잘못되었습니다.");
+	}
+
+	private void printValidLengthOfCarNameMessage() {
+		System.out.println("차량 이름은 1이상 5이하로 입력 해주세요.");
+	}
+
+	private void printNumericOnlyMessage() {
+		System.out.println("숫자만 입력 가능합니다.");
+	}
+
+	private void printRaceResultMessage() {
+		System.out.println("실행 결과");
+	}
+
+	private void printMessageAskingNumberOfRace() {
+		System.out.println("시도할 횟수는 몇회인가요");
+	}
+
+	private void printMessageAskingNamesOfCars() {
+		System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)");
 	}
 
 }
