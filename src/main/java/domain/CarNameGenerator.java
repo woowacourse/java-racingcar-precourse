@@ -30,27 +30,11 @@ public class CarNameGenerator {
     /**
      * 플레이어로부터 입력받은 자동차 이름을 Car 객체에 저장하는 로직을 수행하는 메서드.
      */
-    public static void carNameGenerator() {
-
+    public static ArrayList<Car> carNameGenerator() {
         controlNameGetting();
-
-        // 테스트용
-        System.out.println("========이름들만 저장==========");
-        for (String name : carNameList) {
-            System.out.println(name);
-        }
-
         saveCarName();
 
-        // 테스트용
-        System.out.println("========인스턴스에 저장==========");
-        for (Car car : carArrayList) {
-            System.out.println(car.getName());
-            car.moveForward(car.decideGoOrNot(car.getRandomInt()));
-            car.moveForward(car.decideGoOrNot(car.getRandomInt()));
-            car.moveForward(car.decideGoOrNot(car.getRandomInt()));
-            System.out.println(car.getPosition());
-        }
+        return carArrayList;
     }
 
     /**
