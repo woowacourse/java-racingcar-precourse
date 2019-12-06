@@ -8,7 +8,17 @@ public class Game {
     private static int numGames;
     private static Scanner scanner;
 
-    public static void setCars() {
+    public static void initGames() {
+        setCars();
+        setNumGames();
+        System.out.println("실행 결과");
+        for (int i = 0; i < numGames; i++) {
+            runGame();
+        }
+        printWinnerName();
+    }
+
+    private static void setCars() {
         scanner = new Scanner(System.in);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String carsInputString = scanner.nextLine();
@@ -18,19 +28,20 @@ public class Game {
 
     private static void parseCarNames(String input) {
         String[] parsedInput = input.split(",");
+        cars = new Car[parsedInput.length];
         for (String name : parsedInput) {
             cars[numCars++] = new Car(name);
         }
     }
 
-    public static void setNumGames() {
+    private static void setNumGames() {
         scanner = new Scanner(System.in);
         System.out.println("시도할 횟수는 몇회인가요?");
         numGames = scanner.nextInt();
         scanner.close();
     }
 
-    public static void runGame() {
+    private static void runGame() {
         for (Car car : cars) {
             car.March();
         }
