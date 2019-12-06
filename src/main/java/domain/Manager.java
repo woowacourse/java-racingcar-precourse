@@ -6,10 +6,10 @@ public class Manager {
     private int number;
     private Car[] cars;
 
-    public void Manager(){
-        generate_random_number();
+    public Manager(){
+        input_car_name();
         input_try_number();
-        cars = new Car[number];
+
     }
 
     private int generate_random_number(){
@@ -17,16 +17,19 @@ public class Manager {
         return rand.nextInt(10);
     }
 
-    public void input_try_number(){
+    private void input_try_number(){
         Scanner sc = new Scanner(System.in);
+        System.out.println("시도할 회수는 몇회인가요?");
         number = sc.nextInt();
     }
 
-    public void input_car_name(){
+    private void input_car_name(){
         while(true){
             Scanner sc = new Scanner(System.in);
+            System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
             String string = sc.nextLine();
             String[] names = string.split(",");
+
             if(check_car_name(names)){
                 generate_cars(names);
                 break;
@@ -46,6 +49,7 @@ public class Manager {
     }
 
     private void generate_cars(String[] names){
+        cars = new Car[names.length];
         for(int i=0;i<names.length;++i){
             cars[i] = new Car(names[i]);
         }
@@ -57,6 +61,14 @@ public class Manager {
             return true;
         }
         return false;
+    }
+
+    public void cars_go_or_stop(){
+        for(int i=0;i<cars.length;++i){
+            if(check_go_or_stop()){
+                cars[i].increase_one_position();
+            }
+        }
     }
 
     public void print_winner(){
@@ -71,12 +83,27 @@ public class Manager {
 
         for(int i=0;i<cars.length;++i){
             if(max_value == cars[i].getPosition()) {
-                string += cars[i].getPosition() + ", ";
+                string += cars[i].getName() + ", ";
             }
         }
 
-        string = string.substring(0,string.length()-1) + "가 최종 우승했습니다.";
+        string = string.substring(0,string.length()-2) + "가 최종 우승했습니다.";
         System.out.println(string);
+    }
+
+    public int getNumber(){
+        return number;
+    }
+
+    public void print_cars_position(){
+        for(int i=0;i<cars.length;++i){
+            System.out.printf("%s : ",cars[i].getName());
+
+            for(int j=0;j<cars[i].getPosition();++j){
+                System.out.printf("-");
+            }
+            System.out.printf("\n");
+        }
     }
 
 }
