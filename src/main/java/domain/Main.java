@@ -13,16 +13,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    static boolean isLessThanFive(String[] splitedCarNames) {
-        for (String isLessThanFive : splitedCarNames) {
-            if (isLessThanFive.length() < 6) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return false;
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -32,23 +22,14 @@ public class Main {
         String[] splitedCarNames;
         int iterationNumber;
         int maxPosition;
-        
 
 
-        while (true) {
-            System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-            carNames = scanner.next();
-            splitedCarNames = carNames.split(",");
+        do {
+            carNames = RacingManager.inputCarNames();
+            splitedCarNames = RacingManager.splitCarNames(
+                    carNames, ",");
+        } while (RacingManager.namesLengthGraterThanFive(splitedCarNames));
 
-            for (String isLessThanFive : splitedCarNames) { // 테스트 코드
-                System.out.println("이름 : " + isLessThanFive + " 이름의 길이 : " + isLessThanFive.length());
-            }
-            if (isLessThanFive(splitedCarNames)) {
-                break;
-            } else {
-                System.out.println("자동차의 이름은 5글자 이하로 입력해주세요!");
-            }
-        }
 
         Car[] cars = new Car[splitedCarNames.length];
 
@@ -61,7 +42,6 @@ public class Main {
         iterationNumber = scanner.nextInt();
 
 
-
         for (int i = 0; i < iterationNumber; i++) {
             System.out.println((i + 1) + "번");
         }
@@ -69,7 +49,7 @@ public class Main {
         for (int i = 0; i < splitedCarNames.length; i++) {
             for (int j = 0; j < splitedCarNames.length; j++) {
                 cars[j].canYouGo();
-                System.out.println(cars[j].getName() +" : "
+                System.out.println(cars[j].getName() + " : "
                         + cars[j].getPosition());
             }
         }
@@ -83,7 +63,7 @@ public class Main {
 
         for (int i = 0; i < splitedCarNames.length; i++) {
             if (cars[i].getPosition() == maxPosition) {
-               System.out.print(cars[i].getName()+" ");
+                System.out.print(cars[i].getName() + " ");
             }
         }
         System.out.println("최종 우승!!");
