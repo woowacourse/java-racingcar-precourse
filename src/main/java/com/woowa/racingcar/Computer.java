@@ -38,5 +38,13 @@ public class Computer {
             }
             System.out.println();
         }
+        System.out.println();
+    }
+
+    public void playOnce() {
+        for(int i = 0; i < carList.length; i++) {
+            checkFoward(carList[i], makeRandom());
+        }
+        showPosition();
     }
 }
