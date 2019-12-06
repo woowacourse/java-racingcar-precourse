@@ -9,13 +9,11 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class RacingCarSystem {
-    private int repeatTime;
     private List<Car> cars = new LinkedList<>();
 
     public void setUpRacing() {
         String carsName = InputRacingCar.inputCarsName();
         setCarList(carsName);
-        repeatTime = InputRacingCar.inputRepeatTime();
     }
 
     public void setCarList(String carsName) {
@@ -35,13 +33,18 @@ public class RacingCarSystem {
     }
 
     public void startRacing() {
+        int repeatTime = InputRacingCar.inputRepeatTime();
         OutputRacingCar.printGameResult();
         for (int i = 0; i < repeatTime; i++) {
-            for (Car car : cars) {
-                decideToMoveCar(car);
-                OutputRacingCar.printCarProgress(car);
-            }
+            race();
             System.out.println();
+        }
+    }
+
+    public void race() {
+        for (Car car : cars) {
+            decideToMoveCar(car);
+            OutputRacingCar.printCarProgress(car);
         }
     }
 
