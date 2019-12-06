@@ -1,3 +1,10 @@
+/*
+ * 클래스 이름: Game
+ * 버전 정보: v1.0
+ * 날짜: 12월 7일
+ * 저작권 주의
+ */
+
 package domain;
 
 import java.util.Scanner;
@@ -10,6 +17,7 @@ public class Game {
     public void runGame() {
         this.gameSetting();
         this.gameRun();
+        this.gameResult();
     }
 
     /* 게임을 세팅해주는 부분 */
@@ -73,5 +81,29 @@ public class Game {
             System.out.println(cars[i].getName() + " : " + cars[i].currentPosition());
         }
     }
+
+
+    /* 게임 결과를 출력해주는 부분 */
+    public void gameResult() {
+        System.out.println(fastestCar(cars) + "가 최종 우승했습니다.");
+    }
+
+    public String fastestCar(Car[] cars) {
+        String fastestCar = "";
+        int maxPosition = -1;
+        for (int i = 0; i < cars.length; i++) {
+            if (maxPosition < cars[i].getPosition()) {
+                maxPosition = cars[i].getPosition();
+                fastestCar = "";
+                fastestCar += cars[i].getName();
+                continue;
+            }
+            if (maxPosition == cars[i].getPosition()) {
+                fastestCar += ", " + cars[i].getName();
+            }
+        }
+        return fastestCar;
+    }
+
 
 }
