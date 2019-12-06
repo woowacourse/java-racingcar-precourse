@@ -2,6 +2,7 @@ package controller;
 
 import domain.Car;
 import view.Input;
+import view.Output;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,6 +27,7 @@ public class Game {
             cars.stream().map(Car::toString).forEach(System.out::println);
             round--;
         }
+        Output.showWinners(getWinner());
     }
 
     public int getWinnerScore() {

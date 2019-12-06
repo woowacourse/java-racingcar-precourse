@@ -9,10 +9,16 @@ public class Input {
     private String input;
 
     public Input() {
+
+    }
+
+    public void setInput() {
         input = scanner.nextLine();
     }
 
     public List<String> asCarNames() {
+        Output.showNamesInputForm();
+        setInput();
         List<String> nameList = splitAsComma(input);
         if (isNamesLengthUnderMax(nameList) && isNoBlankNames(nameList)) {
             return nameList;
@@ -21,6 +27,8 @@ public class Input {
     }
 
     public int asRounds() {
+        Output.showRoundsInputForm();
+        setInput();
         if (isPositiveInteger(input)) {
             return Integer.parseInt(input);
         }
