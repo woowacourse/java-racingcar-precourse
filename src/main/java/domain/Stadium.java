@@ -14,6 +14,11 @@ public class Stadium {
 	public void runRacingCar() {
 		List<String> carNames = getCarNamesFromUser();
 		int numOfRace = getNumberOfRace();
+		getReadyRacingCars(carNames);
+		runRace(numOfRace);
+
+		ArrayList<String> firstRunners = getFirstRunners();
+		printWinners(firstRunners);
 	}
 
 	private List<String> getCarNamesFromUser() {
@@ -74,4 +79,70 @@ public class Stadium {
 		}
 		return input.chars().allMatch(Character::isDigit);
 	}
+
+	private void getReadyRacingCars(List<String> carNames) {
+		carList = new ArrayList<>(carNames.size());
+
+		for (String carName : carNames) {
+			Car car = new Car(carName);
+			carList.add(car);
+		}
+	}
+
+	private void runRace(int numOfRace) {
+		System.out.println("실행 결과");
+
+		for (int i = 0; i < numOfRace; i++) {
+			for (Car car : carList) {
+				car.move();
+				printPositions(car);
+			}
+			System.out.println("");
+		}
+	}
+
+	private void printPositions(Car car) {
+		StringBuilder sb = new StringBuilder();
+		int position = car.getPosition();
+		sb.append(car.getName());
+		sb.append(": ");
+
+		for (int i = 0; i < position; i++) {
+			sb.append("-");
+		}
+
+		System.out.println(sb.toString());
+	}
+
+	private ArrayList<String> getFirstRunners() {
+		ArrayList<String> firstRunners = new ArrayList(carList.size());
+		ArrayList<Integer> positions = new ArrayList(carList.size());
+		for (Car car : carList) {
+			int position = car.getPosition();
+			positions.add(position);
+		}
+		int firstRunnersPosition = (int)Collections.max(positions);
+		for (Car car : carList) {
+			if (car.getPosition() == firstRunnersPosition) {
+				firstRunners.add(car.getName());
+			}
+		}
+		return firstRunners;
+	}
+
+	private void printWinners(ArrayList<String> firstRunners) {
+		StringBuilder sb = new StringBuilder();
+
+		for (String firstRunner : firstRunners) {
+			if (sb.length() > 0) {
+				sb.append(",");
+			}
+			sb.append(firstRunner);
+		}
+
+		sb.append("가 최종 우승했습니다.");
+		System.out.println(sb.toString());
+
+	}
+
 }
