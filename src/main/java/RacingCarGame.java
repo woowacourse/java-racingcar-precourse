@@ -29,7 +29,6 @@ public class RacingCarGame {
 
         racingController.gameStart(users, howMany);
         PrintHandler.printWinners(racingController.getWinner(users));
-
     }
 
 }

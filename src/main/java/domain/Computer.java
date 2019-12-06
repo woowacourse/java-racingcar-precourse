@@ -11,5 +11,5 @@ public class Computer {
     public static int makeRandomNumber() {
         return (int) (Math.random() * RANGE_OF_NUMBER);
     }
-
+    //TODO 하나의 일만 하는 건데, RacingController에 넣을까..
 }

@@ -17,11 +17,11 @@ public class InputValidator {
 
     public boolean checkCarNames(String[] userInput) {
         correctInputCount = ZERO;
-        String[] Input = deleteFrontBackBlank(userInput);
-        for (int i = 0; i < Input.length; i++) {
-            checkCarNameSize(Input[i]);
+        String[] input = deleteFrontBackBlank(userInput);
+        for (int i = 0; i < input.length; i++) {
+            checkCarNameSize(input[i]);
         }
-        return carNameIsOkOrNot(correctInputCount, Input.length);
+        return carNameIsOkOrNot(correctInputCount, input.length);
     }
 
     private boolean carNameIsOkOrNot(int correctInputCount, int inputCount) {

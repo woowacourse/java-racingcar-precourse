@@ -55,6 +55,7 @@
     - Output과 Computer의 역할이 모호 (O)
     - Computer과 Car (O)
     - 클래스들 사이의 관계 및 역할 재정의 (O)
+    - Computer 클래스 있어야 할까...
     
 - 리팩토링 문제 해결
     - RacingController를 통해, 경기 관련 처리를 모두 위임함으로써 Car와 Computer 클래스의 기능이 줄어듦

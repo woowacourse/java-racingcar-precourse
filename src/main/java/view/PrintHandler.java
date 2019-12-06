@@ -2,6 +2,7 @@ package view;
 
 import domain.Car;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
