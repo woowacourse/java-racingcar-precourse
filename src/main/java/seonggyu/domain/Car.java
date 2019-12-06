@@ -1,4 +1,4 @@
-package domain;
+package seonggyu.domain;
 
 public class Car {
     private final String name;

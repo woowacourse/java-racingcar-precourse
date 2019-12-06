@@ -1,4 +1,4 @@
-package domain;
+package seonggyu.input;
 
 import java.util.Scanner;
 import java.util.List;

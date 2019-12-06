@@ -15,7 +15,7 @@ dependencies {
 
 jar {
 	manifest{
-		attributes 'Main-Class':'domain.Main'
+		attributes 'Main-Class':'seonggyu.domain.Main'
 	}
 }
 

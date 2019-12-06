@@ -1,7 +1,7 @@
-package domain;
+package seonggyu.domain;
 
+import seonggyu.input.Input;
 import java.util.List;
-import java.util.ArrayList;
 
 public class Main {
 	public static void main(String args[]) {
