@@ -5,5 +5,6 @@ public class RacingCarApplication {
         RacingCarSystem racingCarSystem = new RacingCarSystem();
         racingCarSystem.setUpRacing();
         racingCarSystem.startRacing();
+        racingCarSystem.finishRacing();
     }
 }

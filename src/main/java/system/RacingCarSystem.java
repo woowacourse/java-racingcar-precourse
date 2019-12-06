@@ -54,4 +54,9 @@ public class RacingCarSystem {
     public int createRandomNumber() {
         return (int) (Math.random() * 10);
     }
+
+    public void finishRacing() {
+        RankingSystem rankingSystem = new RankingSystem(cars);
+        List<String> winnerList = rankingSystem.getWinner();
+    }
 }
