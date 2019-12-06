@@ -9,20 +9,20 @@ public class Car {
     }
 
     public void drive() {
-        position ++;
+        this.position ++;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
    public int getPosition() {
-        return position;
+        return this.position;
     }
 
     public void printDistance() {
-        System.out.print(name+" : ");
-        for (int i = 0; i < position; i ++) {
+        System.out.print(this.name+" : ");
+        for (int i = 0; i < this.position; i ++) {
             System.out.print("-");
         }
     }
