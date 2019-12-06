@@ -2,6 +2,7 @@ package domain;
 
 /**
  * 프로그램에 사용되는 모든 상수를 선언한 클래스
+ * 
  * @author giantim
  */
 public class Constant {
