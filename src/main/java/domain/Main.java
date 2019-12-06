@@ -45,6 +45,7 @@ public class Main {
     private static void inputMovingNum() {
         System.out.println("시도할 횟수는 몇회인가요?");
         movingNum = sc.nextInt();
+        System.out.println();
     }
 
     private static void createCar() {
@@ -60,6 +61,11 @@ public class Main {
             makeRandomNumber(randomNum);
             //난수만큼 게임 진행
             advanceAccordingToARandomNum(randomNum);
+            //중간 레이싱 과정 출력
+            if(i == 0) {
+                System.out.println("실행 결과");
+            }
+            showCurrScore();
         }
         findWinner();
     }
@@ -76,6 +82,17 @@ public class Main {
                 car[i].addPosition();
             }
         }
+    }
+
+    private static void showCurrScore() {
+        for(int i = 0; i < carName.length; i++) {
+            System.out.print(car[i].getName() + " : ");
+            for(int j = 0; j < car[i].currPosition(); j++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     private static void findWinner() {
