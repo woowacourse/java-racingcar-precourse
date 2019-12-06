@@ -39,6 +39,7 @@
     
     - Setter 없이 Position을 변경해야하기에 자동차 내부에서 position을 결정 (O) 
     - 컴퓨터의 난수에 의해 position 이 결정된다. (O)
+    - toString() 메서드를 통해 현재 position을 print한다. (O)
         
 - 출력
    
