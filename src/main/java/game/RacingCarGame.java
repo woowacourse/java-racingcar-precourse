@@ -1,15 +1,14 @@
 package game;
 
+import com.sun.deploy.util.StringUtils;
+import domain.Car;
 import domain.Cars;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RacingCarGame {
 
@@ -27,6 +26,7 @@ public class RacingCarGame {
         RacingCarGame racingCarGame = new RacingCarGame();
         racingCarGame.initGame();
         racingCarGame.runGame();
+        racingCarGame.holdAwardsCeremony();
     }
 
     public void initGame() {
@@ -39,6 +39,17 @@ public class RacingCarGame {
             cars.runOneTime(random);
             cars.showCarsStatus();
         }
+    }
+
+    public void holdAwardsCeremony() {
+        System.out.println(makeCarsInFirstPositionString() + "가 우승했습니다.");
+    }
+
+    private String makeCarsInFirstPositionString() {
+        int firsPosition = cars.measureFirstPosition();
+        List<Car> carsInFirstPosition = cars.takeCarsInFirstPosition(firsPosition);
+        List<String> carNamesInFirstPosition = carsInFirstPosition.stream().map(Car::getName).collect(Collectors.toList());
+        return StringUtils.join(carNamesInFirstPosition, ", ");
     }
 
     private void initNumberOfTimes() {
