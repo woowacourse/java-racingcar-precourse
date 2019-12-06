@@ -76,6 +76,7 @@ boolean canDrive()
 void play(ArrayList<Car> CarList)
 int howManyWin(ArrayList<Car> CarList)
 boolean isSamePosition(Car carA, Car carB)
+void println(String string)
 ```
 ##### getCarName 메소드
 ###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
@@ -87,3 +88,5 @@ boolean isSamePosition(Car carA, Car carB)
 ###### 공동 1등인 Car 객체가 몇 대인지 반환하는 메소드
 ##### isSamePosition 메소드
 ###### 두 차 객체의 position 이 같은 값이면 TRUE 를 반환하는 메소드
+##### println 메소드
+###### System.out.println 로 입력받은 String 을 출력해주는 메소드
