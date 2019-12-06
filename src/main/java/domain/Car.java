@@ -8,5 +8,9 @@ public class Car {
         this.name = name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     // 추가 기능 구현
 }

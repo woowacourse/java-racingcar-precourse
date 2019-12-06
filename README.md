@@ -41,7 +41,7 @@ public class Car {
 ### Class Car
 ```
 void drive(int position)
-void getPosition()
+int getPosition()
 void printDistance()
 ```
 ##### drive 메소드
