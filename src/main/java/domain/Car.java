@@ -3,6 +3,9 @@ package domain;
 import java.util.Random;
 
 public class Car {
+	private static final int MAX_NUM = 10;
+	private static final int ONE = 1;
+	private static final int CRITERIA_SCORE = 4;
 	private final String name;
 	private int position = 0;
 
@@ -22,13 +25,13 @@ public class Car {
 	private int getRandomNumber() {
 		int randomNumber;
 		Random random = new Random();
-		randomNumber = random.nextInt(10) + 1;
+		randomNumber = random.nextInt(MAX_NUM) + ONE;
 		return randomNumber;
 	}
 
 	void move() {
 		int randomNumber = getRandomNumber();
-		if (randomNumber >= 4) {
+		if (randomNumber >= CRITERIA_SCORE) {
 			this.position++;
 		}
 	}
