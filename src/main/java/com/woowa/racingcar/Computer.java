@@ -24,15 +24,6 @@ public class Computer {
         return r.nextInt(RANDOM_MAX);
     }
 
-    public void checkFoward() {
-        for(int i = 0; i < carList.length; i++) {
-            if (makeRandom() >= FOWARD_POINT) {
-                carList[i].goFoward();
-            }
-        }
-        showPosition();
-    }
-
     public void showPosition() {
         for (int i = 0; i < carList.length; i++) {
             System.out.print(carList[i].getName() + " : ");
@@ -42,5 +33,54 @@ public class Computer {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void checkFoward() {
+        for (int i = 0; i < carList.length; i++) {
+            if (makeRandom() >= FOWARD_POINT) {
+                carList[i].goFoward();
+            }
+        }
+        showPosition();
+    }
+
+    public int getWinnerPosition() {
+        int winnerPosition = 0;
+
+        for (int i = 0; i < carList.length; i++) {
+            if (winnerPosition < carList[i].getPosition()) {
+                winnerPosition = carList[i].getPosition();
+            }
+        }
+
+        return winnerPosition;
+    }
+
+    public String makeWinnerList(int winnerPosition) {
+        String winnerList = null;
+        String[] winner = new String[carList.length];
+        int cnt = 0;
+
+        for (int i = 0; i < carList.length; i++) {
+            if (winnerPosition == carList[i].getPosition()) {
+                winner[cnt++] = carList[i].getName();
+            }
+        }
+
+        winnerList = winner[0];
+        for (int i = 1; i < carList.length; i++) {
+            if (winner[i] != null) {
+                winnerList += ", " + winner[i];
+            }
+        }
+
+        return winnerList;
+    }
+
+    public void showResult() {
+        int winnerPosition = getWinnerPosition();
+        String winnerList = makeWinnerList(winnerPosition);
+
+        System.out.println(winnerList + "가 최종 우승했습니다.");
     }
 }
