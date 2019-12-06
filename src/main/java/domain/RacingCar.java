@@ -1,6 +1,6 @@
 package domain;
 
 public interface RacingCar {
-    RacingCar race();
+    void race();
     int getPosition();
 }
