@@ -21,12 +21,11 @@ public class RacingCarProcessor {
         return goForward.get(round) > GO_PERMISSION_MINIMUM_VALUE;
     }
 
-    public void carState(List<Car> registeredCar) {
-        for (int i = 0; i < registeredCar.size(); i++) {
-            System.out.println(registeredCar.get(i).getName()
+    private void carState(List<Car> registeredCar) {
+        for (Car car : registeredCar) {
+            System.out.println(car.getName()
                     + " : "
-                    + getCarPosition(
-                            registeredCar.get(i).getPosition(), ""));
+                    + getCarPosition(car.getPosition(), ""));
         }
     }
 
@@ -45,7 +44,7 @@ public class RacingCarProcessor {
         System.out.println();
     }
 
-    public void isCarPermissionOn(List<Car> registeredCar, int round, int carType) {
+    private void isCarPermissionOn(List<Car> registeredCar, int round, int carType) {
         if (registeredCar.get(carType).getGoForward(round) > 3) {
             registeredCar.get(carType).goForwardPosition();
         }

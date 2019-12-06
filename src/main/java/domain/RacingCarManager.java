@@ -23,7 +23,7 @@ public class RacingCarManager {
         return true;
     }
 
-    public boolean carNameGenerator() {
+    private boolean carNameGenerator() {
         Validator validator = new Validator();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -36,7 +36,7 @@ public class RacingCarManager {
                 && validator.isNotBelowZero(carName);
     }
 
-    public boolean tryTimeGenerator() {
+    private boolean tryTimeGenerator() {
         System.out.println("시도할 회수는 몇회인가요?");
         tryTimes = new Scanner(System.in).nextInt();
 
@@ -51,7 +51,7 @@ public class RacingCarManager {
         return target.size();
     }
 
-    public void gameProgressing() {
+    private void gameProgressing() {
         RacingCarProcessor racingCarProcessor = new RacingCarProcessor();
 
         for (Car car : registeredCar) {
@@ -59,6 +59,7 @@ public class RacingCarManager {
                     .carMovementRandomGenerator(tryTimes));
         }
         System.out.println("실행 결과");
+
         for (int i = 0; i < tryTimes; i++) {
             racingCarProcessor.iteratorCarPositionCheck(registeredCar, i);
         }
@@ -66,12 +67,12 @@ public class RacingCarManager {
 
     public String gameFinish(List<Car> registeredCar) {
         return registeredCar.stream()
-                .filter(car -> car.getPosition() == hightestPosition(registeredCar))
-                .map(car -> car.getName())
+                .filter(car -> car.getPosition() == highestPosition(registeredCar))
+                .map(Car::getName)
                 .collect(Collectors.joining(", "));
     }
 
-    public int hightestPosition(List<Car> registeredCar) {
+    private int highestPosition(List<Car> registeredCar) {
         return registeredCar.stream()
                 .mapToInt(Car::getPosition)
                 .max()
