@@ -22,7 +22,7 @@ public class RacingCarProcessor {
     }
 
     public void carState(List<Car> registeredCar) {
-        for (int i = 0 ; i < registeredCar.size(); i++) {
+        for (int i = 0; i < registeredCar.size(); i++) {
             System.out.println(registeredCar.get(i).getName() + " : " + getCarPosition(registeredCar, i));
         }
     }
