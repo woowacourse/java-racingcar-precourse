@@ -23,11 +23,14 @@ public class Car {
         if (random.nextInt(10) >= 4) {
             this.proceed();
         }
-        System.out.println(name + " : " + getBar());
     }
 
     private void proceed() {
         position++;
+    }
+
+    public void printProgress() {
+        System.out.println(this.name + " : " + getBar());
     }
 
     private String getBar() {

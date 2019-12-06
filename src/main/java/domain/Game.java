@@ -31,14 +31,15 @@ public class Game {
         System.out.println("실행 결과");
         for (int i = 0; i < turnNumber; i++) {
             playOneTurn();
+            System.out.println();
         }
     }
 
     private void playOneTurn() {
         for (Car oneCar : cars) {
             oneCar.playTurn();
+            oneCar.printProgress();
         }
-        System.out.println();
     }
 
     private List<String> getWinner() {
