@@ -1,4 +1,8 @@
+import domain.Car;
+
+import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class RacingGame {
     private static final String MESSAGE_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분";
@@ -9,8 +13,9 @@ public class RacingGame {
 
     private RacingGame() {
         scanner = new Scanner(System.in);    //어디 둘지, 곤란
-        String[] carNames = nameCars();
+        ArrayList<Car> cars = getCars();
         int numberOfTrial = getNumberOfTrial();
+        Race(cars, numberOfTrial);
         //System.out.println(numberOfTrial);
     }
 
@@ -65,5 +70,28 @@ public class RacingGame {
             System.out.println("0이 아닌 자연수가 아닙니다. 0이 아닌 자연수를 입력해주세요.");
             return false;
         }
+    }
+
+    private void Race(ArrayList<Car> cars, int numberOfTrial) {
+        for (int i = 0; i < numberOfTrial; i++) {
+            for (Car car : cars) {
+                car.move();
+                //System.out.println(car.getPosition());
+            }
+        }
+    }
+
+    private ArrayList<Car> getCars() {
+        String[] carNames = nameCars();
+        return makeCars(carNames);
+    }
+
+    private ArrayList<Car> makeCars(String[] carNames) {
+        ArrayList<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            Car car = new Car(carName);
+            cars.add(car);
+        }
+        return cars;
     }
 }
