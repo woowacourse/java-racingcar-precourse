@@ -13,4 +13,12 @@ public class RacingRounds {
             throw new IllegalArgumentException();
         }
     }
+
+    public void minus() {
+        racingRounds--;
+    }
+
+    public boolean isLeft() {
+        return racingRounds > 0;
+    }
 }

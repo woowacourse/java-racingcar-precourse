@@ -12,6 +12,10 @@ public class RacingCarGame {
     }
 
     public void run() {
+        while(racingRounds.isLeft()) {
+            racingRounds.minus();
+            cars.play();
+        }
     }
 
     private Cars getReadyCars() {

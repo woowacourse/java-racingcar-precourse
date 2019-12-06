@@ -14,4 +14,8 @@ public class Car {
             throw new IllegalArgumentException();
         }
     }
+
+    public void proceed() {
+        this.position++;
+    }
 }
