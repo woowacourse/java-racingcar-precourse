@@ -17,6 +17,7 @@ public class Main {
         car = new Car[carName.length];
         inputMovingNum();
         createCar();
+        playGame();
     }
 
     private static void inputCarName() {
@@ -51,4 +52,18 @@ public class Main {
         }
     }
 
+    private static void playGame() {
+        int[] randomNum = new int[carName.length];
+        for(int i = 0; i < movingNum; i++) {
+            //차 별로 난수 생성
+            makeRandomNumber(randomNum);
+            
+        }
+    }
+
+    private static void makeRandomNumber(int[] randomNum) {
+        for(int i = 0; i < carName.length; i++) {
+            randomNum[i] =(int)(Math.random() * 10);
+        }
+    }
 }
