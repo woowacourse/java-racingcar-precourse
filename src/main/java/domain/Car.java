@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 /**
  * Car class - 경주에 사용할 자동차 Class
  *
@@ -28,11 +30,9 @@ public class Car {
 
     /**
      * 자동차의 위치를 일정 확률로 1 증가시키는 메소드
-     *
-     * @return Boolean 전진했으면 true, 하지 않았으면 false
      */
     protected void moveForward() {
-        int randomNumber = (int) (Math.random() * Admin.MAX_RANDOM_NUMBER);
+        int randomNumber = new Random().nextInt(Admin.MAX_RANDOM_NUMBER);
 
         if (randomNumber >= Admin.MIN_THRESHOLD) {
             position++;
