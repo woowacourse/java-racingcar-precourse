@@ -16,5 +16,12 @@ public class Car {
         return position;
     }
 
+    public void printDistance() {
+        System.out.print(name+" : ");
+        for (int i = 0; i < position; i ++) {
+            System.out.print("-");
+        }
+    }
+
     // 추가 기능 구현
 }
