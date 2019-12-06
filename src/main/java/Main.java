@@ -19,6 +19,9 @@ public class Main {
         System.out.println("시도할 회수는 몇 회인가요?");
         attempt = scanner.nextInt();
         cars = createCars(names);
+        for (Car car: cars) {
+            System.out.println(car.toString());
+        }
     }
 
     public static ArrayList<Car> createCars(ArrayList<String> names) {

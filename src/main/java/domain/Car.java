@@ -9,4 +9,22 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        String progress = positionToString();
+
+        stringBuilder.append(name);
+        stringBuilder.append(':');
+        stringBuilder.append(progress);
+        return stringBuilder.toString();
+    }
+
+    private String positionToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            stringBuilder.append('-');
+        }
+
+        return stringBuilder.toString();
+    }
 }
