@@ -1,6 +1,6 @@
 # JAVA RACINGCAR PRECOURSE
 ---
-version 0.1  
+version 0.2 
 
 Function requirements :  
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
@@ -49,6 +49,8 @@ Function list :
 3-1. Separate input String.  
 3-2. Save on each instance.   
 4. Play game. (Using Car type ArrayList)   
+4-1. Get round number.  
+4-2. Start racing.
 5. Check the result and get the winner *Exception Control*
   
 Considerations :  
