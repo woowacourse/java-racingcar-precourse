@@ -1,18 +1,17 @@
 import java.util.*;
+
 import domain.*;
 
 public class racing {
     public static void main(String[] args) {
+        int tryCount;
         String carSting = "";
-        Scanner sc = new Scanner(System.in);
         Car[] car;
         MakeCar makeCar = new MakeCar();
+        TryInput tryInput = new TryInput();
 
         car = makeCar.makingCar();
-
-//        for(int i=0;i<car.length;i++){
-//            System.out.println(car[i].getName());
-//        }
+        tryCount = tryInput.tryInput();
 
     }
 }

@@ -11,17 +11,19 @@ public class Car {
         this.name = name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void forwordPosition(){
-        if(makeNum.randomMakeNum()) {
+    public void forwordPosition() {
+        if (makeNum.randomMakeNum()) {
             this.position++;
         }
     }
+
+
 }
