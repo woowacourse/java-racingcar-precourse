@@ -37,6 +37,7 @@ public class Controller {
         for (int i = 0; i < this.cars.size(); i++) {
             cars.get(i).positionPrint();
         }
+        System.out.println();
     }
 
     private void getMaximumDistanceCars(int length) {
