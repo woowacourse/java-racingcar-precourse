@@ -2,22 +2,22 @@ package domain.Controller;
 
 import domain.Model.Car;
 
+import java.util.Random;
+
 public class RacingManager {
     private InputManager inputmanager;
+    private CarManager carmanager;
+    private Random random;
     private String[] carNamesArray;
     private int numberOfLaps;
 
 
     public RacingManager() {
         inputmanager = new InputManager();
+        random = new Random();
     }
 
-    private String[] splitCarNames(String carNames,
-                                   String divideStandard) {
-        return carNames.split(divideStandard);
-    }
-
-    public boolean namesLengthGraterThanFive
+    private boolean isNamesLengthGraterThanFive
             (String[] splitedCarNames) {
         for (String carName : splitedCarNames) {
             if (carName.length() > 5) {
@@ -28,18 +28,27 @@ public class RacingManager {
         return false;
     }
 
-    public void runOrStop(int numberOfLaps, int iterationNumber, Car cars[]) {
-        for (int i = 0; i < iterationNumber; i++) {
-            for (int j = 0; j < iterationNumber; j++) {
-                cars[j].canYouGo();
-                System.out.println(cars[j].getName()
-                        + " : " + cars[j].getPosition());
+    private void moveOrStop(){
+        for (int i = 0; i < numberOfLaps; i++) {
+            for (int j = 0; j < carmanager.getCarsLength(); j++) {
+                carmanager
+                        .ifBiggerThanFourYouCanMove(random.nextInt(10), j);
             }
-            System.out.println();
+            printResultEachLap();
         }
     }
 
-    public void whoIsWinner(int numberOfCars, int maxPosition, Car[] cars) {
+    private void printResultEachLap() {
+        carmanager.printCarsNameAndPosition();
+        System.out.println();
+    }
+
+    private void race() {
+        moveOrStop();
+        printResultEachLap();
+    }
+
+    private void whoIsWinner(int numberOfCars, int maxPosition, Car[] cars) {
         System.out.print("<< ");
         for (int i = 0; i < numberOfCars; i++) {
             if (cars[i].getPosition() == maxPosition) {
@@ -52,7 +61,8 @@ public class RacingManager {
     private void carSetting() {
         do {
             this.carNamesArray = inputmanager.inputCarNamesArray();
-        } while (namesLengthGraterThanFive(carNamesArray));
+        } while (isNamesLengthGraterThanFive(carNamesArray));
+        carmanager = new CarManager(carNamesArray);
     }
 
     private void lapSetting() {
@@ -62,5 +72,7 @@ public class RacingManager {
     public void start() {
         carSetting();
         lapSetting();
+        race();
+
     }
 }

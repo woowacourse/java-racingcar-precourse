@@ -16,16 +16,8 @@ public class Car {
         return this.name;
     }
 
-    public void isOverFour(int randomNumber) {
-        if (randomNumber >= 4) {
-            this.position++;
-        }
-    }
-
-    public void canYouGo() {
-        if (rand.nextInt() >= 4) {
-            position++;
-        }
+    public void move() {
+        position++;
     }
 
     public int getPosition() {
