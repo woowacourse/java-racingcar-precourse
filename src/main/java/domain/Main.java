@@ -3,6 +3,7 @@ package domain;
  * Created by gram on 2019-12-05.
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -57,13 +58,22 @@ public class Main {
         for(int i = 0; i < movingNum; i++) {
             //차 별로 난수 생성
             makeRandomNumber(randomNum);
-            
+            //난수만큼 게임 진행
+            advanceAccordingToARandomNum(randomNum);
         }
     }
 
     private static void makeRandomNumber(int[] randomNum) {
         for(int i = 0; i < carName.length; i++) {
             randomNum[i] =(int)(Math.random() * 10);
+        }
+    }
+
+    private static void advanceAccordingToARandomNum(int[] randomNum) {
+        for(int i = 0; i < carName.length; i++) {
+            if(randomNum[i] >= 4){
+                car[i].addPosition();
+            }
         }
     }
 }
