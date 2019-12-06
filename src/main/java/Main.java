@@ -2,7 +2,8 @@ import io.IoSystem;
 
 import controll.Controller;
 import domain.Car;
-class Main{
+
+class Main {
 
     public static void main(String[] args) {
         Controller controller = new Controller();
@@ -13,5 +14,11 @@ class Main{
         iosystem.inputCount();
 
         iosystem.printResult();
-    }    
+        for (int i = 0; i < iosystem.getCount(); i++) {
+            controller.runCarsForward();
+            controller.runCarsPirnt();
+        }
+        controller.getMaximumDistanceCar();
+        iosystem.printResultCars();
+    }
 }
