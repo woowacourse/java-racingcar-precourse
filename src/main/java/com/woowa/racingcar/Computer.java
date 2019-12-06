@@ -10,11 +10,17 @@ public class Computer {
 
     Computer() {}
 
-    public void setCarList(String carName) {
+    public void setCarList() {
+        String carName = Player.inputCarName();
         String[] carNameList = carName.split(",");
         carList = new Car[carNameList.length];
         
         for (int i = 0; i < carNameList.length; i++) {
+            if (carNameList[i].length() > 5) {
+                System.out.println("5글자를 넘는 이름이 있습니다. 다시 설정해주세요.\n");
+                setCarList();
+                return;
+            }
             carList[i] = new Car(carNameList[i]);
         }
     }

@@ -5,7 +5,7 @@ public class RacingCar {
         Player user = new Player();
         Computer com = new Computer();
 
-        com.setCarList(user.inputCarName());
+        com.setCarList();
         int playTime = user.inputTime();
 
         System.out.println("\n실행결과");
@@ -13,5 +13,7 @@ public class RacingCar {
             com.checkFoward();
         }
         com.showResult();
+
+        user.close();
     }
 }
