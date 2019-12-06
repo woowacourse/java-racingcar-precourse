@@ -17,14 +17,14 @@ public class Input {
         if (isNamesLengthUnderMax(nameList) && isNoBlankNames(nameList)) {
             return nameList;
         }
-        return Collections.emptyList();
+        return new Input().asCarNames();
     }
 
     public int asRounds() {
         if (isPositiveInteger(input)) {
             return Integer.parseInt(input);
         }
-        return -1;
+        return new Input().asRounds();
     }
 
     public List<String> splitAsComma(String inputs) {
@@ -40,7 +40,8 @@ public class Input {
     }
 
     public boolean isNoBlankNames(List<String> names) {
-        return names.stream().allMatch(x -> !x.equals(" ") && x.length() != 0);
+        return names.stream().allMatch(x -> !x.equals(" ") && x.length() != 0)
+                && names.size() != 0;
     }
 
     public boolean isPositiveInteger(String times) {
