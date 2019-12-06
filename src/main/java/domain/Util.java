@@ -83,16 +83,16 @@ public class Util {
 
     // 최종 우승자 출력
     void printFinalWinners() {
-        String winners = "";
+        StringBuilder winner = new StringBuilder();
         String divider = ", ";
         int maxPosition = getMaxPositions();
-        for (int i = 0; i < numberOfCars; i++) {
-            if (carObjectArray[i].getPosition() == maxPosition) {
-                winners += carObjectArray[i].getName();
-                winners += divider;
+        for (Car car : carObjectArray) {
+            if (car.getPosition() == maxPosition) {
+                winner.append(car.getName());
+                winner.append(divider);
             }
         }
-        System.out.println(winners.substring(0, winners.length() - 2)
+        System.out.println(winner.substring(0, winner.length() - 2)
                 + "가 최종 우승했습니다.");
     }
 }
