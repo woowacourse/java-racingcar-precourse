@@ -15,7 +15,7 @@
 1. 차를 한칸 이동시키는 setForward() 함수 구현
 2. 현재 거리를 얻을 수 있는 getPosition() 함수 구현
 3. 현재 상태거리를 출력하는 positionPrint() 함수 구현 
-
+4. 차량의 이름을 리턴하는 getName() 함수 구현
 
 ## IoSystem
 1. printCarList() 차량 리스트를 입력요청을 안내해주는 함수.

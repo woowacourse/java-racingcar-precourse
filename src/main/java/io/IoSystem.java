@@ -28,23 +28,23 @@ class IoSystem {
         this.count = sc.nextInt();
     }
 
-    public void printResult(){
+    public void printResult() {
         System.out.println("실행결과");
     }
-    
-    public int getRandomInt(){
-        return (int)(Math.random() * 10);
+
+    public int getRandomInt() {
+        return (int) (Math.random() * 10);
     }
 
-    public void printResultCars(ArrayList<Car> Cars){
-        if(Cars.size() > 1){
-            for(int i = 0 ; i< Cars.size() -1 ;i++){
-                System.out.print(Cars.indexOf(i).getName());
+    public void printResultCars(ArrayList<Car> Cars) {
+        if (Cars.size() > 1) {
+            for (int i = 0; i < Cars.size() - 1; i++) {
+                System.out.print(Cars.get(i).getName());
                 System.out.print(", ");
             }
         }
-        for(int i = Cars.size()-1 ;i<Cars.size();i++){
-            System.out.print(Cars.indexOf(i).getName());
+        for (int i = Cars.size() - 1; i < Cars.size(); i++) {
+            System.out.print(Cars.get(i).getName());
         }
         System.out.println("가 최종 우승했습니다.");
     }
