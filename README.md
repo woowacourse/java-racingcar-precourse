@@ -44,6 +44,7 @@ void drive(int position)
 String getName()
 int getPosition()
 void printDistance()
+void print()
 ```
 ##### drive 메소드
 ###### 차 객체의 position 을 하나 증가시켜주는 메소드
@@ -51,8 +52,10 @@ void printDistance()
 ###### 차 객체의 name 을 반환하는 메소드
 ##### getPosition 메소드
 ###### 차 객체의 position 의 값을 반환해주는 메소드
-##### printDistance() 메소드
+##### printDistance 메소드
 ###### 차 객체의 position 이 얼만큼인지 시각적으로 print 해주는 메소드
+##### print 메소드
+###### System.out.print 로 출력해주는 메소드
 
 
 
