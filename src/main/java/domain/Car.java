@@ -19,5 +19,4 @@ public class Car {
     public void increase_one_position(){
         ++position;
     }
-    // 추가 기능 구현
 }
