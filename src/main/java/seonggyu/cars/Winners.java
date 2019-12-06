@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Winners {
 	private static final int INITIAL_MAX_DISTANCE = 0;
 	
-	private List<Car> winners = new ArrayList<Car>();
+	private List<String> winners = new ArrayList<String>();
 	private int maxDistance;
 	
 	public Winners() {
@@ -22,12 +22,15 @@ public class Winners {
 			this.maxDistance = car.getPosition();
 			this.winners.clear();
 		}
-		this.winners.add(car);
+		this.winners.add(car.getName());
 	}
 	
 	public void printWinners() {
-		for (int i = 0; i < this.winners.size(); i++) {
-			System.out.print(this.winners.get(i).getName() + " ");
+		for(int i = 0; i < winners.size() - 1; i++) {
+			System.out.print(winners.get(i) + ", ");
+		}
+		if(winners.size() > 0) {
+			System.out.print(winners.get(winners.size()-1) + " ");
 		}
 		System.out.print("가 최종 우승했습니다.");
 	}
