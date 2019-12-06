@@ -40,7 +40,7 @@ public class Car {
         }
     }
 
-    public String positionToDash(int pos) {
+    private String positionToDash(int pos) {
         if (pos == 0) {
             return "";
         }

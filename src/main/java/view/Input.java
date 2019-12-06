@@ -11,7 +11,7 @@ public class Input {
     public Input() {
     }
 
-    public void setInput() {
+    private void setInput() {
         input = scanner.nextLine();
     }
 
@@ -41,7 +41,7 @@ public class Input {
         return Arrays.asList(inputs.split(","));
     }
 
-    public boolean isNameLengthUnderMax(String name) {
+    private boolean isNameLengthUnderMax(String name) {
         return name.length() <= MAX_NAME_LENGTH;
     }
 
@@ -54,11 +54,11 @@ public class Input {
                 && names.size() != 0;
     }
 
-    public boolean isEndWithComma(String input) {
+    private boolean isEndWithComma(String input) {
         return input.endsWith(",");
     }
 
-    public boolean isDoubleComma(String input) {
+    private boolean isDoubleComma(String input) {
         return input.contains(",,");
     }
 
@@ -66,7 +66,6 @@ public class Input {
         try {
             return Integer.parseInt(times) > 0;
         } catch (NumberFormatException e) {
-            //TODO Output error message
             return false;
         }
     }

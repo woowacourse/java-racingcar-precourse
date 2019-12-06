@@ -16,7 +16,7 @@ public class Game {
         this.round = new Input().asRounds();
     }
 
-    public List<Car> setCars(List<String> names) {
+    private List<Car> setCars(List<String> names) {
         return names.stream().map(Car::new).collect(Collectors.toList());
     }
 
@@ -30,13 +30,13 @@ public class Game {
         Output.showWinners(getWinner());
     }
 
-    public int getWinnerScore() {
+    private int getWinnerScore() {
         return cars.stream().map(Car::getPosition)
                 .max(Integer::compareTo)
                 .orElse(0);
     }
 
-    public List<String> getWinner() {
+    private List<String> getWinner() {
         return cars.stream().filter(x -> x.getPosition() == getWinnerScore())
                 .map(Car::getName)
                 .collect(Collectors.toList());
