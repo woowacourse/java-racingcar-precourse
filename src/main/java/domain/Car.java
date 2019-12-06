@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Car {
+    private static final int MOVEMENT_VALUE = 1;
     private final String name;
-    private final int MOVEMENT_VALUE = 1;
     private int position = 0;
     private List<Integer> goForward = new LinkedList<>();
 

@@ -7,9 +7,9 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class RacingCarManager {
+    private int tryTimes;
     private List<String> carName = new LinkedList<>();
     private List<Car> registeredCar = new LinkedList<>();
-    private int tryTimes;
 
     public boolean start() {
         if (!carNameGenerator() || !tryTimeGenerator()) {

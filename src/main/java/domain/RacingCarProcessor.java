@@ -5,9 +5,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class RacingCarProcessor {
-    private final int MIN_NUMBER = 0;
-    private final int MAX_NUMBER = 10;
-    private final int GO_PERMISSION_MINIMUM_VALUE = 3;
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 10;
+    private static final int GO_PERMISSION_MINIMUM_VALUE = 3;
 
     public List<Integer> carMovementRandomGenerator(int tryTimes) {
         return ThreadLocalRandom.current()
