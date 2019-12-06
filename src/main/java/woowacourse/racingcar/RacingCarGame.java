@@ -6,8 +6,9 @@ public class RacingCarGame {
     private Scanner sc = new Scanner(System.in);
 
     public void runGame() {
-        String [] carNames = getCarNames();
-        int tryNumber = getTryNumber();
+        String [] carNames = this.getCarNames();
+        int tryNumber = this.getTryNumber();
+        this.startRacing(carNames, tryNumber);
     }
 
     private String [] getCarNames() {
@@ -18,5 +19,9 @@ public class RacingCarGame {
     private int getTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         return sc.nextInt();
+    }
+
+    private void startRacing(String [] names, int tryNumber) {
+        System.out.println("실행 결과");
     }
 }
