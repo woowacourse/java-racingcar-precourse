@@ -28,49 +28,52 @@ public class Main {
         showResult();
     }
 
+    // 자동차 인스턴스 생성 관련 메소스들
     static private boolean makeCars() {
         String allCarsName;
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n각 자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
         allCarsName = sc.nextLine();
         String[] splittedNames = allCarsName.split(",");
         for (String name : splittedNames) {
-            boolean validName = validateName(name);
+            boolean validName = isValidName(name);
             if (!validName) return false;
-            addNewCarToArray(cars, name);
+            addCarToList(cars, name);
         }
         return true;
     }
 
-    static private boolean validateName(String name) {
+    static private boolean isValidName(String name) {
         return (name.length() > 0 && name.length() <= 5);
     }
 
-    static private void addNewCarToArray(ArrayList<Car> cars, String name) {
+    static private void addCarToList(ArrayList<Car> cars, String name) {
         Car car = new Car(name);
         cars.add(car);
     }
 
-
+    // 턴 수 세팅 관련 메소드들
     static private void setTurnsCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         turns = sc.nextInt();
     }
 
+    // 게임 진행 관련 메소드들
     static private void play() {
         System.out.println("실행 결과");
         while (turns > 0) {
-            turnOnEachCars();
+            turnEachCars();
             System.out.println();
             turns -= 1;
         }
     }
 
-    static private void turnOnEachCars() {
+    static private void turnEachCars() {
         for (Car car : cars) {
             car.useTurn();
         }
     }
 
+    // 결과 출력 관련 메소드들
     static private void showResult() {
         ArrayList<Car> winners = collectWinnsers();
         ArrayList<String> winnersName = collectNames(winners);
@@ -96,5 +99,4 @@ public class Main {
         }
         return winnersName;
     }
-
 }
