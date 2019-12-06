@@ -52,6 +52,10 @@ public class Input {
                 && names.size() != 0;
     }
 
+    public boolean isNotEndWithComma(String input) {
+        return !input.endsWith(",");
+    }
+
     public boolean isPositiveInteger(String times) {
         try {
             return Integer.parseInt(times) > 0;
