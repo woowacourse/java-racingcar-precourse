@@ -38,8 +38,8 @@ public class RacingCarSystem {
         OutputRacingCar.printGameResult();
         for (int i = 0; i < repeatTime; i++) {
             for (Car car : cars) {
-                OutputRacingCar.printCarProgress(car);
                 decideToMoveCar(car);
+                OutputRacingCar.printCarProgress(car);
             }
             System.out.println();
         }
@@ -58,5 +58,6 @@ public class RacingCarSystem {
     public void finishRacing() {
         RankingSystem rankingSystem = new RankingSystem(cars);
         List<String> winnerList = rankingSystem.getWinner();
+        OutputRacingCar.printWinner(winnerList);
     }
 }
