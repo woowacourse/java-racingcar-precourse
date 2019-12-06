@@ -19,7 +19,7 @@ public class Main {
 
         String carNames;
         String[] splitedCarNames;
-        int iterationNumber;
+        int numberOfLaps;
         int maxPosition;
         int numberOfCars;
 
@@ -38,15 +38,8 @@ public class Main {
             cars[i] = new Car(splitedCarNames[i]);
         }
 
-        iterationNumber = RacingManager.inputNumberOfLaps();
-
-        for (int i = 0; i < iterationNumber; i++) {
-            for (int j = 0; j < iterationNumber; j++) {
-                cars[j].canYouGo();
-                System.out.println(cars[j].getName()
-                        + " : " + cars[j].getPosition());
-            }
-        }
+        numberOfLaps = RacingManager.inputNumberOfLaps();
+        RacingManager.runOrStop(numberOfLaps, numberOfCars, cars);
 
 
         for (Car car : cars) {

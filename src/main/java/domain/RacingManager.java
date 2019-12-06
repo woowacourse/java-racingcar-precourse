@@ -33,4 +33,15 @@ public class RacingManager {
         System.out.println("시도할 횟수는 몇회인가요?");
         return numberOfLaps = scanner.nextInt();
     }
+
+    static void runOrStop(int numberOfLaps, int iterationNumber, Car cars[]) {
+        for (int i = 0; i < iterationNumber; i++) {
+            for (int j = 0; j < iterationNumber; j++) {
+                cars[j].canYouGo();
+                System.out.println(cars[j].getName()
+                        + " : " + cars[j].getPosition());
+            }
+            System.out.println();
+        }
+    }
 }
