@@ -36,7 +36,6 @@ public class Printer {
 		for (Car c : list) {
 			System.out.print(c.getName() + Constant.COLON);
 			printCarPosition(c.getPosition());
-			System.out.println();
 		}
 		System.out.println();
 	}
@@ -45,6 +44,7 @@ public class Printer {
 		for (int i = 0; i < position; i++) {
 			System.out.print(Constant.BAR);
 		}
+		System.out.println();
 	}
 
 	public void printWinner(ArrayList<Car> list) {

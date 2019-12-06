@@ -21,9 +21,7 @@ public class Game {
 	}
 
 	private void run() {
-		getCarName();
-		getGameCount();
-		initializeCar();
+		getGameInformation();
 		myPrinter.printPlayResult();
 		do {
 			moveCar();
@@ -31,6 +29,12 @@ public class Game {
 			checkGameEnd();
 		} while (!isEnd);
 		myPrinter.printWinner(myCar);
+	}
+
+	private void getGameInformation() {
+		getCarName();
+		getGameCount();
+		initializeCar();
 	}
 
 	private void getCarName() {
