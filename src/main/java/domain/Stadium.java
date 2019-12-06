@@ -31,7 +31,6 @@ public class Stadium {
 			printMessageAskingNamesOfCars();
 			String input = scanner.nextLine();
 			carNames = Arrays.asList(input.replaceAll("\\s", "").split(","));
-
 		} while (isNull(carNames) || !isValidLengthOfName(carNames));
 
 		return carNames;
@@ -69,7 +68,6 @@ public class Stadium {
 
 			return Integer.parseInt(numberOfRace);
 		}
-
 	}
 
 	private boolean isNumeric(String input) {
@@ -105,32 +103,42 @@ public class Stadium {
 	}
 
 	private void printPositions(Car car) {
-		StringBuilder sb = new StringBuilder();
 		int position = car.getPosition();
+
+		StringBuilder sb = new StringBuilder();
 		sb.append(car.getName());
 		sb.append(": ");
 
 		for (int i = 0; i < position; i++) {
 			sb.append("-");
 		}
-
 		System.out.println(sb.toString());
 	}
 
 	private ArrayList<String> getFirstRunners() {
 		ArrayList<String> firstRunners = new ArrayList(carList.size());
-		ArrayList<Integer> positions = new ArrayList(carList.size());
-		for (Car car : carList) {
-			int position = car.getPosition();
-			positions.add(position);
-		}
-		int firstRunnersPosition = (int)Collections.max(positions);
+
+		int firstRunnersPosition = getFirstRunnersPosition();
+
 		for (Car car : carList) {
 			if (car.getPosition() == firstRunnersPosition) {
 				firstRunners.add(car.getName());
 			}
 		}
 		return firstRunners;
+	}
+
+	private int getFirstRunnersPosition() {
+		int firstRunnersPosition;
+		ArrayList<Integer> positions = new ArrayList(carList.size());
+
+		for (Car car : carList) {
+			int position = car.getPosition();
+			positions.add(position);
+		}
+
+		firstRunnersPosition = Collections.max(positions);
+		return firstRunnersPosition;
 	}
 
 	private void printWinners(ArrayList<String> firstRunners) {
