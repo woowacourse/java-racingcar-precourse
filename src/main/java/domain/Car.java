@@ -9,4 +9,21 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public void setForward() {
+        position++;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void positionPrint() {
+        System.out.print(name);
+        System.out.print(" : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+    }
+
 }

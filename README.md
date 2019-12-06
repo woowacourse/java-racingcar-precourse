@@ -14,7 +14,7 @@
 ## 구현사항 Car
 1. 차를 한칸 이동시키는 setForward() 함수 구현
 2. 현재 거리를 얻을 수 있는 getPosition() 함수 구현
-3. 현재 상태거리를 출력하는 posisionPrint() 함수 구현 
+3. 현재 상태거리를 출력하는 positionPrint() 함수 구현 
 
 
 ## System
