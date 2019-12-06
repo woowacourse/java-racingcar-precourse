@@ -70,12 +70,18 @@ public class Method {
 	public void runResult() {
 		for(int i=0;i<cars.length;i++) {
 			System.out.print(cars[i].getName()+":");
-			if(checkForward()) {
-				System.out.print("-");
-			}
+			if(checkForward())
+				cars[i].setPosition(checkForward());
+			printCarPosition(i);
 			System.out.println();
 		}
 		System.out.println();
+	}
+
+	private void printCarPosition(int index) {
+		for(int i=0;i<cars[index].getPosition();i++) {
+			System.out.print("-");
+		}
 	}
 
 }
