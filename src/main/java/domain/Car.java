@@ -49,7 +49,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return name + ":" + positionToDash(position);
+        return name + " : " + positionToDash(position);
     }
 
 }
