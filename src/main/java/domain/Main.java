@@ -1,17 +1,21 @@
 package domain;
 
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    static private ArrayList<Car> Cars;
+    static private ArrayList<Car> cars;
     static private int turns;
     static private Scanner sc;
 
     public static void main(String[] args) {
         sc = new Scanner(System.in);
+        cars = new ArrayList<>();
+
         boolean pass = makeCars();
         if (!pass) {
             System.out.println("정상적이지 않은 이름이 확인되었습니다. 게임을 종료합니다.");
@@ -38,7 +42,7 @@ public class Main {
         for (String name : splittedNames) {
             boolean validName = validateName(name);
             if (!validName) return false;
-            addNewCarToArray(Cars, name);
+            addNewCarToArray(cars, name);
         }
         return true;
     }
@@ -47,9 +51,9 @@ public class Main {
         return (name.length() > 0 && name.length() <= 5);
     }
 
-    static private void addNewCarToArray(ArrayList<Car> Cars, String name) {
+    static private void addNewCarToArray(ArrayList<Car> cars, String name) {
         Car car = new Car(name);
-        Cars.add(car);
+        cars.add(car);
     }
 
 
@@ -59,6 +63,18 @@ public class Main {
     }
 
     static private void play() {
+        System.out.println("실행 결과");
+        while (turns > 0) {
+            turnOnEachCars();
+            System.out.println();
+            turns -= 1;
+        }
+    }
+
+    static private void turnOnEachCars() {
+        for (Car car : cars) {
+            car.useTurn();
+        }
     }
 
     static private void showResult() {
