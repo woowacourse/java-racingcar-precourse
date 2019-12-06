@@ -9,7 +9,6 @@ public class Input {
     private String input;
 
     public Input() {
-
     }
 
     public void setInput() {
@@ -19,9 +18,12 @@ public class Input {
     public List<String> asCarNames() {
         Output.showNamesInputForm();
         setInput();
-        List<String> nameList = splitAsComma(input);
-        if (isNamesLengthUnderMax(nameList) && isNoBlankNames(nameList)) {
-            return nameList;
+        if (isEndWithComma(input) || isDoubleComma(input)) {
+            return new Input().asCarNames();
+        }
+        List<String> names = splitAsComma(input);
+        if (isNamesLengthUnderMax(names) && isNoBlankNames(names)) {
+            return names;
         }
         return new Input().asCarNames();
     }
@@ -52,12 +54,12 @@ public class Input {
                 && names.size() != 0;
     }
 
-    public boolean isNotEndWithComma(String input) {
-        return !input.endsWith(",");
+    public boolean isEndWithComma(String input) {
+        return input.endsWith(",");
     }
 
-    public boolean isNotDoubleComma(String input) {
-        return !input.contains(",,");
+    public boolean isDoubleComma(String input) {
+        return input.contains(",,");
     }
 
     public boolean isPositiveInteger(String times) {
