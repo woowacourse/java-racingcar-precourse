@@ -1,13 +1,13 @@
-import domain.Car;
+import domain.Cars;
 import utils.InputUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
-    private List<Car> Cars = new ArrayList<>();
+    private Cars cars;
 
     public void run() {
-        InputUtils.inputCarNames();
+        cars = Cars.makeCars(InputUtils.inputCarNames());
     }
 }

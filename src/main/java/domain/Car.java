@@ -4,9 +4,14 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    public Car(String name) throws IllegalArgumentException {
+        validateCarName(name);
         this.name = name;
     }
 
-    // 추가 기능 구현
+    private static void validateCarName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
