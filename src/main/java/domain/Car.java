@@ -8,20 +8,11 @@ public class Car {
         this.name = name;
     }
     
-    public int Position() {
-    	return position;
-    }
-    
-    public String Name() {
-    	return name;
-    }
-    
     public void MoveOrNot() {
     	int num = Random_Number();
     	if (num >= 4) {
     		position += 1;
     	}
-    	System.out.println(num);
     }
     
     public int Random_Number() {
@@ -35,5 +26,13 @@ public class Car {
     		System.out.print("-");
     	}
     	System.out.println();
+    }
+    
+    public int GetPosition() {
+    	return position;
+    }
+    
+    public String GetName() {
+    	return name;
     }
 }
