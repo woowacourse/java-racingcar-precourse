@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Util {
     private String[] carNameArray;
     private Car[] carObjectArray;
-    private int[] finalCarPositions;
+    private int numberOfCars;
 
     private static final int MINIMUM_NAME_LENGTH = 1;
     private static final int LIMIT_NAME_LENGTH = 5;
@@ -26,12 +26,13 @@ public class Util {
                 return false;
             }
         }
+        numberOfCars = carNameArray.length;
         return true;
     }
 
     // 각 이름별로 객체 배열 생성
     void makeCarObjects() {
-        carObjectArray = new Car[carNameArray.length];
+        carObjectArray = new Car[numberOfCars];
         for (int i = 0; i < carNameArray.length; i++) {
             carObjectArray[i] = new Car(carNameArray[i]);
         }
@@ -50,7 +51,7 @@ public class Util {
     void repeatGameAndPrint(int repeatTimes) {
         while (repeatTimes != 0) {
             repeatTimes--;
-            for (int i = 0; i < carObjectArray.length; i++) {
+            for (int i = 0; i < numberOfCars; i++) {
                 goForwordOrStop(i);
                 printStateOfCars(i);
             }
@@ -72,26 +73,26 @@ public class Util {
 
     // 최종 포지션 중 최대값을 찾아 반환
     int getMaxPositions() {
-        finalCarPositions = new int[carObjectArray.length];
-        for (int i = 0; i < carObjectArray.length; i++) {
+        int[] finalCarPositions = new int[numberOfCars];
+        for (int i = 0; i < numberOfCars; i++) {
             finalCarPositions[i] = carObjectArray[i].getPosition();
         }
         Arrays.sort(finalCarPositions);
-        return finalCarPositions[carObjectArray.length - 1];
+        return finalCarPositions[numberOfCars - 1];
     }
 
     // 최종 우승자 출력
     void printFinalWinners() {
-        String tempWinners = "";
+        String winners = "";
         String divider = ", ";
         int maxPosition = getMaxPositions();
-        for (int i = 0; i < carObjectArray.length; i++) {
+        for (int i = 0; i < numberOfCars; i++) {
             if (carObjectArray[i].getPosition() == maxPosition) {
-                tempWinners += carObjectArray[i].getName();
-                tempWinners += divider;
+                winners += carObjectArray[i].getName();
+                winners += divider;
             }
         }
-        System.out.println(tempWinners.substring(0, tempWinners.length() - 2)
+        System.out.println(winners.substring(0, winners.length() - 2)
                 + "가 최종 우승했습니다.");
     }
 }
