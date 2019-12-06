@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Admin class - 프로그램 진행에 필요한 메소드를 모아둔 클래스
  *
  * @author 김범준(ddaaac)
- * @version 1.01 2019-12-05
+ * @version 1.02 2019-12-06
  */
 public class Admin {
     /**
@@ -25,7 +25,6 @@ public class Admin {
 
     /**
      * 값을 입력받기 위한 Scanner class
-     * 한번만 초기화하면 되기 때문에 class 변수로 선언
      */
     private static final Scanner scan = new Scanner(System.in);
 
@@ -35,25 +34,21 @@ public class Admin {
     private static final String[] INVALID_CAR_NAME = null;
 
     /**
-     * 유요하지 않은 숫자를 나타내는 클래스 변수
+     * 유효하지 않은 숫자를 나타내는 클래스 변수
      */
     private static final int INVALID_NUMBER = -1;
 
     /**
-     * Car 객체를 저장하기 위한 Car array
+     * Car 객체를 저장하는 Array
      */
     private Car[] cars;
-
-    /**
-     * 자동차의 전진여부를 저장하는 배열
-     */
-    private Boolean[][] actualMoving;
 
     /**
      * 이름을 입력받고 Car 객체를 생성하는 메소드
      */
     public void makeCars() {
         /* input이 유효할 때까지 이름을 입력받고, 입력받은 String을 기준으로 Car 객체 생성 */
+
         String[] carNames = getCarNamesUntilValid();
 
         cars = new Car[carNames.length];
@@ -69,10 +64,10 @@ public class Admin {
         /* input이 유효할 때까지 숫자를 입력받고, 입력받은 숫자만큼 각 Car 객체를 이동시키고, 그 과정을 출력함 */
 
         int numOfMoving = getNumOfMovingUntilValid();
-        actualMoving = new Boolean[cars.length][numOfMoving];
-        for (int episode = 0; episode < numOfMoving; episode++) {
-            doOneEpisode(episode);
-            printEpisode(episode);
+
+        for (int i = 0; i < numOfMoving; i++) {
+            carsMoveForward();
+            printPosition();
             System.out.println();
         }
     }
@@ -81,9 +76,9 @@ public class Admin {
      * 우승자를 출력하는 메소드
      */
     public void printWinner() {
-        /* 가장 많이 움직인 자동차들의 이름들을 actualMoving 변수를 통해 구하고, 그 문자열을 join해서 출력 */
-        ArrayList<String> winnerList = getWinnerList();
-        System.out.println(String.join(", ", winnerList) + "가 최종 우승했습니다.");
+        /* 각 자동차의 position 변수를 확인해서 그 값이 가장 큰 자동차들의 이름을 출력 */
+
+        System.out.println(getWinnersName() + "이/가 최종 우승했습니다.");
     }
 
     /**
@@ -186,24 +181,20 @@ public class Admin {
     }
 
     /**
-     * 자동차들의 전진을 한 에피소드만큼 진행하는 메소드
-     *
-     * @param episode 몇 번째 에피소드인지 알려주는 변수
+     * 자동차들을 전진시키는 메소드
      */
-    private void doOneEpisode(int episode) {
+    private void carsMoveForward() {
         for (int i = 0; i < cars.length; i++) {
-            actualMoving[i][episode] = Car.canMove();
+            cars[i].moveForward();
         }
     }
 
     /**
-     * 자동차의 전진과정을 실제로 출력하는 메소드
-     *
-     * @param episode 현재까지 진행된 에피소드
+     * 자동차의 전진과정을 출력하는 메소드
      */
-    private void printEpisode(int episode) {
+    private void printPosition() {
         for (int i = 0; i <= cars.length; i++) {
-            cars[i].printMove(actualMoving[i], episode);
+            cars[i].printMove();
         }
         System.out.println();
     }
@@ -211,38 +202,44 @@ public class Admin {
     /**
      * 가장 많이 전진한 자동차들의 이름을 구하는 함수
      *
-     * @return ArrayList<String> 자동차들의 이름
+     * @return 우승 자동차들의 이름이 쉼표(,)로 join 된 String
      */
-    private ArrayList<String> getWinnerList() {
+    private String getWinnersName() {
+        ArrayList<Integer> carsPosition = getCarsPosition();
+        ArrayList<String> winnerList = getWinnersList(carsPosition);
+
+        return String.join(", ", winnerList);
+    }
+
+    /**
+     * 자동차들의 position 을 구하는 메소드
+     *
+     * return 자동차들의 position이 저장된 ArrayList
+     */
+    private ArrayList<Integer> getCarsPosition() {
         ArrayList<Integer> countMoving = new ArrayList<>();         // 각 자동차별로 전진한 횟수를 저장하는 ArrayList
-        ArrayList<String> winnerList = new ArrayList<>();
-        int maxMoving;
 
         for (int i = 0; i < cars.length; i++) {
-            countMoving.add(countTrue(actualMoving[i]));
+            countMoving.add(cars[i].getPosition());
         }
-        maxMoving = Collections.max(countMoving);
-        for (int i = 0; i < countMoving.size(); i++) {
-            if (countMoving.get(i) == maxMoving) {
+        return countMoving;
+    }
+
+    /**
+     * 우승 자동차들의 이름들을 구하는 메소드
+     *
+     * @param carsPosition 자동차들의 position이 담긴 ArrayList
+     * @return 포지션이 가장 큰 자동차들의 이름이 담긴 ArrayList
+     */
+    private ArrayList<String> getWinnersList(ArrayList<Integer> carsPosition) {
+        ArrayList<String> winnerList = new ArrayList<>();
+        int maxPosition = Collections.max(carsPosition);
+
+        for (int i = 0; i < carsPosition.size(); i++) {
+            if (carsPosition.get(i) == maxPosition) {
                 winnerList.add(cars[i].getName());
             }
         }
         return winnerList;
-    }
-
-    /**
-     * 배열에서 true인 원소의 갯수를 반환하는 메소드
-     *
-     * @param targetArr 갯수를 셀 Boolean 배열
-     * @return true인 원소의 갯수
-     */
-    private int countTrue(Boolean[] targetArr) {
-        int counter = 0;
-        for (int i = 0; i < targetArr.length; i++) {
-            if (targetArr[i]) {
-                counter++;
-            }
-        }
-        return counter;
     }
 }

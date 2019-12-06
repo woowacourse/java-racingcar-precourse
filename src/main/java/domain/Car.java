@@ -4,13 +4,18 @@ package domain;
  * Car class - 경주에 사용할 자동차 Class
  *
  * @author 김범준(ddaaac)
- * @version 1.01 2019-12-05
+ * @version 1.02 2019-12-06
  */
 public class Car {
     /**
      * 자동차의 이름
      */
     private final String name;
+
+    /**
+     * 자동차의 위치
+     */
+    private int position = 0;
 
     /**
      * Car의 생성자
@@ -22,42 +27,25 @@ public class Car {
     }
 
     /**
-     * 자동차가 한 번 전진했는지 반환하는 클래스 메소드
+     * 자동차의 위치를 일정 확률로 1 증가시키는 메소드
      *
      * @return Boolean 전진했으면 true, 하지 않았으면 false
      */
-    protected static Boolean canMove() {
-        int randomNumber;
-        randomNumber = (int) (Math.random() * Admin.maxRandomNumber);
+    protected void moveForward() {
+        int randomNumber = (int) (Math.random() * Admin.maxRandomNumber);
+
         if (randomNumber >= Admin.minMovingNumber) {
-            return true;
+            position++;
         }
-        return false;
     }
 
     /**
-     * 자동차의 전진여부를 반환하는 메소드
-     *
-     * @param maxNumOfMoving 앞으로 전진할 수 있는 최대횟수
-     * @return Boolean Array 전진했으면 true, 하지 않았으면 false로 이뤄진 maxNumOfMoving 크기의 정수 배열
+     * 자동차의 이름과 현재 포지션만큼 '-'를 출력하는 메소드
      */
-    protected Boolean[] moveCar(int maxNumOfMoving) {
-        Boolean[] actualMoving = new Boolean[maxNumOfMoving];
-        for (int i = 0; i < maxNumOfMoving; i++) {
-            actualMoving[i] = canMove();
-        }
-        return actualMoving;
-    }
-
-    /**
-     * Car 객체의 전진과정을 출력하는 메소드
-     */
-    protected void printMove(Boolean[] actualMoving, int episode) {
+    protected void printMove() {
         System.out.print(name + ": ");
-        for (int i = 0; i <= episode; i++) {
-            if (actualMoving[i]) {
-                System.out.print('-');
-            }
+        for (int i = 0; i <= position; i++) {
+            System.out.print('-');
         }
         System.out.println();
     }
@@ -67,5 +55,12 @@ public class Car {
      */
     protected String getName() {
         return this.name;
+    }
+
+    /**
+     * position 변수의 getter
+     */
+    protected int getPosition() {
+        return this.position;
     }
 }
