@@ -88,16 +88,20 @@ public class Stadium {
 		}
 	}
 
-	private void runRace(int numOfRace) {
-		System.out.println("실행 결과");
+	private void runRace(int numberOfRace) {
+		printRaceResultMessage();
 
-		for (int i = 0; i < numOfRace; i++) {
-			for (Car car : carList) {
-				car.move();
-				printPositions(car);
-			}
-			System.out.println("");
+		for (int i = 0; i < numberOfRace; i++) {
+			isRacing(carList);
 		}
+	}
+
+	private void isRacing(ArrayList<Car> carList) {
+		for (Car car : carList) {
+			car.move();
+			printPositions(car);
+		}
+		System.out.println("");
 	}
 
 	private void printPositions(Car car) {
