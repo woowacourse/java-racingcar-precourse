@@ -9,4 +9,12 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void March() {
+        if (isOkayToMarch()) position++;
+    }
+
+    private boolean isOkayToMarch() {
+        double randomInt = Math.floor(Math.random() * 10);
+        return randomInt >= 4.0;
+    }
 }
