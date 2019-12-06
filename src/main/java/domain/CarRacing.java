@@ -1,9 +1,6 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class CarRacing {
 
@@ -19,14 +16,18 @@ public class CarRacing {
         return carList;
     }
 
-    private static boolean carDrive() {
+    public static boolean canDrive() {
         Random random = new Random();
         return (random.nextInt(RANDOM_MAX_NUMBER) >= RANDOM_PARTITION_NUMBER);
     }
 
     private static void play(ArrayList<Car> carList) {
         for(int i = 0; i < carList.size(); i ++) {
-            carList.get(i).printDistance();
+            Car currentCar = carList.get(i);
+            if (canDrive()) {
+                currentCar.drive();
+            }
+            currentCar.printDistance();
         }
     }
 
