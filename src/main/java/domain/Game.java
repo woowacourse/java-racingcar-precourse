@@ -43,4 +43,28 @@ public class Game {
         }
         System.out.println();
     }
+
+    private static String getWinnerName() {
+        String winnerName = "";
+        int maxPosition = -1;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) maxPosition = car.getPosition();
+        }
+        boolean firstWinnerFlag = true;
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition && firstWinnerFlag) {
+                winnerName += car.getName();
+                firstWinnerFlag = false;
+                continue;
+            }
+            if (car.getPosition() == maxPosition) {
+                winnerName += ", "+car.getName();
+            }
+        }
+        return winnerName;
+    }
+
+    private static void printWinnerName() {
+        System.out.printf("%s가 최종 우승했습니다.", getWinnerName());
+    }
 }
