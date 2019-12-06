@@ -7,13 +7,12 @@ public class InputException {
 	private static final int MIN_LEN_OF_NAME = 1;
 	private static final int MIN_ROUNDS = 1;
 	
-	public static void checkOverlapping(List<String> carNames, String carName) {
-		if (carNames.contains(carName)) {
-			throw new IllegalArgumentException("중복되지 않은 이름들을 입력해주세요");
-		}
+	/* 이름에 추가적인 제한 사항이 생기면 제한 사항에 따른 메서드를 따로 만들어서 여기에 추가한다 */
+	public static void checkValidCarNames(List<String> carNames) {
+		checkValidLenOfCarNames(carNames);
 	}
 	
-	public static void checkValidCarNames(List<String> carNames) {
+	private static void checkValidLenOfCarNames(List<String> carNames) {
 		for (int i = 0; i < carNames.size(); i++) {
 			checkValidLenOfCarName(carNames.get(i));
 		}
@@ -26,7 +25,12 @@ public class InputException {
 		}
 	}
 	
+	/* 회수에 추가적인 제한 사항이 생기면 제한 사항에 따른 메서드를 따로 만들어서 여기에 추가한다 */
 	public static void checkValidRounds(int rounds) {
+		checkVaidRangeOfRounds(rounds);
+	}
+	
+	private static void checkVaidRangeOfRounds(int rounds) {
 		if(rounds < MIN_ROUNDS) {
 			throw new IllegalArgumentException("1 이상의 숫자를 입력해주세요");
 		}
