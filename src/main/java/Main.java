@@ -1,8 +1,6 @@
 import io.IoSystem;
 
 import controll.Controller;
-import domain.Car;
-
 class Main {
 
     public static void main(String[] args) {
@@ -19,6 +17,6 @@ class Main {
             controller.runCarsPirnt();
         }
         controller.getMaximumDistanceCar();
-        iosystem.printResultCars();
+        iosystem.printResultCars(controller.getResultCars());
     }
 }
