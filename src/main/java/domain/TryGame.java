@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.*;
-import domain.*;
 
 public class TryGame {
     public void start(){
@@ -16,8 +14,8 @@ public class TryGame {
 
         for(int i=0;i<tryCount;i++) {
             for (int j = 0; j < car.length; j++) {
-                car[i].forwordPosition();
-                System.out.print(car[i].getName()+":"+car[i].getPosition());
+                car[j].forwordPosition();
+                System.out.print(car[j].getName()+":"+car[j].getPosition());
                 System.out.println();
             }
             System.out.println();

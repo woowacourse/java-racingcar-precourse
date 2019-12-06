@@ -2,7 +2,6 @@ package domain;
 
 import java.util.*;
 
-import domain.*;
 
 public class MakeCar {
     public Car[] makingCar() {
