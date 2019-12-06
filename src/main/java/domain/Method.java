@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Method {
 
 	static Car[] cars;
+	String[] names;
 	Random rd=new Random();
 	Scanner scan = new Scanner(System.in);
 
@@ -20,14 +21,14 @@ public class Method {
 	}
 
 	private boolean SplitCarName(String car) {
-		int i = 0;
-		for (String name : car.split(",")) {
-			if (!CheckStringLength(name)) {
+		names=car.split(",");
+		cars=new Car[names.length];
+		for (int i=0;i<names.length;i++) {
+			if (!CheckStringLength(names[i])) {
 				System.out.println("5자를 초과하셨습니다");
 				return true;
 			}
-			//cars[i] = new Car(name);
-			i++;
+			cars[i]=new Car(names[i]);
 		}
 		return false;
 	}

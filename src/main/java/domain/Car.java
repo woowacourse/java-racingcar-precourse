@@ -12,5 +12,12 @@ public class Car {
 		return name;
 	}
 
+    public String toString() {
+    	return "-";
+    }
     
+    public void getPosition(boolean n) {
+    	if(n)
+    		position++;
+    }
 }
