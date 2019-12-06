@@ -1,12 +1,23 @@
 package domain;
 
+import domain.*;
+
 public class Car {
     private final String name;
     private int position = 0;
+    RandomMakeNum makeNum = new RandomMakeNum();
 
     public Car(String name) {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public int getPosition(){
+        return this.position;
+    }
+
+    public void forwordPosition(){
+        if(makeNum.randomMakeNum()) {
+            this.position++;
+        }
+    }
 }
