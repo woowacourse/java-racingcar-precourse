@@ -56,8 +56,7 @@ public class Computer {
         return winnerPosition;
     }
 
-    public String makeWinnerList(int winnerPosition) {
-        String winnerList = null;
+    public String[] checkWinner(int winnerPosition) {
         String[] winner = new String[carList.length];
         int cnt = 0;
 
@@ -66,6 +65,12 @@ public class Computer {
                 winner[cnt++] = carList[i].getName();
             }
         }
+
+        return winner;
+    }
+
+    public String makeWinnerList(String[] winner) {
+        String winnerList = null;
 
         winnerList = winner[0];
         for (int i = 1; i < carList.length; i++) {
@@ -79,7 +84,8 @@ public class Computer {
 
     public void showResult() {
         int winnerPosition = getWinnerPosition();
-        String winnerList = makeWinnerList(winnerPosition);
+        String[] winner = checkWinner(winnerPosition);
+        String winnerList = makeWinnerList(winner);
 
         System.out.println(winnerList + "가 최종 우승했습니다.");
     }
