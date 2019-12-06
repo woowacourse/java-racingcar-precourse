@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Game {
     private Car[] cars;
@@ -8,6 +9,7 @@ public class Game {
 
     public void runGame() {
         this.gameSetting();
+        this.gameRun();
     }
 
     /* 게임을 세팅해주는 부분 */
@@ -53,4 +55,23 @@ public class Game {
         }
         this.race = race;
     }
+
+
+    /* 게임을 실행하는 부분 */
+    public void gameRun() {
+        System.out.println("실행 결과");
+        for (int i = 0; i < race; i++) {
+            this.eachRace();
+            System.out.println();
+        }
+    }
+
+    public void eachRace() {
+        Random random = new Random();
+        for (int i = 0; i < cars.length; i++) {
+            if (random.nextInt(10) >= 4) cars[i].moveForward();
+            System.out.println(cars[i].getName() + " : " + cars[i].currentPosition());
+        }
+    }
+
 }
