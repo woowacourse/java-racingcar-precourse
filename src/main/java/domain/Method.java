@@ -17,7 +17,7 @@ public class Method {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
 			car = scan.next();
 		} while (SplitCarName(car));
-		//InputRunCount();
+		InputRunCount();
 	}
 
 	private boolean SplitCarName(String car) {
@@ -38,6 +38,16 @@ public class Method {
 		int runCount=scan.nextInt();
 		printResult(runCount);
 	}
+	private void printResult(int runCount) {
+		System.out.println();
+		System.out.println();
+		System.out.println("실행 결과");
+		for(int i=0;i<runCount;i++) {
+			runResult();
+		}
+		
+	}
+
 	private boolean CheckStringLength(String carName) {
 		if(carName.length()<6)
 			return true;
@@ -45,7 +55,7 @@ public class Method {
 		return false;
 	}
 	
-	public boolean CheckForward() {
+	public boolean checkForward() {
 		if(RandomNumber()<4)
 			return false;
 		return true;
@@ -55,10 +65,17 @@ public class Method {
 	private  int RandomNumber() {
 		return rd.nextInt(9)+1;	
 	}
-	public void printResult(int count) {
-		for(int i=0;i<count;i++) {
-			
+	
+	
+	public void runResult() {
+		for(int i=0;i<cars.length;i++) {
+			System.out.print(cars[i].getName()+":");
+			if(checkForward()) {
+				System.out.print("-");
+			}
+			System.out.println();
 		}
+		System.out.println();
 	}
 
 }
