@@ -8,11 +8,13 @@ public class Main {
 //		car.Move(1);
 //		System.out.print(car.Position());
 		
-		String[] names = user.EnterCarName();
+		String[] names = user.EnterCarName_ReturnArray();
+		int number = user.Attempt();
 		
 		for (int i=0; i<names.length; i++) {
 			System.out.println(names[i]);
 		}
+		System.out.print(number);
 		
 	}
 }
