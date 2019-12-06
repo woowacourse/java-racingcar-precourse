@@ -32,3 +32,4 @@
 4. N만큼 for문 반복하여 최장거리의 차량 하나를 찾고, 그 길이에 맞는 Car들을 찾아 리스트에 담는 함수 getMaximumDistanceCar()
 5. getMaximumDistanceCar()의 결과와 값이 같은 차량을 리스트에 담는 함수 구현 getMaximumDistanceCars()
 6. 랜덤 값을 반환하는 함수 구현 getRandomInt()
+7. count값을 리턴하는 getCount() 함수 구현
