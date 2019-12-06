@@ -13,16 +13,16 @@ public class Rule {
 		return randomNumber >= GO_BOUNDARY_NUMBER;
 	}
 
-	public static ArrayList<String> getWinnersName(ArrayList<Car> cars) {
-		ArrayList<String> result = new ArrayList<>();
+	public static ArrayList<String> getWinnerNames(ArrayList<Car> cars) {
+		ArrayList<String> winnerNames = new ArrayList<>();
 		int maxPosition = getMaxPosition(cars);
 
 		for(Car car : cars) {
 			if(car.getPosition() == maxPosition) {
-				result.add(car.getName());
+				winnerNames.add(car.getName());
 			}
 		}
-		return result;
+		return winnerNames;
 	}
 
 	private static int getMaxPosition(ArrayList<Car> cars) {
