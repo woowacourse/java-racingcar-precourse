@@ -28,6 +28,7 @@ public class CarRacing {
                 currentCar.drive();
             }
             currentCar.printDistance();
+            System.out.println();
         }
     }
 
