@@ -12,6 +12,9 @@ public class Car implements RacingCar {
 
     @Override
     public void race() {
+        if (canGo()) {
+            go();
+        }
 
     }
     private boolean canGo() {
