@@ -10,7 +10,8 @@ public class Controller {
     private ArrayList<Car> resultCars;
 
     public Controller() {
-
+        cars = new ArrayList<>();
+        resultCars = new ArrayList<>();
     }
 
     private int getRandomInt() {
