@@ -13,5 +13,12 @@ public class Main {
 		
 		int temp = Input.enterRounds();
 		System.out.println(temp);
+		
+		Car mycar = new Car("mycar");
+		while(true) {
+			Input.enterCarNames();
+			mycar.decidePosition();
+			System.out.println("curposition: " + mycar.getPosition());
+		}
 	}
 }
