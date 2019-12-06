@@ -19,7 +19,10 @@ public class Main {
         }
 
         setTurnsCount();
-
+        if (turns < 1) {
+            System.out.println("정상적이지 않은 회수가 확인되었습니다. 게임을 종료합니다.");
+            return;
+        }
 
         play();
 
@@ -51,7 +54,8 @@ public class Main {
 
 
     static private void setTurnsCount() {
-     
+        System.out.println("시도할 회수는 몇회인가요?");
+        turns = sc.nextInt();
     }
 
     static private void play() {
