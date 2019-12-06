@@ -15,6 +15,10 @@ public class Car {
         return this.position;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public void forwordPosition(){
         if(makeNum.randomMakeNum()) {
             this.position++;
