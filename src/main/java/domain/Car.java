@@ -27,4 +27,8 @@ public class Car {
         }
     }
 
+    private void print(String string) {
+        System.out.print(string);
+    }
+
 }
