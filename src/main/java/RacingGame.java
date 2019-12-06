@@ -5,9 +5,15 @@ import java.util.Scanner;
 
 
 public class RacingGame {
+    private static final String MESSAGE_ASK_TRIAL_NUMBER = "시도할 회수는 몇 회인가요?";
     private static final String MESSAGE_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분";
-    private static final String CAR_NAME_DELIMETER = ",";
     private static final String MESSAGE_NAME_LIMIT = "자동차 이름은 5글자 이하만 가능합니다.";
+    private static final String MESSAGE_NOT_NATURAL_NUMBER = "0이 아닌 자연수가 아닙니다. 0이 아닌 자연수를 입력해주세요.";
+    private static final String MESSAGE_WINNING = "가 최종 우승했습니다.";
+    private static final String CAR_NAME_DELIMETER = ",";
+    private static final String RACING_PROCESS_DELIMETER = ":";
+    private static final String PROGRESS_BAR = "-";
+    private static final String SPACE_BAR = "\n";
     private static Scanner scanner;
 
 
@@ -52,7 +58,7 @@ public class RacingGame {
     private int getNumberOfTrial() {
         String numberOfTrial;
         do {
-            System.out.println("시도할 회수는 몇 회인가요?");
+            System.out.println(MESSAGE_ASK_TRIAL_NUMBER);
             numberOfTrial = scanner.nextLine();
 
         } while (!validateNaturalNumber(numberOfTrial));
@@ -67,7 +73,7 @@ public class RacingGame {
             }
             return true;
         } catch (Exception e) {
-            System.out.println("0이 아닌 자연수가 아닙니다. 0이 아닌 자연수를 입력해주세요.");
+            System.out.println(MESSAGE_NOT_NATURAL_NUMBER);
             return false;
         }
     }
@@ -76,9 +82,44 @@ public class RacingGame {
         for (int i = 0; i < numberOfTrial; i++) {
             for (Car car : cars) {
                 car.move();
-                //System.out.println(car.getPosition());
+            }
+            printRaceProcess(cars);
+        }
+        printRaceResult(cars);
+    }
+
+    private void printRaceResult(ArrayList<Car> cars) {
+        int maxPostion = getMaxPostion(cars);
+        ArrayList<String> winnerNames = getWinnerNames(cars, maxPostion);
+        String winnerNameSerial = String.join(", ", winnerNames);
+        System.out.println(winnerNameSerial + MESSAGE_WINNING);
+    }
+
+    private ArrayList<String> getWinnerNames(ArrayList<Car> cars, int maxPostion) {
+        ArrayList<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPostion) {
+                winnerNames.add(car.getName());
             }
         }
+        return winnerNames;
+    }
+
+    private int getMaxPostion(ArrayList<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if (maxPosition < car.getPosition()) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
+
+    private void printRaceProcess(ArrayList<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + RACING_PROCESS_DELIMETER + makeProgressBar(car.getPosition()));
+        }
+        System.out.print(SPACE_BAR);
     }
 
     private ArrayList<Car> getCars() {
@@ -94,4 +135,13 @@ public class RacingGame {
         }
         return cars;
     }
+
+    private String makeProgressBar(int position) {
+        StringBuilder progress = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            progress.append(PROGRESS_BAR);
+        }
+        return progress.toString();
+    }
+
 }
