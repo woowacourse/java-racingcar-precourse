@@ -4,12 +4,12 @@ import domain.Car;
 import io.IoSystem;
 import java.util.ArrayList;
 
-class Controller {
+public class Controller {
 
     private ArrayList<Car> cars;
     private ArrayList<Car> resultCars;
 
-    Controller() {
+    public Controller() {
 
     }
 

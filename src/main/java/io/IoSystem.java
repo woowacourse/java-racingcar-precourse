@@ -8,7 +8,7 @@ public class IoSystem {
     private Scanner sc;
     private int count;
 
-    IoSystem() {
+    public IoSystem() {
         sc = new Scanner(System.in);
     }
 
