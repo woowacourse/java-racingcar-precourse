@@ -34,10 +34,4 @@
             <li>자동차가 전진할 지 랜덤 숫자를 확인하는 checkNumber 함수.</li>
         </ul>
     </li>
-    <li>
-        CheckOverlap.java
-        <ul>
-            <li>자동차 이름이 중복되는 경우가 있는지 확인하는 checkOverlap 함수.</li>
-        </ul>
-    </li>
 </ol>

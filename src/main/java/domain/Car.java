@@ -8,5 +8,24 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public static String carName(Car a) {
+        return a.name;
+    }
+
+    public static int carPosition(Car a) {
+        return a.position;
+    }
+
+    public static void addPosition(Car a, int forward) {
+        a.position += forward;
+    }
+
+    public static void positionState(Car a) {
+        System.out.printf("%s", a.name);
+        for(int i = 0; i < a.position; i++) {
+            System.out.print("-");
+        }
+        System.out.print("\n");
+    }
+
 }
