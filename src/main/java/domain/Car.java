@@ -12,7 +12,11 @@ public class Car {
         position ++;
     }
 
-    public int getPosition() {
+    public String getName() {
+        return name;
+    }
+
+   public int getPosition() {
         return position;
     }
 
