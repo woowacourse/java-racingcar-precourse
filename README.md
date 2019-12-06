@@ -132,4 +132,4 @@
 
 - use imperative, present tense: “change” not “changed” nor “changes”
 - don't capitalize first letter
-- no dot (.) at the endㅌ
+- no dot (.) at the end
