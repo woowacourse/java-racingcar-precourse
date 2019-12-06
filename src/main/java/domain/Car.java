@@ -2,18 +2,29 @@ package domain;
 
 import java.util.Random;
 
-public class Car {
+class Car {
+    private static int headPosition = 0;
+
     private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    Car(String name) {
         this.name = name;
     }
 
-    public void useTurn() {
+    void useTurn() {
         boolean move = decideMove();
         if (move) position += 1;
         showCurrentPosition();
+        updateHeadPosition();
+    }
+
+    boolean isHead(){
+        return headPosition == this.position;
+    }
+
+    String getName(){
+        return name;
     }
 
     private boolean decideMove() {
@@ -28,5 +39,9 @@ public class Car {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    private void updateHeadPosition() {
+        if (this.position > headPosition) headPosition = this.position;
     }
 }

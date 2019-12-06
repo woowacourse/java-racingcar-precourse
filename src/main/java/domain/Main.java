@@ -1,13 +1,8 @@
 package domain;
-
-
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
     static private ArrayList<Car> cars;
     static private int turns;
     static private Scanner sc;
@@ -35,8 +30,7 @@ public class Main {
 
     static private boolean makeCars() {
         String allCarsName;
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        System.out.println("각 자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n각 자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
         allCarsName = sc.nextLine();
         String[] splittedNames = allCarsName.split(",");
         for (String name : splittedNames) {
@@ -78,6 +72,29 @@ public class Main {
     }
 
     static private void showResult() {
+        ArrayList<Car> winners = collectWinnsers();
+        ArrayList<String> winnersName = collectNames(winners);
+        System.out.println(String.join(", ", winnersName) + "가 최종 우승했습니다.");
+    }
+
+    static private ArrayList<Car> collectWinnsers() {
+        ArrayList<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            addToWinnersIfHeadPosition(car, winners);
+        }
+        return winners;
+    }
+
+    static private void addToWinnersIfHeadPosition(Car car, ArrayList<Car> winners) {
+        if (car.isHead()) winners.add(car);
+    }
+
+    static private ArrayList<String> collectNames(ArrayList<Car> winners) {
+        ArrayList<String> winnersName = new ArrayList<>();
+        for (Car car: winners) {
+            winnersName.add(car.getName());
+        }
+        return winnersName;
     }
 
 }
