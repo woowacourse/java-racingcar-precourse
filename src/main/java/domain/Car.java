@@ -44,6 +44,7 @@ public class Car {
         if (randomNumber >= PASS_UNDER_LIMIT) {
             position++;
         }
+        printCarPosition();
         return position;
     }
 
