@@ -14,4 +14,8 @@ public class Car {
     		position++;
     	}
     }
+    
+    public void showPosition() {
+    	System.out.println(name + " : " + position);
+    }
 }

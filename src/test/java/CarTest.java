@@ -33,8 +33,10 @@ public class CarTest {
 		System.out.println("실행결과");
 		for( int i=0 ; i<tryCnt ; i++ ) {
 			for( int j=0 ; j<carCnt ; j++ ) {
-				
+				carNames[j].move();
+				carNames[j].showPosition();
 			}
+			System.out.println();
 		}
 	}
 
