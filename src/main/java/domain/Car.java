@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java     0.4 2019.12.07
+ * @(#)Car.java     0.5 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -11,7 +11,7 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.4 2019.12.07
+ * @version 0.5 2019.12.07
  */
 public class Car {
     /**
@@ -60,12 +60,30 @@ public class Car {
      * 자동차를 앞으로 전진시키고, 전진한 위치가 모든 자동차들 중 가장 큰 값이면 해당 위치로
      * 최댓값(maxPosition)을 초기화시키는 메소드.
      */
-    private void moveCarToForward() {
+    public void moveCarToForward() {
         if (isCarMoveForward()) {
             position++;
             if (position > maxPosition) {
                 maxPosition = position;
             }
         }
+    }
+
+    /**
+     * name getter
+     *
+     * @return 자동차의 이름을 반환한다.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * position getter
+     *
+     * @return 자동차의 현재 위치를 반환한다.
+     */
+    public int getPosition() {
+        return position;
     }
 }
