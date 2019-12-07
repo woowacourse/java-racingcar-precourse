@@ -62,6 +62,7 @@ public class Racing implements Racable{
         for(int idx = 0; idx < len; idx++){
             char chr = trial.charAt(idx);
             if(chr < '0' || chr > '9'){
+                System.out.println("숫자만 입력해 주십시오.");
                 return false;
             }
         }
