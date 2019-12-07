@@ -57,7 +57,16 @@ public class Racing implements Racable{
 
     @Override
     public boolean isValidTrial(String trial) {
-        return false;
+        int len = trial.length();
+
+        for(int idx = 0; idx < len; idx++){
+            char chr = trial.charAt(idx);
+            if(chr < '0' || chr > '9'){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
