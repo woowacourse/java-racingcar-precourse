@@ -21,7 +21,15 @@ public class Racing implements Racable{
 
     @Override
     public void getNames() {
-
+        Scanner sc = new Scanner(System.in);
+        while(true){
+            printNameAskMsg();
+            String names =  sc.nextLine();
+            if(areValidNames(names)){
+                createCars(names.split(","));
+                break;
+            }
+        }
     }
 
     @Override
