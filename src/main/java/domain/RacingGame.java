@@ -1,5 +1,5 @@
 /*
- * @(#)RacingGame.java     0.2 2019.12.07
+ * @(#)RacingGame.java     0.3 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.2 2019.12.07
+ * @version 0.3 2019.12.07
  */
 public class RacingGame {
     /**
@@ -57,6 +57,11 @@ public class RacingGame {
     private List<String> carNames;
 
     /**
+     * 생상한 자동차 객체들을 저장할 Car 클래스형 List 변수.
+     */
+    private List<Car> cars;
+
+    /**
      * 자동차의 이름을 입력받아 유효성을 검사 후 처리하여 carNames 문자열 리스트에 저장하는 메소드.
      */
     private void receiveCarNames() {
@@ -69,6 +74,15 @@ public class RacingGame {
             userInput = sc.nextLine();
             removeSpaceAroundComma();
         } while (!isValidInput());
+    }
+
+    /**
+     * 유효성이 검증된 자동차의 이름들을 가지고 Car 클래스 객체를 생성하는 메소드.
+     */
+    private void generateCarInstances() {
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
     /**
