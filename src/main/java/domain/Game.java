@@ -54,4 +54,32 @@ public class Game {
         return true;
     }
 
+    private boolean checkInputContainsChar(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch ( NumberFormatException e) {
+            System.out.print("잘못된 입력입니다.\n다시 ");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkInputIsMinus(String input) {
+        int inputValue = Integer.parseInt(input);
+        if (inputValue < 0) {
+            System.out.print("음수가 입력되었습니다.\n다시 ");
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkInputIsZero(String input) {
+        int inputValue = Integer.parseInt(input);
+        if (inputValue == 0) {
+            System.out.print("0이 입력되었습니다.\n다시 ");
+            return true;
+        }
+        return false;
+    }
+
 }
