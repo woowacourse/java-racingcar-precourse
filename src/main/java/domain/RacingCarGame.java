@@ -19,4 +19,8 @@ public class RacingCarGame {
 		carManager.update();
 		trialCount.next();
 	}
+
+	public List<Car> getCars() {
+		return carManager.getCars();
+	}
 }

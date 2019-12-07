@@ -26,4 +26,8 @@ public class CarManager {
 				.filter(car -> car.isSamePosition(maxPositionCar))
 				.collect(Collectors.toList());
 	}
+
+	public List<Car> getCars() {
+		return cars;
+	}
 }
