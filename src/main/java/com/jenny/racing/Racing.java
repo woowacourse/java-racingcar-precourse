@@ -42,7 +42,12 @@ public class Racing implements Racable{
 
     @Override
     public void createCars(String[] names) {
+        int cnt = names.length;
+        cars = new Car[cnt];
 
+        for(int idx = 0; idx < cnt; idx++){
+            cars[idx] = new Car(names[idx]);
+        }
     }
 
     @Override
