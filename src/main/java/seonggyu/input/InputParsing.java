@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputParsing {
-	public static List<String> parseArrToList(String[] inputStringArr) {
+	public static List<String> parseStringArrToList(String[] inputStringArr) {
 		List<String> outputList = new ArrayList<String>(Arrays.asList(inputStringArr));
 		return outputList;
 	}

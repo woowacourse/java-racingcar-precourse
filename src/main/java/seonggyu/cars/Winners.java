@@ -26,12 +26,7 @@ public class Winners {
 	}
 	
 	public void printWinners() {
-		for(int i = 0; i < winners.size() - 1; i++) {
-			System.out.print(winners.get(i) + ", ");
-		}
-		if(winners.size() > 0) {
-			System.out.print(winners.get(winners.size()-1) + " ");
-		}
-		System.out.print("가 최종 우승했습니다.");
+		String result = String.join(", ", this.winners);
+		System.out.print(result + " 가 최종 우승했습니다.");
 	}
 }
