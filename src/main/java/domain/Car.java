@@ -30,6 +30,12 @@ public class Car {
         return stringBuilder.toString();
     }
 
+    public void updateOneCycle() {
+        if (decideGoOrNot()) {
+            position++;
+        }
+    }
+
     private boolean decideGoOrNot() {
         int num = drawRandomNumber();
         if (num >= 4) {
