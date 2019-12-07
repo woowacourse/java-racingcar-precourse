@@ -22,6 +22,7 @@ public class PlayRacing {
      */
 
     private static ArrayList<Car> carArrayList = new ArrayList<>();
+    private static int roundNumber = 1;
 
     public static void playRacing() {
         // 테스트용
@@ -37,8 +38,7 @@ public class PlayRacing {
 
         carArrayList = CarNameGenerator.carNameGenerator();
 
-
-        // 테스트용
+        /*// 테스트용
         System.out.println("========인스턴스에 저장==========");
         for (Car car : carArrayList) {
             System.out.println(car.getName());
@@ -46,7 +46,10 @@ public class PlayRacing {
             car.moveForward(car.decideGoOrNot(car.getRandomInt()));
             car.moveForward(car.decideGoOrNot(car.getRandomInt()));
             System.out.println(car.getPosition());
-        }
+        }*/
+
+        roundNumber = RoundNumberGetter.controlRoundNumberGetting();
+        carArrayList = RacingStarter.RacingStarter(carArrayList, roundNumber);
 
     }
 
