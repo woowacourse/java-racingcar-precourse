@@ -1,8 +1,23 @@
+/*
+ * Racing.java
+ *
+ * 1.8
+ *
+ * 2019/12/07
+ *
+ * Copyright (c) 2019 Janghee Lee
+ * All rights reserved.
+ * */
+
 package com.jenny.racing;
 
 import domain.Car;
 
 import java.util.Scanner;
+
+/*
+ * 기능에 필요한 모든 함수가 들어있는 클래스
+ */
 
 public class Racing implements Racable{
 
@@ -102,11 +117,6 @@ public class Racing implements Racable{
         }
 
         System.out.println(cars[num].getName() + " : " + dist);
-    }
-
-    @Override
-    public void printProcess() {
-
     }
 
     @Override

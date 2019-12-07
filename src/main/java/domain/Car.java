@@ -1,3 +1,14 @@
+/*
+ * Car.java
+ *
+ * 1.8
+ *
+ * 2019/12/07
+ *
+ * Copyright (c) 2019 Janghee Lee
+ * All rights reserved.
+ * */
+
 package domain;
 
 public class Car {

@@ -45,16 +45,13 @@ public interface Racable {
     // 3-2. 자동차의 이름별 이동거리를 띄울 함수
     void printCarPosition(int num);
 
-    // 3-3. 1회당 결과를 출력할 함수
-    void printProcess();
-
-    // 3-4. 우승자를 띄울 함수
+    // 3-3. 우승자를 띄울 함수
     void printWinner();
 
-    // 3-5. 본격적인 레이싱을 수행하는 함수
+    // 3-4. 본격적인 레이싱을 수행하는 함수
     void race();
 
-    // 3-6. 전체 수행
+    // 3-5. 전체 수행
     void run();
 
 }
