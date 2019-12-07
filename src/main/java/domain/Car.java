@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java     0.3 2019.12.07
+ * @(#)Car.java     0.4 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -11,13 +11,18 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.3 2019.12.07
+ * @version 0.4 2019.12.07
  */
 public class Car {
     /**
      * 생성 가능한 random 변수의 최대 범위를 제한하기 위한 상수.
      */
     private static final int MAX_RANDOM_NUMBER = 9;
+
+    /**
+     * 자동차들 중에서 가장 먼 위치의 값을 저장하는 변수.
+     */
+    private static int maxPosition = 0;
 
     /**
      * 자동차의 이름을 저장하는 문자열 변수.
@@ -49,5 +54,18 @@ public class Car {
      */
     private boolean isCarMoveForward() {
         return (generateRandomNumber() > 3);
+    }
+
+    /**
+     * 자동차를 앞으로 전진시키고, 전진한 위치가 모든 자동차들 중 가장 큰 값이면 해당 위치로
+     * 최댓값(maxPosition)을 초기화시키는 메소드.
+     */
+    private void moveCarToForward() {
+        if (isCarMoveForward()) {
+            position++;
+            if (position > maxPosition) {
+                maxPosition = position;
+            }
+        }
     }
 }
