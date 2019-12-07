@@ -53,9 +53,25 @@ public class Race {
     private int maxRaceRecode;
 
     /**
-     * accletateCarList는 carList 안에 있는 Car 객체들에 대하여,
+     * Race는 생성자 메서드로, 자동차 이름과 댓수, 경기의 횟수를 저장한다.
+     * 자동차 이름은 getNameToInput 메서드를 통해 만들어 저장한다.
+     * 경기 횟수는 getRepeatToInput 메서드를 통해 만들어 저장한다.
+     * 이후 자동차 객체를 만들어 이름을 생성자로 전달한다.
+     */
+    public Race() {
+        carList = new ArrayList<Car>();
+        List<String> carNameList = getNameToInput();
+        this.raceRepeat = getRepeatToInput();
+        for (String name : carNameList) {
+            carList.add(new Car(name));
+        }
+        maxRaceRecode = 0;
+    }
+
+    /**
+     * acclerateCarList는 carList 안에 있는 Car 객체들에 대하여,
      * 각자 가속하도록 accelerateCar 메서드를 호출해주는 메서드이다.
-     * 또한 이 값을 makeRaceRecod 메서드에 파라미터로 보내, 최고 기록을 경신해준다.
+     * 또한 이 값을 makeRaceRecode 메서드에 파라미터로 보내, 최고 기록을 경신해준다.
      */
     private void accelerateCarList() {
         for (Car i : carList) {
@@ -64,7 +80,7 @@ public class Race {
     }
 
     /**
-     * makeRaceRecode는 자동차가 가속될때마다 같이 호출된다.
+     * makeRaceRecode는 자동차가 가속될 때 마다 같이 호출된다.
      * 가속한 자동차의 기록을 받아, 지금까지 제일 앞서나가는 자동차의 위치를 저장한다.
      *
      * @param carPosition : 자동차의 위치를 전달해주는 int형 정수
@@ -86,11 +102,24 @@ public class Race {
 
         for (Car i : carList) {
             if (i.getPosition() == maxRaceRecode) {
-                winnerMessage += i.getName();
+                winnerMessage = addNameToString(winnerMessage,i.getName());
             }
         }
         winnerMessage += STRING_END_OF_RACE;
         return winnerMessage;
+    }
+
+    /**
+     * addNameToSting은 문자열 메세지에 이름값을 추가해주고, 구분자를 넣어주는 메서드이다.
+     * @param message : 대상이 되는 메세지 String 객체
+     * @param name : 메세지에 더해질 이름 String 객체
+     * @return : 메세지에 이름을 추가하고 구분자를 넣은 String 객체
+     */
+    private String addNameToString(String message, String name) {
+        if(!message.isEmpty()){
+            message += (" "+STRING_SPLIT_NAME);
+        }
+        return message + name;
     }
 
     /**
@@ -168,21 +197,6 @@ public class Race {
             return getRepeatToInput();
         }
         return inputNumber;
-    }
-
-    /**
-     * Race는 생성자 메서드로, 자동차 이름과 댓수, 경기의 횟수를 저장한다.
-     * 자동차 이름은 getNameToInput 메서드를 통해 만들어 저장한다.
-     * 경기 횟수는 getRepeatToInput 메서드를 통해 만들어 저장한다.
-     * 이후 자동차 객체를 만들어 이름을 생성자로 전달한다.
-     */
-    public Race() {
-        List<String> carNameList = getNameToInput();
-        this.raceRepeat = getRepeatToInput();
-        for (String name : carNameList) {
-            carList.add(new Car(name));
-        }
-        maxRaceRecode = 0;
     }
 
     /**
