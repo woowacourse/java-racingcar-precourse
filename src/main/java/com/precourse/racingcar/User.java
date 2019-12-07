@@ -1,5 +1,5 @@
 /*
- * User.java                      1.11.0   2019-12-07
+ * User.java                      1.12.0   2019-12-07
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
  * 사용자에 대한 입력과 출력을 하는 기능들이 있습니다.
  * 입력이 올바르지 않은 경우 예외처리를 하는 기능이 있습니다.
  *
- * @version 1.11.0            레이스 횟수 입력이 정수가 맞는지 확인하는 기능 추가
+ * @version 1.12.0            레이스 횟수 입력이 자연수가 맞는지 확인하는 기능 추가
  * @date 2019-12-07
  * @author HyungjuAn
  */
@@ -27,6 +27,7 @@ public class User {
 	private static final int MINIMUM_LENGTH_CAR_NAME = 1;
 	private static final int MAXIMUM_LENGTH_CAR_NAME = 5;
 	private static final int MINIMUM_CARS = 2;
+	private static final int MINIMUM_RACE = 1;
 	private static final int SPLIT_LIMIT = -1;
 	private static final String COMMA = ",";
 	private static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.\n"
@@ -124,7 +125,7 @@ public class User {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String input = reader.readLine();
 
-		if (!isInteger(input)) { // || 입력이 자연수인지 확인하는 기능)
+		if (!isInteger(input) || !isNaturalNumber(input)) {
 			printInvalidInput();
 			readRaceCount();
 		}
@@ -138,6 +139,16 @@ public class User {
 		try {
 			Integer.parseInt(input);
 		} catch (NumberFormatException e) {
+			result = false;
+		}
+
+		return result;
+	}
+
+	private boolean isNaturalNumber(String input) {
+		boolean result = true;
+
+		if (Integer.parseInt(input) < MINIMUM_RACE) {
 			result = false;
 		}
 
