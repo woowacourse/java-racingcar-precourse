@@ -8,12 +8,16 @@ public class UtilityTest {
 
 		String testString = sc.nextLine();
 		Car[] testCars = UtilityMethods.sliceString(testString);
-		UtilityMethods.goForwardRandomly(testCars);
 		for (int i = 0; i < testCars.length; i++) {
 			//testCars[i].goForward();
 			System.out.println(testCars[i].getName() + " : " + testCars[i].getPosition());
 		}
 
+		UtilityMethods.goForwardRandomly(testCars);
+		for (int i = 0; i < testCars.length; i++) {
+			//testCars[i].goForward();
+			System.out.println(testCars[i].getName() + " : " + testCars[i].getPosition());
+		}
 	}
 }
 
