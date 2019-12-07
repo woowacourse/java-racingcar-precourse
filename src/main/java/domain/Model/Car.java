@@ -1,10 +1,6 @@
 package domain.Model;
 
-import java.util.Random;
-
 public class Car {
-    Random rand = new Random();
-
     private final String name;
     private int position = 0;
 

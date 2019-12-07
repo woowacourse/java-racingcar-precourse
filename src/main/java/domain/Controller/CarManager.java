@@ -7,9 +7,11 @@ import java.util.Collections;
 
 public class CarManager {
     Car[] cars;
+    ArrayList<Integer> positionList;
+
     int carsLength;
     int maxPosition;
-    ArrayList<Integer> positionList;
+
 
     public CarManager(String[] carNames) {
         this.carsLength = carNames.length;
@@ -20,7 +22,8 @@ public class CarManager {
         this.positionList = new ArrayList<>();
     }
 
-    public void ifBiggerThanFourYouCanMove(int randomNumber, int carIndex) {
+    public void ifBiggerThanFourYouCanMove
+            (int randomNumber, int carIndex) {
         if (randomNumber >= 4) {
                 cars[carIndex].move();
         }
