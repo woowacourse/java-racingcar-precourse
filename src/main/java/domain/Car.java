@@ -1,12 +1,28 @@
 package domain;
 
+import util.RandomNumber;
+
 public class Car {
-    private final String name;
-    private int position = 0;
+	private static final int REFERENCE_SIGNAL = 4;
 
-    public Car(String name) {
-        this.name = name;
-    }
+	private final String name;
+	private int position = 0;
 
-    // 추가 기능 구현
+	public Car(String name) {
+		this.name = name;
+	}
+
+	private void move() {
+		position++;
+	}
+
+	private boolean hasSignal() {
+		return RandomNumber.pick() >= REFERENCE_SIGNAL;
+	}
+
+	public void update() {
+		if (hasSignal()) {
+			move();
+		}
+	}
 }
