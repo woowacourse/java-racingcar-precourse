@@ -1,5 +1,5 @@
 /*
- * @(#)RacingGame.java     0.7 2019.12.07
+ * @(#)RacingGame.java     0.8 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.7 2019.12.07
+ * @version 0.8 2019.12.07
  */
 public class RacingGame {
     /**
@@ -31,10 +31,19 @@ public class RacingGame {
     private static final int MIN_MOVEMENT_NUMBER = 1;
 
     /**
-     * 문자열에서 쉼표(,)의 앞, 뒤로 존재하는 공백을 제거할 때 사용할 정규식 문자열 상수.
+     * 가장 많이 이동환 횟수가 0인 경우를 확인하기 위한 상수.
      */
-    private static final String REMOVE_SPACE_AROUND_COMMA =
-            "(\\s,\\s)|(\\s,)|(,\\s)";
+    private static final int ZERO_MOVEMENT_NUMBER = 0;
+
+    /**
+     * 자동차 이름의 최소 길이 조건에 만족하는지 확인하기 위한 상수.
+     */
+    private static final int MIN_LEN_OF_CAR_NAME = 1;
+
+    /**
+     * 자동차 이름의 최대 길이 조건에 만족하는지 확인하기 위한 상수.
+     */
+    private static final int MAX_LEN_OF_CAR_NAME = 5;
 
     /**
      * 자동차의 이름이 영문자 또는 숫자로만 이루어져 있는지 확인하기 위한 정규식 문자열 상수.
@@ -68,27 +77,56 @@ public class RacingGame {
         receiveCarNames();
         generateCarInstances();
         receiveNumberOfMovement();
+        System.out.println("");
+        moveByMovementNumber();
+        printRaceWinner();
+    }
+
+    /**
+     * 입력받은 이동 횟수만큼 이동하면서, 매 번마다 실행 결과를 출력하는 메소드.
+     */
+    private void moveByMovementNumber() {
         for (int i = 0; i < MovementNumber; i++) {
             playRacingGame();
             printMoveResult();
             System.out.println(" ");
         }
-        printRaceWinner();
     }
 
     /**
      * 우승한 자동차들의 이름을 출력하는 메소드.
      */
     private void printRaceWinner() {
+        if (isAllCarsOnStartLine()) {
+            System.out.println("자동차들이 모두 출발선에 위치해 있습니다. 우승자가 존재하지 않습니다.");
+            return;
+        }
+        System.out.println(combineWinnerNames() + "가 최종 우승했습니다.");
+    }
+
+    /**
+     * 모든 자동차가 이동하지 않고 출발선에 위치해 있는지 여부를 확인하는 메소드.
+     *
+     * @return 모든 자동차들 중에서 가장 큰 Position의 값이 0이면 true 반환.
+     */
+    private boolean isAllCarsOnStartLine() {
+        return (Car.getMaxPosition() == ZERO_MOVEMENT_NUMBER);
+    }
+
+    /**
+     * 우승한 자동차들의 이름을 하나의 문자열로 합치는 메소드.
+     *
+     * @return 우승한 자동차들의 이름이 하나로 합쳐진 문자열을 반환.
+     */
+    private String combineWinnerNames() {
+        StringBuilder winnerNames = new StringBuilder();
         List<Car> winners = selectRaceWinner();
 
-        System.out.print(winners.get(0).getName());
-        if (winners.size() > 1) {
-            for (int i = 1; i < winners.size(); i++) {
-                System.out.print(", " + winners.get(i).getName());
-            }
+        winnerNames.append(winners.get(0).getName());
+        for (int i = 1; i < winners.size(); i++) {
+            winnerNames.append(", ").append(winners.get(i).getName());
         }
-        System.out.println("가 최종 우승했습니다.");
+        return winnerNames.toString();
     }
 
     /**
@@ -122,23 +160,23 @@ public class RacingGame {
     private void printMoveResult() {
         System.out.println("실행 결과");
         for (Car car : cars) {
-            System.out.print(car.getName() + " : ");
-            printMoveBar(car.getPosition());
+            System.out.println(car.getName() + " : " + toStringMoveBar(car.getPosition()));
         }
     }
 
     /**
-     * 자동차의 position만큼 -(하이픈)을 출력하는 메소드.
+     * 자동차의 위치만큼 -(하이픈)을 붙여서 문자열로 반환하는 메소드.
      *
      * @param position 자동차의 현재 위치.
+     * @return 자동차의 위치만큼 -(하이픈)을 붙여 만든 문자열을 반환.
      */
-    private void printMoveBar(int position) {
+    private String toStringMoveBar(int position) {
         StringBuilder moveBar = new StringBuilder();
 
         for (int i = 0; i < position; i++) {
             moveBar.append("-");
         }
-        System.out.println(moveBar);
+        return moveBar.toString();
     }
 
     /**
@@ -152,7 +190,7 @@ public class RacingGame {
 
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             userInput = sc.nextLine();
-            removeSpaceAroundComma();
+            divideByComma();
         } while (!isValidInput());
     }
 
@@ -204,30 +242,38 @@ public class RacingGame {
      * @return 사용자로부터 입력받은 자동차의 이름이 유효하면 true 반환.
      */
     private boolean isValidInput() {
-        if (!isDividedComma()) {
-            System.out.println("경주할 자동차 이름을 쉼표(,)를 기준으로 구분하여 입력하세요.");
-            return false;
-        }
         if (!isValidLength()) {
             System.out.println("경주할 자동차 이름은 5자 이하만 가능합니다. 다시 입력해주세요.");
             return false;
         }
         if (!isValidCarName()) {
-            System.out.println("경주할 자동차 이름은 공백을 제외한 영문자와 숫자로만 작성 가능합니다." +
-                    " 다시 입력해주세요.");
+            System.out.println("경주할 자동차 이름은 공백을 제외한 영문자와 숫자로만 작성 가능합니다. 다시 입력해주세요.");
+            return false;
+        }
+        if(!isDuplicateCarName()) {
+            System.out.println("중복된 자동차의 이름이 존재합니다. 다시 입력해주세요.");
             return false;
         }
         return true;
     }
 
     /**
-     * 자동차의 이름이 쉼표(,)로 정확히 구분되어져 있는지를 확인하는 메소드.
+     * 자동차 이름에서 중복된 이름이 존재하는지 여부를 확인하는 메소드.
      *
-     * @return 문자열의 맨 앞이나 맨 뒤에 쉼표(,)가 존재하지 않는다면 true 반환.
+     * @return 중복된 이름이 존재하지 않는 경우 true 반환.
      */
-    private boolean isDividedComma() {
-        return ((userInput.charAt(0) != COMMA_CHAR) &&
-                (userInput.charAt(userInput.length() - 1) != COMMA_CHAR));
+    private boolean isDuplicateCarName() {
+        HashSet<String> hashCarNames = new HashSet<>(carNames);
+        ArrayList<String> removedDuplicateCarNames = new ArrayList<>(hashCarNames);
+        return (removedDuplicateCarNames.size() == carNames.size());
+    }
+
+    /**
+     * 자동차의 이름을 쉼표(,)를 기준으로 자르고 앞, 뒤에 존재하는 공백을 제거하는 메소드.
+     */
+    private void divideByComma() {
+        carNames = splitCarNames();
+        trimCarNames();
     }
 
     /**
@@ -240,15 +286,22 @@ public class RacingGame {
     }
 
     /**
+     * 자동차의 이름의 앞, 뒤에 존재하는 불필요한 공백을 제거하는 메소드.
+     */
+    private void trimCarNames() {
+        for (int i = 0; i < carNames.size(); i++) {
+            carNames.set(i, carNames.get(i).trim());
+        }
+    }
+
+    /**
      * 모든 자동차의 이름이 1자 이상 5자 이하인지 확인하는 메소드.
      *
      * @return 모든 자동차의 이름의 길이가 유효하면 true 반환.
      */
     private boolean isValidLength() {
-        carNames = splitCarNames();
-
         for (String car : carNames) {
-            if ((car.length() < 1) || (car.length() > 5)) {
+            if ((car.length() < MIN_LEN_OF_CAR_NAME) || (car.length() > MAX_LEN_OF_CAR_NAME)) {
                 return false;
             }
         }
@@ -267,12 +320,5 @@ public class RacingGame {
             }
         }
         return true;
-    }
-
-    /**
-     * 사용자의 입력에서 쉼표(,)의 앞, 뒤로 존재하는 불필요한 공백을 제거하는 메소드.
-     */
-    private void removeSpaceAroundComma() {
-        userInput = userInput.replaceAll(REMOVE_SPACE_AROUND_COMMA, ",");
     }
 }

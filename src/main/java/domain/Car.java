@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java     0.6 2019.12.07
+ * @(#)Car.java     0.7 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -11,16 +11,21 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.6 2019.12.07
+ * @version 0.7 2019.12.07
  */
 public class Car {
     /**
      * 생성 가능한 random 변수의 최대 범위를 제한하기 위한 상수.
      */
-    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MAX_RANDOM_NUMBER = 10;
 
     /**
-     * 자동차들 중에서 가장 먼 위치의 값을 저장하는 변수.
+     * 자동차의 전진 여부를 판단할 때 사용할 상수.
+     */
+    private static final int FORWARD_CHECK = 3;
+
+    /**
+     * 자동차들 중에서 가장 먼 위치의 값을 저장하는 클래스 변수.
      */
     private static int maxPosition = 0;
 
@@ -34,6 +39,11 @@ public class Car {
      */
     private int position = 0;
 
+    /**
+     * 자동차의 이름을 매개변수로 받는 Car 클래스의 매개변수 생성자.
+     *
+     * @param name 자동차의 이름에 해당하는 문자열.
+     */
     public Car(String name) {
         this.name = name;
     }
@@ -53,7 +63,7 @@ public class Car {
      * @return 자동차가 앞으로 전진할 경우 true 반환.
      */
     private boolean isCarMoveForward() {
-        return (generateRandomNumber() > 3);
+        return (generateRandomNumber() > FORWARD_CHECK);
     }
 
     /**
@@ -63,9 +73,16 @@ public class Car {
     public void moveCarToForward() {
         if (isCarMoveForward()) {
             position++;
-            if (position > maxPosition) {
-                maxPosition = position;
-            }
+            setIfMaxPosition();
+        }
+    }
+
+    /**
+     * 전진한 위치가 모든 자동차들 중 가장 큰 값이면 해당 위치로 maxPosition을 초기화시키는 메소드.
+     */
+    private void setIfMaxPosition() {
+        if (position > maxPosition) {
+            maxPosition = position;
         }
     }
 
