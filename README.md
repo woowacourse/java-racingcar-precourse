@@ -72,7 +72,7 @@ int compare(Car car1, Car car2)
 #### Class CarRacing
 ```
 ArrayList<Car> getCarName(String carName)
-Lint<String> nameLengthCheck(List<String> names)
+String nameLengthCheck(String name)
 boolean canDrive()
 void play(ArrayList<Car> carList)
 int howManyWin(ArrayList<Car> carList)
