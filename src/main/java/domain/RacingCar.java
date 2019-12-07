@@ -23,6 +23,10 @@ public class RacingCar {
 				carNames[carCnt++] = new Car(name);
 			}
 		}
+		
+		System.out.println("시도할 회수는 몇회인가요?");
+		tryCnt = scanner.nextInt();
+		System.out.println();
 	}
 
 }
