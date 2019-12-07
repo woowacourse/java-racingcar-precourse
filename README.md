@@ -73,9 +73,10 @@ int compare(Car car1, Car car2)
 ```
 ArrayList<Car> getCarName(String carName)
 boolean canDrive()
-void play(ArrayList<Car> CarList)
-int howManyWin(ArrayList<Car> CarList)
+void play(ArrayList<Car> carList)
+int howManyWin(ArrayList<Car> carList)
 boolean isSamePosition(Car carA, Car carB)
+String printLastWinners(ArrayList<Car> carList)
 void println(String string)
 ```
 ##### getCarName(String carName) 메소드
@@ -88,5 +89,7 @@ void println(String string)
 ###### 공동 1등인 Car 객체가 몇 대인지 반환하는 메소드
 ##### isSamePosition(Car carA, Car carB) 메소드
 ###### 두 차 객체의 position 이 같은 값이면 TRUE 를 반환하는 메소드
+##### printLastWinners(ArrayList<Car> carList)
+##### carList 에서 한 명이상의 이름 목록을 출력하는 메소드
 ##### println(String string) 메소드
 ###### System.out.println 로 입력받은 String 을 출력해주는 메소드
