@@ -59,9 +59,9 @@ public class Game {
             Integer.parseInt(input);
         } catch ( NumberFormatException e) {
             System.out.print("잘못된 입력입니다.\n다시 ");
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     private boolean checkInputIsMinus(String input) {
