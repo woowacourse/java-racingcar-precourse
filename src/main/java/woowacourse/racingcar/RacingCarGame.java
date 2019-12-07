@@ -5,7 +5,7 @@ import java.util.Scanner;
 import domain.Car;
 
 public class RacingCarGame {
-    Car [] car;
+    private Car [] car;
     private Scanner sc = new Scanner(System.in);
 
     public void runGame() {
@@ -34,11 +34,14 @@ public class RacingCarGame {
     }
 
     private void startRacing(String [] names, int tryNumber) {
+        System.out.println();
         System.out.println("실행 결과");
         for (int i = 0; i < tryNumber; i++) {
             for (int j = 0; j < names.length; j++) {
                 car[j].goAndStop();
+                car[j].printResult();
             }
+            System.out.println();
         }
     }
 }

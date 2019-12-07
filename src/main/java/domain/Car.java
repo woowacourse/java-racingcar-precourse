@@ -29,4 +29,12 @@ public class Car {
         Random random = new Random();
         return random.nextInt(10);
     }
+
+    public void printResult() {
+        StringBuilder goNumber = new StringBuilder();
+        for (int i = 0; i < this.position; i++) {
+            goNumber.append("-");
+        }
+        System.out.printf("%s : %s%n", this.name, goNumber.toString());
+    }
 }
