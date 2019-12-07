@@ -11,5 +11,13 @@ public class Car {
 	public String getName() {
 		return name;
 	}
+
+	public void goCar() {
+		position += 1;
+	}
+
+	public int getPosition() {
+		return position;
+	}
 	// 추가 기능 구현
 }

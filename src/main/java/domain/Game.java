@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -8,6 +9,7 @@ public class Game {
 	private ArrayList<Car> carList;
 	private Scanner scan;
 	private int tryGame;
+	private Random random;
 
 	public Game() {
 		carList = new ArrayList<Car>();
@@ -36,6 +38,36 @@ public class Game {
 		for (int i = 1; carsToken.hasMoreTokens(); i++) {
 			carList.add(new Car(carsToken.nextToken(",")));
 			System.out.println(carList.get(carList.size() - 1).getName());
+		}
+	}
+
+	public void startRace() {
+		System.out.println("실행 결과");
+		for (int i = 0; i < carList.size(); i++) {
+			moveCar(i);
+		}
+		printCarStatus();
+	}
+
+	private void moveCar(int idx) {
+		if (moveDecision()) {
+			carList.get(idx).goCar();
+		}
+	}
+
+	private boolean moveDecision() {
+		int randomVal;
+		randomVal = random.nextInt(10);
+		if (randomVal <= 3) {
+			return false;
+		}
+		return true;
+	}
+
+	private void printCarStatus() {
+		for (int i = 0; i < carList.size(); i++) {
+			System.out.println(carList.get(i).getName() + " : ");
+
 		}
 	}
 }
