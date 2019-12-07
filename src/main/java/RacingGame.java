@@ -13,13 +13,13 @@ public class RacingGame {
 	private ArrayList<Car> cars = new ArrayList<>();
 	private int tryNumber = 0;
 
-	public void play() {
+	void play() {
 		buildCars();
 		getTryNumber();
 		OutputView.printResultMessage();
-		getResult();
-		OutputView.printCarsPosition(cars);
-		OutputView.printWinners(Rule.getWinnerNames(cars));
+		printResult();
+		Rule.setIsWinners(cars);
+		OutputView.printWinners(cars);
 	}
 
 	private void buildCars() {
@@ -31,8 +31,8 @@ public class RacingGame {
 	}
 
 	private ArrayList<String> getCarNames() {
-		ArrayList<String> result = new ArrayList<>();
 		String[] carNames = InputHandler.splitByComma(InputView.carNames());
+		ArrayList<String> result = new ArrayList<>();
 
 		Collections.addAll(result, carNames);
 		return result;
@@ -45,7 +45,7 @@ public class RacingGame {
 		}
 	}
 
-	private void getResult() {
+	private void printResult() {
 		for (int i = 0; i < tryNumber; i++) {
 			cars.forEach(Car::tryToGo);
 			OutputView.printCarsPosition(cars);
