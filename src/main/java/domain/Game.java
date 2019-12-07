@@ -44,11 +44,17 @@ public class Game {
         String userInput;
         userInput = scanner.nextLine();
 
-        //문자 체크
+        if (checkInputContainsChar(userInput)) {
+            return false;
+        }
 
-        //음수 체크
+        if (checkInputIsMinus(userInput)) {
+            return false;
+        }
 
-        //0 체크
+        if (checkInputIsZero(userInput)) {
+            return false;
+        }
 
         this.turns = Integer.parseInt(userInput);
         return true;
