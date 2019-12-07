@@ -3,10 +3,10 @@ package utils;
 import java.util.ArrayList;
 
 public class InputValidator {
-	private static final int MAXIMUM_INPUT_LENGTH = 5;
-	private static final int MINIMUM_INPUT_NUMBER = 1;
+	private static final int MAX_INPUT_LENGTH = 5;
+	private static final int MIN_INPUT_NUMBER = 1;
 
-	public static boolean isDuplicated(String[] inputs) {
+	static boolean isDuplicated(String[] inputs) {
 		ArrayList<String> names = new ArrayList<>();
 
 		for(String inputName : inputs) {
@@ -18,7 +18,7 @@ public class InputValidator {
 		return false;
 	}
 
-	public static boolean isEmptyLine(String[] inputs) {
+	static boolean isEmptyLine(String[] inputs) {
 		for(String inputName : inputs) {
 			if(inputName.isEmpty()) {
 				return true;
@@ -27,9 +27,9 @@ public class InputValidator {
 		return false;
 	}
 
-	public static boolean isOutOfRange(String[] inputs) {
+	static boolean isOutOfRange(String[] inputs) {
 		for(String inputName : inputs) {
-			if(inputName.length() > MAXIMUM_INPUT_LENGTH) {
+			if(inputName.length() > MAX_INPUT_LENGTH) {
 				return true;
 			}
 		}
@@ -37,6 +37,6 @@ public class InputValidator {
 	}
 
 	public static boolean isValidNumber(int inputNumber) {
-		return inputNumber >= MINIMUM_INPUT_NUMBER;
+		return inputNumber >= MIN_INPUT_NUMBER;
 	}
 }
