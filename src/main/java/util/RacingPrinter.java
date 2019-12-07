@@ -1,13 +1,13 @@
 package util;
 
-import domain.RacingCar;
+import domain.Raceable;
 
 import java.util.List;
 
 public interface RacingPrinter {
     void printStartSign();
-    void printStateOfRacingCar(RacingCar racingCar);
-    void printWinners(List<RacingCar> winners);
+    void printStateOfRacingCar(Raceable raceable);
+    void printWinners(List<Raceable> winners);
 
     void printOneCycleFinished();
 

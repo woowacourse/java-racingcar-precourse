@@ -1,6 +1,6 @@
 package util;
 
-import domain.Car;
+import domain.Raceable;
 import domain.RacingCar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,10 +26,10 @@ class RacingPrinterImplTest {
     @Test
     void printStateOfRacingCar() {
         //given
-        RacingCar racingCar = new Car(0, "testCar", 4);
+        Raceable raceable = new RacingCar(0, "testCar", 4);
 
         //when
-        racingPrinter.printStateOfRacingCar(racingCar);
+        racingPrinter.printStateOfRacingCar(raceable);
 
         //then
         assertEquals("testCar : ----\n", outView.toString());
@@ -38,9 +38,9 @@ class RacingPrinterImplTest {
     @Test
     void printWinners() {
         //given
-        List<RacingCar> winners = Arrays.asList(
-                new Car(1, "poby", 4),
-                new Car(3, "honux", 4)
+        List<Raceable> winners = Arrays.asList(
+                new RacingCar(1, "poby", 4),
+                new RacingCar(3, "honux", 4)
         );
 
         //when

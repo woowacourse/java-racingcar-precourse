@@ -20,12 +20,12 @@ class RacingRefereeImplTest {
     @Test
     void distinguishWinnersWithNormalRacingCars() {
         racingReferee = new RacingRefereeImpl();
-        RacingCar pobi = new Car(0,"pobi",3);
-        RacingCar crong = new Car(1,"crong",2);
-        RacingCar honux = new Car(2,"honux",3);
-        List<RacingCar> racingCars = Arrays.asList(pobi, crong, honux);
-        List<RacingCar> winners = Arrays.asList(pobi, honux);
+        Raceable pobi = new RacingCar(0,"pobi",3);
+        Raceable crong = new RacingCar(1,"crong",2);
+        Raceable honux = new RacingCar(2,"honux",3);
+        List<Raceable> raceables = Arrays.asList(pobi, crong, honux);
+        List<Raceable> winners = Arrays.asList(pobi, honux);
 
-        assertEquals(winners, racingReferee.distinguishWinners(racingCars));
+        assertEquals(winners, racingReferee.distinguishWinners(raceables));
     }
 }

@@ -3,5 +3,5 @@ package domain;
 import java.util.List;
 
 public interface RacingCarFactory {
-    List<RacingCar> create(String[] names);
+    List<Raceable> create(String[] names);
 }

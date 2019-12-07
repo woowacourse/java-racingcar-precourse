@@ -2,7 +2,7 @@ package domain;
 
 import java.util.Random;
 
-public class Car implements RacingCar, Comparable<Car> {
+public class Car implements Movable, Comparable<Car> {
     //todo: apply annotation
     private int id;
     private final String name;
@@ -11,31 +11,17 @@ public class Car implements RacingCar, Comparable<Car> {
     public Car(String name) {
         this.name = name;
     }
-    public Car(int id, String name, int position) {
+    public Car(int id, String name) {
+        this(name);
         this.id = id;
-        this.name = name;
+
+    }
+    public Car(int id, String name, int position) {
+        this(id, name);
         this.position = position;
     }
-
     @Override
-    public void race() {
-        if (canGo()) {
-            go();
-        }
-
-    }
-    private boolean canGo() {
-        int randomNumber = generateRandomNumber();
-        return RacingGameConfig.STANDARD_TO_GO < randomNumber;
-    }
-    private int generateRandomNumber() {
-        Random randomGenerator = new Random();
-        //todo: check java convention
-        return randomGenerator.ints(RacingGameConfig.MIN_RANDOM_NUMBER, RacingGameConfig.MAX_RANDOM_NUMBER + 1)
-                .limit(1).findFirst().orElse(RacingGameConfig.MIN_RANDOM_NUMBER - 1);
-    }
-
-    private void go() {
+    public void go() {
         position += RacingGameConfig.STEP;
     }
 

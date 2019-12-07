@@ -1,6 +1,6 @@
 package util;
 
-import domain.RacingCar;
+import domain.Raceable;
 import domain.RacingGameConfig;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,12 +15,12 @@ public class RacingPrinterImpl implements RacingPrinter {
     }
 
     @Override
-    public void printStateOfRacingCar(RacingCar racingCar) {
-        System.out.println(racingCar + " : " + StringUtils.repeat(RacingGameConfig.POSITION_MARK, racingCar.getPosition()));
+    public void printStateOfRacingCar(Raceable raceable) {
+        System.out.println(raceable + " : " + StringUtils.repeat(RacingGameConfig.POSITION_MARK, raceable.getPosition()));
     }
 
     @Override
-    public void printWinners(List<RacingCar> winners) {
+    public void printWinners(List<Raceable> winners) {
         String format = buildFormat(winners.size());
         System.out.println(String.format(format, winners.toArray()));
     }

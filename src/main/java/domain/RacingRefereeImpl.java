@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 public class RacingRefereeImpl implements RacingReferee {
 
     @Override
-    public List<RacingCar> distinguishWinners(List<RacingCar> racingCars) {
+    public List<Raceable> distinguishWinners(List<Raceable> raceables) {
         //todo: check convention
-        int maxPosition = racingCars.stream()
-                            .map(RacingCar::getPosition)
+        int maxPosition = raceables.stream()
+                            .map(Raceable::getPosition)
                             .max(Integer::compareTo)
                             .orElseThrow(IllegalArgumentException::new);
 
-        return racingCars.stream().filter(racingCar -> racingCar.getPosition() == maxPosition).sorted().collect(Collectors.toList());
+        return raceables.stream().filter(racingCar -> racingCar.getPosition() == maxPosition).sorted().collect(Collectors.toList());
     }
 }

@@ -6,12 +6,12 @@ import java.util.List;
 
 public class RacingGameImpl implements RacingGame {
 
-    private List<RacingCar> racingCars;
+    private List<Raceable> raceables;
     private RacingReferee racingReferee;
     private RacingPrinter racingPrinter;
 
-    public RacingGameImpl(List<RacingCar> racingCars, RacingReferee racingReferee, RacingPrinter racingPrinter) {
-        this.racingCars = racingCars;
+    public RacingGameImpl(List<Raceable> raceables, RacingReferee racingReferee, RacingPrinter racingPrinter) {
+        this.raceables = raceables;
         this.racingReferee = racingReferee;
         this.racingPrinter = racingPrinter;
     }
@@ -19,14 +19,14 @@ public class RacingGameImpl implements RacingGame {
     public void play(int cycles) {
         start();
         for (int i = 0; i < cycles; i++) {
-            for (RacingCar racingCar : racingCars) {
-                racingCar.race();
-                racingPrinter.printStateOfRacingCar(racingCar);
+            for (Raceable raceable : raceables) {
+                raceable.race();
+                racingPrinter.printStateOfRacingCar(raceable);
             }
             racingPrinter.printOneCycleFinished();
         }
 
-        List<RacingCar> winners = racingReferee.distinguishWinners(racingCars);
+        List<Raceable> winners = racingReferee.distinguishWinners(raceables);
         //todo: check if printResult is good in play
         racingPrinter.printWinners(winners);
     }

@@ -1,10 +1,10 @@
 package ui;
 
-import domain.RacingCar;
+import domain.Raceable;
 
 import java.util.List;
 
 public interface UserInterface {
-    List<RacingCar> extractRacingCars();
+    List<Raceable> extractRacingCars();
     int getCycles();
 }

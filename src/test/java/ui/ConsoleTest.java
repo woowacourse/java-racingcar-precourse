@@ -1,6 +1,7 @@
 package ui;
 
 import domain.Car;
+import domain.Raceable;
 import domain.RacingCar;
 import domain.errors.InvalidInputException;
 import org.junit.jupiter.api.AfterEach;
@@ -31,8 +32,8 @@ class ConsoleTest {
         //given
         String input = "pobi,crong,honux";
         console = createConsoleForTest(input);
-        List<RacingCar> result = new ArrayList<>(
-                Arrays.asList(new Car("pobi"), new Car("crong"), new Car("honux"))
+        List<Raceable> result = new ArrayList<>(
+                Arrays.asList(new RacingCar("pobi"), new RacingCar("crong"), new RacingCar("honux"))
         );
 
         //when & then

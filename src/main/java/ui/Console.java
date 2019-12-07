@@ -1,6 +1,6 @@
 package ui;
 
-import domain.Car;
+import domain.Raceable;
 import domain.RacingCar;
 import domain.RacingGameConfig;
 import domain.errors.InvalidInputException;
@@ -18,17 +18,17 @@ public class Console implements UserInterface {
     }
 
     @Override
-    public List<RacingCar> extractRacingCars() {
+    public List<Raceable> extractRacingCars() {
         //todo: check dependency
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = scanner.nextLine();
         String[] names = parseNames(input);
-        List<RacingCar> racingCars = new ArrayList<>();
+        List<Raceable> raceables = new ArrayList<>();
         for (String name : names) {
-            racingCars.add(new Car(name));
+            raceables.add(new RacingCar(name));
         }
 
-        return racingCars;
+        return raceables;
     }
 
     private String[] parseNames(String input) {
