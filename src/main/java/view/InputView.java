@@ -5,12 +5,14 @@ import java.util.Scanner;
 
 import validation.CarNameValidator;
 import validation.CarNamesValidator;
+import validation.TrialCountValidator;
 import validation.Validator;
 
 public class InputView {
 	private static final String CAR_NAME_DELIMITER = ",";
 	private static final Scanner SCANNER = new Scanner(System.in);
 	private static final Validator carNamesValidator = new CarNamesValidator(new CarNameValidator());
+	private static final Validator trialCountValidator = new TrialCountValidator();
 
 	private static void printGetCarNamesMessage() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -33,7 +35,14 @@ public class InputView {
 	}
 
 	public static int getTrialCount() {
-		printGetTrialCountMessage();
-		return SCANNER.nextInt();
+		try {
+			printGetTrialCountMessage();
+			int count = Integer.parseInt(SCANNER.nextLine());
+			trialCountValidator.validate(count);
+			return count;
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return getTrialCount();
+		}
 	}
 }
