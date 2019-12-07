@@ -16,4 +16,7 @@ public class Car {
         }
         return false;
     }
+    public String toString(){
+        return this.name;
+    }
 }
