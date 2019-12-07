@@ -19,10 +19,14 @@ public class inputUtils {
                 break;
             }
             System.out.println(ERRORMESSAGE);
-            scanner.nextLine();
+            inputFlush();
         }
-        scanner.nextLine();
+        inputFlush();
         return inputValue;
+    }
+
+    private static void inputFlush() {
+        scanner.nextLine();
     }
 
     public static void inputClose() {
