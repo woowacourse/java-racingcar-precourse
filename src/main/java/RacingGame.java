@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
 
 import domain.Car;
 import domain.Rule;
 import utils.InputHandler;
+import utils.InputValidator;
 import view.InputView;
 import view.OutputView;
 
@@ -38,6 +40,9 @@ public class RacingGame {
 
 	private void getTryNumber() {
 		tryNumber = InputView.tryNumber();
+		if(!InputValidator.isValidNumber(tryNumber)) {
+			throw new InputMismatchException("시도 횟수는 1 이상 이어야 합니다.");
+		}
 	}
 
 	private void getResult() {
