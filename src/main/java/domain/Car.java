@@ -31,4 +31,13 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
+
+    public void printRoute() {
+        System.out.print(this.name);
+        System.out.print(" : ");
+        for (int i=0; i<this.position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
