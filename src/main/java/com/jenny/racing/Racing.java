@@ -128,7 +128,7 @@ public class Racing implements Racable{
         }
 
         /* 마지막 컴마 제거 후 출력 */
-        System.out.println(nameList.substring(0, nameList.length()-1) + "가 최종 우승했습니다.");
+        System.out.println(nameList.substring(0, nameList.length()-2) + "가 최종 우승했습니다.");
     }
 
     @Override
