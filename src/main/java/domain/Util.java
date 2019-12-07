@@ -27,24 +27,8 @@ public class Util {
             }
         }
         numberOfCars = carNameArray.length;
+        makeCarObjects();
         return true;
-    }
-
-    // 각 이름별로 객체 배열 생성
-    void makeCarObjects() {
-        carObjectArray = new Car[numberOfCars];
-        for (int i = 0; i < carNameArray.length; i++) {
-            carObjectArray[i] = new Car(carNameArray[i]);
-        }
-    }
-
-    // 각 객체의 현재 전진 상태를 이름과 하이픈으로 출력
-    void printStateOfCars(int index) {
-        System.out.print(carObjectArray[index].getName() + " : ");
-        for (int i = 0; i < carObjectArray[index].getPosition(); i++) {
-            System.out.print("-");
-        }
-        System.out.println();
     }
 
     // 사용자가 입력한 시도횟수 만큼 반복
@@ -52,27 +36,45 @@ public class Util {
         while (repeatTimes != 0) {
             repeatTimes--;
             for (int i = 0; i < numberOfCars; i++) {
-                goForwordOrStop(i);
+                goForwardOrStop(i);
                 printStateOfCars(i);
             }
             System.out.println();
         }
+        printFinalWinners();
+    }
+
+    // 각 이름별로 객체 배열 생성
+    private void makeCarObjects() {
+        carObjectArray = new Car[numberOfCars];
+        for (int i = 0; i < numberOfCars; i++) {
+            carObjectArray[i] = new Car(carNameArray[i]);
+        }
+    }
+
+    // 각 객체의 현재 전진 상태를 이름과 하이픈으로 출력
+    private void printStateOfCars(int index) {
+        System.out.print(carObjectArray[index].getName() + " : ");
+        for (int i = 0; i < carObjectArray[index].getPosition(); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     // 0 ~ 9 사이의 랜덤한 정수 반환
-    int generateRandomNumber() {
+    private int generateRandomNumber() {
         return (int) (Math.random() * 10);
     }
 
     // 전진 또는 정지 수행
-    void goForwordOrStop(int index) {
+    private void goForwardOrStop(int index) {
         if (generateRandomNumber() >= JUDGE_TO_GO) {
             carObjectArray[index].addPosition();
         }
     }
 
     // 최종 포지션 중 최대값을 찾아 반환
-    int getMaxPositions() {
+    private int getMaxPositions() {
         int[] finalCarPositions = new int[numberOfCars];
         for (int i = 0; i < numberOfCars; i++) {
             finalCarPositions[i] = carObjectArray[i].getPosition();
@@ -82,7 +84,7 @@ public class Util {
     }
 
     // 최종 우승자 출력
-    void printFinalWinners() {
+    private void printFinalWinners() {
         StringBuilder winner = new StringBuilder();
         String divider = ", ";
         int maxPosition = getMaxPositions();

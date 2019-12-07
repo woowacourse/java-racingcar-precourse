@@ -12,12 +12,10 @@ public class GameManager {
             String tempIn = sc.nextLine();
             util.splitCarName(tempIn);
         } while (!util.isNameLengthValid());
-        util.makeCarObjects();
         System.out.println("시도할 회수는 몇회인가요?");
         int repeat = sc.nextInt();
 
         System.out.println("실행결과");
         util.repeatGameAndPrint(repeat);
-        util.printFinalWinners();
     }
 }
