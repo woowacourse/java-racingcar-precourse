@@ -12,6 +12,7 @@ public class InputException {
 	public static void checkValidCarNames(List<String> carNames) {
 		checkValidLenOfCarNames(carNames);
 		checkValidNumOfCarNames(carNames);
+		checkOverlappingCarNames(carNames);
 	}
 	
 	private static void checkValidLenOfCarNames(List<String> carNames) {
@@ -31,7 +32,12 @@ public class InputException {
 		if (carNames.size() < MIN_NUM_OF_NAMES) {
 			throw new IllegalArgumentException("2개 이상의 이름을 입력해주세요");
 		}
-			
+	}
+	
+	private static void checkOverlappingCarNames(List<String> carNames) {
+		if (carNames.stream().distinct().count() != carNames.size()) {
+			throw new IllegalArgumentException("중복되지 않은 이름들을 입력해주세요");
+		}
 	}
 	
 	/* 회수에 추가적인 제한 사항이 생기면 제한 사항에 따른 메서드를 따로 만들어서 여기에 추가한다 */
