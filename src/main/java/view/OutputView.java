@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import domain.Car;
 
 public class OutputView {
-	private static String RESULT_MESSAGE = "실행 결과";
-	private static String IS_WINNER_MESSAGE = "가 최종 우승했습니다.";
+	private static final String RESULT_MESSAGE = "실행 결과";
+	private static final String IS_WINNER_MESSAGE = "가 최종 우승했습니다.";
 
 	public static void printResultMessage() {
 		System.out.println('\n' + RESULT_MESSAGE);
