@@ -25,7 +25,9 @@ public class GameManager {
 
     void startGame() {
         String carNames = getCarNames();
-        setCarName(carNames);
+        while(!setCarName(carNames)){
+            carNames = getCarNames();
+        }
         getNumOfRounds();
     }
 
@@ -46,9 +48,9 @@ public class GameManager {
         return carNames;
     }
 
-    void setCarName(String input) {
+    boolean setCarName(String input) {
         if(input == null){
-            return;
+            return false;
         }
         String[] carNameArray = input.split(delimiter);
         numOfCars = carNameArray.length;
@@ -56,8 +58,13 @@ public class GameManager {
 
         for (int i = 0; i < numOfCars; i++) {
             String carName = carNameArray[i];
+            if(carName.length() > 5){
+                System.out.println("이름은 5자 이내로 작성해 주세요. 다시 입력");
+                return false;
+            }
             cars[i] = new Car(carName);
         }
+        return true;
     }
 
     void getNumOfRounds() {
@@ -107,11 +114,13 @@ public class GameManager {
         }
         int maxPosition = Collections.max(finalPositionArray);
 
+        //printMaxPositionNames();
         for (int i = 0; i < numOfCars; i++) {
             if(cars[i].getPosition() == maxPosition){
-                System.out.print(cars[i].getName() + ",");
+                System.out.print(cars[i].getName() + " ");
             }
         }
         System.out.println("가 최종 우승했습니다.");
     }
+
 }
