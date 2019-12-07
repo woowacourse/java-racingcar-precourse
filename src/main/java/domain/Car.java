@@ -21,7 +21,7 @@ public class Car {
 		return isWinner;
 	}
 
-	public void setIsWinner() {
+	void setIsWinner() {
 		isWinner = true;
 	}
 
