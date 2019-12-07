@@ -19,15 +19,8 @@ public class CarRacing {
             play(carList);
             println("");
         }
-        CarComparator carComparator = new CarComparator();
-        Collections.sort(carList, carComparator);
 
-        int winnersNumber = howManyWin(carList);
-        System.out.print(carList.get(0).getName());
-        for (int i = 1; i < winnersNumber; i ++) {
-            System.out.print("," + carList.get(i).getName());
-        }
-        println("(이)가 최종 우승했습니다.");
+        println(printLastWinners(carList)+"(이)가 최종 우승했습니다.");
     }
 
     private static ArrayList<Car> getCarName(String carName) {
@@ -68,6 +61,16 @@ public class CarRacing {
 
     private static boolean isSamePosition(Car carA, Car carB) {
         return (carA.getPosition() == carB.getPosition());
+    }
+
+    private static String printLastWinners(ArrayList<Car> carList) {
+        Collections.sort(carList, new CarComparator());
+
+        String winnersNameList = carList.get(0).getName();
+        for (int i = 1; i < howManyWin(carList); i ++) {
+            winnersNameList += "," + carList.get(i).getName();
+        }
+        return winnersNameList;
     }
 
     private static void println(String string) {
