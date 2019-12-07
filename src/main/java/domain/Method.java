@@ -105,6 +105,15 @@ public class Method {
 		printWinner(winners);
 	}
 
-	
+	public void printWinner(ArrayList<String> winners) {
+		if (winners.size() > 1) {
+			for (int i = 0; i < winners.size() - 1; i++) {
+				System.out.print(winners.get(i) + ",");
+			}
+			System.out.println(winners.get(winners.size() - 1) + " 가 최종 우승 했습니다");
+			System.exit(0);
+		}
+		System.out.println(winners.get(0) + "가 최종 우승했습니다.");
+	}
 
 }
