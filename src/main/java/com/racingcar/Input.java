@@ -40,4 +40,20 @@ public class Input {
         Collections.addAll(carNames, input.split(","));
         return carNames;
     }
+
+    public int inputCount() {
+        Validator validator = new Validator();
+        int count;
+
+        while (true) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            count = scan.nextInt();
+            if (validator.isValidCount(count)) {
+                break;
+            }
+            System.out.println("정상적인 입력이 아닙니다.");
+        }
+
+        return count;
+    }
 }
