@@ -8,12 +8,13 @@ public class Car {
         this.name = name;
     }
 
-    public void go(int numOfGoingForward){
-
+    public void go(){
+        this.position += 1;
+        return;
     }
 
     public void stop(){
-
+        return;
     }
 
 }

@@ -58,7 +58,7 @@ public class GameManager {
     void playGame() {
         for(int carNum = 0; carNum < numOfCars; i++){
             int randomNumber = getRandomNumber();
-
+            checkGoStop(carNum, randomNumber);
         }
     }
 
@@ -68,7 +68,14 @@ public class GameManager {
     }
 
     void checkGoStop(int carNum, int randomNumber){
-
+        if(randomNumber >= 4){
+            cars[carNum].go();
+            return;
+        }
+        if(randomNumber <= 3){
+            cars[carNum].stop();
+            return;
+        }
     }
 
 
