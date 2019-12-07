@@ -3,7 +3,7 @@
 ### 0. Car 자료구조생성
 - String name
 - int position
-- Car(String name) : 생성자
+- Car(String name)
 - getPosition()
 - getName()
 - go() : 전진 처리하는 함수
@@ -26,6 +26,7 @@
 ---
 - doesGoOrStop() : 랜덤수 발생시켜 전진 혹은 정지를 결정하는 함수
 - printCarPosition(int num) : 자동차의 이름별 이동거리를 띄울 함수 
-- printProcess() : 전체 자동차의 이름별 이동거리를 띄울 함수
+- getWinners() : 우승자 리스트를 반환하는 함수
 - printWinner() : 우승자를 띄울 함수
-- run() : 경주가 실행되는 함수
+- race() : 레이스가 실행되는 함수
+- run() : 전체 기능이 실행되는 함수
