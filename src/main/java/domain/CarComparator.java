@@ -9,7 +9,7 @@ public class CarComparator implements Comparator<Car> {
         if (car1.getPosition() < car2.getPosition()) {
             return 1;
         }
-        return 0;
+        return -1;
     }
 
 }

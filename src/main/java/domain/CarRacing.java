@@ -77,12 +77,7 @@ public class CarRacing {
     }
 
     private static String printLastWinners(ArrayList<Car> carList) {
-        CarComparator carComparator = new CarComparator();
-        Collections.sort(carList, carComparator);
-
-        for(int i=0; i<carList.size(); i++)
-            System.out.print(carList.get(i).getName()+",");
-
+        Collections.sort(carList, new CarComparator());
         String winnersNameList = carList.get(FIRST_WINNER_NUMBER).getName();
         for (int i = 1; i < howManyWin(carList); i ++) {
             winnersNameList += "," + carList.get(i).getName();
