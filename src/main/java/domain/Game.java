@@ -13,10 +13,17 @@ public class Game {
     int winnerDistance;
 
     public void start() {
-        String[] userInput;
-        Car car;
 
-        //car 이름 입력 받는 부분
+        getCarNames();
+        getTurns();
+        startRace();
+        printResult();
+        System.exit(0);
+    }
+
+    private void getCarNames() {
+        String[] userInput;
+
         while (true) {
             userInput = getUserInputCarNames();
             if (checkUserInputCarNames(userInput) == true) {
@@ -24,32 +31,6 @@ public class Game {
             }
             System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
         }
-
-        //시도할 횟수 입력 받는 부분
-        while (true) {
-            if (getUserInputTurns() == true) {
-                break;
-            }
-            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
-        }
-
-        //실행 결과 부분
-        System.out.println("실행 결과");
-        for (int i=0; i<this.turns; i++) {
-            for (int j=0; j<this.cars.size(); j++) {
-                car = this.cars.get(j);
-                car.moveOrStop();
-                car.printRoute();
-            }
-            System.out.println();
-        }
-
-        //우승자 출력 부분
-        findWinnerDistance();
-        findWinners();
-        printWinners();
-
-        System.exit(0);
     }
 
     private String[] getUserInputCarNames() {
@@ -80,6 +61,15 @@ public class Game {
             return true;
         }
         return false;
+    }
+
+    private void getTurns() {
+        while (true) {
+            if (getUserInputTurns() == true) {
+                break;
+            }
+            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+        }
     }
 
     private boolean getUserInputTurns() {
@@ -134,6 +124,27 @@ public class Game {
             return true;
         }
         return false;
+    }
+
+    private void startRace() {
+        Car car;
+
+        System.out.println("실행 결과");
+
+        for (int i=0; i<this.turns; i++) {
+            for (int j=0; j<this.cars.size(); j++) {
+                car = this.cars.get(j);
+                car.moveOrStop();
+                car.printRoute();
+            }
+            System.out.println();
+        }
+    }
+
+    private void printResult() {
+        findWinnerDistance();
+        findWinners();
+        printWinners();
     }
 
     private void findWinnerDistance() {
