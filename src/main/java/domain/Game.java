@@ -43,15 +43,17 @@ public class Game {
 
 	public void startRace() {
 		System.out.println("실행 결과");
-		for (int i = 0; i < carList.size(); i++) {
-			moveCar(i);
+		for (int i = 0; i < tryGame; i++) {
+			moveCar();
+			printCarStatus();
 		}
-		printCarStatus();
 	}
 
-	private void moveCar(int idx) {
-		if (moveDecision()) {
-			carList.get(idx).goCar();
+	private void moveCar() {
+		for (int i = 0; i < carList.size(); i++) {
+			if (moveDecision()) {
+				carList.get(i).goCar();
+			}
 		}
 	}
 
@@ -67,7 +69,13 @@ public class Game {
 	private void printCarStatus() {
 		for (int i = 0; i < carList.size(); i++) {
 			System.out.println(carList.get(i).getName() + " : ");
+			printPosition(carList.get(i).getPosition());
+		}
+	}
 
+	private void printPosition(int position) {
+		for (int i = 0; i < position; i++) {
+			System.out.println("-");
 		}
 	}
 }
