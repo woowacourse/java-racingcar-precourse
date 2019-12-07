@@ -31,11 +31,11 @@ public class RacingGame {
 	}
 
 	private ArrayList<String> getCarNames() {
-		String[] carNames = InputHandler.splitByComma(InputView.carNames());
-		ArrayList<String> result = new ArrayList<>();
+		ArrayList<String> carNames = new ArrayList<>();
 
-		Collections.addAll(result, carNames);
-		return result;
+		String[] inputNames = InputHandler.splitByComma(InputView.carNames());
+		Collections.addAll(carNames, inputNames);
+		return carNames;
 	}
 
 	private void getTryNumber() {
