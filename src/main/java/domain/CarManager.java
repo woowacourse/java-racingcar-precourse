@@ -13,4 +13,10 @@ public class CarManager {
 	public void update() {
 		cars.forEach(Car::update);
 	}
+
+	private Car getFirstMaxPositionCar() {
+		return cars.stream()
+				.max(Car::compareTo)
+				.orElseThrow();
+	}
 }

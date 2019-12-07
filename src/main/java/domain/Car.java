@@ -31,4 +31,14 @@ public class Car {
 	public String toString() {
 		return name + " : " + DISTANCE_MARK.repeat(position);
 	}
+
+	public int compareTo(Car car) {
+		if (this.position > car.position) {
+			return 1;
+		}
+		if (this.position < car.position) {
+			return -1;
+		}
+		return 0;
+	}
 }
