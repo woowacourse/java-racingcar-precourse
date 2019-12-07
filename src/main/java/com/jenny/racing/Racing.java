@@ -15,8 +15,16 @@ public class Racing implements Racable{
     }
 
     @Override
-    public boolean areValidNames(String names) {
-        return false;
+    public boolean areValidNames(String input) {
+        String[] names = input.split(",");
+
+        for(String name : names){
+            if(name.length() > 5){
+                System.out.println("5자 이하의 이름만 가능합니다. 다시 입력해주십시오.");
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -24,9 +32,9 @@ public class Racing implements Racable{
         Scanner sc = new Scanner(System.in);
         while(true){
             printNameAskMsg();
-            String names =  sc.nextLine();
-            if(areValidNames(names)){
-                createCars(names.split(","));
+            String input =  sc.nextLine();
+            if(areValidNames(input)){
+                createCars(input.split(","));
                 break;
             }
         }
