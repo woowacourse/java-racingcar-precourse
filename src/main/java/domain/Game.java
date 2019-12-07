@@ -44,20 +44,24 @@ public class Game {
         String userInput;
         userInput = scanner.nextLine();
 
-        if (checkInputContainsChar(userInput)) {
+        if (checkInputIsInvalid(userInput)) {
             return false;
         }
-
-        if (checkInputIsMinus(userInput)) {
-            return false;
-        }
-
-        if (checkInputIsZero(userInput)) {
-            return false;
-        }
-
         this.turns = Integer.parseInt(userInput);
         return true;
+    }
+
+    private boolean checkInputIsInvalid(String input) {
+        if (checkInputContainsChar(input)) {
+            return true;
+        }
+        if (checkInputIsMinus(input)) {
+            return true;
+        }
+        if (checkInputIsZero(input)) {
+            return true;
+        }
+        return false;
     }
 
     private boolean checkInputContainsChar(String input) {
