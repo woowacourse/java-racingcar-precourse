@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -26,5 +28,17 @@ public class Car {
         }
 
         return stringBuilder.toString();
+    }
+
+    private boolean decideGoOrNot() {
+        int num = drawRandomNumber();
+        if (num >= 4) {
+            return true;
+        }
+        return false;
+    }
+
+    private int drawRandomNumber() {
+       return (int)(Math.random() * 10);
     }
 }
