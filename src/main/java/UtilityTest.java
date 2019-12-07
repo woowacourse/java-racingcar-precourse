@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TestClass {
+public class UtilityTest {
 	public static void main(String[] args) {
 		/*
 		슬라이싱 동작 테스트
