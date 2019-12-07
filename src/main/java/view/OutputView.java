@@ -14,29 +14,42 @@ public class OutputView {
 
 	public static void printCarsPosition(ArrayList<Car> cars) {
 		for(Car car : cars) {
-			String resultLine = getResultLine(car);
-			System.out.println(resultLine);
+			System.out.println(getResultLine(car));
 		}
 		System.out.print('\n');
 	}
 
-	public static void printWinners(ArrayList<String> carNames) {
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append(carNames.get(0));
-		for(int i = 1; i < carNames.size(); i++) {
-			stringBuilder.append(", ");
-			stringBuilder.append(carNames.get(i));
-		}
-		System.out.println(stringBuilder.toString() + IS_WINNER_MESSAGE);
-	}
-
 	private static String getResultLine(Car car) {
 		StringBuilder stringBuilder = new StringBuilder();
+
 		stringBuilder.append(car.getName());
 		stringBuilder.append(" : ");
 		for(int i = 0; i < car.getPosition(); i++) {
 			stringBuilder.append("-");
 		}
 		return stringBuilder.toString();
+	}
+
+	public static void printWinners(ArrayList<Car> cars) {
+		ArrayList<String> winnerNames = getWinnerNames(cars);
+
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(winnerNames.get(0));
+		for(int i = 1; i < winnerNames.size(); i++) {
+			stringBuilder.append(", ");
+			stringBuilder.append(winnerNames.get(i));
+		}
+		System.out.println(stringBuilder.toString() + IS_WINNER_MESSAGE);
+	}
+
+	private static ArrayList<String> getWinnerNames(ArrayList<Car> cars) {
+		ArrayList<String> winnerNames = new ArrayList<>();
+
+		for(Car car : cars) {
+			if(car.getIsWinner()) {
+				winnerNames.add(car.getName());
+			}
+		}
+		return winnerNames;
 	}
 }
