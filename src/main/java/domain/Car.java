@@ -13,7 +13,7 @@ public class Car {
         this.name = name;
     }
 
-    private void moveOrStop() {
+    public void moveOrStop() {
         int randomValue = 0;
         randomValue = getRandomValue(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
 
@@ -26,10 +26,6 @@ public class Car {
         Random random = new Random();
         int randomValue = random.nextInt(maxValue - minValue + 1) + minValue;
         return randomValue;
-    }
-
-    public int getPosition() {
-        return this.position;
     }
 
     public void printRoute() {
