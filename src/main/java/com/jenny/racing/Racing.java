@@ -52,7 +52,7 @@ public class Racing implements Racable{
 
     @Override
     public void printTrialAskMsg() {
-
+        System.out.println("시도할 횟수는 몇회인가요?");
     }
 
     @Override
@@ -62,7 +62,16 @@ public class Racing implements Racable{
 
     @Override
     public void getTrial() {
+        Scanner sc = new Scanner(System.in);
 
+        while(true){
+            printTrialAskMsg();
+            String input = sc.nextLine();
+            if(isValidTrial(input)){
+                trial = Integer.parseInt(input);
+                break;
+            }
+        }
     }
 
     @Override
