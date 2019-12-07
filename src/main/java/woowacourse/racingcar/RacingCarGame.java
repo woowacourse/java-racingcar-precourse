@@ -1,6 +1,7 @@
 package woowacourse.racingcar;
 
 import java.util.Scanner;
+import java.util.Random;
 
 import domain.Car;
 
@@ -35,6 +36,10 @@ public class RacingCarGame {
 
     private void startRacing(String [] names, int tryNumber) {
         System.out.println("실행 결과");
+    }
 
+    private int getRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(10);
     }
 }
