@@ -11,7 +11,7 @@ public class InputException {
 	/* 이름에 추가적인 제한 사항이 생기면 제한 사항에 따른 메서드를 따로 만들어서 여기에 추가한다 */
 	public static void checkValidCarNames(List<String> carNames) {
 		checkValidLenOfCarNames(carNames);
-		checkEnoughNumOfCarNames(carNames);
+		checkValidNumOfCarNames(carNames);
 	}
 	
 	private static void checkValidLenOfCarNames(List<String> carNames) {
@@ -27,7 +27,7 @@ public class InputException {
 		}
 	}
 	
-	private static void checkEnoughNumOfCarNames(List<String> carNames) {
+	private static void checkValidNumOfCarNames(List<String> carNames) {
 		if (carNames.size() < MIN_NUM_OF_NAMES) {
 			throw new IllegalArgumentException("2개 이상의 이름을 입력해주세요");
 		}

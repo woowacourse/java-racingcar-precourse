@@ -19,17 +19,18 @@ public class Cars {
 	public void printNamesAndPositions() {
 		this.cars.stream()
 			.forEach(car -> car.printNameAndPosition());
+		System.out.println();	// 출력 포멧 맞추기
 	}
 	
-	public void decidePositions() {
+	public void goOrStay() {
 		this.cars.stream()
-			.forEach(car -> car.decidePosition());
+			.forEach(car -> car.goOrStay());
 	}
 	
 	public Winners getWinners() {
 		Winners winners = new Winners();
 		this.cars.stream()
-			.filter(car -> car.isWinner(winners.getMaxDistance()))
+			.filter(car -> car.isWinnerCandidate(winners.getMaxDistance()))
 			.forEach(car -> winners.add(car));
 		return winners;
 	}

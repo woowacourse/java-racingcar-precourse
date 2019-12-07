@@ -2,27 +2,23 @@ package seonggyu.domain;
 
 import seonggyu.cars.Cars;
 import seonggyu.cars.Winners;
+import seonggyu.rounds.Rounds;
 import seonggyu.input.Input;
 
-import java.util.List;
-
 public class GameManager {
-	public void playGame() {
-		List<String> carNames = Input.enterCarNames();
-		Cars cars = new Cars(carNames);
-		int rounds = Input.enterRounds();
+	public void startGame() {
+		Cars cars = new Cars(Input.enterCarNames());
+		Rounds rounds = new Rounds(Input.enterRounds());
 		
 		doRacing(cars, rounds);
-		
 		findWinners(cars);
 	}
 	
-	private void doRacing(Cars cars, int rounds) {
+	private void doRacing(Cars cars, Rounds rounds) {
 		System.out.println("\n실행결과");
-		for(int i = 0; i < rounds; i++) {
-			cars.decidePositions();
+		for(int i = 0; i < rounds.getRounds(); i++) {
+			cars.goOrStay();
 			cars.printNamesAndPositions();
-			System.out.println();
 		}
 	}
 	
