@@ -43,6 +43,18 @@ public class inputUtils {
 		return namesList;
 	}
 
+	private static boolean isValidName(List<String> namesList) {
+		if (namesList == null) {
+			return false;
+		}
+		for (String s : namesList) {
+			if (s.length() > NAMES_MAX_LEN) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	private static void inputFlush() {
 		scanner.nextLine();
 	}
