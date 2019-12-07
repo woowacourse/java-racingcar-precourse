@@ -5,6 +5,7 @@
 - int position
 - Car(String name) : 생성자
 - getPosition()
+- getName()
 - go() : 전진 처리하는 함수
 
 ### 1. Racable 인터페이스 생성

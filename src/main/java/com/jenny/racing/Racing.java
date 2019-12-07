@@ -100,12 +100,40 @@ public class Racing implements Racable{
 
     @Override
     public void printWinner() {
+        int cnt = cars.length;
+        int max = 0;
+        StringBuilder nameList = new StringBuilder();
 
+        /* 가장 멀리간 자동차의 이름을 얻어낸다 */
+        for(int idx = 0; idx < cnt; idx++){
+            int position = cars[idx].getPosition();
+            String name = cars[idx].getName();
+
+            if(position > max){
+                nameList = new StringBuilder(name + ", ");
+            }else if(position == max){
+                nameList.append(name + ", ");
+            }
+        }
+
+        /* 마지막 컴마 제거 후 출력 */
+        System.out.println(nameList.substring(0, nameList.length()-1) + "가 최종 우승했습니다.");
     }
 
     @Override
     public void race() {
+        int cnt = cars.length;
 
+        /* 라운드 진행 */
+        for(int round = 0; round < trial; round++){
+            for(int carIdx = 0; carIdx < cnt; carIdx++){
+                if(doesGoOrStop()){
+                    cars[carIdx].go();;
+                }
+                printCarPosition(carIdx);
+            }
+            System.out.println();
+        }
     }
 
     @Override
@@ -113,5 +141,6 @@ public class Racing implements Racable{
         getNames();
         getTrial();
         race();
+        printWinner();
     }
 }
