@@ -7,8 +7,8 @@
 1. 자동차 이름 `name` 입력  
 2. 시도 횟수 `numOfRounds` 입력  
 3. 0~9 사이의 random 값 구하기  
-4. random 값의 범위 파악 후 `go`(4 이상의 숫자) / `stop`(3 이하의 숫자) 결정  
-5. random 값에 따라 각 자동차의 위치`position` update  
+4. random 값의 범위 파악 후 `go`(4 이상의 숫자) / `stop`(3 이하의 숫자) 결정 후 `position` update  
+5. 각 자동차의 변동 후 위치`position` 출력  
 6. 3-5 반복  
 7. 우승자 출력  
 
