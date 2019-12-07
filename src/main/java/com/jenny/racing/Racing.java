@@ -116,12 +116,11 @@ public class Racing implements Racable{
         for(int idx = 0; idx < position; idx++){
             dist.append("-");
         }
-
         System.out.println(cars[num].getName() + " : " + dist);
     }
 
     @Override
-    public void printWinner() {
+    public String getWinners() {
         int max = 0;
         StringBuilder nameList = new StringBuilder();
 
@@ -137,6 +136,12 @@ public class Racing implements Racable{
                 nameList.append(name + ", ");
             }
         }
+        return nameList.toString();
+    }
+
+    @Override
+    public void printWinner() {
+        String nameList = getWinners();
 
         /* 마지막 컴마 제거 후 출력 */
         System.out.println(nameList.substring(0, nameList.length()-2) + "가 최종 우승했습니다.");

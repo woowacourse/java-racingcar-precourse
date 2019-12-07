@@ -45,6 +45,9 @@ public interface Racable {
     // 3-2. 자동차의 이름별 이동거리를 띄울 함수
     void printCarPosition(int num);
 
+    // 3-3. 우승자 리스트를 반환하는 함수
+    String getWinners();
+
     // 3-3. 우승자를 띄울 함수
     void printWinner();
 
