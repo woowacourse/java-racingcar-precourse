@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java     0.5 2019.12.07
+ * @(#)Car.java     0.6 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -11,7 +11,7 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.5 2019.12.07
+ * @version 0.6 2019.12.07
  */
 public class Car {
     /**
@@ -72,7 +72,7 @@ public class Car {
     /**
      * name getter
      *
-     * @return 자동차의 이름을 반환한다.
+     * @return 자동차의 이름을 반환.
      */
     public String getName() {
         return name;
@@ -81,9 +81,18 @@ public class Car {
     /**
      * position getter
      *
-     * @return 자동차의 현재 위치를 반환한다.
+     * @return 자동차의 현재 위치를 반환.
      */
     public int getPosition() {
         return position;
+    }
+
+    /**
+     * maxPosition getter
+     *
+     * @return 자동차들 중에서 가장 큰 position의 값을 반환.
+     */
+    public static int getMaxPosition() {
+        return maxPosition;
     }
 }

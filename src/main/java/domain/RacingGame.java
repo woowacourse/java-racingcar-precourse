@@ -1,5 +1,5 @@
 /*
- * @(#)RacingGame.java     0.5 2019.12.07
+ * @(#)RacingGame.java     0.6 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.5 2019.12.07
+ * @version 0.6 2019.12.07
  */
 public class RacingGame {
     /**
@@ -73,6 +73,22 @@ public class RacingGame {
             printMoveResult();
             System.out.println(" ");
         }
+    }
+
+    /**
+     * Car 클래스에 저장된 자동차들 중 가장 큰 position의 위치와 동일한 자동차들을 반환하는 메소드.
+     *
+     * @return 자동차들 중에서 가장 큰 position과 동일한 위치인 자동차 객체 List를 반환.
+     */
+    private List<Car> selectRaceWinner() {
+        List<Car> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getPosition() == Car.getMaxPosition()) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 
     /**
