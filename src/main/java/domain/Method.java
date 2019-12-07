@@ -1,14 +1,15 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Method {
 
-	static Car[] cars;
+	Car[] cars;
 	String[] names;
-	Random rd=new Random();
+	Random rd = new Random();
 	Scanner scan = new Scanner(System.in);
 
 	public void SetCarName() {
@@ -21,67 +22,79 @@ public class Method {
 	}
 
 	private boolean SplitCarName(String car) {
-		names=car.split(",");
-		cars=new Car[names.length];
-		for (int i=0;i<names.length;i++) {
+		names = car.split(",");
+		cars = new Car[names.length];
+		for (int i = 0; i < names.length; i++) {
 			if (!CheckStringLength(names[i])) {
 				System.out.println("5자를 초과하셨습니다");
 				return true;
 			}
-			cars[i]=new Car(names[i]);
+			cars[i] = new Car(names[i]);
 		}
 		return false;
 	}
 
 	private void InputRunCount() {
 		System.out.println("시도할 횟수는 몇 회 인가요?");
-		int runCount=scan.nextInt();
+		int runCount = scan.nextInt();
 		printResult(runCount);
 	}
+
 	private void printResult(int runCount) {
 		System.out.println();
 		System.out.println();
 		System.out.println("실행 결과");
-		for(int i=0;i<runCount;i++) {
+		for (int i = 0; i < runCount; i++) {
 			runResult();
 		}
-		
+		checkWinner();
+
 	}
 
 	private boolean CheckStringLength(String carName) {
-		if(carName.length()<6)
+		if (carName.length() < 6)
 			return true;
-
 		return false;
 	}
-	
+
 	public boolean checkForward() {
-		if(RandomNumber()<4)
+		if (RandomNumber() < 4)
 			return false;
 		return true;
-			
 	}
-	
-	private  int RandomNumber() {
-		return rd.nextInt(9)+1;	
+
+	private int RandomNumber() {
+		return rd.nextInt(9) + 1;
 	}
-	
-	
+
 	public void runResult() {
-		for(int i=0;i<cars.length;i++) {
-			System.out.print(cars[i].getName()+":");
-			if(checkForward())
+		for (int i = 0; i < cars.length; i++) {
+			if (checkForward())
 				cars[i].setPosition(checkForward());
 			printCarPosition(i);
-			System.out.println();
 		}
 		System.out.println();
 	}
 
 	private void printCarPosition(int index) {
-		for(int i=0;i<cars[index].getPosition();i++) {
+		System.out.print(cars[index].getName() + ":");
+		for (int i = 0; i < cars[index].getPosition(); i++) {
 			System.out.print("-");
 		}
+		System.out.println();
 	}
+
+	private void checkWinner() {
+		int max = cars[0].getPosition(), winner = 0;
+		for (int i = 1; i < cars.length; i++) {
+			if (max < cars[i].getPosition()) {
+				max = cars[i].getPosition();
+				winner = i;
+			}
+		}
+		checkTie(max, winner);
+	}
+
+
 
 }
