@@ -1,7 +1,21 @@
+/**
+ * InputManager.java 2019.12.07
+ * <p>
+ * version 1.0
+ */
 package domain.Controller;
 
 import java.util.Scanner;
 
+/**
+ * Scanner로 입력받는 기능을 관리하는 클래스
+ * 반복 횟수, 자동차의 이름을 입력 받는다.
+ * 추가로 입력받은 자동차의 이름을 (,)를 기준으로
+ * 자르는 메소드도 포함하고 있다.
+ *
+ * @author 황성찬
+ * @version 1.0 2019-12-07
+ */
 public class InputManager {
     Scanner scanner;
 
@@ -22,7 +36,4 @@ public class InputManager {
         System.out.println("시도할 횟수는 몇회인가요?");
         return scanner.nextInt();
     }
-
-
-
 }
