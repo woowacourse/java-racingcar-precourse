@@ -4,6 +4,7 @@ import util.RandomNumber;
 
 public class Car {
 	private static final int REFERENCE_SIGNAL = 4;
+	private static final String DISTANCE_MARK = "-";
 
 	private final String name;
 	private int position = 0;
@@ -24,5 +25,10 @@ public class Car {
 		if (hasSignal()) {
 			move();
 		}
+	}
+
+	@Override
+	public String toString() {
+		return name + " : " + DISTANCE_MARK.repeat(position);
 	}
 }
