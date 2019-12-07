@@ -18,7 +18,7 @@ public class UserInput {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             System.out.println("입력 조건 : 1. 이름은 5자 까지만 가능, 공백 불가능, 쉼표(,)는 이름에 사용할수 없음, 영대소문자만 가능");
             String carNameInput = scanner.nextLine();
-            if(carNameInput.charAt(carNameInput.length() -1) == ','){
+            if (carNameInput.charAt(carNameInput.length() - 1) == ',') {
                 continue;
             }
             carNames = carNameInput.split(",");

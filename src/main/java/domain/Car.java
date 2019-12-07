@@ -16,13 +16,13 @@ public class Car {
         return position;
     }
 
-    public void moveCar(){
+    public void moveCar() {
         position++;
     }
 
     public String currentMove() {
         StringBuffer currentPosition = new StringBuffer();
-        for (int i = 0; i < this.position; i++){
+        for (int i = 0; i < this.position; i++) {
             currentPosition.append("-");
         }
         return currentPosition.toString();
