@@ -1,41 +1,23 @@
 package domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingRefereeImpl implements RacingReferee {
 
-    private int maxPosition;
-
-    public RacingRefereeImpl() {
-        maxPosition = RacingGameConfig.DEFAULT_MAX_POSITION;
-    }
-    RacingRefereeImpl(int maxPosition) {
-        this.maxPosition = maxPosition;
-    }
-
     @Override
-    public void updateMaxPosition(int position) {
-        if (maxPosition < position) {
-            maxPosition = position;
-        }
-    }
+    public List<RacingCar> distinguishWinners(List<RacingCar> racingCars) {
+        //todo: check convention
+        int maxPosition = racingCars.stream()
+                            .map(RacingCar::getPosition)
+                            .max(Integer::compareTo)
+                            .orElseThrow(IllegalArgumentException::new);
 
-    @Override
-    public boolean guaranteeChampion(RacingCar racingCar) {
-        return false;
+        return racingCars.stream().filter(racingCar -> racingCar.getPosition() == maxPosition).sorted().collect(Collectors.toList());
     }
 
     @Override
     public void announceResult(List<RacingCar> champions) {
 
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if ((object == null) || object.getClass() != this.getClass()) {
-            return false;
-        }
-
-        return this.maxPosition == ((RacingRefereeImpl) object).maxPosition;
     }
 }

@@ -3,9 +3,6 @@ package domain;
 import java.util.List;
 
 public interface RacingReferee {
-    void updateMaxPosition(int position);
-
-    boolean guaranteeChampion(RacingCar racingCar);
-
+    List<RacingCar> distinguishWinners(List<RacingCar> racingCars);
     void announceResult(List<RacingCar> champions);
 }

@@ -2,12 +2,19 @@ package domain;
 
 import java.util.Random;
 
-public class Car implements RacingCar {
+public class Car implements RacingCar, Comparable<Car> {
+    //todo: apply annotation
+    private int id;
     private final String name;
     private int position = 0;
 
     public Car(String name) {
         this.name = name;
+    }
+    Car(int id, String name, int position) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
     }
 
     @Override
@@ -34,7 +41,7 @@ public class Car implements RacingCar {
 
     @Override
     public int getPosition() {
-        return 0;
+        return position;
     }
 
     @Override
@@ -46,5 +53,19 @@ public class Car implements RacingCar {
         return this.name.equals(((Car)object).name) && (this.position == ((Car)object).position);
     }
 
-    // 추가 기능 구현
+    @Override
+    public int compareTo(Car o) {
+        if (o.position < this.position) {
+            return 1;
+        }
+
+        if ((o.position == this.position) && (o.id < this.id)) {
+            return 1;
+        }
+        if ((o.position == this.position) && (o.id == this.id)) {
+            return 0;
+        }
+
+        return -1;
+    }
 }
