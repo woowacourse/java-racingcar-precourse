@@ -31,11 +31,12 @@ public class Car {
      * acceleateCar는 자동차의 가속을 맡는 메서드이다.
      * PASS_UNDER_LIMIT 상수값을 통해 가속 여부를 판단한다.(가속 하한선보다 아래이면 정지한다)
      */
-    public void accelerateCar() {
+    public int accelerateCar() {
         int randomNumber = new Random().nextInt(10);
         if (randomNumber >= PASS_UNDER_LIMIT) {
             position++;
         }
+        return position;
     }
 
     /**
@@ -52,5 +53,16 @@ public class Car {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * printCarPosition은 경주 도중 자동차의 위치를 출력해주는 메서드이다.
+     */
+    private void printCarPosition(){
+        System.out.print(name+" : ");
+        for(int i = 0; i < position; i++ ) {
+            System.out.print("-");
+        }
+        System.out.print("\n");
     }
 }
