@@ -2,14 +2,12 @@ package ui;
 
 import domain.Car;
 import domain.RacingCar;
+import domain.errors.InvalidInputException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,6 +37,26 @@ class ConsoleTest {
 
         //when & then
         assertEquals(result, console.extractRacingCars());
+    }
+
+    @Test
+    void getCyclesWitchValidInput() {
+        String input = "1";
+        console = createConsoleForTest(input);
+
+        assertEquals(1, console.getCycles());
+    }
+    @Test
+    void getCyclesWitchInvalidInputs() {
+        String input = "-1";
+        console = createConsoleForTest(input);
+
+        assertThrows(InvalidInputException.class, () -> console.getCycles());
+
+        input = "a";
+        console = createConsoleForTest(input);
+        assertThrows(InputMismatchException.class, () -> console.getCycles());
+
     }
 
     private Console createConsoleForTest(String input) {
