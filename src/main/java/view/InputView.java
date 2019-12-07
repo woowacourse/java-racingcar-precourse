@@ -15,4 +15,13 @@ public class InputView {
 		printGetCarNamesMessage();
 		return List.of(SCANNER.nextLine().split(CAR_NAME_DELIMITER));
 	}
+
+	private static void printGetTrialCountMessage() {
+		System.out.println("시도할 회수는 몇회인가요?");
+	}
+
+	public static int getTrialCount() {
+		printGetTrialCountMessage();
+		return SCANNER.nextInt();
+	}
 }
