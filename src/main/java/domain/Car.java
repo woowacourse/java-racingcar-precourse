@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -15,5 +17,9 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
-    // 추가 기능 구현
+
+    private int getRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(10);
+    }
 }
