@@ -23,6 +23,7 @@ public class Racing implements Racable{
 
     private Car[] cars;
     private int trial;
+    private int cnt;
 
     @Override
     public void printNameAskMsg() {
@@ -57,7 +58,7 @@ public class Racing implements Racable{
 
     @Override
     public void createCars(String[] names) {
-        int cnt = names.length;
+        cnt = names.length;
         cars = new Car[cnt];
 
         for(int idx = 0; idx < cnt; idx++){
@@ -121,7 +122,6 @@ public class Racing implements Racable{
 
     @Override
     public void printWinner() {
-        int cnt = cars.length;
         int max = 0;
         StringBuilder nameList = new StringBuilder();
 
@@ -144,8 +144,6 @@ public class Racing implements Racable{
 
     @Override
     public void race() {
-        int cnt = cars.length;
-
         /* 라운드 진행 */
         for(int round = 0; round < trial; round++){
             for(int carIdx = 0; carIdx < cnt; carIdx++){
