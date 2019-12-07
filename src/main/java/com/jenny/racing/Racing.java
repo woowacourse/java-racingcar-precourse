@@ -104,10 +104,14 @@ public class Racing implements Racable{
     }
 
     @Override
+    public void race() {
+
+    }
+
+    @Override
     public void run() {
         getNames();
         getTrial();
-        printProcess();
-        printWinner();
+        race();
     }
 }
