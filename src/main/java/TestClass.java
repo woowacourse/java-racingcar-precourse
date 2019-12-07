@@ -10,7 +10,8 @@ public class TestClass {
 		String[] testStringrtn = UtilityMethods.sliceString(testString);
 		for (int i = 0; i < testStringrtn.length; i++) {
 			System.out.println(testStringrtn[i]);
-		 */
 		}
+		*/
 	}
 }
+
