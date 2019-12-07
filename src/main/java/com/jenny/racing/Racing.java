@@ -85,6 +85,10 @@ public class Racing implements Racable{
 
     @Override
     public boolean doesGoOrStop() {
+        int random = (int)(Math.random()*10);
+        if(random >= 4){
+            return true;
+        }
         return false;
     }
 
