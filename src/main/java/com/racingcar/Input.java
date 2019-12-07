@@ -15,4 +15,29 @@ import java.util.Scanner;
 
 public class Input {
     Scanner scan = new Scanner(System.in);
+
+    public List<String> inputCarNames() {
+        Validator validator = new Validator();
+        List<String> carNames = new ArrayList<>();
+        String input;
+
+
+        while (true) {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            input = scan.nextLine();
+            carNames = splitNames(input);
+            if (validator.isValidName(carNames)) {
+                break;
+            }
+            System.out.println("정상적인 입력이 아닙니다.");
+        }
+
+        return carNames;
+    }
+
+    public List<String> splitNames(String input) {
+        List<String> carNames = new ArrayList<>();
+        Collections.addAll(carNames, input.split(","));
+        return carNames;
+    }
 }
