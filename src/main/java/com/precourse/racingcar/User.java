@@ -1,5 +1,5 @@
 /*
- * User.java                       1.9.0   2019-12-07
+ * User.java                      1.10.0   2019-12-07
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
  * 사용자에 대한 입력과 출력을 하는 기능들이 있습니다.
  * 입력이 올바르지 않은 경우 예외처리를 하는 기능이 있습니다.
  *
- * @version 1.9.0            사용자에게 시도할 레이스 횟수를 물어보는 기능 추가
+ * @version 1.10.0            사용자가 레이스 횟수를 입력하는 기능 추가
  * @date 2019-12-07
  * @author HyungjuAn
  */
@@ -108,16 +108,25 @@ public class User {
 	}
 
 	public int getRaceCount() throws IOException {
-		int raceCount = 0; // 임시
+		int raceCount;
 
 		printRaceCountQuestion();
-		// 사용자가 횟수를 입력하는 기능
+		raceCount = readRaceCount();
 
 		return raceCount;
 	}
 
 	private void printRaceCountQuestion() {
 		System.out.println(RACE_COUNT_QUESTION);
+	}
+
+	private int readRaceCount() throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String input = reader.readLine();
+
+		// if (!입력이 자연수인지 확인하는 기능 || 입력이 문자인지 확인하는기능)
+
+		return Integer.parseInt(input);
 	}
 
 	@Override
