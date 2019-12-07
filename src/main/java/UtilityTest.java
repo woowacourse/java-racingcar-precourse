@@ -1,17 +1,19 @@
 import java.util.Scanner;
+import domain.Car;
 
 public class UtilityTest {
 	public static void main(String[] args) {
-		/*
-		슬라이싱 동작 테스트
-		String testString;
+		//슬라이싱 동작 테스트
 		Scanner sc = new Scanner(System.in);
-		testString = sc.nextLine();
-		String[] testStringrtn = UtilityMethods.sliceString(testString);
-		for (int i = 0; i < testStringrtn.length; i++) {
-			System.out.println(testStringrtn[i]);
+
+		String testString = sc.nextLine();
+		Car[] testCars = UtilityMethods.sliceString(testString);
+		UtilityMethods.goForwardRandomly(testCars);
+		for (int i = 0; i < testCars.length; i++) {
+			//testCars[i].goForward();
+			System.out.println(testCars[i].getName() + " : " + testCars[i].getPosition());
 		}
-		*/
+
 	}
 }
 

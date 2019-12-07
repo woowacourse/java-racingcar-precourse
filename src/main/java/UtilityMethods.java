@@ -13,7 +13,7 @@ public class UtilityMethods {
 	}
 
 	public static void goForwardRandomly (Car[] cars) {
-		double randomNumber;
+		double randomNumber = 0;
 
 		for (int i = 0; i < cars.length; i++) {
 			randomNumber = Math.random();
