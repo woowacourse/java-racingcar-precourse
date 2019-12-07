@@ -121,6 +121,7 @@ public class Racing implements Racable{
             String name = cars[idx].getName();
 
             if(position > max){
+                max = position;
                 nameList = new StringBuilder(name + ", ");
             }else if(position == max){
                 nameList.append(name + ", ");
@@ -139,7 +140,7 @@ public class Racing implements Racable{
         for(int round = 0; round < trial; round++){
             for(int carIdx = 0; carIdx < cnt; carIdx++){
                 if(doesGoOrStop()){
-                    cars[carIdx].go();;
+                    cars[carIdx].go();
                 }
                 printCarPosition(carIdx);
             }
