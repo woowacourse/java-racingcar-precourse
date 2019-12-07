@@ -2,12 +2,16 @@ package woowacourse.racingcar;
 
 import java.util.Scanner;
 
+import domain.Car;
+
 public class RacingCarGame {
+    Car [] car;
     private Scanner sc = new Scanner(System.in);
 
     public void runGame() {
         String [] carNames = this.getCarNames();
         int tryNumber = this.getTryNumber();
+        this.setCarNames(carNames);
         this.startRacing(carNames, tryNumber);
     }
 
@@ -21,7 +25,16 @@ public class RacingCarGame {
         return sc.nextInt();
     }
 
+    private void setCarNames(String [] carNames) {
+        int carCount = carNames.length;
+        car = new Car[carCount];
+        for (int i = 0; i < carCount; i++) {
+            car[i] = new Car(carNames[i]);
+        }
+    }
+
     private void startRacing(String [] names, int tryNumber) {
         System.out.println("실행 결과");
+
     }
 }
