@@ -8,7 +8,9 @@ public class Game {
     static final int MAX_CAR_NAME_LENGTH = 5;
     Scanner scanner;
     ArrayList<Car> cars;
+    ArrayList<Car> winners;
     int turns;
+    int winnerDistance;
 
     private String[] getUserInputCarNames() {
         String userInput;
@@ -27,7 +29,7 @@ public class Game {
                 return false;
             }
             Car car = new Car(inputArray[i]);
-            cars.add(car);
+            this.cars.add(car);
         }
         return true;
     }
@@ -92,4 +94,30 @@ public class Game {
         return false;
     }
 
+    private void findWinnerDistance() {
+        int longestDistance = -1;
+        int tempDistance;
+
+        for (int i=0; i<this.cars.size(); i++) {
+            tempDistance = cars.get(i).getPosition();
+            if (tempDistance > longestDistance) {
+                longestDistance = tempDistance;
+            }
+        }
+
+        this.winnerDistance = longestDistance;
+    }
+
+    private void findWinner() {
+        Car car;
+        int distance;
+
+        for (int i=0; i<this.cars.size(); i++) {
+            car = this.cars.get(i);
+            distance = car.getPosition();
+            if (distance == this.winnerDistance) {
+                this.winners.add(car);
+            }
+        }
+    }
 }
