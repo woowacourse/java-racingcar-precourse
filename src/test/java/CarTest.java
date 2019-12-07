@@ -25,6 +25,17 @@ public class CarTest {
 				System.out.println(name);
 			}
 		}
+		
+		System.out.println("시도할 회수는 몇회인가요?");
+		tryCnt = scanner.nextInt();
+		System.out.println();
+		
+		System.out.println("실행결과");
+		for( int i=0 ; i<tryCnt ; i++ ) {
+			for( int j=0 ; j<carCnt ; j++ ) {
+				
+			}
+		}
 	}
 
 }
