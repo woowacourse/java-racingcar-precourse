@@ -19,4 +19,11 @@ public class CarManager {
 				.max(Car::compareTo)
 				.orElseThrow();
 	}
+
+	public List<Car> selectMaxPositionCars() {
+		Car maxPositionCar = getFirstMaxPositionCar();
+		return cars.stream()
+				.filter(car -> car.isSamePosition(maxPositionCar))
+				.collect(Collectors.toList());
+	}
 }
