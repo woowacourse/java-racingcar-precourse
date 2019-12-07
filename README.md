@@ -46,15 +46,15 @@ int getPosition()
 void printDistance()
 void print(String string)
 ```
-##### drive 메소드
+##### drive(int position) 메소드
 ###### 차 객체의 position 을 하나 증가시켜주는 메소드
-##### getName 메소드
+##### getName() 메소드
 ###### 차 객체의 name 을 반환하는 메소드
-##### getPosition 메소드
+##### getPosition() 메소드
 ###### 차 객체의 position 의 값을 반환해주는 메소드
-##### printDistance 메소드
+##### printDistance() 메소드
 ###### 차 객체의 position 이 얼만큼인지 시각적으로 print 해주는 메소드
-##### print 메소드
+##### print(String string) 메소드
 ###### System.out.print 로 출력해주는 메소드
 
 
@@ -64,7 +64,7 @@ void print(String string)
 @override
 int compare(Car car1, Car car2)
 ```
-##### compare 메소드
+##### compare(Car car1, Car car2) 메소드
 ###### Comparator 클래스는 이 메소드를 필수적으로 override 하며, 이 메소드를 통해 position 이 가장 큰 값을 가지는 순대로 Car 객체를 정렬할 것이다.
 
 
@@ -78,15 +78,15 @@ int howManyWin(ArrayList<Car> CarList)
 boolean isSamePosition(Car carA, Car carB)
 void println(String string)
 ```
-##### getCarName 메소드
+##### getCarName(String carName) 메소드
 ###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
-##### canDrive 메소드
+##### canDrive() 메소드
 ###### 랜덤 클래스를 불러와서 0~9 까지 숫자 중 4이상이 나오면 TRUE 를 반환하는 메소드
-##### play 메소드
+##### play(ArrayList<Car> CarList) 메소드
 ###### 각 차 객체들을 경주시키고 그 결과를 print 해주는 메소드
-##### howManyWin 메소드
+##### howManyWin(ArrayList<Car> CarList) 메소드
 ###### 공동 1등인 Car 객체가 몇 대인지 반환하는 메소드
-##### isSamePosition 메소드
+##### isSamePosition(Car carA, Car carB) 메소드
 ###### 두 차 객체의 position 이 같은 값이면 TRUE 를 반환하는 메소드
-##### println 메소드
+##### println(String string) 메소드
 ###### System.out.println 로 입력받은 String 을 출력해주는 메소드
