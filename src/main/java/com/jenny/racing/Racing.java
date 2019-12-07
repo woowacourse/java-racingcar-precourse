@@ -94,7 +94,14 @@ public class Racing implements Racable{
 
     @Override
     public void printCarPosition(int num) {
+        StringBuilder dist = new StringBuilder();
+        int position = cars[num].getPosition();
 
+        for(int idx = 0; idx < position; idx++){
+            dist.append("-");
+        }
+
+        System.out.println(cars[num].getName() + " : " + dist);
     }
 
     @Override
