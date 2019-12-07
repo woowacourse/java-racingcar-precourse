@@ -1,8 +1,6 @@
 package domain;
 
-import java.util.Scanner;
-import java.util.StringTokenizer;
-import java.util.Random;
+import java.util.*;
 
 public class GameManager {
 
@@ -18,10 +16,11 @@ public class GameManager {
         game.delimiter = ",";
         game.randomRange = 10;
 
-        for(int i = 0; i < game.numOfRounds; i++){
+        for (int i = 0; i < game.numOfRounds; i++) {
             System.out.println("실행결과");
             game.playGame();
         }
+        game.printFinalWinner();
     }
 
     void startGame() {
@@ -56,32 +55,47 @@ public class GameManager {
     }
 
     void playGame() {
-        for(int carNum = 0; carNum < numOfCars; i++){
+        for (int carNum = 0; carNum < numOfCars; i++) {
             int randomNumber = getRandomNumber();
             checkGoStop(carNum, randomNumber);
             printCurrentPosition(carNum);
         }
     }
 
-    int getRandomNumber(){
+    int getRandomNumber() {
         Random r = new Random();
         return r.nextInt(randomRange);
     }
 
-    void checkGoStop(int carNum, int randomNumber){
-        if(randomNumber >= 4){
+    void checkGoStop(int carNum, int randomNumber) {
+        if (randomNumber >= 4) {
             cars[carNum].go();
             return;
         }
-        if(randomNumber <= 3){
+        if (randomNumber <= 3) {
             cars[carNum].stop();
             return;
         }
     }
 
-    void printCurrentPosition(int carNum){
+    void printCurrentPosition(int carNum) {
         cars[carNum].printName();
         cars[carNum].printPosition();
         System.out.println();
+    }
+
+    void printFinalWinner() {
+        ArrayList<Integer> finalPositionArray = new ArrayList<Integer>();
+        for (int i = 0; i < numOfCars; i++) {
+            finalPositionArray.add(cars[i].getPosition());
+        }
+        int maxPosition = Collections.max(finalPositionArray);
+
+        for (int i = 0; i < numOfCars; i++) {
+            if(cars[i].getPosition() == maxPosition){
+                System.out.print(cars[i].getName() + ",");
+            }
+        }
+        System.out.print("가 최종 우승했습니다.");
     }
 }
