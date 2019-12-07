@@ -23,7 +23,7 @@ public class Car {
     
     public void decidePosition() {
     	Random RANDOM = new Random();
-		if(RANDOM.nextInt(RAND_NUM_RANGE) > THRESHOLD ) {
+    	if(RANDOM.nextInt(RAND_NUM_RANGE) > THRESHOLD ) {
 			this.position++;
 		}
     }
