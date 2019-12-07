@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java     0.7 2019.12.07
+ * @(#)Car.java     0.8 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -11,18 +11,18 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.7 2019.12.07
+ * @version 0.8 2019.12.07
  */
 public class Car {
+    /**
+     * 자동차의 전진 여부를 판단할 때 사용하는 상수.
+     */
+    private static final int FORWARD_CHECK = 3;
+
     /**
      * 생성 가능한 random 변수의 최대 범위를 제한하기 위한 상수.
      */
     private static final int MAX_RANDOM_NUMBER = 10;
-
-    /**
-     * 자동차의 전진 여부를 판단할 때 사용할 상수.
-     */
-    private static final int FORWARD_CHECK = 3;
 
     /**
      * 자동차들 중에서 가장 먼 위치의 값을 저장하는 클래스 변수.
@@ -30,12 +30,12 @@ public class Car {
     private static int maxPosition = 0;
 
     /**
-     * 자동차의 이름을 저장하는 문자열 변수.
+     * 자동차의 이름을 저장하는 String 변수.
      */
     private final String name;
 
     /**
-     * 자동차의 위치를 저장하는 정수 변수.
+     * 자동차의 위치를 저장하는 int 변수.
      */
     private int position = 0;
 
@@ -49,12 +49,13 @@ public class Car {
     }
 
     /**
-     * 0부터 9까지의 범위 내의 정수를 랜덤하게 생성해서 반환해주는 메소드.
-     *
-     * @return 0부터 9까지의 범위 내의 랜덤하게 생성된 정수를 반환.
+     * 자동차를 앞으로 전진시키고, 전진한 위치가 모든 자동차들 중 가장 큰 값이면 해당 위치로 최댓값(maxPosition)을 초기화시키는 메소드.
      */
-    private int generateRandomNumber() {
-        return new Random().nextInt(MAX_RANDOM_NUMBER);
+    public void moveCarToForward() {
+        if (isCarMoveForward()) {
+            position++;
+            setIfMaxPosition();
+        }
     }
 
     /**
@@ -67,14 +68,12 @@ public class Car {
     }
 
     /**
-     * 자동차를 앞으로 전진시키고, 전진한 위치가 모든 자동차들 중 가장 큰 값이면 해당 위치로
-     * 최댓값(maxPosition)을 초기화시키는 메소드.
+     * 0부터 9까지의 범위 내의 정수를 랜덤하게 생성해서 반환해주는 메소드.
+     *
+     * @return 0부터 9까지의 범위 내의 랜덤하게 생성된 정수를 반환.
      */
-    public void moveCarToForward() {
-        if (isCarMoveForward()) {
-            position++;
-            setIfMaxPosition();
-        }
+    private int generateRandomNumber() {
+        return new Random().nextInt(MAX_RANDOM_NUMBER);
     }
 
     /**
@@ -107,7 +106,7 @@ public class Car {
     /**
      * maxPosition getter
      *
-     * @return 자동차들 중에서 가장 큰 position의 값을 반환.
+     * @return 모든 자동차들 중에서 가장 큰 position의 값을 반환.
      */
     public static int getMaxPosition() {
         return maxPosition;
