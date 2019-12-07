@@ -1,5 +1,5 @@
 /*
- * @(#)RacingGame.java     0.6 2019.12.07
+ * @(#)RacingGame.java     0.7 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.6 2019.12.07
+ * @version 0.7 2019.12.07
  */
 public class RacingGame {
     /**
@@ -73,6 +73,22 @@ public class RacingGame {
             printMoveResult();
             System.out.println(" ");
         }
+        printRaceWinner();
+    }
+
+    /**
+     * 우승한 자동차들의 이름을 출력하는 메소드.
+     */
+    private void printRaceWinner() {
+        List<Car> winners = selectRaceWinner();
+
+        System.out.print(winners.get(0).getName());
+        if (winners.size() > 1) {
+            for (int i = 1; i < winners.size(); i++) {
+                System.out.print(", " + winners.get(i).getName());
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
     }
 
     /**
@@ -119,7 +135,7 @@ public class RacingGame {
     private void printMoveBar(int position) {
         StringBuilder moveBar = new StringBuilder();
 
-        for(int i = 0; i < position; i++) {
+        for (int i = 0; i < position; i++) {
             moveBar.append("-");
         }
         System.out.println(moveBar);
