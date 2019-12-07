@@ -2,19 +2,24 @@ package domain;
 
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.Random;
 
 public class GameManager {
 
     public int numOfCars;
     public int numOfRounds;
+    public int randomRange;
     public String delimiter;
     public Car[] cars;
 
     public static void main(String[] args) {
         GameManager game = new GameManager();
         game.startGame();
+        game.delimiter = ",";
+        game.randomRange = 10;
 
-        while (true) {
+        for(int i = 0; i < game.numOfRounds; i++){
+            System.out.println("실행결과");
             game.playGame();
         }
     }
@@ -33,7 +38,6 @@ public class GameManager {
     }
 
     void setCarName(String input) {
-        delimiter = ",";
         StringTokenizer token = new StringTokenizer(input, delimiter);
         numOfCars = token.countTokens();
         cars = new Car[numOfCars];
@@ -47,12 +51,27 @@ public class GameManager {
     int getNumOfRounds() {
         Scanner sc = new Scanner(System.in);
         System.out.println("시도할 횟수는 얼마인가요?");
-        return sc.nextInt();
+        int inputNumOfRounds = sc.nextInt();
+        return inputNumOfRounds;
     }
 
     void playGame() {
+        for(int carNum = 0; carNum < numOfCars; i++){
+            int randomNumber = getRandomNumber();
+
+        }
+    }
+
+    int getRandomNumber(){
+        Random r = new Random();
+        return r.nextInt(randomRange);
+    }
+
+    void checkGoStop(int carNum, int randomNumber){
 
     }
+
+
 
 
 }
