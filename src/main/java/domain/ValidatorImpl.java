@@ -1,0 +1,27 @@
+package domain;
+
+import java.util.Arrays;
+
+public class ValidatorImpl implements Validator {
+    @Override
+    public boolean validateNames(String[] names) {
+        for (String name : names) {
+            if (!isValidName(name)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    private boolean isValidName(String name) {
+        if (RacingGameConfig.MAX_NAME_LENGTH < name.length()) {
+            return false;
+        }
+
+        return Arrays.stream(RacingGameConfig.NOT_ALLOWED_IN_NAME).parallel().noneMatch(name::contains);
+    }
+
+    @Override
+    public boolean validateCycles(int cycles) {
+        return RacingGameConfig.MIN_CYCLES <= cycles ;
+    }
+}

@@ -1,8 +1,7 @@
 package ui;
 
-import domain.Car;
-import domain.Raceable;
-import domain.RacingCar;
+import domain.Validator;
+import domain.ValidatorImpl;
 import domain.errors.InvalidInputException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +15,7 @@ class ConsoleTest {
 
     private Console console;
     private Scanner scanner;
+    private Validator validator;
 
     @AfterEach
     void clear() {
@@ -32,20 +32,61 @@ class ConsoleTest {
         //given
         String input = "pobi,crong,honux";
         console = createConsoleForTest(input);
-        List<Raceable> result = new ArrayList<>(
-                Arrays.asList(new RacingCar("pobi"), new RacingCar("crong"), new RacingCar("honux"))
-        );
+        String[] result = {"pobi", "crong", "honux"};
 
         //when & then
-        assertEquals(result, console.extractRacingCars());
+        assertArrayEquals(result, console.extractNames());
+
+        //given
+        input = " pobi,crong,honux ";
+        console = createConsoleForTest(input);
+
+        //when & then
+        assertArrayEquals(result, console.extractNames());
+
     }
+    @Test
+    void extractRacingCarsWithoutSeparator() {
+        //given
+        String input = "pobi crong honux";
+        console = createConsoleForTest(input);
+
+        //when& then
+        assertThrows(InvalidInputException.class, () -> console.extractNames());
+    }
+    @Test
+    void extractRacingCarsWithNotAllowdCharacter() {
+        //given
+        String input = "pobi,crong,hon*ux";
+        console = createConsoleForTest(input);
+
+        //when & then
+        assertThrows(InvalidInputException.class, () -> console.extractNames());
+
+        //given
+        input = "pobi, crong,honux";
+        console = createConsoleForTest(input);
+
+        //when & then
+        assertThrows(InvalidInputException.class, () -> console.extractNames());
+    }
+    @Test
+    void extractRacingCarsWithSeparatorAtLast() {
+        //given
+        String input = ",pobi,crong,honux,";
+        console = createConsoleForTest(input);
+
+        //when & then
+        assertThrows(InvalidInputException.class, () -> console.extractNames());
+    }
+
 
     @Test
     void getCyclesWitchValidInput() {
         String input = "1";
         console = createConsoleForTest(input);
 
-        assertEquals(1, console.getCycles());
+        assertEquals(Integer.parseInt(input), console.getCycles());
     }
     @Test
     void getCyclesWitchInvalidInputs() {
@@ -58,11 +99,15 @@ class ConsoleTest {
         console = createConsoleForTest(input);
         assertThrows(InputMismatchException.class, () -> console.getCycles());
 
+        input = "1.1";
+        console = createConsoleForTest(input);
+        assertThrows(InputMismatchException.class, () -> console.getCycles());
     }
 
     private Console createConsoleForTest(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         scanner = new Scanner(System.in);
-        return new Console(scanner);
+        Validator validator = new ValidatorImpl();
+        return new Console(scanner, validator);
     }
 }
