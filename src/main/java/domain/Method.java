@@ -95,6 +95,16 @@ public class Method {
 		checkTie(max, winner);
 	}
 
+	private void checkTie(int max, int winner) {
+		ArrayList<String> winners = new ArrayList<String>();
+		winners.add(cars[winner].getName());
+		for (int i = 0; i < cars.length; i++) {
+			if (max == cars[i].getPosition() && winner != i)
+				winners.add(cars[i].getName());
+		}
+		printWinner(winners);
+	}
 
+	
 
 }
