@@ -8,8 +8,9 @@ public class Game {
     static final int MAX_CAR_NAME_LENGTH = 5;
     Scanner scanner;
     ArrayList<Car> cars;
+    int turns;
 
-    private String[] getUserInput() {
+    private String[] getUserInputCarNames() {
         String userInput;
         String[] nameArray;
 
@@ -37,6 +38,20 @@ public class Game {
             return true;
         }
         return false;
+    }
+
+    private boolean getUserInputTurns() {
+        String userInput;
+        userInput = scanner.nextLine();
+
+        //문자 체크
+
+        //음수 체크
+
+        //0 체크
+
+        this.turns = Integer.parseInt(userInput);
+        return true;
     }
 
 }
