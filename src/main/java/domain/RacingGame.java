@@ -1,5 +1,5 @@
 /*
- * @(#)RacingGame.java     0.4 2019.12.07
+ * @(#)RacingGame.java     0.5 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.4 2019.12.07
+ * @version 0.5 2019.12.07
  */
 public class RacingGame {
     /**
@@ -60,6 +60,29 @@ public class RacingGame {
      * 생상한 자동차 객체들을 저장할 Car 클래스형 List 변수.
      */
     private List<Car> cars;
+
+    /**
+     * 사용자로부터 자동차의 이름을 받아오는 것부터 우승 결과까지 출력하는 전체 진행을 담당하는 메소드.
+     */
+    public void run() {
+        receiveCarNames();
+        generateCarInstances();
+        receiveNumberOfMovement();
+        for (int i = 0; i < MovementNumber; i++) {
+            playRacingGame();
+            printMoveResult();
+            System.out.println(" ");
+        }
+    }
+
+    /**
+     * 모든 자동차들에게 이동을 진행시키는 메소드.
+     */
+    private void playRacingGame() {
+        for (Car car : cars) {
+            car.moveCarToForward();
+        }
+    }
 
     /**
      * 자동차들의 진행이 끝나고 실행 결과를 출력하는 메소드.
