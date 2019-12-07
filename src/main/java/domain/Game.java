@@ -108,7 +108,7 @@ public class Game {
         this.winnerDistance = longestDistance;
     }
 
-    private void findWinner() {
+    private void findWinners() {
         Car car;
         int distance;
 
@@ -119,5 +119,25 @@ public class Game {
                 this.winners.add(car);
             }
         }
+    }
+
+    private void printWinners() {
+        System.out.println(getWinnersName() + "가 최종우승 했습니다.");
+    }
+
+    private String getWinnersName() {
+        int size = this.winners.size();
+        Car winner;
+        String winnersNames = "";
+
+        for (int i=0; i<size-1; i++) {
+            winner = this.winners.get(i);
+            winnersNames += winner.getName();
+            winnersNames += ", ";
+        }
+
+        winner = this.winners.get(size-1);
+        winnersNames += winner.getName();
+        return winnersNames;
     }
 }
