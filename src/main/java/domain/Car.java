@@ -17,14 +17,6 @@ public class Car {
         return;
     }
 
-    public void printName(){
-        System.out.print(this.name + ":");
-    }
-
-    public void printPosition(){
-        System.out.print(this.position + "\n");
-    }
-
     public int getPosition(){
         return this.position;
     }

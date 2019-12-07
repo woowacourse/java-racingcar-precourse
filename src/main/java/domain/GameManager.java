@@ -12,9 +12,9 @@ public class GameManager {
 
     public static void main(String[] args) {
         GameManager game = new GameManager();
-        game.startGame();
         game.delimiter = ",";
         game.randomRange = 10;
+        game.startGame();
 
         for (int i = 0; i < game.numOfRounds; i++) {
             System.out.println("실행결과");
@@ -26,45 +26,59 @@ public class GameManager {
     void startGame() {
         String carNames = getCarNames();
         setCarName(carNames);
-        numOfRounds = getNumOfRounds();
+        getNumOfRounds();
     }
 
     String getCarNames() {
         Scanner sc = new Scanner(System.in);
         System.out.println("경주할 자동차의 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = sc.nextLine();
+        while(carNames.isEmpty()){
+            carNames = getCarNames(false);
+        }
+        return carNames;
+    }
+
+    String getCarNames(boolean wrongInput){
+        System.out.println("1개 이상의 자동차 이름을 입력해 주세요.(이름은 쉼표(,) 기준으로 구분)");
+        Scanner sc = new Scanner(System.in);
+        String carNames = sc.nextLine();
         return carNames;
     }
 
     void setCarName(String input) {
-        StringTokenizer token = new StringTokenizer(input, delimiter);
-        numOfCars = token.countTokens();
+        if(input == null){
+            return;
+        }
+        String[] carNameArray = input.split(delimiter);
+        numOfCars = carNameArray.length;
         cars = new Car[numOfCars];
 
         for (int i = 0; i < numOfCars; i++) {
-            String carName = token.nextToken();
+            String carName = carNameArray[i];
             cars[i] = new Car(carName);
         }
     }
 
-    int getNumOfRounds() {
+    void getNumOfRounds() {
         Scanner sc = new Scanner(System.in);
         System.out.println("시도할 횟수는 얼마인가요?");
-        int inputNumOfRounds = sc.nextInt();
-        return inputNumOfRounds;
+        numOfRounds = sc.nextInt();
     }
 
     void playGame() {
-        for (int carNum = 0; carNum < numOfCars; i++) {
+        for (int carNum = 0; carNum < numOfCars; carNum++) {
             int randomNumber = getRandomNumber();
             checkGoStop(carNum, randomNumber);
             printCurrentPosition(carNum);
         }
+        System.out.println();
     }
 
     int getRandomNumber() {
         Random r = new Random();
-        return r.nextInt(randomRange);
+        int randomNum = r.nextInt(randomRange);
+        return randomNum;
     }
 
     void checkGoStop(int carNum, int randomNumber) {
@@ -79,8 +93,10 @@ public class GameManager {
     }
 
     void printCurrentPosition(int carNum) {
-        cars[carNum].printName();
-        cars[carNum].printPosition();
+        System.out.print(cars[carNum].getName() + ": ");
+        for(int i = 0; i < cars[carNum].getPosition(); i++){
+            System.out.print('-');
+        }
         System.out.println();
     }
 
@@ -96,6 +112,6 @@ public class GameManager {
                 System.out.print(cars[i].getName() + ",");
             }
         }
-        System.out.print("가 최종 우승했습니다.");
+        System.out.println("가 최종 우승했습니다.");
     }
 }
