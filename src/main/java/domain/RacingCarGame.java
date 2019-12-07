@@ -10,4 +10,13 @@ public class RacingCarGame {
 		this.carManager = new CarManager(carNames);
 		this.trialCount = new TrialCount(trialCount);
 	}
+
+	public boolean hasNextRace() {
+		return trialCount.hasNext();
+	}
+
+	public void race() {
+		carManager.update();
+		trialCount.next();
+	}
 }
