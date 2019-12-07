@@ -1,10 +1,11 @@
-package domain;
+package com.racingcar;
 
 /**
  * Car
+ *
+ * @author hyochan
  * @version 0.0.1
  * @since 2019-12-06
- * @author hyochan
  */
 
 
@@ -16,5 +17,11 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
