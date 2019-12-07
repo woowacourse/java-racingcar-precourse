@@ -51,7 +51,10 @@ public interface Racable {
     // 3-4. 우승자를 띄울 함수
     void printWinner();
 
-    // 3-5. 경주가 실행되는 함수
+    // 3-5. 본격적인 레이싱을 수행하는 함수
+    void race();
+
+    // 3-6. 전체 수행
     void run();
 
 }

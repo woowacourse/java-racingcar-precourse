@@ -66,7 +66,6 @@ public class Racing implements Racable{
                 return false;
             }
         }
-
         return true;
     }
 
