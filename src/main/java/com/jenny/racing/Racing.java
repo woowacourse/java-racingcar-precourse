@@ -2,6 +2,8 @@ package com.jenny.racing;
 
 import domain.Car;
 
+import java.util.Scanner;
+
 public class Racing implements Racable{
 
     private Car[] cars;
@@ -64,6 +66,9 @@ public class Racing implements Racable{
 
     @Override
     public void run() {
-
+        getNames();
+        getTrial();
+        printProcess();
+        printWinner();
     }
 }
