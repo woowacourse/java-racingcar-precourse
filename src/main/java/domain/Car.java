@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java     0.2 2019.12.07
+ * @(#)Car.java     0.3 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -11,7 +11,7 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.2 2019.12.07
+ * @version 0.3 2019.12.07
  */
 public class Car {
     /**
@@ -40,5 +40,14 @@ public class Car {
      */
     private int generateRandomNumber() {
         return new Random().nextInt(MAX_RANDOM_NUMBER);
+    }
+
+    /**
+     * 자동차가 앞으로 전진하는지 여부를 판단하는 메소드.
+     *
+     * @return 자동차가 앞으로 전진할 경우 true 반환.
+     */
+    private boolean isCarMoveForward() {
+        return (generateRandomNumber() > 3);
     }
 }
