@@ -15,7 +15,7 @@ public class Car implements RacingCar, Comparable<Car> {
     public Car(String name) {
         this.name = name;
     }
-    Car(int id, String name, int position) {
+    public Car(int id, String name, int position) {
         this.id = id;
         this.name = name;
         this.position = position;
