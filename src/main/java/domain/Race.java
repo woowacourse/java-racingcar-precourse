@@ -1,7 +1,9 @@
 package domain;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Race 객체는 Car 객체의 리스트를 가지고,
@@ -12,8 +14,14 @@ import java.util.ArrayList;
  */
 public class Race {
 
-    /** STRING_END_OF_RACE 는 상수형으로, 레이스 종료시 승자의 이름과 함꼐 출력될 값이다. */
+    /** STRING_END_OF_RACE 는 상수형 String 객체로, 레이스 종료시 승자의 이름과 함꼐 출력될 값이다. */
     private static final String STRING_END_OF_RACE = "가 최종 우승했습니다";
+
+    /** STRING_ASK_REPEAT 는 상수형 String 객체로, 반복횟수 입력 전에 출력된다. */
+    private static final String STRING_ASK_REPEAT = "시도할 횟수는 몇회인가요?";
+
+    /** STRING_ASK_NAME 은 상수형 String 객체로, 이름 입력 전에 출력된다. */
+    private static final String STRING_ASK_NAME = "경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)";
 
     /** carList : 자동차 객체를 저장하는 리스트이다. */
     List<Car> carList;
@@ -73,14 +81,6 @@ public class Race {
 
     /**
      *
-     * @return
-     */
-    private List<String> getNameToInput() {
-
-    }
-
-    /**
-     *
      * @param nameString
      * @return
      */
@@ -89,11 +89,39 @@ public class Race {
     }
 
     /**
-     *
-     * @return
+     * getNameToInput은 하나의 문자열 입력을 받아,
+     * 그 문자열을 여러 개의 이름 블록으로 분리하여 리스트로 만든다.
+     * @return 이름의 목록을 String형 List로 리턴해준다.
+     */
+    private List<String> getNameToInput() {
+        Scanner sc = new Scanner(System.in);
+        String inputString;
+
+        System.out.println(STRING_ASK_NAME);
+        try{
+
+        } catch(InputMismatchException e){
+            
+        }
+    }
+
+    /**
+     * getRepeatToInput은 경주의 반복 횟수를 입력받아 리턴하는 메서드이다.
+     * 예외처리 : 잘못된 값이 들어오면 에러 메세지를 출력하고, 자기 자신을 리턴해준다.
+     * 이를 통해 재귀적으로 올바른 값을 돌려준다.
+     * @return int형의 경기 횟수를 리턴해준다.
      */
     private int getRepeatToInput(){
+        Scanner sc = new Scanner(System.in);
         int inputNumber;
+
+        System.out.println(STRING_ASK_REPEAT);
+        try {
+            inputNumber = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("잘못된 숫자를 입력하셨습니다.");
+            return getRepeatToInput();
+        }
         return inputNumber;
     }
 }
