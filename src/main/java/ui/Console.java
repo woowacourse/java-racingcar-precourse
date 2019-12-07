@@ -3,6 +3,7 @@ package ui;
 import domain.Car;
 import domain.RacingCar;
 import domain.RacingGameConfig;
+import domain.errors.InvalidInputException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,11 @@ public class Console implements UserInterface {
 
     @Override
     public int getCycles() {
-        return 0;
+        int cycles = scanner.nextInt();
+        //todo: 제대로 된 입력값을 받을 때까지 계속 물어보기.
+        if (cycles < RacingGameConfig.MIN_CYCLES) {
+            throw new InvalidInputException(String.format("입력값이 잘못됐습니다. %d 이상의 숫자를 입력해주세요.", RacingGameConfig.MIN_CYCLES));
+        }
+        return cycles;
     }
 }
