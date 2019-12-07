@@ -17,6 +17,10 @@ public class Car {
         this.name = name;
     }
 
+    public void advance() {
+        this.position += 1;
+    }
+
     public String getName() {
         return this.name;
     }
