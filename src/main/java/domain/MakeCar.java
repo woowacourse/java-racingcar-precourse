@@ -32,6 +32,7 @@ public class MakeCar {
         String carString = "";
         Car[] car;
         Scanner sc = new Scanner(System.in);
+        CompareCarName compare = new CompareCarName();
 
         while (true) {
             check = false;
@@ -43,9 +44,17 @@ public class MakeCar {
 
             /*예외 처리 */
             for (int i = 0; i < carList.length; i++) {
+
+                /*차 이름글자수 예외*/
                 if (carList[i].length() < 1 || carList[i].length() > 5) {
                     check = true;
                     System.out.println("car이름은 1~5글자 입니다. 재입력!!!");
+                }
+
+                /*중복된 이름 입력불가*/
+                if(compare.compareName(carList[i],carList,i)){
+                    check = true;
+                    System.out.println("중복이름 입력 불가. 재입력!!!");
                 }
             }
 
