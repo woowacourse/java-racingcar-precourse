@@ -59,6 +59,7 @@ public class GameManager {
         for(int carNum = 0; carNum < numOfCars; i++){
             int randomNumber = getRandomNumber();
             checkGoStop(carNum, randomNumber);
+            printCurrentPosition(carNum);
         }
     }
 
@@ -78,7 +79,9 @@ public class GameManager {
         }
     }
 
-
-
-
+    void printCurrentPosition(int carNum){
+        cars[carNum].printName();
+        cars[carNum].printPosition();
+        System.out.println();
+    }
 }
