@@ -21,6 +21,7 @@ public class Stadium {
 	public void runRacingCar() {
 		List<String> carNames = getCarNamesFromUser();
 		int numberOfRace = getNumberOfRace();
+
 		getReadyRacingCars(carNames);
 		runRace(numberOfRace);
 
@@ -65,8 +66,7 @@ public class Stadium {
 			printMessageAskingNumberOfRace();
 			numberOfRace = scanner.nextLine();
 
-			if (!isNumeric(numberOfRace)) {
-				printNumericOnlyMessage();
+			if (!isNumeric(numberOfRace) || !isPositiveNumber(numberOfRace)) {
 				continue;
 			}
 
@@ -75,10 +75,21 @@ public class Stadium {
 	}
 
 	private boolean isNumeric(String input) {
-		if (input == null || input.length() == 0) {
+		try {
+			Integer.parseInt(input);
+			return true;
+		} catch (NumberFormatException nfe) {
+			printNumericOnlyMessage();
 			return false;
 		}
-		return input.chars().allMatch(Character::isDigit);
+	}
+
+	private boolean isPositiveNumber(String input) {
+		if (Integer.parseInt(input) > ZERO) {
+			return true;
+		}
+		printPositiveNumberOnlyMessage();
+		return false;
 	}
 
 	private void getReadyRacingCars(List<String> carNames) {
@@ -170,6 +181,10 @@ public class Stadium {
 
 	private void printNumericOnlyMessage() {
 		System.out.println("숫자만 입력 가능합니다.");
+	}
+
+	private void printPositiveNumberOnlyMessage() {
+		System.out.println("1이상의 양수만 입력가능합니다.");
 	}
 
 	private void printRaceResultMessage() {
