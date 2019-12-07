@@ -12,6 +12,46 @@ public class Game {
     int turns;
     int winnerDistance;
 
+    public void start() {
+        String[] userInput;
+        Car car;
+
+        //car 이름 입력 받는 부분
+        while (true) {
+            userInput = getUserInputCarNames();
+            if (checkUserInputCarNames(userInput) == true) {
+                break;
+            }
+            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+        }
+
+        //시도할 횟수 입력 받는 부분
+        while (true) {
+            if (getUserInputTurns() == true) {
+                break;
+            }
+            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+        }
+
+        //실행 결과 부분
+        System.out.println("실행 결과");
+        for (int i=0; i<this.turns; i++) {
+            for (int j=0; j<this.cars.size(); j++) {
+                car = this.cars.get(j);
+                car.moveOrStop();
+                car.printRoute();
+            }
+            System.out.println();
+        }
+
+        //우승자 출력 부분
+        findWinnerDistance();
+        findWinners();
+        printWinners();
+
+        System.exit(0);
+    }
+
     private String[] getUserInputCarNames() {
         String userInput;
         String[] nameArray;
@@ -23,7 +63,7 @@ public class Game {
         return nameArray;
     }
 
-    private boolean checkUserInput(String[] inputArray) {
+    private boolean checkUserInputCarNames(String[] inputArray) {
         for (int i=0; i<inputArray.length; i++) {
             if (!checkStringLength(inputArray[i], MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
                 return false;
@@ -44,6 +84,8 @@ public class Game {
 
     private boolean getUserInputTurns() {
         String userInput;
+
+        System.out.println("시도할 회는 몇회인가요?");
         userInput = scanner.nextLine();
 
         if (checkInputIsInvalid(userInput)) {
