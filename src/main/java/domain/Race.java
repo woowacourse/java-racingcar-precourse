@@ -13,29 +13,34 @@ import java.util.*;
 public class Race {
 
     /**
-     * STRING_END_OF_RACE 는 상수형 String 객체로, 레이스 종료시 승자의 이름과 함꼐 출력될 값이다.
+     * MESSAGE_END_OF_RACE 는 상수형 String 객체로, 레이스 종료시 승자의 이름과 함꼐 출력될 값이다.
      */
-    private static final String STRING_END_OF_RACE = "가 최종 우승했습니다";
+    private static final String MESSAGE_END_OF_RACE = "가 최종 우승했습니다";
 
     /**
-     * STRING_ASK_REPEAT 는 상수형 String 객체로, 반복횟수 입력 전에 출력된다.
+     * MESSAGE_ASK_REPEAT 는 상수형 String 객체로, 반복횟수 입력 전에 출력된다.
      */
-    private static final String STRING_ASK_REPEAT = "시도할 횟수는 몇회인가요?";
+    private static final String MESSAGE_ASK_REPEAT = "시도할 횟수는 몇회인가요?";
 
     /**
-     * STRING_ASK_NAME 은 상수형 String 객체로, 이름 입력 전에 출력된다.
+     * MESSAGE_ASK_NAME 은 상수형 String 객체로, 이름 입력 전에 출력된다.
      */
-    private static final String STRING_ASK_NAME = "경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)";
+    private static final String MESSAGE_ASK_NAME = "경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)";
 
     /**
-     * STRING_INPUT_ERROR 는 상수형 String 객체로, 입력 과정에 에러 발생시 출력된다.
+     * MESSAGE_INPUT_ERROR 는 상수형 String 객체로, 입력 과정에 에러 발생시 출력된다.
      */
-    private static final String STRING_INPUT_ERROR = "잘못된 값을 입력하셨습니다.";
+    private static final String MESSAGE_INPUT_ERROR = "잘못된 값을 입력하셨습니다.";
 
     /**
-     * STRING_SPLIT_NAME 은 상수형 String 객체로, 이름을 서로 구분하는 구분자를 저장한다.
+     * MESSAGE_SPLIT_NAME 은 상수형 String 객체로, 이름을 서로 구분하는 구분자를 저장한다.
      */
-    private static final String STRING_SPLIT_NAME = ",";
+    private static final String MESSAGE_SPLIT_NAME = ",";
+
+    /**
+     * MESSAGE_SPLIT_NAME 은 상수형 String 객체로, 이름을 서로 구분하는 구분자를 저장한다.
+     */
+    private static final String MESSAGE_START_RACE = "\n실행 결과";
 
     /**
      * carList : 자동차 객체를 저장하는 리스트이다.
@@ -102,22 +107,23 @@ public class Race {
 
         for (Car i : carList) {
             if (i.getPosition() == maxRaceRecode) {
-                winnerMessage = addNameToString(winnerMessage,i.getName());
+                winnerMessage = addNameToString(winnerMessage, i.getName());
             }
         }
-        winnerMessage += STRING_END_OF_RACE;
+        winnerMessage += MESSAGE_END_OF_RACE;
         return winnerMessage;
     }
 
     /**
      * addNameToSting은 문자열 메세지에 이름값을 추가해주고, 구분자를 넣어주는 메서드이다.
+     *
      * @param message : 대상이 되는 메세지 String 객체
-     * @param name : 메세지에 더해질 이름 String 객체
+     * @param name    : 메세지에 더해질 이름 String 객체
      * @return : 메세지에 이름을 추가하고 구분자를 넣은 String 객체
      */
     private String addNameToString(String message, String name) {
-        if(!message.isEmpty()){
-            message += (" "+STRING_SPLIT_NAME);
+        if (!message.isEmpty()) {
+            message += (MESSAGE_SPLIT_NAME + " ");
         }
         return message + name;
     }
@@ -129,7 +135,7 @@ public class Race {
      * @return : String형의 이름들로 구성된 ArrayList
      */
     private List<String> splitNameString(String nameString) {
-        return Arrays.asList(nameString.split(STRING_SPLIT_NAME));
+        return Arrays.asList(nameString.split(MESSAGE_SPLIT_NAME));
     }
 
     /**
@@ -140,18 +146,16 @@ public class Race {
      */
     private List<String> getNameToInput() {
         Scanner sc = new Scanner(System.in);
-        String inputString;
         List<String> nameList;
 
-        System.out.println(STRING_ASK_NAME);
+        System.out.println(MESSAGE_ASK_NAME);
         try {
-            inputString = sc.nextLine();
-            nameList = splitNameString(inputString);
+            nameList = splitNameString(sc.nextLine());
             if (findExceptionOnName(nameList)) {
                 throw new InputMismatchException();
             }
         } catch (InputMismatchException e) {
-            System.out.println(STRING_INPUT_ERROR);
+            System.out.println(MESSAGE_INPUT_ERROR);
             return getNameToInput();
         }
         return nameList;
@@ -168,7 +172,7 @@ public class Race {
             return true;
         }
         for (String i : nameList) {
-            if (i.length() > 5 || i.length() == 0) {
+            if (i.length() > 5 || i.isEmpty()) {
                 return true;
             }
         }
@@ -186,14 +190,14 @@ public class Race {
         Scanner sc = new Scanner(System.in);
         int inputNumber;
 
-        System.out.println(STRING_ASK_REPEAT);
+        System.out.println(MESSAGE_ASK_REPEAT);
         try {
             inputNumber = sc.nextInt();
             if (inputNumber <= 0) {
                 throw new InputMismatchException();
             }
         } catch (InputMismatchException e) {
-            System.out.println(STRING_INPUT_ERROR);
+            System.out.println(MESSAGE_INPUT_ERROR);
             return getRepeatToInput();
         }
         return inputNumber;
@@ -210,8 +214,10 @@ public class Race {
      * 이 기능은 별도 구현하지 않았다.
      */
     public void raceStart() {
+        System.out.println(MESSAGE_START_RACE);
         for (int i = 0; i < raceRepeat; i++) {
             accelerateCarList();
+            System.out.print("\n");
         }
         System.out.println(getRaceWinnerToString());
     }
