@@ -21,4 +21,5 @@
 3. go or stop 함수 구현
    1. 자동차경주를 실행해줄 함수 구현
    2. Random Number를 리턴해주는 함수 구현
+   3. Random Number에 따라 go, stop 정하는 함수 구현
 4. 우승자 판독해주는 함수 구현

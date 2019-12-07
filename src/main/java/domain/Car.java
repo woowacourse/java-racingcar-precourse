@@ -18,6 +18,13 @@ public class Car {
         return this.position;
     }
 
+    public void goAndStop() {
+        int getNum = getRandomNumber();
+        if (getNum >= 4) {
+            this.position++;
+        }
+    }
+
     private int getRandomNumber() {
         Random random = new Random();
         return random.nextInt(10);
