@@ -9,4 +9,12 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public int getPosition(){
+        return position;
+    }
+
+    public void go(){
+        position++;
+    }
 }
