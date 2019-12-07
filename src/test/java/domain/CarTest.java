@@ -23,4 +23,11 @@ class CarTest {
         Car differentCar = new Car("wrongName");
         assertNotEquals(differentCar, car);
     }
+
+    @Test
+    void toStringOfCar() {
+        Car car = new Car(0, "testCar", 3);
+
+        assertEquals("testCar : ---", car.toString());
+    }
 }
