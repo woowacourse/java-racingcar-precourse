@@ -8,5 +8,5 @@ public class RacingGameConfig {
     static final int MIN_RANDOM_NUMBER = 0;
     static final int MAX_RANDOM_NUMBER = 9;
     static final int STANDARD_TO_GO = 3;
-    static final String POSITION_MARK = "-";
+    public static final String POSITION_MARK = "-";
 }

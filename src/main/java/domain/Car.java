@@ -1,9 +1,5 @@
 package domain;
 
-
-
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Random;
 
 public class Car implements RacingCar, Comparable<Car> {
@@ -75,6 +71,6 @@ public class Car implements RacingCar, Comparable<Car> {
 
     @Override
     public String toString() {
-        return name + " : " + StringUtils.repeat(RacingGameConfig.POSITION_MARK, position);
+        return name;
     }
 }

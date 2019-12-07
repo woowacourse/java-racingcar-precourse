@@ -15,9 +15,4 @@ public class RacingRefereeImpl implements RacingReferee {
 
         return racingCars.stream().filter(racingCar -> racingCar.getPosition() == maxPosition).sorted().collect(Collectors.toList());
     }
-
-    @Override
-    public void announceResult(List<RacingCar> champions) {
-
-    }
 }
