@@ -1,21 +1,18 @@
 /*
- * @(#)RacingGame.java     0.1 2019.12.06
+ * @(#)RacingGame.java     0.2 2019.12.07
  *
  * Copyright (c) 2019 lxxjn0.
  */
 package domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.1 2019.12.06
+ * @version 0.2 2019.12.07
  */
 public class RacingGame {
     /**
@@ -27,6 +24,11 @@ public class RacingGame {
      * 문자열을 쉼표(,)를 기준으로 자를 때 사용하기 위한 문자열 상수.
      */
     private static final String COMMA_STRING = ",";
+
+    /**
+     * 이동 횟수가 1 이상인 정수인지 확인하기 위한 정수 상수.
+     */
+    private static final int MIN_MOVEMENT_NUMBER = 1;
 
     /**
      * 문자열에서 쉼표(,)의 앞, 뒤로 존재하는 공백을 제거할 때 사용할 정규식 문자열 상수.
@@ -45,6 +47,11 @@ public class RacingGame {
     private String userInput;
 
     /**
+     * 사용자로부터 이동 횟수를 저장하기 위한 정수 변수.
+     */
+    private int MovementNumber;
+
+    /**
      * 입력받은 자동차의 이름을 저장할 List 변수.
      */
     private List<String> carNames;
@@ -52,9 +59,8 @@ public class RacingGame {
     /**
      * 자동차의 이름을 입력받아 유효성을 검사 후 처리하여 carNames 문자열 리스트에 저장하는 메소드.
      */
-    public void receiveCarNames() {
+    private void receiveCarNames() {
         Scanner sc = new Scanner(System.in);
-        String userInput = "";
 
         do {
             carNames = new ArrayList<>();
@@ -63,6 +69,38 @@ public class RacingGame {
             userInput = sc.nextLine();
             removeSpaceAroundComma();
         } while (!isValidInput());
+    }
+
+    /**
+     * 사용자로부터 이동 횟수를 입력받는 메소드.
+     */
+    private void receiveNumberOfMovement() {
+        Scanner sc;
+
+        while (true) {
+            try {
+                sc = new Scanner(System.in);
+
+                System.out.println("시도할 회수는 몇 회인가요?");
+                MovementNumber = sc.nextInt();
+                isValidNumber();
+                break;
+            } catch (InputMismatchException e) {
+                sc = new Scanner(System.in);
+                System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+            }
+        }
+    }
+
+    /**
+     * 입력이 정수로 확인된 이후, 해당 정수가 1 이상인지 확인하는 메소드.
+     *
+     * @throws InputMismatchException 1 이상의 정수가 아니라면 예외 발생.
+     */
+    private void isValidNumber() throws InputMismatchException {
+        if (!(MovementNumber >= MIN_MOVEMENT_NUMBER)) {
+            throw new InputMismatchException();
+        }
     }
 
     /**
