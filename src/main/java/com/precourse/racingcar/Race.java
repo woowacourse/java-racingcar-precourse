@@ -1,5 +1,5 @@
 /*
- * User.java                      1.12.0   2019-12-07
+ * User.java                      1.12.1   2019-12-07
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * User 클래스입니다.
- * 사용자에 대한 입력과 출력을 하는 기능들이 있습니다.
+ * Race 클래스입니다.
+ * 레이스의 정보를 입력받는 기능들이 있습니다.
  * 입력이 올바르지 않은 경우 예외처리를 하는 기능이 있습니다.
  *
- * @version 1.12.0            레이스 횟수 입력이 자연수가 맞는지 확인하는 기능 추가
+ * @version 1.12.1            클래스명을 Race로 변경
  * @date 2019-12-07
  * @author HyungjuAn
  */
-public class User {
+public class Race {
 	private static final int MINIMUM_LENGTH_CAR_NAME = 1;
 	private static final int MAXIMUM_LENGTH_CAR_NAME = 5;
 	private static final int MINIMUM_CARS = 2;
@@ -35,7 +35,7 @@ public class User {
 	private static final String INVALID_INPUT_PRINTING = "잘못 입력하셧습니다.";
 	private static final String RACE_COUNT_QUESTION = "시도할 횟수는 몇회인가요?";
 
-	public User() {
+	public Race() {
 	}
 
 	public ArrayList<Car> getCarsInformation() throws IOException {
