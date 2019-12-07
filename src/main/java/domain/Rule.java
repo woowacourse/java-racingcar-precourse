@@ -7,29 +7,28 @@ public class Rule {
 	private static final Random random = new Random();
 	private static final int RANDOM_NUMBER_BOUND = 10;
 	private static final int GO_BOUNDARY_NUMBER = 4;
+	private static final int START_POSITION = 0;
 
-	public static boolean isGo() {
+	static boolean isGo() {
 		int randomNumber = random.nextInt(RANDOM_NUMBER_BOUND);
 		return randomNumber >= GO_BOUNDARY_NUMBER;
 	}
 
-	public static ArrayList<String> getWinnerNames(ArrayList<Car> cars) {
-		ArrayList<String> winnerNames = new ArrayList<>();
+	public static void setIsWinners(ArrayList<Car> cars) {
 		int maxPosition = getMaxPosition(cars);
 
 		for(Car car : cars) {
 			if(car.getPosition() == maxPosition) {
-				winnerNames.add(car.getName());
+				car.setIsWinner();
 			}
 		}
-		return winnerNames;
 	}
 
 	private static int getMaxPosition(ArrayList<Car> cars) {
-		int maxPosition = 0;
+		int maxPosition = START_POSITION;
 
 		for(Car car : cars) {
-			if(maxPosition == 0 || maxPosition < car.getPosition()) {
+			if(maxPosition == START_POSITION || maxPosition < car.getPosition()) {
 				maxPosition = car.getPosition();
 			}
 		}
