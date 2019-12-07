@@ -10,6 +10,7 @@ import java.util.List;
 public class RacingPrinterImpl implements RacingPrinter {
     @Override
     public void printStartSign() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
@@ -23,6 +24,12 @@ public class RacingPrinterImpl implements RacingPrinter {
         String format = buildFormat(winners.size());
         System.out.println(String.format(format, winners.toArray()));
     }
+
+    @Override
+    public void printOneCycleFinished() {
+        System.out.println();
+    }
+
     private String buildFormat(int size) {
         String format = "";
         for (int i = 0; i < size; i++) {

@@ -20,6 +20,7 @@ public class Console implements UserInterface {
     @Override
     public List<RacingCar> extractRacingCars() {
         //todo: check dependency
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = scanner.nextLine();
         String[] names = parseNames(input);
         List<RacingCar> racingCars = new ArrayList<>();
@@ -36,6 +37,7 @@ public class Console implements UserInterface {
 
     @Override
     public int getCycles() {
+        System.out.println("시도할 회수는 몇회인가요?");
         int cycles = scanner.nextInt();
         //todo: 제대로 된 입력값을 받을 때까지 계속 물어보기.
         if (cycles < RacingGameConfig.MIN_CYCLES) {

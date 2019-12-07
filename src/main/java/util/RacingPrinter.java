@@ -8,4 +8,7 @@ public interface RacingPrinter {
     void printStartSign();
     void printStateOfRacingCar(RacingCar racingCar);
     void printWinners(List<RacingCar> winners);
+
+    void printOneCycleFinished();
+
 }
