@@ -23,50 +23,40 @@ public class Race {
     /** STRING_ASK_NAME 은 상수형 String 객체로, 이름 입력 전에 출력된다. */
     private static final String STRING_ASK_NAME = "경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)";
 
+    /** STRING_INPUT_ERROR 는 상수형 String 객체로, 입력 과정에 에러 발생시 출력된다. */
+    private static final String STRING_INPUT_ERROR = "잘못된 값을 입력하셨습니다.";
+
+    /** STRING_SPLIT_NAME 은 상수형 String 객체로, 이름을 서로 구분하는 구분자를 저장한다. */
+    private static final String STRING_SPLIT_NAME = ",";
+
     /** carList : 자동차 객체를 저장하는 리스트이다. */
     List<Car> carList;
 
     /** raceRepeat : 레이스 반복 횟수를 저장하는 int형 정수이다.*/
     private int raceRepeat;
 
-    /**
-     * Race는 생성자 메서드로, 자동차 이름과 댓수, 경기의 횟수를 저장한다.
-     * 자동차 이름은 getNameToInput 메서드를 통해 만들어 저장한다.
-     * 경기 횟수는 getRepeatToInput 메서드를 통해 만들어 저장한다.
-     * 이후 자동차 객체를 만들어 이름을 생성자로 전달한다.
-     */
-    public Race(){
-        List<String> carNameList = getNameToInput();
-        this.raceRepeat = getRepeatToInput();
-        for (String name : carNameList) {
-            carList.add(new Car(name));
-        }
-    }
-
-    /**
-     * raceStart는 상위 객체에서 레이스 시작을 조작할 수 있도록 만든 public 메서드이다.
-     * 메서드가 호출되면, 입력받은 repeat값과 미리 생성한 car객체를 통해
-     * 레이스를 벌이고, 이에 대한 승자값을 출력해 준다.
-     *
-     * 만약 레이스가 여러 번 벌어질 경우, raceStart에서 초기화 작업을 해줄 필요가 있다.
-     * (Car 객체 내부에 초기화 메서드를 만들어 호출하는 방식)
-     * 그러나 본 프로젝트에서는 여러 번의 경주를 가정하지 않으므로,
-     * 이 기능은 별도 구현하지 않았다.
-     */
-    public void raceStart(){
-        for(int i = 0; i < raceRepeat; i++) {
-            accelerateCarList();
-        }
-        System.out.println(getRaceWinner());
-    }
+    /** maxRaceRecode : 레이스의 최대 거리 기록을 저장하는 int형 정수이다. */
+    private int maxRaceRecode;
 
     /**
      * accletateCarList는 carList 안에 있는 Car 객체들에 대하여,
      * 각자 가속하도록 accelerateCar 메서드를 호출해주는 메서드이다.
+     * 또한 이 값을 makeRaceRecod 메서드에 파라미터로 보내, 최고 기록을 경신해준다.
      */
     private void accelerateCarList() {
         for(Car i : carList){
-            i.accelerateCar();
+            makeRaceRecode(i.accelerateCar());
+        }
+    }
+
+    /**
+     * makeRaceRecode는 자동차가 가속될때마다 같이 호출된다.
+     * 가속한 자동차의 기록을 받아, 지금까지 제일 앞서나가는 자동차의 위치를 저장한다.
+     * @param carPosition : 자동차의 위치를 전달해주는 int형 정수
+     */
+    private void makeRaceRecode(int carPosition) {
+        if(carPosition > maxRaceRecode) {
+            maxRaceRecode = carPosition;
         }
     }
 
@@ -75,8 +65,16 @@ public class Race {
      * 경주 결과를 리턴해주는 메서드이다.
      * @return 출력할 String형의 결과값
      */
-    private String getRaceWinner() {
+    private String getRaceWinnerToString() {
+        String winnerMessage="";
 
+        for(Car i : carList) {
+            if(i.getPosition() == maxRaceRecode) {
+                winnerMessage += i.getName();
+            }
+        }
+        winnerMessage += STRING_END_OF_RACE;
+        return winnerMessage;
     }
 
     /**
@@ -99,10 +97,12 @@ public class Race {
 
         System.out.println(STRING_ASK_NAME);
         try{
-
+            inputString = sc.nextLine();
         } catch(InputMismatchException e){
-            
+            System.out.println(STRING_INPUT_ERROR);
+            return getNameToInput();
         }
+        inputString.split(STRING_SPLIT_NAME);
     }
 
     /**
@@ -111,7 +111,7 @@ public class Race {
      * 이를 통해 재귀적으로 올바른 값을 돌려준다.
      * @return int형의 경기 횟수를 리턴해준다.
      */
-    private int getRepeatToInput(){
+    private int getRepeatToInput() {
         Scanner sc = new Scanner(System.in);
         int inputNumber;
 
@@ -119,9 +119,45 @@ public class Race {
         try {
             inputNumber = sc.nextInt();
         } catch (InputMismatchException e) {
-            System.out.println("잘못된 숫자를 입력하셨습니다.");
+            inputNumber = 0;
+        }
+
+        if(inputNumber <= 0) {
+            System.out.println(STRING_INPUT_ERROR);
             return getRepeatToInput();
         }
         return inputNumber;
+    }
+
+    /**
+     * Race는 생성자 메서드로, 자동차 이름과 댓수, 경기의 횟수를 저장한다.
+     * 자동차 이름은 getNameToInput 메서드를 통해 만들어 저장한다.
+     * 경기 횟수는 getRepeatToInput 메서드를 통해 만들어 저장한다.
+     * 이후 자동차 객체를 만들어 이름을 생성자로 전달한다.
+     */
+    public Race() {
+        List<String> carNameList = getNameToInput();
+        this.raceRepeat = getRepeatToInput();
+        for (String name : carNameList) {
+            carList.add(new Car(name));
+        }
+        maxRaceRecode = 0;
+    }
+
+    /**
+     * raceStart는 상위 객체에서 레이스 시작을 조작할 수 있도록 만든 public 메서드이다.
+     * 메서드가 호출되면, 입력받은 repeat값과 미리 생성한 car객체를 통해
+     * 레이스를 벌이고, 이에 대한 승자값을 출력해 준다.
+     *
+     * 만약 레이스가 여러 번 벌어질 경우, raceStart에서 초기화 작업을 해줄 필요가 있다.
+     * (Car 객체 내부에 초기화 메서드를 만들어 호출하는 방식)
+     * 그러나 본 프로젝트에서는 여러 번의 경주를 가정하지 않으므로,
+     * 이 기능은 별도 구현하지 않았다.
+     */
+    public void raceStart(){
+        for(int i = 0; i < raceRepeat; i++) {
+            accelerateCarList();
+        }
+        System.out.println(getRaceWinnerToString());
     }
 }
