@@ -22,7 +22,7 @@ public class GameManager {
     void startGame() {
         String carNames = getCarNames();
         setCarName(carNames);
-        getNumOfRounds();
+        numOfRounds = getNumOfRounds();
     }
 
     String getCarNames() {
@@ -44,8 +44,10 @@ public class GameManager {
         }
     }
 
-    void getNumOfRounds() {
-
+    int getNumOfRounds() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("시도할 횟수는 얼마인가요?");
+        return sc.nextInt();
     }
 
     void playGame() {
