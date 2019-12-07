@@ -3,36 +3,29 @@ package domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RacingRefereeImplTest {
 
     private RacingRefereeImpl racingReferee;
 
-    @Test
-    void updateMaxPositionWhenPositionIsBiggerThanMaxPosition() {
-        //given
-        racingReferee = new RacingRefereeImpl(0);
-        int position = 3;
-
-        //when
-        racingReferee.updateMaxPosition(position);
-
-        //then
-        assertEquals(new RacingRefereeImpl(position), racingReferee);
+    @BeforeEach
+    void init() {
+        racingReferee = new RacingRefereeImpl();
     }
+
     @Test
-    void updateMaxPositionWhenPositionIsSmallerThanMaxPosition() {
-        //given
-        int maxPosition = 3;
-        racingReferee = new RacingRefereeImpl(maxPosition);
-        int position = 1;
+    void distinguishWinnersWithNormalRacingCars() {
+        racingReferee = new RacingRefereeImpl();
+        RacingCar pobi = new Car(0,"pobi",3);
+        RacingCar crong = new Car(1,"crong",2);
+        RacingCar honux = new Car(2,"honux",3);
+        List<RacingCar> racingCars = Arrays.asList(pobi, crong, honux);
+        List<RacingCar> winners = Arrays.asList(pobi, honux);
 
-        //when
-        racingReferee.updateMaxPosition(position);
-
-        //then
-        assertNotEquals(new RacingRefereeImpl(position), racingReferee);
-        assertEquals(new RacingRefereeImpl(maxPosition), racingReferee);
+        assertEquals(winners, racingReferee.distinguishWinners(racingCars));
     }
 }
