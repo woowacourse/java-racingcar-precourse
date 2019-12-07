@@ -11,18 +11,17 @@ public class inputUtils {
     private static final String SEPARATOR = ",";
     static Scanner scanner = new Scanner(System.in);
 
-    public static Integer inputNumber() {
+    public static Integer inputTries() {
         Integer inputValue;
         while (true) {
             System.out.println(PROMPTTRIES);
-            if (scanner.hasNextInt()) {
-                inputValue = scanner.nextInt();
-                scanner.nextLine();
+            if (scanner.hasNextInt() && (inputValue = scanner.nextInt()) > 0) {
                 break;
             }
             System.out.println(ERRORMESSAGE);
             scanner.nextLine();
         }
+        scanner.nextLine();
         return inputValue;
     }
 
