@@ -25,10 +25,10 @@ public class CarRacing {
     }
 
     private static ArrayList<Car> getCarName(String carName) {
-        List<String> name = Arrays.asList(carName.split(","));
+        List<String> carNames = Arrays.asList(carName.split(","));
         ArrayList<Car> carList = new ArrayList<Car>();
-        for (int i = 0; i < name.size(); i++) {
-            carList.add(new Car(name.get(i)));
+        for (int i = 0; i < carNames.size(); i++) {
+            carList.add(new Car(carNames.get(i)));
         }
         return carList;
     }
