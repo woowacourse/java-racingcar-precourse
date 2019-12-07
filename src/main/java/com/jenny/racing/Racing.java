@@ -19,7 +19,7 @@ public class Racing implements Racable{
         String[] names = input.split(",");
 
         for(String name : names){
-            if(name.length() > 5){
+            if(name.length() > 5 || name.equals("")){
                 System.out.println("5자 이하의 이름만 가능합니다. 다시 입력해주십시오.");
                 return false;
             }
