@@ -21,4 +21,11 @@ public class RacingCars {
             throw new IllegalArgumentException("각 자동차의 이름은 5자 이하만 가능합니다.");
         }
     }
+
+    public int getMaxDistance() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+    }
 }

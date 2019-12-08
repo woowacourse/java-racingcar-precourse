@@ -14,6 +14,9 @@ public class Car {
         return this.name.length() > maxLength;
     }
 
+    public boolean isMaxPosition(int maxDistance) {
+        return this.position == maxDistance;
+    }
 
     public String getName() {
         return this.name;
