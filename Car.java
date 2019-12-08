@@ -18,6 +18,14 @@ public class Car {
         return this.position == maxDistance;
     }
 
+    public String getStatus() {
+        String result = this.name + " : ";
+        for (int i = 0; i < this.position; i++) {
+            result += "-";
+        }
+        return result;
+    }
+
     public String getName() {
         return this.name;
     }
