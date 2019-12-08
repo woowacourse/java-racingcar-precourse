@@ -34,4 +34,44 @@ class CarTest {
     // Assert
     assertEquals("자동차의 이름은 5글자 이하여야 합니다.", actual.getMessage());
   }
+
+  @DisplayName("Car는 생성시 position의 값이 0이다.")
+  @Test
+  public void create_car_with_zero_position() {
+    // Arrange
+    String name = "test";
+
+    // Act
+    Car actual = new Car(name);
+
+    // Assert
+    assertEquals(0, actual.getPosition());
+  }
+
+  @DisplayName("Car는 random number의 값이 4 이상일 경우, position의 값을 1 증가시킨다.")
+  @Test
+  public void car_increase_position_when_random_number_over_four() {
+    // Arrange
+    Car car = new Car("test");
+
+    // Act
+    car.move(9);
+
+    // Assert
+    assertEquals(1, car.getPosition());
+  }
+
+  @DisplayName("Car는 random number의 값이 4 미만일 경우, 움직이지 않는다.")
+  @Test
+  public void car_do_not_move_when_random_number_less_than_four() {
+    // Arrange
+    Car car = new Car("test");
+
+    // Act
+    car.move(3);
+
+    // Assert
+    assertEquals(0, car.getPosition());
+  }
+
 }
