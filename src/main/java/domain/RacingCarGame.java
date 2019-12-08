@@ -17,7 +17,9 @@ import exceptionhandler.ExceptionHandler;
 
 public class RacingCarGame {
 	private static final String QUESTION_TO_GET_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+	private static final String QUESTION_TO_GET_TRIES = "시도할 회수는 몇 회인가요?";
 	private int numOfCars;
+	private int numOfTries;
 	private String carNamesDividedByComma;
 	private String carNames[];
 	private List<Car> cars = new ArrayList<>();
@@ -26,6 +28,7 @@ public class RacingCarGame {
 
 	public void startGame() {
 		getCarNames();
+		getTries();
 	}
 
 	private void getCarNames() {
@@ -40,5 +43,12 @@ public class RacingCarGame {
 			cars.add(new Car(carName));
 		}
 	}
-
+	
+	private void getTries() {
+		System.out.println(QUESTION_TO_GET_TRIES);
+		do {
+			numOfTries = input.nextInt();
+			exception = new ExceptionHandler(numOfTries);
+		} while (exception.checkTryRange());
+	}
 }
