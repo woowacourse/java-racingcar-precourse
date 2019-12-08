@@ -11,8 +11,9 @@ import domain.utils.OutputUtils;
 
 public class Main {
 	public static void main(String[] args) {
-		List<String> carNames=InputUtils.inputNames();
-		Integer numberToRun=InputUtils.inputRuns();
+		InputUtils inputUtils=InputUtils.getInstance();
+		List<String> carNames=inputUtils.inputNames();
+		Integer numberToRun=inputUtils.inputRuns();
 		List<Car> carList=makeCarsList(carNames);
 
 
@@ -25,7 +26,7 @@ public class Main {
 
 		List<String>winners=findWinners(carList);
 		OutputUtils.printWinner(winners);
-		InputUtils.inputClose();
+		inputUtils.inputClose();
 	}
 	static List<Car> makeCarsList(List<String>carNames){
 		List<Car> carList=new ArrayList<Car>();

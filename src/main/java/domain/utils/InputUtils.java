@@ -8,13 +8,26 @@ public class InputUtils {
 	private static final String[] SEPARATOR = {",", "쉼표"};
 	private static final String PROMPT_NAMES = String.format(
 		"경주할 자동차 이름을 입력하세요.(이름은 %s(%s) 기준으로 구분)", SEPARATOR[1], SEPARATOR[0]);
-	private static final int NAMES_MAX_LEN = 5;
+	private static final int NAME_MAX_LEN = 5;
+	private static final int NAME_MIN_LEN = 1;
 	private static final String PROMPT_TRIES = "시도할 회수는 몇회인가요?";
 	private static final String ERROR_MESSAGE = "유효하지 않은 입력입니다.";
 
-	static Scanner scanner = new Scanner(System.in);
+	private static InputUtils inputUtils;
+	static Scanner scanner;
 
-	public static Integer inputRuns() {
+	private InputUtils() {
+		scanner = new Scanner(System.in);
+	}
+
+	public static InputUtils getInstance() {
+		if (inputUtils == null) {
+			inputUtils = new InputUtils();
+		}
+		return inputUtils;
+	}
+
+	public Integer inputRuns() {
 		Integer inputValue;
 		while (true) {
 			System.out.println(PROMPT_TRIES);
@@ -28,14 +41,16 @@ public class InputUtils {
 		return inputValue;
 	}
 
-	public static List<String> inputNames() {
+	public List<String> inputNames() {
 		String inputValue;
 		List<String> namesList;
 		while (true) {
 			System.out.println(PROMPT_NAMES);
 			inputValue = scanner.nextLine();
 			namesList = Arrays.asList(inputValue.split(SEPARATOR[0]));
-			if (isValidName(namesList)) {
+			if (namesList.stream().map(name ->isValidName(name))
+									.reduce(((validity1, validity2) -> validity1&validity2))
+									.get()) {
 				break;
 			}
 			System.out.println(ERROR_MESSAGE);
@@ -43,23 +58,15 @@ public class InputUtils {
 		return namesList;
 	}
 
-	private static boolean isValidName(List<String> namesList) {
-		if (namesList == null) {
-			return false;
-		}
-		for (String s : namesList) {
-			if (s.length() > NAMES_MAX_LEN) {
-				return false;
-			}
-		}
-		return true;
+	private boolean isValidName(String name) {
+		return name.length()<= NAME_MAX_LEN && name.length()>=NAME_MIN_LEN;
 	}
 
-	private static void inputFlush() {
+	private void inputFlush() {
 		scanner.nextLine();
 	}
 
-	public static void inputClose() {
+	public void inputClose() {
 		scanner.close();
 	}
 }
