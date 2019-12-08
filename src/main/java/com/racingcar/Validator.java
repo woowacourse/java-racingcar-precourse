@@ -15,7 +15,7 @@ public class Validator {
     public static final int CAR_NAME_MAX_SIZE = 5;
 
     public boolean isValidName(List<String> input) {
-        if (this.isNull(input)) {
+        if (this.isNull(input)||input.size()==0) {
             return false;
         }
         Iterator itr = input.iterator();
