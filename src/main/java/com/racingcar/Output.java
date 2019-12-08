@@ -12,6 +12,18 @@ import java.util.List;
  */
 
 public class Output {
+    public void printWinner(List<String> winner) {
+        System.out.println();
+        Iterator itr = winner.iterator();
+        while (itr.hasNext()) {
+            System.out.print((String) itr.next());
+            if (itr.hasNext()) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
+    }
+
     public void printCarPosition(Car car) {
         int position = car.getPosition();
         System.out.print("\n" + car.getName() + " : ");
