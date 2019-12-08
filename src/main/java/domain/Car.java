@@ -12,5 +12,13 @@ public class Car {
         position++;
     }
 
+    public int getPosition(){
+        return position;
+    }
+
+    public String getName(){
+        return name;
+    }
+
     // 추가 기능 구현
 }
