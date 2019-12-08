@@ -53,7 +53,7 @@ public class RacingCarGame {
     }
 
     public List<String> selectWinner() {
-        int max = 0;
+        int max = -1;
         List<String> winners = new ArrayList<>();
         Iterator itr = this.cars.iterator();
         while (itr.hasNext()) {
