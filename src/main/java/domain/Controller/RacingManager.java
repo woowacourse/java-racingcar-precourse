@@ -22,7 +22,7 @@ public class RacingManager {
     private InputManager inputmanager;
     private CarManager carmanager;
     private Random random;
-    
+
     private String[] carNamesArray;
     private int numberOfLaps;
 

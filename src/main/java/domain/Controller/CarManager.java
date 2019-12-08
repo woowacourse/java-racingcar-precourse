@@ -28,8 +28,8 @@ public class CarManager {
     int maxPosition;
 
     public CarManager(String[] carNames) {
-        cars = new Car[carsLength];
         this.carsLength = carNames.length;
+        cars = new Car[carsLength];
 
         for (int i = 0; i < carsLength; i++) {
             cars[i] = new Car(carNames[i]);
@@ -55,11 +55,20 @@ public class CarManager {
         this.maxPosition = Collections.max(this.positionList);
     }
 
+    private void printPosition(Car car) {
+
+        for(int i = 0; i < car.getPosition(); i++) {
+            System.out.print("-");
+        }
+
+    }
+
     public void printCarsNameAndPosition() {
 
         for (Car car : cars) {
-            System.out.println(car.getName()
-                    + ": " + car.getPosition());
+            System.out.print(car.getName() + ": ");
+            printPosition(car);
+            System.out.println();
         }
 
     }
