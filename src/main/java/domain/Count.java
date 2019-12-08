@@ -27,8 +27,7 @@ public class Count {
             System.out.println("숫자는 0보다 크고 2,147,483,648보다 작아야합니다.");
             return again;
         }
-
-        again = true;
+        again = false;
         return again;
     }
 }
