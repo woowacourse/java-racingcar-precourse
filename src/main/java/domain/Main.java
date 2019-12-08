@@ -1,7 +1,6 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
@@ -43,5 +42,13 @@ public class Main {
 		) {
 			car.run(random.nextInt(10));
 		}
+	}
+
+	static List<String>findWinners(List<Car>carList){
+		Integer max=carList.stream()
+			.max(Comparator.comparingInt(Car::getPosition))
+			.get()
+			.getPosition();
+		return carList.stream().filter(car -> car.getPosition()==max).map(Car::getName).collect(Collectors.toList());
 	}
 }
