@@ -17,15 +17,15 @@ public class Method {
 		do {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
 			car = scan.next();
-		} while (SplitCarName(car));
-		InputRunCount();
+		} while (splitCarName(car));
+		inputRunCount();
 	}
 
-	private boolean SplitCarName(String car) {
+	private boolean splitCarName(String car) {
 		names = car.split(",");
 		cars = new Car[names.length];
 		for (int i = 0; i < names.length; i++) {
-			if (!CheckStringLength(names[i])) {
+			if (!checkStringLength(names[i])) {
 				System.out.println("5자를 초과하셨습니다");
 				return true;
 			}
@@ -34,7 +34,7 @@ public class Method {
 		return false;
 	}
 
-	private void InputRunCount() {
+	private void inputRunCount() {
 		System.out.println("시도할 횟수는 몇 회 인가요?");
 		int runCount = scan.nextInt();
 		printResult(runCount);
@@ -51,19 +51,19 @@ public class Method {
 
 	}
 
-	private boolean CheckStringLength(String carName) {
+	private boolean checkStringLength(String carName) {
 		if (carName.length() < 6)
 			return true;
 		return false;
 	}
 
 	public boolean checkForward() {
-		if (RandomNumber() < 4)
+		if (randomNumber() < 4)
 			return false;
 		return true;
 	}
 
-	private int RandomNumber() {
+	private int randomNumber() {
 		return rd.nextInt(9) + 1;
 	}
 
