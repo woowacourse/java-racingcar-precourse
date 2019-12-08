@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.0.0   2019-12-08
+ * RacingCarMain.java              1.0.1   2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.0.0            Race 클래스에 있던 메소드들을 여기로 옮김
+ * @version 1.0.1            main에서 실행하기 위해서 메소드들을 static으로 수정
  * @date 2019-12-08
  * @author HyungjuAn
  */
@@ -37,7 +37,7 @@ public class RacingCarMain {
 
 	}
 
-	public ArrayList<Car> getCarsInformation() throws IOException {
+	public static ArrayList<Car> getCarsInformation() throws IOException {
 		ArrayList<Car> carList = new ArrayList<>();
 
 		printCarNamesQuestion();
@@ -46,11 +46,11 @@ public class RacingCarMain {
 		return carList;
 	}
 
-	private void printCarNamesQuestion() {
+	private static void printCarNamesQuestion() {
 		System.out.println(CAR_NAME_QUESTION);
 	}
 
-	private void readCarNames(ArrayList<Car> carList) throws IOException {
+	private static void readCarNames(ArrayList<Car> carList) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String input = reader.readLine();
 
@@ -66,7 +66,7 @@ public class RacingCarMain {
 		}
 	}
 
-	private boolean isRightCarNames(String input) {
+	private static boolean isRightCarNames(String input) {
 		boolean result = true;
 		String[] carNames = input.split(COMMA, SPLIT_LIMIT);
 
@@ -83,7 +83,7 @@ public class RacingCarMain {
 		return result;
 	}
 
-	private boolean isRightLengthName(String carName) {
+	private static boolean isRightLengthName(String carName) {
 		boolean result = false;
 
 		if ((carName.length() >= MINIMUM_LENGTH_CAR_NAME) && (carName.length() <= MAXIMUM_LENGTH_CAR_NAME)) {
@@ -93,7 +93,7 @@ public class RacingCarMain {
 		return result;
 	}
 
-	private boolean isRightNumberCars(int carCount) {
+	private static boolean isRightNumberCars(int carCount) {
 		boolean result = true;
 
 		if (carCount < MINIMUM_CARS) {
@@ -103,11 +103,11 @@ public class RacingCarMain {
 		return result;
 	}
 
-	private void printInvalidInput() {
+	private static void printInvalidInput() {
 		System.out.println(INVALID_INPUT_PRINTING);
 	}
 
-	public int getRaceCount() throws IOException {
+	public static int getRaceCount() throws IOException {
 		int raceCount;
 
 		printRaceCountQuestion();
@@ -116,11 +116,11 @@ public class RacingCarMain {
 		return raceCount;
 	}
 
-	private void printRaceCountQuestion() {
+	private static void printRaceCountQuestion() {
 		System.out.println(RACE_COUNT_QUESTION);
 	}
 
-	private int readRaceCount() throws IOException {
+	private static int readRaceCount() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String input = reader.readLine();
 
@@ -132,7 +132,7 @@ public class RacingCarMain {
 		return Integer.parseInt(input);
 	}
 
-	private boolean isInteger(String input) {
+	private static boolean isInteger(String input) {
 		boolean result = true;
 
 		try {
@@ -144,7 +144,7 @@ public class RacingCarMain {
 		return result;
 	}
 
-	private boolean isNaturalNumber(String input) {
+	private static boolean isNaturalNumber(String input) {
 		boolean result = true;
 
 		if (Integer.parseInt(input) < MINIMUM_RACE) {
