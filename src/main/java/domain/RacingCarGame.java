@@ -13,7 +13,13 @@ public class RacingCarGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<Car> racingCars = getRacingCarName();
         System.out.println("시도 할 횟수는 몇번 인가요?");
+        int racingLab = getRacingLab();
 
+    }
+
+    private int getRacingLab() {
+        Validator labValidator = new Validator();
+        return labValidator.getRacingLab();
     }
 
     private List<Car> getRacingCarName() {
