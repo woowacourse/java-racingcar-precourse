@@ -14,9 +14,9 @@ import java.util.Scanner;
  * 클래스 이름 : CarNameGenerator.java
  *
  * @author Seungwan Park, github.com/toneyparky
- * @version 1.0
+ * @version 1.1
  * <p>
- * 날짜 : 2019.12.5 목요일
+ * 날짜 : 2019.12.8 일요일
  */
 public class CarNameGenerator {
     /*
@@ -101,6 +101,7 @@ public class CarNameGenerator {
     public static boolean checkCarNameLength() {
         for (String carName : carNameList) {
             if (carName.length() > 5) {
+                System.out.println("5글자가 넘는 이름을 가진 자동차가 있습니다.");
                 return false;
             }
         }

@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * 클래스 이름 : RacingStarter.java
  *
  * @author Seungwan Park, github.com/toneyparky
- * @version 1.0
+ * @version 1.1
  * <p>
- * 날짜 : 2019.12.6 금요일
+ * 날짜 : 2019.12.8 일요일
  */
 public class RacingStarter {
     /*
@@ -53,7 +53,7 @@ public class RacingStarter {
         for (Car car : carArrayList) {
             executeRacing(car);
             exchangePositionToDash(car);
-            System.out.println(car.getName()+ " : "+ positionByDash);
+            System.out.println(car.getName() + " : " + positionByDash);
 
         }
     }

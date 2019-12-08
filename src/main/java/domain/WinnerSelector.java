@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * 클래스 이름 : WinnerSelector.java
  *
  * @author Seungwan Park, github.com/toneyparky
- * @version 1.0
+ * @version 1.1
  * <p>
  * 날짜 : 2019.12.8 일요일
  */

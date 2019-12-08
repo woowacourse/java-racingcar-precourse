@@ -10,9 +10,9 @@ import java.util.Random;
  * 클래스 이름 : Car.java
  *
  * @author Seungwan Park, github.com/toneyparky
- * @version 1.0
+ * @version 1.1
  * <p>
- * 날짜 : 2019.12.5 목요일
+ * 날짜 : 2019.12.8 일요일
  */
 public class Car {
     /*
@@ -23,10 +23,8 @@ public class Car {
     private static final int MOVE_DECIDING_NUMBER = 3;
 
     private final String name;
-    private int position = 0;
-
-
     Random random = new Random();
+    private int position = 0;
 
     /**
      * 생성자 : name을 초기화한다.
@@ -67,10 +65,8 @@ public class Car {
      */
     public boolean decideGoOrNot(int inputNumber) {
         if (inputNumber <= MOVE_DECIDING_NUMBER) {
-            System.out.println("FALSE"); // 테스트용
             return false;
         }
-        System.out.println("TRUE"); // 테스트용
         return true;
     }
 

@@ -12,9 +12,9 @@ import java.util.Scanner;
  * 클래스 이름 : RoundNumberGetter.java
  *
  * @author Seungwan Park, github.com/toneyparky
- * @version 1.0
+ * @version 1.1
  * <p>
- * 날짜 : 2019.12.6 금요일
+ * 날짜 : 2019.12.8 일요일
  */
 public class RoundNumberGetter {
     /*
@@ -38,7 +38,7 @@ public class RoundNumberGetter {
 
     /**
      * 사용자로부터 정수를 입력받는 문장 출력과 에러 컨트롤하는 메서드.
-     * (Exception handling과 관련하여 메서드를 더 나눠보고 싶은데 어찌 해야할지 모르겠습니다. 추후 레퍼런스를 찾아보겠습니다.)
+     * (Q : Exception handling과 관련하여 메서드를 더 나눠보고 싶은데 어찌 해야할지 모르겠습니다. 추후 레퍼런스를 찾아보겠습니다.)
      */
     public static boolean askRoundNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
@@ -48,11 +48,12 @@ public class RoundNumberGetter {
             System.out.println("1 이상의 정수만 입력해주세요.");
             return false;
         }
+        System.out.println("\n");
         return true;
     }
 
     /**
-     * 사용자로부터 받은 입력을 정수로 저장하는 메서드. 오류시 exception을 throw.
+     * 사용자로부터 받은 입력을 정수로 저장하는 메서드. 정수 이외의 입력을 catch시 exception을 throw.
      */
     public static void getInputNumber() {
         try {

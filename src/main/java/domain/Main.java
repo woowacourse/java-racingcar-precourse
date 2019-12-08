@@ -9,9 +9,9 @@ package domain;
  * 클래스 이름 : Main.java
  *
  * @author Seungwan Park, github.com/toneyparky
- * @version 1.0
+ * @version 1.1
  * <p>
- * 날짜 : 2019.12.5 목요일
+ * 날짜 : 2019.12.8 일요일
  */
 public class Main {
     /*
