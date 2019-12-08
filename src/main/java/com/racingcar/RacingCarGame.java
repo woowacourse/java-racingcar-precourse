@@ -51,4 +51,22 @@ public class RacingCarGame {
             car.advance();
         }
     }
+
+    public List<String> selectWinner() {
+        int max = 0;
+        List<String> winners = new ArrayList<>();
+        Iterator itr = this.cars.iterator();
+        while (itr.hasNext()) {
+            Car car = (Car) itr.next();
+            if (car.getPosition() < max) {
+                continue;
+            }
+            if (car.getPosition() > max) {
+                max = car.getPosition();
+                winners.clear();
+            }
+            winners.add(car.getName());
+        }
+        return winners;
+    }
 }
