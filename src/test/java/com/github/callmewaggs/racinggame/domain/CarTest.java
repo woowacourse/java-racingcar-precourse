@@ -1,4 +1,4 @@
-package com.github.callmewaggs.domain;
+package com.github.callmewaggs.racinggame.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -1,4 +1,4 @@
-package com.github.callmewaggs.domain;
+package com.github.callmewaggs.racinggame.domain;
 
 public class Car {
 
