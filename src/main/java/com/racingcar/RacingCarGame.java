@@ -15,7 +15,6 @@ import java.util.List;
 
 public class RacingCarGame {
     private List<Car> cars;
-    private int count;
     public Output output = new Output();
 
     public void runRacingCar() {
@@ -23,7 +22,7 @@ public class RacingCarGame {
         List<String> winner;
 
         this.cars = input.inputCarNames();
-        count = input.inputCount();
+        int count = input.inputCount();
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < count; i++) {
