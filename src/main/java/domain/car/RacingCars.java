@@ -2,6 +2,7 @@ package domain.car;
 
 import domain.car.engine.Engine;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -37,6 +38,10 @@ public class RacingCars {
                 .map(Car::getPosition)
                 .max(Integer::compareTo)
                 .orElse(NOBODY_MOVE);
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
     @Override
