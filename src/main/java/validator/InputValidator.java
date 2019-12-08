@@ -2,14 +2,21 @@ package validator;
 
 /**
  * @author 김시영
- * @since 2019-12-05
  * @apiNote 사용자 입력값 에러를 검증하기 위한 클래스로 문자열 길이 확인, 공백제거의 메서드로 이루어져있습니다.
+ * @since 2019-12-05
  */
 public class InputValidator {
     private static final int ZERO = 0;
     private static final int CAR_NAME_MAX_SIZE = 5;
 
     private int correctInputCount = ZERO;
+
+    public static boolean checkItIsZero(int howManyPlay) {
+        if (howManyPlay == ZERO) {
+            return true;
+        }
+        return false;
+    }
 
     public boolean checkCarNames(String[] userInput) {
         correctInputCount = ZERO;
