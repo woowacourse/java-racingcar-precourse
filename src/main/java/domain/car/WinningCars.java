@@ -3,11 +3,19 @@ package domain.car;
 import java.util.List;
 import java.util.Objects;
 
+import static java.util.stream.Collectors.toList;
+
 public class WinningCars {
     private final List<Car> cars;
 
     public WinningCars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public List<String> getWinnersName() {
+        return cars.stream()
+                .map(Car::getName)
+                .collect(toList());
     }
 
     @Override
