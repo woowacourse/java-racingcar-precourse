@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Random;
 
 public class RacingCarGame {
+
+    private static int FIRST_LAB_INDEX = 0;
+    private static int FIRST_CAR_INDEX = 0;
+    private static int FUEL_MAX_RANGE = 9;
+    private static int GO = 4;
+
     public static void main(String[] args) {
         RacingCarGame racingCarGame = new RacingCarGame();
         racingCarGame.startRacingCarGame();
@@ -12,27 +18,33 @@ public class RacingCarGame {
 
     private void startRacingCarGame() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
         List<Car> racingCars = getRacingCarName();
         System.out.println("시도 할 횟수는 몇번 인가요?");
+
         int racingLab = getRacingLab();
+
         racingGameCourse(racingCars, racingLab);
     }
 
     private void racingGameCourse(List<Car> racingCars, int racingLab) {
-        for(int race = 0; race < racingLab; race++) {
+        for(int race = FIRST_LAB_INDEX; race < racingLab; race++) {
             getEachLabCarState(racingCars);
         }
+
         int maxMove = getMaxMoveCar(racingCars);
         System.out.println(getWinnerCar(racingCars, maxMove) + "가 최종 우승했습니다.");
     }
 
     private int getMaxMoveCar(List<Car> racingCars) {
         int maxMove = 0;
+
         for(Car car : racingCars) {
             if(maxMove < car.getPosition()) {
                 maxMove = car.getPosition();
             }
         }
+
         return  maxMove;
     }
 
@@ -48,17 +60,20 @@ public class RacingCarGame {
 
     private void getEachLabCarState(List<Car> racingCars) {
         Random getCarState = new Random();
-        for(int car = 0; car < racingCars.size(); car++) {
-            if(getCarState.nextInt(9) > 3) {
+
+        for(int car = FIRST_CAR_INDEX; car < racingCars.size(); car++) {
+            if(getCarState.nextInt(FUEL_MAX_RANGE) >= GO) {
                 racingCars.get(car).moveForward();
             }
-            racingCars.get(car).displayCarPostion();
+            racingCars.get(car).displayCarPosition();
         }
+
         System.out.println();
     }
 
     private int getRacingLab() {
         Validator labValidator = new Validator();
+
         return labValidator.getRacingLab();
     }
 

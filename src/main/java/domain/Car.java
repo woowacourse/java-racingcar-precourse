@@ -1,6 +1,8 @@
 package domain;
 
 public class Car {
+    private static final int FIRST_CAR = 0;
+
     private final String name;
     private int position = 0;
 
@@ -10,9 +12,9 @@ public class Car {
 
     public void moveForward() { this.position++; }
 
-    public void displayCarPostion() {
+    public void displayCarPosition() {
         System.out.print(name + " : ");
-        for(int i=0; i<position; i++) {
+        for(int i=FIRST_CAR; i<position; i++) {
             System.out.print("-");
         }
         System.out.println();
