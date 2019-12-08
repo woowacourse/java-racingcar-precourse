@@ -80,9 +80,9 @@
   
   - true 반환
 
-- 자동차 이름이 5글자 이상일 경우 
+- 자동차 이름이 1글자 미만이거나, 5글자 초과일 경우 
 
-  - 출력 : 자동차 이름은 5글자 이하여야 합니다.
+  - 출력 : 자동차 이름은 0글자 이상, 5글자 이하여야 합니다.
 
   - true 반환
   
@@ -130,7 +130,7 @@
 
 - private int count;
 
-#### 메서드 carSet()
+#### 기능 - void carSet()
 
 - cars
 
@@ -142,11 +142,11 @@
 
   - Count.inputCount()로 전진 회수를 입력받음
 
-#### 메서드 getCars()
+#### 기능 - Car[] getCars()
 
 - 생성한 cars를 돌려줌
 
-#### 메서드 getCount()
+#### 기능 - int getCount()
 
 - 생성한 count를 돌려줌
 
@@ -156,7 +156,7 @@
 
 #### 메인 메서드
 
-- List\<Car> cars = CarSetting.cars;
+- Car[] cars = CarSetting.cars;
 
 - int count = CarSetting.count;
 
@@ -186,7 +186,7 @@
 
   - 중복 가능
   
-  - 인스턴스들의 position을 비교해야 함
+  - 인스턴스들의 position을 비교
   
 - 출력 예시
 
