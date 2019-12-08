@@ -3,6 +3,7 @@ import java.util.stream.Collectors;
 
 public class RacingCars {
     private static final int MAX_LENGTH_OF_CAR_NAME = 5;
+    private static final int STRIDE_LENGTH = 1;
 
     private final List<Car> cars;
 
@@ -23,14 +24,32 @@ public class RacingCars {
         }
     }
 
-    public int getMaxDistance() {
+    public void updateCars() {
+        for (Car car : cars) {
+            updateCar(car);
+        }
+    }
+
+    private void updateCar(Car car) {
+        if (shouldMove()) {
+            car.moveForward(STRIDE_LENGTH);
+        }
+    }
+
+    private boolean shouldMove() {
+        Random random = new Random();
+        // 60% 확률로 참값을 반환함
+        return random.nextInt(10) >= 4;
+    }
+
+    private int getMaxDistance() {
         return cars.stream()
                    .mapToInt(Car::getPosition)
                    .max()
                    .getAsInt();
     }
 
-    public List<String> getWinners() {
+    private List<String> getWinners() {
         int maxDistance = getMaxDistance();
         return cars.stream()
                    .filter(car -> car.isMaxPosition(maxDistance))

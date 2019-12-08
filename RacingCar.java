@@ -9,8 +9,7 @@ public class RacingCar {
         RacingCars racingCars = new RacingCars(cars);
         System.out.printf("%n실행결과%n");
         for (int i = 0; i < trialLength; i++) {
-            updateCars(cars);
-            racingCars = new RacingCars(cars);
+            racingCars.updateCars();
             racingCars.printStatus();
         }
         racingCars.printWinners();
@@ -36,24 +35,6 @@ public class RacingCar {
             cars.add(new Car(carName));
         }
         return cars;
-    }
-
-    private static void updateCars(List<Car> cars) {
-        for (Car car : cars) {
-            updateCar(car);
-        }
-    }
-
-    private static void updateCar(Car car) {
-        if (shouldMove()) {
-            car.moveForward(STRIDE_LENGTH);
-        }
-    }
-
-    private static boolean shouldMove() {
-        Random random = new Random();
-        // 60% 확률로 참값을 반환함
-        return random.nextInt(10) >= 4;
     }
 
     private static String[] split(String text) {
