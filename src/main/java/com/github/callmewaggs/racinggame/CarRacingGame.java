@@ -1,5 +1,6 @@
 package com.github.callmewaggs.racinggame;
 
+import com.github.callmewaggs.racinggame.domain.Track;
 import java.util.Scanner;
 
 public class CarRacingGame {
@@ -13,6 +14,8 @@ public class CarRacingGame {
     this.inputCarNames = scan.nextLine();
     System.out.println("시도할 회수는 몇회인가요?");
     this.inputTrial = scan.nextLine();
+
+    Track track = new Track(inputCarNames, inputTrial);
   }
 
   public String getInputCarNames() {
