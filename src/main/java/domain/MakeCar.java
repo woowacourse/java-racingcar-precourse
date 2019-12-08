@@ -27,7 +27,7 @@ public class MakeCar {
      *
      * @return Car클래스의 객체를 입력한 이름수만큼 생성하는 동적배열
      */
-    public Car[] makingCar() {
+    public Car[] makeCar() {
         boolean check;
         String carString = "";
         Car[] car;

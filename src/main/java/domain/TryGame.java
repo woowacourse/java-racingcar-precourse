@@ -28,25 +28,15 @@ public class TryGame {
         Car[] car;
         MakeCar makeCar = new MakeCar();
         TryInput tryInput = new TryInput();
-        WinsCar winsCar = new WinsCar();
+        PrintWinsCar print = new PrintWinsCar();
 
         /*car의 이름을입력받아 동적으로 car배열 만듬*/
-        car = makeCar.makingCar();
+        car = makeCar.makeCar();
 
         /*시도횟수를 입력받는 매소드*/
         tryCount = tryInput.tryInput();
 
-        /*게임을 시도횟수만큼 실행해서 우숭자의 이름을 출력하는 반복문*/
-        for (int i = 0; i < tryCount; i++) {
-            for (int j = 0; j < car.length; j++) {
-                car[j].forwordPosition();
-                System.out.print(car[j].getName() + ":" + car[j].getPosition());
-                System.out.println();
-            }
-            System.out.println();
-        }
-
-        System.out.println(winsCar.wins(car) + "가 최종우승 하였습니다.");
-
+        /*우승자 출력하는 매소드*/
+        print.printWinsCar(tryCount,car);
     }
 }

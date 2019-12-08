@@ -33,7 +33,9 @@ public class WinsCar {
             if (car[i].getPosition() > temp) {
                 temp = car[i].getPosition();
                 winsCar = new StringBuilder(car[i].getName());
-            } else if (car[i].getPosition() == temp) {
+                continue;
+            }
+            if (car[i].getPosition() == temp) {
                 winsCar.append(",");
                 winsCar.append(car[i].getName());
             }
