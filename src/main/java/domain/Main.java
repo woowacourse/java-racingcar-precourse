@@ -16,7 +16,7 @@ public class Main {
         outputPrint.insertName();
         ArrayList<Car> carList = setCarName(inputScanner.getCarName());
         outputPrint.howManyTry();
-        int gameSets = scanner.nextInt();
+        int gameSets = inputScanner.howManyPlay();
         outputPrint.executeResult();
         for (int i = 0; i < gameSets; i++) {
             play(carList);

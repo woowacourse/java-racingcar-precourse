@@ -6,8 +6,12 @@ public class InputScanner {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    String getCarName() {
+    public String getCarName() {
         return scanner.nextLine();
+    }
+
+    public int howManyPlay() {
+        return scanner.nextInt();
     }
 
 }
