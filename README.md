@@ -69,6 +69,15 @@ int compare(Car car1, Car car2)
 
 
 
+### Class CarList
+```
+ArrayList<Car> CarList
+```
+##### CarList 생성자
+###### 차 객체들의 ArrayList 를 생성해주는 생성자이다.
+
+
+
 ### Class CarNameCheck
 ```
 ArrayList<Car> splitCarName(String carName)
@@ -119,16 +128,16 @@ void println(String string)
 
 ### Class Main
 ```
-boolean canDrive()
 void play(ArrayList<Car> carList)
+boolean canDrive()
 String lastWinners(ArrayList<Car> carList)
 int howManyWin(ArrayList<Car> carList)
 boolean isSamePosition(Car carA, Car carB)
 ```
-##### canDrive() 메소드
-###### 랜덤 클래스를 불러와서 0~9 까지 숫자 중 4이상이 나오면 TRUE 를 반환하는 메소드
 ##### play(ArrayList<Car> CarList) 메소드
 ###### 각 차 객체들을 경주시키고 그 결과를 print 해주는 메소드
+##### canDrive() 메소드
+###### 랜덤 클래스를 불러와서 0~9 까지 숫자 중 4이상이 나오면 TRUE 를 반환하는 메소드
 ##### lastWinners(ArrayList<Car> carList)
 ##### carList 에서 한 명이상의 이름 목록을 출력하는 메소드
 ##### howManyWin(ArrayList<Car> CarList) 메소드

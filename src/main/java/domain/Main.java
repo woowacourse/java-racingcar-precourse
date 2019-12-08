@@ -25,11 +25,6 @@ public class Main {
         outputPrint.finalWinner(lastWinners(carList));
     }
 
-    public static boolean canDrive() {
-        Random random = new Random();
-        return (random.nextInt(RANDOM_MAX_NUMBER) >= RANDOM_PARTITION_NUMBER);
-    }
-
     private static void play(ArrayList<Car> carList) {
         for(int i = 0; i < carList.size(); i ++) {
             Car currentCar = carList.get(i);
@@ -40,6 +35,11 @@ public class Main {
             outputPrint.println("");
         }
         outputPrint.println("");
+    }
+
+    public static boolean canDrive() {
+        Random random = new Random();
+        return (random.nextInt(RANDOM_MAX_NUMBER) >= RANDOM_PARTITION_NUMBER);
     }
 
     private static String lastWinners(ArrayList<Car> carList) {
