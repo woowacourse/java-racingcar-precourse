@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class inputUtils {
+public class InputUtils {
 	private static final String[] SEPARATOR = {",", "쉼표"};
 	private static final String PROMPT_NAMES = String.format(
 		"경주할 자동차 이름을 입력하세요.(이름은 %s(%s) 기준으로 구분)", SEPARATOR[1], SEPARATOR[0]);
