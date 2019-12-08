@@ -73,21 +73,21 @@ int compare(Car car1, Car car2)
 ```
 CarList
 void setGamePlayNumber()
-void play(ArrayList<Car> carList)
+void play(int initNumber)
 boolean canDrive()
-String lastWinners(ArrayList<Car> carList)
+String lastWinners()
 int howManyWin()
 boolean isSamePosition(Car carA, Car carB)
 ```
 ##### CarList 생성자
 ###### 차 객체들의 ArrayList 를 생성해주는 생성자이다.
-##### setGamePlayNumber 메소드
-##### 게임을 몇 번 반복하여 실행할 것인지 입력받는 메소드
-##### play(ArrayList<Car> CarList) 메소드
-###### 각 차 객체들을 경주시키고 그 결과를 print 해주는 메소드
+##### setGamePlayNumber() 메소드
+##### 게임을 몇 번 반복하여 실행할 것인지 입력받는 메소드. carList 클래스 내부의 int 형 gameSets 에 값을 부여하여 초기화해준다.
+##### play(int initNumber) 메소드
+###### 각 차 객체들을 경주시키고 그 결과를 print 해주는 메소드. initNumber 는 반복의 횟 수를 세는 인자다. 총 반복해야 하는 횟 수에 도달할 때까지 재귀한다.
 ##### canDrive() 메소드
 ###### 랜덤 클래스를 불러와서 0~9 까지 숫자 중 4이상이 나오면 TRUE 를 반환하는 메소드
-##### lastWinners(ArrayList<Car> carList)
+##### lastWinners()
 ##### carList 에서 한 명이상의 이름 목록을 출력하는 메소드
 ##### howManyWin() 메소드
 ###### 공동 1등인 Car 객체가 몇 대인지 반환하는 메소드
@@ -98,12 +98,12 @@ boolean isSamePosition(Car carA, Car carB)
 
 ### Class CarNameCheck
 ```
-ArrayList<Car> splitCarName(String carName)
+ArrayList<Car> splitCarName()
 String nameLengthCheck(String name)
 ```
-##### splitCarName(String carName) 메소드
+##### splitCarName() 메소드
 ###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
-##### nameLengthCheck 메소드
+##### nameLengthCheck(String name) 메소드
 ###### 차 객체의 이름이 5이하인지 확인해서 아니면 다시 입력하게 하는 메소드
 
 
@@ -146,4 +146,5 @@ void println(String string)
 
 ### Class Main
 ```
+객체지향으로 분리된 클래스, 메소드들 불러와서 실행하기!
 ```
