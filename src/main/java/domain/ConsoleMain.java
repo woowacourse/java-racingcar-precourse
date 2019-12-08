@@ -16,6 +16,11 @@ public class ConsoleMain {
         for(int i = 0; i < carName.length; i++){
             car.add(new Car(carName[i]));
         }
+
+        for(int i = 0; i < movementNumber; i++){
+            moveCar(car);
+            printCarPosition(car);
+        }
     }
 
     private static void inputCarName() {
@@ -56,5 +61,22 @@ public class ConsoleMain {
                 car.get(i).moveForward();
             }
         }
+    }
+
+    private static void printCarPosition(ArrayList<Car> car){
+        for(int i = 0; i < car.size(); i++){
+            System.out.println(car.get(i).getName() + " : "
+                                + printPositionByLine(car.get(i).getPosition()));
+        }
+        System.out.println();
+    }
+
+    private static String printPositionByLine(int position){
+        String Line = "";
+
+        for(int i = 0; i < position; i++){
+            Line += "-";
+        }
+        return Line;
     }
 }
