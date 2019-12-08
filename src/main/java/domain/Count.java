@@ -23,10 +23,11 @@ public class Count {
                 return again;
             }
         }
-        if (Integer.parseInt(count) == 0) {
-            System.out.println("1 이상의 수를 입력하세요.");
+        if (Integer.parseInt(count) == 0 || Double.parseDouble(count) > Integer.MAX_VALUE) {
+            System.out.println("숫자는 0보다 크고 2,147,483,648보다 작아야합니다.");
             return again;
         }
+
         again = true;
         return again;
     }
