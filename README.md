@@ -1,5 +1,9 @@
 ## 전체 클래스
 
+- CarSetting
+
+  - 자동차 경주 전 셋팅 (이름, 횟수, 차)
+
 - Car
 
   - 자동차 이름, 전진 회수, 전진 담당
@@ -14,7 +18,9 @@
 
 - MotorRace
 
-  - 자동차 경주 시작
+  - 자동차 경주 진행 ~ 종료 총괄
+
+<br>
 
 ## Car 클래스 기능
 
@@ -98,21 +104,41 @@
   
 <br>
 
+## CarSetting 클래스 기능
+
+#### 인스턴스 변수
+
+- private List\<Car> cars;
+
+- private int count;
+
+#### 메서드 carSet()
+
+- cars
+
+  - Naming.inputNames()로 이름들을 입력받음
+
+  - 입력받은 이름들로 Car 인스턴스들 생성
+
+- count
+
+  - Count.inputCount()로 전진 회수를 입력받음
+
+<br>
+
 ## MotorRace 클래스 기능
 
 #### 메인 메서드
 
-- Naming.inputNames()로 이름들을 입력받음
+- List\<Car> cars = CarSetting.cars;
 
-- 입력받은 이름들로 Car 인스턴스들 생성
+- int count = CarSetting.count;
 
-- Count.inputCount()로 전진 회수를 입력받음
+- goingCars(cars, count)로 회수만큼 전진
 
-- goingCars(count)로 회수만큼 전진
+- checkWinner(cars)로 우승자 발표
 
-- checkWinner()로 우승자 발표
-
-#### void goingCars(int count)
+#### void goingCars(Car cars, int count)
 
 - 입력받은 회수만큼 반복
 
@@ -120,7 +146,7 @@
 
 - 완료시 carsConditions() 호출
 
-#### void carsConditions()
+#### void carsConditions(Car cars)
 
 - 출력 : 자동차 이름 : -(현재 전진한 숫자) * 반복 + 공백 한 줄
 
@@ -128,7 +154,7 @@
   <br>sun : ----
   <br>sunny : --
 
-#### void checkWinner()
+#### void checkWinner(Car cars)
 
 - 누가 우승했는지 알려주기
 
