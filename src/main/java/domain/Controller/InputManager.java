@@ -5,6 +5,7 @@
  */
 package domain.Controller;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -33,7 +34,22 @@ public class InputManager {
     }
 
     public int inputNumberOfLaps() {
-        System.out.println("시도할 횟수는 몇회인가요?");
-        return scanner.nextInt();
+        int lap = -1;
+
+        while(lap != 0) {
+            System.out.println("시도할 횟수는 몇회인가요?");
+
+            try {
+                lap = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                scanner = new Scanner(System.in);
+                System.out.println("숫자만 입력해주세요!!");
+            }
+
+        }
+
+
+        return lap;
     }
 }
