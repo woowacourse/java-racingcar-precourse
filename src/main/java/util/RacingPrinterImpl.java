@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RacingPrinterImpl implements RacingPrinter {
     @Override
-    public void printStartSign() {
+    public void printStartGameSign() {
         System.out.println();
         System.out.println("실행 결과");
     }
@@ -23,6 +23,19 @@ public class RacingPrinterImpl implements RacingPrinter {
     public void printWinners(List<Raceable> winners) {
         String format = buildFormat(winners.size());
         System.out.println(String.format(format, winners.toArray()));
+    }
+    private String buildFormat(int size) {
+        String format = "";
+        for (int i = 0; i < size; i++) {
+            if (i == (size - 1)) {
+                format += "%s";
+                continue;
+            }
+            //todo: change to stringBuilder
+            format += "%s, ";
+        }
+        format += "가 최종 우승했습니다.";
+        return format;
     }
 
     @Override
@@ -40,17 +53,5 @@ public class RacingPrinterImpl implements RacingPrinter {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    private String buildFormat(int size) {
-        String format = "";
-        for (int i = 0; i < size; i++) {
-            if (i == (size - 1)) {
-                format += "%s";
-                continue;
-            }
-            //todo: change to stringBuilder
-            format += "%s, ";
-        }
-        format += "가 최종 우승했습니다.";
-        return format;
-    }
+
 }

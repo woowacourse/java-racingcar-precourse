@@ -31,6 +31,6 @@ public class RacingGameImpl implements RacingGame {
         racingPrinter.printWinners(winners);
     }
     private void start() {
-        racingPrinter.printStartSign();
+        racingPrinter.printStartGameSign();
     }
 }

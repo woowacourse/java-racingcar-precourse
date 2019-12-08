@@ -24,6 +24,12 @@ class RacingPrinterImplTest {
     }
 
     @Test
+    void printStartGameSign() {
+        racingPrinter.printStartGameSign();
+        assertEquals("\n실행 결과\n", outView.toString());
+    }
+
+    @Test
     void printStateOfRacingCar() {
         //given
         Raceable raceable = new RacingCar(0, "testCar", 4);
@@ -48,5 +54,24 @@ class RacingPrinterImplTest {
 
         //then
         assertEquals("poby, honux가 최종 우승했습니다.\n", outView.toString());
+    }
+
+
+    @Test
+    void printOneCycleFinished() {
+        racingPrinter.printOneCycleFinished();
+        assertEquals("\n", outView.toString());
+    }
+
+    @Test
+    void printRequestForNames() {
+        racingPrinter.printRequestForNames();
+        assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", outView.toString());
+    }
+
+    @Test
+    void printRequestForCycles() {
+        racingPrinter.printRequestForCycles();
+        assertEquals("시도할 회수는 몇회인가요?\n", outView.toString());
     }
 }

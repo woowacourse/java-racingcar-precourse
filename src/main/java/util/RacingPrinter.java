@@ -5,7 +5,7 @@ import domain.Raceable;
 import java.util.List;
 
 public interface RacingPrinter {
-    void printStartSign();
+    void printStartGameSign();
     void printStateOfRacingCar(Raceable raceable);
     void printWinners(List<Raceable> winners);
 
