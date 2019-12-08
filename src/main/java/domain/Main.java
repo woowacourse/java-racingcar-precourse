@@ -15,7 +15,7 @@ public class Main {
         OutputPrint outputPrint = new OutputPrint();
         outputPrint.insertName();
         ArrayList<Car> carList = getCarName(scanner.nextLine());
-        println("시도할 회수는 몇 회인가요?");
+        outputPrint.howManyTry();
         int gameSets = scanner.nextInt();
         println("\n실행결과");
         for (int i = 0; i < gameSets; i++) {
