@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
 
-    @DisplayName("엔진 출력값에 따라 움직임 여부 확인하기")
+    @DisplayName("엔진 출력값에 따라 움직이기")
     @ParameterizedTest
     @CsvSource(value = {"3,0", "4,1", "5,1"})
     void move(int power, int expectPosition) {
