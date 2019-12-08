@@ -50,3 +50,37 @@
 - 시도 횟수의 입력 예외처리
   - 값이 0보다 작거나 같을 경우는 예외처리된다.
   - 정수가 아닌 값이 들어올 경우는 예외처리된다.
+
+## 4. 클래스 구조
+
+**Car Class**
+
+- [Var] PASS_UNDER_BOUND : 자동차 가속 연산때 기준값이 되는 int형 static final 정수값이다.
+- [Var] name : 이름을 저장하는 String형 final 객체이다.
+- [Var] position : 현재 위치를 저장하는 int형 정수값이다.
+- [Constructor] Car : 이름을 입력받아 저장한다. Car 객체의 생성자이다.
+- [Method] accelerateCar : 자동차를 난수값을 바탕으로 가속시킨다. 변경된 위치를 반환한다.
+- [Method] getName : String형 변수 name을 반환해준다.
+- [Method] getPosition : int형 변수 position을 반환해준다.
+
+**Race Class**
+
+- [Var] MESSAGE_END_RACE : 레이스 종료시 출력되는 string형 상수값이다.
+- [Var] MESSAGE_ASK_REPEAT : 횟수 입력시 출력되는 string형 상수값이다.
+- [Var] MESSAGE_ASK_NAME : 이름 입력시 출력되는 string형 상수값이다.
+- [Var] MESSAGE_INPUT_ERROR : 입력 도중 예외처리 발생시 출력되는 string형 상수값이다.
+- [Var] MESSAGE_SPLIT_NAME : 이름을 분리할 때 분리자로 사용할 string형 상수값이다.
+- [Var] MESSAGE_START_RACE : 레이스 시작시 출력되는 string형 상수값이다.
+- [Var] carList : Car형 객체를 담고 있는 List 객체이다.
+- [Var] raceRepeat : 경주 반복 횟수를 담고 있는 int형 변수이다.
+- [Var] maxRaceRecode : 경주 최고 기록을 담고 있는 int형 변수이다.
+- [Constructor] Race : 객체의 변수 객체들을 생성하고 입력값(이름, 횟수)을 받는다. Race 객체의 생성자이다.
+- [Method] acceleateCarList : 리스트에 저장된 Car형 객체들을 가속(Car::accelerateCar() 호출)시킨다.
+- [Method] makeRaceRecode : 가속 도중에 호출되어, 전진한 자동차의 위치가 최고 기록인지 확인, 기록을 갱신한다.
+- [Method] getRaceWinnerToString : 경주가 종료된 뒤라고 가정하고, 승자의 정보를 담은 메세지를 생성한다.
+- [Method] addNameToString : 문자열에 다른 문자열을 합쳐서 반환해준다.
+- [Method] splitNameString : 처음에 입력되는 String형태의 입력을 쪼개 이름의 리스트로 만들어준다.
+- [Method] getNameToInput : 이름 문자열을 입력받고, 예외처리를 진행한다.
+- [Method] getRepeatToInput : 횟수 값을 입력받고, 예외처리를 진행한다.
+- [Method] findExceptionOnName : 이름 입력 과정에서 생기는 예외처리 여부를 검사하여, Boolean 형태로 결과를 돌려준다.
+- [Method] raceStart : 경주를 시작한다. 정해진 횟수만큼 가속을 반복하고, 결과를 출력한다. 상위 객체에서 호출된다.
