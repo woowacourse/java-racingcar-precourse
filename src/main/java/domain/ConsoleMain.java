@@ -7,6 +7,7 @@ import java.util.Random;
 public class ConsoleMain {
     private static String[] carName;
     private static int movementNumber;
+    private static String winners = "";
     private static final int MAX_NAME_LENGTH = 5;
 
     public static void main(String[] args){
@@ -17,10 +18,13 @@ public class ConsoleMain {
             car.add(new Car(carName[i]));
         }
 
+        System.out.println("실행 결과");
         for(int i = 0; i < movementNumber; i++){
             moveCar(car);
             printCarPosition(car);
         }
+
+        getWinner(car);
     }
 
     private static void inputCarName() {
@@ -78,5 +82,20 @@ public class ConsoleMain {
             Line += "-";
         }
         return Line;
+    }
+
+    private static void getWinner(ArrayList<Car> car){
+        int max = 0;
+
+        for(int i = 0; i < car.size(); i++){
+            if(car.get(i).getPosition() > max){
+                winners = car.get(i).getName();
+                max = car.get(i).getPosition();
+            }else if(car.get(i).getPosition() == max){
+                winners += ", " + car.get(i).getName();
+            }
+        }
+
+        System.out.println(winners + "가 최종 우승했습니다.");
     }
 }
