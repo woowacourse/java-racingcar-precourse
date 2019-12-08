@@ -58,6 +58,7 @@ public class RacingCarGame {
 	private void moveCar() {
 		for (Car car : cars) {
 			car.makeRandomNum();
+			car.move();
 		}
 	}
 }
