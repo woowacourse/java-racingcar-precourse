@@ -5,14 +5,18 @@ public class RacingCar {
 
     public static void main(String[] args) {
         List<Car> cars = makeCars(inputCarNames());
-        int trialLength = Integer.parseInt(inputTrialLength());
         RacingCars racingCars = new RacingCars(cars);
+        int trialLength = Integer.parseInt(inputTrialLength());
+        finishRace(racingCars, trialLength).printWinners();
+    }
+
+    private static RacingCars finishRace(RacingCars racingCars, int trialLength) {
         System.out.printf("%n실행결과%n");
         for (int i = 0; i < trialLength; i++) {
             racingCars.updateCars();
             racingCars.printStatus();
         }
-        racingCars.printWinners();
+        return racingCars;
     }
 
     private static String inputCarNames() {
