@@ -15,22 +15,10 @@ public class Main {
         int gameSets = inputScanner.howManyPlay();
         outputPrint.executeResult();
         for (int i = 0; i < gameSets; i++) {
-            play(carList);
+            carList.play();
         }
 
         outputPrint.finalWinner(carList.lastWinners());
-    }
-
-    private static void play(ArrayList<Car> carList) {
-        for(int i = 0; i < carList.size(); i ++) {
-            Car currentCar = carList.get(i);
-            if (canDrive()) {
-                currentCar.drive();
-            }
-            currentCar.printDistance();
-            outputPrint.println("");
-        }
-        outputPrint.println("");
     }
 
 }

@@ -15,12 +15,24 @@ public class CarList {
         this.carList = new CarNameCheck().splitCarName();
     }
 
-    public static boolean canDrive() {
+    public void play() {
+        for(int i = 0; i < carList.size(); i ++) {
+            Car currentCar = carList.get(i);
+            if (canDrive()) {
+                currentCar.drive();
+            }
+            currentCar.printDistance();
+            new OutputPrint().println("");
+        }
+        new OutputPrint().println("");
+    }
+
+    private static boolean canDrive() {
         Random random = new Random();
         return (random.nextInt(RANDOM_MAX_NUMBER) >= RANDOM_PARTITION_NUMBER);
     }
 
-    public static String lastWinners() {
+    public String lastWinners() {
         Collections.sort(carList, new CarComparator());
         String winnersNameList = carList.get(FIRST_WINNER_NUMBER).getName();
         for (int i = 1; i < howManyWin(); i ++) {
