@@ -1,12 +1,12 @@
 /*
  * class: WinsCar
  *
- * version: 1.0
+ * version: 3.0
  *
- * date: 2019.12.07
+ * date: 2019.12.08
  *
  * 이 프로그램의 저작권은 정은석에게 있습니다.
- * Copyright 2019.12.07
+ * Copyright 2019.12.08
  */
 
 package domain;
@@ -15,9 +15,12 @@ package domain;
  * 우승차를 가려내는 class.
  *
  * @author joseph415
- * @version 1.0 2019.12.07
+ * @version 3.0 2019.12.08
  */
 public class WinsCar {
+    int temp = -1;
+    StringBuilder winsCar = new StringBuilder();
+
     /**
      * 우승차를 가려내는 매소드.
      *
@@ -25,19 +28,17 @@ public class WinsCar {
      * @return position이 가장 높은 차를 winsCar에 계속 추가
      */
     public String wins(Car[] car) {
-        StringBuilder winsCar = new StringBuilder();
-        int temp = -1;
 
         /*최대값이 생기면 winsCar에 추가 하고 최대값을 바꿔줌*/
-        for (int i = 0; i < car.length; i++) {
-            if (car[i].getPosition() > temp) {
-                temp = car[i].getPosition();
-                winsCar = new StringBuilder(car[i].getName());
+        for (Car value : car) {
+            if (value.getPosition() > temp) {
+                temp = value.getPosition();
+                winsCar = new StringBuilder(value.getName());
                 continue;
             }
-            if (car[i].getPosition() == temp) {
+            if (value.getPosition() == temp) {
                 winsCar.append(",");
-                winsCar.append(car[i].getName());
+                winsCar.append(value.getName());
             }
         }
         return winsCar.toString();

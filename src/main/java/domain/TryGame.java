@@ -37,6 +37,6 @@ public class TryGame {
         tryCount = tryInput.tryInput();
 
         /*우승자 출력하는 매소드*/
-        print.printWinsCar(tryCount,car);
+        print.printWinsCar(tryCount, car);
     }
 }

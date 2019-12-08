@@ -14,6 +14,9 @@ package domain;
 /**
  * 게임에서 쓰일 Car 객체를 만들 class.
  * car의 name과 position은 private속성
+ *
+ * @author joseph415
+ * @version 1.0 2019.12.07
  */
 public class Car {
     private final String name;
@@ -22,6 +25,7 @@ public class Car {
 
     /**
      * 차의 이름을 생성자로 지정해준다
+     *
      * @param name car의 name을 parameter로 넣어
      */
     public Car(String name) {
@@ -30,7 +34,8 @@ public class Car {
 
     /**
      * 차의 위치를 리턴해준다
-     * @return position
+     *
+     * @return this.position
      */
     public int getPosition() {
         return this.position;
@@ -38,7 +43,8 @@ public class Car {
 
     /**
      * 차의 이름을 리턴하는 getter
-     * @return name
+     *
+     * @return this.name
      */
     public String getName() {
         return this.name;
