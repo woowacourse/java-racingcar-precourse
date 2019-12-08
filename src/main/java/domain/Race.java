@@ -15,7 +15,7 @@ public class Race {
     /**
      * MESSAGE_END_OF_RACE 는 상수형 String 객체로, 레이스 종료시 승자의 이름과 함꼐 출력될 값이다.
      */
-    private static final String MESSAGE_END_OF_RACE = "가 최종 우승했습니다";
+    private static final String MESSAGE_END_RACE = "가 최종 우승했습니다";
 
     /**
      * MESSAGE_ASK_REPEAT 는 상수형 String 객체로, 반복횟수 입력 전에 출력된다.
@@ -110,7 +110,7 @@ public class Race {
                 winnerMessage = addNameToString(winnerMessage, i.getName());
             }
         }
-        winnerMessage += MESSAGE_END_OF_RACE;
+        winnerMessage += MESSAGE_END_RACE;
         return winnerMessage;
     }
 
