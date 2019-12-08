@@ -9,4 +9,20 @@ public class Naming {
         String[] names = sc.nextLine().split(",");
         return names;
     }
+
+    static boolean checkNames(String[] names) {
+        boolean again = true;
+        if(names.length < 1) {
+            System.out.println("자동차 이름은 1개 이상이어야 합니다.");
+            return again;
+        }
+        for (String name : names) {
+            if (name.length() > 5) {
+                System.out.println("자동차 이름은 5글자 이하여야 합니다.");
+                return again;
+            }
+        }
+        again = false;
+        return again;
+    }
 }
