@@ -23,7 +23,7 @@ public class RacingCarGame {
             getEachLabCarState(racingCars);
         }
         int maxMove = getMaxMoveCar(racingCars);
-        getWinnerCar(racingCars, maxMove);
+        System.out.println(getWinnerCar(racingCars, maxMove) + "가 최종 우승했습니다.");
     }
 
     private int getMaxMoveCar(List<Car> racingCars) {
@@ -66,9 +66,11 @@ public class RacingCarGame {
         Validator carValidator = new Validator();
         List<String> racingCarNames = carValidator.getRacingCarNames();
         List<Car> racingCars = new ArrayList<>();
+
         for(String racingCar : racingCarNames) {
             racingCars.add(new Car(racingCar));
         }
+
         return racingCars;
     }
 
