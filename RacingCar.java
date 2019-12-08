@@ -35,4 +35,10 @@ public class RacingCar {
     private static String[] split(String text) {
         return text.split(",");
     }
+
+    private static boolean shouldMove() {
+        Random random = new Random();
+        // 60% 확률로 참값을 반환함
+        return random.nextInt(10) >= 4;
+    }
 }

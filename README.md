@@ -17,4 +17,4 @@
     - Car 클래스 구현하기
     - List<Car>의 일급 컬렉션 구현하기 (RacingCars class)
     - 입력 받은 각 자동차 이름으로 자동차별 객체 만들어 List<Car>에 집어넣기
-    - 각 시도마다 전진할지 멈춰 있을지 판단하기 (moveForward method)
+    - 각 시도마다 전진할지 멈춰 있을지 판단하기 (shouldMove method)
