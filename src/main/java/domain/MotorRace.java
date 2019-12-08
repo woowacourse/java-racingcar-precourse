@@ -2,10 +2,12 @@ package domain;
 
 public class MotorRace {
     public static void main(String[] args) {
+        // carSetting을 통해 사용자로부터 값을 입력받고 cars와 count를 가져옴
         CarSetting carSetting = new CarSetting();
         carSetting.carSet();
         Car[] cars = carSetting.getCars();
         int count = carSetting.getCount();
+        // motorRace 진행
         MotorRace motorRace = new MotorRace();
         motorRace.goingCars(cars, count);
         motorRace.checkWinner(cars);
