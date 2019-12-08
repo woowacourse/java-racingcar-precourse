@@ -10,8 +10,8 @@ public class Count {
         do {
             System.out.println("시도할 회수는 몇회인가요?");
             countString = sc.nextLine();
-            count = Integer.parseInt(countString);
         } while (checkCount(countString));
+        count = Integer.parseInt(countString);
         return count;
     }
 
