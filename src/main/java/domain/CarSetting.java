@@ -15,4 +15,7 @@ public class CarSetting {
         count = Count.inputCount();
     }
 
+    Car[] getCars() {
+        return cars;
+    }
 }
