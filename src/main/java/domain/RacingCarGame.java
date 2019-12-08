@@ -23,6 +23,7 @@ public class RacingCarGame {
             getEachLabCarState(racingCars);
         }
         int maxMove = getMaxMoveCar(racingCars);
+        getWinnerCar(racingCars, maxMove);
     }
 
     private int getMaxMoveCar(List<Car> racingCars) {
@@ -32,7 +33,17 @@ public class RacingCarGame {
                 maxMove = car.getPosition();
             }
         }
-        return maxMove;
+        return  maxMove;
+    }
+
+    private String getWinnerCar(List<Car> racingCars, int maxMove) {
+        List<String> winnerCarNames = new ArrayList<>();
+        for(Car winnerCar : racingCars) {
+            if(winnerCar.getPosition() == maxMove) {
+                winnerCarNames.add(winnerCar.getName());
+            }
+        }
+        return String.join(",",winnerCarNames);
     }
 
     private void getEachLabCarState(List<Car> racingCars) {
