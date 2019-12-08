@@ -43,5 +43,16 @@ public class RacingCarGame {
             }
             System.out.println();
         }
+        int maxNumber = this.getMaxNumber();
+    }
+
+    private int getMaxNumber() {
+        int maxNumber = Integer.MIN_VALUE;
+        for (Car value : car) {
+            if (maxNumber < value.getPosition()) {
+                maxNumber = value.getPosition();
+            }
+        }
+        return maxNumber;
     }
 }
