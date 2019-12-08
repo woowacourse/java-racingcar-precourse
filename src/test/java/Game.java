@@ -18,10 +18,14 @@ public class Game {
 
         cars = new Car[numberOfGames];
         System.out.println("실행 결과");
-        for(int i=0;i<numberOfGames;i++){
+        for(int i=0;i<names.length;i++){
             cars[i] = new Car(names[i]);
-            System.out.println(cars[i]);
+        }
+        for(int i=0;i<numberOfGames;i++){
+            cars[0].printMovingForward();
+            System.out.println();
         }
 
     }
+
 }

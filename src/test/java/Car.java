@@ -8,15 +8,23 @@ public class Car {
         this.name = name;
     }
 
-    boolean movingForward() {
+    boolean printMovingForward() {
         int randomValue = (int) (Math.random() * 10);
         if (randomValue >= 4) {
             this.position++;
+            System.out.print(name +" : ");
+            for(int i=0;i<this.position;i++){
+                System.out.print("-");
+            }
             return true;
+        }
+        System.out.print(name +" : ");
+        for(int i=0;i<this.position;i++){
+            System.out.print("-");
         }
         return false;
     }
     public String toString(){
-        return this.name;
+        return name;
     }
 }
