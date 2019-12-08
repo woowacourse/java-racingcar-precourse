@@ -3,6 +3,7 @@ package com.github.callmewaggs.racinggame.domain;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -61,16 +62,13 @@ class TrackTest {
   @Test
   public void race_racing_cars_using_trial() {
     // Arrange
-    String inputCarNames = "test1,test2,test3";
     String inputTrial = "5";
-    Track track = new Track(inputCarNames, inputTrial);
+    Track track = new Track(mock(String.class), inputTrial);
 
     // Act
     track.race();
 
     // Assert
     verify(track.getRacingCars().get(0), times(5)).move(anyInt());
-    verify(track.getRacingCars().get(1), times(5)).move(anyInt());
-    verify(track.getRacingCars().get(2), times(5)).move(anyInt());
   }
 }

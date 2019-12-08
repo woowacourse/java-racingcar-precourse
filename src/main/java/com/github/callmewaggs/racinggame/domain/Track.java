@@ -36,4 +36,11 @@ public class Track {
   public int getTrial() {
     return trial;
   }
+
+  public void race() {
+    for (Car car : racingCars) {
+      int randomNumber = (int) (Math.random() * 1000) % 10;
+      car.move(randomNumber);
+    }
+  }
 }
