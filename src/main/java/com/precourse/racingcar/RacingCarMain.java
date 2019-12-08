@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.1.2   2019-12-08
+ * RacingCarMain.java              1.1.3   2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.1.2            raceCount 입력이 올바를 때 까지 반복할 수 있도록 수정
+ * @version 1.1.3            레이스를 시작하는 기능 추가
  * @date 2019-12-08
  * @author HyungjuAn
  */
@@ -36,6 +36,8 @@ public class RacingCarMain {
 
 	public static void main(String[] args) throws IOException {
 		Race race = initializeRace();
+
+		race.start();
 	}
 
 	public static Race initializeRace() throws IOException {
