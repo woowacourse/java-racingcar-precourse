@@ -1,9 +1,6 @@
 package com.racingcar;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Input
@@ -16,9 +13,9 @@ import java.util.Scanner;
 public class Input {
     Scanner scan = new Scanner(System.in);
 
-    public List<String> inputCarNames() {
+    public List<Car> inputCarNames() {
         Validator validator = new Validator();
-        List<String> carNames = new ArrayList<>();
+        List<String> carNames;
         String input;
 
         while (true) {
@@ -30,13 +27,24 @@ public class Input {
             }
             System.out.println("정상적인 입력이 아닙니다.");
         }
-        return carNames;
+        return stringToCar(carNames);
     }
 
     public List<String> splitNames(String input) {
         List<String> carNames = new ArrayList<>();
         Collections.addAll(carNames, input.split(","));
         return carNames;
+    }
+
+    public List<Car> stringToCar(List<String> carNames) {
+        List<Car> cars = new ArrayList<>();
+        Iterator itr = carNames.iterator();
+        while (itr.hasNext()) {
+            String carName = (String) itr.next();
+            Car tmpObject = new Car(carName);
+            cars.add(tmpObject);
+        }
+        return cars;
     }
 
     public int inputCount() {
