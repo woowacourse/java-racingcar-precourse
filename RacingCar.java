@@ -6,9 +6,14 @@ public class RacingCar {
     public static void main(String[] args) {
         List<Car> cars = makeCars(inputCarNames());
         int trialLength = Integer.parseInt(inputTrialLength());
-        RacingCar racingCars = new RacingCar(cars);
-        System.out.println(cars);
-        System.out.println(trialLength);
+        RacingCars racingCars = new RacingCars(cars);
+        System.out.printf("%n실행결과%n");
+        for (int i = 0; i < trialLength; i++) {
+            updateCars(cars);
+            racingCars = new RacingCars(cars);
+            racingCars.printStatus();
+        }
+        racingCars.printWinners();
     }
 
     private static String inputCarNames() {

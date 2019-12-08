@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RacingCars {
     private static final int MAX_LENGTH_OF_CAR_NAME = 5;
