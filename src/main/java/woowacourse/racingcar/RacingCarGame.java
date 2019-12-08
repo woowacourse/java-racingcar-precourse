@@ -13,6 +13,7 @@ public class RacingCarGame {
         int tryNumber = this.getTryNumber();
         this.setCarNames(carNames);
         this.startRacing(carNames, tryNumber);
+        this.winnerPrint();
     }
 
     private String [] getCarNames() {
@@ -43,7 +44,12 @@ public class RacingCarGame {
             }
             System.out.println();
         }
+    }
+
+    private void winnerPrint() {
         int maxNumber = this.getMaxNumber();
+        StringBuilder winner = this.checkWinner(maxNumber);
+        System.out.printf("%s가 최종 우승했습니다.", winner);
     }
 
     private int getMaxNumber() {
@@ -54,5 +60,16 @@ public class RacingCarGame {
             }
         }
         return maxNumber;
+    }
+
+    private StringBuilder checkWinner(int maxNumber) {
+        StringBuilder saveWinner = new StringBuilder();
+        for (Car value : car) {
+            if (value.getPosition() == maxNumber) {
+                saveWinner.append(value.getName()).append(", ");
+            }
+        }
+        saveWinner = new StringBuilder(saveWinner.substring(0, saveWinner.length() - 2));
+        return saveWinner;
     }
 }
