@@ -6,7 +6,6 @@ public class Main {
 
     private static final int RANDOM_MAX_NUMBER = 10;        // 차가 전진할 수 있을지 결정될 때, 랜덤으로 나올 수 있는 수들의 최대 크기.
     private static final int RANDOM_PARTITION_NUMBER = 4;   // 4보다 큰 수가 나오면 차는 전진할 수 있다. 그래서 전진할 지 말지 나누는 기준이 되는 수.
-    private static final int FIRST_WINNER_NUMBER = 0;       // 승자는 무조건 한 명이상이다. 그 때 첫 승자의 인덱스 값.
 
     private static OutputPrint outputPrint = new OutputPrint();
     private static InputScanner inputScanner = new InputScanner();
@@ -22,7 +21,7 @@ public class Main {
             play(carList);
         }
 
-        outputPrint.finalWinner(lastWinners(carList));
+        outputPrint.finalWinner(carList.lastWinners());
     }
 
     private static void play(ArrayList<Car> carList) {
@@ -40,15 +39,6 @@ public class Main {
     public static boolean canDrive() {
         Random random = new Random();
         return (random.nextInt(RANDOM_MAX_NUMBER) >= RANDOM_PARTITION_NUMBER);
-    }
-
-    private static String lastWinners(ArrayList<Car> carList) {
-        Collections.sort(carList, new CarComparator());
-        String winnersNameList = carList.get(FIRST_WINNER_NUMBER).getName();
-        for (int i = 1; i < howManyWin(carList); i ++) {
-            winnersNameList += "," + carList.get(i).getName();
-        }
-        return winnersNameList;
     }
 
 }
