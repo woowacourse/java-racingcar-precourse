@@ -2,12 +2,12 @@
 import java.util.*;
 
 public class Game {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
+        Car[] cars;
         String input;
         String[] names;
-        int numberOfGames;
-        Car[] cars;
+        int numberOfGames, numberOfCars;
 
         System.out.println("경주할 자동차 이름을 입력하세요," +
                 " (이름은 쉼표(,) 기준으로 구분)");
@@ -15,17 +15,26 @@ public class Game {
         names = input.split(",");
         System.out.println("시도할 회수는 몇회인가요?");
         numberOfGames = s.nextInt();
+        numberOfCars = names.length;
+        cars = new Car[numberOfCars];
+        initializeCar(cars, names, numberOfCars);
+        printGame(cars, numberOfGames, numberOfCars);
+    }
 
-        cars = new Car[numberOfGames];
-        System.out.println("실행 결과");
-        for(int i=0;i<names.length;i++){
+    public static void initializeCar(Car[] cars, String[] names,
+                                     int numberOfCars){
+        for(int i=0;i<numberOfCars;i++){
             cars[i] = new Car(names[i]);
         }
+    }
+    public static void printGame(Car[] cars, int numberOfGames,
+                                 int numberOfCars){
+        System.out.println("\n실행 결과");
         for(int i=0;i<numberOfGames;i++){
-            cars[0].printMovingForward();
-            System.out.println();
+            for(int j=0;j<numberOfCars;j++){
+                cars[j].printMovingForward();
+            }
         }
-
     }
 
 }

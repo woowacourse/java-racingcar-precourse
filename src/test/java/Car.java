@@ -16,12 +16,14 @@ public class Car {
             for(int i=0;i<this.position;i++){
                 System.out.print("-");
             }
+            System.out.println();
             return true;
         }
         System.out.print(name +" : ");
         for(int i=0;i<this.position;i++){
             System.out.print("-");
         }
+        System.out.println();
         return false;
     }
     public String toString(){
