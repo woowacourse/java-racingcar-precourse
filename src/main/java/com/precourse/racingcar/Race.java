@@ -1,5 +1,5 @@
 /*
- * User.java                      1.12.1   2019-12-07
+ * User.java                      1.12.2   2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -19,8 +19,8 @@ import java.util.StringTokenizer;
  * 레이스의 정보를 입력받는 기능들이 있습니다.
  * 입력이 올바르지 않은 경우 예외처리를 하는 기능이 있습니다.
  *
- * @version 1.12.1            클래스명을 Race로 변경
- * @date 2019-12-07
+ * @version 1.12.2            레이스 정보를 저장할 클래스 변수와 Getter,Setter 메소드 추가
+ * @date 2019-12-08
  * @author HyungjuAn
  */
 public class Race {
@@ -35,7 +35,12 @@ public class Race {
 	private static final String INVALID_INPUT_PRINTING = "잘못 입력하셧습니다.";
 	private static final String RACE_COUNT_QUESTION = "시도할 횟수는 몇회인가요?";
 
+	private ArrayList<Car> carArrayList;
+	private int raceCount;
+
 	public Race() {
+		carArrayList = new ArrayList<>();
+		raceCount = MINIMUM_RACE;
 	}
 
 	public ArrayList<Car> getCarsInformation() throws IOException {
@@ -108,14 +113,14 @@ public class Race {
 		System.out.println(INVALID_INPUT_PRINTING);
 	}
 
-	public int getRaceCount() throws IOException {
-		int raceCount;
-
-		printRaceCountQuestion();
-		raceCount = readRaceCount();
-
-		return raceCount;
-	}
+	// public int getRaceCount() throws IOException {
+	// 	int raceCount;
+	//
+	// 	printRaceCountQuestion();
+	// 	raceCount = readRaceCount();
+	//
+	// 	return raceCount;
+	// }
 
 	private void printRaceCountQuestion() {
 		System.out.println(RACE_COUNT_QUESTION);
@@ -162,5 +167,23 @@ public class Race {
 	@Override
 	public String toString() {
 		return super.toString();
+	}
+
+	/* Getter Methods */
+	public ArrayList<Car> getCarArrayList() {
+		return carArrayList;
+	}
+
+	public int getRaceCount() {
+		return raceCount;
+	}
+
+	/* Setter Methods */
+	public void setCarArrayList(ArrayList<Car> carArrayList) {
+		this.carArrayList = carArrayList;
+	}
+
+	public void setRaceCount(int raceCount) {
+		this.raceCount = raceCount;
 	}
 }
