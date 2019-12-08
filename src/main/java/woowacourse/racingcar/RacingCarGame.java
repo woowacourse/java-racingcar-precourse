@@ -5,15 +5,31 @@ import java.util.Scanner;
 import domain.Car;
 
 public class RacingCarGame {
-    private Car [] car;
+    private Car [] cars;
     private Scanner sc = new Scanner(System.in);
 
     public void runGame() {
-        String [] carNames = this.getCarNames();
+        boolean checkInput = false;
+        while (!checkInput) {
+            String [] carNames = this.getCarNames();
+            this.setCarNames(carNames);
+            checkInput = this.checkInput();
+            if (!checkInput) {
+                System.out.println("다시 입력해주세요. 이름은 최대 5자까지 가능합니다.");
+            }
+        }
         int tryNumber = this.getTryNumber();
-        this.setCarNames(carNames);
-        this.startRacing(carNames, tryNumber);
+        this.startRacing(tryNumber);
         this.winnerPrint();
+    }
+
+    private boolean checkInput() {
+        for (Car value : cars) {
+            if (value.getName().length() > 5) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private String [] getCarNames() {
@@ -28,19 +44,19 @@ public class RacingCarGame {
 
     private void setCarNames(String [] carNames) {
         int carCount = carNames.length;
-        car = new Car[carCount];
+        cars = new Car[carCount];
         for (int i = 0; i < carCount; i++) {
-            car[i] = new Car(carNames[i]);
+            cars[i] = new Car(carNames[i]);
         }
     }
 
-    private void startRacing(String [] names, int tryNumber) {
+    private void startRacing(int tryNumber) {
         System.out.println();
         System.out.println("실행 결과");
         for (int i = 0; i < tryNumber; i++) {
-            for (int j = 0; j < names.length; j++) {
-                car[j].goAndStop();
-                car[j].printResult();
+            for (Car value : cars) {
+                value.goAndStop();
+                value.printResult();
             }
             System.out.println();
         }
@@ -49,12 +65,12 @@ public class RacingCarGame {
     private void winnerPrint() {
         int maxNumber = this.getMaxNumber();
         StringBuilder winner = this.checkWinner(maxNumber);
-        System.out.printf("%s가 최종 우승했습니다.", winner);
+        System.out.println(""+winner+"가 최종 우승했습니다.");
     }
 
     private int getMaxNumber() {
         int maxNumber = Integer.MIN_VALUE;
-        for (Car value : car) {
+        for (Car value : cars) {
             if (maxNumber < value.getPosition()) {
                 maxNumber = value.getPosition();
             }
@@ -64,7 +80,7 @@ public class RacingCarGame {
 
     private StringBuilder checkWinner(int maxNumber) {
         StringBuilder saveWinner = new StringBuilder();
-        for (Car value : car) {
+        for (Car value : cars) {
             if (value.getPosition() == maxNumber) {
                 saveWinner.append(value.getName()).append(", ");
             }
