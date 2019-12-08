@@ -5,25 +5,25 @@ import java.util.List;
 
 public class RacingCarGame {
     public static void main(String[] args) {
-        System.out.println("asd".toUpperCase().equals("ASD"));
-        startRacingCarGame();
+        RacingCarGame racingCarGame = new RacingCarGame();
+        racingCarGame.startRacingCarGame();
     }
 
-    private static void startRacingCarGame() {
+    private void startRacingCarGame() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        getRacingCarName();
+        List<Car> racingCars = getRacingCarName();
+        System.out.println("시도 할 횟수는 몇번 인가요?");
+
     }
 
-    private static void getRacingCarName() {
+    private List<Car> getRacingCarName() {
         Validator carValidator = new Validator();
         List<String> racingCarNames = carValidator.getRacingCarNames();
         List<Car> racingCars = new ArrayList<>();
         for(String racingCar : racingCarNames) {
             racingCars.add(new Car(racingCar));
         }
-        for(Car c : racingCars) {
-            System.out.println(c.getCarName());
-        }
+        return racingCars;
     }
 
 
