@@ -18,8 +18,9 @@ public class RacingCarGame {
     }
 
     public static void play() throws IOException {
-        UserInput userInput = UserInput.getInstance();
-        RacingController racingController = RacingController.getInstance();
+        UserInput userInput = new UserInput();
+        RacingController racingController = new RacingController();
+
 
         PrintHandler.notifyCarNameRule();
         List<Car> users = userInput.makeCars();

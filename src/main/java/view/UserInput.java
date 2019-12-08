@@ -18,20 +18,8 @@ import java.util.List;
 public class UserInput {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static final String COMMA = ",";
-    private static UserInput INSTANCE;
 
-    private static InputValidator validator = InputValidator.getInstance();
-
-    private UserInput() {
-        throw new AssertionError();
-    }
-
-    public static UserInput getInstance() {
-        if(INSTANCE == null){
-            INSTANCE = new UserInput();
-        }
-        return INSTANCE;
-    }
+    private static InputValidator validator = new InputValidator();
 
 
     public List<Car> makeCars() throws IOException {
