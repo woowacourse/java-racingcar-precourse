@@ -17,7 +17,7 @@ public class Main {
         ArrayList<Car> carList = getCarName(scanner.nextLine());
         outputPrint.howManyTry();
         int gameSets = scanner.nextInt();
-        println("\n실행결과");
+        outputPrint.executeResult();
         for (int i = 0; i < gameSets; i++) {
             play(carList);
             println("");

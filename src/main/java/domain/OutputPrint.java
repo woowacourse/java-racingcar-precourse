@@ -10,6 +10,10 @@ public class OutputPrint {
         println("시도할 회수는 몇 회인가요?");
     }
 
+    public void executeResult() {
+        println("\n실행결과");
+    }
+
     private static void println(String string) {
         System.out.println(string);
     }

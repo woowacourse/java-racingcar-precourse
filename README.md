@@ -86,7 +86,7 @@ String nameLengthCheck(String name)
 ```
 void insertName()
 void howManyTry()
-void executionResult()
+void executeResult()
 void finalWinner(String name)
 void println(String string)
 ```
@@ -94,7 +94,7 @@ void println(String string)
 ###### 경주할 자동차이름을 입력하라는 메시지가 뜬다.
 ##### howManyTry 메소드
 ###### 얼마나 시도할거냐는 메시지가 뜬다.
-##### executionResult()
+##### executeResult()
 ###### 실행 결과 메시지 출력.
 ##### finalWinner(String name)
 ###### naem (이)가 최종우승하였습니다. 출력.
