@@ -62,8 +62,4 @@ public class Main {
         return winnersNumber;
     }
 
-    private static boolean isSamePosition(Car carA, Car carB) {
-        return (carA.getPosition() == carB.getPosition());
-    }
-
 }
