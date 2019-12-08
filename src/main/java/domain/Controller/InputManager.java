@@ -19,36 +19,64 @@ import java.util.Scanner;
  */
 public class InputManager {
     Scanner scanner;
+    int ZERO = 0;
+    int LAP_INITIALIZE = -1;
+    int lap = LAP_INITIALIZE;
 
     public InputManager() {
         this.scanner = new Scanner(System.in);
     }
 
     public String inputCarNames() {
+        String carNames;
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        return scanner.next();
+        carNames = scanner.nextLine();
+
+        if (carNames.equals(",")) {
+            System.out.println("(,)만 입력할 수 없습니다! 다시 입력해주세요.");
+            return scanner.nextLine();
+        }
+
+        return carNames;
     }
 
     public String[] inputCarNamesArray() {
         return inputCarNames().split(",");
     }
 
-    public int inputNumberOfLaps() {
-        int lap = -1;
+    private boolean isLapInt() {
 
-        while(lap != 0) {
-            System.out.println("시도할 횟수는 몇회인가요?");
-
-            try {
-                lap = scanner.nextInt();
-                break;
-            } catch (InputMismatchException e) {
-                scanner = new Scanner(System.in);
-                System.out.println("숫자만 입력해주세요!!");
-            }
-
+        try {
+            this.lap = scanner.nextInt();
+            return true;
+        } catch (InputMismatchException e) {
+            scanner = new Scanner(System.in);
+            System.out.println("숫자만 입력해주세요!!");
+            return false;
         }
 
+    }
+
+    private boolean isLapBiggerThanZero() {
+
+        if (this.lap > ZERO) {
+            return true;
+        } else {
+            System.out.println("0보다 큰 수를 입력하세요!");
+            this.lap = LAP_INITIALIZE;
+            return false;
+        }
+
+    }
+
+    public int inputNumberOfLaps() {
+
+        while(lap != ZERO) {
+            System.out.println("시도할 횟수는 몇회인가요?");
+
+            if (isLapInt() && isLapBiggerThanZero()) { break; }
+
+        }
 
         return lap;
     }

@@ -54,7 +54,6 @@ public class RacingManager {
                 carmanager
                         .ifBiggerThanFourYouCanMove(random.nextInt(10), j);
             }
-
             printResultEachLap();
         }
 
@@ -67,7 +66,6 @@ public class RacingManager {
 
     private void race() {
         moveOrStop();
-        printResultEachLap();
     }
 
     private void printWinner() {

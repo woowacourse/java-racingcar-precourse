@@ -26,20 +26,29 @@ public class CarManager {
 
     int carsLength;
     int maxPosition;
+    int randomNameIndex = 0;
+    String[] randomName = {"문화컬쳐", "어둠의다크", "혼돈카오스"};
 
     public CarManager(String[] carNames) {
         this.carsLength = carNames.length;
         cars = new Car[carsLength];
 
-        for (int i = 0; i < carsLength; i++) {
-            cars[i] = new Car(carNames[i]);
-        }
+        setCarNames(carNames);
 
         this.positionList = new ArrayList<>();
     }
 
     public int getCarsLength() {
         return this.carsLength;
+    }
+
+
+    private void setCarNames(String[] carNames) {
+
+        for (int i = 0; i < carsLength; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
+
     }
 
     private void setPositionList() {
