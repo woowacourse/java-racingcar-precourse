@@ -6,6 +6,7 @@ public class RacingCar {
     public static void main(String[] args) {
         List<Car> cars = makeCars(inputCarNames());
         int trialLength = Integer.parseInt(inputTrialLength());
+        RacingCar racingCars = new RacingCar(cars);
         System.out.println(cars);
         System.out.println(trialLength);
     }
@@ -34,6 +35,18 @@ public class RacingCar {
 
     private static String[] split(String text) {
         return text.split(",");
+    }
+
+    private static void updateCars(List<Car> cars) {
+        for (Car car : cars) {
+            updateCar(car);
+        }
+    }
+
+    private static void updateCar(Car car) {
+        if (shouldMove()) {
+            car.moveForward(STRIDE_LENGTH);
+        }
     }
 
     private static boolean shouldMove() {
