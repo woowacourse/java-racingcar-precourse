@@ -8,15 +8,11 @@ public class Main {
     private static final int RANDOM_PARTITION_NUMBER = 4;   // 4보다 큰 수가 나오면 차는 전진할 수 있다. 그래서 전진할 지 말지 나누는 기준이 되는 수.
     private static final int FIRST_WINNER_NUMBER = 0;       // 승자는 무조건 한 명이상이다. 그 때 첫 승자의 인덱스 값.
 
-    private static OutputPrint outputPrint;
-    private static InputScanner inputScanner;
-    private static CarNameCheck carNameCheck;
+    private static OutputPrint outputPrint = new OutputPrint();
+    private static InputScanner inputScanner = new InputScanner();
+    private static CarNameCheck carNameCheck = new CarNameCheck();
 
     public static void main(String[] args) {
-        outputPrint = new OutputPrint();
-        inputScanner = new InputScanner();
-        carNameCheck = new CarNameCheck();
-
         outputPrint.insertName();
         ArrayList<Car> carList = carNameCheck.splitCarName();
         outputPrint.howManyTry();
@@ -26,7 +22,7 @@ public class Main {
             play(carList);
         }
 
-        outputPrint.finalWinner(printLastWinners(carList));
+        outputPrint.finalWinner(lastWinners(carList));
     }
 
     public static boolean canDrive() {
@@ -46,6 +42,15 @@ public class Main {
         outputPrint.println("");
     }
 
+    private static String lastWinners(ArrayList<Car> carList) {
+        Collections.sort(carList, new CarComparator());
+        String winnersNameList = carList.get(FIRST_WINNER_NUMBER).getName();
+        for (int i = 1; i < howManyWin(carList); i ++) {
+            winnersNameList += "," + carList.get(i).getName();
+        }
+        return winnersNameList;
+    }
+
     private static int howManyWin(ArrayList<Car> carList) {
         int winnersNumber = 1;
         for(int i = 0; i < carList.size()-1; i ++) {
@@ -59,15 +64,6 @@ public class Main {
 
     private static boolean isSamePosition(Car carA, Car carB) {
         return (carA.getPosition() == carB.getPosition());
-    }
-
-    private static String printLastWinners(ArrayList<Car> carList) {
-        Collections.sort(carList, new CarComparator());
-        String winnersNameList = carList.get(FIRST_WINNER_NUMBER).getName();
-        for (int i = 1; i < howManyWin(carList); i ++) {
-            winnersNameList += "," + carList.get(i).getName();
-        }
-        return winnersNameList;
     }
 
 }
