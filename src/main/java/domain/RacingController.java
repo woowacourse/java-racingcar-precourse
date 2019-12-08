@@ -12,7 +12,7 @@ import java.util.List;
  * @since 2019-12-05
  * @apiNote 자동차 경주를 위한 클래스로 게임시작, 사용자별 전진&스탑 여부, 우승자찾기 등의 메서드로 이루어져있습니다.
  */
-public class RacingController {
+public class RacingController implements Game{
     private static final int MIN_OF_GO = 4;
     private static RacingController INSTANCE;
 
@@ -27,6 +27,7 @@ public class RacingController {
         return INSTANCE;
     }
 
+    @Override
     public void gameStart(List<Car> users, int howMany) {
         PrintHandler.gameResult();
         for (int i = 0; i < howMany; i++) {
@@ -42,6 +43,7 @@ public class RacingController {
         return Computer.makeRandomNumber() >= MIN_OF_GO;
     }
 
+    @Override
     public List<String> getWinner(List<Car> users) {
         int maxPositionValue = maxPositionNumber(users);
         return whoIsTheSameAsMaxPosition(users, maxPositionValue);
