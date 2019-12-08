@@ -1,5 +1,5 @@
 /*
- * User.java                      1.12.2   2019-12-08
+ * User.java                      1.12.3   2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
  * 레이스의 정보를 입력받는 기능들이 있습니다.
  * 입력이 올바르지 않은 경우 예외처리를 하는 기능이 있습니다.
  *
- * @version 1.12.2            레이스 정보를 저장할 클래스 변수와 Getter,Setter 메소드 추가
+ * @version 1.12.3            toString 메소드를 경주를 표현할수 있도록 수정
  * @date 2019-12-08
  * @author HyungjuAn
  */
@@ -164,9 +164,18 @@ public class Race {
 	protected final void finalize() throws Throwable {
 	}
 
+	/**
+	 * 이 경주의 자동차 리스트와 레이스 횟수를 알려줍니다.
+	 * 다음은 이 설명의 일반적인 형태이나,
+	 * 상세 형식은 정해지지 않았으며 향후 변경될 수 있다.
+	 * <p>
+	 * "[pobi, hj]로 3회 경주."
+	 *
+	 * @return 클래스를 나타낼 수 있는 정보를 가진 문자열
+	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return carArrayList.toString() + "로 " + raceCount + "회 경주";
 	}
 
 	/* Getter Methods */
