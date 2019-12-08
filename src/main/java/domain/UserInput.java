@@ -2,6 +2,13 @@ package domain;
 
 import java.util.Scanner;
 
+/**
+ * ClassName : UserInput
+ * ClassExplanation : 사용자 입력 반환
+ * author : Kim SeYun
+ * Date : 2019. 12. 08
+ * Copyright (c) 2019 SeYun Kim
+ */
 public class UserInput {
 
     String[] carNames;
@@ -49,14 +56,11 @@ public class UserInput {
             return false;
         }
         for (String carName : carNames) {
-            if (carName.length() > 5 || carName.length() == 0 || carName.contains(" ") || !carName.matches("^[a-zA-Z]*$")) {
+            if (carName.length() > 5 || carName.length() == 0 || carName.contains(" ") ||
+                    !carName.matches("^[a-zA-Z]*$")) {
                 return false;
             }
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        UserInput userInput = new UserInput();
     }
 }

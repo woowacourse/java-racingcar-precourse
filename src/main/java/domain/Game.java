@@ -2,6 +2,13 @@ package domain;
 
 import java.util.Random;
 
+/**
+ * ClassName : Game
+ * ClassExplanation : 현재결과, 최종결과 반환
+ * author : Kim SeYun
+ * Date : 2019. 12. 08
+ * Copyright (c) 2019 SeYun Kim
+ */
 public class Game {
     public Game() {
         UserInput userInput = new UserInput();
