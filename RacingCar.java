@@ -9,10 +9,10 @@ public class RacingCar {
         List<Car> cars = makeCars(receiveInput(PROMPT_CAR_NAMES));
         RacingCars racingCars = new RacingCars(cars);
         int trialLength = Integer.parseInt(receiveInput(PROMPT_TRIAL_LENGTH));
-        finishRace(racingCars, trialLength).printWinners();
+        runRace(racingCars, trialLength).printWinners();
     }
 
-    private static RacingCars finishRace(RacingCars racingCars, int trialLength) {
+    private static RacingCars runRace(RacingCars racingCars, int trialLength) {
         System.out.printf(TITLE_RACE_RESULT);
         for (int i = 0; i < trialLength; i++) {
             racingCars.updateCars();
