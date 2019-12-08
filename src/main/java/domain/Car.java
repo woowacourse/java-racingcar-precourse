@@ -49,5 +49,26 @@ public class Car {
 		}
 		return shapes;
 	}
+	
+	public int findWinnerPosition(int tempPosition) {
+		int biggerPosition = tempPosition;
+		if (this.position >= tempPosition) {
+			biggerPosition = this.position;
+		} else if (this.position < tempPosition) {
+			biggerPosition = tempPosition;
+		}
+		return biggerPosition;
+	}
+	
+	public boolean isWinner(int winnerPosition) {
+		if (this.position == winnerPosition) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String getWinnerName() {
+		return this.name;
+	}
 
 }
