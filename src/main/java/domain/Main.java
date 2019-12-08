@@ -8,19 +8,19 @@ public class Main {
     private static final int RANDOM_PARTITION_NUMBER = 4;   // 4보다 큰 수가 나오면 차는 전진할 수 있다. 그래서 전진할 지 말지 나누는 기준이 되는 수.
     private static final int FIRST_WINNER_NUMBER = 0;       // 승자는 무조건 한 명이상이다. 그 때 첫 승자의 인덱스 값.
 
-    public static Scanner scanner;
+    private static Scanner scanner;
+    private static OutputPrint outputPrint;
 
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
-        OutputPrint outputPrint = new OutputPrint();
+        outputPrint = new OutputPrint();
         outputPrint.insertName();
-        ArrayList<Car> carList = getCarName(scanner.nextLine());
+        ArrayList<Car> carList = setCarName(scanner.nextLine());
         outputPrint.howManyTry();
         int gameSets = scanner.nextInt();
         outputPrint.executeResult();
         for (int i = 0; i < gameSets; i++) {
             play(carList);
-            println("");
         }
 
         outputPrint.finalWinner(printLastWinners(carList));
@@ -38,8 +38,9 @@ public class Main {
                 currentCar.drive();
             }
             currentCar.printDistance();
-            println("");
+            outputPrint.println("");
         }
+        outputPrint.println("");
     }
 
     private static int howManyWin(ArrayList<Car> carList) {

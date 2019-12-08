@@ -69,20 +69,31 @@ int compare(Car car1, Car car2)
 
 
 
-#### Class CarNameCheck
+### Class CarNameCheck
 ```
-ArrayList<Car> getCarName(String carName)
+ArrayList<Car> setCarName(String carName)
 String nameLengthCheck(String name)
 ```
-##### getCarName(String carName) 메소드
+##### setCarName(String carName) 메소드
 ###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
 ##### nameLengthCheck 메소드
 ###### 차 객체의 이름이 5이하인지 확인해서 아니면 다시 입력하게 하는 메소드
 
 
 
-#### Class InputScanner
-#### Class OutputPrint
+### Class InputScanner
+```
+String getCarName()
+int howManyPlay()
+```
+##### getCarName() 메소드
+###### 사용자가 입력한 차 객체 이름 나열 문자열을 입력받아 반환해주는 메소드.
+##### howManyPlay() 메소드
+##### 사용자에게 얼만큼의 게임 세트를 진행할 건지 입력받아 반환해주는 메소드.
+
+
+
+### Class OutputPrint
 ```
 void insertName()
 void howManyTry()
@@ -106,7 +117,7 @@ void println(String string)
 
 
 
-#### Class Main
+### Class Main
 ```
 boolean canDrive()
 void play(ArrayList<Car> carList)

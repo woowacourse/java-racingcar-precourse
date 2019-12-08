@@ -22,7 +22,7 @@ public class OutputPrint {
         println("차 객체의 이름 '"+name+"'은 5글자가 넘습니다. 다시 입력해주세요.");
     }
 
-    private static void println(String string) {
+    public static void println(String string) {
         System.out.println(string);
     }
 
