@@ -9,13 +9,14 @@ public class CarList {
     private static final int RANDOM_MAX_NUMBER = 10;        // 차가 전진할 수 있을지 결정될 때, 랜덤으로 나올 수 있는 수들의 최대 크기.
     private static final int RANDOM_PARTITION_NUMBER = 4;   // 4보다 큰 수가 나오면 차는 전진할 수 있다. 그래서 전진할 지 말지 나누는 기준이 되는 수.
     private static final int FIRST_WINNER_NUMBER = 0;       // 승자는 무조건 한 명이상이다. 그 때 첫 승자의 인덱스 값.
+    private static int gameSets = 5;
     private static ArrayList<Car> carList;
 
     public CarList() {
         this.carList = new CarNameCheck().splitCarName();
     }
 
-    public void play() {
+    public void play(int initNumber) {
         for(int i = 0; i < carList.size(); i ++) {
             Car currentCar = carList.get(i);
             if (canDrive()) {
@@ -25,6 +26,9 @@ public class CarList {
             new OutputPrint().println("");
         }
         new OutputPrint().println("");
+        if(initNumber != gameSets-1) {
+            play(++initNumber);
+        }
     }
 
     private static boolean canDrive() {
