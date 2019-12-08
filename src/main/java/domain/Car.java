@@ -16,4 +16,14 @@ public class Car {
 	public int getPosition() {
 		return position;
 	}
+
+	public void run(int value) {
+		if (isMoved(value)) {
+			this.position++;
+		}
+	}
+
+	private boolean isMoved(int value) {
+		return value > 4;
+	}
 }

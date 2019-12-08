@@ -36,4 +36,12 @@ public class Main {
 		}
 		return carList;
 	}
+
+	static void runCars(List<Car> carList){
+		Random random=new Random();
+		for (Car car:carList
+		) {
+			car.run(random.nextInt(10));
+		}
+	}
 }
