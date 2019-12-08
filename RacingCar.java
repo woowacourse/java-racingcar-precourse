@@ -33,10 +33,6 @@ public class RacingCar {
         return cars;
     }
 
-    private static String[] split(String text) {
-        return text.split(",");
-    }
-
     private static void updateCars(List<Car> cars) {
         for (Car car : cars) {
             updateCar(car);
@@ -53,5 +49,9 @@ public class RacingCar {
         Random random = new Random();
         // 60% 확률로 참값을 반환함
         return random.nextInt(10) >= 4;
+    }
+
+    private static String[] split(String text) {
+        return text.split(",");
     }
 }

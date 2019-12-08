@@ -28,4 +28,18 @@ public class RacingCars {
                 .max()
                 .getAsInt();
     }
+
+    public List<String> getWinners() {
+        int maxDistance = getMaxDistance();
+        return cars.stream()
+                .filter(car -> car.isMaxPosition(maxDistance))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    public void printWinners() {
+        List<String> winners = getWinners();
+        String result = String.join(", ", winners);
+        System.out.println(result + "가 최종 우승했습니다.");
+    }
 }
