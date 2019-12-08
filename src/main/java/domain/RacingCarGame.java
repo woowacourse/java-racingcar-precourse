@@ -29,6 +29,9 @@ public class RacingCarGame {
 	public void startGame() {
 		getCarNames();
 		getTries();
+		for (int i = 0; i < numOfTries; i++) {
+			moveCar();
+		}
 	}
 
 	private void getCarNames() {
@@ -50,5 +53,11 @@ public class RacingCarGame {
 			numOfTries = input.nextInt();
 			exception = new ExceptionHandler(numOfTries);
 		} while (exception.checkTryRange());
+	}
+	
+	private void moveCar() {
+		for (Car car : cars) {
+			car.makeRandomNum();
+		}
 	}
 }
