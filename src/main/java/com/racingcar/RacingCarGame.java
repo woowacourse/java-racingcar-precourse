@@ -18,6 +18,33 @@ public class RacingCarGame {
     private int count;
     public Output output = new Output();
 
+    public void racingCarGame() {
+        Input input = new Input();
+        List<String> winner;
+
+        this.cars = input.inputCarNames();
+        count = input.inputCount();
+
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < count; i++) {
+            run();
+        }
+        winner = selectWinner();
+        output.printWinner(winner);
+        return;
+    }
+
+    public void run() {
+        Iterator itr = this.cars.iterator();
+        while (itr.hasNext()) {
+            Car car = (Car) itr.next();
+            randomAdvance(car);
+            output.printCarPosition(car);
+        }
+        System.out.println();
+
+    }
+
     public void randomAdvance(Car car) {
         int randNum = (int) (Math.random() * 10);
         if (randNum >= 4) {
