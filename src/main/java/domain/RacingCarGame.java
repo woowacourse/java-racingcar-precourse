@@ -30,7 +30,9 @@ public class RacingCarGame {
             if(getCarState.nextInt(9) > 3) {
                 racingCars.get(car).moveForward();
             }
+            racingCars.get(car).displayCarPostion();
         }
+        System.out.println();
     }
 
     private int getRacingLab() {

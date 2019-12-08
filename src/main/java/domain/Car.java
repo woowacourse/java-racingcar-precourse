@@ -9,5 +9,13 @@ public class Car {
     }
 
     public void moveForward() { this.position++; }
+
+    public void displayCarPostion() {
+        System.out.print(name + " : ");
+        for(int i=0; i<position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
     // 추가 기능 구현
 }
