@@ -50,6 +50,10 @@
 
 - 반환 : position
 
+#### 기능 - int getName();
+
+- 반환 : name
+
 <br>
 
 ## Naming 클래스 기능
@@ -160,7 +164,7 @@
 
 - checkWinner(cars)로 우승자 발표
 
-#### void goingCars(Car cars, int count)
+#### void goingCars(Car[] cars, int count)
 
 - 입력받은 회수만큼 반복
 
@@ -168,7 +172,7 @@
 
 - 완료시 carsConditions() 호출
 
-#### void carsConditions(Car cars)
+#### void carsConditions(Car[] cars)
 
 - 출력 : 자동차 이름 : -(현재 전진한 숫자) * 반복 + 공백 한 줄
 
@@ -176,7 +180,7 @@
   <br>sun : ----
   <br>sunny : --
 
-#### void checkWinner(Car cars)
+#### void checkWinner(Car[] cars)
 
 - 누가 우승했는지 알려주기
 
