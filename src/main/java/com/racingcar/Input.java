@@ -27,7 +27,7 @@ public class Input {
             }
             System.out.println("정상적인 입력이 아닙니다.");
         }
-        return stringToCar(carNames);
+        return converToCarObjects(carNames);
     }
 
     public List<String> splitNames(String input) {
@@ -36,7 +36,7 @@ public class Input {
         return carNames;
     }
 
-    public List<Car> stringToCar(List<String> carNames) {
+    public List<Car> converToCarObjects(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         Iterator itr = carNames.iterator();
         while (itr.hasNext()) {

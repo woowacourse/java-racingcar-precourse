@@ -18,7 +18,7 @@ public class RacingCarGame {
     private int count;
     public Output output = new Output();
 
-    public void racingCarGame() {
+    public void runRacingCar() {
         Input input = new Input();
         List<String> winner;
 
@@ -27,14 +27,14 @@ public class RacingCarGame {
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < count; i++) {
-            run();
+            race();
         }
         winner = selectWinner();
         output.printWinner(winner);
         return;
     }
 
-    public void run() {
+    public void race() {
         Iterator itr = this.cars.iterator();
         while (itr.hasNext()) {
             Car car = (Car) itr.next();
