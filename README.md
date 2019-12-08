@@ -27,8 +27,7 @@
         * Return : 
             * none
         * Description : 사용자로부터 입력받은 이름을 사용해서 Car 인스턴스를 생성해준다.
-        
-    ~~ * ```booelan printMovingForward()```~~
+    
     * int printMovingForward()
         * Method Name : movingForward 
         * Parameter  : none
