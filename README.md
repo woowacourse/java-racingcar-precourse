@@ -71,7 +71,8 @@ int compare(Car car1, Car car2)
 
 ### Class CarList
 ```
-ArrayList<Car> CarList
+CarList
+void setGamePlayNumber()
 void play(ArrayList<Car> carList)
 boolean canDrive()
 String lastWinners(ArrayList<Car> carList)
@@ -80,6 +81,8 @@ boolean isSamePosition(Car carA, Car carB)
 ```
 ##### CarList 생성자
 ###### 차 객체들의 ArrayList 를 생성해주는 생성자이다.
+##### setGamePlayNumber 메소드
+##### 게임을 몇 번 반복하여 실행할 것인지 입력받는 메소드
 ##### play(ArrayList<Car> CarList) 메소드
 ###### 각 차 객체들을 경주시키고 그 결과를 print 해주는 메소드
 ##### canDrive() 메소드
