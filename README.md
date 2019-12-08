@@ -20,6 +20,7 @@
     - List<Car>의 일급 컬렉션 구현하기 (RacingCars class)
         - 모든 자동차 이름의 길이가 최대치를 넘지 않았는지 판단하기
         - 모든 자동차 위치 중 가장 많이 전진한 길이 뽑아내기
+        - 최종 승자(들)을 계산하고 출력하는 기능
     - 입력 받은 각 자동차 이름으로 자동차별 객체 만들어 List<Car>에 집어넣기 (makeCars method)
     - 각 시도마다 전진할지 멈춰 있을지 판단하기 (shouldMove method)
     - 실제 자동차를 한 칸으로 전진시키기 (moveForward method)

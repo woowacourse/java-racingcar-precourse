@@ -24,17 +24,17 @@ public class RacingCars {
 
     public int getMaxDistance() {
         return cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .getAsInt();
+                   .mapToInt(Car::getPosition)
+                   .max()
+                   .getAsInt();
     }
 
     public List<String> getWinners() {
         int maxDistance = getMaxDistance();
         return cars.stream()
-                .filter(car -> car.isMaxPosition(maxDistance))
-                .map(Car::getName)
-                .collect(Collectors.toList());
+                   .filter(car -> car.isMaxPosition(maxDistance))
+                   .map(Car::getName)
+                   .collect(Collectors.toList());
     }
 
     public void printWinners() {
