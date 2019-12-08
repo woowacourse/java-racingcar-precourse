@@ -65,8 +65,4 @@ public class Main {
         return winnersNameList;
     }
 
-    private static void println(String string) {
-        System.out.println(string);
-    }
-
 }
