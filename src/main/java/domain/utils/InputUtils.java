@@ -13,21 +13,10 @@ public class InputUtils {
 	private static final String PROMPT_TRIES = "시도할 회수는 몇회인가요?";
 	private static final String ERROR_MESSAGE = "유효하지 않은 입력입니다.";
 
-	private static InputUtils inputUtils;
-	static Scanner scanner;
+	private static Scanner scanner=new Scanner(System.in);
 
-	private InputUtils() {
-		scanner = new Scanner(System.in);
-	}
-
-	public static InputUtils getInstance() {
-		if (inputUtils == null) {
-			inputUtils = new InputUtils();
-		}
-		return inputUtils;
-	}
-
-	public Integer inputRuns() {
+	private InputUtils(){}
+	public static Integer inputRuns() {
 		Integer inputValue;
 		while (true) {
 			System.out.println(PROMPT_TRIES);
@@ -41,16 +30,16 @@ public class InputUtils {
 		return inputValue;
 	}
 
-	public List<String> inputNames() {
+	public static List<String> inputNames() {
 		String inputValue;
 		List<String> namesList;
 		while (true) {
 			System.out.println(PROMPT_NAMES);
 			inputValue = scanner.nextLine();
 			namesList = Arrays.asList(inputValue.split(SEPARATOR[0]));
-			if (namesList.stream().map(name ->isValidName(name))
-									.reduce(((validity1, validity2) -> validity1&validity2))
-									.get()) {
+			if (namesList.stream().map(name -> isValidName(name))
+				.reduce(((validity1, validity2) -> validity1 & validity2))
+				.get()) {
 				break;
 			}
 			System.out.println(ERROR_MESSAGE);
@@ -58,15 +47,15 @@ public class InputUtils {
 		return namesList;
 	}
 
-	private boolean isValidName(String name) {
-		return name.length()<= NAME_MAX_LEN && name.length()>=NAME_MIN_LEN;
+	private static boolean isValidName(String name) {
+		return name.length() <= NAME_MAX_LEN && name.length() >= NAME_MIN_LEN;
 	}
 
-	private void inputFlush() {
+	private static void inputFlush() {
 		scanner.nextLine();
 	}
 
-	public void inputClose() {
+	public static void inputClose() {
 		scanner.close();
 	}
 }

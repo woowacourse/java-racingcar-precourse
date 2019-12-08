@@ -11,45 +11,39 @@ import domain.utils.OutputUtils;
 
 public class Main {
 	public static void main(String[] args) {
-		InputUtils inputUtils=InputUtils.getInstance();
-		List<String> carNames=inputUtils.inputNames();
-		Integer numberToRun=inputUtils.inputRuns();
-		List<Car> carList=makeCarsList(carNames);
+		List<String> carNames = InputUtils.inputNames();
+		Integer numberToRun = InputUtils.inputRuns();
+		List<Car> carList = makeCarsList(carNames);
 
-
-		System.out.println("실행 결과");
-		for(int i=0;i<numberToRun;i++){
+		System.out.printf("\n실행 결과\n");
+		for (int i = 0; i < numberToRun; i++) {
 			runCars(carList);
 			carList.stream().forEach(OutputUtils::printCarProgress);
 			System.out.println();
 		}
 
-		List<String>winners=findWinners(carList);
+		List<String> winners = findWinners(carList);
 		OutputUtils.printWinner(winners);
-		inputUtils.inputClose();
+		InputUtils.inputClose();
 	}
-	static List<Car> makeCarsList(List<String>carNames){
-		List<Car> carList=new ArrayList<Car>();
-		for (String name:carNames
-			 ) {
-			carList.add(new Car(name));
-		}
+
+	static List<Car> makeCarsList(List<String> carNames) {
+		List<Car> carList = carNames.stream().map(name -> new Car(name)).collect(Collectors.toList());
 		return carList;
 	}
 
-	static void runCars(List<Car> carList){
-		Random random=new Random();
-		for (Car car:carList
-		) {
-			car.run(random.nextInt(10));
-		}
+	static void runCars(List<Car> carList) {
+		Random random = new Random();
+		carList.stream().forEach(car -> car.run(random.nextInt(10)));
 	}
 
-	static List<String>findWinners(List<Car>carList){
-		Integer max=carList.stream()
+	static List<String> findWinners(List<Car> carList) {
+		Integer maxPosition = carList.stream()
 			.max(Comparator.comparingInt(Car::getPosition))
 			.get()
 			.getPosition();
-		return carList.stream().filter(car -> car.getPosition()==max).map(Car::getName).collect(Collectors.toList());
+		return carList.stream().filter(car -> car.getPosition() == maxPosition)
+			.map(Car::getName)
+			.collect(Collectors.toList());
 	}
 }
