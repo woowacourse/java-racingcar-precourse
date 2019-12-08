@@ -18,6 +18,8 @@ import exceptionhandler.ExceptionHandler;
 public class RacingCarGame {
 	private static final String QUESTION_TO_GET_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String QUESTION_TO_GET_TRIES = "시도할 회수는 몇 회인가요?";
+	private static final String RESULT = "실행 결과";
+	private static final char SHAPE = '-';
 	private int numOfCars;
 	private int numOfTries;
 	private String carNamesDividedByComma;
@@ -29,8 +31,11 @@ public class RacingCarGame {
 	public void startGame() {
 		getCarNames();
 		getTries();
+		System.out.println('\n' + RESULT);
 		for (int i = 0; i < numOfTries; i++) {
 			moveCar();
+			printPosition();
+			System.out.print('\n');
 		}
 	}
 
@@ -59,6 +64,12 @@ public class RacingCarGame {
 		for (Car car : cars) {
 			car.makeRandomNum();
 			car.move();
+		}
+	}
+	
+	private void printPosition() {
+		for (Car car : cars) {
+			car.printCarPosition(SHAPE);
 		}
 	}
 }

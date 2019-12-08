@@ -8,6 +8,7 @@ public class Car {
 	private static final int CAN_MOVE = 4;
 	private static final int CANT_MOVE = 3;
 	private static final int STAY = 0;
+	private static final String IS = " : ";
     private final String name;
     private int position = 0;
     private int randNum;
@@ -28,4 +29,17 @@ public class Car {
     		 this.position += STAY;
     	 }
     }
+    
+    public void printCarPosition(char shape) {
+    	System.out.println(this.name + IS + printShapes(shape));
+    }
+    
+    private String printShapes(char shape) {
+    	String shapes = "";
+    	for (int i = 0; i < this.position; i++) {
+    		shapes += shape;
+    	}
+    	return shapes;
+    }
+    
 }
