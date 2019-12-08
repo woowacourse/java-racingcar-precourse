@@ -18,7 +18,7 @@ public class Main {
         carNameCheck = new CarNameCheck();
 
         outputPrint.insertName();
-        ArrayList<Car> carList = carNameCheck.setCarName();
+        ArrayList<Car> carList = carNameCheck.splitCarName();
         outputPrint.howManyTry();
         int gameSets = inputScanner.howManyPlay();
         outputPrint.executeResult();

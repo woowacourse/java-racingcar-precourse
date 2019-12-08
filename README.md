@@ -71,10 +71,10 @@ int compare(Car car1, Car car2)
 
 ### Class CarNameCheck
 ```
-ArrayList<Car> setCarName(String carName)
+ArrayList<Car> splitCarName(String carName)
 String nameLengthCheck(String name)
 ```
-##### setCarName(String carName) 메소드
+##### splitCarName(String carName) 메소드
 ###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
 ##### nameLengthCheck 메소드
 ###### 차 객체의 이름이 5이하인지 확인해서 아니면 다시 입력하게 하는 메소드

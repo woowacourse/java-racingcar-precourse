@@ -8,7 +8,7 @@ public class CarNameCheck {
 
     private static final int CAR_NAME_MAX_LENGTH = 5;       // 차 객체가 가질 수 있는 최대 이름 길이.
 
-    public static ArrayList<Car> setCarName() {
+    public static ArrayList<Car> splitCarName() {
         String namesList = new InputScanner().getCarName();
         List<String> carNames = Arrays.asList(namesList.split(","));
         ArrayList<Car> carList = new ArrayList<Car>();
