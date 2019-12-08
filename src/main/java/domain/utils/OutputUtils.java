@@ -12,4 +12,9 @@ public class OutputUtils {
 		String message = car.getName() + " : " + new String(new char[car.getPosition()]).replace("\0", PROGRESS_BAR);
 		System.out.println(message);
 	}
+
+	public static void printWinner(List<String> winners) {
+		String message = String.join(", ", winners) + WINNER_MESSAGE;
+		System.out.println(message);
+	}
 }
