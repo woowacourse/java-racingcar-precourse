@@ -122,7 +122,7 @@
 
 #### 인스턴스 변수
 
-- private List\<Car> cars;
+- private Car[] cars;
 
 - private int count;
 
@@ -137,6 +137,14 @@
 - count
 
   - Count.inputCount()로 전진 회수를 입력받음
+
+#### 메서드 getCars()
+
+- 생성한 cars를 돌려줌
+
+#### 메서드 getCount()
+
+- 생성한 count를 돌려줌
 
 <br>
 
