@@ -22,6 +22,17 @@ public class RacingCarGame {
         for(int race = 0; race < racingLab; race++) {
             getEachLabCarState(racingCars);
         }
+        int maxMove = getMaxMoveCar(racingCars);
+    }
+
+    private int getMaxMoveCar(List<Car> racingCars) {
+        int maxMove = 0;
+        for(Car car : racingCars) {
+            if(maxMove < car.getPosition()) {
+                maxMove = car.getPosition();
+            }
+        }
+        return maxMove;
     }
 
     private void getEachLabCarState(List<Car> racingCars) {
