@@ -20,8 +20,8 @@ public class Naming {
             return again;
         }
         for (String name : names) {
-            if (name.length() > 5) {
-                System.out.println("자동차 이름은 5글자 이하여야 합니다.");
+            if (name.length() < 1 || name.length() > 5) {
+                System.out.println("자동차 이름은 0글자 이상, 5글자 이하여야 합니다.");
                 return again;
             }
         }
