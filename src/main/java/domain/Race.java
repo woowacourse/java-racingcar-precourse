@@ -45,7 +45,7 @@ public class Race {
     /**
      * carList : 자동차 객체를 저장하는 리스트이다.
      */
-    List<Car> carList;
+    private List<Car> carList;
 
     /**
      * raceRepeat : 레이스 반복 횟수를 저장하는 int형 정수이다.
@@ -66,7 +66,7 @@ public class Race {
     public Race() {
         carList = new ArrayList<Car>();
         List<String> carNameList = getNameToInput();
-        this.raceRepeat = getRepeatToInput();
+        raceRepeat = getRepeatToInput();
         for (String name : carNameList) {
             carList.add(new Car(name));
         }
