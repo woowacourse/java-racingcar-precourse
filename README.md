@@ -44,11 +44,11 @@
   
   - 구한 수가 4 이상이면 전진, 3 이하면 정지
 
-- 전진시 position +1
+  - 전진시 position +1
 
 #### 기능 - int getPosition()
 
-- position 수를 알려주는 메서드
+- 반환 : position
 
 <br>
 
@@ -64,16 +64,26 @@
 
 - checkNames(names)로 검증
 
+  - (again) true 리턴시 반복 / false 리턴시 통과
+
 - 반환 : String[]로 검증된 이름
 
 #### 기능 - static boolean checkNames(String[] names)
 
+- 자동차 이름이 1개 미만인 경우
+
+  - 출력 : 자동차 이름은 1개 이상이어야 합니다.
+  
+  - true 반환
+
 - 자동차 이름이 5글자 이상일 경우 
 
-  - 출력 : 자동차 이름은 최대 5글자까지 가능하며, 쉼표(,)로 구분됩니다. 다시 입력해주세요.
+  - 출력 : 자동차 이름은 5글자 이하여야 합니다.
 
   - true 반환
   
+- 위의 경우가 아니면 false 반환
+
 <br>
 
 ## Count 클래스 기능
@@ -82,25 +92,29 @@
 
 - 출력 : 시도할 회수는 몇회인가요?
 
-  - 회수 입력받기
-  
-- String count로 회수 대입
+  -  String countString로 회수 입력받기
 
-- checkCount(count)로 검증
+- checkCount(countString)으로 검증
+
+  - (again) true 리턴시 반복 / false 리턴시 통과
 
 - 반환 : 검증된 값을 int로 변환한 값
 
 #### 기능 - static boolean checkCount(String count)
 
-- 출력 : 시도할 회수 확인 후 다시 입력해주시기 바랍니다.
+- 숫자가 아닌 경우
 
-  - 숫자가 아닌 경우
-  
-  - 0보다 작은 숫자인 경우
-  
-  - int 범위 이상의 숫자일 경우
+  - 숫자만 입력해주세요.
   
   - 반환 : true
+  
+- 0이거나, int 범위 이상의 숫자일 경우
+
+  - 숫자는 0보다 크고 2,147,483,648보다 작아야합니다.
+  
+  - 반환 : true
+  
+- 위의 경우가 아니면 false 반환
   
 <br>
 
