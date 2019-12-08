@@ -1,5 +1,5 @@
 /*
- * Race.java                      2.2.0    2019-12-08
+ * Race.java                      2.2.1    2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Race 클래스입니다.
  * 경주를 위한 자동차들과 레이싱 횟수를 가지고 있습니다.
  *
- * @version 2.2.0            경주 시작을 출력하는 기능 추가
+ * @version 2.2.1            Car class에서 변경된 메소드명 적용
  * @date 2019-12-08
  * @author HyungjuAn
  */
@@ -33,7 +33,7 @@ public class Race {
 		printRaceStart();
 		for (int i = 0; i < raceCount; i++) {
 			for (Car nextCar : carArrayList) {
-				nextCar.runRace();
+				nextCar.run();
 			}
 		}
 

@@ -1,5 +1,5 @@
 /*
- * Car.java                        1.4.4   2019-12-05
+ * Car.java                        1.4.5   2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -12,8 +12,8 @@ package com.precourse.racingcar;
  * Car 클래스입니다.
  * 자동차 경주를 하기위한 기능들이 있습니다.
  *
- * @version 1.4.4            finalize()를 사용하지 않도록 final, 빈 메소드로 재정의
- * @date 2019-12-05
+ * @version 1.4.5            메소드명을 runRace에서 run으로 간결하게 변경
+ * @date 2019-12-08
  * @author HyungjuAn
  */
 public class Car {
@@ -31,7 +31,7 @@ public class Car {
 		this.name = name;
 	}
 
-	public void runRace() {
+	public void run() {
 		if (isMove()) {
 			this.position++;
 		}
