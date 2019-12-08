@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.0.1   2019-12-08
+ * RacingCarMain.java              1.1.0   2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.0.1            main에서 실행하기 위해서 메소드들을 static으로 수정
+ * @version 1.1.0            Race를 초기화하는 기능 추가
  * @date 2019-12-08
  * @author HyungjuAn
  */
@@ -34,7 +34,14 @@ public class RacingCarMain {
 	private static final String RACE_COUNT_QUESTION = "시도할 횟수는 몇회인가요?";
 
 	public static void main(String[] args) throws IOException {
+		Race race = initializeRace();
+	}
 
+	public static Race initializeRace() throws IOException {
+		ArrayList<Car> carArrayList = getCarsInformation();
+		int raceCount = getRaceCount();
+
+		return new Race(carArrayList, raceCount);
 	}
 
 	public static ArrayList<Car> getCarsInformation() throws IOException {
