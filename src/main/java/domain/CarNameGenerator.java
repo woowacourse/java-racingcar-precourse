@@ -69,7 +69,7 @@ public class CarNameGenerator {
     }
 
     /**
-     * 플레이어로부터 입력받은 자동차 이름이 유효한지 검사하는 로직을 수행하는 메서.
+     * 플레이어로부터 입력받은 자동차 이름이 유효한지 검사하는 로직을 수행하는 메서드.
      */
     public static boolean checkInputStingValidation() {
         return checkCarNameIsEmpty() && checkCarNameHasBlank() && checkCarNameLength();
