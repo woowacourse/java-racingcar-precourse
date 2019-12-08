@@ -87,7 +87,7 @@
        - IlleagalArgumentException
 3. 실행 횟수 입력
    - 0 회 및 음수 입력시
-     - 재입력 요구
+     - IlleagalArgumentException
    - 숫자가 아닐 경우
      - IlleagalArgumentException
 4. 실행 횟수 만큼 진행 상황 출력
