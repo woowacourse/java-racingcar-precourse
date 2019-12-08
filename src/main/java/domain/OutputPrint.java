@@ -14,8 +14,12 @@ public class OutputPrint {
         println("\n실행결과");
     }
 
-    void finalWinner(String name) {
+    public void finalWinner(String name) {
         println(name + "(이)가 최종 우승했습니다.");
+    }
+
+    public void moreThanFiveLength(String name) {
+        println("차 객체의 이름 '"+name+"'은 5글자가 넘습니다. 다시 입력해주세요.");
     }
 
     private static void println(String string) {

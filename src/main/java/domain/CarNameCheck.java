@@ -20,7 +20,7 @@ public class CarNameCheck {
 
     private static String nameLengthCheck(String name) {
         while (name.length() > CAR_NAME_MAX_LENGTH) {
-            println("차 객체의 이름 '"+name+"'은 5글자가 넘습니다. 다시 입력해주세요.");
+            new OutputPrint().moreThanFiveLength(name);
             name = scanner.nextLine();
         }
         return name;
