@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.1.0   2019-12-08
+ * RacingCarMain.java              1.1.1   2019-12-08
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.1.0            Race를 초기화하는 기능 추가
+ * @version 1.1.1            getCarsInformation() -> getCarArrayList()로 수정
  * @date 2019-12-08
  * @author HyungjuAn
  */
@@ -38,13 +38,13 @@ public class RacingCarMain {
 	}
 
 	public static Race initializeRace() throws IOException {
-		ArrayList<Car> carArrayList = getCarsInformation();
+		ArrayList<Car> carArrayList = getCarArrayList();
 		int raceCount = getRaceCount();
 
 		return new Race(carArrayList, raceCount);
 	}
 
-	public static ArrayList<Car> getCarsInformation() throws IOException {
+	public static ArrayList<Car> getCarArrayList() throws IOException {
 		ArrayList<Car> carList = new ArrayList<>();
 
 		printCarNamesQuestion();
