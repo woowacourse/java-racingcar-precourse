@@ -5,6 +5,7 @@ import view.PrintMessage;
 
 public class Game {
 	private static final int MOVE_SIZE = 1;
+	private static final int MOVE_CRITICAL_POINT = 4;
 	private static int maximumPosition = 0;
 
 	public void Start(Car[] car, int round) {
@@ -24,7 +25,7 @@ public class Game {
 	private void moveCar(Car car) {
 		int randomNumber = (int) (Math.random() * 10);
 		int carPosition;
-		if (randomNumber >= 4) {
+		if (randomNumber >= MOVE_CRITICAL_POINT) {
 			carPosition = car.movePosition(MOVE_SIZE);
 			checkMaximum(carPosition);
 		}
@@ -35,5 +36,4 @@ public class Game {
 			maximumPosition = carPosition;
 		}
 	}
-
 }

@@ -28,12 +28,14 @@ public class PrintMessage {
 	}
 
 	private static void printWinnerCarName(Car car, int maximumPosition) {
-		if (car.getPosition() == maximumPosition) {
-			if (commaFlag == true) {
-				System.out.print(",");
-			}
+		if (car.getPosition() == maximumPosition && commaFlag == false) {
 			System.out.print(car.getName());
 			commaFlag = true;
+			return;
+		}
+		if(car.getPosition() == maximumPosition && commaFlag == true) {
+			System.out.print(","+car.getName());
+			return;
 		}
 	}
 }
