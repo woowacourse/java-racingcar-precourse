@@ -14,7 +14,7 @@ public class InputUtils {
 
 	static Scanner scanner = new Scanner(System.in);
 
-	public static Integer inputTries() {
+	public static Integer inputRuns() {
 		Integer inputValue;
 		while (true) {
 			System.out.println(PROMPT_TRIES);
