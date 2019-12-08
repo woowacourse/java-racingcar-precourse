@@ -11,4 +11,7 @@ public interface RacingPrinter {
 
     void printOneCycleFinished();
 
+    void printRequestForNames();
+
+    void printRequestForCycles();
 }

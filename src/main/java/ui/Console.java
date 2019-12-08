@@ -1,10 +1,10 @@
 package ui;
 
-import domain.Raceable;
-import domain.RacingCar;
 import domain.RacingGameConfig;
 import domain.Validator;
 import domain.errors.InvalidInputException;
+
+import util.RacingPrinter;
 
 import java.util.*;
 
@@ -12,16 +12,17 @@ public class Console implements UserInterface {
 
     private Scanner scanner;
     private Validator validator;
+    private RacingPrinter racingPrinter;
 
-    public Console(Scanner scanner, Validator validator) {
+    public Console(Scanner scanner, Validator validator, RacingPrinter racingPrinter) {
         this.scanner = scanner;
         this.validator = validator;
+        this.racingPrinter = racingPrinter;
     }
 
     @Override
     public String[] extractNames() {
-        //todo: check dependency
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        racingPrinter.printRequestForNames();
         String input = scanner.nextLine();
         return parseNames(input);
     }
@@ -39,13 +40,10 @@ public class Console implements UserInterface {
 
         return names;
     }
-    private boolean isValidName(String name) {
-        return Arrays.stream(RacingGameConfig.NOT_ALLOWED_IN_NAME).parallel().noneMatch(name::contains);
-    }
 
     @Override
     public int getCycles() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        racingPrinter.printRequestForCycles();
         int cycles = scanner.nextInt();
         //todo: 제대로 된 입력값을 받을 때까지 계속 물어보기.
         if (!validator.validateCycles(cycles)) {
