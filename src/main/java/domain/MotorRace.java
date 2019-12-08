@@ -41,6 +41,6 @@ public class MotorRace {
                 winner += (car.getName() + ", ");
             }
         }
-        System.out.println(winner.substring(0, winner.length() - 3) + "가 최종 우승했습니다.");
+        System.out.println(winner.substring(0, winner.length() - 2) + "(이)가 최종 우승했습니다.");
     }
 }
