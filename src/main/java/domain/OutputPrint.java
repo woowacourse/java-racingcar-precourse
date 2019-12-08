@@ -14,6 +14,10 @@ public class OutputPrint {
         println("\n실행결과");
     }
 
+    void finalWinner(String name) {
+        println(name + "(이)가 최종 우승했습니다.");
+    }
+
     private static void println(String string) {
         System.out.println(string);
     }

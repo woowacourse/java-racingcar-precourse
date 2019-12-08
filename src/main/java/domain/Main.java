@@ -23,7 +23,7 @@ public class Main {
             println("");
         }
 
-        println(printLastWinners(carList) + "(이)가 최종 우승했습니다.");
+        outputPrint.finalWinner(printLastWinners(carList));
     }
 
     public static boolean canDrive() {
