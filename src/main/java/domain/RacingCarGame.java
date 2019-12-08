@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RacingCarGame {
     public static void main(String[] args) {
@@ -14,7 +15,22 @@ public class RacingCarGame {
         List<Car> racingCars = getRacingCarName();
         System.out.println("시도 할 횟수는 몇번 인가요?");
         int racingLab = getRacingLab();
+        racingGameCourse(racingCars, racingLab);
+    }
 
+    private void racingGameCourse(List<Car> racingCars, int racingLab) {
+        for(int race = 0; race < racingLab; race++) {
+            getEachLabCarState(racingCars);
+        }
+    }
+
+    private void getEachLabCarState(List<Car> racingCars) {
+        Random getCarState = new Random();
+        for(int car = 0; car < racingCars.size(); car++) {
+            if(getCarState.nextInt(9) > 3) {
+                racingCars.get(car).moveForward();
+            }
+        }
     }
 
     private int getRacingLab() {

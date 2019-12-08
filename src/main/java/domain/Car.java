@@ -8,5 +8,6 @@ public class Car {
         this.name = name;
     }
 
+    public void moveForward() { this.position++; }
     // 추가 기능 구현
 }
