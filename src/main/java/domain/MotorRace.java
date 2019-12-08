@@ -1,6 +1,16 @@
 package domain;
 
 public class MotorRace {
+    public static void main(String[] args) {
+        CarSetting carSetting = new CarSetting();
+        carSetting.carSet();
+        Car[] cars = carSetting.getCars();
+        int count = carSetting.getCount();
+        MotorRace motorRace = new MotorRace();
+        motorRace.goingCars(cars, count);
+        motorRace.checkWinner(cars);
+    }
+
     void goingCars(Car[] cars, int count) {
         for (int i = 0; i < count; i++) {
             for (Car car : cars) {
