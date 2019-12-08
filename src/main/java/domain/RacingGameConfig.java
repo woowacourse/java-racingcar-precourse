@@ -4,7 +4,7 @@ public class RacingGameConfig {
 
     public static final String STANDARD_TO_PARSE = ",";
     public static final int MIN_CYCLES = 1;
-    static final int MAX_NAME_LENGTH = 5;
+    public static final int MAX_NAME_LENGTH = 5;
     static final int STEP = 1;
     static final int MIN_RANDOM_NUMBER = 0;
     static final int MAX_RANDOM_NUMBER = 9;
