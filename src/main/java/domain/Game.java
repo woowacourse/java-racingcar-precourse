@@ -1,18 +1,14 @@
 package domain;
 
-/**
- * Created by gram on 2019-12-08.
- */
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game {
-    static String[] carName;
-    static Car[] car;
-    static int movingNum;
-    static Scanner sc = new Scanner(System.in);
+    static final int standardRandomNum = 4;
+    String[] carName;
+    Car[] car;
+    String winnerList = "";
+    int movingNum;
+    Scanner sc = new Scanner(System.in);
 
     public void run() {
         inputCarName();
@@ -28,15 +24,15 @@ public class Game {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표 기준으로 구분) : ");
         totalInputName = sc.next();
         carName = totalInputName.split(",");
-        if( !checkFormAboutName() ) {
+        if (!checkFormAboutName()) {
             System.out.println("5글자 내로 입력해주세요.");
             inputCarName();
         }
     }
 
     private boolean checkFormAboutName() {
-        for(int i = 0; i < carName.length; i++) {
-            if(carName[i].length() > 5) {
+        for (int i = 0; i < carName.length; i++) {
+            if (carName[i].length() > 5) {
                 return false;
             }
         }
@@ -50,45 +46,43 @@ public class Game {
     }
 
     private void createCar() {
-        for(int i = 0; i < carName.length; i++) {
+        for (int i = 0; i < carName.length; i++) {
             car[i] = new Car(carName[i]);
         }
     }
 
     private void playGame() {
         int[] randomNum = new int[carName.length];
-        for(int i = 0; i < movingNum; i++) {
-            //차 별로 난수 생성
+        for (int i = 0; i < movingNum; i++) {
             makeRandomNumber(randomNum);
-            //난수만큼 게임 진행
             advanceAccordingToARandomNum(randomNum);
-            //중간 레이싱 과정 출력
-            if(i == 0) {
+            if (i == 0) {
                 System.out.println("실행 결과");
             }
             showCurrScore();
         }
         findWinner();
+        printWinner();
     }
 
     private void makeRandomNumber(int[] randomNum) {
-        for(int i = 0; i < carName.length; i++) {
-            randomNum[i] =(int)(Math.random() * 10);
+        for (int i = 0; i < carName.length; i++) {
+            randomNum[i] = (int) (Math.random() * 10);
         }
     }
 
     private void advanceAccordingToARandomNum(int[] randomNum) {
-        for(int i = 0; i < carName.length; i++) {
-            if(randomNum[i] >= 4){
+        for (int i = 0; i < carName.length; i++) {
+            if (randomNum[i] >= standardRandomNum) {
                 car[i].addPosition();
             }
         }
     }
 
     private void showCurrScore() {
-        for(int i = 0; i < carName.length; i++) {
+        for (int i = 0; i < carName.length; i++) {
             System.out.print(car[i].getName() + " : ");
-            for(int j = 0; j < car[i].currPosition(); j++){
+            for (int j = 0; j < car[i].currPosition(); j++) {
                 System.out.print("-");
             }
             System.out.println();
@@ -98,27 +92,21 @@ public class Game {
 
     private void findWinner() {
         int max = car[0].currPosition();
-        ArrayList winner = new ArrayList();
 
-        for(int i=0; i<carName.length; i++){
-            if(max < car[i].currPosition()) {
+        for (int i = 0; i < carName.length; i++) {
+            if (max < car[i].currPosition()) {
                 max = car[i].currPosition();
-                winner.clear();
-                winner.add(car[i].getName());
-            }else if(max == car[i].currPosition()) {
-                winner.add(car[i].getName());
-            }else if(max > car[i].currPosition()) {
+                winnerList = "";
+                winnerList += car[i].getName();
                 continue;
             }
+            if (max == car[i].currPosition()) {
+                winnerList += ", " + car[i].getName();
+            }
         }
-        printWinner(winner);
     }
 
-    private void printWinner(ArrayList winner) {
-        for(int i = 0; i < winner.size() - 1; i++) {
-            System.out.print(winner.get(i)+", ");
-        }
-        System.out.print(winner.get(winner.size() - 1));
-        System.out.print("가 최종 우승했습니다.");
+    private void printWinner() {
+        System.out.println(winnerList + "가 최종 우승했습니다.");
     }
 }
