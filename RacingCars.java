@@ -42,4 +42,11 @@ public class RacingCars {
         String result = String.join(", ", winners);
         System.out.println(result + "가 최종 우승했습니다.");
     }
+
+    public void printStatus() {
+        for (Car car : cars) {
+            System.out.println(car.getStatus());
+        }
+        System.out.println("");
+    }
 }
