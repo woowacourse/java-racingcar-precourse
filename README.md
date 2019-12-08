@@ -55,17 +55,31 @@
   * 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
   *  else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
 
-## 구현할 기능 목록
+## 구현된 기능 목록과 실행 순서
 
-1. 게임을 시작한다. (init())
-2. 각 자동차의 이름을 받고(inputCarNames()), 쉼표를 기준으로 나눈 후 5자 이내인지 검사하고(verifyCarName()), Car 객체로 이루어진 ArrayList를 만든다. (enrollPlayers()).
-3. 시행횟수(turnNumber)를 입력받는다.
-4. turnNumber만큼 경주(race()) 한다. 이 때 Car 클래스의 각 인스턴스는 0부터 9까지의 수를 임의로 뽑아 4 이상이어야 전진(proceed())한다.
-5. 시행횟수만큼 시행한 뒤 각 Car의 위치를 보고받아 (getPosition()) MAX값과 동일한 유저만큼 winner ArrayList에 넣는다.
-6. 최종 우승자를 발표한다.(printWinner())
+* 메소드 이름은 '클래스명.메소드명'으로 쓰여 있습니다.
+
+| 기능                                                         | 메소드 이름          | 입력                               | 출력             |
+| ------------------------------------------------------------ | -------------------- | ---------------------------------- | ---------------- |
+| 게임을 시작한다.                                             | Game.startGame()     | 없음                               | 없음             |
+| 각 자동차의 이름을 하나의 String으로 입력받는다.             | User.getCarNames()   | 사용자 입력 (쉼표로 구분된 이름들) | 이름이 담긴 배열 |
+| 입력받은 String을 쉼표를 기준으로 나눈다. (예외처리↓)        | User.getCarArray()   | 쉼표로 구분된 이름들               | 이름이 담긴 배열 |
+| 전달받은 배열의 요소들을 이름으로 하는 Car 객체를 만들어 cars 리스트에 넣는다. | Game.enrollPlayers() | 이름이 담긴 배열                   | Car 객체들       |
+| 실행할 턴 횟수를 사용자에게 물어본다.                        | User.getTurnNumber() | 사용자 입력 (숫자)                 | 턴 횟수          |
+| 게임을 시작한다.                                             | Game.startRace()     | 턴 횟수                            | 없음             |
+| 각각의 Car 객체를 한 번씩 호출해 턴을 진행한다.              | Game.playOneTurn()   | 없음                               | 없음             |
+| 자신의 턴을 진행한다. 0부터 9까지의 랜덤 숫자 하나를 뽑아 4 이상이면 앞으로 간다. | Car.playTurn()       | 없음                               | 없음             |
+| position에 1을 더해 앞으로 간다.                             | Car.proceed()        | 없음                               | 없음             |
+| 자동차의 현재 위치를 출력한다.                               | Car.printPosition()  |                                    |                  |
+자동차 이름이 담긴 배열을 게임에 전송해 이를 Car 객체로 이루어진 ArrayList로 바꾼다. (Game.enrollPlayers()).
+
+2. 시행횟수(turnNumber)를 입력받는다. (User.getTurnNumber()) 
+3. turnNumber만큼 경주(race()) 한다. 이 때 Car 클래스의 각 인스턴스는 0부터 9까지의 수를 임의로 뽑아 4 이상이어야 전진(Car.proceed())한다.
+4. 시행횟수만큼 시행한 뒤 각 Car의 위치를 보고받아 (getPosition()) MAX값과 동일한 유저만큼 winner ArrayList에 넣는다.
+5. 최종 우승자를 발표한다.(printWinner())
 
 ### 예외 처리
 
-1. 입력받은 이름 길이가 5자가 넘거나, 쉼표를 연달아 입력해서 0자가 된 경우.
-2. 입력받은 시행 횟수가 0 이하인 경우.
-3. 입력받은 시행 횟수가 정수가 아닌 경우.
+1. 입력받은 이름들 중 일부의 길이가 5자가 넘거나, 맨 앞이나 뒤에 쉼표를 넣거나, 쉼표를 연달아 입력한 경우. (User.verifyCarName())
+2. 입력받은 시행 횟수가 0 이하인 경우. (User.getPositiveInt())
+3. 입력받은 시행 횟수가 정수가 아닌 경우. (try ~ catch(InputMismatchException())

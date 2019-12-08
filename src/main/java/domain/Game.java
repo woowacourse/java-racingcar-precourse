@@ -38,7 +38,7 @@ public class Game {
     private void playOneTurn() {
         for (Car oneCar : cars) {
             oneCar.playTurn();
-            oneCar.printProgress();
+            oneCar.printPosition();
         }
     }
 
