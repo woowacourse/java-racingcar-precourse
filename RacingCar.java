@@ -4,8 +4,10 @@ public class RacingCar {
     private static final int STRIDE_LENGTH = 1;
 
     public static void main(String[] args) {
-        System.out.println(inputCarNames());
-        System.out.println(inputTrialLength());
+        List<Car> cars = makeCars(inputCarNames());
+        int trialLength = Integer.parseInt(inputTrialLength());
+        System.out.println(cars);
+        System.out.println(trialLength);
     }
 
     private static String inputCarNames() {
@@ -20,5 +22,17 @@ public class RacingCar {
         Scanner scanner = new Scanner(System.in);
         System.out.println(prompt);
         return scanner.nextLine();
+    }
+
+    private static List<Car> makeCars(String carNames) {
+        List<Car> cars = new ArrayList<Car>();
+        for (String carName : split(carNames)) {
+            cars.add(new Car(carName));
+        }
+        return cars;
+    }
+
+    private static String[] split(String text) {
+        return text.split(",");
     }
 }
