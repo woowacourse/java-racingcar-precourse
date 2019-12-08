@@ -10,11 +10,15 @@ public class Main {
 
     private static OutputPrint outputPrint;
     private static InputScanner inputScanner;
+    private static CarNameCheck carNameCheck;
 
     public static void main(String[] args) {
         outputPrint = new OutputPrint();
+        inputScanner = new InputScanner();
+        carNameCheck = new CarNameCheck();
+
         outputPrint.insertName();
-        ArrayList<Car> carList = setCarName(inputScanner.getCarName());
+        ArrayList<Car> carList = carNameCheck.setCarName();
         outputPrint.howManyTry();
         int gameSets = inputScanner.howManyPlay();
         outputPrint.executeResult();
