@@ -69,10 +69,20 @@ int compare(Car car1, Car car2)
 
 
 
-#### Class Main
+#### Class CarNameCheck
 ```
 ArrayList<Car> getCarName(String carName)
 String nameLengthCheck(String name)
+```
+##### getCarName(String carName) 메소드
+###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
+##### nameLengthCheck 메소드
+###### 차 객체의 이름이 5이하인지 확인해서 아니면 다시 입력하게 하는 메소드
+
+
+
+#### Class Main
+```
 boolean canDrive()
 void play(ArrayList<Car> carList)
 int howManyWin(ArrayList<Car> carList)
@@ -80,10 +90,6 @@ boolean isSamePosition(Car carA, Car carB)
 String printLastWinners(ArrayList<Car> carList)
 void println(String string)
 ```
-##### getCarName(String carName) 메소드
-###### 사용자에게 입력받은 차 이름들을 콤마(,)로 분리한 다음에 어레이리스트에 담아 반환해주는 메소드
-##### nameLengthCheck 메소드
-###### 차 객체의 이름이 5이하인지 확인해서 아니면 다시 입력하게 하는 메소드
 ##### canDrive() 메소드
 ###### 랜덤 클래스를 불러와서 0~9 까지 숫자 중 4이상이 나오면 TRUE 를 반환하는 메소드
 ##### play(ArrayList<Car> CarList) 메소드
