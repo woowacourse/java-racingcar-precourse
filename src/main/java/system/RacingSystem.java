@@ -19,6 +19,8 @@ public class RacingSystem {
 
     public void startRacing() {
         int repeatTimes = InputRacingCar.inputRepeatTimes();
+        validateRepeatTimes(repeatTimes);
+
         OutputRacingCar.printGameResult();
         for (int i = 0; i < repeatTimes; i++) {
             race();
@@ -36,6 +38,12 @@ public class RacingSystem {
     public void decideToMoveCar(Car car) {
         if (RandomNumberGenerator.getRandomNumber() >= MOVE_CONDITION) {
             car.move();
+        }
+    }
+
+    public void validateRepeatTimes(int repeatTimes) {
+        if (repeatTimes <= 0) {
+            throw new IllegalStateException("반복 횟수는 1 이상이여야 합니다.");
         }
     }
 }

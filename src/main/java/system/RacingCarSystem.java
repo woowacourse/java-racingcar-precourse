@@ -13,6 +13,7 @@ public class RacingCarSystem {
 
     public void run() {
         String carsName = InputRacingCar.inputCarsName();
+        validateCarsName(carsName);
         setCarList(carsName);
 
         RacingSystem racingSystem = new RacingSystem(cars);
@@ -27,7 +28,10 @@ public class RacingCarSystem {
         StringTokenizer st = splitCarName(carsName);
 
         while (st.hasMoreTokens()) {
-            createCar(st.nextToken());
+            String carName = st.nextToken();
+
+            validateCarName(carName);
+            createCar(carName);
         }
     }
 
@@ -37,5 +41,17 @@ public class RacingCarSystem {
 
     public void createCar(String carName) {
         cars.add(new Car(carName));
+    }
+
+    public void validateCarsName(String carsName) {
+        if (carsName.equals("")) {
+            throw new IllegalStateException("이름은 공백이 될 수 없습니다.");
+        }
+    }
+
+    public void validateCarName(String carsName) {
+        if (carsName.startsWith(" ")) {
+            throw new IllegalStateException("이름은 공백으로 시작할 수 없습니다.");
+        }
     }
 }
