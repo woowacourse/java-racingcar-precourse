@@ -5,9 +5,13 @@ import java.util.Scanner;
 public class Count {
     static int inputCount() {
         int count = 0;
+        String countString = "";
         Scanner sc = new Scanner(System.in);
-        String countString = sc.nextLine();
-        count = Integer.parseInt(countString);
+        do {
+            System.out.println("시도할 회수는 몇회인가요?");
+            countString = sc.nextLine();
+            count = Integer.parseInt(countString);
+        } while (checkCount(countString));
         return count;
     }
 
