@@ -12,7 +12,17 @@ public class Car {
     this.name = name;
   }
 
+  public int getPosition() {
+    return position;
+  }
+
   public String getName() {
     return name;
+  }
+
+  public void move(int randomNumber) {
+    if (randomNumber >= 4) {
+      ++position;
+    }
   }
 }
