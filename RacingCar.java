@@ -1,30 +1,24 @@
 import java.util.*;
 
 public class RacingCar {
-    private static final int STRIDE_LENGTH = 1;
+    private static final String PROMPT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String PROMPT_TRIAL_LENGTH = "시도할 회수는 몇 회인가요?";
+    private static final String TITLE_RACE_RESULT = "%n실행결과%n";
 
     public static void main(String[] args) {
-        List<Car> cars = makeCars(inputCarNames());
+        List<Car> cars = makeCars(receiveInput(PROMPT_CAR_NAMES));
         RacingCars racingCars = new RacingCars(cars);
-        int trialLength = Integer.parseInt(inputTrialLength());
+        int trialLength = Integer.parseInt(receiveInput(PROMPT_TRIAL_LENGTH));
         finishRace(racingCars, trialLength).printWinners();
     }
 
     private static RacingCars finishRace(RacingCars racingCars, int trialLength) {
-        System.out.printf("%n실행결과%n");
+        System.out.printf(TITLE_RACE_RESULT);
         for (int i = 0; i < trialLength; i++) {
             racingCars.updateCars();
             racingCars.printStatus();
         }
         return racingCars;
-    }
-
-    private static String inputCarNames() {
-        return receiveInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    }
-
-    private static String inputTrialLength() {
-        return receiveInput("시도할 회수는 몇 회인가요?");
     }
 
     private static String receiveInput(String prompt) {
