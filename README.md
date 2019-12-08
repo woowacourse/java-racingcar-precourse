@@ -83,6 +83,26 @@ String nameLengthCheck(String name)
 
 #### Class InputScanner
 #### Class OutputPrint
+```
+void insertName()
+void howManyTry()
+void executionResult()
+void finalWinner(String name)
+void println(String string)
+```
+##### insertName 메소드
+###### 경주할 자동차이름을 입력하라는 메시지가 뜬다.
+##### howManyTry 메소드
+###### 얼마나 시도할거냐는 메시지가 뜬다.
+##### executionResult()
+###### 실행 결과 메시지 출력.
+##### finalWinner(String name)
+###### naem (이)가 최종우승하였습니다. 출력.
+##### println(String string) 메소드
+###### System.out.println 로 입력받은 String 을 출력해주는 메소드
+
+
+
 #### Class Main
 ```
 boolean canDrive()
@@ -90,7 +110,6 @@ void play(ArrayList<Car> carList)
 int howManyWin(ArrayList<Car> carList)
 boolean isSamePosition(Car carA, Car carB)
 String printLastWinners(ArrayList<Car> carList)
-void println(String string)
 ```
 ##### canDrive() 메소드
 ###### 랜덤 클래스를 불러와서 0~9 까지 숫자 중 4이상이 나오면 TRUE 를 반환하는 메소드
@@ -102,5 +121,3 @@ void println(String string)
 ###### 두 차 객체의 position 이 같은 값이면 TRUE 를 반환하는 메소드
 ##### printLastWinners(ArrayList<Car> carList)
 ##### carList 에서 한 명이상의 이름 목록을 출력하는 메소드
-##### println(String string) 메소드
-###### System.out.println 로 입력받은 String 을 출력해주는 메소드
