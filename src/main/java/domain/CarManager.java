@@ -10,8 +10,8 @@ public class CarManager {
 		cars = names.stream().map(Car::new).collect(Collectors.toList());
 	}
 
-	public void update() {
-		cars.forEach(Car::update);
+	public List<Car> getCars() {
+		return cars;
 	}
 
 	private Car getFirstMaxPositionCar() {
@@ -27,7 +27,7 @@ public class CarManager {
 				.collect(Collectors.toList());
 	}
 
-	public List<Car> getCars() {
-		return cars;
+	public void update() {
+		cars.forEach(Car::update);
 	}
 }

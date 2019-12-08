@@ -13,12 +13,8 @@ public class Car {
 		this.name = name;
 	}
 
-	private void move() {
-		position++;
-	}
-
-	private boolean hasSignal() {
-		return RandomNumber.pick() >= REFERENCE_SIGNAL;
+	public String getName() {
+		return name;
 	}
 
 	public void update() {
@@ -27,9 +23,16 @@ public class Car {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return name + " : " + DISTANCE_MARK.repeat(position);
+	private void move() {
+		position++;
+	}
+
+	private boolean hasSignal() {
+		return RandomNumber.pick() >= REFERENCE_SIGNAL;
+	}
+
+	public boolean isSamePosition(Car car) {
+		return this.position == car.position;
 	}
 
 	public int compareTo(Car car) {
@@ -42,11 +45,8 @@ public class Car {
 		return 0;
 	}
 
-	public boolean isSamePosition(Car car) {
-		return this.position == car.position;
-	}
-
-	public String getName() {
-		return name;
+	@Override
+	public String toString() {
+		return name + " : " + DISTANCE_MARK.repeat(position);
 	}
 }
