@@ -15,7 +15,14 @@ public class CarRacingGame {
     System.out.println("시도할 회수는 몇회인가요?");
     this.inputTrial = scan.nextLine();
 
-    Track track = new Track(inputCarNames, inputTrial);
+    while (true) {
+      try {
+        Track track = new Track(inputCarNames, inputTrial);
+        break;
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
+    }
   }
 
   public String getInputCarNames() {
