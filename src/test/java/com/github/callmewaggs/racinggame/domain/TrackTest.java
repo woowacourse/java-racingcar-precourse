@@ -2,6 +2,9 @@ package com.github.callmewaggs.racinggame.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -52,5 +55,22 @@ class TrackTest {
     assertEquals("test1", actual.get(0).getName());
     assertEquals("test2", actual.get(1).getName());
     assertEquals("test3", actual.get(2).getName());
+  }
+
+  @DisplayName("트랙에서는 입력받은 시행 회수만큼 race를 한다.")
+  @Test
+  public void race_racing_cars_using_trial() {
+    // Arrange
+    String inputCarNames = "test1,test2,test3";
+    String inputTrial = "5";
+    Track track = new Track(inputCarNames, inputTrial);
+
+    // Act
+    track.race();
+
+    // Assert
+    verify(track.getRacingCars().get(0), times(5)).move(anyInt());
+    verify(track.getRacingCars().get(1), times(5)).move(anyInt());
+    verify(track.getRacingCars().get(2), times(5)).move(anyInt());
   }
 }
