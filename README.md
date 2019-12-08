@@ -69,7 +69,7 @@ int compare(Car car1, Car car2)
 
 
 
-#### Class CarRacing
+#### Class Main
 ```
 ArrayList<Car> getCarName(String carName)
 String nameLengthCheck(String name)
