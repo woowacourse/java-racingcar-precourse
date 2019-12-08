@@ -11,7 +11,7 @@ public class InputRacingCar {
         return sc.nextLine();
     }
 
-    public static int inputRepeatTime() {
+    public static int inputRepeatTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
         return sc.nextInt();
     }

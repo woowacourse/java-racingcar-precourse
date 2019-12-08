@@ -3,12 +3,14 @@ package system;
 import domain.Car;
 import io.InputRacingCar;
 import io.OutputRacingCar;
+import util.RandomNumberGenerator;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class RacingCarSystem {
+    private static final int MOVE_CONDITION = 4;
     private List<Car> cars = new LinkedList<>();
 
     public void setUpRacing() {
@@ -33,11 +35,10 @@ public class RacingCarSystem {
     }
 
     public void startRacing() {
-        int repeatTime = InputRacingCar.inputRepeatTime();
+        int repeatTimes = InputRacingCar.inputRepeatTimes();
         OutputRacingCar.printGameResult();
-        for (int i = 0; i < repeatTime; i++) {
+        for (int i = 0; i < repeatTimes; i++) {
             race();
-            System.out.println();
         }
     }
 
@@ -46,16 +47,13 @@ public class RacingCarSystem {
             decideToMoveCar(car);
             OutputRacingCar.printCarProgress(car);
         }
+        System.out.println();
     }
 
     public void decideToMoveCar(Car car) {
-        if (createRandomNumber() > 3) {
+        if (RandomNumberGenerator.getRandomNumber() >= MOVE_CONDITION) {
             car.move();
         }
-    }
-
-    public int createRandomNumber() {
-        return (int) (Math.random() * 10);
     }
 
     public void finishRacing() {
