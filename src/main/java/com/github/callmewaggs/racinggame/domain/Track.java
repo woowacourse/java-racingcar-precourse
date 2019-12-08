@@ -9,21 +9,24 @@ public class Track {
   private int trial;
 
   public Track(String inputCarNames, String inputTrial) {
-    this.racingCars = prepareCars(inputCarNames);
-    this.trial = prepareTrial(inputTrial);
+    prepareCars(inputCarNames);
+    prepareTrial(inputTrial);
   }
 
-  private List<Car> prepareCars(String inputCarNames) {
+  private void prepareCars(String inputCarNames) {
     String[] parsed = inputCarNames.split(",");
-    List<Car> cars = new ArrayList<>();
+    this.racingCars = new ArrayList<>();
     for (String name : parsed) {
-      cars.add(new Car(name));
+      racingCars.add(new Car(name));
     }
-    return cars;
   }
 
-  private int prepareTrial(String inputTrial) {
-    return Integer.parseInt(inputTrial);
+  private void prepareTrial(String inputTrial) {
+    try {
+      this.trial = Integer.parseInt(inputTrial);
+    } catch (Exception e) {
+      throw new IllegalArgumentException("시도할 회수는 숫자여야 합니다.");
+    }
   }
 
   public List<Car> getRacingCars() {

@@ -23,7 +23,7 @@ class CarTest {
 
   @DisplayName("Car는 인자로 들어온 name의 길이가 5를 초과하는 경우 예외를 발생시킨다.")
   @Test
-  public void throw_exception_when_cars_name_is_over_five_letters() {
+  public void throw_exception_when_create_car_if_its_argument_name_is_over_five_letters() {
     // Arrange
     String name = "too long name";
 
