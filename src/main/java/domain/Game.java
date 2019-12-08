@@ -14,6 +14,7 @@ public class Game {
         inputCarName();
         car = new Car[carName.length];
         inputMovingNum();
+        System.out.println();
         createCar();
         playGame();
     }
@@ -42,7 +43,17 @@ public class Game {
     private void inputMovingNum() {
         System.out.println("시도할 횟수는 몇회인가요?");
         movingNum = sc.nextInt();
-        System.out.println();
+        if(!checkInputFormAboutMovingNum(movingNum)) {
+            inputMovingNum();
+        }
+    }
+
+    private boolean checkInputFormAboutMovingNum (int num) {
+        if(num <= 0) {
+            System.out.println("1이상의 수를 입력해주세요.");
+            return false;
+        }
+        return true;
     }
 
     private void createCar() {
@@ -91,7 +102,7 @@ public class Game {
     }
 
     private void findWinner() {
-        int max = car[0].currPosition();
+        int max = -1;
 
         for (int i = 0; i < carName.length; i++) {
             if (max < car[i].currPosition()) {
