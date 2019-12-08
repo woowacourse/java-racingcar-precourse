@@ -18,6 +18,8 @@
         - 자동차 이름의 길이가 최대치를 넘지 않았는지 판단하기
         - 자동차 위치가 주어진 위치보다 큰지 판단하기 
         - 자동차의 위치를 한 칸 앞으로 전진시키기
+            - 각 시도마다 전진할지 멈춰 있을지 판단하기 (shouldMove method)
+            - 실제 자동차를 한 칸으로 전진시키기 (moveForward method)
         - 자동차의 이름과 위치 가져오기 (getName, getPosition)
         - 자동차의 이름과 현재 위치를 출력하기
     - List<Car>의 일급 컬렉션 구현하기 (RacingCars class)
@@ -25,6 +27,5 @@
         - 모든 자동차 위치 중 가장 많이 전진한 길이 뽑아내기
         - 최종 승자(들)을 계산하고 출력하기 
         - 모든 자동차의 현재 위치 업데이트 하기
-    - 입력 받은 각 자동차 이름으로 자동차별 객체 만들어 List<Car>에 집어넣기 (makeCars method)
-    - 각 시도마다 전진할지 멈춰 있을지 판단하기 (shouldMove method)
-    - 실제 자동차를 한 칸으로 전진시키기 (moveForward method)
+    - 입력 받은 각 자동차 이름으로 자동차별 Car 객체 만들어 List<Car>에 집어넣기 (makeCars method)
+    - 실제 경주 실행하기
