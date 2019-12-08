@@ -6,6 +6,10 @@ public class Car {
         this.name = name;
     }
 
+    public void moveForward(int strideLength) {
+        this.position += strideLength;
+    }
+
     public String getName() {
         return this.name;
     }
