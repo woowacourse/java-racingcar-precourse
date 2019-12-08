@@ -18,4 +18,8 @@ public class CarSetting {
     Car[] getCars() {
         return cars;
     }
+
+    int getCount() {
+        return count;
+    }
 }
