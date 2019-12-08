@@ -27,13 +27,14 @@ public class CarManager {
     int carsLength;
     int maxPosition;
 
-
     public CarManager(String[] carNames) {
-        this.carsLength = carNames.length;
         cars = new Car[carsLength];
+        this.carsLength = carNames.length;
+
         for (int i = 0; i < carsLength; i++) {
             cars[i] = new Car(carNames[i]);
         }
+
         this.positionList = new ArrayList<>();
     }
 
@@ -42,9 +43,11 @@ public class CarManager {
     }
 
     private void setPositionList() {
+
         for (Car car : cars) {
             this.positionList.add(car.getPosition());
         }
+
     }
 
     private void setMaxPositions() {
@@ -53,27 +56,35 @@ public class CarManager {
     }
 
     public void printCarsNameAndPosition() {
+
         for (Car car : cars) {
             System.out.println(car.getName()
                     + ": " + car.getPosition());
         }
+
     }
 
-    public void ifBiggerThanFourYouCanMove
-            (int randomNumber, int carIndex) {
+    public void ifBiggerThanFourYouCanMove(
+            int randomNumber, int carIndex) {
+
         if (randomNumber >= 4) {
             cars[carIndex].move();
         }
+
     }
 
     public void whoIsWinner() {
         setMaxPositions();
         System.out.print("<< ");
+
         for (Car car : cars) {
+
             if (car.getPosition() == this.maxPosition) {
                 System.out.print(car.getName() + " ");
             }
+
         }
+
         System.out.println(">> 최종 우승!!");
     }
 

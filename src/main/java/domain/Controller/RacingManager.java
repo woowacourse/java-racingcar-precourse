@@ -15,13 +15,14 @@ import java.util.Random;
  * 3. 매 바퀴마다 진행상황을 출력한다.
  * 4. Manager Class 들에게 입력과 입력값 할당을 명령한다.
  *
- * @version 1.0 2019-12-07
  * @author 황성찬
+ * @version 1.0 2019-12-07
  */
 public class RacingManager {
     private InputManager inputmanager;
     private CarManager carmanager;
     private Random random;
+    
     private String[] carNamesArray;
     private int numberOfLaps;
 
@@ -30,25 +31,33 @@ public class RacingManager {
         random = new Random();
     }
 
-    private boolean isNamesLengthGraterThanFive
-            (String[] carName) {
+    private boolean isNamesLengthGraterThanFive(
+            String[] carName) {
+
         for (String splitedCarNames : carName) {
+
             if (splitedCarNames.length() > 5) {
                 System.out.println("자동차 이름을 5자 이하로 입력하세요!!");
                 return true;
             }
+
         }
+
         return false;
     }
 
     private void moveOrStop() {
+
         for (int i = 0; i < numberOfLaps; i++) {
+
             for (int j = 0; j < carmanager.getCarsLength(); j++) {
                 carmanager
                         .ifBiggerThanFourYouCanMove(random.nextInt(10), j);
             }
+
             printResultEachLap();
         }
+
     }
 
     private void printResultEachLap() {
@@ -66,9 +75,11 @@ public class RacingManager {
     }
 
     private void carSetting() {
+
         do {
             this.carNamesArray = inputmanager.inputCarNamesArray();
         } while (isNamesLengthGraterThanFive(carNamesArray));
+
         carmanager = new CarManager(carNamesArray);
     }
 
