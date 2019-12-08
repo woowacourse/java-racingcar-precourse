@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
@@ -11,9 +10,9 @@ import domain.utils.OutputUtils;
 
 public class Main {
 	public static void main(String[] args) {
-		List<String> carNames = InputUtils.inputNames();
-		Integer numberToRun = InputUtils.inputRuns();
-		List<Car> carList = makeCarsList(carNames);
+		List<String> carNames = InputUtils.getNames();
+		Integer numberToRun = InputUtils.getRuns();
+		List<Car> carList = makeCars(carNames);
 
 		System.out.printf("\n실행 결과\n");
 		for (int i = 0; i < numberToRun; i++) {
@@ -27,9 +26,10 @@ public class Main {
 		InputUtils.inputClose();
 	}
 
-	static List<Car> makeCarsList(List<String> carNames) {
-		List<Car> carList = carNames.stream().map(name -> new Car(name)).collect(Collectors.toList());
-		return carList;
+	static List<Car> makeCars(List<String> carNames) {
+		return carNames.stream()
+			.map(name -> new Car(name))
+			.collect(Collectors.toList());
 	}
 
 	static void runCars(List<Car> carList) {

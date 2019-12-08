@@ -16,7 +16,7 @@ public class InputUtils {
 	private static Scanner scanner=new Scanner(System.in);
 
 	private InputUtils(){}
-	public static Integer inputRuns() {
+	public static Integer getRuns() {
 		Integer inputValue;
 		while (true) {
 			System.out.println(PROMPT_TRIES);
@@ -30,7 +30,7 @@ public class InputUtils {
 		return inputValue;
 	}
 
-	public static List<String> inputNames() {
+	public static List<String> getNames() {
 		String inputValue;
 		List<String> namesList;
 		while (true) {
