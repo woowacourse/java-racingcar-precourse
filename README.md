@@ -88,18 +88,21 @@ void insertName()
 void howManyTry()
 void executeResult()
 void finalWinner(String name)
+void moreThanFiveLength(String name)
 void println(String string)
 ```
 ##### insertName 메소드
-###### 경주할 자동차이름을 입력하라는 메시지가 뜬다.
+###### 경주할 자동차이름을 입력하라는 메시지 출력.
 ##### howManyTry 메소드
-###### 얼마나 시도할거냐는 메시지가 뜬다.
+###### 얼마나 시도할거냐는 메시지 출력.
 ##### executeResult()
 ###### 실행 결과 메시지 출력.
 ##### finalWinner(String name)
-###### naem (이)가 최종우승하였습니다. 출력.
+###### name (이)가 최종우승하였습니다. 메시지 출력.
+##### moreThanFiveLength(String name)
+###### 차 객체 name 은 5글자가 넘습니다. 메시지 출력.
 ##### println(String string) 메소드
-###### System.out.println 로 입력받은 String 을 출력해주는 메소드
+###### System.out.println 로 입력받은 String 을 출력.
 
 
 
