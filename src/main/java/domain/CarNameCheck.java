@@ -21,7 +21,7 @@ public class CarNameCheck {
     private static String nameLengthCheck(String name) {
         while (name.length() > CAR_NAME_MAX_LENGTH) {
             new OutputPrint().moreThanFiveLength(name);
-            name = scanner.nextLine();
+            name = new InputScanner().getCarName();
         }
         return name;
     }
