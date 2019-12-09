@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Game {
     static final int MIN_CAR_NAME_LENGTH = 1;
@@ -55,10 +56,24 @@ public class Game {
             if (!checkStringLength(inputArray[i].trim(), MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
                 return false;
             }
-            Car car = new Car(inputArray[i].trim());
-            this.cars.add(car);
+//            Car car = new Car(inputArray[i].trim());
+//            this.cars.add(car);
+        }
+        if (checkUserInputCarNamesDuplicated(inputArray)) {
+            return false;
         }
         return true;
+    }
+
+    private boolean checkUserInputCarNamesDuplicated(String[] inputArray) {
+        HashSet<String> nameSet = new HashSet<String>();
+        for (int i=0; i<inputArray.length; i++) {
+            if (nameSet.contains(inputArray[i].trim())) {
+                return true;
+            }
+            nameSet.add(inputArray[i].trim());
+        }
+        return false;
     }
 
     private boolean checkStringLength(String string, int min, int max) {
