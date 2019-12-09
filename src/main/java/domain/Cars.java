@@ -10,9 +10,11 @@
 
 package domain;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Cars {
     private static final int MIN_SIZE = 2;
@@ -31,6 +33,19 @@ public class Cars {
 
     public int size() {
         return cars.size();
+    }
+
+    public int getForemostPosition() {
+        return cars.stream()
+                .max(Comparator.comparing(Car::getPosition))
+                .get()
+                .getPosition();
+    }
+
+    public List<Car> findByPosition(int position) {
+        return cars.stream()
+                .filter(car -> position == car.getPosition())
+                .collect(Collectors.toList());
     }
 
     private void validateSize(List<Car> cars) {

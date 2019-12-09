@@ -32,6 +32,10 @@ public class Car {
         return this.name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public String toString() {
         return name + COLON_AND_BOTH_BLACK + createHyphensByPosition();
@@ -45,7 +49,6 @@ public class Car {
         }
         return builder.toString();
     }
-
 
     private void checkCarName(String name) {
         validateContainsBlank(name);
