@@ -15,6 +15,7 @@ public class RacingGame {
 	for(int i=0;i<this.count;i++) {
 	    createAndSetPosition();
 	    showResult();
+	    sleep();
 	}
     }
     
@@ -49,6 +50,16 @@ public class RacingGame {
 	    message.playResult(car[i].getName(), car[i].getPosition());
 	}
 	System.out.println();
+    }
+    
+    
+    /*한 번의 횟수 시행 후 긴장감을 위해 딜레이*/
+    public void sleep() {
+	try {
+	    Thread.sleep(1000); 		//1초 대기
+	} catch (InterruptedException e) {
+	    e.printStackTrace();
+	}
     }
 }
 
