@@ -3,7 +3,9 @@
 ## 클래스
 
 - Car.java: 경주에 참여할 자동차를 생성
-- Stadium.java: 사용자의 입력을 받아 자동차를 생성하고 경주를 진행
+- Race.java: 자동차들로 경주를 진행
+- Stadium.java: 사용자의 입력을 받아 자동차 경주를 진행
+- Winner.java: 우승자를 고르고 출력
 - Main.java: Stadium의 runRacingCar 실행
 
 ## 구현할 기능 목록
