@@ -4,23 +4,24 @@ import java.util.*;
 
 public class GameManager {
 
+    private static String delimiter = ",";
+    private static int randomRange = 10;
+    private static int nameLengthLimit = 5;
+    private static Scanner SC = new Scanner(System.in);
+
     public int numOfCars;
     public int numOfRounds;
-    public int randomRange;
-    public String delimiter;
     public Car[] cars;
 
     public static void main(String[] args) {
         GameManager game = new GameManager();
-        game.delimiter = ",";
-        game.randomRange = 10;
         game.startGame();
 
         for (int i = 0; i < game.numOfRounds; i++) {
             System.out.println("실행결과");
             game.playGame();
         }
-        game.printFinalWinner();
+        game.getMaxPosition();
     }
 
     void startGame() {
@@ -32,7 +33,7 @@ public class GameManager {
     }
 
     String getCarNames() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = SC;
         System.out.println("경주할 자동차의 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = sc.nextLine();
         while (carNames.isEmpty()) {
@@ -43,7 +44,7 @@ public class GameManager {
 
     String getCarNames(boolean wrongInput) {
         System.out.println("1개 이상의 자동차 이름을 입력해 주세요.(이름은 쉼표(,) 기준으로 구분)");
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = SC;
         String carNames = sc.nextLine();
         return carNames;
     }
@@ -58,7 +59,7 @@ public class GameManager {
 
         for (int i = 0; i < numOfCars; i++) {
             String carName = carNameArray[i];
-            if (carName.length() > 5) {
+            if (carName.length() > nameLengthLimit) {
                 System.out.println("이름은 5자 이내로 작성해 주세요. 다시 입력");
                 return false;
             }
@@ -107,19 +108,18 @@ public class GameManager {
         System.out.println();
     }
 
-    void printFinalWinner() {
-        ArrayList<Integer> finalPositionArray = new ArrayList<Integer>();
+    void getMaxPosition() {
+        ArrayList<Integer> finalPositionArray = new ArrayList<>();
         for (int i = 0; i < numOfCars; i++) {
             finalPositionArray.add(cars[i].getPosition());
         }
         int maxPosition = Collections.max(finalPositionArray);
 
         printMaxPositionNames(maxPosition);
-        System.out.println("가 최종 우승했습니다.");
     }
 
     void printMaxPositionNames(int maxPosition) {
-        ArrayList<String> maxPositionNameList = new ArrayList<String>();
+        ArrayList<String> maxPositionNameList = new ArrayList<>();
         for (int i = 0; i < numOfCars; i++) {
             if (cars[i].getPosition() == maxPosition) {
                 maxPositionNameList.add(cars[i].getName());
@@ -129,6 +129,7 @@ public class GameManager {
             System.out.print(maxPositionNameList.get(i) + ", ");
         }
         System.out.print(maxPositionNameList.get(maxPositionNameList.size() - 1));
+        System.out.println("가 최종 우승했습니다.");
     }
 
 }
