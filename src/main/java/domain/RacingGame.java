@@ -77,6 +77,6 @@ public class RacingGame {
 	}
 
 	public static int atRandom() {
-		return (int)(Math.random()*10);
+		return (int) (Math.random() * 10);
 	}
 }
