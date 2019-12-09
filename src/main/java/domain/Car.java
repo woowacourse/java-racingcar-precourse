@@ -34,8 +34,8 @@ public class Car {
         return randomValue >= BOUNDARY;
     }
 
-    public Name getName() {
-        return name;
+    public String getName() {
+        return name.getName();
     }
 
     public int getPosition() { return position;}
