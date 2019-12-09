@@ -65,13 +65,13 @@ pobi,crong,honux
 * RepetitionNumber 객체 생성 시 예외 처리
     * 시도 회수가 1이상이 아닌 경우 예외 처리
             
-* 0에서 9사이의 random 값을 구해서 값에 따라 position을 증가시키는  기능
+* 각각의 차에서 0에서 9사이의 random 값을 구해서 값에 따라 position을 증가시키는  기능
 
-* Car 객체의 현재 상태를 문자열로 리턴하는 기능 (toString())
+* Cars의 toString을 이용해 현재 차의 상태를 리턴하는 기능
 
-* Cars의 toString을 이용해 경주 결과를 만드는 기능
+* 경주 결과를 저장한 RaceResult를 만드는 기능
 
-* 경과 결주들로 실행 결과를 만드는 기능
+* 경주 결과들을 저장한 RaceResults를 만드는 기능
 
 * 최종우승자를 찾아내는 기능 
 
