@@ -13,9 +13,11 @@ public class InputUtils {
 	private static final String PROMPT_TRIES = "시도할 회수는 몇회인가요?";
 	private static final String ERROR_MESSAGE = "유효하지 않은 입력입니다.";
 
-	private static Scanner scanner=new Scanner(System.in);
+	private static Scanner scanner = new Scanner(System.in);
 
-	private InputUtils(){}
+	private InputUtils() {
+	}
+
 	public static Integer getRuns() {
 		Integer inputValue;
 		while (true) {
@@ -32,23 +34,28 @@ public class InputUtils {
 
 	public static List<String> getNames() {
 		String inputValue;
-		List<String> namesList;
+		List<String> nameList;
 		while (true) {
 			System.out.println(PROMPT_NAMES);
 			inputValue = scanner.nextLine();
-			namesList = Arrays.asList(inputValue.split(SEPARATOR[0]));
-			if (namesList.stream().map(name -> isValidName(name))
-				.reduce(((validity1, validity2) -> validity1 & validity2))
-				.get()) {
+			nameList = Arrays.asList(inputValue.split(SEPARATOR[0]));
+			if (isValidNameList(nameList)) {
 				break;
 			}
 			System.out.println(ERROR_MESSAGE);
 		}
-		return namesList;
+		return nameList;
 	}
 
 	private static boolean isValidName(String name) {
 		return name.length() <= NAME_MAX_LEN && name.length() >= NAME_MIN_LEN;
+	}
+
+	private static boolean isValidNameList(List<String> nameList) {
+		return nameList.stream()
+			.map(name -> isValidName(name))
+			.reduce(((validity1, validity2) -> validity1 & validity2))
+			.get();
 	}
 
 	private static void inputFlush() {

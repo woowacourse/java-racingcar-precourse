@@ -42,7 +42,8 @@ public class Main {
 			.max(Comparator.comparingInt(Car::getPosition))
 			.get()
 			.getPosition();
-		return carList.stream().filter(car -> car.getPosition() == maxPosition)
+		return carList.stream()
+			.filter(car -> car.getPosition() == maxPosition)
 			.map(Car::getName)
 			.collect(Collectors.toList());
 	}
