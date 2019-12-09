@@ -12,7 +12,9 @@ public class Race extends AbstractRace {
 
 	@Override
 	protected void processRound() {
-
+		for (Car car : user.cars) {
+			tryDrive(car);
+		}
 	}
 
 	@Override
