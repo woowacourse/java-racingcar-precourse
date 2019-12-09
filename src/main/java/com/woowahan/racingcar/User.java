@@ -1,6 +1,7 @@
 package com.woowahan.racingcar;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class User extends AbstractUser {
 
@@ -16,7 +17,8 @@ public class User extends AbstractUser {
 
 	@Override
 	protected String getLine() {
-		return null;
+		Scanner sc = new Scanner(System.in);
+		return sc.nextLine();
 	}
 
 	@Override
