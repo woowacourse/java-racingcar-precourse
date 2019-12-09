@@ -5,6 +5,8 @@ public class RacingCars {
     private static final int MAX_LENGTH_OF_CAR_NAME = 5;
     private static final int MIN_NUMBER_OF_CARS = 1;
     private static final int STRIDE_LENGTH = 1;
+    private static final String MESSAGE_RACE_END = "가 최종 우승했습니다.";
+
 
     private final List<Car> cars;
 
@@ -68,7 +70,7 @@ public class RacingCars {
     public void printWinners() {
         List<String> winners = getWinners();
         String result = String.join(", ", winners);
-        System.out.println(result + "가 최종 우승했습니다.");
+        System.out.println(result + MESSAGE_RACE_END);
     }
 
     public void printStatus() {
