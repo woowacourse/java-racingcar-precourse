@@ -4,7 +4,7 @@ import java.util.List;
 
 import domain.Car;
 
-public class OutputUtils {
+public final class OutputUtils {
 	private static final String PROGRESS_BAR = "-";
 	private static final String WINNER_MESSAGE = "가 최종 우승했습니다.";
 
