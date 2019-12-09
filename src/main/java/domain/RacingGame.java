@@ -4,10 +4,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RacingGame {
-	public static Scanner sc = new Scanner(System.in);
-	public static Car[] cars;
+	public Scanner sc;
+	public Car[] cars;
 
-	public static void main(String[] args) {
+	public RacingGame() {
+		sc = new Scanner(System.in);
+	}
+
+	public void start() {
 		String names = inputNames();
 		int rounds = inputRounds();
 		cars = makeCars(names);
@@ -30,7 +34,7 @@ public class RacingGame {
 		}
 	}
 
-	public static String inputNames() {
+	public String inputNames() {
 		String nameList = null;
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
 		System.out.println("예시) pobi, crong, honux");
@@ -42,7 +46,7 @@ public class RacingGame {
 		return nameList;
 	}
 
-	public static boolean validate(String nameList) {
+	public boolean validate(String nameList) {
 		String[] names = nameList.split(",", -1);
 		int length = names.length;
 
@@ -57,7 +61,7 @@ public class RacingGame {
 		return true;
 	}
 
-	public static Car[] makeCars(String names) {
+	public Car[] makeCars(String names) {
 		String[] nameList = names.split(",");
 		int numberOfCars = nameList.length;
 		Car[] cars = new Car[numberOfCars];
@@ -68,7 +72,7 @@ public class RacingGame {
 		return cars;
 	}
 
-	public static int inputRounds() {
+	public int inputRounds() {
 		int rounds = 0;
 		boolean notEntered = true;
 		System.out.println("\n시도할 회수는 몇 회인가요?");
@@ -85,11 +89,11 @@ public class RacingGame {
 		return rounds;
 	}
 
-	public static int atRandom() {
+	public int atRandom() {
 		return (int) (Math.random() * 10);
 	}
 
-	public static String getWinners() {
+	public String getWinners() {
 		int maxPosition = 0;
 		String winners = "";
 
