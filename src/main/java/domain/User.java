@@ -3,21 +3,21 @@ package domain;
 import java.util.Scanner;
 
 public class User {
-	private Scanner playerInput;
+	private Scanner userInput;
 
 	User() {
-		playerInput = new Scanner(System.in);
+		userInput = new Scanner(System.in);
 	}
 
 	public String getCarNames() {
-		return getPlayerInput();
+		return getUserInput();
 	}
 
 	public int getCarMoveCount() {
-		return Integer.parseInt(playerInput.next());
+		return Integer.parseInt(userInput.next());
 	}
 
-	private String getPlayerInput() {
-		return playerInput.next();
+	private String getUserInput() {
+		return userInput.next();
 	}
 }
