@@ -45,12 +45,12 @@ public class RacingCarSystem {
 
     public void validateCarsName(String carsName) {
         if (carsName.equals("")) {
-            throw new IllegalStateException("이름은 공백이 될 수 없습니다.");
+            throw new IllegalStateException("이름을 입력해주세요.");
         }
     }
 
-    public void validateCarName(String carsName) {
-        if (carsName.startsWith(" ")) {
+    public void validateCarName(String carName) {
+        if (carName.startsWith(" ")) {
             throw new IllegalStateException("이름은 공백으로 시작할 수 없습니다.");
         }
     }

@@ -5,6 +5,7 @@ import domain.Car;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RankingSystem {
     private List<Car> cars;
@@ -14,15 +15,11 @@ public class RankingSystem {
     }
 
     public List<String> getWinner() {
-        List<String> winnerList = new ArrayList<>();
-
         Collections.sort(cars);
         int maxPosition = cars.get(0).getPosition();
-        for (Car c : cars) {
-            if (c.getPosition() != maxPosition)
-                break;
-            winnerList.add(c.getName());
-        }
-        return winnerList;
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(car -> car.getName())
+                .collect(Collectors.toList());
     }
 }
