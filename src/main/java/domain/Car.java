@@ -21,7 +21,7 @@ public class Car {
 	}
 
 	private int getRandomNumber() {
-		return (int)(Math.random() * (MAX_RANDOM_NUMBER + 1);
+		return (int)(Math.random() * (MAX_RANDOM_NUMBER + 1));
 	}
 
 	public String getName() {
