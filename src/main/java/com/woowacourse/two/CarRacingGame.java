@@ -10,7 +10,6 @@ public class CarRacingGame {
     public void run(){
         String[] carNameArr = setCarNameArr(sc);
         Car[] carArr = setCar(carNameArr);
-        System.out.println(Arrays.toString(carNameArr));
         int playCount = setPlayCount(sc);
         playCarMove(carArr, playCount);
     }
@@ -75,6 +74,8 @@ public class CarRacingGame {
             for(int j = 0 ; j < carArr.length ; j++){
                 moveCarOrNot(carArr, j);
             }
+
+            printCarMove(carArr);
         }
 
 
@@ -90,11 +91,9 @@ public class CarRacingGame {
     }
 
     public void printCarMove(Car[] carArr){
-
         for(Car car : carArr){
-
+            System.out.println(car.getName() + " : " + car.getCarDistance());
         }
-
     }
 
 
