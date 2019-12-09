@@ -12,6 +12,8 @@ package domain;
 
 public class Car {
     private static final String BLANK = " ";
+    private static final String COLON_AND_BOTH_BLACK = " : ";
+    private static final String HYPHEN = "-";
     private static final int MAX_LENGTH = 5;
 
     private final String name;
@@ -29,6 +31,21 @@ public class Car {
     public String getName() {
         return this.name;
     }
+
+    @Override
+    public String toString() {
+        return name + COLON_AND_BOTH_BLACK + createHyphensByPosition();
+    }
+
+    private String createHyphensByPosition() {
+        StringBuilder builder = new StringBuilder();
+
+        for (int count = 0; count < position; count++) {
+            builder.append(HYPHEN);
+        }
+        return builder.toString();
+    }
+
 
     private void checkCarName(String name) {
         validateContainsBlank(name);
