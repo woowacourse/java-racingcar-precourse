@@ -10,6 +10,14 @@ public class Entry {
 		this.racingEntry = racingEntry;
 	}
 
+	public void moveEachCar() {
+
+		for (Car car : racingEntry) {
+			car.moveCar();
+		}
+
+	}
+
 	public void printEachCarPosition() {
 
 		for (Car car : racingEntry) {
