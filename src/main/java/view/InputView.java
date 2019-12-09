@@ -1,8 +1,8 @@
-package utils;
+package view;
 
 import java.util.Scanner;
 
-public class InputUtils {
+public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static String inputCarNames() {

@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private static final int RANDOM_NUMBER_MAX = 9;
-    private static final int RANDOM_NUMBER_MIN = 0;
 
     private List<Car> cars;
 
