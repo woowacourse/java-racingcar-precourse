@@ -21,5 +21,4 @@ public class User {
    	count=sc.nextLine();
    	return count;
        }
-       
 }
