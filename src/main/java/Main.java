@@ -18,21 +18,14 @@ public class Main {
     public static String[] carList;
     public static Car[] cars;
     public static int numberOfCars;
-
-
     public static int raceCount;
 
-
     public static void main(String[] args) {
-
         inputCars();
         makeCars();
         inputRaceCount();
-
-
         startRacingGame(cars,raceCount);
     }
-
     public static void inputCars() {
         Scanner s = new Scanner(System.in);
         do {
@@ -42,14 +35,12 @@ public class Main {
         } while (checkCarNameLength(carList));
         numberOfCars = carList.length;
     }
-
     public static void makeCars() {
         cars = new Car[numberOfCars];
         for (int i = 0; i < numberOfCars; i++) {
             cars[i] = new Car(carList[i]);
         }
     }
-
     public static boolean checkCarNameLength(String[] carList) {
         for (String car : carList) {
             if (car.length() > 5 || car.length() == 0) {
@@ -58,7 +49,6 @@ public class Main {
         }
         return false;
     }
-
     public static void inputRaceCount() {
         Scanner s = new Scanner(System.in);
         System.out.println("시도할 회수는 몇회인가요?");
