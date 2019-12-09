@@ -12,6 +12,14 @@ public class UtilityMethods {
 		return cars;
 	}
 
+	public static void playGameByNumber(int count, Car cars[]) {
+		for (int i = 0; i < count; i++) {
+			goForwardRandomly(cars);
+			printGameResult(cars);
+		}
+
+	}
+
 	public static void goForwardRandomly(Car[] cars) {
 		double randomNumber = 0;
 
@@ -26,19 +34,17 @@ public class UtilityMethods {
 
 	}
 
-	public static void playGameByNumber(int count, Car cars[]) {
-		for (int i = 0; i < count; i++) {
-			goForwardRandomly(cars);
-			printGameResult(cars);
-		}
-
-	}
-
 	private static void printGameResult(Car cars[]) {
 		String gameResult = "";
 
+		System.out.println("");
 		for (int i = 0; i < cars.length; i++) {
-			gameResult = cars[i].getName() + " : " + '-' * cars[i].getPosition();
+			String progress = "";
+			for (int j = 0; j < cars[i].getPosition(); j++) {
+				progress += '-';
+			}
+
+			gameResult = cars[i].getName() + " : " + progress;
 			System.out.println(gameResult);
 		}
 
