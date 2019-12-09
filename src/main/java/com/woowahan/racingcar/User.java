@@ -23,7 +23,19 @@ public class User extends AbstractUser {
 
 	@Override
 	protected void inputCars() {
+		String carString;
+		String[] carArray;
+		ArrayList<Car> carArrayList;
 
+		carString = getLine();
+		carArray = carString.split(",");
+
+		carArrayList = new ArrayList<Car>();
+		for (String item : carArray) {
+			carArrayList.add(new Car(item));
+		}
+
+		this.cars = carArrayList;
 	}
 
 	@Override
