@@ -29,7 +29,7 @@
 
 ### Race <code>extends AbstractRace</code>
 ##### 멤버 변수
-    User user;
+    private User user;
 
 ##### 멤버 함수
 	public Race(User user);
@@ -47,8 +47,8 @@
 
 ### User <code>extends AbstractUser</code>
 ##### 멤버 변수
-	protected ArrayList<Car> cars;
-	protected int round;
+	private ArrayList<Car> cars;
+	private int round;
 ##### 멤버 함수
 	public ArrayList<Car> getCars();
 	public int getRound()();
