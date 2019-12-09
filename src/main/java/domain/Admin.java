@@ -14,7 +14,7 @@ public class Admin {
     /**
      * 전진여부 결정 시 나올 수 있는 최대 정수
      */
-    protected static final int MAX_RANDOM_NUMBER = 9;
+    protected static final int MAX_RANDOM_NUMBER = 10;
 
     /**
      * 전진여부 결정 시 threshold 값 이상이면 전진
