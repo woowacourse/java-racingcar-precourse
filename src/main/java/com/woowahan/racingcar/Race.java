@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Race extends AbstractRace {
 
 	@Override
-	protected void getRandomInteger(int min, int max) {
-
+	protected int getRandomInteger(int min, int max) {
+		return 0;
 	}
 
 	@Override

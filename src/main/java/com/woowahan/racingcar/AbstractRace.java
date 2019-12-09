@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class AbstractRace {
 	protected User user;
 
-	protected abstract void getRandomInteger(int min, int max);
+	protected abstract int getRandomInteger(int min, int max);
 
 	protected abstract void processRound();
 
