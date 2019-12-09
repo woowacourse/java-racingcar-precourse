@@ -7,7 +7,6 @@ import domain.Car;
 import java.util.ArrayList;
 
 public class Output {
-    ArrayList<Integer> maximum;
     ArrayList<Car> carlist;
 
     public Output(ArrayList<Car>cars){
