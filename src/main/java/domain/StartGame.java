@@ -23,6 +23,7 @@ public class StartGame {
             getRandomNumber();
             printResult();
         }
+        printWinner();
     }
 
     private void getRandomNumber() {
@@ -52,5 +53,20 @@ public class StartGame {
             result += '-';
         }
         return result;
+    }
+
+    private void printWinner() {
+        StringBuilder winner = new StringBuilder();
+        int winnerScore = -1;
+
+        for (int i = 0 ; i < cars.length; i++) {
+            if (cars[i].getPosition() > winnerScore) {
+                winnerScore = cars[i].getPosition();
+                winner.append(cars[i].getName());
+            } else if (cars[i].getPosition() == winnerScore) {
+                winner.append(", " + cars[i].getName());
+            }
+        }
+        System.out.println(winner + "가 최종 우승했습니다.");
     }
 }
