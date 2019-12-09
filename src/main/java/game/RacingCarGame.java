@@ -2,7 +2,6 @@ package game;
 
 import com.sun.deploy.util.StringUtils;
 import domain.Car;
-import domain.Cars;
 import exception.InvalidInputException;
 
 import java.util.Arrays;
@@ -21,7 +20,7 @@ public class RacingCarGame {
     private static final String AWARDS_TAIL_MESSAGE = "가 우승했습니다.";
     private static final String CAR_NAME_DELIMITER = ",";
 
-    private Cars cars;
+    private Host host;
     private int numberOfTimes;
     private Scanner gameScanner;
     private Random random;
@@ -45,8 +44,8 @@ public class RacingCarGame {
 
     public void runGame() {
         for (int i = 0; i < numberOfTimes; i++) {
-            cars.runOneTime(random);
-            cars.showCarsStatus();
+            host.runOneTime(random);
+            host.showCarsStatus();
         }
     }
 
@@ -55,8 +54,8 @@ public class RacingCarGame {
     }
 
     private String makeCarsInFirstPositionString() {
-        int firsPosition = cars.measureFirstPosition();
-        List<Car> carsInFirstPosition = cars.takeCarsInFirstPosition(firsPosition);
+        int firsPosition = host.measureFirstPosition();
+        List<Car> carsInFirstPosition = host.takeCarsInFirstPosition(firsPosition);
         List<String> carNamesInFirstPosition = carsInFirstPosition.stream().map(Car::getName).collect(Collectors.toList());
         return StringUtils.join(carNamesInFirstPosition, CAR_NAME_DELIMITER);
     }
@@ -78,7 +77,7 @@ public class RacingCarGame {
 
     private void initCars() {
         List<String> names = makeNamesList();
-        cars = new Cars(names);
+        host = new Host(names);
     }
 
     private List<String> makeNamesList() {
@@ -98,6 +97,12 @@ public class RacingCarGame {
         if (checkLengthOverBasis(names)) {
             throw new InvalidInputException(NAME_OVER_LENGTH_EXCEPTION_MESSAGE);
         }
+        if (checkSize(names)) {
+            throw new InvalidInputException("자동차 경주는 최소 2대의 차 이름이 필요합니다.");
+        }
+        if(checkEmptyName(names)) {
+            throw new InvalidInputException("자동차 이름은 비어 있을 수 없습니다.");
+        }
         if (checkDuplication(names)) {
             throw new InvalidInputException(NAME_DUPLICATION_EXCEPTION_MESSAGE);
         }
@@ -106,6 +111,19 @@ public class RacingCarGame {
     private boolean checkLengthOverBasis(List<String> names) {
         for (String name : names) {
             if (name.length() > CAR_NAME_LENGTH_LIMIT) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean checkSize(List<String> names) {
+        return names.size() == 1;
+    }
+
+    private boolean checkEmptyName(List<String> names) {
+        for (String name : names) {
+            if (name.length() == 0) {
                 return true;
             }
         }
