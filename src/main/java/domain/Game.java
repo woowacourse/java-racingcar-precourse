@@ -14,18 +14,18 @@ public class Game {
 
     public void start() {
 
-        getCarNames();
-        getTurns();
+        initializeCars();
+        initializeTurns();
         startRace();
         printResult();
         System.exit(0);
     }
 
-    private void getCarNames() {
+    private void initializeCars() {
         String[] userInput;
 
         while (true) {
-            userInput = getUserInputCarNames();
+            userInput = askUserInputCarNames();
             if (checkUserInputCarNames(userInput) == true) {
                 break;
             }
@@ -33,7 +33,7 @@ public class Game {
         }
     }
 
-    private String[] getUserInputCarNames() {
+    private String[] askUserInputCarNames() {
         String userInput;
         String[] nameArray;
 
@@ -63,29 +63,29 @@ public class Game {
         return false;
     }
 
-    private void getTurns() {
+    private void initializeTurns() {
         while (true) {
-            if (getUserInputTurns() == true) {
+            if (askUserInputTurns() == true) {
                 break;
             }
             System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
         }
     }
 
-    private boolean getUserInputTurns() {
+    private boolean askUserInputTurns() {
         String userInput;
 
         System.out.println("시도할 회는 몇회인가요?");
         userInput = scanner.nextLine();
 
-        if (checkInputIsInvalid(userInput)) {
+        if (checkUserInputTurnsAreInvalid(userInput)) {
             return false;
         }
         this.turns = Integer.parseInt(userInput);
         return true;
     }
 
-    private boolean checkInputIsInvalid(String input) {
+    private boolean checkUserInputTurnsAreInvalid(String input) {
         if (checkInputContainsChar(input)) {
             return true;
         }
