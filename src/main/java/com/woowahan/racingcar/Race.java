@@ -88,7 +88,6 @@ public class Race extends AbstractRace {
 			printStatus();
 		}
 
-		System.out.println();
 		printResult();
 	}
 }
