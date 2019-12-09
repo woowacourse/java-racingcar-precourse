@@ -15,7 +15,7 @@ import view.UserInput;
 public class Application {
     private static final String PROGRAM_ERROR = "올바르지 않은 실행입니다. 시스템 내부의 오류가 있는 것 같습니다.";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         try {
             play();
         } catch (Exception e) {

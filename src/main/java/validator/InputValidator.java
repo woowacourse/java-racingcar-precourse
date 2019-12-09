@@ -18,6 +18,11 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * 자동차 이름이 적합한지 검증하는 기능
+     * @param userInput
+     * @return
+     */
     public boolean checkCarNames(String[] userInput) {
         correctInputCount = ZERO;
         String[] input = deleteFrontBackBlank(userInput);

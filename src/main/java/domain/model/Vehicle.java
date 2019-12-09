@@ -1,5 +1,10 @@
 package domain.model;
 
+/**
+ * @author 김시영
+ * @apiNote 탈 것이 다양해지는 것을 고려해 상위 클래스인 Vehicle을 각각의 탈 것들이 상속받도록 설계
+ * @since 2019-12-05
+ */
 public class Vehicle {
     private static final String HYPHEN_FOR_POSITION = "-";
     private static final String SPACING_WORDS = " : ";

@@ -7,33 +7,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import domain.model.Car;
+import domain.model.Vehicle;
 import validator.InputValidator;
 
 /**
  * @author 김시영
- * @apiNote 사용자 입력과 관련된 메서드와 데이터가 모인 클래스입니다.
- * @apiNote 사용자를 입력하고, 몇 번을 플레이 할지를 결정하는 메서드로 이루어져 있습니다.
+ * @apiNote 사용자 입력과 관련된 메서드와 데이터가 모인 클래스입니다. 자동차 생성 및 플레이 횟수 결정의 기능이 있습니다.
  * @since 2019-12-05
  */
-public class UserInput {
+public class UserInput<T extends Vehicle> {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static final String COMMA = ",";
 
     private static InputValidator validator = new InputValidator();
 
-    public List<Car> makeCars() throws IOException {
-        String[] userInputArray = br.readLine().split(COMMA);
-        while (!validator.checkCarNames(userInputArray)) {
+    public List<T> makeCars() throws IOException {
+        String[] userInputCars = br.readLine().split(COMMA);
+        while (!validator.checkCarNames(userInputCars)) {
             PrintHandler.notifyCarNameError();
-            userInputArray = br.readLine().split(COMMA);
+            userInputCars = br.readLine().split(COMMA);
         }
-        return makeCarArrayToList(userInputArray);
+        return carNameToCarList(userInputCars);
     }
 
-    private static List<Car> makeCarArrayToList(String[] carNames) {
-        List<Car> carList = new ArrayList<>();
+    private List<T> carNameToCarList(String[] carNames) {
+        List<T> carList = new ArrayList<>();
         for (int i = 0; i < carNames.length; i++) {
-            carList.add(new Car(carNames[i]));
+            carList.add((T) new Car(carNames[i]));  //TODO 차가 아닌, 자전거나 비행기일 경우 여기서 타입을 다르게 입력할 수 있습니다.
         }
         return carList;
     }
