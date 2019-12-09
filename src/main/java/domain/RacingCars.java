@@ -32,6 +32,7 @@ public class RacingCars {
         int maxPosition = findMaxPosition();
         List<Car> winners = findWinners(maxPosition);
 
+        return winners;
     }
 
     private int findMaxPosition() {
