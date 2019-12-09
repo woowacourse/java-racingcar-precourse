@@ -1,11 +1,18 @@
+/*
+ * @(#)RacingPrinterImpl.java 2019/12/10
+ *
+ * Copyright (c) 2019 Geunwon Lim
+ * All rights reserved.
+ */
+
 package util;
 
-import domain.Raceable;
-import domain.RacingGameConfig;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
+import domain.Raceable;
+import domain.RacingGameConfig;
 
 public class RacingPrinterImpl implements RacingPrinter {
     @Override
@@ -24,6 +31,7 @@ public class RacingPrinterImpl implements RacingPrinter {
         String format = buildFormat(winners.size());
         System.out.println(String.format(format, winners.toArray()));
     }
+
     private String buildFormat(int size) {
         String format = "";
         for (int i = 0; i < size; i++) {

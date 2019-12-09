@@ -1,16 +1,16 @@
 package domain;
 
-import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.security.InvalidParameterException;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class RacingCarFactoryTest {
 
@@ -34,6 +34,7 @@ class RacingCarFactoryTest {
         //when & then
         assertEquals(result, racingCarFactory.create(names));
     }
+
     @Test
     void createWithInvalidNames() {
         //given

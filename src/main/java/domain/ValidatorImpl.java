@@ -1,3 +1,10 @@
+/*
+ * @(#)ValidatorImpl.java 2019/12/10
+ *
+ * Copyright (c) 2019 Geunwon Lim
+ * All rights reserved.
+ */
+
 package domain;
 
 import java.util.Arrays;
@@ -16,6 +23,7 @@ public class ValidatorImpl implements Validator {
         }
         return true;
     }
+
     private boolean isValidName(String name) {
         if (RacingGameConfig.MAX_NAME_LENGTH < name.length()) {
             return false;
@@ -26,6 +34,6 @@ public class ValidatorImpl implements Validator {
 
     @Override
     public boolean validateCycles(int cycles) {
-        return RacingGameConfig.MIN_CYCLES <= cycles ;
+        return RacingGameConfig.MIN_CYCLES <= cycles;
     }
 }

@@ -1,6 +1,11 @@
-package domain;
+/*
+ * @(#)RacingCarFactory.java 2019/12/10
+ *
+ * Copyright (c) 2019 Geunwon Lim
+ * All rights reserved.
+ */
 
-import domain.errors.InvalidInputException;
+package domain;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;

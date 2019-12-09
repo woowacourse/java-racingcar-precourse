@@ -1,8 +1,8 @@
 package domain;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 class CarTest {
     private Car car;
@@ -68,10 +68,11 @@ class CarTest {
         assertEquals(1, car.compareTo(carWithLowPosition));
 
         //given
-        Car carWithLowerId = new Car(id -1, name, position);
+        Car carWithLowerId = new Car(id - 1, name, position);
         //when & then
         assertEquals(1, car.compareTo(carWithLowerId));
     }
+
     @Test
     void compareToReturn0() {
         //given
@@ -79,10 +80,11 @@ class CarTest {
         String name = "testCar";
         int position = 2;
         car = new Car(id, name, position);
-        Car carWhichIsSame =  new Car(id, name, position);
+        Car carWhichIsSame = new Car(id, name, position);
         //when & then
         assertEquals(0, car.compareTo(carWhichIsSame));
     }
+
     @Test
     void compareToReturnMinus1() {
         //given

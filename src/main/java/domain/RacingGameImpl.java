@@ -1,8 +1,15 @@
+/*
+ * @(#)RacingGameImpl.java 2019/12/10
+ *
+ * Copyright (c) 2019 Geunwon Lim
+ * All rights reserved.
+ */
+
 package domain;
 
-import util.RacingPrinter;
-
 import java.util.List;
+
+import util.RacingPrinter;
 
 public class RacingGameImpl implements RacingGame {
 
@@ -27,9 +34,9 @@ public class RacingGameImpl implements RacingGame {
         }
 
         List<Raceable> winners = racingReferee.distinguishWinners(raceables);
-        //todo: check if printResult is good in play
         racingPrinter.printWinners(winners);
     }
+
     private void start() {
         racingPrinter.printStartGameSign();
     }

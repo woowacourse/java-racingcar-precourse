@@ -1,10 +1,10 @@
 package domain;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ValidatorImplTest {
     private ValidatorImpl validator;
@@ -21,6 +21,7 @@ class ValidatorImplTest {
         //when & then
         assertTrue(validator.validateNames(names));
     }
+
     @Test
     void validateNamesWithNotAllowdCharacter() {
         //given
@@ -33,6 +34,7 @@ class ValidatorImplTest {
         //when & then
         assertFalse(validator.validateNames(namesWithSpecialSymbol));
     }
+
     @Test
     void validateNamesWithTooLongNames() {
         //given
@@ -41,6 +43,7 @@ class ValidatorImplTest {
         //when & then
         assertFalse(validator.validateNames(namesWithTooLongName));
     }
+
     @Test
     void validateNamesWithTooSmallNames() {
         //given
@@ -56,6 +59,7 @@ class ValidatorImplTest {
         //when & then
         assertTrue(validator.validateCycles(cycles));
     }
+
     @Test
     void validateCyclesWithTooSmallCycles() {
         //given

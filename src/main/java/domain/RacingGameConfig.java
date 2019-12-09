@@ -1,7 +1,13 @@
+/*
+ * @(#)RacingGameConfig.java 2019/12/10
+ *
+ * Copyright (c) 2019 Geunwon Lim
+ * All rights reserved.
+ */
+
 package domain;
 
 public class RacingGameConfig {
-
     public static final String STANDARD_TO_PARSE = ",";
     public static final int MIN_CYCLES = 1;
     public static final int MAX_NAME_LENGTH = 5;
@@ -13,5 +19,5 @@ public class RacingGameConfig {
     static final int MAX_RANDOM_NUMBER = 9;
     static final int STANDARD_TO_GO = 3;
     public static final String POSITION_MARK = "-";
-    static  final String[] NOT_ALLOWED_IN_NAME = {" ", "!", "@", "#", "$", "%", "^", "&", "*"};
+    static final String[] NOT_ALLOWED_IN_NAME = {" ", "!", "@", "#", "$", "%", "^", "&", "*"};
 }

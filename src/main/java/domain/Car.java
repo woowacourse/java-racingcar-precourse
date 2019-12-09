@@ -1,3 +1,10 @@
+/*
+ * @(#)Car.java 2019/12/10
+ *
+ * Copyright (c) 2019 Geunwon Lim
+ * All rights reserved.
+ */
+
 package domain;
 
 public class Car implements Movable, Comparable<Car> {
@@ -9,24 +16,28 @@ public class Car implements Movable, Comparable<Car> {
     Car(String name) {
         this.id = CarId.getInstance().increaseId();
         this.name = name;
-
     }
+
     Car(String name, int position) {
         this.id = CarId.getInstance().increaseId();
         this.name = name;
         this.position = position;
     }
+
     Car(int id, String name, int position) {
         this.id = id;
         this.name = name;
         this.position = position;
     }
+
     @Override
     public void go() {
         position += RacingGameConfig.STEP;
     }
 
-    int getId() { return id;}
+    int getId() {
+        return id;
+    }
 
     @Override
     public int getPosition() {
@@ -39,7 +50,7 @@ public class Car implements Movable, Comparable<Car> {
             return false;
         }
 
-        return this.name.equals(((Car)object).name) && (this.position == ((Car)object).position);
+        return this.name.equals(((Car) object).name) && (this.position == ((Car) object).position);
     }
 
     @Override

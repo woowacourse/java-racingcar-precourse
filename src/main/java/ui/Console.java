@@ -1,9 +1,15 @@
+/*
+ * @(#)Console.java 2019/12/10
+ *
+ * Copyright (c) 2019 Geunwon Lim
+ * All rights reserved.
+ */
+
 package ui;
 
 import domain.RacingGameConfig;
 import domain.Validator;
 import domain.errors.InvalidInputException;
-
 import util.RacingPrinter;
 
 public class Console implements UserInterface {
@@ -18,6 +24,7 @@ public class Console implements UserInterface {
         this.racingPrinter = racingPrinter;
     }
 
+    /** 성공적으로 이름들을 추출할 때까지 반복합니다. */
     @Override
     public String[] extractNames() {
         racingPrinter.printRequestForNames();
@@ -30,6 +37,7 @@ public class Console implements UserInterface {
             return extractNames();
         }
     }
+
     private String[] parseNames(String input) {
         input = input.trim();
         if (input.startsWith(RacingGameConfig.STANDARD_TO_PARSE) || input.endsWith(RacingGameConfig.STANDARD_TO_PARSE)) {
@@ -44,6 +52,7 @@ public class Console implements UserInterface {
         return names;
     }
 
+    /** 성공적으로 기간(주기)을 받을 때까지 반복합니다. */
     @Override
     public int getCycles() {
         racingPrinter.printRequestForCycles();

@@ -1,22 +1,25 @@
 package ui;
 
-import domain.RacingGameConfig;
-import domain.Validator;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.*;
+
+import java.io.ByteArrayInputStream;
+import java.util.Scanner;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import domain.RacingGameConfig;
+import domain.Validator;
 import util.RacingPrinter;
 
-import java.io.ByteArrayInputStream;
-import java.util.*;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Mockito.*;
+
 
 class ConsoleTest {
 
@@ -54,6 +57,7 @@ class ConsoleTest {
         //when & then
         assertArrayEquals(result, console.extractNames());
     }
+
     @Test
     void extractNamesWithTooLongNames() {
         //given
@@ -72,6 +76,7 @@ class ConsoleTest {
         verify(mockRacingPrinter).printErrorWhenExtractingNames(any());
 
     }
+
     @Test
     void extractNamesWithNotAllowdCharacter() {
         //given
@@ -89,6 +94,7 @@ class ConsoleTest {
         assertArrayEquals(result, console.extractNames());
         verify(mockRacingPrinter).printErrorWhenExtractingNames(any());
     }
+
     @Test
     void extractNamesWithSpace() {
         //given
@@ -106,6 +112,7 @@ class ConsoleTest {
         assertArrayEquals(result, console.extractNames());
         verify(mockRacingPrinter).printErrorWhenExtractingNames(any());
     }
+
     @Test
     void extractNamesWithSeparatorsAtFirstAndLast() {
         //given
@@ -132,6 +139,7 @@ class ConsoleTest {
         //when & then
         assertEquals(Integer.parseInt(input), console.getCycles());
     }
+
     @Test
     void getCyclesWithTooSmallInput() {
         //given
@@ -148,6 +156,7 @@ class ConsoleTest {
         assertEquals(Integer.parseInt(normalInput), console.getCycles());
         verify(mockRacingPrinter).printErrorWithTooSmallCycle(anyInt());
     }
+
     @Test
     void getCyclesWithNotNaturalInput() {
         //given
@@ -171,6 +180,7 @@ class ConsoleTest {
         inputController = new InputControllerImpl(scanner);
         return new Console(inputController, mockValidator, mockRacingPrinter);
     }
+
     private Console createConsoleWithMockInputControllerForTest() {
         inputController = mock(InputController.class);
         return new Console(inputController, mockValidator, mockRacingPrinter);
