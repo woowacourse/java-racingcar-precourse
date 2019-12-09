@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.3.1   2019-12-09
+ * RacingCarMain.java              1.4.0   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -12,12 +12,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.3.1            메인 메소드 외 나머지 메소드를 private으로 수정
+ * @version 1.4.0            자동차 이름이 중복인지 확인하는 기능 추가
  * @date 2019-12-09
  * @author HyungjuAn
  */
@@ -34,7 +35,7 @@ public class RacingCarMain {
 	private static final String COMMA = ",";
 	private static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.\n"
 		+ "(이름은 쉼표(,)를 기준으로 구분하며, 5자 이하만 가능합니다.)";
-	private static final String INVALID_INPUT_PRINTING = "잘못 입력하셧습니다.";
+	private static final String INVALID_INPUT_PRINTING = "잘못 입력하셨습니다.";
 	private static final String RACE_COUNT_QUESTION = "시도할 횟수는 몇회인가요?";
 
 	public static void main(String[] args) throws IOException {
@@ -82,17 +83,19 @@ public class RacingCarMain {
 	}
 
 	private static boolean isRightCarNames(String input) {
-		boolean result = true;
 		String[] carNames = input.split(COMMA, SPLIT_LIMIT);
+
+		if (isDuplicateName(carNames)) {
+			return false;
+		}
 
 		for (int i = 0; i < carNames.length; i++) {
 			if (!isRightLengthName(carNames[i])) {
-				result = false;
-				break;
+				return false;
 			}
 		}
 
-		return result;
+		return true;
 	}
 
 	private static boolean isRightLengthName(String carName) {
@@ -100,6 +103,21 @@ public class RacingCarMain {
 
 		if ((carName.length() >= MINIMUM_LENGTH_CAR_NAME) && (carName.length() <= MAXIMUM_LENGTH_CAR_NAME)) {
 			result = true;
+		}
+
+		return result;
+	}
+
+	private static boolean isDuplicateName(String[] carNames) {
+		boolean result = false;
+		HashSet<String> nameSet = new HashSet<>();
+
+		for (int i = 0; i < carNames.length; i++) {
+			if (nameSet.contains(carNames[i])) {
+				result = true;
+				break;
+			}
+			nameSet.add(carNames[i]);
 		}
 
 		return result;
