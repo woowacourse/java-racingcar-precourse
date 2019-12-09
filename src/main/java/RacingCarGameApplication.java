@@ -11,7 +11,7 @@
 import domain.Cars;
 import domain.RacingCarGame;
 import domain.RepetitionNumber;
-import utlis.CarsUtils;
+import utils.CarsUtils;
 import view.InputView;
 import view.OutputView;
 
