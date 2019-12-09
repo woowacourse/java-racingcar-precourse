@@ -1,6 +1,9 @@
 package com.minuyim.race.utils;
 
 public class StringsInputs {
+    private static final int STRING_MIN_LIMIT = 0;
+    private static final int STRING_MAX_LIMIT = 5;
+    private static final int STRINGS_MIN_LIMIT = 0;
     private String[] output;
     
     public StringsInputs() {
@@ -12,7 +15,7 @@ public class StringsInputs {
     }
     
     private void startInput() {
-        System.out.println(Constants.NAME_INPUT_MESSAGE);
+        System.out.println(MessageStrings.NAME_INPUT_MESSAGE);
         inputRightValue();
     }
     
@@ -22,20 +25,17 @@ public class StringsInputs {
                 this.output = validateString(UserInputs.input());
                 validateStrings(this.output);
                 break;
-            } catch (NumberFormatException e) {
-                System.out.println(Constants.WRONG_TYPE_ERROR);
             } catch (IllegalArgumentException e) {
-                System.out.println(Constants.WRONG_LENGTH_ERROR);
+                System.out.println(MessageStrings.WRONG_LENGTH_ERROR);
             }
         }
     }
     
     private String[] validateString(String input) {
-        String[] strings = input.split(",");
+        String[] strings = input.split(",", -1);
         
         for (String string : strings) {
-            if (string.length() > Constants.STRING_MAX_LIMIT 
-                    || string.length() <= Constants.STRING_MIN_LIMIT) {
+            if (!isLengthInRange(string)) {
                 throw new IllegalArgumentException();
             }
         }
@@ -44,8 +44,17 @@ public class StringsInputs {
     }
     
     private void validateStrings(String[] strings) {
-        if (strings.length == Constants.STRING_MIN_LIMIT) {
+        if (isAllNone(strings)) {
             throw new IllegalArgumentException();
         }
+    }
+    
+    private boolean isLengthInRange(String string) {
+        return string.length() <= STRING_MAX_LIMIT 
+                && string.length() > STRING_MIN_LIMIT;
+    }
+    
+    private boolean isAllNone(String[] strings) {
+        return strings.length == STRINGS_MIN_LIMIT;
     }
 }

@@ -12,7 +12,7 @@ public class NumberInputs {
     }
     
     private void startInput() {
-        System.out.println(Constants.TOTALNUM_INPUT_MESSAGE);
+        System.out.println(MessageStrings.TOTALNUM_INPUT_MESSAGE);
         inputRightValue();
     }
     
@@ -22,9 +22,9 @@ public class NumberInputs {
                 this.output = validate(UserInputs.input());
                 break;
             } catch (NumberFormatException e) {
-                System.out.println(Constants.WRONG_TYPE_ERROR);
+                System.out.println(MessageStrings.WRONG_TYPE_ERROR);
             } catch (IllegalArgumentException e) {
-                System.out.println(Constants.WRONG_NUMBER_ERROR);
+                System.out.println(MessageStrings.WRONG_NUMBER_ERROR);
             }
         }
     }
@@ -32,7 +32,7 @@ public class NumberInputs {
     private int validate(String input) {
         int num = Integer.valueOf(input);
         
-        if (num <= 0) {
+        if (num < 0) {
             throw new IllegalArgumentException();
         }
         

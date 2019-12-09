@@ -3,7 +3,7 @@ package com.minuyim.race.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.minuyim.race.utils.Constants;
+import com.minuyim.race.utils.MessageStrings;
 
 public class Winner {
     private List<Car> cars;
@@ -15,34 +15,31 @@ public class Winner {
     private int calculateMaxPosition() {
         int max = 0;
         
-        for (int i = 0; i < cars.size(); i++) {
-            if (max < cars.get(i).getPosition()) {
-                max = cars.get(i).getPosition();
+        for (Car car : this.cars) {
+            if (max < car.getPosition()) {
+                max = car.getPosition();
             }
         }
         
         return max;
     }
     
-    private List<Car> getWinner(){
-        List<Car> winner = new ArrayList<Car>();
-        int maxPosition = calculateMaxPosition();
+    private List<String> getWinnerName(){
+        List<String> winnerName = new ArrayList<String>();
         
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winner.add(car);
+        for (Car car : this.cars) {
+            if (car.isPosition(calculateMaxPosition())) {
+                winnerName.add(car.getName());
             }
         }
         
-        return winner;
+        return winnerName;
     }
     
     public void printWinner() {
-        List<String> winnerName = new ArrayList<String>();
-        for (Car car : getWinner()) {
-            winnerName.add(car.getName());
-        }
-        System.out.println(String.format("%s" + Constants.WINNER_MESSAGE, String
+        List<String> winnerName = getWinnerName();
+        
+        System.out.println(String.format("%s" + MessageStrings.WINNER_MESSAGE, String
                 .join(", ", winnerName)));
     }
 }
