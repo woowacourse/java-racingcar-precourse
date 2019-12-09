@@ -11,6 +11,10 @@ public class RacingGame {
 		int rounds = inputRounds();
 		Car[] cars = makeCars(names);
 
+		for (int i = 0; i < cars.length; i++) {
+			atRandom();
+		}
+
 		if (sc != null) {
 			sc.close();
 		}
@@ -69,5 +73,9 @@ public class RacingGame {
 			}
 		}
 		return rounds;
+	}
+
+	public static int atRandom() {
+		return (int)(Math.random()*10);
 	}
 }
