@@ -7,16 +7,19 @@ import inOut.*;
  */
 public class CarRace {
     private ArrayList<Car> cars = new ArrayList<Car>();
+    private String[] names;
     private int trys =5;
-    TotalOutput totalOutput;
-    Output out;
+    private TotalOutput totalOutput;
+    private Output out;
+    private Input in;
 
     public void start(){
         //scan
-        
+        in = new Input();
         //create cars and control
-        addCar("test");
-        addCar("test2");
+        for(int i=0; i<in.getNames().length; i++){
+            addCar(in.getNames()[i]);
+        }
         
         System.out.println("실행결과");
         //execute
