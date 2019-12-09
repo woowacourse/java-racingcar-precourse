@@ -18,4 +18,16 @@ public class Car {
     public void proceed() {
         this.position++;
     }
+
+    public void print() {
+        System.out.print(this.name + " : " + displayPosition(this.position));
+    }
+
+    private String displayPosition(int position) {
+        StringBuilder displayForPosition = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            displayForPosition.append("-");
+        }
+        return displayForPosition.toString();
+    }
 }

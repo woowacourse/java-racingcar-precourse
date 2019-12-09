@@ -24,6 +24,12 @@ public class Cars {
         }
     }
 
+    public void printPositions() {
+        for (Car car : cars) {
+            car.print();
+        }
+    }
+
     private int getRandomNumber() {
         return new Random().nextInt(RANDOM_NUMBER_MAX + 1);
     }

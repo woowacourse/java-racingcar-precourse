@@ -1,15 +1,17 @@
 import domain.Cars;
 import domain.RacingRounds;
 import view.InputView;
+import view.OutputView;
 
 public class RacingCarApplication {
     public static void main(String[] args) {
         Cars cars = getReadyCars();
         RacingRounds racingRounds = decideRacingRounds();
 
-        while(racingRounds.isLeft()) {
+        while (racingRounds.isLeft()) {
             racingRounds.minus();
             cars.play();
+            OutputView.printCarPositions(cars);
         }
     }
 
