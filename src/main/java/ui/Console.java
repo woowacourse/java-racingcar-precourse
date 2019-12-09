@@ -38,7 +38,7 @@ public class Console implements UserInterface {
 
         String[] names = input.split(RacingGameConfig.STANDARD_TO_PARSE);
         if (!validator.validateNames(names)) {
-            throw new InvalidInputException("이름은 5글자를 넘을 수 없습니다. 또한, 띄어쓰기 및 특수기호(!,@,#,$,%,^,&,*)를 이름으로 사용할 수 없습니다.");
+            throw new InvalidInputException("이름은 2개 이상이어야 하고, 5글자를 넘을 수 없습니다. 또한, 띄어쓰기 및 특수기호(!,@,#,$,%,^,&,*)를 이름으로 사용할 수 없습니다.");
         }
 
         return names;
