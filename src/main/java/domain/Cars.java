@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Cars {
     public static final String SEPARATOR_NAME = "쉼표";
@@ -21,6 +22,9 @@ public class Cars {
                 throw e;
             }
         }
+        if (haveDuplicatedNames(cars)) {
+            throw new IllegalArgumentException("※중복되는 자동차 이름은 사용할 수 없습니다.");
+        }
     }
 
     private static boolean doesNotContainSeparator(String input) {
@@ -34,6 +38,11 @@ public class Cars {
             carNamesList.add(carName);
         }
         return carNamesList;
+    }
+
+    private static boolean haveDuplicatedNames(ArrayList<Car> cars) {
+        HashSet<Car> carsSet = new HashSet<Car>(cars);
+        return carsSet.size() != cars.size();
     }
 
 }
