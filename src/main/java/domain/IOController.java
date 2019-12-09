@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class IOController {
 
-  public void askRounds() {
+  public static void askRounds() {
     System.out.println("시도할 횟수는 몇회인가요?");
   }
 
-  public int getRounds() {
+  public static int getRounds() {
     try {
       int rounds;
       Scanner scanner = new Scanner(System.in);
@@ -26,20 +26,20 @@ public class IOController {
     }
   }
 
-  private void askAgainRounds() {
+  private static void askAgainRounds() {
     System.out.println("0보다 큰 숫자로만 입력해주세요.");
   }
 
-  private int getAgainRounds() {
+  private static int getAgainRounds() {
     askAgainRounds();
     return getRounds();
   }
 
-  public void askCarsNames() {
+  public static void askCarsNames() {
     System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
   }
 
-  public String[] getCarsNames() {
+  public static String[] getCarsNames() {
     String userInput;
     String[] carNames = {};
     Scanner scanner = new Scanner(System.in);
@@ -51,16 +51,16 @@ public class IOController {
     return carNames;
   }
 
-  private void askAgainCarsNames() {
+  private static void askAgainCarsNames() {
     System.out.println("다시 입력해주세요.(이름은 쉼표(,) 기준으로 구분, 5자 이하)");
   }
 
-  private String[] getAgainCarsNames() {
+  private static String[] getAgainCarsNames() {
     askAgainCarsNames();
     return getCarsNames();
   }
 
-  private String[] parseNames(String input) {
+  private static String[] parseNames(String input) {
     String[] carNames = {};
 
     carNames = input.split(",");
@@ -74,7 +74,7 @@ public class IOController {
     return carNames;
   }
 
-  private boolean validateName(String[] names) {
+  private static boolean validateName(String[] names) {
     if (names.length == 0) {
       return false;
     }
@@ -90,14 +90,14 @@ public class IOController {
     return true;
   }
 
-  private void printCurrentPosition(Car car) {
+  private static void printCurrentPosition(Car car) {
     for (int i = 0; i < car.getPosition(); i++) {
       System.out.print("-");
     }
     System.out.println();
   }
 
-  public void printRoundResult(Car[] cars) {
+  public static void printRoundResult(Car[] cars) {
     for (int i = 0; i < cars.length; i++) {
       System.out.print(cars[i].getName() + " : ");
       printCurrentPosition(cars[i]);
@@ -105,7 +105,7 @@ public class IOController {
     System.out.println();
   }
 
-  public void printWinner(String winner) {
+  public static void printWinner(String winner) {
     System.out.println(winner + "이(가) 최종 우승했습니다.");
   }
 }

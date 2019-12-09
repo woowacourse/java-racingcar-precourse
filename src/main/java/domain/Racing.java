@@ -7,8 +7,6 @@ public class Racing {
   private String winner = "";
   private int positionOfWinner = 0;
 
-  IOController ioController = new IOController();
-
   public Racing(String[] carNames, int rounds) {
     this.cars = new Car[carNames.length];
 
@@ -64,11 +62,11 @@ public class Racing {
     System.out.println("\n실행 결과");
     for (int i = 0; i < rounds; i++) {
       raceOneRound();
-      ioController.printRoundResult(this.cars);
+      IOController.printRoundResult(this.cars);
     }
 
     defineWinner();
-    ioController.printWinner(this.winner);
+    IOController.printWinner(this.winner);
   }
 
 
