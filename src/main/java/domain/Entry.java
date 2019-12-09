@@ -3,9 +3,9 @@ package domain;
 import java.util.List;
 
 public class Entry {
-	private List<Car> carEntry;
+	private List<Car> racingEntry;
 
-	Entry(List<Car> carEntry) {
-		this.carEntry = carEntry;
+	Entry(List<Car> racingEntry) {
+		this.racingEntry = racingEntry;
 	}
 }
