@@ -20,7 +20,7 @@ public class Car {
     }
 
     public void printPosition() {
-        System.out.print(this.name + " : " + displayPosition(this.position));
+        System.out.printf("%-5s : %s%n", this.name, displayPosition(this.position));
     }
 
     private String displayPosition(int position) {

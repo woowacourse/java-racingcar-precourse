@@ -7,6 +7,7 @@ public class OutputView {
 
     public static void printCarPositions(Cars cars) {
         cars.printPositions();
+        System.out.println();
     }
 
     public static void printWinners(Cars cars) {
