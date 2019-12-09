@@ -12,6 +12,7 @@ package domain;
 
 public class RepetitionNumber {
     private static final int MIN_VALUE = 1;
+    private static final String SMALL_THAN_MIN_VALUE = "1이상의 값이 아닙니다.";
 
     private final int number;
 
@@ -26,7 +27,7 @@ public class RepetitionNumber {
 
     private void validateValue(int number) {
         if (number < MIN_VALUE) {
-            throw new IllegalArgumentException("1이상의 값이 아닙니다.");
+            throw new IllegalArgumentException(SMALL_THAN_MIN_VALUE);
         }
     }
 }

@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private static final int MIN_SIZE = 2;
+    private static final String SHORTAGE_CAR = "2대 이상의 차가 아닙니다.";
+    private static final String DUPLICATION_CAR_NAME = "2대 이상의 차가 아닙니다.";
 
     private final List<Car> cars;
 
@@ -50,7 +52,7 @@ public class Cars {
 
     private void validateSize(List<Car> cars) {
         if (cars.size() < MIN_SIZE) {
-            throw new IllegalArgumentException("2대 이상의 차가 아닙니다.");
+            throw new IllegalArgumentException(SHORTAGE_CAR);
         }
     }
 
@@ -59,7 +61,7 @@ public class Cars {
 
         for (Car car : cars) {
             if (!noneDuplicatedCarNames.add(car.getName())) {
-                throw new IllegalArgumentException("중복된 차 이름이 있습니다.");
+                throw new IllegalArgumentException(DUPLICATION_CAR_NAME);
             }
         }
     }

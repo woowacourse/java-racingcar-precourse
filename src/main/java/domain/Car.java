@@ -14,6 +14,9 @@ public class Car {
     private static final String BLANK = " ";
     private static final String COLON_AND_BOTH_BLACK = " : ";
     private static final String HYPHEN = "-";
+    private static final String CONTAINS_BLANK = "자동차 이름에 공백을 포함할 수 없습니다.";
+    private static final String OVER_NAME_LENGTH = "자동차 이름은 5자를 넘을 수 없습니다.";
+    private static final String NAME_EMPTY = "자동차 이름은 비어있을 수 없습니다.";
     private static final int MAX_LENGTH = 5;
 
     private final String name;
@@ -25,11 +28,11 @@ public class Car {
     }
 
     public void moveAStepForward() {
-        this.position++;
+        position++;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getPosition() {
@@ -58,19 +61,19 @@ public class Car {
 
     private void validateContainsBlank(String name) {
         if (name.contains(BLANK)) {
-            throw new IllegalArgumentException("자동차 이름에 공백을 포함할 수 없습니다.");
+            throw new IllegalArgumentException(CONTAINS_BLANK);
         }
     }
 
     private void validateNameLength(String name) {
         if(name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5자를 넘을 수 없습니다.");
+            throw new IllegalArgumentException(OVER_NAME_LENGTH);
         }
     }
 
     private void validateNameIsEmpty(String name) {
         if(name.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다.");
+            throw new IllegalArgumentException(NAME_EMPTY);
         }
     }
 }
