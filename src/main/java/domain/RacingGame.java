@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -7,6 +8,19 @@ public class RacingGame {
 
 	public static void main(String[] args) {
 
+	}
+
+
+
+	private static List<String> getCarNameList(String carNames) {
+		List<String> carNameList = new ArrayList<>();
+		StringTokenizer tokenizer = new StringTokenizer(carNames, ",");
+
+		while (tokenizer.hasMoreTokens()) {
+			carNameList.add(tokenizer.nextToken());
+		}
+
+		return carNameList;
 	}
 
 	private static void printToInputCarNamesMessage() {
