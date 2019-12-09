@@ -9,6 +9,8 @@ public class RacingGame {
 	public static void main(String[] args) {
 		String names = inputNames();
 		int rounds = inputRounds();
+		Car[] cars = makeCars(names);
+
 		if (sc != null) {
 			sc.close();
 		}
@@ -39,6 +41,17 @@ public class RacingGame {
 			}
 		}
 		return true;
+	}
+
+	public static Car[] makeCars(String names) {
+		String[] nameList = names.split(",");
+		int numberOfCars = nameList.length;
+		Car[] cars = new Car[numberOfCars];
+
+		for (int i = 0; i < numberOfCars; i++) {
+			cars[i] = new Car(nameList[i]);
+		}
+		return cars;
 	}
 
 	public static int inputRounds() {
