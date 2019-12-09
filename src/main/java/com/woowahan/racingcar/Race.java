@@ -42,6 +42,7 @@ public class Race extends AbstractRace {
 
 			System.out.println();
 		}
+		System.out.println();
 	}
 
 	@Override
