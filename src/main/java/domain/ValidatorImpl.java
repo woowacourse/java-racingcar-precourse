@@ -5,6 +5,10 @@ import java.util.Arrays;
 public class ValidatorImpl implements Validator {
     @Override
     public boolean validateNames(String[] names) {
+        if (names.length < RacingGameConfig.MIN_NAMES) {
+            return false;
+        }
+
         for (String name : names) {
             if (!isValidName(name)) {
                 return false;
