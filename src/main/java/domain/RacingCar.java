@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class RacingCar {
     public static void main(String[] args) {
         Cars cars = createCars();
+        MoveCount moveCount = createMoveCount();
     }
 
     private static String getUserInput() {
@@ -20,6 +21,18 @@ public class RacingCar {
             try {
                 System.out.println(input);
                 return new Cars(input);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private static MoveCount createMoveCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        while (true) {
+            String input = getUserInput();
+            try {
+                return new MoveCount(input);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
