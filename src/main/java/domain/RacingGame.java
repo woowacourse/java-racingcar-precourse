@@ -14,6 +14,7 @@ public class RacingGame {
     
     public void run() {
 	enterCarInfo();
+	System.out.println("실행 결과");
 	for(int i=0;i<this.count;i++) {
 	    createAndSetPosition();
 	    showResult();
@@ -34,7 +35,6 @@ public class RacingGame {
     }
     
     public void showResult() {
-	System.out.println("실행 결과");
 	for(int i=0;i<car.length;i++) {
 	    message.playResult(car[i].getName(), car[i].getPosition());
 	}
