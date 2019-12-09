@@ -73,4 +73,25 @@ class TrackTest {
     // Assert
     verify(track.getRacingCars().get(0), times(track.getTrial())).move(anyInt());
   }
+
+  @DisplayName("트랙은 winner를 리턴한다.")
+  @Test
+  public void track_returns_winners() {
+    // Arrange
+    Track track = new Track("win1,win2,lose", "10");
+    for (Car car : track.getRacingCars()) {
+      if (car.getName().startsWith("win")) {
+        car.move(9);
+        continue;
+      }
+      car.move(1);
+    }
+
+    // Act
+    List<Car> winners = track.getWinners();
+
+    // Assert
+    assertEquals("win1", winners.get(0).getName());
+    assertEquals("win2", winners.get(1).getName());
+  }
 }
