@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.4.2   2019-12-09
+ * RacingCarMain.java              1.4.3   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.4.2            readRaceCount메소드의 연산자 우선순위를 명확하게 수정
+ * @version 1.4.3            index가 필요없는 for문을 for-each문으로 수정
  * @date 2019-12-09
  * @author HyungjuAn
  */
@@ -91,8 +91,8 @@ public class RacingCarMain {
 			return false;
 		}
 
-		for (int i = 0; i < carNames.length; i++) {
-			if (!isRightLengthName(carNames[i])) {
+		for (String nextCarName : carNames) {
+			if (!isRightLengthName(nextCarName)) {
 				return false;
 			}
 		}
@@ -114,12 +114,12 @@ public class RacingCarMain {
 		boolean result = false;
 		HashSet<String> nameSet = new HashSet<>();
 
-		for (int i = 0; i < carNames.length; i++) {
-			if (nameSet.contains(carNames[i])) {
+		for (String nextCarName : carNames) {
+			if (nameSet.contains(nextCarName)) {
 				result = true;
 				break;
 			}
-			nameSet.add(carNames[i]);
+			nameSet.add(nextCarName);
 		}
 
 		return result;
