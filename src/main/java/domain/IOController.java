@@ -75,8 +75,14 @@ public class IOController {
   }
 
   private boolean validateName(String[] names) {
+    if (names.length == 0) {
+      return false;
+    }
+
     for (int i = 0; i < names.length; i++) {
-      if (names[i].length() == 0 || names[i].length() > 5) {
+      String name = names[i].trim();
+
+      if (name.length() == 0 || name.length() > 5) {
         return false;
       }
     }
@@ -99,7 +105,7 @@ public class IOController {
     System.out.println();
   }
 
-  public void printWinner(String winner){
-    System.out.println(winner+"이(가) 최종 우승했습니다.");
+  public void printWinner(String winner) {
+    System.out.println(winner + "이(가) 최종 우승했습니다.");
   }
 }
