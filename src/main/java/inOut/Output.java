@@ -7,8 +7,9 @@ import domain.Car;
 import java.util.ArrayList;
 
 public class Output {
-
+    ArrayList<Integer> maximum;
     ArrayList<Car> carlist;
+
     public Output(ArrayList<Car>cars){
         carlist=cars;
         printCarsResult();
@@ -21,6 +22,7 @@ public class Output {
         }
         System.out.println();
     }
+
     public String transPosition(int position){
         String dash="";
         for (int i =0; i<position; i++){
@@ -28,5 +30,6 @@ public class Output {
         }
         return dash;
     }
+    
 
 }

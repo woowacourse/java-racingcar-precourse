@@ -7,7 +7,7 @@ import inOut.*;
  */
 public class CarRace {
     private ArrayList<Car> cars = new ArrayList<Car>();
-
+    private int trys =5;
     public void start(){
         //scan
         
@@ -16,11 +16,12 @@ public class CarRace {
         
         System.out.println("실행결과");
         //execute
-        for(int i = 0; i<3; i++){
+        for(int i = 0; i<trys; i++){
             runCar();
-            //printresult
+            //print result
             Output out = new Output(cars);
         }
+        //print total result
     }
 
     public void addCar(){
