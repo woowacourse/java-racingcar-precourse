@@ -2,8 +2,8 @@ import java.util.*;
 import java.util.stream.*;
 
 public class RacingCars {
-    private static final int MAX_LENGTH_OF_CAR_NAME = 5;
-    private static final int MIN_NUMBER_OF_CARS = 1;
+    private static final int MAXIMUM_LENGTH_OF_CAR_NAME = 5;
+    private static final int MINIMUM_NUMBER_OF_CARS = 1;
     private static final int STRIDE_LENGTH = 1;
     private static final String MESSAGE_RACE_END = "가 최종 우승했습니다.";
 
@@ -22,13 +22,13 @@ public class RacingCars {
     }
 
     private void validateName(Car car) {
-        if (car.nameLongerThan(MAX_LENGTH_OF_CAR_NAME)) {
+        if (car.nameLongerThan(MAXIMUM_LENGTH_OF_CAR_NAME)) {
             throw new IllegalArgumentException("각 자동차의 이름은 5자 이하만 가능합니다.");
         }
     }
 
     private void validateSize(List<Car> cars) {
-        if (cars.size() < MIN_NUMBER_OF_CARS) {
+        if (cars.size() < MINIMUM_NUMBER_OF_CARS) {
             throw new IllegalArgumentException("자동차는 최소 1대가 필요합니다.");
         }
     }
