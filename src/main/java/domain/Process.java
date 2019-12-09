@@ -9,6 +9,14 @@ public class Process {
 		}
 	}
 	
+	public static void printEachCarStatus(Car currentCar) {
+		System.out.print(currentCar.getName() + " : ");
+		for (int i = 0; i < currentCar.getPosition(); i++) {
+			System.out.print('-');
+		}
+		System.out.print("\n");
+	}
+	
 	public static void main(String[] args) {
 	
 	}
