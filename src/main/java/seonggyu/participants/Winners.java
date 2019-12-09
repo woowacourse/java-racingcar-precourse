@@ -27,6 +27,6 @@ public class Winners {
 
 	public void printWinners() {
 		String result = String.join(", ", this.winners);
-		System.out.print(result + " 가 최종 우승했습니다.");
+		System.out.print(result + "가 최종 우승했습니다.");
 	}
 }
