@@ -9,19 +9,16 @@ public class Stadium {
 
 	private static final int ZERO = 0;
 	private static final int MAX_LENGTH = 5;
-	private static final String COLON = ": ";
 	private static final String COMMA = ",";
-	private static final String POSITION_MARK = "-";
 
 	private Scanner scanner = new Scanner(System.in);
-	private ArrayList<Car> carList;
 
 	public void runRacingCar() {
 		List<String> carNames = getCarNamesFromUser();
 		int numberOfRace = getNumberOfRace();
 
-		getReadyRacingCars(carNames);
-		runRace(numberOfRace);
+		Race.runRace(numberOfRace, carNames);
+		ArrayList<Car> carList = Race.getCarListAfterRace();
 
 		ArrayList<String> firstRunners = Winner.getFirstRunners(carList);
 		Winner.printWinners(firstRunners);
@@ -90,44 +87,6 @@ public class Stadium {
 		return false;
 	}
 
-	private void getReadyRacingCars(List<String> carNames) {
-		carList = new ArrayList<>(carNames.size());
-
-		for (String carName : carNames) {
-			Car car = new Car(carName);
-			carList.add(car);
-		}
-	}
-
-	private void runRace(int numberOfRace) {
-		printRaceResultMessage();
-
-		for (int i = 0; i < numberOfRace; i++) {
-			isRacing(carList);
-		}
-	}
-
-	private void isRacing(ArrayList<Car> carList) {
-		for (Car car : carList) {
-			car.move();
-			printPositions(car);
-		}
-		System.out.println();
-	}
-
-	private void printPositions(Car car) {
-		int position = car.getPosition();
-
-		StringBuilder sb = new StringBuilder();
-		sb.append(car.getName());
-		sb.append(COLON);
-
-		for (int i = 0; i < position; i++) {
-			sb.append(POSITION_MARK);
-		}
-		System.out.println(sb.toString());
-	}
-
 	private void printInputIsNullMessage() {
 		System.out.println("입력값 형식이 잘못되었습니다.");
 	}
@@ -142,10 +101,6 @@ public class Stadium {
 
 	private void printPositiveNumberOnlyMessage() {
 		System.out.println("1이상의 양수만 입력가능합니다.");
-	}
-
-	private void printRaceResultMessage() {
-		System.out.println("\n실행 결과");
 	}
 
 	private void printMessageAskingNumberOfRace() {
