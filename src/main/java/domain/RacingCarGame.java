@@ -20,9 +20,8 @@ public class RacingCarGame {
 	private static final String QUESTION_TO_GET_TRIES = "시도할 회수는 몇 회인가요?";
 	private static final String RESULT = "실행 결과";
 	private static final String IS_WINNER = "이(가) 최종 우승했습니다.";
-	private static final String COMMA = ", ";
+	private static final String COMMA = ",";
 	private static final char SHAPE = '-';
-	private int numOfCars;
 	private int numOfTries;
 	private String carNamesDividedByComma;
 	private String carNames[];
@@ -49,8 +48,7 @@ public class RacingCarGame {
 		do {
 			carNamesDividedByComma = input.nextLine();
 		} while (exception.checkNameRange(carNamesDividedByComma) || exception.isDuplicated());
-		carNames = carNamesDividedByComma.split(",");
-		numOfCars = carNames.length;
+		carNames = carNamesDividedByComma.split(COMMA);
 		for (String carName : carNames) {
 			cars.add(new Car(carName));
 		}
@@ -92,7 +90,7 @@ public class RacingCarGame {
 		for (int i = 0; i < winners.size(); i++) {
 			System.out.print(winners.get(i));
 			if (i < winners.size() - 1) {
-				System.out.print(COMMA);
+				System.out.print(COMMA + " ");
 			} else if (i == winners.size() - 1) {
 				System.out.print(IS_WINNER);
 			}
