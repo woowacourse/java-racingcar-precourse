@@ -20,5 +20,4 @@ public class User {
 	private String getPlayerInput() {
 		return playerInput.next();
 	}
-
 }
