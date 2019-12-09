@@ -15,7 +15,6 @@ public class Race extends AbstractRace {
 		for (Car car : user.cars) {
 			tryDrive(car);
 		}
-		currentRound++;
 	}
 
 	@Override
@@ -39,11 +38,6 @@ public class Race extends AbstractRace {
 
 			System.out.println();
 		}
-	}
-
-	@Override
-	protected boolean isFinalRound() {
-		return currentRound > user.getRound();
 	}
 
 	@Override
