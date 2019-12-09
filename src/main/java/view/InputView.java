@@ -16,6 +16,7 @@ public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
     private static final String CARS_NAME = "경주할 자동차 이름을 입력해주세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String REPETITION_NUMBER = "시도할 회수는 몇회인가요?";
+    private static final String NOT_INTEGER = "숫자가 아닙니다.";
 
     public String inputCarNames() {
         System.out.println(CARS_NAME);
@@ -27,7 +28,7 @@ public class InputView {
             System.out.println(REPETITION_NUMBER);
             return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자가 아닙니다.");
+            throw new IllegalArgumentException(NOT_INTEGER);
         }
     }
 }
