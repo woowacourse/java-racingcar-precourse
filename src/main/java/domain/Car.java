@@ -26,6 +26,6 @@ public class Car {
 	}
 
 	private boolean isMoved(int value) {
-		return value > THRESHOLD;
+		return value >= THRESHOLD;
 	}
 }
