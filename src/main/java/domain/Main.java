@@ -11,11 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Car[] cars;
         PrepareGame prepareGame = new PrepareGame();
-        cars = prepareGame.prepare();
+        prepareGame.prepare();
 
         StartGame startGame = new StartGame();
-        startGame.start(cars);
+        startGame.start(prepareGame.Cars(), prepareGame.Attempts());
     }
 }
