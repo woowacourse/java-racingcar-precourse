@@ -48,7 +48,21 @@ public class Race extends AbstractRace {
 
 	@Override
 	protected ArrayList<Car> getWinners() {
-		return null;
+		int topPosition = 0;
+		ArrayList<Car> winners = new ArrayList<Car>();
+
+		for (Car car : user.cars) {
+			int position = car.getPosition();
+			if (position < topPosition) {
+				continue;
+			}
+			if (position > topPosition) {
+				topPosition = position;
+				winners.clear();
+			}
+			winners.add(car);
+		}
+		return winners;
 	}
 
 	@Override
