@@ -38,6 +38,12 @@ public class Track {
   }
 
   public void race() {
+    for (int i = 0; i < trial; ++i) {
+      raceCars();
+    }
+  }
+
+  private void raceCars() {
     for (Car car : racingCars) {
       int randomNumber = (int) (Math.random() * 1000) % 10;
       car.move(randomNumber);

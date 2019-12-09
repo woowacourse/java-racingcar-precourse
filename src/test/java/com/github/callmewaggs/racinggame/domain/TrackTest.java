@@ -6,7 +6,9 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -62,13 +64,13 @@ class TrackTest {
   @Test
   public void race_racing_cars_using_trial() {
     // Arrange
-    String inputTrial = "5";
-    Track track = new Track(mock(String.class), inputTrial);
+    Track track = mock(Track.class);
+    when(track.getRacingCars()).thenReturn(Arrays.asList(mock(Car.class), mock(Car.class)));
 
     // Act
     track.race();
 
     // Assert
-    verify(track.getRacingCars().get(0), times(5)).move(anyInt());
+    verify(track.getRacingCars().get(0), times(track.getTrial())).move(anyInt());
   }
 }
