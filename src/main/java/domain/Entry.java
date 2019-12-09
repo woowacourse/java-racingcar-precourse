@@ -24,6 +24,7 @@ public class Entry {
 			System.out.printf("%s : %s\n", car.getName(), toStringPosition(car.getPosition()));
 		}
 
+		System.out.println();
 	}
 
 	private String toStringPosition(int carPosition) {
@@ -45,7 +46,7 @@ public class Entry {
 		}
 
 		winnerMessageBuilder.deleteCharAt(winnerMessageBuilder.length() - 1);
-		System.out.println(winnerMessageBuilder.toString());
+		System.out.println(winnerMessageBuilder.toString() + "가 최종 우승했습니다.");
 	}
 
 	private List<String> getFirstCarNames() {
