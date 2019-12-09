@@ -2,7 +2,6 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +12,6 @@ public class Stadium {
 	private static final String COLON = ": ";
 	private static final String COMMA = ",";
 	private static final String POSITION_MARK = "-";
-	private static final String WINNING_MESSAGE = "가 최종 우승했습니다.";
 
 	private Scanner scanner = new Scanner(System.in);
 	private ArrayList<Car> carList;
@@ -25,8 +23,8 @@ public class Stadium {
 		getReadyRacingCars(carNames);
 		runRace(numberOfRace);
 
-		ArrayList<String> firstRunners = getFirstRunners();
-		printWinners(firstRunners);
+		ArrayList<String> firstRunners = Winner.getFirstRunners(carList);
+		Winner.printWinners(firstRunners);
 	}
 
 	private List<String> getCarNamesFromUser() {
@@ -128,47 +126,6 @@ public class Stadium {
 			sb.append(POSITION_MARK);
 		}
 		System.out.println(sb.toString());
-	}
-
-	private ArrayList<String> getFirstRunners() {
-		ArrayList<String> firstRunners = new ArrayList(carList.size());
-
-		int firstRunnersPosition = getFirstRunnersPosition();
-
-		for (Car car : carList) {
-			if (car.getPosition() == firstRunnersPosition) {
-				firstRunners.add(car.getName());
-			}
-		}
-		return firstRunners;
-	}
-
-	private int getFirstRunnersPosition() {
-		int firstRunnersPosition;
-		ArrayList<Integer> positions = new ArrayList(carList.size());
-
-		for (Car car : carList) {
-			int position = car.getPosition();
-			positions.add(position);
-		}
-
-		firstRunnersPosition = Collections.max(positions);
-		return firstRunnersPosition;
-	}
-
-	private void printWinners(ArrayList<String> firstRunners) {
-		StringBuilder sb = new StringBuilder();
-
-		for (String firstRunner : firstRunners) {
-			if (sb.length() > ZERO) {
-				sb.append(COMMA);
-			}
-			sb.append(firstRunner);
-		}
-
-		sb.append(WINNING_MESSAGE);
-		System.out.println(sb.toString());
-
 	}
 
 	private void printInputIsNullMessage() {
