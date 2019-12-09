@@ -3,9 +3,12 @@
  * Game.java
  * Purpose: 사용자로부터 받은 입력을 통해 자동차 인스턴스를 생성하고, 레이싱 게임을 수행한다.
  *
- * @version         1.00 12/3/2019
- * @author          김태헌
+ * @version 1.00 12/3/2019
+ * @author 김태헌
  */
+
+package domain;
+
 import java.util.Scanner;
 
 public class Game {
@@ -22,9 +25,10 @@ public class Game {
         int numberOfGames;
 
         names = processInputText();     // 입력문자열을 comma 로 split
-        if (names == null) {
+        if (names == null || names.length == 0) {
 
-            /* 사용자로부터 입력받은 자동차 이름의 길이가 5가 넘는 경우 프로그램 종료 */
+            /* 사용자로부터 입력받은 자동차 이름의 길이가 5가 넘거나 없는 경우 프로그램 종료 */
+            System.out.println("Error 로 인해 게임을 종료합니다.");
             return;
         }
         System.out.println("시도할 회수는 몇회인가요?");
@@ -47,10 +51,10 @@ public class Game {
         input = s.nextLine();
         names = input.split(",");
         for (String name : names) {
-            if (name.length() > 5) {
+            if (name.length() > 5 || name.length() == 0) {
 
                 /* 각 자동차 이름의 길이가 5가 넘는 경우 에러문장 출력 */
-                System.out.println("자동차 이름은 5자 이하가 되어야 합니다.");
+                System.out.println("자동차 이름은 1자 이상 5자 이하가 되어야 합니다.");
                 return null;
             }
         }
@@ -60,7 +64,7 @@ public class Game {
     /**
      * 자동차 배열을 주어진 입력에 맞게 초기화 해준다.
      *
-     * @param names         : 자동차의 이름 배열
+     * @param names : 자동차의 이름 배열
      */
     public static Car[] initializeCar(String[] names) {
         Car[] cars = new Car[names.length];
@@ -72,6 +76,7 @@ public class Game {
 
     /**
      * 게임을 진행하고 출력 형식에 맞게 게임 내용을 출력해준다.
+     *
      * @param cars          : 게임에 참여하는 Car array
      * @param numberOfGames : 게임 횟수
      * @param numberOfCars  : 게임에 참여하는 Car 갯수
@@ -85,6 +90,7 @@ public class Game {
             for (int j = 0; j < numberOfCars; j++) {
                 cars[j].printMovingForward();
             }
+            System.out.println();
         }
         printWinner(cars);
     }
@@ -92,7 +98,7 @@ public class Game {
     /**
      * 각 자동차의 움직인 거리를 통해 우승자를 가려내고, 출력 형식에 맞게 우승자를 출력해준다.
      *
-     * @param cars          : 게임에 참여하는 Car array
+     * @param cars : 게임에 참여하는 Car array
      */
     public static void printWinner(Car[] cars) {
         int maxMovingCounter = 0;

@@ -4,8 +4,10 @@
      * Process User input
      * Initialize variables
      * Print output
+ 
  2. **Car class Implementation**
     * Constructor
+    * getter
     * Play game
 ------------------------------
 #### Car class

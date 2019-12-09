@@ -2,11 +2,14 @@
  * Precourse 2주차
  * Car.java
  * Purpose: Car 객체로 자동차의 이름과 위치 변수를 포함하고 있다. 또한 앞으로 전진하고 현재 위치를
- *          출력해주는 메소드를 포함하고 있다.
+ * 출력해주는 메소드를 포함하고 있다.
  *
- * @version         1.00 12/3/2019
- * @author          김태헌
+ * @version 1.00 12/3/2019
+ * @author 김태헌
  */
+
+package domain;
+
 public class Car {
     private final String name;
     private int position = 0;
