@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User extends AbstractUser {
+	private ArrayList<Car> cars;
+	private int round;
 
 	@Override
 	public ArrayList<Car> getCars() {

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Race extends AbstractRace {
+	private User user;
+
 	public Race(User user) {
 		this.user = user;
 	}
@@ -16,7 +18,7 @@ public class Race extends AbstractRace {
 
 	@Override
 	protected void tryDrives() {
-		for (Car car : user.cars) {
+		for (Car car : user.getCars()) {
 			tryDrive(car);
 		}
 	}
@@ -33,7 +35,7 @@ public class Race extends AbstractRace {
 
 	@Override
 	protected void printStatus() {
-		for (Car car : user.cars) {
+		for (Car car : user.getCars()) {
 			System.out.print(car.getName() + " : ");
 
 			for (int i = 0; i < car.getPosition(); i++) {
@@ -50,7 +52,7 @@ public class Race extends AbstractRace {
 		int topPosition = 0;
 		ArrayList<Car> winners = new ArrayList<Car>();
 
-		for (Car car : user.cars) {
+		for (Car car : user.getCars()) {
 			int position = car.getPosition();
 			if (position < topPosition) {
 				continue;

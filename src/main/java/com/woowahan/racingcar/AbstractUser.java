@@ -3,9 +3,6 @@ package com.woowahan.racingcar;
 import java.util.ArrayList;
 
 public abstract class AbstractUser {
-	protected ArrayList<Car> cars;
-	protected int round;
-
 	public abstract ArrayList<Car> getCars();
 
 	public abstract int getRound();

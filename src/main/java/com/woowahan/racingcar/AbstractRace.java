@@ -3,7 +3,6 @@ package com.woowahan.racingcar;
 import java.util.ArrayList;
 
 public abstract class AbstractRace {
-	protected User user;
 
 	protected abstract int getRandomInteger(int min, int max);
 
