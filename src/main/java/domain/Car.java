@@ -11,7 +11,7 @@ public class Car {
 
     private static void validateCarName(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차의 이름은 5자이하만 가능합니다.");
         }
     }
 
@@ -31,11 +31,11 @@ public class Car {
         return displayForPosition.toString();
     }
 
-    public String getName() {
+    String getName() {
         return this.name;
     }
 
-    public int getPosition() {
+    int getPosition() {
         return this.position;
     }
 

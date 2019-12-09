@@ -10,7 +10,7 @@ public class RacingRounds {
 
     private void validateNumberBounds(int racingRounds) {
         if (!(racingRounds > 0)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("시도할 회수는 양수만 가능합니다.");
         }
     }
 

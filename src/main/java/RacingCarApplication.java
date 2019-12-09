@@ -8,6 +8,7 @@ public class RacingCarApplication {
         Cars cars = getReadyCars();
         RacingRounds racingRounds = decideRacingRounds();
 
+        System.out.println("실행 결과");
         while (racingRounds.isLeft()) {
             racingRounds.minus();
             cars.play();
@@ -20,6 +21,7 @@ public class RacingCarApplication {
         try {
             return new Cars(InputView.inputCarNames());
         } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             return getReadyCars();
         }
     }
@@ -28,6 +30,7 @@ public class RacingCarApplication {
         try {
             return new RacingRounds(InputView.inputRacingRounds());
         } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             return decideRacingRounds();
         }
     }
