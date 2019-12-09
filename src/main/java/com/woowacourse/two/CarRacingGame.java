@@ -9,8 +9,10 @@ public class CarRacingGame {
 
     public void run(){
         String[] carNameArr = setCarNameArr(sc);
+        Car[] carArr = setCar(carNameArr);
         System.out.println(Arrays.toString(carNameArr));
         int playCount = setPlayCount(sc);
+        playCarMove(carArr, playCount);
     }
 
     public String[] setCarNameArr(Scanner sc){
@@ -50,9 +52,34 @@ public class CarRacingGame {
         return true;
     }
 
+    public Car[] setCar(String[] carNameArr){
+
+        Car[] carArr = new Car[carNameArr.length];
+
+        for(int i = 0 ; i < carNameArr.length ; i++){
+            carArr[i] = new Car(carNameArr[i]);
+        }
+
+        return carArr;
+
+    }
+
     public int setPlayCount(Scanner sc){
         int playCount = sc.nextInt();
         return playCount;
     }
+
+    public void playCarMove(Car[] carArr, int playCount){
+
+        for(int i = 0 ; i < playCount ; i++){
+            for(int j = 0 ; j < carArr.length ; j++){
+
+            }
+        }
+
+    }
+
+
+
 
 }
