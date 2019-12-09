@@ -1,90 +1,91 @@
+/**
+ * @(#)User.java
+ * 0.0.0
+ * 2019/12/10
+ */
+
 package domain;
 
-import java.util.InputMismatchException; //예외처리위해 필요.
 import java.util.Scanner;
+import java.util.InputMismatchException; //예외처리위해 필요.
 
-//공백들어간경우 어떻게 처리되는 것지 이해를 못하겠다.
-//중복id경우?
+/**
+ * 사용자로부터 입력을 받아오는 기능을 위한 클래스
+ * 
+ * @version 0.0.0 2019년 12월 10일
+ * @author tiroring
+ */
 public class User {
-	private static String[] carNames;
-	private static int trialNum;
+	private String[] carNames;
+	private int trialNum;
 	
-	private static void setCarNames() {
-		Scanner input = new Scanner(System.in);
-		System.out.println("경주에 참여할 자동차들의 이름을 입력하세요.");
-		System.out.println("조건: 각 차량은 콤마(,)로 구분하며 "
+	public User() {
+		System.out.println("(1) 경주에 참여할 자동차들의 이름을 "
+				+ "입력하세요.\n조건: 각 차량은 콤마(,)로 구분하며 "
 				+ "차량이름은 5글자 이하로 한다.");
-		String tmp = input.next();
-		User.carNames = tmp.split(",");
-		//input.close();
+		this.setCarNames();
+		System.out.println("(2) 경주할 횟수를 입력하세요.");
+		this.setTrialNum();
 	}
 	
-	static void setValidCarNames() {
-		while (true) {
-			User.setCarNames();
-			try {
-				setValidCarNamesIf();
-				break;
-			} catch (Exception ime) {
-				System.out.println("잘못된 입력: "
-						+ "각 자동차의 id는 5글자 이하여야합니다.");
-			}
+	private void setCarNames() {
+		Scanner input = new Scanner(System.in);
+		this.carNames = input.next().split(",");
+		try {
+			this.isCarNameValid();
+			System.out.println("차량 이름이 정상적으로 입력되었습니다."
+					+ "\n");
+		} catch (Exception ime) {
+			System.out.println("잘못된 입력: "
+					+ "각 자동차의 이름은 5글자 이하여야합니다.");
+			this.setCarNames(); // 오류시 재귀
 		}
-		System.out.println("사용자 입력이 정상적으로 입력되었습니다.");
 	}
 
-	private static void setValidCarNamesIf() throws Exception {
-		for (int i = 0; i < User.carNames.length; i++) {
-			if (User.carNames[i].length() > 5) {
+	private void isCarNameValid() throws Exception {
+		for (int i = 0; i < this.carNames.length; i++) {
+			if (this.carNames[i].length() > 5) {
 				throw new Exception();
 			}
 		}
 	}
 	
-	public static String[] getCarNames() {
-		return User.carNames;
+	public String[] getCarNames() {
+		return this.carNames;
 	}
-	
-	private static void setTrialNum() throws Exception {
-		Scanner input2 = new Scanner(System.in);
-		System.out.println("경주할 횟수를 입력하세요.");
-		trialNum = input2.nextInt();
-		// 정수아닌 자료 입력시 ImputMismatchException예외 출력
-		// 자연수 아닌 자료 입력시 아래 if문에서 Exception예외 출력
-		if (trialNum <= 0) {
-			Exception ex1 = new Exception();
-			throw ex1;
+
+	private void setTrialNum() {
+		try {
+			Scanner input = new Scanner(System.in);
+			this.trialNum = input.nextInt();
+			if (this.trialNum <= 0) {throw new Exception();}
+			System.out.println("사용자 입력: " + this.trialNum 
+					+ "\n");
+		} catch (InputMismatchException ime) {
+			System.out.println("잘못된 입력: 정수를 입력하세요.");
+			this.setTrialNum(); // 오류시 재귀
+		} catch (Exception e) {
+			System.out.println("잘못된 입력: 양수를 입력하세요.");
+			this.setTrialNum(); // 오류시 재귀
 		}
 	}
 	
-	public static void setValidTrialNum() {
-		while (true) {
-			try {
-				User.setTrialNum();
-				break;				
-			} catch (InputMismatchException ime) {
-				System.out.println("잘못된 입력: 정수를 입력하세요.");
-			} catch (Exception ex1) {
-				System.out.println("잘못된 입력: 양수를 입력하세요.");
-			}
-		}
-		System.out.println("사용자 입력 : "+ trialNum 
-				+ "이(가) 정상적으로 입력되었습니다." );
+	public int getTrialNum() {
+		return this.trialNum;
 	}
 	
-	public static int getTrialNum() {
-		return User.trialNum;
-	}
-	
+	/*
 	public static void main(String[] args) throws Exception{
 		//User test
-//		getValidCarName();
-//		for (int i = 0; i < carNames.length; i++) {
-//			System.out.println(carNames[i]);
-//		}
+		getValidCarName();
+		for (int i = 0; i < carNames.length; i++) {
+			System.out.println(carNames[i]);
+		}
 		
 		//trialNum() test
-		setValidTrialNum();
-		System.out.println(trialNum);
+		User usertest = new User();
+		usertest.setValidTrialNum();
+		System.out.println(usertest.trialNum);
 	}
+	*/
 }

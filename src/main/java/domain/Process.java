@@ -1,12 +1,24 @@
+/**
+ * @(#)Process.java
+ * 0.0.0
+ * 2019/12/10
+ */
+
 package domain;
 
 import java.util.ArrayList;
 
+/**
+ * 내부 연산 및 결과 출력기능을 위한 클래스
+ * 
+ * @version 0.0.0 2019년 12월 10일
+ * @author tiroring
+ */
 public class Process {
+	private static final int CONDITION = 3;
 	
 	public static void isCarProceed(Car currentCar) {
-		int condition = (int) Math.floor(Math.random() * 10);
-		if (condition > 3) {
+		if ((int) Math.floor(Math.random() * 10) > CONDITION) {
 			currentCar.addPosition();
 		}
 	}
@@ -19,39 +31,27 @@ public class Process {
 		System.out.print("\n");
 	}
 	
-	public static ArrayList<Car> findWinner(ArrayList<Car> carList) {
+	public static ArrayList<Car> findWinner(ArrayList<Car> car) {
 		ArrayList<Car> winnersCarList = new ArrayList<Car>();
-		int currentMaxPosition = carList.get(0).getPosition();
-		for (int i = 0; i < carList.size(); i++) {
-			if (carList.get(i).getPosition() == currentMaxPosition) {
-				winnersCarList.add(carList.get(i));
+		int nowMaxPosition = 0;
+		for (int i = 0; i < car.size(); i++) {
+			if (car.get(i).getPosition() == nowMaxPosition) {
+				winnersCarList.add(car.get(i));
 			}
-			if (carList.get(i).getPosition() > currentMaxPosition) {
+			if (car.get(i).getPosition() > nowMaxPosition) {
 				winnersCarList = new ArrayList<Car>();
-				winnersCarList.add(carList.get(i));
-				currentMaxPosition = carList.get(i).getPosition();
+				winnersCarList.add(car.get(i));
+				nowMaxPosition = car.get(i).getPosition();
 			}
 		}
 		return winnersCarList;
 	}
 	
 	public static String printWinner(ArrayList<Car> winners) {
-		ArrayList<String> winnersNameList = new ArrayList<String>();
+		ArrayList<String> winnersName = new ArrayList<String>();
 		for (int i = 0; i < winners.size(); i++) {
-			winnersNameList.add(winners.get(i).getName());
+			winnersName.add(winners.get(i).getName());
 		}
-		return String.join(", ", winnersNameList);
+		return String.join(", ", winnersName);
 	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int k = 9;
-		char slash = '-';
-		//System.out.print(slash);
-		//System.out.print(k);
-		//System.out.print(slash * k);
-		
-
-	}
-
 }
