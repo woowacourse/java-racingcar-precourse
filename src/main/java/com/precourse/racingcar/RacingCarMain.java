@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.4.0   2019-12-09
+ * RacingCarMain.java              1.4.1   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.4.0            자동차 이름이 중복인지 확인하는 기능 추가
+ * @version 1.4.1            잘못된 입력을 알려주는 기능을 자동차와 레이스 횟수 두가지로 분리
  * @date 2019-12-09
  * @author HyungjuAn
  */
@@ -35,8 +35,10 @@ public class RacingCarMain {
 	private static final String COMMA = ",";
 	private static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.\n"
 		+ "(이름은 쉼표(,)를 기준으로 구분하며, 5자 이하만 가능합니다.)";
-	private static final String INVALID_INPUT_PRINTING = "잘못 입력하셨습니다.";
 	private static final String RACE_COUNT_QUESTION = "시도할 횟수는 몇회인가요?";
+	private static final String INVALID_INPUT_PRINTING = "잘못 입력하셨습니다. ";
+	private static final String INVALID_CAR_NAMES_PRINTING = "중복되지 않는 2대 이상의 자동차 이름을 입력하세요.";
+	private static final String INVALID_RACE_COUNT_PRINTING = "1 이상의 자연수를 입력하세요.";
 
 	public static void main(String[] args) throws IOException {
 		Race race = initializeRace();
@@ -70,7 +72,7 @@ public class RacingCarMain {
 		String input = removeSpace(reader.readLine());
 
 		if ((!isRightCarNames(input)) || (!isRightNumberCars(input))) {
-			printInvalidInput();
+			printInvalidCarNames();
 			readCarNames(carList);
 			return;
 		}
@@ -142,8 +144,8 @@ public class RacingCarMain {
 		}
 	}
 
-	private static void printInvalidInput() {
-		System.out.println(INVALID_INPUT_PRINTING);
+	private static void printInvalidCarNames() {
+		System.out.println(INVALID_INPUT_PRINTING + INVALID_CAR_NAMES_PRINTING);
 	}
 
 	private static int getRaceCount() throws IOException {
@@ -166,7 +168,7 @@ public class RacingCarMain {
 		String input = reader.readLine();
 
 		if (!isInteger(input) || !isNaturalNumber(input)) {
-			printInvalidInput();
+			printInvalidRaceCount();
 			return INVALID_RACE_COUNT;
 		}
 
@@ -193,6 +195,10 @@ public class RacingCarMain {
 		}
 
 		return result;
+	}
+
+	private static void printInvalidRaceCount() {
+		System.out.println(INVALID_INPUT_PRINTING + INVALID_RACE_COUNT_PRINTING);
 	}
 
 	@Override
