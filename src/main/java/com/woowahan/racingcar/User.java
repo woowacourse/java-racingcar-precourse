@@ -6,12 +6,12 @@ public class User extends AbstractUser {
 
 	@Override
 	public ArrayList<Car> getCars() {
-		return null;
+		return cars;
 	}
 
 	@Override
 	public int getRound() {
-		return 0;
+		return round;
 	}
 
 	@Override
