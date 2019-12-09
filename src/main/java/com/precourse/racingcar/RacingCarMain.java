@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.2.1   2019-12-09
+ * RacingCarMain.java              1.3.0   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.2.1            자동차 이름을 확인하는 기능과 대수를 확인하는 기능 분리
+ * @version 1.3.0            자동차 입력의 공백을 제거하는 기능 추가
  * @date 2019-12-09
  * @author HyungjuAn
  */
@@ -29,6 +29,8 @@ public class RacingCarMain {
 	private static final int SPLIT_LIMIT = -1;
 	private static final int INVALID_RACE_COUNT = -1;
 
+	private static final String SPACE = " ";
+	private static final String EMPTY = "";
 	private static final String COMMA = ",";
 	private static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.\n"
 		+ "(이름은 쉼표(,)를 기준으로 구분하며, 5자 이하만 가능합니다.)";
@@ -64,7 +66,7 @@ public class RacingCarMain {
 
 	private static void readCarNames(ArrayList<Car> carList) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		String input = reader.readLine();
+		String input = removeSpace(reader.readLine());
 
 		if ((!isRightCarNames(input)) || (!isRightNumberCars(input))) {
 			printInvalidInput();
@@ -73,6 +75,10 @@ public class RacingCarMain {
 		}
 
 		addCarsByInput(carList, input);
+	}
+
+	private static String removeSpace(String input) {
+		return input.replaceAll(SPACE, EMPTY);
 	}
 
 	private static boolean isRightCarNames(String input) {
