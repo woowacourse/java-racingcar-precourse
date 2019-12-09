@@ -60,7 +60,7 @@ public class RacingGame {
 		Car[] cars = new Car[numberOfCars];
 
 		for (int i = 0; i < numberOfCars; i++) {
-			cars[i] = new Car(nameList[i]);
+			cars[i] = new Car(nameList[i].trim());
 		}
 		return cars;
 	}
