@@ -11,8 +11,13 @@ public class Output {
 
     public Output(ArrayList<Car>cars){
         carlist=cars;
+        go();
+    }
+    
+    public void go(){
         printCarsResult();
     }
+
 
     public void printCarsResult(){
         for (Car each:carlist){

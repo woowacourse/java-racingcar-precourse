@@ -5,15 +5,19 @@ import domain.Car;
 /**
  * TotalOutput
  */
-public class TotalOutput {
+public class TotalOutput extends Output{
     ArrayList<String> maximumCandidate;
-    ArrayList<Car> carlist;
-    
+
     public TotalOutput(ArrayList<Car>cars){
-        carlist=cars;
+        super(cars);
+    }
+    
+    @Override
+    public void go(){
         System.out.println(findWinner());
     }
-
+    
+    
     public String findWinner(){
         int max = -1;
         for (Car each: carlist){

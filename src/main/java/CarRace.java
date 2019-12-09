@@ -9,7 +9,6 @@ public class CarRace {
     private ArrayList<Car> cars = new ArrayList<Car>();
     private String[] names;
     private int trys;
-    private TotalOutput totalOutput;
     private Output out;
     private Input in;
 
@@ -31,7 +30,7 @@ public class CarRace {
             out = new Output(cars);
         }
         //print total result
-        totalOutput = new TotalOutput(cars);
+        out = new TotalOutput(cars);
     }
 
     public void addCar(String name){
