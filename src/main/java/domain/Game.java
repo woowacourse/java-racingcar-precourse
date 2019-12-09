@@ -33,6 +33,7 @@ public class Game {
 
         while (true) {
             userInput = askUserInputCarNames();
+            userInput = trimUserInputCarNames(userInput);
             if (checkUserInputCarNames(userInput) == true) {
                 saveCarNames(userInput);
                 break;
@@ -52,9 +53,20 @@ public class Game {
         return nameArray;
     }
 
+    private String[] trimUserInputCarNames(String[] inputArray) {
+        int arrLength = inputArray.length;
+        String[] trimmedArray = new String[arrLength];
+
+        for (int i=0; i<arrLength; i++) {
+            trimmedArray[i] = inputArray[i].trim();
+        }
+
+        return trimmedArray;
+    }
+
     private boolean checkUserInputCarNames(String[] inputArray) {
         for (int i=0; i<inputArray.length; i++) {
-            if (!checkStringLength(inputArray[i].trim(), MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
+            if (!checkStringLength(inputArray[i], MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
                 return false;
             }
         }
@@ -67,21 +79,21 @@ public class Game {
     private boolean checkUserInputCarNamesDuplicated(String[] inputArray) {
         HashSet<String> nameSet = new HashSet<String>();
         for (int i=0; i<inputArray.length; i++) {
-            if (nameSet.contains(inputArray[i].trim())) {
+            if (nameSet.contains(inputArray[i])) {
                 return true;
             }
-            nameSet.add(inputArray[i].trim());
+            nameSet.add(inputArray[i]);
         }
         return false;
     }
 
     private void saveCarNames(String[] inputArray) {
         for (int i=0; i<inputArray.length; i++) {
-            Car car = new Car(inputArray[i].trim());
+            Car car = new Car(inputArray[i]);
             this.cars.add(car);
         }
     }
-
+    
     private boolean checkStringLength(String string, int min, int max) {
 
         if ((min <= string.length()) && (string.length() <= max)) {
