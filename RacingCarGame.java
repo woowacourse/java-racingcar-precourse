@@ -28,7 +28,7 @@ public class RacingCar {
     }
 
     private static List<Car> makeCars(String carNames) {
-        List<Car> cars = new ArrayList<Car>();
+        List<Car> cars = new ArrayList<>();
         for (String carName : split(carNames)) {
             cars.add(new Car(carName));
         }
