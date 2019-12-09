@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class RacingGame {
 	public static Scanner sc = new Scanner(System.in);
+	public static Car[] cars;
 
 	public static void main(String[] args) {
 		String names = inputNames();
 		int rounds = inputRounds();
-		Car[] cars = makeCars(names);
+		cars = makeCars(names);
 
 		for (int i = 0; i < cars.length; i++) {
 			int energy = atRandom();
