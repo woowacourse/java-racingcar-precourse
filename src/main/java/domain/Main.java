@@ -4,5 +4,6 @@ public class Main {
         RacingGame rg = new RacingGame();
         rg.initGame();
         rg.playGame();
+        rg.printResult();
     }
 }
