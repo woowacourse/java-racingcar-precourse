@@ -28,13 +28,13 @@ public class RacingGame {
 	    carname=user.inputCar();
 	}
 	String[] tmpname = carname.split(",");
+	car=new Car[tmpname.length];
 	for(int i=0;i<tmpname.length;i++) {
 	    this.car[i]=new Car(tmpname[i]);
 	}
 	
-	
 	int tmpcount=userinputcheck.checkCount(user.inputCount());
-	while(tmpcount!=0) {
+	while(tmpcount==-1) {
 	    tmpcount=userinputcheck.checkCount(user.inputCount());
 	}
 	

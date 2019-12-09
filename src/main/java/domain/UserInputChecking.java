@@ -13,16 +13,16 @@ public class UserInputChecking {
 	return true;
     }
     
-    public boolean checkCount(String n) {
+    public int checkCount(String n) {
 	if(isStringInt(n)==false) {
 	    System.out.println("횟수가 잘못 입력되었습니다. 정수만 입력해주세요.");
-	    return false;
+	    return -1;
 	}
 	if( Integer.parseInt(n)<=0 ) {
 	    System.out.println("횟수가 잘못 입력되었습니다. 양의 정수만 입력해주세요.");
-	    return false;
+	    return -1;
 	}
-	return true;
+	return Integer.parseInt(n);
     }
     
     public boolean isStringInt(String n) {
