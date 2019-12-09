@@ -8,7 +8,19 @@ public class Car {
 		this.name = name;
 	}
 
+	public void moveCar() {
+
+		if (getRandomNumber() > 3) {
+			position++;
+		}
+
+	}
+
 	private int getRandomNumber() {
 		return (int)(Math.random() * 10);
+	}
+
+	public int getPosition() {
+		return position;
 	}
 }
