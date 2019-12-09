@@ -17,7 +17,7 @@
 3. Car
 4. Input
 5. Output
- - TotalOutput
+6. TotalOutput
 
 
 ## 다시 확인 할 점
