@@ -23,22 +23,8 @@ public class RacingGame {
     }
     
     public void enterCarInfo() {
-	String carname=user.inputCar();
-	while(userinputcheck.checkCarName(carname)==false) {
-	    carname=user.inputCar();
-	}
-	String[] tmpname = carname.split(",");
-	car=new Car[tmpname.length];
-	for(int i=0;i<tmpname.length;i++) {
-	    this.car[i]=new Car(tmpname[i]);
-	}
-	
-	int tmpcount=userinputcheck.checkCount(user.inputCount());
-	while(tmpcount==-1) {
-	    tmpcount=userinputcheck.checkCount(user.inputCount());
-	}
-	
-	this.count=tmpcount;
+	enterName();
+	enterCount();
     }
     
     public void createAndSetPosition() {
@@ -48,7 +34,7 @@ public class RacingGame {
     }
     
     public void showResult() {
-	System.out.println("½ÇÇà °á°ú");
+	System.out.println("ì‹¤í–‰ ê²°ê³¼");
 	for(int i=0;i<car.length;i++) {
 	    message.playResult(car[i].getName(), car[i].getPosition());
 	}
@@ -56,10 +42,10 @@ public class RacingGame {
     }
     
     
-    /*ÇÑ ¹øÀÇ È½¼ö ½ÃÇà ÈÄ ±äÀå°¨À» À§ÇØ µô·¹ÀÌ*/
+    /*í•œ ë²ˆì˜ íšŸìˆ˜ ì‹œí–‰ í›„ ê¸´ìž¥ê°ì„ ìœ„í•´ ë”œë ˆì´*/
     public void sleep() {
 	try {
-	    Thread.sleep(1000); 		//1ÃÊ ´ë±â
+	    Thread.sleep(1000); 		//1ì´ˆ ëŒ€ê¸°
 	} catch (InterruptedException e) {
 	    e.printStackTrace();
 	}
@@ -91,6 +77,27 @@ public class RacingGame {
 	return f;
     }
     
+    public void enterName() {
+	String carname=user.inputCar();
+	while(userinputcheck.checkCarName(carname)==false) {
+	    carname=user.inputCar();
+	}
+	
+	String[] tmpname = carname.split(",");
+	car=new Car[tmpname.length];
+	for(int i=0;i<tmpname.length;i++) {
+	    this.car[i]=new Car(tmpname[i]);
+	}
+    }
+    
+    public void enterCount() {
+	int tmpcount=userinputcheck.checkCount(user.inputCount());
+	while(tmpcount==-1) {
+	    tmpcount=userinputcheck.checkCount(user.inputCount());
+	}
+	
+	this.count=tmpcount;
+    }
 }
 
 
