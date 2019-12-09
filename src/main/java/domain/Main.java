@@ -19,7 +19,7 @@ public class Main {
      */
 
     public static void main(final String[] args) {
-        PlayRacing play = new PlayRacing();
+        RacingLogicController play = new RacingLogicController();
         play.playRacing();
 
     }

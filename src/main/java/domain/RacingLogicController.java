@@ -8,16 +8,16 @@ package domain;
 import java.util.ArrayList;
 
 /**
- * 클래스 이름 : PlayRacing.java
+ * 클래스 이름 : RacingLogicController.java
  *
  * @author Seungwan Park, github.com/toneyparky
  * @version 1.1
  * <p>
  * 날짜 : 2019.12.8 일요일
  */
-public class PlayRacing {
+public class RacingLogicController {
     /*
-     * PlayRacing 클래스는 레이싱 게임을 실행하는 로직을 담당한다.
+     * RacingLogicController 클래스는 레이싱 게임을 실행하는 로직을 담당한다.
      */
 
     private static ArrayList<Car> carArrayList = new ArrayList<>();
