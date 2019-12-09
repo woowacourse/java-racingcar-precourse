@@ -25,9 +25,7 @@ public class RacingGame {
 			}
 			print("");
 		}
-
-		String winners = getWinners();
-		print(winners + "(이)가 최종 우승했습니다.");
+		print(getWinners() + "(이)가 최종 우승했습니다.");
 
 		if (sc != null) {
 			sc.close();
@@ -51,9 +49,8 @@ public class RacingGame {
 
 	public boolean validate(String names) {
 		String[] nameList = names.split(",", -1);
-		int length = nameList.length;
 
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < nameList.length; i++) {
 			String name = nameList[i].trim();
 			if ((name.equals("")) || (name.length() > 5)) {
 				print("이름 입력형식이 잘못되었습니다. 다시 입력해주세요.\n 예시) pobi, crong, honux");
