@@ -1,6 +1,9 @@
 package domain;
 
 public class Car {
+    private static final int MAX_OF_NAME_LENGTH = 5;
+    private static final int EMPTY_NAME_LENGTH = 0;
+
     private final String name;
     private int position = 0;
 
@@ -12,13 +15,13 @@ public class Car {
     }
 
     private static void validateLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_OF_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5자이하만 가능합니다.");
         }
     }
 
     private static void validateEmpty(String name) {
-        if (name.length() == 0) {
+        if (name.length() == EMPTY_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 공백일 수 없습니다.");
         }
     }
@@ -48,6 +51,6 @@ public class Car {
     }
 
     public boolean isSamePosition(int position) {
-        return this.position==position;
+        return this.position == position;
     }
 }

@@ -21,6 +21,7 @@ public class InputView {
             System.out.println("시도할 회수는 몇회인가요?");
             return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
+            System.out.println("숫자를 입력해주세요.");
             return inputRacingRounds();
         }
     }
