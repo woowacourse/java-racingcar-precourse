@@ -1,12 +1,13 @@
 package com.woowahan.racingcar;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Race extends AbstractRace {
-
 	@Override
 	protected int getRandomInteger(int min, int max) {
-		return 0;
+		Random random = new Random();
+		return random.nextInt(max - min) + min;
 	}
 
 	@Override
