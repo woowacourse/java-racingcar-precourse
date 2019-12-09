@@ -28,7 +28,6 @@ public class Participants {
 			.forEach(car -> car.goOrStay());
 	}
 	
-	/* 한바퀴 차례대로 탐색하면서 winners.update()에서 기록과 우승자를 그때그때 갱신한다 */
 	public Winners getWinners() {
 		Winners winners = new Winners();
 		this.participants.stream()
