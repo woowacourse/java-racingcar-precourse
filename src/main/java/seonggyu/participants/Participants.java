@@ -1,13 +1,13 @@
-package seonggyu.car;
+package seonggyu.participants;
 
 import java.util.List;
 import java.util.ArrayList;
 
-public class Cars {
+public class Participants {
 	private List<Car> cars = new ArrayList<Car>();
 	
-	public Cars(List<String> inputNames) {
-		CarsConstraints.checkValidCarNames(inputNames);
+	public Participants(List<String> inputNames) {
+		ParticipantsConstraints.checkValidCarNames(inputNames);
 		inputNames.stream()
 			.forEach(inputName -> addNewCar(inputName));
 	}

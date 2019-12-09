@@ -1,4 +1,4 @@
-package seonggyu.car;
+package seonggyu.participants;
 
 public class CarConstraints {
 	private static final int MAX_LEN_OF_NAME = 5;

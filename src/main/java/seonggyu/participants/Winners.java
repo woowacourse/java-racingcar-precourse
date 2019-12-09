@@ -1,4 +1,4 @@
-package seonggyu.car;
+package seonggyu.participants;
 
 import java.util.List;
 import java.util.ArrayList;

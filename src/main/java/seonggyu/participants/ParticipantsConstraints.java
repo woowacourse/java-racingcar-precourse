@@ -1,8 +1,8 @@
-package seonggyu.car;
+package seonggyu.participants;
 
 import java.util.List;
 
-public class CarsConstraints {
+public class ParticipantsConstraints {
 	private static final int MIN_NUM_OF_NAMES = 2;
 	
 	/* 새로운 제한 조건이 생기면 메서드를 만들어 여기에 추가한다 */

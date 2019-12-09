@@ -3,7 +3,7 @@ package seonggyu.input;
 import java.util.Scanner;
 import java.util.List;
 
-import seonggyu.car.CarsConstraints;
+import seonggyu.participants.ParticipantsConstraints;
 import seonggyu.rounds.RoundsConstraints;
 
 public class Input {	
@@ -14,7 +14,7 @@ public class Input {
 		try {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			carNames = InputParser.parseStringArrToList(SCANNER.nextLine().split(","));
-			CarsConstraints.checkValidCarNames(carNames);
+			ParticipantsConstraints.checkValidCarNames(carNames);
 			return carNames;
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());

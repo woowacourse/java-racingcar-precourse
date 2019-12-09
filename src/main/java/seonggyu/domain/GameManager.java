@@ -1,12 +1,12 @@
 package seonggyu.domain;
 
 import seonggyu.rounds.Rounds;
-import seonggyu.car.Cars;
-import seonggyu.car.Winners;
 import seonggyu.input.Input;
+import seonggyu.participants.Participants;
+import seonggyu.participants.Winners;
 
 public class GameManager {
-	private Cars cars;
+	private Participants participants;
 	private Rounds rounds;
 	
 	public void startGame() {
@@ -16,21 +16,21 @@ public class GameManager {
 	}
 	
 	private void enterInputs() {
-		this.cars = new Cars(Input.enterCarNames());
+		this.participants = new Participants(Input.enterCarNames());
 		this.rounds = new Rounds(Input.enterRounds());
 	}
 
 	private void doRacing() {
 		System.out.println("\n실행결과");
 		for(int i = 0; i < this.rounds.getRounds(); i++) {
-			this.cars.goOrStay();
-			this.cars.printNamesAndPositions();
+			this.participants.goOrStay();
+			this.participants.printNamesAndPositions();
 		}
 	}
 	
 	private void findWinners() {
 		Winners winners;
-		winners = this.cars.getWinners();
+		winners = this.participants.getWinners();
 		winners.printWinners();
 	}
 }
