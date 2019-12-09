@@ -2,7 +2,7 @@ package domain;
 
 public class Game {
 
-  Racing racing;
+  private Racing racing;
 
   public void play() {
     String[] carNames = {};
