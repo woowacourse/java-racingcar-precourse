@@ -12,11 +12,13 @@ import java.util.stream.Collectors;
 
 public class RacingCarGame {
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
+    private static final int MINIMUM_TRIAL_TIMES = 1;
     private static final String NOT_NUMBER_EXCEPTION_MESSAGE = "시도 횟수는 숫자만 입력할 수 있습니다.";
     private static final String NAME_OVER_LENGTH_EXCEPTION_MESSAGE = "자동차의 이름은 " + CAR_NAME_LENGTH_LIMIT + "을 넘을 수 없습니다.";
     private static final String NAME_DUPLICATION_EXCEPTION_MESSAGE = "자동차의 이름은 중복될 수 없습니다.";
     private static final String NAMES_SIZE_EXCEPTION_MESSAGE = "자동차 경주는 최소 2대의 차 이름이 필요합니다.";
     private static final String NAME_EMPTY_EXCEPTION_MESSAGE = "자동차 이름은 비어있을 수 없습니다.";
+    private static final String INVALID_TRIAL_TIME_EXCEPTION_MESSAGE = "시도 횟수는 1이상 입력해야합니다.";
     private static final String CAR_NAME_ASK_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String TRIAL_TIMES_ASK_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String AWARDS_TAIL_MESSAGE = "가 우승했습니다.";
@@ -44,6 +46,49 @@ public class RacingCarGame {
         initNumberOfTimes();
     }
 
+    private void initCars() {
+        List<String> names = makeNamesList();
+        host = new Host(names);
+    }
+
+    private List<String> makeNamesList() {
+        while (true) {
+            try {
+                String carNames = takeNames();
+                List<String> names = convertToCarNames(carNames);
+                validates(names);
+                return names;
+            } catch (InvalidInputException ie) {
+                System.out.println(ie.getMessage());
+            }
+        }
+    }
+
+    private void initNumberOfTimes() {
+        numberOfTimes = makeNumberOfTimes();
+    }
+
+    private int makeNumberOfTimes() {
+        while (true) {
+            try {
+                String numberOfTimesString = takeNumberOfTimes();
+                int number = Integer.parseInt(numberOfTimesString);
+                validatesNumberOfTimes(number);
+                return number;
+            } catch (NumberFormatException ne) {
+                System.out.println(NOT_NUMBER_EXCEPTION_MESSAGE);
+            } catch (InvalidInputException ie) {
+                System.out.println(ie.getMessage());
+            }
+        }
+    }
+
+    private void validatesNumberOfTimes(int number) {
+        if (number < MINIMUM_TRIAL_TIMES) {
+            throw new InvalidInputException(INVALID_TRIAL_TIME_EXCEPTION_MESSAGE);
+        }
+    }
+
     public void runGame() {
         for (int i = 0; i < numberOfTimes; i++) {
             host.runOneTime(random);
@@ -65,39 +110,6 @@ public class RacingCarGame {
         List<Car> carsInFirstPosition = host.takeCarsInFirstPosition(firsPosition);
         List<String> carNamesInFirstPosition = carsInFirstPosition.stream().map(Car::getName).collect(Collectors.toList());
         return StringUtils.join(carNamesInFirstPosition, CAR_NAME_DELIMITER);
-    }
-
-    private void initNumberOfTimes() {
-        numberOfTimes = makeNumberOfTimes();
-    }
-
-    private int makeNumberOfTimes() {
-        while (true) {
-            try {
-                String numberOfTimesString = takeNumberOfTimes();
-                return Integer.parseInt(numberOfTimesString);
-            } catch (NumberFormatException ne) {
-                System.out.println(NOT_NUMBER_EXCEPTION_MESSAGE);
-            }
-        }
-    }
-
-    private void initCars() {
-        List<String> names = makeNamesList();
-        host = new Host(names);
-    }
-
-    private List<String> makeNamesList() {
-        while (true) {
-            try {
-                String carNames = takeNames();
-                List<String> names = convertToCarNames(carNames);
-                validates(names);
-                return names;
-            } catch (InvalidInputException ie) {
-                System.out.println(ie.getMessage());
-            }
-        }
     }
 
     private List<String> convertToCarNames(String carNames) {
