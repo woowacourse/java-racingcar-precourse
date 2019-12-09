@@ -25,6 +25,14 @@ public class Cars {
         this.cars = cars;
     }
 
+    public Car getCarByIndex(int index) {
+        return cars.get(index);
+    }
+
+    public int size() {
+        return cars.size();
+    }
+
     private void validateSize(List<Car> cars) {
         if (cars.size() < MIN_SIZE) {
             throw new IllegalArgumentException("2대 이상의 차가 아닙니다.");
