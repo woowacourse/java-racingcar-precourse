@@ -14,4 +14,10 @@ public interface RacingPrinter {
     void printRequestForNames();
 
     void printRequestForCycles();
+
+    void printErrorWhenExtractingNames(RuntimeException e);
+
+    void printErrorWithTooSmallCycle(int minCycles);
+
+    void printErrorWithNotNaturalNumber();
 }
