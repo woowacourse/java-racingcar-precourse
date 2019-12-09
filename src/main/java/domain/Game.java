@@ -34,6 +34,7 @@ public class Game {
         while (true) {
             userInput = askUserInputCarNames();
             if (checkUserInputCarNames(userInput) == true) {
+                saveCarNames(userInput);
                 break;
             }
             System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
@@ -56,8 +57,6 @@ public class Game {
             if (!checkStringLength(inputArray[i].trim(), MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
                 return false;
             }
-//            Car car = new Car(inputArray[i].trim());
-//            this.cars.add(car);
         }
         if (checkUserInputCarNamesDuplicated(inputArray)) {
             return false;
@@ -74,6 +73,13 @@ public class Game {
             nameSet.add(inputArray[i].trim());
         }
         return false;
+    }
+
+    private void saveCarNames(String[] inputArray) {
+        for (int i=0; i<inputArray.length; i++) {
+            Car car = new Car(inputArray[i].trim());
+            this.cars.add(car);
+        }
     }
 
     private boolean checkStringLength(String string, int min, int max) {
