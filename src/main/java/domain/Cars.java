@@ -1,0 +1,39 @@
+package domain;
+
+import java.util.ArrayList;
+
+public class Cars {
+    public static final String SEPARATOR_NAME = "쉼표";
+    public static final String SEPARATOR = ",";
+    private static final int CARS_MIN_AMOUNT = 2;
+    private ArrayList<Car> cars = new ArrayList<>();
+
+    public Cars(String input) throws IllegalArgumentException {
+        if (doesNotContainSeparator(input)) {
+            String separator = SEPARATOR_NAME + "(" + SEPARATOR + ")";
+            throw new IllegalArgumentException(String.format("※경주이므로 최소 %d대 이상의 자동차 이름을 입력해 주세요.(이름은 %s 기준으로 구분)", CARS_MIN_AMOUNT, separator));
+        }
+        ArrayList<String> carNamesList = getCarNamesList(input);
+        for (String carName : carNamesList) {
+            try {
+                cars.add(new Car(carName));
+            } catch (IllegalArgumentException e) {
+                throw e;
+            }
+        }
+    }
+
+    private static boolean doesNotContainSeparator(String input) {
+        return !(input.contains(SEPARATOR));
+    }
+
+    private static ArrayList<String> getCarNamesList(String input) {
+        ArrayList<String> carNamesList = new ArrayList<>();
+        String[] carNames = input.split(SEPARATOR);
+        for (String carName : carNames) {
+            carNamesList.add(carName);
+        }
+        return carNamesList;
+    }
+
+}
