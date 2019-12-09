@@ -1,3 +1,13 @@
+/*
+ * RacingCarGame.java
+ *
+ * v 0.0.0
+ *
+ * 2019.12.08
+ *
+ * Copyright 2019. DunDung all rights reserved.
+ */
+
 package domain;
 
 import java.util.ArrayList;
@@ -20,5 +30,9 @@ public class RacingCarGame {
             race.runRace();
             raceResults.add(race.createRaceResult());
         }
+    }
+
+    public RaceResults createRaceResults() {
+        return new RaceResults(raceResults);
     }
 }
