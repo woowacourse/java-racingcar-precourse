@@ -10,6 +10,7 @@ package domain;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RacingCarFactory implements RaceableFactory {
 
@@ -24,9 +25,10 @@ public class RacingCarFactory implements RaceableFactory {
             throw new InvalidParameterException("자동차 이름이 옳바르지 않습니다.");
         }
 
+        Random randomGenerator = new Random();
         List<Raceable> raceables = new ArrayList<>();
         for (String name : names) {
-            raceables.add(new RacingCar(name));
+            raceables.add(new RacingCar(name, randomGenerator));
         }
 
         return raceables;

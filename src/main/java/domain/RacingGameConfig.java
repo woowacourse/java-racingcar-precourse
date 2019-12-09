@@ -17,7 +17,7 @@ public class RacingGameConfig {
     static final int STEP = 1;
     static final int MIN_RANDOM_NUMBER = 0;
     static final int MAX_RANDOM_NUMBER = 9;
-    static final int STANDARD_TO_GO = 3;
+    static final int STANDARD_TO_GO = 4;
     public static final String POSITION_MARK = "-";
     static final String[] NOT_ALLOWED_IN_NAME = {" ", "!", "@", "#", "$", "%", "^", "&", "*"};
 }
