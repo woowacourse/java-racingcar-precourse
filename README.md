@@ -8,7 +8,7 @@
 ### 진행
 1. 각 Car에 대해 전진 시도를 한다.<br>
     1. 0~9 사이의 무작위 정수를 구한다.<br>
-    2. 3 이하라면 정지, 4이상이라면 전진한다.
+    2. 4이상이라면 전진한다.
 2. 각 Car의 위치를 출력한다.
 3. 지정된 라운드 수만큼 1~2를 반복한다.
 4. 우승자를 출력한다.
@@ -27,37 +27,36 @@
 
 	public void drive();
 
-### Race
+### Race <code>extends AbstractRace</code>
 ##### 멤버 변수
     User user;
 
 ##### 멤버 함수
 	public Race(User user);
 
-	private void getRandomInteger(int min, int max);
+	protected void getRandomInteger(int min, int max);
 
-	private void processRound();
-	private void tryDrive(Car car);
-	private void printStatus();
+	protected void tryDrives();
+	protected void tryDrive(Car car);
+	protected void printStatus();
 
-	private boolean isFinalRound();
-	private ArrayList<Car> getWinners();
-	private void printResult();
+	protected ArrayList<Car> getWinners();
+	protected void printResult();
 
 	public void start();
 
-### User
+### User <code>extends AbstractUser</code>
 ##### 멤버 변수
-	private ArrayList<Car> cars;
-	private int round;
+	protected ArrayList<Car> cars;
+	protected int round;
 ##### 멤버 함수
 	public ArrayList<Car> getCars();
 	public int getRound()();
 
-	private String getLine();
+	protected String getLine();
 
-	private void inputCars();
-	private void inputRound();
+	protected void inputCars();
+	protected void inputRound();
 
 	public void input();
 
