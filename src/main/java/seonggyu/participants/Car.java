@@ -34,11 +34,13 @@ public class Car {
 	}
 
 	public void printNameAndPosition() {
-		System.out.print(this.name + " : ");
+		StringBuilder nameAndPosition = new StringBuilder();
+		
+		nameAndPosition.append(this.name + " : ");
 		for (int i = 0; i < this.position; i++) {
-			System.out.print("-");
+			nameAndPosition.append("-");
 		}
-		System.out.println();
+		System.out.println(nameAndPosition);
 	}
 
 	public boolean isWinnerCandidate(int maxDistance) {
