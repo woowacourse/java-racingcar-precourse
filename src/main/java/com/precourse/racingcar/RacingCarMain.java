@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.2.0   2019-12-09
+ * RacingCarMain.java              1.2.1   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.2.0            사용자 입력을 자동차 리스트에 추가하는 기능 추가
+ * @version 1.2.1            자동차 이름을 확인하는 기능과 대수를 확인하는 기능 분리
  * @date 2019-12-09
  * @author HyungjuAn
  */
@@ -66,7 +66,7 @@ public class RacingCarMain {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String input = reader.readLine();
 
-		if (!isRightCarNames(input)) {
+		if ((!isRightCarNames(input)) || (!isRightNumberCars(input))) {
 			printInvalidInput();
 			readCarNames(carList);
 			return;
@@ -85,9 +85,6 @@ public class RacingCarMain {
 				break;
 			}
 		}
-		if (!isRightNumberCars(carNames.length)) {
-			result = false;
-		}
 
 		return result;
 	}
@@ -102,8 +99,9 @@ public class RacingCarMain {
 		return result;
 	}
 
-	private static boolean isRightNumberCars(int carCount) {
+	private static boolean isRightNumberCars(String input) {
 		boolean result = true;
+		int carCount = input.split(COMMA, SPLIT_LIMIT).length;
 
 		if (carCount < MINIMUM_CARS) {
 			result = false;
