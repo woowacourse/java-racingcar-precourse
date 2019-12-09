@@ -11,6 +11,15 @@ public class RacingGame {
 	}
 
 
+	private Entry makeRacingEntry(List<String> carNameList) {
+		List<Car> carList = new ArrayList<>();
+
+		for (String carName : carNameList) {
+			carList.add(new Car(carName));
+		}
+
+		return new Entry(carList);
+	}
 
 	private static List<String> getCarNameList(String carNames) {
 		List<String> carNameList = new ArrayList<>();
