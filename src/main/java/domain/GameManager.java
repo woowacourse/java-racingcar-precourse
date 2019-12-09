@@ -4,10 +4,10 @@ import java.util.*;
 
 public class GameManager {
 
-    private static String delimiter = ",";
-    private static int randomRange = 10;
-    private static int nameLengthLimit = 5;
-    private static Scanner SC = new Scanner(System.in);
+    private static final String delimiter = ",";
+    private static final int randomRange = 10;
+    private static final int nameLengthLimit = 5;
+    private static final Scanner SC = new Scanner(System.in);
 
     public int numOfCars;
     public int numOfRounds;
