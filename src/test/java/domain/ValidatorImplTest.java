@@ -40,7 +40,13 @@ class ValidatorImplTest {
         String[] namesWithTooLongName = {tooLongName, "crong", "honux"};
         //when & then
         assertFalse(validator.validateNames(namesWithTooLongName));
-
+    }
+    @Test
+    void validateNamesWithTooSmallNames() {
+        //given
+        String[] namesTooSmall = {"pobi"};
+        //when & then
+        assertFalse(validator.validateNames(namesTooSmall));
     }
 
     @Test
