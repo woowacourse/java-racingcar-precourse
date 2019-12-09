@@ -1,3 +1,11 @@
+/**
+ * Main 클래스는 게임을 진행하는 클래스로
+ * 기본적으로 게임에 필요한 입력을 받는 메소드가 정리되어 있고,
+ * GameFunction클래스와 Car클래스를 가져와 진행하는 클래스입니다.
+ *
+ * @author      양준혁
+ */
+
 import domain.Car;
 import domain.GameFunction;
 

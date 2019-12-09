@@ -1,3 +1,9 @@
+/**
+ * GameFunction 클래스는 기본적으로 게임의 진행에 관련된
+ * 메소드를 정리해둔 클래스입니다.
+ *
+ * @author      양준혁
+ */
 package domain;
 
 import java.util.ArrayList;
@@ -27,7 +33,6 @@ public class GameFunction {
 
     public static boolean checkRandomNumber() {
         randomNumber = (int) (Math.random() * 10);
-        System.out.println(randomNumber);
         return randomNumber >= 4;
     }
 
