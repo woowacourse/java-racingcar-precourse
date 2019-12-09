@@ -81,4 +81,32 @@ public class Game {
 		}
 		System.out.print("\n");
 	}
+
+	public void resultRace() {
+		StringBuilder result;
+
+		result = searchWinner(searchMaxPosition());
+	}
+
+	private int searchMaxPosition() {
+		int maxPosition = 0;
+		for (int i = 0; i < carList.size(); i++) {
+			if (maxPosition < carList.get(i).getPosition()) {
+				maxPosition = carList.get(i).getPosition();
+			}
+		}
+		return maxPosition;
+	}
+
+	private StringBuilder searchWinner(int maxPosition) {
+		StringBuilder winner = new StringBuilder("");
+
+		for (int i = 0; i < carList.size(); i++) {
+			if (carList.get(i).getPosition() == maxPosition) {
+				winner.append(carList.get(i).getName()).append(", ");
+			}
+		}
+		winner.delete(winner.length() - 2, winner.length());
+		return winner;
+	}
 }
