@@ -12,16 +12,23 @@ public class UtilityMethods {
 		return cars;
 	}
 
-	public static void goForwardRandomly (Car[] cars) {
+	public static void goForwardRandomly(Car[] cars) {
 		double randomNumber = 0;
 
 		for (int i = 0; i < cars.length; i++) {
 			randomNumber = Math.random();
-			randomNumber = (int)(randomNumber * 10);
+			randomNumber = (int) (randomNumber * 10);
 			if (randomNumber >= 4) {
 				cars[i].goForward();
 			}
+
 		}
+
+	}
+
+	public static void playGameInNumber(int count) {
+
+
 
 	}
 }

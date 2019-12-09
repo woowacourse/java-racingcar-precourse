@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 import domain.Car;
 
 public class UtilityTest {
@@ -17,6 +18,7 @@ public class UtilityTest {
 		for (int i = 0; i < testCars.length; i++) {
 			System.out.println(testCars[i].getName() + " : " + testCars[i].getPosition());
 		}
+
 	}
 }
 
