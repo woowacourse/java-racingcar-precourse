@@ -8,7 +8,7 @@ public class Car {
         this.name = name;
     }
 
-    boolean printMovingForward() {
+    int printMovingForward() {
         int randomValue = (int) (Math.random() * 10);
         if (randomValue >= 4) {
             this.position++;
@@ -17,14 +17,14 @@ public class Car {
                 System.out.print("-");
             }
             System.out.println();
-            return true;
+            return 1;
         }
         System.out.print(name +" : ");
         for(int i=0;i<this.position;i++){
             System.out.print("-");
         }
         System.out.println();
-        return false;
+        return 0;
     }
     public String toString(){
         return name;
