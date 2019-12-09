@@ -27,13 +27,13 @@ public class Entry {
 	}
 
 	private String toStringPosition(int carPosition) {
-		String stringPosition = "";
+		StringBuilder stringPosition = new StringBuilder();
 
 		for (int i = 0; i < carPosition; ++i) {
-			stringPosition.concat("-");
+			stringPosition.append("-");
 		}
 
-		return stringPosition;
+		return stringPosition.toString();
 	}
 
 	public void printWhoWin() {
