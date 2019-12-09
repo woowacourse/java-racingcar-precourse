@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class RacingGame {
     User user = new User();
     UserInputChecking userinputcheck= new UserInputChecking();
@@ -17,6 +19,7 @@ public class RacingGame {
 	    showResult();
 	    sleep();
 	}
+	showWinner();
     }
     
     public void enterCarInfo() {
@@ -61,7 +64,33 @@ public class RacingGame {
 	    e.printStackTrace();
 	}
     }
+    
+    public void showWinner() {
+	boolean found=false;
+	int i;
+	for(i=this.count;i>=0;i--) {
+	    found=findPosition(i);
+	    if(found) {
+		break;
+	    }
+	}
+    }
+    
+    public boolean findPosition(int c){
+	boolean f=false;
+	ArrayList<String> winner=new ArrayList<>();
+	for(int i=0;i<car.length;i++) {
+	    if(c==car[i].getPosition()) {
+		f=true;
+		winner.add(car[i].getName());
+	    }
+	}
+	if(f) {
+	    message.judgeWinner(winner);
+	}
+	return f;
+    }
+    
 }
-
 
 
