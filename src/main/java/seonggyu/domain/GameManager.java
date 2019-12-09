@@ -16,7 +16,7 @@ public class GameManager {
 	}
 	
 	private void enterInputs() {
-		this.participants = new Participants(Input.enterCarNames());
+		this.participants = new Participants(Input.enterParticipantsNames());
 		this.rounds = new Rounds(Input.enterRounds());
 	}
 

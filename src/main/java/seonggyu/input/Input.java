@@ -9,16 +9,16 @@ import seonggyu.rounds.RoundsConstraints;
 public class Input {	
 	private static Scanner SCANNER = new Scanner(System.in);
 	
-	public static List<String> enterCarNames() {
+	public static List<String> enterParticipantsNames() {
 		List<String> carNames;
 		try {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			carNames = InputParser.parseStringArrToList(SCANNER.nextLine().split(","));
-			ParticipantsConstraints.checkValidCarNames(carNames);
+			ParticipantsConstraints.checkValidParticipantsNames(carNames);
 			return carNames;
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			return enterCarNames();
+			return enterParticipantsNames();
 		}
 	}
 	

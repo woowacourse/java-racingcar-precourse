@@ -17,12 +17,12 @@ public class Winners {
 		return maxDistance;
 	}
 	
-	public void add(Car car) {
-		if (car.getPosition() > this.maxDistance) {
-			this.maxDistance = car.getPosition();
+	public void add(Car candidate) {
+		if (candidate.getPosition() > this.maxDistance) {
+			this.maxDistance = candidate.getPosition();
 			this.winners.clear();
 		}
-		this.winners.add(car.getName());
+		this.winners.add(candidate.getName());
 	}
 	
 	public void printWinners() {

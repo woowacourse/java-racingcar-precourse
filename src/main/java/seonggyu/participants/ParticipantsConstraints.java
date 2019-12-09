@@ -6,13 +6,13 @@ public class ParticipantsConstraints {
 	private static final int MIN_NUM_OF_NAMES = 2;
 	
 	/* 새로운 제한 조건이 생기면 메서드를 만들어 여기에 추가한다 */
-	public static void checkValidCarNames(List<String> inputNames) {
-		checkEachinputNames(inputNames);
+	public static void checkValidParticipantsNames(List<String> inputNames) {
+		checkEachinputName(inputNames);
 		checkValidNumOfinputNames(inputNames);
 		checkOverlappinginputNames(inputNames);
 	}
 	
-	private static void checkEachinputNames(List<String> inputNames) {
+	private static void checkEachinputName(List<String> inputNames) {
 		inputNames.stream()
 			.forEach(inputName -> CarConstraints.checkValidCarName(inputName));
 	}

@@ -35,7 +35,7 @@ public class Car {
 
 	public void printNameAndPosition() {
 		StringBuilder nameAndPosition = new StringBuilder();
-		
+
 		nameAndPosition.append(this.name + " : ");
 		for (int i = 0; i < this.position; i++) {
 			nameAndPosition.append("-");
