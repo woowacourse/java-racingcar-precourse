@@ -2,12 +2,14 @@ package domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
     private Car car;
 
     @Test
+    @DisplayName("#go")
     void go() {
         //given
         car = new Car("testCar");
@@ -21,6 +23,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("#getPosition")
     void getPosition() {
         //given
         int position = 3;
@@ -31,6 +34,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("#getId: id increase automatically when construct car")
     void getId() {
         //given
         Car car = new Car("testCar");
@@ -43,6 +47,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("#equals")
     void equals() {
         //given
         car = new Car("rightName");
@@ -57,6 +62,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("#compareTo: return 1")
     void compareToReturn1() {
         //given
         int id = 2;
@@ -74,6 +80,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("#compareTo: return 0")
     void compareToReturn0() {
         //given
         int id = 1;
@@ -86,6 +93,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("#compareTo: return -1")
     void compareToReturnMinus1() {
         //given
         int id = 1;
@@ -103,6 +111,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("#toString")
     void toStringOfCar() {
         //given
         Car car = new Car(0, "testCar", 3);

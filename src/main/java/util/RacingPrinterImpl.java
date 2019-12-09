@@ -80,6 +80,4 @@ public class RacingPrinterImpl implements RacingPrinter {
     public void printErrorGameFinishedAbnormal(String message) {
         System.out.println(String.format("자동차 경주 게임이 다음과 같은 이유로 종료됐습니다: %s", message));
     }
-
-
 }

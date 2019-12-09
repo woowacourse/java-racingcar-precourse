@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RacingRefereeImplTest {
@@ -18,6 +19,7 @@ class RacingRefereeImplTest {
     }
 
     @Test
+    @DisplayName("#distinguisWinners: return winners")
     void distinguishWinnersWithNormalRacingCars() {
         racingReferee = new RacingRefereeImpl();
         Raceable pobi = new RacingCar("pobi", 3);

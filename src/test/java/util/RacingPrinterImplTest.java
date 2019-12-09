@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import domain.Raceable;
@@ -26,12 +27,14 @@ class RacingPrinterImplTest {
     }
 
     @Test
+    @DisplayName("#printStartGameSign")
     void printStartGameSign() {
         racingPrinter.printStartGameSign();
         assertEquals("\n실행 결과\n", outView.toString());
     }
 
     @Test
+    @DisplayName("#printStateOfRacingCar")
     void printStateOfRacingCar() {
         //given
         int amountToGo = 4;
@@ -45,6 +48,7 @@ class RacingPrinterImplTest {
     }
 
     @Test
+    @DisplayName("#printWinners")
     void printWinners() {
         //given
         List<Raceable> winners = Arrays.asList(
@@ -61,18 +65,21 @@ class RacingPrinterImplTest {
 
 
     @Test
+    @DisplayName("#printOneCycleFinished")
     void printOneCycleFinished() {
         racingPrinter.printOneCycleFinished();
         assertEquals("\n", outView.toString());
     }
 
     @Test
+    @DisplayName("#printRequestForNames")
     void printRequestForNames() {
         racingPrinter.printRequestForNames();
         assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", outView.toString());
     }
 
     @Test
+    @DisplayName("#printRequestForCycles")
     void printRequestForCycles() {
         racingPrinter.printRequestForCycles();
         assertEquals("시도할 회수는 몇회인가요?\n", outView.toString());

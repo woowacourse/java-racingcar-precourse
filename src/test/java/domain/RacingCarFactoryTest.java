@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RacingCarFactoryTest {
@@ -23,6 +24,7 @@ class RacingCarFactoryTest {
     }
 
     @Test
+    @DisplayName("#create: return racingCars")
     void createWithValidNames() {
         //given
         String[] names = {"pobi", "crong", "honux"};
@@ -36,6 +38,7 @@ class RacingCarFactoryTest {
     }
 
     @Test
+    @DisplayName("#create: throw InvaldParameterException")
     void createWithInvalidNames() {
         //given
         String[] namesWithSpace = {"pobi ", "crong", "honux"};

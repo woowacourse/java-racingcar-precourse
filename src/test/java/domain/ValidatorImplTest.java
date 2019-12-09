@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ValidatorImplTest {
@@ -15,6 +16,7 @@ class ValidatorImplTest {
     }
 
     @Test
+    @DisplayName("#validateNames: return true")
     void validateNamesWithValidNames() {
         //given
         String[] names = {"pobi", "crong", "honux"};
@@ -23,6 +25,7 @@ class ValidatorImplTest {
     }
 
     @Test
+    @DisplayName("#validateNames: return false with not allowed characters")
     void validateNamesWithNotAllowdCharacter() {
         //given
         String[] namesWithSpace = {"pobi ", "crong", "honux"};
@@ -36,6 +39,7 @@ class ValidatorImplTest {
     }
 
     @Test
+    @DisplayName("#validateNames: return false with not too long names")
     void validateNamesWithTooLongNames() {
         //given
         String tooLongName = StringUtils.repeat("a", RacingGameConfig.MAX_NAME_LENGTH + 1);
@@ -45,6 +49,7 @@ class ValidatorImplTest {
     }
 
     @Test
+    @DisplayName("#validateNames: return false with not too small names")
     void validateNamesWithTooSmallNames() {
         //given
         String[] namesTooSmall = {"pobi"};
@@ -53,6 +58,7 @@ class ValidatorImplTest {
     }
 
     @Test
+    @DisplayName("#validateCycles: return true")
     void validateCyclesWithValidCycles() {
         //given
         int cycles = 5;
@@ -61,6 +67,7 @@ class ValidatorImplTest {
     }
 
     @Test
+    @DisplayName("#validateCycles: return false with too small cycles")
     void validateCyclesWithTooSmallCycles() {
         //given
         int tooSmallCycles = RacingGameConfig.MIN_CYCLES - 1;
@@ -68,5 +75,4 @@ class ValidatorImplTest {
         //when & then
         assertFalse(validator.validateCycles(tooSmallCycles));
     }
-
 }

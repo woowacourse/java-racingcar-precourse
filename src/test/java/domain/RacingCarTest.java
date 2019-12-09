@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 import java.util.Random;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RacingCarTest {
@@ -21,6 +22,7 @@ class RacingCarTest {
     }
 
     @Test
+    @DisplayName("#race: go succesfully")
     void raceWhenCanGo() {
         //given
         int defaultPosition = racingCar.getPosition();
@@ -32,6 +34,7 @@ class RacingCarTest {
     }
 
     @Test
+    @DisplayName("#race: go fail")
     void raceWhenCanNotGo() {
         //given
         int defaultPosition = racingCar.getPosition();

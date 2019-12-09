@@ -1,5 +1,6 @@
 package ui;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
@@ -9,17 +10,12 @@ import java.util.Scanner;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import domain.RacingGameConfig;
 import domain.Validator;
 import util.RacingPrinter;
-
-
-
-import static org.junit.jupiter.api.Assertions.*;
-
-
 
 class ConsoleTest {
 
@@ -42,6 +38,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#extractNames: return names")
     void extractNamesWithValidInputs() {
         //given
         String input = "pobi,crong,honux";
@@ -59,6 +56,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#extractNames: should be called again, because of too long names")
     void extractNamesWithTooLongNames() {
         //given
         console = createConsoleWithMockInputControllerForTest();
@@ -78,6 +76,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#extractNames: should be called again, because of not allowed character")
     void extractNamesWithNotAllowdCharacter() {
         //given
         console = createConsoleWithMockInputControllerForTest();
@@ -96,6 +95,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#extractNames: should be called again, because of space")
     void extractNamesWithSpace() {
         //given
         console = createConsoleWithMockInputControllerForTest();
@@ -114,6 +114,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#extractNames: should be called again, because of seperator at first or at last")
     void extractNamesWithSeparatorsAtFirstAndLast() {
         //given
         console = createConsoleWithMockInputControllerForTest();
@@ -131,6 +132,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#getCycles: return cycles")
     void getCyclesWitchValidInput() {
         //given
         String input = "1";
@@ -141,6 +143,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#getCycles: should be called again, because of too small input")
     void getCyclesWithTooSmallInput() {
         //given
         console = createConsoleWithMockInputControllerForTest();
@@ -158,6 +161,7 @@ class ConsoleTest {
     }
 
     @Test
+    @DisplayName("#getCycles: should be called again, because of not natural input")
     void getCyclesWithNotNaturalInput() {
         //given
         console = createConsoleWithMockInputControllerForTest();
