@@ -1,5 +1,6 @@
-package domain;
+package game;
 
+import game.Host;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
+class HostTest {
 
-class CarsTest {
-
-    private Cars cars;
+    private Host host;
     private Random random;
 
     @BeforeEach
@@ -20,22 +19,22 @@ class CarsTest {
         names.add("첫번째차");
         names.add("두번쨰차");
         names.add("세번째차");
-        cars = new Cars(names);
+        host = new Host(names);
 
         random = new Random();
     }
 
     @Test
     void cars_runOneTime() {
-        cars.runOneTime(random);
+        host.runOneTime(random);
     }
 
     @Test
     void cars_showCarsStatus() {
-        cars.runOneTime(random);
-        cars.runOneTime(random);
-        cars.runOneTime(random);
+        host.runOneTime(random);
+        host.runOneTime(random);
+        host.runOneTime(random);
 
-        cars.showCarsStatus();
+        host.showCarsStatus();
     }
 }
