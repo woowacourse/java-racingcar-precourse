@@ -7,10 +7,7 @@ public class RacingGame {
 	public static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
-		System.out.println("예시) pobi, crong, honux");
 		String names = inputNames();
-		System.out.println("\n시도할 회수는 몇 회인가요?");
 		int rounds = inputRounds();
 		if (sc != null) {
 			sc.close();
@@ -18,7 +15,11 @@ public class RacingGame {
 	}
 
 	public static String inputNames() {
-		String nameList = sc.nextLine();
+		String nameList = null;
+		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
+		System.out.println("예시) pobi, crong, honux");
+
+		nameList = sc.nextLine();
 		while (!validate(nameList)) {
 			nameList = sc.nextLine();
 		}
@@ -43,6 +44,7 @@ public class RacingGame {
 	public static int inputRounds() {
 		int rounds = 0;
 		boolean notEntered = true;
+		System.out.println("\n시도할 회수는 몇 회인가요?");
 
 		while (notEntered) {
 			try {
