@@ -24,8 +24,10 @@ public class RacingCars {
         this.cars = cars;
     }
 
-    public void move() {
-        cars.forEach(car -> move());
+    public void move(RandomValue randomValue) {
+        for(Car car: cars){
+            car.forward(randomValue);
+        }
     }
 
     public List<Car> getWinners() {

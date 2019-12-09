@@ -24,9 +24,9 @@ public class Car {
         this.name = new Name(name);
     }
 
-    public void forward() {
-        int randomValue = new RandomValue().getRandomValue();
-        if(isRunnable(randomValue))
+    public void forward(RandomValue randomValue) {
+        int value = randomValue.getRandomValue();
+        if(isRunnable(value))
             this.position++;
     }
 

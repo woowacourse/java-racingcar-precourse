@@ -45,7 +45,7 @@ public class RacingGame {
 
     public void run() {
         for(int i=0; i<tryCount; i++){
-            racingCars.move();
+            racingCars.move(new RandomValue());
             OutputView.showNow(racingCars);
         }
         OutputView.showWinners(racingCars.getWinners());
