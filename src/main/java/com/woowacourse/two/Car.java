@@ -9,6 +9,18 @@ public class Car {
         this.name = name;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public int getPosition(){
+        return this.position;
+    }
+
+    public String getCarDistance(){
+        return this.carDistance;
+    }
+
     public void movePosition(){
         this.position++;
         this.carDistance += "-";

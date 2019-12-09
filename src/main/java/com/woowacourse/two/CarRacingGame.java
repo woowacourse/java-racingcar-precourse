@@ -77,6 +77,7 @@ public class CarRacingGame {
             }
         }
 
+
     }
 
     public void moveCarOrNot(Car[] carArr, int carIndex){
@@ -88,7 +89,13 @@ public class CarRacingGame {
 
     }
 
+    public void printCarMove(Car[] carArr){
 
+        for(Car car : carArr){
+
+        }
+
+    }
 
 
 }
