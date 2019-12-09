@@ -29,4 +29,6 @@ public interface RacingPrinter {
     void printErrorWithTooSmallCycle(int minCycles);
 
     void printErrorWithNotNaturalNumber();
+
+    void printErrorGameFinishedAbnormal(String message);
 }

@@ -76,5 +76,10 @@ public class RacingPrinterImpl implements RacingPrinter {
         System.out.println("입력값이 옳바르지 않습니다. 다시 시도해주세요. 사유 - 자연수가 아닙니다.");
     }
 
+    @Override
+    public void printErrorGameFinishedAbnormal(String message) {
+        System.out.println(String.format("자동차 경주 게임이 다음과 같은 이유로 종료됐습니다: %s", message));
+    }
+
 
 }
