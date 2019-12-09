@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractRace {
 	protected User user;
+	int currentRound = 1;
 
 	protected abstract int getRandomInteger(int min, int max);
 
