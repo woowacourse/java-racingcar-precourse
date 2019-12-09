@@ -6,6 +6,8 @@ public class RacingCar {
     public static void main(String[] args) {
         Cars cars = createCars();
         MoveCount moveCount = createMoveCount();
+        System.out.println("\n실행 결과");
+        cars.showMoves(moveCount);
     }
 
     private static String getUserInput() {

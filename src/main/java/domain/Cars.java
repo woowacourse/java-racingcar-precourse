@@ -45,4 +45,16 @@ public class Cars {
         return carsSet.size() != cars.size();
     }
 
+    public void showMoves(MoveCount moveCount) {
+        int moveCountValue = moveCount.get();
+        while (0 < moveCountValue) {
+            for (Car car : cars) {
+                car.move();
+                System.out.println();
+            }
+            System.out.println();
+            moveCountValue--;
+        }
+    }
+
 }

@@ -8,6 +8,7 @@ public class Car {
     private static final int STOP_MAX_NUMBER = 3;
     private static final int GO_VALUE = 1;
     private static final int STOP_VALUE = 0;
+    private static final String GO_MARK = "-";
     private final String name;
     private int position = 0;
 
@@ -47,6 +48,14 @@ public class Car {
             return GO_VALUE;
         }
         return STOP_VALUE;
+    }
+
+    public void move() {
+        position += getMoveValue();
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print(GO_MARK);
+        }
     }
 
 }
