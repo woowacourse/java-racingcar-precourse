@@ -17,4 +17,8 @@ public class RacingCars {
             car.move(randomGenerater.generateRandom());
         });
     }
+
+    public List<Car> getRacingCars() {
+        return racingCars;
+    }
 }
