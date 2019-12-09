@@ -1,4 +1,17 @@
+/*
+ * @(#)User.java        2019/12/10
+ *
+ *
+ */
+
 package domain;
+
+/**
+ * ì‚¬ìš©ìì˜ ì…ë ¥ì„ ì§ì ‘ì ìœ¼ë¡œ ë°›ê¸° ìœ„í•œ User í´ë˜ìŠ¤
+ *
+ * @version		0.1 2019ë…„ 12ì›” 10ì¼
+ * @author		YerinCho          
+ */
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,7 +22,7 @@ public class User {
     public String inputCar() {
    	Scanner sc = new Scanner(System.in);
    	String tmpname="";
-   	System.out.println("°æÁÖÇÒ ÀÚµ¿Â÷ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.(ÀÌ¸§Àº ½°Ç¥(,) ±âÁØÀ¸·Î ±¸ºĞ,5ÀÚ ÀÌÇÏ)");
+   	System.out.println("ê²½ì£¼í•  ìë™ì°¨ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.(ì´ë¦„ì€ ì‰¼í‘œ(,) ê¸°ì¤€ìœ¼ë¡œ êµ¬ë¶„,5ì ì´í•˜)");
    	tmpname=sc.nextLine();
    	return tmpname;
        }
@@ -17,7 +30,7 @@ public class User {
        public String inputCount() {
    	Scanner sc = new Scanner(System.in);
    	String count;
-   	System.out.println("½ÃµµÇÒ È½¼ö´Â ¸îÈ¸ÀÎ°¡¿ä?");
+   	System.out.println("ì‹œë„í•  íšŸìˆ˜ëŠ” ëª‡íšŒì¸ê°€ìš”?");
    	count=sc.nextLine();
    	return count;
        }

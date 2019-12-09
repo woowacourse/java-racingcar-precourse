@@ -1,25 +1,42 @@
+/*
+ * @(#)UserInputChecking.java        2019/12/10
+ *
+ *
+ */
+
 package domain;
+
+/**
+ * ì‚¬ìš©ìê°€ ì…ë ¥í•œ ê°’ì´ ìœ íš¨í•œ ê°’ì¸ì§€ í™•ì¸í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤
+ *
+ * @version		0.1 2019ë…„ 12ì›” 10ì¼
+ * @author		YerinCho          
+ */
 
 public class UserInputChecking {
     
     public boolean checkCarName(String n) {
 	String[] tmpname = n.split(",");
 	for(int i=0;i<tmpname.length;i++) {
+	    
+	    /*ì´ë¦„ì´ 5ìë¥¼ ë„˜ì–´ê°€ë©´ ì˜¤ë¥˜*/
 	    if(tmpname[i].length()==0 || tmpname[i].length()>5) {
-		System.out.println("ÀÚµ¿Â÷ ÀÌ¸§ÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		System.out.println("ìë™ì°¨ ì´ë¦„ì´ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		return false;
 	    }
 	}
 	return true;
     }
     
+    
+    /*íšŸìˆ˜ê°€ ì˜ëª» ì…ë ¥ëœ ê²½ìš° -1ì„ ë¦¬í„´í•˜ê³ , ì•„ë‹ˆë©´ ì…ë ¥ëœ íšŸìˆ˜ë¥¼ ì¶œë ¥*/
     public int checkCount(String n) {
 	if(isStringInt(n)==false) {
-	    System.out.println("È½¼ö°¡ Àß¸ø ÀÔ·ÂµÇ¾ú½À´Ï´Ù. Á¤¼ö¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+	    System.out.println("íšŸìˆ˜ê°€ ì˜ëª» ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤. ì •ìˆ˜ë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 	    return -1;
 	}
 	if( Integer.parseInt(n)<=0 ) {
-	    System.out.println("È½¼ö°¡ Àß¸ø ÀÔ·ÂµÇ¾ú½À´Ï´Ù. ¾çÀÇ Á¤¼ö¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+	    System.out.println("íšŸìˆ˜ê°€ ì˜ëª» ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤. ì–‘ì˜ ì •ìˆ˜ë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 	    return -1;
 	}
 	return Integer.parseInt(n);
@@ -33,4 +50,5 @@ public class UserInputChecking {
 	        return false;
 	    }
     }
+    
 }

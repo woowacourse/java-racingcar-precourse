@@ -1,4 +1,17 @@
+/*
+ * @(#)Car.java        2019/12/10
+ *
+ *
+ */
+
 package domain;
+
+/**
+ * 자동차 정보 저장을 위한 Car 클래스
+ *
+ * @version		0.1 2019년 12월 10일
+ * @author		YerinCho          
+ */
 
 public class Car {
 	private final String name;
