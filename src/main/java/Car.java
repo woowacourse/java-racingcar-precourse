@@ -8,23 +8,22 @@ public class Car {
 
     int printMovingForward() {
         int randomValue = (int) (Math.random() * 10);
+
+        System.out.print(name + " : ");
         if (randomValue >= 4) {
             this.position++;
-            System.out.print(name +" : ");
-            for(int i=0;i<this.position;i++){
+            for (int i = 0; i < this.position; i++) {
                 System.out.print("-");
             }
-            System.out.println();
             return 1;
         }
-        System.out.print(name +" : ");
-        for(int i=0;i<this.position;i++){
+        for (int i = 0; i < this.position; i++) {
             System.out.print("-");
         }
-        System.out.println();
         return 0;
     }
-    public String toString(){
+
+    public String toString() {
         return name;
     }
 }
