@@ -10,14 +10,14 @@ public class Car {
 
     // 추가 기능 구현
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int currPosition() {
-        return position;
+        return this.position;
     }
 
     public void addPosition() {
-        position += 1;
+        this.position += 1;
     }
 }
