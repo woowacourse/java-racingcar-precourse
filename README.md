@@ -38,7 +38,7 @@ position 만큼의 출력을 해준 뒤 , 1 를 return 해준다. Random variabl
 4미만인 경우엔 현재 position 에 맞게 출력을 해준 뒤, 0 를 return 해준다.원래 boolean type 을 
 return 해주려고 했는데, winner 를 가릴 때 counter 개념으로 사용하기 위해서 int 로 수정했다.
 _____
-####Main class
+#### Main class
   * Variables
     * none
   * Method
@@ -56,10 +56,10 @@ _____
         이하인지 체크해주고 맞는경우 반환해준다. 하나의 문자열의 길이가 5를 초과하는 경우 에러 메세지를 
         출력해주고 null을 return 한다.
    
-      ```
-      public static void initializeCar(Car[] cars, String[] names,
+    ```
+    public static void initializeCar(Car[] cars, String[] names,
                                                    int numberOfCars)
-      ```
+    ```
     * Method Name : initializeCar
     * Parameter 
         * Car[] cars - Car instance array
@@ -89,7 +89,7 @@ _____
           실행시켜준다. 
     
     ```
-        public static void printWinner(Car[] cars, int[] movingCounter)
+    public static void printWinner(Car[] cars, int[] movingCounter)
     ```
       * Method Name : printWinner
       * Parameter 
