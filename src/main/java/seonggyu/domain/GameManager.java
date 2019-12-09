@@ -22,7 +22,7 @@ public class GameManager {
 
 	private void doRacing() {
 		System.out.println("\n실행결과");
-		for(int i = 0; i < this.rounds.getRounds(); i++) {
+		for (int i = 0; i < this.rounds.getRounds(); i++) {
 			this.participants.goOrStay();
 			this.participants.printNamesAndPositions();
 		}

@@ -23,7 +23,7 @@ public class Car {
 	}
 
 	public void goOrStay() {
-		if ( makeRandomNumber() > THRESHOLD) {
+		if (makeRandomNumber() > THRESHOLD) {
 			this.position++;
 		}
 	}

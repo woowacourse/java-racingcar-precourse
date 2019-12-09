@@ -14,8 +14,8 @@ public class InputParser {
 	
 	private static List<String> trimedStringList(List<String> inputList){
 		return inputList.stream()
-				.map(String::trim)
-				.collect(Collectors.toList());
+			.map(String::trim)
+			.collect(Collectors.toList());
 	}
 	
 	public static int parseStringToInt(String inputString) {

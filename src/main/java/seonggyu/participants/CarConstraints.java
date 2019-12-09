@@ -15,5 +15,4 @@ public class CarConstraints {
 			throw new IllegalArgumentException("5자 이하의 비어있지 않은 이름만 입력해주세요");
 		}
 	}
-	
 }
