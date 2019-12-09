@@ -16,28 +16,31 @@ public class RacingGame {
 		int rounds = inputRounds();
 		cars = makeCars(names);
 
-		System.out.println("실행 결과");
+		print("실행 결과");
 		for (int i = 0; i < rounds; i++) {
 			for (int j = 0; j < cars.length; j++) {
 				int energy = atRandom();
 				cars[j].move(energy);
 				cars[j].printPosition();
 			}
-			System.out.println();
+			print("");
 		}
 
 		String winners = getWinners();
-		System.out.println(winners + "(이)가 최종 우승했습니다.");
+		print(winners + "(이)가 최종 우승했습니다.");
 
 		if (sc != null) {
 			sc.close();
 		}
 	}
 
+	public void print(String msg) {
+		System.out.println(msg);
+	}
+
 	public String inputNames() {
 		String nameList = null;
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
-		System.out.println("예시) pobi, crong, honux");
+		print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)\n 예시) pobi, crong, honux");
 
 		nameList = sc.nextLine();
 		while (!validate(nameList)) {
@@ -53,8 +56,7 @@ public class RacingGame {
 		for (int i = 0; i < length; i++) {
 			String name = names[i].trim();
 			if ((name.equals("")) || (name.length() > 5)) {
-				System.out.println("이름 입력형식이 잘못되었습니다. 다시 입력해주세요.");
-				System.out.println("예시) pobi, crong, honux");
+				print("이름 입력형식이 잘못되었습니다. 다시 입력해주세요.\n 예시) pobi, crong, honux");
 				return false;
 			}
 		}
@@ -75,7 +77,7 @@ public class RacingGame {
 	public int inputRounds() {
 		int rounds = 0;
 		boolean notEntered = true;
-		System.out.println("\n시도할 회수는 몇 회인가요?");
+		print("\n시도할 회수는 몇 회인가요?");
 
 		while (notEntered) {
 			try {
@@ -83,7 +85,7 @@ public class RacingGame {
 				notEntered = false;
 			} catch (InputMismatchException e) {
 				sc = new Scanner(System.in);
-				System.out.println("라운드 입력 형식이 잘못되었습니다. 숫자를 다시 입력해주세요.");
+				print("라운드 입력 형식이 잘못되었습니다. 숫자를 다시 입력해주세요.");
 			}
 		}
 		return rounds;
