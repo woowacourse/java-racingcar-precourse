@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Entry {
@@ -25,5 +26,47 @@ public class Entry {
 		}
 
 		return stringPosition;
+	}
+
+	public void printWhoWin() {
+		StringBuilder winnerMessageBuilder = new StringBuilder();
+
+		for (String carName : getFirstCarNames()) {
+			winnerMessageBuilder.append(carName);
+			winnerMessageBuilder.append(',');
+		}
+
+		winnerMessageBuilder.deleteCharAt(winnerMessageBuilder.length() - 1);
+
+		System.out.println(winnerMessageBuilder.toString());
+	}
+
+	private List<String> getFirstCarNames() {
+		List<String> firstCarNames = new ArrayList<>();
+		int firstPosition = getFirstPosition();
+
+		for (Car car : racingEntry) {
+
+			if (car.getPosition() == firstPosition) {
+				firstCarNames.add(car.getName());
+			}
+
+		}
+
+		return firstCarNames;
+	}
+
+	private int getFirstPosition() {
+		int position = Car.START_POSITION;
+
+		for (Car car : racingEntry) {
+
+			if (position < car.getPosition()) {
+				position = car.getPosition();
+			}
+
+		}
+
+		return position;
 	}
 }
