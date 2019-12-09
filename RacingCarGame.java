@@ -12,7 +12,7 @@ public class RacingCarGame {
         List<Car> cars = makeCars(receiveInput(PROMPT_CAR_NAMES));
         RacingCars racingCars = new RacingCars(cars);
         int trialLength = Integer.parseInt(receiveInput(PROMPT_TRIAL_LENGTH));
-        finishedCars = runRace(racingCars, trialLength)
+        RacingCars finishedCars = runRace(racingCars, trialLength);
         finishedCars.printWinners();
     }
 
