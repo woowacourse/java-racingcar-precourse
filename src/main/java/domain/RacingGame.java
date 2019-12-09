@@ -39,22 +39,22 @@ public class RacingGame {
 	}
 
 	public String inputNames() {
-		String nameList = null;
+		String names = null;
 		print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)\n 예시) pobi, crong, honux");
 
-		nameList = sc.nextLine();
-		while (!validate(nameList)) {
-			nameList = sc.nextLine();
+		names = sc.nextLine();
+		while (!validate(names)) {
+			names = sc.nextLine();
 		}
-		return nameList;
+		return names;
 	}
 
-	public boolean validate(String nameList) {
-		String[] names = nameList.split(",", -1);
-		int length = names.length;
+	public boolean validate(String names) {
+		String[] nameList = names.split(",", -1);
+		int length = nameList.length;
 
 		for (int i = 0; i < length; i++) {
-			String name = names[i].trim();
+			String name = nameList[i].trim();
 			if ((name.equals("")) || (name.length() > 5)) {
 				print("이름 입력형식이 잘못되었습니다. 다시 입력해주세요.\n 예시) pobi, crong, honux");
 				return false;
