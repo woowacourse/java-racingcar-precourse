@@ -37,9 +37,11 @@ public class RacingStadium {
     }
 
     private boolean isLengthValid(String[] waiterList) {
+        final int lengthLimit = 5;
+
         for (String waiter : waiterList) {
-            if (waiter.length() > 5 || waiter.length() == 0) {
-                System.out.println("이름은 없거나, 5글자를 초과할 수 없습니다.");
+            if (waiter.length() > lengthLimit || waiter.length() == 0) {
+                System.out.printf("이름은 없거나, %d 글자를 초과할 수 없습니다.", lengthLimit);
                 return false;
             }
         }

@@ -11,10 +11,11 @@ public class Car {
     }
 
     public void tryToGoForward() {
+        final int moveCriteria = 4;
         Random random = new Random();
         int randomNumber = random.nextInt(9);
 
-        if (randomNumber >= 4) {
+        if (randomNumber >= moveCriteria) {
             this.position += 1;
         }
     }
