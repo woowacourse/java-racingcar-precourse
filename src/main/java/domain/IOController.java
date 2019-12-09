@@ -8,6 +8,13 @@ public class IOController {
     System.out.println("시도할 횟수는 몇회인가요?");
   }
 
+  private static boolean validateRounds(int rounds) {
+    if (rounds <= 0) {
+      return false;
+    }
+    return true;
+  }
+
   public static int getRounds() {
     try {
       int rounds;
@@ -15,7 +22,7 @@ public class IOController {
 
       rounds = scanner.nextInt();
 
-      if (rounds <= 0) {
+      if (!validateRounds(rounds)) {
         return getAgainRounds();
       }
 
