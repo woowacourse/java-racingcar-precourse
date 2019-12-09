@@ -1,5 +1,5 @@
 /*
- * Race.java                      2.6.3    2019-12-09
+ * Race.java                      2.6.4    2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -16,11 +16,12 @@ import java.util.Collections;
  * 경주를 위한 자동차들과 레이싱 횟수를 가지고 있습니다.
  * 레이스를 시작, 진행하고 우승자를 판단, 출력하는 기능이 있습니다.
  *
- * @version 2.6.3            레이스가 회마다 구분되도록 수정
+ * @version 2.6.4            레이스 각 회마다 위에 횟수를 출력하도록 수정
  * @date 2019-12-09
  * @author HyungjuAn
  */
 public class Race {
+	private static final String ROUND = "회";
 	private static final String RACE_START = "경주 시작!";
 	private static final String WINNER_PRINTING = "가 최종 우승했습니다!";
 	private static final char COMMA = ',';
@@ -46,6 +47,7 @@ public class Race {
 
 	private void runRace() {
 		for (int i = 0; i < raceCount; i++) {
+			System.out.println((i + ONE) + ROUND);
 			for (Car nextCar : carArrayList) {
 				nextCar.run();
 			}
