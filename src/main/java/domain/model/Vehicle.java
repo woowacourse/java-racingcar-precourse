@@ -1,18 +1,13 @@
-package domain;
+package domain.model;
 
-/**
- * @author 김시영
- * @apiNote 사용자별로, 자동차를 생성하고 경주하기 위한 클래스입니다.
- * @since 2019-12-05
- */
-public class Car {
+public class Vehicle {
     private static final String HYPHEN_FOR_POSITION = "-";
     private static final String SPACING_WORDS = " : ";
-    private final String name;
 
+    private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    public Vehicle(String name) {
         this.name = name;
     }
 
@@ -24,13 +19,13 @@ public class Car {
         return position;
     }
 
-    public void goForwardPosition(boolean goOrStop) {
-        if (goOrStop) {
+    public void goForwardPosition(boolean goOrStop, Vehicle kind) {
+        if (goOrStop && kind instanceof Car) {
             position++;
         }
+        //TODO 자동차가 아닌, 다른 수단 : Bicycle, Airplane 등일 경우 포지션 이동의 범위가 달라진다면 추가 작업(클래스 생성 및 포지션 증감 결정)
     }
 
-    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(SPACING_WORDS);

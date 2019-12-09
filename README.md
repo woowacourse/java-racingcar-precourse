@@ -5,7 +5,7 @@
 
 ## 프로그램 실행 
 
-- Git clone 이 후 src/main/java/RacingCarGame 의 main() method 실행
+- Git clone 이 후 src/main/java/Application 의 main() method 실행
 
 ## 프로그래밍 규칙
 

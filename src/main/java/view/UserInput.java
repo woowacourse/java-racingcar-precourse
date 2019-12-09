@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Car;
+import domain.model.Car;
 import validator.InputValidator;
 
 /**

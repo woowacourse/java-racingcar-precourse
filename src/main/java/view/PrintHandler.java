@@ -2,7 +2,7 @@ package view;
 
 import java.util.List;
 
-import domain.Car;
+import domain.model.Car;
 
 /**
  * @author 김시영

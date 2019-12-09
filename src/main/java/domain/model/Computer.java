@@ -1,4 +1,4 @@
-package domain;
+package domain.model;
 
 /**
  * @author 김시영

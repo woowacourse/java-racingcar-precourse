@@ -1,6 +1,8 @@
-package domain;
+package domain.controller;
 
 import java.util.List;
+
+import domain.model.Car;
 
 /**
  * @author 김시영
