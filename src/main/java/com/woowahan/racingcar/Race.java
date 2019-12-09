@@ -29,7 +29,15 @@ public class Race extends AbstractRace {
 
 	@Override
 	protected void printStatus() {
+		for (Car car : user.cars) {
+			System.out.print(car.getName() + " : ");
 
+			for (int i = 0; i < car.getPosition(); i++) {
+				System.out.print("-");
+			}
+
+			System.out.println();
+		}
 	}
 
 	@Override
