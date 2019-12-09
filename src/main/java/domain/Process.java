@@ -35,6 +35,14 @@ public class Process {
 		return winnersCarList;
 	}
 	
+	public static String printWinner(ArrayList<Car> winners) {
+		ArrayList<String> winnersNameList = new ArrayList<String>();
+		for (int i = 0; i < winners.size(); i++) {
+			winnersNameList.add(winners.get(i).getName());
+		}
+		return String.join(", ", winnersNameList);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int k = 9;
