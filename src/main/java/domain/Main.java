@@ -6,6 +6,7 @@ public class Main {
 		Game game;
 		game = new Game();
 		game.startRace();
+		game.resultRace();
 	}
 
 }
