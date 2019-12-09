@@ -1,6 +1,5 @@
 package domain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,15 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarTest {
     private Car car;
 
-    @BeforeEach
-    void init() {
-        car = new Car("testCar");
-    }
-
     @Test
     void go() {
         //given
-
+        car = new Car("testCar");
         int defaultPosition = car.getPosition();
 
         //when
@@ -30,10 +24,22 @@ class CarTest {
     void getPosition() {
         //given
         int position = 3;
-        car = new Car(0, "testCar", position);
+        car = new Car("testCar", position);
 
         //when & then
         assertEquals(position, car.getPosition());
+    }
+
+    @Test
+    void getId() {
+        //given
+        Car car = new Car("testCar");
+        int currentId = car.getId();
+
+        for (int i = currentId + 1; i <= currentId + 10; i++) {
+            car = new Car("testCar");
+            assertEquals(i, car.getId());
+        }
     }
 
     @Test

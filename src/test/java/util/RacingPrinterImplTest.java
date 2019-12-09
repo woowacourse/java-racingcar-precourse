@@ -2,6 +2,7 @@ package util;
 
 import domain.Raceable;
 import domain.RacingCar;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,21 +33,22 @@ class RacingPrinterImplTest {
     @Test
     void printStateOfRacingCar() {
         //given
-        Raceable raceable = new RacingCar(0, "testCar", 4);
+        int amountToGo = 4;
+        RacingCar racingCar = new RacingCar("testCar", amountToGo);
 
         //when
-        racingPrinter.printStateOfRacingCar(raceable);
+        racingPrinter.printStateOfRacingCar(racingCar);
 
         //then
-        assertEquals("testCar : ----\n", outView.toString());
+        assertEquals(String.format("testCar : %s\n", StringUtils.repeat("-", amountToGo)), outView.toString());
     }
 
     @Test
     void printWinners() {
         //given
         List<Raceable> winners = Arrays.asList(
-                new RacingCar(1, "poby", 4),
-                new RacingCar(3, "honux", 4)
+                new RacingCar("poby"),
+                new RacingCar("honux")
         );
 
         //when

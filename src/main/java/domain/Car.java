@@ -1,29 +1,32 @@
 package domain;
 
-import java.util.Random;
-
 public class Car implements Movable, Comparable<Car> {
-    //todo: apply annotation
-    private int id;
+
+    private final int id;
     private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    Car(String name) {
+        this.id = CarId.getInstance().increaseId();
         this.name = name;
-    }
-    public Car(int id, String name) {
-        this(name);
-        this.id = id;
 
     }
-    public Car(int id, String name, int position) {
-        this(id, name);
+    Car(String name, int position) {
+        this.id = CarId.getInstance().increaseId();
+        this.name = name;
+        this.position = position;
+    }
+    Car(int id, String name, int position) {
+        this.id = id;
+        this.name = name;
         this.position = position;
     }
     @Override
     public void go() {
         position += RacingGameConfig.STEP;
     }
+
+    int getId() { return id;}
 
     @Override
     public int getPosition() {
