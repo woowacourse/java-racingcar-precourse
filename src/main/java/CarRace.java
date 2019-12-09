@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import domain.*;
-import InOut.*;
+import inOut.*;
 
 /**
  * CarRace
@@ -14,12 +14,15 @@ public class CarRace {
         //create cars and control
         addCar();
         
+        System.out.println("실행결과");
         //execute
-        runCar();
-
-        //printresult
+        for(int i = 0; i<3; i++)
+            runCar();
+            //printresult
+            System.out.println(cars.get(0).getPosition());
         
     }
+
     public void addCar(){
         cars.add(new Car("test"));
     }
