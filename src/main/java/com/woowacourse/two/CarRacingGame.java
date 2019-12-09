@@ -73,8 +73,17 @@ public class CarRacingGame {
 
         for(int i = 0 ; i < playCount ; i++){
             for(int j = 0 ; j < carArr.length ; j++){
-
+                moveCarOrNot(carArr, j);
             }
+        }
+
+    }
+
+    public void moveCarOrNot(Car[] carArr, int carIndex){
+        int randomNumber = (int) (Math.random() * 10);
+
+        if(randomNumber >= 4){
+            carArr[carIndex].movePosition();
         }
 
     }
