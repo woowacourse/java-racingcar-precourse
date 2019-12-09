@@ -67,7 +67,17 @@ public class Race extends AbstractRace {
 
 	@Override
 	protected void printResult() {
+		ArrayList<Car> winners = getWinners();
 
+		for (Car winner : winners) {
+			System.out.print(winner.getName());
+
+			boolean isLastIndex = winners.indexOf(winner) == winners.size() - 1;
+			if (!isLastIndex) {
+				System.out.print(", ");
+			}
+		}
+		System.out.println("가 최종 우승했습니다.");
 	}
 
 	@Override
