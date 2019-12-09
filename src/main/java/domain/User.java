@@ -13,6 +13,10 @@ public class User {
 		return getPlayerInput();
 	}
 
+	public int getCarMoveCount() {
+		return Integer.parseInt(playerInput.next());
+	}
+
 	private String getPlayerInput() {
 		return playerInput.next();
 	}
