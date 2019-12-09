@@ -13,6 +13,6 @@ public class RacingCar {
         System.out.println("시도할 회수는 몇회인가요?");
         count = sc.nextInt();
 
-        Game.gameStart(carName, count);
+        Game.gameStart(carName, count); //게임 시작
     }
 }

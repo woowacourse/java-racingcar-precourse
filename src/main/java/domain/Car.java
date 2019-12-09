@@ -8,19 +8,19 @@ public class Car {
         this.name = name;
     }
 
-    public static String carName(Car a) {
+    public static String carName(Car a) {                   //차 이름을 반환
         return a.name;
     }
 
-    public static int carPosition(Car a) {
+    public static int carPosition(Car a) {                  //차 위치를 반환
         return a.position;
     }
 
-    public static void addPosition(Car a, int forward) {
+    public static void addPosition(Car a, int forward) {    //자동차를 전진
         a.position += forward;
     }
 
-    public static void positionState(Car a) {
+    public static void positionState(Car a) {               //차가 얼마나 갔는지 출력
         System.out.printf("%s", a.name);
         for(int i = 0; i < a.position; i++) {
             System.out.print("-");
