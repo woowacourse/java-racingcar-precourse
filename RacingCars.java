@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 
 public class RacingCars {
     private static final int MAX_LENGTH_OF_CAR_NAME = 5;
-    private static final int MIN_NUMBER_OF_CARS = 2;
+    private static final int MIN_NUMBER_OF_CARS = 1;
     private static final int STRIDE_LENGTH = 1;
 
     private final List<Car> cars;
@@ -28,7 +28,7 @@ public class RacingCars {
 
     private void validateSize(List<Car> cars) {
         if (cars.size() < MIN_NUMBER_OF_CARS) {
-            throw new IllegalArgumentException("자동차는 최소 2대가 필요합니다.");
+            throw new IllegalArgumentException("자동차는 최소 1대가 필요합니다.");
         }
     }
 
