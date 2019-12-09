@@ -5,7 +5,7 @@ public class RacingCarGame {
     private static final String PROMPT_TRIAL_LENGTH = "시도할 회수는 몇 회인가요?";
     private static final String TITLE_RACE_RESULT = "%n실행결과%n";
 
-    public static void main(String[] args) {
+    public void startGame() {
         List<Car> cars = makeCars(receiveInput(PROMPT_CAR_NAMES));
         RacingCars racingCars = new RacingCars(cars);
         int trialLength = Integer.parseInt(receiveInput(PROMPT_TRIAL_LENGTH));
