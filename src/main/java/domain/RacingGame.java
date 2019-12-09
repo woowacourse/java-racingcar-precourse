@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RacingGame {
@@ -72,19 +71,22 @@ public class RacingGame {
 	public int inputRounds() {
 		print("\n시도할 회수는 몇 회인가요?");
 
-		int rounds = 0;
-		boolean notEntered = true;
+		String rounds = sc.nextLine();
 
-		while (notEntered) {
-			try {
-				rounds = sc.nextInt();
-				notEntered = false;
-			} catch (InputMismatchException e) {
-				sc = new Scanner(System.in);
-				print("라운드 입력 형식이 잘못되었습니다. 숫자를 다시 입력해주세요.");
-			}
+		while (!isDigit(rounds)) {
+			rounds = sc.nextLine();
 		}
-		return rounds;
+		return Integer.parseInt(rounds);
+	}
+
+	public boolean isDigit(String rounds) {
+		try {
+			Integer.parseInt(rounds);
+			return true;
+		} catch (NumberFormatException e) {
+			print("라운드 입력 형식이 잘못되었습니다. 숫자를 다시 입력해주세요.");
+			return false;
+		}
 	}
 
 	public int atRandom() {
