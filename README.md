@@ -30,3 +30,4 @@
     - 입력 받은 각 자동차 이름으로 자동차별 Car 객체 만들어 List<Car>에 집어넣기 (makeCars method)
     - 시도할 회수(int)는 PositiveInteger 일급 컬렉션으로 감싸기
     - 실제 경주 실행하기
+    
