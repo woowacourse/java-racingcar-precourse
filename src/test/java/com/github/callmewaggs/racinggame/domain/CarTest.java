@@ -73,5 +73,4 @@ class CarTest {
     // Assert
     assertEquals(0, car.getPosition());
   }
-
 }
