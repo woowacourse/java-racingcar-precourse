@@ -1,13 +1,17 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Game {
     static final int standardRandomNum = 4;
-    String[] carName;
-    Car[] car;
+    static final int nameCharLimit = 5;
     String winnerList = "";
     int movingNum;
+    String[] carName;
+    Car[] car;
     Scanner sc = new Scanner(System.in);
 
     public void run() {
@@ -26,14 +30,27 @@ public class Game {
         totalInputName = sc.next();
         carName = totalInputName.split(",");
         if (!checkFormAboutName()) {
-            System.out.println("5글자 내로 입력해주세요.");
             inputCarName();
         }
     }
 
     private boolean checkFormAboutName() {
         for (int i = 0; i < carName.length; i++) {
-            if (carName[i].length() > 5) {
+            if (carName[i].length() > nameCharLimit) {
+                System.out.println("5글자 내로 입력해주세요.");
+                return false;
+            }
+            if (!checkSameName(i)) {
+                System.out.println("중복되는 이름이 있습니다. 다시 입력해주세요.");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkSameName(int i) {
+        for (int j = 0; j < i; j++) {
+            if (Objects.equals(carName[i], carName[j])) {
                 return false;
             }
         }
@@ -43,13 +60,13 @@ public class Game {
     private void inputMovingNum() {
         System.out.println("시도할 횟수는 몇회인가요?");
         movingNum = sc.nextInt();
-        if(!checkInputFormAboutMovingNum(movingNum)) {
+        if (!checkInputFormAboutMovingNum(movingNum)) {
             inputMovingNum();
         }
     }
 
-    private boolean checkInputFormAboutMovingNum (int num) {
-        if(num <= 0) {
+    private boolean checkInputFormAboutMovingNum(int num) {
+        if (num <= 0) {
             System.out.println("1이상의 수를 입력해주세요.");
             return false;
         }
