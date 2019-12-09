@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
+    private static final String COMMA = ", ";
+
     private final Cars cars;
     private final RepetitionNumber repetitionNumber;
     private final Race race;
@@ -35,4 +37,17 @@ public class RacingCarGame {
     public RaceResults createRaceResults() {
         return new RaceResults(raceResults);
     }
+
+
+    public GameResult createGameResult() {
+        int foremostPosition = cars.getForemostPosition();
+        List<Car> winnerCars = cars.findByPosition(foremostPosition);
+        StringBuilder builder = new StringBuilder();
+
+        for (Car winnerCar : winnerCars) {
+            builder.append(winnerCar.getName() + COMMA);
+        }
+        return new GameResult(builder.substring(0, (builder.length() - COMMA.length())));
+    }
 }
+
