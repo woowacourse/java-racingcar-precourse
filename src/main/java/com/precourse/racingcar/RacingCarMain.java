@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.4.1   2019-12-09
+ * RacingCarMain.java              1.4.2   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.4.1            잘못된 입력을 알려주는 기능을 자동차와 레이스 횟수 두가지로 분리
+ * @version 1.4.2            readRaceCount메소드의 연산자 우선순위를 명확하게 수정
  * @date 2019-12-09
  * @author HyungjuAn
  */
@@ -167,7 +167,7 @@ public class RacingCarMain {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String input = reader.readLine();
 
-		if (!isInteger(input) || !isNaturalNumber(input)) {
+		if ((!isInteger(input)) || (!isNaturalNumber(input))) {
 			printInvalidRaceCount();
 			return INVALID_RACE_COUNT;
 		}
