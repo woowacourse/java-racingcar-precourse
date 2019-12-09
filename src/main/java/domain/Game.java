@@ -12,6 +12,12 @@ public class Game {
     int turns;
     int winnerDistance;
 
+    public Game() {
+        this.scanner = new Scanner(System.in);
+        this.cars = new ArrayList<Car>();
+        this.winners = new ArrayList<Car>();
+    }
+
     public void start() {
 
         initializeCars();
