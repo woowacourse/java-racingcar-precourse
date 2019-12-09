@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.1.4   2019-12-08
+ * RacingCarMain.java              1.2.0   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,8 +17,8 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.1.4            레이스 우승자를 출력하는 기능 적용
- * @date 2019-12-08
+ * @version 1.2.0            사용자 입력을 자동차 리스트에 추가하는 기능 추가
+ * @date 2019-12-09
  * @author HyungjuAn
  */
 public class RacingCarMain {
@@ -72,10 +72,7 @@ public class RacingCarMain {
 			return;
 		}
 
-		StringTokenizer tokenizer = new StringTokenizer(input, COMMA);
-		while (tokenizer.hasMoreTokens()) {
-			carList.add(new Car(tokenizer.nextToken()));
-		}
+		addCarsByInput(carList, input);
 	}
 
 	private static boolean isRightCarNames(String input) {
@@ -113,6 +110,14 @@ public class RacingCarMain {
 		}
 
 		return result;
+	}
+
+	private static void addCarsByInput(ArrayList<Car> carList, String input) {
+		StringTokenizer tokenizer = new StringTokenizer(input, COMMA);
+
+		while (tokenizer.hasMoreTokens()) {
+			carList.add(new Car(tokenizer.nextToken()));
+		}
 	}
 
 	private static void printInvalidInput() {
