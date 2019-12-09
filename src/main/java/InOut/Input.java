@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Input
  */
 public class Input {
-    private static final int LIMIT =5;
+    private static final int LIMIT = 5;
     Scanner sc = new Scanner(System.in);
     private String[] names;
     private int trys;
@@ -53,8 +53,9 @@ public class Input {
     }
 
     public void checkFive(){
-        for(String name : names){
-            if (name.length()>=LIMIT){
+        for(int i =0; i<names.length; i++){
+            names[i] = names[i].trim(); // 불필요한 앞뒤 공백도 검사 겸 없애줌(단, 중간 공백은 이름 특성상 냅둠.)
+            if (names[i].length()>=LIMIT){
                 throw new InputMismatchException();
             }
         }
