@@ -40,7 +40,19 @@ public class Track {
   public void race() {
     for (int i = 0; i < trial; ++i) {
       raceCars();
+      printCars();
     }
+  }
+
+  private void printCars() {
+    for (Car car : racingCars) {
+      System.out.print(car.getName() + " : ");
+      for (int i = 0; i < car.getPosition(); ++i) {
+        System.out.print("-");
+      }
+      System.out.println();
+    }
+    System.out.println();
   }
 
   private void raceCars() {
@@ -48,5 +60,18 @@ public class Track {
       int randomNumber = (int) (Math.random() * 1000) % 10;
       car.move(randomNumber);
     }
+  }
+
+  public List<Car> getWinners() {
+    racingCars.sort((car1, car2) -> car2.getPosition() - car1.getPosition());
+
+    List<Car> winners = new ArrayList<>();
+    int winnerPosition = racingCars.get(0).getPosition();
+    for (Car racingCar : racingCars) {
+      if (winnerPosition == racingCar.getPosition()) {
+        winners.add(racingCar);
+      }
+    }
+    return winners;
   }
 }
