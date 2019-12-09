@@ -23,13 +23,12 @@ public class UtilityMethods {
 	public static void goForwardRandomly(Car[] cars) {
 		double randomNumber = 0;
 
-		for (int i = 0; i < cars.length; i++) {
+		for (Car car : cars) {
 			randomNumber = Math.random();
 			randomNumber = (int) (randomNumber * 10);
 			if (randomNumber >= 4) {
-				cars[i].goForward();
+				car.goForward();
 			}
-
 		}
 
 	}
@@ -38,13 +37,13 @@ public class UtilityMethods {
 		String gameResult = "";
 
 		System.out.println("");
-		for (int i = 0; i < cars.length; i++) {
+		for (Car car : cars) {
 			String progress = "";
-			for (int j = 0; j < cars[i].getPosition(); j++) {
+			for (int i = 0; i < car.getPosition(); i++) {
 				progress += '-';
 			}
 
-			gameResult = cars[i].getName() + " : " + progress;
+			gameResult = car.getName() + " : " + progress;
 			System.out.println(gameResult);
 		}
 
