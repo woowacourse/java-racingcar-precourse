@@ -1,6 +1,8 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class RacingStadium {
     private final Car[] raceCars;
@@ -81,5 +83,37 @@ public class RacingStadium {
             raceCar.tryToGoForward();
             raceCar.printCurrentStatus();
         }
+    }
+
+    public void announceWinners() {
+        ArrayList<String> winnerList = new ArrayList<String>();
+        winnerList = update(winnerList);
+
+        System.out.printf("%s가 최종 우승했습니다.", extractName(winnerList));
+    }
+
+    private ArrayList<String> update(ArrayList<String> winnerList) {
+        int maxPosition = 0;
+        for (Car raceCar : raceCars) {
+            int position = raceCar.getPosition();
+            if (position < maxPosition) {
+                continue;
+            }
+            if (position > maxPosition) {
+                winnerList = new ArrayList<String>();
+                maxPosition = position;
+            }
+            winnerList.add(raceCar.getName());
+        }
+        return winnerList;
+    }
+
+    private String extractName(ArrayList<String> winnerList) {
+        StringJoiner stringJoiner = new StringJoiner(", ");
+
+        for (String winner : winnerList) {
+            stringJoiner.add(winner);
+        }
+        return stringJoiner.toString();
     }
 }

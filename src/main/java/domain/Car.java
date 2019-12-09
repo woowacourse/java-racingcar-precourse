@@ -22,4 +22,12 @@ public class Car {
     public void printCurrentStatus() {
         System.out.printf("%s : %s\n", this.name, "-".repeat(this.position));
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
