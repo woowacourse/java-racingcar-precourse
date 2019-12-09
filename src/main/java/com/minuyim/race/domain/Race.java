@@ -14,6 +14,10 @@ public class Race {
         registeCars();
     }
     
+    public List<Car> getCars() {
+        return this.cars;
+    }
+    
     private void registeCars() {
         StringsInputs stringInput = new StringsInputs();
         addCars(stringInput.getOutput());
@@ -43,7 +47,8 @@ public class Race {
     
     private void printRace() {
         for (Car car : this.cars) {
-            String repeatChar = new String(new char[car.getPosition()]).replace("\0", Constants.REFEATED_CHAR);
+            String repeatChar = new String(new char[car.getPosition()])
+                    .replace("\0", Constants.REFEATED_CHAR);
             System.out.println(String.format("%s : %s", car.getName(), repeatChar));
         }
         System.out.println();
