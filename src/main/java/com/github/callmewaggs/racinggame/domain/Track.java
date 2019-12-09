@@ -70,7 +70,9 @@ public class Track {
     for (Car racingCar : racingCars) {
       if (winnerPosition == racingCar.getPosition()) {
         winners.add(racingCar);
+        continue;
       }
+      break;
     }
     return winners;
   }
