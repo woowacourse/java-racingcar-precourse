@@ -5,13 +5,27 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class RacingGame {
-
 	public static void main(String[] args) {
-
+		User user = new User();
+		runRacingGame(user);
 	}
 
+	private static void runRacingGame(User user) {
+		printToInputCarNamesMessage();
+		Entry entry = makeRacingEntry(getCarNameList(user.getCarNames()));
 
-	private Entry makeRacingEntry(List<String> carNameList) {
+		printToInputMoveCountMessage();
+		int carMoveCount = user.getCarMoveCount();
+
+		for (int i = 0; i < carMoveCount; ++i) {
+			entry.moveEachCar();
+			entry.printEachCarPosition();
+		}
+
+		entry.printWhoWin();
+	}
+
+	private static Entry makeRacingEntry(List<String> carNameList) {
 		List<Car> carList = new ArrayList<>();
 
 		for (String carName : carNameList) {
