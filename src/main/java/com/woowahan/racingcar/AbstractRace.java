@@ -7,7 +7,7 @@ public abstract class AbstractRace {
 
 	protected abstract int getRandomInteger(int min, int max);
 
-	protected abstract void processRound();
+	protected abstract void tryDrives();
 
 	protected abstract void tryDrive(Car car);
 
