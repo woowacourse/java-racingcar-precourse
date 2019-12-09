@@ -40,7 +40,10 @@ public class User extends AbstractUser {
 
 	@Override
 	protected void inputRound() {
+		String roundString;
+		roundString = getLine();
 
+		this.round = Integer.parseInt(roundString);
 	}
 
 	@Override
