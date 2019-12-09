@@ -21,14 +21,14 @@ public class Admin {
     protected static final int MIN_THRESHOLD = 4;
 
     /**
+     * 입출력을 담당하는 클래스
+     */
+    private final IO racingCarIO = new IO();
+
+    /**
      * Car 객체를 저장하는 Array
      */
     private Car[] cars;
-
-    /**
-     * 입출력을 담당하는 클래스
-     */
-    private IO racingCarIO = new IO();
 
     /**
      * 이름을 입력받고 Car 객체를 생성하는 메소드
@@ -38,10 +38,7 @@ public class Admin {
 
         String[] carNames = getCarNames();
 
-        cars = new Car[carNames.length];
-        for (int i = 0; i < cars.length; i++) {
-            cars[i] = makeCar(carNames[i]);
-        }
+        makeCarsByName(carNames);
     }
 
     /**
@@ -71,13 +68,29 @@ public class Admin {
     }
 
     /**
-     * Car 객체를 생성하여 반환하는 메소드
+     * 입력한 이름이 유효할때까지 입력을 받는 메소드
      *
-     * @param name Car 객체의 이름
-     * @return 입력받은 이름으로 생성된 Car 객체
+     * @return Car 객체 각각 이름이 담긴 String Array
      */
-    private Car makeCar(String name) {
-        return new Car(name);
+    private String[] getCarNames() {
+        String carNamesValidPattern = "([a-zA-Z][a-zA-Z0-9]{0,4}(,|$))+";
+        String question = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+        String input = racingCarIO.getInputUntilValid(question, carNamesValidPattern);
+
+        return input.split(",");
+    }
+
+    /**
+     * Car 객체를 생성하여 cars 인스턴스 변수에 저장하는 메소드
+     *
+     * @param carNames 차 이름들
+     */
+    private void makeCarsByName(String[] carNames) {
+        Car[] cars = new Car[carNames.length];
+        for (int i = 0; i < cars.length; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
+        this.cars = cars;
     }
 
     /**
@@ -97,19 +110,6 @@ public class Admin {
     }
 
     /**
-     * 입력한 이름이 유효할때까지 입력을 받는 메소드
-     *
-     * @return Car 객체 각각 이름이 담긴 String Array
-     */
-    private String[] getCarNames() {
-        String carNameValidPattern = "([a-zA-Z][a-zA-Z0-9]{0,4}(,|$))+";
-        String question = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-        String input = racingCarIO.getInputUntilValid(question, carNameValidPattern);
-
-        return input.split(",");
-    }
-
-    /**
      * 입력한 숫자가 유효할때까지 입력을 받는 메소드
      *
      * @return 움직일 횟수
@@ -124,8 +124,8 @@ public class Admin {
 
     /**
      * 자동차들의 position 을 구하는 메소드
-     * <p>
-     * return 자동차들의 position이 저장된 ArrayList
+     *
+     * @return 자동차들의 position이 저장된 ArrayList
      */
     private ArrayList<Integer> getCarsPosition() {
         ArrayList<Integer> carsPosition = new ArrayList<>();

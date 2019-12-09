@@ -11,15 +11,14 @@ import java.util.Scanner;
  */
 public class IO {
     /**
-     * 값을 입력받기 위한 Scanner class
-     */
-    private static final Scanner scan = new Scanner(System.in);
-
-    /**
      * 유효하지 않은 숫자를 나타내는 클래스 변수
      */
     private static final String INVALID_INPUT = null;
 
+    /**
+     * 값을 입력받기 위한 Scanner class
+     */
+    private final Scanner scan = new Scanner(System.in);
 
     /**
      * 자동차의 전진과정을 출력하는 메소드
