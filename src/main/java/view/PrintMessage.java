@@ -33,8 +33,8 @@ public class PrintMessage {
 			commaFlag = true;
 			return;
 		}
-		if(car.getPosition() == maximumPosition && commaFlag == true) {
-			System.out.print(","+car.getName());
+		if (car.getPosition() == maximumPosition && commaFlag == true) {
+			System.out.print("," + car.getName());
 			return;
 		}
 	}
