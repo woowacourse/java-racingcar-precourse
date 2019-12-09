@@ -16,11 +16,11 @@ public class CarRace {
         
         System.out.println("실행결과");
         //execute
-        for(int i = 0; i<3; i++)
+        for(int i = 0; i<3; i++){
             runCar();
             //printresult
-            System.out.println(cars.get(0).getPosition());
-        
+            Output out = new Output(cars);
+        }
     }
 
     public void addCar(){
