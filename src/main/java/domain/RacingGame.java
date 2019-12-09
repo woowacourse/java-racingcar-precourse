@@ -12,9 +12,11 @@ public class RacingGame {
 		int rounds = inputRounds();
 		cars = makeCars(names);
 
+		System.out.println("실행 결과");
 		for (int i = 0; i < cars.length; i++) {
 			int energy = atRandom();
 			cars[i].move(energy);
+			cars[i].printPosition();
 		}
 
 		if (sc != null) {

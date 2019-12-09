@@ -13,4 +13,12 @@ public class Car {
 			position++;
 		}
 	}
+
+	public void printPosition() {
+		String msg = name + ": ";
+		for (int i = 0; i < position; i++) {
+			msg += "-";
+		}
+		System.out.println(msg);
+	}
 }
