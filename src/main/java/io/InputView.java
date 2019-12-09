@@ -1,13 +1,15 @@
 /*
  *  @InputView.java
  *
- *  @Version: 0.1
+ *  @Version: 0.2
  *
- *  @Date: 2019.12.06
+ *  @Date: 2019.12.09
  *
  *  @Author: pandahun
  */
 package io;
+
+import static domain.RacingGame.ZERO;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,10 +44,18 @@ public class InputView {
     public static Integer inputTryCount() {
         System.out.println("시도할 횟수는 몇회인가요?");
         try {
-            return Integer.parseInt(SCANNER.nextLine());
+            int tryCount = Integer.parseInt(SCANNER.nextLine());
+            validatesNumber(tryCount);
+            return tryCount;
         }
         catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닙니다");
+        }
+    }
+
+    private static void validatesNumber(int tryCount) {
+        if( tryCount <= ZERO) {
+            throw new IllegalArgumentException("횟수는 1이상입니다.");
         }
     }
 }
