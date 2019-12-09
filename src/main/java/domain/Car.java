@@ -4,6 +4,10 @@ import java.util.Objects;
 
 public class Car {
     public static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final int RANDOM_MAX_NUMBER = 9;
+    private static final int STOP_MAX_NUMBER = 3;
+    private static final int GO_VALUE = 1;
+    private static final int STOP_VALUE = 0;
     private final String name;
     private int position = 0;
 
@@ -36,4 +40,13 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name);
     }
+
+    private int getMoveValue() {
+        int randomNumber = (int) (Math.random() * (RANDOM_MAX_NUMBER + 1));
+        if (STOP_MAX_NUMBER < randomNumber) {
+            return GO_VALUE;
+        }
+        return STOP_VALUE;
+    }
+
 }
