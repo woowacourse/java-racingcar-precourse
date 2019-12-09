@@ -19,6 +19,6 @@ public class Message {
 		System.out.print(", ");
 	    }
 	}
-	System.out.println("°¡ ÃÖÁ¾ ¿ì½ÂÇß½À´Ï´Ù!");
+	System.out.println("ê°€ ìµœì¢… ìš°ìŠ¹í–ˆìŠµë‹ˆë‹¤!");
     }
 }
