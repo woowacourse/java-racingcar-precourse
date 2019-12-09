@@ -1,9 +1,9 @@
 /*
  *  @Car.java
  *
- *  @Version: 0.1
+ *  @Version: 0.2
  *
- *  @Date: 2019.12.06
+ *  @Date: 2019.12.09
  *
  *  @Author: pandahun
  */
@@ -38,5 +38,5 @@ public class Car {
         return name;
     }
 
-    public int getPosition() { return position};
+    public int getPosition() { return position;}
 }
