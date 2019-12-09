@@ -1,5 +1,5 @@
 /*
- * Race.java                      2.5.0    2019-12-08
+ * Race.java                      2.6.0    2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -15,8 +15,8 @@ import java.util.ArrayList;
  * 경주를 위한 자동차들과 레이싱 횟수를 가지고 있습니다.
  * 레이스를 시작, 진행하고 우승자를 판단, 출력하는 기능이 있습니다.
  *
- * @version 2.5.0            레이스 우승자를 반환하는 기능 추가
- * @date 2019-12-08
+ * @version 2.6.0            레이스 우승자의 위치를 반환하는 기능 추가
+ * @date 2019-12-09
  * @author HyungjuAn
  */
 public class Race {
@@ -68,9 +68,15 @@ public class Race {
 	}
 
 	private ArrayList<Car> getWinner() {
-		ArrayList<Car> winnerArrayList = new ArrayList<>(); // 우승자를 찾는 메소드 필요
+		ArrayList<Car> winnerArrayList = new ArrayList<>();
+		int winnerPosition = getWinnerPosition();
 
 		return winnerArrayList;
+	}
+
+	private int getWinnerPosition() {
+		//Collections.sort(carArrayList); // 포지션 내림차순으로 정렬필요
+		return carArrayList.get(0).getPosition();
 	}
 
 	@Override
