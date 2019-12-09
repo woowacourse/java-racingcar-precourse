@@ -1,9 +1,9 @@
 package domain;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 public class Cars {
     private static final int RANDOM_NUMBER_MAX = 9;
@@ -26,7 +26,7 @@ public class Cars {
 
     public void printPositions() {
         for (Car car : cars) {
-            car.print();
+            car.printPosition();
         }
     }
 
@@ -36,5 +36,19 @@ public class Cars {
 
     private boolean canProceed(int randomNumber) {
         return randomNumber >= 4;
+    }
+
+    public String getMaxPositionCars() {
+        return this.cars.stream()
+                .filter(car -> car.isSamePosition(getMaxPosition()))
+                .map(Car::getName)
+                .collect(joining(", "));
+    }
+
+    private int getMaxPosition() {
+        return this.cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .map(Car::getPosition)
+                .get();
     }
 }

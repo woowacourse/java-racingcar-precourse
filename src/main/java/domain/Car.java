@@ -19,7 +19,7 @@ public class Car {
         this.position++;
     }
 
-    public void print() {
+    public void printPosition() {
         System.out.print(this.name + " : " + displayPosition(this.position));
     }
 
@@ -29,5 +29,17 @@ public class Car {
             displayForPosition.append("-");
         }
         return displayForPosition.toString();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public boolean isSamePosition(int position) {
+        return this.position==position;
     }
 }

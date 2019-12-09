@@ -13,6 +13,7 @@ public class RacingCarApplication {
             cars.play();
             OutputView.printCarPositions(cars);
         }
+        OutputView.printWinners(cars);
     }
 
     private static Cars getReadyCars() {
