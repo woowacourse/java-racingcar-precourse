@@ -22,7 +22,7 @@ public class Winner {
 		return firstRunners;
 	}
 
-	static int getFirstRunnersPosition(ArrayList<Car> carList) {
+	private static int getFirstRunnersPosition(ArrayList<Car> carList) {
 		int firstRunnersPosition;
 		ArrayList<Integer> positions = new ArrayList(carList.size());
 
