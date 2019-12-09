@@ -12,7 +12,8 @@ public class RacingGame {
 		Car[] cars = makeCars(names);
 
 		for (int i = 0; i < cars.length; i++) {
-			atRandom();
+			int energy = atRandom();
+			cars[i].move(energy);
 		}
 
 		if (sc != null) {
