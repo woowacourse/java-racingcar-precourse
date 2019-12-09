@@ -7,6 +7,10 @@
 
 package domain;
 
+/**
+ * 자동차 경주 게임을 준비(PrepareGame)하고, 플레이(StartGame)한다.
+ */
+
 public class Main {
 
     public static void main(String[] args) {
