@@ -17,7 +17,12 @@ public class Race extends AbstractRace {
 
 	@Override
 	protected void tryDrive(Car car) {
+		int randomZeroToNine;
+		randomZeroToNine = getRandomInteger(0, 9);
 
+		if (randomZeroToNine >= 4) {
+			car.drive();
+		}
 	}
 
 	@Override
