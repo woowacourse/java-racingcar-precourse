@@ -55,7 +55,7 @@ public class Input {
     public void checkFive(){
         for(int i =0; i<names.length; i++){
             names[i] = names[i].trim(); // 불필요한 앞뒤 공백도 검사 겸 없애줌(단, 중간 공백은 이름 특성상 냅둠.)
-            if (names[i].length()>=LIMIT){
+            if (names[i].length()>LIMIT){
                 throw new InputMismatchException();
             }
         }
