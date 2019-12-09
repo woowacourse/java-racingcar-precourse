@@ -52,10 +52,10 @@ public class Game {
 
     private boolean checkUserInputCarNames(String[] inputArray) {
         for (int i=0; i<inputArray.length; i++) {
-            if (!checkStringLength(inputArray[i], MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
+            if (!checkStringLength(inputArray[i].trim(), MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
                 return false;
             }
-            Car car = new Car(inputArray[i]);
+            Car car = new Car(inputArray[i].trim());
             this.cars.add(car);
         }
         return true;
