@@ -95,9 +95,9 @@ public class UtilityMethods {
 			if (winnerCount == 0) {
 				winnerString = winner;
 			} else if (winnerCount > 0) {
-				winnerString += ", " + winner;
+				winnerString = winnerString + ", " + winner;
 			}
-
+			winnerCount++;
 		}
 
 		return winnerString;
