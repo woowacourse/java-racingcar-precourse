@@ -22,6 +22,9 @@ public class RacingGame {
 			System.out.println();
 		}
 
+		String winners = getWinners();
+		System.out.println(winners + "(이)가 최종 우승했습니다.");
+
 		if (sc != null) {
 			sc.close();
 		}
@@ -84,5 +87,23 @@ public class RacingGame {
 
 	public static int atRandom() {
 		return (int) (Math.random() * 10);
+	}
+
+	public static String getWinners() {
+		int maxPosition = 0;
+		String winners = "";
+
+		for (Car car : cars) {
+			int temp = car.getResult();
+			if (temp > maxPosition) {
+				maxPosition = temp;
+				winners = car.getName();
+				continue;
+			}
+			if (temp == maxPosition) {
+				winners += ", " + car.getName();
+			}
+		}
+		return winners;
 	}
 }

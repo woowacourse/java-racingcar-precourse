@@ -8,6 +8,10 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void move(int energy) {
 		if (energy >= 4) {
 			position++;
@@ -20,5 +24,9 @@ public class Car {
 			msg += "-";
 		}
 		System.out.println(msg);
+	}
+
+	public int getResult() {
+		return position;
 	}
 }
