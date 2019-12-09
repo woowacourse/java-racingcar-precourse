@@ -36,7 +36,7 @@ public class Admin {
     public void makeCars() {
         /* input이 유효할 때까지 이름을 입력받고, 입력받은 String을 기준으로 Car 객체 생성 */
 
-        String[] carNames = racingCarIO.getCarNamesUntilValid();
+        String[] carNames = getCarNames();
 
         cars = new Car[carNames.length];
         for (int i = 0; i < cars.length; i++) {
@@ -50,7 +50,7 @@ public class Admin {
     public void moveCars() {
         /* input이 유효할 때까지 숫자를 입력받고, 입력받은 숫자만큼 각 Car 객체를 이동시키고, 그 과정을 출력함 */
 
-        int numOfMoving = racingCarIO.getNumOfMovingUntilValid();
+        int numOfMoving = getNumOfMoving();
 
         for (int i = 0; i < numOfMoving; i++) {
             carsMoveForward();
@@ -66,6 +66,7 @@ public class Admin {
 
         ArrayList<Integer> carsPosition = getCarsPosition();
         ArrayList<String> winnersList = getWinnersList(carsPosition);
+
         racingCarIO.printWinner(winnersList);
     }
 
@@ -96,8 +97,34 @@ public class Admin {
     }
 
     /**
-     * 자동차들의 position 을 구하는 메소드
+     * 입력한 이름이 유효할때까지 입력을 받는 메소드
      *
+     * @return Car 객체 각각 이름이 담긴 String Array
+     */
+    private String[] getCarNames() {
+        String carNameValidPattern = "([a-zA-Z][a-zA-Z0-9]{0,4}(,|$))+";
+        String question = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+        String input = racingCarIO.getInputUntilValid(question, carNameValidPattern);
+
+        return input.split(",");
+    }
+
+    /**
+     * 입력한 숫자가 유효할때까지 입력을 받는 메소드
+     *
+     * @return 움직일 횟수
+     */
+    private int getNumOfMoving() {
+        String numberValidPattern = "^[1-9][0-9]*";
+        String question = "시도할 횟수는 몇회인가요?";
+        String input = racingCarIO.getInputUntilValid(question, numberValidPattern);
+
+        return Integer.parseInt(input);
+    }
+
+    /**
+     * 자동차들의 position 을 구하는 메소드
+     * <p>
      * return 자동차들의 position이 저장된 ArrayList
      */
     private ArrayList<Integer> getCarsPosition() {

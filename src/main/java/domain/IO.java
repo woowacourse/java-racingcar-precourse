@@ -16,50 +16,10 @@ public class IO {
     private static final Scanner scan = new Scanner(System.in);
 
     /**
-     * 유효하지 않은 자동차 이름을 나타내는 클래스 변수
-     */
-    private static final String[] INVALID_CAR_NAME = null;
-
-    /**
      * 유효하지 않은 숫자를 나타내는 클래스 변수
      */
-    private static final int INVALID_NUMBER = -1;
+    private static final String INVALID_INPUT = null;
 
-    /**
-     * 입력한 이름이 유효할때까지 입력을 받는 메소드
-     *
-     * @return Car 객체 각각 이름이 담긴 String Array
-     */
-    protected String[] getCarNamesUntilValid() {
-        String[] carNames;
-
-        while (true) {
-            carNames = getCarNames();
-            if (carNames == INVALID_CAR_NAME) {
-                System.out.println("다시 입력해주세요.");
-                continue;
-            }
-            return carNames;
-        }
-    }
-
-    /**
-     * 입력한 숫자가 유효할때까지 입력을 받는 메소드
-     *
-     * @return 움직일 횟수
-     */
-    protected int getNumOfMovingUntilValid() {
-        int numOfMoving;
-
-        while (true) {
-            numOfMoving = getNumOfMoving();
-            if (numOfMoving == INVALID_NUMBER) {
-                System.out.println("다시 입력해주세요.");
-                continue;
-            }
-            return numOfMoving;
-        }
-    }
 
     /**
      * 자동차의 전진과정을 출력하는 메소드
@@ -74,7 +34,7 @@ public class IO {
     }
 
     /**
-     * 자동차의 전진과정을 출력하는 메소드
+     * 우승자를 출력하는 메소드
      *
      * @param winnersList 우승자 리스트
      */
@@ -85,38 +45,40 @@ public class IO {
     }
 
     /**
-     * 쉼표로 구분된 차 이름을 입력받아 반환하는 메소드
+     * input이 유효할때까지 입력을 받는 메소드
      *
-     * @return 차 이름들이 담긴 String Array, 유효하지 읺은 input에 대하여 INVALID_CAR_NAME
+     * @param question     출력될 질문
+     * @param validPattern 유효한 패턴
+     * @return 유효한 input 문자열
      */
-    private String[] getCarNames() {
+    protected String getInputUntilValid(String question, String validPattern) {
         String input;
-        String carNameValidPattern = "([a-zA-Z][a-zA-Z0-9]{0,4}(,|$))+";
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        input = scan.nextLine();
-        if (!input.matches(carNameValidPattern)) {
-            return INVALID_CAR_NAME;
+        while (true) {
+            input = getInput(question, validPattern);
+            if (input == INVALID_INPUT) {
+                System.out.println("다시 입력해주세요.");
+                continue;
+            }
+            return input;
         }
-        return input.split(",");
     }
 
     /**
-     * 자동차를 최대 몇 번 이동시킬지 입력받는 메소드
+     * input을 입력받는 메소드
      *
-     * @return 움직일 횟수, 유효하지 않은 input에 대하여 INVALID_NUMBER
+     * @param question     출력될 질문
+     * @param validPattern 유효한 패턴
+     * @return 유효한 입력 문자열 / 유효하지 않다면 INVALID_INPUT
      */
-    private int getNumOfMoving() {
+    private String getInput(String question, String validPattern) {
         String input;
-        int numOfMoving;
-        String numberValidPattern = "^[1-9][0-9]*";
 
-        System.out.println("시도할 횟수는 몇회인가요?");
+        System.out.println(question);
         input = scan.nextLine();
-        if (!input.matches(numberValidPattern)) {
-            return INVALID_NUMBER;
+        if (!input.matches(validPattern)) {
+            return INVALID_INPUT;
         }
-        numOfMoving = Integer.parseInt(input);
-        return numOfMoving;
+        return input;
     }
 }
