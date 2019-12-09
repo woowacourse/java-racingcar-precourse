@@ -8,7 +8,7 @@ import inOut.*;
 public class CarRace {
     private ArrayList<Car> cars = new ArrayList<Car>();
     private String[] names;
-    private int trys =5;
+    private int trys;
     private TotalOutput totalOutput;
     private Output out;
     private Input in;
@@ -16,12 +16,14 @@ public class CarRace {
     public void start(){
         //scan
         in = new Input();
+        trys = in.getTrys();
+        names = in.getNames();
         //create cars and control
-        for(int i=0; i<in.getNames().length; i++){
-            addCar(in.getNames()[i]);
+        for(int i=0; i<names.length; i++){
+            addCar(names[i]);
         }
         
-        System.out.println("실행결과");
+        System.out.println("\n실행결과");
         //execute
         for(int i = 0; i<trys; i++){
             runCar();

@@ -21,11 +21,9 @@ public class TotalOutput {
                 maximumCandidate = new ArrayList<String>();
                 maximumCandidate.add(each.getName());
                 max = each.getPosition();
-                System.out.println(max);
             }
             else if (each.getPosition()==max){
                 maximumCandidate.add(each.getName());
-                System.out.println("====");
             }
         }
         return winners();

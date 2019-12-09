@@ -1,17 +1,18 @@
 package inOut;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * Input
  */
 public class Input {
+    private static final int LIMIT =5;
     Scanner sc = new Scanner(System.in);
     private String[] names;
     private int trys;
 
     public Input(){
-        typeNames();;
-        typeTryNumber();
+        go();
     }
     
     public String[] getNames(){
@@ -22,14 +23,49 @@ public class Input {
         return trys;
     }
 
-    public void typeNames(){
-        String text = sc.nextLine();
-        names = text.split(",");
+    public void go(){
+        while(true){
+            try{
+                typeNames();
+                break;
+            }catch(InputMismatchException e){
+                System.out.println("이름은 5자리 이하여야합니다.");
+                
+            }
+        }
+        while(true){
+            try{
+                typeTryNumber();
+                break;
+            }catch(InputMismatchException e){
+                System.out.println("숫자여야합니다.");
+                sc = new Scanner(System.in);
+                
+            }
+        }
     }
 
+    public void typeNames(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String text = sc.nextLine();
+        names = text.split(",");
+        checkFive();
+    }
+
+    public void checkFive(){
+        for(String name : names){
+            if (name.length()>=LIMIT){
+                throw new InputMismatchException();
+            }
+        }
+    }
+
+
     public void typeTryNumber(){
+        System.out.println("시도할 회수는 몇회인가요?");
         int num = sc.nextInt();
         trys= num;
     }
 
+    
 }
