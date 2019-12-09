@@ -14,8 +14,21 @@ public class Car {
     		position++;
     	}
     }
+    public void showName() {
+    	System.out.print(name + " : ");
+    }
     
     public void showPosition() {
-    	System.out.println(name + " : " + position);
+    	for( int i=0 ; i<position ; i++) {
+    		System.out.print("-");
+    	}
+    }
+    
+    public int getPosition() {
+    	return position;
+    }
+    
+    public String getName() {
+    	return name;
     }
 }
