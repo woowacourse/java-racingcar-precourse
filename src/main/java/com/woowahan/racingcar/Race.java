@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Race extends AbstractRace {
+	public Race(User user) {
+		this.user = user;
+	}
+
 	@Override
 	protected int getRandomInteger(int min, int max) {
 		Random random = new Random();
@@ -76,6 +80,14 @@ public class Race extends AbstractRace {
 
 	@Override
 	public void start() {
+		System.out.println();
+		System.out.println("실행 결과");
+		for (int i = 0; i < user.getRound(); i++) {
+			tryDrives();
+			printStatus();
+		}
 
+		System.out.println();
+		printResult();
 	}
 }
