@@ -1,7 +1,7 @@
 /*
  * 클래스 이름   StartGame
  * 버전 정보    1.0
- * 날짜        2019.12.05
+ * 날짜        2019.12.10
  * 저작권      YebinK
  */
 
@@ -13,6 +13,8 @@ public class StartGame {
 
     private Car[] cars;
     private int attempts;
+    private StringBuilder winner;
+    private int winnerPosition;
 
     public void start(Car[] cars, int attempts) {
         this.cars = cars;
@@ -56,17 +58,23 @@ public class StartGame {
     }
 
     private void printWinner() {
-        StringBuilder winner = new StringBuilder();
-        int winnerScore = -1;
+        winner = new StringBuilder();
+        winnerPosition = -1;
 
         for (int i = 0 ; i < cars.length; i++) {
-            if (cars[i].getPosition() > winnerScore) {
-                winnerScore = cars[i].getPosition();
-                winner.append(cars[i].getName());
-            } else if (cars[i].getPosition() == winnerScore) {
-                winner.append(", " + cars[i].getName());
-            }
+            comparePosition(i);
         }
         System.out.println(winner + "가 최종 우승했습니다.");
+    }
+
+    private void comparePosition(int carIndex) {
+        if (cars[carIndex].getPosition() == winnerPosition) {
+            winner.append(", " + cars[carIndex].getName());
+        }
+        if (cars[carIndex].getPosition() > winnerPosition) {
+            winnerPosition = cars[carIndex].getPosition();
+            winner = new StringBuilder();
+            winner.append(cars[carIndex].getName());
+        }
     }
 }
