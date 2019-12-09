@@ -20,34 +20,38 @@ public class Car {
     }
 
     /**
-     * 0~10 사이의 랜덤 변수를 생성해 4 이상인 경우엔 position 을 1만큼 증가시키고 현재 위치를
-     * 출력해준 뒤 1을 return 해준다. 4미만인 경우 position 에 변화 없이 현재 위치를 출력해주고
-     * 0을 return 해준다
-     *
-     * @return 움직이는 거리
+     * 0~10 사이의 랜덤 변수를 생성해 4 이상인 경우엔 position 을 1만큼 증가시키고, 4 이하인
+     * 경우엔 유지한다. 그리고 나서 출력 형식에 맞게 인스턴스의 이름과 위치를 출력해준다.
      */
-    int printMovingForward() {
+    public void printMovingForward() {
         int randomValue = (int) (Math.random() * 10);
-
         System.out.print(name + " : ");
+
         if (randomValue >= 4) {
             this.position++;
-            for (int i = 0; i < this.position; i++) {
-                System.out.print("-");
-            }
-            return 1;
         }
+
         for (int i = 0; i < this.position; i++) {
             System.out.print("-");
         }
-        return 0;
+        System.out.println();
     }
 
     /**
      * Car instance 의 이름을 반환해준다.
-     * @return  name
+     *
+     * @return name
      */
-    public String toString() {
+    public String getName() {
         return name;
+    }
+
+    /**
+     * Car instance 의 위치를 반환해준다.
+     *
+     * @return position
+     */
+    public int getPosition() {
+        return position;
     }
 }

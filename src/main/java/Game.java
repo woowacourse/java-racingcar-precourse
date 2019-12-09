@@ -18,7 +18,6 @@ public class Game {
      */
     public static void main(String[] args) {
         Car[] cars;
-        String input;
         String[] names;
         int numberOfGames;
 
@@ -30,8 +29,7 @@ public class Game {
         }
         System.out.println("시도할 회수는 몇회인가요?");
         numberOfGames = s.nextInt();
-        cars = new Car[names.length];
-        initializeCar(cars, names, names.length);       // Car array 초기화
+        cars = initializeCar(names);       // Car array 초기화
         printGame(cars, numberOfGames, names.length);   // game 내용을 출력
     }
 
@@ -48,8 +46,8 @@ public class Game {
         System.out.println("경주할 자동차 이름을 입력하세요, (이름은 쉼표(,) 기준으로 구분)");
         input = s.nextLine();
         names = input.split(",");
-        for (int i = 0; i < names.length; i++) {
-            if (names[i].length() > 5) {
+        for (String name : names) {
+            if (name.length() > 5) {
 
                 /* 각 자동차 이름의 길이가 5가 넘는 경우 에러문장 출력 */
                 System.out.println("자동차 이름은 5자 이하가 되어야 합니다.");
@@ -62,15 +60,14 @@ public class Game {
     /**
      * 자동차 배열을 주어진 입력에 맞게 초기화 해준다.
      *
-     * @param cars          : 초기화 할 Car array
      * @param names         : 자동차의 이름 배열
-     * @param numberOfCars  : 초기화 할 자동차 갯수
      */
-    public static void initializeCar(Car[] cars, String[] names,
-                                     int numberOfCars) {
-        for (int i = 0; i < numberOfCars; i++) {
+    public static Car[] initializeCar(String[] names) {
+        Car[] cars = new Car[names.length];
+        for (int i = 0; i < names.length; i++) {
             cars[i] = new Car(names[i]);
         }
+        return cars;
     }
 
     /**
@@ -81,42 +78,42 @@ public class Game {
      */
     public static void printGame(Car[] cars, int numberOfGames,
                                  int numberOfCars) {
-        int[] movingCounter = new int[numberOfCars];
 
         /* 게임 진행 결과 출력 */
         System.out.println("\n실행 결과");
         for (int i = 0; i < numberOfGames; i++) {
             for (int j = 0; j < numberOfCars; j++) {
-                movingCounter[j] += cars[j].printMovingForward();
-                System.out.println();
+                cars[j].printMovingForward();
             }
         }
-        printWinner(cars, movingCounter);
+        printWinner(cars);
     }
 
     /**
      * 각 자동차의 움직인 거리를 통해 우승자를 가려내고, 출력 형식에 맞게 우승자를 출력해준다.
      *
      * @param cars          : 게임에 참여하는 Car array
-     * @param movingCounter : 각 자동차들이 움직인 거리
      */
-    public static void printWinner(Car[] cars, int[] movingCounter) {
-        int maxMovingCounter = movingCounter[0];
-        int numberOfWinner = 0;
-        String tmp = "";
+    public static void printWinner(Car[] cars) {
+        int maxMovingCounter = 0;
+        String winners = "";
 
-        for (int i = 0; i < movingCounter.length; i++) {
+        for (int i = 0; i < cars.length; i++) {
+            int position = cars[i].getPosition();
 
             /* 가장 많이 움직인 거리를 찾는다 */
-            if (movingCounter[i] > maxMovingCounter) {
-                maxMovingCounter = movingCounter[i];
+            if (position > maxMovingCounter) {
+                maxMovingCounter = position;
             }
         }
-        for (int i = 0; i < movingCounter.length; i++) {
-            if (movingCounter[i] == maxMovingCounter) {
-                tmp += cars[i].toString() + ", ";
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getPosition() == maxMovingCounter) {
+
+                /* 가장 많이 움직인 자동차들의 이름을 문자열로 저장한다 */
+                winners += cars[i].getName() + ", ";
             }
         }
-        System.out.println(tmp.substring(0, tmp.length() - 2) + "가 최종 우승했습니다.");
+        System.out.println(winners.substring(0, winners.length() - 2) + "가 최종"
+                + " 우승했습니다.");
     }
 }

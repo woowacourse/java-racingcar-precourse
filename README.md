@@ -28,14 +28,31 @@
             * none
         * Description : 사용자로부터 입력받은 이름을 사용해서 Car 인스턴스를 생성해준다.
     
-    * int printMovingForward()
+    * ``` public void printMovingForward() ```
         * Method Name : movingForward 
-        * Parameter  : none
-        * Return : int counter
-        * Description : Random variable 를 생성하여 4이상인 경우 위치값을 1만큼 증가시키고, 현재
-position 만큼의 출력을 해준 뒤 , 1 를 return 해준다. Random variable 값이 
-4미만인 경우엔 현재 position 에 맞게 출력을 해준 뒤, 0 를 return 해준다.원래 boolean type 을 
-return 해주려고 했는데, winner 를 가릴 때 counter 개념으로 사용하기 위해서 int 로 수정했다.
+        * Parameter  : 
+            * none
+        * Return :
+            * none 
+        * Description : Random variable 를 생성하여 4이상인 경우 위치값을 1만큼 증가시키고,
+        Random variable 값이 4미만인 경우엔 현재 position 을 유지한다. 그리고 나서 출력 형식에
+        맞게 Car instance 의 이름과 위치를 출력해준다.
+        
+    * ``` public String[] getName() ```
+        * Method Name : getName
+        * Parameter  : 
+            * none
+        * Return :
+            * String name 
+        * Description : Car instance 의 name 을 return 해준다.
+        
+    * ``` public int getPosition() ```
+        * Method Name : getPosition
+        * Parameter  : 
+            * none
+        * Return :
+            * int position 
+        * Description : Car instance 의 position 을 return 해준다.
 _____
 #### Main class
   * Variables
@@ -53,23 +70,20 @@ _____
         
         사용자로부터 입력받은 문자열을 comma 를 기준으로 나누고, 나뉘어진 각각의 문자열의 길이가 5
         이하인지 체크해주고 맞는경우 반환해준다. 하나의 문자열의 길이가 5를 초과하는 경우 에러 메세지를 
-        출력해주고 null을 return 한다.
+        출력해주고 null 을 return 한다.
    
     ```
-    public static void initializeCar(Car[] cars, String[] names,
-                                                   int numberOfCars)
+    public static Car[] initializeCar(String[] names)
     ```
     * Method Name : initializeCar
-    * Parameter 
-        * Car[] cars - Car instance array
+    * Parameter
         * String[] names - Car name array
-        * int numberOfCars - Number of car instance 
     * Return
-        * none
+        * Car[] cars
     * Description
         
-        Car instance array 에 사용자로 부터 입력받았던 이름들을 사용하여 instance
-         를 생성하여 넣어준다. 
+        Car instance array 를 생성하고, 사용자로 부터 입력받았던 이름들을 사용하여 instance 
+        들을 생성하여 반환한다.  
         
     ```
     public static void printGame(Car[] cars, int numberOfGames,
@@ -85,19 +99,18 @@ _____
       * Description
           
           게임 플레이 횟수에 맞게 각 인스턴스 마다 printMovingForward 메소드를 반복하여
-          실행시켜준다. 
+          게임을 진행한다.
     
     ```
     public static void printWinner(Car[] cars, int[] movingCounter)
     ```
       * Method Name : printWinner
       * Parameter 
-          * Car[] cars - Car instance array
-          * int[] movingCounter - 각 Car instance 가 얼마나 움직였는지를 보여주는 counter 
+          * Car[] cars - Car instance array 
            
       * Return
           * none
       * Description
           
-          movingCounter 를 이용해서 게임의 최종 우승자를 출력해준다.
+          게임의 최종 우승자를 출력해준다.
           
