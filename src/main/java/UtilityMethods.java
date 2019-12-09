@@ -26,9 +26,21 @@ public class UtilityMethods {
 
 	}
 
-	public static void playGameInNumber(int count) {
+	public static void playGameByNumber(int count, Car cars[]) {
+		for (int i = 0; i < count; i++) {
+			goForwardRandomly(cars);
+			printGameResult(cars);
+		}
 
+	}
 
+	private static void printGameResult(Car cars[]) {
+		String gameResult = "";
+
+		for (int i = 0; i < cars.length; i++) {
+			gameResult = cars[i].getName() + " : " + '-' * cars[i].getPosition();
+			System.out.println(gameResult);
+		}
 
 	}
 }
