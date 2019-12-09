@@ -2,7 +2,7 @@ package domain;
 
 public class Car {
     private final String name;
-    private int position = 1;
+    private int position = 0;
     String marker = "-";
 
     public Car(String name) {

@@ -3,6 +3,8 @@ import domain.GameFunction;
 
 import java.util.Scanner;
 
+import static domain.GameFunction.startRacingGame;
+
 public class Main {
     public static String totalCarInput;
     public static String[] carList;
@@ -18,8 +20,9 @@ public class Main {
         inputCars();
         makeCars();
         inputRaceCount();
-        printCarList();
 
+
+        startRacingGame(cars,raceCount);
     }
 
     public static void inputCars() {
@@ -46,13 +49,6 @@ public class Main {
             }
         }
         return false;
-    }
-
-    public static void printCarList() {
-        System.out.println("실행 결과");
-        for (Car car : cars) {
-            System.out.printf("%s : %s \n",car.getCarName(),car.printCarPosition());
-        }
     }
 
     public static void inputRaceCount() {
