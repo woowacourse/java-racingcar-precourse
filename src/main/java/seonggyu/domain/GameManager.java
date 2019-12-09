@@ -1,8 +1,8 @@
 package seonggyu.domain;
 
-import seonggyu.cars.Cars;
 import seonggyu.rounds.Rounds;
-import seonggyu.cars.Winners;
+import seonggyu.car.Cars;
+import seonggyu.car.Winners;
 import seonggyu.input.Input;
 
 public class GameManager {

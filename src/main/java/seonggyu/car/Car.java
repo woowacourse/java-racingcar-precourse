@@ -1,4 +1,4 @@
-package seonggyu.cars;
+package seonggyu.car;
 
 import java.util.Random;
 
@@ -9,8 +9,9 @@ public class Car {
 	private final String name;
 	private int position = 0;
 
-	public Car(String name) {
-		this.name = name;
+	public Car(String inputName) {
+		CarConstraints.checkValidCarName(inputName);
+		this.name = inputName;
 	}
 
 	public String getName() {

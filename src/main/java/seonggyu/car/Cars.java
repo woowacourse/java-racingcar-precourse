@@ -1,4 +1,4 @@
-package seonggyu.cars;
+package seonggyu.car;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -6,13 +6,14 @@ import java.util.ArrayList;
 public class Cars {
 	private List<Car> cars = new ArrayList<Car>();
 	
-	public Cars(List<String> carNames) {
-		carNames.stream()
-			.forEach(carName -> addNewCar(carName));
+	public Cars(List<String> inputNames) {
+		CarsConstraints.checkValidCarNames(inputNames);
+		inputNames.stream()
+			.forEach(inputName -> addNewCar(inputName));
 	}
-	
-	private void addNewCar(String carName) {
-		Car newCar = new Car(carName);
+
+	private void addNewCar(String inputName) {
+		Car newCar = new Car(inputName);
 		this.cars.add(newCar);
 	}
 

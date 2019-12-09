@@ -1,13 +1,21 @@
 package seonggyu.input;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Collectors;
 
-public class InputParsing {
+public class InputParser {
 	public static List<String> parseStringArrToList(String[] inputStringArr) {
-		List<String> outputList = new ArrayList<String>(Arrays.asList(inputStringArr));
+		List<String> parsedList = new ArrayList<String>(Arrays.asList(inputStringArr));
+		List<String> outputList = trimedStringList(parsedList);
 		return outputList;
+	}
+	
+	private static List<String> trimedStringList(List<String> inputList){
+		return inputList.stream()
+				.map(String::trim)
+				.collect(Collectors.toList());
 	}
 	
 	public static int parseStringToInt(String inputString) {

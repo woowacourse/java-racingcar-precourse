@@ -1,10 +1,11 @@
 package seonggyu.rounds;
 
 public class Rounds {
-	private int rounds;
+	private final int rounds;
 	
-	public Rounds(int input) {
-		this.rounds = input;
+	public Rounds(int inputRounds) {
+		RoundsConstraints.checkValidRounds(inputRounds);
+		this.rounds = inputRounds;
 	}
 	
 	public int getRounds() {
