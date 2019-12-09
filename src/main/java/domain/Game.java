@@ -14,6 +14,7 @@ public class Game {
 	public Game() {
 		carList = new ArrayList<Car>();
 		scan = new Scanner(System.in);
+		random = new Random();
 
 		requestCarName();
 		requestTryGame();
@@ -68,14 +69,16 @@ public class Game {
 
 	private void printCarStatus() {
 		for (int i = 0; i < carList.size(); i++) {
-			System.out.println(carList.get(i).getName() + " : ");
+			System.out.print(carList.get(i).getName() + " : ");
 			printPosition(carList.get(i).getPosition());
 		}
+		System.out.println("\n");
 	}
 
 	private void printPosition(int position) {
 		for (int i = 0; i < position; i++) {
-			System.out.println("-");
+			System.out.print("-");
 		}
+		System.out.print("\n");
 	}
 }
