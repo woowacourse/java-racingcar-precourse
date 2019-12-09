@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import domain.Car;
 
 public class UtilityMethods {
@@ -20,7 +22,7 @@ public class UtilityMethods {
 
 	}
 
-	public static void goForwardRandomly(Car[] cars) {
+	private static void goForwardRandomly(Car[] cars) {
 		double randomNumber = 0;
 
 		for (Car car : cars) {
@@ -47,5 +49,57 @@ public class UtilityMethods {
 			System.out.println(gameResult);
 		}
 
+	}
+
+	public static void printWinner(Car[] cars) {
+		int position = 0;
+		String winnerString = "";
+		ArrayList<String> winners;
+
+		position = judgeWinningPosition(cars);
+		winners = judgeWinner(position, cars);
+		winnerString = getWinnerstoString(winners);
+		System.out.println("\n" + winnerString + "가 최종 우승했습니다");
+	}
+
+	private static int judgeWinningPosition(Car[] cars) {
+		int position = 0;
+
+		for (Car car : cars) {
+			if (car.getPosition() > position) {
+				position = car.getPosition();
+			}
+
+		}
+
+		return position;
+	}
+
+	private static ArrayList<String> judgeWinner(int winningPosition, Car[] cars) {
+		ArrayList<String> winners = new ArrayList<String>();
+		for (Car car : cars) {
+			if (car.getPosition() == winningPosition) {
+				winners.add(car.getName());
+			}
+
+		}
+
+		return winners;
+	}
+
+	private static String getWinnerstoString(ArrayList<String> winners) {
+		int winnerCount = 0;
+		String winnerString = "";
+
+		for (String winner : winners) {
+			if (winnerCount == 0) {
+				winnerString = winner;
+			} else if (winnerCount > 0) {
+				winnerString += ", " + winner;
+			}
+
+		}
+
+		return winnerString;
 	}
 }
