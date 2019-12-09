@@ -70,8 +70,8 @@ public class Main {
     }
 
     public static void doOneGame(ArrayList<Car> cars) {
-                for (Car car: cars) {
-                    car.updateOneCycle();
+        for (Car car : cars) {
+            car.updateOneCycle();
             System.out.println(car.toString());
         }
         System.out.println();

@@ -3,6 +3,8 @@ package domain;
 import java.util.Random;
 
 public class Car {
+    private final int MAX_RANDOM = 9;
+    private final int MID_RANDOM = 4;
     private final String name;
     private int position = 0;
 
@@ -46,13 +48,10 @@ public class Car {
 
     private boolean decideGoOrNot() {
         int num = drawRandomNumber();
-        if (num >= 4) {
-            return true;
-        }
-        return false;
+        return num >= MID_RANDOM;
     }
 
     private int drawRandomNumber() {
-       return (int)(Math.random() * 10);
+       return (int)(Math.random() * (MAX_RANDOM + 1));
     }
 }
