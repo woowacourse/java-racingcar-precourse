@@ -1,13 +1,13 @@
 package view;
 
-import domain.Car;
-import validator.InputValidator;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import domain.Car;
+import validator.InputValidator;
 
 /**
  * @author 김시영
@@ -20,7 +20,6 @@ public class UserInput {
     private static final String COMMA = ",";
 
     private static InputValidator validator = new InputValidator();
-
 
     public List<Car> makeCars() throws IOException {
         String[] userInputArray = br.readLine().split(COMMA);

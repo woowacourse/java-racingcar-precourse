@@ -34,7 +34,7 @@ public class Car {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(SPACING_WORDS);
-        for(int i=0; i<position; i++){
+        for (int i = 0; i < position; i++) {
             sb.append(HYPHEN_FOR_POSITION);
         }
         return sb.toString();
