@@ -26,6 +26,7 @@ public class OutputView {
             String currentPosition = makeDigit(car.getPosition());
             System.out.println(car.getName()+": " +currentPosition);
         }
+        System.out.println();
     }
 
     private static String makeDigit(int position) {
