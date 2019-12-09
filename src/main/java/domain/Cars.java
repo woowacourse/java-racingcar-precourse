@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 public class Cars {
@@ -55,6 +56,26 @@ public class Cars {
             System.out.println();
             moveCountValue--;
         }
+    }
+
+    public ArrayList<String> findWinnerName() {
+        ArrayList<String> winnerList = new ArrayList<>();
+        int maxCarPositionValue = getMaxCarPositionValue();
+        for (Car car : cars) {
+            if (car.isEqualPosition(maxCarPositionValue)) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
+    }
+
+    private int getMaxCarPositionValue() {
+        ArrayList<Integer> carPositionValues = new ArrayList<>();
+        for (Car car : cars) {
+            carPositionValues.add(car.getPosition());
+        }
+        carPositionValues.sort(Collections.reverseOrder());
+        return carPositionValues.get(0);
     }
 
 }

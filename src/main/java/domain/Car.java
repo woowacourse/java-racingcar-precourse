@@ -58,4 +58,12 @@ public class Car {
         }
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public boolean isEqualPosition(int position) {
+        return this.position == position;
+    }
+
 }
