@@ -16,5 +16,12 @@ public class RacingGame {
         input = scan.nextLine();
         System.out.println("Input the goal distance");
         goal = scan.nextInt();
+        this.parseInput();
+    }
+    private void parseInput(){
+        String[] parsedName = input.split(",");
+        for(String str:parsedName){
+            racer.add(new Car(str));
+        }
     }
 }
