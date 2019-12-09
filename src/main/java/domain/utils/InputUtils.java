@@ -18,7 +18,7 @@ public class InputUtils {
 	private InputUtils() {
 	}
 
-	public static Integer getRuns() {
+	public static Integer getRounds() {
 		Integer inputValue;
 		while (true) {
 			System.out.println(PROMPT_TRIES);

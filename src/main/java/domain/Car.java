@@ -9,6 +9,8 @@ public class Car {
 	}
 
 	// 추가 기능 구현
+	private static final int THRESHOLD = 4;
+
 	public String getName() {
 		return name;
 	}
@@ -24,6 +26,6 @@ public class Car {
 	}
 
 	private boolean isMoved(int value) {
-		return value > 4;
+		return value > THRESHOLD;
 	}
 }
