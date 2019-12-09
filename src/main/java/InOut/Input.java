@@ -10,13 +10,26 @@ public class Input {
     private int trys;
 
     public Input(){
-        String text = sc.nextLine();
-        names = text.split(",");
+        typeNames();;
+        typeTryNumber();
     }
+    
     public String[] getNames(){
         return names;
     }
+    
     public int getTrys(){
         return trys;
     }
+
+    public void typeNames(){
+        String text = sc.nextLine();
+        names = text.split(",");
+    }
+
+    public void typeTryNumber(){
+        int num = sc.nextInt();
+        trys= num;
+    }
+
 }
