@@ -14,6 +14,18 @@ public class Cars {
         this.cars = Arrays.stream(carNames.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
+        validateDuplication(this.cars);
+    }
+
+    private static void validateDuplication(List<Car> cars) {
+        long distinctCarsCount = cars.stream()
+                .map(Car::getName)
+                .distinct()
+                .count();
+        if (cars.size() != distinctCarsCount) {
+            throw new IllegalArgumentException("자동차의 이름은 중복될 수 없습니다.");
+        }
+
     }
 
     public void play() {

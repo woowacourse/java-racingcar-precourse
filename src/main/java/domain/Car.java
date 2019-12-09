@@ -5,13 +5,21 @@ public class Car {
     private int position = 0;
 
     public Car(String name) throws IllegalArgumentException {
-        validateCarName(name);
+        name = name.trim();
+        validateLength(name);
+        validateEmpty(name);
         this.name = name;
     }
 
-    private static void validateCarName(String name) {
+    private static void validateLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자이하만 가능합니다.");
+        }
+    }
+
+    private static void validateEmpty(String name) {
+        if (name.length() == 0) {
+            throw new IllegalArgumentException("자동차의 이름은 공백일 수 없습니다.");
         }
     }
 
