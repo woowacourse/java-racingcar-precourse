@@ -15,6 +15,7 @@ import java.util.Random;
 public class Race {
     private static final int MOVE_BOUND = 3;
     private static final int RANDOM_BOUND = 10;
+    private static final String NEW_LINE = "\n";
 
     private final Cars cars;
 
@@ -28,6 +29,16 @@ public class Race {
         for (int index = 0; index < cars.size(); index++) {
             moveCarAccordingToRandomNumber(index, random);
         }
+    }
+
+    public RaceResult createRaceResult() {
+        StringBuilder builder = new StringBuilder();
+
+        for (int index = 0; index < cars.size(); index++) {
+            builder.append(cars.getCarByIndex(index).toString() + NEW_LINE);
+        }
+        builder.append(NEW_LINE);
+        return new RaceResult(builder.toString());
     }
 
     private void moveCarAccordingToRandomNumber(int index, Random random) {
