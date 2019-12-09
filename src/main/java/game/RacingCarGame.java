@@ -4,7 +4,7 @@ import com.sun.deploy.util.StringUtils;
 import domain.Car;
 import exception.InvalidInputException;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -15,6 +15,8 @@ public class RacingCarGame {
     private static final String NOT_NUMBER_EXCEPTION_MESSAGE = "시도 횟수는 숫자만 입력할 수 있습니다.";
     private static final String NAME_OVER_LENGTH_EXCEPTION_MESSAGE = "자동차의 이름은 " + CAR_NAME_LENGTH_LIMIT + "을 넘을 수 없습니다.";
     private static final String NAME_DUPLICATION_EXCEPTION_MESSAGE = "자동차의 이름은 중복될 수 없습니다.";
+    private static final String NAMES_SIZE_EXCEPTION_MESSAGE = "자동차 경주는 최소 2대의 차 이름이 필요합니다.";
+    private static final String NAME_EMPTY_EXCEPTION_MESSAGE = "자동차 이름은 비어있을 수 없습니다.";
     private static final String CAR_NAME_ASK_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String TRIAL_TIMES_ASK_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String AWARDS_TAIL_MESSAGE = "가 우승했습니다.";
@@ -46,6 +48,11 @@ public class RacingCarGame {
         for (int i = 0; i < numberOfTimes; i++) {
             host.runOneTime(random);
             host.showCarsStatus();
+            System.out.println();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
         }
     }
 
@@ -83,8 +90,8 @@ public class RacingCarGame {
     private List<String> makeNamesList() {
         while (true) {
             try {
-                String namesString = takeNames();
-                List<String> names = Arrays.asList(namesString.split(CAR_NAME_DELIMITER));
+                String carNames = takeNames();
+                List<String> names = convertToCarNames(carNames);
                 validates(names);
                 return names;
             } catch (InvalidInputException ie) {
@@ -93,45 +100,50 @@ public class RacingCarGame {
         }
     }
 
-    private void validates(List<String> names) {
-        if (checkLengthOverBasis(names)) {
-            throw new InvalidInputException(NAME_OVER_LENGTH_EXCEPTION_MESSAGE);
+    private List<String> convertToCarNames(String carNames) {
+        String[] namesArray = carNames.split(CAR_NAME_DELIMITER);
+        List<String> names = new ArrayList<>();
+
+        for (String name : namesArray) {
+            names.add(name.trim());
         }
-        if (checkSize(names)) {
-            throw new InvalidInputException("자동차 경주는 최소 2대의 차 이름이 필요합니다.");
-        }
-        if(checkEmptyName(names)) {
-            throw new InvalidInputException("자동차 이름은 비어 있을 수 없습니다.");
-        }
-        if (checkDuplication(names)) {
-            throw new InvalidInputException(NAME_DUPLICATION_EXCEPTION_MESSAGE);
-        }
+
+        return names;
     }
 
-    private boolean checkLengthOverBasis(List<String> names) {
+    private void validates(List<String> names) {
+        checkLengthOverBasis(names);
+        checkSize(names);
+        checkEmptyName(names);
+        checkDuplication(names);
+    }
+
+    private void checkLengthOverBasis(List<String> names) {
         for (String name : names) {
             if (name.length() > CAR_NAME_LENGTH_LIMIT) {
-                return true;
+                throw new InvalidInputException(NAME_OVER_LENGTH_EXCEPTION_MESSAGE);
             }
         }
-        return false;
     }
 
-    private boolean checkSize(List<String> names) {
-        return names.size() == 1;
+    private void checkSize(List<String> names) {
+        if (names.size() < 2) {
+            throw new InvalidInputException(NAMES_SIZE_EXCEPTION_MESSAGE);
+        }
     }
 
-    private boolean checkEmptyName(List<String> names) {
+    private void checkEmptyName(List<String> names) {
         for (String name : names) {
             if (name.length() == 0) {
-                return true;
+                throw new InvalidInputException(NAME_EMPTY_EXCEPTION_MESSAGE);
             }
         }
-        return false;
     }
 
-    private boolean checkDuplication(List<String> names) {
-        return names.stream().distinct().count() != names.size();
+    private void checkDuplication(List<String> names) {
+        if (names.stream().distinct().count() != names.size()) {
+            throw new InvalidInputException(NAME_DUPLICATION_EXCEPTION_MESSAGE);
+        }
     }
 
     private String takeNames() {

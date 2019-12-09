@@ -10,6 +10,8 @@ public class Host {
 
     private static final int RANDOM_NUMBER_BOUND = 10;
     private static final int DEFAULT_POSITION = 0;
+    private static final String CAR_NAME_FORMAT = "%" + 5 + "s:";
+    private static final String CAR_POSITION_MARK = "-";
 
     private List<Car> cars;
 
@@ -42,9 +44,9 @@ public class Host {
         int position = car.getPosition();
         StringBuilder result = new StringBuilder();
 
-        result.append(String.format("%5s:", name));
-        for(int i = 0; i < position; i++) {
-            result.append("-");
+        result.append(String.format(CAR_NAME_FORMAT, name));
+        for (int i = 0; i < position; i++) {
+            result.append(CAR_POSITION_MARK);
         }
 
         return result.toString();

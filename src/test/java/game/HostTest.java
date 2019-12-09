@@ -1,6 +1,5 @@
 package game;
 
-import game.Host;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
