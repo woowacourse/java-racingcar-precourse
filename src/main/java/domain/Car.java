@@ -2,21 +2,26 @@ package domain;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private int position = 1;
+    String marker = "-";
 
     public Car(String name) {
         this.name = name;
     }
 
-    public String getName() {
+    public String getCarName() {
         return name;
     }
 
-    public int getPosition() {
+    public int getCarPosition() {
         return position;
     }
 
-    public void movePosition() {
-        position ++;
+    public void moveCarPosition() {
+        position++;
+    }
+
+    public String printCarPosition() {
+        return marker.repeat(position);
     }
 }
