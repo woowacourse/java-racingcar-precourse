@@ -17,7 +17,15 @@ public class Game {
 		random = new Random();
 
 		requestCarName();
-		requestTryGame();
+		while (true) {
+			try {
+				requestTryGame();
+				break;
+			} catch (Exception e) {
+				System.out.println("숫자를 입력하세요");
+				scan = new Scanner(System.in);
+			}
+		}
 	}
 
 	private void requestTryGame() {
@@ -27,19 +35,24 @@ public class Game {
 
 	private void requestCarName() {
 		String carName;
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
-		carName = scan.nextLine();
-
-		divideCarName(carName);
+		do {
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+			carName = scan.nextLine();
+		} while (divideCarName(carName));
 	}
 
-	private void divideCarName(String cars) {
+	private boolean divideCarName(String cars) {
 		StringTokenizer carsToken = new StringTokenizer(cars);
-
 		for (int i = 1; carsToken.hasMoreTokens(); i++) {
 			carList.add(new Car(carsToken.nextToken(",")));
-			System.out.println(carList.get(carList.size() - 1).getName());
+			if (carList.get(carList.size() - 1).getName().length() > 5) {                    //입력한 자동차 이름이 5글자 이상일 시
+				System.out.println("제대로 된 자동차 이름을 입력하세요");
+				scan = new Scanner(System.in);
+				carList.clear();
+				return true;
+			}
 		}
+		return false;
 	}
 
 	public void startRace() {
