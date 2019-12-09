@@ -33,8 +33,21 @@ public class Host {
 
     public void showCarsStatus() {
         for (Car car : cars) {
-            System.out.println(car.currentStatus());
+            System.out.println(makeCarStatus(car));
         }
+    }
+
+    private String makeCarStatus(Car car) {
+        String name = car.getName();
+        int position = car.getPosition();
+        StringBuilder result = new StringBuilder();
+
+        result.append(String.format("%5s:", name));
+        for(int i = 0; i < position; i++) {
+            result.append("-");
+        }
+
+        return result.toString();
     }
 
     public int measureFirstPosition() {

@@ -21,19 +21,6 @@ public class Car {
         return number >= PROCEED_BASIS_NUMBER;
     }
 
-    public String currentStatus() {
-        StringBuilder status = new StringBuilder();
-
-        status.append(name);
-        status.append(":");
-
-        for (int i = 0; i < position; i++) {
-            status.append("-");
-        }
-
-        return status.toString();
-    }
-
     public boolean isSamePosition(int position) {
         return this.position == position;
     }
