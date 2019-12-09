@@ -45,7 +45,6 @@ public class Entry {
 		}
 
 		winnerMessageBuilder.deleteCharAt(winnerMessageBuilder.length() - 1);
-
 		System.out.println(winnerMessageBuilder.toString());
 	}
 
