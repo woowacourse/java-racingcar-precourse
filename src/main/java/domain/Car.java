@@ -20,6 +20,10 @@ public class Car {
 		return (int)(Math.random() * 10);
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public int getPosition() {
 		return position;
 	}
