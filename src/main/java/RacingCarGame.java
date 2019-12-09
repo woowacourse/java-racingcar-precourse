@@ -1,3 +1,4 @@
+import domain.Car;
 import domain.RacingCars;
 import domain.Winners;
 import utils.InputUtil;
@@ -21,6 +22,10 @@ public class RacingCarGame {
 
         // TODO : Java 컨벤션 객체 선언 위치 수정 리팩토링 필요
         Winners winners = new Winners(referee.decideWinners(racingCars.getRacingCars()));
-        // TODO : winners print 함수 필요
+        for(int i = 0 ; i < winners.getWinners().size(); i++){
+            System.out.println(winners.getWinners().get(i).getCarOriginName());
+        }
+        
+        OutPutUtil.printWinners(winners);
     }
 }
