@@ -8,8 +8,7 @@ import java.util.stream.Collectors;
 public class InputParser {
 	public static List<String> parseStringArrToList(String[] inputStringArr) {
 		List<String> parsedList = new ArrayList<String>(Arrays.asList(inputStringArr));
-		List<String> outputList = trimedStringList(parsedList);
-		return outputList;
+		return trimedStringList(parsedList);
 	}
 	
 	private static List<String> trimedStringList(List<String> inputList){

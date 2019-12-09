@@ -17,7 +17,7 @@ public class Winners {
 		return maxDistance;
 	}
 
-	public void add(Car candidate) {
+	public void update(Car candidate) {
 		if (candidate.getPosition() > this.maxDistance) {
 			this.maxDistance = candidate.getPosition();
 			this.winners.clear();

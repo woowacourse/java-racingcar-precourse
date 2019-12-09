@@ -20,7 +20,7 @@ public class Participants {
 	public void printNamesAndPositions() {
 		this.participants.stream()
 			.forEach(car -> car.printNameAndPosition());
-		System.out.println();	// 출력 포멧 맞추기
+		System.out.println();				// 출력 포멧 맞추기
 	}
 	
 	public void goOrStay() {
@@ -28,12 +28,12 @@ public class Participants {
 			.forEach(car -> car.goOrStay());
 	}
 	
-	/* 한바퀴 차례대로 탐색하면서 winners.add()에서 기록과 우승자를 그때그때 갱신한다 */
+	/* 한바퀴 차례대로 탐색하면서 winners.update()에서 기록과 우승자를 그때그때 갱신한다 */
 	public Winners getWinners() {
 		Winners winners = new Winners();
 		this.participants.stream()
 			.filter(car -> car.isWinnerCandidate(winners.getMaxDistance()))
-			.forEach(car -> winners.add(car));
+			.forEach(candidate -> winners.update(candidate));
 		return winners;
 	}
 }
