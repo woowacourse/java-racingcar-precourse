@@ -22,6 +22,10 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     private void checkCarName(String name) {
         validateContainsBlank(name);
         validateNameLength(name);
