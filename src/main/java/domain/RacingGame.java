@@ -13,10 +13,13 @@ public class RacingGame {
 		cars = makeCars(names);
 
 		System.out.println("실행 결과");
-		for (int i = 0; i < cars.length; i++) {
-			int energy = atRandom();
-			cars[i].move(energy);
-			cars[i].printPosition();
+		for (int i = 0; i < rounds; i++) {
+			for (int j = 0; j < cars.length; j++) {
+				int energy = atRandom();
+				cars[j].move(energy);
+				cars[j].printPosition();
+			}
+			System.out.println();
 		}
 
 		if (sc != null) {
