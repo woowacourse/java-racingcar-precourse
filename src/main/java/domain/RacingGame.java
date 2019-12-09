@@ -12,8 +12,8 @@ public class RacingGame {
 	}
 
 	public void start() {
-		String names = inputNames();
-		cars = makeCars(names);
+		String[] nameList = inputNames();
+		cars = makeCars(nameList);
 		int rounds = inputRounds();
 		if (sc != null) {
 			sc.close();
@@ -35,21 +35,23 @@ public class RacingGame {
 		System.out.println(msg);
 	}
 
-	public String inputNames() {
+	public String[] inputNames() {
 		print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)\n 예시) pobi, crong, honux");
 
 		String names = sc.nextLine();
-		while (!validate(names)) {
-			names = sc.nextLine();
-		}
-		return names;
-	}
-
-	public boolean validate(String names) {
 		String[] nameList = names.split(",", -1);
 
+		while (!validate(nameList)) {
+			names = sc.nextLine();
+			nameList = names.split(",", -1);
+		}
+		return nameList;
+	}
+
+	public boolean validate(String[] nameList) {
 		for (int i = 0; i < nameList.length; i++) {
 			String name = nameList[i].trim();
+
 			if ((name.equals("")) || (name.length() > 5)) {
 				print("이름 입력형식이 잘못되었습니다. 다시 입력해주세요.\n 예시) pobi, crong, honux");
 				return false;
@@ -58,12 +60,10 @@ public class RacingGame {
 		return true;
 	}
 
-	public Car[] makeCars(String names) {
-		String[] nameList = names.split(",");
-		int numberOfCars = nameList.length;
-		Car[] cars = new Car[numberOfCars];
+	public Car[] makeCars(String[] nameList) {
+		Car[] cars = new Car[nameList.length];
 
-		for (int i = 0; i < numberOfCars; i++) {
+		for (int i = 0; i < nameList.length; i++) {
 			cars[i] = new Car(nameList[i].trim());
 		}
 		return cars;
@@ -71,6 +71,7 @@ public class RacingGame {
 
 	public int inputRounds() {
 		print("\n시도할 회수는 몇 회인가요?");
+
 		int rounds = 0;
 		boolean notEntered = true;
 
