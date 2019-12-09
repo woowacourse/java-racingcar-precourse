@@ -1,5 +1,5 @@
 /*
- * RacingCarMain.java              1.3.0   2019-12-09
+ * RacingCarMain.java              1.3.1   2019-12-09
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 /**
  * 자동차 경주를 진행하는 메인 클래스입니다.
  *
- * @version 1.3.0            자동차 입력의 공백을 제거하는 기능 추가
+ * @version 1.3.1            메인 메소드 외 나머지 메소드를 private으로 수정
  * @date 2019-12-09
  * @author HyungjuAn
  */
@@ -44,14 +44,14 @@ public class RacingCarMain {
 		race.printWinner();
 	}
 
-	public static Race initializeRace() throws IOException {
+	private static Race initializeRace() throws IOException {
 		ArrayList<Car> carArrayList = getCarArrayList();
 		int raceCount = getRaceCount();
 
 		return new Race(carArrayList, raceCount);
 	}
 
-	public static ArrayList<Car> getCarArrayList() throws IOException {
+	private static ArrayList<Car> getCarArrayList() throws IOException {
 		ArrayList<Car> carList = new ArrayList<>();
 
 		printCarNamesQuestion();
@@ -128,7 +128,7 @@ public class RacingCarMain {
 		System.out.println(INVALID_INPUT_PRINTING);
 	}
 
-	public static int getRaceCount() throws IOException {
+	private static int getRaceCount() throws IOException {
 		int raceCount = INVALID_RACE_COUNT;
 
 		printRaceCountQuestion();
