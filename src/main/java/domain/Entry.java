@@ -12,7 +12,7 @@ public class Entry {
 	public void printEachCarPosition() {
 
 		for (Car car : racingEntry) {
-			System.out.printf("%s : %s", car.getName(), toStringPosition(car.getPosition()));
+			System.out.printf("%s : %s\n", car.getName(), toStringPosition(car.getPosition()));
 		}
 
 	}
