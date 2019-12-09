@@ -58,7 +58,7 @@ public class Cars {
         }
     }
 
-    public ArrayList<String> findWinnerName() {
+    private ArrayList<String> findWinnerName() {
         ArrayList<String> winnerList = new ArrayList<>();
         int maxCarPositionValue = getMaxCarPositionValue();
         for (Car car : cars) {
@@ -78,4 +78,9 @@ public class Cars {
         return carPositionValues.get(0);
     }
 
+    public void showWinnerName() {
+        ArrayList<String> winnerList = findWinnerName();
+        String winnerName = String.join(",", winnerList);
+        System.out.print(winnerName + "가(이) 최종 우승했습니다.");
+    }
 }

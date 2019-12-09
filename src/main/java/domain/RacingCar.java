@@ -8,6 +8,7 @@ public class RacingCar {
         MoveCount moveCount = createMoveCount();
         System.out.println("\n실행 결과");
         cars.showMoves(moveCount);
+        cars.showWinnerName();
     }
 
     private static String getUserInput() {
