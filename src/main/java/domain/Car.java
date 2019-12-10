@@ -34,8 +34,12 @@ public class Car {
 		}
 	}
 
-	public void moveCar(int conditionNumber) {
+	public void tryMove(int conditionNumber) {
 		if (conditionNumber >= MOVE_CONDITION_NUMBER)
-			position++;
+			moveCarPosition();
+	}
+
+	private void moveCarPosition() {
+		position++;
 	}
 }

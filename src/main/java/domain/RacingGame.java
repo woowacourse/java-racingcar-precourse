@@ -3,6 +3,8 @@ package domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import util.RandomNumberGenerator;
+
 public class RacingGame {
 	private List<Car> cars;
 	private int InjectionId = 1;
@@ -19,5 +21,9 @@ public class RacingGame {
 
 	private Car makeOneCar(String name) {
 		return new Car(name, InjectionId++);
+	}
+
+	public void tryMoveCars() {
+		cars.forEach(x -> x.tryMove(RandomNumberGenerator.generateNumber()));
 	}
 }
