@@ -1,12 +1,13 @@
-import domain.Car;
+package domain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 
 public class RacingGame {
     private static final String MESSAGE_ASK_TRIAL_NUMBER = "시도할 회수는 몇 회인가요?";
-    private static final String MESSAGE_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분";
+    private static final String MESSAGE_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String MESSAGE_NAME_LIMIT = "자동차 이름은 5글자 이하만 가능합니다.";
     private static final String MESSAGE_NOT_NATURAL_NUMBER = "0이 아닌 자연수가 아닙니다. 0이 아닌 자연수를 입력해주세요.";
     private static final String MESSAGE_WINNING = "가 최종 우승했습니다.";
@@ -20,16 +21,18 @@ public class RacingGame {
     private static final int MAXIMAL_LENGTH_OF_CAR_NAME = 5;
     private static Scanner scanner;
 
+    public RacingGame() {
+        scanner = new Scanner(System.in);
+    }
+
     public static void main(String[] args) {
         new RacingGame();
     }
 
-    private RacingGame() {
-        scanner = new Scanner(System.in);
+    public void execute() {
         ArrayList<Car> cars = getCars();
         int numberOfTrial = getNumberOfTrial();
         race(cars, numberOfTrial);
-        //System.out.println(numberOfTrial);
     }
 
     private ArrayList<Car> getCars() {
@@ -100,6 +103,7 @@ public class RacingGame {
             for (Car car : cars) {
                 car.move();
             }
+            sleep();
             printRaceProcess(cars);
         }
         printRaceResult(cars);
@@ -107,7 +111,7 @@ public class RacingGame {
 
     private void printRaceProcess(ArrayList<Car> cars) {
         for (Car car : cars) {
-            System.out.println(car.getName() + RACING_PROCESS_DELIMITER + makeProgressBar(car.getPosition()));
+            System.out.println(String.format("%5s %s %s", car.getName(), RACING_PROCESS_DELIMITER, makeProgressBar(car.getPosition())));//  /car.getName() + RACING_PROCESS_DELIMITER + makeProgressBar(car.getPosition()));
         }
         System.out.print(SPACE_BAR);
     }
@@ -147,4 +151,11 @@ public class RacingGame {
         return winnerNames;
     }
 
+    private void sleep() {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
