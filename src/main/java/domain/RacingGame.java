@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
+	private static final String RACING_RESULT = "실행결과";
+
 	public static void main(String[] args) {
 		User user = new User();
 		runRacingGame(user);
@@ -12,6 +14,8 @@ public class RacingGame {
 	private static void runRacingGame(User user) {
 		Entry entry = makeRacingEntry(user.getCarNames());
 		int carMoveCount = user.getCarMoveCount();
+
+		System.out.println(RACING_RESULT);
 
 		for (int i = 0; i < carMoveCount; ++i) {
 			entry.moveEachCar();
