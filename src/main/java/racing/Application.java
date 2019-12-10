@@ -14,15 +14,15 @@ public class Application {
         int round = InputDisplay.getRound();
 
         CarRunRule runRule = RunRuleFactory.getInstance();
-        Game game = Game.getInstance(cars, runRule);
+        Game game = Game.of(cars, runRule);
 
-        OutputDisplay.startPrintResult();
+        OutputDisplay.printResultMessage();
         for (int i = 0; i < round; i++) {
             game.playOneRound();
             OutputDisplay.printEachRoundResult(game);
         }
 
         Winner winner = game.getWinners();
-        OutputDisplay.printResult(winner);
+        OutputDisplay.printWinners(winner);
     }
 }

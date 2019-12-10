@@ -9,7 +9,7 @@ public class Game {
         this.runRule = runRule;
     }
 
-    public static Game getInstance(CarList cars, CarRunRule runRule) {
+    public static Game of(CarList cars, CarRunRule runRule) {
         return new Game(cars, runRule);
     }
 

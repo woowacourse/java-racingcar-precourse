@@ -14,7 +14,7 @@ public class Winner {
         return new Winner(winners);
     }
 
-    public String getCarNames() {
+    public String getNames() {
         return winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
