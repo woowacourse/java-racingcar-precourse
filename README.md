@@ -61,4 +61,5 @@
 5. **메인 (Main.java)**
     - 자동차 경주 게임 객체를 만들고, 게임을 시작한다.
 
+## 클래스 
 ![123123](https://user-images.githubusercontent.com/42382027/70522520-9bb22d80-1b84-11ea-9f67-c11cc82f4067.JPG)
