@@ -139,4 +139,18 @@ public class RacingCarGame {
 			}
 		}
 	}
+	
+	private void getWinners() {
+		String winner = "";
+		
+		for(int i = 0; i < cars.length; i++) {
+			if(max == cars[i].getPosition()) {
+				winner += cars[i].getName() + ", ";
+			}
+		}
+		winner = winner.substring(0, winner.length() - 2);
+		winner += "가 최종 우승했습니다.";
+		
+		System.out.println(winner);
+	}
 }
