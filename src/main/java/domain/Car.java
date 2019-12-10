@@ -12,6 +12,10 @@ public class Car {
 		return name;
 	}
 
+	public int getPosition() {
+		return position;
+	}
+
 	public void tryToMove(int energy) {
 		if (energy >= 4) {
 			position++;
@@ -19,14 +23,11 @@ public class Car {
 	}
 
 	public void printPosition() {
-		String msg = name + ": ";
-		for (int i = 0; i < position; i++) {
-			msg += "-";
-		}
-		System.out.println(msg);
-	}
+		String gageBar = "";
 
-	public int getResult() {
-		return position;
+		for (int i = 0; i < position; i++) {
+			gageBar += "-";
+		}
+		System.out.println(name + ": " + gageBar);
 	}
 }

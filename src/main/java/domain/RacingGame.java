@@ -109,7 +109,7 @@ public class RacingGame {
 		String winners = "";
 
 		for (Car car : cars) {
-			int position = car.getResult();
+			int position = car.getPosition();
 			if (position > maxPosition) {
 				maxPosition = position;
 				winners = car.getName();
