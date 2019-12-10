@@ -61,5 +61,16 @@ public class Racings {
         }
         System.out.println();
     }
-
+    public void EndGame(){
+        int max=0,cnt=0;
+        for(i=0;i<cars.length;i++){
+            if(cars[i].getPosition()>max)
+                max = cars[i].getPosition();
+        }
+        for(i=0;i<cars.length;i++){
+            if(cars[i].getPosition()==max)
+                System.out.print(cars[i].getName() + " ");
+        }
+        System.out.print("Won the Final");
+    }
 }
