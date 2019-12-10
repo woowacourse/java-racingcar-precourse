@@ -4,10 +4,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RacingCarGame {
-    private static final int SMALL_LOWEST_CHAR_VALUE = 65;
-    private static final int SMALL_BIGGEST_CHAR_VALUE = 90;
-    private static final int BIG_LOWEST_CHAR_VALUE = 97;
-    private static final int BIG_BIGGEST_CHAR_VALUE = 122;
+    private static final int LOWER_CASE_ALPHABET_ASCII_CODE_A = 65;
+    private static final int LOWER_CASE_ALPHABET_ASCII_CODE_Z = 90;
+    private static final int BIGGER_CASE_ALPHABET_ASCII_CODE_A = 97;
+    private static final int BIGGER_CASE_ALPHABET_ASCII_CODE_Z = 122;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int NEXT_CAR = 1;
     private static final int FIRST_CAR_NAME_INDEX = 0;
@@ -44,10 +44,9 @@ public class RacingCarGame {
 
     private int getMaxMoveCar(List<Car> racingCars) {
         int maxMove = 0;
+
         for(Car car : racingCars) {
-            if(maxMove < car.getPosition()) {
-                maxMove = car.getPosition();
-            }
+            maxMove = Math.max(maxMove,car.getPosition());
         }
 
         return  maxMove;
@@ -55,7 +54,7 @@ public class RacingCarGame {
 
     private String getWinnerCar(List<Car> racingCars, int maxMove) {
         List<String> winnerCarNames = racingCars.stream().filter(racingCar -> racingCar.getPosition() == maxMove)
-                .map(Car::getName).collect(Collectors.toList());
+                                        .map(Car::getName).collect(Collectors.toList());
 
         return String.join(",",winnerCarNames);
     }
@@ -96,6 +95,7 @@ public class RacingCarGame {
                 System.out.println("숫자만 입력해주시기 바랍니다.");
             }
         }
+
         return racingLab;
     }
     public List<String> getRacingCarNames() {
@@ -116,30 +116,29 @@ public class RacingCarGame {
     }
     public void checkInputRacingCarName(List<String> inputCarName) throws Exception{
         for(int carNameIndex = FIRST_CAR_NAME_INDEX; carNameIndex < inputCarName.size(); carNameIndex++) {
-            checkValidRacingCarName(inputCarName, carNameIndex);
-        }
-    }
+            String carName = inputCarName.get(carNameIndex);
 
-    private void checkValidRacingCarName(List<String> inputCarName, int racingCarNameIndex) throws Exception {
-        checkRacingCarNameSpecialWord(inputCarName.get(racingCarNameIndex));
-        checkRacingCarNameLength(inputCarName, racingCarNameIndex);
-        checkSameRacingCarName(inputCarName, racingCarNameIndex);
+            checkRacingCarNameSpecialWord(carName);
+            checkSameRacingCarName(inputCarName, carNameIndex);
+        }
     }
 
     private void checkRacingCarNameSpecialWord(String s) throws Exception {
         for(char carName : s.toCharArray()) {
-            if(carName < SMALL_LOWEST_CHAR_VALUE || (carName > SMALL_BIGGEST_CHAR_VALUE
-                    && carName < BIG_LOWEST_CHAR_VALUE) || carName > BIG_BIGGEST_CHAR_VALUE){
+            if(isAlphabet(carName, LOWER_CASE_ALPHABET_ASCII_CODE_A, LOWER_CASE_ALPHABET_ASCII_CODE_Z)
+                    && isAlphabet(carName, BIGGER_CASE_ALPHABET_ASCII_CODE_A, BIGGER_CASE_ALPHABET_ASCII_CODE_Z)){
+
+                throw new Exception();
+            }
+
+            if(s.length() > MAX_CAR_NAME_LENGTH || s.equals(EMPTY_CAR_NAME)) {
                 throw new Exception();
             }
         }
     }
 
-    private void checkRacingCarNameLength(List<String> inputCarName, int racingCarNameIndex) throws Exception {
-        if(inputCarName.get(racingCarNameIndex).length() > MAX_CAR_NAME_LENGTH
-                || inputCarName.get(racingCarNameIndex).equals(EMPTY_CAR_NAME)) {
-            throw new Exception();
-        }
+    private boolean isAlphabet(char carName, int startAlphabetValue, int endAlphabetValue) {
+        return carName < startAlphabetValue || carName > endAlphabetValue;
     }
 
     private void checkSameRacingCarName(List<String> inputCarName, int carNameIndex) throws Exception {
@@ -153,6 +152,4 @@ public class RacingCarGame {
             }
         }
     }
-
-
 }
