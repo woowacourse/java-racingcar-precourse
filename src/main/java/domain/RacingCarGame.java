@@ -31,4 +31,15 @@ public class RacingCarGame {
 		getMax();
 		getWinners();
 	}
+	
+	private void inputCars() { 
+		String s = "";
+		
+		do {
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+			s = sc.nextLine();
+		} while(!checkInputCars(s));
+	}
+	
+
 }
