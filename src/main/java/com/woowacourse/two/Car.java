@@ -3,28 +3,26 @@ package com.woowacourse.two;
 public class Car {
     private final String name;
     private int position = 0;
-    private String carDistance = "";
+    private String distance = "";
 
     public Car(String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
-    public String getCarDistance(){
-        return this.carDistance;
+    public String getDistance() {
+        return this.distance;
     }
 
-    public void movePosition(){
+    public void movePosition() {
         this.position++;
-        this.carDistance += "-";
+        this.distance += "-";
     }
-
-    // 추가 기능 구현
 }
