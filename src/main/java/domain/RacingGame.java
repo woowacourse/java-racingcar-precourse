@@ -4,21 +4,23 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class RacingGame {
 	private List<String> carNames = new ArrayList<String>();
 	private List<Car> cars = new ArrayList<Car>();
+	private List<String> winners = new ArrayList<String>();
 	private int repeateCount;
 	public RacingGame(){
 		
 	};
 	
 	void setRepeateCount() {
-		Scanner scan = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		int count = 0;
-		System.out.println("시도할 횟수는 몇회인가요?");
+		System.out.print("시도할 횟수는 몇회인가요?");
 		//횟수가 맞대요! 구글에 물어봤답니다
-		count = scan.nextInt();
+		count = scanner.nextInt();
 		this.repeateCount = count;
 	}
 	void setCarsName() {
@@ -30,7 +32,7 @@ public class RacingGame {
 		for(int i=0;i<nameArray.length;i++) {
 			carNames.add(nameArray[i]);
 		}
-		scan.close();
+		//scan.close();
 	}
 	String getCarName(int index) {
 		return this.carNames.get(index);
@@ -47,8 +49,24 @@ public class RacingGame {
 			cars.add(tmpCar);
 		}
 	}
-	boolean checkNameLength(String name) {
-		return name.length()<=5;
+	int findMaxPosition() {
+		int max = -1;
+		List<Integer> positions = new ArrayList<Integer>();
+		for(int i=0;i<getCarNamesSize();i++) {
+			positions.add(cars.get(i).getPosition());
+		}
+		max = Collections.max(positions);
+		return max;
+	}
+	void setWinningCarName(Car car,int max) {
+		if(car.getPosition()==max) {
+			winners.add(car.getName());
+		}
+	}
+	void makeWinner() {
+		for(int i=0;i<getCarNamesSize();i++) {
+			setWinningCarName(cars.get(i), findMaxPosition());
+		}
 	}
 	void printCarPosition(Car car) {
 		String name = car.getName();
@@ -64,8 +82,20 @@ public class RacingGame {
 			printCarPosition(cars.get(i));
 		}
 	}
+	void printWinner() {
+		makeWinner();
+		System.out.print(winners.get(0));
+		if(winners.size()>1) {
+			for(int i=1;i<winners.size();i++) {
+				System.out.print(", "+winners.get(i));
+			}
+		}
+	}
 	void raceCars() {
-		
+		for(int i=0;i<getCarNamesSize();i++) {
+			cars.get(i).race();
+		}
+		printCurrentCarsPosition();
 	}
 	void run() {
 		setCarsName();
@@ -73,7 +103,11 @@ public class RacingGame {
 		setRepeateCount();
 		System.out.println("실행결과");
 		for(int i=0;i<getRepeateCount();i++) {
-			
+			raceCars();
+			System.out.println("");
 		}
+		System.out.println("");
+		printWinner();
+		System.out.println("(이)가 최종 우승했습니다");
 	}
 }

@@ -24,14 +24,14 @@ public class Car {
 		return random.nextInt(10);
 		//make random number in range 0~9;
 	}
-	boolean decideGoing(int randomNumber) {
+	boolean decideGo(int randomNumber) {
 		return randomNumber>3;
 		//more than 4 : go, less than 3 : stop
 	}
 	void race() {
 		int randomNumber;
 		randomNumber = makeRandomNumber();
-		if(decideGoing(randomNumber)) {
+		if(decideGo(randomNumber)) {
 			setPosition(getPosition()+1);
 		}
 	}

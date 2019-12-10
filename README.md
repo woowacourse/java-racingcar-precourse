@@ -15,18 +15,24 @@ methods
 variables
 - pirvate List<String<ar>> carNames : array for car names
 - private List<Car<ar>> cars : array for class object cars
+- private List<String<ar>> winners : names of winner in racing game
 - private int repeateCount : number of repeating race
 
+
 methods
+- RacingGame() : default Constructor
 - void setCarsName() : setting the array of car names
 - void setRepeateCount() : set the variable repeatCount
 - String getCarName(int index) : return car name at index of 'index'
 - int getCarNamesSize() : return the size of carNames
 - int getRepeateCount() : return the value of repeateCount
+- int findNaxPosition() : return the max position
+- void setWinningCarName() : find the winner and add the name in winners list
+- void makeWinner() : find winners
 - void makeCars() : make class car object and set the variable cars
-- boolean checkNameLength : check the length of car's name
 - void printCarPosition(Car car) : print the position of car
 - void printCurrentCarsPosition() : print the all car's positions
+- void printWinner() : print the winning car names
 
 #Class : Main
 run the RacingGame class
