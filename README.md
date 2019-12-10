@@ -29,6 +29,7 @@
 
     
 ## 기능 설명
+
  ###CarRaceGame
  - void playGameByNumber(int count, Car cars[])
 
@@ -55,6 +56,7 @@
  - printWinner(ArrayList<String> winners)
 
         judgeWinner에서 리턴된 List를 입력받아 양식에 맞게 출력하는 메소드
+        
         
  ###UtilityMethods
  - Car[] sliceString(String target)
