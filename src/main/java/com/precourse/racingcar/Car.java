@@ -1,5 +1,5 @@
 /*
- * Car.java                        1.4.6   2019-12-09
+ * Car.java                        1.4.7   2019-12-10
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -12,11 +12,12 @@ package com.precourse.racingcar;
  * Car 클래스입니다.
  * 자동차 경주를 하기위한 기능들이 있습니다.
  *
- * @version 1.4.6            클래스를 Comparable을 상속하게 수정하고 compareTo 재정의
- * @date 2019-12-09
+ * @version 1.4.7            이름을 5자리 왼쪽고정해서 출력하도록 수정
+ * @date 2019-12-10
  * @author HyungjuAn
  */
 public class Car implements Comparable<Car> {
+	private static final String NAME_FORMAT = "%-5s";
 	private static final char COLON = ':';
 	private static final char BAR = '-';
 	private static final char SPACE = ' ';
@@ -57,7 +58,7 @@ public class Car implements Comparable<Car> {
 	private void printCurrentPosition() {
 		StringBuilder builder = new StringBuilder();
 
-		builder.append(this.name).append(COLON).append(SPACE);
+		builder.append(String.format(NAME_FORMAT, this.name)).append(COLON).append(SPACE);
 		for (int i = 0; i < this.position; i++) {
 			builder.append(BAR);
 		}
