@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -17,4 +19,20 @@ public class Car {
     public int getPosition() {
     	return this.position;
     }
+	int makeRandomNumber() {
+		Random random = new Random();
+		return random.nextInt(10);
+		//make random number in range 0~9;
+	}
+	boolean decideGoing(int randomNumber) {
+		return randomNumber>3;
+		//more than 4 : go, less than 3 : stop
+	}
+	void race() {
+		int randomNumber;
+		randomNumber = makeRandomNumber();
+		if(decideGoing(randomNumber)) {
+			setPosition(getPosition()+1);
+		}
+	}
 }

@@ -50,13 +50,30 @@ public class RacingGame {
 	boolean checkNameLength(String name) {
 		return name.length()<=5;
 	}
-	int makeRandomNumber() {
-		Random random = new Random();
-		return random.nextInt(10);
-		//make random number in range 0~9;
+	void printCarPosition(Car car) {
+		String name = car.getName();
+		int position = car.getPosition();
+		System.out.print(name+" : ");
+		for(int i=0;i<position;i++) {
+			System.out.print("-");
+		}
+		System.out.println("");
 	}
-	boolean shouldGo(int randomNumber) {
-		return randomNumber>3;
-		//more than 4 : go, less than 3 : stop
+	void printCurrentCarsPosition() {
+		for(int i=0;i<getCarNamesSize();i++) {
+			printCarPosition(cars.get(i));
+		}
+	}
+	void raceCars() {
+		
+	}
+	void run() {
+		setCarsName();
+		makeCars();
+		setRepeateCount();
+		System.out.println("실행결과");
+		for(int i=0;i<getRepeateCount();i++) {
+			
+		}
 	}
 }

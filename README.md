@@ -8,6 +8,8 @@ variables
 methods
 - Car(String name) : constructor with car's name
 - setPosition(int position) : set the position of car
+- int makeRandomNumber : make the random number in range 0~9
+- boolean decideGoing(int randomNumber) : decide car to go
 
 #Class : RacingGame
 variables
@@ -23,5 +25,5 @@ methods
 - int getRepeateCount() : return the value of repeateCount
 - void makeCars() : make class car object and set the variable cars
 - boolean checkNameLength : check the length of car's name
-- int makeRandomNumber : make the random number in range 0~9
-- boolean shouldGo(int randomNumber) : decide car to go
+- void printCarPosition(Car car) : print the position of car
+- void printCurrentCarsPosition() : print the all car's positions
