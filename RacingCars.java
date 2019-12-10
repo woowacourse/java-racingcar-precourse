@@ -22,7 +22,7 @@ public class RacingCars {
     }
 
     private void validateName(Car car) {
-        if (car.nameLongerThan(MAXIMUM_LENGTH_OF_CAR_NAME)) {
+        if (car.hasNameLongerThan(MAXIMUM_LENGTH_OF_CAR_NAME)) {
             throw new IllegalArgumentException("각 자동차의 이름은 5자 이하만 가능합니다.");
         }
     }

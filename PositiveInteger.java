@@ -1,5 +1,5 @@
 public class PositiveInteger {
-    private int number;
+    private final int number;
 
     public PositiveInteger(String value) {
         this(Integer.parseInt(value));

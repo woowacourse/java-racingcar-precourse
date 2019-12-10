@@ -10,7 +10,7 @@ public class Car {
         this.position += strideLength;
     }
 
-    public boolean nameLongerThan(int maxLength) {
+    public boolean hasNameLongerThan(int maxLength) {
         return this.name.length() > maxLength;
     }
 
