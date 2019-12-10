@@ -16,6 +16,7 @@ public class Game {
             moveAndPrintEachCar();
             System.out.println();
         }
+        printWinnerName();
     }
 
     public void initializeGame(){
@@ -53,6 +54,13 @@ public class Game {
             car.moveForward();
             car.printPosition();
         }
+    }
+
+    public void printWinnerName(){
+        ArrayList<String> winnerNameList = getWinnerName();
+        int winnerNameListLength = winnerNameList.size();
+        for(int i=0; i<winnerNameListLength-1; i++){ System.out.print(winnerNameList.get(i) + ",");}
+        System.out.println(winnerNameList.get(winnerNameListLength-1)+"가 최종우승 했습니다.");
     }
 
     public ArrayList<String> getWinnerName(){
