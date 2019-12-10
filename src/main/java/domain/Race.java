@@ -1,10 +1,7 @@
 package domain;
 
-import domain.Car;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Race {
@@ -19,6 +16,7 @@ public class Race {
 
     ;
     private static final String COMMA = ",";
+    private static final String SKID = "-";
     private Scanner SCANNER = new Scanner(System.in);
 
     private ArrayList<Car> Cars;
@@ -90,7 +88,7 @@ public class Race {
         for (int i = 0; i < Round; i++) {
             doRound();
         }
-//        printResult();
+        printResult();
     }
 
     private void doRound() {
@@ -119,8 +117,44 @@ public class Race {
     }
 
     private void printRow(Car car) {
-        System.out.println(String.format("%s: -%s\n", car.getName(), repeat("-", car.getPosition())));
+        System.out.println(String.format("%s: %s\n", car.getName(), repeat(SKID, car.getPosition()+1)));
     }
 
+    private void printResult(){
+        ArrayList<String> winners = findWinnerNames();
+        System.out.println(String.format("%s가 최종 우승했습니다.",Arrays.toString(winners.toArray())));
+    }
 
+    private ArrayList<String> findWinnerNames(){
+        Car firstWinner = findFirstWinner();
+        ArrayList<String> winnerNames = findAllWineers(firstWinner);
+        return winnerNames;
+    }
+
+    private Car findFirstWinner(){
+        Car winner = Cars.get(0);
+        int best = winner.getPosition();
+
+        for(Car car:Cars){
+            if(car.getPosition() > best){
+                winner = car;
+                best = car.getPosition();
+            }
+        }
+
+        return winner;
+    }
+
+    private ArrayList<String> findAllWineers(Car winner){
+        ArrayList<String> winners = new ArrayList<String>();
+        int best = winner.getPosition();
+
+        for(Car car: Cars){
+            if(best==car.getPosition()){
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
 }
