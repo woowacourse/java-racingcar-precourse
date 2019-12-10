@@ -57,6 +57,11 @@ public class RacingGame {
 	private static final String WINNER_RESULT_MESSAGE = "가 최종 우승했습니다.";
 
 	/**
+	 * 사용자의 입력과 관련된 기능들을 담당하는 User 클래스 인스턴스.
+	 */
+	private User user;
+
+	/**
 	 * 생성한 Car 클래스의 객체들을 저장할 List 변수.
 	 */
 	private List<Car> cars;
@@ -65,7 +70,8 @@ public class RacingGame {
 	 * 사용자로부터 자동차의 이름을 받아오는 것부터 우승 결과까지 출력하는 전체 진행을 담당하는 메소드.
 	 */
 	public void run() {
-		User user = new User();
+		user = new User();
+
 		generateCarInstances(user.receiveCarNames());
 		moveAndPrintResultForAttemptNumber(user.receiveAttemptNumber());
 		printRaceWinner();
@@ -78,6 +84,7 @@ public class RacingGame {
 	 */
 	private void generateCarInstances(List<String> carNames) {
 		cars = new ArrayList<>();
+
 		for (String carName : carNames) {
 			cars.add(new Car(carName));
 		}
@@ -158,7 +165,7 @@ public class RacingGame {
 	private String combineWinnerNames() {
 		StringBuilder winnerNames = new StringBuilder();
 		List<Car> winners = selectRaceWinner();
-
+		
 		winnerNames.append(winners.get(FIRST_OF_WINNER).getName());
 		for (int i = FIRST_OF_WINNER + 1; i < winners.size(); i++) {
 			winnerNames.append(COMMA_DELIMITER + " ").append(winners.get(i).getName());

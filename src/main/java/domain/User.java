@@ -1,5 +1,5 @@
 /*
- * @(#)User.java     0.1 2019.12.10
+ * @(#)User.java     0.2 2019.12.10
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * 사용자로부터 오는 입력과 관련된 모든 기능을 담당하는 User 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.1 2019.12.10
+ * @version 0.2 2019.12.10
  */
 public class User {
 	/**
@@ -98,6 +98,8 @@ public class User {
 
 	/**
 	 * 자동차의 이름을 입력받아 유효성을 검사 후, 유효하다면 carNames 문자열 리스트에 저장하는 메소드.
+	 *
+	 * @return 유효성이 검증된 자동차 이름들을 쉼표(,)를 기준으로 나눠서 List로 반환.
 	 */
 	public List<String> receiveCarNames() {
 		Scanner sc = new Scanner(System.in);
@@ -199,6 +201,8 @@ public class User {
 
 	/**
 	 * 사용자로부터 시도 횟수를 입력받고, 유효한지 여부도 확인하는 메소드.
+	 *
+	 * @return 사용자로부터 입력받은 시도 횟수 반환.
 	 */
 	public int receiveAttemptNumber() {
 		Scanner sc = new Scanner(System.in);
