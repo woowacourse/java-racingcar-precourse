@@ -7,18 +7,24 @@ public class Game {
     ArrayList<Car> carList = new ArrayList<>();
 
     void initializeGame(){
-        getCarList();
+        setCarList();
     }
-    void getCarList(){
-        String carListAsString;
-        carListAsString = inputCarList();
+    void setCarList(){
+        String[] carNameList;
+        carNameList = getCarNameList();
+        makeCarList(carNameList);
     }
 
-    String inputCarList(){
-
+    String[] getCarNameList(){
         Scanner scanner = new Scanner(System.in);
-        String carListAsString = scanner.nextLine();
-        return carListAsString;
+        String[] carNameList = scanner.nextLine().split(",");
+        return carNameList;
+    }
+
+    void makeCarList(String[] carNameList){
+        for(String s : carNameList){
+            carList.add(new Car(s));
+        }
     }
 
 }
