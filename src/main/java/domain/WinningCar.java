@@ -1,5 +1,5 @@
 /*
- * class: WinsCar
+ * class: WinningCar
  *
  * version: 3.0
  *
@@ -17,7 +17,7 @@ package domain;
  * @author joseph415
  * @version 3.0 2019.12.08
  */
-public class WinsCar {
+public class WinningCar {
     int temp = -1;
     StringBuilder winsCar = new StringBuilder();
 

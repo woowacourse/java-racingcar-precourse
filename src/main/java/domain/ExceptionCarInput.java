@@ -1,5 +1,5 @@
 /*
- * class: ExceptCarInput
+ * class: ExceptionCarInput
  *
  * version: 3.0
  *
@@ -16,8 +16,8 @@ package domain;
  * @author joseph415
  * @version 3.0 2019.12.08
  */
-public class ExceptCarInput {
-    CompareCarName compare = new CompareCarName();
+public class ExceptionCarInput {
+    ComparingCarName compare = new ComparingCarName();
 
     /**
      * 예외처리 해주는 매소드 같은이름,1~5글자 수 에대해서 예외처리

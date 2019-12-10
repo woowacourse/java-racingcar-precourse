@@ -1,5 +1,5 @@
 /*
- *class: RandomMakeNum
+ *class: MakingRandomNum
  *
  * version: 3.0
  *
@@ -20,7 +20,7 @@ import java.util.Random;
  * @author joseph415
  * @version 3.0 2019.12.08
  */
-public class RandomMakeNum {
+public class MakingRandomNum {
     Random randomInput = new Random();
 
     /**
@@ -28,7 +28,7 @@ public class RandomMakeNum {
      * @return 4이상이면 true값을 리턴.
      */
     public boolean randomMakeNum() {
-        int input = 0;
+        int input;
 
         input = randomInput.nextInt(9) + 1;
         return input >= 4;

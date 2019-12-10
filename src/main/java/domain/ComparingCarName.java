@@ -1,5 +1,5 @@
 /*
- * class: CompareCarName
+ * class: ComparingCarName
  *
  * version: 2.0
  *
@@ -17,7 +17,7 @@ package domain;
  * @author joseph415
  * @version 2.0 2019.12.08
  */
-public class CompareCarName {
+public class ComparingCarName {
 
     /**
      * 중복을 걸러주는 매소드

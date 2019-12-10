@@ -1,5 +1,5 @@
 /*
- * class: TryInput
+ * class: TryingInput
  *
  * version: 3.0
  *
@@ -19,7 +19,7 @@ import java.util.Scanner;
  * @author joseph415
  * @version 3.0 2019.12.08
  */
-public class TryInput {
+public class TryingInput {
     public int tryCount;
     Scanner sc = new Scanner(System.in);
 

@@ -9,7 +9,7 @@
  * Copyright 2019.12.08
  */
 
-import domain.TryGame;
+import domain.TryingGame;
 
 /**
  * racing prograing 실행을 위한 racing클래스이다.
@@ -25,7 +25,7 @@ public class racing {
      * @param args no input args
      */
     public static void main(String[] args) {
-        TryGame start = new TryGame();
+        TryingGame start = new TryingGame();
         start.start();
     }
 }

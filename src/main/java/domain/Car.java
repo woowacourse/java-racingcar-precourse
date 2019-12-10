@@ -21,7 +21,7 @@ package domain;
 public class Car {
     private final String name;
     private int position = 0;
-    RandomMakeNum makeNum = new RandomMakeNum();
+    MakingRandomNum makeNum = new MakingRandomNum();
 
     /**
      * 차의 이름을 생성자로 지정해준다

@@ -1,5 +1,5 @@
 /*
- * class: TryGame
+ * class: TryingGame
  *
  * version: 1.0
  *
@@ -17,7 +17,7 @@ package domain;
  * @author joseph415
  * @version 1.0 2019.12.07
  */
-public class TryGame {
+public class TryingGame {
 
     /**
      * 게임을 구성해서 실행해주는 start매소드.
@@ -26,15 +26,15 @@ public class TryGame {
     public void start() {
         int tryCount;
         Car[] car;
-        MakeCar makeCar = new MakeCar();
-        TryInput tryInput = new TryInput();
-        PrintWinsCar print = new PrintWinsCar();
+        MakingCar makingCar = new MakingCar();
+        TryingInput tryingInput = new TryingInput();
+        OutputWinningCar print = new OutputWinningCar();
 
         /*car의 이름을입력받아 동적으로 car배열 만듬*/
-        car = makeCar.makeCar();
+        car = makingCar.makeCar();
 
         /*시도횟수를 입력받는 매소드*/
-        tryCount = tryInput.tryInput();
+        tryCount = tryingInput.tryInput();
 
         /*우승자 출력하는 매소드*/
         print.printWinsCar(tryCount, car);

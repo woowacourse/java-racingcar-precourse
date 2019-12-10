@@ -1,5 +1,5 @@
 /*
- * class: MakeCar
+ * class: MakingCar
  *
  * version: 3.0
  *
@@ -18,11 +18,11 @@ package domain;
  * @author joseph415
  * @version 3.0 2019.12.08
  */
-public class MakeCar {
+public class MakingCar {
     boolean check;
     Car[] car;
-    ParseCarString parseCar = new ParseCarString();
-    ExceptCarInput except = new ExceptCarInput();
+    ParsingCarString parseCar = new ParsingCarString();
+    ExceptionCarInput except = new ExceptionCarInput();
 
     /**
      * car의 객체를 입력한 이름수만큼 동적으로 생성시켜 반환하는 소드.
@@ -31,8 +31,6 @@ public class MakeCar {
      */
     public Car[] makeCar() {
         while (true) {
-
-            /*구분자로 파싱*/
             String[] carList = parseCar.parseCarString();
             check = except.exceptCarInput(carList);
 
