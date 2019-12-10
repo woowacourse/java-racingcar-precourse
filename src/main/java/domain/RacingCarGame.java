@@ -41,5 +41,15 @@ public class RacingCarGame {
 		} while(!checkInputCars(s));
 	}
 	
+	private void setCars() {
+		cars = new Car[sCars.length];
+		
+		for(int i = 0; i < cars.length; i++) {
+			cars[i] = new Car(sCars[i].trim());
+		}
+	}
+	
+
+	
 
 }
