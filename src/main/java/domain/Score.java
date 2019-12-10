@@ -1,23 +1,25 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Score {
 
-    public void calcScore(int numberOfCar, CarList carList) {
+    /* 생성된 랜덤 넘버를 보고, Car 객체가 전진할지 계산*/
+    public void calcScore(int numberOfCar, Car[] carArray) {
         RandomNumberGenerator prng = new RandomNumberGenerator(numberOfCar);
         ArrayList<Boolean> direction = prng.goNoGo();
-        for (int j = 0; j < numberOfCar; j++) {
-            int previousPosition = carList.car.get(j).getPosition();
-            if (direction.get(j)) {
-                carList.car.get(j).setPosition(previousPosition + 1);
+        for (int i = 0; i < numberOfCar; i++) {
+            if (direction.get(i)) {
+                carArray[i].setPosition(carArray[i].getPosition() + 1);
             }
         }
     }
 
-    public ArrayList<Car> calcWinner(CarList carList) {
-        carList.car.sort(new Comparator<Car>() {
+    /* Car들의 점수를 보고 우승자 계산 */
+    public ArrayList<Car> calcWinner(Car[] carArray) {
+        Arrays.sort(carArray, new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {
                 if (o1.getPosition() < o2.getPosition())
@@ -29,10 +31,10 @@ public class Score {
         });
 
         ArrayList<Car> winner = new ArrayList<Car>();
-        winner.add(carList.car.get(0));
-        for (int i = 1; i < carList.car.size(); i++) {
-            if (carList.car.get(i).getPosition() == carList.car.get(0).getPosition()) {
-                winner.add(carList.car.get(i));
+        winner.add(carArray[0]);
+        for (int i = 1; i < carArray.length; i++) {
+            if (carArray[i].getPosition() == carArray[0].getPosition()) {
+                winner.add(carArray[i]);
                 continue;
             }
             break;

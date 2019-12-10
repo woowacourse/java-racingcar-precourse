@@ -17,13 +17,11 @@ public class UserIO {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분\n>>");
             String input = sc.nextLine();
 
-            /* 쉼표 기준으로 파싱 */
-            final String delimiter = ",";
+            final String delimiter = ",";   //  쉼표 기준으로 파싱
             names = input.split(delimiter);
             int length = names.length;
 
-            /* 공백 제거 */
-            for (int i = 0; i < length; i++) {
+            for (int i = 0; i < length; i++) {  //  공백 제거
                 names[i] = names[i].trim();
             }
         } while (!checkName(names));
@@ -65,8 +63,8 @@ public class UserIO {
     }
 
     /* 반복 결과 출력 */
-    public void printIteration(CarList carList) {
-        for (Car it : carList.car) {
+    public void printIteration(Car[] carArray) {
+        for (Car it : carArray) {
             System.out.print(it.getName() + ": ");
             for (int i = 0; i < it.getPosition(); i++) {
                 System.out.print("-");
