@@ -1,7 +1,5 @@
 package gameRunner;
 
-import static view.OutputView.*;
-
 import java.util.List;
 
 import util.StringParsing;

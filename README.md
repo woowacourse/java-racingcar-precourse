@@ -1,27 +1,75 @@
+# 레이싱 게임
+
+### 설계 구조
+
+**Main.java** 
+
+static void main 함수 위치
+
+**gameRunner/GameMachine.java**
+
+게임을 실행 할 수 있는 함수가 담긴 클래스
+여러개의 레이싱게임(RacingGame)을 실행 할 수 있다.
+
+**gameRunner/RacingGame.java**
+
+하나의 레이싱게임을 실행 할 수 있다.
+하나의 레이싱 게임은 자동차의 이름을 입력받아 하나의 CarCollection을 생성하고 시도횟수를 갖고 있다. 
+
+**domain/CarCollection.java**
+
+하나의 자동차 집합(CarCollection)은 여러개의 Car를 갖고있다.
+
+```json
+[{"name":"pobi", "position": 1, "railID": 1}, 
+{"name":"crong", "position": 1, "railID": 2},
+{"name":"honux", "position": 1, "railID": 3}]
+```
+
+**domain/Car.java**
+
+하나의 차는 name, position, railId를 갖고있다.
+이때 railId를 설정한 이유는, 이후 요구사항이 확장되었을 때, 하나의 CarCollection중 하나의 Rail이 사라질 때, name의 unique함 보다는 railId의 유니크함을 이용해서 판단하면 좋을 것 같다고 판단했기 때문이다.
+
+Car의 railId를 부여하기위해 CarCollection에  Id를 부여하는데 도움을 주는 멤버변수인 injectionId를 이용해 부여한다.
+
+**view/InputView.java**
+
+게임시 유저에게 입력을 받을때의 함수들을 저장한다.
+
+**view/OutputView.java**
+
+게임시 인자로 받은 값의 출력을 해야할 때의 함수들을 저장한다.
+
+**util/StringParsing.java**
+
+입력받은 String을 , 로 구분하여 List<String> 으로 만든다. 이때, trim() 연산까지 다 해준다.
+
+**util/RandomNumberGenerator.java**
+
+Boundary를 지정하여 정수타입의 숫자를 랜덤으로 생성할 수 있다.
+
+**util/CustomErrorMessage.java**
+
+ErrorMessae를 한 곳에서 관리하기 위한 클래스이다.
+
+
+
+
+
 ### 구현 기능 목록
 
 - [x] feat 1 : 전진 조건을 결정할 수 있도록 random하게 숫자를 생성한다.
-
 - [x] feat 2 : 입력받은 자동차 이름이 5자 이하인지 체크한다. -> Error 1 에도 적용
-
 - [x] feat 3 : 입력받은 횟수만큼 전진을 시도한다
-
 - [x] feat 4 : 사용자의 입력을 받는다.
-
 - [x] feat 5 : 자동차의 위치를 화면에 출력한다.
-
 - [x] feat 6 : 전진 조건에 따라 자동차의 위치를 전진 or 멈춤하도록 수정한다.
-
 - [x] feat 7 : 입력받은 String을 List로 변경한다.
-
 - [x] feat 8 : 각 Car는 고유한 번호를 갖는다. 이 고유한 번호는 racingGame의 몇번 rail에 위치하는지를 의미한다.
-
 - [x] feat 9 : 설계를 위한 기본 구조 잡기
-
 - [x] Error 1 : 입력받은 자동차 이름이 5가 아닐경우 IllegalArgumentException 호출
-
 - [x] Error 2 : 입력받은 자동차 이름이 입력이 안 되있을 경우 IllegalArgumentException 호출
-
 - [x] Error 3 : List의 MAX값 계산 중 이것을 찾아올 수 없으면, IllegalArgumentException 호출
 
 
