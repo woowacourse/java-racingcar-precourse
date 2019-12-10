@@ -7,8 +7,32 @@ package domain.model;
  * @since 2019-12-05
  */
 public class Car extends Vehicle {
+    private static final String SPACING_WORDS = " : ";
+    private static final String HYPHEN_FOR_POSITION = "-";
+    private int position = 0;
 
     public Car(String name) {
         super(name);
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    @Override
+    public void goForwardPosition(boolean goOrStop) {
+        if (goOrStop) {
+            position++;
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.getName()).append(SPACING_WORDS);
+        for (int i = 0; i < position; i++) {
+            sb.append(HYPHEN_FOR_POSITION);
+        }
+        return sb.toString();
     }
 }

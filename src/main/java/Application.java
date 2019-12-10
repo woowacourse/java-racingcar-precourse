@@ -5,7 +5,7 @@ import java.util.List;
 import domain.model.Car;
 import domain.controller.RacingGame;
 import view.PrintHandler;
-import view.UserInput;
+import user.UserInput;
 
 /**
  * @author 김시영
@@ -35,6 +35,6 @@ public class Application {
         int howMany = userInput.chooseHowManyPlay();
 
         racingController.gameStart(users, howMany);
-        PrintHandler.printWinners(racingController.getWinner(users));
+        PrintHandler.printWinners(racingController.getWinner());
     }
 }

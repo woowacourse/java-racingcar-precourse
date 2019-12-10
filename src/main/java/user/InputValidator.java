@@ -1,4 +1,4 @@
-package validator;
+package user;
 
 /**
  * @author 김시영

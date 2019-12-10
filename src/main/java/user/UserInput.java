@@ -1,4 +1,4 @@
-package view;
+package user;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,8 @@ import java.util.List;
 
 import domain.model.Car;
 import domain.model.Vehicle;
-import validator.InputValidator;
+import user.InputValidator;
+import view.PrintHandler;
 
 /**
  * @author 김시영
