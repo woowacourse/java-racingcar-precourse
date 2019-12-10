@@ -20,11 +20,9 @@ public class GameInputManager {
 
 	public List<String> getCarNames() {
 		List<String> carNames = new ArrayList<>();
-		String userInput = getUserInput();
 
 		System.out.println(INPUT_CAR_NAMES);
-		convertNamesToList(userInput, carNames);
-
+		convertNamesToList(getUserInput(), carNames);
 		checkCarNameLength(carNames);
 
 		return carNames;
