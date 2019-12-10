@@ -28,9 +28,14 @@ public class Rule {
 		int maxPosition = START_POSITION;
 
 		for(Car car : cars) {
-			if(maxPosition == START_POSITION || maxPosition < car.getPosition()) {
-				maxPosition = car.getPosition();
-			}
+			maxPosition = updateMaxPosition(car, maxPosition);
+		}
+		return maxPosition;
+	}
+
+	private static int updateMaxPosition(Car car, int maxPosition) {
+		if(maxPosition == START_POSITION || maxPosition < car.getPosition()) {
+			maxPosition = car.getPosition();
 		}
 		return maxPosition;
 	}
