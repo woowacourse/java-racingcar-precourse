@@ -3,7 +3,7 @@
  * All rights reserved.
  *
  * Car.java
- * 자동차 클래스
+ * 자동차의 속성과 행동을 가지고 있는 클래스
  *
  * @author		Sorin Jin
  * @version		1.0
@@ -28,15 +28,23 @@ public class Car {
         this.randomNumber = randomNumber;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void play() {
-        if(isGoNumber()) {
+        if (isGoNumber()) {
             go();
         }
         print();
     }
 
     private boolean isGoNumber() {
-        if((randomNumber >= GameController.GO_MIN_VALUE) && (randomNumber <= GameController.GO_MAX_VALUE)) {
+        if ((randomNumber >= GameController.GO_MIN_VALUE) && (randomNumber <= GameController.GO_MAX_VALUE)) {
             return true;
         }
         return false;
@@ -47,11 +55,11 @@ public class Car {
     }
 
     private void print() {
-        System.out.print(name+":");
-        for(int i = 0; i < position; i++) {
+        System.out.printf("%-6s",name);
+        System.out.print(": ");
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.println();
     }
-
 }

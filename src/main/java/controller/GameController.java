@@ -13,13 +13,13 @@
 
 package controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import domain.Car;
 import domain.Message;
 import domain.RandomGenerator;
 
 public class GameController {
-
     public static final int GO_MIN_VALUE = 4;
     public static final int GO_MAX_VALUE = 9;
     private String[] carNameArray;
@@ -46,14 +46,13 @@ public class GameController {
     private void inputRound() {
         String numberOfRound;
         do {
-            System.out.println(Message.INPUT_NUMBER_OF_ROUNDS_MESSAGE.getMessage());
+            System.out.print(Message.INPUT_NUMBER_OF_ROUNDS_MESSAGE.getMessage());
             numberOfRound = new Scanner(System.in).next();
         } while (!InputExceptionController.getInstance().validateRoundNumber(numberOfRound));
         round = Integer.parseInt(numberOfRound);
     }
 
     private void play() {
-        System.out.println(Message.RESULT_MESSAGE.getMessage());
         for(Car car : cars) {
             int randomNumber =  RandomGenerator.getInstance().getRandomNumber();
             car.setRandomNumber(randomNumber);
@@ -62,13 +61,42 @@ public class GameController {
         System.out.println();
     }
 
+    private int claculateBestScore() {
+        int bestSocre = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > bestSocre) {
+                bestSocre = car.getPosition();
+            }
+        }
+        return bestSocre;
+    }
+
+    private void getWinner() {
+        int bestSocre = claculateBestScore();
+        ArrayList<Car> winner = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == bestSocre) {
+                winner.add(car);
+            }
+        }
+        printWinner(winner);
+    }
+
+    private void printWinner(ArrayList<Car> winner) {
+        for (Car car : winner) {
+            System.out.print(car.getName()+" ");
+        }
+        System.out.println(Message.WINNER_MESSAGE.getMessage());
+    }
+
     public void run(){
         inputCarName();
         generateCarObject();
         inputRound();
-        for(int i = 0; i < round; i++){
+        System.out.println(Message.RESULT_MESSAGE.getMessage());
+        for (int i = 0; i < round; i++) {
             play();
         }
+        getWinner();
     }
-
 }

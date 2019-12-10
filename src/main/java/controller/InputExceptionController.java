@@ -9,9 +9,6 @@
  * @version     1.0
  * @date        09 Dec 2019
  *
- * 필요 이상의 객체가 생성되면 메모리가 낭비되기 때문에
- * 본 클래스는 Singleton 패턴으로 작성하였습니다.
- *
  */
 
 package controller;
@@ -20,7 +17,6 @@ import java.util.HashSet;
 import domain.Message;
 
 public class InputExceptionController {
-
     final static int MiN_COUNT_OF_CAR = 2;
     final static int LENGTH_OF_NAME = 5;
     final static int ZERO = 0;
@@ -91,5 +87,4 @@ public class InputExceptionController {
         System.out.println(Message.INPUT_DUPLICATION_ERROR.getMessage());
         return false;
     }
-
 }
