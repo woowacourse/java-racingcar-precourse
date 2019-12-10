@@ -6,107 +6,74 @@
  * 게임을 진행하기 위한 클래스
  *
  * @author      Sorin Jin
- * @version      1.0
- * @date      09 Dec 2019
+ * @version     1.0
+ * @date        09 Dec 2019
  *
  */
 
 package controller;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import domain.Car;
-import domain.Message;
 import domain.RandomGenerator;
+import view.InputView;
+import view.OutputView;
 
 public class GameController {
     public static final int GO_MIN_VALUE = 4;
     public static final int GO_MAX_VALUE = 9;
-    private String[] carNameArray;
-    private Car[] cars;
-    private int round;
+    private static final InputView inputView = new InputView();
+    private static final OutputView outputView = new OutputView();
 
-    private void inputCarName() {
-        do {
-            System.out.println(Message.INPUT_CAR_NAME_MESSAGE.getMessage());
-            String carNames = new Scanner(System.in).nextLine();
-            carNames = carNames.replace(" ","");
-            carNameArray = carNames.split(",");
-        } while (!InputExceptionController.getInstance().validateCarName(carNameArray));
-    }
-
-    private void generateCarObject() {
+    private Car[] generateCarObject(String[] carNameArray) {
         int size = carNameArray.length;
-        cars = new Car[size];
+        Car[] cars = new Car[size];
         for (int i = 0; i < size; i++) {
             cars[i] = new Car(carNameArray[i]);
         }
+        return cars;
     }
 
-    private void inputRound() {
-        String numberOfRound;
-        do {
-            System.out.print(Message.INPUT_NUMBER_OF_ROUNDS_MESSAGE.getMessage());
-            numberOfRound = new Scanner(System.in).next();
-        } while (!InputExceptionController.getInstance().validateRoundNumber(numberOfRound));
-        round = Integer.parseInt(numberOfRound);
-    }
-
-    private void printRoundReuslt(Car car) {
-        System.out.printf("%-6s",car.getName());
-        System.out.print(": ");
-        for (int i = 0; i < car.getPosition(); i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-    }
-
-    private void play() {
+    private void play(Car[] cars) {
         for(Car car : cars) {
             int randomNumber =  RandomGenerator.getInstance().getRandomNumber();
             car.setRandomNumber(randomNumber);
             car.play();
-            printRoundReuslt(car);
+            outputView.printRoundResult(car);
         }
-        System.out.println();
+        outputView.printBlankLine();
     }
 
-    private int claculateBestScore() {
-        int bestSocre = 0;
+    private int calculateBestScore(Car[] cars) {
+        int bestScore = 0;
         for (Car car : cars) {
-            if (car.getPosition() > bestSocre) {
-                bestSocre = car.getPosition();
+            if (car.getPosition() > bestScore) {
+                bestScore = car.getPosition();
             }
         }
-        return bestSocre;
+        return bestScore;
     }
 
-    private void getWinner() {
-        int bestSocre = claculateBestScore();
+    private void getWinner(Car[] cars) {
+        int bestScore = calculateBestScore(cars);
         ArrayList<Car> winner = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getPosition() == bestSocre) {
+            if (car.getPosition() == bestScore) {
                 winner.add(car);
             }
         }
-        printWinner(winner);
-    }
-
-    private void printWinner(ArrayList<Car> winner) {
-        for (Car car : winner) {
-            System.out.print(car.getName()+" ");
-        }
-        System.out.println(Message.WINNER_MESSAGE.getMessage());
+        outputView.printWinner(winner);
     }
 
     public void run(){
-        inputCarName();
-        generateCarObject();
-        inputRound();
-        System.out.println(Message.RESULT_MESSAGE.getMessage());
+        String[] carNameArray = inputView.inputCarName();
+        Car[] cars = generateCarObject(carNameArray);
+        int round = inputView.inputRound();
+        outputView.printBlankLine();
+        outputView.printRoundStart();
         for (int i = 0; i < round; i++) {
-            play();
+            play(cars);
         }
-        getWinner();
+        getWinner(cars);
     }
 }
