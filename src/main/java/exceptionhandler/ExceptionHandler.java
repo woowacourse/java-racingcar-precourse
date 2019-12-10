@@ -20,6 +20,7 @@ public class ExceptionHandler {
 	private static final String NO_CAR_NAME = "1대 이상의 자동차 이름을 입력해주세요.";
 	private static final int MAX_CAR_NAME = 5;
 	private static final int MIN_TRY_NUM = 1;
+
 	private List<String> usedCarNames = new ArrayList<>();
 	private String[] carNames;
 	private int tryNum;
@@ -35,7 +36,7 @@ public class ExceptionHandler {
 		}
 		return status;
 	}
-	
+
 	public boolean isDuplicated() {
 		usedCarNames.clear();
 		for (String carName : carNames) {
@@ -47,7 +48,7 @@ public class ExceptionHandler {
 		}
 		return false;
 	}
-	
+
 	public boolean isNothing() {
 		if (carNames == null || carNames.length == 0) {
 			System.out.println(NO_CAR_NAME);
@@ -55,20 +56,20 @@ public class ExceptionHandler {
 		}
 		return false;
 	}
-	
+
 	public boolean isNumber(String numOfTries) {
 		String[] stringTryNum = numOfTries.split("");
 		for (String num : stringTryNum) {
-			if (num.charAt(0) -'0' < 0 || num.charAt(0) -'0' > 9) {
+			if (num.charAt(0) - '0' < 0 || num.charAt(0) - '0' > 9) {
 				System.out.println(NOT_NUMBER);
 				return true;
 			}
 		}
 		tryNum = Integer.valueOf(numOfTries);
 		return false;
-	};
-	
-	public boolean checkTryRange() {
+	}
+
+	public boolean checkTryRange(String numOfTries) {
 		if (tryNum < MIN_TRY_NUM) {
 			System.out.println(LESS_THAN_ONE);
 			return true;
