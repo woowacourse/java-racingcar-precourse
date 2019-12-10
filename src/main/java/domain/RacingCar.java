@@ -10,7 +10,7 @@ public class RacingCar {
 		
 		winnersCnt = winners.size();
 		
-		for( int i=0 ; i<winnersCnt-1; i++) {
+		for (int i = 0; i < winnersCnt - 1; i++) {
 			System.out.print(winners.get(i) + ", ");
 		}
 		
@@ -21,7 +21,7 @@ public class RacingCar {
 		int position;
 		int carCnt = cars.size();
 		
-		for(int i = 0; i < carCnt; i++) {
+		for (int i = 0; i < carCnt; i++) {
 			Car car = cars.get(i);
 			position = car.getPosition();
 			
@@ -36,7 +36,7 @@ public class RacingCar {
 		int Max = 0;
 		int position;
 		
-		for( int i=0 ; i<carCnt ; i++ ) {
+		for (int i = 0; i < carCnt; i++) {
 			Car car = cars.get(i);
 			position = car.getPosition();
 			
@@ -51,7 +51,7 @@ public class RacingCar {
 	static void moveCars(Vector <Car> cars) {
 		int carCnt = cars.size();
 		
-		for( int i=0 ; i<carCnt ; i++ ) {
+		for (int i = 0; i < carCnt; i++) {
 			Car car = cars.get(i);
 			car.move();
 			car.showName();
@@ -63,7 +63,7 @@ public class RacingCar {
 	
 	static void showResult(Vector <Car> cars, int tryCnt) {
 		System.out.println("실행결과");
-		for( int i=0 ; i<tryCnt ; i++ ) {
+		for (int i = 0; i < tryCnt; i++) {
 			moveCars(cars);
 			System.out.println();
 		}
@@ -83,7 +83,7 @@ public class RacingCar {
 	static void makeCars(Vector <Car> cars, String[] carNames) {
 		int length;
 		
-		for( String name : carNames) {
+		for (String name : carNames) {
 			length = name.length();
 			
 			if(length <= 5) {
