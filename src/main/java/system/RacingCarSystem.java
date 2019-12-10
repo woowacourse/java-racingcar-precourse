@@ -1,6 +1,7 @@
 package system;
 
 import domain.Car;
+import domain.RacingCars;
 import io.InputRacingCar;
 import io.OutputRacingCar;
 
@@ -9,49 +10,35 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class RacingCarSystem {
-    private List<Car> cars = new LinkedList<>();
-
     public void run() {
         String carsName = InputRacingCar.inputCarsName();
-        validateCarsName(carsName);
-        setCarList(carsName);
+        RacingCars racingCars = new RacingCars(createRacingCars(carsName));
+        List<Car> racingCarsList = racingCars.getCarList();
 
-        RacingSystem racingSystem = new RacingSystem(cars);
+        RacingSystem racingSystem = new RacingSystem(racingCarsList);
         racingSystem.startRacing();
 
-        RankingSystem rankingSystem = new RankingSystem(cars);
+        RankingSystem rankingSystem = new RankingSystem(racingCarsList);
         List<String> winnerList = rankingSystem.getWinner();
         OutputRacingCar.printWinner(winnerList);
     }
 
-    public void setCarList(String carsName) {
-        StringTokenizer st = splitCarName(carsName);
+    private List<Car> createRacingCars(String carsName) {
+        List<Car> cars = new LinkedList<>();
 
+        StringTokenizer st = splitCarName(carsName);
         while (st.hasMoreTokens()) {
             String carName = st.nextToken();
-
-            validateCarName(carName);
-            createCar(carName);
+            addCar(cars, carName);
         }
+        return cars;
     }
 
-    public StringTokenizer splitCarName(String carsName) {
+    private StringTokenizer splitCarName(String carsName) {
         return new StringTokenizer(carsName, ",");
     }
 
-    public void createCar(String carName) {
+    private void addCar(List<Car> cars, String carName) {
         cars.add(new Car(carName));
-    }
-
-    public void validateCarsName(String carsName) {
-        if (carsName.equals("")) {
-            throw new IllegalStateException("이름을 입력해주세요.");
-        }
-    }
-
-    public void validateCarName(String carName) {
-        if (carName.startsWith(" ")) {
-            throw new IllegalStateException("이름은 공백으로 시작할 수 없습니다.");
-        }
     }
 }

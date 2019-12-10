@@ -11,10 +11,10 @@ import java.util.List;
 public class RacingSystem {
     private static final int MOVE_CONDITION = 4;
 
-    private List<Car> cars;
+    private final List<Car> racingCars;
 
-    public RacingSystem(List<Car> cars) {
-        this.cars = new ArrayList<>(cars);
+    public RacingSystem(List<Car> racingCars) {
+        this.racingCars = new ArrayList<>(racingCars);
     }
 
     public void startRacing() {
@@ -27,21 +27,21 @@ public class RacingSystem {
         }
     }
 
-    public void race() {
-        for (Car car : cars) {
+    private void race() {
+        for (Car car : racingCars) {
             decideToMoveCar(car);
             OutputRacingCar.printCarProgress(car);
         }
         System.out.println();
     }
 
-    public void decideToMoveCar(Car car) {
+    private void decideToMoveCar(Car car) {
         if (RandomNumberGenerator.getRandomNumber() >= MOVE_CONDITION) {
             car.move();
         }
     }
 
-    public void validateRepeatTimes(int repeatTimes) {
+    private void validateRepeatTimes(int repeatTimes) {
         if (repeatTimes <= 0) {
             throw new IllegalStateException("반복 횟수는 1 이상이여야 합니다.");
         }
