@@ -30,6 +30,10 @@
   * moveCar() : 자동차를 움직이고 결과를 출력하는 메소드
   * getNum() : 0 - 9까지 임의의 난수를 발생시키는 메소드
   * checkInputCars() : 사용자가 입력한 자동차의 유효성 유무를 체크하는 메소드
+    * checkNotNull() : 입력이 null값인지 체크하는 메소드
+    * checkLength() : 입력이 유효한 길이인지 확인하는 메소드
   * checkInputCnt() : 사용자가 입력한 이동 횟수의 유효성 유무를 체크하는 메소드
+    * checkNotNull() : 입력이 null값인지 체크하는 메소드
+    * checkZero() : 입력이 0인지 확인하는 메소드
   * getMax() : 최대로 이동 거리를 구하는 메소드
   * getWinners() : 최종 우승자를 구하는 메소드
