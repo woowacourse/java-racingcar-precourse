@@ -32,14 +32,7 @@ public class OutputView {
 
 	public static void printWinners(ArrayList<Car> cars) {
 		ArrayList<String> winnerNames = getWinnerNames(cars);
-
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append(winnerNames.get(0));
-		for(int i = 1; i < winnerNames.size(); i++) {
-			stringBuilder.append(", ");
-			stringBuilder.append(winnerNames.get(i));
-		}
-		System.out.println(stringBuilder.toString() + IS_WINNER_MESSAGE);
+		System.out.println(getWinnersLine(winnerNames) + IS_WINNER_MESSAGE);
 	}
 
 	private static ArrayList<String> getWinnerNames(ArrayList<Car> cars) {
@@ -51,5 +44,16 @@ public class OutputView {
 			}
 		}
 		return winnerNames;
+	}
+
+	private static String getWinnersLine(ArrayList<String> winnerNames) {
+		StringBuilder stringBuilder = new StringBuilder();
+
+		stringBuilder.append(winnerNames.get(0));
+		for(int i = 1; i < winnerNames.size(); i++) {
+			stringBuilder.append(", ");
+			stringBuilder.append(winnerNames.get(i));
+		}
+		return stringBuilder.toString();
 	}
 }
