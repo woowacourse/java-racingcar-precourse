@@ -36,7 +36,7 @@ public class InputView {
     public int inputRound() {
         String numberOfRound;
         do {
-            System.out.print(Message.INPUT_NUMBER_OF_ROUNDS_MESSAGE.getMessage());
+            System.out.println(Message.INPUT_NUMBER_OF_ROUNDS_MESSAGE.getMessage());
             numberOfRound = new Scanner(System.in).next();
         } while (!InputExceptionController.getInstance().validateRoundNumber(numberOfRound));
         int round = Integer.parseInt(numberOfRound);
