@@ -12,11 +12,11 @@ public class Car {
 	private static final int THRESHOLD = 4;
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public int getPosition() {
-		return position;
+		return this.position;
 	}
 
 	public void run(int value) {

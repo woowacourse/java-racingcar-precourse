@@ -11,14 +11,14 @@ public class Race {
 	private List<Car> carList;
 	private Integer rounds;
 	private List<Car> winnerList;
-	private static final int MAX_MOVE = 10;
+	private static final int MOVE_RANGE = 10;
 
 	public Race(List<String> carNameList, Integer rounds) {
 		this.rounds = rounds;
 		this.carList = makeCars(carNameList);
 	}
 
-	public void doGame() {
+	public void playGame() {
 		for (int i = 0; i < rounds; i++) {
 			runCars();
 			showRoundResult();
@@ -36,7 +36,7 @@ public class Race {
 		Random random = new Random();
 		for (Car car : carList
 		) {
-			car.run(random.nextInt(MAX_MOVE));
+			car.run(random.nextInt(MOVE_RANGE));
 		}
 	}
 

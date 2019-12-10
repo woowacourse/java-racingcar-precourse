@@ -10,7 +10,7 @@ public final class InputUtils {
 		"경주할 자동차 이름을 입력하세요.(이름은 %s(%s) 기준으로 구분)", SEPARATOR[1], SEPARATOR[0]);
 	private static final int NAME_MAX_LEN = 5;
 	private static final int NAME_MIN_LEN = 1;
-	private static final String PROMPT_TRIES = "시도할 회수는 몇회인가요?";
+	private static final String PROMPT_ROUNDS = "시도할 회수는 몇회인가요?";
 	private static final String ERROR_MESSAGE = "유효하지 않은 입력입니다.";
 
 	private static Scanner scanner = new Scanner(System.in);
@@ -20,7 +20,7 @@ public final class InputUtils {
 	public static Integer getRounds() {
 		Integer inputValue;
 		while (true) {
-			System.out.println(PROMPT_TRIES);
+			System.out.println(PROMPT_ROUNDS);
 			if (scanner.hasNextInt() && (inputValue = scanner.nextInt()) > 0) {
 				break;
 			}
@@ -31,7 +31,7 @@ public final class InputUtils {
 		return inputValue;
 	}
 
-	public static List<String> getNames() {
+	public static List<String> getNameList() {
 		String inputValue;
 		List<String> nameList;
 		while (true) {
