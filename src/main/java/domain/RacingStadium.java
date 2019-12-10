@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.StringJoiner;
 
@@ -81,8 +82,11 @@ public class RacingStadium {
     }
 
     private void playRace() {
+        Random random = new Random();
+
         for (Car raceCar : raceCars) {
-            raceCar.tryToGoForward();
+            int randomNumber = random.nextInt(9);
+            raceCar.tryToGoForward(randomNumber);
             raceCar.printCurrentStatus();
         }
     }
