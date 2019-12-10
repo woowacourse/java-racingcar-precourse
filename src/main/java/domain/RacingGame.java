@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RacingGame {
-	private Scanner sc;
-	private List<Car> carList;
-	private int racingCount;
-	private int maxPosition;
+	private static final int MAX_CAR_NAME_LENGTH = 5;
+
+	private static Scanner sc;
+	private static List<Car> carList;
+	private static int racingCount;
+	private static int maxPosition;
 
 	public RacingGame() {
 		sc = new Scanner(System.in);
@@ -104,7 +106,7 @@ public class RacingGame {
 		}
 
 		for (String carName : splitedCarNames) {
-			if (carName.length() > 5) {
+			if (carName.length() > MAX_CAR_NAME_LENGTH) {
 				return false;
 			}
 			Car car = new Car(carName);
