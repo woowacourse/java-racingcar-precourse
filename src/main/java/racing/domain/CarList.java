@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarList implements Iterable<Car>{
+public class CarList implements Iterable<Car> {
     private final List<Car> cars;
 
     private CarList(List<Car> cars) {
@@ -28,5 +28,21 @@ public class CarList implements Iterable<Car>{
     @Override
     public Iterator<Car> iterator() {
         return cars.iterator();
+    }
+
+    public Winner getWinners() {
+        int maxPosition = getMaxPosition();
+        List<Car> maxPositionCars = cars.stream()
+                .filter(car -> car.isPosition(maxPosition))
+                .collect(Collectors.toList());
+
+        return Winner.of(maxPositionCars);
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
     }
 }

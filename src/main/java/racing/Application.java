@@ -16,7 +16,11 @@ public class Application {
         CarRunRule runRule = RunRuleFactory.getInstance();
         Game game = Game.getInstance(cars, runRule);
 
-        game.start(round);
+        OutputDisplay.startPrintResult();
+        for (int i = 0; i < round; i++) {
+            game.playOneRound();
+            OutputDisplay.printEachRoundResult(game);
+        }
 
         Winner winner = game.getWinners();
         OutputDisplay.printResult(winner);

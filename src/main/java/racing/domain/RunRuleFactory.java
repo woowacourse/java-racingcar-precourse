@@ -1,7 +1,6 @@
 package racing.domain;
 
 public class RunRuleFactory {
-
     private static boolean isDefaultOption = true;
 
     private RunRuleFactory() {

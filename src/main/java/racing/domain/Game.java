@@ -1,7 +1,5 @@
 package racing.domain;
 
-import racing.display.OutputDisplay;
-
 public class Game {
     private final CarList cars;
     private final CarRunRule runRule;
@@ -15,23 +13,22 @@ public class Game {
         return new Game(cars, runRule);
     }
 
-    public void start(int round) {
-        System.out.println("\n실행 결과");
-        for (int i = 0; i < round; i++) {
-            playOneRound();
-            printCarStatus();
-        }
-    }
-
-    private void playOneRound() {
+    public void playOneRound() {
         cars.playOneRoundWith(runRule);
     }
 
-    private void printCarStatus() {
-        OutputDisplay.printCarsStatus(cars);
+    public Winner getWinners() {
+        return cars.getWinners();
     }
 
-    public Winner getWinners() {
-        return null;
+    public CharSequence getCurrentInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Car car : cars) {
+            stringBuilder.append(car);
+            stringBuilder.append('\n');
+        }
+
+        return stringBuilder;
     }
 }

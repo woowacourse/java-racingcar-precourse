@@ -8,19 +8,27 @@ public class Car {
         this.name = name;
     }
 
-    public void run() {
+    void run() {
         position++;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    // 추가 기능 구현
+    int getPosition() {
+        return position;
+    }
+
+    boolean isPosition(int position) {
+        return this.position == position;
+    }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(name);
+        StringBuilder sb = new StringBuilder();
+        String nameFormat = String.format("%-5s", name);
+        sb.append(nameFormat);
         sb.append(" : ");
 
         for (int i = 0; i < position; i++) {
