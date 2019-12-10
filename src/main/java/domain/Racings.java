@@ -20,4 +20,21 @@ public class Racings {
         Gamestart();
         EndGame();
     }
+
+    public boolean CKBoundary() {
+        for (i=0;i<Names.length;i++) {
+            if (Names[i].length() == 0) {
+                System.out.println("Error Input.");
+                return true;
+            }
+        }
+        for (i=0;i<Names.length;i++) {
+            if (Names[i].length() > 5) {
+                System.out.println("Error Input.");
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
