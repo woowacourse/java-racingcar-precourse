@@ -16,13 +16,15 @@ import java.util.ArrayList;
  */
 public class Process {
 	private static final int CONDITION = 3;
-	
+
+	/** 0~9 사이 랜덤 수 중 조건보다 크면 차량 전진 */
 	public static void isCarProceed(Car currentCar) {
 		if ((int) Math.floor(Math.random() * 10) > CONDITION) {
 			currentCar.addPosition();
 		}
 	}
-	
+
+	/** 현재 차량의 이름과 위치정보 출력 */
 	public static void printEachCarStatus(Car currentCar) {
 		System.out.print(currentCar.getName() + " : ");
 		for (int i = 0; i < currentCar.getPosition(); i++) {
@@ -30,7 +32,8 @@ public class Process {
 		}
 		System.out.print("\n");
 	}
-	
+
+	/** 최고로 멀리 간 차량(들)을 찾아서 반환 */
 	public static ArrayList<Car> findWinner(ArrayList<Car> car) {
 		ArrayList<Car> winnersCarList = new ArrayList<Car>();
 		int nowMaxPosition = 0;
@@ -46,7 +49,8 @@ public class Process {
 		}
 		return winnersCarList;
 	}
-	
+
+	/** 우승자를 콤마(,)로 구분하여 합친 문자열 반환 */
 	public static String printWinner(ArrayList<Car> winners) {
 		ArrayList<String> winnersName = new ArrayList<String>();
 		for (int i = 0; i < winners.size(); i++) {
