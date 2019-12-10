@@ -79,4 +79,11 @@ public class RacingCarGame {
 		}
 		System.out.println();
 	}
+	
+	private int getNum() {
+		double randomValue = Math.random();
+		int num = (int) (randomValue * 9);
+		
+		return num;
+	}
 }
