@@ -1,7 +1,7 @@
 /*
  * 클래스명 : ExceptionHandler
  * 
- * version : 0.3
+ * version : 0.4
  * 
  * 날짜 : 2019.12.08
  * 
@@ -58,9 +58,12 @@ public class ExceptionHandler {
 	}
 
 	public boolean isNumber(String numOfTries) {
+		/* 음수를 입력받을 때, '-' 부분이 문자로 인식되어 음수가 숫자임에도 숫자가 아니라고 출력되는 것을 방지 */
 		String[] stringTryNum = numOfTries.split("");
-		for (String num : stringTryNum) {
-			if (num.charAt(0) - '0' < 0 || num.charAt(0) - '0' > 9) {
+		for (int i = 0; i < stringTryNum.length; i++) {
+			if (stringTryNum[0].equals("-") && stringTryNum.length > 1) {
+				continue;
+			} else if (stringTryNum[i].charAt(0) - '0' < 0 || stringTryNum[i].charAt(0) - '0' > 9) {
 				System.out.println(NOT_NUMBER);
 				return true;
 			}
