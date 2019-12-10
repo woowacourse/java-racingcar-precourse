@@ -19,7 +19,8 @@ public class OutputRacingCar {
     }
 
     public static void printPositionStatus(StringBuilder sb, Car car) {
-        for (int i = 0; i < car.getPosition(); i++) {
+        int position = car.getPosition();
+        while (position-- > 0) {
             sb.append("-");
         }
     }

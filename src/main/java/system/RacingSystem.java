@@ -3,7 +3,7 @@ package system;
 import domain.Car;
 import io.InputRacingCar;
 import io.OutputRacingCar;
-import util.RandomNumberGenerator;
+import util.Numbers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +21,9 @@ public class RacingSystem {
         int repeatTimes = InputRacingCar.inputRepeatTimes();
 
         OutputRacingCar.printGameResult();
-        for (int i = 0; i < repeatTimes; i++) {
+        while (repeatTimes-- > 0) {
             race();
+            System.out.println();
         }
     }
 
@@ -31,11 +32,10 @@ public class RacingSystem {
             decideToMoveCar(car);
             OutputRacingCar.printCarProgress(car);
         }
-        System.out.println();
     }
 
     private void decideToMoveCar(Car car) {
-        if (RandomNumberGenerator.getRandomNumber() >= MOVE_CONDITION) {
+        if (Numbers.getRandomNumber() >= MOVE_CONDITION) {
             car.move();
         }
     }

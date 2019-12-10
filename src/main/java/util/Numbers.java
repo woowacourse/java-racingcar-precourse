@@ -1,6 +1,6 @@
 package util;
 
-public class RandomNumberGenerator {
+public class Numbers {
     private static final int RANGE = 10;
 
     public static int getRandomNumber() {
