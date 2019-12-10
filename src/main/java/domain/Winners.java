@@ -13,4 +13,8 @@ public class Winners {
     public List<Car> getWinners() {
         return Collections.unmodifiableList(winners);
     }
+
+    public Integer getWinnersSize() {
+        return winners.size();
+    }
 }

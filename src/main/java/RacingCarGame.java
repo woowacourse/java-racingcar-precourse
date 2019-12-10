@@ -7,6 +7,7 @@ import utils.OutputUtil;
 class RacingCarGame {
     private final RacingCars racingCars;
     private Integer count;
+    private static final Integer EMPTY = 0;
 
     private RacingCarGame(RacingCars racingCars, Integer count) {
         checkCarNameIsEmpty(racingCars);
@@ -31,7 +32,7 @@ class RacingCarGame {
     }
 
     static void checkCarNameIsEmpty(RacingCars racingCars) {
-        if (racingCars.getRacingCars().size() == 0) {
+        if (racingCars.getRacingCars().size() == EMPTY) {
             throw new IllegalArgumentException("자동차 이름을 채워주세요!");
         }
     }
@@ -49,8 +50,12 @@ class RacingCarGame {
     }
 
     private void printWinners() {
-        Referee referee = new Referee();
-        Winners winners = new Winners(referee.decideWinners(racingCars.getRacingCars()));
+        Winners winners = new Winners(Referee.decideWinners(racingCars));
+
+        if (winners.getWinnersSize() == EMPTY) {
+            OutputUtil.printNoneWinners();
+            return;
+        }
         OutputUtil.printWinners(winners);
     }
 }

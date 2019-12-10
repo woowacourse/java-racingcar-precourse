@@ -23,6 +23,10 @@ public class OutputUtil {
         System.out.println(sj + "가(이) 최종 우승했습니다.");
     }
 
+    public static void printNoneWinners() {
+        System.out.println("최종 우승자가 없습니다!");
+    }
+
     public static void printRacingSituation(RacingCars racingCars) {
         StringBuilder sb = new StringBuilder();
         sb.append("실행 결과").append('\n');
