@@ -11,6 +11,7 @@ public class RacingGameConfig {
     public static final String STANDARD_TO_PARSE = ",";
     public static final int MIN_CYCLES = 1;
     public static final int MAX_NAME_LENGTH = 5;
+    public static final String POSITION_MARK = "-";
     static final int MIN_NAMES = 2;
     static final int DEFAULT_ID = 0;
     static final int AMOUNT_INCREASE_ID = 1;
@@ -18,6 +19,5 @@ public class RacingGameConfig {
     static final int MIN_RANDOM_NUMBER = 0;
     static final int MAX_RANDOM_NUMBER = 9;
     static final int STANDARD_TO_GO = 4;
-    public static final String POSITION_MARK = "-";
     static final String[] NOT_ALLOWED_IN_NAME = {" ", "!", "@", "#", "$", "%", "^", "&", "*"};
 }

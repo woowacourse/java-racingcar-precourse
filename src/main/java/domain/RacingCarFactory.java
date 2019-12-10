@@ -33,5 +33,4 @@ public class RacingCarFactory implements RaceableFactory {
 
         return raceables;
     }
-
 }

@@ -29,6 +29,7 @@ public class RacingRefereeImpl implements RacingReferee {
                 .max(Integer::compareTo)
                 .orElseThrow(IllegalArgumentException::new);
 
-        return raceables.stream().filter(racingCar -> racingCar.getPosition() == maxPosition).sorted().collect(Collectors.toList());
+        return raceables.stream().filter(racingCar -> racingCar.getPosition() == maxPosition)
+                .sorted().collect(Collectors.toList());
     }
 }

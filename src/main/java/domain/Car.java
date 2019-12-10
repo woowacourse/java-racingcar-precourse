@@ -13,7 +13,7 @@ public class Car implements Movable, Comparable<Car> {
     private final String name;
     private int position = 0;
 
-    Car(String name) {
+    public Car(String name) {
         this.id = CarId.getInstance().increaseId();
         this.name = name;
     }

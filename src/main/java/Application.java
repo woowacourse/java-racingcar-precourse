@@ -34,12 +34,10 @@ public class Application {
             racingPrinter.printErrorGameFinishedAbnormal(e.getMessage());
             System.exit(-1);
         }
-
     }
 
     private static UserInterface setupUserInterface(Validator validator, RacingPrinter racingPrinter) {
         InputController inputController = new InputControllerImpl(new Scanner(System.in));
-
         return new Console(inputController, validator, racingPrinter);
     }
 
@@ -47,8 +45,6 @@ public class Application {
         RaceableFactory raceableFactory = new RacingCarFactory(validator);
         List<Raceable> raceables = raceableFactory.create(names);
         RacingReferee racingReferee = new RacingRefereeImpl(validator);
-
         return new RacingGameImpl(raceables, racingReferee, racingPrinter);
-
     }
 }
