@@ -1,7 +1,7 @@
 /*
  * 클래스명 : RacingCarGame
  * 
- * version : 0.2
+ * version : 0.3
  * 
  * 날짜 : 2019.12.08
  * 
@@ -22,7 +22,7 @@ public class RacingCarGame {
 	private static final String IS_WINNER = "이(가) 최종 우승했습니다.";
 	private static final String COMMA = ",";
 	private static final char SHAPE = '-';
-	private int numOfTries;
+	private String numOfTries;
 	private String carNamesDividedByComma;
 	private String carNames[];
 	private List<Car> cars = new ArrayList<>();
@@ -34,7 +34,7 @@ public class RacingCarGame {
 		getCarNames();
 		getTries();
 		System.out.println('\n' + RESULT);
-		for (int i = 0; i < numOfTries; i++) {
+		for (int i = 0; i < Integer.valueOf(numOfTries); i++) {
 			moveCar();
 			printPosition();
 			System.out.print('\n');
@@ -47,7 +47,8 @@ public class RacingCarGame {
 		System.out.println(QUESTION_TO_GET_CAR_NAMES);
 		do {
 			carNamesDividedByComma = input.nextLine();
-		} while (exception.checkNameRange(carNamesDividedByComma) || exception.isDuplicated());
+		} while (exception.checkNameRange(carNamesDividedByComma) || exception.isDuplicated()
+					|| exception.isNothing());
 		carNames = carNamesDividedByComma.split(COMMA);
 		for (String carName : carNames) {
 			cars.add(new Car(carName));
@@ -57,8 +58,8 @@ public class RacingCarGame {
 	private void getTries() {
 		System.out.println(QUESTION_TO_GET_TRIES);
 		do {
-			numOfTries = input.nextInt();
-		} while (exception.checkTryRange(numOfTries));
+			numOfTries = input.nextLine();
+		} while (exception.isNumber(numOfTries) || exception.checkTryRange());
 	}
 
 	private void moveCar() {
