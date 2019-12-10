@@ -49,6 +49,19 @@ public class RacingCarGame {
 		}
 	}
 	
+	private void inputGameCnt() {
+		String sCnt;
+		
+		do {
+			System.out.println("시도할 회수는 몇회인가요?");
+			sCnt = sc.nextLine();
+		} while(!checkInputCnt(sCnt));
+		
+		gameCnt = Integer.parseInt(sCnt);
+	}
+	
+
+	
 
 	
 
