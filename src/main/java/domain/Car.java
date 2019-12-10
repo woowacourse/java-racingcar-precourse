@@ -1,12 +1,21 @@
 package domain;
 
+import static util.CustomErrorMessage.*;
+
 public class Car {
-    private final String name;
-    private int position = 0;
+	private final String name;
+	private int position = 0;
 
-    public Car(String name) {
-        this.name = name;
-    }
+	private int LENGTH_LIMIT = 5;
 
-    // 추가 기능 구현
+	public Car(String name) {
+		validateNameLength(name);
+		this.name = name;
+	}
+
+	private void validateNameLength(String name) {
+		if (name.length() > LENGTH_LIMIT) {
+			throw new IllegalArgumentException(NOT_PERMITTED_STRING_LENGTH);
+		}
+	}
 }
