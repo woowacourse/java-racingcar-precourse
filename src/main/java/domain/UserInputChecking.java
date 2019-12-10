@@ -18,7 +18,8 @@ public class UserInputChecking {
     private static final int MIN_CAR_NAME_LENGTH=0;
     private static final int ERROR_COUNT_INPUT=-1;
     private static final String COMMA=",";
-    
+    private static final String WRONG_CAR_NAME_MESSAGE="자동차 이름이 잘못되었습니다.";
+    private static final String WRONG_COUNT_MESSAGE="횟수가 잘못 입력되었습니다. 양의 정수만 입력해주세요.";
     
     public boolean checkCarName(String n) {
 	String[] tmpname = n.split(COMMA);
@@ -26,7 +27,7 @@ public class UserInputChecking {
 	    
 	    /*이름이 5자를 넘어가면 오류*/
 	    if(tmpname[i].length()==MIN_CAR_NAME_LENGTH || tmpname[i].length()>MAX_CAR_NAME_LENGTH) {
-		System.out.println("자동차 이름이 잘못되었습니다.");
+		System.out.println(WRONG_CAR_NAME_MESSAGE);
 		return false;
 	    }
 	}
@@ -37,11 +38,11 @@ public class UserInputChecking {
     /*횟수가 잘못 입력된 경우 -1을 리턴하고, 아니면 입력된 횟수를 출력*/
     public int checkCount(String n) {
 	if(isStringInt(n)==false) {
-	    System.out.println("횟수가 잘못 입력되었습니다. 정수만 입력해주세요.");
+	    System.out.println(WRONG_COUNT_MESSAGE);
 	    return ERROR_COUNT_INPUT;
 	}
 	if( Integer.parseInt(n)<=0 ) {
-	    System.out.println("횟수가 잘못 입력되었습니다. 양의 정수만 입력해주세요.");
+	    System.out.println(WRONG_COUNT_MESSAGE);
 	    return ERROR_COUNT_INPUT;
 	}
 	return Integer.parseInt(n);
