@@ -1,16 +1,22 @@
 package domain;
 
-public class Name {
-    String name;
+class Name {
+    private String name;
+    private static final Integer LOWER_BOUND = 1;
+    private static final Integer UPPER_BOUND = 5;
 
-    public Name(String name) {
+    Name(String name) {
         checkValid(name);
         this.name = name;
     }
 
     private void checkValid(String name) {
-        if (0 < name.length() && name.length() > 5) {
-            throw new IllegalArgumentException();
+        if (LOWER_BOUND < name.length() && name.length() > UPPER_BOUND) {
+            throw new IllegalArgumentException("1 ~ 5 자 사이의 이름을 입력해주세요.");
         }
+    }
+
+    String getName() {
+        return name;
     }
 }

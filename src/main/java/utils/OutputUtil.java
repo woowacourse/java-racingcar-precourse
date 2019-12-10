@@ -1,12 +1,11 @@
 package utils;
 
-import domain.Car;
 import domain.RacingCars;
 import domain.Winners;
 
 import java.util.StringJoiner;
 
-public class OutPutUtil {
+public class OutputUtil {
     private static final String MINUS = "-";
 
     public static void printRacingCarsNameDemand() {
@@ -19,7 +18,7 @@ public class OutPutUtil {
 
     public static void printWinners(Winners winners) {
         StringJoiner sj = new StringJoiner(", ");
-        winners.getWinners().stream()
+        winners.getWinners()
                 .forEach(car -> sj.add(car.getCarOriginName()));
         System.out.println(sj + "가(이) 최종 우승했습니다.");
     }
@@ -27,7 +26,7 @@ public class OutPutUtil {
     public static void printRacingSituation(RacingCars racingCars) {
         StringBuilder sb = new StringBuilder();
         sb.append("실행 결과").append('\n');
-        racingCars.getRacingCars().stream()
+        racingCars.getRacingCars()
                 .forEach(car -> {
                     sb.append(car.getCarOriginName()).append(" : ");
                     printMinus(car.getPosition(), sb);

@@ -5,26 +5,30 @@ public class Car {
     private final Name name;
     private int position = 0;
 
-    public Car(Name name) {
+    private Car(Name name) {
         this.name = name;
     }
 
+    public static Car generateCar(String name) {
+        return new Car(new Name(name));
+    }
+
     // 추가 기능 구현
-    public void move(Integer randomInput) {
+    void move(Integer randomInput) {
         if (enough(randomInput)) {
             this.position++;
         }
     }
 
-    public Boolean enough(Integer randomInput) {
-        return randomInput >= 4;
-    }
-
-    public Name getName() {
-        return name;
+    private Boolean enough(Integer randomInput) {
+        return randomInput >= ENOUGH_LIMIT;
     }
 
     public int getPosition() {
         return position;
+    }
+
+    public String getCarOriginName() {
+        return name.getName();
     }
 }

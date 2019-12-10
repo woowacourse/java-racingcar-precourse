@@ -2,6 +2,7 @@ package domain;
 
 import generater.RandomGenerater;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCars {
@@ -13,12 +14,12 @@ public class RacingCars {
     }
 
     public void move() {
-        this.racingCars.stream().forEach(car -> {
+        this.racingCars.forEach(car -> {
             car.move(randomGenerater.generateRandom());
         });
     }
 
     public List<Car> getRacingCars() {
-        return racingCars;
+        return Collections.unmodifiableList(racingCars);
     }
 }
