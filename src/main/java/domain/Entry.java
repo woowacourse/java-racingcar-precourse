@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Entry {
+	private static final String MOVE_LINE = "-";
+	private static final String WINNER_MESSAGE = "가 최종 우승했습니다.";
+
 	private List<Car> racingEntry;
 
 	Entry(List<Car> racingEntry) {
@@ -31,7 +34,7 @@ public class Entry {
 		StringBuilder stringPosition = new StringBuilder();
 
 		for (int i = 0; i < carPosition; ++i) {
-			stringPosition.append("-");
+			stringPosition.append(MOVE_LINE);
 		}
 
 		return stringPosition.toString();
@@ -42,11 +45,11 @@ public class Entry {
 
 		for (String carName : getFirstCarNames()) {
 			winnerMessageBuilder.append(carName);
-			winnerMessageBuilder.append(',');
+			winnerMessageBuilder.append(User.COMMA);
 		}
 
 		winnerMessageBuilder.deleteCharAt(winnerMessageBuilder.length() - 1);
-		System.out.println(winnerMessageBuilder.toString() + "가 최종 우승했습니다.");
+		System.out.println(winnerMessageBuilder.toString() + WINNER_MESSAGE);
 	}
 
 	private List<String> getFirstCarNames() {

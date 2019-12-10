@@ -11,7 +11,7 @@ public class User {
 	private static final String INPUT_MOVE_COUNT = "시도할 회수는 몇회인가요?";
 	private static final String MOVE_COUNT_BE_POSITIVE = "시도 횟수는 음수일 수 없습니다.";
 	private static final String NAME_LENGTH_BELOW_FIVE = "자동차 이름의 길이는 5자 이하만 가능합니다.";
-	private static final String COMMA = ",";
+	public static final String COMMA = ",";
 	private static final int MAX_NAME_LENGTH = 5;
 
 	User() {
