@@ -1,10 +1,14 @@
 package utils;
 
+import domain.Car;
+import domain.RacingCars;
 import domain.Winners;
 
 import java.util.StringJoiner;
 
 public class OutPutUtil {
+    private static final String MINUS = "-";
+
     public static void printRacingCarsNameDemand() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
     }
@@ -17,7 +21,25 @@ public class OutPutUtil {
         StringJoiner sj = new StringJoiner(", ");
         winners.getWinners().stream()
                 .forEach(car -> sj.add(car.getCarOriginName()));
-        System.out.println(sj + "가 최종 우승했습니다.");
+        System.out.println(sj + "가(이) 최종 우승했습니다.");
+    }
+
+    public static void printRacingSituation(RacingCars racingCars) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("실행 결과").append('\n');
+        racingCars.getRacingCars().stream()
+                .forEach(car -> {
+                    sb.append(car.getCarOriginName()).append(" : ");
+                    printMinus(car.getPosition(), sb);
+                    sb.append('\n');
+                });
+        System.out.println(sb.toString());
+    }
+
+    private static void printMinus(Integer position, StringBuilder sb) {
+        for (int i = 0; i < position; i++) {
+            sb.append(MINUS);
+        }
     }
 
 }
