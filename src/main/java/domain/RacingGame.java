@@ -16,18 +16,21 @@ package domain;
 import java.util.ArrayList;
 
 public class RacingGame {
+    private static final String RESULT_MESSAGE ="실행 결과";
+    private static final String COMMA=",";
+    private static final int DELAY_SECOND=1000;
+    private static final int ERROR_COUNT_INPUT=-1;
+    private int count;
+    private Car[] car;
+    
     User user = new User();
     UserInputChecking userinputcheck= new UserInputChecking();
-    
     Computer computer = new Computer();
     Message message = new Message();
     
-    private Car[] car;
-    private int count;
-    
     public void run() {
 	enterCarInfo();
-	System.out.println("실행 결과");
+	System.out.println(RESULT_MESSAGE);
 	
 	/*시도횟수만큼 실행*/
 	for(int i=0;i<this.count;i++) {
@@ -62,7 +65,7 @@ public class RacingGame {
     /*한 번의 횟수 시행 후 긴장감을 위해 딜레이*/
     public void sleep() {
 	try {
-	    Thread.sleep(1000); 		//1초 대기
+	    Thread.sleep(DELAY_SECOND); 		//1초 대기
 	} catch (InterruptedException e) {
 	    e.printStackTrace();
 	}
@@ -70,13 +73,12 @@ public class RacingGame {
     
     public void showWinner() {
 	boolean found=false;
-	int i;
 	
 	/*
 	 * 최대로 가능한 position 값인 count부터 시작하여
 	 * 그 값과 같은 position인 자동차가 나타날 경우 반복문을 탈출한다.
 	 * */
-	for(i=this.count;i>=0;i--) {
+	for(int i=this.count;i>=0;i--) {
 	    found=findPosition(i);
 	    if(found) {
 		break;
@@ -109,7 +111,7 @@ public class RacingGame {
 	while(userinputcheck.checkCarName(carname)==false) {
 	    carname=user.inputCar();
 	}
-	String[] tmpname = carname.split(",");
+	String[] tmpname = carname.split(COMMA);
 	car=new Car[tmpname.length];
 	for(int i=0;i<tmpname.length;i++) {
 	    this.car[i]=new Car(tmpname[i]);
@@ -120,7 +122,7 @@ public class RacingGame {
 	int tmpcount=userinputcheck.checkCount(user.inputCount());
 	
 	/*횟수입력이 올바르게 될때까지 반복*/
-	while(tmpcount==-1) {
+	while(tmpcount==ERROR_COUNT_INPUT) {
 	    tmpcount=userinputcheck.checkCount(user.inputCount());
 	}
 	

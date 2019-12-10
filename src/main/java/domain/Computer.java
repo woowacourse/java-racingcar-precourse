@@ -14,9 +14,10 @@ package domain;
  */
 
 public class Computer {
+    private static final int MAX_RANDOM_NUMBER=9;
     
     public int createRandNum() {
-	int randnum=(int)(Math.random()*9)+1;
+	int randnum=(int)(Math.random()*MAX_RANDOM_NUMBER)+1;
 	return randnum; 
     }
     

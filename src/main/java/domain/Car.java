@@ -14,24 +14,25 @@ package domain;
  */
 
 public class Car {
-	private final String name;
-	private int position = 0;
+    private static final int MIN_GO_NUMBER=4;
+    private final String name;
+    private int position = 0;
+    
+    public Car(String name) {
+	this.name = name;
+    }
 
-	public Car(String name) {
-		this.name = name;
+    public void isGoStop(int n) {
+	if(n>=MIN_GO_NUMBER) {
+	    this.position+=1;
 	}
-	
-	public void isGoStop(int n) {
-	    if(n>=4) {
-		this.position+=1;
-	    }
-	}
+    }
 
-	public int getPosition() {
-	    return this.position;
-	}
+    public int getPosition() {
+	return this.position;
+    }
 	
-	public String getName() {
-	    return this.name;
-	}
+    public String getName() {
+	return this.name;
+    }
 }
