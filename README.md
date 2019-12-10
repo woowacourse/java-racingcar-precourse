@@ -207,52 +207,98 @@ pobi, honux가 최종 우승했습니다.
 
 ### 기능 목록
 
-- [ ] 기능 : 초기 출력
-- [ ] 기능 : 초기 입력
-- [ ] 기능 : 입력의 유효성 검사
-  - 5자 이하
-  - 이름이 같은 경우
-- [ ] 기능 : 랜덤 값 생성하며 Car들의 자리 연산 기능
-- [ ] 기능 : 완료 후 우승자 계산
+- [x] 기능 : 초기 출력
+- [x] 기능 : 초기 입력
+- [x] 기능 : 입력의 유효성 검사
+- [x] 기능 : 랜덤 값 생성
+- [x] 기능 : Car의 이동 결정
+- [x] 기능 : RacingCars를 순회하며 Car의 이동
+- [x] 기능 : 매 회마다 자동차의 위치 출력
+- [x] 기능 : 완료 후 우승자 계산
+- [x] 기능 : 우승자 발표!
+
+
+
+### 예외 처리
+
+- [x] 예외 처리 : 자동차 이름 5자 제한
+- [x] 예외 처리 :잘못된 자동차 이름들
+  - `,` 로 구분되지 않은 경우
+  - `,` 의 수가 맞지 않는 경우
+  - `,,,`의 입력이 들어오는 경우
+- [x] 예외 처리 : 우승자가 나오지 않을 경우
+- [x] 예외 처리 : 몇번의 이동의 입력이 0 이하일 경우
+
+
 
 ### 클래스 설명
 
-- OutputUtil
+- `OutputUtil`
   - 출력 담당
-- InputValidChecker
-  - 입력의 유효성 검증
-- InputUtil
+- `InputValidChecker` 
+  - ~~입력의 유효성 검증하려 했지만 필요 없음~~
+  - 이름을 관리하는 `Name` 클래스로 대신 유효성 체크
+- `Name`
+  - 자동차의 이름
+  - 5자리 이하의 유효성 검증 가능
+- `InputUtil`
   - 입력 담당
-- Car
+- `Car`
   - 자동차 
-- RacingCars
+- `RacingCars`
   - 경주하는 자동차의 상태를 담는다.
-- Winners
+- `Winners`
   - 승리한 자동차의 상태를 담는다.
-- Referee
-  - 마지막에 승리한 자동차를 계산하여 Winners에 담는다.
+- `Referee`
+  - 마지막에 승리한 자동차를 계산하여 `Winners`에 담는다.
+
+- `CarMoveCarculator`
+  - random한 값을 생성하여 값에 알맞은 movePoint를 연산
+
+
 
 ### 작업 일지 
 
 - 12/5
 
-  - `else` 예약어 쓰지 않는 조건 해결 위한 방법...찾기...
-  - http://redutan.github.io/2016/03/31/anti-oop-if
-  - http://woowabros.github.io/tools/2017/07/10/java-enum-uses.html
-
+  - [`else` 예약어 쓰지 않는 조건 해결 위한 방법...찾기...](http://redutan.github.io/2016/03/31/anti-oop-if)
+  - [enum의 사용법](http://woowabros.github.io/tools/2017/07/10/java-enum-uses.html)
+  
 - 12/6
 
-  - 개선된 자바 컨벤션 비교
+  - [개선된 자바 컨벤션](https://naver.github.io/hackday-conventions-java/) 비교
+  - [일급 컬렉션](https://jojoldu.tistory.com/412) 학습
+  - [함수 네이밍 팁](https://mytory.net/2018/01/17/lets-name-a-function-from-Korean.html)
 
 - 12/7
 
+  - [Java Stream](https://futurecreator.github.io/2018/08/26/java-8-streams/)
+  - [Stream 성능](https://jeong-pro.tistory.com/185)
+    - [성능에 관한 고찰](https://brunch.co.kr/@heracul/3?fbclid=IwAR17l0GG2s7_OYUKFjl3YWfBK2C_5JmJ-4XmEYitNRVKLkM7kwZX4emU1gA)
   - 기능 목록 작성
 
 - 12/9
 
   - 구현 시작
+- [StringJoiner](https://java.ihoney.pe.kr/tag/collectors.joining)
+  - Read-Only 자료구조의 효용
+  
+- 12/10 
+
+  - 리팩토링
 
   
 
 ### 회고
+
+- 함수 명명 규칙으로 함수명과 매개변수명을 끊임없이 읽었을 때 의미가 통하게 만드는 것
+  - ex ) `checkValid(String name)`
+- 인식하지 못하고 사용해왔던 일급 객체의 장점들
+- 클래스의 책임 분할
+  - 난해하다...!
+  - 결합도가 낮은 코드를 짜려고 노력했는데 잘됐는지 모르겠다...!
+- 상속을 더욱 활용할 필요가 있다.
+  - 확장이 용이한 코드로 만들기 위해!
+- cli git의 명령어를 외워야겠다.
+- Test를 작성해봤으나 아직 햇병아리 수준이므로 적극 활용할 필요가 있다.
 
