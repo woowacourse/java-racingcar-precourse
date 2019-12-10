@@ -1,9 +1,9 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import domain.Car;
 import sources.CarRaceSource;
-import Utils.UtilityMethods;
+import utils.UtilityMethods;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CarRaceGame {
 	public static void main(String[] args) {

@@ -1,8 +1,4 @@
-package Utils;
-
-import java.util.Scanner;
-
-import domain.Car;
+package utils;
 
 
 public class UtilityTest {
