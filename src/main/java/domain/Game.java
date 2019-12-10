@@ -1,3 +1,14 @@
+/*
+ * Game.java
+ *
+ * version 1.0
+ *
+ * 20191205
+ *
+ * copyright by jiwonSong(s26788761@naver.com)
+ *
+ */
+
 package domain;
 
 import java.util.Scanner;
@@ -35,7 +46,6 @@ public class Game {
     }
 
     public void start() {
-
         initializeCars();
         initializeTurns();
         startRace();
@@ -72,18 +82,17 @@ public class Game {
         int arrLength = inputArray.length;
         String[] trimmedArray = new String[arrLength];
 
-        for (int i=0; i<arrLength; i++) {
+        for (int i = 0; i < arrLength; i++) {
             trimmedArray[i] = inputArray[i].trim();
         }
-
         return trimmedArray;
     }
 
     private boolean checkUserInputCarNames(String[] inputArray) {
-        if (!checkNumberOfString(inputArray, MIN_CAR_NAMES_COUNT)){
+        if (!checkNumberOfString(inputArray, MIN_CAR_NAMES_COUNT)) {
             return false;
         }
-        for (int i=0; i<inputArray.length; i++) {
+        for (int i = 0; i < inputArray.length; i++) {
             if (!checkStringLength(inputArray[i], MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
                 return false;
             }
@@ -102,9 +111,17 @@ public class Game {
         return true;
     }
 
+    private boolean checkStringLength(String string, int min, int max) {
+        if ((min <= string.length()) && (string.length() <= max)) {
+            return true;
+        }
+        System.out.println(ERROR_MESSAGE_CAR_NAME_LENGTH_IS_WRONG);
+        return false;
+    }
+
     private boolean checkUserInputCarNamesDuplicated(String[] inputArray) {
         HashSet<String> nameSet = new HashSet<String>();
-        for (int i=0; i<inputArray.length; i++) {
+        for (int i = 0; i < inputArray.length; i++) {
             if (nameSet.contains(inputArray[i])) {
                 System.out.println(ERROR_MESSAGE_CAR_NAME_IS_DUPLICATED);
                 return true;
@@ -115,19 +132,10 @@ public class Game {
     }
 
     private void saveCarNames(String[] inputArray) {
-        for (int i=0; i<inputArray.length; i++) {
+        for (int i = 0; i < inputArray.length; i++) {
             Car car = new Car(inputArray[i]);
             this.cars.add(car);
         }
-    }
-
-    private boolean checkStringLength(String string, int min, int max) {
-
-        if ((min <= string.length()) && (string.length() <= max)) {
-            return true;
-        }
-        System.out.println(ERROR_MESSAGE_CAR_NAME_LENGTH_IS_WRONG);
-        return false;
     }
 
     private void initializeTurns() {
@@ -167,7 +175,7 @@ public class Game {
     private boolean checkInputContainsChar(String input) {
         try {
             Integer.parseInt(input);
-        } catch ( NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println(ERROR_MESSAGE_INPUT_CONTAINS_CHAR);
             return true;
         }
@@ -194,10 +202,11 @@ public class Game {
 
     private void startRace() {
         Car car;
+
         System.out.println(MESSAGE_RESULT_OF_RACE);
 
-        for (int i=0; i<this.turns; i++) {
-            for (int j=0; j<this.cars.size(); j++) {
+        for (int i = 0; i < this.turns; i++) {
+            for (int j = 0; j < this.cars.size(); j++) {
                 car = this.cars.get(j);
                 car.moveOrStop();
                 car.printRoute();
@@ -216,7 +225,7 @@ public class Game {
         int longestDistance = -1;
         int tempDistance;
 
-        for (int i=0; i<this.cars.size(); i++) {
+        for (int i = 0; i < this.cars.size(); i++) {
             tempDistance = cars.get(i).getPosition();
             if (tempDistance > longestDistance) {
                 longestDistance = tempDistance;
@@ -230,7 +239,7 @@ public class Game {
         Car car;
         int distance;
 
-        for (int i=0; i<this.cars.size(); i++) {
+        for (int i = 0; i < this.cars.size(); i++) {
             car = this.cars.get(i);
             distance = car.getPosition();
             if (distance == this.winnerDistance) {
@@ -248,13 +257,13 @@ public class Game {
         Car winner;
         String winnersNames = "";
 
-        for (int i=0; i<size-1; i++) {
+        for (int i = 0; i < size - 1; i++) {
             winner = this.winners.get(i);
             winnersNames += winner.getName();
             winnersNames += ", ";
         }
 
-        winner = this.winners.get(size-1);
+        winner = this.winners.get(size - 1);
         winnersNames += winner.getName();
         return winnersNames;
     }
