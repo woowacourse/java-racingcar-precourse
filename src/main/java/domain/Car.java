@@ -15,4 +15,9 @@ public class Car {
         return random.nextInt();
     }
 
+    void moveForward(){
+        int randomNumber = generateRandomNumber();
+        if( randomNumber < 4) position++;
+    }
+
 }
