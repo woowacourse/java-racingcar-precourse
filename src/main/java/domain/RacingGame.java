@@ -1,18 +1,12 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class RacingGame {
 
-    static String returnCarName(String name) {
-        Car newCar = new Car(name);
-        return newCar.getName();
-    }
-
-    static void playGame(int gameNumber) {
-        for (int i = 0; i < gameNumber; i++) {
-            // moveCar();
+    static void moveCar(ArrayList<Car> carArray) {
+        for (int i = 0; i < carArray.size(); i++) {
+            carArray.get(i).move();
         }
     }
 
@@ -26,9 +20,7 @@ public class RacingGame {
             isCarNameCorrect = GetCarNameInput.checkCarNameInput(carNamesArray);
             GetCarNameInput.returnCarNameInput(carNamesArray);
         } while (!isCarNameCorrect);
-
         gameNumber = GetGameNumberInput.getGameNumberInput();
-
         // System.out.println("Cars: " + carNamesArray + ", Number of games: " + gameNumber);
 
         ArrayList<Car> carArray = new ArrayList<Car>();
@@ -36,8 +28,9 @@ public class RacingGame {
         for (String name : carNamesArray) {
             carArray.add(new Car(name));
         }
-        // System.out.println(carArray.get(0).getName());
 
-        playGame(gameNumber);
+        for (int i = 0; i < gameNumber; i++) {
+            moveCar(carArray);
+        }
     }
 }
