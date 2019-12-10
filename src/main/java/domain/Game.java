@@ -8,7 +8,7 @@ public class Game {
     private ArrayList<Car> carList = new ArrayList<Car>();
     private int tryCount = 0;
 
-    void playGame(){
+    public void playGame(){
         initializeGame();
         System.out.println();
         System.out.println("실행결과");
@@ -18,44 +18,53 @@ public class Game {
         }
     }
 
-    void initializeGame(){
+    public void initializeGame(){
         setCarList();
         setTryCount();
     }
 
-    void setCarList(){
+   public void setCarList(){
         String[] carNameList;
         carNameList = getCarNameList();
         makeCarList(carNameList);
     }
 
-    String[] getCarNameList(){
+    public String[] getCarNameList(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("경주할 자동차 이름 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNameList = scanner.nextLine().split(",");
         return carNameList;
     }
 
-    void makeCarList(String[] carNameList){
+    public void makeCarList(String[] carNameList){
         for(String s : carNameList){
             carList.add(new Car(s));
         }
     }
 
-    void setTryCount(){
+    public void setTryCount(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("시도할 회수는 몇회인가요?");
         tryCount = scanner.nextInt();
     }
 
-    void moveAndPrintEachCar() {
+    public void moveAndPrintEachCar() {
         for(Car car : carList){
             car.moveForward();
             car.printPosition();
         }
     }
 
-    int findMaxPosition(){
+    public ArrayList<String> getWinnerName(){
+        ArrayList<String> winnerNameList = new ArrayList<String>();
+        int maxPositon = findMaxPosition();
+        for(Car car : carList){
+            if(car.getPosition() == maxPositon) winnerNameList.add(car.getName());
+        }
+        return winnerNameList;
+    }
+
+    public int findMaxPosition(){
         ArrayList<Integer> carPositionList = new ArrayList<Integer>();
         for(Car car : carList){
             carPositionList.add(car.getPosition());

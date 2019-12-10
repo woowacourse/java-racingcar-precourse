@@ -10,21 +10,21 @@ public class Car {
         this.name = name;
     }
 
-    int getPosition(){ return position; }
+    public int getPosition(){ return position; }
 
-    String getName(){ return name;}
+    public String getName(){ return name;}
 
-    int generateRandomNumber(){
+    public int generateRandomNumber(){
         Random random = new Random();
         return random.nextInt();
     }
 
-    void moveForward(){
+    public void moveForward(){
         int randomNumber = generateRandomNumber();
         if( randomNumber < 4) position++;
     }
 
-    void printPosition(){
+    public void printPosition(){
         System.out.print(name+":");
         for(int i =0 ; i< position; i++){
             System.out.print("-");
