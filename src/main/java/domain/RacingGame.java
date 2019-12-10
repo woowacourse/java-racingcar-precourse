@@ -12,14 +12,14 @@ public class RacingGame {
 	}
 
 	public void start() {
-		ready();
+		ready();		// 자동차들의 이름과 게임의 rounds 입력 및 자동차 생성
 		System.out.println("\n실행 결과");
 		while (rounds != 0) {
-			play();
+			play();			// 자동차 마다 랜덤 숫자 생성 후, 이동 및 현재 위치 출력
 			System.out.println();
 			rounds--;
 		}
-		printResult();
+		printResult();		// 최종 우승 자동차 출력
 	}
 
 	public void ready() {
@@ -57,6 +57,8 @@ public class RacingGame {
 	}
 
 	public boolean validate(String[] nameList) {
+
+		/* 배열에 담긴 모든 이름들이 빈 문자열이 아니고, 길이가 5이하인지 확인 */
 		for (int i = 0; i < nameList.length; i++) {
 			String name = nameList[i].trim();
 			if ((name == null) || (name.length() == 0) || (name.length() > 5)) {

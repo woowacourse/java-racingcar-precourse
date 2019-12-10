@@ -17,7 +17,7 @@ public class Car {
 	}
 
 	public void tryToMove(int energy) {
-		if (energy >= 4) {
+		if (energy >= 4) {		// energy: 0~9 사이의 정수 -> 전진 확률 60%
 			position++;
 		}
 	}
