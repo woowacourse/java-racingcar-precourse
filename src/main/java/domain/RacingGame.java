@@ -5,13 +5,8 @@ import java.util.List;
 
 public class RacingGame {
 
-	/* 레이스 시도 횟수 */
 	private int trialTime = 0;
-	
-	/* 경주에 참여하는 자동차 인스턴스를 저장하는 리스트 */
 	private List<Car> carList;
-	
-	/* 우승자 이름을 저장 */
 	private Winner winner;
 	
 	/* 유저로 부터 입력을 받기위한 InputManager 인스턴스 */
@@ -25,7 +20,7 @@ public class RacingGame {
 
 	/*
 	 * game 전체 로직을 순차적으로 실행하는 메서드
-	 * 데이터를 입력받고, 경주를 진행하고, 우승자를 결정한다.
+	 * 데이터를 입력받고, 경주를 진행하고, 우승자를 출력한다.
 	 */
 	public void play() {
 		prepareRacing();
@@ -34,7 +29,7 @@ public class RacingGame {
 	}
 
 	/*
-	 * 데이터를 입력받고, 경주를 위해 자동차 인스턴스를 생성하는 메서드
+	 * 데이터를 입력받고, 경주를 위해 자동차 인스턴스를 생성
 	 */
 	private void prepareRacing() {
 		inputManager.initialize();
