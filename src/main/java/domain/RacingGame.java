@@ -1,8 +1,9 @@
 /*
- * @(#)RacingGame.java     1.0 2019.12.09
+ * @(#)RacingGame.java     1.1 2019.12.09
  *
  * Copyright (c) 2019 lxxjn0.
  */
+
 package domain;
 
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ import java.util.regex.Pattern;
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 1.0 2019.12.09
+ * @version 1.1 2019.12.09
  */
 public class RacingGame {
 	/**
-	 * 가장 많이 이동한 횟수(furthestPosition)가 0(출발선)인 경우를 확인하기 위한 상수.
+	 * 가장 멀리 전진한 위치(furthestPosition)가 0(출발선)인 경우를 확인하기 위한 상수.
 	 */
 	private static final int STARTING_LINE = 0;
 
@@ -73,12 +74,12 @@ public class RacingGame {
 	/**
 	 * 자동차 이름의 형식에 오류가 존재할 경우 출력할 메시지 상수.
 	 */
-	private static final String INPUT_TYPE_ERROR_MESSAGE = "경주할 자동차 이름은 공백을 제외한 영문자와 숫자로만 작성 가능합니다. ";
+	private static final String INPUT_FORMAT_ERROR_MESSAGE = "경주할 자동차 이름은 공백을 제외한 영문자와 숫자로만 작성 가능합니다. ";
 
 	/**
 	 * 자동차 이름에 중복이 존재할 경우 출력할 메시지 상수.
 	 */
-	private static final String INPUT_DUPLICATE_MESSAGE = "중복된 자동차 이름이 존재합니다. ";
+	private static final String INPUT_DUPLICATE_ERROR_MESSAGE = "중복된 자동차 이름이 존재합니다. ";
 
 	/**
 	 * 시도 횟수를 입력할 때 오류가 발생할 경우 출력할 메시지 상수.
@@ -166,7 +167,7 @@ public class RacingGame {
 	 * 사용자로부터 입력받은 자동차 이름을 쉼표(,)를 기준으로 자르고, 앞과 뒤에 존재하는 불필요한 공백을 제거하는 메소드.
 	 */
 	private void processUserInput() {
-		carNames = splitToCarNames();
+		carNames = splitInputToCarNames();
 		removeUnnecessarySpace();
 	}
 
@@ -175,7 +176,7 @@ public class RacingGame {
 	 *
 	 * @return 자동차 이름이 저장된 List 반환.
 	 */
-	private List<String> splitToCarNames() {
+	private List<String> splitInputToCarNames() {
 		return Arrays.asList(userInput.split(COMMA_DELIMITER));
 	}
 
@@ -199,11 +200,11 @@ public class RacingGame {
 			return false;
 		}
 		if (!isValidFormat()) {
-			System.out.println(INPUT_TYPE_ERROR_MESSAGE + RE_ENTER_MESSAGE);
+			System.out.println(INPUT_FORMAT_ERROR_MESSAGE + RE_ENTER_MESSAGE);
 			return false;
 		}
 		if (!isNoDuplication()) {
-			System.out.println(INPUT_DUPLICATE_MESSAGE + RE_ENTER_MESSAGE);
+			System.out.println(INPUT_DUPLICATE_ERROR_MESSAGE + RE_ENTER_MESSAGE);
 			return false;
 		}
 		return true;

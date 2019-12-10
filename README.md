@@ -152,3 +152,7 @@
      - 클래스, 메서드, 변수의 이름에서 최대한 역할이 드러나도록 명명 수정.
 
      - 출력문에 사용되는 문자열을 모두 상수로 수정.
+
+   - code convention 3차 체크 (Naver campus hackday code format 적용).
+
+   - code convention 4차 체크 (1주차 프리코스 피드백 위주 확인).

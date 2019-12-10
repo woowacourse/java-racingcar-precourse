@@ -1,8 +1,9 @@
 /*
- * @(#)Car.java     0.9 2019.12.09
+ * @(#)Car.java     1.0 2019.12.09
  *
  * Copyright (c) 2019 lxxjn0.
  */
+
 package domain;
 
 import java.util.Random;
@@ -11,7 +12,7 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.9 2019.12.09
+ * @version 1.0 2019.12.09
  */
 public class Car {
 	/**
@@ -49,7 +50,7 @@ public class Car {
 	}
 
 	/**
-	 * 자동차를 이동하고, 전진을 한다면 전진한 위치가 자동차들 중에 가장 큰 값이면 furthestPosition을 해당 위치로 초기화시키는 메소드.
+	 * 랜덤한 수에 따라 자동차를 이동시키고, 변경된 position이 모든 자동차들 중에서 가장 큰 값이면 furthestPosition을 초기화시키는 메소드.
 	 */
 	public void moveAndSetFurthestPosition() {
 		if (isCarMoveForward()) {
@@ -61,7 +62,7 @@ public class Car {
 	/**
 	 * 자동차가 앞으로 이동하는지 여부를 판단하는 메소드.
 	 *
-	 * @return 자동차가 앞으로 이동할 경우 true 반환.
+	 * @return 랜덤하게 생성된 수가 3보다 크면 true 반환.
 	 */
 	private boolean isCarMoveForward() {
 		return (generateRandomNumber() > FORWARD_JUDGEMENT_NUMBER);
