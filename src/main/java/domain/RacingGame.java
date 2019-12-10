@@ -7,13 +7,13 @@ public class RacingGame {
 	private static final String RACING_RESULT = "실행결과";
 
 	public static void main(String[] args) {
-		User user = new User();
-		runRacingGame(user);
+		GameInputManager gameInputManager = new GameInputManager();
+		runRacingGame(gameInputManager);
 	}
 
-	private static void runRacingGame(User user) {
-		Entry entry = makeRacingEntry(user.getCarNames());
-		int carMoveCount = user.getCarMoveCount();
+	private static void runRacingGame(GameInputManager gameInputManager) {
+		Entry entry = makeRacingEntry(gameInputManager.getCarNames());
+		int carMoveCount = gameInputManager.getCarMoveCount();
 
 		System.out.println(RACING_RESULT);
 

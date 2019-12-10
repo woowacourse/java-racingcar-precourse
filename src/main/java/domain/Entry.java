@@ -45,7 +45,7 @@ public class Entry {
 
 		for (String carName : getFirstCarNames()) {
 			winnerMessageBuilder.append(carName);
-			winnerMessageBuilder.append(User.COMMA);
+			winnerMessageBuilder.append(GameInputManager.COMMA);
 		}
 
 		winnerMessageBuilder.deleteCharAt(winnerMessageBuilder.length() - 1);
