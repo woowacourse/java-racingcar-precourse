@@ -27,9 +27,9 @@ public class GameApplication {
     private void initCars() {
         String cars = inputView.inputCars();
 
-        List<String> namesInfo = StringUtil.getListFromString(cars);
-        namesInfo = StringUtil.removeBlank(namesInfo);
-        gameHost.addParticipants(namesInfo);
+        List<String> namesArray = StringUtil.getListFromString(cars);
+        namesArray = StringUtil.removeBlank(namesArray);
+        gameHost.addParticipants(namesArray);
     }
 
     private void initCount() {
