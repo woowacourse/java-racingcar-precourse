@@ -11,6 +11,7 @@ public class Car {
 
 	private static final int MOVE_CONDITION_NUMBER = 4;
 	private static final int LENGTH_LIMIT = 5;
+	private static final int LENGTH_EMPTY = 0;
 
 	private static final String DASH_LOAD = "-";
 	private static final String PRINT_FORMAT = ":";
@@ -24,6 +25,9 @@ public class Car {
 	private void validateNameLength(final String name) {
 		if (name.length() > LENGTH_LIMIT) {
 			throw new IllegalArgumentException(NOT_PERMITTED_STRING_LENGTH);
+		}
+		if (name.length() == LENGTH_EMPTY) {
+			throw new IllegalArgumentException(EMPTY_NAME);
 		}
 	}
 

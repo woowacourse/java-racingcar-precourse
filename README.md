@@ -20,6 +20,10 @@
 
 - [x] Error 1 : 입력받은 자동차 이름이 5가 아닐경우 IllegalArgumentException 호출
 
+- [x] Error 2 : 입력받은 자동차 이름이 입력이 안 되있을 경우 IllegalArgumentException 호출
+
+- [x] Error 3 : List의 MAX값 계산 중 이것을 찾아올 수 없으면, IllegalArgumentException 호출
+
 
 
 ### 나의 커밋메세지 규칙
