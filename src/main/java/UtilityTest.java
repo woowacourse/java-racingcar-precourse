@@ -5,7 +5,10 @@ import domain.Car;
 
 public class UtilityTest {
 	public static void main(String[] args) {
-		//슬라이싱 동작 테스트
+
+		/*
+		슬라이싱 동작 테스트
+
 		Scanner sc = new Scanner(System.in);
 		String testString = "";
 		int count = 0;
@@ -17,6 +20,9 @@ public class UtilityTest {
 		Car[] testCars = UtilityMethods.sliceString(testString);
 		UtilityMethods.playGameByNumber(count, testCars);
 		UtilityMethods.printWinner(testCars);
+
+
+		*/
 
 		/*
 		for (int i = 0; i < testCars.length; i++) {
