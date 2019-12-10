@@ -16,14 +16,23 @@ public class RacingGame {
 	}
 
 	public void start() {
+		ready();
+		play();
+		getResult();
+	}
+
+	public void ready() {
 		String[] nameList = inputNames();
 		cars = makeCars(nameList);
 		rounds = inputRounds();
 		if (sc != null) {
 			sc.close();
 		}
+	}
 
-		print("실행 결과");
+	public void play() {
+		print("\n실행 결과");
+
 		for (int i = 0; i < rounds; i++) {
 			for (int j = 0; j < cars.length; j++) {
 				int energy = getRandomNumber();
@@ -32,7 +41,11 @@ public class RacingGame {
 			}
 			print("");
 		}
-		print(getWinners() + "(이)가 최종 우승했습니다.");
+	}
+
+	public void getResult() {
+		String winners = getWinners();
+		print(winners + "(이)가 최종 우승했습니다.");
 	}
 
 	public String[] inputNames() {
