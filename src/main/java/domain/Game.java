@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Game {
+    static final int MIN_CAR_NAMES_COUNT = 1;
     static final int MIN_CAR_NAME_LENGTH = 1;
     static final int MAX_CAR_NAME_LENGTH = 5;
     Scanner scanner;
@@ -65,12 +66,22 @@ public class Game {
     }
 
     private boolean checkUserInputCarNames(String[] inputArray) {
+        if (!checkNumberOfString(inputArray, MIN_CAR_NAMES_COUNT)){
+            return false;
+        }
         for (int i=0; i<inputArray.length; i++) {
             if (!checkStringLength(inputArray[i], MIN_CAR_NAME_LENGTH, MAX_CAR_NAME_LENGTH)) {
                 return false;
             }
         }
         if (checkUserInputCarNamesDuplicated(inputArray)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkNumberOfString(String[] inputArray, int minimumCount) {
+        if (inputArray.length < minimumCount) {
             return false;
         }
         return true;
@@ -93,7 +104,7 @@ public class Game {
             this.cars.add(car);
         }
     }
-    
+
     private boolean checkStringLength(String string, int min, int max) {
 
         if ((min <= string.length()) && (string.length() <= max)) {
