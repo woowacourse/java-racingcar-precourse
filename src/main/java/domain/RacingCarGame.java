@@ -131,4 +131,12 @@ public class RacingCarGame {
 	private boolean checkZero(String cnt) {
 		return Integer.parseInt(cnt) > 0;
 	}
+	
+	private void getMax() {
+		for(int i = 0; i < cars.length; i++) {
+			if(max < cars[i].getPosition()) {
+				max = cars[i].getPosition();
+			}
+		}
+	}
 }
