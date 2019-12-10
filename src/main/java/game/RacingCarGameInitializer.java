@@ -1,21 +1,16 @@
 package game;
 
 import domain.Car;
+import domain.TrialTimes;
 import exception.InvalidInputException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
-public class Host {
+public class RacingCarGameInitializer {
 
-    private static final int RANDOM_NUMBER_BOUND = 10;
-    private static final int DEFAULT_POSITION = 0;
     private static final int MINIMUM_SIZE = 2;
-    private static final String CAR_NAME_FORMAT = "%" + Car.CAR_NAME_LENGTH_LIMIT + "s:";
-    private static final String CAR_POSITION_MARK = "-";
 
     public List<Car> makeCarList(String inputString) {
         List<String> names = Arrays.asList(inputString.split(","));
@@ -35,53 +30,9 @@ public class Host {
             throw new InvalidInputException(InvalidInputException.NAME_DUPLICATION_EXCEPTION_MESSAGE);
         }
     }
-    public void runOneTime(List<Car> cars, Random random) {
-        for (Car car : cars) {
-            car.proceedOrStop(generateRandomNumber(random));
-        }
-    }
 
-    private int generateRandomNumber(Random random) {
-        return random.nextInt(RANDOM_NUMBER_BOUND);
-    }
-
-    public void showCarsStatus(List<Car> cars) {
-        for (Car car : cars) {
-            System.out.println(makeCarStatus(car));
-        }
-    }
-
-    private String makeCarStatus(Car car) {
-        String name = car.getName();
-        int position = car.getPosition();
-        StringBuilder result = new StringBuilder();
-
-        result.append(String.format(CAR_NAME_FORMAT, name));
-        for (int i = 0; i < position; i++) {
-            result.append(CAR_POSITION_MARK);
-        }
-
-        return result.toString();
-    }
-
-    public int measureFirstPosition() {
-        int first = DEFAULT_POSITION;
-        for (Car car : cars) {
-            if (car.getPosition() > first) {
-                first = car.getPosition();
-            }
-        }
-        return first;
-    }
-
-    public List<Car> takeCarsInSamePositionWith(int position) {
-        List<Car> carsInFirstPosition = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.isSamePosition(position)) {
-                carsInFirstPosition.add(car);
-            }
-        }
-        return carsInFirstPosition;
+    public TrialTimes makeTrialTimes(String inputString) {
+        return new TrialTimes(inputString);
     }
 
 }

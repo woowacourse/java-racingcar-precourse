@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-class HostTest {
+class RacingCarGameInitializerTest {
 
-    private Host host;
+    private RacingCarGameInitializer racingCarGameInitializer;
     private Random random;
 
     @BeforeEach
@@ -18,22 +18,22 @@ class HostTest {
         names.add("첫번째차");
         names.add("두번쨰차");
         names.add("세번째차");
-        host = new Host(names);
+        racingCarGameInitializer = new RacingCarGameInitializer(names);
 
         random = new Random();
     }
 
     @Test
     void cars_runOneTime() {
-        host.runOneTime(random);
+        racingCarGameInitializer.runOneTime(random);
     }
 
     @Test
     void cars_showCarsStatus() {
-        host.runOneTime(random);
-        host.runOneTime(random);
-        host.runOneTime(random);
+        racingCarGameInitializer.runOneTime(random);
+        racingCarGameInitializer.runOneTime(random);
+        racingCarGameInitializer.runOneTime(random);
 
-        host.showCarsStatus();
+        racingCarGameInitializer.showCarsStatus();
     }
 }

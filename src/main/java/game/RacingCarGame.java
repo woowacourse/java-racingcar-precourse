@@ -2,99 +2,82 @@ package game;
 
 import com.sun.deploy.util.StringUtils;
 import domain.Car;
+import domain.TrialTimes;
 import exception.InvalidInputException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class RacingCarGame {
 
-    private static final int MINIMUM_TRIAL_TIMES = 1;
     private static final String CAR_NAME_ASK_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String TRIAL_TIMES_ASK_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String AWARDS_TAIL_MESSAGE = "가 우승했습니다.";
     private static final String CAR_NAME_DELIMITER = ",";
+    private static final String ROUND = "차전";
     private static final Scanner GAME_SCANNER = new Scanner(System.in);
     private static final Random RANDOM_NUMBER_GENERATOR = new Random();
-
-    private Host host;
+    private static final int ROUND_GENERATOR_NUMBER = 1;
+    private static final int RANDOM_NUMBER_BOUND = 10;
+    private static final int DELAY_TIME_MILLISECONDS = 1000;
 
     public static void main(String[] args) {
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.initCars();
-        int trialTimes = racingCarGame.initNumberOfTimes();
-        racingCarGame.runGame(trialTimes);
-        racingCarGame.holdAwardsCeremony();
+        RacingCarGameInitializer racingCarGameInitializer = new RacingCarGameInitializer();
+        RacingCarGameDecider racingCarGameDecider = new RacingCarGameDecider();
+        List<Car> cars = racingCarGame.initCars(racingCarGameInitializer);
+        TrialTimes trialTimes = racingCarGame.initNumberOfTimes(racingCarGameInitializer);
+        racingCarGame.runGame(cars, trialTimes);
+        List<String> winners = racingCarGameDecider.pickWinners(cars);
+        racingCarGame.printWinner(winners);
     }
 
-    public void initCars() {
+    public List<Car> initCars(RacingCarGameInitializer racingCarGameInitializer) {
         while (true) {
             try {
-                List<String> names = makeNamesList();
-                host = new Host(names);
-                break;
+                String inputString = takeNames();
+                return racingCarGameInitializer.makeCarList(inputString);
             } catch (InvalidInputException ie) {
                 System.out.println(ie.getMessage());
             }
         }
     }
 
-    private List<String> makeNamesList() {
-        String carNames = takeNames();
-        List<String> names = convertToCarNames(carNames);
-        return names;
-    }
-
-    private List<String> convertToCarNames(String carNames) {
-        return Arrays.asList(carNames.split(CAR_NAME_DELIMITER));
-    }
-
-    public int initNumberOfTimes() {
+    public TrialTimes initNumberOfTimes(RacingCarGameInitializer racingCarGameInitializer) {
         while (true) {
             try {
                 String numberOfTimesString = takeNumberOfTimes();
-                int number = Integer.parseInt(numberOfTimesString);
-                validatesNumberOfTimes(number);
-                return number;
-            } catch (NumberFormatException ne) {
-                System.out.println(InvalidInputException.NOT_NUMBER_EXCEPTION_MESSAGE);
+                return racingCarGameInitializer.makeTrialTimes(numberOfTimesString);
             } catch (InvalidInputException ie) {
                 System.out.println(ie.getMessage());
             }
         }
     }
 
-    private void validatesNumberOfTimes(int number) {
-        if (number < MINIMUM_TRIAL_TIMES) {
-            throw new InvalidInputException(InvalidInputException.INVALID_TRIAL_TIME_EXCEPTION_MESSAGE);
-        }
-    }
-
-    public void runGame(int trialTimes) {
-        for (int i = 0; i < trialTimes; i++) {
-            host.runOneTime(RANDOM_NUMBER_GENERATOR);
-            host.showCarsStatus();
+    public void runGame(List<Car> cars, TrialTimes trialTimes) {
+        for (int i = 0; i < trialTimes.getTrialTimes(); i++) {
+            int roundCount = i + ROUND_GENERATOR_NUMBER;
+            System.out.println(roundCount + ROUND);
+            runOneTurn(cars);
             System.out.println();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-            }
         }
     }
 
-    public void holdAwardsCeremony() {
-        System.out.println(makeCarsInFirstPositionString() + AWARDS_TAIL_MESSAGE);
+    private void runOneTurn(List<Car> cars) {
+        for (Car car : cars) {
+            car.proceedOrStop(RANDOM_NUMBER_GENERATOR.nextInt(RANDOM_NUMBER_BOUND));
+            System.out.println(car.makeCurrentStatus());
+        }
+        try {
+            Thread.sleep(DELAY_TIME_MILLISECONDS);
+        } catch (InterruptedException e) {
+        }
     }
 
-    private String makeCarsInFirstPositionString() {
-        int firsPosition = host.measureFirstPosition();
-        List<Car> carsInFirstPosition = host.takeCarsInFirstPosition(firsPosition);
-        List<String> carNamesInFirstPosition = carsInFirstPosition.stream().map(Car::getName).collect(Collectors.toList());
-        return StringUtils.join(carNamesInFirstPosition, CAR_NAME_DELIMITER);
+    public void printWinner(List<String> winners) {
+        String winner = StringUtils.join(winners, CAR_NAME_DELIMITER);
+        System.out.println(winner + AWARDS_TAIL_MESSAGE);
     }
 
     private String takeNames() {
