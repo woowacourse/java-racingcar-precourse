@@ -1,5 +1,7 @@
 package racing.domain;
 
+import racing.display.OutputDisplay;
+
 public class Game {
     private final CarList cars;
     private final CarRunRule runRule;
@@ -14,6 +16,7 @@ public class Game {
     }
 
     public void start(int round) {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < round; i++) {
             playOneRound();
             printCarStatus();
@@ -21,11 +24,11 @@ public class Game {
     }
 
     private void playOneRound() {
-
+        cars.playOneRoundWith(runRule);
     }
 
     private void printCarStatus() {
-
+        OutputDisplay.printCarsStatus(cars);
     }
 
     public Winner getWinners() {

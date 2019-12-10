@@ -1,9 +1,10 @@
 package racing.domain;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarList {
+public class CarList implements Iterable<Car>{
     private final List<Car> cars;
 
     private CarList(List<Car> cars) {
@@ -16,5 +17,16 @@ public class CarList {
                 .collect(Collectors.toList());
 
         return new CarList(cars);
+    }
+
+    public void playOneRoundWith(CarRunRule runRule) {
+        cars.stream()
+                .filter(car -> runRule.canRun())
+                .forEach(Car::run);
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
     }
 }
