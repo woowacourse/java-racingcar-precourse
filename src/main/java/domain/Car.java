@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Car {
@@ -22,8 +21,8 @@ public class Car {
 
     public void move() {
         Random rand = new Random();
-        int number = rand.nextInt(9);
-        if (number >= 4) {
+        int num = rand.nextInt(9);
+        if (num >= 4) {
             this.position++;
         }
     }
