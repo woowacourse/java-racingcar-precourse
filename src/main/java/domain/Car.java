@@ -1,5 +1,5 @@
 /*
- * @(#)Car.java     1.0 2019.12.09
+ * @(#)Car.java     1.0 2019.12.10
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -12,7 +12,7 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 1.0 2019.12.09
+ * @version 1.0 2019.12.10
  */
 public class Car {
 	/**

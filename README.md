@@ -156,3 +156,11 @@
    - code convention 3차 체크 (Naver campus hackday code format 적용).
 
    - code convention 4차 체크 (1주차 프리코스 피드백 위주 확인).
+
+6. 추가적인 리펙토링 계속 진행.
+
+   - 클래스 분리를 시도.
+
+     - 사용자가 입력하는 기능을 수행하는 User 클래스 추가(분리).
+
+     - User 클래스 추가에 따른 RacingGame 클래스의 메소드 일부 수정(불필요한 인스턴스 변수 제거).
