@@ -14,24 +14,35 @@
 package controller;
 
 import java.util.Scanner;
+
+import domain.Car;
 import domain.Message;
 
 
 public class GameController {
+    String[] carNameArray;
 
     private void inputCarName() {
-        String[] carArray;
         do {
             Scanner scanner = new Scanner(System.in);
             System.out.println(Message.INPUT_CAR_NAME_MESSAGE.getMessage());
             String carNames = scanner.nextLine();
             carNames = carNames.replace(" ","");
-            carArray = carNames.split(",");
-        } while (!InputExceptionController.getInstance().validateCarName(carArray));
+            carNameArray = carNames.split(",");
+        } while (!InputExceptionController.getInstance().validateCarName(carNameArray));
+    }
+
+    private void generateCarObject() {
+        int size = carNameArray.length;
+        Car[] cars = new Car[size];
+        for (int i = 0; i < size; i++) {
+            cars[i] = new Car(carNameArray[i]);
+        }
     }
 
     public void run(){
         inputCarName();
+        generateCarObject();
     }
 
 }
