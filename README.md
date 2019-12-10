@@ -27,3 +27,6 @@ methods
 - boolean checkNameLength : check the length of car's name
 - void printCarPosition(Car car) : print the position of car
 - void printCurrentCarsPosition() : print the all car's positions
+
+#Class : Main
+run the RacingGame class
