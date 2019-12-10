@@ -1,5 +1,10 @@
 package gameRunner;
 
+import static view.OutputView.*;
+
+import java.util.List;
+
+import util.StringParsing;
 import view.InputView;
 
 public class GameMachine {
@@ -11,8 +16,12 @@ public class GameMachine {
 
 	public void runRacingGame() {
 
-		 // new RacingGame()
-	}
+		List<String> names = StringParsing.makeNumbersFromString(inputView.getNames());
+		int tryCount = inputView.getTryCount();
 
+		RacingGame racingGame = new RacingGame(names, tryCount);
+		racingGame.runRaceAsTryCount();
+
+	}
 
 }

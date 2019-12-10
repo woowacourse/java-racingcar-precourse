@@ -1,5 +1,7 @@
 package gameRunner;
 
+import static view.OutputView.*;
+
 import java.util.List;
 
 import domain.CarCollection;
@@ -13,13 +15,13 @@ public class RacingGame {
 		this.tryCount = tryCount;
 	}
 
-	private void runRace() {
-		carCollection.tryMoveCars();
+	public void runRaceAsTryCount() {
+		showResultInfo();
+		for (int i = 0; i < tryCount; i++) {
+			carCollection.tryMoveCars();
+			showRacingProcess(carCollection);
+		}
+		showRacingResultReport(carCollection);
 	}
 
-	public void runRaceAsTryCount() {
-		for (int i = 0; i < tryCount; i++) {
-			runRace();
-		}
-	}
 }
