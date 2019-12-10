@@ -21,7 +21,7 @@ public class RacingCar {
 		int position;
 		int carCnt = cars.size();
 		
-		for( int i=0 ; i<carCnt ; i++) {
+		for(int i = 0; i < carCnt; i++) {
 			Car car = cars.get(i);
 			position = car.getPosition();
 			
