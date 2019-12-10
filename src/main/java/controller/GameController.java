@@ -24,9 +24,8 @@ public class GameController {
 
     private void inputCarName() {
         do {
-            Scanner scanner = new Scanner(System.in);
             System.out.println(Message.INPUT_CAR_NAME_MESSAGE.getMessage());
-            String carNames = scanner.nextLine();
+            String carNames = new Scanner(System.in).nextLine();
             carNames = carNames.replace(" ","");
             carNameArray = carNames.split(",");
         } while (!InputExceptionController.getInstance().validateCarName(carNameArray));
@@ -40,9 +39,18 @@ public class GameController {
         }
     }
 
+    private void inputRound() {
+        String numberOfRound;
+        do {
+            System.out.println(Message.INPUT_NUMBER_OF_ROUNDS.getMessage());
+            numberOfRound = new Scanner(System.in).next();
+        } while (!InputExceptionController.getInstance().validateRoundNumber(numberOfRound));
+    }
+
     public void run(){
         inputCarName();
         generateCarObject();
+        inputRound();
     }
 
 }

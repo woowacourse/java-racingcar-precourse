@@ -35,11 +35,28 @@ public class InputExceptionController {
         return InnerInstanceClass.instance;
     }
 
+    /* 자동차 이름의 유효성 검사 */
     public boolean validateCarName(String[] input) {
         if((checkCountOfCar(input)) && (checkLengthOfName(input)) && (checkDuplicationOfName(input))) {
             return true;
         }
         return false;
+    }
+
+    /* 라운드 횟수의 유효성 검사 */
+    public boolean validateRoundNumber(String input) {
+        int roundNumber;
+        try {
+            roundNumber = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println(Message.INPUT_NOT_A_NUMBER_ERROR.getMessage());
+            return false;
+        }
+        if (roundNumber <= ZERO) {
+            System.out.println(Message.INPUT_ZERO_ERROR.getMessage());
+            return false;
+        }
+        return true;
     }
 
     /* 자동차가 1대 이하인 경우 */
