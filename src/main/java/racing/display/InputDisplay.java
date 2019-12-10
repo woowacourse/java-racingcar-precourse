@@ -2,9 +2,11 @@ package racing.display;
 
 import racing.validator.InputValidator;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class InputDisplay {
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -13,7 +15,9 @@ public class InputDisplay {
 
     public static List<String> getCarNames() {
         String data = getValidData(CAR_NAMES_MESSAGE, InputValidator::isValidNames);
-        return null;
+
+        return Arrays.stream(data.split(","))
+                .collect(Collectors.toList());
     }
 
     public static int getRound() {
