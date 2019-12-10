@@ -38,8 +38,20 @@ public class Game {
     private void playOneTurn() {
         for (Car oneCar : cars) {
             oneCar.playTurn();
-            oneCar.printPosition();
+            printPosition(oneCar);
         }
+    }
+
+    public void printPosition(Car oneCar) {
+        System.out.println(oneCar.getName() + " : " + getBar(oneCar));
+    }
+
+    private String getBar(Car oneCar) {
+        String bar = "";
+        for (int i = 0; i < oneCar.getPosition(); i++) {
+            bar += "-";
+        }
+        return bar;
     }
 
     private List<String> getWinner() {

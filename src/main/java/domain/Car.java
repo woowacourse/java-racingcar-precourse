@@ -29,18 +29,6 @@ public class Car {
         position++;
     }
 
-    public void printPosition() {
-        System.out.println(this.name + " : " + getBar());
-    }
-
-    private String getBar() {
-        String bar = "";
-        for (int i = 0; i < position; i++) {
-            bar += "-";
-        }
-        return bar;
-    }
-
     public String getName() {
         return this.name;
     }
