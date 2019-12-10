@@ -36,5 +36,11 @@ public class Racings {
         }
         return false;
     }
+    public void setCar(){
+        cars = new Car[Names.length];
+        for(i=0; i<cars.length; i++){
+            cars[i] = new Car(Names[i]);
+        }
+    }
 
 }
