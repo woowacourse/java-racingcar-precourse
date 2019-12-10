@@ -6,7 +6,10 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+        this.position = 0;
     }
 
-    // 추가 기능 구현
+    public String getName() {
+        return this.name;
+    }
 }

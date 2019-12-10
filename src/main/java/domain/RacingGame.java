@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 public class RacingGame {
 
-    public static void main(String[] args) {
+    static String returnCarName(String name) {
+        Car newCar = new Car(name);
+        return newCar.getName();
+    }
 
+    public static void main(String[] args) {
         ArrayList<String> carNamesArray;
         boolean isCarNameCorrect;
         int gameNumber;
@@ -18,6 +22,13 @@ public class RacingGame {
 
         gameNumber = GetGameNumberInput.getGameNumberInput();
 
-        System.out.println("Cars: " + carNamesArray + ", Number of games: " + gameNumber);
+        // System.out.println("Cars: " + carNamesArray + ", Number of games: " + gameNumber);
+
+        ArrayList<Car> carArray = new ArrayList<Car>();
+
+        for (String name : carNamesArray) {
+            carArray.add(new Car(name));
+        }
+        // System.out.println(carArray.get(0).getName());
     }
 }
