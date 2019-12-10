@@ -94,8 +94,14 @@ public class Race {
     }
 
     private void doRound() {
-//        proceedCars();
+        proceedCars();
         printBoard();
+    }
+
+    private void proceedCars() {
+        for (Car car : Cars) {
+            car.proceed();
+        }
     }
 
     private void printBoard() {
