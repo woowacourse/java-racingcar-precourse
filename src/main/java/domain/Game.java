@@ -41,7 +41,7 @@ public class Game {
         }
     }
 
-    public void printPosition(Car oneCar) {
+    private void printPosition(Car oneCar) {
         System.out.println(oneCar.getName() + " : " + getBar(oneCar));
     }
 
