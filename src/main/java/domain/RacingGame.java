@@ -1,6 +1,8 @@
-package domain;
+/**
+ * RacingGame 클래스는 자동차 경주 게임 한판을 진행합니다.
+ */
 
-import java.util.ArrayList;
+package domain;
 
 public class RacingGame {
     public static void main(String[] args) {
@@ -16,8 +18,8 @@ public class RacingGame {
 
         Score score = new Score();
         for (int i = 0; i < times; i++) {
-            score.calcScore(numberOfCar, carArray);     //  점수 계산
-            io.printIteration(carArray);                //  결과 출력
+            score.calcScore(carArray);          //  점수 계산
+            io.printIteration(carArray);        //  결과 출력
         }
 
         io.printWinner(score.calcWinner(carArray));     //  우승자 계산

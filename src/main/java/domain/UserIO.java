@@ -1,3 +1,7 @@
+/**
+ * UserIO 클래스는 프로그램 내의 모든 사용자 입출력을 전담합니다.
+ */
+
 package domain;
 
 import java.util.ArrayList;

@@ -1,3 +1,7 @@
+/**
+ * Score 클래스는 게임 점수 산출 및 우승자를 가려냅니다.
+ */
+
 package domain;
 
 import java.util.ArrayList;
@@ -5,19 +9,20 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Score {
+    private RandomNumberGenerator prng;
+
+    public Score() {
+        prng = new RandomNumberGenerator();
+    }
 
     /* 생성된 랜덤 넘버를 보고, Car 객체가 전진할지 계산*/
-    public void calcScore(int numberOfCar, Car[] carArray) {
-        RandomNumberGenerator prng = new RandomNumberGenerator(numberOfCar);
-        ArrayList<Boolean> direction = prng.goNoGo();
-        for (int i = 0; i < numberOfCar; i++) {
-            if (direction.get(i)) {
-                carArray[i].setPosition(carArray[i].getPosition() + 1);
-            }
+    public void calcScore(Car[] carArray) {
+        for (Car it : carArray) {
+            it.moveCar(prng.goNoGo());
         }
     }
 
-    /* Car들을 점수순으로 정렬 */
+    /* Car들을 점수 순으로 정렬 */
     public Car[] sortWinner(Car[] carArray) {
         Arrays.sort(carArray, new Comparator<Car>() {
             @Override

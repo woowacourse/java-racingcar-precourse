@@ -1,3 +1,7 @@
+/**
+ * Car 클래스는 외부 조건에 따라 이동할 수 있는 자동차를 표현합니다.
+ */
+
 package domain;
 
 public class Car {
@@ -8,16 +12,18 @@ public class Car {
         this.name = name;
     }
 
-    public void setPosition(int targetPosition) {
-        position = targetPosition;
-    }
-
     public int getPosition() {
         return position;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void moveCar(boolean command) {
+        if (command) {
+            position += 1;
+        }
     }
 
 }
