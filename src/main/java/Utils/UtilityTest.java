@@ -1,3 +1,5 @@
+package Utils;
+
 import java.util.Scanner;
 
 import domain.Car;
@@ -39,4 +41,3 @@ public class UtilityTest {
 
 	}
 }
-

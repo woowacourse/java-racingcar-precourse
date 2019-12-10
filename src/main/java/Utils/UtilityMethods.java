@@ -1,6 +1,8 @@
-import java.util.ArrayList;
+package Utils;
 
 import domain.Car;
+
+import java.util.ArrayList;
 
 public class UtilityMethods {
 	public static Car[] sliceString(String target) {
