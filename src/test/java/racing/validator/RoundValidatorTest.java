@@ -1,11 +1,10 @@
-package racing.display;
+package racing.validator;
 
 import org.junit.Test;
-import racing.validator.InputValidator;
 
 import static org.junit.Assert.*;
 
-public class GameRoundValueTest {
+public class RoundValidatorTest {
 
     @Test
     public void 라운드입력_테스트_양의정수_성공() {
