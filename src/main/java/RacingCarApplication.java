@@ -8,18 +8,13 @@ public class RacingCarApplication {
         Cars cars = getReadyCars();
         RacingRounds racingRounds = decideRacingRounds();
 
-        printTitleOfResult();
+        OutputView.printTitleOfResult();
         while (racingRounds.isLeft()) {
             racingRounds.minus();
             cars.play();
             OutputView.printCarPositions(cars);
         }
         OutputView.printWinners(cars);
-    }
-
-    private static void printTitleOfResult() {
-        System.out.println();
-        System.out.println("실행 결과");
     }
 
     private static Cars getReadyCars() {
