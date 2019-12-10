@@ -17,8 +17,8 @@ public class Score {
         }
     }
 
-    /* Car들의 점수를 보고 우승자 계산 */
-    public ArrayList<Car> calcWinner(Car[] carArray) {
+    /* Car들을 점수순으로 정렬 */
+    public Car[] sortWinner(Car[] carArray) {
         Arrays.sort(carArray, new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {
@@ -29,12 +29,18 @@ public class Score {
                 return -1;
             }
         });
+        return carArray;
+    }
 
-        ArrayList<Car> winner = new ArrayList<Car>();
-        winner.add(carArray[0]);
-        for (int i = 1; i < carArray.length; i++) {
-            if (carArray[i].getPosition() == carArray[0].getPosition()) {
-                winner.add(carArray[i]);
+    /* Car들의 점수를 보고 우승자 계산 */
+    public ArrayList<Car> calcWinner(Car[] carArray) {
+        Car[] sortedArray = sortWinner(carArray);
+
+        ArrayList<Car> winner = new ArrayList<>();
+        winner.add(sortedArray[0]);
+        for (int i = 1; i < sortedArray.length; i++) {
+            if (sortedArray[i].getPosition() == sortedArray[0].getPosition()) {
+                winner.add(sortedArray[i]);
                 continue;
             }
             break;

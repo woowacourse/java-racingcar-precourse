@@ -31,7 +31,7 @@ public class UserIO {
     /* 각 이름의 길이가 조건 만족하는지 검증 */
     public boolean checkName(String[] names) {
         final int maxLength = 5;
-        ArrayList<String> errorList = new ArrayList<String>();
+        ArrayList<String> errorList = new ArrayList<>();
         for (String it : names) {
             if (it.length() > maxLength) {
                 errorList.add(it);
@@ -76,9 +76,9 @@ public class UserIO {
 
     /* 우승자 출력 */
     public void printWinner(ArrayList<Car> winner) {
-        System.out.print("우승자: ");
         for (Car it : winner) {
             System.out.print(it.getName() + " ");
         }
+        System.out.println("가 최종 우승했습니다.");
     }
 }

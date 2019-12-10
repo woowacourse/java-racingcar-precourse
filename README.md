@@ -34,4 +34,7 @@
 
 # TODO
 - 코딩 컨벤션 준수
-- 우승자 계산
+- private 접근 제어자를 가진 필드를 클래스 외부에서 어떻게 접근할 수 있을까?
+    - Why 'getter/setter' is evil?
+        - 외부에서 클래스 내부 상세 구현으로 접근, Encapsulation을 깨뜨림  
+    - reflection이 과연 해답일까? 
