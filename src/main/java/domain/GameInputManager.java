@@ -23,14 +23,14 @@ public class GameInputManager {
 		String userInput = getUserInput();
 
 		System.out.println(INPUT_CAR_NAMES);
-		carNames = convertNamesToList(userInput, carNames);
+		convertNamesToList(userInput, carNames);
 
 		checkCarNameLength(carNames);
 
 		return carNames;
 	}
 
-	private List<String> convertNamesToList(String userInput, List<String> carNames) {
+	private void convertNamesToList(String userInput, List<String> carNames) {
 		StringTokenizer tokenizer = new StringTokenizer(userInput, COMMA);
 
 		while (tokenizer.hasMoreTokens()) {
@@ -38,7 +38,6 @@ public class GameInputManager {
 			carNames.add(carName);
 		}
 
-		return carNames;
 	}
 
 	private void checkCarNameLength(List<String> carNames) {
