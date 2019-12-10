@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class User {
-	private Scanner userInput;
+	private Scanner scanner;
 	private static final String INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String INPUT_MOVE_COUNT = "시도할 회수는 몇회인가요?";
 	private static final String MOVE_COUNT_BE_POSITIVE = "시도 횟수는 음수일 수 없습니다.";
@@ -15,25 +15,42 @@ public class User {
 	private static final int MAX_NAME_LENGTH = 5;
 
 	User() {
-		userInput = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 	}
 
 	public List<String> getCarNames() {
 		List<String> carNames = new ArrayList<>();
+		String userInput = getUserInput();
+
 		System.out.println(INPUT_CAR_NAMES);
-		StringTokenizer tokenizer = new StringTokenizer(userInput.next(), COMMA);
+		carNames = convertNamesToList(userInput, carNames);
+
+		checkCarNameLength(carNames);
+
+		return carNames;
+	}
+
+	private List<String> convertNamesToList(String userInput, List<String> carNames) {
+		StringTokenizer tokenizer = new StringTokenizer(userInput, COMMA);
 
 		while (tokenizer.hasMoreTokens()) {
 			String carName = tokenizer.nextToken();
-
-			if (isNameLengthLonger(carName)) {
-				return getCarNames();
-			}
-
 			carNames.add(carName);
 		}
 
 		return carNames;
+	}
+
+	private void checkCarNameLength(List<String> carNames) {
+
+		for (String carName : carNames) {
+
+			if (isNameLengthLonger(carName)) {
+				getCarNames();
+			}
+
+		}
+
 	}
 
 	private boolean isNameLengthLonger(String carName) {
@@ -51,7 +68,7 @@ public class User {
 
 		do {
 			System.out.println(INPUT_MOVE_COUNT);
-			carMoveCount = Integer.parseInt(userInput.next());
+			carMoveCount = Integer.parseInt(getUserInput());
 		} while (isNegativeCount(carMoveCount));
 
 		return carMoveCount;
@@ -65,5 +82,9 @@ public class User {
 		}
 
 		return false;
+	}
+
+	private String getUserInput() {
+		return scanner.next();
 	}
 }
