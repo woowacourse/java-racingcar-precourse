@@ -86,4 +86,35 @@ public class RacingCarGame {
 		
 		return num;
 	}
+	
+	private boolean checkInputCars(String str) {
+		if(!checkNotNull(str)) {
+			System.out.println("입력값이 없습니다. 다시 입력해주세요.");
+			return false;
+		}
+		if(!checkLength(str)) {
+			System.out.println("잘못된 입력 형식입니다. 다시 입력해주세요.");
+			return false;
+		}
+		return true;
+	}
+	
+	private boolean checkNotNull(String str) {
+		return str.length() != 0;
+	}
+	
+	private boolean checkLength(String str) {
+		sCars = str.split(",");
+		
+		for(int i = 0; i < sCars.length; i++) {
+			String trimmedStr = sCars[i].trim();
+			
+			if(trimmedStr.length() == 0 || trimmedStr.length() > 5) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+
 }
