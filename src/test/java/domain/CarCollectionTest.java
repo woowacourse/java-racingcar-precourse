@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class RacingGameTest {
+class CarCollectionTest {
 	@Test
-	@DisplayName("RacingGame 생성시 Rail의 id가 identity를 갖도록 생성")
+	@DisplayName("CarCollection 생성시 Rail의 id가 identity를 갖도록 생성")
 	void generateRacingGame() {
 		List<String> names = Arrays.asList("a", "b", "c");
-		RacingGame racingGame = new RacingGame(names);
+		CarCollection carCollection = new CarCollection(names);
 
-		List<Integer> collect = racingGame.getCars().stream()
+		List<Integer> collect = carCollection.getCars().stream()
 			.map(Car::getRailId)
 			.collect(Collectors.toList());
 

@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import util.RandomNumberGenerator;
 
-public class RacingGame {
+public class CarCollection {
 	private List<Car> cars;
 	private int InjectionId = 1;
 
@@ -13,7 +13,7 @@ public class RacingGame {
 		return cars;
 	}
 
-	public RacingGame(List<String> carNames) {
+	public CarCollection(List<String> carNames) {
 		cars = carNames.stream()
 			.map(this::makeOneCar)
 			.collect(Collectors.toList());
