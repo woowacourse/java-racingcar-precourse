@@ -1,5 +1,5 @@
 /*
- * Race.java                      2.6.4    2019-12-09
+ * Race.java                      2.6.5    2019-12-10
  *
  * Copyright (c) 2019 Hyungju An.
  * All rights reserved.
@@ -16,8 +16,8 @@ import java.util.Collections;
  * 경주를 위한 자동차들과 레이싱 횟수를 가지고 있습니다.
  * 레이스를 시작, 진행하고 우승자를 판단, 출력하는 기능이 있습니다.
  *
- * @version 2.6.4            레이스 각 회마다 위에 횟수를 출력하도록 수정
- * @date 2019-12-09
+ * @version 2.6.5            toString 주석을 올바르게 수정
+ * @date 2019-12-10
  * @author HyungjuAn
  */
 public class Race {
@@ -99,7 +99,7 @@ public class Race {
 	 * 다음은 이 설명의 일반적인 형태이나,
 	 * 상세 형식은 정해지지 않았으며 향후 변경될 수 있다.
 	 * <p>
-	 * "[pobi, hj]로 3회 경주"
+	 * "[Name: pobi, Position: 0, Name: hj, Position: 0]로 3회 경주"
 	 *
 	 * @return 클래스를 나타낼 수 있는 정보를 가진 문자열
 	 */
