@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class RacingGame {
 	public Scanner sc;
 	public Car[] cars;
+	public int rounds;
 
 	public RacingGame() {
 		sc = new Scanner(System.in);
@@ -17,7 +18,7 @@ public class RacingGame {
 	public void start() {
 		String[] nameList = inputNames();
 		cars = makeCars(nameList);
-		int rounds = inputRounds();
+		rounds = inputRounds();
 		if (sc != null) {
 			sc.close();
 		}
