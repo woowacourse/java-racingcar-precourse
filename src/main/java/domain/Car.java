@@ -2,8 +2,8 @@ package domain;
 
 public class Car {
 	public static final int START_POSITION = 0;
-	public static final int MAX_STOP_NUMBER = 3;
-	public static final int MAX_RANDOM_NUMBER = 9;
+	private static final int MAX_STOP_NUMBER = 3;
+	private static final int MAX_RANDOM_NUMBER = 9;
 
 	private final String name;
 	private int position = START_POSITION;
