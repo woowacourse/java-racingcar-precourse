@@ -82,7 +82,6 @@ public class Game {
         return false;
     }
 
-
     private void moveAndPrintEachCar() {
         for (Car car : carList) {
             car.moveForward();
