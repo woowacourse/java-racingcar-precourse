@@ -1,3 +1,13 @@
+/*
+ * 레이싱 게임을 위한 자동차 클래스
+ *
+ * @version 1.0
+ *
+ * @date 2019.12.08
+ * 
+ * @author Jung dahee
+ */
+
 package domain;
 
 public class Car {
@@ -7,6 +17,16 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
-
-    // 추가 기능 구현
+    
+    public String getName() {
+    	return name;
+    }
+    
+    public int getPosition() {
+    	return position;
+    }
+    
+    public void moveForward() {
+    	this.position++;
+    }
 }
