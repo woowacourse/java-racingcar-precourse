@@ -11,9 +11,10 @@ import java.util.stream.Collectors;
 public class RacingCarGameInitializer {
 
     private static final int MINIMUM_SIZE = 2;
+    private static final String CAR_NAME_DELIMITER = ",";
 
     public List<Car> makeCarList(String inputString) {
-        List<String> names = Arrays.asList(inputString.split(","));
+        List<String> names = Arrays.asList(inputString.split(CAR_NAME_DELIMITER));
         validatesMinimumSize(names);
         validatesDuplicateNames(names);
         return names.stream().map(name -> new Car(name.trim())).collect(Collectors.toList());
