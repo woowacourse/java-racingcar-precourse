@@ -1,3 +1,10 @@
+/**
+ * 프로젝트의 동작들을 순서있게 실행시키는 클래스
+ *
+ * @author	MinKyu,Song
+ * @version	1.0 12/10/2019
+ */
+
 package domain;
 
 import java.util.List;

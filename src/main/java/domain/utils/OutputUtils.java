@@ -1,3 +1,10 @@
+/**
+ * 프로젝트의 출력을 담당하는 클래스
+ *
+ * @author	MinKyu,Song
+ * @version	12/10/2019
+ */
+
 package domain.utils;
 
 import java.util.List;
@@ -8,9 +15,7 @@ public final class OutputUtils {
 	private static final String PROGRESS_BAR = "-";
 	private static final String WINNER_MESSAGE = "가 최종 우승했습니다.";
 
-	private OutputUtils(){
-
-	}
+	private OutputUtils() {}
 
 	public static void printCarProgress(Car car) {
 		String message = car.getName() + " : "

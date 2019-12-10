@@ -1,3 +1,10 @@
+/**
+ * 프로젝트의 필요한 입력을 담당하는 클래스
+ *
+ * @author	MinKyu,Song
+ * @version 1.0 12/10/2019
+ */
+
 package domain.utils;
 
 import java.util.Arrays;
@@ -15,9 +22,7 @@ public final class InputUtils {
 
 	private static Scanner scanner = new Scanner(System.in);
 
-	private InputUtils() {
-
-	}
+	private InputUtils() {}
 
 	public static Integer getRounds() {
 		Integer inputValue;

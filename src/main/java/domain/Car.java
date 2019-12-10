@@ -1,3 +1,10 @@
+/**
+ * 차량의 정보와 동작을 위한 클래스
+ *
+ * @author	MinKyu,Song
+ * @version	1.0 12/10/2019
+ */
+
 package domain;
 
 public class Car {
