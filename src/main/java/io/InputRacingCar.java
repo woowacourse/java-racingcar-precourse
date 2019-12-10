@@ -12,7 +12,7 @@ public class InputRacingCar {
 
     public static int inputRepeatTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return sc.nextInt();
+        return validateRepeatTimes(sc.nextInt());
     }
 
     private static String validateCarsName(String carsName) {
@@ -20,5 +20,12 @@ public class InputRacingCar {
             throw new IllegalStateException("이름을 입력해주세요.");
         }
         return carsName;
+    }
+
+    private static int validateRepeatTimes(int repeatTimes) {
+        if (repeatTimes <= 0) {
+            throw new IllegalStateException("반복 횟수는 1 이상이여야 합니다.");
+        }
+        return repeatTimes;
     }
 }

@@ -1,6 +1,7 @@
 package system;
 
 import domain.Car;
+import io.OutputRacingCar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,12 +15,17 @@ public class RankingSystem {
         this.racingCars = new ArrayList<>(racingCars);
     }
 
-    public List<String> getWinner() {
+    public void startRanking() {
+        List<String> winnerList = getWinnerList();
+        OutputRacingCar.printWinner(winnerList);
+    }
+
+    private List<String> getWinnerList() {
         Collections.sort(racingCars);
         int maxPosition = racingCars.get(0).getPosition();
         return racingCars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }
