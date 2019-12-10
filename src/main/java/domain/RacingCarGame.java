@@ -67,4 +67,16 @@ public class RacingCarGame {
 			moveCar();
 		}
 	}
+	
+	private void moveCar() {
+		for(int i = 0; i < cars.length; i++) {
+			if(getNum() >= 4) {
+				cars[i].moveForward();
+			}
+			
+			System.out.println(cars[i].getName() + ":" + 
+					new String(new char[cars[i].getPosition()]).replace("\0", "-"));
+		}
+		System.out.println();
+	}
 }
