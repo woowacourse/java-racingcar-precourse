@@ -26,4 +26,9 @@ public class RacingCarGame {
 		inputGameCnt();
 		runRace();
 	}
+	
+	public void end() {
+		getMax();
+		getWinners();
+	}
 }
