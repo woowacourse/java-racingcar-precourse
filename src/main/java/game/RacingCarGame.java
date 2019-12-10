@@ -11,6 +11,10 @@ import java.util.Scanner;
 
 public class RacingCarGame {
 
+    private static final String INTRODUCTION_STATEMENT = "자동차 경주게임에 오신 것을 환영합니다.\n" +
+            "본 게임은 쉼표(,)를 기준으로 자동차 이름을 입력하면 자동으로 경주가 시작되고,\n" +
+            "1등 차량을 뽑게 됩니다. 공동 1등도 존재합니다.\n" +
+            "(단, 자동차 이름의 중복이나 비어있는 이름은 허용하지 않으니 잘 입력해주세요.)";
     private static final String CAR_NAME_ASK_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String TRIAL_TIMES_ASK_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String AWARDS_TAIL_MESSAGE = "가 우승했습니다.";
@@ -26,6 +30,7 @@ public class RacingCarGame {
         RacingCarGame racingCarGame = new RacingCarGame();
         RacingCarGameInitializer racingCarGameInitializer = new RacingCarGameInitializer();
         RacingCarGameDecider racingCarGameDecider = new RacingCarGameDecider();
+        racingCarGame.printIntroductionStatement();
         List<Car> cars = racingCarGame.initCars(racingCarGameInitializer);
         TrialTimes trialTimes = racingCarGame.initNumberOfTimes(racingCarGameInitializer);
         racingCarGame.runGame(cars, trialTimes);
@@ -78,6 +83,11 @@ public class RacingCarGame {
     public void printWinner(List<String> winners) {
         String winner = StringUtils.join(winners, CAR_NAME_DELIMITER);
         System.out.println(winner + AWARDS_TAIL_MESSAGE);
+    }
+
+    public void printIntroductionStatement() {
+        System.out.println(INTRODUCTION_STATEMENT);
+        System.out.println();
     }
 
     private String takeNames() {
