@@ -10,7 +10,7 @@ import domain.model.Vehicle;
  * @apiNote 입력 규칙을 알려주거나 , 우승자 및 현재 유저들의 position을 출력하는 메서드로 구성되어 있습니다.
  * @since 2019-12-05
  */
-public class PrintHandler<T extends Vehicle> {
+public class PrintHandler {
     private static final String NEXT_LINE = "\n";
     private static final String COMMA = ", ";
     private static final String NOTIFICATION_FOR_CAR_NAME = "경주 할 자동차의 이름을 입력해주세요 ','를 기준으 구분합니다.";

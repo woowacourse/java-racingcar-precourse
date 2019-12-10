@@ -12,19 +12,14 @@ import java.util.List;
  * @param <T> 자동차 이외의 탈 것이 추가되는 경우를 고려해 자동차의 상위클래스 Vehicle을 상속받는 T(자동차,비행기 등등의 클래스)
  */
 public class Winner<T extends Vehicle> {
-    private List<T> user;
-
-    public Winner(List<T> user) {
-        this.user = user;
-    }
 
     /**
      * 포지션 값이 가장 높은 유저의 이름을
      * @return List<String>에 담아 리턴
      */
-    public List<String> getWinner() {
-        int maxPositionValue = maxPositionNumber(user);
-        return whoIsTheSameAsMaxPosition(user, maxPositionValue);
+    public List<String> getWinner(List<T> users) {
+        int maxPositionValue = maxPositionNumber(users);
+        return whoIsTheSameAsMaxPosition(users, maxPositionValue);
     }
 
     /**

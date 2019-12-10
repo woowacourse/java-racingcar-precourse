@@ -19,8 +19,8 @@ public class InputValidator {
     }
 
     /**
-     * 자동차 이름이 적합한지 검증하는 기능
-     * @param userInput
+     * 자동차 이름이 적합한지 검증하는 기능으로 인자로 인자의 각 인덱스에 해당하는 값들이 모두 검증되어, 배열 크기와 같은 경우 True 리턴
+     * @param userInput String 배열
      * @return
      */
     public boolean checkCarNames(String[] userInput) {
