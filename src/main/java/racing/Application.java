@@ -8,22 +8,16 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        OutputDisplay.printNameInfo();
         List<String> names = InputDisplay.getCarNames();
 
         CarList cars = CarList.getByNames(names);
 
-        OutputDisplay.printRoundInfo();
         int round = InputDisplay.getRound();
 
         CarRunRule runRule = RunRuleFactory.getInstance();
         Game game = Game.getInstance(cars, runRule);
 
-        OutputDisplay.printGameStartMessage();
-        for (int i = 0; i < round; i++) {
-            game.playOneRound();
-            game.printCarStatus();
-        }
+        game.start(round);
 
         Winner winner = game.getWinners();
         OutputDisplay.printResult(winner);

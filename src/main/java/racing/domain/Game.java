@@ -5,11 +5,18 @@ public class Game {
         return null;
     }
 
-    public void playOneRound() {
+    public void start(int round) {
+        for (int i = 0; i < round; i++) {
+            playOneRound();
+            printCarStatus();
+        }
+    }
+
+    private void playOneRound() {
 
     }
 
-    public void printCarStatus() {
+    private void printCarStatus() {
 
     }
 
