@@ -19,11 +19,7 @@ public class RacingGame {
 			print("");
 			rounds--;
 		}
-		getResult();
-	}
-
-	public void print(String msg) {
-		System.out.println(msg);
+		printResult();
 	}
 
 	public void ready() {
@@ -43,9 +39,8 @@ public class RacingGame {
 		}
 	}
 
-	public void getResult() {
-		String winners = getWinners();
-		print(winners + "(이)가 최종 우승했습니다.");
+	public void printResult() {
+		print(getWinners() + "(이)가 최종 우승했습니다.");
 	}
 
 	public String[] inputNames() {
@@ -120,5 +115,9 @@ public class RacingGame {
 			}
 		}
 		return winners;
+	}
+
+	public void print(String msg) {
+		System.out.println(msg);
 	}
 }
