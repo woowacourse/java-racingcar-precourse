@@ -84,7 +84,11 @@ public class Race {
     }
 
     public void start() {
-        // 경주 시작
+        System.out.println("실행결과");
+        for(int i = 0; i < Round; i++){
+//            doRound();
+        }
+//        printResult();
     }
 
     private void printBoard(){
