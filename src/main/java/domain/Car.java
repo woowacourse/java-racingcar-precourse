@@ -11,16 +11,15 @@ public class Car implements Comparable<Car> {
     }
 
     public void move() {
-        int randomInteger = makeRandomInt();
-        if (randomInteger >= MOVE_NUMBER_FLOOR) {
+        if (makeRandomNumber() >= MOVE_NUMBER_FLOOR) {
             position++;
         }
     }
 
-    private int makeRandomInt() {
+    private double makeRandomNumber() {
         double randomNumber = Math.random();
 
-        return (int) (randomNumber * MAKING_ONE_TO_NINE);
+        return randomNumber * MAKING_ONE_TO_NINE;
     }
 
     public int getPosition() {
