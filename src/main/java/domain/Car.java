@@ -11,20 +11,19 @@ public class Car {
         this.position = 0;
     }
 
-    public String getName() {
+    String getName() {
         return this.name;
     }
 
-    public int getPosition() {
+    int getPosition() {
         return this.position;
     }
 
-    public void move() {
+    void move() {
         Random rand = new Random();
         int num = rand.nextInt(9);
         if (num >= 4) {
             this.position++;
         }
     }
-
 }
