@@ -5,9 +5,9 @@
  * GameController.java
  * 게임을 진행하기 위한 클래스
  *
- * @author		Sorin Jin
- * @version		1.0
- * @date		09 Dec 2019
+ * @author      Sorin Jin
+ * @version      1.0
+ * @date      09 Dec 2019
  *
  */
 
@@ -52,11 +52,21 @@ public class GameController {
         round = Integer.parseInt(numberOfRound);
     }
 
+    private void printRoundReuslt(Car car) {
+        System.out.printf("%-6s",car.getName());
+        System.out.print(": ");
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
     private void play() {
         for(Car car : cars) {
             int randomNumber =  RandomGenerator.getInstance().getRandomNumber();
             car.setRandomNumber(randomNumber);
             car.play();
+            printRoundReuslt(car);
         }
         System.out.println();
     }

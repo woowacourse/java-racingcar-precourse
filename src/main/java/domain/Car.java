@@ -5,9 +5,9 @@
  * Car.java
  * 자동차의 속성과 행동을 가지고 있는 클래스
  *
- * @author		Sorin Jin
- * @version		1.0
- * @date		09 Dec 2019
+ * @author      Sorin Jin
+ * @version      1.0
+ * @date      09 Dec 2019
  *
  */
 
@@ -40,7 +40,6 @@ public class Car {
         if (isGoNumber()) {
             go();
         }
-        print();
     }
 
     private boolean isGoNumber() {
@@ -52,14 +51,5 @@ public class Car {
 
     private void go() {
         position += randomNumber;
-    }
-
-    private void print() {
-        System.out.printf("%-6s",name);
-        System.out.print(": ");
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
     }
 }
