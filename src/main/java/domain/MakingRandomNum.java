@@ -25,6 +25,7 @@ public class MakingRandomNum {
 
     /**
      * 랜덤으로 숫자를 생성해서 4이상이면 전진 이하이면 전진하지못하게 boolean값을 return 한다.
+     *
      * @return 4이상이면 true값을 리턴.
      */
     public boolean randomMakeNum() {

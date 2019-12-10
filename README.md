@@ -2,7 +2,7 @@
 
 | 작성자 | git ID| 작성일시 | 변경사유 |
 |---|---|---|---|
-| 정은석 | joseph415 |2019.12.10 | java convention code 수정|
+| 정은석 | joseph415 |2019.12.10 | OutputWinningCar 출력방법 수정|
 
 ___
 

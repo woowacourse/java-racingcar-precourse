@@ -21,16 +21,17 @@ public class ComparingCarName {
 
     /**
      * 중복을 걸러주는 매소드
-     * @param carName 비교할 차의 이름
-     * @param carList 차이름을 담고있는 배열
+     *
+     * @param carName   비교할 차의 이름
+     * @param carList   차이름을 담고있는 배열
      * @param selfIndex 비교할 차의 배열의 위치를 나타내는 Index
      * @return 같은 이름이 있으면 true 리턴
      */
-    public boolean compareName(String carName,String[] carList,int selfIndex){
-        int compareIndex = selfIndex +1;
+    public boolean compareName(String carName, String[] carList, int selfIndex) {
+        int compareIndex = selfIndex + 1;
 
-        for(int i=compareIndex;i<carList.length;i++){
-            if(carName.equals(carList[i])){
+        for (int i = compareIndex; i < carList.length; i++) {
+            if (carName.equals(carList[i])) {
                 return true;
             }
         }
