@@ -9,4 +9,10 @@ public class InputView {
 	public InputView(InputStream inputStream) {
 		scanner = new Scanner(inputStream);
 	}
+	//
+	// public String getNames(){
+	//
+	// 	return scanner.next();
+	// }
+
 }
