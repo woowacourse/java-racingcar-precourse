@@ -18,14 +18,12 @@ public class User {
 
 	public List<String> getCarNames() {
 		List<String> carNames = new ArrayList<>();
-		StringTokenizer tokenizer;
-
 		System.out.println(INPUT_CAR_NAMES_MESSAGE);
-		tokenizer = new StringTokenizer(userInput.next(), COMMA);
+		StringTokenizer tokenizer = new StringTokenizer(userInput.next(), COMMA);
 
 		while (tokenizer.hasMoreTokens()) {
 			String carName = tokenizer.nextToken();
-			carNames.add();
+			carNames.add(carName);
 		}
 
 		return carNames;
@@ -34,9 +32,8 @@ public class User {
 	public int getCarMoveCount() {
 		int carMoveCount;
 
-		System.out.println(INPUT_MOVE_COUNT_MESSAGE);
-
 		do {
+			System.out.println(INPUT_MOVE_COUNT_MESSAGE);
 			carMoveCount = Integer.parseInt(userInput.next());
 		} while (isNegativeCount(carMoveCount));
 
