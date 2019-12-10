@@ -18,7 +18,7 @@ public class Rule {
 		int maxPosition = getMaxPosition(cars);
 
 		for(Car car : cars) {
-			if(car.getPosition() == maxPosition) {
+			if(isMaxPosition(car, maxPosition)) {
 				car.setIsWinner();
 			}
 		}
@@ -38,5 +38,9 @@ public class Rule {
 			maxPosition = car.getPosition();
 		}
 		return maxPosition;
+	}
+
+	private static boolean isMaxPosition(Car car, int maxPosition) {
+		return car.getPosition() == maxPosition;
 	}
 }
