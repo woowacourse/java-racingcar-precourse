@@ -16,8 +16,8 @@ class RacingGameTest {
 		List<String> names = Arrays.asList("a", "b", "c");
 		RacingGame racingGame = new RacingGame(names);
 
-		List<Integer> collect = racingGame.getRails().stream()
-			.map(Rail::getRailNo)
+		List<Integer> collect = racingGame.getCars().stream()
+			.map(Car::getRailId)
 			.collect(Collectors.toList());
 
 		assertThat(collect).containsExactly(1, 2, 3);

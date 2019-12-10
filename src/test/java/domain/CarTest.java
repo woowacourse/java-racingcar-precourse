@@ -12,7 +12,7 @@ class CarTest {
 	@Test
 	public void generateCar() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			Car car = new Car("mjung_car");
+			Car car = new Car("mjung_car", 1);
 		});
 	}
 

@@ -4,20 +4,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGame {
-	private List<Rail> rails;
+	private List<Car> cars;
 	private int InjectionId = 1;
 
-	public List<Rail> getRails() {
-		return rails;
+	public List<Car> getCars() {
+		return cars;
 	}
 
 	public RacingGame(List<String> carNames) {
-		rails = carNames.stream()
-			.map(this::makeOneRail)
+		cars = carNames.stream()
+			.map(this::makeOneCar)
 			.collect(Collectors.toList());
 	}
 
-	private Rail makeOneRail(String name) {
-		return new Rail(name, InjectionId++);
+	private Car makeOneCar(String name) {
+		return new Car(name, InjectionId++);
 	}
 }
