@@ -1,6 +1,8 @@
 package domain;
 
 public class Car implements Comparable<Car> {
+    private static final int MOVE_NUMBER_FLOOR = 4;
+    private static final int MAKING_ONE_TO_NINE = 10;
     private final String name;
     private int position = 0;
 
@@ -10,7 +12,7 @@ public class Car implements Comparable<Car> {
 
     public void move() {
         int randomInteger = makeRandomInt();
-        if (randomInteger >= 4) {
+        if (randomInteger >= MOVE_NUMBER_FLOOR) {
             position++;
         }
     }
@@ -18,7 +20,7 @@ public class Car implements Comparable<Car> {
     private int makeRandomInt() {
         double randomNumber = Math.random();
 
-        return (int) (randomNumber * 10);
+        return (int) (randomNumber * MAKING_ONE_TO_NINE);
     }
 
     public int getPosition() {
@@ -33,6 +35,4 @@ public class Car implements Comparable<Car> {
     public int compareTo(Car car) {
         return this.position - car.getPosition();
     }
-
-    // 추가 기능 구현
 }
