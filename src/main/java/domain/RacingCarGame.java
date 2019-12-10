@@ -60,9 +60,11 @@ public class RacingCarGame {
 		gameCnt = Integer.parseInt(sCnt);
 	}
 	
-
-	
-
-	
-
+	private void runRace() {
+		System.out.println("\n실행 결과");
+		
+		while((gameCnt--) != 0) {
+			moveCar();
+		}
+	}
 }
