@@ -6,8 +6,6 @@ import java.util.StringTokenizer;
 
 public class RacingGame {
 	public static final String COMMA = ",";
-	private static final String INPUT_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-	private static final String INPUT_MOVE_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
 	public static void main(String[] args) {
 		User user = new User();
@@ -15,10 +13,7 @@ public class RacingGame {
 	}
 
 	private static void runRacingGame(User user) {
-		System.out.println(INPUT_CAR_NAMES_MESSAGE);
 		Entry entry = makeRacingEntry(getCarNameList(user.getCarNames()));
-
-		System.out.println(INPUT_MOVE_COUNT_MESSAGE);
 		int carMoveCount = user.getCarMoveCount();
 
 		for (int i = 0; i < carMoveCount; ++i) {
@@ -27,6 +22,15 @@ public class RacingGame {
 		}
 
 		entry.printWhoWin();
+	}
+
+	private static boolean isNegativeCount(int carMoveCount) {
+
+		if (carMoveCount < 0) {
+			return true;
+		}
+
+		return false;
 	}
 
 	private static Entry makeRacingEntry(List<String> carNameList) {
