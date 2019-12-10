@@ -7,11 +7,10 @@
  */
 package domain;
 
-import java.util.ArrayList;
+import java.util.ArrayList;ㅗ
 import java.util.List;
 
 public class Game {
-
     private User user = new User();
     private List<Car> cars = new ArrayList<Car>();
 
@@ -85,5 +84,4 @@ public class Game {
         }
         System.out.printf("님이 최종 우승했습니다.\n");
     }
-
 }
