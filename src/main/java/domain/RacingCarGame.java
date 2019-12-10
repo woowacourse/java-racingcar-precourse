@@ -116,5 +116,19 @@ public class RacingCarGame {
 		return true;
 	}
 	
-
+	private boolean checkInputCnt(String cnt) {
+		if(!checkNotNull(cnt)) {
+			System.out.println("입력값이 없습니다. 다시 입력해주세요.");
+			return false;
+		}
+		if(!checkZero(cnt)) {
+			System.out.println("이동 횟수가 0입니다. 다시 입력해주세요.");
+			return false;
+		}
+		return true;
+	}
+	
+	private boolean checkZero(String cnt) {
+		return Integer.parseInt(cnt) > 0;
+	}
 }
