@@ -6,6 +6,7 @@ import java.util.List;
 public class Entry {
 	private static final String MOVE_LINE = "-";
 	private static final String WINNER_MESSAGE = "가 최종 우승했습니다.";
+	private static final String CAR_POSITION_PRINT_FORMAT = "%s : %s\n";
 
 	private List<Car> racingEntry;
 
@@ -24,7 +25,7 @@ public class Entry {
 	public void printEachCarPosition() {
 
 		for (Car car : racingEntry) {
-			System.out.printf("%s : %s\n", car.getName(), toStringPosition(car.getPosition()));
+			System.out.printf(CAR_POSITION_PRINT_FORMAT, car.getName(), toStringPosition(car.getPosition()));
 		}
 
 		System.out.println();
