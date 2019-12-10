@@ -15,21 +15,16 @@ public class RacingGame {
 
         /* 차량 목록 인스턴스화 */
         CarList carList = new CarList(names);
-        RandomNumberGenerator prng = new RandomNumberGenerator(numberOfCar);
+
+        Score score = new Score();
         for (int i = 0; i < times; i++) {
-            ArrayList<Boolean> direction = prng.goNoGo();
-            for (int j = 0; j < numberOfCar; j++) {
-                int previousPosition = carList.car.get(j).getPosition();
-                if (direction.get(j)) {
-                    carList.car.get(j).setPosition(previousPosition + 1);
-                }
-            }
+            score.calcScore(numberOfCar, carList);
+
             /* 결과 출력 */
-            carList.printCarList();
+            io.printIteration(carList);
         }
 
         /* 우승자 알려주기 */
-
-
+        io.printWinner(score.calcWinner(carList));
     }
 }

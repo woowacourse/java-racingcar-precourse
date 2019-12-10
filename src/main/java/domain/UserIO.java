@@ -26,7 +26,7 @@ public class UserIO {
             for (int i = 0; i < length; i++) {
                 names[i] = names[i].trim();
             }
-        } while(!checkName(names));
+        } while (!checkName(names));
         return names;
     }
 
@@ -64,7 +64,23 @@ public class UserIO {
         return sc.nextInt();
     }
 
+    /* 반복 결과 출력 */
     public void printIteration(CarList carList) {
-        ;
+        for (Car it : carList.car) {
+            System.out.print(it.getName() + ": ");
+            for (int i = 0; i < it.getPosition(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    /* 우승자 출력 */
+    public void printWinner(ArrayList<Car> winner) {
+        System.out.print("우승자: ");
+        for (Car it : winner) {
+            System.out.print(it.getName() + " ");
+        }
     }
 }
