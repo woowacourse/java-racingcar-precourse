@@ -59,7 +59,7 @@
  ###UtilityMethods
  - Car[] sliceString(String target)
  
-        유저에게서 입력 받은 스트링을 ',' 기준으로 나누고 배열에 넣어 리턴하는 메소드
+        유저에게서 입력 받은 스트링을 ',' 기준으로 나누고 자동차 객체를 생성하는 메소드
         
  - String getListToString(ArrayList<String> winners)
  
