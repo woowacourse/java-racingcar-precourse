@@ -8,6 +8,20 @@ public class Game {
     static final int MIN_CAR_NAMES_COUNT = 1;
     static final int MIN_CAR_NAME_LENGTH = 1;
     static final int MAX_CAR_NAME_LENGTH = 5;
+
+    static final String MESSAGE_ASK_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    static final String MESSAGE_ASK_TURNS = "시도할 회는 몇회인가요?";
+    static final String MESSAGE_RESULT_OF_RACE = "실행 결과";
+    static final String MESSAGE_IS_WINNER = "가 최종우승 했습니다.";
+
+    static final String ERROR_MESSAGE_AGAIN = "다시 ";
+    static final String ERROR_MESSAGE_CAR_NAME_IS_NOT_ENTERED = "입력된 자동차 이름이 없습니다.";
+    static final String ERROR_MESSAGE_CAR_NAME_IS_DUPLICATED = "중복된 자동차 이름이 있습니다.";
+    static final String ERROR_MESSAGE_CAR_NAME_LENGTH_IS_WRONG = "자동차 이름의 길이가 잘못되었습니다.";
+    static final String ERROR_MESSAGE_INPUT_CONTAINS_CHAR = "문자가 입력되었습니다. 다시 입력해주세요.";
+    static final String ERROR_MESSAGE_INPUT_VALUE_IS_MINUS = "음수가 입력되었습니다. 다시 입력해주세요.";
+    static final String ERROR_MESSAGE_INPUT_VALUE_IS_ZERO = "0이 입력되었습니다. 다시 입력해주세요.";
+
     Scanner scanner;
     ArrayList<Car> cars;
     ArrayList<Car> winners;
@@ -39,7 +53,7 @@ public class Game {
                 saveCarNames(userInput);
                 break;
             }
-            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+            System.out.print(ERROR_MESSAGE_AGAIN);
         }
     }
 
@@ -47,7 +61,7 @@ public class Game {
         String userInput;
         String[] nameArray;
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(MESSAGE_ASK_CAR_NAMES);
         userInput = scanner.nextLine();
         nameArray = userInput.split(",");
 
@@ -82,6 +96,7 @@ public class Game {
 
     private boolean checkNumberOfString(String[] inputArray, int minimumCount) {
         if (inputArray.length < minimumCount) {
+            System.out.println(ERROR_MESSAGE_CAR_NAME_IS_NOT_ENTERED);
             return false;
         }
         return true;
@@ -91,6 +106,7 @@ public class Game {
         HashSet<String> nameSet = new HashSet<String>();
         for (int i=0; i<inputArray.length; i++) {
             if (nameSet.contains(inputArray[i])) {
+                System.out.println(ERROR_MESSAGE_CAR_NAME_IS_DUPLICATED);
                 return true;
             }
             nameSet.add(inputArray[i]);
@@ -110,6 +126,7 @@ public class Game {
         if ((min <= string.length()) && (string.length() <= max)) {
             return true;
         }
+        System.out.println(ERROR_MESSAGE_CAR_NAME_LENGTH_IS_WRONG);
         return false;
     }
 
@@ -118,14 +135,13 @@ public class Game {
             if (askUserInputTurns() == true) {
                 break;
             }
-            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
         }
     }
 
     private boolean askUserInputTurns() {
         String userInput;
 
-        System.out.println("시도할 회는 몇회인가요?");
+        System.out.println(MESSAGE_ASK_TURNS);
         userInput = scanner.nextLine();
 
         if (checkUserInputTurnsAreInvalid(userInput)) {
@@ -152,7 +168,7 @@ public class Game {
         try {
             Integer.parseInt(input);
         } catch ( NumberFormatException e) {
-            System.out.print("잘못된 입력입니다.\n다시 ");
+            System.out.println(ERROR_MESSAGE_INPUT_CONTAINS_CHAR);
             return true;
         }
         return false;
@@ -161,7 +177,7 @@ public class Game {
     private boolean checkInputIsMinus(String input) {
         int inputValue = Integer.parseInt(input);
         if (inputValue < 0) {
-            System.out.print("음수가 입력되었습니다.\n다시 ");
+            System.out.println(ERROR_MESSAGE_INPUT_VALUE_IS_MINUS);
             return true;
         }
         return false;
@@ -170,7 +186,7 @@ public class Game {
     private boolean checkInputIsZero(String input) {
         int inputValue = Integer.parseInt(input);
         if (inputValue == 0) {
-            System.out.print("0이 입력되었습니다.\n다시 ");
+            System.out.println(ERROR_MESSAGE_INPUT_VALUE_IS_ZERO);
             return true;
         }
         return false;
@@ -178,8 +194,7 @@ public class Game {
 
     private void startRace() {
         Car car;
-
-        System.out.println("실행 결과");
+        System.out.println(MESSAGE_RESULT_OF_RACE);
 
         for (int i=0; i<this.turns; i++) {
             for (int j=0; j<this.cars.size(); j++) {
@@ -225,7 +240,7 @@ public class Game {
     }
 
     private void printWinners() {
-        System.out.println(getWinnersName() + "가 최종우승 했습니다.");
+        System.out.println(getWinnersName() + MESSAGE_IS_WINNER);
     }
 
     private String getWinnersName() {
