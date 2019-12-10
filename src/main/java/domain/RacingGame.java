@@ -105,12 +105,10 @@ public class RacingGame {
 
 		for (String carName : splitedCarNames) {
 			if (carName.length() > 5) {
-				isAvailable = false;
-				break;
-			} else {
-				Car car = new Car(carName);
-				carList.add(car);
+				return false;
 			}
+			Car car = new Car(carName);
+			carList.add(car);
 		}
 
 		return isAvailable;
