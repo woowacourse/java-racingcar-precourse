@@ -5,6 +5,7 @@ import domain.Car;
 import exception.InvalidInputException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -17,52 +18,42 @@ public class RacingCarGame {
     private static final String TRIAL_TIMES_ASK_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String AWARDS_TAIL_MESSAGE = "가 우승했습니다.";
     private static final String CAR_NAME_DELIMITER = ",";
+    private static final Scanner GAME_SCANNER = new Scanner(System.in);
+    private static final Random RANDOM_NUMBER_GENERATOR = new Random();
 
     private Host host;
-    private int numberOfTimes;
-    private Scanner gameScanner;
-    private Random random;
-
-    RacingCarGame() {
-        gameScanner = new Scanner(System.in);
-        random = new Random();
-    }
 
     public static void main(String[] args) {
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.initGame();
-        racingCarGame.runGame();
+        racingCarGame.initCars();
+        int trialTimes = racingCarGame.initNumberOfTimes();
+        racingCarGame.runGame(trialTimes);
         racingCarGame.holdAwardsCeremony();
     }
 
-    public void initGame() {
-        initCars();
-        initNumberOfTimes();
-    }
-
-    private void initCars() {
-        List<String> names = makeNamesList();
-        host = new Host(names);
-    }
-
-    private List<String> makeNamesList() {
+    public void initCars() {
         while (true) {
             try {
-                String carNames = takeNames();
-                List<String> names = convertToCarNames(carNames);
-                validates(names);
-                return names;
+                List<String> names = makeNamesList();
+                host = new Host(names);
+                break;
             } catch (InvalidInputException ie) {
                 System.out.println(ie.getMessage());
             }
         }
     }
 
-    private void initNumberOfTimes() {
-        numberOfTimes = makeNumberOfTimes();
+    private List<String> makeNamesList() {
+        String carNames = takeNames();
+        List<String> names = convertToCarNames(carNames);
+        return names;
     }
 
-    private int makeNumberOfTimes() {
+    private List<String> convertToCarNames(String carNames) {
+        return Arrays.asList(carNames.split(CAR_NAME_DELIMITER));
+    }
+
+    public int initNumberOfTimes() {
         while (true) {
             try {
                 String numberOfTimesString = takeNumberOfTimes();
@@ -83,9 +74,9 @@ public class RacingCarGame {
         }
     }
 
-    public void runGame() {
-        for (int i = 0; i < numberOfTimes; i++) {
-            host.runOneTime(random);
+    public void runGame(int trialTimes) {
+        for (int i = 0; i < trialTimes; i++) {
+            host.runOneTime(RANDOM_NUMBER_GENERATOR);
             host.showCarsStatus();
             System.out.println();
             try {
@@ -106,60 +97,14 @@ public class RacingCarGame {
         return StringUtils.join(carNamesInFirstPosition, CAR_NAME_DELIMITER);
     }
 
-    private List<String> convertToCarNames(String carNames) {
-        String[] namesArray = carNames.split(CAR_NAME_DELIMITER);
-        List<String> names = new ArrayList<>();
-
-        for (String name : namesArray) {
-            names.add(name.trim());
-        }
-
-        return names;
-    }
-
-    private void validates(List<String> names) {
-        checkLengthOverBasis(names);
-        checkSize(names);
-        checkEmptyName(names);
-        checkDuplication(names);
-    }
-
-    private void checkLengthOverBasis(List<String> names) {
-        for (String name : names) {
-            if (name.length() > CAR_NAME_LENGTH_LIMIT) {
-                throw new InvalidInputException(InvalidInputException.NAME_OVER_LENGTH_EXCEPTION_MESSAGE);
-            }
-        }
-    }
-
-    private void checkSize(List<String> names) {
-        if (names.size() < 2) {
-            throw new InvalidInputException(InvalidInputException.NAMES_SIZE_EXCEPTION_MESSAGE);
-        }
-    }
-
-    private void checkEmptyName(List<String> names) {
-        for (String name : names) {
-            if (name.length() == 0) {
-                throw new InvalidInputException(InvalidInputException.NAME_EMPTY_EXCEPTION_MESSAGE);
-            }
-        }
-    }
-
-    private void checkDuplication(List<String> names) {
-        if (names.stream().distinct().count() != names.size()) {
-            throw new InvalidInputException(InvalidInputException.NAME_DUPLICATION_EXCEPTION_MESSAGE);
-        }
-    }
-
     private String takeNames() {
         System.out.println(CAR_NAME_ASK_MESSAGE);
-        return gameScanner.nextLine();
+        return GAME_SCANNER.nextLine();
     }
 
     private String takeNumberOfTimes() {
         System.out.println(TRIAL_TIMES_ASK_MESSAGE);
-        return gameScanner.nextLine();
+        return GAME_SCANNER.nextLine();
     }
 
 }

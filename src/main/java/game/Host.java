@@ -1,8 +1,10 @@
 package game;
 
 import domain.Car;
+import exception.InvalidInputException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -10,12 +12,16 @@ public class Host {
 
     private static final int RANDOM_NUMBER_BOUND = 10;
     private static final int DEFAULT_POSITION = 0;
-    private static final String CAR_NAME_FORMAT = "%" + 5 + "s:";
+    private static final int MINIMUM_SIZE = 2;
+    private static final String CAR_NAME_FORMAT = "%" + Car.CAR_NAME_LENGTH_LIMIT + "s:";
     private static final String CAR_POSITION_MARK = "-";
 
     private List<Car> cars;
 
     public Host(List<String> names) {
+        validatesMinimumSize(names);
+        validatesDuplicateNames(names);
+
         cars = new ArrayList<>();
 
         for (String name : names) {
@@ -23,6 +29,17 @@ public class Host {
         }
     }
 
+    private void validatesMinimumSize(List<String> names) {
+        if (names.size() < MINIMUM_SIZE) {
+            throw new InvalidInputException(InvalidInputException.NAMES_SIZE_EXCEPTION_MESSAGE);
+        }
+    }
+
+    private void validatesDuplicateNames(List<String> names) {
+        if (names.stream().distinct().count() != names.size()) {
+            throw new InvalidInputException(InvalidInputException.NAME_DUPLICATION_EXCEPTION_MESSAGE);
+        }
+    }
     public void runOneTime(Random random) {
         for (Car car : cars) {
             car.proceedOrStop(generateRandomNumber(random));
