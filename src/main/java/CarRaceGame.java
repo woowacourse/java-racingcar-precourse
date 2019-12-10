@@ -8,7 +8,7 @@ public class CarRaceGame {
 	public static void playGameByNumber(int count, Car cars[]) {
 		for (int i = 0; i < count; i++) {
 			goForwardRandomly(cars);
-			printGameResult(cars);
+			printRoundResult(cars);
 		}
 
 	}
@@ -26,7 +26,7 @@ public class CarRaceGame {
 
 	}
 
-	private static void printGameResult(Car cars[]) {
+	private static void printRoundResult(Car cars[]) {
 		String gameResult = "";
 
 		System.out.println("");

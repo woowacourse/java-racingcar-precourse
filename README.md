@@ -4,41 +4,47 @@
     사용자가 정한 count만큼 게임이 진행되면 가장 많이 진행한 자동차가 승리한다
 
 
-## 프로그램 흐름
-    1. 유저로부터 입력받은 문자열을 슬라이싱하여 자동차 이름 분리
-    2. 시도할 횟수를 입력받아 게임 시도 횟수 제어
-    3. n회 게임 시도 후 각 Car 객체의 위치를 비교하여 우승 자동차 선정
+## 사용법
+    import java.util.ArrayList;
+    import java.util.Scanner;
+    
+    import domain.Car;
 
-## 만들 메소드
-- ###문자열을 입력받아 슬라이싱하여 문자열 배열로 리턴하는 메소드
-        
-        경주할 자동차의 갯수를 입력받지 않고 슬라이싱하며 추가해야하기 때문에
-        배열보다는 리스트의 사용이 적합
-        ---------------------------------------------------------------
-        String 클래스의 Split method가 배열초기화의 iteration을 수행하므로
-        String 배열을 사용해도 무방
-              
-- ###0~9사이의 유사난수를 구하고 자동차의 전진 여부를 결정하는 메소드
+    Scanner sc = new Scanner(System.in);
+    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+    String inputString = sc.nextLine();
+    System.out.println("시도할 회수는 몇회인가요?");
+    int count = sc.nextInt();
+    Car[] cars = UtilityMethods.sliceString(inputString);
+    playGameByNumber(count, cars);
+    ArrayList<String> winners = judgeWinner(cars);
+    printWinner(winners);
 
-        Car클래스의 메소드로 구현할지 다른 클래스로 분리할지 미정
-        -----------------------------------------------------------------
-        테스트 및 메인함수에서 반복문을 줄이기 위하여 Car클래스의 메소드가 아닌
-        UtiliyMethods 클래스로 분리
-        
-- ###수행회수를 가르키는 Int 변수를 매개변수로 받아 게임 반복 수행을 제어하는 메소드
-        
-        메인 메소드를 가볍게 하기 위한 기능 분리
-        ----------------------------------------------------------------------
-        자동차의 이름과 위치를 출력하는 부분을 다른 메소드로 분리하여 호출까지만 수행
-        
-- ###게임 수행 결과를 출력하기 위한 메소드
-        
-        게임 반복수행 메소드의 가독성을 높이기 위한 분리
-        
-- ###리스트에 존재하는 Car객체들의 position을 비교하여 우승 자동차를 선정하는 메소드
+    
+## 기능 설명
+###CarRaceGame
+- void playGameByNumber(int count, Car cars[])
 
-        클래스 분리와 Static 메소드를 이해하기 위해 Static하게 구현
-        ------------------------------------------------------------------
-        우승 자동차의 position과 중복 우승자를 처리해야 함
-
+        게임에 참여하는 자동차의 목록과 반복 횟수를 입력받아 자동차 경주 시합을 실행하는 메소드
         
+- void goForwardRandomly(Car[] cars)
+
+        playGameByNumber에서 호출되어 게임에 참가하는 자동차들을 랜덤하게 전진시키는 메소드
+        
+- void printRoundResult(Car cars[])
+        
+        playGameByNumber에서 호출되어 한 라운드가 수행된 뒤 라운드의 결과를 출력하는 메소드
+        
+- ArrayList<String> judgeWinner(Car[] cars)
+
+        모든 라운드가 끝난뒤 실행되는 메소드로 게임에 참여한 자동차들을 입력받아 
+        우승자의 List를 리턴하는 메소드
+        
+- judgeWinningPosition(Car[] cars)
+        
+        judgeWinner에서 호출되어 게임에 참여한 자동차들의 최종 위치를 순회하여
+        가장 멀리 간 자동차의 위치를 리턴하는 메소드
+        
+- printWinner(ArrayList<String> winners)
+
+        judgeWinner에서 리턴된 List를 입력받아 양식에 맞게 출력하는 메소드
