@@ -8,8 +8,14 @@
 package domain;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class ValidatorImpl implements Validator {
+    @Override
+    public boolean validateRaceables(List<Raceable> raceables) {
+        return (raceables != null && raceables.size() != 0);
+    }
+
     @Override
     public boolean validateNames(String[] names) {
         if (names.length < RacingGameConfig.MIN_NAMES) {

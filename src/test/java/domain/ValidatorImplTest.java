@@ -7,6 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class ValidatorImplTest {
     private ValidatorImpl validator;
 
@@ -71,8 +75,24 @@ class ValidatorImplTest {
     void validateCyclesWithTooSmallCycles() {
         //given
         int tooSmallCycles = RacingGameConfig.MIN_CYCLES - 1;
-
         //when & then
         assertFalse(validator.validateCycles(tooSmallCycles));
+    }
+
+    @Test
+    @DisplayName("#validateRaceables: return true with valid raceables")
+    void validateRaceablesWithValidRaceables() {
+        //given
+        List<Raceable> raceables = Arrays.asList(new RacingCar("pobi"), new RacingCar("crong"));
+
+        //then
+        assertTrue(validator.validateRaceables(raceables));
+    }
+
+    @Test
+    @DisplayName("#validateRaceables: return falce with invalid raceables")
+    void validateRaceablesWithInvalidRaceables() {
+        assertFalse(validator.validateRaceables(null));
+        assertFalse(validator.validateRaceables(new ArrayList<>()));
     }
 }

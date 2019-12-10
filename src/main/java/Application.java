@@ -46,7 +46,7 @@ public class Application {
     private static RacingGame setupRacingGame(Validator validator, String[] names, RacingPrinter racingPrinter) {
         RaceableFactory raceableFactory = new RacingCarFactory(validator);
         List<Raceable> raceables = raceableFactory.create(names);
-        RacingReferee racingReferee = new RacingRefereeImpl();
+        RacingReferee racingReferee = new RacingRefereeImpl(validator);
 
         return new RacingGameImpl(raceables, racingReferee, racingPrinter);
 

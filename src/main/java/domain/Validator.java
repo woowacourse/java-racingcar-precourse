@@ -7,7 +7,10 @@
 
 package domain;
 
+import java.util.List;
+
 public interface Validator {
+    boolean validateRaceables(List<Raceable> raceables);
     boolean validateNames(String[] names);
 
     boolean validateCycles(int cycles);
