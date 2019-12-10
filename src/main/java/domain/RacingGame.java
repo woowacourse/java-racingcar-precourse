@@ -5,8 +5,11 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
 	private List<Rail> rails;
-
 	private int InjectionId = 1;
+
+	public List<Rail> getRails() {
+		return rails;
+	}
 
 	public RacingGame(List<String> carNames) {
 		rails = carNames.stream()
@@ -15,6 +18,6 @@ public class RacingGame {
 	}
 
 	private Rail makeOneRail(String name) {
-		return new Rail(InjectionId++, name);
+		return new Rail(name, InjectionId++);
 	}
 }
