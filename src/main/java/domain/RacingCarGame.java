@@ -1,3 +1,4 @@
+
 /*
  * 클래스명 : RacingCarGame
  * 
@@ -7,6 +8,7 @@
  * 
  * 작성자 : ParkDooWon
  */
+
 package domain;
 
 import java.util.ArrayList;
@@ -48,7 +50,8 @@ public class RacingCarGame {
 		System.out.println(QUESTION_TO_GET_CAR_NAMES);
 		do {
 			carNamesDividedByComma = input.nextLine();
-		} while (exception.checkNameRange(carNamesDividedByComma) || exception.isDuplicated() || exception.isNothing());
+		} while (exception.checkNameRange(carNamesDividedByComma) || exception.isDuplicated() 
+					|| exception.isNothing());
 		carNames = carNamesDividedByComma.split(COMMA);
 		for (String carName : carNames) {
 			cars.add(new Car(carName));

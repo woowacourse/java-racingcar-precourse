@@ -1,3 +1,4 @@
+
 /*
  * 클래스명 : ExceptionHandler
  * 
@@ -7,6 +8,7 @@
  * 
  * 작성자 : ParkDooWon
  */
+
 package exceptionhandler;
 
 import java.util.ArrayList;
@@ -58,7 +60,9 @@ public class ExceptionHandler {
 	}
 
 	public boolean isNumber(String numOfTries) {
+		
 		/* 음수를 입력받을 때, '-' 부분이 문자로 인식되어 음수가 숫자임에도 숫자가 아니라고 출력되는 것을 방지 */
+		
 		String[] stringTryNum = numOfTries.split("");
 		for (int i = 0; i < stringTryNum.length; i++) {
 			if (stringTryNum[0].equals("-") && stringTryNum.length > 1) {

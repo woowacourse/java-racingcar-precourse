@@ -1,3 +1,4 @@
+
 /*
  * 클래스명 : Car
  * 
@@ -7,6 +8,7 @@
  * 
  * 작성자 : ParkDooWon
  */
+
 package domain;
 
 import java.util.Random;
