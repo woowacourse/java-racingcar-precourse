@@ -1,3 +1,10 @@
+/**
+ * 클래스 이름       Game
+ * 버전 정보        1.0
+ * 날짜            2019.12.10
+ * 저작권          joi0104
+ */
+
 package domain;
 
 import java.util.ArrayList;
@@ -5,43 +12,46 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Game {
-    private ArrayList<Car> carList = new ArrayList<Car>();
-    private int tryCount = 0;
+    private static final int MAX_CAR_NAME_LENGTH = 5;
 
-    public void playGame(){
+    private final ArrayList<Car> carList = new ArrayList<Car>();
+    private int tryCount;
+
+    public void playGame() {
         initializeGame();
         System.out.println();
         System.out.println("실행결과");
-        for(int i=0; i<tryCount; i++){
+        for (int i = 0; i < tryCount; i++) {
             moveAndPrintEachCar();
             System.out.println();
         }
         printWinnerName();
     }
 
-    public void initializeGame(){
+    private void initializeGame() {
         getCarList();
         getTryCount();
     }
 
-   public void getCarList(){
+    private void getCarList() {
         String[] carNameList;
         do {
             carNameList = getCarNameList();
-        }while(!checkNameList(carNameList));
+        } while (!checkNameList(carNameList));
         makeCarList(carNameList);
     }
 
-    public String[] getCarNameList(){
+    private String[] getCarNameList() {
         Scanner scanner = new Scanner(System.in);
+        String[] carNameList;
         System.out.println("경주할 자동차 이름 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] carNameList = scanner.nextLine().split(",");
+        carNameList = scanner.nextLine().split(",");
         return carNameList;
     }
 
-    public boolean checkNameList(String[] carNameList){
-        for(String name : carNameList){
-            if(name.length() > 5) {
+    private boolean checkNameList(String[] carNameList) {
+        for (String name : carNameList) {
+            if (name.length() > MAX_CAR_NAME_LENGTH) {
                 System.out.println("차 이름은 5자 이하여야 합니다.");
                 return false;
             }
@@ -49,23 +59,23 @@ public class Game {
         return true;
     }
 
-    public void makeCarList(String[] carNameList){
-        for(String s : carNameList){
-            carList.add(new Car(s));
+    private void makeCarList(String[] carNameList) {
+        for (String name : carNameList) {
+            carList.add(new Car(name));
         }
     }
 
-    public void getTryCount(){
+    private void getTryCount() {
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("시도할 회수는 몇회인가요?");
             tryCount = scanner.nextInt();
-        }while(!checkTryCount(tryCount));
+        } while (!checkTryCount(tryCount));
     }
 
-    public boolean checkTryCount(int tryCount){
+    private boolean checkTryCount(int tryCount) {
         Object tryCountObject = tryCount;
-        if(tryCountObject instanceof Integer) {
+        if (tryCountObject instanceof Integer) {
             return true;
         }
         System.out.println("시도할 회수는 숫자이어야 합니다.");
@@ -73,35 +83,38 @@ public class Game {
     }
 
 
-   public void moveAndPrintEachCar() {
-        for(Car car : carList){
+    private void moveAndPrintEachCar() {
+        for (Car car : carList) {
             car.moveForward();
             car.printPosition();
         }
     }
 
-    public void printWinnerName(){
+    private void printWinnerName() {
         ArrayList<String> winnerNameList = getWinnerName();
         int winnerNameListLength = winnerNameList.size();
-        for(int i=0; i<winnerNameListLength-1; i++){ System.out.print(winnerNameList.get(i) + ",");}
-        System.out.println(winnerNameList.get(winnerNameListLength-1)+"가 최종우승 했습니다.");
+        for (int i = 0; i < winnerNameListLength - 1; i++) {
+            System.out.print(winnerNameList.get(i) + ",");
+        }
+        System.out.println(winnerNameList.get(winnerNameListLength - 1) + "가 최종우승 했습니다.");
     }
 
-    public ArrayList<String> getWinnerName(){
+    private ArrayList<String> getWinnerName() {
         ArrayList<String> winnerNameList = new ArrayList<String>();
         int maxPositon = findMaxPosition();
-        for(Car car : carList){
-            if(car.getPosition() == maxPositon) winnerNameList.add(car.getName());
+        for (Car car : carList) {
+            if (car.getPosition() == maxPositon) {
+                winnerNameList.add(car.getName());
+            }
         }
         return winnerNameList;
     }
 
-    public int findMaxPosition(){
+    private int findMaxPosition() {
         ArrayList<Integer> carPositionList = new ArrayList<Integer>();
-        for(Car car : carList){
+        for (Car car : carList) {
             carPositionList.add(car.getPosition());
         }
         return Collections.max(carPositionList);
     }
-
 }
