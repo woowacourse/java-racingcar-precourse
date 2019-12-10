@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Host {
 
@@ -16,17 +17,11 @@ public class Host {
     private static final String CAR_NAME_FORMAT = "%" + Car.CAR_NAME_LENGTH_LIMIT + "s:";
     private static final String CAR_POSITION_MARK = "-";
 
-    private List<Car> cars;
-
-    public Host(List<String> names) {
+    public List<Car> makeCarList(String inputString) {
+        List<String> names = Arrays.asList(inputString.split(","));
         validatesMinimumSize(names);
         validatesDuplicateNames(names);
-
-        cars = new ArrayList<>();
-
-        for (String name : names) {
-            cars.add(new Car(name));
-        }
+        return names.stream().map(name -> new Car(name.trim())).collect(Collectors.toList());
     }
 
     private void validatesMinimumSize(List<String> names) {
@@ -40,7 +35,7 @@ public class Host {
             throw new InvalidInputException(InvalidInputException.NAME_DUPLICATION_EXCEPTION_MESSAGE);
         }
     }
-    public void runOneTime(Random random) {
+    public void runOneTime(List<Car> cars, Random random) {
         for (Car car : cars) {
             car.proceedOrStop(generateRandomNumber(random));
         }
@@ -50,7 +45,7 @@ public class Host {
         return random.nextInt(RANDOM_NUMBER_BOUND);
     }
 
-    public void showCarsStatus() {
+    public void showCarsStatus(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(makeCarStatus(car));
         }
@@ -79,7 +74,7 @@ public class Host {
         return first;
     }
 
-    public List<Car> takeCarsInFirstPosition(int position) {
+    public List<Car> takeCarsInSamePositionWith(int position) {
         List<Car> carsInFirstPosition = new ArrayList<>();
         for (Car car : cars) {
             if (car.isSamePosition(position)) {
