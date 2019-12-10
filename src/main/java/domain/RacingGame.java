@@ -59,7 +59,7 @@ public class RacingGame {
 	public boolean validate(String[] nameList) {
 		for (int i = 0; i < nameList.length; i++) {
 			String name = nameList[i].trim();
-			if ((name.equals("")) || (name.length() > 5)) {
+			if ((name == null) || (name.length() == 0) || (name.length() > 5)) {
 				return false;
 			}
 		}
