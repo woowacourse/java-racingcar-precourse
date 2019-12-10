@@ -15,7 +15,9 @@ public final class InputUtils {
 
 	private static Scanner scanner = new Scanner(System.in);
 
-	private InputUtils() {}
+	private InputUtils() {
+
+	}
 
 	public static Integer getRounds() {
 		Integer inputValue;
