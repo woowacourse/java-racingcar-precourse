@@ -27,7 +27,9 @@ public class Race {
     private void init(){
         try{
             ArrayList<String> carNames = getCarNames();
+            Cars = createCars(carNames);
             Round = getRound();
+
         }
         catch( RuntimeException e ){
             System.out.println(e);
@@ -71,6 +73,14 @@ public class Race {
         String roundInput = SCANNER.nextLine();
         int round = Integer.parseInt(roundInput);
         return round;
+    }
+
+    private ArrayList<Car> createCars(ArrayList<String> carNames){
+        ArrayList<Car> cars = new ArrayList<Car>();
+        for (String carName: carNames){
+            cars.add(new Car(carName));
+        }
+        return cars;
     }
 
     public void start() {
