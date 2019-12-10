@@ -23,7 +23,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car c) {
-        return c.position - this.position;
+        return position - c.position;
     }
 
     private void validateCarName(String name) {
