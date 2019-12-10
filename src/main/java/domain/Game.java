@@ -28,7 +28,7 @@ public class Game {
         String[] carNameList;
         do {
             carNameList = getCarNameList();
-        }while(checkNameList(carNameList));
+        }while(!checkNameList(carNameList));
         makeCarList(carNameList);
     }
 
@@ -42,11 +42,11 @@ public class Game {
     public boolean checkNameList(String[] carNameList){
         for(String name : carNameList){
             if(name.length() > 5) {
-                System.out.println("차 이름은 5자 이하여야 합니다. 다시 입력해주세요");
-                return true;
+                System.out.println("차 이름은 5자 이하여야 합니다.");
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public void makeCarList(String[] carNameList){
@@ -57,12 +57,23 @@ public class Game {
 
     public void getTryCount(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("시도할 회수는 몇회인가요?");
-        tryCount = scanner.nextInt();
+        do {
+            System.out.println("시도할 회수는 몇회인가요?");
+            tryCount = scanner.nextInt();
+        }while(!checkTryCount(tryCount));
+    }
+
+    public boolean checkTryCount(int tryCount){
+        Object tryCountObject = tryCount;
+        if(tryCountObject instanceof Integer) {
+            return true;
+        }
+        System.out.println("시도할 회수는 숫자이어야 합니다.");
+        return false;
     }
 
 
-    public void moveAndPrintEachCar() {
+   public void moveAndPrintEachCar() {
         for(Car car : carList){
             car.moveForward();
             car.printPosition();
