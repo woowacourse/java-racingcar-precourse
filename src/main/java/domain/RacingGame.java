@@ -11,14 +11,19 @@ public class RacingGame {
 		sc = new Scanner(System.in);
 	}
 
-	public void print(String msg) {
-		System.out.println(msg);
-	}
-
 	public void start() {
 		ready();
-		play();
+		print("\n실행 결과");
+		while (rounds != 0) {
+			play();
+			print("");
+			rounds--;
+		}
 		getResult();
+	}
+
+	public void print(String msg) {
+		System.out.println(msg);
 	}
 
 	public void ready() {
@@ -31,15 +36,10 @@ public class RacingGame {
 	}
 
 	public void play() {
-		print("\n실행 결과");
-
-		for (int i = 0; i < rounds; i++) {
-			for (int j = 0; j < cars.length; j++) {
-				int energy = getRandomNumber();
-				cars[j].tryToMove(energy);
-				cars[j].printPosition();
-			}
-			print("");
+		for (int j = 0; j < cars.length; j++) {
+			int energy = getRandomNumber();
+			cars[j].tryToMove(energy);
+			cars[j].printPosition();
 		}
 	}
 
@@ -54,6 +54,7 @@ public class RacingGame {
 		String[] nameList = names.split(",", -1);
 
 		while (!validate(nameList)) {
+			print("이름 입력형식이 잘못되었습니다. 다시 입력해주세요.\n 예시) pobi, crong, honux");
 			names = sc.nextLine();
 			nameList = names.split(",", -1);
 		}
@@ -63,9 +64,7 @@ public class RacingGame {
 	public boolean validate(String[] nameList) {
 		for (int i = 0; i < nameList.length; i++) {
 			String name = nameList[i].trim();
-
 			if ((name.equals("")) || (name.length() > 5)) {
-				print("이름 입력형식이 잘못되었습니다. 다시 입력해주세요.\n 예시) pobi, crong, honux");
 				return false;
 			}
 		}
@@ -86,6 +85,7 @@ public class RacingGame {
 		String rounds = sc.nextLine();
 
 		while (!isDigit(rounds)) {
+			print("라운드 입력 형식이 잘못되었습니다. 숫자를 다시 입력해주세요.");
 			rounds = sc.nextLine();
 		}
 		return Integer.parseInt(rounds);
@@ -96,7 +96,6 @@ public class RacingGame {
 			Integer.parseInt(rounds);
 			return true;
 		} catch (NumberFormatException e) {
-			print("라운드 입력 형식이 잘못되었습니다. 숫자를 다시 입력해주세요.");
 			return false;
 		}
 	}
