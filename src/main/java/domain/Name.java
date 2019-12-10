@@ -11,7 +11,7 @@ class Name {
     }
 
     private void checkValid(String name) {
-        if (LOWER_BOUND < name.length() && name.length() > UPPER_BOUND) {
+        if (LOWER_BOUND > name.length() || name.length() > UPPER_BOUND) {
             throw new IllegalArgumentException("1 ~ 5 자 사이의 이름을 입력해주세요.");
         }
     }

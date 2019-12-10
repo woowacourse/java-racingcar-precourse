@@ -5,21 +5,35 @@ import utils.InputUtil;
 import utils.OutputUtil;
 
 class RacingCarGame {
-
     private final RacingCars racingCars;
     private Integer count;
 
     private RacingCarGame(RacingCars racingCars, Integer count) {
+        checkCarNameIsEmpty(racingCars);
         this.racingCars = racingCars;
         this.count = count;
     }
 
     static RacingCarGame inputSettings() {
-        OutputUtil.printRacingCarsNameDemand();
-        RacingCars racingCars = new RacingCars(InputUtil.inputRacingCars());
-        OutputUtil.askAttempTime();
-        Integer count = InputUtil.inputCount();
+        RacingCars racingCars = inputRacingCars();
+        Integer count = inputCount();
         return new RacingCarGame(racingCars, count);
+    }
+
+    static RacingCars inputRacingCars() {
+        OutputUtil.printRacingCarsNameDemand();
+        return new RacingCars(InputUtil.inputRacingCars());
+    }
+
+    static Integer inputCount() {
+        OutputUtil.askAttempTime();
+        return InputUtil.inputCount();
+    }
+
+    static void checkCarNameIsEmpty(RacingCars racingCars) {
+        if (racingCars.getRacingCars().size() == 0) {
+            throw new IllegalArgumentException("자동차 이름을 채워주세요!");
+        }
     }
 
     void start() {

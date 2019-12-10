@@ -11,7 +11,8 @@ public class InputUtil {
     private static final String COMMA = ",";
 
     public static List<Car> inputRacingCars() {
-        String[] carNames = SCANNER.nextLine().trim().replace(" ", "").split(COMMA);
+        String[] carNames =
+                SCANNER.nextLine().trim().replace(" ", "").split(COMMA);
         List<Car> Cars = new ArrayList<>();
         for (String carName : carNames) {
             Cars.add(Car.generateCar(carName));
