@@ -1,6 +1,5 @@
 import domain.Car;
 import domain.RacingCars;
-import utils.OutputUtil;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,8 +12,8 @@ public class Referee {
     static List<Car> decideWinners(RacingCars racingCars) {
         Integer maxPosition = getMaxPosition(racingCars);
 
-        if (maxPosition == EMPTY) {
-            return new ArrayList<Car>();
+        if (maxPosition.equals(EMPTY)) {
+            return new ArrayList<>();
         }
 
         return racingCars.getRacingCars().stream()
