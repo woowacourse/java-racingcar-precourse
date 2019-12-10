@@ -42,5 +42,17 @@ public class Racings {
             cars[i] = new Car(Names[i]);
         }
     }
+    public void Gamestart() {
+        System.out.println("Execution Results");
+        System.out.println(num);
+        System.out.println(cars.length);
+        for(i=0;i<num;i++) {
+            for(j=0;j<cars.length;j++) {
+                cars[j].running();
+                prints(cars[j]);
+            }
+            System.out.println(i);
+        }
+    }
 
 }
