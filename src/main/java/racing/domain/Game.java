@@ -28,6 +28,7 @@ public class Game {
             stringBuilder.append(car);
             stringBuilder.append('\n');
         }
+        stringBuilder.append('\n');
 
         return stringBuilder;
     }

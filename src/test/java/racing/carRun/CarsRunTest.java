@@ -14,7 +14,7 @@ public class CarsRunTest {
         CarRunRule rule = RunRuleFactory.getInstance();
         Game game = Game.of(cars, rule);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             game.playOneRound();
             OutputDisplay.printEachRoundResult(game);
         }

@@ -5,7 +5,7 @@ import racing.domain.Winner;
 
 public class OutputDisplay {
     private static final String RESULT = "\n실행결과";
-    private static final String WINNER_PRINT_FORMAT = "%s 가 우승하였습니다.";
+    private static final String WINNER_PRINT_FORMAT = "%s가(이) 우승하였습니다.";
 
     public static void printWinners(Winner winner) {
         String names = winner.getNames();
