@@ -23,7 +23,6 @@ public class RandomNumberGenerator {
     }
 
     public int getNumber() {
-        int result = random.nextInt((max - min) + 1) + min;
-        return result;
+        return random.nextInt((max - min) + 1) + min;
     }
 }
