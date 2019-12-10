@@ -54,5 +54,12 @@ public class Racings {
             System.out.println(i);
         }
     }
+    public void prints(Car car){
+        System.out.print(car.getName() + ":");
+        for(k=0;k<car.getPosition();k++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 
 }
