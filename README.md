@@ -73,8 +73,8 @@ public class Main
  2. 이번 두번째 미션에 새로 생긴 프로그래밍 요구사항인 `else 예약어를 쓰지 않는다`는 항목의 근거가 궁금했다.<br>
  pdf 파일에 명시된 대로 else 예약어를 쓰지 않고 if 문과 return 만 사용하면 어렵지 않게 else를 사용하지 않을 수 있다.<br>
  but, 만약 어떤 메소드가 두가지 경우를 고려하여 동작한다고 하면 if - else 문을 사용하는게 좀 더 코드를 직관적으로 이해하기 쉽지 않을까 라는 생각이 들었다.<br> 
- 궁금해서 검색을 해보았고 ['소트웍스 엔솔리지(Thoughtworks Anthology)'](https://wikibook.co.kr/thoughtworks-anthology/) 라는 책의 특정 장에서 소개되는 `'객체지향 생활 체조'`의 두번째에 나오는 내용이라는 것을 알게 되었다.<br>
- 학교 도서관에 검색을 해보니 해당 책이 바로 대출 가능했고, [이 문서](https://github.com/zwonlala/TIL/blob/master/191210.md)는 그 책의 일부를 읽고 내가 정리한 내용이다.<br> 
+ 궁금해서 검색을 해보았고 ['소트웍스 엔솔리지 Thoughtworks Anthology'](https://wikibook.co.kr/thoughtworks-anthology/) 라는 책의 특정 장에서 소개되는 `'객체지향 생활 체조'`의 두번째에 나오는 내용이라는 것을 알게 되었다.<br>
+ 학교 도서관에 검색을 해보니 해당 책이 바로 대출 가능했고, [이 문서](https://github.com/zwonlala/TIL/blob/master/191210.md) 는 그 책의 일부를 읽고 내가 정리한 내용이다.<br> 
  
 <br>
 <br>
