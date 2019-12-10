@@ -10,6 +10,9 @@ package domain;
 import java.util.Random;
 
 public class Car {
+    private static final int RANDOM_DOMAIN = 10;
+    private static final int RANDOM_LUCKYNUMBER= 4;
+
     private final String name;
     private int position = 0;
 
@@ -20,7 +23,7 @@ public class Car {
 
     public void playTurn() {
         Random random = new Random();
-        if (random.nextInt(10) >= 4) {
+        if (random.nextInt(RANDOM_DOMAIN) >= RANDOM_LUCKYNUMBER) {
             this.proceed();
         }
     }
