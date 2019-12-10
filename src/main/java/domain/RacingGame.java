@@ -10,6 +10,10 @@ public class RacingGame {
 		sc = new Scanner(System.in);
 	}
 
+	public void print(String msg) {
+		System.out.println(msg);
+	}
+
 	public void start() {
 		String[] nameList = inputNames();
 		cars = makeCars(nameList);
@@ -21,8 +25,8 @@ public class RacingGame {
 		print("실행 결과");
 		for (int i = 0; i < rounds; i++) {
 			for (int j = 0; j < cars.length; j++) {
-				int energy = atRandom();
-				cars[j].move(energy);
+				int energy = getRandomNumber();
+				cars[j].tryToMove(energy);
 				cars[j].printPosition();
 			}
 			print("");
@@ -30,13 +34,8 @@ public class RacingGame {
 		print(getWinners() + "(이)가 최종 우승했습니다.");
 	}
 
-	public void print(String msg) {
-		System.out.println(msg);
-	}
-
 	public String[] inputNames() {
 		print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)\n 예시) pobi, crong, honux");
-
 		String names = sc.nextLine();
 		String[] nameList = names.split(",", -1);
 
@@ -70,7 +69,6 @@ public class RacingGame {
 
 	public int inputRounds() {
 		print("\n시도할 회수는 몇 회인가요?");
-
 		String rounds = sc.nextLine();
 
 		while (!isDigit(rounds)) {
@@ -89,7 +87,7 @@ public class RacingGame {
 		}
 	}
 
-	public int atRandom() {
+	public int getRandomNumber() {
 		return (int) (Math.random() * 10);
 	}
 
@@ -98,13 +96,13 @@ public class RacingGame {
 		String winners = "";
 
 		for (Car car : cars) {
-			int temp = car.getResult();
-			if (temp > maxPosition) {
-				maxPosition = temp;
+			int position = car.getResult();
+			if (position > maxPosition) {
+				maxPosition = position;
 				winners = car.getName();
 				continue;
 			}
-			if (temp == maxPosition) {
+			if (position == maxPosition) {
 				winners += ", " + car.getName();
 			}
 		}

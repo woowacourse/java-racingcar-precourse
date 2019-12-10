@@ -12,7 +12,7 @@ public class Car {
 		return name;
 	}
 
-	public void move(int energy) {
+	public void tryToMove(int energy) {
 		if (energy >= 4) {
 			position++;
 		}
