@@ -35,7 +35,7 @@ public class InputManager {
 	}
 
 	private void verifyOverLength(String[] carNames) throws Exception {
-		if (Arrays.stream(carNames).filter(name -> name.length() > MAX_LENGTH) != null){
+		if (Arrays.stream(carNames).filter(name -> name.length() > MAX_LENGTH).count() > 0){
 			throw new Exception();
 		}
 	}

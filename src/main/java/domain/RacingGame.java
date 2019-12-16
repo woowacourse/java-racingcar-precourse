@@ -25,7 +25,7 @@ public class RacingGame {
     public void play() {
         prepareRacing();
         raceCars();
-		System.out.println("\n최종 승자는" + winner.getWinner(carList) + "입니다.");
+		System.out.println("최종 승자는 " + winner.getWinner(carList) + "입니다.");
     }
 
     /**
@@ -47,6 +47,7 @@ public class RacingGame {
             carList.stream()
                     .map(car -> car.raceStatus())
                     .forEach(System.out::println);
+            System.out.println();
         }
     }
 }
