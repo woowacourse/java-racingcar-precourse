@@ -1,86 +1,66 @@
 package domain;
 
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class InputManager {
-
-	private int trialTime;
-	private String[] carNames;
-
-	public void initialize() {
-		inputCarNames();
-		inputTrialTime();
-	}
+	private static final int MAX_LENGTH = 5;
+	private static final int ZERO = 0;
 
 	/**
 	 * 자동차 이름을 입력받는 메서드
 	 * 중복된 이름이거나, 이름이 다섯글자 이상이면 재입력 요청
-	 * 쉼표(,)기준으로 나눠서 배열에 저장
 	 */
-	private void inputCarNames() {
+	public String[] inputCarNames() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
-		carNames = input.next().split(",");
-
-		while (isDuplicated(carNames) | isOverLength(carNames)) {
-			System.out.println("경주할 자동차 이름을 입력하세요.(이름은쉼표(,)기준으로구분)");
-			carNames = input.next().split(",");
+		try{
+			String[] carNames = input.next().split(",");
+			verifyDuplication(carNames);
+			verifyOverLength(carNames);
+			return carNames;
+		} catch(Exception e){
+			System.out.println("잘못된 입력입니다.");
+			return inputCarNames();
 		}
 	}
 
-	private boolean isDuplicated(String[] carNames) {
+	private void verifyDuplication(String[] carNames) throws Exception {
 		Set<String> set = Arrays.stream(carNames).collect(Collectors.toSet());
-		return set.size() < carNames.length;
+		if (set.size() < carNames.length){
+			throw new Exception();
+		}
 	}
 
-	private boolean isOverLength(String[] carNames) {
-		for (String name : carNames) {
-			if (name.length() > 5) {
-				return true;
-			}
+	private void verifyOverLength(String[] carNames) throws Exception {
+		if (Arrays.stream(carNames).filter(name -> name.length() > MAX_LENGTH) != null){
+			throw new Exception();
 		}
-		return false;
 	}
 	
 	/**
 	 * 시도횟수 입력받는 메서드
 	 * 음수, 0, 문자 포함시 재입력 요청
 	 */
-	private void inputTrialTime() {
+	public int inputTrialTime() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("시도할 회수는 몇회인가요?");
-		while (true) {
-			try {
-				trialTime = input.nextInt();
-				createException(trialTime);
-				break;
-			} catch (InputMismatchException e) {
-				System.out.println("숫자를 입력해주세요.");
-			} catch (Exception e) {
-				System.out.println("양의 정수를 입력해주세요.");
-			} finally {
-				System.out.println("시도할 회수는 몇회인가요?");
-				input = new Scanner(System.in);
-			}
+		try {
+			int trialTime = input.nextInt();
+			verifyPositive(trialTime);
+			return trialTime;
+		} catch (Exception e) {
+			System.out.println("잘못된 입력입니다.");
+			return inputTrialTime();
 		}
 	}
 	
-	private void createException(int trialTime) throws Exception {
-		if (trialTime <= 0) {
+	private void verifyPositive(int trialTime) throws Exception {
+		if (trialTime <= ZERO) {
 			throw new Exception();
 		}
-	}
-	
-	public int getTrialTime() {
-		return trialTime;
-	}
-
-	public String[] getCarNames() {
-		return carNames;
 	}
 	
 }
