@@ -16,18 +16,18 @@ public class InputManager {
 		inputTrialTime();
 	}
 
-	/*
-	 * ÀÚµ¿Â÷ ÀÌ¸§À» ÀÔ·Â¹Ş´Â ¸Ş¼­µå
-	 * Áßº¹µÈ ÀÌ¸§ÀÌ°Å³ª, ÀÌ¸§ÀÌ ´Ù¼¸±ÛÀÚ ÀÌ»óÀÌ¸é ÀçÀÔ·Â ¿äÃ»
-	 * ½°Ç¥(,)±âÁØÀ¸·Î ³ª´²¼­ ¹è¿­¿¡ ÀúÀå
+	/**
+	 * ìë™ì°¨ ì´ë¦„ì„ ì…ë ¥ë°›ëŠ” ë©”ì„œë“œ
+	 * ì¤‘ë³µëœ ì´ë¦„ì´ê±°ë‚˜, ì´ë¦„ì´ ë‹¤ì„¯ê¸€ì ì´ìƒì´ë©´ ì¬ì…ë ¥ ìš”ì²­
+	 * ì‰¼í‘œ(,)ê¸°ì¤€ìœ¼ë¡œ ë‚˜ëˆ ì„œ ë°°ì—´ì— ì €ì¥
 	 */
 	private void inputCarNames() {
 		Scanner input = new Scanner(System.in);
-		System.out.println("°æÁÖÇÒ ÀÚµ¿Â÷ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.(ÀÌ¸§Àº½°Ç¥(,)±âÁØÀ¸·Î±¸ºĞ)");
+		System.out.println("ê²½ì£¼í•  ìë™ì°¨ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.(ì´ë¦„ì€ì‰¼í‘œ(,)ê¸°ì¤€ìœ¼ë¡œêµ¬ë¶„)");
 		carNames = input.next().split(",");
 
 		while (isDuplicated(carNames) | isOverLength(carNames)) {
-			System.out.println("°æÁÖÇÒ ÀÚµ¿Â÷ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.(ÀÌ¸§Àº½°Ç¥(,)±âÁØÀ¸·Î±¸ºĞ)");
+			System.out.println("ê²½ì£¼í•  ìë™ì°¨ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.(ì´ë¦„ì€ì‰¼í‘œ(,)ê¸°ì¤€ìœ¼ë¡œêµ¬ë¶„)");
 			carNames = input.next().split(",");
 		}
 	}
@@ -46,24 +46,24 @@ public class InputManager {
 		return false;
 	}
 	
-	/*
-	 * ½ÃµµÈ½¼ö ÀÔ·Â¹Ş´Â ¸Ş¼­µå
-	 * À½¼ö, 0, ¹®ÀÚ Æ÷ÇÔ½Ã ÀçÀÔ·Â ¿äÃ»
+	/**
+	 * ì‹œë„íšŸìˆ˜ ì…ë ¥ë°›ëŠ” ë©”ì„œë“œ
+	 * ìŒìˆ˜, 0, ë¬¸ì í¬í•¨ì‹œ ì¬ì…ë ¥ ìš”ì²­
 	 */
 	private void inputTrialTime() {
 		Scanner input = new Scanner(System.in);
-		System.out.println("½ÃµµÇÒ È¸¼ö´Â ¸îÈ¸ÀÎ°¡¿ä?");
+		System.out.println("ì‹œë„í•  íšŒìˆ˜ëŠ” ëª‡íšŒì¸ê°€ìš”?");
 		while (true) {
 			try {
 				trialTime = input.nextInt();
 				createException(trialTime);
 				break;
 			} catch (InputMismatchException e) {
-				System.out.println("¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			} catch (Exception e) {
-				System.out.println("¾çÀÇ Á¤¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("ì–‘ì˜ ì •ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			} finally {
-				System.out.println("½ÃµµÇÒ È¸¼ö´Â ¸îÈ¸ÀÎ°¡¿ä?");
+				System.out.println("ì‹œë„í•  íšŒìˆ˜ëŠ” ëª‡íšŒì¸ê°€ìš”?");
 				input = new Scanner(System.in);
 			}
 		}

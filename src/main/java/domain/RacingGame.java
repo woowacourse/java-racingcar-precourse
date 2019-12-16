@@ -9,7 +9,7 @@ public class RacingGame {
 	private List<Car> carList;
 	private Winner winner;
 	
-	/* À¯Àú·Î ºÎÅÍ ÀÔ·ÂÀ» ¹Ş±âÀ§ÇÑ InputManager ÀÎ½ºÅÏ½º */
+	/** ìœ ì €ë¡œ ë¶€í„° ì…ë ¥ì„ ë°›ê¸°ìœ„í•œ InputManager ì¸ìŠ¤í„´ìŠ¤ */
 	private InputManager inputManager;
 
 	public RacingGame() {
@@ -18,9 +18,9 @@ public class RacingGame {
 		winner = new Winner();
 	}
 
-	/*
-	 * game ÀüÃ¼ ·ÎÁ÷À» ¼øÂ÷ÀûÀ¸·Î ½ÇÇàÇÏ´Â ¸Ş¼­µå
-	 * µ¥ÀÌÅÍ¸¦ ÀÔ·Â¹Ş°í, °æÁÖ¸¦ ÁøÇàÇÏ°í, ¿ì½ÂÀÚ¸¦ Ãâ·ÂÇÑ´Ù.
+	/**
+	 * game ì „ì²´ ë¡œì§ì„ ìˆœì°¨ì ìœ¼ë¡œ ì‹¤í–‰í•˜ëŠ” ë©”ì„œë“œ
+	 * ë°ì´í„°ë¥¼ ì…ë ¥ë°›ê³ , ê²½ì£¼ë¥¼ ì§„í–‰í•˜ê³ , ìš°ìŠ¹ìë¥¼ ì¶œë ¥í•œë‹¤.
 	 */
 	public void play() {
 		prepareRacing();
@@ -28,8 +28,8 @@ public class RacingGame {
 		winner.showWinner(carList);
 	}
 
-	/*
-	 * µ¥ÀÌÅÍ¸¦ ÀÔ·Â¹Ş°í, °æÁÖ¸¦ À§ÇØ ÀÚµ¿Â÷ ÀÎ½ºÅÏ½º¸¦ »ı¼º
+	/**
+	 * ë°ì´í„°ë¥¼ ì…ë ¥ë°›ê³ , ê²½ì£¼ë¥¼ ìœ„í•´ ìë™ì°¨ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìƒì„±
 	 */
 	private void prepareRacing() {
 		inputManager.initialize();
@@ -39,11 +39,11 @@ public class RacingGame {
 		}
 	}
 
-	/*
-	 * ¸Å ½Ãµµ ¸¶´Ù, Car°´Ã¼¿¡ ¸Ş½ÃÁö Àü¼ÛÇÏ´Â ¸Ş¼­µå
+	/**
+	 * ë§¤ ì‹œë„ ë§ˆë‹¤, Carê°ì²´ì— ë©”ì‹œì§€ ì „ì†¡í•˜ëŠ” ë©”ì„œë“œ
 	 */
 	private void raceCars() {
-		System.out.println("½ÇÇà °á°ú");
+		System.out.println("ì‹¤í–‰ ê²°ê³¼");
 		for (int i = 0; i < trialTime; i++) {
 			for (Car car : carList) {
 				car.goForwardOrNot();

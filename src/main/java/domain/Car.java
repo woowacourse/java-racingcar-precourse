@@ -2,7 +2,7 @@ package domain;
 
 public class Car {
 	
-	/* 0¿¡¼­ 9±îÁö ·£´ı Á¤¼ö¸¦ ¸¸µé±â À§ÇÑ »ó¼ö */
+	/** 0ì—ì„œ 9ê¹Œì§€ ëœë¤ ì •ìˆ˜ë¥¼ ë§Œë“¤ê¸° ìœ„í•œ ìƒìˆ˜ */
 	private final static int RANGE = 10;
 	private final String name;
 	private int position = 0;

@@ -14,12 +14,12 @@ public class Winner {
 				winner += ", " + car.getName();
 			}
 		}
-		System.out.println(winner + "°¡ ÃÖÁ¾ ¿ì½ÂÇß½À´Ï´Ù.");
+		System.out.println(winner + "ê°€ ìµœì¢… ìš°ìŠ¹í–ˆìŠµë‹ˆë‹¤.");
 
 	}
 
-	/*
-	 * MAX°ªÀÌ ¾÷µ¥ÀÌÆ® µÇ¸é winnerº¯¼öµµ °°ÀÌ ¾÷µ¥ÀÌÆ®½ÃÅ°´Â ¸Ş¼­µå
+	/**
+	 * MAXê°’ì´ ì—…ë°ì´íŠ¸ ë˜ë©´ winnerë³€ìˆ˜ë„ ê°™ì´ ì—…ë°ì´íŠ¸ì‹œí‚¤ëŠ” ë©”ì„œë“œ
 	 */
 	private int updateMAX(int MAX, Car car) {
 		if (MAX < car.getPosition()) {
