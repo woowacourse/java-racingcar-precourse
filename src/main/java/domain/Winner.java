@@ -1,32 +1,22 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Winner {
 
-	private String winner = "";
+    private List<String> winner = new ArrayList<>();
 
-	public void showWinner(List<Car> carList) {
-		int MAX = 0;
-		for (Car car : carList) {
-			MAX = updateMAX(MAX, car);
-			if (MAX == car.getPosition() && winner != car.getName()) {
-				winner += ", " + car.getName();
+    public String getWinner(List<Car> carList) {
+		int max = carList.stream()
+				.collect(Collectors.summarizingInt(car -> car.getPosition()))
+				.getMax();
+        for (Car car : carList) {
+			if (car.isMaxPosition(max)){
+				winner.add(car.getName());
 			}
-		}
-		System.out.println(winner + "가 최종 우승했습니다.");
-
-	}
-
-	/**
-	 * MAX값이 업데이트 되면 winner변수도 같이 업데이트시키는 메서드
-	 */
-	private int updateMAX(int MAX, Car car) {
-		if (MAX < car.getPosition()) {
-			winner = car.getName();
-			return car.getPosition();
-		}
-		return MAX;
-	}
-
+        }
+        return String.join(",", winner);
+    }
 }
