@@ -13,7 +13,6 @@ public class Car {
         return new Car(new Name(name));
     }
 
-    // 추가 기능 구현
     void move(Integer randomInput) {
         if (enough(randomInput)) {
             this.position++;
@@ -30,5 +29,9 @@ public class Car {
 
     public String getCarOriginName() {
         return name.getName();
+    }
+
+    public boolean isMatchPosition(int otherPosition) {
+        return this.position == otherPosition;
     }
 }

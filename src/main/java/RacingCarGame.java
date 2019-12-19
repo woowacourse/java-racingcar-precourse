@@ -1,4 +1,5 @@
 
+import domain.Count;
 import domain.RacingCars;
 import domain.Winners;
 import utils.InputUtil;
@@ -6,63 +7,41 @@ import utils.OutputUtil;
 
 class RacingCarGame {
     private final RacingCars racingCars;
-    private Integer count;
-    private static final Integer EMPTY = 0;
+    private final Count count;
 
-    private RacingCarGame(RacingCars racingCars, Integer count) {
-        checkCarNameIsEmpty(racingCars);
-        checkCountValid(count);
+    private RacingCarGame(RacingCars racingCars, int count) {
         this.racingCars = racingCars;
-        this.count = count;
+        this.count = new Count(count);
     }
 
     static RacingCarGame inputSettings() {
-        RacingCars racingCars = inputRacingCars();
-        Integer count = inputCount();
-        return new RacingCarGame(racingCars, count);
+        return new RacingCarGame(inputRacingCars(), inputCount());
     }
 
     void start() {
-        while (count-- > 0) {
+        while (count.isNotLimitCount()) {
             racingCars.move();
-            printRacingSituation();
+            OutputUtil.printRacingSituation(racingCars);
+            count.plusCount();
         }
-        printWinners();
+        decideWinners();
     }
 
     private static RacingCars inputRacingCars() {
         OutputUtil.printRacingCarsNameDemand();
-        return new RacingCars(InputUtil.inputRacingCars());
+        String[] carNames = InputUtil.inputRacingCars();
+        return RacingCars.initRacingCars(carNames);
     }
 
-    private static Integer inputCount() {
-        OutputUtil.askAttempTime();
+    private static int inputCount() {
+        OutputUtil.printAttempTimeQUestion();
         return InputUtil.inputCount();
     }
 
-    private static void checkCarNameIsEmpty(RacingCars racingCars) {
-        if (racingCars.getRacingCars().size() == EMPTY) {
-            throw new IllegalArgumentException("자동차 이름을 채워주세요!");
-        }
-    }
-
-    private void printRacingSituation() {
-        OutputUtil.printRacingSituation(racingCars);
-    }
-
-    private void printWinners() {
-        Winners winners = new Winners(Referee.decideWinners(racingCars));
-
-        if (winners.getWinnersSize() == EMPTY) {
-            OutputUtil.printNoneWinners();
-            return;
-        }
-        OutputUtil.printWinners(winners);
-    }
-
-    private static void checkCountValid(Integer count) {
-        if (count.equals(EMPTY)) {
-            throw new IllegalArgumentException("0이 아닌 카운트 값을 입력해주세요!");
-        }
+    private void decideWinners() {
+        Winners winners = new Winners(racingCars.decideWinners());
+        // 분기를 여기서 이런식으로 하는게 나은가...?
+        // TODO : 그냥 여기선 print하고 로직을 Winner에 넘겨버리자!
+        winners.printWinner();
     }
 }
