@@ -14,7 +14,7 @@
 ### ⌨️ 입력
 - 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
 ```
-pobi,crong,honux
+pobi,woni,jun
 ```
 - 시도할 회수
 ```
@@ -25,43 +25,47 @@ pobi,crong,honux
 - 각 차수별 실행 결과
 ```
 pobi : --
-crong : ----
-honux : ---
+woni : ----
+jun : ---
 ```
-- 우승자 안내 문구
+- 단독 우승자 안내 문구
 ```
-pobi, honux가 최종 우승했습니다.
+pobi가 최종 우승했습니다.
+```
+- 공동 우승자 안내 문구
+```
+pobi, jun 최종 우승했습니다.
 ```
 
 ### 💻 프로그래밍 실행 결과 예시
 ```
 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,crong,honux
+pobi,woni,jun
 시도할 회수는 몇회인가요?
 5
 
 실행 결과
 pobi : -
-crong : -
-honux : -
+woni : 
+jun : -
 
 pobi : --
-crong : -
-honux : --
+woni : -
+jun : --
 
 pobi : ---
-crong : --
-honux : ---
+woni : --
+jun : ---
 
 pobi : ----
-crong : ---
-honux : ----
+woni : ---
+jun : ----
 
 pobi : -----
-crong : ----
-honux : -----
+woni : ----
+jun : -----
 
-pobi, honux가 최종 우승했습니다.
+pobi, jun 최종 우승했습니다.
 ```
 
 <br>
@@ -75,6 +79,7 @@ pobi, honux가 최종 우승했습니다.
   - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
 - 3항 연산자를 쓰지 않는다.
 - 함수(또는 메소드)가 한 가지 일만 하도록 최대한 작게 만들어라.
+- 프로그래밍 요구사항에서 별도로 변경 불가 안내가 없는 경우 파일 수정과 패키지 이동을 자유롭게 할 수 있다.
 
 ### 추가된 요구사항
 - 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
@@ -83,7 +88,34 @@ pobi, honux가 최종 우승했습니다.
   - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
   - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
 
-### 프로그래밍 요구사항 - 객체
+### 프로그래밍 요구사항 - Application
+- Application 클래스를 활용해 구현해야 한다.
+- Application의 패키지 구조와 구현은 변경하지 않는다.
+- `final Scanner scanner = new Scanner(System.in);`는 변경하지 않는다.
+- `// TODO 구현 진행` 이 후 부터 구현한다.
+
+```java
+public class Application {
+    public static void main(String[] args) {
+        final Scanner scanner = new Scanner(System.in);
+        // TODO 구현 진행
+    }
+}
+```
+
+### 프로그래밍 요구사항 - RandomUtils
+- RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
+- RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
+
+```java
+private static final Random RANDOM = new Random();
+    private RandomUtils() {
+    }
+    public static int nextInt(final int startInclusive, final int endInclusive) {
+    ...
+```
+
+### 프로그래밍 요구사항 - Car 객체
 - 다음 Car 객체를 활용해 구현해야 한다.
 - Car 기본 생성자를 추가할 수 없다.
 - name, position 변수의 접근 제어자인 private을 변경할 수 없다.
@@ -102,26 +134,15 @@ public class Car {
 }
 ```
 
-### 프로그래밍 요구사항 - RandomUtils
-- RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
-- RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
-
-```java
-private static final Random RANDOM = new Random();
-    private RandomUtils() {
-    }
-    public static int nextInt(final int startInclusive, final int endInclusive) {
-    ...
-```
-
 <br>
 
 ## 📈 진행 요구사항
 - 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
-- 기능을 구현하기 전에 java-racingcar-precourse/FEATURE.md 파일에 구현할 기능 목록을 정리해 추가한다.
-- git의 commit 단위는 앞 단계에서 FEATURE.md 파일에 정리한 기능 목록 단위로 추가한다.
+- 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
+- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
   - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
 - [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 절차를 따라 미션을 제출한다.
+  - [프리코스 과제 FAQ](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse/faq) 문서를 참고하여 진행할 수 있다.
 
 <br>
 
