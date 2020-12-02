@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * @author yhh1056
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class RacingController {
     private Input input;
     private User user;
+    private RacingGame racingGame;
 
     public RacingController(Scanner scanner) {
         this.input = new Input(scanner);
@@ -17,6 +19,11 @@ public class RacingController {
     }
 
     public void playGame() {
-        List<String> names = user.createNames(input.nextLine());
+        List<Car> cars = registerCars(user.createNames(input.nextLine()));
+        racingGame = new RacingGame(cars);
+    }
+
+    private List<Car> registerCars(List<String> names) {
+        return names.stream().map(Car::new).collect(Collectors.toList());
     }
 }
