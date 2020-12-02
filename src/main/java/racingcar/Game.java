@@ -20,11 +20,7 @@ public class Game {
     }
 
     public void play() {
-        initialize();
         createPlayingCars();
-    }
-
-    private void initialize() {
     }
 
     private void createPlayingCars() {
@@ -60,18 +56,18 @@ public class Game {
 
     private void validateExceedingLength(String rawCarNames) {
         if (hasNameExceedingLength(rawCarNames)) {
-            throw new IllegalArgumentException("[ERROR] 이름은 5글자 내로 만들어야한다.");
+            throw new IllegalArgumentException(OutputView.EXCEEDING_LENGTH_ERROR);
         }
     }
 
     private void validateNoName(String rawCarNames) {
         if (hasNoName(rawCarNames)) {
-            throw new IllegalArgumentException("[ERROR] 최소 하나의 자동차 이름을 입력해야한다.");
+            throw new IllegalArgumentException(OutputView.NO_NAME_ERROR);
         }
     }
 
     private boolean hasNoName(String rawCarNames) {
-        return rawCarNames.length() == 0;
+        return rawCarNames.length() < MINIMUM_NAME_LENGTH;
     }
 
     private boolean hasNameExceedingLength(String rawCarNames) {
