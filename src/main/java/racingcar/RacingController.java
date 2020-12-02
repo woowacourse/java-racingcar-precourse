@@ -20,7 +20,9 @@ public class RacingController {
 
     public void playGame() {
         List<Car> cars = registerCars(user.createNames(input.nextLine()));
+        int gameCount = user.createGameCount(input.nextLine());
         racingGame = new RacingGame(cars);
+        racingGame.startRace(gameCount);
     }
 
     private List<Car> registerCars(List<String> names) {

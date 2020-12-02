@@ -12,4 +12,12 @@ public class RacingGame {
     public RacingGame(List<Car> cars) {
         this.cars = cars;
     }
+
+    public void startRace(int gameCount) {
+        for (int i = 0; i < gameCount; i++) {
+            /**
+             * TODO 자동차 경주
+             */
+        }
+    }
 }

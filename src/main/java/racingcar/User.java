@@ -13,4 +13,8 @@ public class User {
     public List<String> createNames(String names) {
         return Arrays.asList(names.split(DELIMITER));
     }
+
+    public int createGameCount(String nextLine) {
+        return Integer.parseInt(nextLine);
+    }
 }
