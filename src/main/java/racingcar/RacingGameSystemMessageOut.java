@@ -21,7 +21,7 @@ public class RacingGameSystemMessageOut {
         System.out.println(RESULT_MOVES);
     }
 
-    public static void printEachMoves(HashMap<String, String> racingPlayBoard) {
+    public static void printEachMoves(HashMap<String, Integer> racingPlayBoard) {
         for(String carName : racingPlayBoard.keySet()) {
             System.out.println(carName + " : " + racingPlayBoard.get(carName));
         }
