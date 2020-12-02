@@ -32,6 +32,7 @@ public final class OutputView {
     }
 
     public void printResultMessage() {
+        println();
         println(RESULT_MESSAGE);
     }
 
@@ -40,6 +41,7 @@ public final class OutputView {
             String line = String.join(DELIMITER, Collections.nCopies(car.getPosition(), DISTANCE));
             println(car.getName() + COLON + line);
         });
+        println();
     }
 
     public void printWinnerCars(final Race race) {

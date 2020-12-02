@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Scanner;
 import racingcar.domain.race.Race;
+import racingcar.domain.race.RaceSetting;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -22,18 +23,18 @@ public class Application {
         outputView.printInputMovingCountMessage();
         int movingCount = inputView.readMovingCount();
 
-        outputView.printResultMessage();
-        Race race = Race.of(carNamesStr, movingCount);
-        outputView.printRaceTrack(race);
+        Race race = RaceSetting.makeRace(carNamesStr, movingCount);
         race(race, outputView);
         outputView.printWinnerCars(race);
     }
 
     private static void race(Race race, OutputView outputView) {
+        outputView.printResultMessage();
+        outputView.printRaceTrack(race);
+
         while (!race.isComplete()) {
             race.move();
             outputView.printRaceTrack(race);
-            outputView.println();
         }
     }
 }
