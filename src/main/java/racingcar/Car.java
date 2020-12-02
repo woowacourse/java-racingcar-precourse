@@ -19,4 +19,12 @@ public class Car {
         OutputPrint.printCarName(name);
         OutputPrint.printCarState(position);
     }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

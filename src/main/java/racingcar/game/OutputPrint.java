@@ -2,6 +2,7 @@ package racingcar.game;
 
 public class OutputPrint {
     public static final String RESULT_START_MESSAGE = "실행 결과";
+    public static final String WINNER_MESSAGE = "최종 우승자";
 
     public static void printResultStartMessage() {
         System.out.println();
@@ -16,5 +17,9 @@ public class OutputPrint {
         for (int i = 0; i < position; i++) {
             System.out.print('-');
         }
+    }
+
+    public static void printWinnerMessage() {
+        System.out.println(WINNER_MESSAGE);
     }
 }

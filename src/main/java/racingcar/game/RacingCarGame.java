@@ -16,5 +16,7 @@ public class RacingCarGame {
         int tryTimes = userInputTryTimes.getInputFromUser(scanner);
         OutputPrint.printResultStartMessage();
         cars.startRacing(tryTimes);
+        OutputPrint.printWinnerMessage();
+        cars.findWinners();
     }
 }
