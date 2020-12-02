@@ -10,12 +10,12 @@ public class InputController {
 
     public List<String> inputCarName(Scanner scanner) {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
-        String participants = scanner.nextLine();
+        List<String> participants = parseStringToStringList(scanner.nextLine());
         //validate
-        return parseStringToStringList(participants);
+        return participants;
     }
 
-    private List<String> parseStringToStringList(String participants) {
-        return Arrays.asList(participants.split(DELIMITER_COMMA));
+    private List<String> parseStringToStringList(String input) {
+        return Arrays.asList(input.split(DELIMITER_COMMA));
     }
 }
