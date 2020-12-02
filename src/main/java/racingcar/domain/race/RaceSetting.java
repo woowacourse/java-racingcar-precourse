@@ -29,29 +29,28 @@ public class RaceSetting {
     }
 
     public static List<Car> convertToCars(final String carNamesStr, final CarMoveStrategy carMoveStrategy) {
-        List<String> carNames = Arrays.asList(carNamesStr.split(DELIMITER));
+        List<String> carNames = Arrays.stream(carNamesStr.split(DELIMITER))
+            .map(carName -> {
+                carName = carName.trim();
+                validateCarName(carName);
+                return carName;
+            })
+            .collect(Collectors.toList());
+
         validateCarNames(carNamesStr, carNames);
         addCountingNumberToBackOfDuplicateName(carNames);
 
         return convertToCars(carNames, carMoveStrategy);
     }
 
-    private static List<Car> convertToCars(final List<String> carNames,
-        final CarMoveStrategy carMoveStrategy) {
+    private static List<Car> convertToCars(final List<String> carNames, final CarMoveStrategy carMoveStrategy) {
         return carNames.stream()
-            .map(carName -> convertToCar(carName, carMoveStrategy))
+            .map(carName -> Car.of(carName, carMoveStrategy))
             .collect(Collectors.toList());
     }
 
-    private static Car convertToCar(final String carName, final CarMoveStrategy carMoveStrategy) {
-        String trimedCarName = carName.trim();
-        validateCarName(trimedCarName);
-
-        return Car.of(trimedCarName, carMoveStrategy);
-    }
-
     private static void validateCarNames(final String carNamesStr, final List<String> carNames) {
-        if (carNamesStr.isEmpty() || carNames.isEmpty()) {
+        if (carNamesStr.isEmpty() || carNames.isEmpty() || carNamesStr.split(DELIMITER).length == 0) {
             throw new EmptyCarNameInputException(carNamesStr);
         }
     }
@@ -79,7 +78,7 @@ public class RaceSetting {
             if (counter.containsKey(carName)) {
                 counter.put(carName, counter.get(carName) + 1);
             } else {
-                counter.put(carName , 1);
+                counter.put(carName, 1);
             }
         }
 
