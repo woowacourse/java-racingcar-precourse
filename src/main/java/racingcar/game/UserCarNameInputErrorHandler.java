@@ -1,6 +1,6 @@
 package racingcar.game;
 
-public class UserInputErrorHandler {
+public class UserCarNameInputErrorHandler {
     public static final String MORE_THAN_ONE_CAR_NAME_ERROR_MESSAGE
         = "[ERROR] 자동차 이름은 두 개 이상이어야 합니다.";
     public static final String COMMA_ERROR_MESSAGE

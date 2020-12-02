@@ -8,17 +8,17 @@ import java.util.stream.Collectors;
 
 public class UserInputCarNames {
     private final Cars cars;
-    private final UserInputErrorHandler errorHandler;
+    private final UserCarNameInputErrorHandler errorHandler;
 
     public UserInputCarNames() {
         this.cars = new Cars();
-        this.errorHandler = new UserInputErrorHandler();
+        this.errorHandler = new UserCarNameInputErrorHandler();
     }
 
     public void getInputFromUser(Scanner scanner) {
-        InputPrint.printMessageForInputCarNames();
         String inputStr;
         do {
+            InputPrint.printMessageForInputCarNames();
             inputStr = getInputCarNames(scanner);
         } while (!isValidInput(inputStr));
     }
