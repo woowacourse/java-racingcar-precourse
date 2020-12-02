@@ -20,4 +20,10 @@ public class Cars {
             car.movePosition(RandomGenerator.randomGenerator());
         }
     }
+
+    public void printCurrentPosition(){
+        for(Car car: cars){
+            System.out.println(car.getCurrentPosition());
+        }
+    }
 }
