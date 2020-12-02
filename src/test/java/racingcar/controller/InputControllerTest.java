@@ -21,4 +21,18 @@ class InputControllerTest {
         //then
         assertThat(isCarNameLength5OrLess).isTrue();
     }
+
+    @Test
+    public void 자동차_이름에_공백을_확인한다() throws Exception {
+        //given
+        List<String> participants = Arrays.asList("java","c++","re ct");
+
+        //when
+        boolean isCarNameContainBlank = participants.stream()
+                .filter(name -> !name.contains(" "))
+                .count() == participants.size();
+
+        //then
+        assertThat(isCarNameContainBlank).isFalse();
+    }
 }
