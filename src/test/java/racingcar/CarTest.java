@@ -21,7 +21,6 @@ class CarTest {
 
     @Test
     void stop() {
-        car.stop();
         assertEquals(car.getPosition(), 0);
     }
 
