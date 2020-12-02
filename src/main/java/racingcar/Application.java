@@ -25,8 +25,13 @@ public class Application {
         carList = createCarList(scanner);
         System.out.println("시도할 횟수는 몇회인가요?");
         Car.setTimesToTry(getTimeToTry(scanner));
-        for (Car car : carList) {
-            System.out.println(car.toString());
+
+        while (Car.getTimesToTry() > 0) {
+            for (Car car : carList) {
+                car.moveOrStay();
+                System.out.println(car.toString());
+            }
+            Car.useOneTurn();
         }
     }
 
