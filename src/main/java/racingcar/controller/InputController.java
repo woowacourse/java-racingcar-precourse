@@ -12,8 +12,8 @@ public class InputController {
     public List<String> inputCarName(Scanner scanner) {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         List<String> participants = parseStringToStringList(scanner.nextLine());
-        //validate
         validateCarNameLengthIs5OrLess(participants);
+        validateCarNameIsNotContainBlank(participants);
         return participants;
     }
 
@@ -23,6 +23,15 @@ public class InputController {
                 .count() == participants.size();
         if (!isCarNameLength5OrLess) {
             throw new IllegalArgumentException("이름의 길이는 5이하여야 합니다.");
+        }
+    }
+
+    private void validateCarNameIsNotContainBlank(List<String> participants) {
+        boolean isCarNameNotContainBlank = participants.stream()
+                .filter(name -> name.contains(" "))
+                .count() == 0;
+        if(!isCarNameNotContainBlank) {
+            throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다.");
         }
     }
 
