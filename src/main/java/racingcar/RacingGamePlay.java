@@ -4,12 +4,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RacingGamePlay {
-    int gameCount;
-    Map<String, String> racingPlayBoard;
+    static int gameCount;
+    static Map<String, String> racingPlayBoard;
 
     public RacingGamePlay() {
-      this.gameCount = 0;
-      this.racingPlayBoard = new HashMap<String, String>();
+      gameCount = 0;
+      racingPlayBoard = new HashMap<String, String>();
+    }
+
+    public static int runTimes() {
+        for (String carName : racingPlayBoard.keySet()) {
+            checkMoveCar(carName);
+        }
+        return ++gameCount;
+    }
+
+    public static void checkMoveCar(String carName) {
+          if(RacingCarMovement.moveCar()) {
+              racingPlayBoard.put(carName, racingPlayBoard.get(carName)+"-");
+          }
     }
 
 
