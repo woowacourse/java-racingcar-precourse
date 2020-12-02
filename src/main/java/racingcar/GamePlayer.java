@@ -4,9 +4,13 @@ import java.util.Scanner;
 
 public class GamePlayer {
 
-    public static String[] inputNamesOfCars(Scanner scanner) {
+    public String[] inputNamesOfCars(Scanner scanner) {
         String namesOfCars = scanner.nextLine();
-        String[] namesOfCarsArray = namesOfCars.split(",");
-        return namesOfCarsArray;
+        return namesOfCars.split(",");
+    }
+
+    public int inputTimeToTry(Scanner scanner) {
+        String timeToTry = scanner.nextLine();
+        return Integer.parseInt(timeToTry);
     }
 }

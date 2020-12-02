@@ -17,12 +17,17 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
         Application application = new Application();
-        application.playRacaingCarGame(scanner);
+        application.playRacingCarGame(scanner);
     }
 
-    public void playRacaingCarGame(Scanner scanner) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+    public void playRacingCarGame(Scanner scanner) {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         carList = createCarList(scanner);
+        System.out.println("시도할 횟수는 몇회인가요?");
+        Car.setTimesToTry(getTimeToTry(scanner));
+        for (Car car : carList) {
+            System.out.println(car.toString());
+        }
     }
 
     public List<Car> createCarList(Scanner scanner) {
@@ -32,11 +37,10 @@ public class Application {
             Car car = new Car(nameOfCar);
             carList.add(car);
         }
-
-        for (Car car : carList) {
-            System.out.println(car.toString());
-        }
-
         return carList;
+    }
+
+    public int getTimeToTry(Scanner scanner) {
+        return gamePlayer.inputTimeToTry(scanner);
     }
 }
