@@ -12,4 +12,8 @@ public class OutputView {
     public static void printErrorMessageAboutName() {
         System.out.println("[ERROR] 자동차의 이름은 1자 이상, 5자 이하의 중복되지 않는 이름만 가능합니다.\n");
     }
+
+    public static void getTrials(){
+        System.out.println("시도할 횟수는 몇 회인가요?");
+    }
 }

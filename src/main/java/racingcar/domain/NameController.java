@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 public class NameController {
-    private final static int MAX_LEN_OF_NAME = 5;
-    private final static int MIN_LEN_OF_NAME = 1;
+    private static final int MAX_LEN_OF_NAME = 5;
+    private static final int MIN_LEN_OF_NAME = 1;
 
     private NameController() {
 

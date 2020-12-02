@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.NameController;
+import racingcar.domain.Trial;
 
 import java.util.Scanner;
 
@@ -22,5 +23,13 @@ public class InputView {
             OutputView.printErrorMessageAboutName();
         }
         return names;
+    }
+
+    public static Trial getTrials(Scanner scanner){
+        while(true){
+            OutputView.getTrials();
+            String inputNumber = scanner.nextLine();
+            Trial trial = new Trial(inputNumber);
+        }
     }
 }
