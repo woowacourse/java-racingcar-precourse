@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Stream;
 import view.OutputView;
 
@@ -38,6 +40,20 @@ public class ValidateUtils {
         validateNameCommaCountEqual(rawCarNames);
         validateNoName(rawCarNames);
         validateProperLength(rawCarNames);
+        validateNoDuplicate(rawCarNames);
+    }
+
+    private static void validateNoDuplicate(String rawCarNames) {
+        if(hasDuplicate(rawCarNames)) {
+            throw new IllegalArgumentException(OutputView.HAS_DUPLICATE_ERROR);
+        }
+    }
+
+    private static boolean hasDuplicate(String rawCarNames) {
+        Set<String> noDuplicateNames = new HashSet<>();
+        return Stream.of(rawCarNames.split(NAME_SEPARATOR))
+                .map(String::trim)
+                .anyMatch(x -> !noDuplicateNames.add(x));
     }
 
     private static void validateNameCommaCountEqual(String rawCarNames) {

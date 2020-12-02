@@ -10,6 +10,7 @@ public class OutputView {
     public static final String NO_NAME_ERROR = "[ERROR] 최소 한 글자로 이루어진 자동차 이름을 입력해야한다.";
     public static final String NOT_NUMBER_ERROR = "[ERROR] 시도 횟수는 숫자여야 한다.";
     public static final String IS_SMALLER_THAN_MINIMAL_ERROR = "[ERROR] 시도 횟수는 0보다 커야 한다.";
+    public static final String HAS_DUPLICATE_ERROR = "[ERROR] 중복되는 이름을 넣을 수 없다.";
     public static final String RACE_RESULT_LABEL = "실행 결과";
     public static final String FINAL_WINNER_LABEL = "최종 우승자: ";
 
