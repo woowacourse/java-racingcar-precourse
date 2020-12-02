@@ -29,18 +29,21 @@ public class RaceSetting {
     }
 
     public static List<Car> convertToCars(final String carNamesStr, final CarMoveStrategy carMoveStrategy) {
-        List<String> carNames = Arrays.stream(carNamesStr.split(DELIMITER))
+        List<String> carNames = convertToCarNames(carNamesStr);
+        validateCarNames(carNamesStr, carNames);
+        addCountingNumberToBackOfDuplicateName(carNames);
+
+        return convertToCars(carNames, carMoveStrategy);
+    }
+
+    private static List<String> convertToCarNames(final String carNamesStr) {
+        return Arrays.stream(carNamesStr.split(DELIMITER))
             .map(carName -> {
                 carName = carName.trim();
                 validateCarName(carName);
                 return carName;
             })
             .collect(Collectors.toList());
-
-        validateCarNames(carNamesStr, carNames);
-        addCountingNumberToBackOfDuplicateName(carNames);
-
-        return convertToCars(carNames, carMoveStrategy);
     }
 
     private static List<Car> convertToCars(final List<String> carNames, final CarMoveStrategy carMoveStrategy) {
@@ -72,22 +75,28 @@ public class RaceSetting {
     }
 
     private static void addCountingNumberToBackOfDuplicateName(List<String> carNames) {
-        Map<String, Integer> counter = new HashMap<>();
-
-        for (String carName : carNames) {
-            if (counter.containsKey(carName)) {
-                counter.put(carName, counter.get(carName) + 1);
-            } else {
-                counter.put(carName, 1);
-            }
-        }
-
+        Map<String, Integer> counter = recordNameFrequency(carNames);
         counter.keySet().stream()
             .filter(carName -> counter.get(carName) > 1)
             .forEach(carName -> makeCountingName(carNames, carName));
     }
 
-    private static void makeCountingName(List<String> carNames, String carName) {
+    private static Map<String, Integer> recordNameFrequency(final List<String> carNames) {
+        Map<String, Integer> counter = new HashMap<>();
+
+        for (String carName : carNames) {
+            if (counter.containsKey(carName)) {
+                counter.put(carName, counter.get(carName) + 1);
+                continue;
+            }
+
+            counter.put(carName, 1);
+        }
+
+        return counter;
+    }
+
+    private static void makeCountingName(List<String> carNames, final String carName) {
         int count = 1;
         for (int i = 0; i < carNames.size(); i++) {
             if (carName.equals(carNames.get(i))) {

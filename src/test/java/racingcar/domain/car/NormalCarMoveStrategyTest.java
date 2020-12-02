@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("NormalCarMoveStrategy에 대한 테스트")
 class NormalCarMoveStrategyTest {
 
     @DisplayName("조건을 만족하면 움직일 수 있다.")

@@ -21,7 +21,7 @@ public class Application {
     }
 
     @SuppressWarnings("unchecked")
-    private static void start(InputView inputView, OutputView outputView) {
+    private static void start(final InputView inputView, final OutputView outputView) {
         List<Car> cars = (List<Car>) repeatingUntilNoException(() -> {
             outputView.printInputCarNamesMessage();
             return RaceSetting.convertToCars(inputView.readCarNames());
@@ -37,7 +37,7 @@ public class Application {
         outputView.printWinnerCars(race);
     }
 
-    private static void race(Race race, OutputView outputView) {
+    private static void race(final Race race, final OutputView outputView) {
         outputView.printResultMessage();
         outputView.printRaceTrack(race);
 
@@ -47,7 +47,7 @@ public class Application {
         }
     }
 
-    private static Object repeatingUntilNoException(Supplier<Object> supplier) {
+    private static Object repeatingUntilNoException(final Supplier<Object> supplier) {
         while (true) {
             try {
                 return supplier.get();
@@ -57,7 +57,7 @@ public class Application {
         }
     }
 
-    private static void repeatingUntilNoException(SupplierNoReturn supplierNoReturn) {
+    private static void repeatingUntilNoException(final SupplierNoReturn supplierNoReturn) {
         while (true) {
             try {
                 supplierNoReturn.execute();

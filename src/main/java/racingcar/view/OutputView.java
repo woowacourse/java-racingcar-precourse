@@ -43,6 +43,7 @@ public final class OutputView {
             String name = String.format(CAR_NAMES_ALIGNMENT, car.getName() + COLON);
             println(name + line);
         });
+
         println();
     }
 
