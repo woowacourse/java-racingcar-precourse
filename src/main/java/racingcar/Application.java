@@ -25,13 +25,10 @@ public class Application {
         carList = createCarList(scanner);
         System.out.println("시도할 횟수는 몇회인가요?");
         Car.setTimesToTry(getTimeToTry(scanner));
-
+        System.out.println();
+        System.out.println("실행 결과");
         while (Car.getTimesToTry() > 0) {
-            for (Car car : carList) {
-                car.moveOrStay();
-                System.out.println(car.toString());
-            }
-            Car.useOneTurn();
+            showResultOfEachTurn();
         }
     }
 
@@ -47,5 +44,18 @@ public class Application {
 
     public int getTimeToTry(Scanner scanner) {
         return gamePlayer.inputTimeToTry(scanner);
+    }
+
+    public void showResultOfEachTurn() {
+        for (Car car : carList) {
+            car.moveOrStay();
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        Car.useOneTurn();
+        System.out.println();
     }
 }
