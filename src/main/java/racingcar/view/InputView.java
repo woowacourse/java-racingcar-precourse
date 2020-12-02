@@ -23,7 +23,7 @@ public final class InputView {
 
     public int readMovingCount() {
         String movingCountStr = scanner.nextLine();
-        if (!isOnlyDigit(movingCountStr)) {
+        if (movingCountStr.isEmpty() || !isOnlyDigit(movingCountStr)) {
             throw new InvalidMovingCountInputException(movingCountStr);
         }
 
