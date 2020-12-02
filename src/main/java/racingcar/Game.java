@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Game {
 
     private final InputGuide inputGuide;
-    private OutputGuide outputGuide;
 
     Game(Scanner scanner) {
         this.inputGuide = new InputGuide(scanner);
@@ -17,7 +16,7 @@ public class Game {
     public void play() {
         Car[] cars = inputGuide.inputCars();
         int moves = inputGuide.countMove();
-        outputGuide = new OutputGuide(cars, moves);
+        OutputGuide outputGuide = new OutputGuide(cars, moves);
         outputGuide.showResult();
     }
 

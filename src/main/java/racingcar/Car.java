@@ -29,11 +29,11 @@ public class Car {
     }
 
     public String getPosition() {
-        String carPosition = "";
+        StringBuilder carPosition = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            carPosition += POSITION_DASH;
+            carPosition.append(POSITION_DASH);
         }
-        return carPosition;
+        return carPosition.toString();
     }
 
     private boolean generateRandomNumber() {

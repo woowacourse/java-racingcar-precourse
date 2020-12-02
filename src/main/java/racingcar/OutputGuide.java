@@ -44,7 +44,7 @@ public class OutputGuide {
         StringBuilder stringBuilder = new StringBuilder();
         Arrays.stream(cars).forEach(car -> {
             if (max == car.getPositionNumber()) {
-                stringBuilder.append(car.getName() + MORE_WINNERS);
+                stringBuilder.append(car.getName()).append(MORE_WINNERS);
             }
         });
         stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(MORE_WINNERS));
