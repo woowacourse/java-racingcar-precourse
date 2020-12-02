@@ -32,7 +32,7 @@ public class RacingCars {
 
     public String getWinners() {
         return cars.stream()
-                .filter(x -> x.getPosition() == getWinningPosition())
+                .filter(x -> x.isPosition(getWinningPosition()))
                 .map(Car::getName)
                 .collect(Collectors.joining(ValidateUtils.NAME_SEPARATOR));
     }

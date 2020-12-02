@@ -26,6 +26,10 @@ public class Car {
         ++position;
     }
 
+    public boolean isPosition(int maxPosition) {
+        return position == maxPosition;
+    }
+
     public int getPosition() {
         return position;
     }
