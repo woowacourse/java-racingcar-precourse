@@ -16,7 +16,7 @@
 	- **난수 생성 메소드**
         - RandomUtils 사용하여 0에서 9 사이 랜덤값 생성하여 이동 여부 확인 `isMoveForward`
             - 4이상 전진, 3이하 멈춤
-	- **현재 상태 getter**
+    - **현재 상태 getter** `getPosition`
 	
 3. 게임 `Racing`
 	- **생성자**

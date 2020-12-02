@@ -22,6 +22,10 @@ public class Car {
         }
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     private boolean isMoveForward() {
         int randomNumber = RandomUtils.nextInt(0, 9);
         if (randomNumber >= GO_FORWARD_MIN_NUMBER) {
@@ -36,7 +40,12 @@ public class Car {
     public static void main(String[] args) {
         Car theCar = new Car("testCar");
         theCar.moveForwardCar();
+        theCar.moveForwardCar();
+        theCar.moveForwardCar();
+        theCar.moveForwardCar();
+        theCar.moveForwardCar();
         System.out.println(theCar.name);
+        System.out.println(theCar.getPosition());
     }
 
 }
