@@ -1,9 +1,11 @@
 package racingcar;
 
-import java.util.stream.Stream;
+import com.sun.tools.javac.util.List;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
- * 주어진 결과를 출력하는 클래
+ * 주어진 결과를 출력하는 클래스
  */
 public class OutputGuide {
 
@@ -19,28 +21,31 @@ public class OutputGuide {
 
     public void showResult(){
         raceStart();
+        System.out.println(findWinner());
     }
 
     private void raceStart(){
         System.out.println(SHOW_STATUS_LOG);
         for(int i=0; i<moves; i++){
             race(cars);
-            System.out.println();
+            System.out.println(findWinner());
         }
     }
 
     private void race(Car[] cars) {
-        for (int i = 0; i < cars.length; i++) {
-            cars[i].run();
-        }
+        Arrays.stream(cars)
+            .forEach(Car::run);
     }
 
-    private void findWinner(){
-
+    private String findWinner(){
+        int max = findMaxMove();
+        return "";
     }
 
-    private void findMaxMove(){
-
+    private int findMaxMove(){
+        List<Integer> positions = null;
+        Arrays.stream(cars)
+            .forEach(car->positions.add(car.getPositionNumber()));
+        return Collections.max(positions);
     }
-
 }

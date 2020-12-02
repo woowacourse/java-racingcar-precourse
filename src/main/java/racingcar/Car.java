@@ -21,6 +21,10 @@ public class Car {
         System.out.println(getName() + " : " +getPosition());
     }
 
+    public int getPositionNumber(){
+        return position;
+    }
+
     public String getPosition(){
         String carPosition = "";
         for(int i =0; i<position; i++){
