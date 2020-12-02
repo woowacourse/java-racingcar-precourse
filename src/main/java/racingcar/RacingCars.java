@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import view.OutputView;
 
 public class RacingCars {
 
@@ -11,8 +12,10 @@ public class RacingCars {
     }
 
     public void moveFor(int roundCount) {
+        OutputView.printRaceResultLabel();
         for (int i = 0; i < roundCount; ++i) {
             moveCars();
+            OutputView.printCarPositionGraphic(this);
         }
     }
 

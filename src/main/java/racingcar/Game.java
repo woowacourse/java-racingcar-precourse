@@ -20,7 +20,6 @@ public class Game {
     public void play() {
         createRacingCars();
         moveCars();
-        OutputView.printCarPositionGraphic(racingCars);
     }
 
     private void moveCars() {
@@ -34,7 +33,6 @@ public class Game {
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             moveCars();
-            OutputView.printCarPositionGraphic(racingCars);
         }
    }
 

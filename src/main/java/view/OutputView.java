@@ -17,11 +17,15 @@ public class OutputView {
     }
 
     public static void printCarPositionGraphic(RacingCars racingCars) {
-        printRaceResultLabel();
         racingCars.printResult();
+        skipLine();
     }
 
     public static void printRaceResultLabel() {
         System.out.println(RACE_RESULT_LABEL);
+    }
+
+    public static void skipLine() {
+        System.out.println();
     }
 }
