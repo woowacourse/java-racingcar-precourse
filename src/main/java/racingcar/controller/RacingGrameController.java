@@ -4,11 +4,12 @@ import racingcar.domain.CarMovingFlag;
 import racingcar.game.RacingCarManager;
 import utils.CarMovingFlagUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class RacingGrameController {
+    private static final int START_INDEX = 0;
+
     private final InputViewer inputViewer;
     private final OutputViewer outputViewer;
 
@@ -21,9 +22,10 @@ public class RacingGrameController {
         RacingCarManager racingCarManager = this.racingCarManager();
 
         int howManyTry = this.getValidateTryNumber();
-        for (int indexOfTry = 0; indexOfTry < howManyTry; indexOfTry += 1) {
+        for (int indexOfTry = START_INDEX; indexOfTry < howManyTry; indexOfTry++) {
             this.eachRacingTryingMoment(racingCarManager);
         }
+        List<String> winnerCarNameList = racingCarManager.getNowWinnerPlayersName();
     }
 
     private int getValidateTryNumber() {
@@ -39,16 +41,8 @@ public class RacingGrameController {
 
     private void eachRacingTryingMoment(RacingCarManager racingCarManager) {
         List<Integer> randomFlagNumberList = this.inputViewer.makeRandomZeroToNineBoundedNumberList(racingCarManager.numberOfRacingCar());
-        List<CarMovingFlag> carMovingFlagList = this.makeCarMovieFlagList(randomFlagNumberList);
-    }
-
-    private List<CarMovingFlag> makeCarMovieFlagList(List<Integer> flagNumberList) {
-        List<CarMovingFlag> carMovingFlagList = new ArrayList<>(flagNumberList.size());
-        for (int flagNumber : flagNumberList) {
-            carMovingFlagList.add(CarMovingFlagUtils.selectMovingFlag(flagNumber));
-        }
-
-        return carMovingFlagList;
+        List<CarMovingFlag> carMovingFlagList = CarMovingFlagUtils.makeCarMovieFlagList(randomFlagNumberList);
+        racingCarManager.updateRacingCarPosition(carMovingFlagList);
     }
 
     private RacingCarManager racingCarManager() {
