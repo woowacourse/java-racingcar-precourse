@@ -30,7 +30,7 @@ public class InputController {
                 .filter(name -> name.length() <= NAME_MAX_LENGTH)
                 .count() == participants.size();
         if (!isCarNameLength5OrLess) {
-            throw new IllegalArgumentException("이름의 길이는 5이하여야 합니다.");
+            throw new IllegalArgumentException("[ERROR] 이름의 길이는 5이하여야 합니다.");
         }
     }
 
@@ -39,7 +39,7 @@ public class InputController {
                 .filter(name -> name.contains(" "))
                 .count() == 0;
         if(!isCarNameNotContainBlank) {
-            throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다.");
+            throw new IllegalArgumentException("[ERROR] 이름에 공백이 포함되어 있습니다.");
         }
     }
 
