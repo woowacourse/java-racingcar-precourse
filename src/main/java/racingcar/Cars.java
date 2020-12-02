@@ -7,15 +7,10 @@ import java.util.stream.Collectors;
 public class Cars {
 
     private static final String WINNER_TEXT="최종 우승자: ";
-    private static final String NON_ANSWER="[ERROR] 해당 값이 존재하지 않습니다.";
     private List<Car> cars;
 
-    public Cars(){
-        cars=new ArrayList<>();
-    }
-
-    public void add(Car car){
-        cars.add(car);
+    public Cars(List<Car> cars){
+        this.cars=new ArrayList<>(cars);
     }
 
     public void go(){
