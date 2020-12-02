@@ -26,6 +26,4 @@ public class Car {
     private int getRandomNumber() {
         return RandomUtils.nextInt(START_NUMBER, END_NUMBER);
     }
-
-
 }

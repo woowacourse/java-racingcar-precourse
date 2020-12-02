@@ -20,4 +20,8 @@ public class Output {
         }
         System.out.println(name + " : " + movingResult);
     }
+
+    public static void printEmptyLine() {
+        System.out.println();
+    }
 }
