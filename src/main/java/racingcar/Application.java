@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class Application {
 
     GamePlayer gamePlayer;
+    Winner winner;
     List<Car> carList;
 
     Application() {
         gamePlayer = new GamePlayer();
+        winner = new Winner();
     }
 
     public static void main(String[] args) {
@@ -30,7 +32,9 @@ public class Application {
         while (Car.getTimesToTry() > 0) {
             showResultOfEachTurn();
         }
-        Winner.setWinnerPosition(carList);
+        winner.findWinners(carList);
+        String winnerNames = winner.getWinnerNames();
+        System.out.println("최종 우승자: " + winnerNames);
     }
 
     public List<Car> createCarList(Scanner scanner) {
