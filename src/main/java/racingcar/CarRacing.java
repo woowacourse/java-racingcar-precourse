@@ -17,5 +17,6 @@ public class CarRacing {
         String carNameInput = scanner.nextLine();
         List<String> carNamesSplitList = CarNamesSplitList.carNamesSplitList(carNameInput);
         ValidateUtils.carNameLengthCheck(carNamesSplitList);
+        List<Car> carList = CarGenerate.carGenerate(carNamesSplitList);
     }
 }
