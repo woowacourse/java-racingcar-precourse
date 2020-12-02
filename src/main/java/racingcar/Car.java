@@ -14,14 +14,18 @@ public class Car {
         return this.name;
     }
 
-    public int getPosition(){
-        return position;
-    }
-
     public void run(){
         if(generateRandomNumber()) {
             position++;
         }
+    }
+
+    public String getPosition(){
+        String carPosition = "";
+        for(int i =0; i<position; i++){
+            carPosition += "-";
+        }
+        return carPosition;
     }
 
     private boolean generateRandomNumber(){
