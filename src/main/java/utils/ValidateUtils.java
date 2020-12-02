@@ -6,16 +6,16 @@ import view.OutputView;
 public class ValidateUtils {
 
     public static final String NAME_SEPARATOR = ",";
-    public static final int MINIMUM_NAME_LENGTH = 1;
+    public static final String DEFAULT_SEPARATOR = "";
     public static final int MAXIMUM_NAME_LENGTH = 5;
     public static final int MINIMAL_ROUND_COUNT = 1;
 
     public static void validateRoundCount(String rawRoundCount) {
         validateNumeric(rawRoundCount);
-        validateBiggerThanMinimalRoundCount(rawRoundCount);
+        validateAtLeastMinimalRoundCount(rawRoundCount);
     }
 
-    private static void validateBiggerThanMinimalRoundCount(String rawRoundCount) {
+    private static void validateAtLeastMinimalRoundCount(String rawRoundCount) {
         if (isLessThanMinimalRoundCount(rawRoundCount)) {
             throw new IllegalArgumentException(OutputView.IS_SMALLER_THAN_MINIMAL_ERROR);
         }
@@ -34,11 +34,27 @@ public class ValidateUtils {
     }
 
     public static void validateCarNames(String rawCarNames) {
+        validateNotAllComma(rawCarNames);
         validateNoName(rawCarNames);
-        validateExceedingLength(rawCarNames);
+        validateProperLength(rawCarNames);
     }
 
-    private static void validateExceedingLength(String rawCarNames) {
+    private static void validateNotAllComma(String rawCarNames) {
+        if (isAllComma(rawCarNames)) {
+            throw new IllegalArgumentException(OutputView.NO_NAME_ERROR);
+        }
+    }
+
+    private static boolean isAllComma(String rawCarNames) {
+        return Stream.of(rawCarNames.split(DEFAULT_SEPARATOR))
+                .allMatch(ValidateUtils::isComma);
+    }
+
+    private static boolean isComma(String targetString) {
+        return targetString.equals(NAME_SEPARATOR);
+    }
+
+    private static void validateProperLength(String rawCarNames) {
         if (hasNameExceedingLength(rawCarNames)) {
             throw new IllegalArgumentException(OutputView.EXCEEDING_LENGTH_ERROR);
         }
@@ -51,11 +67,14 @@ public class ValidateUtils {
     }
 
     private static boolean hasNoName(String rawCarNames) {
-        return rawCarNames.length() < MINIMUM_NAME_LENGTH;
+        return Stream.of(rawCarNames.split(NAME_SEPARATOR))
+                .map(String::trim)
+                .anyMatch(ValidateUtils::lengthIsZero);
     }
 
     private static boolean hasNameExceedingLength(String rawCarNames) {
         return Stream.of(rawCarNames.split(NAME_SEPARATOR))
+                .map(String::trim)
                 .anyMatch(ValidateUtils::exceedMaximumLength);
     }
 
@@ -63,4 +82,7 @@ public class ValidateUtils {
         return name.length() > MAXIMUM_NAME_LENGTH;
     }
 
+    private static boolean lengthIsZero(String name) {
+        return name.length() == 0;
+    }
 }
