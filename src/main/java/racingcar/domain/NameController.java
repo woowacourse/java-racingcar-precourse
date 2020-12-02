@@ -8,8 +8,8 @@ public class NameController {
 
     }
 
-    public static String[] splitNamebyComma(String name) {
-        String[] names = name.trim().split(",");
+    public static String[] splitNameByComma(String name) {
+        String[] names = name.split(",");
         return names;
     }
 

@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
+    private final static int REMOVE_LAST_MARK = 2;
     private List<Car> cars;
 
     public Cars(String[] names) {
         List<String> nameList = new ArrayList(Arrays.asList(names));
         this.cars = nameList.stream()
+                .map(String::trim)
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
@@ -48,6 +50,6 @@ public class Cars {
                 maxResult.append(", ");
             }
         }
-        return maxResult.toString();
+        return maxResult.toString().substring(0, maxResult.length() - REMOVE_LAST_MARK);
     }
 }
