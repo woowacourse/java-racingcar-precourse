@@ -41,6 +41,7 @@ public class Application {
         String[] namesOfCarsArray = gamePlayer.inputNamesOfCars(scanner);
         List<Car> carList = new ArrayList<>();
         for (String nameOfCar : namesOfCarsArray) {
+            nameOfCar = getCorrectName(nameOfCar.trim());
             Car car = new Car(nameOfCar);
             carList.add(car);
         }
@@ -58,5 +59,16 @@ public class Application {
         }
         Car.useOneTurn();
         System.out.println();
+    }
+
+    public String getCorrectName(String nameOfCar) {
+        if (isNameLengthOver5(nameOfCar)) {
+            return nameOfCar.substring(0, 5);
+        }
+        return nameOfCar;
+    }
+
+    public boolean isNameLengthOver5(String nameOfCar) {
+        return nameOfCar.length() > 5;
     }
 }
