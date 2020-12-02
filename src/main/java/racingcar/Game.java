@@ -26,7 +26,12 @@ public class Game {
     }
 
     private void moveCars() {
-        roundCount = getRoundCount();
+        try {
+            roundCount = getRoundCount();
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            moveCars();
+        }
     }
 
     private int getRoundCount() {
@@ -34,12 +39,16 @@ public class Game {
         return Integer.parseInt(rawInput);
     }
 
-
     private void createPlayingCars() {
-        List<Car> userCars = Stream.of(getCarNames())
-                .map(Car::new)
-                .collect(Collectors.toList());
-        racingCars = new RacingCars(userCars);
+        try {
+            List<Car> userCars = Stream.of(getCarNames())
+                    .map(Car::new)
+                    .collect(Collectors.toList());
+            racingCars = new RacingCars(userCars);
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            createPlayingCars();
+        }
     }
 
     private String[] getCarNames() {
@@ -48,17 +57,8 @@ public class Game {
 
     private String getUserInput() {
         String rawInput = inputView.getCarNames();
-        isValidOrEnterAgain(rawInput);
+        validateCarNames(rawInput);
         return rawInput;
-    }
-
-    private void isValidOrEnterAgain(String rawInput) {
-        try {
-            validateCarNames(rawInput);
-        } catch (IllegalArgumentException e) {
-            OutputView.printError(e);
-            createPlayingCars();
-        }
     }
 
     private void validateCarNames(String rawCarNames) {
