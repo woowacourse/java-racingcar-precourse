@@ -13,6 +13,8 @@ public class GameSetting {
 
     // NUMBER OF ROUNDS INPUT
     private static final String NUMBER_OF_ROUNDS_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String NON_INTEGER_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 정수여야 한다.";
+    private static final String NEGATIVE_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 정수여야 한다.";
 
     private static void checkCarNameInputValidity(String[] carNames) throws IllegalArgumentException{
         // at least 2 names required + names must be unique + name length less than 5
@@ -61,5 +63,38 @@ public class GameSetting {
         return Arrays.stream(carNames)
                 .map(GameSetting::createCarWithName)
                 .collect(Collectors.toList());
+    }
+
+    private static void checkNumberOfRoundsInputValidity(String numberOfRounds) throws IllegalArgumentException {
+        int numberOfRoundsCandidate;
+        try {
+            numberOfRoundsCandidate = Integer.parseInt(numberOfRounds);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NON_INTEGER_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE);
+        }
+        if (numberOfRoundsCandidate < 0) {
+            throw new IllegalArgumentException(NEGATIVE_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE);
+        }
+    }
+
+    private static int getNumberOfRoundsInput(Scanner scanner) throws IllegalArgumentException {
+        String numberOfRounds = scanner.nextLine();
+        checkNumberOfRoundsInputValidity(numberOfRounds);
+        return Integer.parseInt(numberOfRounds);
+    }
+
+    public static int getNumberOfRounds(Scanner scanner) {
+        int numberOfRounds = 0;
+        boolean isValidNumberOfRounds = false;
+        while(!isValidNumberOfRounds) {
+            try {
+                System.out.println(NUMBER_OF_ROUNDS_INPUT_MESSAGE);
+                numberOfRounds = getNumberOfRoundsInput(scanner);
+                isValidNumberOfRounds = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return numberOfRounds;
     }
 }

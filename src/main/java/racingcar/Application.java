@@ -9,6 +9,8 @@ public class Application {
         // TODO 구현 진행
 
         List<Car> cars = GameSetting.createCars(scanner);
+        int numberOfRounds = GameSetting.getNumberOfRounds(scanner);
+        System.out.println(numberOfRounds);
 
     }
 }
