@@ -6,6 +6,9 @@ public class Car {
 
     public static final int GO_FORWARD_MIN_NUMBER = 4;
     public static final int KEEP_POSITION_MAX_NUMBER = 3;
+    public static final int MOVING_POSITION_POINT = 1;
+    public static final int MIN_RANDOM_RANGE = 0;
+    public static final int MAX_RANDOM_RANGE = 9;
 
     private final String name;
     private int position = 0;
@@ -18,7 +21,7 @@ public class Car {
 
     private void moveForwardCar() {
         if (isMoveForward()) {
-            position += 1;
+            position += MOVING_POSITION_POINT;
         }
     }
 
@@ -27,7 +30,7 @@ public class Car {
     }
 
     private boolean isMoveForward() {
-        int randomNumber = RandomUtils.nextInt(0, 9);
+        int randomNumber = RandomUtils.nextInt(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE);
         if (randomNumber >= GO_FORWARD_MIN_NUMBER) {
             return true;
         }
