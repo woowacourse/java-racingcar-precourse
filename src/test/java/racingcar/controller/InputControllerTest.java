@@ -29,10 +29,10 @@ class InputControllerTest {
 
         //when
         boolean isCarNameContainBlank = participants.stream()
-                .filter(name -> !name.contains(" "))
-                .count() == participants.size();
+                .filter(name -> name.contains(" "))
+                .count() > 0;
 
         //then
-        assertThat(isCarNameContainBlank).isFalse();
+        assertThat(isCarNameContainBlank).isTrue();
     }
 }
