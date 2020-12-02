@@ -13,6 +13,8 @@ public class InputGuide {
     private static final String CAR_NAME_INPUT_EXCEPTION_MESSAGE = "자동차 이름은 5자 이내여야 합니다.";
     private static final String CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE = "자동차 갯수는 2개 이상이어야 합니다.";
     private static final String MOVES_INPUT_EXCEPTION_MESSAGE = "자연수를 입력해야 합니다.";
+    private static final int FIVE = 5;
+    private static final int TWO = 2;
     private final Scanner scanner;
     private Car[] cars;
 
@@ -34,7 +36,7 @@ public class InputGuide {
     }
 
     private boolean isMoreThanOne(String[] input){
-        if(input.length >= 2){
+        if(input.length >= TWO){
             cars = new Car[input.length];
             return checkCarName(cars);
         }
@@ -55,7 +57,7 @@ public class InputGuide {
     }
 
     private boolean countCharacters(Car car){
-        return car.getName().length() >= 5;
+        return car.getName().length() >= FIVE;
     }
 
     private Car[] makeCar(String[] names){
