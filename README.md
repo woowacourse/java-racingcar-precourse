@@ -11,12 +11,11 @@
     	
 2. 자동차 `Car`
 	- **차량 전진**
-		- 난수 생성
-		- 생성된 랜덤값으로 전진 (Car객체 요구사항 - setter 메소드 흡수)
+        - 난수 생성 `createRandomNumber`
+        - 생성된 랜덤값으로 전진 (Car객체 요구사항 - setter 메소드 흡수) `moveForwardCar`
 	- **난수 생성 메소드**
-		- RandomUtils 사용하여 0에서 9 사이 랜덤값 생성
-			- 4이상 전진
-			- 3이하 멈춤
+        - RandomUtils 사용하여 0에서 9 사이 랜덤값 생성하여 이동 여부 확인 `isMoveForward`
+            - 4이상 전진, 3이하 멈춤
 	- **현재 상태 getter**
 	
 3. 게임 `Racing`
