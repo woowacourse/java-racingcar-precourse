@@ -14,5 +14,6 @@ public class RacingCarGame {
         userInputCarNames.getInputFromUser(scanner);
         UserInputTryTimes userInputTryTimes = new UserInputTryTimes();
         userInputTryTimes.getInputFromUser(scanner);
+        OutputPrint.printResultStartMessage();
     }
 }
