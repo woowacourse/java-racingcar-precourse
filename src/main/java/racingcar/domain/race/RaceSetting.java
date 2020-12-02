@@ -3,7 +3,9 @@ package racingcar.domain.race;
 import static racingcar.domain.race.exception.CarNameLongerThanMaximumException.MAXIMUM_SIZE_OF_CAR_NAME;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarMoveStrategy;
@@ -15,6 +17,7 @@ import racingcar.domain.race.exception.InvalidMovingCountInputException;
 public class RaceSetting {
 
     private static final String DELIMITER = ",";
+    private static final String DUPLICATED_NAME = "%s(%d)";
 
     public static Race makeRace(final String carNamesStr, int movingCount) {
         List<Car> cars = convertToCars(carNamesStr);
@@ -38,6 +41,7 @@ public class RaceSetting {
     private static List<Car> convertToCars(final String carNamesStr, final CarMoveStrategy carMoveStrategy) {
         List<String> carNames = Arrays.asList(carNamesStr.split(DELIMITER));
         validateCarNames(carNamesStr, carNames);
+        addCountingNumberToBackOfDuplicateName(carNames);
 
         return convertToCars(carNames, carMoveStrategy);
     }
@@ -75,6 +79,32 @@ public class RaceSetting {
     private static void validateMovingCount(final int movingCount) {
         if (movingCount < 0) {
             throw new InvalidMovingCountInputException(movingCount);
+        }
+    }
+
+    private static void addCountingNumberToBackOfDuplicateName(List<String> carNames) {
+        Map<String, Integer> counter = new HashMap<>();
+
+        for (String carName : carNames) {
+            if (counter.containsKey(carName)) {
+                counter.put(carName, counter.get(carName) + 1);
+            } else {
+                counter.put(carName , 1);
+            }
+        }
+
+        counter.keySet().stream()
+            .filter(carName -> counter.get(carName) > 1)
+            .forEach(carName -> makeCountingName(carNames, carName));
+    }
+
+    private static void makeCountingName(List<String> carNames, String carName) {
+        int count = 1;
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carName.equals(carNames.get(i))) {
+                carNames.set(i, String.format(DUPLICATED_NAME, carName, count));
+                count++;
+            }
         }
     }
 }
