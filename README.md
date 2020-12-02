@@ -1,5 +1,52 @@
 # 미션 - 자동차 경주 게임
 
+## 구현할 기능 목록
+
+### 기능 목록
+
+- 자동차 이름을 입력한다.
+- 쉼표(,)를 기준으로 이름을 분류한다.
+- 각 이름으로 자동차를 생성한다.
+- 시도할 횟수를 입력한다.
+- 0 ~ 9 사이의 랜덤 값 가져온다.
+- 4 이상일 경우 자동차가 전진한다.
+- 가장 많이 전진한 자동차의 우승자를 판별한다.
+
+### 예외 사항
+
+- 이름 입력
+    - 이름이 없을 경우 예외를 발생한다.
+    - 공백이 포함될 경우 예외를 발생한다.
+    - 이름이 5 글자가 넘는 경우 예외를 발생한다.
+    - 중복되는 이름이 존재할 경우 예외를 발생한다.
+- 시도 횟수 입력
+    - 시도 횟수에 숫자를 입력하지 않을 경우 예외를 발생한다.
+    - 시도 횟수가 0 이하일 경우 예외를 발생한다.
+    - Int 범위를 벗어날 경우 예외를 발생한다.
+
+### 출력
+
+- 자동차의 이름을 입력받는 메시지를 출력한다.
+- 시도 횟수를 입력받는 메시지를 출력한다.
+- 실행 결과를 출력한다.
+    - 자동차의 전진 상태는 하이픈(-)으로 출력한다.
+- 최종 우승자를 출력한다.
+    - 공동 우승자일 경우 쉼표(,)로 구분하여 출력한다.
+- 예외 메시지는 [ERROR]로 시작하여 출력한다.
+
+<br>
+
+## 커밋 메시지 규칙
+
+- Feat : 새로운 기능 추가
+- Fix : 버그 수정
+- Docs : 문서의 수정
+- Style : 코드의 수정 없이 스타일만 변경
+- Refactor : 코드를 리펙토링
+- Test : Test 관련한 코드의 추가, 수정
+
+<br>
+
 ## 🚀 기능 요구사항
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 - 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
@@ -7,70 +54,6 @@
 - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
 - 전진하는 조건은 0에서 9 사이에서 random 값을 구한 후 random 값이 4 이상일 경우 전진하고, 3 이하의 값이면 멈춘다.
 - 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
-
-<br>
-
-## ✍🏻 입출력 요구사항
-### ⌨️ 입력
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
-```
-pobi,woni,jun
-```
-- 시도할 회수
-```
-5
-```
-
-### 🖥 출력
-- 각 차수별 실행 결과
-```
-pobi : --
-woni : ----
-jun : ---
-```
-- 단독 우승자 안내 문구
-```
-최종 우승자: pobi
-```
-- 공동 우승자 안내 문구
-```
-최종 우승자: pobi, jun
-```
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
-```
-[ERROR] 시도 횟수는 숫자여야 한다.
-```
-
-### 💻 프로그래밍 실행 결과 예시
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자: pobi, jun
-```
 
 <br>
 
@@ -98,58 +81,6 @@ jun : -----
 - Application의 패키지 구조와 구현은 변경하지 않는다.
 - `final Scanner scanner = new Scanner(System.in);`는 변경하지 않는다.
 - `// TODO 구현 진행` 이 후 부터 구현한다.
-
-```java
-public class Application {
-    public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
-    }
-}
-```
-
-### 프로그래밍 요구사항 - RandomUtils
-- RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
-- RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
-
-```java
-private static final Random RANDOM = new Random();
-    private RandomUtils() {
-    }
-    public static int nextInt(final int startInclusive, final int endInclusive) {
-    ...
-```
-
-### 프로그래밍 요구사항 - Car 객체
-- 다음 Car 객체를 활용해 구현해야 한다.
-- Car 기본 생성자를 추가할 수 없다.
-- name, position 변수의 접근 제어자인 private을 변경할 수 없다.
-- 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
-
-```java
-public class Car {
-    private final String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
-    // 추가 기능 구현
-}
-```
-
-<br>
-
-## 📈 진행 요구사항
-- 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
-- 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
-- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
-  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-- [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 절차를 따라 미션을 제출한다.
-  - [프리코스 과제 FAQ](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse/faq) 문서를 참고하여 진행할 수 있다.
-
-<br>
 
 ## 📝 License
 
