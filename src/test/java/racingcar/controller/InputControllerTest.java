@@ -15,10 +15,10 @@ class InputControllerTest {
         List<String> participants = Arrays.asList("java","c++","react");
         int nameMaxLength = 5;
         //when
-        boolean isCarNameLengthLT5 = participants.stream()
+        boolean isCarNameLength5OrLess = participants.stream()
                 .filter(name -> name.length() <= nameMaxLength)
                 .count() == participants.size();
         //then
-        assertThat(isCarNameLengthLT5).isTrue();
+        assertThat(isCarNameLength5OrLess).isTrue();
     }
 }
