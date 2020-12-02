@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 public class Car {
+    private static final int MOVING_BASELINE = 4;
+
     private final String name;
     private int position = 0;
 
@@ -8,5 +10,9 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void movePosition(int movingNumber) {
+        if (movingNumber >= MOVING_BASELINE) {
+            position++;
+        }
+    }
 }

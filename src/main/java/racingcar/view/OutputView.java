@@ -20,4 +20,8 @@ public class OutputView {
     public static void printErrorMessageAboutTrial() {
         System.out.println("[ERROR] 횟수는 1 이상의 숫자만 입력 가능합니다.\n");
     }
+
+    public static void showResultHeader(){
+        System.out.println("실행 결과");
+    }
 }

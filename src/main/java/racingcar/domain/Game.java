@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.Scanner;
 
@@ -10,5 +11,10 @@ public class Game {
         Trial trial = InputView.getTrials(scanner);
 
         Cars cars = new Cars(names);
+
+        OutputView.showResultHeader();
+        for (int i = 0; i < trial.getTrial(); i++) {
+            cars.moveCars();
+        }
     }
 }

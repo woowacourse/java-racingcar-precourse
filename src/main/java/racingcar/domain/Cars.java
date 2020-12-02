@@ -14,4 +14,10 @@ public class Cars {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    public void moveCars(){
+        for(Car car: cars){
+            car.movePosition(RandomGenerator.randomGenerator());
+        }
+    }
 }
