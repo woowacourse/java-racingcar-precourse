@@ -1,6 +1,9 @@
 package racingcar;
 
 public class Car {
+
+    private final int MOVE_FRONT_MIN = 4;
+
     private final String name;
     private int position = 0;
 
@@ -8,5 +11,22 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void move(int moveValue) {
+        if (moveValue >= MOVE_FRONT_MIN) {
+            moveFront();
+        }
+    }
+
+    public void moveFront() {
+        position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
 }
