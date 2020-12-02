@@ -4,13 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RacingGamePlay {
-    static int gameCount;
-    static Map<String, String> racingPlayBoard;
-
-    public RacingGamePlay() {
-      gameCount = 0;
-      racingPlayBoard = new HashMap<String, String>();
-    }
+    static int gameCount = 0;
+    static Map<String, String> racingPlayBoard = new HashMap<String, String>();
 
     public static int runTimes() {
         for (String carName : racingPlayBoard.keySet()) {
