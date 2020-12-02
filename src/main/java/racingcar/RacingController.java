@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -8,12 +9,14 @@ import java.util.Scanner;
  */
 public class RacingController {
     private Input input;
+    private User user;
 
     public RacingController(Scanner scanner) {
         this.input = new Input(scanner);
+        this.user = new User();
     }
 
     public void playGame() {
-        String names = input.nextLine();
+        List<String> names = user.createNames(input.nextLine());
     }
 }
