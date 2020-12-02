@@ -13,12 +13,14 @@ public class RacingGameEmulator {
 
     public RacingGameEmulator(int TIMES) {
         this.TIMES = TIMES;
+        winners = new ArrayList<String>();
     }
 
     public void playGame() {
         while(RacingGamePlay.runTimes() != TIMES) {
-            continue;
+            RacingGameSystemMessageOut.printEachMoves(RacingGamePlay.racingPlayBoard);
         }
+        RacingGameSystemMessageOut.printEachMoves(RacingGamePlay.racingPlayBoard);
     }
 
     public void getResults() {

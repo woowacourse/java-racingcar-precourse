@@ -17,7 +17,7 @@ public class RacingGamePlay {
     public static void checkMoveCar(String carName) {
           if(RacingCarMovement.moveCar()) {
               racingPlayBoard.put(carName, racingPlayBoard.get(carName) + 1);
-              findMaxRunner(racingPlayBoard.get(carName) + 1);
+              findMaxRunner(racingPlayBoard.get(carName));
           }
     }
 
