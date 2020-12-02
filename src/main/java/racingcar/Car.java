@@ -41,7 +41,7 @@ public class Car {
 
     private String getPositionGraphic() {
         StringBuilder positionGraphic = new StringBuilder();
-        for (int i=0; i<position; ++i) {
+        for (int i = 0; i < position; ++i) {
             positionGraphic.append('-');
         }
         return positionGraphic.toString();

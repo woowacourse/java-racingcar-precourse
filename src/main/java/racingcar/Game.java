@@ -35,7 +35,7 @@ public class Game {
             OutputView.printError(e);
             moveCars();
         }
-   }
+    }
 
     private int userInputRoundCount() {
         String rawRoundCount = inputView.getRoundCount();
@@ -46,6 +46,7 @@ public class Game {
     private void createRacingCars() {
         try {
             List<Car> userCars = Stream.of(getCarNames())
+                    .map(String::trim)
                     .map(Car::new)
                     .collect(Collectors.toList());
             racingCars = new RacingCars(userCars);
@@ -56,10 +57,10 @@ public class Game {
     }
 
     private String[] getCarNames() {
-        return getRawCarNames().split(ValidateUtils.NAME_SEPARATOR);
+        return userInputCarNames().split(ValidateUtils.NAME_SEPARATOR);
     }
 
-    private String getRawCarNames() {
+    private String userInputCarNames() {
         String rawCarNames = inputView.getCarNames();
         ValidateUtils.validateCarNames(rawCarNames);
         return rawCarNames;

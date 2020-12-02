@@ -3,11 +3,10 @@ package racingcar;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import utils.ValidateUtils;
 import view.OutputView;
 
 public class RacingCars {
-
-    private static final String DELIMITER = ",";
 
     private final List<Car> cars;
 
@@ -35,11 +34,11 @@ public class RacingCars {
         return cars.stream()
                 .filter(x -> x.getPosition() == getWinningPosition())
                 .map(Car::getName)
-                .collect(Collectors.joining(DELIMITER));
+                .collect(Collectors.joining(ValidateUtils.NAME_SEPARATOR));
     }
 
     public int getWinningPosition() {
-        Optional<Integer> maxPosition =  cars.stream()
+        Optional<Integer> maxPosition = cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compare);
         return maxPosition.orElse(0);
