@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import view.InputView;
 import view.OutputView;
@@ -11,6 +13,7 @@ public class Game {
     public static final int MAXIMUM_NAME_LENGTH = 5;
 
     private final InputView inputView;
+    private PlayingCars playingCars;
 
     public Game(InputView inputView) {
         this.inputView = inputView;
@@ -25,9 +28,25 @@ public class Game {
     }
 
     private void createPlayingCars() {
-        String rawCarNames = inputView.getCarNames();
+        List<Car> userCars = Stream.of(getCarNames())
+                .map(Car::new)
+                .collect(Collectors.toList());
+        playingCars = new PlayingCars(userCars);
+    }
+
+    private String[] getCarNames() {
+        return getUserInput().split(NAME_SEPARATOR);
+    }
+
+    private String getUserInput() {
+        String rawInput = inputView.getCarNames();
+        validateRawInput(rawInput);
+        return rawInput;
+    }
+
+    private void validateRawInput(String rawInput) {
         try {
-            validate(rawCarNames);
+            validate(rawInput);
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             createPlayingCars();
