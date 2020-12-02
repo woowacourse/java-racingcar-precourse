@@ -18,5 +18,8 @@ public class Game {
             OutputView.printCurrentResult(cars.getCurrentResult());
         }
 
+        int maxResult = cars.getMaxPosition();
+
+
     }
 }

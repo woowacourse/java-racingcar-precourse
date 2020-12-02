@@ -12,6 +12,10 @@ public class Car {
         this.name = name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public void movePosition(int movingNumber) {
         if (movingNumber >= MOVING_BASELINE) {
             position++;

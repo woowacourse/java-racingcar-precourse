@@ -15,18 +15,28 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public void moveCars(){
-        for(Car car: cars){
+    public void moveCars() {
+        for (Car car : cars) {
             car.movePosition(RandomGenerator.randomGenerator());
         }
     }
 
-    public String getCurrentResult(){
+    public String getCurrentResult() {
         StringBuilder currentResult = new StringBuilder();
-        for(Car car: cars){
+        for (Car car : cars) {
             currentResult.append(car.getCurrentPosition());
             currentResult.append("\n");
         }
         return currentResult.toString();
+    }
+
+    public int getMaxPosition() {
+        int max = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > max) {
+                max = car.getPosition();
+            }
+        }
+        return max;
     }
 }
