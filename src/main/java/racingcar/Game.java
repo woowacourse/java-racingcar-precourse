@@ -10,29 +10,20 @@ import java.util.stream.Stream;
  */
 public class Game {
 
-    private final Scanner scanner;
     private final InputGuide inputGuide;
     private OutputGuide outputGuide;
 
     Game(Scanner scanner){
-        this.scanner = scanner;
         this.inputGuide = new InputGuide(scanner);
     }
 
     public void play(){
-        Stream<Car> stream = parseToStream(inputGuide.inputCars());
-        outputGuide = new OutputGuide(stream);
+        Car[] cars = inputGuide.inputCars();
         int moves = inputGuide.countMove();
-        for(int i=0; i<moves; i++){
-            stream.forEach(Car::run);
-            outputGuide.showMove(stream);
-        }
+        outputGuide = new OutputGuide(cars, moves);
         outputGuide.showResult();
     }
 
-    public Stream<Car> parseToStream(Car[] cars){
-        ArrayList<Car> list = new ArrayList<>(Arrays.asList(cars));
-        return list.stream();
-    }
+
 
 }

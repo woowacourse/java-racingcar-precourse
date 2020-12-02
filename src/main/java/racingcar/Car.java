@@ -18,6 +18,7 @@ public class Car {
         if(generateRandomNumber()) {
             position++;
         }
+        System.out.println(getName() + " : " +getPosition());
     }
 
     public String getPosition(){

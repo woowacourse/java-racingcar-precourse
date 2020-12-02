@@ -39,17 +39,18 @@ public class InputGuide {
     private boolean isMoreThanOne(String[] input){
         if(input.length >= TWO){
             cars = new Car[input.length];
-            return checkCarName(cars);
+            return checkCarName(input);
         }
         showIllegalArgumentException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
         return false;
     }
 
-    private boolean checkCarName(Car[] cars){
+    private boolean checkCarName(String[] cars){
         boolean lessThanFive = true;
         int index = cars.length;
         while(lessThanFive && index>0){
-            lessThanFive = countCharacters(cars[index]);
+            lessThanFive = countCharacters(cars[index-1]);
+            index--;
         }
         if(!lessThanFive){
             showIllegalArgumentException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
@@ -57,8 +58,8 @@ public class InputGuide {
         return lessThanFive;
     }
 
-    private boolean countCharacters(Car car){
-        return car.getName().length() >= FIVE;
+    private boolean countCharacters(String carName){
+        return carName.length() < FIVE;
     }
 
     private Car[] makeCar(String[] names){
