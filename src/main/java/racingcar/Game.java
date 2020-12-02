@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.Scanner;
-import jdk.internal.util.xml.impl.Input;
 
 /**
  * 게임이 진행되는 클래스
@@ -17,7 +16,7 @@ public class Game {
     }
 
     public void play(){
-
+        inputGuide.inputCars();
     }
 
 }
