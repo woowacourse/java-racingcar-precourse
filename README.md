@@ -141,16 +141,32 @@ public class Car {
 
 <br>
 
-## 📈 진행 요구사항
-- 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
-- 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
-- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
-  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-- [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 절차를 따라 미션을 제출한다.
-  - [프리코스 과제 FAQ](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse/faq) 문서를 참고하여 진행할 수 있다.
+## 📝구현 기능
 
-<br>
+1. **입력**
+   - 경주 할 자동차 이름 입력 -> ","로 split해서 [A, B, C]로 return
+     - 자동차 이름이 5글자 초과면 `[ERROR] 자동차 이름은 5글자 이하로 입력해야합니다.` 출력
+     - 빈 문자열이 입력된 경우 `[ERROR] 자동차 이름을 입력해주세요.` 출력
+   - 시도할 횟수 입력
+     - 문자를 입력했다면 `[ERROR] 시도 횟수는 숫자여야 합니다.` 출력
+     - 소숫점을 입력했다면 `[ERROR] 시도 횟수는 정수여야 합니다.` 출력
+     - 0이하의 수를 입력했다면 `[ERROR] 시도 횟수는 정수여야 합니다.` 출력
 
-## 📝 License
+2. **Car 객체**([A, B, C]인 자동차 리스트에서 각각의 자동차마다 Car객체 적용)
 
-This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+   - String name, int position
+   - 랜덤 수를 뽑는 메서드 - RandomUtils이용 (makeRandomNumber)
+   - 전진 또는 멈추는 메서드 (goOrStop)
+     - 전진하면 position += 1
+     - 전진하면 print할때는 `-`으로 표현하기
+
+3. **Game 객체**
+
+   - 자동차 이름 및 시도 횟수 입력받기
+
+   - 이동 횟수 알려주는 메서드 - Car객체 이용 (moveCount)
+
+   - 우승자 알려주는 메서드 (selectWinner) : [3, 4, 5] 처럼 이동횟수 리스트 뽑아낸 후에 최대값인 사람들 [A, B, C]에서 뽑아내기
+
+     
+
