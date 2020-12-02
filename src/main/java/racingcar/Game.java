@@ -11,6 +11,7 @@ public class Game {
     public static final String NAME_SEPARATOR = ",";
     public static final int MINIMUM_NAME_LENGTH = 1;
     public static final int MAXIMUM_NAME_LENGTH = 5;
+    public static final int MINIMAL_ROUND_COUNT = 1;
 
     private final InputView inputView;
     private RacingCars racingCars;
@@ -42,6 +43,17 @@ public class Game {
 
     private void validateRoundCount(String rawRoundCount) {
         validateNumeric(rawRoundCount);
+        validateBiggerThanMinimalRoundCount(rawRoundCount);
+    }
+
+    private void validateBiggerThanMinimalRoundCount(String rawRoundCount) {
+        if (isLessThanMinimalRoundCount(rawRoundCount)) {
+            throw new IllegalArgumentException(OutputView.IS_SMALLER_THAN_MINIMAL_ERROR);
+        }
+    }
+
+    private boolean isLessThanMinimalRoundCount(String rawRoundCount) {
+        return Integer.parseInt(rawRoundCount) < MINIMAL_ROUND_COUNT;
     }
 
     private void validateNumeric(String rawRoundCount) {
