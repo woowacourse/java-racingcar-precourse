@@ -35,4 +35,16 @@ class InputControllerTest {
         //then
         assertThat(isCarNameContainBlank).isTrue();
     }
+
+    @Test
+    public void 입력값이_숫자인지_검증한다() throws Exception {
+        //given
+        String input = "1a";
+
+        //when
+        boolean isInputDigit = input.chars().allMatch(Character::isDigit);
+
+        //then
+        assertThat(isInputDigit).isFalse();
+    }
 }
