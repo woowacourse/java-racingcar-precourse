@@ -13,6 +13,7 @@ public class InputGuide {
     private static final String CAR_NAME_INPUT_EXCEPTION_MESSAGE = "자동차 이름은 5자 이내여야 합니다.";
     private static final String CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE = "자동차 갯수는 2개 이상이어야 합니다.";
     private static final String MOVES_INPUT_EXCEPTION_MESSAGE = "자연수를 입력해야 합니다.";
+    private static final String REST = ",";
     private static final int FIVE = 5;
     private static final int TWO = 2;
     private final Scanner scanner;
@@ -32,7 +33,7 @@ public class InputGuide {
     }
 
     private String[] splitCarsName(String input){
-        return input.split(",");
+        return input.split(REST);
     }
 
     private boolean isMoreThanOne(String[] input){
@@ -70,8 +71,7 @@ public class InputGuide {
     private int inputMoves(){
         System.out.println(MOVES_INPUT_MESSAGE);
         try{
-            int moves = Integer.parseInt(scanner.nextLine());
-            return moves;
+            return Integer.parseInt(scanner.nextLine());
         } catch (IllegalArgumentException exception){
             showIllegalArgumentException(MOVES_INPUT_EXCEPTION_MESSAGE);
             return inputMoves();
