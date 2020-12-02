@@ -38,14 +38,14 @@ public class InputController {
         boolean isCarNameNotContainBlank = participants.stream()
                 .filter(name -> name.contains(" "))
                 .count() == 0;
-        if(!isCarNameNotContainBlank) {
+        if (!isCarNameNotContainBlank) {
             throw new IllegalArgumentException("[ERROR] 이름에 공백이 포함되어 있습니다.");
         }
     }
 
     private void validateTryCountIsDigit(String input) {
         boolean isTryCountDigit = input.chars().allMatch(Character::isDigit);
-        if(!isTryCountDigit) {
+        if (!isTryCountDigit) {
             throw new IllegalArgumentException("[ERROR] 시도 회수는 숫자만 입력가능합니다.");
         }
     }
