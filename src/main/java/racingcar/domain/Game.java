@@ -6,6 +6,10 @@ import racingcar.view.OutputView;
 import java.util.Scanner;
 
 public class Game {
+    private Game() {
+
+    }
+
     public static void run(Scanner scanner) {
         String[] names = InputView.getNames(scanner);
         Trial trial = InputView.getTrials(scanner);

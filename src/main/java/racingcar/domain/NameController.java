@@ -9,7 +9,7 @@ public class NameController {
     }
 
     public static String[] splitNamebyComma(String name) {
-        String[] names = name.split(",");
+        String[] names = name.trim().split(",");
         return names;
     }
 

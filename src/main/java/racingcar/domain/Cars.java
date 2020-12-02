@@ -45,7 +45,7 @@ public class Cars {
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 maxResult.append(car.getName());
-                maxResult.append(" ");
+                maxResult.append(", ");
             }
         }
         return maxResult.toString();
