@@ -36,11 +36,11 @@ public class Game {
 
     private String getUserInput() {
         String rawInput = inputView.getCarNames();
-        validateRawInput(rawInput);
+        isValidOrEnterAgain(rawInput);
         return rawInput;
     }
 
-    private void validateRawInput(String rawInput) {
+    private void isValidOrEnterAgain(String rawInput) {
         try {
             validate(rawInput);
         } catch (IllegalArgumentException e) {
