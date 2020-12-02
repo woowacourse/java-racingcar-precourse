@@ -3,6 +3,7 @@ package racingcar;
 import view.InputView;
 
 public class Game {
+
     public static final String NAME_SEPARATOR = ",";
 
     private final InputView inputView;
@@ -13,11 +14,13 @@ public class Game {
 
     public void play() {
         initialize();
-        String carNames = inputView.getCarNames();
-        System.out.println(carNames);
+        createPlayingCars();
     }
 
     private void initialize() {
+    }
 
+    private void createPlayingCars() {
+        String rawCarNames = inputView.getCarNames();
     }
 }
