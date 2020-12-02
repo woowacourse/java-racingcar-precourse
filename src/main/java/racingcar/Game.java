@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.stream.Stream;
 import view.InputView;
 import view.OutputView;
 
@@ -34,11 +35,19 @@ public class Game {
     }
 
     private void validate(String rawCarNames) {
-        if (hasNoName(rawCarNames)) {
-            throw new IllegalArgumentException("[ERROR] 최소 하나의 자동차 이름을 입력해야한다.");
-        }
+        validateNoName(rawCarNames);
+        validateExceedingLength(rawCarNames);
+    }
+
+    private void validateExceedingLength(String rawCarNames) {
         if (hasNameExceedingLength(rawCarNames)) {
             throw new IllegalArgumentException("[ERROR] 이름은 5글자 내로 만들어야한다.");
+        }
+    }
+
+    private void validateNoName(String rawCarNames) {
+        if (hasNoName(rawCarNames)) {
+            throw new IllegalArgumentException("[ERROR] 최소 하나의 자동차 이름을 입력해야한다.");
         }
     }
 
@@ -47,6 +56,11 @@ public class Game {
     }
 
     private boolean hasNameExceedingLength(String rawCarNames) {
-        return false;
+        return Stream.of(rawCarNames.split(NAME_SEPARATOR))
+                .anyMatch(Game::exceedMaximumLength);
+    }
+
+    private static boolean exceedMaximumLength(String name) {
+        return name.length() > MAXIMUM_NAME_LENGTH;
     }
 }
