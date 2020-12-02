@@ -18,7 +18,7 @@ public class RacingCarManager {
     }
 
     private Car makeValidateCar(String carName) {
-        if (carName.length() <= 5) {
+        if (carName.length() <= MAX_LEN_CAR_NAME) {
             return new Car(carName);
         }
 
