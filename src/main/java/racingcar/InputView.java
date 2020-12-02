@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class InputView {
 
@@ -23,13 +24,16 @@ public class InputView {
         this.scanner=scanner;
     }
 
-    public List<String> getCarNames(){
+    public List<Car> getCarsByNaming(){
         System.out.println(INPUT_CAR_NAMES);
         List<String> carNames=Arrays.asList(scanner.nextLine().split(INPUT_SPLIT_REGEX));
         if(carNames.stream().anyMatch(this::isValidNameLength)){
             throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
-        return carNames;
+
+        return carNames.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     public Integer getTryCount(){
