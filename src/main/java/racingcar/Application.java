@@ -26,10 +26,10 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         carList = createCarList(scanner);
         System.out.println("시도할 횟수는 몇회인가요?");
-        Car.setTimesToTry(getTimesToTry(scanner));
+        Car.setTurnsToTry(gamePlayer.inputTimesToTry(scanner));
         System.out.println();
         System.out.println("실행 결과");
-        while (Car.getTimesToTry() > 0) {
+        while (Car.getTurnsToTry() > 0) {
             showResultOfEachTurn();
         }
         winner.findWinners(carList);
@@ -45,10 +45,6 @@ public class Application {
             carList.add(car);
         }
         return carList;
-    }
-
-    public int getTimesToTry(Scanner scanner) {
-        return gamePlayer.inputTimesToTry(scanner);
     }
 
     public void showResultOfEachTurn() {

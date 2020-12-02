@@ -3,7 +3,7 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car {
-    private static int timesToTry = 0;
+    private static int turnsToTry = 0;
 
     private final String name;
     private int position = 0;
@@ -17,7 +17,7 @@ public class Car {
         return "Car{" +
                 "name='" + name + '\'' +
                 ", position=" + position +
-                ", timesToTry=" + timesToTry +
+                ", turnsToTry=" + turnsToTry +
                 '}';
     }
 
@@ -29,12 +29,12 @@ public class Car {
         return this.position;
     }
 
-    public static int getTimesToTry() {
-        return timesToTry;
+    public static int getTurnsToTry() {
+        return turnsToTry;
     }
 
-    public static void setTimesToTry(int timesToTryLocal) {
-        timesToTry = timesToTryLocal;
+    public static void setTurnsToTry(int turnsToTryParam) {
+        turnsToTry = turnsToTryParam;
     }
 
     public void moveOrStay() {
@@ -53,6 +53,6 @@ public class Car {
     }
 
     public static void useOneTurn() {
-        timesToTry--;
+        turnsToTry--;
     }
 }
