@@ -24,6 +24,7 @@ public class Game {
 
     private void moveCars() {
         setRoundCount();
+        racingCars.moveFor(roundCount);
     }
 
     public void setRoundCount() {

@@ -9,4 +9,16 @@ public class RacingCars {
     public RacingCars(List<Car> cars) {
         this.cars = cars;
     }
+
+    public void moveFor(int roundCount) {
+        for (int i = 0; i < roundCount; ++i) {
+            moveCars();
+        }
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
