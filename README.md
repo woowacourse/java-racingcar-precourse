@@ -151,6 +151,32 @@ public class Car {
 
 <br>
 
+## 📚구현 기능 목록
+
+### 입출력
+
+**사용자 입력**
+  * n개의 경주 할 자동차 이름 입력 (쉼표(,)로 구분)
+  * 경주 시도 횟수 입력 (몇 번의 이동을 할 것인지)
+  
+**예외 상황**
+  * 입력한 자동차의 이름이 5자 초과일때
+  * 시도 횟수 입력이 숫자가 아닐때
+
+**실행결과 출력**
+  * 각 차수(round)별 실행결과
+  
+  * 우승자 안내 (우승자는 한명이상 일 수 있다.)
+    * 단독 우승자 안내 문구
+    * 공동 우승자 안내 문구
+
+### 자동차 경주
+  * 라운드마다 생성되는 랜덤값을 통해 자동차 전진
+    * random 값 4 이상 : 전진
+    * random 값 3 이하 : 멈춤
+    
+<br>
+
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
