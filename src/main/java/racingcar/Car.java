@@ -14,6 +14,9 @@ public class Car {
 
     // 추가 기능 구현
 
+    public void changePosition() {
+        this.position++;
+    }
 
     public String getName() {
         return this.name;

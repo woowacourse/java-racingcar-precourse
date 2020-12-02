@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class GameSetting {
     // CAR NAME INPUT
     private static final int MINIMUM_NUMBER_OF_CARS_REQUIRED = 1;
-    private static final String DELIMETER = ",";
+    private static final String DELIMITER = ",";
     private static final String CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름이 중복됩니다.";
     private static final String CAR_NAME_LENGTH_OVER_FIVE_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름은 5자 이하여야 합니다.";
@@ -40,7 +40,7 @@ public class GameSetting {
     }
 
     private static String[] getCarNameInput(Scanner scanner) throws IllegalArgumentException {
-        String[] carNames = scanner.nextLine().split(DELIMETER);
+        String[] carNames = scanner.nextLine().split(DELIMITER);
         checkCarNameInputValidity(carNames);
         return carNames;
     }
