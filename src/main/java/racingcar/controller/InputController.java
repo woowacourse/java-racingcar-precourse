@@ -21,7 +21,7 @@ public class InputController {
     public int inputTryCount(Scanner scanner) {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
         String tryCount = scanner.nextLine();
-        //validate
+        validateTryCountIsDigit(tryCount);
         return parseStringToInt(tryCount);
     }
 
@@ -40,6 +40,13 @@ public class InputController {
                 .count() == 0;
         if(!isCarNameNotContainBlank) {
             throw new IllegalArgumentException("[ERROR] 이름에 공백이 포함되어 있습니다.");
+        }
+    }
+
+    private void validateTryCountIsDigit(String input) {
+        boolean isTryCountDigit = input.chars().allMatch(Character::isDigit);
+        if(!isTryCountDigit) {
+            throw new IllegalArgumentException("[ERROR] 시도 회수는 숫자만 입력가능합니다.");
         }
     }
 
