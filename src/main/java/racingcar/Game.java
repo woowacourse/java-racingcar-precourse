@@ -35,8 +35,21 @@ public class Game {
     }
 
     private int getRoundCount() {
-        String rawInput = inputView.getRoundCount();
-        return Integer.parseInt(rawInput);
+        String rawRoundCount = inputView.getRoundCount();
+        validateRoundCount(rawRoundCount);
+        return Integer.parseInt(rawRoundCount);
+    }
+
+    private void validateRoundCount(String rawRoundCount) {
+        validateNumeric(rawRoundCount);
+    }
+
+    private void validateNumeric(String rawRoundCount) {
+        try {
+            Integer.parseInt(rawRoundCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(OutputView.NOT_NUMBER_ERROR);
+        }
     }
 
     private void createPlayingCars() {
@@ -52,13 +65,13 @@ public class Game {
     }
 
     private String[] getCarNames() {
-        return getUserInput().split(NAME_SEPARATOR);
+        return getRawCarNames().split(NAME_SEPARATOR);
     }
 
-    private String getUserInput() {
-        String rawInput = inputView.getCarNames();
-        validateCarNames(rawInput);
-        return rawInput;
+    private String getRawCarNames() {
+        String rawCarNames = inputView.getCarNames();
+        validateCarNames(rawCarNames);
+        return rawCarNames;
     }
 
     private void validateCarNames(String rawCarNames) {
