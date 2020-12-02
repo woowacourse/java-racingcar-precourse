@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import racingcar.Car;
+import racingcar.domain.CarMovingFlag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,5 +28,38 @@ public class RacingCarManager {
 
     public int numberOfRacingCar() {
         return this.racingCarList.size();
+    }
+
+    public void updateRacingCarPosition(List<CarMovingFlag> carMovingFlagList) {
+        for (int indexOfCarForChangingPosition = 0; indexOfCarForChangingPosition < carMovingFlagList.size(); indexOfCarForChangingPosition += 1) {
+            this.racingCarList.get(indexOfCarForChangingPosition).updatePositionByFlag(carMovingFlagList.get(indexOfCarForChangingPosition));
+        }
+    }
+
+    public List<String> getNowWinnerPlayersName() {
+        List<String> winnerNameList = new ArrayList<>();
+
+        int maxPosition = this.maxPosition();
+        if (maxPosition == Integer.MIN_VALUE) {
+            return winnerNameList;
+        }
+
+        for (Car car : this.racingCarList) {
+            if (car.getPosition() == maxPosition) {
+                winnerNameList.add(car.getName());
+            }
+        }
+
+        return winnerNameList;
+    }
+
+    private int maxPosition() {
+        int maxPosition = Integer.MIN_VALUE;
+
+        for (Car car : this.racingCarList) {
+            maxPosition = Math.max(car.getPosition(), maxPosition);
+        }
+
+        return maxPosition;
     }
 }

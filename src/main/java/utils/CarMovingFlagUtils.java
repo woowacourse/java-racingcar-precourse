@@ -2,6 +2,9 @@ package utils;
 
 import racingcar.domain.CarMovingFlag;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarMovingFlagUtils {
     private static final int MIN_STOP_NUMBER = 0;
     private static final int MAX_STOP_NUMBER = 3;
@@ -21,4 +24,12 @@ public class CarMovingFlagUtils {
         throw new IllegalArgumentException();
     }
 
+    public static List<CarMovingFlag> makeCarMovieFlagList(List<Integer> flagNumberList) {
+        List<CarMovingFlag> carMovingFlagList = new ArrayList<>(flagNumberList.size());
+        for (int flagNumber : flagNumberList) {
+            carMovingFlagList.add(CarMovingFlagUtils.selectMovingFlag(flagNumber));
+        }
+
+        return carMovingFlagList;
+    }
 }
