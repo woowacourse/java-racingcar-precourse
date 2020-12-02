@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class StringUtils {
 
     public static final char runnerFormat = ',';
+    public static final int runnerStringLength = 5;
 
     public String inputRunnerString;
     public String[] Runner;
@@ -31,7 +32,18 @@ public class StringUtils {
         }
         return false;
     }
-    
+
+    private static boolean isValidationNameLength(String[] Runner) {
+        for (String name : Runner) {
+            if (name.length() > runnerStringLength) {
+                System.out.println("Over character" + name);
+                return false;
+            }
+        }
+        System.out.println("OK");
+        return true;
+    }
+
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         // Test
@@ -39,6 +51,7 @@ public class StringUtils {
         StringUtils input = new StringUtils(scanner);
         input.splitRacerByFormat();
         isDuplication(input.Runner);
+        isValidationNameLength(input.Runner);
 
     }
 }

@@ -3,10 +3,9 @@
 ## Feature list (To-do)
 1. 입력 `StringUtils`
     - **이름 입력받는 메소드**
-		- , 를 포매터로 구분
-			- 이름 입력에 구문자가 없는 경우 예외 처리
-		- 이름이 동일한 경우 예외 처리
-		- 이름이 5자 초과인 경우 예외 처리
+        - , 를 포매터로 구분 `splitRacerByFormat`
+        - 이름이 동일한 경우 예외 처리 `isDuplication`
+        - 이름이 5자 초과인 경우 예외 처리 `isValidationNameLength`
     - **시도할 횟수를 입력받는 메소드**
     	- 시도할 횟수에 int이외 문자 예외 처리
     	
