@@ -16,19 +16,19 @@ public class OutputGuide {
     private final Car[] cars;
     private final int moves;
 
-    public OutputGuide(Car[] cars, int moves){
+    public OutputGuide(Car[] cars, int moves) {
         this.cars = cars;
         this.moves = moves;
     }
 
-    public void showResult(){
+    public void showResult() {
         raceStart();
         System.out.println(findWinner());
     }
 
-    private void raceStart(){
+    private void raceStart() {
         System.out.println(SHOW_STATUS_LOG);
-        for(int i=0; i<moves; i++){
+        for (int i = 0; i < moves; i++) {
             race(cars);
         }
     }
@@ -39,22 +39,22 @@ public class OutputGuide {
         System.out.println();
     }
 
-    private String findWinner(){
+    private String findWinner() {
         int max = findMaxMove();
         StringBuilder stringBuilder = new StringBuilder();
-        Arrays.stream(cars).forEach(car->{
-            if(max == car.getPositionNumber()){
-                stringBuilder.append(car.getName()+ MORE_WINNERS);
+        Arrays.stream(cars).forEach(car -> {
+            if (max == car.getPositionNumber()) {
+                stringBuilder.append(car.getName() + MORE_WINNERS);
             }
         });
         stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(MORE_WINNERS));
         return WINNER_IS + stringBuilder.toString();
     }
 
-    private int findMaxMove(){
+    private int findMaxMove() {
         ArrayList<Integer> positions = new ArrayList<>();
         Arrays.stream(cars)
-            .forEach(car->positions.add(car.getPositionNumber()));
+            .forEach(car -> positions.add(car.getPositionNumber()));
         return Collections.max(positions);
     }
 }

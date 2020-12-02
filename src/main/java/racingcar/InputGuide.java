@@ -19,25 +19,25 @@ public class InputGuide {
     private final Scanner scanner;
     private Car[] cars;
 
-    InputGuide(Scanner scanner){
+    InputGuide(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public Car[] inputCars() {
         System.out.println(CAR_INPUT_MESSAGE);
         String[] cars = splitCarsName(scanner.nextLine());
-        if(isMoreThanOne(cars)){
+        if (isMoreThanOne(cars)) {
             return makeCar(cars);
         }
         return inputCars();
     }
 
-    private String[] splitCarsName(String input){
+    private String[] splitCarsName(String input) {
         return input.split(REST);
     }
 
-    private boolean isMoreThanOne(String[] input){
-        if(input.length >= TWO){
+    private boolean isMoreThanOne(String[] input) {
+        if (input.length >= TWO) {
             cars = new Car[input.length];
             return checkCarName(input);
         }
@@ -45,42 +45,42 @@ public class InputGuide {
         return false;
     }
 
-    private boolean checkCarName(String[] cars){
+    private boolean checkCarName(String[] cars) {
         boolean lessThanFive = true;
         int index = cars.length;
-        while(lessThanFive && index>0){
-            lessThanFive = countCharacters(cars[index-1]);
+        while (lessThanFive && index > 0) {
+            lessThanFive = countCharacters(cars[index - 1]);
             index--;
         }
-        if(!lessThanFive){
+        if (!lessThanFive) {
             showIllegalArgumentException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
         }
         return lessThanFive;
     }
 
-    private boolean countCharacters(String carName){
+    private boolean countCharacters(String carName) {
         return carName.length() < FIVE;
     }
 
-    private Car[] makeCar(String[] names){
-        for(int i = 0, length = names.length; i<length; i++){
+    private Car[] makeCar(String[] names) {
+        for (int i = 0, length = names.length; i < length; i++) {
             cars[i] = new Car(names[i]);
         }
         return cars;
     }
 
-    public int countMove(){
+    public int countMove() {
         System.out.println(MOVES_INPUT_MESSAGE);
-        try{
+        try {
             return Integer.parseInt(scanner.nextLine());
-        } catch (IllegalArgumentException exception){
+        } catch (IllegalArgumentException exception) {
             showIllegalArgumentException(MOVES_INPUT_EXCEPTION_MESSAGE);
             return countMove();
         }
     }
 
-    private void showIllegalArgumentException(String message){
-        throw new IllegalArgumentException(ERROR_MESSAGE+message);
+    private void showIllegalArgumentException(String message) {
+        throw new IllegalArgumentException(ERROR_MESSAGE + message);
     }
 
 
