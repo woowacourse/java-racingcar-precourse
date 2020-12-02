@@ -15,6 +15,7 @@ public final class OutputView {
     private static final String DISTANCE = "-";
     private static final String DELIMITER = "";
     private static final String COMMA = ", ";
+    private static final String CAR_NAMES_ALIGNMENT = "%15s";
 
     private OutputView() {
     }
@@ -39,7 +40,8 @@ public final class OutputView {
     public void printRaceTrack(final Race race) {
         race.getCars().forEach(car -> {
             String line = String.join(DELIMITER, Collections.nCopies(car.getPosition(), DISTANCE));
-            println(car.getName() + COLON + line);
+            String name = String.format(CAR_NAMES_ALIGNMENT, car.getName() + COLON);
+            println(name + line);
         });
         println();
     }
