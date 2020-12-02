@@ -35,8 +35,24 @@ public class ValidateUtils {
 
     public static void validateCarNames(String rawCarNames) {
         validateNotAllComma(rawCarNames);
+        validateNameCommaCountEqual(rawCarNames);
         validateNoName(rawCarNames);
         validateProperLength(rawCarNames);
+    }
+
+    private static void validateNameCommaCountEqual(String rawCarNames) {
+        if(nameCommaCountNotEqual(rawCarNames)) {
+            throw new IllegalArgumentException(OutputView.NO_NAME_ERROR);
+        }
+    }
+
+    private static boolean nameCommaCountNotEqual(String rawCarNames) {
+        int nameCount = (int)Stream.of(rawCarNames.split(NAME_SEPARATOR))
+                .count();
+        int commaCount = (int)Stream.of(rawCarNames.split(DEFAULT_SEPARATOR))
+                .filter(x -> x.equals(","))
+                .count();
+        return nameCount - 1 != commaCount;
     }
 
     private static void validateNotAllComma(String rawCarNames) {
