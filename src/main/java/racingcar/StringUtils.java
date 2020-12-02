@@ -1,33 +1,44 @@
 package racingcar;
 
-import com.sun.tools.sjavac.pubapi.TypeVarTypeDesc;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class StringUtils {
+
     public static final char runnerFormat = ',';
 
     public String inputRunnerString;
+    public String[] Runner;
     public int inputRoundCount;
 
-    public StringUtils(Scanner promptInput){
-        inputRunnerString = promptInput.next();
+    public StringUtils(Scanner promptInput) {
+        this.inputRunnerString = promptInput.next();
     }
-    public String[] splitRunner(){
-        String[] runners = inputRunnerString.split(String.valueOf(runnerFormat), 0);
 
+    public String[] splitRacerByFormat() {
+        String[] runners = inputRunnerString.split(String.valueOf(runnerFormat), 0);
+        this.Runner = runners;
         return runners;
     }
 
-
+    private static boolean isDuplication(String[] inputArray) {
+        HashSet<String> set = new HashSet<String>();
+        for (String element : inputArray) {
+            if (!set.add(element)) {
+                System.out.println("duplication" + element);
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public static void main(String[] args) {
-        String[] cast;
         final Scanner scanner = new Scanner(System.in);
         // Test
 
         StringUtils input = new StringUtils(scanner);
-        cast = input.splitRunner();
-
+        input.splitRacerByFormat();
+        isDuplication(input.Runner);
 
     }
 }
