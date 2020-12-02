@@ -40,6 +40,6 @@ public class RacingController {
     }
 
     private int createGameCount() {
-        return user.createGameCount(input.nextLine());
+        return user.createCount(input.nextLine());
     }
 }

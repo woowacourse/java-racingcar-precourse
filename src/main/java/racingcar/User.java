@@ -14,7 +14,7 @@ public class User {
         return Arrays.asList(names.split(DELIMITER));
     }
 
-    public int createGameCount(String nextLine) {
+    public int createCount(String nextLine) {
         return Integer.parseInt(nextLine);
     }
 }
