@@ -29,7 +29,7 @@ public class Car {
     }
 
     public String getPosition() {
-        String carPosition = null;
+        String carPosition = "";
         for (int i = 0; i < position; i++) {
             carPosition += POSITION_DASH;
         }

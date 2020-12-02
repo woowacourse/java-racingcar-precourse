@@ -7,15 +7,16 @@ import java.util.Scanner;
  */
 public class InputGuide {
 
-    public static final String CAR_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
-    public static final String MOVES_INPUT_MESSAGE = "시도할 횟수는 몇회인가요? : ";
+    private static final String CAR_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
+    private static final String MOVES_INPUT_MESSAGE = "시도할 횟수는 몇회인가요? : ";
     private static final String ERROR_MESSAGE = "[ERROR] ";
-    private static final String CAR_NAME_INPUT_EXCEPTION_MESSAGE = "자동차 이름은 5자 이내여야 합니다.";
+    private static final String CAR_NAME_INPUT_EXCEPTION_MESSAGE = "자동차 이름은 0자 이상 5자 이내여야 합니다.";
     private static final String CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE = "자동차 갯수는 2개 이상이어야 합니다.";
     private static final String MOVES_INPUT_EXCEPTION_MESSAGE = "자연수를 입력해야 합니다.";
     private static final String REST = ",";
     private static final int FIVE = 5;
     private static final int TWO = 2;
+    public static final int ZERO = 0;
     private final Scanner scanner;
     private Car[] cars;
 
@@ -41,7 +42,7 @@ public class InputGuide {
             cars = new Car[input.length];
             return checkCarName(input);
         }
-        showIllegalArgumentException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
+        System.out.println(showIllegalArgumentException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE));
         return false;
     }
 
@@ -53,13 +54,13 @@ public class InputGuide {
             index--;
         }
         if (!lessThanFive) {
-            showIllegalArgumentException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
+            System.out.println(showIllegalArgumentException(CAR_NAME_INPUT_EXCEPTION_MESSAGE));
         }
         return lessThanFive;
     }
 
     private boolean countCharacters(String carName) {
-        return carName.length() < FIVE;
+        return carName.length() < FIVE && carName.length() > ZERO;
     }
 
     private Car[] makeCar(String[] names) {
@@ -72,15 +73,23 @@ public class InputGuide {
     public int countMove() {
         System.out.println(MOVES_INPUT_MESSAGE);
         try {
-            return Integer.parseInt(scanner.nextLine());
+            return moreThanZero();
         } catch (IllegalArgumentException exception) {
-            showIllegalArgumentException(MOVES_INPUT_EXCEPTION_MESSAGE);
+            System.out.println(showIllegalArgumentException(MOVES_INPUT_EXCEPTION_MESSAGE));
             return countMove();
         }
     }
 
-    private void showIllegalArgumentException(String message) {
-        throw new IllegalArgumentException(ERROR_MESSAGE + message);
+    private int moreThanZero(){
+        int input = Integer.parseInt(scanner.nextLine());
+        if(input > 0){
+            return input;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    private String showIllegalArgumentException(String message) {
+        return ERROR_MESSAGE + message;
     }
 
 
