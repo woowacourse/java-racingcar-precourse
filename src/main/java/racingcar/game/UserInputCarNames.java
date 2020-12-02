@@ -15,12 +15,13 @@ public class UserInputCarNames {
         this.errorHandler = new UserCarNameInputErrorHandler();
     }
 
-    public void getInputFromUser(Scanner scanner) {
+    public Cars getInputFromUser(Scanner scanner) {
         String inputStr;
         do {
             InputPrint.printMessageForInputCarNames();
             inputStr = getInputCarNames(scanner);
         } while (!isValidInput(inputStr));
+        return cars;
     }
 
     private boolean isValidInput(String inputStr) {

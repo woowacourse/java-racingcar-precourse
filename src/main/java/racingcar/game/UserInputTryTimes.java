@@ -10,13 +10,13 @@ public class UserInputTryTimes {
         this.errorHandler = new UserTryTimeInputErrorHandler();
     }
 
-    public void getInputFromUser(Scanner scanner) {
+    public int getInputFromUser(Scanner scanner) {
         String input;
         do {
             InputPrint.printMessageForInputTryTimes();
             input = scanner.nextLine();
         } while (!isValidInput(input));
-
+        return Integer.parseInt(input);
     }
 
     private boolean isValidInput(String input) {

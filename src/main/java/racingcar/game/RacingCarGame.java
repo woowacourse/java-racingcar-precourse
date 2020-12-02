@@ -11,9 +11,10 @@ public class RacingCarGame {
 
     public void start() {
         UserInputCarNames userInputCarNames = new UserInputCarNames();
-        userInputCarNames.getInputFromUser(scanner);
+        Cars cars = userInputCarNames.getInputFromUser(scanner);
         UserInputTryTimes userInputTryTimes = new UserInputTryTimes();
-        userInputTryTimes.getInputFromUser(scanner);
+        int tryTimes = userInputTryTimes.getInputFromUser(scanner);
         OutputPrint.printResultStartMessage();
+        cars.startRacing(tryTimes);
     }
 }
