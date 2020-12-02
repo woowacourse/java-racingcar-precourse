@@ -1,6 +1,7 @@
 package racingcar;
 
-import com.sun.tools.javac.util.List;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -10,7 +11,8 @@ import java.util.Collections;
 public class OutputGuide {
 
     private static final String WINNER_IS = "최종 우승자: ";
-    public static final String SHOW_STATUS_LOG = "실행 결과";
+    private static final String SHOW_STATUS_LOG = "실행 결과";
+    private static final String MORE_WINNERS = ", ";
     private final Car[] cars;
     private final int moves;
 
@@ -28,22 +30,29 @@ public class OutputGuide {
         System.out.println(SHOW_STATUS_LOG);
         for(int i=0; i<moves; i++){
             race(cars);
-            System.out.println(findWinner());
         }
     }
 
     private void race(Car[] cars) {
         Arrays.stream(cars)
             .forEach(Car::run);
+        System.out.println();
     }
 
     private String findWinner(){
         int max = findMaxMove();
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        Arrays.stream(cars).forEach(car->{
+            if(max == car.getPositionNumber()){
+                stringBuilder.append(car.getName()+ MORE_WINNERS);
+            }
+        });
+        stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(MORE_WINNERS));
+        return WINNER_IS + stringBuilder.toString();
     }
 
     private int findMaxMove(){
-        List<Integer> positions = null;
+        ArrayList<Integer> positions = new ArrayList<>();
         Arrays.stream(cars)
             .forEach(car->positions.add(car.getPositionNumber()));
         return Collections.max(positions);
