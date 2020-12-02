@@ -1,5 +1,17 @@
 # 미션 - 자동차 경주 게임
 
+## 🏗 구현할 기능
+- [ ] 게임 시작
+    - [ ] 이름 입력 요구 스크립트 출력
+    - [ ] 사용자의 자동차 이름 입력
+        - [ ] 쉼표로 각 이름 구분
+        - [ ] 이름이 5자 이하로 이루어져 있는지 판별
+    - [ ] 사용자의 자동차 이동 횟수 입력
+        - [ ] 입력 값이 정수인지 판별
+    - [ ] 자동차의 전진 조건 적용
+    - [ ] 최종 이동 후 우승 자동차 출력
+        - [ ] 동시 우승 자동차 모두 출력
+    
 ## 🚀 기능 요구사항
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 - 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
@@ -99,45 +111,15 @@ jun : -----
 - `final Scanner scanner = new Scanner(System.in);`는 변경하지 않는다.
 - `// TODO 구현 진행` 이 후 부터 구현한다.
 
-```java
-public class Application {
-    public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
-    }
-}
-```
-
 ### 프로그래밍 요구사항 - RandomUtils
 - RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
 - RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
-
-```java
-private static final Random RANDOM = new Random();
-    private RandomUtils() {
-    }
-    public static int nextInt(final int startInclusive, final int endInclusive) {
-    ...
-```
 
 ### 프로그래밍 요구사항 - Car 객체
 - 다음 Car 객체를 활용해 구현해야 한다.
 - Car 기본 생성자를 추가할 수 없다.
 - name, position 변수의 접근 제어자인 private을 변경할 수 없다.
 - 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
-
-```java
-public class Car {
-    private final String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
-    // 추가 기능 구현
-}
-```
 
 <br>
 
