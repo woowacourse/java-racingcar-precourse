@@ -42,7 +42,8 @@ public class Application {
         List<Car> carList = new ArrayList<>();
         for (String nameOfCar : namesOfCarsArray) {
             nameOfCar = getCorrectName(nameOfCar.trim());
-            Car car = new Car(nameOfCar);
+            if (isNameBlank(nameOfCar)) continue;
+            Car car = new Car(nameOfCar.trim());
             carList.add(car);
         }
         return carList;
@@ -70,5 +71,9 @@ public class Application {
 
     public boolean isNameLengthOver5(String nameOfCar) {
         return nameOfCar.length() > 5;
+    }
+
+    public boolean isNameBlank(String nameOfCar) {
+        return nameOfCar.equals("");
     }
 }
