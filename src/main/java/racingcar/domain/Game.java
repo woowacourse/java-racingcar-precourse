@@ -18,8 +18,7 @@ public class Game {
             OutputView.printCurrentResult(cars.getCurrentResult());
         }
 
-        int maxResult = cars.getMaxPosition();
-
-
+        OutputView.showWinnerHeader();
+        OutputView.printWinner(cars.getMaxResult(cars.getMaxPosition()));
     }
 }

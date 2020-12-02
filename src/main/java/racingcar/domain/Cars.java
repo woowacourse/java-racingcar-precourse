@@ -39,4 +39,15 @@ public class Cars {
         }
         return max;
     }
+
+    public String getMaxResult(int maxPosition) {
+        StringBuilder maxResult = new StringBuilder();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                maxResult.append(car.getName());
+                maxResult.append(" ");
+            }
+        }
+        return maxResult.toString();
+    }
 }

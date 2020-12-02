@@ -25,11 +25,15 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void showFinalWinner() {
+    public static void showWinnerHeader() {
         System.out.print("최종 우승자: ");
     }
 
     public static void printCurrentResult(String result) {
         System.out.println(result);
+    }
+
+    public static void printWinner(String winner) {
+        System.out.println(winner);
     }
 }
