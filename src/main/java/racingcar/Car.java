@@ -1,6 +1,13 @@
 package racingcar;
 
+import ui.Output;
+import utils.RandomUtils;
+
+import java.util.Scanner;
+
 public class Car {
+    private static final int START_NUMBER = 0;
+    private static final int END_NUMBER = 9;
     private final String name;
     private int position = 0;
 
@@ -8,5 +15,17 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void move() {
+        int movingDistance = getRandomNumber();
+        if (movingDistance > 4) {
+            position += 1;
+        }
+        Output.printResult(name, position);
+    }
+
+    private int getRandomNumber() {
+        return RandomUtils.nextInt(START_NUMBER, END_NUMBER);
+    }
+
+
 }

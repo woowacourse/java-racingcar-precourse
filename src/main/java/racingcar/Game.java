@@ -1,6 +1,7 @@
 package racingcar;
 
 import ui.Input;
+import ui.Output;
 
 import java.util.Scanner;
 
@@ -11,5 +12,7 @@ public class Game {
 
         String attemptsCountInput = Input.receiveAttemptsCount(scanner);
         int attemptsCount = Integer.parseInt(attemptsCountInput);
+
+        Output.willPrintResult();
     }
 }
