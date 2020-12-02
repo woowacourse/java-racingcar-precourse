@@ -7,7 +7,7 @@
         - 이름이 동일한 경우 예외 처리 `isDuplication`
         - 이름이 5자 초과인 경우 예외 처리 `isValidationNameLength`
     - **시도할 횟수를 입력받는 메소드**
-    	- 시도할 횟수에 int이외 문자 예외 처리
+        - 시도할 횟수에 int이외 문자 예외 처리 `isValidationIntegerRoundCount`
     	
 2. 자동차 `Car`
 	- **차량 전진**
