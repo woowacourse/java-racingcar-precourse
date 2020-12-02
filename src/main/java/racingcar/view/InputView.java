@@ -25,11 +25,16 @@ public class InputView {
         return names;
     }
 
-    public static Trial getTrials(Scanner scanner){
-        while(true){
+    public static Trial getTrials(Scanner scanner) {
+        Trial trial;
+        while (true) {
             OutputView.getTrials();
             String inputNumber = scanner.nextLine();
-            Trial trial = new Trial(inputNumber);
+            if (Trial.isValidateNumber(inputNumber) && Trial.isMoreThanZero(inputNumber)) {
+                trial = new Trial(inputNumber);
+                return trial;
+            }
+            OutputView.printErrorMessageAboutTrial();
         }
     }
 }

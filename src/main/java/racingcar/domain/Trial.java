@@ -5,20 +5,24 @@ public class Trial {
 
     private int trial;
 
-    public Trial() {
-
+    public Trial(String trial) {
+        this.trial = Integer.parseInt(trial);
     }
 
-    public void setTrial(int trial) {
-        this.trial = trial;
+    public int getTrial() {
+        return trial;
     }
 
-    public boolean isValidateNumber(String number) {
+    public static boolean isValidateNumber(String number) {
         try {
             Integer.parseInt(number);
         } catch (Exception e) {
             return false;
         }
         return true;
+    }
+
+    public static boolean isMoreThanZero(String number) {
+        return Integer.parseInt(number) >= MIN_NUM_OF_TRIAL;
     }
 }
