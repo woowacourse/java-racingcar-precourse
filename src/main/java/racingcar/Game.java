@@ -1,14 +1,20 @@
 package racingcar;
 
+import view.InputView;
+
 public class Game {
+    public static final String NAME_SEPARATOR = ",";
 
-    public Game() {
+    private final InputView inputView;
 
+    public Game(InputView inputView) {
+        this.inputView = inputView;
     }
 
     public void play() {
         initialize();
-        System.out.println("경주할 자동차 이름을 입력하세요.");
+        String carNames = inputView.getCarNames();
+        System.out.println(carNames);
     }
 
     private void initialize() {
