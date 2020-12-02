@@ -45,11 +45,11 @@ public class Car {
         boolean isValidCarNames = false;
         while (!isValidCarNames) {
             try {
+                System.out.println(CAR_NAME_INPUT_MESSAGE);
                 carNames = tryToGetCarNames(scanner);
                 isValidCarNames = true;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
-                scanner.nextLine();
             }
         }
         return carNames;
@@ -60,7 +60,6 @@ public class Car {
     }
 
     public static List<Car> createCars(Scanner scanner) {
-        System.out.println(CAR_NAME_INPUT_MESSAGE);
         String[] carNames = getCarNames(scanner);
         return Arrays.stream(carNames)
                 .map(Car::createCarWithName)
