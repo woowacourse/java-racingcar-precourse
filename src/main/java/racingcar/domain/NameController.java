@@ -22,7 +22,7 @@ public class NameController {
         return true;
     }
 
-    public static boolean isSameName(String[] names) {
+    public static boolean isDuplicatedName(String[] names) {
         for (int i = 1; i < names.length; i++) {
             if (names[i - 1].equals(names[i])) {
                 return false;
