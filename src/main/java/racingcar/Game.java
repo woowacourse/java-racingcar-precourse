@@ -13,7 +13,8 @@ public class Game {
     public static final int MAXIMUM_NAME_LENGTH = 5;
 
     private final InputView inputView;
-    private PlayingCars playingCars;
+    private RacingCars racingCars;
+    private int roundCount;
 
     public Game(InputView inputView) {
         this.inputView = inputView;
@@ -21,13 +22,24 @@ public class Game {
 
     public void play() {
         createPlayingCars();
+        moveCars();
     }
+
+    private void moveCars() {
+        roundCount = getRoundCount();
+    }
+
+    private int getRoundCount() {
+        String rawInput = inputView.getRoundCount();
+        return Integer.parseInt(rawInput);
+    }
+
 
     private void createPlayingCars() {
         List<Car> userCars = Stream.of(getCarNames())
                 .map(Car::new)
                 .collect(Collectors.toList());
-        playingCars = new PlayingCars(userCars);
+        racingCars = new RacingCars(userCars);
     }
 
     private String[] getCarNames() {
@@ -42,14 +54,14 @@ public class Game {
 
     private void isValidOrEnterAgain(String rawInput) {
         try {
-            validate(rawInput);
+            validateCarNames(rawInput);
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             createPlayingCars();
         }
     }
 
-    private void validate(String rawCarNames) {
+    private void validateCarNames(String rawCarNames) {
         validateNoName(rawCarNames);
         validateExceedingLength(rawCarNames);
     }
