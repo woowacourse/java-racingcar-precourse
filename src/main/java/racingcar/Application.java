@@ -10,7 +10,8 @@ public class Application {
 
         List<Car> cars = GameSetting.createCars(scanner);
         int numberOfRounds = GameSetting.getNumberOfRounds(scanner);
-        System.out.println(numberOfRounds);
+
+
 
     }
 }
