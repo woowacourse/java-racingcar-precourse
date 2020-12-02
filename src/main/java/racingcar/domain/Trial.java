@@ -5,7 +5,20 @@ public class Trial {
 
     private int trial;
 
-    public Trial(String trial) {
-        this.trial = Integer.parseInt(trial);
+    public Trial() {
+
+    }
+
+    public void setTrial(int trial) {
+        this.trial = trial;
+    }
+
+    public boolean isValidateNumber(String number) {
+        try {
+            Integer.parseInt(number);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }
