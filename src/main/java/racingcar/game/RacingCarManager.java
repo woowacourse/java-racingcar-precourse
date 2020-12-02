@@ -24,4 +24,8 @@ public class RacingCarManager {
 
         throw new IllegalArgumentException();
     }
+
+    public int numberOfRacingCar() {
+        return this.racingCarList.size();
+    }
 }

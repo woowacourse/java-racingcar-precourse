@@ -1,7 +1,11 @@
 package racingcar.controller;
 
+import racingcar.domain.CarMovingFlag;
 import racingcar.game.RacingCarManager;
+import utils.CarMovingFlagUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class RacingGrameController {
@@ -34,6 +38,17 @@ public class RacingGrameController {
     }
 
     private void eachRacingTryingMoment(RacingCarManager racingCarManager) {
+        List<Integer> randomFlagNumberList = this.inputViewer.makeRandomZeroToNineBoundedNumberList(racingCarManager.numberOfRacingCar());
+        List<CarMovingFlag> carMovingFlagList = this.makeCarMovieFlagList(randomFlagNumberList);
+    }
+
+    private List<CarMovingFlag> makeCarMovieFlagList(List<Integer> flagNumberList) {
+        List<CarMovingFlag> carMovingFlagList = new ArrayList<>(flagNumberList.size());
+        for (int flagNumber : flagNumberList) {
+            carMovingFlagList.add(CarMovingFlagUtils.selectMovingFlag(flagNumber));
+        }
+
+        return carMovingFlagList;
     }
 
     private RacingCarManager racingCarManager() {
