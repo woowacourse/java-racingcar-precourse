@@ -1,11 +1,10 @@
 package racingcar;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class RacingGamePlay {
     static int gameCount = 0;
-    static Map<String, String> racingPlayBoard = new HashMap<String, String>();
+    static HashMap<String, Integer> racingPlayBoard = new HashMap<String, Integer>();
 
     public static int runTimes() {
         for (String carName : racingPlayBoard.keySet()) {
@@ -16,7 +15,7 @@ public class RacingGamePlay {
 
     public static void checkMoveCar(String carName) {
           if(RacingCarMovement.moveCar()) {
-              racingPlayBoard.put(carName, racingPlayBoard.get(carName)+"-");
+              racingPlayBoard.put(carName, racingPlayBoard.get(carName) + 1);
           }
     }
 

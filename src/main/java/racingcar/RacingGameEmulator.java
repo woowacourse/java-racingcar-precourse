@@ -1,14 +1,14 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.HashMap;
 
 public class RacingGameEmulator {
     private final int TIMES;
 
     public static boolean gameOn;
     public static ArrayList<String> winners;
-    static Map<String, String> racingPlayResult;
+    static HashMap<String, Integer> racingPlayResult;
 
     public RacingGameEmulator(int TIMES) {
         this.TIMES = TIMES;
