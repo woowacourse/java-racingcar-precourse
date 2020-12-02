@@ -16,29 +16,19 @@ import racingcar.domain.race.exception.InvalidMovingCountInputException;
 
 public class RaceSetting {
 
-    private static final String DELIMITER = ",";
+    public static final String DELIMITER = ",";
     private static final String DUPLICATED_NAME = "%s(%d)";
 
-    public static Race makeRace(final String carNamesStr, int movingCount) {
-        List<Car> cars = convertToCars(carNamesStr);
-        return makeRace(cars, movingCount);
-    }
-
-    public static Race makeRace(final String carNamesStr, int movingCount, final CarMoveStrategy carMoveStrategy) {
-        List<Car> cars = convertToCars(carNamesStr, carMoveStrategy);
-        return makeRace(cars, movingCount);
-    }
-
-    private static Race makeRace(List<Car> cars, int movingCount) {
+    public static Race makeRace(List<Car> cars, int movingCount) {
         validateMovingCount(movingCount);
         return Race.of(cars, movingCount);
     }
 
-    private static List<Car> convertToCars(final String carNamesStr) {
+    public static List<Car> convertToCars(final String carNamesStr) {
         return convertToCars(carNamesStr, NormalCarMoveStrategy.getInstance());
     }
 
-    private static List<Car> convertToCars(final String carNamesStr, final CarMoveStrategy carMoveStrategy) {
+    public static List<Car> convertToCars(final String carNamesStr, final CarMoveStrategy carMoveStrategy) {
         List<String> carNames = Arrays.asList(carNamesStr.split(DELIMITER));
         validateCarNames(carNamesStr, carNames);
         addCountingNumberToBackOfDuplicateName(carNames);

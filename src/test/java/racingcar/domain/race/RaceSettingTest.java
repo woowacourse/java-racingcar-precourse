@@ -17,10 +17,8 @@ class RaceSettingTest {
     @ParameterizedTest
     @ValueSource(strings = {"", ",", " ,", ", ", " ,a", "  , a"})
     void emptyCarName(String value) {
-        final int movingCount = 3;
-
         assertThrows(EmptyCarNameInputException.class, () ->
-            RaceSetting.makeRace(value, movingCount));
+            RaceSetting.convertToCars(value));
     }
 
     @DisplayName("입력받은 자동차 이름들의 길이는 5를 넘어갈 수 없다.")
@@ -31,10 +29,9 @@ class RaceSettingTest {
         for (int i = 0; i < overCount; i++) {
             name.append("a");
         }
-        final int movingCount = 3;
 
         assertThrows(
-            CarNameLongerThanMaximumException.class, () ->
-                RaceSetting.makeRace(name.toString(), movingCount));
+            CarNameLongerThanMaximumException.class,
+            () -> RaceSetting.convertToCars(name.toString()));
     }
 }

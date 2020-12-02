@@ -1,29 +1,38 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.function.Supplier;
+import racingcar.domain.car.Car;
 import racingcar.domain.race.Race;
 import racingcar.domain.race.RaceSetting;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Application {
+
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
 
         InputView inputView = InputView.of(scanner);
         OutputView outputView = OutputView.basic();
 
-        start(inputView, outputView);
+        repeatingUntilNoException(() -> start(inputView, outputView));
     }
 
+    @SuppressWarnings("unchecked")
     private static void start(InputView inputView, OutputView outputView) {
-        outputView.printInputCarNamesMessage();
-        String carNamesStr = inputView.readCarNames();
+        List<Car> cars = (List<Car>) repeatingUntilNoException(() -> {
+            outputView.printInputCarNamesMessage();
+            return RaceSetting.convertToCars(inputView.readCarNames());
+        });
 
-        outputView.printInputMovingCountMessage();
-        int movingCount = inputView.readMovingCount();
+        int movingCount = (int) repeatingUntilNoException(() -> {
+            outputView.printInputMovingCountMessage();
+            return inputView.readMovingCount();
+        });
 
-        Race race = RaceSetting.makeRace(carNamesStr, movingCount);
+        Race race = RaceSetting.makeRace(cars, movingCount);
         race(race, outputView);
         outputView.printWinnerCars(race);
     }
@@ -35,6 +44,27 @@ public class Application {
         while (!race.isComplete()) {
             race.move();
             outputView.printRaceTrack(race);
+        }
+    }
+
+    private static Object repeatingUntilNoException(Supplier<Object> supplier) {
+        while (true) {
+            try {
+                return supplier.get();
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private static void repeatingUntilNoException(SupplierNoReturn supplierNoReturn) {
+        while (true) {
+            try {
+                supplierNoReturn.execute();
+                return;
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

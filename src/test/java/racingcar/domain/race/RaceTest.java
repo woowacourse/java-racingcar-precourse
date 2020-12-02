@@ -17,7 +17,8 @@ class RaceTest {
     void move() {
         final String carNamesStr = "a,b,c";
         final int movingCount = 3;
-        Race race = RaceSetting.makeRace(carNamesStr, movingCount, value -> true);
+        List<Car> cars = RaceSetting.convertToCars(carNamesStr, value -> true);
+        Race race = RaceSetting.makeRace(cars, movingCount);
 
         race.move();
 
@@ -29,9 +30,10 @@ class RaceTest {
     @DisplayName("이미 완료된 경기는 자동차를 움직일 수 없다.")
     @Test
     void alreadyCompleteRace() {
-        final String name = "a,b,c";
+        final String carNamesStr = "a,b,c";
         final int movingCount = 3;
-        Race race = RaceSetting.makeRace(name, movingCount);
+        List<Car> cars = RaceSetting.convertToCars(carNamesStr, value -> true);
+        Race race = RaceSetting.makeRace(cars, movingCount);
         final int overCount = movingCount + 1;
 
         assertThrows(AlreadyCompleteException.class, () -> {
