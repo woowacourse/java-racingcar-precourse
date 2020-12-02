@@ -18,6 +18,8 @@ public class RacingGame {
 
     public void run(){
         input();
+        System.out.println();
+        System.out.println(RESULT);
         while(tryCount!=FINISH){
             cars.go();
             cars.printAllCarPosition();
@@ -31,7 +33,5 @@ public class RacingGame {
             cars.add(new Car(carName));
         });
         tryCount=inputView.getTryCount();
-        System.out.println();
-        System.out.println(RESULT);
     }
 }
