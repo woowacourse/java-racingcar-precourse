@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import racingcar.game.RacingCarManager;
+
 import java.util.Scanner;
 
 public class RacingGrameController {
@@ -12,6 +14,17 @@ public class RacingGrameController {
     }
 
     public void playRacingCarGame() {
+        RacingCarManager racingCarManager = this.racingCarManager();
+    }
 
+    private RacingCarManager racingCarManager() {
+        while (true) {
+            try {
+                this.outputViewer.printInputCarNameMessage();
+                return new RacingCarManager(this.inputViewer.inputCarNameList());
+            } catch (IllegalArgumentException exception) {
+                this.outputViewer.printExceedMaxLenCarNameErrorMessage();
+            }
+        }
     }
 }
