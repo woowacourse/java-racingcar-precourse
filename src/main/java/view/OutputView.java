@@ -1,5 +1,6 @@
 package view;
 
+import racingcar.RacingCars;
 import utils.ValidateUtils;
 
 public class OutputView {
@@ -12,5 +13,9 @@ public class OutputView {
 
     public static void printError(Exception e) {
         System.out.println(e.getMessage());
+    }
+
+    public static void printCarPositionGraphic(RacingCars cars) {
+
     }
 }

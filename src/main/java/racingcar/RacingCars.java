@@ -17,8 +17,6 @@ public class RacingCars {
     }
 
     private void moveCars() {
-        for (Car car : cars) {
-            car.move();
-        }
+        cars.forEach(Car::move);
     }
 }

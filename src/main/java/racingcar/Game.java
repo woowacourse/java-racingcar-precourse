@@ -18,7 +18,7 @@ public class Game {
     }
 
     public void play() {
-        createPlayingCars();
+        createRacingCars();
         moveCars();
     }
 
@@ -33,6 +33,7 @@ public class Game {
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             moveCars();
+            OutputView.printCarPositionGraphic(racingCars);
         }
    }
 
@@ -42,7 +43,7 @@ public class Game {
         return Integer.parseInt(rawRoundCount);
     }
 
-    private void createPlayingCars() {
+    private void createRacingCars() {
         try {
             List<Car> userCars = Stream.of(getCarNames())
                     .map(Car::new)
@@ -50,7 +51,7 @@ public class Game {
             racingCars = new RacingCars(userCars);
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
-            createPlayingCars();
+            createRacingCars();
         }
     }
 
