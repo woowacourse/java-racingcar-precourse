@@ -9,11 +9,6 @@ import view.OutputView;
 
 public class Game {
 
-    public static final String NAME_SEPARATOR = ",";
-    public static final int MINIMUM_NAME_LENGTH = 1;
-    public static final int MAXIMUM_NAME_LENGTH = 5;
-    public static final int MINIMAL_ROUND_COUNT = 1;
-
     private final InputView inputView;
     private RacingCars racingCars;
     private int roundCount;
@@ -59,7 +54,7 @@ public class Game {
     }
 
     private String[] getCarNames() {
-        return getRawCarNames().split(NAME_SEPARATOR);
+        return getRawCarNames().split(ValidateUtils.NAME_SEPARATOR);
     }
 
     private String getRawCarNames() {

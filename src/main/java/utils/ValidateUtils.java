@@ -1,10 +1,10 @@
 package utils;
 
 import java.util.stream.Stream;
-import racingcar.Game;
 import view.OutputView;
 
 public class ValidateUtils {
+
     public static final String NAME_SEPARATOR = ",";
     public static final int MINIMUM_NAME_LENGTH = 1;
     public static final int MAXIMUM_NAME_LENGTH = 5;
