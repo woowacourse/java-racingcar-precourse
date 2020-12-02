@@ -18,5 +18,8 @@ public class CarRacing {
         List<String> carNamesSplitList = CarNamesSplitList.carNamesSplitList(carNameInput);
         ValidateUtils.carNameLengthCheck(carNamesSplitList);
         List<Car> carList = CarGenerate.carGenerate(carNamesSplitList);
+        System.out.println("시도할 회수는 몇회인가요?");
+        int tryCount = ValidateUtils.checkTryCountParseInt(scanner.nextLine());
+
     }
 }
