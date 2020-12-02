@@ -68,13 +68,13 @@ public class InputGuide {
         return cars;
     }
 
-    private int inputMoves(){
+    public int countMove(){
         System.out.println(MOVES_INPUT_MESSAGE);
         try{
             return Integer.parseInt(scanner.nextLine());
         } catch (IllegalArgumentException exception){
             showIllegalArgumentException(MOVES_INPUT_EXCEPTION_MESSAGE);
-            return inputMoves();
+            return countMove();
         }
     }
 
