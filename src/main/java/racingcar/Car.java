@@ -29,4 +29,21 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + getPositionGraphic();
+    }
+
+    private String getPositionGraphic() {
+        StringBuilder positionGraphic = new StringBuilder();
+        for (int i=0; i<position; ++i) {
+            positionGraphic.append('-');
+        }
+        return positionGraphic.toString();
+    }
 }

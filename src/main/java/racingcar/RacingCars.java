@@ -19,4 +19,8 @@ public class RacingCars {
     private void moveCars() {
         cars.forEach(Car::move);
     }
+
+    public void printResult() {
+        cars.forEach(System.out::println);
+    }
 }
