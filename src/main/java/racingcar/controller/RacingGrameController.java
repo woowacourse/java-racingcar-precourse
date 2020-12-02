@@ -15,6 +15,25 @@ public class RacingGrameController {
 
     public void playRacingCarGame() {
         RacingCarManager racingCarManager = this.racingCarManager();
+
+        int howManyTry = this.getValidateTryNumber();
+        for (int indexOfTry = 0; indexOfTry < howManyTry; indexOfTry += 1) {
+            this.eachRacingTryingMoment(racingCarManager);
+        }
+    }
+
+    private int getValidateTryNumber() {
+        while (true) {
+            try {
+                this.outputViewer.printInputHowManyTryMessage();
+                return this.inputViewer.inputTryNumber();
+            } catch (IllegalArgumentException exception) {
+                this.outputViewer.printErrorInputTypeMessage();
+            }
+        }
+    }
+
+    private void eachRacingTryingMoment(RacingCarManager racingCarManager) {
     }
 
     private RacingCarManager racingCarManager() {
