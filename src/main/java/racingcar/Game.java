@@ -45,7 +45,7 @@ public class Game {
 
     private void createRacingCars() {
         try {
-            List<Car> userCars = Stream.of(getCarNames())
+            List<Car> userCars = Stream.of(setCarNames())
                     .map(String::trim)
                     .map(Car::new)
                     .collect(Collectors.toList());
@@ -56,7 +56,7 @@ public class Game {
         }
     }
 
-    private String[] getCarNames() {
+    private String[] setCarNames() {
         return userInputCarNames().split(ValidateUtils.NAME_SEPARATOR);
     }
 
