@@ -3,9 +3,14 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car {
+    private static int timesToTry = 0;
+
     private final String name;
     private int position = 0;
-    private static int timesToTry = 0;
+
+    public Car(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {
@@ -16,11 +21,6 @@ public class Car {
                 '}';
     }
 
-    public Car(String name) {
-        this.name = name;
-    }
-
-    // 추가 기능 구현
     public String getName() {
         return this.name;
     }

@@ -9,8 +9,8 @@ public class GamePlayer {
         return namesOfCars.split(",");
     }
 
-    public int inputTimeToTry(Scanner scanner) {
-        String timeToTry = scanner.nextLine();
-        return Integer.parseInt(timeToTry);
+    public int inputTimesToTry(Scanner scanner) {
+        String timesToTry = scanner.nextLine();
+        return Integer.parseInt(timesToTry);
     }
 }
