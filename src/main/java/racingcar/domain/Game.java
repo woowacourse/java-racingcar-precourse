@@ -15,6 +15,8 @@ public class Game {
         OutputView.showResultHeader();
         for (int i = 0; i < trial.getTrial(); i++) {
             cars.moveCars();
+            OutputView.printCurrentResult(cars.getCurrentResult());
         }
+
     }
 }

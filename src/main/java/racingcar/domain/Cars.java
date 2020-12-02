@@ -21,9 +21,12 @@ public class Cars {
         }
     }
 
-    public void printCurrentPosition(){
+    public String getCurrentResult(){
+        StringBuilder currentResult = new StringBuilder();
         for(Car car: cars){
-            System.out.println(car.getCurrentPosition());
+            currentResult.append(car.getCurrentPosition());
+            currentResult.append("\n");
         }
+        return currentResult.toString();
     }
 }
