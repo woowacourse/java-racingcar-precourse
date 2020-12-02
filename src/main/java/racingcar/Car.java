@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -17,6 +19,12 @@ public class Car {
     }
 
     public void run(){
-        position++;
+        if(generateRandomNumber()) {
+            position++;
+        }
+    }
+
+    private boolean generateRandomNumber(){
+        return RandomUtils.nextInt(0,9) >= 4;
     }
 }
