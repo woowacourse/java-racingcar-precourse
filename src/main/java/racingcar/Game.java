@@ -20,6 +20,7 @@ public class Game {
     public void play() {
         createRacingCars();
         moveCars();
+        OutputView.printWinners(racingCars);
     }
 
     private void moveCars() {

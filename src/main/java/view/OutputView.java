@@ -11,6 +11,7 @@ public class OutputView {
     public static final String NOT_NUMBER_ERROR = "[ERROR] 시도 횟수는 숫자여야 한다.";
     public static final String IS_SMALLER_THAN_MINIMAL_ERROR = "[ERROR] 시도 횟수는 0보다 커야 한다.";
     public static final String RACE_RESULT_LABEL = "실행 결과";
+    public static final String FINAL_WINNER_LABEL = "최종 우승자: ";
 
     public static void printError(Exception e) {
         System.out.println(e.getMessage());
@@ -27,5 +28,9 @@ public class OutputView {
 
     public static void skipLine() {
         System.out.println();
+    }
+
+    public static void printWinners(RacingCars racingcars) {
+        System.out.println(FINAL_WINNER_LABEL + racingcars.getWinners());
     }
 }
