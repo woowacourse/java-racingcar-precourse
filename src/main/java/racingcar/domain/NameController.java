@@ -13,10 +13,12 @@ public class NameController {
         return names;
     }
 
-    public static boolean checkLengthOfName(String name) {
-        if (name.length() <= MAX_LEN_OF_NAME && name.length() >= MIN_LEN_OF_NAME) {
-            return true;
+    public static boolean checkLengthOfName(String[] names) {
+        for (String name : names) {
+            if (name.length() > MAX_LEN_OF_NAME || name.length() < MIN_LEN_OF_NAME) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 }

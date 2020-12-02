@@ -11,21 +11,16 @@ public class InputView {
     }
 
     public static String[] getNames(Scanner scanner) {
-        boolean stopFlag;
         String[] names;
-        do {
-            stopFlag = true;
+        while (true) {
             OutputView.getCarNames();
             String inputName = scanner.nextLine();
             names = NameController.splitNamebyComma(inputName);
-            for (String name : names) {
-                if (!NameController.checkLengthOfName(name)) {
-                    stopFlag = false;
-                    OutputView.printErrorMessageAboutLengthOfName();
-                    break;
-                }
+            if (NameController.checkLengthOfName(names)) {
+                break;
             }
-        } while (!stopFlag);
+            OutputView.printErrorMessageAboutLengthOfName();
+        }
         return names;
     }
 }
