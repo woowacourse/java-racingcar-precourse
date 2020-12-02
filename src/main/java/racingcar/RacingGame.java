@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class RacingGame {
 
@@ -13,7 +14,6 @@ public class RacingGame {
 
     public RacingGame(Scanner scanner){
         inputView=new InputView(scanner);
-        cars=new Cars();
     }
 
     public void run(){
@@ -29,9 +29,7 @@ public class RacingGame {
     }
 
     private void input(){
-        inputView.getCarNames().forEach(carName->{
-            cars.add(new Car(carName));
-        });
+        cars=new Cars(inputView.getCarsByNaming());
         tryCount=inputView.getTryCount();
     }
 }
