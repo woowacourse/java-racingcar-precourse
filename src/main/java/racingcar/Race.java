@@ -21,12 +21,7 @@ public class Race {
                 String[] cars = Stream.of(input.split(Constant.DELIMITER)).map(String::trim).toArray(String[]::new);
 
                 checkRightCarName(cars);
-
-                for (String carName : cars) {
-                    Car car = new Car(carName);
-                    allRacingCars.add(car);
-                }
-
+                carRegistration(cars);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -37,6 +32,13 @@ public class Race {
     private void checkRightCarName(String[] cars) {
         if (!Validation.carNameValidation(cars)) {
             throw new IllegalArgumentException(Constant.ERROR_CAR_NAME);
+        }
+    }
+
+    private void carRegistration(String[] cars) {
+        for (String carName : cars) {
+            Car car = new Car(carName);
+            allRacingCars.add(car);
         }
     }
 }
