@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -8,5 +10,7 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    private int getRandomValue() {
+        return RandomUtils.nextInt(Constant.MIN_RANDOM_VALUE, Constant.MAX_RANDOM_VALUE);
+    }
 }
