@@ -67,6 +67,7 @@ public class RacingGame {
     }
 
     private void printRace(){
+        OutputView.printRaceStartLog();
         for (int i = 0; i < numberOfRaces; i++) {
             moveCars();
             printCars();
