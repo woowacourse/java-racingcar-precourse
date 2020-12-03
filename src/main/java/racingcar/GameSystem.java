@@ -71,7 +71,15 @@ public class GameSystem {
         setCars(tmpNames);
     }
 
-    public void doOneTrial() {
+    public void doAllTrial() {
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < trialCount; i++) {
+            doOneTrial();
+        }
+    }
+
+    private void doOneTrial() {
         driveAllCars();
         printPositionAllCars();
     }
