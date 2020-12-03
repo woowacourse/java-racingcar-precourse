@@ -66,7 +66,7 @@
   - 자동차의 이름을 한 줄에 입력받는다.
   - split한 결과를 받아서 길이가 5보다 클 경우 다시 입력받는다.
   - 수정할 기회를 주고, 길이가 5이하인 입력이 들어올 때 까지 반복한다.
-  - 예시 입력: "pobi, jinseong, korea, javajigi, john"
+  - 예시 입력: "pobi,jinseong,korea,javajigi,john"
   - 예시 출력: "
         [ERROR] jinseong, javajigi는 길이가 너무 깁니다. 5자 이하로 수정해주세요.
         jinseong -> $새로운입력(예: jins)
@@ -76,7 +76,7 @@
         [다음 단계로 진행...]"
  - 이름이 중복된 경우에도 다시 입력받도록 해야한다.
  - 중복되는 경우에는 처음부터 다시 입력받도록 한다.
- - 예시 입력: "pobi, apple, pobi, banana, pobi"
+ - 예시 입력: "pobi,apple,pobi,banana,pobi"
  - 예시 출력: "[ERROR] 중복되는 이름이 있습니다. 다시 입력해주세요."
  ```
 
