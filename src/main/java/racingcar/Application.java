@@ -7,6 +7,6 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
         GameManager gameManager = new GameManager();
-        gameManager.gameStart(scanner);
+        gameManager.startGame(scanner);
     }
 }
