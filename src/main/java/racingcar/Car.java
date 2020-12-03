@@ -2,7 +2,7 @@ package racingcar;
 
 import utils.RandomUtils;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
 
@@ -19,5 +19,20 @@ public class Car {
 
     public int getPosition() {
         return this.position;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        if (this.getPosition() < car.getPosition()) {
+            return -1;
+        }
+        if (this.getPosition() > car.getPosition()) {
+            return 1;
+        }
+        return 0;
     }
 }
