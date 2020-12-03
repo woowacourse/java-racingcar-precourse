@@ -91,9 +91,9 @@ public class InputView {
     }
 
     private void validateRacingTryCountsNumberFormat(String racingTryCounts) {
-        boolean isNumber = racingTryCounts.chars()
+        boolean isPositiveNumber = racingTryCounts.chars()
                 .allMatch(digitNumber -> MINIMUM_DIGIT_NUMBER <= digitNumber && digitNumber <= MAXIMUM_DIGIT_NUMBER);
-        if (!isNumber) {
+        if (!isPositiveNumber) {
             throw new RacingTryCountsNumberFormatException();
         }
         boolean isZero = racingTryCounts.chars()
