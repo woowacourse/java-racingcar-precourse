@@ -1,8 +1,11 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
+    public static List<Car> carList;
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
@@ -38,5 +41,13 @@ public class Racing {
             }
         }
         return true;
+    }
+
+    /* 이름 리스트를 받아서 Car 객체를 생성하는 메소드*/
+    public static void setCarList(String[] nameList){
+        carList=new ArrayList<Car>();
+        for(int i=0;i<nameList.length;i++){
+            carList.add(new Car(nameList[i]));
+        }
     }
 }
