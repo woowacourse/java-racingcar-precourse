@@ -1,12 +1,14 @@
 package racingcar;
 
 import domain.Car;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RaceResultTest {
@@ -15,17 +17,15 @@ class RaceResultTest {
     public void testOneWinner() throws Exception {
         //given
         final String WINNER_NAME = "Bomin";
-        final int RESULT_LENGTH = 1;
         final int RUNNABLE_NUM = 5;
         List<Car> multiCars = createMultiCars();
         //when
         multiCars.stream()
                 .filter(car -> car.getName().equals(WINNER_NAME))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        List<String> result = RaceResult.getWinnerName(multiCars);
+        RaceResult result = RaceResult.of(multiCars);
         //then
-        assertEquals(RESULT_LENGTH, result.size());
-        result.forEach(name -> assertEquals(WINNER_NAME, name));
+        assertThat(result.getWinnersName()).contains(WINNER_NAME);
     }
 
     @Test
@@ -33,17 +33,15 @@ class RaceResultTest {
     public void testMultiWinners() throws Exception {
         //given
         final List<String> WINNER_NAMES = Arrays.asList("Bomin", "Daniel");
-        final int RESULT_LENGTH = 2;
         final int RUNNABLE_NUM = 5;
         List<Car> multiCars = createMultiCars();
         //when
         multiCars.stream()
                 .filter(car -> WINNER_NAMES.contains(car.getName()))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        List<String> result = RaceResult.getWinnerName(multiCars);
+        RaceResult result = RaceResult.of(multiCars);
         //then
-        assertEquals(RESULT_LENGTH, result.size());
-        result.forEach(name -> assertTrue(WINNER_NAMES.contains(name)));
+        assertThat(WINNER_NAMES).isEqualTo(result.getWinnersName());
     }
 
     public List<Car> createMultiCars() {

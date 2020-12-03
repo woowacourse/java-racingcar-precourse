@@ -1,6 +1,7 @@
 package racingcar;
 
 import domain.Car;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.InputDigitStrategy;
@@ -9,6 +10,7 @@ import utils.RandomDigitStrategy;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RaceTest {
@@ -22,7 +24,7 @@ class RaceTest {
         final int ROUND = 3;
         Race race = new Race(cars, ROUND);
         //when
-        race.start(new InputDigitStrategy(MIN_RUNNABLE));
+        race.startRace(new InputDigitStrategy(MIN_RUNNABLE));
         //then
         cars.forEach(car -> assertEquals(car.getCurrentPosition(), ROUND));
     }
@@ -38,9 +40,9 @@ class RaceTest {
                 .forEach(car -> car.run(MIN_RUNNABLE));
         Race race = new Race(cars, ROUND);
         //when
-        List<String> result = race.start(new InputDigitStrategy(MIN_RUNNABLE));
+        RaceResult raceResult = race.startRace(new InputDigitStrategy(MIN_RUNNABLE));
         //then
-        result.forEach(name -> assertTrue(winners.contains(name)));
+        assertThat(winners).isEqualTo(raceResult.getWinnersName());
     }
 
     @Test
@@ -52,7 +54,7 @@ class RaceTest {
         //when
         Race race = new Race(cars, ROUND);
         //then
-        race.start(new RandomDigitStrategy());
+        race.startRace(new RandomDigitStrategy());
     }
 
     private List<Car> createCars() {

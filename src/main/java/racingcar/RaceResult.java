@@ -6,20 +6,35 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceResult {
+    private Winners winners;
+    private List<Car> cars;
 
-    public static List<String> getWinnerName(List<Car> inputCars) {
-        int maxPosition = getMaxPosition(inputCars);
-        return inputCars.stream()
+    private RaceResult(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public static RaceResult of(List<Car> cars) {
+        RaceResult raceResult = new RaceResult(cars);
+        List<Car> winnerList = raceResult.getWinnerList();
+        raceResult.winners = new Winners(winnerList);
+        return raceResult;
+    }
+
+    private List<Car> getWinnerList() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
                 .filter(car -> car.getCurrentPosition() == maxPosition)
-                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
-    private static int getMaxPosition(List<Car> inputCars) {
-        return inputCars.stream()
+    private int getMaxPosition() {
+        return cars.stream()
                 .mapToInt(Car::getCurrentPosition)
                 .max()
                 .getAsInt();
     }
 
+    public List<String> getWinnersName(){
+        return winners.getWinnersName();
+    }
 }

@@ -16,12 +16,12 @@ public class Race {
         this.round = round;
     }
 
-    public List<String> start(DigitStrategy digitStrategy) {
+    public RaceResult startRace(DigitStrategy digitStrategy) {
         for (int i = 0; i < round; i++) {
             makeCarRun(digitStrategy);
             printCurrentPosition();
         }
-        return RaceResult.getWinnerName(cars);
+        return RaceResult.of(cars);
     }
 
     private void makeCarRun(DigitStrategy digitStrategy) {
