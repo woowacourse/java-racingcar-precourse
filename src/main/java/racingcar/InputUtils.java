@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.MessageUtils.printMessageWithConstant;
+
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -13,18 +15,17 @@ public class InputUtils {
     public HashSet<String> runnerNameCheckSet = new HashSet<String>();
 
     public InputUtils(Scanner promptInput) {
-        System.out.println(Constants.RACER_NAME_ANNOUNCEMENT);
+        printMessageWithConstant(new String[]{Constants.RACER_NAME_ANNOUNCEMENT});
         this.inputRunner = promptInput.next();
         splitRacerNameByFormat();
         checkRacerNameValidation(racerNameList);
 
-        System.out.println(Constants.LAP_QUESTION);
+        printMessageWithConstant(new String[]{Constants.LAP_QUESTION});
         this.inputRoundCount = promptInput.next();
         if (checkRoundCountValidation(inputRoundCount)) {
             roundCount = Integer.parseInt(inputRoundCount);
         }
     }
-
 
     private String[] splitRacerNameByFormat() {
         String[] runners = inputRunner.split(String.valueOf(Constants.RACER_LIST_FORMAT), 0);

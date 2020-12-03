@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.MessageUtils.printMessageWithConstant;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,23 +26,21 @@ public class Racing {
     }
 
     public void standingStart() {
-        System.out.println(Constants.STANDING_START_ANNOUNCEMENT);
+        printMessageWithConstant(new String[]{"\n", Constants.STANDING_START_ANNOUNCEMENT});
         goLap(racingEvent);
     }
 
     private void goLap(InputUtils racingEvent) {
         for (int i = 1; i <= racingEvent.roundCount; i++) {
-            System.out.println(i + " Round.");
             for (Car carInRacingEvent : racerList) {
                 carInRacingEvent.moveForward();
                 String racerPositionBarInThisLap = getCarPositionInThisLap(carInRacingEvent);
+                String[] forwarder = new String[]{carInRacingEvent.getRacerName(),
+                    Constants.RACER_POSITION_DIVIDE_CHARACTER, racerPositionBarInThisLap};
+                printMessageWithConstant(forwarder);
 
-                System.out
-                    .println(
-                        carInRacingEvent.getRacerName() + Constants.RACER_POSITION_DIVIDE_CHARACTER
-                            + carInRacingEvent.getPosition()
-                            + racerPositionBarInThisLap);
             }
+            printMessageWithConstant(new String[]{});
         }
     }
 
@@ -60,7 +60,7 @@ public class Racing {
         eventWinnerList = getRaceWinnerString(maxPositionInRacingEvent);
 
         String result = eventWinnerList.substring(0, eventWinnerList.length() - 2);
-        System.out.println(Constants.EVENT_WINNER_ANNOUNCEMENT + result);
+        printMessageWithConstant(new String[]{Constants.EVENT_WINNER_ANNOUNCEMENT, result});
     }
 
     private int getMaxPosition(int maxPositionInRacingEvent) {
