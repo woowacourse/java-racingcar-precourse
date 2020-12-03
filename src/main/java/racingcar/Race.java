@@ -24,12 +24,24 @@ public class Race {
         winnerPrize();
     }
 
-    public void carTryMove(Car car) {
+    private void carTryMove(Car car) {
         int fate = RandomUtils.nextInt(0, 10);
         if (fate <= 3) {
             return;
         }
         car.move();
+    }
+
+    private void printCarCurrentLocation(Car car) {
+        StringBuilder curLocation = new StringBuilder();
+        String carName = car.getName();
+        int position = car.getPosition();
+
+        for (int i = 0; i < position; i++) {
+            curLocation.append("-");
+        }
+
+        System.out.println(carName + " : " + curLocation);
     }
 
 
