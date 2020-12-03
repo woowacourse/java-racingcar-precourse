@@ -155,7 +155,7 @@ public class Car {
 
 ### Car 클래스
 - name(이름)과 (position)을 변수로 가짐
-    - name을 반환하는 메서드
+    - name을 반환하는 메서드 (getName)
     - postition을 전진하는 조건에 따라 값을 정하는 메서드
     - postition 값을 반환하는 메서드
     
