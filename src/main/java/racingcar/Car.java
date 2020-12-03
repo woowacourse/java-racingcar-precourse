@@ -19,4 +19,9 @@ public class Car {
             ++position;
         }
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(position);
+    }
 }
