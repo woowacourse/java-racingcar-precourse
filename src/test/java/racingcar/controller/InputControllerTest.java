@@ -77,6 +77,27 @@ class InputControllerTest {
         assertThat(isDuplicate).isFalse();
     }
 
+    @Test
+    public void 이름에_번호_부여_후_길이가_5이하_인지_검증한다() throws Exception {
+        //given
+        List<String> participants = Arrays.asList("java","java","java","java1");
+
+        //when
+        List<String> result = participants.stream()
+                .map(this::nameGenerator)
+                .filter(name -> name.length() <= 5)
+                .collect(Collectors.toList());
+
+        boolean isNameLength5OrLess = participants.stream()
+                .map(this::nameGenerator)
+                .filter(name -> name.length() <= 5)
+                .count() == participants.size();
+
+        //then
+        System.out.println(result);
+        assertThat(isNameLength5OrLess).isFalse();
+    }
+
     private String nameGenerator(String name) {
         int order = 0;
         if (register.containsKey(name)) {
