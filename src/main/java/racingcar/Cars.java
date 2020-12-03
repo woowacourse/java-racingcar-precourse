@@ -31,6 +31,7 @@ public class Cars {
         for (Car car : cars) {
             applyNewCarPosition(car);
         }
+        showEachCarState();
 
         return doRace(--tryTimes);
     }
@@ -41,19 +42,19 @@ public class Cars {
         }
     }
 
-    public void showRaceState() {
+    public void showRaceStateResultMessage() {
         OutputView.printRaceResult();
-
     }
 
-    public void showEachCarState() {
+    private void showEachCarState() {
         for (Car car : cars) {
             OutputView.printRaceResultEachCar(car.getName(), car.getMoveSign());
         }
+
+        OutputView.printNewLine();
     }
     
     public void showRaceResult() {
-        OutputView.printRaceResult();
         OutputView.printWinner(getWinner());
     }
 

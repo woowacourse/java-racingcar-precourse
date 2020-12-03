@@ -11,7 +11,10 @@ public class GameManager {
 
     public void startRace(Scanner scanner) {
         createCar(scanner);
+
+        cars.showRaceStateResultMessage();
         cars.doRace(tryTimes);
+        cars.showRaceResult();
     }
 
     public void createCar(Scanner scanner) {
