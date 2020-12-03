@@ -16,7 +16,7 @@ public class GamePlayer {
         try {
             turnsToTryInt = Integer.parseInt(turnsToTry);
         } catch (NumberFormatException nfe) {
-            System.err.println("[ERROR] 숫자를 입력해주세요.");
+            System.err.println("[ERROR] 시도 횟수는 숫자여야 한다.");
             turnsToTryInt = inputTurnsToTry(scanner);
         }
         return getAbsoluteValue(turnsToTryInt);
