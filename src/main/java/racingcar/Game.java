@@ -20,7 +20,8 @@ public class Game {
 
         // 시도할 횟수 입력 받기
         String attemptsCountInput = Input.receiveAttemptsCount(scanner);
-        int attemptsCount = Integer.parseInt(attemptsCountInput);
+        Input.validateEmpty(attemptsCountInput);
+        AttemptsCount attemptsCount = new AttemptsCount(attemptsCountInput);
 
         // 자동차 생성
         List<Car> cars = new ArrayList<>();
@@ -30,7 +31,7 @@ public class Game {
 
         // 시행 결과 출력
         Output.willPrintResult();
-        for (int i = 0; i < attemptsCount; i++) {
+        for (int i = 0; i < attemptsCount.getCount(); i++) {
             for (int j = 0; j < cars.size(); j++) {
                 cars.get(j).move();
             }

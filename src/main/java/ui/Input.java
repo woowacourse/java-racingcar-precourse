@@ -12,4 +12,10 @@ public class Input {
         Output.printRequestAttemptsCount();
         return scanner.nextLine();
     }
+
+    public static void validateEmpty(String input) {
+        if (input == "") {
+            throw new IllegalArgumentException("[Error] 빈 값을 넣으시면 안 됩니다.");
+        }
+    }
 }
