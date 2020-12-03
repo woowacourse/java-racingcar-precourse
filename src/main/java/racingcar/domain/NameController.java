@@ -1,8 +1,11 @@
 package racingcar.domain;
 
+import com.sun.tools.javac.util.StringUtils;
+
 public class NameController {
     private static final int MAX_LEN_OF_NAME = 5;
     private static final int MIN_LEN_OF_NAME = 1;
+    private static final int DIFFERENCE_BETWEEN_NAMES_AND_COMMAS = 1;
 
     private NameController() {
 
@@ -12,7 +15,21 @@ public class NameController {
         String[] names = name.split(",");
         return names;
     }
-    
+
+    private static int getNumberOfCommas(String name) {
+        return Long.valueOf(name.chars().filter(ch -> ch == ',').count()).intValue();
+    }
+
+    private static int getNumberOfString(String[] name) {
+        return name.length;
+    }
+
+    public static boolean compareCountBetweenCommaAndName(String nameContainsComma, String[] names) {
+        int numberOfCommas = getNumberOfCommas(nameContainsComma);
+        int numberOfNames = getNumberOfString(names);
+        return (numberOfCommas + DIFFERENCE_BETWEEN_NAMES_AND_COMMAS) == numberOfNames;
+    }
+
     public static boolean isEmptyString(String[] name) {
         if (name.length < MIN_LEN_OF_NAME) {
             return false;

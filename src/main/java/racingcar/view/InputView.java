@@ -17,7 +17,8 @@ public class InputView {
             OutputView.getCarNames();
             String inputName = scanner.nextLine();
             names = NameController.splitNameByComma(inputName);
-            if (NameController.isEmptyString(names) &&
+            if (NameController.compareCountBetweenCommaAndName(inputName, names) &&
+                    NameController.isEmptyString(names) &&
                     NameController.checkLengthOfEachName(names) &&
                     NameController.isDuplicatedName(names)) {
                 break;
