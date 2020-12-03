@@ -13,4 +13,12 @@ public class InputValidator {
             }
         }
     }
+
+    public static void validateAttemptNum(String attemptNum) {
+        try {
+            Integer.parseInt(attemptNum);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(MessageBox.NUMBER_FORMAT_EXCEPTION_MESSAGE);
+        }
+    }
 }

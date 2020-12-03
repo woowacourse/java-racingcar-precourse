@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,13 +43,9 @@ public class Host {
     }
 
     private int getAttemptNum() {
-        int attemptNum;
-        try {
-            attemptNum = sc.nextInt();
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION_MESSAGE);
-        }
-        return attemptNum;
+        String attemptNum = sc.nextLine();
+        InputValidator.validateAttemptNum(attemptNum);
+        return Integer.parseInt(attemptNum);
     }
 
     private void addCar(String[] carNames) {
