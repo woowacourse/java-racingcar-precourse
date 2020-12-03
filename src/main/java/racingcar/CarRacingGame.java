@@ -20,7 +20,7 @@ public class CarRacingGame {
         cars = getCars(getInput());
         tryCount = getTryCount();
 
-        // todo 각 차수별 실행 결과
+        GameResult gameResult = Race.startRace();
 
         // todo 우승자 안내 문구
         // 단독
@@ -33,7 +33,7 @@ public class CarRacingGame {
         // todo 시도할 회수 입력
         int tryCount = 0;
 
-        while (0 < tryCount) {
+        while (tryCount <= 0) {
             try {
                 tryCount = Integer.parseInt(getInput());
             } catch (Exception e) {
