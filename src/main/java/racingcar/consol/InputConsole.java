@@ -1,6 +1,7 @@
 package racingcar.consol;
 
 import utils.ValidationUtils;
+
 import java.util.Scanner;
 
 public class InputConsole {
@@ -14,6 +15,8 @@ public class InputConsole {
     }
 
     public String[] getCarNameArray() {
+        splitCarNamesWithComma(scanner.nextLine());
+        System.out.println(carNameArray[0]);
         return carNameArray;
     }
 
@@ -23,5 +26,7 @@ public class InputConsole {
     }
 
     public void splitCarNamesWithComma(String carNames) {
+        carNameArray = carNames.split(",");
+        ValidationUtils.validateCarNameArray(carNameArray);
     }
 }
