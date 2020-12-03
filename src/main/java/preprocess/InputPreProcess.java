@@ -1,6 +1,5 @@
 package preprocess;
 
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class InputPreProcess {
@@ -16,17 +15,16 @@ public class InputPreProcess {
     private static final String LENGTH_ERROR = "[ERROR] 이름은 " + MIN_NAME_LENGTH +
             "글자 이상이거나 " + MAX_NAME_LENGTH + "글자 이하여만 합니다.";
 
-
-    public InputPreProcess() {}
+    public InputPreProcess() {
+    }
 
     public String[] getNames(String str) {
 
         String[] names = splitName(str);
 
         if (!checkName(names)) {
-           return null;
-        }
-        else if (!checkLength(names)) {
+            return null;
+        } else if (!checkLength(names)) {
             return null;
         }
 
@@ -68,8 +66,6 @@ public class InputPreProcess {
     private boolean checkNameLength(String name) {
         return name.length() >= MIN_NAME_LENGTH && name.length() == MAX_NAME_LENGTH;
     }
-
-
 
     private String[] splitName(String str) {
         return str.split(SPLITTER);
