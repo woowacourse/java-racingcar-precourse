@@ -19,4 +19,10 @@ public class Input {
         }
         return carNameList;
     }
+
+    public int getTrial(int trial) {
+        return trial;
+    }
+
+
 }
