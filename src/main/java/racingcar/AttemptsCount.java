@@ -4,10 +4,14 @@ public class AttemptsCount {
     private int count = 0;
 
     public AttemptsCount(String count) {
-        try {
-            this.count = toInt(count);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+        int attemptsCount = toInt(count);
+        validatePositiveNumber(attemptsCount);
+        this.count = attemptsCount;
+    }
+
+    private void validatePositiveNumber(int count) {
+        if (count < 0) {
+            throw new IllegalArgumentException("[Error] 시도 횟수는 음수이면 안 됩니다.");
         }
     }
 
