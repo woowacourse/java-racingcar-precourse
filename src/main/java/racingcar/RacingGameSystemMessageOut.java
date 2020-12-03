@@ -34,8 +34,9 @@ public class RacingGameSystemMessageOut {
 
     public static void printFinalWinners(ArrayList<String> racingGameWinners) {
         System.out.print(RESULT_FINAL_WINNERS);
-        for(String winner : racingGameWinners) {
-            System.out.print(winner);
+        for(int i = 0; i < racingGameWinners.size()-1 ; i++) {
+            System.out.print(racingGameWinners.get(i) + ", ");
         }
+        System.out.print(racingGameWinners.get(racingGameWinners.size()-1));
     }
 }

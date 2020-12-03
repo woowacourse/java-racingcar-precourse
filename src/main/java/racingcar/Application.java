@@ -12,21 +12,10 @@ public class Application {
         RacingGameSystemMessageOut.printTimesInput();
         int playNum = scanner.nextInt();
 
+        RacingGameSystemMessageOut.printResultMoves();
         RacingGameEmulator racingGameEmulator = new RacingGameEmulator(carNameInput, playNum);
         racingGameEmulator.startRacingGame();
         racingGameEmulator.startRacingGameWinner();
-        
 
-
-        /*
-        RacingGameSystemMessageOut.printResultMoves();
-
-        RacingGameEmulator racingGameEmulator = new RacingGameEmulator(playNum);
-        racingGameEmulator.playGame();
-        racingGameEmulator.getResults();
-        racingGameEmulator.updateWinners(RacingGameEmulator.racingPlayResult);
-
-        RacingGameSystemMessageOut.printFinalWinners(RacingGameEmulator.winners);
-        */
     }
 }
