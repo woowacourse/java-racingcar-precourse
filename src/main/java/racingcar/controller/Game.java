@@ -23,6 +23,4 @@ public class Game {
         OutputGuide outputGuide = new OutputGuide(cars, moves);
         outputGuide.showResult();
     }
-
-
 }

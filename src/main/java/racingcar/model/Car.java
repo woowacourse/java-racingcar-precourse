@@ -10,6 +10,7 @@ public class Car {
     public static final int MIN = 0;
     public static final int MAX = 9;
     public static final int RUNNING_CRITERIA = 4;
+
     private final String name;
     private int position;
 

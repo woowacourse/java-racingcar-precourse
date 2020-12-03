@@ -13,8 +13,8 @@ public class OutputGuide {
     private static final String WINNER_IS = "최종 우승자: ";
     private static final String SHOW_STATUS_LOG = "실행 결과";
     private static final String DELIMITER = ", ";
-    private static final int MIN = 0;
     private static final String NO_WINNERS_EXCEPTION_MESSAGE = "우승자가 존재하지 않습니다.";
+    private static final int MIN = 0;
 
     private final List<Car> cars;
     private final int moves;
@@ -25,11 +25,11 @@ public class OutputGuide {
     }
 
     public void showResult() {
-        raceStart();
+        startRound();
         showWinner();
     }
 
-    private void raceStart() {
+    public void startRound() {
         System.out.println(SHOW_STATUS_LOG);
         IntStream.range(MIN,moves).forEach(value -> race());
     }
