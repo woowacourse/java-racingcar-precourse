@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
+
 public class Rule {
 
     private static final int MIN_ATTEMPT_NUMBER = 1;
@@ -18,8 +20,10 @@ public class Rule {
     }
 
     public void attemptMoveByAttemptNumber(Cars cars) {
+        OutputView.printResultMessage();
         for(int i = 0; i < attemptNumber; i++) {
             cars.goOrStopCars();
+            cars.printResultCars();
         }
     }
 }
