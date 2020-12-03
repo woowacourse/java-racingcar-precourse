@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.car.Car;
+import racingcar.domain.trynumber.TryNumber;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +25,12 @@ public class InputView {
         }
     }
 
-    public static int inputTryNumber(Scanner scanner) {
-        return scanner.nextInt();
+    public static TryNumber inputTryNumber(Scanner scanner) {
+        try {
+            return new TryNumber(scanner.nextInt());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return inputTryNumber(scanner);
+        }
     }
 }
