@@ -3,11 +3,15 @@ package racingcar.controller;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class InputControllerTest {
+
+    private static HashMap<String,Integer> register = new HashMap<>();
 
     @Test
     public void 자동차_이름_길이가_5_이하이다() throws Exception {
@@ -53,6 +57,38 @@ class InputControllerTest {
         //then
         assertThat(isNameDuplicate).isTrue();
         assertThat(isNameDuplicate2).isFalse();
+    }
+
+    @Test
+    public void 중복된_이름뒤에_번호를_부여한다() throws Exception {
+        //given
+        List<String> participants = Arrays.asList("java","java","java","java1","java11");
+
+        //when
+        List<String> result = participants.stream()
+                .map(this::nameGenerator)
+                .collect(Collectors.toList());
+        boolean isDuplicate = result.stream()
+                .distinct()
+                .count() != participants.size();
+
+        //then
+        System.out.println(result);
+        assertThat(isDuplicate).isFalse();
+    }
+
+    private String nameGenerator(String name) {
+        int count = 0;
+        if(register.containsKey(name)) {
+            count = register.get(name);
+            register.put(name,count+1);
+            register.put(name+count,1);
+            return name+count;
+        }
+        if(!register.containsKey(name)) {
+            register.put(name,1);
+        }
+        return name;
     }
 
     @Test
