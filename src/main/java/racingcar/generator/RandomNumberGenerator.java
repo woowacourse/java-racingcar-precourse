@@ -7,6 +7,6 @@ public class RandomNumberGenerator {
     private static final int MIN_LIMIT = 1;
 
     public static int generateRandomNumber(){
-        return RandomUtils.nextInt(MAX_LIMIT, MIN_LIMIT);
+        return RandomUtils.nextInt(MIN_LIMIT, MAX_LIMIT);
     }
 }
