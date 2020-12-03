@@ -9,8 +9,16 @@ public class GamePlayer {
         return namesOfCars.split(",");
     }
 
-    public int inputTimesToTry(Scanner scanner) {
-        String timesToTry = scanner.nextLine();
-        return Integer.parseInt(timesToTry);
+    public int inputTurnsToTry(Scanner scanner) {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String turnsToTry = scanner.nextLine();
+        int turnsToTryInt = 0;
+        try {
+            turnsToTryInt = Integer.parseInt(turnsToTry);
+        } catch (NumberFormatException nfe) {
+            System.err.println("[ERROR] 숫자를 입력해주세요.");
+            turnsToTryInt = inputTurnsToTry(scanner);
+        }
+        return turnsToTryInt;
     }
 }
