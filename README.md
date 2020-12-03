@@ -10,147 +10,31 @@
 
 <br>
 
-## ✍🏻 입출력 요구사항
-### ⌨️ 입력
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
-```
-pobi,woni,jun
-```
-- 시도할 회수
-```
-5
-```
+### 구현할 기능 목록
+1. Input으로 자동차 경주 할 이름들을 받는다
+    - pobi,woni,jun 과 같은 형태로 주어진다.
+    - Validator을 이용해서 잘못된 input을 추릴 것.
+    - 에러 문구는 [Error]로 시작해야 한다(ex. [ERROR] 시도 횟수는 숫자여야 한다.)
+2. Input을 저장할 자동차 클래스를 만든다.(만들어져있다.)
+    - 자동차 클래스 안에서 자동차를 랜덤하게 0~9사이의 값으로 전진시킨다.
+    - setPosition을 사용하지 말라 하였으니, movePosition과 같은 함수를 만들어, 호출 될 시에 포지션의 값을 변화시키는 것으로 충분할 것 같다.
+3. 자동차 클래스에서 자동차를 만들어내는 객체가 있다면, 경주 게임을 컨트롤하는 컨트롤박스가 필요할 것이다.
+   - 저번주 과제에서처럼 GameManager을 사용하자.
+4. 게임 상태를 나타내는 클래스를 만들어보자(GameState). 
+    - Enum을 사용해보면 좋을 것 같다.
+5. 매 회마다 우승 횟수를 저장하는 클래스를 만들자.ScoreBoard
+    - Hashmap으로 이긴 횟수를 저장하면 될 것 같다.
+6. InputView, OutputView, Validator, GameManager
+       
 
-### 🖥 출력
-- 각 차수별 실행 결과
-```
-pobi : --
-woni : ----
-jun : ---
-```
-- 단독 우승자 안내 문구
-```
-최종 우승자: pobi
-```
-- 공동 우승자 안내 문구
-```
-최종 우승자: pobi, jun
-```
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
-```
-[ERROR] 시도 횟수는 숫자여야 한다.
-```
 
-### 💻 프로그래밍 실행 결과 예시
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자: pobi, jun
-```
-
-<br>
-
-## 🎱 프로그래밍 요구사항
-- 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-  - 기본적으로 [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)을 원칙으로 한다.
-  - 단, 들여쓰기는 '2 spaces'가 아닌 '4 spaces'로 한다.
-- indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-  - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-  - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
-- 3항 연산자를 쓰지 않는다.
-- 함수(또는 메소드)가 한 가지 일만 하도록 최대한 작게 만들어라.
-- 프로그래밍 요구사항에서 별도로 변경 불가 안내가 없는 경우 파일 수정과 패키지 이동을 자유롭게 할 수 있다.
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 `[ERROR]` 로 시작해야 한다.
-
-### 추가된 요구사항
-- 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
-  - 함수(또는 메소드)가 한 가지 일만 잘 하도록 구현한다.
-- else 예약어를 쓰지 않는다.
-  - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
-  - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
-
-### 프로그래밍 요구사항 - Application
-- Application 클래스를 활용해 구현해야 한다.
-- Application의 패키지 구조와 구현은 변경하지 않는다.
-- `final Scanner scanner = new Scanner(System.in);`는 변경하지 않는다.
-- `// TODO 구현 진행` 이 후 부터 구현한다.
-
-```java
-public class Application {
-    public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
-    }
-}
-```
-
-### 프로그래밍 요구사항 - RandomUtils
-- RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
-- RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
-
-```java
-private static final Random RANDOM = new Random();
-    private RandomUtils() {
-    }
-    public static int nextInt(final int startInclusive, final int endInclusive) {
-    ...
-```
-
-### 프로그래밍 요구사항 - Car 객체
-- 다음 Car 객체를 활용해 구현해야 한다.
-- Car 기본 생성자를 추가할 수 없다.
-- name, position 변수의 접근 제어자인 private을 변경할 수 없다.
-- 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
-
-```java
-public class Car {
-    private final String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
-    // 추가 기능 구현
-}
-```
-
-<br>
-
-## 📈 진행 요구사항
-- 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
-- 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
-- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
-  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-- [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 절차를 따라 미션을 제출한다.
-  - [프리코스 과제 FAQ](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse/faq) 문서를 참고하여 진행할 수 있다.
-
-<br>
-
-## 📝 License
-
-This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+### 저번주 피드백 사항 중 유념할 것과 공부할만한 것 및 이번 과제의 포인트.
+- 이름, 이름, 이름으로 들어오는 인풋을 잘 걸러내자.
+- TDD를 하지 못하였는데, README를 먼저 작성후, Test를 작성, 후에 코드를 작성해보자.
+  - 어느정도 스켈레톤 코드를 작성 후에 테스트를 작성 하는 것이 지금 나의 실력에 더 효율적인 작업이 될 것 같다.
+- 클래스 헤더와 코멘트를 작성 해보자.
+- Code formatting 을 이용하자 (MAC: Option + Command + L)
+- Enum을 활용해보자! Game State을 관리하는 클래스를 만들면 좋을 것 같다.
+- Exception을 더 효율적으로 사용해볼 수 있을까?
+- 일급 컬렉션이 잘 와닿질 않는데, 이번 과제에서는 Car클래스가 일급 컬렉션이라고 생각하면 될 것 같다.
+- Stream 이라는 것이 있는데, 이것은 시간이 나면 공부를 해서 적용을 시켜보도록 하자.
