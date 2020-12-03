@@ -22,10 +22,12 @@ public class RacingGrameController {
         RacingCarManager racingCarManager = this.racingCarManager();
 
         int howManyTry = this.getValidateTryNumber();
+        this.outputViewer.printHeadMessageBeforePrintResult();
         for (int indexOfTry = START_INDEX; indexOfTry < howManyTry; indexOfTry++) {
             this.eachRacingTryingMoment(racingCarManager);
         }
         List<String> winnerCarNameList = racingCarManager.getNowWinnerPlayersName();
+        this.outputViewer.printWinnerResultMessage(winnerCarNameList);
     }
 
     private int getValidateTryNumber() {
@@ -43,6 +45,7 @@ public class RacingGrameController {
         List<Integer> randomFlagNumberList = this.inputViewer.makeRandomZeroToNineBoundedNumberList(racingCarManager.numberOfRacingCar());
         List<CarMovingFlag> carMovingFlagList = CarMovingFlagUtils.makeCarMovieFlagList(randomFlagNumberList);
         racingCarManager.updateRacingCarPosition(carMovingFlagList);
+        this.outputViewer.printEachTryResult(racingCarManager.nowPositionResultStrList());
     }
 
     private RacingCarManager racingCarManager() {

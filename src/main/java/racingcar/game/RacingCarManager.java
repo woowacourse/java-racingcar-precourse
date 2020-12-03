@@ -8,6 +8,9 @@ import java.util.List;
 
 public class RacingCarManager {
     private static final int MAX_LEN_CAR_NAME = 5;
+    private static final String MIDDLE_DELIM_OF_RESULT = " : ";
+    private static final String MOVING_POSITION_MARK = "-";
+    private static final int START_INDEX = 0;
 
     private final List<Car> racingCarList;
 
@@ -61,5 +64,23 @@ public class RacingCarManager {
         }
 
         return maxPosition;
+    }
+
+    public List<String> nowPositionResultStrList() {
+        List<String> nowPositionResult = new ArrayList<>();
+        for (Car racingCar : this.racingCarList) {
+            nowPositionResult.add(this.nowPositionResult(racingCar));
+        }
+
+        return nowPositionResult;
+    }
+
+    private String nowPositionResult(Car racingCar) {
+        StringBuilder carPositionResultStringBuilder = new StringBuilder();
+        carPositionResultStringBuilder.append(racingCar.getName()).append(MIDDLE_DELIM_OF_RESULT);
+        for (int indexOfPosition = START_INDEX; indexOfPosition < racingCar.getPosition(); indexOfPosition++) {
+            carPositionResultStringBuilder.append(MOVING_POSITION_MARK);
+        }
+        return carPositionResultStringBuilder.toString();
     }
 }
