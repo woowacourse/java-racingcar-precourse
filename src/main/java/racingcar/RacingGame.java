@@ -14,6 +14,7 @@ public class RacingGame {
     private int numberOfRuns;
     private final int RANDOM_NUM_START = 0;
     private final int RANDOM_NUM_END = 9;
+    private final int ARRAY_FIRST_WINNER_CAR = 0;
 
     public RacingGame(Scanner scanner) {
         this.scanner = scanner;
@@ -27,6 +28,7 @@ public class RacingGame {
             printCars();
             System.out.println();
         }
+        printWinner(findWinner());
     }
 
     public void registerCars() {
@@ -57,9 +59,33 @@ public class RacingGame {
         }
     }
 
-    public void findWinner() {
+    public List<Car> findWinner() {
+        List<Car> winner = new ArrayList<Car>();
+        for (Car car : racingCars) {
+            if (winner.isEmpty()) {
+                winner.add(car);
+                continue;
+            }
+
+            if (winner.get(ARRAY_FIRST_WINNER_CAR).getPosition() == car.getPosition()) {
+                winner.add(car);
+            }
+
+            if (winner.get(ARRAY_FIRST_WINNER_CAR).getPosition() < car.getPosition()) {
+                winner.clear();
+                winner.add(car);
+            }
+        }
+
+        return winner;
     }
 
-    public void printWinner() {
+    public void printWinner(List<Car> winner) {
+        ArrayList<String> cars = new ArrayList<String>();
+        for (Car car : winner) {
+            cars.add(car.getName());
+        }
+        String winnerName = String.join(", ", cars);
+        System.out.println("최종 우승자: " + winnerName);
     }
 }
