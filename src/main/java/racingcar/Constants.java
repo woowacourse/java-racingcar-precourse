@@ -19,8 +19,7 @@ public class Constants {
     public static final int MAX_RANDOM_RANGE = 9;
     public static final String ERROR_HEADER = "[ERROR] ";
     public static final String FORMATTER_ERROR_ANNOUNCEMENT = "맨 앞의 이름이 없습니다.";
-    public static final String BLANK_ERROR_ANNOUNCEMENT = "이름에 공백이 있습니다.";
     public static final String DUPLICATION_ERROR_ANNOUNCEMENT = "이름이 중복됩니다. ";
-    public static final String OVER_LENGTH_ERROR_ANNOUNCEMENT = "이름이 5자가 넘습니다.";
+    public static final String NAME_OVER_LENGTH_ERROR_ANNOUNCEMENT = "이름이 5자가 넘습니다.";
 
 }

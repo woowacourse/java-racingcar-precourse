@@ -17,7 +17,8 @@ public class InputUtils {
     public InputUtils(Scanner promptInput) {
         printMessageWithConstant(new String[]{Constants.RACER_NAME_ANNOUNCEMENT});
         this.inputRunner = promptInput.next();
-        splitRacerNameByFormat();
+        checkRacerStringFormatter();
+        setSplitRacerNameByFormat();
         checkRacerNameValidation(racerNameList);
 
         printMessageWithConstant(new String[]{Constants.LAP_QUESTION});
@@ -27,18 +28,23 @@ public class InputUtils {
         }
     }
 
-    private String[] splitRacerNameByFormat() {
-        String[] runners = inputRunner.split(String.valueOf(Constants.RACER_LIST_FORMAT), 0);
-        racerNameList = runners;
-        return runners;
+    private void checkRacerStringFormatter() {
+        String isFormatter = inputRunner.substring(0, 1);
+        if (isFormatter.equals(",")) {
+            MessageUtils.errorExceptionThrow(Constants.FORMATTER_ERROR_ANNOUNCEMENT);
+        }
     }
 
-    private boolean checkRacerNameValidation(String[] names) {
+    private void setSplitRacerNameByFormat() {
+        String[] runners = inputRunner.split(String.valueOf(Constants.RACER_LIST_FORMAT), 0);
+        racerNameList = runners;
+    }
+
+    private void checkRacerNameValidation(String[] names) {
         for (String name : names) {
             checkRacerNameDuplication(name);
             checkRacerNameLength(name);
         }
-        return true;
     }
 
     private boolean checkRacerNameDuplication(String name) {
@@ -51,7 +57,7 @@ public class InputUtils {
 
     private boolean checkRacerNameLength(String name) {
         if (name.length() > Constants.RACER_NAME_LENGTH) {
-            MessageUtils.errorExceptionThrow(Constants.OVER_LENGTH_ERROR_ANNOUNCEMENT);
+            MessageUtils.errorExceptionThrow(Constants.NAME_OVER_LENGTH_ERROR_ANNOUNCEMENT);
             return false;
         }
         return true;
