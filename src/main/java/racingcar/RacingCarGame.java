@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.controller.InputController;
+import racingcar.controller.OutputController;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import utils.RandomUtils;
@@ -13,9 +14,11 @@ public class RacingCarGame {
     private static final int RANGE_OF_NUMBER_NINE = 9;
     private static final int STATUS_MOVE = 4;
     private final InputController input;
+    private final OutputController output;
 
     public RacingCarGame() {
         this.input = new InputController();
+        this.output = new OutputController();
     }
 
     public void start(Scanner scanner) {
@@ -27,8 +30,10 @@ public class RacingCarGame {
 
     private void playGame(Cars cars, int tryCount) {
         int round = 0;
+        output.printPlayGameMessage();
         while (round < tryCount) {
             moveOrStop(cars);
+            output.printRoundResult(cars);
             round++;
         }
     }
