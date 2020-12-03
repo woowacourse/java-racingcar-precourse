@@ -5,6 +5,7 @@ import java.util.*;
 public class Racing {
 
     static final String TRIAL_RESULT = "실행 결과";
+    static final String PRINT_WINNERS = "최종 우승자 : ";
 
     public List<Car> makeCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
@@ -20,6 +21,7 @@ public class Racing {
             car.tryMove();
             System.out.print(car.getName() + " : ");
             printMove(car.getPosition());
+            System.out.println();
         }
 
     }
@@ -50,6 +52,7 @@ public class Racing {
 
     public void printWinnersName(List<String> winners) {
         Iterator<String> iterator = winners.iterator();
+        System.out.print(PRINT_WINNERS);
         if (iterator.hasNext()) {
             System.out.print(iterator.next());
         }
@@ -57,6 +60,8 @@ public class Racing {
             System.out.print(", " + iterator.next());
         }
     }
+
+
 
 
 
