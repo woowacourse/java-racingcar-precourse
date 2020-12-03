@@ -2,9 +2,12 @@ package racingcar;
 
 public class Car implements Comparable<Car> {
     private static final int POSSIBLE_MOVE_POWER = 4;
+    private static final String MOVING_STATE = "-";
+    private static final String COLON = " : ";
 
     private final String name;
     private int position = 0;
+    private StringBuilder state = new StringBuilder();
 
     public Car(String name) {
         this.name = name;
@@ -17,6 +20,7 @@ public class Car implements Comparable<Car> {
     private void isMove(int power) {
         if (power >= POSSIBLE_MOVE_POWER) {
             ++position;
+            state.append(MOVING_STATE);
         }
     }
 
@@ -26,7 +30,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        return String.valueOf(position);
+        return name + COLON + state;
     }
 
     @Override

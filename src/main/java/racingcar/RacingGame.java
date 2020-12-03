@@ -13,6 +13,7 @@ public class RacingGame {
     private static final int START_RANGE = 0;
     private static final int END_RANGE = 9;
     private static final int FIRST_CAR = 0;
+    private static final String RESULT_MESSAGE = "\n실행 결과";
 
     private final List<Car> cars;
 
@@ -21,6 +22,7 @@ public class RacingGame {
     }
 
     public void startRace(int gameCount) {
+        System.out.println(RESULT_MESSAGE);
         for (int i = 0; i < gameCount; i++) {
             moveCars();
         }
@@ -29,7 +31,9 @@ public class RacingGame {
     private void moveCars() {
         for (Car car : cars) {
             car.move(getRandomNumber());
+            System.out.println(car);
         }
+        System.out.println();
     }
 
     private int getRandomNumber() {
