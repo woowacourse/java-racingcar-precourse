@@ -8,4 +8,10 @@ public class InputView {
 
         return next;
     }
+
+    public static int inputTryTimes(Scanner scanner) {
+        int tryTimes = scanner.nextInt();
+
+        return tryTimes;
+    }
 }
