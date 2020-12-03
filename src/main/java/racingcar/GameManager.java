@@ -12,11 +12,16 @@ public class GameManager {
     private static final int GO_FORWARD_VALUE = 4;
 
     private Cars cars;
+    private int tryTimes;
 
     public void createCar(Scanner scanner) {
         OutputView.printInputCarName();
 
         cars = new Cars(InputView.inputPlayerName(scanner));
+
+        OutputView.printInputRaceTime();
+
+        tryTimes = InputView.inputTryTimes(scanner);
     }
 
     private boolean isGoForward() {
