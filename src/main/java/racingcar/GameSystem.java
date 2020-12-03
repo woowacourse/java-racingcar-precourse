@@ -9,14 +9,44 @@ public class GameSystem {
     private static final int MIN_CAR_COUNT = 2;
     private static final int MAX_NAME_LENGTH = 5;
 
+    private int carCount;
+    private Car[] cars;
+
+
     public GameSystem() {
+        this.carCount = 0;
+    }
+
+    public int getCarCount() {
+        return carCount;
+    }
+
+    public Car[] getCars() {
+        return cars;
+    }
+
+    public void setCarCount(int count) {
+        this.carCount = count;
+    }
+
+    public void setCars(String[] names) {
+        int count = names.length;
+
+        setCarCount(count);
+
+        cars = new Car[count];
+        for (int i = 0; i < count; i++) {
+            Car car = new Car(names[i]);
+            cars[i] = car;
+        }
     }
 
     public void makeCars(Scanner scanner) {
+        String[] tmpNames;
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표 (,) 기준으로 구분)");
             String input = scanner.nextLine();
-            String[] tmpNames = parseCarNames(input);
+            tmpNames = parseCarNames(input);
             try {
                 checkValidCars(tmpNames);
                 break;
@@ -25,6 +55,7 @@ public class GameSystem {
                 System.out.println(message);
             }
         }
+        setCars(tmpNames);
     }
 
     public String[] parseCarNames(String string) {
