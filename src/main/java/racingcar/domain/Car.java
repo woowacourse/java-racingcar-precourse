@@ -15,6 +15,14 @@ public class Car {
         position += engine.run();
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public int getPosition(){
+        return this.position;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
