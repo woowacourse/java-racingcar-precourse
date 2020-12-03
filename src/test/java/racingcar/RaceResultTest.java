@@ -1,7 +1,6 @@
 package racingcar;
 
 import domain.Car;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +22,7 @@ class RaceResultTest {
         multiCars.stream()
                 .filter(car -> car.getName().equals(WINNER_NAME))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        List<String> result = RaceResult.getResult(multiCars);
+        List<String> result = RaceResult.getWinnerName(multiCars);
         //then
         assertEquals(RESULT_LENGTH, result.size());
         result.forEach(name -> assertEquals(WINNER_NAME, name));
@@ -41,7 +40,7 @@ class RaceResultTest {
         multiCars.stream()
                 .filter(car -> WINNER_NAMES.contains(car.getName()))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        List<String> result = RaceResult.getResult(multiCars);
+        List<String> result = RaceResult.getWinnerName(multiCars);
         //then
         assertEquals(RESULT_LENGTH, result.size());
         result.forEach(name -> assertTrue(WINNER_NAMES.contains(name)));

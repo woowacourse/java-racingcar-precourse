@@ -21,10 +21,10 @@ public class Race {
             makeCarRun(digitStrategy);
             printCurrentPosition();
         }
-        return RaceResult.getResult(cars);
+        return RaceResult.getWinnerName(cars);
     }
 
-    private void makeCarRun(DigitStrategy digitStrategy){
+    private void makeCarRun(DigitStrategy digitStrategy) {
         cars.forEach(car -> car.run(digitStrategy.getDigit()));
     }
 

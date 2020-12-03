@@ -1,6 +1,6 @@
 package utils;
 
-public class RandomDigit implements DigitStrategy {
+public class RandomDigitStrategy implements DigitStrategy {
     private static final int MIN_RANDOM_DIGIT = 0;
     private static final int MAX_RANDOM_DIGIT = 9;
 

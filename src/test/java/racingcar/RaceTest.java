@@ -3,8 +3,8 @@ package racingcar;
 import domain.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import utils.InputDigit;
-import utils.RandomDigit;
+import utils.InputDigitStrategy;
+import utils.RandomDigitStrategy;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +22,7 @@ class RaceTest {
         final int ROUND = 3;
         Race race = new Race(cars, ROUND);
         //when
-        race.start(new InputDigit(MIN_RUNNABLE));
+        race.start(new InputDigitStrategy(MIN_RUNNABLE));
         //then
         cars.forEach(car -> assertEquals(car.getCurrentPosition(), ROUND));
     }
@@ -38,7 +38,7 @@ class RaceTest {
                 .forEach(car -> car.run(MIN_RUNNABLE));
         Race race = new Race(cars, ROUND);
         //when
-        List<String> result = race.start(new InputDigit(MIN_RUNNABLE));
+        List<String> result = race.start(new InputDigitStrategy(MIN_RUNNABLE));
         //then
         result.forEach(name -> assertTrue(winners.contains(name)));
     }
@@ -52,7 +52,7 @@ class RaceTest {
         //when
         Race race = new Race(cars, ROUND);
         //then
-        race.start(new RandomDigit());
+        race.start(new RandomDigitStrategy());
     }
 
     private List<Car> createCars() {

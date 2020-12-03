@@ -1,9 +1,9 @@
 package utils;
 
-public class InputDigit implements DigitStrategy {
+public class InputDigitStrategy implements DigitStrategy {
     private int inputNumber;
 
-    public InputDigit(int inputNumber){
+    public InputDigitStrategy(int inputNumber) {
         this.inputNumber = inputNumber;
     }
 
