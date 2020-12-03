@@ -7,14 +7,12 @@ import java.util.Scanner;
 import static racingcar.MessageBox.*;
 
 public class Host {
-    private final User user;
     private int attemptNum;
     private final Scanner sc;
     private final List<Car> cars = new ArrayList<>();
 
     public Host(Scanner scanner) {
         sc = scanner;
-        user = new User(scanner);
     }
 
     public void start() {
