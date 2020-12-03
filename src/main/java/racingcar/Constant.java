@@ -17,4 +17,5 @@ public class Constant {
 
     public static final int MIN_RANDOM_VALUE = 0;
     public static final int MAX_RANDOM_VALUE = 9;
+    public static final int FORWARD_CONDITION = 4;
 }

@@ -13,4 +13,10 @@ public class Car {
     private int getRandomValue() {
         return RandomUtils.nextInt(Constant.MIN_RANDOM_VALUE, Constant.MAX_RANDOM_VALUE);
     }
+
+    private void forward(int value) {
+        if (value >= Constant.FORWARD_CONDITION) {
+            this.position++;
+        }
+    }
 }
