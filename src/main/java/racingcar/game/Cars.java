@@ -1,15 +1,10 @@
 package racingcar.game;
 
-import static racingcar.game.io.InputCarNames.INPUT_DELIMITER;
-
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.Car;
-import utils.RandomUtils;
 
 public class Cars {
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
     private static final int INDEX_OF_WINNER = 0;
     private static final int MIN_COUNT_OF_WINNER = 1;
     private static final String JOIN_DELIMITER = ", ";
@@ -32,8 +27,7 @@ public class Cars {
 
     private void goForward() {
         for (Car car : cars) {
-            int numberToGoForward = RandomUtils.nextInt(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-            car.goForward(numberToGoForward);
+            car.goForwardRandomly();
             car.printCurrentState();
             System.out.println();
         }
