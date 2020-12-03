@@ -1,5 +1,9 @@
 package racingcar;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -9,7 +13,6 @@ public class InputGuide {
 
     private static final String CAR_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
     private static final String MOVES_INPUT_MESSAGE = "시도할 횟수는 몇회인가요? : ";
-    private static final String ERROR_MESSAGE = "[ERROR] ";
     private static final String CAR_NAME_INPUT_EXCEPTION_MESSAGE = "자동차 이름은 0자 이상 5자 이내여야 합니다.";
     private static final String CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE = "자동차 갯수는 2개 이상이어야 합니다.";
     private static final String MOVES_INPUT_EXCEPTION_MESSAGE = "자연수를 입력해야 합니다.";
@@ -27,10 +30,19 @@ public class InputGuide {
     public Car[] inputCars() {
         System.out.println(CAR_INPUT_MESSAGE);
         String[] cars = splitCarsName(scanner.nextLine());
+        try{
+            return isValid(cars);
+        } catch(ErrorException exception){
+            System.out.println(exception.getMessage());
+            return inputCars();
+        }
+    }
+
+    private Car[] isValid(String[] cars) {
         if (isMoreThanOne(cars)) {
             return makeCar(cars);
         }
-        return inputCars();
+        throw new ErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
     }
 
     private String[] splitCarsName(String input) {
@@ -38,25 +50,17 @@ public class InputGuide {
     }
 
     private boolean isMoreThanOne(String[] input) {
-        if (input.length >= TWO) {
-            cars = new Car[input.length];
-            return checkCarName(input);
+        if (Arrays.stream(input).count() >= TWO) {
+            return isValidateCarNames(input);
         }
-        System.out.println(showIllegalArgumentException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE));
-        return false;
+        throw new ErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
     }
 
-    private boolean checkCarName(String[] cars) {
-        boolean lessThanFive = true;
-        int index = cars.length;
-        while (lessThanFive && index > 0) {
-            lessThanFive = countCharacters(cars[index - 1]);
-            index--;
+    private boolean isValidateCarNames(String[] input) {
+        if(Arrays.stream(input).allMatch(this::countCharacters)){
+            return true;
         }
-        if (!lessThanFive) {
-            System.out.println(showIllegalArgumentException(CAR_NAME_INPUT_EXCEPTION_MESSAGE));
-        }
-        return lessThanFive;
+        throw new ErrorException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
     }
 
     private boolean countCharacters(String carName) {
@@ -64,6 +68,7 @@ public class InputGuide {
     }
 
     private Car[] makeCar(String[] names) {
+        cars = new Car[names.length];
         for (int i = 0, length = names.length; i < length; i++) {
             cars[i] = new Car(names[i]);
         }
@@ -74,23 +79,25 @@ public class InputGuide {
         System.out.println(MOVES_INPUT_MESSAGE);
         try {
             return moreThanZero();
-        } catch (IllegalArgumentException exception) {
-            System.out.println(showIllegalArgumentException(MOVES_INPUT_EXCEPTION_MESSAGE));
+        } catch (ErrorException exception) {
+            System.out.println(exception.getMessage());
             return countMove();
         }
     }
 
     private int moreThanZero(){
-        int input = Integer.parseInt(scanner.nextLine());
-        if(input > 0){
+        try{
+            int input = Integer.parseInt(scanner.nextLine());
+            return isNaturalNumber(input);
+        } catch (NumberFormatException | ErrorException exception) {
+            throw new ErrorException(MOVES_INPUT_EXCEPTION_MESSAGE);
+        }
+    }
+
+    private int isNaturalNumber(int input) {
+        if (input > 0) {
             return input;
         }
-        throw new IllegalArgumentException();
+        throw new ErrorException(MOVES_INPUT_EXCEPTION_MESSAGE);
     }
-
-    private String showIllegalArgumentException(String message) {
-        return ERROR_MESSAGE + message;
-    }
-
-
 }
