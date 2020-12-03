@@ -1,13 +1,10 @@
 package racingcar.domain;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private final Set<Car> cars = new HashSet<>();
+    private final Set<Car> cars = new LinkedHashSet<>();
 
     public Cars(List<String> participants) {
         validateParticipantsIsZero(participants);
