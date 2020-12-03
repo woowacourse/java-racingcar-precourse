@@ -9,7 +9,9 @@ public class Sentences {
     public static final String SHOW_WINNER = "최종 우승자: ";
     public static final String PROGRESS = "-";
     public static final String MAXIMUM_CARNAME_LENGTH_ERROR =
-            "이름은 5자 이하만 가능하다";
+            "[ERROR] 이름은 5자 이하만 가능하다.";
+    public static final String ROUND_INPUT_ERROR =
+            "[ERROR] 시도 횟수는 숫자여야 한다.";
 
 
 
