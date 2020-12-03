@@ -18,4 +18,8 @@ public class Car {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
     }
+
+    public void goCar() {
+        position++;
+    }
 }
