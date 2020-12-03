@@ -12,4 +12,8 @@ public class Car {
     public String toString() {
         return name;
     }
+
+    public void moveForward() {
+        position += 1;
+    }
 }
