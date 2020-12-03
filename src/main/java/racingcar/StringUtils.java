@@ -19,26 +19,26 @@ public class StringUtils {
     public StringUtils(Scanner promptInput) {
         System.out.println(RUNNER_ANNOUNCEMENT);
         this.inputRunner = promptInput.next();
-        splitRacerByFormat();
-        isDuplication(Runner);
-        isValidationNameLength(Runner);
+        splitRacerNameByFormat();
+        checkRacerNameDuplication(Runner);
+        checkRacerNameLengthValidation(Runner);
 
         System.out.println(ROUND_QUESTION);
         this.inputRoundCount = promptInput.next();
-        if (isValidationIntegerRoundCount(inputRoundCount)) {
+        if (checkRoundCountValidation(inputRoundCount)) {
             RoundCount = Integer.parseInt(inputRoundCount);
         }
 //        System.out.println(RoundCount);
     }
 
 
-    private String[] splitRacerByFormat() {
+    private String[] splitRacerNameByFormat() {
         String[] runners = inputRunner.split(String.valueOf(RUNNER_FORMAT), 0);
         Runner = runners;
         return runners;
     }
 
-    private boolean isDuplication(String[] inputArray) {
+    private boolean checkRacerNameDuplication(String[] inputArray) {
         HashSet<String> set = new HashSet<String>();
         for (String element : inputArray) {
             if (!set.add(element)) {
@@ -49,7 +49,7 @@ public class StringUtils {
         return false;
     }
 
-    private boolean isValidationNameLength(String[] Runner) {
+    private boolean checkRacerNameLengthValidation(String[] Runner) {
         for (String name : Runner) {
             if (name.length() > RUNNER_STRING_LENGTH) {
                 System.out.println("Over character" + name);
@@ -59,7 +59,7 @@ public class StringUtils {
         return true;
     }
 
-    private boolean isValidationIntegerRoundCount(String inputRoundCount) {
+    private boolean checkRoundCountValidation(String inputRoundCount) {
         for (int i = 0; i < inputRoundCount.length(); i++) {
             if (!Character.isDigit(inputRoundCount.charAt(i))) {
                 System.out.println(ROUND_IS_INTEGER_ANNOUNCEMENT);
