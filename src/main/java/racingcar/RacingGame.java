@@ -40,7 +40,7 @@ public class RacingGame {
         return RandomUtils.nextInt(START_RANGE, END_RANGE);
     }
 
-    public List<Car> findWinners() {
+    public List<String> findWinners() {
         return findCoWinners(getWinner());
     }
 
@@ -49,9 +49,10 @@ public class RacingGame {
         return cars.get(FIRST_CAR);
     }
 
-    private List<Car> findCoWinners(Car winner) {
+    private List<String> findCoWinners(Car winner) {
         return cars.stream()
                    .filter(winner::equalsPosition)
+                   .map(Car::getName)
                    .collect(Collectors.toList());
     }
 }

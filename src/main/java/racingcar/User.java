@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class User {
     public static final String DELIMITER = ",";
+    private static final String WINNER = "최종우승자: ";
+    private static final String SPACE = " ";
 
     public List<String> createNames(String names) {
         return Arrays.asList(names.split(DELIMITER));
@@ -16,5 +18,9 @@ public class User {
 
     public int createCount(String nextLine) {
         return Integer.parseInt(nextLine);
+    }
+
+    public String createWinners(final List<String> winners) {
+        return WINNER + String.join(DELIMITER + SPACE, winners);
     }
 }
