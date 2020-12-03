@@ -6,6 +6,8 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import utils.RandomUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
@@ -31,6 +33,10 @@ public class Racing {
         }
     }
 
+    public void end() {
+        OutputView.printWinners(getWinners());
+    }
+
     private void turn() {
         for (Car car : this.cars.getCars()) {
             if (getRandomNumber() >= LEAST_PROGRESS_NUMBER) {
@@ -41,5 +47,27 @@ public class Racing {
 
     private int getRandomNumber() {
         return RandomUtils.nextInt(START_INCLUSIVE, END_INCLUSIVE);
+    }
+
+    private List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = maxPosition();
+        for (Car car : cars.getCars()) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int maxPosition() {
+        int max = 0;
+        for (Car car : this.cars.getCars()) {
+            int position = car.getPosition();
+            if (position > max) {
+                max = position;
+            }
+        }
+        return max;
     }
 }
