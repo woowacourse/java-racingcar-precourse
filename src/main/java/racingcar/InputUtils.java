@@ -3,7 +3,7 @@ package racingcar;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class StringUtils {
+public class InputUtils {
 
     public static String[] racerNameList;
     public static int roundCount;
@@ -12,13 +12,13 @@ public class StringUtils {
     public String inputRoundCount;
     public HashSet<String> runnerNameCheckSet = new HashSet<String>();
 
-    public StringUtils(Scanner promptInput) {
+    public InputUtils(Scanner promptInput) {
         System.out.println(Constants.RACER_NAME_ANNOUNCEMENT);
         this.inputRunner = promptInput.next();
         splitRacerNameByFormat();
         checkRacerNameValidation(racerNameList);
 
-        System.out.println(Constants.LAP_QUESTIION);
+        System.out.println(Constants.LAP_QUESTION);
         this.inputRoundCount = promptInput.next();
         if (checkRoundCountValidation(inputRoundCount)) {
             roundCount = Integer.parseInt(inputRoundCount);

@@ -6,17 +6,17 @@ import java.util.Scanner;
 public class Racing {
 
 
-    public StringUtils racingEvent;
+    public InputUtils racingEvent;
 
     ArrayList<Car> racerList = new ArrayList<Car>();
 
     public Racing(Scanner promptInput) {
         // start game prompt
-        racingEvent = new StringUtils(promptInput);
+        racingEvent = new InputUtils(promptInput);
         setGrid(racingEvent);
     }
 
-    private void setGrid(StringUtils racingEvent) {
+    private void setGrid(InputUtils racingEvent) {
         for (String name : racingEvent.racerNameList) {
             Car racer = new Car(name);
             racerList.add(racer);
@@ -28,7 +28,7 @@ public class Racing {
         goLap(racingEvent);
     }
 
-    private void goLap(StringUtils racingEvent) {
+    private void goLap(InputUtils racingEvent) {
         for (int i = 1; i <= racingEvent.roundCount; i++) {
             System.out.println(i + " Round.");
             for (Car carInRacingEvent : racerList) {

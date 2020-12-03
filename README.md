@@ -1,7 +1,9 @@
 # 미션 - 자동차 경주 게임
 ## Feature list (To-do)
 
-1.  입력 `StringUtils`
+## Feature list (To-do)
+
+1.  입력 `InputUtils`
     - **생성자**
 		- 이름 입력받기 -> 이름 검증
 		- 시도할 횟수 입력받기 -> 횟수 검증
