@@ -6,13 +6,14 @@ import java.util.Scanner;
 
 public class Input {
 
-    public String[] getCarNameArray(String inputCars) {
+    public String[] getCarNameArray(Scanner scanner) {
+        String inputCars = scanner.next();
         String[] carNames = inputCars.split(",");
         return carNames;
     }
 
-    public List<String> getCarNameList(String inputCars) {
-        String[] carNameArray = getCarNameArray(inputCars);
+    public List<String> getCarNameList(Scanner scanner) {
+        String[] carNameArray = getCarNameArray(scanner);
         List<String> carNameList = new ArrayList<>(carNameArray.length);
         for (String carName : carNameArray) {
             carNameList.add(carName);
@@ -20,7 +21,8 @@ public class Input {
         return carNameList;
     }
 
-    public int getTrial(int trial) {
+    public int getTrial(Scanner scanner) {
+        int trial = scanner.nextInt();
         return trial;
     }
 
