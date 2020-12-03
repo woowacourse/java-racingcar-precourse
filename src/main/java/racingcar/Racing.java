@@ -7,6 +7,8 @@ public class Racing {
     static final String TRIAL_RESULT = "실행 결과";
     static final String PRINT_WINNERS = "최종 우승자 : ";
 
+    Input input = new Input();
+
     public List<Car> makeCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
@@ -23,7 +25,7 @@ public class Racing {
             printMove(car.getPosition());
             System.out.println();
         }
-
+        System.out.println();
     }
 
     public void printMove(int move) {
@@ -60,6 +62,19 @@ public class Racing {
             System.out.print(", " + iterator.next());
         }
     }
+
+    public void printRacingGameResult(List<Car> carList, int trial) {
+        System.out.println(TRIAL_RESULT);
+        for (int i = 0; i < trial; i++) {
+            oneTrialGame(carList);
+        }
+        List<String> winnersList = getWinnersList(carList, winnerPosition(carList));
+        printWinnersName(winnersList);
+    }
+
+
+
+
 
 
 
