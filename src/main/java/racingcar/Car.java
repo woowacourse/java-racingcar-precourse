@@ -1,18 +1,18 @@
 package racingcar;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
     private final String name;
     private int position = 0;
-    private List<Car> carList;
+    private static List<Car> carList = new ArrayList<>();
 
     public Car(String name) {
         this.name = name;
     }
 
-    public List<Car> makeCarList(String userInput) {
+    public static List<Car> makeCarList(String userInput) {
         List<String> userList = CheckValidation.stringToList(userInput);
         for (String car : userList) {
             carList.add(new Car(car));
@@ -20,4 +20,5 @@ public class Car {
         return carList;
     }
 
+    
 }
