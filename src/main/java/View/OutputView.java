@@ -20,12 +20,12 @@ public class OutputView {
 
     public static void printProgressResultMessage() {
         System.out.println(PROGRESS_RESULT_MESSAGE);
-        newLine();
     }
 
     public static void printCurrentStatus(List<Car> cars) {
         cars.stream()
                 .forEach(car -> System.out.println(car.getName() + " : " + car.getProgressBar()));
+        newLine();
     }
 
     public static void printWinners(List<Car> cars) {
