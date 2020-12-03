@@ -19,12 +19,8 @@ public class InputCarNames {
         String inputStr;
         do {
             InputPrint.printMessageForInputCarNames();
-            inputStr = getInputCarNames(scanner);
+            inputStr = scanner.nextLine();;
         } while (!errorHandler.createAndStoreIfIsValidInput(inputStr, cars));
         return cars;
-    }
-
-    private String getInputCarNames(Scanner scanner) {
-        return scanner.nextLine();
     }
 }
