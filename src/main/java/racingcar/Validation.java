@@ -10,7 +10,7 @@ public class Validation {
     }
 
     public static boolean raceNumberValidation(String number) {
-        return isNumber(number);
+        return isNumber(number) && isPositiveInteger(number);
     }
 
     private static boolean isNotEmptyName(String[] cars) {
@@ -52,5 +52,11 @@ public class Validation {
             }
         }
         return true;
+    }
+
+    private static boolean isPositiveInteger(String number) {
+        int num = Integer.parseInt(number);
+
+        return num >= Constant.MIN_RACE_NUMBER;
     }
 }

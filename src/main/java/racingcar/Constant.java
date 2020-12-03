@@ -13,4 +13,5 @@ public class Constant {
 
     public static final int MIN_CAR_NAME_LENGTH = 1;
     public static final int MAX_CAR_NAME_LENGTH = 5;
+    public static final int MIN_RACE_NUMBER = 1;
 }
