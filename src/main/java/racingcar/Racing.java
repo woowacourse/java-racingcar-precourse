@@ -14,4 +14,11 @@ public class Racing {
         return carList;
     }
 
+    public List<Car> oneTrialGame(List<Car> carList) {
+        for (Car car : carList) {
+            car.tryMove();
+        }
+        return carList;
+    }
+
 }
