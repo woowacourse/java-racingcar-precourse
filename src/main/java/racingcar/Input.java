@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class Input {
 
-    public String[] makeCarNameArray(String inputCars) {
+    public String[] getCarNameArray(String inputCars) {
         String[] carNames = inputCars.split(",");
         return carNames;
     }
 
-    public List<String> makeCarNameList(String inputCars) {
-        String[] carNameArray = makeCarNameArray(inputCars);
+    public List<String> getCarNameList(String inputCars) {
+        String[] carNameArray = getCarNameArray(inputCars);
         List<String> carNameList = new ArrayList<>(carNameArray.length);
         for (String carName : carNameArray) {
             carNameList.add(carName);
