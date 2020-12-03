@@ -79,6 +79,7 @@ public class Racing {
             carList.get(i).movePosition();
         }
         printCarsPosition();
+        System.out.println("");
     }
 
     /* 차량들의 전진 상황을 출력하는 메소드 */
