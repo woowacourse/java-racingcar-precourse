@@ -1,16 +1,37 @@
 package racingcar.game.io.error;
 
-public class TryTimeInputErrorHandler {
-    public static final String NOT_NUMBER_ERROR_MESSAGE
-        = "[ERROR] 시도 횟수는 숫자만 입력 가능합니다.";
-    public static final String INVALID_RANGE_NUMBER_ERROR_MESSAGE
-        = "[ERROR] 시도 횟수는 1회 이상 1000회 이하여야 합니다.";
+import java.util.regex.Pattern;
 
-    public void printNotNumberErrorMessage() {
-        System.out.println(NOT_NUMBER_ERROR_MESSAGE);
+public class TryTimeInputErrorHandler {
+
+    public boolean isValidInput(String input) {
+        if (!isNumber(input)) {
+            errorHandler.printNotNumberErrorMessage();
+            return false;
+        }
+        if (!isCorrectRange(input)) {
+            errorHandler.printInvalidRangeNumberErrorMessage();
+            return false;
+        }
+        return true;
     }
 
-    public void printInvalidRangeNumberErrorMessage() {
-        System.out.println(INVALID_RANGE_NUMBER_ERROR_MESSAGE);
+    private boolean isCorrectRange(String input) {
+        if (input.isEmpty()) {
+            return false;
+        }
+        if (5 < input.length()) {
+            return false;
+        }
+        int tryTimes = Integer.parseInt(input);
+        if (!(1 <= tryTimes && tryTimes <= 10)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isNumber(String input) {
+        String pattern = "^[0-9]+$";
+        return Pattern.matches(pattern, input);
     }
 }

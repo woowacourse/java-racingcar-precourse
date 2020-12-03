@@ -7,13 +7,14 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import racingcar.game.Cars;
+import racingcar.game.io.error.print.CarNameInputErrorPrint;
 
 public class CarNameInputErrorHandler {
-    private static final int CAR_NAMES_MAX_COUNT = 100;
+    private static final int CAR_NAMES_MAX_COUNT = 10;
     private static final int CAR_NAME_MIN_LENGTH = 1;
     private static final int CAR_NAME_MAX_LENGTH = 5;
     public static final int INDEX_OF_FIRST_ELEMENT = 0;
-    private static final String PATTERN = "^[a-zA-Z가-힣,]+$";
+    private static final String ALLOWED_INPUT_PATTERN = "^[a-zA-Z가-힣,]+$";
 
     public boolean createAndStoreIfIsValidInput(String inputStr, Cars cars) {
         if (!inputStr.contains(String.valueOf(INPUT_DELIMITER))) {
@@ -62,7 +63,7 @@ public class CarNameInputErrorHandler {
     }
 
     private boolean isOnlyAlphabetOrKorean(String inputStr) {
-        return Pattern.matches(PATTERN, inputStr);
+        return Pattern.matches(ALLOWED_INPUT_PATTERN, inputStr);
     }
 
     private void createCars(String[] carNames, Cars cars) {
