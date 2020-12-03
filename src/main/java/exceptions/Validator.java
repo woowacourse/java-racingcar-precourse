@@ -20,7 +20,7 @@ public class Validator {
     }
 
     public static void validateCarNameLength(List<Car> cars) {
-        for(Car car : cars) {
+        for (Car car : cars) {
             if (car.getName().length() > MAXIMUM_CAR_NAME_LENGTH) {
                 throw new NotValidInputException(EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE);
             }
@@ -28,9 +28,9 @@ public class Validator {
     }
 
     public static void validateNumberOfProgress(String numberOfProgress) {
-        try{
+        try {
             Integer.parseInt(numberOfProgress);
-        }catch(Exception e) {
+        } catch (Exception e) {
             throw new NotValidInputException("시도 횟수는 숫자여야 한다.");
         }
     }

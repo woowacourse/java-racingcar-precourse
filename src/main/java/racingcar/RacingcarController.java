@@ -1,6 +1,7 @@
 package racingcar;
 
 import View.InputView;
+import View.OutputView;
 import exceptions.Validator;
 import exceptions.customExceptions.NotValidInputException;
 
@@ -27,10 +28,14 @@ public class RacingcarController {
     }
 
     private void playGame(int numberOfProgress) {
+        OutputView.newLine();
+        OutputView.printProgressResultMessage();
         for (int i = 0; i < numberOfProgress; i++) {
             cars.progressTurn();
             cars.showCurrentStatus();
         }
+        OutputView.printWinners(cars.findWinners());
+
     }
 
     private List<Car> convertInputStringToCarList(String inputCarName) {

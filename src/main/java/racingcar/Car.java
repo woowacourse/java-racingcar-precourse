@@ -21,4 +21,13 @@ public class Car {
         return position;
     }
 
+    public String getProgressBar() {
+        String progressBar = "";
+        for (int i = 0; i < position; i++) {
+            progressBar += "-";
+        }
+
+        return progressBar;
+    }
+
 }
