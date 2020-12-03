@@ -19,6 +19,14 @@ public class GamePlayer {
             System.err.println("[ERROR] 숫자를 입력해주세요.");
             turnsToTryInt = inputTurnsToTry(scanner);
         }
+        return getAbsoluteValue(turnsToTryInt);
+    }
+
+    public int getAbsoluteValue(int turnsToTryInt) {
+        if (turnsToTryInt < 0) {
+            System.err.println("[ERROR] 음수는 절대값이 입력됩니다.");
+            return Math.abs(turnsToTryInt);
+        }
         return turnsToTryInt;
     }
 }
