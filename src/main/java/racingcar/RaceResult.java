@@ -21,9 +21,8 @@ public class RaceResult {
     }
 
     private List<Car> getWinnerList() {
-        int maxPosition = getMaxPosition();
         return cars.stream()
-                .filter(car -> car.getCurrentPosition() == maxPosition)
+                .filter(car -> car.getCurrentPosition() == getMaxPosition())
                 .collect(Collectors.toList());
     }
 
