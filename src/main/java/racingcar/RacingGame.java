@@ -1,6 +1,8 @@
 package racingcar;
 
 import racingcar.domain.Car;
+import racingcar.view.ErrorView;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.Arrays;
@@ -27,19 +29,21 @@ public class RacingGame {
 
     private void setup(){
         try {
+            InputView.printCarNameInputLog();
             String carNames = scanner.nextLine();
             setupCars(carNames);
         } catch (IllegalArgumentException ie){
-            System.out.println();
+            ErrorView.printCarNameInputLogError();
         }
     }
 
     private void startRace() {
         try {
+            InputView.printRaceNumInputLog();
             numberOfRaces = Integer.parseInt(scanner.nextLine());
             printRace();
         } catch (IllegalArgumentException ie){
-            System.out.println();
+            ErrorView.printRaceNumInputLogErrorNotNumber();
         }
     }
 
