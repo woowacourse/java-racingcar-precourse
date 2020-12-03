@@ -57,6 +57,16 @@ public class InputUtils {
     }
 
     private boolean checkRoundCountValidation(String inputRoundCount) {
+        if (!checkRoundCountDataTypeValidation(inputRoundCount)) {
+            return false;
+        }
+        if (!checkRoundCountPositiveNumberValidation(inputRoundCount)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkRoundCountDataTypeValidation(String inputRoundCount) {
         for (int i = 0; i < inputRoundCount.length(); i++) {
             if (!Character.isDigit(inputRoundCount.charAt(i))) {
                 MessageUtils.errorExceptionThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
@@ -66,9 +76,6 @@ public class InputUtils {
                 MessageUtils.errorExceptionThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
                 return false;
             }
-        }
-        if (!checkRoundCountPositiveNumberValidation(inputRoundCount)) {
-            return false;
         }
         return true;
     }
