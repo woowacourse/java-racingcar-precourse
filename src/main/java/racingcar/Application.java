@@ -1,8 +1,8 @@
 package racingcar;
 
-import enums.ErrorMessage;
 import enums.GameHost;
 import enums.GameProcess;
+import maintenance.Mechanic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +11,13 @@ import java.util.Scanner;
 public class Application {
 
     GamePlayer gamePlayer;
+    Mechanic mechanic;
     Winner winner;
     List<Car> carList;
 
     Application() {
         gamePlayer = new GamePlayer();
+        mechanic = new Mechanic();
         winner = new Winner();
         carList = new ArrayList<>();
     }
@@ -42,70 +44,24 @@ public class Application {
 
     public List<Car> createCarList(Scanner scanner) {
         String[] namesOfCarsArray = gamePlayer.inputNamesOfCars(scanner);
-        int numberOfTrimmedName = 0;
+        int numberOfTrimmedNames = 0;
+        int numberOfNamesOverMaxLength = 0;
         for (String nameOfCar : namesOfCarsArray) {
-            numberOfTrimmedName += countNumberOfNameWithForeAndAftBlank(nameOfCar);
-            addValidNameOfCar(nameOfCar);
+            nameOfCar = nameOfCar.trim();
+            numberOfTrimmedNames += mechanic.countNumberOfNamesWithForeAndAftBlank(nameOfCar);
+            numberOfNamesOverMaxLength += mechanic.countNumberOfNamesOverMaxLength(nameOfCar);
+            addCarToList(mechanic.getCarWithValidName(nameOfCar));
         }
-        noticeNameTrimmed(numberOfTrimmedName);
-        noticeBlankNameRemoved(namesOfCarsArray , carList);
+        mechanic.noticeShortenName(numberOfNamesOverMaxLength);
+        mechanic.noticeNameTrimmed(numberOfTrimmedNames);
+        mechanic.noticeBlankNameRemoved(namesOfCarsArray , carList);
         return carList;
     }
 
-    public int countNumberOfNameWithForeAndAftBlank(String nameOfCar) {
-        if (isStartsWithBlank(nameOfCar) || isEndsWithBlank(nameOfCar)) {
-            return 1;
+    public void addCarToList(Car carWithValidName) {
+        if (carWithValidName != null) {
+            carList.add(carWithValidName);
         }
-        return 0;
-    }
-
-    public boolean isStartsWithBlank(String nameOfCar) {
-        return nameOfCar.startsWith(" ");
-    }
-
-    public boolean isEndsWithBlank(String nameOfCar) {
-        return nameOfCar.endsWith(" ");
-    }
-
-    public void addValidNameOfCar(String nameOfCar) {
-        nameOfCar = shortenNameLengthToMax(nameOfCar.trim());
-        if (isNameBlank(nameOfCar)) {
-            return;
-        }
-        Car car = new Car(nameOfCar.trim());
-        carList.add(car);
-    }
-
-    public String shortenNameLengthToMax(String nameOfCar) {
-        if (isNameLengthOverMax(nameOfCar)) {
-            System.err.println(ErrorMessage.OVER_MAXIMUM_NAME_LENGTH.getMessage());
-            return nameOfCar.substring(0, GameProcess.MAXIMUM_NAME_LENGTH.getValue());
-        }
-        return nameOfCar;
-    }
-
-    public boolean isNameLengthOverMax(String nameOfCar) {
-        return nameOfCar.length() > GameProcess.MAXIMUM_NAME_LENGTH.getValue();
-    }
-
-    public boolean isNameBlank(String nameOfCar) {
-        return nameOfCar.equals("");
-    }
-
-    public void noticeNameTrimmed(int numberOfTrimmedName) {
-        if (numberOfTrimmedName > 0) {
-            System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
-        }
-    }
-
-    public void noticeBlankNameRemoved(String[] namesOfCarsArray, List<Car> carList) {
-        if (isBlankNameInputted(namesOfCarsArray, carList)) {
-            System.err.println(ErrorMessage.BLANK_NAME.getMessage());
-        }
-    }
-
-    public boolean isBlankNameInputted(String[] namesOfCarsArray, List<Car> carList) {
-        return namesOfCarsArray.length != carList.size();
     }
 
     public void showResultOfEachTurn() {
