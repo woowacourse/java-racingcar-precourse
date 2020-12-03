@@ -16,7 +16,7 @@ public class Trial {
     public static boolean isValidateNumber(String number) {
         try {
             Integer.parseInt(number);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             return false;
         }
         return true;

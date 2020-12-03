@@ -7,10 +7,11 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private final static int REMOVE_LAST_MARK = 2;
+    private final static String COMMA_BETWEEN_NAME = ", ";
     private List<Car> cars;
 
     public Cars(String[] names) {
-        List<String> nameList = new ArrayList(Arrays.asList(names));
+        List<String> nameList = new ArrayList<String>(Arrays.asList(names));
         this.cars = nameList.stream()
                 .map(String::trim)
                 .map(Car::new)
@@ -47,7 +48,7 @@ public class Cars {
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 maxResult.append(car.getName());
-                maxResult.append(", ");
+                maxResult.append(COMMA_BETWEEN_NAME);
             }
         }
         return maxResult.toString().substring(0, maxResult.length() - REMOVE_LAST_MARK);

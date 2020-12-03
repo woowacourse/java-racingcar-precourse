@@ -12,8 +12,15 @@ public class NameController {
         String[] names = name.split(",");
         return names;
     }
+    
+    public static boolean isEmptyString(String[] name) {
+        if (name.length < MIN_LEN_OF_NAME) {
+            return false;
+        }
+        return true;
+    }
 
-    public static boolean checkLengthOfName(String[] names) {
+    public static boolean checkLengthOfEachName(String[] names) {
         for (String name : names) {
             if (name.length() > MAX_LEN_OF_NAME || name.length() < MIN_LEN_OF_NAME) {
                 return false;
