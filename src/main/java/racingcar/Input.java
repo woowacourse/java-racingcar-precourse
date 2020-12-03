@@ -12,8 +12,7 @@ public class Input {
         return carNames;
     }
 
-    public List<String> getCarNameList(Scanner scanner) {
-        String[] carNameArray = getCarNameArray(scanner);
+    public List<String> getCarNameList(String[] carNameArray) {
         List<String> carNameList = new ArrayList<>(carNameArray.length);
         for (String carName : carNameArray) {
             carNameList.add(carName);
