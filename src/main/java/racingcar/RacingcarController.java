@@ -23,12 +23,13 @@ public class RacingcarController {
         String inputCarName = InputView.inputCarName(scanner);
         cars = new Cars(convertInputStringToCarList(inputCarName));
         int numberOfProgress = inputNumberOfProgress(scanner);
-        gamePlay(numberOfProgress);
+        playGame(numberOfProgress);
     }
 
-    private void gamePlay(int numberOfProgress) {
+    private void playGame(int numberOfProgress) {
         for (int i = 0; i < numberOfProgress; i++) {
             cars.progressTurn();
+            cars.showCurrentStatus();
         }
     }
 

@@ -1,5 +1,6 @@
 package racingcar;
 
+import View.OutputView;
 import exceptions.Validator;
 import utils.RandomNumber;
 import utils.RandomUtils;
@@ -17,6 +18,13 @@ public class Cars {
         this.cars = cars;
     }
 
+    public void showCurrentStatus() {
+        for(Car car : cars) {
+            OutputView.printCurrentStatus(car.getName(), car.getPosition());
+        }
+        System.out.println();
+    }
+
     public void progressTurn() {
         for(Car car : cars) {
             compareRandomNumberAndMove(car);
@@ -28,5 +36,6 @@ public class Cars {
             car.moveCarForward();
         }
     }
+
 
 }
