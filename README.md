@@ -43,7 +43,7 @@
 - name, position 변수의 접근 제어자인 private을 변경할 수 없다.
 - 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
 
-### 기능 구현
+## 💡 기능 구현
 1. 출력
     - [X] 경주할 자동차 입력 문구
     - [X] 시도할 회수 문구
