@@ -22,12 +22,12 @@ public class Racing {
         this.inputView = new InputView(scanner);
         this.cars = new Cars(this.inputView.getCarNames());
         this.trial = inputView.getTrialNumber();
-        this.outputView = new OutputView();
     }
 
     public void start() {
         for (int i = 0; i < this.trial; i++) {
             turn();
+            OutputView.printProgress(this.cars);
         }
     }
 
@@ -41,10 +41,5 @@ public class Racing {
 
     private int getRandomNumber() {
         return RandomUtils.nextInt(START_INCLUSIVE, END_INCLUSIVE);
-    }
-
-    private void printProgress() {
-        for (Car car : this.cars.getCars()) {
-        }
     }
 }
