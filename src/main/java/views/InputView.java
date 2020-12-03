@@ -1,8 +1,9 @@
 package views;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class InputView {
     private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -14,11 +15,12 @@ public class InputView {
     private static final String EMPTY_INPUT = "";
     private static final String ZERO = "0";
 
-    public Stream<String> inputCarNames(Scanner scanner) {
+    public List<String> inputCarNames(Scanner scanner) {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String carNames = scanner.nextLine();
         isEmptyValue(carNames);
-        return Arrays.stream(carNames.split(SEPARATOR));
+        return Arrays.stream(carNames.split(SEPARATOR))
+                .collect(Collectors.toList());
     }
 
     public int inputRoundNumber(Scanner scanner) {
@@ -30,13 +32,13 @@ public class InputView {
         return Integer.parseInt(roundNumber);
     }
 
-    void isEmptyValue(String input) {
+    private void isEmptyValue(String input) {
         if (input.equals(EMPTY_INPUT)) {
             throw new IllegalArgumentException(EMPTY_EXCEPTION);
         }
     }
 
-    void isNumber(String input) {
+    private void isNumber(String input) {
         try {
             Integer.parseInt(input);
         } catch (Exception e) {
@@ -44,7 +46,7 @@ public class InputView {
         }
     }
 
-    void isZero(String input) {
+    private void isZero(String input) {
         if (input.equals(ZERO)) {
             throw new IllegalArgumentException(IMPOSSIBLE_NUMBER_ZERO_EXCEPTION);
         }
