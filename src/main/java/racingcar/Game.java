@@ -8,10 +8,13 @@ import java.util.stream.IntStream;
 public class Game {
     private final int MIN_RANDOM_NUMBER = 0;
     private final int MAX_RANDOM_NUMBER = 9;
+    private final OutputView outputView;
     private ArrayList<Car> cars;
+    private ScoreBoard scoreboard;
 
     public Game() {
         cars = new ArrayList<>();
+        outputView = new OutputView();
     }
 
     public void enter(Car car) {
@@ -19,10 +22,18 @@ public class Game {
     }
 
     public void play(int round) {
-        IntStream.range(0,round).forEach(i -> playSingleRound(cars));
+        scoreboard = new ScoreBoard(cars);
+        outputView.printResultMessage();
+        IntStream.range(0,round).forEach(i -> playSinglePhase());
+        outputView.printWinners(scoreboard);
     }
 
-    private void playSingleRound(ArrayList<Car> cars) {
+    private void playSinglePhase() {
+        playSingleRound();
+        outputView.printResult(scoreboard);
+    }
+
+    private void playSingleRound() {
         cars.forEach(this::playSingleRound);
     }
 
