@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class Application {
 
-    GamePlayer gamePlayer;
-    Mechanic mechanic;
-    Winner winner;
-    List<Car> carList;
+    private GamePlayer gamePlayer;
+    private Mechanic mechanic;
+    private Winner winner;
+    private List<Car> carList;
 
     Application() {
         gamePlayer = new GamePlayer();
@@ -29,7 +29,7 @@ public class Application {
         application.playRacingCarGame(scanner);
     }
 
-    public void playRacingCarGame(Scanner scanner) {
+    private void playRacingCarGame(Scanner scanner) {
         carList = createCarList(scanner);
         Car.setTurnsToTry(gamePlayer.inputTurnsToTry(scanner));
         System.out.println();
@@ -42,7 +42,7 @@ public class Application {
         System.out.println(GameHost.FINAL_WINNER.getMessage() + winnerNames);
     }
 
-    public List<Car> createCarList(Scanner scanner) {
+    private List<Car> createCarList(Scanner scanner) {
         String[] namesOfCarsArray = gamePlayer.inputNamesOfCars(scanner);
         int numberOfTrimmedNames = 0;
         int numberOfNamesOverMaxLength = 0;
@@ -58,7 +58,7 @@ public class Application {
         return carList;
     }
 
-    public void addCarToList(Car carWithValidName) {
+    private void addCarToList(Car carWithValidName) {
         if (carWithValidName != null) {
             carList.add(carWithValidName);
         }

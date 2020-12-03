@@ -25,27 +25,27 @@ public class Car {
         return turnsToTry;
     }
 
-    public static void setTurnsToTry(int turnsToTryParam) {
+    protected static void setTurnsToTry(int turnsToTryParam) {
         turnsToTry = turnsToTryParam;
     }
 
-    public void moveOrStay() {
+    protected void moveOrStay() {
         int randomValue = getRandomValue();
         if (isRandomValueMoreThanCriteria(randomValue)) {
             position++;
         }
     }
 
-    public int getRandomValue() {
+    private int getRandomValue() {
         return RandomUtils.nextInt(GameProcess.RANDOM_START_INCLUSIVE.getValue(),
                                     GameProcess.RANDOM_END_INCLUSIVE.getValue());
     }
 
-    public boolean isRandomValueMoreThanCriteria(int randomValue) {
+    private boolean isRandomValueMoreThanCriteria(int randomValue) {
         return randomValue >= GameProcess.CRITERIA_TO_GO_OR_STOP.getValue();
     }
 
-    public static void useOneTurn() {
+    protected static void useOneTurn() {
         turnsToTry--;
     }
 }

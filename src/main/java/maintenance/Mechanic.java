@@ -26,11 +26,11 @@ public class Mechanic {
         return 0;
     }
 
-    public boolean isStartsWithBlank(String nameOfCar) {
+    private boolean isStartsWithBlank(String nameOfCar) {
         return nameOfCar.startsWith(" ");
     }
 
-    public boolean isEndsWithBlank(String nameOfCar) {
+    private boolean isEndsWithBlank(String nameOfCar) {
         return nameOfCar.endsWith(" ");
     }
 
@@ -49,11 +49,11 @@ public class Mechanic {
         return nameOfCar;
     }
 
-    public boolean isNameLengthOverMax(String nameOfCar) {
+    private boolean isNameLengthOverMax(String nameOfCar) {
         return nameOfCar.length() > GameProcess.MAXIMUM_NAME_LENGTH.getValue();
     }
 
-    public boolean isNameBlank(String nameOfCar) {
+    private boolean isNameBlank(String nameOfCar) {
         return nameOfCar.equals("");
     }
 
@@ -75,7 +75,7 @@ public class Mechanic {
         }
     }
 
-    public boolean isBlankNameInputted(String[] namesOfCarsArray, List<Car> carList) {
+    private boolean isBlankNameInputted(String[] namesOfCarsArray, List<Car> carList) {
         return namesOfCarsArray.length != carList.size();
     }
 }

@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class GamePlayer {
 
-    public String[] inputNamesOfCars(Scanner scanner) {
+    protected String[] inputNamesOfCars(Scanner scanner) {
         System.out.println(GameHost.ASK_NAMES_OF_CARS.getMessage());
         String namesOfCars = scanner.nextLine();
         return namesOfCars.split(GameHost.DELIMITER_TO_SPLIT_NAMES.getMessage());
     }
 
-    public int inputTurnsToTry(Scanner scanner) {
+    protected int inputTurnsToTry(Scanner scanner) {
         System.out.println(GameHost.ASK_TURNS.getMessage());
         String turnsToTry = scanner.nextLine();
         if (!isNumberFormat(turnsToTry)) {
@@ -23,7 +23,7 @@ public class GamePlayer {
         return getAbsoluteValue(turnsToTry);
     }
 
-    public boolean isNumberFormat(String turnsToTry) {
+    private boolean isNumberFormat(String turnsToTry) {
         try {
             Integer.parseInt(turnsToTry);
             return true;
