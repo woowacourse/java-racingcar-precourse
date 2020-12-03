@@ -20,20 +20,22 @@ public class InputView {
 
     public List<String> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES_NOTICE_MESSAGE);
-        String[] carNames = scanCarNames();
+        List<String> carNames = scanCarNames();
         while (!isValidCarNames(carNames)) {
             carNames = scanCarNames();
         }
+        return carNames;
+    }
+
+    private List<String> scanCarNames() {
+        String[] carNames = this.scanner.nextLine()
+                .split(COMMA_DELIMITER);
         return Arrays.stream(carNames)
+                .map(String::trim)
                 .collect(Collectors.toList());
     }
 
-    private String[] scanCarNames() {
-        return this.scanner.nextLine()
-                .split(COMMA_DELIMITER);
-    }
-
-    private boolean isValidCarNames(String[] carNames) {
+    private boolean isValidCarNames(List<String> carNames) {
         try {
             validateCarNameLength(carNames);
             return true;
@@ -43,8 +45,8 @@ public class InputView {
         }
     }
 
-    private void validateCarNameLength(String[] carNames) {
-        boolean isAllValidLength = Arrays.stream(carNames)
+    private void validateCarNameLength(List<String> carNames) {
+        boolean isAllValidLength = carNames.stream()
                 .allMatch(this::isValidCarNameLength);
         if (!isAllValidLength) {
             throw new CarNameLengthException();
