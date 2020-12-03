@@ -12,21 +12,21 @@ public class StringUtils {
     public static final int RUNNER_STRING_LENGTH = 5;
 
     public String inputRunner;
-    public static String[] Runner;
+    public static String[] runnerNameList;
     public String inputRoundCount;
-    public static int RoundCount;
+    public static int roundCount;
 
     public StringUtils(Scanner promptInput) {
         System.out.println(RUNNER_ANNOUNCEMENT);
         this.inputRunner = promptInput.next();
         splitRacerNameByFormat();
-        checkRacerNameDuplication(Runner);
-        checkRacerNameLengthValidation(Runner);
+        checkRacerNameDuplication(runnerNameList);
+        checkRacerNameLengthValidation(runnerNameList);
 
         System.out.println(ROUND_QUESTION);
         this.inputRoundCount = promptInput.next();
         if (checkRoundCountValidation(inputRoundCount)) {
-            RoundCount = Integer.parseInt(inputRoundCount);
+            roundCount = Integer.parseInt(inputRoundCount);
         }
 //        System.out.println(RoundCount);
     }
@@ -34,7 +34,7 @@ public class StringUtils {
 
     private String[] splitRacerNameByFormat() {
         String[] runners = inputRunner.split(String.valueOf(RUNNER_FORMAT), 0);
-        Runner = runners;
+        runnerNameList = runners;
         return runners;
     }
 
@@ -71,14 +71,5 @@ public class StringUtils {
             }
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        // Test
-
-        StringUtils input = new StringUtils(scanner);
-
-
     }
 }
