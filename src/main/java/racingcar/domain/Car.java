@@ -12,4 +12,12 @@ public class Car {
     public void progress() {
         this.position += 1;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }

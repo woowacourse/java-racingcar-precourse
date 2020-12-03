@@ -32,7 +32,7 @@ public class Racing {
     }
 
     private void turn() {
-        for (Car car : cars.getCars()) {
+        for (Car car : this.cars.getCars()) {
             if (getRandomNumber() >= LEAST_PROGRESS_NUMBER) {
                 car.progress();
             }
@@ -41,5 +41,10 @@ public class Racing {
 
     private int getRandomNumber() {
         return RandomUtils.nextInt(START_INCLUSIVE, END_INCLUSIVE);
+    }
+
+    private void printProgress() {
+        for (Car car : this.cars.getCars()) {
+        }
     }
 }
