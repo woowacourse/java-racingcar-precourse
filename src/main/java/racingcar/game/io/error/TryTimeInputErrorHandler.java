@@ -1,16 +1,21 @@
 package racingcar.game.io.error;
 
 import java.util.regex.Pattern;
+import racingcar.game.io.error.print.TryTimeInputErrorPrint;
 
 public class TryTimeInputErrorHandler {
+    private static final int MAX_LENGTH_OF_TRY_TIMES_STRING = 2;
+    private static final int MIN_TRY_TIMES = 1;
+    private static final int MAX_TRY_TIMES = 10;
+    private static final String ONLY_NUMBER_PATTERN = "^[0-9]+$";
 
     public boolean isValidInput(String input) {
         if (!isNumber(input)) {
-            errorHandler.printNotNumberErrorMessage();
+            TryTimeInputErrorPrint.printNotNumberErrorMessage();
             return false;
         }
         if (!isCorrectRange(input)) {
-            errorHandler.printInvalidRangeNumberErrorMessage();
+            TryTimeInputErrorPrint.printInvalidRangeNumberErrorMessage();
             return false;
         }
         return true;
@@ -20,18 +25,17 @@ public class TryTimeInputErrorHandler {
         if (input.isEmpty()) {
             return false;
         }
-        if (5 < input.length()) {
+        if (MAX_LENGTH_OF_TRY_TIMES_STRING < input.length()) {
             return false;
         }
         int tryTimes = Integer.parseInt(input);
-        if (!(1 <= tryTimes && tryTimes <= 10)) {
+        if (!(MIN_TRY_TIMES <= tryTimes && tryTimes <= MAX_TRY_TIMES)) {
             return false;
         }
         return true;
     }
 
     private boolean isNumber(String input) {
-        String pattern = "^[0-9]+$";
-        return Pattern.matches(pattern, input);
+        return Pattern.matches(ONLY_NUMBER_PATTERN, input);
     }
 }
