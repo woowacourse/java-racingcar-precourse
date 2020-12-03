@@ -33,7 +33,8 @@ public class NameValidatorTest {
     public void checkNullOrEmpty_NullAndEmpty_ExceptionThrown(String carNames) {
         assertThatThrownBy(() -> validator.validate(carNames))
                 .isExactlyInstanceOf(CustomIllegalArgumentException.class)
-                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE + Validator.INPUT_EMPTY_MESSAGE);
+                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
+                        Validator.INPUT_EMPTY_MESSAGE);
     }
 
     @Test
@@ -42,7 +43,8 @@ public class NameValidatorTest {
         String carNames = "pobi,";
         assertThatThrownBy(() -> validator.validate(carNames))
                 .isExactlyInstanceOf(CustomIllegalArgumentException.class)
-                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE + NameValidator.OUT_OF_BOUND_MESSAGE);
+                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
+                        NameValidator.OUT_OF_BOUND_MESSAGE);
     }
 
     @Test
@@ -51,6 +53,17 @@ public class NameValidatorTest {
         String carNames = "woowatechcourse";
         assertThatThrownBy(() -> validator.validate(carNames))
                 .isExactlyInstanceOf(CustomIllegalArgumentException.class)
-                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE + NameValidator.OUT_OF_BOUND_MESSAGE);
+                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
+                        NameValidator.OUT_OF_BOUND_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("중복된 자동차 이름이 존재할 경우 예외 발생")
+    public void checkDuplicateName_DuplicateNames_ExceptionThrown() {
+        String carNames = "pobi,pobi,woni";
+        assertThatThrownBy(() -> validator.validate(carNames))
+                .isExactlyInstanceOf(CustomIllegalArgumentException.class)
+                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
+                        NameValidator.DUPLICATE_NAME_MESSAGE);
     }
 }
