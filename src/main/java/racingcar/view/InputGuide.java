@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import java.util.Scanner;
 import racingcar.controller.ErrorException;
 import racingcar.model.Car;
@@ -21,7 +22,7 @@ public class InputGuide {
         validUtils = new ValidUtils(scanner);
     }
 
-    public Car[] inputCars() {
+    public List<Car> inputCars() {
         System.out.println(CAR_INPUT_MESSAGE);
         String[] cars = splitCarsName(scanner.nextLine());
         try {

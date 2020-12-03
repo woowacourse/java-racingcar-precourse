@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import java.util.Scanner;
 import racingcar.model.Car;
 import racingcar.view.InputGuide;
@@ -17,7 +18,7 @@ public class Game {
     }
 
     public void play() {
-        Car[] cars = inputGuide.inputCars();
+        List<Car> cars= inputGuide.inputCars();
         int moves = inputGuide.countMove();
         OutputGuide outputGuide = new OutputGuide(cars, moves);
         outputGuide.showResult();

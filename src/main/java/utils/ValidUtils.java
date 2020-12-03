@@ -1,7 +1,9 @@
 package utils;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import racingcar.controller.ErrorException;
 import racingcar.model.Car;
 
@@ -22,7 +24,7 @@ public class ValidUtils {
         this.scanner = scanner;
     }
 
-    public Car[] isValid(String[] cars) {
+    public List<Car> isValid(String[] cars) {
         if (isMoreThanOne(cars)) {
             return makeCar(cars);
         }
@@ -30,7 +32,7 @@ public class ValidUtils {
     }
 
     private boolean isMoreThanOne(String[] input) {
-        if (Arrays.stream(input).count() >= TWO) {
+        if (input.length >= TWO) {
             return isValidateCarNames(input);
         }
         throw new ErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
@@ -47,12 +49,10 @@ public class ValidUtils {
         return carName.length() < FIVE && carName.length() > ZERO;
     }
 
-    private Car[] makeCar(String[] names) {
-        Car[] cars = new Car[names.length];
-        for (int i = 0, length = names.length; i < length; i++) {
-            cars[i] = new Car(names[i]);
-        }
-        return cars;
+    private List<Car> makeCar(String[] names) {
+        return Arrays.stream(names)
+            .map(Car::new)
+            .collect(Collectors.toList());
     }
 
     public int moreThanZero() {
