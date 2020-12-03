@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Racing {
@@ -25,6 +26,14 @@ public class Racing {
         for (int i = 0; i < move; i++) {
             System.out.print("-");
         }
+    }
+
+    public int winnerPosition(List<Car> carList) {
+        List<Integer> carPosition = new ArrayList<>();
+        for (Car car : carList) {
+            carPosition.add(car.getPosition());
+        }
+        return Collections.max(carPosition);
     }
 
 
