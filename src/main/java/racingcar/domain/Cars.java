@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +17,13 @@ public class Cars {
 
     public Set<Car> getCars() {
         return cars;
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .get()
+                .getPosition();
     }
 
     private void validateParticipantsIsZero(List<String> participants) {
