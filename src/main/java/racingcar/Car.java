@@ -22,7 +22,7 @@ public class Car {
         }
     }
 
-    public String getCarPositionStatus() {
+    public String getVisualCarPosition() {
         // generate progress bar of car position (e.g. "---")
         return new String(new char[this.position]).replace("\0", POSITION_BAR);
     }
