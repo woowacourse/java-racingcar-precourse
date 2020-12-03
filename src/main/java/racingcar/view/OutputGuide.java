@@ -1,9 +1,10 @@
-package racingcar;
+package racingcar.view;
 
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import racingcar.model.Car;
 
 /**
  * 주어진 결과를 출력하는 클래스

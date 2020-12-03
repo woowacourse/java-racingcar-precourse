@@ -1,6 +1,9 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.Scanner;
+import racingcar.model.Car;
+import racingcar.view.InputGuide;
+import racingcar.view.OutputGuide;
 
 /**
  * 게임이 진행되는 클래스
@@ -9,7 +12,7 @@ public class Game {
 
     private final InputGuide inputGuide;
 
-    Game(Scanner scanner) {
+    public Game(Scanner scanner) {
         this.inputGuide = new InputGuide(scanner);
     }
 

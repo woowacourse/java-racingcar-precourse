@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.Scanner;
+import racingcar.controller.Game;
 
 public class Application {
 
