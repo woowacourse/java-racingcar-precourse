@@ -8,10 +8,20 @@ public class Application {
 
         RacingGameSystemMessageOut.printNameInput();
         String carNameInput = scanner.nextLine();
-
         RacingGameSystemMessageOut.printTimesInput();
-        int playNum = scanner.nextInt();
-
+        int playNum = 0;
+        while(true) {
+            try {
+                playNum = RacingGameException.checkTimesInputException(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                RacingGameException.printInvalidInputMessage();
+            } catch (IllegalAccessException e) {
+                RacingGameException.printZeroInputMessage();
+            } catch (Exception e) {
+                RacingGameException.printMinusInputMessage();
+            }
+        }
         RacingGameSystemMessageOut.printResultMoves();
         RacingGameEmulator racingGameEmulator = new RacingGameEmulator(carNameInput, playNum);
         racingGameEmulator.startRacingGame();
