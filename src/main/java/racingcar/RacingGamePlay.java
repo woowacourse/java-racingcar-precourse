@@ -13,7 +13,9 @@ public class RacingGamePlay {
     public void runTimes(ArrayList<Car> racingCarsForThisTimes) {
         for(Car car : racingCarsForThisTimes) {
             car.moveCar();
+            RacingGameSystemMessageOut.printEachMoves(car);
         }
+        System.out.println();
     }
 }
 

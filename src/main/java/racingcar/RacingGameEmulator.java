@@ -18,8 +18,8 @@ public class RacingGameEmulator {
         }
     }
 
-    public void startRacingGame(int times) {
-        for(int i = 0; i < times; i++) {
+    public void startRacingGame() {
+        for(int i = 0; i < MAX_TIMES; i++) {
             RacingGamePlay thisTime = new RacingGamePlay(racingCars);
             thisTime.runTimes(racingCars);
         }
@@ -27,6 +27,8 @@ public class RacingGameEmulator {
 
     public void startRacingGameWinner() {
         RacingGameWinner racingGameWinner = new RacingGameWinner(racingCars, Car.getWinningPosition());
+        racingGameWinner.findWinner();
+        racingGameWinner.printWinner();
     }
 }
 
