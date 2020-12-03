@@ -14,7 +14,6 @@ public class Application {
         GameManager gameManager = new GameManager();
         gameManager.startRacing(cars, numberOfRounds);
 
-        // replay or quit
         gameManager.replayOrQuit(scanner);
     }
 }

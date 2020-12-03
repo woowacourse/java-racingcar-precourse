@@ -18,7 +18,7 @@ public class GameSetting {
     private static final String NON_INTEGER_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 정수여야 합니다.";
     private static final String NEGATIVE_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 양수여야 합니다.";
 
-    private static void checkCarNameInputValidity(String[] carNames) throws IllegalArgumentException{
+    private static void validateCarNameInput(String[] carNames) throws IllegalArgumentException{
         // at least 1 name required + names must be unique + name length less than 5
         Set<String> carNameSet = new HashSet<>();
         if (carNames.length < MINIMUM_NUMBER_OF_CARS_REQUIRED) {
@@ -40,7 +40,7 @@ public class GameSetting {
 
     private static String[] getCarNameInput(Scanner scanner) throws IllegalArgumentException {
         String[] carNames = scanner.nextLine().split(DELIMITER);
-        checkCarNameInputValidity(carNames);
+        validateCarNameInput(carNames);
         return carNames;
     }
 
@@ -70,7 +70,7 @@ public class GameSetting {
                 .collect(Collectors.toList());
     }
 
-    private static void checkNumberOfRoundsInputValidity(String numberOfRounds) throws IllegalArgumentException {
+    private static void validateNumberOfRoundsInput(String numberOfRounds) throws IllegalArgumentException {
         int numberOfRoundsCandidate;
         try {
             numberOfRoundsCandidate = Integer.parseInt(numberOfRounds);
@@ -84,7 +84,7 @@ public class GameSetting {
 
     private static int getNumberOfRoundsInput(Scanner scanner) throws IllegalArgumentException {
         String numberOfRounds = scanner.nextLine();
-        checkNumberOfRoundsInputValidity(numberOfRounds);
+        validateNumberOfRoundsInput(numberOfRounds);
         return Integer.parseInt(numberOfRounds);
     }
 
@@ -100,6 +100,7 @@ public class GameSetting {
                 System.out.println(e.getMessage());
             }
         }
+        System.out.println();
         return numberOfRounds;
     }
 }

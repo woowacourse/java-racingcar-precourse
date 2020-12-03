@@ -60,7 +60,7 @@ public class GameManager {
         announceWinners(cars);
     }
 
-    private void checkReplayOrQuitInputValidity(String replayOrQuitInput) throws IllegalArgumentException {
+    private void validateReplayOrQuitInput(String replayOrQuitInput) throws IllegalArgumentException {
         int replayOrQuit;
         try {
             replayOrQuit = Integer.parseInt(replayOrQuitInput);
@@ -82,7 +82,7 @@ public class GameManager {
             try {
                 System.out.println(REPLAY_OR_QUIT_INPUT_MESSAGE);
                 String replayOrQuitInput = scanner.nextLine();
-                checkReplayOrQuitInputValidity(replayOrQuitInput);
+                validateReplayOrQuitInput(replayOrQuitInput);
                 isValidReplayOrQuitInput = true;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
