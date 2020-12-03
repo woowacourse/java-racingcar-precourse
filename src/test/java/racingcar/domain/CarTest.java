@@ -19,7 +19,7 @@ class CarTest {
     @BeforeEach
     public void setup() throws NoSuchFieldException, IllegalAccessException {
         MockitoAnnotations.openMocks(this);
-        car = new Car("bumble_bee");
+        car = new Car("bee");
         Field engine = car.getClass().getDeclaredField("engine");
         engine.setAccessible(true);
         engine.set(car, mockEngine);
@@ -43,5 +43,20 @@ class CarTest {
         car.move();
         //then
         assertThat(car.getPosition()).isEqualTo(0);
+    }
+
+    @Test
+    public void toStringTest(){
+        //given
+        //when
+        when(mockEngine.run()).thenReturn(1);
+        car.move();
+        //then
+        assertThat(car.toString()).isEqualTo("bee : -");
+        //when
+        when(mockEngine.run()).thenReturn(1);
+        car.move();
+        //then
+        assertThat(car.toString()).isEqualTo("bee : --");
     }
 }
