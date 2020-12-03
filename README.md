@@ -1,5 +1,38 @@
 # 미션 - 자동차 경주 게임
 
+## 구현사항
+### racingcar
+게임 로직과 관련된 클래스를 담은 패키지
+#### RacingGame
+- 게임을 시작 및 종료
+
+### Domain
+도매인 클래스들을 담는 패키지
+
+#### Car
+- Engine : 엔진을 저장하는 매게변수
+- move : Engine 에서 리턴하는 값을 현재 변수에 더해줌
+- toString : 자동차 이름과 현재 거리를 출력
+
+#### Engine
+- run : RandomNumberGenerator 의 값을 이용해서 4이상일 경우 1리턴, 3이하일 경우 0리턴
+ 
+### Generator
+값을 생성해주는 클래스를 모은 패키지
+#### RandomNumberGenerator
+- RandomUtils를 이용해 0~9중 하나의 숫자를 생성
+
+### View
+화면에 나타날 text와 관련된 클래스를 담은 패키지
+#### InputView
+- 입력값이 요구될 때, 출력되는 view 출력
+
+### OutputView
+- 결과값으로 출력될 view 출력
+
+### ErrorView
+
+
 ## 🚀 기능 요구사항
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 - 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
