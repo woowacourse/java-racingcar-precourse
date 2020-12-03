@@ -9,9 +9,9 @@ public class Application {
 
 //        System.out.println(InputCarName.inputCarName());
 //        System.out.println(InputCarName.inputCount());
-        String cars = InputCarName.inputCarName();
-        String[] carsList = cars.split(",");
-        System.out.println(InputCarNameCheck.checkAllCarNameLength(carsList));
+        String[] cars = InputCarName.inputCarName();
+        System.out.println(InputCarNameCheck.checkInputCarName(cars));
+//        System.out.println(InputCarNameCheck.checkEachCarNameLength("ad"));
     }
 
 }
