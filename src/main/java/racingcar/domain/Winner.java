@@ -1,8 +1,11 @@
 package racingcar.domain;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class Winner {
+    private static final String COMMA_SPACE = ", ";
+
     private List<Car> winners;
 
     public Winner(List<Car> winners) {
@@ -12,11 +15,10 @@ public class Winner {
     public String getWinners() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < winners.size(); i++) {
-            if (i == winners.size() - 1) {
-                stringBuilder.append(winners.get(i).getName());
-                break;
+            stringBuilder.append(winners.get(i).getName());
+            if(i != winners.size() - 1) {
+                stringBuilder.append(COMMA_SPACE);
             }
-            stringBuilder.append(winners.get(i).getName() + ", ");
         }
         return stringBuilder.toString();
     }
