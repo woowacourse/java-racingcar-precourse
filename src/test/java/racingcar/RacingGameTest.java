@@ -36,4 +36,15 @@ class RacingGameTest {
 
         assertEquals(1, winners.size());
     }
+
+    @Test
+    @DisplayName("공동 우승할 경우")
+    void winners() {
+        yhhCar.move(5);
+        crong.move(5);
+
+        List<Car> winners = racingGame.findWinners();
+
+        assertEquals(2, winners.size());
+    }
 }
