@@ -23,4 +23,8 @@ public class InputView {
             return inputCarNames(scanner);
         }
     }
+
+    public static int inputTryNumber(Scanner scanner) {
+        return scanner.nextInt();
+    }
 }
