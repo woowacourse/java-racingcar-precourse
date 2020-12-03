@@ -29,8 +29,13 @@ public class Application {
         cars = makeCarList(carNames);
 
         view.println(REQUEST_INPUT_ROUND_MSG);
-        int numberOfRound = view.inputNextInt();
-        System.out.println(numberOfRound);
+        int round = view.inputNextInt();
+        Racing racing = new Racing(cars, round);
+
+        while (racing.hasNextRound()) {
+            racing.nextRound();
+            view.println(racing.printResult());
+        }
     }
 
     private List<Car> makeCarList(String userInput) {
@@ -48,10 +53,10 @@ public class Application {
     }
 
     private void validateCarNameFormat(String carName) {
-        if(carName.isEmpty()){
+        if (carName.isEmpty()) {
             throw new IllegalArgumentException(ERROR_EMPTY_NAME_MSG);
         }
-        if(carName.length() > 5){
+        if (carName.length() > 5) {
             throw new IllegalArgumentException(ERROR_ID_MAX_LENGTH_MSG);
         }
     }
