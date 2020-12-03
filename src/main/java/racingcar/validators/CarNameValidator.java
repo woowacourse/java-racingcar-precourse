@@ -1,10 +1,13 @@
 package racingcar.validators;
 
 import racingcar.exceptions.CompletelyBlankCarNameException;
+import racingcar.exceptions.DuplicatedCarNameException;
 import racingcar.exceptions.PartiallyBlankCarNameException;
 import racingcar.exceptions.TooLongCarNameException;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CarNameValidator {
     private static final int MAX_LENGTH_OF_CAR_NAME = 5;
@@ -18,6 +21,7 @@ public class CarNameValidator {
         validateCompletelyBlank(carNames);
         validatePartiallyBlank(carNames);
         validateLengthOfName(carNames);
+        validateDuplicateName(carNames);
     }
 
     private static void validateCompletelyBlank(List<String> carNames) {
@@ -50,5 +54,16 @@ public class CarNameValidator {
     private static boolean isOverMaxLength(List<String> carNames) {
         return carNames.stream()
                 .anyMatch((carName) -> carName.length() > MAX_LENGTH_OF_CAR_NAME);
+    }
+
+    private static void validateDuplicateName(List<String> carNames) {
+        if (hasDuplicatedName(carNames)) {
+            throw new DuplicatedCarNameException();
+        }
+    }
+
+    private static boolean hasDuplicatedName(List<String> carNames) {
+        Set<String> names = new HashSet<>(carNames);
+        return carNames.size() != names.size();
     }
 }

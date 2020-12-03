@@ -2,6 +2,7 @@ package racingcar.validators;
 
 import org.junit.jupiter.api.Test;
 import racingcar.exceptions.CompletelyBlankCarNameException;
+import racingcar.exceptions.DuplicatedCarNameException;
 import racingcar.exceptions.PartiallyBlankCarNameException;
 import racingcar.exceptions.TooLongCarNameException;
 import utils.StringConverter;
@@ -52,6 +53,17 @@ public class CarNameValidatorTest {
 
         //when & then
         assertThatExceptionOfType(TooLongCarNameException.class)
+                .isThrownBy(() -> CarNameValidator.validateCarNames(carNames));
+    }
+
+    @Test
+    public void 중복된_이름_입력시_예외_발생() {
+        //given
+        String rawCarNames = "heon,heon";
+        List<String> carNames = StringConverter.toListSplitByComma(rawCarNames);
+
+        //when & then
+        assertThatExceptionOfType(DuplicatedCarNameException.class)
                 .isThrownBy(() -> CarNameValidator.validateCarNames(carNames));
     }
 }
