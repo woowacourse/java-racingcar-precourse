@@ -14,5 +14,8 @@ public class GameSystemTest {
         for (int i = 0; i < cars.length; i++) {
             System.out.println(cars[i].getName());
         }
+
+        game.setTrialCount(scanner);
+        System.out.println(game.getTrialCount());
     }
 }
