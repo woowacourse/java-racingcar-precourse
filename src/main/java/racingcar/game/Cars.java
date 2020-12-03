@@ -12,7 +12,7 @@ public class Cars {
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int INDEX_OF_WINNER = 0;
     private static final int MIN_COUNT_OF_WINNER = 1;
-    private static final String JOIN_DELIMITER = String.valueOf(INPUT_DELIMITER + ' ');
+    private static final String JOIN_DELIMITER = ", ";
     private final List<Car> cars;
 
     public Cars() {

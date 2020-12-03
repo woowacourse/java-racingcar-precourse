@@ -22,6 +22,6 @@ public class OutputPrint {
     }
 
     public static void printWinnerMessage() {
-        System.out.println(WINNER_MESSAGE);
+        System.out.print(WINNER_MESSAGE + NAME_RESULT_DELIMITER);
     }
 }
