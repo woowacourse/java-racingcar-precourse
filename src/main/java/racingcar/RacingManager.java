@@ -11,11 +11,13 @@ public class RacingManager {
         Cars cars = new Cars();
         cars.makeCars(inputView.getUserNames());
 
-        System.out.println("\n" + "실행 결과");
+        System.out.println(Constants.NEW_LINE + Constants.RACING_START);
+
         for (int round = 0; round < Integer.parseInt(inputView.getUserTrialCount()); round++) {
             cars.runCars();
             OutputView.printRacingStatus(cars);
         }
+
         cars.selectWinners();
         OutputView.printResult(cars);
     }

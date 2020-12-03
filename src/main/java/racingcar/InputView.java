@@ -31,11 +31,12 @@ public class InputView {
     public void parseUserNames() {
         String userNamesInput = null;
         try {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            System.out.println(Constants.PROMPT_USER_NAME);
             userNamesInput = scanner.nextLine();
             Validation.isValidUserNames(userNamesInput);
+
         } catch (Exception e) {
-            System.err.println("[ERROR] 두명 이상 게임 진행이 가능합니다.");
+            System.err.println(Constants.ERR_USER_NAME);
             parseUserNames();
             return;
         }
@@ -44,12 +45,12 @@ public class InputView {
 
     public void parseUserTrialCount() {
         try {
-            System.out.println("시도할 회수는 몇회인가요?");
+            System.out.println(Constants.PROMPT_USER_TRIAL_COUNT);
             this.userTrialCount = scanner.nextLine();
             Validation.isValidUserTrialCount(userTrialCount);
 
         } catch (Exception e) {
-            System.err.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
+            System.err.println(Constants.ERR_USER_TRIAL_COUNT);
             parseUserTrialCount();
             return;
         }

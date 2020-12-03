@@ -11,8 +11,9 @@ public class Car implements Comparable<Car> {
     }
 
     public void moveCar() {
-        int randomMove = RandomUtils.nextInt(0, 9);
-        if (randomMove > 3) {
+        int randomMove = RandomUtils.nextInt(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
+
+        if (randomMove > Constants.SCORE_BOUNDARY) {
             this.position += 1;
         }
     }
@@ -30,9 +31,11 @@ public class Car implements Comparable<Car> {
         if (this.getPosition() < car.getPosition()) {
             return -1;
         }
+
         if (this.getPosition() > car.getPosition()) {
             return 1;
         }
+
         return 0;
     }
 }
