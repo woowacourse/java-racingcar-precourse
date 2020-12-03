@@ -1,6 +1,7 @@
 package racingcar;
 
 import utils.RandomUtils;
+import view.OutputView;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -14,11 +14,11 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public static void printRaceResult(List<String> names) {
+    public static void printRaceResult() {
         System.out.println(NEW_LINE + "실행 결과");
     }
 
-    public static void printRaceResultEachPlayer(String name, int position) {
+    public static void printRaceResultEachCar(String name, int position) {
         System.out.print(name + " : " );
 
         for (int i = 0; i < position; i++) {
