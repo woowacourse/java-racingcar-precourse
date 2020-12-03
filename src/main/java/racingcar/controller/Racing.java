@@ -18,7 +18,6 @@ public class Racing {
     private Cars cars;
     private int trial;
     private InputView inputView;
-    private OutputView outputView;
 
     public Racing(Scanner scanner) {
         this.inputView = new InputView(scanner);
