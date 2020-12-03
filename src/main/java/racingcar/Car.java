@@ -19,7 +19,7 @@ public class Car {
 
     public void move() {
         int movingDistance = getRandomNumber();
-        if (movingDistance > 4) {
+        if (movingDistance >= 4) {
             position += 1;
         }
         Output.printResult(name, position);
