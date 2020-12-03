@@ -12,23 +12,19 @@ public class RacingcarController {
 
     private static final String DELIMITER = ",";
     private final Scanner scanner;
-    List<Car> cars;
-
     public RacingcarController(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void run() {
-        cars = Arrays.stream(InputView.inputCarName(scanner).trim().split(DELIMITER))
+        Cars cars = new Cars(getCarList());
+    }
+
+    private List<Car> getCarList() {
+       return Arrays.stream(InputView.inputCarName(scanner).trim().split(DELIMITER))
                 .filter(carName -> !carName.equals(""))
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());
-        Validator.validateCarsSize(cars);
-
-        for (Car car : cars) {
-            Validator.validateCarNameLength(car.getName());
-        }
-
     }
 
 }

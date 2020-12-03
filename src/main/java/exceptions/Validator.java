@@ -19,9 +19,11 @@ public class Validator {
         }
     }
 
-    public static void validateCarNameLength(String carName) {
-        if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
-            throw new NotValidInputException(EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE);
+    public static void validateCarNameLength(List<Car> cars) {
+        for(Car car : cars) {
+            if (car.getName().length() > MAXIMUM_CAR_NAME_LENGTH) {
+                throw new NotValidInputException(EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE);
+            }
         }
     }
 
