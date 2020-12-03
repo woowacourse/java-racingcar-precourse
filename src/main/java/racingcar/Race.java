@@ -7,9 +7,11 @@ import java.util.stream.Stream;
 
 public class Race {
     private List<Car> allRacingCars = new ArrayList<>();
+    private int raceNumber;
 
     public Race(Scanner scanner) {
         generateCars(scanner);
+        decideRaceNumber(scanner);
     }
 
     private void generateCars(Scanner scanner) {
@@ -29,6 +31,21 @@ public class Race {
         }
     }
 
+    private void decideRaceNumber(Scanner scanner) {
+        while (true) {
+            System.out.println(Constant.RACE_NUMBER_INPUT_MESSAGE);
+
+            try {
+                String number = scanner.nextLine();
+
+                checkRightNumber(number);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
     private void checkRightCarName(String[] cars) {
         if (!Validation.carNameValidation(cars)) {
             throw new IllegalArgumentException(Constant.ERROR_CAR_NAME);
@@ -40,5 +57,9 @@ public class Race {
             Car car = new Car(carName);
             allRacingCars.add(car);
         }
+    }
+
+    private void checkRightNumber(String number) {
+
     }
 }
