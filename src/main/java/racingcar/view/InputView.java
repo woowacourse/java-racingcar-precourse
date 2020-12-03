@@ -20,19 +20,22 @@ public class InputView {
 
     public List<String> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES_NOTICE_MESSAGE);
-        String[] inputCarNames = this.scanner.nextLine()
-                .split(COMMA_DELIMITER);
-        while (!isValidInputCarNames(inputCarNames)) {
-            inputCarNames = this.scanner.nextLine()
-                    .split(COMMA_DELIMITER);
+        String[] carNames = scanCarNames();
+        while (!isValidCarNames(carNames)) {
+            carNames = scanCarNames();
         }
-        return Arrays.stream(inputCarNames)
+        return Arrays.stream(carNames)
                 .collect(Collectors.toList());
     }
 
-    private boolean isValidInputCarNames(String[] inputCarNames) {
+    private String[] scanCarNames() {
+        return this.scanner.nextLine()
+                .split(COMMA_DELIMITER);
+    }
+
+    private boolean isValidCarNames(String[] carNames) {
         try {
-            validateInputCarNameLength(inputCarNames);
+            validateCarNameLength(carNames);
             return true;
         } catch (RuntimeException runtimeException) {
             System.out.println(runtimeException.getMessage());
@@ -40,15 +43,15 @@ public class InputView {
         }
     }
 
-    private void validateInputCarNameLength(String[] inputCarNames) {
-        boolean isAllValidLength = Arrays.stream(inputCarNames)
-                .allMatch(this::isValidInputCarNameLength);
+    private void validateCarNameLength(String[] carNames) {
+        boolean isAllValidLength = Arrays.stream(carNames)
+                .allMatch(this::isValidCarNameLength);
         if (!isAllValidLength) {
             throw new CarNameLengthException();
         }
     }
 
-    private boolean isValidInputCarNameLength(String inputCarName) {
-        return !inputCarName.isEmpty() && inputCarName.length() <= MAXIMUM_CAR_NAME_LENGTH;
+    private boolean isValidCarNameLength(String carName) {
+        return !carName.isEmpty() && carName.length() <= MAXIMUM_CAR_NAME_LENGTH;
     }
 }
