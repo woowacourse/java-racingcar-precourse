@@ -31,4 +31,11 @@ public class Car {
             this.position++;
         }
     }
+
+    /* 현재 위치만큼 -을 출력하는 메소드 */
+    public void printPosition(){
+        for(int i=0;i<position;i++){
+            System.out.printf("-");
+        }
+    }
 }
