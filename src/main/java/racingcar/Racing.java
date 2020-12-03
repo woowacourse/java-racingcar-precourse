@@ -8,6 +8,7 @@ public class Racing {
     static final String PRINT_WINNERS = "최종 우승자 : ";
 
     Input input = new Input();
+    Error error = new Error();
 
     public List<Car> makeCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
@@ -71,6 +72,23 @@ public class Racing {
         List<String> winnersList = getWinnersList(carList, winnerPosition(carList));
         printWinnersName(winnersList);
     }
+
+    public void playRacingGame(Scanner scanner) {
+        try {
+            List<String> carNameList = input.getCarNameList(input.getCarNameArray(scanner));
+            error.checkSameCarName(input.getCarNameArray(scanner));
+            error.checkCarNameLength(input.getCarNameArray(scanner));
+            int trial = input.getTrial(scanner);
+            error.checkTrialLessThanOne(trial);
+            List<Car> carList = makeCars(carNameList);
+            printRacingGameResult(carList, trial);
+        } catch (InputMismatchException inputMismatchException) {
+            error.trialNotIntegerError();
+        } catch (IllegalArgumentException illegalArgumentException) {
+
+        }
+    }
+
 
 
 
