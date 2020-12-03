@@ -9,47 +9,59 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
+    private List<Car> cars = new ArrayList<>();
+    private AttemptsCount attemptsCount;
 
     public void start(Scanner scanner) {
-        //  경주할 자동차들 이름 입력 받기
+        setCars(scanner);
+        setAttemptsCount(scanner);
+        completeAttempts();
+        List<String> winners = getWinners();
+        Output.printWinners(winners);
+    }
+
+    private void setCars(Scanner scanner) {
         String carNamesInput = Input.receiveRacingCarNames(scanner);
         String[] carNames = carNamesInput.split(",");
-        if (carNames.length == 0) {
-            throw new IllegalArgumentException("[Error] 이름이 공백이거나 콤마(,)이면 안 됩니다.");
-        }
-
-        // 시도할 횟수 입력 받기
-        String attemptsCountInput = Input.receiveAttemptsCount(scanner);
-        Input.validateEmpty(attemptsCountInput);
-        AttemptsCount attemptsCount = new AttemptsCount(attemptsCountInput);
-
-        // 자동차 생성
-        List<Car> cars = new ArrayList<>();
+        validateCarNames(carNames);
         for (int i = 0; i < carNames.length; i++) {
             cars.add(new Car(carNames[i]));
         }
+    }
 
-        // 시행 결과 출력
+    private void setAttemptsCount(Scanner scanner) {
+        String attemptsCountInput = Input.receiveAttemptsCount(scanner);
+        Input.validateEmpty(attemptsCountInput);
+        attemptsCount = new AttemptsCount(attemptsCountInput);
+    }
+
+    private void validateCarNames(String[] carNames) {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException("[Error] 이름이 공백이거나 콤마(,)이면 안 됩니다.");
+        }
+    }
+
+    private void completeAttempts() {
         Output.willPrintResult();
         for (int i = 0; i < attemptsCount.getCount(); i++) {
-            for (int j = 0; j < cars.size(); j++) {
-                cars.get(j).move();
-            }
-            Output.printEmptyLine();
+            completeAttempt();
         }
+    }
 
-        // 최종 우승자 출력
+    private void completeAttempt() {
+        cars.stream().forEach(car -> car.move());
+        Output.printEmptyLine();
+    }
+
+    private List<String> getWinners() {
         int maxPosition = cars.stream()
             .map(car -> car.getPosition())
             .mapToInt(x -> x)
             .max()
             .getAsInt();
-
-        List<String> winners = cars.stream()
+        return cars.stream()
             .filter(car -> car.getPosition() == maxPosition)
             .map(car -> car.getName())
             .collect(Collectors.toList());
-
-        Output.printWinners(winners);
     }
 }
