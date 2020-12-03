@@ -1,9 +1,8 @@
 package racingcar.view;
 
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
+import racingcar.controller.RacingCarErrorException;
 import racingcar.model.Car;
 
 /**
@@ -13,7 +12,10 @@ public class OutputGuide {
 
     private static final String WINNER_IS = "최종 우승자: ";
     private static final String SHOW_STATUS_LOG = "실행 결과";
-    private static final String MORE_WINNERS = ", ";
+    private static final String DELIMITER = ", ";
+    private static final int MIN = 0;
+    private static final String NO_WINNERS_EXCEPTION_MESSAGE = "우승자가 존재하지 않습니다.";
+
     private final List<Car> cars;
     private final int moves;
 
@@ -24,14 +26,12 @@ public class OutputGuide {
 
     public void showResult() {
         raceStart();
-        System.out.println(findWinner());
+        showWinner();
     }
 
     private void raceStart() {
         System.out.println(SHOW_STATUS_LOG);
-        for (int i = 0; i < moves; i++) {
-            race();
-        }
+        IntStream.range(MIN,moves).forEach(value -> race());
     }
 
     private void race() {
@@ -39,21 +39,20 @@ public class OutputGuide {
         System.out.println();
     }
 
-    private String findWinner() {
+    private void showWinner() {
         int max = findMaxMove();
         StringBuilder stringBuilder = new StringBuilder();
-        cars.forEach(car -> {
-            if (max == car.getPositionNumber()) {
-                stringBuilder.append(car.getName()).append(MORE_WINNERS);
-            }
-        });
-        stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(MORE_WINNERS));
-        return WINNER_IS + stringBuilder.toString();
+        cars.stream()
+            .filter(car -> car.getPosition() == max)
+            .forEach(car -> stringBuilder.append(car.getName()).append(DELIMITER));
+        stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(DELIMITER));
+        System.out.println(WINNER_IS + stringBuilder.toString());
     }
 
     private int findMaxMove() {
-        ArrayList<Integer> positions = new ArrayList<>();
-        cars.forEach(car -> positions.add(car.getPositionNumber()));
-        return Collections.max(positions);
+        return cars.stream()
+            .mapToInt(Car::getPosition)
+            .max()
+            .orElseThrow(()->new RacingCarErrorException(NO_WINNERS_EXCEPTION_MESSAGE));
     }
 }
