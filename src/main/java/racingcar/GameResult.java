@@ -11,12 +11,11 @@ public class GameResult {
 
     List<Car> winners;
 
-    public void printWinners() {
-        String results = winners.stream()
+    public String getWinnerNames() {
+        return winners.stream()
                 .map(Object::toString)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(", "));
 
-        System.out.println(results);
     }
 
 }
