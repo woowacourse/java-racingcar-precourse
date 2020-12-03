@@ -14,6 +14,10 @@ public class Application {
                  break;
             } catch (NullPointerException e) {
                 RacingGameException.printNameInputMessage();
+            } catch (ArrayIndexOutOfBoundsException e) {
+                RacingGameException.printDuplicationInputMessage();
+            } catch (Exception e) {
+                RacingGameException.printNoNameInputMessage();
             }
         }
 
