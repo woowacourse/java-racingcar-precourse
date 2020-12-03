@@ -39,4 +39,15 @@ class CarTest {
         assertThatThrownBy(() -> new Car(carName))
                 .isExactlyInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("자동차 이름에 공백이 포함되는 경우 예외를 발생시킨다")
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "car A", "car B", " "
+    })
+    void testInitCarIfCarNameContainBlank(String carName) {
+        //when //then
+        assertThatThrownBy(() -> new Car(carName))
+                .isExactlyInstanceOf(IllegalArgumentException.class);
+    }
 }
