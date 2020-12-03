@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import java.util.Objects;
+
 public class Car {
     private static final int CAR_NAME_MIN_LENGTH_LIMIT = 1;
     private static final int CAR_NAME_MAX_LENGTH_LIMIT = 5;
@@ -30,5 +32,22 @@ public class Car {
         if (name.length() > CAR_NAME_MAX_LENGTH_LIMIT || name.length() < CAR_NAME_MIN_LENGTH_LIMIT) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER_MESSAGE);
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
     }
 }
