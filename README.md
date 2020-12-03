@@ -8,72 +8,6 @@
 - 전진하는 조건은 0에서 9 사이에서 random 값을 구한 후 random 값이 4 이상일 경우 전진하고, 3 이하의 값이면 멈춘다.
 - 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 
-<br>
-
-## ✍🏻 입출력 요구사항
-### ⌨️ 입력
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
-```
-pobi,woni,jun
-```
-- 시도할 회수
-```
-5
-```
-
-### 🖥 출력
-- 각 차수별 실행 결과
-```
-pobi : --
-woni : ----
-jun : ---
-```
-- 단독 우승자 안내 문구
-```
-최종 우승자: pobi
-```
-- 공동 우승자 안내 문구
-```
-최종 우승자: pobi, jun
-```
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
-```
-[ERROR] 시도 횟수는 숫자여야 한다.
-```
-
-### 💻 프로그래밍 실행 결과 예시
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자: pobi, jun
-```
-
-<br>
-
 ## 🎱 프로그래밍 요구사항
 - 자바 코드 컨벤션을 지키면서 프로그래밍한다.
   - 기본적으로 [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)을 원칙으로 한다.
@@ -99,26 +33,9 @@ jun : -----
 - `final Scanner scanner = new Scanner(System.in);`는 변경하지 않는다.
 - `// TODO 구현 진행` 이 후 부터 구현한다.
 
-```java
-public class Application {
-    public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
-    }
-}
-```
-
 ### 프로그래밍 요구사항 - RandomUtils
 - RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
 - RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
-
-```java
-private static final Random RANDOM = new Random();
-    private RandomUtils() {
-    }
-    public static int nextInt(final int startInclusive, final int endInclusive) {
-    ...
-```
 
 ### 프로그래밍 요구사항 - Car 객체
 - 다음 Car 객체를 활용해 구현해야 한다.
@@ -126,31 +43,30 @@ private static final Random RANDOM = new Random();
 - name, position 변수의 접근 제어자인 private을 변경할 수 없다.
 - 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
 
-```java
-public class Car {
-    private final String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
-    // 추가 기능 구현
-}
-```
-
-<br>
-
-## 📈 진행 요구사항
-- 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
-- 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
-- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
-  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-- [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 절차를 따라 미션을 제출한다.
-  - [프리코스 과제 FAQ](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse/faq) 문서를 참고하여 진행할 수 있다.
-
-<br>
-
-## 📝 License
-
-This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+### 기능 구현
+1. 출력
+    - [ ] 경주할 자동차 입력 문구
+    - [ ] 시도할 회수 문구
+    - [ ] 각 차수별 실행 결과
+    - [ ] 우승자 안내 문구
+        - [ ] 단독 우승자
+        - [ ] 공동 우승자
+    - [ ] 에러 문구 ([ERROR] 로 시작해야함)
+    
+2. 입력
+    - [ ] 참가할 플레이어
+    - [ ] 시도할 회수
+    
+3. 기능
+    - [ ] 참가자를 입력받아 플레이어로 분리하기
+    - [ ] 랜덤을 통한 진출 여부 결정
+    - [ ] 각 차수별 상황 출력 시키기
+    - [ ] 이동 종료 시 게임 결과 처리
+    
+4. 검증
+    - [ ] 이름 입력
+        - [ ] 이름이 5자 이하 인가?
+        - [ ] 이름이 0자가 아닌가?
+    - [ ] 시도 회수 입력
+        - [ ] 숫자 인가?
+        - [ ] 양의 정수 인가?
