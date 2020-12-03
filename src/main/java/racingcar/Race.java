@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +17,19 @@ public class Race {
     public void raceStart() {
         for (int i = 0; i < attemptNum; i++) {
             Car car = cars.get(i);
-            carExcel(car);
+            carTryMove(car);
+            printCarCurrentLocation(car);
             System.out.println();
         }
         winnerPrize();
+    }
+
+    public void carTryMove(Car car) {
+        int fate = RandomUtils.nextInt(0, 10);
+        if (fate <= 3) {
+            return;
+        }
+        car.move();
     }
 
 
