@@ -6,5 +6,6 @@ public class Constant {
     public static final String ERROR_PREFIX = "[ERROR] ";
     public static final String ERROR_CAR_NAME = ERROR_PREFIX + "올바른 입력의 이름이 아닙니다.";
 
+    public static final String EMPTY_NAME = "";
     public static final String DELIMITER = ",";
 }
