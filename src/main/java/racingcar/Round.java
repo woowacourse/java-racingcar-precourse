@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Round {
-    int roundNumber;
-    private static ArrayList<HashMap<String, Integer>> roundsInformation =
-        new ArrayList<HashMap<String, Integer>>(GameManager.numberTryToMove);
+    public static ArrayList<HashMap<String, Integer>> roundsInformation =
+        new ArrayList<>(GameManager.numberTryToMove);
 
-    public Round(int i) {
-        this.roundNumber = i;
+    public Round() {
+        roundsInformation.add(new HashMap<>());
     }
 
     public static void registerCarMovement(int roundNumber, String name, int position) {

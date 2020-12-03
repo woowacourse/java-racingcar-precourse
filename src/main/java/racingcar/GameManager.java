@@ -25,15 +25,14 @@ public class GameManager {
         inputParticipants(scanner);
         inputNumberTryToMove(scanner);
         registerCar(stringArrayParticipants);
-        startRound();
+        startAllRounds();
+        board.printAccumulatedRoundsResult();
     }
 
-    private void startRound() {
-        for (int i = 0; i < numberTryToMove; i++) {
-            Round round = new Round(i);
-            round.start(participants, i);
-            board.getRoundResult(round);
-            board.printAccumulatedRoundsResult();
+    private void startAllRounds() {
+        for (int roundNumber = 0; roundNumber < numberTryToMove; roundNumber++) {
+            Round round = new Round();
+            round.start(participants, roundNumber);
         }
     }
 
@@ -75,10 +74,5 @@ public class GameManager {
             String carOwner = stringArrayParticipants[i];
             participants.put(carOwner, new Car(carOwner));
         }
-        printMap(participants);
-    }
-
-    private void printMap(HashMap<String, Car> hashMap) {
-        System.out.println(hashMap);
     }
 }
