@@ -46,4 +46,8 @@ public class Cars {
 			}
 		}
 	}
+
+	public int getNumberOfCars() {
+		return cars.size();
+	}
 }
