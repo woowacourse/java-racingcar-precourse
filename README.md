@@ -144,3 +144,9 @@
 - (Cars, CarNameInputErrorHandler): 원시값, 문자열 포장.
 
 - (시도 횟수 입력): 에러 검사와 에러 메시지 출력 클래스 분리. static으로 전환 및 원시값, 문자열 포장.
+
+- (Car): Car 클래스에서 setter 제거.
+
+- indent depth 1까지만 허용.
+
+- 
