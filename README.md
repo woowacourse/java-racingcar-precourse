@@ -158,7 +158,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 <br>
 
 ## ✨ 기능 구현 목록
-- [ ] 경주할 자동차 이름 입력받는 기능
+- [X] 경주할 자동차 이름 입력받는 기능
 - [ ] 쉼표를 기준으로 입력 받은 이름 구분하는 기능
   - [ ] 입력 없는 경우 예외 처리: 이름을 입력해주세요.
   - [ ] 5자 이상 이름 예외 처리: 이름은 5자 이하여야 한다.
