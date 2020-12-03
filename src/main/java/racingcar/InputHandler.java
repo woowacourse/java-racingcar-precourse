@@ -27,6 +27,7 @@ public class InputHandler {
     }
 
     private String[] parseCarNames(String userInput) {
+        InputExceptionHandler.validateCarNames(userInput, DELIMITER);
         String[] carNames = userInput.split(DELIMITER);
         return carNames;
     }
