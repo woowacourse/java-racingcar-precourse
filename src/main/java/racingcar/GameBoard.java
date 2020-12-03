@@ -118,7 +118,6 @@ public class GameBoard {
         for (Car car : cars.getAllCars()) {
             sb.append(printCarStatus(car)).append("\n");
         }
-        sb.append("\n");
 
         return sb.toString();
     }
