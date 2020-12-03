@@ -12,6 +12,7 @@ public class CarNameInputErrorHandler {
     private static final int CAR_NAMES_MAX_COUNT = 100;
     private static final int CAR_NAME_MIN_LENGTH = 1;
     private static final int CAR_NAME_MAX_LENGTH = 5;
+    public static final int INDEX_OF_FIRST_ELEMENT = 0;
     private static final String PATTERN = "^[a-zA-Z가-힣,]+$";
 
     public boolean createAndStoreIfIsValidInput(String inputStr, Cars cars) {
@@ -19,7 +20,7 @@ public class CarNameInputErrorHandler {
             CarNameInputErrorPrint.printMoreThanOneCarNameErrorMessage();
             return false;
         }
-        if (inputStr.charAt(0) == INPUT_DELIMITER
+        if (inputStr.charAt(INDEX_OF_FIRST_ELEMENT) == INPUT_DELIMITER
             || inputStr.charAt(inputStr.length() - 1) == INPUT_DELIMITER) {
             CarNameInputErrorPrint.printCommaErrorMessage();
             return false;

@@ -1,12 +1,18 @@
 package racingcar.game;
 
+import static racingcar.game.io.InputCarNames.INPUT_DELIMITER;
+
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import racingcar.Car;
 import utils.RandomUtils;
 
 public class Cars {
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int INDEX_OF_WINNER = 0;
+    private static final int MIN_COUNT_OF_WINNER = 1;
+    private static final String JOIN_DELIMITER = String.valueOf(INPUT_DELIMITER + ' ');
     private final List<Car> cars;
 
     public Cars() {
@@ -26,7 +32,7 @@ public class Cars {
 
     private void goForward() {
         for (Car car : cars) {
-            int numberToGoForward = RandomUtils.nextInt(0, 9);
+            int numberToGoForward = RandomUtils.nextInt(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             car.goForward(numberToGoForward);
             car.printCurrentState();
             System.out.println();
@@ -34,25 +40,19 @@ public class Cars {
     }
 
     public void findWinners() {
-        cars.sort(new Comparator<Car>() {
-            @Override
-            public int compare(Car o1, Car o2) {
-                return -Integer.compare(o1.getPosition(), o2.getPosition());
-            }
-        });
-
-        int winnerPosition = cars.get(0).getPosition();
+        cars.sort((o1, o2) -> -Integer.compare(o1.getPosition(), o2.getPosition()));
+        int winnerPosition = cars.get(INDEX_OF_WINNER).getPosition();
         printWinnersName(winnerPosition);
     }
 
     private void printWinnersName(int winnerPosition) {
         String[] winnerNames = getWinners(winnerPosition);
-        if (winnerNames.length == 1) {
-            System.out.println(winnerNames[0]);
+        if (winnerNames.length == MIN_COUNT_OF_WINNER) {
+            System.out.println(winnerNames[INDEX_OF_WINNER]);
             return;
         }
-        if (winnerNames.length > 1) {
-            System.out.println(String.join(", ", winnerNames));
+        if (winnerNames.length > MIN_COUNT_OF_WINNER) {
+            System.out.println(String.join(JOIN_DELIMITER, winnerNames));
         }
     }
 
