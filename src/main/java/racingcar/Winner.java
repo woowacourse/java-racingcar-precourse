@@ -1,18 +1,20 @@
 package racingcar;
 
+import enums.GameHost;
+import enums.GameProcess;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
     private List<Car> winners = new ArrayList<>();
-    private static int winnerPosition = 0;
+    private static int winnerPosition = GameProcess.INITIAL_POSITION.getValue();
 
-    public List<Car> findWinners(List<Car> carList) {
+    public void findWinners(List<Car> carList) {
         setWinnerPosition(carList);
         for (Car car : carList) {
             addWinner(car);
         }
-        return winners;
     }
 
     public void setWinnerPosition(List<Car> carList) {
@@ -36,6 +38,6 @@ public class Winner {
         for (Car winner : winners) {
             winnerNames.add(winner.getName());
         }
-        return String.join(", ", winnerNames);
+        return String.join(GameHost.DELIMITER_TO_SPLIT_WINNERS.getMessage(), winnerNames);
     }
 }

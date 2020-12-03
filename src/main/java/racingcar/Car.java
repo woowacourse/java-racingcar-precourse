@@ -1,24 +1,16 @@
 package racingcar;
 
+import enums.GameProcess;
 import utils.RandomUtils;
 
 public class Car {
-    private static int turnsToTry = 0;
+    private static int turnsToTry = GameProcess.NO_TURN.getValue();
 
     private final String name;
-    private int position = 0;
+    private int position = GameProcess.INITIAL_POSITION.getValue();
 
     public Car(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
-                ", turnsToTry=" + turnsToTry +
-                '}';
     }
 
     public String getName() {
@@ -39,17 +31,18 @@ public class Car {
 
     public void moveOrStay() {
         int randomValue = getRandomValue();
-        if (isRandomValueMoreThan4(randomValue)) {
+        if (isRandomValueMoreThanCriteria(randomValue)) {
             position++;
         }
     }
 
     public int getRandomValue() {
-        return RandomUtils.nextInt(0, 9);
+        return RandomUtils.nextInt(GameProcess.RANDOM_START_INCLUSIVE.getValue(),
+                                    GameProcess.RANDOM_END_INCLUSIVE.getValue());
     }
 
-    public boolean isRandomValueMoreThan4(int randomValue) {
-        return randomValue >= 4;
+    public boolean isRandomValueMoreThanCriteria(int randomValue) {
+        return randomValue >= GameProcess.CRITERIA_TO_GO_OR_STOP.getValue();
     }
 
     public static void useOneTurn() {

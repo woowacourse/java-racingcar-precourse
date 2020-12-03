@@ -1,5 +1,9 @@
 package racingcar;
 
+import enums.ErrorMessage;
+import enums.GameHost;
+import enums.GameProcess;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,17 +27,16 @@ public class Application {
     }
 
     public void playRacingCarGame(Scanner scanner) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         carList = createCarList(scanner);
         Car.setTurnsToTry(gamePlayer.inputTurnsToTry(scanner));
         System.out.println();
-        System.out.println("실행 결과");
-        while (Car.getTurnsToTry() > 0) {
+        System.out.println(GameHost.PROGRESS_RESULT);
+        while (Car.getTurnsToTry() > GameProcess.NO_TURN.getValue()) {
             showResultOfEachTurn();
         }
         winner.findWinners(carList);
         String winnerNames = winner.getWinnerNames();
-        System.out.println("최종 우승자: " + winnerNames);
+        System.out.println(GameHost.FINAL_WINNER + winnerNames);
     }
 
     public List<Car> createCarList(Scanner scanner) {
@@ -59,7 +62,7 @@ public class Application {
             car.moveOrStay();
             System.out.print(car.getName() + " : ");
             for (int i = 0; i < car.getPosition(); i++) {
-                System.out.print("-");
+                System.out.print(GameHost.PROGRESS_BAR.getMessage());
             }
             System.out.println();
         }
@@ -68,15 +71,15 @@ public class Application {
     }
 
     public String getCorrectName(String nameOfCar) {
-        if (isNameLengthOver5(nameOfCar)) {
-            System.err.println("[ERROR] 이름은 5자까지 출력됩니다.");
-            return nameOfCar.substring(0, 5);
+        if (isNameLengthOverMax(nameOfCar)) {
+            System.err.println(ErrorMessage.OVER_MAXIMUM_NAME_LENGTH.getMessage());
+            return nameOfCar.substring(0, GameProcess.MAXIMUM_NAME_LENGTH.getValue());
         }
         return nameOfCar;
     }
 
-    public boolean isNameLengthOver5(String nameOfCar) {
-        return nameOfCar.length() > 5;
+    public boolean isNameLengthOverMax(String nameOfCar) {
+        return nameOfCar.length() > GameProcess.MAXIMUM_NAME_LENGTH.getValue();
     }
 
     public boolean isNameBlank(String nameOfCar) {
@@ -85,7 +88,7 @@ public class Application {
 
     public void noticeBlankNameRemoved(String[] namesOfCarsArray, List<Car> carList) {
         if (isBlankNameInputted(namesOfCarsArray, carList)) {
-            System.err.println("[ERROR] 이름이 공백인 경우 미입력 처리됩니다.");
+            System.err.println(ErrorMessage.BLANK_NAME.getMessage());
         }
     }
 
@@ -110,7 +113,7 @@ public class Application {
 
     public void noticeNameTrimmed(int numberOfTrimmedName) {
         if (numberOfTrimmedName > 0) {
-            System.err.println("[ERROR] 이름 앞, 뒤의 공백은 제거됩니다.");
+            System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
         }
     }
 }
