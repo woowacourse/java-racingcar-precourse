@@ -24,11 +24,11 @@ public class Game {
     }
 
     public void play() {
-        updateCarName();
+        updateCarNames();
         updateRoundNumber();
         scoreboard = new ScoreBoard(cars);
         outputView.printResultMessage();
-        IntStream.range(0,round).forEach(i -> playSinglePhase());
+        playMultiplePhase();
         outputView.printWinners(scoreboard);
     }
 
@@ -41,13 +41,13 @@ public class Game {
         enter(car);
     }
 
-    private void updateCarName() {
+    private void updateCarNames() {
         try {
             outputView.printCarNameQuestion();
             inputView.getCarNames().forEach(this::enter);
         } catch (IllegalArgumentException e) {
             outputView.printError(e);
-            updateCarName();
+            updateCarNames();
         }
     }
 
@@ -59,6 +59,10 @@ public class Game {
             outputView.printError(e);
             updateRoundNumber();
         }
+    }
+
+    private void playMultiplePhase() {
+        IntStream.range(0, round).forEach(i -> playSinglePhase());
     }
 
     private void playSinglePhase() {
