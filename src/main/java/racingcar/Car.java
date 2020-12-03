@@ -21,4 +21,14 @@ public class Car {
         this.position++;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Car compare = (Car) obj;
+        return this.getName().equals(compare.getName());
+    }
 }
