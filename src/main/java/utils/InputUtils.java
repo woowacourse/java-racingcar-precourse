@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputUtils {
@@ -21,5 +23,10 @@ public class InputUtils {
         System.out.println("경주할 자동차 이름을 입력하세요.");
         String carName = getNextLine();
         return carName;
+    }
+
+    public String[] splitByRest(String carName) {
+        String[] carNames = carName.split(",");
+        return carNames;
     }
 }

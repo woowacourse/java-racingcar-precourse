@@ -186,7 +186,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 - [x] 모델 설계하기
 - [x] 자동차 이름 입력 받기 테스트
 - [x] 자동차 이름 입력 받기
-- [ ] 쉼표를 기준으로 이름 분리하기 테스트
+- [x] 쉼표를 기준으로 이름 분리하기 테스트
 - [ ] 쉼표를 기준으로 이름 분리하기
 - [ ] 스페이스 입력시 에러 출력하기
 - [ ] 자동차 객체에게 분리한 이름 부여하기 
