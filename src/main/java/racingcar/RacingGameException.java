@@ -6,6 +6,9 @@ public class RacingGameException {
         if ("".equals(carNameInput)) {
             throw new NullPointerException();
         }
+        if (CarNameDivider.divideName(carNameInput).equals("LongName")) {
+            throw new ArrayStoreException();
+        }
         if (CarNameDivider.divideName(carNameInput).equals("DuplicationName")) {
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -26,6 +29,10 @@ public class RacingGameException {
             throw new Exception("음수를 입력할 수 없음");
         }
         return times;
+    }
+
+    public static void printLongNameInputMessage() {
+        System.out.println("[ERROR] 자동차의 이름은 5자 이하여야 합니다.");
     }
 
     public static void printDuplicationInputMessage() {

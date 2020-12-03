@@ -12,6 +12,9 @@ public class CarNameDivider {
         String[] carNames = carNameInput.split(",");
 
         for (String carName : carNames) {
+            if(carName.trim().length() > 5) {
+                return "LongName";
+            }
             carNameList.add(carName.trim());
             carNameSet.add(carName.trim());
         }

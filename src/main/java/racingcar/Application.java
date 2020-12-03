@@ -13,6 +13,8 @@ public class Application {
             try {
                  carNameInput = RacingGameException.checkNameInputException(messageReader.submitCarNames());
                  break;
+            } catch (ArrayStoreException e) {
+                RacingGameException.printLongNameInputMessage();
             } catch (NullPointerException e) {
                 RacingGameException.printNameInputMessage();
             } catch (ArrayIndexOutOfBoundsException e) {
