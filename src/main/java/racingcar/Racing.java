@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class Racing {
@@ -44,6 +45,16 @@ public class Racing {
             }
         }
         return winners;
+    }
+
+    public void printWinnersName(List<String> winners) {
+        Iterator<String> iterator = winners.iterator();
+        if (iterator.hasNext()) {
+            System.out.print(iterator.next());
+        }
+        while (iterator.hasNext()) {
+            System.out.print(", " + iterator.next());
+        }
     }
 
 
