@@ -68,8 +68,8 @@ public class CarNameInputErrorHandler {
 
     private boolean isCorrectLengthOfAllCarNames(String[] carNames) {
         return Arrays.stream(carNames)
-                .allMatch(carName -> CAR_NAME_MIN_LENGTH <= carName.length()
-                            && carName.length() <= CAR_NAME_MAX_LENGTH);
+            .allMatch(carName -> CAR_NAME_MIN_LENGTH <= carName.length()
+                && carName.length() <= CAR_NAME_MAX_LENGTH);
     }
 
     private boolean isOnlyAlphabetOrKorean(String inputStr) {

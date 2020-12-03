@@ -14,7 +14,7 @@ class TryTimeInputErrorHandlerTest {
     void validInput() {
         String[] tryTimesInput = {"1", "2", "5", "7", "10"};
         for (String tryTimes : tryTimesInput) {
-             assertTrue(errorHandler.isValidInput(tryTimes));
+            assertTrue(errorHandler.isValidInput(tryTimes));
         }
     }
 
