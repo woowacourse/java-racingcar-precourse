@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class InputManager {
     public int carCount;
 
-    public List<Car> scanCarNames(Scanner scanner) {
+    public ArrayList<Car> scanCarNames(Scanner scanner) {
         String[] carNames;
-        List<Car> cars = new ArrayList<>();
+        ArrayList<Car> cars = new ArrayList<>();
         System.out.println(Sentences.ASK_CAR_NAME);
         while(true) {
             try{
