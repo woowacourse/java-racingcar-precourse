@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
-    public static List<Car> carList;
+    private static List<Car> carList;
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
