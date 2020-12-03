@@ -183,7 +183,8 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 <br>
 
 ## 🚩 구현 기능 목록
-- [ ] 모델 설계하기
+- [x] 모델 설계하기
+- [ ] 자동차 이름 입력 받기 테스트
 - [ ] 자동차 이름 입력 받기
 - [ ] 쉼표를 기준으로 이름 분리하기
 - [ ] 스페이스 입력시 에러 출력하기
