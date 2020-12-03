@@ -21,6 +21,11 @@ class InputPreProcessTest {
         names = in.getNames(str);
         assertNull(names);
 
+        // 중복이 있는 경우
+        str = "이름,name,name";
+        names = in.getNames(str);
+        assertNull(names);
+
         // 정상
         str = "named,이름,na이름";
         names = in.getNames(str);
