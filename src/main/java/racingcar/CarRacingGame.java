@@ -17,7 +17,7 @@ public class CarRacingGame {
         int tryCount;
         List<Car> cars;
 
-        cars = getCars();
+        cars = getCars(getInput());
         tryCount = getTryCount();
 
         // todo 각 차수별 실행 결과
@@ -43,9 +43,9 @@ public class CarRacingGame {
         return tryCount;
     }
 
-    private List<Car> getCars() {
+    private List<Car> getCars(String input) {
         // todo 경주 할 자동차 이름 입력(이름은 쉼표(,) 기준으로 구분)
-        return Arrays.stream(getInput().split(","))
+        return Arrays.stream(input.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
