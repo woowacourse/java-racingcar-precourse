@@ -26,7 +26,11 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return this.position;
+    }
+
+    public String getRacerName() {
+        return this.name;
     }
 
     private boolean isMoveForward() {
@@ -41,14 +45,14 @@ public class Car {
     }
 
     public static void main(String[] args) {
-        Car theCar = new Car("testCar");
-        theCar.moveForwardCar();
-        theCar.moveForwardCar();
-        theCar.moveForwardCar();
-        theCar.moveForwardCar();
-        theCar.moveForwardCar();
-        System.out.println(theCar.name);
-        System.out.println(theCar.getPosition());
+//        Car theCar = new Car("testCar");
+//        theCar.moveForwardCar();
+//        theCar.moveForwardCar();
+//        theCar.moveForwardCar();
+//        theCar.moveForwardCar();
+//        theCar.moveForwardCar();
+//        System.out.println(theCar.name);
+//        System.out.println(theCar.getPosition());
     }
 
 }
