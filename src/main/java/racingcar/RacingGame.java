@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class CarRacingGame {
+public class RacingGame {
 
     private final Scanner scanner;
 
-    public CarRacingGame(Scanner scanner) {
+    public RacingGame(Scanner scanner) {
         this.scanner = scanner;
     }
 
