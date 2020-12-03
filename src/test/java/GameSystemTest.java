@@ -18,8 +18,6 @@ public class GameSystemTest {
         game.setTrialCount(scanner);
         System.out.println(game.getTrialCount());
 
-        for (int i = 0; i < game.getTrialCount(); i++) {
-            game.doOneTrial();
-        }
+        game.doAllTrial();
     }
 }
