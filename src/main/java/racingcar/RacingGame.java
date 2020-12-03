@@ -1,6 +1,7 @@
 package racingcar;
 
 import utils.GameUtils;
+import utils.RandomUtils;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,6 +10,8 @@ public class RacingGame {
     private Scanner scanner;
     private List<Car> racingCars;
     private int numberOfRuns;
+    private final int RANDOM_NUM_START = 0;
+    private final int RANDOM_NUM_END = 9;
 
     public RacingGame(Scanner scanner) {
         this.scanner = scanner;
@@ -29,6 +32,14 @@ public class RacingGame {
     public void getNumberOfRunsFromUser() {
         System.out.println("시도할 회수는 몇회인가요?");
         this.numberOfRuns = GameUtils.isNumOfRunsRight(scanner.next());
+    }
+
+    public void moveCars() {
+        for (Car car : racingCars) {
+            if(RandomUtils.nextInt(RANDOM_NUM_START, RANDOM_NUM_END) > 3){
+                car.moveForward();
+            }
+        }
     }
 
     public void findWinner() {
