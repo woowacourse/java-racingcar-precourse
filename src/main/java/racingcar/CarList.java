@@ -14,9 +14,9 @@ public class CarList {
         return carList;
     }
 
-    public void setCarList(List<String> carList) {
-        for (String carName : carList) {
-            this.carList.add(new Car(carName));
+    public void setCarList(List<String> inputList) {
+        for (String carName : inputList) {
+            carList.add(new Car(carName));
         }
     }
 }
