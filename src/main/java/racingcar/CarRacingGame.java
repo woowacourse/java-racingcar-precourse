@@ -3,6 +3,7 @@ package racingcar;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class CarRacingGame {
 
@@ -13,8 +14,12 @@ public class CarRacingGame {
     }
 
     public void play() {
-        // todo 경주 할 자동차 이름 입력(이름은 쉼표(,) 기준으로 구분)
-        // todo 시도할 회수 입력
+        int tryCount;
+        List<Car> cars;
+
+        cars = getCars();
+        tryCount = getTryCount();
+
         // todo 각 차수별 실행 결과
 
         // todo 우승자 안내 문구
@@ -23,4 +28,30 @@ public class CarRacingGame {
         // 공동
         // 최종 우승자: pobi, jun
     }
+
+    private int getTryCount() {
+        // todo 시도할 회수 입력
+        int tryCount = 0;
+
+        while (0 < tryCount) {
+            try {
+                tryCount = Integer.parseInt(getInput());
+            } catch (Exception e) {
+                System.out.println("다시입력");
+            }
+        }
+        return tryCount;
+    }
+
+    private List<Car> getCars() {
+        // todo 경주 할 자동차 이름 입력(이름은 쉼표(,) 기준으로 구분)
+        return Arrays.stream(getInput().split(","))
+                .map(Car::new)
+                .collect(Collectors.toList());
+    }
+
+    private String getInput() {
+        return scanner.nextLine();
+    }
+
 }
