@@ -3,7 +3,6 @@ package racingcar.domain.car;
 public class Car {
     private static final int CAR_NAME_MAX_LENGTH_LIMIT = 5;
     private static final String CAR_NAME_LENGTH_OVER_MESSAGE = "[ERROR] 자동차의 이름은 5글자 이하만 가능합니다.";
-    private static final String CAR_NAME_EMPTY_MESSAGE = "[ERROR] 자동차의 이름은 비어있으면 안됩니다.";
     private static final int CAR_NAME_MIN_LENGTH_LIMIT = 1;
 
     private final String name;
