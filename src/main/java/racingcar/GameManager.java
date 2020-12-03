@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class GameManager {
     public static final int MAXIMUM_CARNAME_LENGTH = 5;
+    public String winners = "";
 
     public GameManager(Scanner scanner) {
         InputManager inputManager = new InputManager();
@@ -18,10 +19,10 @@ public class GameManager {
         for(int i = 0; i < round.getRound(); i++) {
             startRace(cars);
             showRace(cars);
-            System.out.println("\n");
             }
-
-        printWinner(cars, round);
+        winners = judgeWinner(cars, round);
+        winners = winners.substring(0, winners.length()-1);
+        System.out.print(winners);
     }
 
     public void startRace(ArrayList<Car> cars) {
@@ -32,27 +33,30 @@ public class GameManager {
 
     public void showRace(ArrayList<Car> cars) {
         for(Car car : cars) {
-            ArrayList<String> progress = new ArrayList<>();
+            System.out.print(car.getName() + " : ");
             for(int i = 0; i < car.getPosition(); i++) {
-                progress.add(Sentences.PROGRESS);
+                System.out.print(Sentences.PROGRESS);
             }
-            System.out.println(car.getName() + " : " + progress.toString());
+            System.out.print("\n");
         }
+        System.out.print("\n");
     }
 
-    public void printWinner(ArrayList<Car> cars, Round round) {
-        int winCount = 0;
+    public String judgeWinner(ArrayList<Car> cars, Round round) {
+        int winCount = 0, j = 0;
+        String winners = "";
         for(Car car : cars) {
             if(car.getPosition() > winCount) {
                 winCount = car.getPosition();
             }
         }
-        System.out.println(Sentences.SHOW_WINNER);
-        for(Car car : cars) {
+        System.out.print(Sentences.SHOW_WINNER);
+        for(int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
             if(car.getPosition() == winCount) {
-                System.out.println(car.getName());
+                winners += car.getName() + ",";
             }
         }
-        return;
+        return winners;
     }
 }
