@@ -10,6 +10,8 @@ public class Racing {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         String[] nameList = inputCarsNameList(scanner);
+        setCarList(nameList);
+        inputNumberofGame(scanner);
         // TODO 구현 진행
     }
 
@@ -49,5 +51,21 @@ public class Racing {
         for(int i=0;i<nameList.length;i++){
             carList.add(new Car(nameList[i]));
         }
+    }
+
+    /*  */
+    public static int inputNumberofGame(Scanner scanner){
+        int gameNumber=0;
+        System.out.println("시도할 회수는 몇회인가요?");
+        try{
+            gameNumber=Integer.parseInt(scanner.nextLine());
+            if(gameNumber<=0){
+                throw new IllegalArgumentException();
+            }
+        }catch(IllegalArgumentException e){
+            System.out.println("[ERROR] 양의 정수를 입력해주세요.");
+            return inputNumberofGame(scanner);
+        }
+        return gameNumber;
     }
 }
