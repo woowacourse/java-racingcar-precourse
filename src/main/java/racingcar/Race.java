@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Race {
 
-    public static Winners start(List<Car> cars, int tryCount) {
+    public static GameResult start(List<Car> cars, int tryCount) {
         // todo 각 차수별 실행 결과 구하기
         List<Car> winners = new ArrayList<>();
 
@@ -16,6 +16,6 @@ public class Race {
             }
         }
 
-        return new Winners(winners);
+        return new GameResult(new Winners(winners));
     }
 }

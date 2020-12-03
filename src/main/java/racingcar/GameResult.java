@@ -7,4 +7,8 @@ public class GameResult {
     public GameResult(Winners winners) {
         this.winners = winners;
     }
+
+    public void printWinners() {
+        System.out.println(winners.getWinnerNames());
+    }
 }

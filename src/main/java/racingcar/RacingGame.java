@@ -20,7 +20,8 @@ public class RacingGame {
         cars = getCars(getInput());
         tryCount = getTryCount();
 
-        Winners winners = Race.start(cars, tryCount);
+        GameResult gameResult = Race.start(cars, tryCount);
+        gameResult.printWinners();
     }
 
     private int getTryCount() {
