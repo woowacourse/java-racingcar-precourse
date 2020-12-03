@@ -1,12 +1,17 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import static racingcar.MessageBox.NAME_ASK_MESSAGE;
+
 public class Race {
-    private final Scanner scanner;
+    private final Scanner sc;
+    private List<Car> cars = new ArrayList<>();
 
     public Race(Scanner scanner) {
-        this.scanner = scanner;
+        sc = scanner;
     }
 
     public void start() {
@@ -14,6 +19,12 @@ public class Race {
         attemptNumberInput();
         carsMoveProcess();
         printWinner();
+    }
+
+    private void nameInput() {
+        System.out.println(NAME_ASK_MESSAGE);
+        String[] names = sc.nextLine().split(",");
+        carNameSetting(names);
     }
 
 
