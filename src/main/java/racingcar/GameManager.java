@@ -10,10 +10,14 @@ public class GameManager {
     private int tryTimes;
 
     public void createCar(Scanner scanner) {
+        makeCar(scanner);
+        makeTryTimes(scanner);
+    }
+
+    private void makeCar(Scanner scanner) {
         OutputView.printInputCarName();
 
         cars = new Cars(InputView.inputPlayerName(scanner));
-        makeTryTimes(scanner);
     }
 
     private void makeTryTimes(Scanner scanner) {
