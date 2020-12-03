@@ -12,16 +12,20 @@ public class RacingcarController {
 
     private static final String DELIMITER = ",";
     private final Scanner scanner;
+
     public RacingcarController(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void run() {
-        Cars cars = new Cars(getCarList());
+        String inputCarName = InputView.inputCarName(scanner);
+        Cars cars = new Cars(convertInputStringToCarList(inputCarName));
+        int numberOfProgress = InputView.inputNumberOfProgress(scanner);
+
     }
 
-    private List<Car> getCarList() {
-       return Arrays.stream(InputView.inputCarName(scanner).trim().split(DELIMITER))
+    private List<Car> convertInputStringToCarList(String inputCarName) {
+       return Arrays.stream(inputCarName.trim().split(DELIMITER))
                 .filter(carName -> !carName.equals(""))
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());
