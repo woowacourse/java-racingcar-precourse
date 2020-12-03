@@ -10,7 +10,7 @@ import static racingcar.MessageBox.NAME_ASK_MESSAGE;
 public class Host {
     private final Scanner sc;
     private int attemptNum;
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public Host(Scanner scanner) {
         sc = scanner;
@@ -25,7 +25,7 @@ public class Host {
     private void nameInput() {
         System.out.println(NAME_ASK_MESSAGE);
         String[] carNames = sc.nextLine().split(",");
-        carNameSetting(carNames);
+        addCar(carNames);
     }
 
     private void attemptNumberInput() {
@@ -34,7 +34,7 @@ public class Host {
         System.out.println();
     }
 
-    private void carNameSetting(String[] carNames) {
+    private void addCar(String[] carNames) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }

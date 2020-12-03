@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static racingcar.MessageBox.FINAL_WINNER_MESSAGE;
 import static racingcar.MessageBox.PROCESS_RESULT_MESSAGE;
 
 public class Race {
@@ -56,7 +57,7 @@ public class Race {
         List<String> winners = getWinners();
         int winnerNum = winners.size();
 
-        System.out.print(MessageBox.FINAL_WINNER_MESSAGE);
+        System.out.print(FINAL_WINNER_MESSAGE);
 
         for (int i = 0; i < winnerNum; i++) {
             if (i == winnerNum - 1) {
