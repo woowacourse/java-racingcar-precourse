@@ -11,8 +11,9 @@ public class GameManager {
     public static final int MAXIMUM_CARNAME_LENGTH = 5;
 
     public void gameStart(Scanner scanner) {
-        InputManager.scanCarNames(scanner);
-        InputManager.scanRound(scanner);
+        InputManager inputManager = new InputManager();
+        inputManager.scanCarNames(scanner);
+        inputManager.scanRound(scanner);
 
         Round round = new Round();
     }

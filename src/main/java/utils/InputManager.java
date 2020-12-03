@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class InputManager {
     public int carCount;
 
-    public static List<Car> scanCarNames(Scanner scanner) {
+    public List<Car> scanCarNames(Scanner scanner) {
         String[] carNames;
         List<Car> cars = new ArrayList<>();
         System.out.println(Sentences.ASK_CAR_NAME);
@@ -29,7 +29,7 @@ public class InputManager {
         return cars;
     }
 
-    public static int scanRound(Scanner scanner) {
+    public int scanRound(Scanner scanner) {
         String input;
         int round;
         System.out.println(Sentences.ASK_TRACK_LENGTH);
@@ -46,7 +46,7 @@ public class InputManager {
         return round;
     }
 
-    private static void checkCarNames(String[] carNames) {
+    private void checkCarNames(String[] carNames) {
         for(String carName : carNames) {
             if(carName.length() > GameManager.MAXIMUM_CARNAME_LENGTH) {
                 throw new IllegalArgumentException(Sentences.MAXIMUM_CARNAME_LENGTH_ERROR);
@@ -54,7 +54,7 @@ public class InputManager {
         }
     }
 
-    private static void checkRound(String round) {
+    private void checkRound(String round) {
         char temp;
         for(int i = 0; i < round.length(); i++) {
             temp = round.charAt(i);
