@@ -139,6 +139,8 @@
 
 - 패키지 정리
 
-- 사용자 입력 에러 메시지 출력 클래스 분리, static으로 전환 및 primitive type 포장.
+- (사용자 입력): 에러 메시지 출력 클래스 분리, static으로 전환 및 primitive type 포장.
+
+- (Cars): primitive type 포장.
 
 - 
