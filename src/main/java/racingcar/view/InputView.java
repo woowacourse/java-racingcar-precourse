@@ -13,9 +13,14 @@ public class InputView {
     public static List<Car> inputCarNames(Scanner scanner) {
         String carNames = scanner.nextLine();
 
-        return Arrays.stream(carNames.split(DELIMITER_COMMA))
-                .map(String::trim)
-                .map(Car::new)
-                .collect(Collectors.toList());
+        try {
+            return Arrays.stream(carNames.split(DELIMITER_COMMA))
+                    .map(String::trim)
+                    .map(Car::new)
+                    .collect(Collectors.toList());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return inputCarNames(scanner);
+        }
     }
 }
