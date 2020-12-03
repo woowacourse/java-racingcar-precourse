@@ -1,19 +1,26 @@
 package racingcar.game.io.error;
 
+import static racingcar.game.io.InputCarNames.INPUT_DELIMITER;
+
 import java.util.Arrays;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import racingcar.game.Cars;
 
 public class CarNameInputErrorHandler {
+    private static final int CAR_NAMES_MAX_COUNT = 100;
+    private static final int CAR_NAME_MIN_LENGTH = 1;
+    private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final String PATTERN = "^[a-zA-Z가-힣,]+$";
 
-
-    public boolean isValidInput(String inputStr) {
-        if (!inputStr.contains(",")) {
+    public boolean createAndStoreIfIsValidInput(String inputStr, Cars cars) {
+        if (!inputStr.contains(String.valueOf(INPUT_DELIMITER))) {
             CarNameInputErrorPrint.printMoreThanOneCarNameErrorMessage();
             return false;
         }
-        if (inputStr.charAt(0) == ',' || inputStr.charAt(inputStr.length() - 1) == ',') {
+        if (inputStr.charAt(0) == INPUT_DELIMITER
+            || inputStr.charAt(inputStr.length() - 1) == INPUT_DELIMITER) {
             CarNameInputErrorPrint.printCommaErrorMessage();
             return false;
         }
@@ -26,7 +33,7 @@ public class CarNameInputErrorHandler {
             CarNameInputErrorPrint.printCarNameLengthErrorMessage();
             return false;
         }
-        if (carNames.length > 100) {
+        if (carNames.length > CAR_NAMES_MAX_COUNT) {
             CarNameInputErrorPrint.printNumberOfCarMoreThan100ErrorMessage();
             return false;
         }
@@ -34,7 +41,7 @@ public class CarNameInputErrorHandler {
             CarNameInputErrorPrint.printDuplicateNameErrorMessage();
             return false;
         }
-        createCars(carNames);
+        createCars(carNames, cars);
         return true;
     }
 
@@ -45,7 +52,8 @@ public class CarNameInputErrorHandler {
 
     private boolean isCorrectLengthOfAllCarNames(String[] carNames) {
         for (String carName : carNames) {
-            if (!(1 <= carName.length() && carName.length() <= 5)) {
+            if (!(CAR_NAME_MIN_LENGTH <= carName.length()
+                && carName.length() <= CAR_NAME_MAX_LENGTH)) {
                 return false;
             }
         }
@@ -53,8 +61,17 @@ public class CarNameInputErrorHandler {
     }
 
     private boolean isOnlyAlphabetOrKorean(String inputStr) {
-        String pattern = "^[a-zA-Z가-힣,]+$";
-        return Pattern.matches(pattern, inputStr);
+        return Pattern.matches(PATTERN, inputStr);
+    }
+
+    private void createCars(String[] carNames, Cars cars) {
+        for (String name : carNames) {
+            cars.createCar(name);
+        }
+    }
+
+    private String[] splitCarNames(String inputStr) {
+        return inputStr.split(String.valueOf(INPUT_DELIMITER));
     }
 }
 

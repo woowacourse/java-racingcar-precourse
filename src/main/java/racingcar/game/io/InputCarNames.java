@@ -6,6 +6,7 @@ import racingcar.game.io.error.CarNameInputErrorHandler;
 import racingcar.game.io.print.InputPrint;
 
 public class InputCarNames {
+    public static final char INPUT_DELIMITER = ',';
     private final Cars cars;
     private final CarNameInputErrorHandler errorHandler;
 
@@ -19,18 +20,8 @@ public class InputCarNames {
         do {
             InputPrint.printMessageForInputCarNames();
             inputStr = getInputCarNames(scanner);
-        } while (!errorHandler.isValidInput(inputStr));
+        } while (!errorHandler.createAndStoreIfIsValidInput(inputStr, cars));
         return cars;
-    }
-
-    private void createCars(String[] carNames) {
-        for (String name : carNames) {
-            cars.createCar(name);
-        }
-    }
-
-    private String[] splitCarNames(String inputStr) {
-        return inputStr.split(",");
     }
 
     private String getInputCarNames(Scanner scanner) {
