@@ -12,6 +12,7 @@ public class InputPreProcess {
     private static final int MIN_NAME_LENGTH = 1;
 
     private static final String NAME_ERROR = "[ERROR] 이름은 한글 또는 영어로만 되어야 한다.";
+    private static final String INPUT_ERROR = "[ERROR] 쉼표나 영어, 한글 이외의 글자는 없어야 한다.";
     private static final String LENGTH_ERROR = "[ERROR] 이름은 " + MIN_NAME_LENGTH +
             "글자 이상이거나 " + MAX_NAME_LENGTH + "글자 이하여만 합니다.";
 
@@ -19,16 +20,37 @@ public class InputPreProcess {
     }
 
     public String[] getNames(String str) {
+        return check(str);
+    }
 
-        String[] names = splitName(str);
+    private String[] check(String str) {
 
-        if (!checkName(names)) {
-            return null;
-        } else if (!checkLength(names)) {
+        if (!checkInput(str)) {
             return null;
         }
 
+        String[] names = splitName(str);
+
+        if (checkNamesNotValid(names)) {
+            return null;
+        }
         return names;
+    }
+
+    private boolean checkNamesNotValid(String[] names) {
+        return !checkName(names) || !checkLength(names);
+    }
+
+    private boolean checkInput(String str) {
+        if (!checkInputStr(str)) {
+            System.out.println(INPUT_ERROR);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkInputStr(String str) {
+        return Pattern.matches(INPUT_REGEX, str);
     }
 
     private boolean checkLength(String[] names) {
@@ -49,10 +71,6 @@ public class InputPreProcess {
         return true;
     }
 
-    private boolean checkInputValid(String str) {
-        return Pattern.matches(INPUT_REGEX, str);
-    }
-
     private boolean checkAllNameLength(String[] names) {
 
         for (String name : names) {
@@ -64,7 +82,7 @@ public class InputPreProcess {
     }
 
     private boolean checkNameLength(String name) {
-        return name.length() >= MIN_NAME_LENGTH && name.length() == MAX_NAME_LENGTH;
+        return name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH;
     }
 
     private String[] splitName(String str) {
