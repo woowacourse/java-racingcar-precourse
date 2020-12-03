@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 public class Racing {
     private static List<Car> carList;
+    private static int gameNumber;
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         String[] nameList = inputCarsNameList(scanner);
         setCarList(nameList);
-        inputNumberofGame(scanner);
+        gameNumber = inputNumberofGame(scanner);
         // TODO 구현 진행
     }
 
