@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.CarMovingFlag;
 import utils.CarMovingFlagUtils;
 
 import java.util.ArrayList;
@@ -109,5 +110,62 @@ class RacingCarManagerTest {
         List<String> expectedWinnerList = Arrays.asList("kkh", "pobi");
         Collections.sort(expectedWinnerList);
         assertThat(resultWinnerList).isEqualTo(expectedWinnerList);
+    }
+
+    @Test
+    void 두_명_플레이어_게임_시도_1_1_출력_문자열_검증() {
+        // given
+        final String expectedPobiStrResult = "pobi : -";
+        final String expectedKkhStrResult = "kkh : -";
+        List<String> expectedResultList = Arrays.asList(expectedPobiStrResult, expectedKkhStrResult);
+        List<String> strNameList = Arrays.asList("pobi", "kkh");
+        RacingCarManager racingCarManager = new RacingCarManager(strNameList);
+        List<CarMovingFlag> twoForwardFlag = new ArrayList<>(strNameList.size());
+        twoForwardFlag.add(CarMovingFlag.FORWARD);
+        twoForwardFlag.add(CarMovingFlag.FORWARD);
+
+        // when
+        racingCarManager.updateRacingCarPosition(twoForwardFlag);
+
+        // then
+        assertThat(racingCarManager.nowPositionResultStrList()).isEqualTo(expectedResultList);
+    }
+
+    @Test
+    void 두_명_플레이어_게임_시도_0_1_출력_문자열_검증() {
+        // given
+        final String expectedPobiStrResult = "pobi : ";
+        final String expectedKkhStrResult = "kkh : -";
+        List<String> expectedResultList = Arrays.asList(expectedPobiStrResult, expectedKkhStrResult);
+        List<String> strNameList = Arrays.asList("pobi", "kkh");
+        RacingCarManager racingCarManager = new RacingCarManager(strNameList);
+        List<CarMovingFlag> oneStopOneForwardFlag = new ArrayList<>(strNameList.size());
+        oneStopOneForwardFlag.add(CarMovingFlag.STOP);
+        oneStopOneForwardFlag.add(CarMovingFlag.FORWARD);
+
+        // when
+        racingCarManager.updateRacingCarPosition(oneStopOneForwardFlag);
+
+        // then
+        assertThat(racingCarManager.nowPositionResultStrList()).isEqualTo(expectedResultList);
+    }
+
+    @Test
+    void 두_명_플레이어_게임_시도_0_0_출력_문자열_검증() {
+        // given
+        final String expectedPobiStrResult = "pobi : ";
+        final String expectedKkhStrResult = "kkh : ";
+        List<String> expectedResultList = Arrays.asList(expectedPobiStrResult, expectedKkhStrResult);
+        List<String> strNameList = Arrays.asList("pobi", "kkh");
+        RacingCarManager racingCarManager = new RacingCarManager(strNameList);
+        List<CarMovingFlag> allStopFlag = new ArrayList<>(strNameList.size());
+        allStopFlag.add(CarMovingFlag.STOP);
+        allStopFlag.add(CarMovingFlag.STOP);
+
+        // when
+        racingCarManager.updateRacingCarPosition(allStopFlag);
+
+        // then
+        assertThat(racingCarManager.nowPositionResultStrList()).isEqualTo(expectedResultList);
     }
 }
