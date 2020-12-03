@@ -1,8 +1,23 @@
 package racingcar;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class RacingGamePlay {
+
+    private ArrayList<Car> racingCarsForThisTimes = new ArrayList<>();
+
+    public RacingGamePlay(ArrayList<Car> racingCarsForThisTimes) {
+        this.racingCarsForThisTimes = racingCarsForThisTimes;
+    }
+
+    public void runTimes(ArrayList<Car> racingCarsForThisTimes) {
+        for(Car car : racingCarsForThisTimes) {
+            car.moveCar();
+        }
+    }
+}
+
+    /*
     static int gameCount = 0;
     static int maxRace = 0;
     static HashMap<String, Integer> racingPlayBoard = new HashMap<String, Integer>();
@@ -26,5 +41,4 @@ public class RacingGamePlay {
             maxRace = position;
         }
     }
-
-}
+     */

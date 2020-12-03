@@ -1,9 +1,44 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class RacingGameEmulator {
+
+    private final int MAX_TIMES;
+
+    private ArrayList<Car> racingCars = new ArrayList<>();
+
+    public RacingGameEmulator(String carNameInput, int MAX_TIMES) {
+        this.MAX_TIMES = MAX_TIMES;
+
+        String[] carNames = carNameInput.split(",");
+        for (String carName : carNames) {
+            Car car = new Car(carName.trim());
+            racingCars.add(car);
+        }
+    }
+
+    public void startRacingGame(int times) {
+        for(int i = 0; i < times; i++) {
+            RacingGamePlay thisTime = new RacingGamePlay(racingCars);
+            thisTime.runTimes(racingCars);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     private final int TIMES;
 
     public static boolean gameOn;
@@ -35,4 +70,4 @@ public class RacingGameEmulator {
             }
         }
     }
-}
+     */
