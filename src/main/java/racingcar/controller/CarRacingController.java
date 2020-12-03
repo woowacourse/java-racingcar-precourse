@@ -1,39 +1,31 @@
 package racingcar.controller;
 
 import racingcar.Car;
-import racingcar.generator.NumberGenerator;
+import racingcar.type.ErrorType;
+import racingcar.type.TextType;
 
 import java.util.*;
 
 /** 자동차 경주 게임을 컨트롤하는 클래스 */
 public class CarRacingController {
 
-    private static final String CAR_NAME_TEXT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String CAR_RACING_TIME_TEXT = "시도할 회수는 몇회인가요?";
-    private static final String COMMA = ",";
     private static final int MINIMUM_CAR_NAME_LENGTH = 1;
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
-    private static final String INVALID_CAR_NAME_LENGTH = "[ERROR] 자동차 이름의 길이는 1자 이상 5자 이하여야 합니다.";
-    private static final String BLANK = " ";
-    private static final String INVALID_CAR_NAME_FORMAT = "[ERROR] 자동차 이름은 공백 없이 입력해주세요.";
-    private static final String INVALID_CAR_NAME_DUPLICATION = "[ERROR] 자동차 이름은 중복될 수 없습니다.";
-    private static final String INVALID_SCANNER_TYPE = "[ERROR] 시도 횟수는 숫자만 입력 가능합니다.";
     private static final int ZERO = 0;
-    private static final String INVALID_SCANNER_TIMES = "[ERROR] 시도 횟수는 1 이상이어야 합니다.";
 
     private static ArrayList<Car> cars = new ArrayList<>();
     private static int times;
 
     public static void startCarRacing(Scanner scanner) {
-        System.out.println(CAR_NAME_TEXT);
+        System.out.println(TextType.CAR_NAME_TEXT.getText());
         scanCars(scanner);
-        System.out.println(CAR_RACING_TIME_TEXT);
+        System.out.println(TextType.CAR_RACING_TIMES_TEXT.getText());
         scanTimes(scanner);
     }
 
     public static void scanCars(Scanner scanner) {
         String scannerCars = scanner.nextLine();
-        List<String> carNames = new ArrayList<>(Arrays.asList(scannerCars.split(COMMA)));
+        List<String> carNames = new ArrayList<>(Arrays.asList(scannerCars.split(TextType.COMMA.getText())));
         for (String carName : carNames) {
             cars.add(validateCar(carName));
         }
@@ -43,7 +35,7 @@ public class CarRacingController {
     public static void scanTimes(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             scanner.next();
-            System.out.println(INVALID_SCANNER_TYPE);
+            System.out.println(ErrorType.INVALID_CHARACTER.getError());
         }
 
         int scannerTimes = scanner.nextInt();
@@ -53,12 +45,12 @@ public class CarRacingController {
     public static Car validateCar(String carName) {
         // 자동차 이름의 길이가 1자 미만 또는 5자 초과인 경우
         if (carName.length() < MINIMUM_CAR_NAME_LENGTH || carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH);
+            throw new IllegalArgumentException(ErrorType.INVALID_LENGTH.getError());
         }
 
         // 자동차 이름에 공백이 있는 경우
-        if (carName.contains(BLANK)) {
-            throw new IllegalArgumentException(INVALID_CAR_NAME_FORMAT);
+        if (carName.contains(TextType.BLANK.getText())) {
+            throw new IllegalArgumentException(ErrorType.INVALID_FORMAT.getError());
         }
 
         return new Car(carName);
@@ -73,14 +65,14 @@ public class CarRacingController {
 
         // 자동차 이름이 중복되는 경우
         if (cars.size() != carSet.size()) {
-            throw new IllegalArgumentException(INVALID_CAR_NAME_DUPLICATION);
+            throw new IllegalArgumentException(ErrorType.INVALID_DUPLICATION.getError());
         }
     }
 
     public static int validateTimes(int scannerTimes) {
         // 시도할 횟수에 음수 또는 0이 입력되는 경우
         if (scannerTimes <= ZERO) {
-            throw new IllegalArgumentException(INVALID_SCANNER_TIMES);
+            throw new IllegalArgumentException(ErrorType.INVALID_ZERO_TIME.getError());
         }
 
         return scannerTimes;
