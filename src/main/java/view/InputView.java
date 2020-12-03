@@ -1,6 +1,7 @@
 package view;
 
 import utils.NameValidator;
+import utils.NumberValidator;
 
 import java.util.List;
 import java.util.Scanner;
@@ -15,9 +16,11 @@ public class InputView {
     }
 
     public static int inputTryTimes(Scanner scanner) {
-        int tryTimes = scanner.nextInt();
+        String tryTimes = scanner.next();
 
-        return tryTimes;
+        checkLengthTryTimes(tryTimes);
+
+        return Integer.parseInt(tryTimes);
     }
 
     private static void checkLengthName(List<String> inputs) {
@@ -25,5 +28,9 @@ public class InputView {
             NameValidator.checkInputLengthLessThanValue(input);
             NameValidator.checkInputLengthNotZero(input);
         }
+    }
+
+    private static void checkLengthTryTimes(String input) {
+        NumberValidator.checkNumberOverZero(Integer.parseInt(input));
     }
 }
