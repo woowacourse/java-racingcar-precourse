@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static racingcar.MessageBox.PROCESS_RESULT_MESSAGE;
+
 public class Race {
     private final int attemptNum;
     private final List<Car> cars;
@@ -16,10 +18,15 @@ public class Race {
     }
 
     public void raceStart() {
+        int carsNum = cars.size();
+
+        System.out.println(PROCESS_RESULT_MESSAGE);
         for (int i = 0; i < attemptNum; i++) {
-            Car car = cars.get(i);
-            carTryMove(car);
-            printCarCurrentLocation(car);
+            for (int j = 0; j < carsNum; j++) {
+                Car car = cars.get(j);
+                carTryMove(car);
+                printCarCurrentLocation(car);
+            }
             System.out.println();
         }
         winnerPrize();

@@ -31,6 +31,7 @@ public class Host {
     private void attemptNumberInput() {
         System.out.println(ATTEMPT_NUMBER_ASK_MESSAGE);
         attemptNum = sc.nextInt();
+        System.out.println();
     }
 
     private void carNameSetting(String[] carNames) {
