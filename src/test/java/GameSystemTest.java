@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import racingcar.Car;
 import racingcar.GameSystem;
 
 public class GameSystemTest {
@@ -8,5 +9,10 @@ public class GameSystemTest {
         GameSystem game = new GameSystem();
 
         game.makeCars(scanner);
+        Car[] cars = game.getCars();
+
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println(cars[i].getName());
+        }
     }
 }
