@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class InputView {
     private static final String INPUT_CAR_NAMES_NOTICE_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String COMMA_DELIMITER = ",";
+    private static final int SPLIT_LIMIT_THRESHOLD_PARAMETER = -1;
     private static final int MINIMUM_CAR_NAME_LENGTH = 1;
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
 
@@ -29,7 +30,7 @@ public class InputView {
 
     private List<String> scanCarNames() {
         String[] carNames = this.scanner.nextLine()
-                .split(COMMA_DELIMITER);
+                .split(COMMA_DELIMITER, SPLIT_LIMIT_THRESHOLD_PARAMETER);
         return Arrays.stream(carNames)
                 .map(String::trim)
                 .collect(Collectors.toList());
