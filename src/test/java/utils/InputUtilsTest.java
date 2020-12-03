@@ -22,7 +22,7 @@ class InputUtilsTest {
         InputUtils inputUtils = InputUtils.of(scanner);
 
         //when
-        String nextLine = inputUtils.inputAndReturnCarName();
+        String nextLine = inputUtils.inputAndGetCarName();
 
         //then
         assertThat(inputText).isEqualTo(nextLine);
@@ -39,7 +39,7 @@ class InputUtilsTest {
         InputUtils inputUtils = InputUtils.of(scanner);
 
         //when
-        String nextLine = inputUtils.inputAndReturnCarName();
+        String nextLine = inputUtils.inputAndGetCarName();
 
         //then
         assertThat(inputText).isEqualTo(nextLine);

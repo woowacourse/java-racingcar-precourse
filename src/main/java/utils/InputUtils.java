@@ -17,7 +17,7 @@ public class InputUtils {
         return scanner.nextLine();
     }
 
-    public String inputAndReturnCarName() {
+    public String inputAndGetCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.");
         String carName = getNextLine();
         return carName;
