@@ -6,7 +6,12 @@ import utils.RandomUtils;
 import java.util.List;
 
 public class UnitGame {
-    private List<Car> cars;
+    private final List<Car> cars;
+
+    public UnitGame(List<Car> cars) {
+        this.cars = cars;
+    }
+
     public void makeRandomNumbers(){
         cars.forEach(car -> car.increasePosition(RandomUtils.nextInt(0, 9)));
     }
