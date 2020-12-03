@@ -1,6 +1,6 @@
-package racingcar;
+package domain;
 
-import org.junit.jupiter.api.Assertions;
+import domain.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarTest {
     @Test
     @DisplayName("이름과 함께 도메인이 잘 생성 되는 지 확인")
-    public void createCarDomain() throws Exception{
+    public void createCarDomain() throws Exception {
         //given
         final String NAME = "bomin";
         //when
@@ -17,9 +17,9 @@ class CarTest {
         //then
         assertEquals(NAME, car.getName());
     }
-    
+
     @Test
-    public void runWithRunnableNumber() throws Exception{
+    public void runWithRunnableNumber() throws Exception {
         //given
         final int RUN_NUM = 4;
         final int EXPECTED_POSITION = 1;
@@ -29,9 +29,9 @@ class CarTest {
         //then
         assertEquals(EXPECTED_POSITION, car.getCurrentPosition());
     }
-    
+
     @Test
-    public void runWithUnrunnableNumber() throws Exception{
+    public void runWithUnrunnableNumber() throws Exception {
         //given
         final int RUN_NUM = 3;
         final int EXPECTED_POSITION = 0;
@@ -42,7 +42,7 @@ class CarTest {
         assertEquals(EXPECTED_POSITION, car.getCurrentPosition());
     }
 
-    private Car createCar(){
+    private Car createCar() {
         return new Car("bomin");
     }
 

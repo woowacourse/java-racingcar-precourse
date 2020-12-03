@@ -1,4 +1,4 @@
-package racingcar;
+package domain;
 
 public class Car {
     private final int RUNNABLE_MIN_NUM = 4;
@@ -20,11 +20,11 @@ public class Car {
         return inputNumber >= RUNNABLE_MIN_NUM;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getCurrentPosition(){
+    public int getCurrentPosition() {
         return position;
     }
 }
