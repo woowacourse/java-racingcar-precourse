@@ -2,50 +2,54 @@ package racingcar;
 
 import utils.Printer;
 import utils.Validator;
-
 import java.util.*;
 
 public class CarRacingGame {
-    private List<Car> carList;
+    private CarList carList;
     private int playRound;
+    private Validator validator = new Validator();
 
-    public CarRacingGame(List<String> inputList, int playRound) {
-        carList = new ArrayList<>();
-        setCarList(inputList);
-        this.playRound = playRound;
+    public CarRacingGame() {
+        carList = new CarList();
+        playRound = 0;
     }
 
-    public static CarRacingGame inputInfoForPlayGame(Scanner scanner)
+    public void inputInfoForPlayGame(Scanner scanner)
     {
-        Validator validator = new Validator();
+        carList.setCarList(inputCarName(scanner));
+        playRound = inputPlayRound(scanner);
+    }
+
+    public List<String> inputCarName(Scanner scanner) {
         try {
             Printer.setCarNamePrinter();
             List<String> carList = new ArrayList<>(Arrays.asList(scanner.nextLine().split(",")));
             validator.isValidCarName(carList);
+            return carList;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return inputCarName(scanner);
+        }
+    }
+
+    public int inputPlayRound(Scanner scanner) {
+        try {
             Printer.setPlayRoundPrinter();
             String playRound = scanner.nextLine();
             validator.isPlayRoundInteger(playRound);
-            return new CarRacingGame(carList, Integer.parseInt(playRound));
-        }catch (Exception e) {
+            return Integer.parseInt(playRound);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            return inputInfoForPlayGame(scanner);
+            return inputPlayRound(scanner);
         }
     }
-
-    public void setCarList(List<String> inputList) {
-        for (String car : inputList) {
-            carList.add(new Car(car));
-        }
-    }
-
-
 
 
     //나중에 삭제할 메소드
     public void inputTest() {
         System.out.println("--------------");
         System.out.println("입력값 테스트");
-        for (Car car : carList)
+        for (Car car : carList.getCarList())
         {
             System.out.print(car.getName() + " ");
         }
