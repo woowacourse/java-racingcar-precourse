@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.exception;
 
 public class RacingCarErrorException extends IllegalArgumentException {
 
