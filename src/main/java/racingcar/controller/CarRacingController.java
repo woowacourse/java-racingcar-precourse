@@ -78,8 +78,8 @@ public class CarRacingController {
     }
 
     public static int validateTimes(int scannerTimes) {
-        // 시도할 횟수에 0이 입력되는 경우
-        if (scannerTimes == ZERO) {
+        // 시도할 횟수에 음수 또는 0이 입력되는 경우
+        if (scannerTimes <= ZERO) {
             throw new IllegalArgumentException(INVALID_SCANNER_TIMES);
         }
 
