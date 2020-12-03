@@ -1,5 +1,6 @@
 package controller;
 
+import domain.CountValidator;
 import domain.NameValidator;
 import domain.racingcar.CarFactory;
 import view.InputView;
@@ -20,7 +21,18 @@ public class RacingCarGameController {
     public void run() {
         CarFactory carFactory = new CarFactory();
         carFactory.makeCars(Objects.requireNonNull(makeNames()));
-        System.out.println(this.inputView.receiveCounts());
+        System.out.println(makeCounts());
+    }
+
+    private Integer makeCounts() {
+        try {
+            CountValidator countValidator = new CountValidator(this.inputView.receiveCounts());
+            return countValidator.makeValidCount();
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            makeCounts();
+        }
+        return null;
     }
 
     private List<String> makeNames() {
