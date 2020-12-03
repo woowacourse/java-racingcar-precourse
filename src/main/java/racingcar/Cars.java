@@ -12,7 +12,7 @@ public class Cars {
     private static final int RANDOM_END_VALUE = 10;
     private static final int GO_FORWARD_VALUE = 4;
 
-    List<Car> cars;
+    private List<Car> cars;
 
     public Cars(List<String> names) {
         cars = names.stream().map(Car::new).collect(Collectors.toList());
