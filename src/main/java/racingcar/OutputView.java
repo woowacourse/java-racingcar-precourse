@@ -36,8 +36,10 @@ public class OutputView {
     }
 
     private String getWinnerNames(ScoreBoard scoreBoard){
-        Stream<String> winners = scoreBoard.getWinners().stream().map(Car::getName);
-        return winners.collect(Collectors.joining(", "));
+        return scoreBoard.getWinners()
+                         .stream()
+                         .map(Car::getName)
+                         .collect(Collectors.joining(", "));
     }
 
     public void printError(IllegalArgumentException e) {

@@ -27,8 +27,8 @@ public class InputView {
     private List<String> getCarNames(String inputString) {
         validateBlankInput(inputString);
         return Arrays.stream(inputString.split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
+                     .map(String::trim)
+                     .collect(Collectors.toList());
     }
 
     public int getRoundNumber() {
