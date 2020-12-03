@@ -38,11 +38,8 @@ public class Racing {
             System.out.println(i + " Round.");
             for (Car carInRacingEvent : racerList) {
                 carInRacingEvent.moveForward();
-                String racerPositionBarInThisLap = "";
-                int thisRacerPositionInThisLap = carInRacingEvent.getPosition();
-                for (int j = 1; j <= thisRacerPositionInThisLap; j++) {
-                    racerPositionBarInThisLap += LAP_POSITION_CHARACTER;
-                }
+                String racerPositionBarInThisLap = getCarPositionInThisLap(carInRacingEvent);
+
                 System.out
                     .println(
                         carInRacingEvent.getRacerName() + RACER_POSITION_DIVIDE_CHARACTER
@@ -50,6 +47,15 @@ public class Racing {
                             + racerPositionBarInThisLap);
             }
         }
+    }
+
+    private String getCarPositionInThisLap(Car carInRacingEvent) {
+        String racerPositionBarInThisLap = "";
+        int thisRacerPositionInThisLap = carInRacingEvent.getPosition();
+        for (int j = 1; j <= thisRacerPositionInThisLap; j++) {
+            racerPositionBarInThisLap += LAP_POSITION_CHARACTER;
+        }
+        return racerPositionBarInThisLap;
     }
 
     public void showAwards() {
