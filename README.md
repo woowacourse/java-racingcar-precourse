@@ -1,19 +1,19 @@
 # 미션 - 자동차 경주 게임
-## Feature list (To-do)
 
 ## Feature list (To-do)
 
 1.  입력 `InputUtils`
     - **생성자**
-		- 이름 입력받기 -> 이름 검증
+		- 이름 입력받기 `setSplitRacerNameByFormat`
 		- 시도할 횟수 입력받기 -> 횟수 검증
 	- **이름을 검증하는 메소드** `checkRacerNameValidation`
         - 이름이 동일한 경우 예외 처리 `checkRacerNameDuplication`
         - 이름이 5자 초과인 경우 예외 처리 `checkRacerNameLength`
-        - 맨 앞 필드가 ,인 경우 예외 처리
-		- 공백 있을 경우 처리 예외 처리
+        - 맨 앞 필드가 ,인 경우 예외 처리 `checkRacerStringFormatter`
     - **시도할 횟수를 입력받는 메소드**
-        - 시도할 횟수에 양수 이외 문자 예외 처리 `checkRoundCountValidation`
+        - 시도할 횟수에 양수 이외 문자 예외 처리 `isRoundCountValidation`
+			- 입력된 문자의 데이터 타입 검사 `isRoundCountDataTypeValidation`
+			- 입력된 문자의 양수 검사 `isRoundCountPositiveNumberValidation`
 
 
 2.  자동차 `Car`
@@ -39,19 +39,16 @@
 		- 가장 큰 position 찾기 `getMaxPosition`
         - 가장 큰 position과 같은 레이서 찾기 `getRaceWinnerString`
 
-
 4.  출력 `MessageUtils`
-    - **예외처리**
-        - \[ERROR\] prefix를 메시지에 포함하기
-    - **게임 결과 출력 메소드**
-    - **우승자 안내 문구**
+    - 상수를 포함한 복합 메시지 출력 `printMessageWithConstant`
 
+5. 예외처리 `ExceptionUtils`
+	- prefix를 포함한 복합 에러메시지 출력 및 예외처리 `errorThrow`
 
 5.  게임 실행 `Application`
-    1.  **레이싱 인스턴스 생성**
+    1.  **레이싱 인스턴스 생성** `Racing`
     2.  **레이스** `startEvent`
     3.  **시상식** `showAwards`
-        - 우승자 출력
 		
 ## 🚀 기능 요구사항
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
