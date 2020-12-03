@@ -76,8 +76,8 @@ public class Racing {
     public void playRacingGame(Scanner scanner) {
         try {
             List<String> carNameList = input.getCarNameList(input.getCarNameArray(scanner));
-            error.checkSameCarName(input.getCarNameArray(scanner));
-            error.checkCarNameLength(input.getCarNameArray(scanner));
+            error.checkSameCarName(carNameList);
+            error.checkCarNameLength(carNameList);
             int trial = input.getTrial(scanner);
             error.checkTrialLessThanOne(trial);
             List<Car> carList = makeCars(carNameList);
