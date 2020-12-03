@@ -21,11 +21,10 @@ public class InputView {
                     NameController.isEmptyString(names) &&
                     NameController.checkLengthOfEachName(names) &&
                     NameController.isDuplicatedName(names)) {
-                break;
+                return names;
             }
             OutputView.printErrorMessageAboutName();
         }
-        return names;
     }
 
     public static Trial getTrials(Scanner scanner) {

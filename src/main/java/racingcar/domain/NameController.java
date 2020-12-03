@@ -20,13 +20,13 @@ public class NameController {
         return Long.valueOf(name.chars().filter(ch -> ch == ',').count()).intValue();
     }
 
-    private static int getNumberOfString(String[] name) {
+    private static int getNumberOfName(String[] name) {
         return name.length;
     }
 
     public static boolean compareCountBetweenCommaAndName(String nameContainsComma, String[] names) {
         int numberOfCommas = getNumberOfCommas(nameContainsComma);
-        int numberOfNames = getNumberOfString(names);
+        int numberOfNames = getNumberOfName(names);
         return (numberOfCommas + DIFFERENCE_BETWEEN_NAMES_AND_COMMAS) == numberOfNames;
     }
 
