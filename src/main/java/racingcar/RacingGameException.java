@@ -2,6 +2,13 @@ package racingcar;
 
 public class RacingGameException {
 
+    public static String checkNameInputException(String carNameInput) throws NullPointerException {
+        if ("".equals(carNameInput)) {
+            throw new NullPointerException();
+        }
+        return carNameInput;
+    }
+
     public static int checkTimesInputException(String timesInput) throws Exception {
         int times = Integer.parseInt(timesInput);
 
@@ -12,6 +19,10 @@ public class RacingGameException {
             throw new Exception("음수를 입력할 수 없음");
         }
         return times;
+    }
+
+    public static void printNameInputMessage() {
+        System.out.println("[ERROR] 하나 이상의 자동차가 참가해야 합니다.");
     }
 
     public static void printInvalidInputMessage() {
