@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Application {
     private static final String REQUEST_INPUT_RACING_CAR_MSG = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
+    private static final String REQUEST_INPUT_ROUND_MSG = "시도할 횟수는 몇 회인가요?";
     private static final String COMMA = ",";
     private List<Car> cars;
 
@@ -17,10 +18,13 @@ public class Application {
 
     private void start(Scanner scanner) {
         ConsoleView view = new ConsoleView(scanner);
-        view.println(REQUEST_INPUT_RACING_CAR_MSG);
-        String userInput = view.inputNextLine();
 
-        cars = makeCarList(userInput);
+        view.println(REQUEST_INPUT_RACING_CAR_MSG);
+        String carNames = view.inputNextLine();
+        cars = makeCarList(carNames);
+
+        view.println(REQUEST_INPUT_ROUND_MSG);
+        String numberOfRound = view.inputNextLine();
     }
 
     private List<Car> makeCarList(String userInput) {
