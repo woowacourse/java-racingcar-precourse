@@ -36,6 +36,7 @@ public class RacingCarGame {
             output.printRoundResult(cars);
             round++;
         }
+        output.printWinner(cars);
     }
 
     private void moveOrStop(Cars cars) {
