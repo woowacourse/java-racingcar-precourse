@@ -25,4 +25,10 @@ public class Car {
         }
         return false;
     }
+
+    public void movePosition(){
+        if(determineMove()){
+            this.position++;
+        }
+    }
 }
