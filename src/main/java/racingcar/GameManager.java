@@ -10,8 +10,7 @@ public class GameManager {
 
     public void createCar(Scanner scanner) {
         OutputView.printInputCarName();
-        InputView.inputPlayerName(scanner);
 
-        // cars = new Cars();
+        cars = new Cars(InputView.inputPlayerName(scanner));
     }
 }
