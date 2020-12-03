@@ -40,13 +40,16 @@ public class RacingCarManager {
     }
 
     public List<String> getNowWinnerPlayersName() {
-        List<String> winnerNameList = new ArrayList<>();
-
         int maxPosition = this.maxPosition();
         if (maxPosition == Integer.MIN_VALUE) {
-            return winnerNameList;
+            return new ArrayList<>();
         }
 
+        return makeTheListOfOnlyWinnerName(maxPosition);
+    }
+
+    private List<String> makeTheListOfOnlyWinnerName(int maxPosition) {
+        List<String> winnerNameList = new ArrayList<>();
         for (Car car : this.racingCarList) {
             if (car.getPosition() == maxPosition) {
                 winnerNameList.add(car.getName());
