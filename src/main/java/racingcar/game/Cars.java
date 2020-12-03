@@ -51,15 +51,9 @@ public class Cars {
     }
 
     private String[] getWinners(int winnerPosition) {
-        List<String> winnerNames = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() == winnerPosition) {
-                winnerNames.add(car.getName());
-            }
-            if (car.getPosition() < winnerPosition) {
-                break;
-            }
-        }
-        return winnerNames.toArray(new String[winnerNames.size()]);
+        return cars.stream()
+            .filter(car -> car.getPosition() == winnerPosition)
+            .map(Car::getName)
+            .toArray(String[]::new);
     }
 }
