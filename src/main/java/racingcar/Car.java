@@ -14,4 +14,7 @@ public class Car {
         }
         Round.registerCarMovement(roundNumber, name, position);
     }
+    public boolean isWinner(int longestDistance) {
+        return position == longestDistance;
+    }
 }

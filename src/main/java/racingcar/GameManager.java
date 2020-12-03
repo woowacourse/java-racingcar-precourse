@@ -15,10 +15,11 @@ public class GameManager {
     private static final String MESSAGE_INPUT_NUMBER_TRY_TO_MOVE = "시도할 횟수는 몇 회인가요?";
     private static final String MESSAGE_ERROR_NOT_VALID_TRY_NUMBER = "[ERROR] 시도 횟수는 숫자여야 합니다.";
     private static Board board;
+    private static AwardGiver awardGiver;
 
     public GameManager() {
-        MovementArbiter movementArbiter = new MovementArbiter();
         board = new Board();
+        awardGiver = new AwardGiver();
     }
 
     public void startGame(Scanner scanner) {
@@ -27,6 +28,7 @@ public class GameManager {
         registerCar(stringArrayParticipants);
         startAllRounds();
         board.printAccumulatedRoundsResult();
+        awardGiver.printAwardReceiver(participants);
     }
 
     private void startAllRounds() {
