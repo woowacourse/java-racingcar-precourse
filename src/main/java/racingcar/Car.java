@@ -19,9 +19,9 @@ public class Car {
 
     // 추가 기능 구현
 
-    private void moveForwardCar() {
+    public void moveForward() {
         if (isMoveForward()) {
-            position += MOVING_POSITION_POINT;
+            this.position += MOVING_POSITION_POINT;
         }
     }
 
@@ -43,16 +43,4 @@ public class Car {
         }
         return false;
     }
-
-    public static void main(String[] args) {
-//        Car theCar = new Car("testCar");
-//        theCar.moveForwardCar();
-//        theCar.moveForwardCar();
-//        theCar.moveForwardCar();
-//        theCar.moveForwardCar();
-//        theCar.moveForwardCar();
-//        System.out.println(theCar.name);
-//        System.out.println(theCar.getPosition());
-    }
-
 }
