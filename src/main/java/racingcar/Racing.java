@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Racing {
 
+
     public StringUtils racingEvent;
 
     ArrayList<Car> racerList = new ArrayList<Car>();
@@ -16,7 +17,7 @@ public class Racing {
     }
 
     private void setGrid(StringUtils racingEvent) {
-        for (String name : Constants.racerNameList) {
+        for (String name : racingEvent.racerNameList) {
             Car racer = new Car(name);
             racerList.add(racer);
         }
@@ -28,7 +29,7 @@ public class Racing {
     }
 
     private void goLap(StringUtils racingEvent) {
-        for (int i = 1; i <= Constants.roundCount; i++) {
+        for (int i = 1; i <= racingEvent.roundCount; i++) {
             System.out.println(i + " Round.");
             for (Car carInRacingEvent : racerList) {
                 carInRacingEvent.moveForward();

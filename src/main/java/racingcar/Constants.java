@@ -17,6 +17,5 @@ public class Constants {
     public static final int MOVING_POSITION_POINT = 1;
     public static final int MIN_RANDOM_RANGE = 0;
     public static final int MAX_RANDOM_RANGE = 9;
-    public static String[] racerNameList;
-    public static int roundCount;
+
 }

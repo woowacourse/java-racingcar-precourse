@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class StringUtils {
 
+    public static String[] racerNameList;
+    public static int roundCount;
+
     public String inputRunner;
     public String inputRoundCount;
     public HashSet<String> runnerNameCheckSet = new HashSet<String>();
@@ -13,19 +16,19 @@ public class StringUtils {
         System.out.println(Constants.RACER_NAME_ANNOUNCEMENT);
         this.inputRunner = promptInput.next();
         splitRacerNameByFormat();
-        checkRacerNameValidation(Constants.racerNameList);
+        checkRacerNameValidation(racerNameList);
 
         System.out.println(Constants.LAP_QUESTIION);
         this.inputRoundCount = promptInput.next();
         if (checkRoundCountValidation(inputRoundCount)) {
-            Constants.roundCount = Integer.parseInt(inputRoundCount);
+            roundCount = Integer.parseInt(inputRoundCount);
         }
     }
 
 
     private String[] splitRacerNameByFormat() {
         String[] runners = inputRunner.split(String.valueOf(Constants.RACER_LIST_FORMAT), 0);
-        Constants.racerNameList = runners;
+        racerNameList = runners;
         return runners;
     }
 
