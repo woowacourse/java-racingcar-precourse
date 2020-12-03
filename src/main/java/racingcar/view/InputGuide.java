@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import java.util.Scanner;
-import racingcar.model.Car;
 import racingcar.controller.ErrorException;
+import racingcar.model.Car;
 import utils.ValidUtils;
 
 /**
@@ -24,9 +24,9 @@ public class InputGuide {
     public Car[] inputCars() {
         System.out.println(CAR_INPUT_MESSAGE);
         String[] cars = splitCarsName(scanner.nextLine());
-        try{
+        try {
             return validUtils.isValid(cars);
-        } catch(ErrorException exception){
+        } catch (ErrorException exception) {
             System.out.println(exception.getMessage());
             return inputCars();
         }

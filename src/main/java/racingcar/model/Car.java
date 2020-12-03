@@ -17,15 +17,15 @@ public class Car {
         return this.name;
     }
 
+    public int getPositionNumber() {
+        return position;
+    }
+
     public void run() {
         if (generateRandomNumber()) {
             position++;
         }
         System.out.println(getName() + COLON + getPosition());
-    }
-
-    public int getPositionNumber() {
-        return position;
     }
 
     public String getPosition() {

@@ -2,8 +2,8 @@ package utils;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import racingcar.model.Car;
 import racingcar.controller.ErrorException;
+import racingcar.model.Car;
 
 /**
  * 입력값이 조건에 맞는지 검증하는 클래스
@@ -22,7 +22,6 @@ public class ValidUtils {
         this.scanner = scanner;
     }
 
-
     public Car[] isValid(String[] cars) {
         if (isMoreThanOne(cars)) {
             return makeCar(cars);
@@ -38,7 +37,7 @@ public class ValidUtils {
     }
 
     private boolean isValidateCarNames(String[] input) {
-        if(Arrays.stream(input).allMatch(this::countCharacters)){
+        if (Arrays.stream(input).allMatch(this::countCharacters)) {
             return true;
         }
         throw new ErrorException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
@@ -56,8 +55,8 @@ public class ValidUtils {
         return cars;
     }
 
-    public int moreThanZero(){
-        try{
+    public int moreThanZero() {
+        try {
             int input = Integer.parseInt(scanner.nextLine());
             return isNaturalNumber(input);
         } catch (NumberFormatException | ErrorException exception) {
