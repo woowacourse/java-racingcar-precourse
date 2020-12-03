@@ -24,6 +24,10 @@ public class RacingGameEmulator {
             thisTime.runTimes(racingCars);
         }
     }
+
+    public void startRacingGameWinner() {
+        RacingGameWinner racingGameWinner = new RacingGameWinner(racingCars, Car.getWinningPosition());
+    }
 }
 
 

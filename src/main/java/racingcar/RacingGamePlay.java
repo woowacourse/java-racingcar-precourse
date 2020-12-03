@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class RacingGamePlay {
 
-    private ArrayList<Car> racingCarsForThisTimes = new ArrayList<>();
+    private ArrayList<Car> racingCarsForThisTimes;
 
     public RacingGamePlay(ArrayList<Car> racingCarsForThisTimes) {
         this.racingCarsForThisTimes = racingCarsForThisTimes;

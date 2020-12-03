@@ -36,10 +36,10 @@ public class RacingGameSystemMessageOut {
         }
     }
 
-    public static void printFinalWinners(ArrayList<String> winners) {
-        String winnerList = winners.toString();
-        winnerList = winnerList.replace("[", " ");
-        winnerList = winnerList.replace("]", " ");
-        System.out.print(RESULT_FINAL_WINNERS + winnerList);
+    public static void printFinalWinners(ArrayList<String> racingGameWinners) {
+        System.out.print(RESULT_FINAL_WINNERS);
+        for(String winner : racingGameWinners) {
+            System.out.print(winner);
+        }
     }
 }
