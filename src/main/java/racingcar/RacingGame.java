@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import utils.RandomUtils;
 
 /**
@@ -35,8 +36,18 @@ public class RacingGame {
         return RandomUtils.nextInt(START_RANGE, END_RANGE);
     }
 
-    public void findWinners() {
+    public List<Car> findWinners() {
+        return findCoWinners(getWinner());
+    }
+
+    private Car getWinner() {
         Collections.sort(cars);
-        Car winner = cars.get(FIRST_CAR);
+        return cars.get(FIRST_CAR);
+    }
+
+    private List<Car> findCoWinners(Car winner) {
+        return cars.stream()
+                   .filter(winner::equalsPosition)
+                   .collect(Collectors.toList());
     }
 }
