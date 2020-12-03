@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Racing {
 
+    public static final String STANDING_START_ANNOUNCEMENT = "실행 결과";
+    public static final String LAP_POSITION_CHARACTER = "-";
+    public static final String RACER_POSITION_DIVIDE_CHARACTER = " : ";
+    
     public StringUtils racingEvent;
 
     ArrayList<Car> racerList = new ArrayList<Car>();
@@ -19,6 +23,26 @@ public class Racing {
         for (String name : racingEvent.racerNameList) {
             Car racer = new Car(name);
             racerList.add(racer);
+        }
+    }
+
+    public void standingStart() {
+        System.out.println(STANDING_START_ANNOUNCEMENT);
+        for (int i = 1; i <= racingEvent.roundCount; i++) {
+            System.out.println(i + " Round.");
+            for (Car carInRacingEvent : racerList) {
+                carInRacingEvent.moveForward();
+                String racerPositionBarInThisLap = "";
+                int thisRacerPositionInThisLap = carInRacingEvent.getPosition();
+                for (int j = 1; j <= thisRacerPositionInThisLap; j++) {
+                    racerPositionBarInThisLap += LAP_POSITION_CHARACTER;
+                }
+                System.out
+                    .println(
+                        carInRacingEvent.getRacerName() + RACER_POSITION_DIVIDE_CHARACTER
+                            + carInRacingEvent.getPosition()
+                            + racerPositionBarInThisLap);
+            }
         }
     }
 
