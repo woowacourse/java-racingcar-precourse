@@ -11,6 +11,10 @@ public class Car {
         this.name = name;
     }
 
+    public void move(){
+        position += engine.run();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
