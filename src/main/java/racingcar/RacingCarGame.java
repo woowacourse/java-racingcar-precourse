@@ -10,16 +10,14 @@ import java.util.Scanner;
 
 public class RacingCarGame {
     private final Scanner scanner;
-    private Rule rule;
-    private Cars cars;
 
     public RacingCarGame(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void play() {
-        cars = InputView.inputCarNames(scanner);
-        rule = InputView.inputAttemptNumber(scanner);
+        Cars cars = InputView.inputCarNames(scanner);
+        Rule rule = InputView.inputAttemptNumber(scanner);
         rule.attemptMoveByAttemptNumber(cars);
         Winner winner = cars.getWinnerCars();
         OutputView.printWinner(winner);
