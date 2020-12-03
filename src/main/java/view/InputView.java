@@ -31,6 +31,7 @@ public class InputView {
     }
 
     private static void checkLengthTryTimes(String input) {
+        NumberValidator.checkNumber(input);
         NumberValidator.checkNumberOverZero(Integer.parseInt(input));
     }
 }
