@@ -21,6 +21,7 @@ public class GameSystem {
         this.carCount = 0;
         this.trialCount = 0;
         this.maxPosition = 0;
+        this.winners = new ArrayList<>();
     }
 
     public int getTrialCount() {
@@ -57,18 +58,19 @@ public class GameSystem {
         }
     }
 
-    private void setMaxPosition() {
+    public void setMaxPosition() {
         int max = 0;
 
         for (int i = 0; i < carCount; i++) {
             int position = cars[i].getPosition();
             if (position >= max) {
-                maxPosition = position;
+                max = position;
             }
         }
+        this.maxPosition = max;
     }
 
-    private void setWinners() {
+    public void setWinners() {
         for (int i = 0; i < carCount; i++) {
             int position = cars[i].getPosition();
             if (maxPosition == position) {
@@ -99,6 +101,18 @@ public class GameSystem {
 
         for (int i = 0; i < trialCount; i++) {
             doOneTrial();
+        }
+    }
+
+    public void printWinners() {
+        int winnerCount = winners.size();
+        int index = 0;
+        String name = winners.get(index).getName();
+
+        System.out.print("최종 우승자: " + name);
+        for (index++; index < winnerCount; index++) {
+            name = winners.get(index).getName();
+            System.out.print(", " + name);
         }
     }
 
