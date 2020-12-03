@@ -18,10 +18,15 @@ public class Game {
     public void start() {
         printer.printInputCarNameMessage();
         player.inputCarNameArray();
+        generateCar(player.getCarNameArray());
+        printer.printInputTryNumberMessage();
+        player.inputTryNumber();
     }
 
     /* 각 차수별로 각 자동차를 전진 또는 멈춤하고 실행 결과 출력 */
     public void showMovingResult() {
+        printer.printMovingResultHeader();
+
     }
 
     /* 최종 우승자 뽑고 출력 */
@@ -29,11 +34,19 @@ public class Game {
     }
 
     public void createRandomNumber() {
+
     }
 
     public void judgeMovement() {
     }
 
     public void selectWinner() {
+    }
+
+    public void generateCar(String[] carNameArray) {
+        cars = new Car[carNameArray.length];
+        for (int i = 0; i < carNameArray.length; i++) {
+            cars[i] = new Car(carNameArray[i]);
+        }
     }
 }
