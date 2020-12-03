@@ -14,16 +14,27 @@ public class Race {
         // todo 각 차수별 실행 결과 구하기
         List<Car> winners = new ArrayList<>();
 
-        System.out.println("%n실행 결과");
+        System.out.println("실행 결과");
+
         for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                if (isMove()) {
-                    car.moveForward();
-                }
-            }
+            singleTry(cars);
         }
 
         return new GameResult(new Winners(winners));
+    }
+
+    private static void singleTry(List<Car> cars) {
+        for (Car car : cars) {
+            moveOrStay(car);
+        }
+        System.out.println();
+    }
+
+    private static void moveOrStay(Car car) {
+        if (isMove()) {
+            car.moveForward();
+        }
+        car.printStatus();
     }
 
     private static boolean isMove() {
