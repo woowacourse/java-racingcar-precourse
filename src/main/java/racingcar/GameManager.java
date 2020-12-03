@@ -9,21 +9,14 @@ public class GameManager {
     private final String POSITION_BAR = "-";
     private final int FIRST_ROUND = 1;
     private static final int START_INCLUSIVE_NUMBER = 0;
-    private static final int END_INCLUSIVE_NUMBER = 9;
-    private static final int GO_THRESHOLD = 4;
-
-    private static boolean isGo(Car car) {
-        int randomNumber = RandomUtils.nextInt(START_INCLUSIVE_NUMBER,END_INCLUSIVE_NUMBER);
-        if (GO_THRESHOLD <= randomNumber) {
-            return true; // GO
-        }
-        return false; // STOP
-    }
+    private static final int END_EXCLUSIVE_NUMBER = 10;
 
     private void moveCars(List<Car> cars) {
         cars.stream()
-                .filter(GameManager::isGo)
-                .forEach(car -> car.changePosition());
+                .forEach(car -> {
+                    int randomNumber = RandomUtils.nextInt(START_INCLUSIVE_NUMBER, END_EXCLUSIVE_NUMBER);
+                    car.changePosition(randomNumber);
+                });
     }
 
     private void announceCurrentStatus(List<Car> cars) {
@@ -51,4 +44,5 @@ public class GameManager {
             announceCurrentStatus(cars);
         }
     }
+
 }

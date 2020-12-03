@@ -4,9 +4,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Car {
+    private static final int GO_THRESHOLD = 4;
+
     private final String name;
     private int position = 0;
-    public int goCount = 0;
 
     public Car(String name) {
         this.name = name;
@@ -14,8 +15,10 @@ public class Car {
 
     // 추가 기능 구현
 
-    public void changePosition() {
-        this.position++;
+    public void changePosition(int randomNumber) {
+        if (GO_THRESHOLD <= randomNumber) {
+            this.position++; // GO
+        }
     }
 
     public String getName() {
