@@ -1,9 +1,10 @@
 package racingcar;
 
 import domain.Car;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import utils.InputDigit;
+import utils.RandomDigit;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,15 +12,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RaceTest {
+    final static int MIN_RUNNABLE = 4;
+
     @Test
     @DisplayName("라운드 횟수 당 현재 위치가 잘 증가되는 지 확인")
     public void testPositionPerRound() throws Exception {
         //given
         List<Car> cars = createCars();
         final int ROUND = 3;
-        Race race = new TestRace(cars, ROUND);
+        Race race = new Race(cars, ROUND);
         //when
-        race.start();
+        race.start(new InputDigit(MIN_RUNNABLE));
         //then
         cars.forEach(car -> assertEquals(car.getCurrentPosition(), ROUND));
     }
@@ -30,13 +33,12 @@ class RaceTest {
         //given
         List<String> winners = Arrays.asList("Bomin", "Daniel");
         List<Car> cars = createCars();
-        final int MIN_RUNNABLE = 4;
         final int ROUND = 3;
         cars.stream().filter(car -> winners.contains(car.getName()))
                 .forEach(car -> car.run(MIN_RUNNABLE));
-        Race race = new TestRace(cars, ROUND);
+        Race race = new Race(cars, ROUND);
         //when
-        List<String> result = race.start();
+        List<String> result = race.start(new InputDigit(MIN_RUNNABLE));
         //then
         result.forEach(name -> assertTrue(winners.contains(name)));
     }
@@ -48,9 +50,9 @@ class RaceTest {
         List<Car> cars = createCars();
         final int ROUND = 5;
         //when
-        Race race = new RandomRace(cars, ROUND);
+        Race race = new Race(cars, ROUND);
         //then
-        race.start();
+        race.start(new RandomDigit());
     }
 
     private List<Car> createCars() {

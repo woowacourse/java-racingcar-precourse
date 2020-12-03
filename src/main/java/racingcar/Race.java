@@ -1,13 +1,14 @@
 package racingcar;
 
 import domain.Car;
+import utils.DigitStrategy;
 import utils.Printer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Race {
-    protected List<Car> cars;
+public class Race {
+    private List<Car> cars;
     private int round;
 
     public Race(List<Car> cars, int round) {
@@ -15,15 +16,17 @@ public abstract class Race {
         this.round = round;
     }
 
-    public List<String> start() {
+    public List<String> start(DigitStrategy digitStrategy) {
         for (int i = 0; i < round; i++) {
-            makeCarRun();
+            makeCarRun(digitStrategy);
             printCurrentPosition();
         }
         return RaceResult.getResult(cars);
     }
 
-    protected abstract void makeCarRun();   //달리는 방식은 자식 객체에서 정한다.
+    private void makeCarRun(DigitStrategy digitStrategy){
+        cars.forEach(car -> car.run(digitStrategy.getDigit()));
+    }
 
     private void printCurrentPosition() {
         cars.forEach(Printer::printCurrentPosition);
