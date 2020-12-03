@@ -29,7 +29,8 @@ public class Application {
         cars = makeCarList(carNames);
 
         view.println(REQUEST_INPUT_ROUND_MSG);
-        String numberOfRound = view.inputNextLine();
+        int numberOfRound = view.inputNextInt();
+        System.out.println(numberOfRound);
     }
 
     private List<Car> makeCarList(String userInput) {
