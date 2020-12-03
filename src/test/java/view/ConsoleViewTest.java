@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ConsoleViewTest {
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -34,10 +35,23 @@ class ConsoleViewTest {
     @Test
     public void 입력_테스트() {
         String inputString = "Hello World!";
+        consoleView = makeIncludingStringConsoleView(inputString);
+
+        assertThat(consoleView.inputNextLine()).isEqualTo(inputString);
+    }
+
+    @DisplayName("숫자가 아닌 값이 입력되면 오류가 나는지 확인")
+    @Test
+    void inputNextInt() {
+        String inputString = "A";
+        consoleView = makeIncludingStringConsoleView(inputString);
+
+        assertThatThrownBy(() -> consoleView.inputNextInt()).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    ConsoleView makeIncludingStringConsoleView(String inputString){
         byte[] byteArrray = inputString.getBytes();
         ByteArrayInputStream inputData = new ByteArrayInputStream(byteArrray);
-
-        consoleView = new ConsoleView(new Scanner(inputData));
-        assertThat(consoleView.inputNextLine()).isEqualTo(inputString);
+        return new ConsoleView(new Scanner(inputData));
     }
 }
