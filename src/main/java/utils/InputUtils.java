@@ -19,14 +19,24 @@ public class InputUtils {
         return scanner.nextLine();
     }
 
-    public String inputAndGetCarName() {
+    public String[] inputAndGetCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.");
         String carName = getNextLine();
-        return carName;
+        String[] carNames = splitByRest(carName);
+        return carNames;
     }
 
     public String[] splitByRest(String carName) {
         String[] carNames = carName.split(",");
+        validateSplitNames(carNames);
         return carNames;
+    }
+
+    private void validateSplitNames(String[] carNames) {
+        Arrays.stream(carNames).forEach(carName -> {
+            if (carName.equals("")) {
+                throw new IllegalArgumentException("[ERROR] 연속된 쉼표는 허용하지 않습니다.");
+            }
+        });
     }
 }

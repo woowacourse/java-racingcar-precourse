@@ -27,24 +27,24 @@ class InputUtilsTest {
         InputUtils inputUtils = getInputUtils(inputText);
 
         //when
-        String nextLine = inputUtils.inputAndGetCarName();
+        String [] carNames = inputUtils.inputAndGetCarNames();
 
         //then
-        assertThat(inputText).isEqualTo(nextLine);
+        assertThat(inputText).isEqualTo(carNames[0]);
     }
 
     @Test
     @DisplayName("특수문자도 입력받을 수 있다.")
     void testInputSpecialCharacters() {
         //given
-        String inputText = "~!@,";
+        String inputText = "~!@";
         InputUtils inputUtils = getInputUtils(inputText);
 
         //when
-        String nextLine = inputUtils.inputAndGetCarName();
+        String [] carNames = inputUtils.inputAndGetCarNames();
 
         //then
-        assertThat(inputText).isEqualTo(nextLine);
+        assertThat(inputText).isEqualTo(carNames[0]);
     }
 
     @Test
@@ -60,5 +60,18 @@ class InputUtilsTest {
         //then
         assertThat(carNames[0]).isEqualTo("hello");
         assertThat(carNames[1]).isEqualTo("franc");
+    }
+
+    @Test
+    @DisplayName("쉼표가 연속 될 시 에러가 발생한다")
+    void testSplitsCarName() {
+        //given
+        String inputText = "hello,,,franc";
+        InputUtils inputUtils = getInputUtils(inputText);
+
+        //the
+        assertThatThrownBy(() -> inputUtils.splitByRest(inputText))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 연속된 쉼표는 허용하지 않습니다.");
     }
 }

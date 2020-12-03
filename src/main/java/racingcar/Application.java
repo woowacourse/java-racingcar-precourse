@@ -9,7 +9,9 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
         InputUtils inputUtils = InputUtils.of(scanner);
-        String carName = inputUtils.inputAndGetCarName();
-        System.out.println("carName = " + carName);
+        String[] carNames = inputUtils.inputAndGetCarNames();
+        for (String carName : carNames) {
+            System.out.println("carName = " + carName);
+        }
     }
 }
