@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RacingGame {
-    Scanner scanner;
-    List<Car> racingCars;
+    private Scanner scanner;
+    private List<Car> racingCars;
+    private int numberOfRuns;
 
     public RacingGame(Scanner scanner) {
         this.scanner = scanner;
@@ -26,6 +27,8 @@ public class RacingGame {
     }
 
     public void getNumberOfRunsFromUser() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        this.numberOfRuns = GameUtils.isNumOfRunsRight(scanner.next());
     }
 
     public void findWinner() {
