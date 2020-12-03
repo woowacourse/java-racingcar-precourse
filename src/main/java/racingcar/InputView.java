@@ -58,7 +58,6 @@ public class InputView {
     }
 
     private void validateBlankElements(List<String> names) {
-        System.out.println(names);
         names.forEach(this::validateBlankName);
     }
 
