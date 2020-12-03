@@ -13,6 +13,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        validateNameLength(name);
         this.name = name;
     }
 
@@ -30,6 +31,12 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    private void validateNameLength(String name) {
+        if (name.length() == 0) {
+            throw new IllegalArgumentException("[Error] 경주할 자동차 이름이 6자 이상이면 안 됩니다.");
+        }
     }
 
     private int getRandomNumber() {

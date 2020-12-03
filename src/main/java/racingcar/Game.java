@@ -14,6 +14,9 @@ public class Game {
         //  경주할 자동차들 이름 입력 받기
         String carNamesInput = Input.receiveRacingCarNames(scanner);
         String[] carNames = carNamesInput.split(",");
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException("[Error] 이름이 공백이거나 콤마(,)이면 안 됩니다.");
+        }
 
         // 시도할 횟수 입력 받기
         String attemptsCountInput = Input.receiveAttemptsCount(scanner);
