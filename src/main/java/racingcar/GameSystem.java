@@ -7,18 +7,25 @@ import java.util.Set;
 
 public class GameSystem {
     private static final int MIN_CAR_COUNT = 2;
+    private static final int MIN_TRIAL_COUNT = 1;
     private static final int MAX_NAME_LENGTH = 5;
 
     private int carCount;
+    private int trialCount;
     private Car[] cars;
 
 
     public GameSystem() {
         this.carCount = 0;
+        this.trialCount = 0;
     }
 
     private int getCarCount() {
         return carCount;
+    }
+
+    public int getTrialCount() {
+        return trialCount;
     }
 
     public Car[] getCars() {
@@ -27,6 +34,22 @@ public class GameSystem {
 
     private void setCarCount(int count) {
         this.carCount = count;
+    }
+
+    public void setTrialCount(Scanner scanner) {
+        String input;
+
+        while (true) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            input = scanner.nextLine();
+            try {
+                checkValidTrialCount(input);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        this.trialCount = Integer.parseInt(input);
     }
 
     private void setCars(String[] names) {
@@ -43,6 +66,7 @@ public class GameSystem {
 
     public void makeCars(Scanner scanner) {
         String[] tmpNames;
+
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표 (,) 기준으로 구분)");
             String input = scanner.nextLine();
@@ -51,8 +75,7 @@ public class GameSystem {
                 checkValidCars(tmpNames);
                 break;
             } catch (IllegalArgumentException e) {
-                String message = e.getMessage();
-                System.out.println(message);
+                System.out.println(e.getMessage());
             }
         }
         setCars(tmpNames);
@@ -77,6 +100,18 @@ public class GameSystem {
         }
         if (!checkAllValid(names)) {
             throw new IllegalArgumentException("[ERROR] 차 이름의 길이는 5자 이하여야 합니다.");
+        }
+    }
+
+    private void checkValidTrialCount(String string) throws IllegalArgumentException {
+        if (string.equals("")) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 1이상의 정수여야 합니다.");
+        }
+        if (!checkAllDigit(string)) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 1이상의 정수여야 합니다.");
+        }
+        if (!checkPositive(string)) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 1이상의 정수여야 합니다.");
         }
     }
 
@@ -118,6 +153,26 @@ public class GameSystem {
             if (names[i].length() > MAX_NAME_LENGTH) {
                 return false;
             }
+        }
+        return true;
+    }
+
+    private boolean checkAllDigit(String string) {
+        int length = string.length();
+
+        for (int i = 0; i < length; i++) {
+            if (!Character.isDigit(string.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPositive(String string) {
+        int num = Integer.parseInt(string);
+
+        if (num < MIN_TRIAL_COUNT) {
+            return false;
         }
         return true;
     }
