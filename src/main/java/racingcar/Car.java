@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Car {
+    private final int RUNNABLE_MIN_NUM = 4;
     private final String name;
     private int position = 0;
 
@@ -9,4 +10,21 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void run(int inputNumber) {
+        if (runnable(inputNumber)) {
+            position++;
+        }
+    }
+
+    private boolean runnable(int inputNumber) {
+        return inputNumber >= RUNNABLE_MIN_NUM;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getCurrentPosition(){
+        return position;
+    }
 }
