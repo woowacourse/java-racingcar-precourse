@@ -2,7 +2,6 @@ package racingcar;
 
 import View.InputView;
 import View.OutputView;
-import exceptions.Validator;
 import exceptions.customExceptions.NotValidInputException;
 
 import java.util.Arrays;
@@ -25,7 +24,7 @@ public class RacingcarController {
 
             String inputCarName = InputView.inputCarName(scanner);
             cars = new Cars(convertInputStringToCarList(inputCarName));
-            int numberOfProgress = inputNumberOfProgress(scanner);
+            int numberOfProgress = InputView.inputNumberOfProgress(scanner);
 
             playGame(numberOfProgress);
 
@@ -50,13 +49,6 @@ public class RacingcarController {
                 .filter(carName -> !carName.equals(""))
                 .map(carName -> new Car(carName.trim()))
                 .collect(Collectors.toList());
-    }
-
-    private int inputNumberOfProgress(Scanner scanner) {
-        String numberOfProgress = InputView.inputNumberOfProgress(scanner);
-        Validator.validateNumberOfProgress(numberOfProgress);
-
-        return Integer.parseInt(numberOfProgress);
     }
 
 }

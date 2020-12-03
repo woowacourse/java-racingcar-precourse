@@ -1,5 +1,7 @@
 package View;
 
+import exceptions.Validator;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -12,8 +14,12 @@ public class InputView {
         return scanner.nextLine();
     }
 
-    public static String inputNumberOfProgress(Scanner scanner) {
+    public static int inputNumberOfProgress(Scanner scanner) {
         System.out.println(INPUT_NUMBER_OF_PROGRESS);
-        return scanner.nextLine();
+        String numberOfProgress = scanner.nextLine();
+        Validator.validateNumberOfProgress(numberOfProgress);
+
+        return Integer.parseInt(numberOfProgress);
     }
+
 }
