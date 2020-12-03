@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
+
     private List<Car> cars = new ArrayList<>();
     private AttemptsCount attemptsCount;
 

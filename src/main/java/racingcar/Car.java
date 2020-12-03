@@ -3,8 +3,6 @@ package racingcar;
 import ui.Output;
 import utils.RandomUtils;
 
-import java.util.Scanner;
-
 public class Car {
 
     private static final int START_NUMBER = 0;

@@ -1,6 +1,7 @@
 package racingcar;
 
 public class AttemptsCount {
+
     private int count = 0;
 
     public AttemptsCount(String count) {
