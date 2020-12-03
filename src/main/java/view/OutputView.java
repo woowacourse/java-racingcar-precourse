@@ -1,7 +1,6 @@
 package view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OutputView {
     private static final String NEW_LINE = "\n";
