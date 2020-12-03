@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import utils.RandomUtils;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -36,5 +38,24 @@ public class Cars {
             return true;
         }
         return false;
+    }
+
+    public Winner getWinnerCars() {
+        List<Car> winner = new ArrayList<>();
+        Collections.sort(cars);
+        int maxPosition = cars.get(0).getPosition();
+        for (Car car : cars) {
+            if(car.isMaxPosition(maxPosition)) {
+                winner.add(car);
+            }
+        }
+        return new Winner(winner);
+    }
+
+    public void printResultCars() {
+        for (Car car : cars) {
+            car.printAttemptResult();
+        }
+        System.out.println();
     }
 }

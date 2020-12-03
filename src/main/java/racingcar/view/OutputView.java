@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.domain.Winner;
+
 public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String ATTEMPT_RESULT_MESSAGE = "%s : %s\n";
@@ -11,5 +13,9 @@ public class OutputView {
 
     public static void printResultScore(String carName, String positionBars) {
         System.out.printf(ATTEMPT_RESULT_MESSAGE, carName, positionBars);
+    }
+
+    public static void printWinner(Winner winner) {
+        System.out.println(WINNER_MESSAGE + winner.getWinners());
     }
 }
