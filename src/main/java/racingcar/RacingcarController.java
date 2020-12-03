@@ -13,6 +13,7 @@ public class RacingcarController {
 
     private static final String DELIMITER = ",";
     private final Scanner scanner;
+    private Cars cars;
 
     public RacingcarController(Scanner scanner) {
         this.scanner = scanner;
@@ -20,15 +21,21 @@ public class RacingcarController {
 
     public void run() {
         String inputCarName = InputView.inputCarName(scanner);
-        Cars cars = new Cars(convertInputStringToCarList(inputCarName));
+        cars = new Cars(convertInputStringToCarList(inputCarName));
         int numberOfProgress = inputNumberOfProgress(scanner);
-        
+        gamePlay(numberOfProgress);
+    }
+
+    private void gamePlay(int numberOfProgress) {
+        for (int i = 0; i < numberOfProgress; i++) {
+            cars.progressTurn();
+        }
     }
 
     private List<Car> convertInputStringToCarList(String inputCarName) {
-       return Arrays.stream(inputCarName.trim().split(DELIMITER))
+        return Arrays.stream(inputCarName.trim().split(DELIMITER))
                 .filter(carName -> !carName.equals(""))
-                .map(carName -> new Car(carName))
+                .map(carName -> new Car(carName.trim()))
                 .collect(Collectors.toList());
     }
 
