@@ -155,12 +155,12 @@ public class Car {
 1. Car 객체 움직이도록 하는 기능 구현
     - RandomUtils 사용하여 움직이거나 정지하고 그에따라 position 필드값 변동하도록 하는 메서드 구현 
 2. CarRace 클래스 생성
-    - 필드 변수 : 경기에 참가하는 모든 Car 객체 담는 Map, 우승자 객체들을 담는 List
-    - 생성자 : 콤마 포함한 String 값 매개변수로 받아 생성자에서 Car 객체 만들고 경기참가 map 초기화하고 이름을 키값으로 add함
+    - 필드 변수 : 경기에 참가하는 모든 Car 객체 담는 List
+    - 생성자 : 콤마 포함한 String 값 매개변수로 받는다. 경기참가 list 초기화하고 매개변수를 split 하여 Car 객체 생성 후 list에 추가
 3. 실제 경기 진행 구현
-    - 경기 횟수 입력받아 map 안의 모든 Car 객체 움직이게하고 최종 position 값을 value로 map안에 넣음
+    - 경기 횟수 입력받아 map 안의 모든 Car 객체 움직이게하고 최종 position 값을 value로 list안에 넣음
     - 각 회차마다 진행상황 print하는 기능 구현 
-    - map 안의 가장 높은 value 값을 가지는 키값들을 우승자 list에 add함
+    - 경기참가 list 안 객체들 중 position 값이 가장 높은 객체들 골라 우승자 print 기능 구현
 4. 결과물 출력 
     - Application.class 의 main 에서 Car 이름과 실행횟수를 입력받고 실제로 경기를 진행하도록 구현 
 
