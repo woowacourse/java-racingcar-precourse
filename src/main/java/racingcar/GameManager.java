@@ -4,7 +4,6 @@ import utils.InputManager;
 import utils.Sentences;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class GameManager {
@@ -14,16 +13,15 @@ public class GameManager {
         InputManager inputManager = new InputManager();
         ArrayList<Car> cars = new ArrayList<>(inputManager.scanCarNames(scanner));
         Round round = new Round(inputManager.scanRound(scanner));
-        System.out.println("최종 우승자 : " + Sentences.SHOW_RESULT);
+        System.out.println(Sentences.SHOW_RESULT);
 
-        while(true) {
+        for(int i = 0; i < round.getRound(); i++) {
             startRace(cars);
             showRace(cars);
-            if(judge(cars, round).size() != 0) {
-                System.out.println(judge(cars, round));
-                break;
+            System.out.println("\n");
             }
-        }
+
+        printWinner(cars, round);
     }
 
     public void startRace(ArrayList<Car> cars) {
@@ -38,19 +36,23 @@ public class GameManager {
             for(int i = 0; i < car.getPosition(); i++) {
                 progress.add(Sentences.PROGRESS);
             }
-            System.out.println(car.getName() + " : " + progress);
-            System.out.println("\n");
+            System.out.println(car.getName() + " : " + progress.toString());
         }
     }
 
-    public ArrayList<String> judge(ArrayList<Car> cars, Round round) {
-        ArrayList<String> winners = new ArrayList<>();
+    public void printWinner(ArrayList<Car> cars, Round round) {
+        int winCount = 0;
         for(Car car : cars) {
-            if(car.getPosition() == round.getRound()) {
-                winners.add(car.getName());
+            if(car.getPosition() > winCount) {
+                winCount = car.getPosition();
             }
         }
-        return winners;
+        System.out.println(Sentences.SHOW_WINNER);
+        for(Car car : cars) {
+            if(car.getPosition() == winCount) {
+                System.out.println(car.getName());
+            }
+        }
+        return;
     }
-
 }
