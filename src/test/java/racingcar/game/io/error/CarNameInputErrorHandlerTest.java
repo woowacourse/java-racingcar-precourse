@@ -10,6 +10,15 @@ class CarNameInputErrorHandlerTest {
     private final CarNameInputErrorHandler errorHandler
         = new CarNameInputErrorHandler();
 
+    @DisplayName("정상 입력")
+    @Test
+    void validInput() {
+        String[] carNames = {"abc,abcde", "가나다,가나다라마,ㅁㄴㅇ", "ㅁㄴㅇ,ㅣㅏㅓㅣ,ab,가나"};
+        for (String carName : carNames) {
+            assertTrue(errorHandler.createAndStoreIfIsValidInput(carName, new Cars()));
+        }
+    }
+
     @DisplayName("자동차 이름이 두 개 이상이 아닌 경우(쉼표(,)가 하나도 없는 경우)")
     @Test
     void duplicateCarNameError() {
