@@ -18,14 +18,8 @@ public class OutputView {
         System.out.println(NEW_LINE + "실행 결과");
     }
 
-    public static void printRaceResultEachCar(String name, int position) {
-        System.out.print(name + " : " );
-
-        for (int i = 0; i < position; i++) {
-            System.out.print(MOVE_SIGN);
-        }
-
-        System.out.println();
+    public static void printRaceResultEachCar(String name, String moveSign) {
+        System.out.println(name + " : " + moveSign);
     }
 
     public static void printNewLine() {

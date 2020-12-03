@@ -39,4 +39,15 @@ public class Cars {
             car.goForward();
         }
     }
+
+    public void showRaceState() {
+        OutputView.printRaceResult();
+
+    }
+
+    public void showEachCarState() {
+        for (Car car : cars) {
+            OutputView.printRaceResultEachCar(car.getName(), car.getMoveSign());
+        }
+    }
 }
