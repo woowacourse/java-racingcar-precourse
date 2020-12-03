@@ -13,7 +13,8 @@ public class RacingManager {
 
         System.out.println(Constants.NEW_LINE + Constants.RACING_START);
 
-        for (int round = 0; round < Integer.parseInt(inputView.getUserTrialCount()); round++) {
+        int userTrialCount = Integer.parseInt(inputView.getUserTrialCount());
+        for (int round = 0; round < userTrialCount; round++) {
             cars.runCars();
             OutputView.printRacingStatus(cars);
         }

@@ -7,6 +7,10 @@ import java.util.List;
 public class Cars {
     List<Car> cars = new ArrayList<>();
 
+    private void addCar(Car car) {
+        this.cars.add(car);
+    }
+
     public void makeCars(String userInput) {
         String[] users = userInput.split(Constants.COMMA);
 
@@ -18,10 +22,6 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
-    }
-
-    private void addCar(Car car) {
-        this.cars.add(car);
     }
 
     public void runCars() {
