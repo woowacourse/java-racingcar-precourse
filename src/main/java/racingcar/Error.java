@@ -1,7 +1,9 @@
 package racingcar;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Error {
 
@@ -15,18 +17,16 @@ public class Error {
 
     Input input = new Input();
 
-    public void checkSameCarName(String[] carNameArray) throws IllegalArgumentException{
-        List<String> carNameList = input.getCarNameList(carNameArray);
-        for (String carName : carNameList) {
-            if(carNameList.contains(carName)) {
-                System.out.print(ERROR_PREFIX + SAME_CAR_NAME_ERROR);
-                throw new IllegalArgumentException();
-            }
+    public void checkSameCarName(List<String> carNameList) throws IllegalArgumentException{
+        Set<String> carNameSet = new HashSet<>(carNameList);
+        if(carNameSet.size() < carNameList.size()) {
+            System.out.print(ERROR_PREFIX + SAME_CAR_NAME_ERROR);
+            throw new IllegalArgumentException();
         }
+
     }
 
-    public void checkCarNameLength(String[] carNameArray) throws IllegalArgumentException{
-        List<String> carNameList = input.getCarNameList(carNameArray);
+    public void checkCarNameLength(List<String> carNameList) throws IllegalArgumentException{
         for (String carName : carNameList) {
             if (carName.length() > MAX_CAR_NAME_LENGTH || carName.length() < MIN_CAR_NAME_LENGTH) {
                 System.out.print(ERROR_PREFIX + INVALID_CAR_NAME_LENGTH_ERROR);
