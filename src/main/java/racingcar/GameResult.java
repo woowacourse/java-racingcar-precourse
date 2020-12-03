@@ -5,17 +5,15 @@ import java.util.stream.Collectors;
 
 public class GameResult {
 
+    List<Car> winners;
+
     public GameResult(List<Car> winners) {
         this.winners = winners;
     }
-
-    List<Car> winners;
 
     public String getWinnerNames() {
         return winners.stream()
                 .map(Object::toString)
                 .collect(Collectors.joining(", "));
-
     }
-
 }
