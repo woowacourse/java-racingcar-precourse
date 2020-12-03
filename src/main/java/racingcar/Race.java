@@ -45,17 +45,17 @@ public class Race {
     }
 
     private void winnerPrize() {
-        String[] winners = getWinners();
-        int winnerNum = winners.length;
+        List<String> winners = getWinners();
+        int winnerNum = winners.size();
 
         System.out.print(MessageBox.FINAL_WINNER_MESSAGE);
 
         for (int i = 0; i < winnerNum; i++) {
             if (i == winnerNum - 1) {
-                System.out.print(winners[i]);
+                System.out.print(winners.get(i));
                 break;
             }
-            System.out.print(winners[i] + ", ");
+            System.out.print(winners.get(i) + ", ");
         }
     }
 
