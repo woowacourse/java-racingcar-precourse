@@ -30,7 +30,7 @@ public class Cars {
 
     public List<Car> findWinners() {
         int winnersPosition = cars.stream()
-                .mapToInt(car -> car.getPosition())
+                .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
 
@@ -40,7 +40,7 @@ public class Cars {
     }
 
     private void compareRandomNumberAndMove(Car car) {
-        if (RandomNumber.getRandomNumber() >= MINIMUM_NUMBER_TO_MOVE) {
+        if (RandomNumber.generate() >= MINIMUM_NUMBER_TO_MOVE) {
             car.moveCarForward();
         }
     }

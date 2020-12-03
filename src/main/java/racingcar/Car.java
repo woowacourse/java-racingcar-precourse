@@ -23,6 +23,7 @@ public class Car {
 
     public String getProgressBar() {
         String progressBar = "";
+
         for (int i = 0; i < position; i++) {
             progressBar += "-";
         }

@@ -26,14 +26,14 @@ public class RacingcarController {
             cars = new Cars(convertInputStringToCarList(inputCarName));
             int numberOfProgress = InputView.inputNumberOfProgress(scanner);
 
-            playGame(numberOfProgress);
+            startRacing(numberOfProgress);
 
         } catch (NotValidInputException e) {
             e.printStackTrace();
         }
     }
 
-    private void playGame(int numberOfProgress) {
+    private void startRacing(int numberOfProgress) {
 
         OutputView.newLine();
         OutputView.printProgressResultMessage();

@@ -13,7 +13,6 @@ public class Validator {
     private static final String EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 " + MAXIMUM_CAR_NAME_LENGTH + "자 이하여야 한다.";
 
     public static void validateCarsSize(List<Car> cars) {
-
         if (cars.size() < MINIMUM_CARS_SIZE) {
             throw new NotValidInputException(EMPTY_CAR_NAME_ERROR_MESSAGE);
         }
