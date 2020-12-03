@@ -21,4 +21,12 @@ public class Racing {
         return carList;
     }
 
+    public void printMove(int move) {
+        for (int i = 0; i < move; i++) {
+            System.out.print("-");
+        }
+    }
+
+
+
 }
