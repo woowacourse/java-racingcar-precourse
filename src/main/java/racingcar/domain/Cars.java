@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
 import utils.RandomUtils;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class Cars {
     private static final int NINE = 9;
     private static final int FOUR = 4;
     private static final String NAME_LENGTH_ERROR = "[ERROR] 자동차 이름을 입력해주세요";
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         validateExistCars(cars);
@@ -26,14 +27,14 @@ public class Cars {
 
     public void goOrStopCars() {
         for (Car car : cars) {
-            int randomNumber = RandomUtils.nextInt(ZERO, NINE);
-            if(isGo(randomNumber)) {
+            if(isGo()) {
                 car.goCar();
             }
         }
     }
 
-    private boolean isGo(int randomNumber) {
+    private boolean isGo() {
+        int randomNumber = RandomUtils.nextInt(ZERO, NINE);
         if(randomNumber >= FOUR) {
             return true;
         }
@@ -54,7 +55,7 @@ public class Cars {
 
     public void printResultCars() {
         for (Car car : cars) {
-            car.printAttemptResult();
+            OutputView.printResultScore(car);
         }
         System.out.println();
     }

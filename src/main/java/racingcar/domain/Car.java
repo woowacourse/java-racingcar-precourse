@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.view.OutputView;
-
 public class Car implements Comparable<Car> {
     private static final int MIN_CAR_NAME_LENGTH = 1;
     private static final int MAX_CAR_NAME_LENGTH = 5;
@@ -25,11 +23,7 @@ public class Car implements Comparable<Car> {
         position++;
     }
 
-    public void printAttemptResult() {
-        OutputView.printResultScore(name, positionToBars());
-    }
-
-    private String positionToBars() {
+    public String positionToBars() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < position; i++) {
             stringBuilder.append("-");

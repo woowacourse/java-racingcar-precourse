@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import racingcar.domain.Car;
 import racingcar.domain.Winner;
 
 public class OutputView {
@@ -11,8 +12,8 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public static void printResultScore(String carName, String positionBars) {
-        System.out.printf(ATTEMPT_RESULT_MESSAGE, carName, positionBars);
+    public static void printResultScore(Car car) {
+        System.out.printf(ATTEMPT_RESULT_MESSAGE, car.getName(), car.positionToBars());
     }
 
     public static void printWinner(Winner winner) {
