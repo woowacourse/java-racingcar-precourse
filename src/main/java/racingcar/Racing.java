@@ -62,14 +62,8 @@ public class Racing {
         String eventWinnerList = "";
         int maxPositionInRacingEvent = -1;
         maxPositionInRacingEvent = getMaxPosition(maxPositionInRacingEvent);
+        eventWinnerList = getRaceWinnerString(maxPositionInRacingEvent);
 
-        for (Car carInRacingEvent : racerList) {
-            int thisRacerPositionInRacingEvent = carInRacingEvent.getPosition();
-            if (maxPositionInRacingEvent == thisRacerPositionInRacingEvent) {
-                eventWinnerList += carInRacingEvent.getRacerName();
-                eventWinnerList += EVENT_WINNER_FORMAT_CHARACTER;
-            }
-        }
         String result = eventWinnerList.substring(0, eventWinnerList.length() - 2);
         System.out.println(EVENT_WINNER_ANNOUNCEMENT + result);
     }
@@ -82,5 +76,17 @@ public class Racing {
             }
         }
         return maxPositionInRacingEvent;
+    }
+
+    private String getRaceWinnerString(int maxPositionInRacingEvent) {
+        String eventWinnerList = "";
+        for (Car carInRacingEvent : racerList) {
+            int thisRacerPositionInRacingEvent = carInRacingEvent.getPosition();
+            if (maxPositionInRacingEvent == thisRacerPositionInRacingEvent) {
+                eventWinnerList += carInRacingEvent.getRacerName();
+                eventWinnerList += EVENT_WINNER_FORMAT_CHARACTER;
+            }
+        }
+        return eventWinnerList;
     }
 }
