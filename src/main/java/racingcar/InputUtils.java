@@ -42,7 +42,7 @@ public class InputUtils {
 
     private boolean checkRacerNameDuplication(String name) {
         if (!runnerNameCheckSet.add(name)) {
-            System.out.println("duplication" + name);
+            MessageUtils.errorExceptionThrow(Constants.DUPLICATION_ERROR_ANNOUNCEMENT);
             return true;
         }
         return false;
@@ -50,7 +50,7 @@ public class InputUtils {
 
     private boolean checkRacerNameLength(String name) {
         if (name.length() > Constants.RACER_NAME_LENGTH) {
-            System.out.println("Over character" + name);
+            MessageUtils.errorExceptionThrow(Constants.OVER_LENGTH_ERROR_ANNOUNCEMENT);
             return false;
         }
         return true;
@@ -59,14 +59,27 @@ public class InputUtils {
     private boolean checkRoundCountValidation(String inputRoundCount) {
         for (int i = 0; i < inputRoundCount.length(); i++) {
             if (!Character.isDigit(inputRoundCount.charAt(i))) {
-                System.out.println(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
+                MessageUtils.errorExceptionThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
                 return false;
             }
             if (inputRoundCount.charAt(i) < 1) {
-                System.out.println(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
+                MessageUtils.errorExceptionThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
                 return false;
             }
         }
+        if (!checkRoundCountPositiveNumberValidation(inputRoundCount)) {
+            return false;
+        }
         return true;
     }
+
+    private boolean checkRoundCountPositiveNumberValidation(String inputRoundCount) {
+        int positiveNumberCheck = Integer.parseInt(inputRoundCount);
+        if (positiveNumberCheck <= 0) {
+            MessageUtils.errorExceptionThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
+            return false;
+        }
+        return true;
+    }
+
 }
