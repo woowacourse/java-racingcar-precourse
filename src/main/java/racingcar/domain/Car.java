@@ -9,4 +9,7 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void move() {
+        this.position++;
+    }
 }

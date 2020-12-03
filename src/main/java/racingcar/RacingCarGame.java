@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.controller.InputController;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import utils.RandomUtils;
 
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class RacingCarGame {
     private static final int RANGE_OF_NUMBER_ZERO = 0;
     private static final int RANGE_OF_NUMBER_NINE = 9;
+    private static final int STATUS_MOVE = 4;
     private final InputController input;
 
     public RacingCarGame() {
@@ -25,6 +27,12 @@ public class RacingCarGame {
 
     private void playGame(Cars cars, int tryCount) {
 
+    }
+
+    private void isCarMoveOrStop(Car car) {
+        if (getRandomNumber() >= STATUS_MOVE) {
+            car.move();
+        }
     }
 
     private int getRandomNumber() {
