@@ -31,14 +31,17 @@
 
 ## 구현할 기능
 
-- 시도 횟수를 입력 -> 트랙 길이를 정하는 Track class 구현
+- 시도 횟수를 입력 -> 라운드 길이를 정하는 Round class 구현
   * 게임 초기 입력받아 setter를 통해 설정
 - 현재 트랙 현황을 나타내는 TrackStatus class 구현
-- 누가 이겼는 지 판별하는 Judge class 구현
+- 누가 이겼는 지 판별하는 Judge class 구현 ❌
+  * Judge class 구현 취소, 대신 GameManager class에 직접 구현(20.12.03)
 - 출력될 문자열을 모아 둔 Sentences class 구현
 - 실질적인 게임 진행을 도와줄 GameManager class 구현
 
 - Car 객체를 입력받은 자동차 이름 갯수에 따라 어떻게 생성할까??
+
+
 
 ## 📝 License
 

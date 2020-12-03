@@ -3,7 +3,7 @@ package racingcar;
 public class Round {
     public int round;
 
-    public Round() {
+    public Round(int round) {
         this.round = round;
     }
 
