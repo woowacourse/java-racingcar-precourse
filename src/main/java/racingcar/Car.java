@@ -16,7 +16,9 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
     public String getName() { return name; }
+
     public void moveForward() {
         if(RandomUtils.nextInt(RANDOM_LOWER_BOUND, RANDOM_UPPER_BOUND) >= 4) {
             position++;

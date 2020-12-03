@@ -10,8 +10,4 @@ public class Round {
     public int getRound() {
         return round;
     }
-
-    public void decreaseRound(int round) {
-        round--;
-    }
 }

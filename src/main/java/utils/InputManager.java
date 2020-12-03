@@ -8,11 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class InputManager {
-    public int carCount;
+    private String[] carNames;
+    private ArrayList<Car> cars = new ArrayList<>();
 
     public ArrayList<Car> scanCarNames(Scanner scanner) {
-        String[] carNames;
-        ArrayList<Car> cars = new ArrayList<>();
         System.out.println(Sentences.ASK_CAR_NAME);
         while(true) {
             try{

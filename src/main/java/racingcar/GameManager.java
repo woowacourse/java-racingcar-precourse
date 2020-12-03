@@ -14,13 +14,13 @@ public class GameManager {
         InputManager inputManager = new InputManager();
         ArrayList<Car> cars = new ArrayList<>(inputManager.scanCarNames(scanner));
         Round round = new Round(inputManager.scanRound(scanner));
-        System.out.println(Sentences.SHOW_RESULT);
 
+        System.out.println(Sentences.SHOW_RESULT);
         for(int i = 0; i < round.getRound(); i++) {
             startRace(cars);
             showRace(cars);
             }
-        winners = judgeWinner(cars, round);
+        judgeWinner(cars);
         winners = winners.substring(0, winners.length()-1);
         System.out.print(winners);
     }
@@ -42,21 +42,19 @@ public class GameManager {
         System.out.print("\n");
     }
 
-    public String judgeWinner(ArrayList<Car> cars, Round round) {
-        int winCount = 0, j = 0;
-        String winners = "";
+    public void judgeWinner(ArrayList<Car> cars) {
+        int winCount = 0;
+        //StringBuffer winners = new StringBuffer();
         for(Car car : cars) {
             if(car.getPosition() > winCount) {
                 winCount = car.getPosition();
             }
         }
         System.out.print(Sentences.SHOW_WINNER);
-        for(int i = 0; i < cars.size(); i++) {
-            Car car = cars.get(i);
+        for(Car car : cars) {
             if(car.getPosition() == winCount) {
                 winners += car.getName() + ",";
             }
         }
-        return winners;
     }
 }
