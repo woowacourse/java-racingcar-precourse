@@ -1,9 +1,9 @@
 package racingcar.domain.car;
 
 public class Car {
-    private static final int CAR_NAME_MAX_LENGTH_LIMIT = 5;
-    private static final String CAR_NAME_LENGTH_OVER_MESSAGE = "[ERROR] 자동차의 이름은 5글자 이하만 가능합니다.";
     private static final int CAR_NAME_MIN_LENGTH_LIMIT = 1;
+    private static final int CAR_NAME_MAX_LENGTH_LIMIT = 5;
+    private static final String CAR_NAME_LENGTH_OVER_MESSAGE = "[ERROR] 자동차의 이름은 최소 1글자 최대 5글자만 가능합니다.";
     private static final String BLANK = " ";
     private static final String CAR_NAME_NOT_CONTAIN_BLANK_MESSAGE = "[ERROR] 자동차 이름은 공백을 포함할 수 없습니다.";
 
