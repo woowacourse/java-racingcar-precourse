@@ -1,13 +1,15 @@
-package racingcar.game;
+package racingcar.game.io;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import racingcar.game.io.error.TryTimeInputErrorHandler;
+import racingcar.game.io.print.InputPrint;
 
-public class UserInputTryTimes {
-    private final UserTryTimeInputErrorHandler errorHandler;
+public class InputTryTimes {
+    private final TryTimeInputErrorHandler errorHandler;
 
-    public UserInputTryTimes() {
-        this.errorHandler = new UserTryTimeInputErrorHandler();
+    public InputTryTimes() {
+        this.errorHandler = new TryTimeInputErrorHandler();
     }
 
     public int getInputFromUser(Scanner scanner) {

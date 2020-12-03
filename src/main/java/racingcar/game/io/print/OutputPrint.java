@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.game.io.print;
 
 public class OutputPrint {
     public static final String RESULT_START_MESSAGE = "실행 결과";

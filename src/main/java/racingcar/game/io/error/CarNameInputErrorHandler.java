@@ -1,63 +1,41 @@
-package racingcar.game;
+package racingcar.game.io.error;
 
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class UserInputCarNames {
-    private final Cars cars;
-    private final UserCarNameInputErrorHandler errorHandler;
+public class CarNameInputErrorHandler {
 
-    public UserInputCarNames() {
-        this.cars = new Cars();
-        this.errorHandler = new UserCarNameInputErrorHandler();
-    }
 
-    public Cars getInputFromUser(Scanner scanner) {
-        String inputStr;
-        do {
-            InputPrint.printMessageForInputCarNames();
-            inputStr = getInputCarNames(scanner);
-        } while (!isValidInput(inputStr));
-        return cars;
-    }
-
-    private boolean isValidInput(String inputStr) {
+    public boolean isValidInput(String inputStr) {
         if (!inputStr.contains(",")) {
-            errorHandler.printMoreThanOneCarNameErrorMessage();
+            CarNameInputErrorPrint.printMoreThanOneCarNameErrorMessage();
             return false;
         }
         if (inputStr.charAt(0) == ',' || inputStr.charAt(inputStr.length() - 1) == ',') {
-            errorHandler.printCommaErrorMessage();
+            CarNameInputErrorPrint.printCommaErrorMessage();
             return false;
         }
         if (!isOnlyAlphabetOrKorean(inputStr)) {
-            errorHandler.printCharErrorMessage();
+            CarNameInputErrorPrint.printCharErrorMessage();
             return false;
         }
         String[] carNames = splitCarNames(inputStr);
         if (!isCorrectLengthOfAllCarNames(carNames)) {
-            errorHandler.printCarNameLengthErrorMessage();
+            CarNameInputErrorPrint.printCarNameLengthErrorMessage();
             return false;
         }
         if (carNames.length > 100) {
-            errorHandler.printNumberOfCarMoreThan100ErrorMessage();
+            CarNameInputErrorPrint.printNumberOfCarMoreThan100ErrorMessage();
             return false;
         }
         if (isDuplicatedNames(carNames)) {
-            errorHandler.printDuplicateNameErrorMessage();
+            CarNameInputErrorPrint.printDuplicateNameErrorMessage();
             return false;
         }
         createCars(carNames);
         return true;
-    }
-
-    private void createCars(String[] carNames) {
-        for (String name : carNames) {
-            cars.createCar(name);
-        }
     }
 
     private boolean isDuplicatedNames(String[] carNames) {
@@ -74,16 +52,9 @@ public class UserInputCarNames {
         return true;
     }
 
-    private String[] splitCarNames(String inputStr) {
-        return inputStr.split(",");
-    }
-
     private boolean isOnlyAlphabetOrKorean(String inputStr) {
         String pattern = "^[a-zA-Z가-힣,]+$";
         return Pattern.matches(pattern, inputStr);
     }
-
-    private String getInputCarNames(Scanner scanner) {
-        return scanner.nextLine();
-    }
 }
+

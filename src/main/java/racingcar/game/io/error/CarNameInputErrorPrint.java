@@ -1,6 +1,6 @@
-package racingcar.game;
+package racingcar.game.io.error;
 
-public class UserCarNameInputErrorHandler {
+public class CarNameInputErrorPrint {
     public static final String MORE_THAN_ONE_CAR_NAME_ERROR_MESSAGE
         = "[ERROR] 자동차 이름은 두 개 이상이어야 합니다.";
     public static final String COMMA_ERROR_MESSAGE
@@ -14,29 +14,27 @@ public class UserCarNameInputErrorHandler {
     private static final String DUPLICATE_NAME_ERROR_MESSAGE
         = "[ERROR] 중복된 이름이 있습니다.";
 
-
-    public void printMoreThanOneCarNameErrorMessage() {
+    public static void printMoreThanOneCarNameErrorMessage() {
         System.out.println(MORE_THAN_ONE_CAR_NAME_ERROR_MESSAGE);
     }
 
-    public void printCommaErrorMessage() {
+    public static void printCommaErrorMessage() {
         System.out.println(COMMA_ERROR_MESSAGE);
     }
 
-    public void printCharErrorMessage() {
+    public static void printCharErrorMessage() {
         System.out.println(CHAR_ERROR_MESSAGE);
     }
 
-    public void printCarNameLengthErrorMessage() {
+    public static void printCarNameLengthErrorMessage() {
         System.out.println(CAR_NAME_LENGTH_ERROR);
     }
 
-    public void printNumberOfCarMoreThan100ErrorMessage() {
+    public static void printNumberOfCarMoreThan100ErrorMessage() {
         System.out.println(NUMBER_OF_CAR_MORE_THAN_MAX_ERROR_MESSAGE);
     }
 
-    public void printDuplicateNameErrorMessage() {
+    public static void printDuplicateNameErrorMessage() {
         System.out.println(DUPLICATE_NAME_ERROR_MESSAGE);
     }
 }
-

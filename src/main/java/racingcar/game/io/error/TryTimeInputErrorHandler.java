@@ -1,6 +1,6 @@
-package racingcar.game;
+package racingcar.game.io.error;
 
-public class UserTryTimeInputErrorHandler {
+public class TryTimeInputErrorHandler {
     public static final String NOT_NUMBER_ERROR_MESSAGE
         = "[ERROR] 시도 횟수는 숫자만 입력 가능합니다.";
     public static final String INVALID_RANGE_NUMBER_ERROR_MESSAGE

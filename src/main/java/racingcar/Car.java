@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.game.OutputPrint;
+import racingcar.game.io.print.OutputPrint;
 
 public class Car {
     private final String name;
