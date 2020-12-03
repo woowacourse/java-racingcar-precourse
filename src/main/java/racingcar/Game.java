@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.stream.Collectors;
 import ui.Input;
 import ui.Output;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
+
     public void start(Scanner scanner) {
         //  경주할 자동차들 이름 입력 받기
         String carNamesInput = Input.receiveRacingCarNames(scanner);
@@ -23,6 +25,7 @@ public class Game {
             cars.add(new Car(carNames[i]));
         }
 
+        // 시행 결과 출력
         Output.willPrintResult();
         for (int i = 0; i < attemptsCount; i++) {
             for (int j = 0; j < cars.size(); j++) {
@@ -30,5 +33,19 @@ public class Game {
             }
             Output.printEmptyLine();
         }
+
+        // 최종 우승자 출력
+        int maxPosition = cars.stream()
+            .map(car -> car.getPosition())
+            .mapToInt(x -> x)
+            .max()
+            .getAsInt();
+
+        List<String> winners = cars.stream()
+            .filter(car -> car.getPosition() == maxPosition)
+            .map(car -> car.getName())
+            .collect(Collectors.toList());
+
+        Output.printWinners(winners);
     }
 }

@@ -6,6 +6,7 @@ import utils.RandomUtils;
 import java.util.Scanner;
 
 public class Car {
+
     private static final int START_NUMBER = 0;
     private static final int END_NUMBER = 9;
     private final String name;
@@ -21,6 +22,14 @@ public class Car {
             position += 1;
         }
         Output.printResult(name, position);
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private int getRandomNumber() {
