@@ -24,6 +24,11 @@ public class RacingcarController {
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());
         Validator.validateCarsSize(cars);
+
+        for (Car car : cars) {
+            Validator.validateCarNameLength(car.getName());
+        }
+
     }
 
 }

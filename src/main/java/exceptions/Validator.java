@@ -7,13 +7,21 @@ import java.util.List;
 
 public class Validator {
 
-    private static final String EMPTY_CAR_NAME_ERROR_MESSAGE = "자동차 이름이 입력되어야 합니다.";
     private static final int MINIMUM_CARS_SIZE = 1;
+    private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+    private static final String EMPTY_CAR_NAME_ERROR_MESSAGE = "자동차 이름이 입력되어야 합니다.";
+    private static final String EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 " + MAXIMUM_CAR_NAME_LENGTH + "자 이하여야 합니다.";
 
     public static void validateCarsSize(List<Car> cars) {
 
         if (cars.size() < MINIMUM_CARS_SIZE) {
             throw new NotValidInputException(EMPTY_CAR_NAME_ERROR_MESSAGE);
+        }
+    }
+
+    public static void validateCarNameLength(String carName) {
+        if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
+            throw new NotValidInputException(EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE);
         }
     }
 
