@@ -12,18 +12,18 @@ public class InputUtils {
 
     public String inputRunner;
     public String inputRoundCount;
-    public HashSet<String> runnerNameCheckSet = new HashSet<String>();
+    public HashSet<String> racerNameDuplicationCheckSet = new HashSet<String>();
 
     public InputUtils(Scanner promptInput) {
         printMessageWithConstant(new String[]{Constants.RACER_NAME_ANNOUNCEMENT});
         this.inputRunner = promptInput.next();
         checkRacerStringFormatter();
         setSplitRacerNameByFormat();
-        checkRacerNameValidation(racerNameList);
+        checkRacerNameValidation();
 
         printMessageWithConstant(new String[]{Constants.LAP_QUESTION});
         this.inputRoundCount = promptInput.next();
-        if (checkRoundCountValidation(inputRoundCount)) {
+        if (isRoundCountValidation(inputRoundCount)) {
             roundCount = Integer.parseInt(inputRoundCount);
         }
     }
@@ -36,44 +36,41 @@ public class InputUtils {
     }
 
     private void setSplitRacerNameByFormat() {
-        String[] runners = inputRunner.split(String.valueOf(Constants.RACER_LIST_FORMAT), 0);
-        racerNameList = runners;
+        String[] splitedRacerNameList = inputRunner
+            .split(String.valueOf(Constants.RACER_LIST_FORMAT), 0);
+        racerNameList = splitedRacerNameList;
     }
 
-    private void checkRacerNameValidation(String[] names) {
-        for (String name : names) {
+    private void checkRacerNameValidation() {
+        for (String name : racerNameList) {
             checkRacerNameDuplication(name);
             checkRacerNameLength(name);
         }
     }
 
-    private boolean checkRacerNameDuplication(String name) {
-        if (!runnerNameCheckSet.add(name)) {
+    private void checkRacerNameDuplication(String name) {
+        if (!racerNameDuplicationCheckSet.add(name)) {
             MessageUtils.errorExceptionThrow(Constants.DUPLICATION_ERROR_ANNOUNCEMENT);
-            return true;
         }
-        return false;
     }
 
-    private boolean checkRacerNameLength(String name) {
+    private void checkRacerNameLength(String name) {
         if (name.length() > Constants.RACER_NAME_LENGTH) {
             MessageUtils.errorExceptionThrow(Constants.NAME_OVER_LENGTH_ERROR_ANNOUNCEMENT);
+        }
+    }
+
+    private boolean isRoundCountValidation(String inputRoundCount) {
+        if (!isRoundCountDataTypeValidation(inputRoundCount)) {
+            return false;
+        }
+        if (!isRoundCountPositiveNumberValidation(inputRoundCount)) {
             return false;
         }
         return true;
     }
 
-    private boolean checkRoundCountValidation(String inputRoundCount) {
-        if (!checkRoundCountDataTypeValidation(inputRoundCount)) {
-            return false;
-        }
-        if (!checkRoundCountPositiveNumberValidation(inputRoundCount)) {
-            return false;
-        }
-        return true;
-    }
-
-    private boolean checkRoundCountDataTypeValidation(String inputRoundCount) {
+    private boolean isRoundCountDataTypeValidation(String inputRoundCount) {
         for (int i = 0; i < inputRoundCount.length(); i++) {
             if (!Character.isDigit(inputRoundCount.charAt(i))) {
                 MessageUtils.errorExceptionThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
@@ -87,9 +84,9 @@ public class InputUtils {
         return true;
     }
 
-    private boolean checkRoundCountPositiveNumberValidation(String inputRoundCount) {
-        int positiveNumberCheck = Integer.parseInt(inputRoundCount);
-        if (positiveNumberCheck <= 0) {
+    private boolean isRoundCountPositiveNumberValidation(String inputRoundCount) {
+        int number = Integer.parseInt(inputRoundCount);
+        if (number <= 0) {
             MessageUtils.errorExceptionThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
             return false;
         }
