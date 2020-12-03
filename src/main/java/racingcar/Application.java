@@ -10,7 +10,7 @@ public class Application {
         String carNameInput = scanner.nextLine();
         String[] carNames = carNameInput.split(",");
         for(String carName : carNames) {
-            RacingGamePlay.racingPlayBoard.put(carName, 0);
+            RacingGamePlay.racingPlayBoard.put(carName.trim(), 0);
         }
 
         RacingGameSystemMessageOut.printTimesInput();

@@ -23,7 +23,16 @@ public class RacingGameSystemMessageOut {
 
     public static void printEachMoves(HashMap<String, Integer> racingPlayBoard) {
         for(String carName : racingPlayBoard.keySet()) {
-            System.out.println(carName + " : " + racingPlayBoard.get(carName));
+            System.out.print(carName + " : ");
+            printEachMovesBars(racingPlayBoard.get(carName));
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printEachMovesBars(int position) {
+        for(int i = 0; i < position; i++) {
+            System.out.print("-");
         }
     }
 
@@ -31,6 +40,6 @@ public class RacingGameSystemMessageOut {
         String winnerList = winners.toString();
         winnerList = winnerList.replace("[", " ");
         winnerList = winnerList.replace("]", " ");
-        System.out.print(RESULT_FINAL_WINNERS + ": " + winnerList);
+        System.out.print(RESULT_FINAL_WINNERS + winnerList);
     }
 }
