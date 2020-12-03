@@ -29,6 +29,7 @@ public class RacingController {
     }
 
     private List<Car> createCars() {
+        input.showInputNameMessage();
         return registerCars(user.createNames(input.nextLine()));
     }
 
