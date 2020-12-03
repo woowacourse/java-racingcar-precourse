@@ -68,4 +68,13 @@ public class Racing {
         }
         return gameNumber;
     }
+
+    /* 차량들의 전진 상황을 출력하는 메소드 */
+    public static void printCarsPosition(){
+        System.out.println("실행 결과");
+        for(int i=0;i<carList.size();i++){
+            System.out.printf(carList.get(i).getName()+" : ");
+            carList.get(i).printPosition();
+        }
+    }
 }
