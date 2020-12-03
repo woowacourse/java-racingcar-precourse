@@ -7,6 +7,9 @@ public class Car {
 
     private static final int START_NUMBER = 0;
     private static final int END_NUMBER = 9;
+    private static final int ONE_STEP = 1;
+    private static final int MOVABLE_STARTING_NUMBER = 4;
+    private static final int STARTING_NUMBER_OF_INVALID_NAME_LENGTH = 6;
     private final String name;
     private int position = 0;
 
@@ -17,8 +20,8 @@ public class Car {
 
     public void move() {
         int movingDistance = getRandomNumber();
-        if (movingDistance >= 4) {
-            position += 1;
+        if (movingDistance >= MOVABLE_STARTING_NUMBER) {
+            position += ONE_STEP;
         }
         Output.printResult(name, position);
     }
@@ -32,7 +35,7 @@ public class Car {
     }
 
     private void validateNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() >= STARTING_NUMBER_OF_INVALID_NAME_LENGTH) {
             throw new IllegalArgumentException(
                 ErrorMessage.NAME_LENGTH_SHOULD_BE_SMALLER_THAN_FIVE);
         }

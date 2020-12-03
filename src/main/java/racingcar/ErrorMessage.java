@@ -1,6 +1,7 @@
 package racingcar;
 
 public class ErrorMessage {
+
     private static final String ERROR_PREFIX = "[Error] ";
     public static final String SHOULD_BE_NOT_EMPTY_OR_COMMA_NAME =
         ERROR_PREFIX + "이름이 공백이거나 콤마(,)이면 안 됩니다.";
