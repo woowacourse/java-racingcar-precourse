@@ -39,12 +39,18 @@ class InputControllerTest {
     @Test
     public void 입력값이_숫자인지_검증한다() throws Exception {
         //given
-        String input = "1a";
+        String input = "-19";   // non pass
+        String input2 = "1a";   // non pass
+        String input3 = "10";   // pass
 
         //when
         boolean isInputDigit = input.chars().allMatch(Character::isDigit);
+        boolean isInputDigit2 = input2.chars().allMatch(Character::isDigit);
+        boolean isInputDigit3 = input3.chars().allMatch(Character::isDigit);
 
         //then
         assertThat(isInputDigit).isFalse();
+        assertThat(isInputDigit2).isFalse();
+        assertThat(isInputDigit3).isTrue();
     }
 }
