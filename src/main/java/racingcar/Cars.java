@@ -3,7 +3,6 @@ package racingcar;
 import View.OutputView;
 import exceptions.Validator;
 import utils.RandomNumber;
-import utils.RandomUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,13 +29,14 @@ public class Cars {
     }
 
     public List<Car> findWinners() {
-        int winnersPosition = findMaxPosition();
-        List<Car> winners = cars.stream().filter(car -> car.getPosition() == winnersPosition).collect(Collectors.toList());
-        return winners;
-    }
+        int winnersPosition = cars.stream()
+                .mapToInt(car -> car.getPosition())
+                .max()
+                .getAsInt();
 
-    private int findMaxPosition() {
-        return cars.stream().mapToInt(car -> car.getPosition()).max().getAsInt();
+        return cars.stream()
+                .filter(car -> car.getPosition() == winnersPosition)
+                .collect(Collectors.toList());
     }
 
     private void compareRandomNumberAndMove(Car car) {

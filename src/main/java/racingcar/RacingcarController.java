@@ -34,6 +34,7 @@ public class RacingcarController {
     }
 
     private void playGame(int numberOfProgress) {
+
         OutputView.newLine();
         OutputView.printProgressResultMessage();
         for (int i = 0; i < numberOfProgress; i++) {
@@ -41,7 +42,6 @@ public class RacingcarController {
             cars.showCurrentStatus();
         }
         OutputView.printWinners(cars.findWinners());
-
     }
 
     private List<Car> convertInputStringToCarList(String inputCarName) {
