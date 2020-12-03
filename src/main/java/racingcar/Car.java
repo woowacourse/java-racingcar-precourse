@@ -8,5 +8,10 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void tryToMove(int roundNumber) {
+        if (MovementArbiter.canMove()) {
+            position++;
+        }
+        Round.registerCarMovement(roundNumber, name, position);
+    }
 }
