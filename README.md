@@ -6,7 +6,7 @@
 1. ``Host`` : 전체적인 진행을 이끌기 위한 클래스
 2. ``Race``  : 레이스를 진행하고 그 결과를 나타내는 클래스
 3. ``MessageBox `` : 안내문구들을 가지고 있는 클래스
-4. ``Checker`` : 입력 값 valid 여부를 체크하는 클래스
+4. ``InputValidator`` : 입력 값 valid 여부를 체크하는 클래스
 
 ***
 
@@ -30,7 +30,7 @@
 4. ``winnerPrize()`` : 우승자를 출력해주는 메서드
 5. ``getWinners()`` : 우승자를 파악하는 메서드
 
-<br>
+<br>f
 
 ##### Checker.java
 
