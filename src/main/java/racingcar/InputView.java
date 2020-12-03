@@ -27,7 +27,7 @@ public class InputView {
     private List<String> getCarNames(String inputString) {
         validateBlankInput(inputString);
         return Arrays.stream(inputString.split(","))
-                     .map(String::trim)
+                     .map(String::strip)
                      .collect(Collectors.toList());
     }
 
@@ -39,7 +39,7 @@ public class InputView {
 
     private int getRoundNumber(String inputString) {
         try {
-            return Integer.parseInt(inputString.trim());
+            return Integer.parseInt(inputString.strip());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_NOT_INTEGER);
         }
