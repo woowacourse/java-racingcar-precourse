@@ -9,6 +9,11 @@ public class GameManager {
     private Cars cars;
     private int tryTimes;
 
+    public void startRace(Scanner scanner) {
+        createCar(scanner);
+        cars.doRace(tryTimes);
+    }
+
     public void createCar(Scanner scanner) {
         makeCar(scanner);
         makeTryTimes(scanner);
