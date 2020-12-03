@@ -1,11 +1,13 @@
 package racingcar.domain;
 
+import racingcar.generator.RandomNumberGenerator;
+
 import java.util.Collections;
 
 public class Car {
     private final String name;
     private int position = 0;
-    private Engine engine = new Engine();
+    private Engine engine = new Engine(new RandomNumberGenerator());
 
     public Car(String name) {
         this.name = name;
