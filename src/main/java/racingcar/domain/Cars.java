@@ -14,6 +14,10 @@ public class Cars {
         }
     }
 
+    public Set<Car> getCars() {
+        return cars;
+    }
+
     private void validateParticipantsIsZero(List<String> participants) {
         boolean isParticipantsZero = (participants.size() == 0);
         if (isParticipantsZero) {

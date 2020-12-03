@@ -26,7 +26,17 @@ public class RacingCarGame {
     }
 
     private void playGame(Cars cars, int tryCount) {
+        int round = 0;
+        while (round < tryCount) {
+            moveOrStop(cars);
+            round++;
+        }
+    }
 
+    private void moveOrStop(Cars cars) {
+        for (Car car : cars.getCars()) {
+            isCarMoveOrStop(car);
+        }
     }
 
     private void isCarMoveOrStop(Car car) {
