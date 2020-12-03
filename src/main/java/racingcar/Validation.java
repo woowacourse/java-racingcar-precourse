@@ -11,12 +11,15 @@ public class Validation {
 
         for (String user : users) {
             user = user.trim();
+            if (user.length() > 5) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 
     public static void isValidUserTrialCount(String userTrialCount) {
-        for(char num : userTrialCount.toCharArray()){
-            if(!Character.isDigit(num)){
+        for (char num : userTrialCount.toCharArray()) {
+            if (!Character.isDigit(num)) {
                 throw new IllegalArgumentException();
             }
         }
