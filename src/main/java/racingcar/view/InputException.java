@@ -6,7 +6,7 @@ public class InputException {
     private static final String LONGER_THAN_FIVE_CHARACTER_ERROR_MESSAGE = "각 자동차 이름은 5자를 초과할 수 없습니다.\n";
     private static final String INCLUDE_BLANK_BACK_AND_FORTH_ERROR_MESSAGE = "자동차 이름 앞 뒤에 공백이 포함될 수 없습니다.\n";
     private static final String BLANK_NEXT_TO_REST_ERROR_MESSAGE = "쉼표 뒤에는 공백이 아니어야 합니다.\n";
-    private static final String SPLIT_REGEX = ",";
+    public static final String SPLIT_REGEX = ",";
 
     public InputException() {}
 

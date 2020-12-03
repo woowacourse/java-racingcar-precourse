@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import racingcar.domain.Car;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,8 +15,34 @@ public class InputView {
         this.scanner = scanner;
     }
 
-    public List<String> getCarNames() {
+    public List<Car> getCarNames() {
         System.out.print(INPUT_CAR_NAMES_PHRASE);
-        return null;
+        return parse(validated());
     }
+
+    private List<Car> parse(String validatedInput) {
+        List<Car> parsedCars = new ArrayList<>();
+        for (String s : validatedInput.split(InputException.SPLIT_REGEX)) {
+            parsedCars.add(new Car(s));
+        }
+        return parsedCars;
+    }
+
+    private String validated() {
+        InputException inputException = new InputException();
+        String validatedCarNames;
+        while (true) {
+            validatedCarNames = getInput();
+            if (!inputException.invoke(validatedCarNames)) {
+                break;
+            }
+        }
+        return validatedCarNames;
+    }
+
+    private String getInput() {
+        String carNames = scanner.nextLine();
+        return carNames;
+    }
+
 }
