@@ -19,8 +19,7 @@ public class Host {
     public void start() {
         nameInput();
         attemptNumberInput();
-        carsMoveProcess();
-        printWinner();
+        raceStart();
     }
 
     private void nameInput() {
@@ -40,7 +39,7 @@ public class Host {
         }
     }
 
-    private void carsMoveProcess() {
+    private void raceStart() {
         Race race = new Race(cars, attemptNum);
         race.raceStart();
     }
