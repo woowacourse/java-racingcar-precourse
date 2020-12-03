@@ -180,6 +180,7 @@ public class Car {
     - 우승자의 위치를 반환하는 메서드 (winnerPosition)
     - 우승자(들)의 이름을 리스트로 반환하는 메서드 (getWinnersList)
     - 우승자(들)의 이름 리스트를 요구사항에 맞는 형태로 출력하는 메서드 (printWinnersName)
+    - 입력값을 검증하고 에러 메시지를 띄우는 메서드
     - 전체 게임 결과를 출력하는 메서드
     
 
