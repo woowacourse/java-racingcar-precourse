@@ -3,6 +3,7 @@ package racingcar;
 import utils.RandomUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
@@ -57,6 +58,26 @@ public class Race {
             }
             System.out.print(winners.get(i) + ", ");
         }
+    }
+
+    private List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = 0;
+
+        Collections.sort(cars);
+        maxPosition = cars.get(0).getPosition();
+
+        for (Car car : cars) {
+            int position = car.getPosition();
+            String carName = car.getName();
+
+            if (position != maxPosition) {
+                break;
+            }
+            winners.add(carName);
+        }
+
+        return winners;
     }
 
 }
