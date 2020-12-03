@@ -169,7 +169,7 @@ public class Car {
 - 잘못된 입력값에 대한 에러 메시지를 가짐
     - 자동차 이름이 중복될때의 에러 메시지 (checkSameCarName)
     - 자동차 이름이 0자이거나 5자 이상일 때의 에러 메시지 (checkCarNameLength)
-    - 시도 횟수 입력값이 1 미만일 때의 에러 메시지
+    - 시도 횟수 입력값이 1 미만일 때의 에러 메시지 (checkTrialLessThanOne)
     - 시도 횟수 입력값이 정수형이 아닐 때의 에러 메시지
     
 ### Racing 클래스
