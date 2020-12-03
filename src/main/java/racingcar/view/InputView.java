@@ -1,10 +1,9 @@
 package racingcar.view;
 
+import racingcar.domain.exception.CarNameDuplicationException;
 import racingcar.domain.exception.CarNameLengthException;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class InputView {
@@ -38,6 +37,7 @@ public class InputView {
     private boolean isValidCarNames(List<String> carNames) {
         try {
             validateCarNameLength(carNames);
+            validateDuplication(carNames);
             return true;
         } catch (RuntimeException runtimeException) {
             System.out.println(runtimeException.getMessage());
@@ -55,5 +55,12 @@ public class InputView {
 
     private boolean isValidCarNameLength(String carName) {
         return !carName.isEmpty() && carName.length() <= MAXIMUM_CAR_NAME_LENGTH;
+    }
+
+    private void validateDuplication(List<String> carNames) {
+        Set<String> distinctCarNames = new HashSet<>(carNames);
+        if (distinctCarNames.size() != carNames.size()) {
+            throw new CarNameDuplicationException();
+        }
     }
 }
