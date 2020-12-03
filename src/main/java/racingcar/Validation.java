@@ -9,6 +9,10 @@ public class Validation {
                     && isNonDuplicate(cars);
     }
 
+    public static boolean raceNumberValidation(String number) {
+        return isNumber(number);
+    }
+
     private static boolean isNotEmptyName(String[] cars) {
         for (String carName : cars) {
             if (carName.equals(Constant.EMPTY_NAME)) {
@@ -33,6 +37,17 @@ public class Validation {
 
         for (String carName : cars) {
             if (!carList.add(carName)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isNumber(String number) {
+        for (int i = 0; i < number.length(); i++) {
+            char num = number.charAt(i);
+
+            if(!Character.isDigit(num)) {
                 return false;
             }
         }

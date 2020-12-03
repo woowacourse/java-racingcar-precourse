@@ -60,6 +60,8 @@ public class Race {
     }
 
     private void checkRightNumber(String number) {
-
+        if (!Validation.raceNumberValidation(number)) {
+            throw new IllegalArgumentException(Constant.ERROR_RACE_NUMBER);
+        }
     }
 }
