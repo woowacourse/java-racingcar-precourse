@@ -61,7 +61,7 @@ public class Game {
 
     private void validateCarNames(String[] carNames) {
         if (carNames.length == 0) {
-            throw new IllegalArgumentException("[Error] 이름이 공백이거나 콤마(,)이면 안 됩니다.");
+            throw new IllegalArgumentException(ErrorMessage.SHOULD_BE_NOT_EMPTY_OR_COMMA_NAME);
         }
     }
 

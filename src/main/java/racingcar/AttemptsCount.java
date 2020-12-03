@@ -12,7 +12,7 @@ public class AttemptsCount {
 
     private void validatePositiveNumber(int count) {
         if (count < 0) {
-            throw new IllegalArgumentException("[Error] 시도 횟수는 음수이면 안 됩니다.");
+            throw new IllegalArgumentException(ErrorMessage.SHOULD_BE_NOT_NEGATIVE_NUMBER);
         }
     }
 
@@ -20,7 +20,7 @@ public class AttemptsCount {
         try {
             return Integer.parseInt(number);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[Error] 숫자만을 입력해야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.SHOULD_INPUT_ONLY_NUMBER);
         }
     }
 

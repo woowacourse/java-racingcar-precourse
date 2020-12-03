@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.Scanner;
+import racingcar.ErrorMessage;
 
 public class Input {
 
@@ -16,7 +17,7 @@ public class Input {
 
     public static void validateEmpty(String input) {
         if (input == "") {
-            throw new IllegalArgumentException("[Error] 빈 값을 넣으시면 안 됩니다.");
+            throw new IllegalArgumentException(ErrorMessage.SHOULD_NOT_INPUT_EMPTY);
         }
     }
 }
