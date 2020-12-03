@@ -10,6 +10,7 @@ public class InputController {
     private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String DELIMITER_COMMA = ",";
+    private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 5;
     private static HashMap<String, Integer> register = new HashMap<>();
 
@@ -17,7 +18,7 @@ public class InputController {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         List<String> participants = parseStringToStringList(scanner.nextLine());
         participants = validateCarNameIsNotDuplicate(participants);
-        validateCarNameLengthIs5OrLess(participants);
+        validateCarNameLengthIsBetween1And5(participants);
         validateCarNameIsNotContainBlank(participants);
         return participants;
     }
@@ -29,13 +30,17 @@ public class InputController {
         return parseStringToInt(tryCount);
     }
 
-    private void validateCarNameLengthIs5OrLess(List<String> participants) {
-        boolean isCarNameLength5OrLess = participants.stream()
-                .filter(name -> name.length() <= NAME_MAX_LENGTH)
+    private void validateCarNameLengthIsBetween1And5(List<String> participants) {
+        boolean isCarNameLengthBetween1And5 = participants.stream()
+                .filter(name -> checkNameLength(name.length()))
                 .count() == participants.size();
-        if (!isCarNameLength5OrLess) {
-            throw new IllegalArgumentException("[ERROR] 이름의 길이는 5이하여야 합니다.");
+        if (!isCarNameLengthBetween1And5) {
+            throw new IllegalArgumentException("[ERROR] 이름의 길이는 1이상 5이하여야 합니다.");
         }
+    }
+
+    private boolean checkNameLength(int length) {
+        return ((length >= NAME_MIN_LENGTH) && (length <= NAME_MAX_LENGTH));
     }
 
     private void validateCarNameIsNotContainBlank(List<String> participants) {
@@ -65,13 +70,13 @@ public class InputController {
 
     private String nameGenerator(String name) {
         int order = 0;
-        if(register.containsKey(name)) {
+        if (register.containsKey(name)) {
             order = register.get(name);
             register.put(name, order+1);
             register.put(name+order, 1);
             name += order;
         }
-        if(!register.containsKey(name)) {
+        if (!register.containsKey(name)) {
             register.put(name, 1);
         }
         return name;
