@@ -20,20 +20,12 @@ public class GameSystem {
         this.trialCount = 0;
     }
 
-    private int getCarCount() {
-        return carCount;
-    }
-
     public int getTrialCount() {
         return trialCount;
     }
 
     public Car[] getCars() {
         return cars;
-    }
-
-    private void setCarCount(int count) {
-        this.carCount = count;
     }
 
     public void setTrialCount(Scanner scanner) {
@@ -53,12 +45,10 @@ public class GameSystem {
     }
 
     private void setCars(String[] names) {
-        int count = names.length;
+        this.carCount = names.length;
 
-        setCarCount(count);
-
-        cars = new Car[count];
-        for (int i = 0; i < count; i++) {
+        cars = new Car[carCount];
+        for (int i = 0; i < carCount; i++) {
             Car car = new Car(names[i]);
             cars[i] = car;
         }
@@ -79,6 +69,24 @@ public class GameSystem {
             }
         }
         setCars(tmpNames);
+    }
+
+    public void doOneTrial() {
+        driveAllCars();
+        printPositionAllCars();
+    }
+
+    private void driveAllCars() {
+        for (int i = 0; i < carCount; i++) {
+            cars[i].action();
+        }
+    }
+
+    private void printPositionAllCars() {
+        for (int i = 0; i < carCount; i++) {
+            cars[i].printPosition();
+        }
+        System.out.println();
     }
 
     private String[] parseCarNames(String string) {
