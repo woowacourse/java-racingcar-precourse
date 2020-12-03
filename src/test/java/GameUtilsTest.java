@@ -8,11 +8,15 @@ import java.util.Scanner;
 public class GameUtilsTest {
     private static Scanner rightCarName;
     private static Scanner wrongCarName;
+    private static Scanner rightNumOfRuns;
+    private static Scanner wrongNumOfRuns;
 
     @BeforeAll
     public static void setUp() {
         rightCarName = new Scanner("pobi");
         wrongCarName = new Scanner("itsoverfive");
+        rightNumOfRuns = new Scanner("5");
+        wrongNumOfRuns = new Scanner("다섯번");
     }
 
     @Test
@@ -28,5 +32,20 @@ public class GameUtilsTest {
         Assertions.assertThatIllegalArgumentException()
                 .isThrownBy(() -> {GameUtils.isCarNameRight(carName);})
                 .withMessage("[ERROR] 차 이름은 5글자 이하여야 한다.");
+    }
+
+    @Test
+    public void numOfRunsRightTest() {
+        String num = rightNumOfRuns.next();
+        GameUtils.isCarNameRight(num);
+    }
+
+    @Test
+    public void numOfRunsWrongTest() {
+        String num = wrongNumOfRuns.next();
+
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> {GameUtils.isNumOfRunsRight(num);})
+                .withMessage("[ERROR] 시도 횟수는 숫자여야 한다.");
     }
 }
