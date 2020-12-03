@@ -12,5 +12,8 @@ public class Printer {
         System.out.println(PLAY_ROUND_PRINT);
     }
 
+    public static void carRacingResult() {
+        System.out.println("실행결과");
+    }
 
 }

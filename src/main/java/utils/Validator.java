@@ -18,7 +18,6 @@ public class Validator {
         } catch (NumberFormatException ne) {
             throw new NumberFormatException(ExceptionMessage.isNotInteger);
         }
-
     }
 
 }
