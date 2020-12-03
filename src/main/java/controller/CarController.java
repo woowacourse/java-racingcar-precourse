@@ -5,6 +5,7 @@ import racingcar.Car;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 public class CarController {
 
@@ -24,12 +25,35 @@ public class CarController {
         cars.add(car);
     }
 
+    public int size() {
+        return cars.size();
+    }
+
     private boolean checkDuplication(String name) {
         return cars.stream().noneMatch(car -> car.getName().equals(name));
     }
 
     public Car getCar(String name) {
         return cars.stream().filter(c -> c.getName().equals(name)).findAny().orElse(null);
+    }
+
+    private OptionalInt getMaxPosition() {
+        return cars.stream().mapToInt(Car::getPosition).max();
+    }
+
+    public List<Car> getWinners() {
+
+        OptionalInt max = getMaxPosition();
+
+        if (max.isPresent()) {
+            return cars.stream().filter(c -> c.getPosition() == max.getAsInt()).collect(Collectors.toList());
+        }
+
+        return null;
+    }
+
+    public List<Car> getAllCars() {
+        return cars;
     }
 
     public OptionalInt getCarPosition(String name) {
