@@ -10,7 +10,7 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
-    public Cars of(List<Car> cars) {
+    public static Cars of(List<Car> cars) {
         return new Cars(cars);
     }
 }
