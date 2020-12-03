@@ -78,15 +78,15 @@ class InputControllerTest {
     }
 
     private String nameGenerator(String name) {
-        int count = 0;
-        if(register.containsKey(name)) {
-            count = register.get(name);
-            register.put(name,count+1);
-            register.put(name+count,1);
-            return name+count;
+        int order = 0;
+        if (register.containsKey(name)) {
+            order = register.get(name);
+            register.put(name, order + 1);
+            register.put(name + order, 1);
+            name += order;
         }
-        if(!register.containsKey(name)) {
-            register.put(name,1);
+        if (!register.containsKey(name)) {
+            register.put(name, 1);
         }
         return name;
     }
