@@ -23,10 +23,10 @@ class RaceResultTest {
         multiCars.stream()
                 .filter(car -> car.getName().equals(WINNER_NAME))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        List<Car> result = RaceResult.getResult(multiCars);
+        List<String> result = RaceResult.getResult(multiCars);
         //then
         assertEquals(RESULT_LENGTH, result.size());
-        result.forEach(car -> assertEquals(WINNER_NAME, car.getName()));
+        result.forEach(name -> assertEquals(WINNER_NAME, name));
     }
 
     @Test
@@ -41,10 +41,10 @@ class RaceResultTest {
         multiCars.stream()
                 .filter(car -> WINNER_NAMES.contains(car.getName()))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        List<Car> result = RaceResult.getResult(multiCars);
+        List<String> result = RaceResult.getResult(multiCars);
         //then
         assertEquals(RESULT_LENGTH, result.size());
-        result.forEach(car -> assertTrue(WINNER_NAMES.contains(car.getName())));
+        result.forEach(name -> assertTrue(WINNER_NAMES.contains(name)));
     }
 
     public List<Car> createMultiCars() {

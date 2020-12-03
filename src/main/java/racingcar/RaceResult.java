@@ -2,21 +2,24 @@ package racingcar;
 
 import domain.Car;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceResult {
     private static List<Car> cars;
 
-    public static List<Car> getResult(List<Car> inputCars) {
+    public static List<String> getResult(List<Car> inputCars) {
         cars = inputCars;
-        return getWinnerCar();
+        return getWinnerName();
     }
 
-    private static List<Car> getWinnerCar() {
+    private static List<String> getWinnerName() {
         int maxPosition = getMaxPosition();
         return cars.stream()
                 .filter(car -> car.getCurrentPosition() == maxPosition)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
