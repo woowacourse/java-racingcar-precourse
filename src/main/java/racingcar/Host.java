@@ -8,12 +8,14 @@ import static racingcar.MessageBox.ATTEMPT_NUMBER_ASK_MESSAGE;
 import static racingcar.MessageBox.NAME_ASK_MESSAGE;
 
 public class Host {
-    private final Scanner sc;
+    private final User user;
     private int attemptNum;
+    private final Scanner sc;
     private final List<Car> cars = new ArrayList<>();
 
     public Host(Scanner scanner) {
         sc = scanner;
+        user = new User(scanner);
     }
 
     public void start() {
@@ -24,13 +26,21 @@ public class Host {
 
     private void nameInput() {
         System.out.println(NAME_ASK_MESSAGE);
-        String[] carNames = sc.nextLine().split(",");
+        String[] carNames = getCarNames();
         addCar(carNames);
+    }
+
+    private String[] getCarNames() {
+        String totalCarNames = sc.nextLine().trim();
+        totalCarNames = totalCarNames.replace(" ", "");
+        String[] carNames = totalCarNames.split(",");
+        InputValidator.validateCarNames(carNames);
+        return carNames;
     }
 
     private void attemptNumberInput() {
         System.out.println(ATTEMPT_NUMBER_ASK_MESSAGE);
-        attemptNum = sc.nextInt();
+        attemptNum = getAttemptNum();
         System.out.println();
     }
 
