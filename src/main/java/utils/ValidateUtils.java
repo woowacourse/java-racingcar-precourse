@@ -26,7 +26,7 @@ public class ValidateUtils {
     }
 
     public List<Car> isValid(String[] cars) {
-        List<String> carsList =  Arrays.asList(cars);
+        List<String> carsList = Arrays.asList(cars);
         if (isMoreThanOne(carsList)) {
             return makeCars(carsList);
         }

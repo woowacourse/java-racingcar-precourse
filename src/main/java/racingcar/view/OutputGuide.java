@@ -31,7 +31,7 @@ public class OutputGuide {
 
     public void startRound() {
         System.out.println(SHOW_STATUS_LOG);
-        IntStream.range(MIN,moves).forEach(value -> race());
+        IntStream.range(MIN, moves).forEach(value -> race());
     }
 
     private void race() {
@@ -53,6 +53,6 @@ public class OutputGuide {
         return cars.stream()
             .mapToInt(Car::getPosition)
             .max()
-            .orElseThrow(()->new RacingCarErrorException(NO_WINNERS_EXCEPTION_MESSAGE));
+            .orElseThrow(() -> new RacingCarErrorException(NO_WINNERS_EXCEPTION_MESSAGE));
     }
 }

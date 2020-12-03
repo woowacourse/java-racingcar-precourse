@@ -18,7 +18,7 @@ public class Game {
     }
 
     public void play() {
-        List<Car> cars= inputGuide.inputCars();
+        List<Car> cars = inputGuide.inputCars();
         int moves = inputGuide.countMove();
         OutputGuide outputGuide = new OutputGuide(cars, moves);
         outputGuide.showResult();

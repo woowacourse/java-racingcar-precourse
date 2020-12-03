@@ -5,12 +5,11 @@ import utils.RandomUtils;
 
 public class Car {
 
-    private static final String COLON = " : ";
-    private static final String POSITION_DASH = "-";
     public static final int MIN = 0;
     public static final int MAX = 9;
     public static final int RUNNING_CRITERIA = 4;
-
+    private static final String COLON = " : ";
+    private static final String POSITION_DASH = "-";
     private final String name;
     private int position;
 
@@ -32,7 +31,7 @@ public class Car {
 
     public String drawTrace() {
         StringBuilder carPosition = new StringBuilder();
-        IntStream.range(MIN,position)
+        IntStream.range(MIN, position)
             .forEach(value -> carPosition.append(POSITION_DASH));
         return carPosition.toString();
     }
