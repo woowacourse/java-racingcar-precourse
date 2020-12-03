@@ -13,12 +13,20 @@ public class InputView {
         this.scanner = scanner;
     }
 
-    public String getUserTrialCount(){
+    public String getUserTrialCount() {
         return this.userTrialCount;
     }
 
-    public String getUserNames(){
+    public String getUserNames() {
         return this.userNames;
+    }
+
+    private void setUserNames(String userNames) {
+        this.userNames = userNames;
+    }
+
+    private void setUserTrialCount(String userTrialCount) {
+        this.userTrialCount = userTrialCount;
     }
 
 
@@ -31,7 +39,9 @@ public class InputView {
         } catch (Exception e) {
             System.err.println("[ERROR] 두명 이상 게임 진행이 가능합니다.");
             parseUserNames();
+            return;
         }
+        setUserNames(userNamesInput);
     }
 
     public void parseUserTrialCount() {
@@ -43,6 +53,8 @@ public class InputView {
         } catch (Exception e) {
             System.err.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
             parseUserTrialCount();
+            return;
         }
+        setUserTrialCount(userTrialCount);
     }
 }
