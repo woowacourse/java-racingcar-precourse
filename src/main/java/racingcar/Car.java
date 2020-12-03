@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class Car {
     private static final int GO_THRESHOLD = 4;
+    private static final String POSITION_BAR = "-";
 
     private final String name;
     private int position = 0;
@@ -19,6 +20,11 @@ public class Car {
         if (GO_THRESHOLD <= randomNumber) {
             this.position++; // GO
         }
+    }
+
+    public String getCarPositionStatus() {
+        // generate progress bar of car position (e.g. "---")
+        return new String(new char[this.position]).replace("\0", POSITION_BAR);
     }
 
     public String getName() {

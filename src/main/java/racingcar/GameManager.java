@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class GameManager {
     private static final String GAME_RESULT_MESSAGE = "실행 결과";
-    private static final String POSITION_BAR = "-";
     private static final int FIRST_ROUND = 1;
     private static final int START_INCLUSIVE_NUMBER = 0;
     private static final int END_EXCLUSIVE_NUMBER = 10;
@@ -23,18 +22,13 @@ public class GameManager {
                 });
     }
 
+    private String getCarPositionInformation(Car car) {
+        return car.getName() + " : " + car.getCarPositionStatus();
+    }
+
     private void announceCurrentStatus(List<Car> cars) {
         cars.forEach(car -> System.out.println(getCarPositionInformation(car)));
         System.out.println();
-    }
-
-    private String getCarPositionInformation(Car car) {
-        return car.getName() + " : " + drawCarPositionPicture(car);
-    }
-
-    private String drawCarPositionPicture(Car car) {
-        // generate progress bar of car position (e.g. "---")
-        return new String(new char[car.getPosition()]).replace("\0", POSITION_BAR);
     }
 
     private int getMaxPosition(List<Car> cars) {
