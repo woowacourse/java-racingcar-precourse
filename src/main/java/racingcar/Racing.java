@@ -30,6 +30,10 @@ public class Racing {
 
     public void standingStart() {
         System.out.println(STANDING_START_ANNOUNCEMENT);
+        goLap(racingEvent);
+    }
+
+    private void goLap(StringUtils racingEvent) {
         for (int i = 1; i <= racingEvent.roundCount; i++) {
             System.out.println(i + " Round.");
             for (Car carInRacingEvent : racerList) {
