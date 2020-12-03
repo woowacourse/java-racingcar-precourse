@@ -24,8 +24,7 @@ class InputPreProcessTest {
         // 정상
         str = "nameo,namet,namee";
         names = in.getNames(str);
-        assertArrayEquals(new String[] {"nameo", "namet", "namee"}, names);
-
+        assertArrayEquals(new String[]{"nameo", "namet", "namee"}, names);
 
 
     }
