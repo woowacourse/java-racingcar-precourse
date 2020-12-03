@@ -39,6 +39,7 @@ public class Race {
                 String number = scanner.nextLine();
 
                 checkRightNumber(number);
+                this.raceNumber = Integer.parseInt(number);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
