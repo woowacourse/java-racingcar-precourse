@@ -44,7 +44,7 @@ public class GameSetting {
         return carNames;
     }
 
-    private static String[] getCarNames(Scanner scanner) {
+    public static String[] getCarNames(Scanner scanner) {
         String[] carNames = null;
         boolean isValidCarNames = false;
         while (!isValidCarNames) {
@@ -59,15 +59,11 @@ public class GameSetting {
         return carNames;
     }
 
-    private static Car createCarWithName(String carName) {
-        return new Car(carName);
-    }
-
-    public static List<Car> createCars(Scanner scanner) {
-        String[] carNames = getCarNames(scanner);
-        return Arrays.stream(carNames)
-                .map(GameSetting::createCarWithName)
+    public static Cars createCars(Scanner scanner) {
+        List<Car> cars = Arrays.stream(getCarNames(scanner))
+                .map(Car::new)
                 .collect(Collectors.toList());
+        return new Cars(cars);
     }
 
     private static void validateNumberOfRoundsInput(String numberOfRounds) throws IllegalArgumentException {

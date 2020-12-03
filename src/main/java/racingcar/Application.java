@@ -8,7 +8,7 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
 
-        List<Car> cars = GameSetting.createCars(scanner);
+        Cars cars = GameSetting.createCars(scanner);
         int numberOfRounds = GameSetting.getNumberOfRounds(scanner);
 
         GameManager gameManager = new GameManager();
