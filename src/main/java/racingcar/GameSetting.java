@@ -25,7 +25,6 @@ public class GameSetting {
             throw new IllegalArgumentException(NUMBER_OF_CARS_INPUT_ERROR_MESSAGE);
         }
         for (String carName : carNames) {
-            System.out.println(carName);
             if (carNameSet.contains(carName)) {
                 throw new IllegalArgumentException(DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE);
             }
