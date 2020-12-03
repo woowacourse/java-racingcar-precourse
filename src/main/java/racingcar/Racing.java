@@ -1,11 +1,10 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Racing {
+
+    static final String TRIAL_RESULT = "실행 결과";
 
     public List<Car> makeCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
@@ -16,11 +15,13 @@ public class Racing {
         return carList;
     }
 
-    public List<Car> oneTrialGame(List<Car> carList) {
+    public void oneTrialGame(List<Car> carList) {
         for (Car car : carList) {
             car.tryMove();
+            System.out.print(car.getName() + " : ");
+            printMove(car.getPosition());
         }
-        return carList;
+
     }
 
     public void printMove(int move) {
@@ -56,6 +57,7 @@ public class Racing {
             System.out.print(", " + iterator.next());
         }
     }
+
 
 
 
