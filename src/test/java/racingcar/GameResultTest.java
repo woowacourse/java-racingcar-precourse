@@ -20,7 +20,7 @@ public class GameResultTest {
 
     @Test
     public void getWinnerNames_multiWinners() {
-        GameResult gameResult = new GameResult(
+        Winners gameResult = new Winners(
                 Arrays.asList(joy, happy));
 
         assertThat(gameResult.getWinnerNames()).isEqualTo("joy, happy");
@@ -28,7 +28,7 @@ public class GameResultTest {
 
     @Test
     public void getWinnerNames_singleWinner() {
-        GameResult gameResult = new GameResult(
+        Winners gameResult = new Winners(
                 Collections.singletonList(joy));
 
         assertThat(gameResult.getWinnerNames()).isEqualTo("joy");

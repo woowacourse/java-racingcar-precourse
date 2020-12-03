@@ -1,8 +1,11 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Race {
 
-    public static GameResult startRace() {
+    public static Winners start(List<Car> cars, int tryCount) {
         // todo 각 차수별 실행 결과 구하기
         List<Car> winners = new ArrayList<>();
 

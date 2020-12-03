@@ -3,11 +3,11 @@ package racingcar;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GameResult {
+public class Winners {
 
-    List<Car> winners;
+    private final List<Car> winners;
 
-    public GameResult(List<Car> winners) {
+    public Winners(List<Car> winners) {
         this.winners = winners;
     }
 
