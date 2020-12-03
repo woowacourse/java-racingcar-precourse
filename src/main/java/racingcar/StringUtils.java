@@ -15,20 +15,19 @@ public class StringUtils {
     public static String[] runnerNameList;
     public String inputRoundCount;
     public static int roundCount;
+    public HashSet<String> runnerNameCheckSet = new HashSet<String>();
 
     public StringUtils(Scanner promptInput) {
         System.out.println(RUNNER_ANNOUNCEMENT);
         this.inputRunner = promptInput.next();
         splitRacerNameByFormat();
-        checkRacerNameDuplication(runnerNameList);
-        checkRacerNameLengthValidation(runnerNameList);
+        checkRacerNameValidation(runnerNameList);
 
         System.out.println(ROUND_QUESTION);
         this.inputRoundCount = promptInput.next();
         if (checkRoundCountValidation(inputRoundCount)) {
             roundCount = Integer.parseInt(inputRoundCount);
         }
-//        System.out.println(RoundCount);
     }
 
 
@@ -38,23 +37,26 @@ public class StringUtils {
         return runners;
     }
 
-    private boolean checkRacerNameDuplication(String[] inputArray) {
-        HashSet<String> set = new HashSet<String>();
-        for (String element : inputArray) {
-            if (!set.add(element)) {
-                System.out.println("duplication" + element);
-                return true;
-            }
+    private boolean checkRacerNameValidation(String[] names) {
+        for (String name : names) {
+            checkRacerNameDuplication(name);
+            checkRacerNameLength(name);
+        }
+        return true;
+    }
+
+    private boolean checkRacerNameDuplication(String name) {
+        if (!runnerNameCheckSet.add(name)) {
+            System.out.println("duplication" + name);
+            return true;
         }
         return false;
     }
 
-    private boolean checkRacerNameLengthValidation(String[] Runner) {
-        for (String name : Runner) {
-            if (name.length() > RUNNER_STRING_LENGTH) {
-                System.out.println("Over character" + name);
-                return false;
-            }
+    private boolean checkRacerNameLength(String name) {
+        if (name.length() > RUNNER_STRING_LENGTH) {
+            System.out.println("Over character" + name);
+            return false;
         }
         return true;
     }

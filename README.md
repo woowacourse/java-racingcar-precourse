@@ -1,14 +1,14 @@
 # 미션 - 자동차 경주 게임
 
 ## Feature list (To-do)
-1. 입력 `StringUtils`
+1.  입력 `StringUtils`
     - **이름 입력받는 메소드**
-        - , 를 포매터로 구분 `splitRacerByFormat`
-        - 이름이 동일한 경우 예외 처리 `isDuplication`
-        - 이름이 5자 초과인 경우 예외 처리 `isValidationNameLength`
+        - , 를 포매터로 구분 `splitRacerNameByFormat`
+	- **이름을 검증하는 메소드** `checkRacerNameValidation`
+        - 이름이 동일한 경우 예외 처리 `checkRacerNameDuplication`
+        - 이름이 5자 초과인 경우 예외 처리 `checkRacerNameLength`
     - **시도할 횟수를 입력받는 메소드**
-        - 시도할 횟수에 int이외 문자 예외 처리 `isValidationIntegerRoundCount`
-    	
+        - 시도할 횟수에 int이외 문자 예외 처리 `checkRoundCountValidation`
 2. 자동차 `Car`
 	- **차량 전진**
         - 난수 생성 `createRandomNumber`
