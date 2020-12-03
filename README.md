@@ -157,7 +157,7 @@ public class Car {
 - name(이름)과 (position)을 변수로 가짐
     - name을 반환하는 메서드 (getName)
     - postition을 전진하는 조건에 따라 값을 정하는 메서드 (tryMove)
-    - postition 값을 반환하는 메서드
+    - postition 값을 반환하는 메서드 (getPosition)
     
 ### Input 클래스
 - 입력값(자동차 이름, 시도 횟수)를 원하는 형태로 반환하는 메서드들을 가짐
