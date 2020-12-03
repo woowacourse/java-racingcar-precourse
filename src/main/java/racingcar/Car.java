@@ -4,12 +4,6 @@ import utils.RandomUtils;
 
 public class Car {
 
-    public static final int GO_FORWARD_MIN_NUMBER = 4;
-    public static final int KEEP_POSITION_MAX_NUMBER = 3;
-    public static final int MOVING_POSITION_POINT = 1;
-    public static final int MIN_RANDOM_RANGE = 0;
-    public static final int MAX_RANDOM_RANGE = 9;
-
     private final String name;
     private int position = 0;
 
@@ -21,7 +15,7 @@ public class Car {
 
     public void moveForward() {
         if (isMoveForward()) {
-            this.position += MOVING_POSITION_POINT;
+            this.position += Constants.MOVING_POSITION_POINT;
         }
     }
 
@@ -34,11 +28,12 @@ public class Car {
     }
 
     private boolean isMoveForward() {
-        int randomNumber = RandomUtils.nextInt(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE);
-        if (randomNumber >= GO_FORWARD_MIN_NUMBER) {
+        int randomNumber = RandomUtils.nextInt(
+            Constants.MIN_RANDOM_RANGE, Constants.MAX_RANDOM_RANGE);
+        if (randomNumber >= Constants.GO_FORWARD_MIN_NUMBER) {
             return true;
         }
-        if (randomNumber <= KEEP_POSITION_MAX_NUMBER) {
+        if (randomNumber <= Constants.KEEP_POSITION_MAX_NUMBER) {
             return false;
         }
         return false;

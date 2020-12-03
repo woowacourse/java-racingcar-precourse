@@ -5,12 +5,6 @@ import java.util.Scanner;
 
 public class Racing {
 
-    public static final String STANDING_START_ANNOUNCEMENT = "실행 결과";
-    public static final String LAP_POSITION_CHARACTER = "-";
-    public static final String RACER_POSITION_DIVIDE_CHARACTER = " : ";
-    public static final String EVENT_WINNER_ANNOUNCEMENT = "최종 우승자: ";
-    public static final String EVENT_WINNER_FORMAT_CHARACTER = ", ";
-
     public StringUtils racingEvent;
 
     ArrayList<Car> racerList = new ArrayList<Car>();
@@ -22,19 +16,19 @@ public class Racing {
     }
 
     private void setGrid(StringUtils racingEvent) {
-        for (String name : racingEvent.racerNameList) {
+        for (String name : Constants.racerNameList) {
             Car racer = new Car(name);
             racerList.add(racer);
         }
     }
 
     public void standingStart() {
-        System.out.println(STANDING_START_ANNOUNCEMENT);
+        System.out.println(Constants.STANDING_START_ANNOUNCEMENT);
         goLap(racingEvent);
     }
 
     private void goLap(StringUtils racingEvent) {
-        for (int i = 1; i <= racingEvent.roundCount; i++) {
+        for (int i = 1; i <= Constants.roundCount; i++) {
             System.out.println(i + " Round.");
             for (Car carInRacingEvent : racerList) {
                 carInRacingEvent.moveForward();
@@ -42,7 +36,7 @@ public class Racing {
 
                 System.out
                     .println(
-                        carInRacingEvent.getRacerName() + RACER_POSITION_DIVIDE_CHARACTER
+                        carInRacingEvent.getRacerName() + Constants.RACER_POSITION_DIVIDE_CHARACTER
                             + carInRacingEvent.getPosition()
                             + racerPositionBarInThisLap);
             }
@@ -53,7 +47,7 @@ public class Racing {
         String racerPositionBarInThisLap = "";
         int thisRacerPositionInThisLap = carInRacingEvent.getPosition();
         for (int j = 1; j <= thisRacerPositionInThisLap; j++) {
-            racerPositionBarInThisLap += LAP_POSITION_CHARACTER;
+            racerPositionBarInThisLap += Constants.LAP_POSITION_CHARACTER;
         }
         return racerPositionBarInThisLap;
     }
@@ -65,7 +59,7 @@ public class Racing {
         eventWinnerList = getRaceWinnerString(maxPositionInRacingEvent);
 
         String result = eventWinnerList.substring(0, eventWinnerList.length() - 2);
-        System.out.println(EVENT_WINNER_ANNOUNCEMENT + result);
+        System.out.println(Constants.EVENT_WINNER_ANNOUNCEMENT + result);
     }
 
     private int getMaxPosition(int maxPositionInRacingEvent) {
@@ -84,7 +78,7 @@ public class Racing {
             int thisRacerPositionInRacingEvent = carInRacingEvent.getPosition();
             if (maxPositionInRacingEvent == thisRacerPositionInRacingEvent) {
                 eventWinnerList += carInRacingEvent.getRacerName();
-                eventWinnerList += EVENT_WINNER_FORMAT_CHARACTER;
+                eventWinnerList += Constants.EVENT_WINNER_FORMAT_CHARACTER;
             }
         }
         return eventWinnerList;
