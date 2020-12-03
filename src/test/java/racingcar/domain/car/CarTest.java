@@ -2,6 +2,9 @@ package racingcar.domain.car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -25,12 +28,13 @@ class CarTest {
         );
     }
 
-    @DisplayName("자동차 이름이 자동차 이름 제한 길이보다 큰 경우 예외를 발생시킨다 ")
-    @Test
-    void testInitCarIfCarNameOverThanCarNameLimitLength() {
-        //given
-        String carName = "longCarName";
-
+    @DisplayName("자동차 이름이 자동차 이름 제한 길이를 만족하지 않는 경우 예외를 발생시킨다")
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "longCarName", "carName"
+    })
+    @EmptySource
+    void testInitCarIfCarNameNotSatisfiedCarNameLimitLength(String carName) {
         //when //then
         assertThatThrownBy(() -> new Car(carName))
                 .isExactlyInstanceOf(IllegalArgumentException.class);
