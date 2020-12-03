@@ -24,6 +24,7 @@ public class OutputView {
     public void printResult(ScoreBoard scoreBoard) {
         ArrayList<Car> cars = scoreBoard.getResult();
         cars.forEach(this::printResult);
+        System.out.println();
     }
 
     private void printResult(Car car) {
@@ -32,11 +33,14 @@ public class OutputView {
 
     public void printWinners(ScoreBoard scoreBoard) {
         System.out.println(WINNER_MESSAGE + getWinnerNames(scoreBoard));
-        System.out.println();
     }
 
     private String getWinnerNames(ScoreBoard scoreBoard){
         Stream<String> winners = scoreBoard.getWinners().stream().map(Car::getName);
         return winners.collect(Collectors.joining(", "));
+    }
+
+    public void printError(IllegalArgumentException e) {
+        System.out.println(e.getMessage());
     }
 }

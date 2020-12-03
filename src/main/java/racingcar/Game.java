@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+import static java.lang.System.*;
+
 public class Game {
     private final int MIN_RANDOM_NUMBER = 0;
     private final int MAX_RANDOM_NUMBER = 9;
     private final InputView inputView;
     private final OutputView outputView;
-    private ArrayList<Car> cars;
+    private final ArrayList<Car> cars;
     private ScoreBoard scoreboard;
     private int round;
 
@@ -40,13 +42,23 @@ public class Game {
     }
 
     private void updateCarName() {
-        outputView.printCarNameQuestion();
-        inputView.getCarNames().forEach(this::enter);
+        try {
+            outputView.printCarNameQuestion();
+            inputView.getCarNames().forEach(this::enter);
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e);
+            updateCarName();
+        }
     }
 
     private void updateRoundNumber() {
-        outputView.printRoundNumberQuestion();
-        round = inputView.getRoundNumber();
+        try {
+            outputView.printRoundNumberQuestion();
+            round = inputView.getRoundNumber();
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e);
+            updateRoundNumber();
+        }
     }
 
     private void playSinglePhase() {
