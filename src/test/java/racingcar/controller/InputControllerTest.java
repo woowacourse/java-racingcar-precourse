@@ -37,6 +37,25 @@ class InputControllerTest {
     }
 
     @Test
+    public void 중복된_참여자_이름을_검증한다() throws Exception {
+        //given
+        List<String> participants = Arrays.asList("java","c++","java");
+        List<String> participants2 = Arrays.asList("java","c++","react");
+
+        //when
+        boolean isNameDuplicate = participants.stream()
+                .distinct()
+                .count() != participants.size();
+        boolean isNameDuplicate2 = participants2.stream()
+                .distinct()
+                .count() != participants.size();
+
+        //then
+        assertThat(isNameDuplicate).isTrue();
+        assertThat(isNameDuplicate2).isFalse();
+    }
+
+    @Test
     public void 입력값이_숫자인지_검증한다() throws Exception {
         //given
         String input = "-19";   // non pass
