@@ -36,6 +36,16 @@ public class Racing {
         return Collections.max(carPosition);
     }
 
+    public List<String> getWinnersList(List<Car> carList, int winnerPosition) {
+        List<String> winners = new ArrayList<>();
+        for(Car car : carList) {
+            if(car.getPosition() == winnerPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
 
 
 }
