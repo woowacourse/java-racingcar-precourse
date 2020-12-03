@@ -13,7 +13,7 @@ public class GameManager {
     private static final int END_EXCLUSIVE_NUMBER = 10;
     private static final String WINNER_ANNOUCEMENT = "최종 우승자: ";
     private static final String WINNER_DELIMITER = ", ";
-    private static final String REPLAY_OR_QUIT_INPUT_MESSAGE = "다시 시작하시려면 1 종료를 원하시면 2를 입력해주세요.";
+    private static final String REPLAY_OR_QUIT_INPUT_MESSAGE = "다시 시작하려면 1, 종료를 원하시면 2를 입력해주세요.";
     private static final String REPLAY_OR_QUIT_INPUT_ERROR_MESSAGE = "[ERROR] 1 혹은 2만 입력 가능합니다.";
 
     private void moveCars(List<Car> cars) {
@@ -73,7 +73,7 @@ public class GameManager {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(REPLAY_OR_QUIT_INPUT_ERROR_MESSAGE);
         }
-        if (replayOrQuit != 1 || replayOrQuit != 2) {
+        if (replayOrQuit != 1 && replayOrQuit != 2) {
             throw new IllegalArgumentException(REPLAY_OR_QUIT_INPUT_ERROR_MESSAGE);
         }
         if (replayOrQuit == 1) {
