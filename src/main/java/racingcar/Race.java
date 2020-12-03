@@ -1,13 +1,13 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
     private final int attemptNum;
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars;
 
-    public Race(int attemptNum) {
+    public Race(List<Car> cars, int attemptNum) {
+        this.cars = cars;
         this.attemptNum = attemptNum;
     }
 

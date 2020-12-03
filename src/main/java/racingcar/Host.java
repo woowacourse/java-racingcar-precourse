@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static racingcar.MessageBox.ATTEMPT_NUMBER_ASK_MESSAGE;
@@ -7,6 +9,8 @@ import static racingcar.MessageBox.NAME_ASK_MESSAGE;
 
 public class Host {
     private final Scanner sc;
+    private int attemptNum;
+    private List<Car> cars = new ArrayList<>();
 
     public Host(Scanner scanner) {
         sc = scanner;
@@ -31,9 +35,13 @@ public class Host {
     }
 
     private void carNameSetting(String[] carNames) {
-
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+    }
+
+    private void carsMoveProcess() {
+        Race race = new Race(cars, attemptNum);
+        race.raceStart();
     }
 }
