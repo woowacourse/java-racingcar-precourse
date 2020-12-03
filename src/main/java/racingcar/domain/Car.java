@@ -28,7 +28,15 @@ public class Car {
         StringBuilder sb = new StringBuilder();
         sb.append(name);
         sb.append(CarToStringUtil.colonWithSpace);
-        sb.append(Collections.nCopies(position, CarToStringUtil.distanceIndicator));
+        sb.append(repeatDistanceIndicatorNtimes(position));
+        return sb.toString();
+    }
+
+    private String repeatDistanceIndicatorNtimes(int n){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < n; i++){
+            sb.append(CarToStringUtil.distanceIndicator);
+        }
         return sb.toString();
     }
 
