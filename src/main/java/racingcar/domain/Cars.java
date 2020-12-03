@@ -14,7 +14,7 @@ public class Cars {
         }
     }
 
-    public void validateParticipantsIsZero(List<String> participants) {
+    private void validateParticipantsIsZero(List<String> participants) {
         boolean isParticipantsZero = (participants.size() == 0);
         if (isParticipantsZero) {
             throw new IllegalArgumentException("[ERROR] 게임 인원은 최소 1명 이상이어야 합니다.");
