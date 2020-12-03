@@ -12,7 +12,7 @@ public class UnitGame {
         this.cars = cars;
     }
 
-    public void makeRandomNumbers(){
+    public void makeRandomNumbers() {
         cars.forEach(car -> car.increasePosition(RandomUtils.nextInt(0, 9)));
     }
 }

@@ -9,8 +9,8 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public void increasePosition(Integer randomNumber){
-        if(randomNumber>=4){
+    public void increasePosition(Integer randomNumber) {
+        if (randomNumber >= 4) {
             this.position++;
         }
     }
