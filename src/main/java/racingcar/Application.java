@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
+        RacingGameSystemMessageIn messageReader = new RacingGameSystemMessageIn(scanner);
 
         String carNameInput;
         RacingGameSystemMessageOut.printNameInput();
         while (true) {
             try {
-                 carNameInput = RacingGameException.checkNameInputException(scanner.nextLine().trim());
+                 carNameInput = RacingGameException.checkNameInputException(messageReader.submitCarNames());
                  break;
             } catch (NullPointerException e) {
                 RacingGameException.printNameInputMessage();
@@ -25,7 +26,7 @@ public class Application {
         int playNum = 0;
         while(true) {
             try {
-                playNum = RacingGameException.checkTimesInputException(scanner.nextLine());
+                playNum = RacingGameException.checkTimesInputException(messageReader.submitTimes());
                 break;
             } catch (NumberFormatException e) {
                 RacingGameException.printInvalidInputMessage();

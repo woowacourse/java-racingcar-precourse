@@ -14,7 +14,7 @@ public class RacingGameSystemMessageIn {
         return scanner.nextLine();
     }
 
-    public int submitTimes() {
-        return scanner.nextInt();
+    public String submitTimes() {
+        return scanner.nextLine();
     }
 }
