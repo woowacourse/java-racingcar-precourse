@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static racingcar.MessageBox.ATTEMPT_NUMBER_ASK_MESSAGE;
-import static racingcar.MessageBox.NAME_ASK_MESSAGE;
+import static racingcar.MessageBox.*;
 
 public class Host {
     private final User user;
@@ -42,6 +41,16 @@ public class Host {
         System.out.println(ATTEMPT_NUMBER_ASK_MESSAGE);
         attemptNum = getAttemptNum();
         System.out.println();
+    }
+
+    private int getAttemptNum() {
+        int attemptNum;
+        try {
+            attemptNum = sc.nextInt();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION_MESSAGE);
+        }
+        return attemptNum;
     }
 
     private void addCar(String[] carNames) {
