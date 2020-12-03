@@ -5,8 +5,17 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class OutputView {
+    private final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private final String ROUND_NUMBER_QUESTION = "시도할 회수는 몇회인가요?";
     private final String RESULT_MESSAGE = "실행 결과";
     private final String WINNER_MESSAGE = "최종 우승자: ";
+
+    public void printCarNameQuestion() {
+        System.out.println(CAR_NAME_QUESTION);
+    }
+    public void printRoundNumberQuestion() {
+        System.out.println(ROUND_NUMBER_QUESTION);
+    }
 
     public void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
