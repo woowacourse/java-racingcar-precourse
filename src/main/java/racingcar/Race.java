@@ -3,6 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Race {
     private List<Car> allRacingCars = new ArrayList<>();
@@ -12,14 +13,30 @@ public class Race {
     }
 
     private void generateCars(Scanner scanner) {
-        System.out.println(Constant.PARTICIPATING_CAR_NAME_INPUT_MESSAGE);
+        while (true) {
+            System.out.println(Constant.PARTICIPATING_CAR_NAME_INPUT_MESSAGE);
 
-        String input = scanner.nextLine();
-        String[] cars = input.split(",");
+            try {
+                String input = scanner.nextLine();
+                String[] cars = Stream.of(input.split(Constant.DELIMITER)).map(String::trim).toArray(String[]::new);
 
-        for (String carName : cars) {
-            Car car = new Car(carName.trim());
-            allRacingCars.add(car);
+                checkRightCarName(cars);
+
+                for (String carName : cars) {
+                    Car car = new Car(carName);
+                    allRacingCars.add(car);
+                }
+
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private void checkRightCarName(String[] cars) {
+        if (!Validation.carNameValidation(cars)) {
+            throw new IllegalArgumentException(Constant.ERROR_CAR_NAME);
         }
     }
 }
