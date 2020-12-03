@@ -1,10 +1,10 @@
 package racingcar.controller;
 
-public class ErrorException extends IllegalArgumentException {
+public class RacingCarErrorException extends IllegalArgumentException {
 
     private static final String EXCEPTION_PREFIX = "[ERROR]";
 
-    public ErrorException(String message) {
+    public RacingCarErrorException(String message) {
         super(EXCEPTION_PREFIX + message);
     }
 }

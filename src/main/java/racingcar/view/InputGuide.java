@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.Scanner;
-import racingcar.controller.ErrorException;
+import racingcar.controller.RacingCarErrorException;
 import racingcar.model.Car;
 import utils.ValidUtils;
 
@@ -27,7 +27,7 @@ public class InputGuide {
         String[] cars = splitCarsName(scanner.nextLine());
         try {
             return validUtils.isValid(cars);
-        } catch (ErrorException exception) {
+        } catch (RacingCarErrorException exception) {
             System.out.println(exception.getMessage());
             return inputCars();
         }
@@ -41,7 +41,7 @@ public class InputGuide {
         System.out.println(MOVES_INPUT_MESSAGE);
         try {
             return validUtils.moreThanZero();
-        } catch (ErrorException exception) {
+        } catch (RacingCarErrorException exception) {
             System.out.println(exception.getMessage());
             return countMove();
         }

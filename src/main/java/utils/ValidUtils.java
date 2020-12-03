@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import racingcar.controller.ErrorException;
+import racingcar.controller.RacingCarErrorException;
 import racingcar.model.Car;
 
 /**
@@ -28,21 +28,21 @@ public class ValidUtils {
         if (isMoreThanOne(cars)) {
             return makeCar(cars);
         }
-        throw new ErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
+        throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
     }
 
     private boolean isMoreThanOne(String[] input) {
         if (input.length >= TWO) {
             return isValidateCarNames(input);
         }
-        throw new ErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
+        throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
     }
 
     private boolean isValidateCarNames(String[] input) {
         if (Arrays.stream(input).allMatch(this::countCharacters)) {
             return true;
         }
-        throw new ErrorException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
+        throw new RacingCarErrorException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
     }
 
     private boolean countCharacters(String carName) {
@@ -59,8 +59,8 @@ public class ValidUtils {
         try {
             int input = Integer.parseInt(scanner.nextLine());
             return isNaturalNumber(input);
-        } catch (NumberFormatException | ErrorException exception) {
-            throw new ErrorException(MOVES_INPUT_EXCEPTION_MESSAGE);
+        } catch (NumberFormatException | RacingCarErrorException exception) {
+            throw new RacingCarErrorException(MOVES_INPUT_EXCEPTION_MESSAGE);
         }
     }
 
@@ -68,6 +68,6 @@ public class ValidUtils {
         if (input > 0) {
             return input;
         }
-        throw new ErrorException(MOVES_INPUT_EXCEPTION_MESSAGE);
+        throw new RacingCarErrorException(MOVES_INPUT_EXCEPTION_MESSAGE);
     }
 }
