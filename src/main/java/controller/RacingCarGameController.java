@@ -20,6 +20,7 @@ public class RacingCarGameController {
     public void run() {
         CarFactory carFactory = new CarFactory();
         carFactory.makeCars(Objects.requireNonNull(makeNames()));
+        System.out.println(this.inputView.receiveCounts());
     }
 
     private List<String> makeNames() {
