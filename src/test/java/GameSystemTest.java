@@ -19,5 +19,8 @@ public class GameSystemTest {
         System.out.println(game.getTrialCount());
 
         game.doAllTrial();
+        game.setMaxPosition();
+        game.setWinners();
+        game.printWinners();
     }
 }
