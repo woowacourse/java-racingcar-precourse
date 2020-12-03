@@ -1,6 +1,7 @@
 package view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
     private static final String NEW_LINE = "\n";
@@ -30,5 +31,11 @@ public class OutputView {
 
     public static void printNewLine() {
         System.out.println();
+    }
+
+    public static void printWinner(List<String> names) {
+        System.out.print("최종 우승자 : ");
+
+        System.out.println(String.join(", ", names));
     }
 }
