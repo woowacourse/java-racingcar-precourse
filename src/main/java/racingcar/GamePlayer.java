@@ -16,17 +16,24 @@ public class GamePlayer {
     public int inputTurnsToTry(Scanner scanner) {
         System.out.println(GameHost.ASK_TURNS.getMessage());
         String turnsToTry = scanner.nextLine();
-        int turnsToTryInt;
-        try {
-            turnsToTryInt = Integer.parseInt(turnsToTry);
-        } catch (NumberFormatException nfe) {
+        if (!isNumberFormat(turnsToTry)) {
             System.err.println(ErrorMessage.NUMBER_FORMAT.getMessage());
-            turnsToTryInt = inputTurnsToTry(scanner);
+            return inputTurnsToTry(scanner);
         }
-        return getAbsoluteValue(turnsToTryInt);
+        return getAbsoluteValue(turnsToTry);
     }
 
-    public int getAbsoluteValue(int turnsToTryInt) {
+    public boolean isNumberFormat(String turnsToTry) {
+        try {
+            Integer.parseInt(turnsToTry);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
+    public int getAbsoluteValue(String turnsToTry) {
+        int turnsToTryInt = Integer.parseInt(turnsToTry);
         if (turnsToTryInt < 0) {
             System.err.println(ErrorMessage.NEGATIVE_NUMBER.getMessage());
             return Math.abs(turnsToTryInt);

@@ -17,6 +17,7 @@ public class Application {
     Application() {
         gamePlayer = new GamePlayer();
         winner = new Winner();
+        carList = new ArrayList<>();
     }
 
     public static void main(String[] args) {
@@ -30,47 +31,52 @@ public class Application {
         carList = createCarList(scanner);
         Car.setTurnsToTry(gamePlayer.inputTurnsToTry(scanner));
         System.out.println();
-        System.out.println(GameHost.PROGRESS_RESULT);
+        System.out.println(GameHost.PROGRESS_RESULT.getMessage());
         while (Car.getTurnsToTry() > GameProcess.NO_TURN.getValue()) {
             showResultOfEachTurn();
         }
         winner.findWinners(carList);
         String winnerNames = winner.getWinnerNames();
-        System.out.println(GameHost.FINAL_WINNER + winnerNames);
+        System.out.println(GameHost.FINAL_WINNER.getMessage() + winnerNames);
     }
 
     public List<Car> createCarList(Scanner scanner) {
         String[] namesOfCarsArray = gamePlayer.inputNamesOfCars(scanner);
-        List<Car> carList = new ArrayList<>();
         int numberOfTrimmedName = 0;
         for (String nameOfCar : namesOfCarsArray) {
-            numberOfTrimmedName += countNameWithForeAndAftBlank(nameOfCar);
-            nameOfCar = getCorrectName(nameOfCar.trim());
-            if (isNameBlank(nameOfCar)) {
-                continue;
-            }
-            Car car = new Car(nameOfCar.trim());
-            carList.add(car);
+            numberOfTrimmedName += countNumberOfNameWithForeAndAftBlank(nameOfCar);
+            addValidNameOfCar(nameOfCar);
         }
         noticeNameTrimmed(numberOfTrimmedName);
         noticeBlankNameRemoved(namesOfCarsArray , carList);
         return carList;
     }
 
-    public void showResultOfEachTurn() {
-        for (Car car : carList) {
-            car.moveOrStay();
-            System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getPosition(); i++) {
-                System.out.print(GameHost.PROGRESS_BAR.getMessage());
-            }
-            System.out.println();
+    public int countNumberOfNameWithForeAndAftBlank(String nameOfCar) {
+        if (isStartsWithBlank(nameOfCar) || isEndsWithBlank(nameOfCar)) {
+            return 1;
         }
-        Car.useOneTurn();
-        System.out.println();
+        return 0;
     }
 
-    public String getCorrectName(String nameOfCar) {
+    public boolean isStartsWithBlank(String nameOfCar) {
+        return nameOfCar.startsWith(" ");
+    }
+
+    public boolean isEndsWithBlank(String nameOfCar) {
+        return nameOfCar.endsWith(" ");
+    }
+
+    public void addValidNameOfCar(String nameOfCar) {
+        nameOfCar = shortenNameLengthToMax(nameOfCar.trim());
+        if (isNameBlank(nameOfCar)) {
+            return;
+        }
+        Car car = new Car(nameOfCar.trim());
+        carList.add(car);
+    }
+
+    public String shortenNameLengthToMax(String nameOfCar) {
         if (isNameLengthOverMax(nameOfCar)) {
             System.err.println(ErrorMessage.OVER_MAXIMUM_NAME_LENGTH.getMessage());
             return nameOfCar.substring(0, GameProcess.MAXIMUM_NAME_LENGTH.getValue());
@@ -86,6 +92,12 @@ public class Application {
         return nameOfCar.equals("");
     }
 
+    public void noticeNameTrimmed(int numberOfTrimmedName) {
+        if (numberOfTrimmedName > 0) {
+            System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
+        }
+    }
+
     public void noticeBlankNameRemoved(String[] namesOfCarsArray, List<Car> carList) {
         if (isBlankNameInputted(namesOfCarsArray, carList)) {
             System.err.println(ErrorMessage.BLANK_NAME.getMessage());
@@ -96,24 +108,20 @@ public class Application {
         return namesOfCarsArray.length != carList.size();
     }
 
-    public int countNameWithForeAndAftBlank(String nameOfCar) {
-        if (isStartsWithBlank(nameOfCar) || isEndsWithBlank(nameOfCar)) {
-            return 1;
+    public void showResultOfEachTurn() {
+        for (Car car : carList) {
+            printEachTurnOfCar(car);
+            System.out.println();
         }
-        return 0;
+        Car.useOneTurn();
+        System.out.println();
     }
 
-    public boolean isStartsWithBlank(String nameOfCar) {
-        return nameOfCar.startsWith(" ");
-    }
-
-    public boolean isEndsWithBlank(String nameOfCar) {
-        return nameOfCar.endsWith(" ");
-    }
-
-    public void noticeNameTrimmed(int numberOfTrimmedName) {
-        if (numberOfTrimmedName > 0) {
-            System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
+    public void printEachTurnOfCar(Car car) {
+        car.moveOrStay();
+        System.out.print(car.getName() + " : ");
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print(GameHost.PROGRESS_BAR.getMessage());
         }
     }
 }
