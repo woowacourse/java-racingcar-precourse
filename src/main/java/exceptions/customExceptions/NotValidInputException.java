@@ -1,6 +1,6 @@
-package error.customException;
+package exceptions.customExceptions;
 
-public class NotValidInputException extends Exception {
+public class NotValidInputException extends IllegalArgumentException {
 
     private static final String ERROR = "[ERROR] ";
 
