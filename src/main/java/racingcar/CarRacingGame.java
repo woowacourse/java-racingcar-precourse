@@ -14,6 +14,16 @@ public class CarRacingGame {
         playRound = 0;
     }
 
+    public void startCarRacing() {
+        Race race = new Race();
+        int roundIndex = 0;
+        System.out.println("실행결과");
+        while (roundIndex < playRound) {
+            race.runCarRace(carList);
+            roundIndex++;
+        }
+    }
+
     public void inputInfoForPlayGame(Scanner scanner)
     {
         carList.setCarList(inputCarName(scanner));

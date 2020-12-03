@@ -13,5 +13,6 @@ public class Application {
 
     private static void playGame(CarRacingGame carRacingGame) {
         carRacingGame.inputTest();
+        carRacingGame.startCarRacing();
     }
 }
