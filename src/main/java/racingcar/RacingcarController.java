@@ -2,6 +2,7 @@ package racingcar;
 
 import View.InputView;
 import exceptions.Validator;
+import exceptions.customExceptions.NotValidInputException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,8 +21,8 @@ public class RacingcarController {
     public void run() {
         String inputCarName = InputView.inputCarName(scanner);
         Cars cars = new Cars(convertInputStringToCarList(inputCarName));
-        int numberOfProgress = InputView.inputNumberOfProgress(scanner);
-
+        int numberOfProgress = inputNumberOfProgress(scanner);
+        
     }
 
     private List<Car> convertInputStringToCarList(String inputCarName) {
@@ -29,6 +30,13 @@ public class RacingcarController {
                 .filter(carName -> !carName.equals(""))
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());
+    }
+
+    private int inputNumberOfProgress(Scanner scanner) {
+        String numberOfProgress = InputView.inputNumberOfProgress(scanner);
+        Validator.validateNumberOfProgress(numberOfProgress);
+
+        return Integer.parseInt(numberOfProgress);
     }
 
 }

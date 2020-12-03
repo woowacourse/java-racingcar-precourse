@@ -12,8 +12,8 @@ public class InputView {
         return scanner.nextLine();
     }
 
-    public static int inputNumberOfProgress(Scanner scanner) {
+    public static String inputNumberOfProgress(Scanner scanner) {
         System.out.println(INPUT_NUMBER_OF_PROGRESS);
-        return scanner.nextInt();
+        return scanner.nextLine();
     }
 }
