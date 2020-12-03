@@ -1,8 +1,12 @@
 package controller;
 
 import domain.NameValidator;
+import domain.racingcar.CarFactory;
 import view.InputView;
 import view.OutputView;
+
+import java.util.List;
+import java.util.Objects;
 
 public class RacingCarGameController {
     private final InputView inputView;
@@ -14,16 +18,18 @@ public class RacingCarGameController {
     }
 
     public void run() {
-        makeNames();
+        CarFactory carFactory = new CarFactory();
+        carFactory.makeCars(Objects.requireNonNull(makeNames()));
     }
 
-    private void makeNames() {
+    private List<String> makeNames() {
         try{
             NameValidator nameValidator = new NameValidator(this.inputView.receiveNames());
-            System.out.println(nameValidator.makeDataToNames());
+            return nameValidator.makeDataToNames();
         } catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
             makeNames();
         }
+        return null;
     }
 }
