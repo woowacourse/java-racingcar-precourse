@@ -1,5 +1,6 @@
 package preprocess;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class InputPreProcess {
@@ -13,6 +14,7 @@ public class InputPreProcess {
 
     private static final String NAME_ERROR = "[ERROR] 이름은 한글 또는 영어로만 되어야 한다.";
     private static final String INPUT_ERROR = "[ERROR] 쉼표나 영어, 한글 이외의 글자는 없어야 한다.";
+    private static final String DUPLICATION_ERROR = "[ERROR] 이름은 중복될 수 없다.";
     private static final String LENGTH_ERROR = "[ERROR] 이름은 " + MIN_NAME_LENGTH +
             "글자 이상이거나 " + MAX_NAME_LENGTH + "글자 이하여만 합니다.";
 
@@ -38,7 +40,19 @@ public class InputPreProcess {
     }
 
     private boolean checkNamesNotValid(String[] names) {
-        return !checkName(names) || !checkLength(names);
+        return !checkName(names) || !checkLength(names) || !checkDuplication(names);
+    }
+
+    private boolean checkDuplication(String[] names) {
+        if (!checkNameDuplication(names)) {
+            System.out.println(DUPLICATION_ERROR);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkNameDuplication(String[] names) {
+        return names.length == Arrays.stream(names).distinct().count();
     }
 
     private boolean checkInput(String str) {
