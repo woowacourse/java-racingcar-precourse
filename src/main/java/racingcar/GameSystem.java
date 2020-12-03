@@ -17,7 +17,7 @@ public class GameSystem {
         this.carCount = 0;
     }
 
-    public int getCarCount() {
+    private int getCarCount() {
         return carCount;
     }
 
@@ -25,11 +25,11 @@ public class GameSystem {
         return cars;
     }
 
-    public void setCarCount(int count) {
+    private void setCarCount(int count) {
         this.carCount = count;
     }
 
-    public void setCars(String[] names) {
+    private void setCars(String[] names) {
         int count = names.length;
 
         setCarCount(count);
@@ -58,14 +58,14 @@ public class GameSystem {
         setCars(tmpNames);
     }
 
-    public String[] parseCarNames(String string) {
+    private String[] parseCarNames(String string) {
         String[] tmpNames;
 
         tmpNames = string.split(",");
         return tmpNames;
     }
 
-    public void checkValidCars(String[] names) throws IllegalArgumentException {
+    private void checkValidCars(String[] names) throws IllegalArgumentException {
         if (!checkValidCount(names)) {
             throw new IllegalArgumentException("[ERROR] 최소 2개 이상의 차가 존재해야 합니다.");
         }
