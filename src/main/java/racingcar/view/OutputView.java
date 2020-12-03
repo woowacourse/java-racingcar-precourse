@@ -10,6 +10,12 @@ public class OutputView {
     private static final String WINNER_LOG_BEGIN = "최종 우승자: ";
     private static final String AND_LOG = ", ";
 
+    public static void printRaceProgressLog(List<Car> carList){
+        for(Car car : carList){
+            System.out.println(car.toString());
+        }
+    }
+
     public static void printWinnerLog(List<Car> carList){
         int maxPosition = getMaxPosition(carList);
         List<Car> winners = getWinners(carList, maxPosition);
