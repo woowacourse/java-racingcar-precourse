@@ -19,6 +19,10 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     private void setRandomNumber() {
         this.randomNumber = RandomUtils.nextInt(MIN, MAX);
     }

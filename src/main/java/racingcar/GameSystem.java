@@ -12,12 +12,14 @@ public class GameSystem {
 
     private int carCount;
     private int trialCount;
+    private int maxPosition;
     private Car[] cars;
 
 
     public GameSystem() {
         this.carCount = 0;
         this.trialCount = 0;
+        this.maxPosition = 0;
     }
 
     public int getTrialCount() {
@@ -54,6 +56,17 @@ public class GameSystem {
         }
     }
 
+    private void setMaxPosition() {
+        int max = 0;
+
+        for (int i = 0; i < carCount; i++) {
+            int position = cars[i].getPosition();
+            if (position >= max) {
+                maxPosition = position;
+            }
+        }
+    }
+
     public void makeCars(Scanner scanner) {
         String[] tmpNames;
 
@@ -78,6 +91,8 @@ public class GameSystem {
             doOneTrial();
         }
     }
+
+    public void set
 
     private void doOneTrial() {
         driveAllCars();
