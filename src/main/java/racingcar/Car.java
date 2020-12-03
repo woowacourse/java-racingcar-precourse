@@ -8,7 +8,12 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void moveCar() {
+        if(RacingCarMovement.moveCar()) {
+            this.position += 1;
+        }
+    }
+
     public String getCarName() {
         return name;
     }
