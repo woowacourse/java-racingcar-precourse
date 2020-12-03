@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ public class GameSystem {
     private int trialCount;
     private int maxPosition;
     private Car[] cars;
-
+    private ArrayList<Car> winners;
 
     public GameSystem() {
         this.carCount = 0;
@@ -67,6 +68,15 @@ public class GameSystem {
         }
     }
 
+    private void setWinners() {
+        for (int i = 0; i < carCount; i++) {
+            int position = cars[i].getPosition();
+            if (maxPosition == position) {
+                winners.add(cars[i]);
+            }
+        }
+    }
+
     public void makeCars(Scanner scanner) {
         String[] tmpNames;
 
@@ -91,8 +101,6 @@ public class GameSystem {
             doOneTrial();
         }
     }
-
-    public void set
 
     private void doOneTrial() {
         driveAllCars();
