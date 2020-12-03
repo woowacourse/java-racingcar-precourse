@@ -21,6 +21,7 @@ public class RacingController {
     public void playGame() {
         readyGame();
         start();
+        showWinners();
     }
 
     private void readyGame() {
@@ -41,5 +42,9 @@ public class RacingController {
 
     private int createGameCount() {
         return user.createCount(input.nextLine());
+    }
+
+    private void showWinners() {
+        racingGame.findWinners();
     }
 }

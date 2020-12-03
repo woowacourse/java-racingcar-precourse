@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Collections;
 import java.util.List;
 import utils.RandomUtils;
 
@@ -10,6 +11,7 @@ import utils.RandomUtils;
 public class RacingGame {
     private static final int START_RANGE = 0;
     private static final int END_RANGE = 9;
+    private static final int FIRST_CAR = 0;
 
     private final List<Car> cars;
 
@@ -31,5 +33,10 @@ public class RacingGame {
 
     private int getRandomNumber() {
         return RandomUtils.nextInt(START_RANGE, END_RANGE);
+    }
+
+    public void findWinners() {
+        Collections.sort(cars);
+        Car winner = cars.get(FIRST_CAR);
     }
 }
