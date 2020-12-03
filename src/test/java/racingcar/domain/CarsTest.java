@@ -1,12 +1,13 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CarsTest {
 
@@ -21,6 +22,6 @@ class CarsTest {
                 .collect(Collectors.toCollection(HashSet::new));
 
         //then
-        Assertions.assertThat(cars.size()).isEqualTo(3);
+        assertThat(cars.size()).isEqualTo(3);
     }
 }
