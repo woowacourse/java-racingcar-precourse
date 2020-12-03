@@ -23,8 +23,15 @@ public class Race {
 
     private void nameInput() {
         System.out.println(NAME_ASK_MESSAGE);
-        String[] names = sc.nextLine().split(",");
-        carNameSetting(names);
+        String[] carNames = sc.nextLine().split(",");
+        carNameSetting(carNames);
+    }
+
+    private void carNameSetting(String[] carNames) {
+
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
 
