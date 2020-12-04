@@ -37,7 +37,7 @@ public class RacingGame {
     private void printProgress() {
         for (int i = 0; i < players.length; i++) {
             System.out.print(players[i].getCarName() + " " + SystemMessage.SEPARATOR_COLON + " ");
-            
+
             int position = players[i].getCarPosition();
             for (int j = 0; j < position; j++) {
                 System.out.print(SystemMessage.DISTANCE);
@@ -75,7 +75,7 @@ public class RacingGame {
         System.out.println(SystemMessage.INPUT_CAR_NAME_MESSAGE);
         String[] input = scanner.next().split(",");
         players = new Player[input.length];
-        
+
         for (int i = 0; i < players.length; i++) {
             players[i] = new Player(input[i]);
         }

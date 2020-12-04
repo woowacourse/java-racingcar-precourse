@@ -36,5 +36,5 @@ public class Player {
     public int getCarPosition() {
         return car.position();
     }
-    
+
 }
