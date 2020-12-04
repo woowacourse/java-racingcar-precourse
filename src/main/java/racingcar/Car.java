@@ -30,12 +30,15 @@ public class Car {
         return 0;
     }
 
+    public void printCarState() {
+        String state = getName() + " : ";
+        for (int i = 0; i< getPosition(); i++){
+            state += "-";
+        }
+        System.out.println(state);
+    }
+
     public void carMove() {
 
     }
-
-    public void printCarState() {
-
-    }
-
 }
