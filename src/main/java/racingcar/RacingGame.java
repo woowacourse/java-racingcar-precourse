@@ -60,7 +60,7 @@ public class RacingGame {
     private void printChampion() {
         System.out.print(SystemMessage.CHAMPION + " ");
         List<String> championList = getChampionList();
-        System.out.println(championList.get(0));
+        System.out.print(championList.get(0));
         for (int i = 1; i < championList.size(); i++) {
             System.out.print(SystemMessage.SEPARATOR_COMMA + " " + championList.get(i));
         }
