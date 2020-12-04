@@ -24,62 +24,16 @@ public class GameSystem {
         this.winners = new ArrayList<>();
     }
 
-    public int getTrialCount() {
-        return trialCount;
+    public void playGame(Scanner scanner) {
+        makeCars(scanner);
+        setTrialCount(scanner);
+        doAllTrial();
+        setMaxPosition();
+        setWinners();
+        printWinners();
     }
 
-    public Car[] getCars() {
-        return cars;
-    }
-
-    public void setTrialCount(Scanner scanner) {
-        String input;
-
-        while (true) {
-            System.out.println("시도할 회수는 몇회인가요?");
-            input = scanner.nextLine();
-            try {
-                checkValidTrialCount(input);
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-        this.trialCount = Integer.parseInt(input);
-    }
-
-    private void setCars(String[] names) {
-        this.carCount = names.length;
-
-        cars = new Car[carCount];
-        for (int i = 0; i < carCount; i++) {
-            Car car = new Car(names[i]);
-            cars[i] = car;
-        }
-    }
-
-    public void setMaxPosition() {
-        int max = 0;
-
-        for (int i = 0; i < carCount; i++) {
-            int position = cars[i].getPosition();
-            if (position >= max) {
-                max = position;
-            }
-        }
-        this.maxPosition = max;
-    }
-
-    public void setWinners() {
-        for (int i = 0; i < carCount; i++) {
-            int position = cars[i].getPosition();
-            if (maxPosition == position) {
-                winners.add(cars[i]);
-            }
-        }
-    }
-
-    public void makeCars(Scanner scanner) {
+    private void makeCars(Scanner scanner) {
         String[] tmpNames;
 
         while (true) {
@@ -96,7 +50,24 @@ public class GameSystem {
         setCars(tmpNames);
     }
 
-    public void doAllTrial() {
+    private void setTrialCount(Scanner scanner) {
+        String input;
+
+        while (true) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            input = scanner.nextLine();
+            try {
+                checkValidTrialCount(input);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        this.trialCount = Integer.parseInt(input);
+    }
+
+    private void doAllTrial() {
+        System.out.println();
         System.out.println("실행 결과");
 
         for (int i = 0; i < trialCount; i++) {
@@ -104,7 +75,28 @@ public class GameSystem {
         }
     }
 
-    public void printWinners() {
+    private void setMaxPosition() {
+        int max = 0;
+
+        for (int i = 0; i < carCount; i++) {
+            int position = cars[i].getPosition();
+            if (position >= max) {
+                max = position;
+            }
+        }
+        this.maxPosition = max;
+    }
+
+    private void setWinners() {
+        for (int i = 0; i < carCount; i++) {
+            int position = cars[i].getPosition();
+            if (maxPosition == position) {
+                winners.add(cars[i]);
+            }
+        }
+    }
+
+    private void printWinners() {
         int winnerCount = winners.size();
         int index = 0;
         String name = winners.get(index).getName();
@@ -114,23 +106,6 @@ public class GameSystem {
             name = winners.get(index).getName();
             System.out.print(", " + name);
         }
-    }
-
-    private void doOneTrial() {
-        driveAllCars();
-        printPositionAllCars();
-    }
-
-    private void driveAllCars() {
-        for (int i = 0; i < carCount; i++) {
-            cars[i].action();
-        }
-    }
-
-    private void printPositionAllCars() {
-        for (int i = 0; i < carCount; i++) {
-            cars[i].printPosition();
-        }
         System.out.println();
     }
 
@@ -139,6 +114,16 @@ public class GameSystem {
 
         tmpNames = string.split(",");
         return tmpNames;
+    }
+
+    private void setCars(String[] names) {
+        this.carCount = names.length;
+
+        cars = new Car[carCount];
+        for (int i = 0; i < carCount; i++) {
+            Car car = new Car(names[i]);
+            cars[i] = car;
+        }
     }
 
     private void checkValidCars(String[] names) throws IllegalArgumentException {
@@ -228,5 +213,23 @@ public class GameSystem {
             return false;
         }
         return true;
+    }
+
+    private void doOneTrial() {
+        driveAllCars();
+        printPositionAllCars();
+    }
+
+    private void driveAllCars() {
+        for (int i = 0; i < carCount; i++) {
+            cars[i].action();
+        }
+    }
+
+    private void printPositionAllCars() {
+        for (int i = 0; i < carCount; i++) {
+            cars[i].printPosition();
+        }
+        System.out.println();
     }
 }
