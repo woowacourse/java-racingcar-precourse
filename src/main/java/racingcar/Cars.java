@@ -15,4 +15,11 @@ public class Cars {
             .map(Car::new)
             .collect(Collectors.toList());
     }
+
+    public void moveByRandomNumber() {
+        for(Car car: cars){
+            int randomNumber = RandomNumberGenerator.generateRandomNumber();
+            car.moveIfRandomNumberIsBiggerThanLimit(randomNumber);
+        }
+    }
 }

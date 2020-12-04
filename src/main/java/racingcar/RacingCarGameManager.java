@@ -11,6 +11,17 @@ public class RacingCarGameManager {
     }
 
     public void startRacingCarGame() {
+        initialize();
+        moveCarsDuringRounds();
+    }
+
+    private void moveCarsDuringRounds() {
+        for(int current=0;current<round; current++){
+            player.moveCars();
+        }
+    }
+
+    private void initialize() {
         player.inputCarNames();
         this.round = player.inputRoundNumber();
     }
