@@ -3,27 +3,31 @@ package racingcar;
 import java.util.List;
 
 public class Racing {
-    public static final String COMMA_AND_SPACE = ", ";
-    public static final String FINAL_WINNER_MSG = "최종 우승자 : ";
+    private static final String COMMA_AND_SPACE = ", ";
+    private static final String FINAL_WINNER_MSG = "최종 우승자 : ";
+    private static final String ROUND_INFORMATION_MSG_FORMAT = "======= %d 라운드 =======" + System.lineSeparator();
+
     private Cars cars;
+    private int totalRound;
     private int round;
 
-    public Racing(Cars cars, int round) {
+    public Racing(Cars cars, int totalRound) {
         this.cars = cars;
-        this.round = round;
+        this.totalRound = totalRound;
+        this.round = 0;
     }
 
     public boolean hasNextRound() {
-        return round > 0;
+        return round < totalRound;
     }
 
     public void nextRound() {
         cars.race();
-        round--;
+        round++;
     }
 
     public String printProgress() {
-        return cars.printProgress();
+        return String.format(ROUND_INFORMATION_MSG_FORMAT, round).concat(cars.printProgress());
     }
 
     public String printResult() {
