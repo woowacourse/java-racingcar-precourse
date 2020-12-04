@@ -1,8 +1,11 @@
 package racingcar.domain.car;
 
+import racingcar.domain.exception.CarNameDuplicationException;
 import racingcar.domain.strategy.MovingStrategy;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -14,9 +17,17 @@ public class Cars {
     }
 
     public static Cars createCars(List<String> carNames, MovingStrategy movingStrategy) {
+        validateDuplication(carNames);
         List<Car> cars = carNames.stream()
                 .map(carName -> new Car(carName, movingStrategy))
                 .collect(Collectors.toList());
         return new Cars(cars);
+    }
+
+    private static void validateDuplication(List<String> carNames) {
+        Set<String> distinctCarNames = new HashSet<>(carNames);
+        if (distinctCarNames.size() != carNames.size()) {
+            throw new CarNameDuplicationException();
+        }
     }
 }
