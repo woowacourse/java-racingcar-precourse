@@ -10,30 +10,30 @@ public class OutputView {
     private static final String WINNER_LOG_BEGIN = "최종 우승자: ";
     private static final String AND_LOG = ", ";
 
-    public static void printRaceStartLog(){
+    public void printRaceStartLog(){
         System.out.println(RACE_START_LOG);
     }
 
-    public static void printRaceProgressLog(List<Car> carList){
+    public void printRaceProgressLog(List<Car> carList){
         for(Car car : carList){
             System.out.println(car.toString());
         }
     }
 
-    public static void printWinnerLog(List<Car> carList){
+    public void printWinnerLog(List<Car> carList){
         int maxPosition = getMaxPosition(carList);
         List<Car> winners = getWinners(carList, maxPosition);
         String winnerLog = getWinnerLog(winners);
         System.out.println(winnerLog);
     }
 
-    private static List<Car> getWinners(List<Car> carList, int maxPosition){
+    private List<Car> getWinners(List<Car> carList, int maxPosition){
         return carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
 
-    private static int getMaxPosition(List<Car> carList){
+    private int getMaxPosition(List<Car> carList){
         int maxPosition = 0;
         for(Car car : carList){
             maxPosition = Math.max(car.getPosition(), maxPosition);
@@ -41,7 +41,7 @@ public class OutputView {
         return maxPosition;
     }
 
-    private static String getWinnerLog(List<Car> winners){
+    private String getWinnerLog(List<Car> winners){
         StringBuilder sb = new StringBuilder();
         sb.append(WINNER_LOG_BEGIN);
         concatWinners(winners, sb);

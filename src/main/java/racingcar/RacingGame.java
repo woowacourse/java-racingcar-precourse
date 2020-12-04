@@ -18,6 +18,10 @@ public class RacingGame {
     private List<Car> carList;
     private int numberOfRaces = 0;
 
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
+    private final ErrorView errorView = new ErrorView();
+
     public RacingGame(Scanner scanner){
         this.scanner = scanner;
     }
@@ -29,21 +33,21 @@ public class RacingGame {
 
     private void setup(){
         try {
-            InputView.printCarNameInputLog();
+            inputView.printCarNameInputLog();
             String carNames = scanner.nextLine();
             setupCars(carNames);
         } catch (IllegalArgumentException ie){
-            ErrorView.printCarNameInputLogError();
+            errorView.printCarNameInputLogError();
         }
     }
 
     private void startRace() {
         try {
-            InputView.printRaceNumInputLog();
+            inputView.printRaceNumInputLog();
             numberOfRaces = Integer.parseInt(scanner.nextLine());
             printRace();
         } catch (IllegalArgumentException ie){
-            ErrorView.printRaceNumInputLogErrorNotNumber();
+            errorView.printRaceNumInputLogErrorNotNumber();
         }
     }
 
@@ -67,7 +71,7 @@ public class RacingGame {
     }
 
     private void printRace(){
-        OutputView.printRaceStartLog();
+        outputView.printRaceStartLog();
         for (int i = 0; i < numberOfRaces; i++) {
             moveCars();
             printCars();
@@ -82,11 +86,11 @@ public class RacingGame {
     }
 
     private void printCars(){
-        OutputView.printRaceProgressLog(carList);
+        outputView.printRaceProgressLog(carList);
         System.out.println();
     }
 
     private void printWinners(){
-        OutputView.printWinnerLog(carList);
+        outputView.printWinnerLog(carList);
     }
 }
