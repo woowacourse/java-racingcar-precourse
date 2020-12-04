@@ -52,9 +52,10 @@ public class Application {
         Car[] cars = createCars(carNames);
         boolean isNotFinish = true;
         for (int i = 0; i < attemptNumber; i++) {
-            for (int j = 0; j < cars.length; i++) {
+            for (int j = 0; j < cars.length; j++) {
                 cars[j].carMove();
             }
+            System.out.println();
         }
         printResult(cars);
     }
