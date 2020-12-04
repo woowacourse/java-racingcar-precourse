@@ -25,9 +25,12 @@ public class InputView {
     public static Rounds getRounds(Scanner scanner){
         OutputView.printMsg("시도할 횟수\n");
 
-        try{
+        try {
             int tryNumber = Integer.parseInt(getInput(scanner));
             return Rounds.initialize(tryNumber);
+        }catch (NumberFormatException NFE){
+            OutputView.printError("정수 범위 밖의 입력입니다.");
+            return getRounds(scanner);
         }catch (IllegalArgumentException IAE){
             OutputView.printError(IAE.getMessage());
             return getRounds(scanner);
