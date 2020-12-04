@@ -2,41 +2,54 @@ package racingcar.domain.validator;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import racingcar.domain.CustomIllegalArgumentException;
 
 public class NameValidator extends Validator {
 
-    // 자동차 이름은 콤마(Comma)를 제외한 모든 문자를 1글자 이상 5글자 이하로 입력할 수 있다
-    public static final Pattern NAMES_LENGTH_PATTERN = Pattern.compile("[^,]{1,5}(,[^,]{1,5})*");
+    public static final int MINIMUM_NAME_LENGTH = 1;
 
-    public static final String OUT_OF_BOUND_NAME_MESSAGE = "자동차 이름은 1글자 이상 5글자 이하이어야 합니다.";
+    public static final int MAXIMUM_NAME_LENGTH = 5;
 
-    public static final String DUPLICATE_NAME_MESSAGE = "중복된 자동차 이름이 존재합니다.";
+    public static final String DELIMITER = ",";
+
+    public static final String OUT_OF_RANGE_NAME_MESSAGE =
+            String.format(
+                    "자동차 이름은 %d글자 이상 %d글자 이하이어야 합니다. ", MINIMUM_NAME_LENGTH, MAXIMUM_NAME_LENGTH
+            );
+
+    public static final String INPUT_NAME_LENGTH_MESSAGE = "자동차 이름 %s의 길이는 %d글자입니다.";
+
+    public static final String DUPLICATE_NAME_MESSAGE = "자동차 이름 %s는 중복된 이름입니다.";
 
     @Override
     public void validate(String carNames) {
         super.validate(carNames);
-        checkNameLength(carNames);
-        checkDuplicateName(carNames);
+
+        String[] carNameTokens = Arrays.stream(carNames.split(DELIMITER))
+                .map(String::trim)
+                .toArray(String[]::new);
+
+        checkNameLength(carNameTokens);
+        checkDuplicateName(carNameTokens);
     }
 
-    public void checkNameLength(String carNames) {
-        Matcher matcher = NAMES_LENGTH_PATTERN.matcher(carNames);
-        if (!matcher.matches()) {
-            throw new CustomIllegalArgumentException(OUT_OF_BOUND_NAME_MESSAGE);
+    public void checkNameLength(String[] carNameTokens) {
+        for (String carName : carNameTokens) {
+            int carNameLength = carName.length();
+
+            if (carNameLength < MINIMUM_NAME_LENGTH || carNameLength > MAXIMUM_NAME_LENGTH) {
+                throw new CustomIllegalArgumentException(OUT_OF_RANGE_NAME_MESSAGE +
+                        String.format(INPUT_NAME_LENGTH_MESSAGE, carName, carNameLength));
+            }
         }
     }
 
-    public void checkDuplicateName(String carNames) {
-        String[] names = carNames.split(",");
-
+    public void checkDuplicateName(String[] carNameTokens) {
         int deduplicatedNamesLength = new HashSet<>(Arrays.asList(names)).size();
 
         if (names.length != deduplicatedNamesLength) {
-            throw new CustomIllegalArgumentException(DUPLICATE_NAME_MESSAGE);
+            throw new CustomIllegalArgumentException(String.format(DUPLICATE_NAME_MESSAGE, name));
         }
     }
 }

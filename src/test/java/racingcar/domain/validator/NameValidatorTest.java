@@ -31,15 +31,18 @@ public class NameValidatorTest {
     @Test
     @DisplayName("자동차의 이름이 빈 문자열 경우 예외 발생")
     public void checkNameLength_Zero_ExceptionThrown() {
-        ValidatorUtils.assertValidationFailure(validator, "pobi,",
-                NameValidator.OUT_OF_BOUND_NAME_MESSAGE);
+        ValidatorUtils.assertValidationFailure(validator, "pobi, ",
+                NameValidator.OUT_OF_RANGE_NAME_MESSAGE +
+                        String.format(NameValidator.INPUT_NAME_LENGTH_MESSAGE, "", 0));
     }
 
     @Test
     @DisplayName("자동차의 이름의 길이가 5 초과일 경우 예외 발생")
     public void checkNameLength_Six_ExceptionThrown() {
-        ValidatorUtils.assertValidationFailure(validator, "woowatechcourse",
-                NameValidator.OUT_OF_BOUND_NAME_MESSAGE);
+        String carName = "woowatechcourse";
+        ValidatorUtils.assertValidationFailure(validator, carName,
+                NameValidator.OUT_OF_RANGE_NAME_MESSAGE +
+                        String.format(NameValidator.INPUT_NAME_LENGTH_MESSAGE, carName, carName.length()));
     }
 
     @Test
