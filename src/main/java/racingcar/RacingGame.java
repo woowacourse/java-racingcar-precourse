@@ -6,19 +6,19 @@ public class RacingGame {
     private final Cars cars;
     private final Rounds rounds;
 
-    public RacingGame(Cars cars, Rounds rounds){
+    public RacingGame(Cars cars, Rounds rounds) {
         this.cars = cars;
         this.rounds = rounds;
     }
 
-    public void play(){
+    public void play() {
         OutputView.printResultMessage();
-        do{
+        do {
             cars.tryMoveAll();
             cars.printCarsPosition();
             OutputView.printRoundSeparator();
             rounds.next();
-        }while(!rounds.isEnd());
+        } while (!rounds.isEnd());
 
         OutputView.printWinner(cars.getWinnerNames());
     }

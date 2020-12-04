@@ -9,21 +9,21 @@ public class Rounds {
     private final int totalRound;
     private int thisRound;
 
-    private Rounds(int totalRound){
+    private Rounds(int totalRound) {
         InputValidator.checkValidRounds(totalRound);
         this.thisRound = 0;
         this.totalRound = totalRound;
     }
 
-    public static Rounds initialize(int totalRound){
+    public static Rounds initialize(int totalRound) {
         return new Rounds(totalRound);
     }
 
-    public void next(){
+    public void next() {
         thisRound++;
     }
 
-    public boolean isEnd(){
+    public boolean isEnd() {
         return thisRound >= totalRound;
     }
 }

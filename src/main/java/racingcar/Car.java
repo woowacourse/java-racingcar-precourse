@@ -20,40 +20,40 @@ public class Car {
         this.name = name;
     }
 
-    public void tryMove(){
+    public void tryMove() {
         int rand = RandomUtils.nextInt(TRY_NUMBER_MIN, TRY_NUMBER_MAX);
-        if(rand >= MOVE_CONDITION){
+        if (rand >= MOVE_CONDITION) {
             position++;
         }
     }
 
-    public void printPosition(){
+    public void printPosition() {
         OutputView.printMsg(name);
         OutputView.printMsg(" : ");
         OutputView.printMsg(getPositionBar());
         OutputView.printMsg("\n");
     }
 
-    private String getPositionBar(){
+    private String getPositionBar() {
         StringBuilder sb = new StringBuilder();
-        for(int i =0; i<position; i++){
+        for (int i = 0; i < position; i++) {
             sb.append("-");
         }
         return sb.toString();
     }
 
-    public boolean isFartherThan(int position){
+    public boolean isFartherThan(int position) {
         return position < this.position;
     }
 
-    public String getNameIfWinner(int firstPosition){
-        if(isOn(firstPosition)){
+    public String getNameIfWinner(int firstPosition) {
+        if (isOn(firstPosition)) {
             return this.name;
         }
         return null;
     }
 
-    private boolean isOn(int position){
+    private boolean isOn(int position) {
         return this.position == position;
     }
 }

@@ -8,9 +8,10 @@ import java.util.stream.Collectors;
 import java.util.List;
 
 public class CarsFactory {
-    private CarsFactory(){}
+    private CarsFactory() {
+    }
 
-    public static Cars createCars(String[] names){
+    public static Cars createCars(String[] names) {
         InputValidator.checkDuplicatedCarName(names);
 
         List carList = Arrays.stream(names)
