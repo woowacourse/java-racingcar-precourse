@@ -50,4 +50,10 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name, position);
     }
+
+    public void moveForwardOrStop(boolean movable) {
+        if (movable) {
+            this.position++;
+        }
+    }
 }

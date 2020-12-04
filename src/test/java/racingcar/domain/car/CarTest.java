@@ -3,6 +3,7 @@ package racingcar.domain.car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -49,5 +50,22 @@ class CarTest {
         //when //then
         assertThatThrownBy(() -> new Car(carName))
                 .isExactlyInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("자동차가 전진 or 정지하는 기능을 테스트한다 ")
+    @ParameterizedTest
+    @CsvSource(value = {
+            "car,true,1",
+            "car,false,0"
+    })
+    void testMoveForwardOrStop(String carName, boolean isMovable, int expectedPosition) {
+        //given
+        Car car = new Car(carName);
+
+        //when
+        car.moveForwardOrStop(isMovable);
+
+        //then
+        assertThat(car).extracting("position").isEqualTo(expectedPosition);
     }
 }
