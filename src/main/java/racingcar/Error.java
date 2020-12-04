@@ -42,15 +42,12 @@ public class Error {
         }
     }
 
-    public void trialNotIntegerError(String trial) throws IllegalArgumentException{
+    public void checkTrialIsInteger(String trial) throws IllegalArgumentException{
         try {
             Integer.parseInt(trial);
         }catch (NumberFormatException e) {
             System.out.println(ERROR_PREFIX + INVALID_TRIAL_TYPE_ERROR);
             throw new IllegalArgumentException();
         }
-
     }
-
-
 }
