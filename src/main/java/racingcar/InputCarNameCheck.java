@@ -9,6 +9,10 @@ public class InputCarNameCheck {
     }
 
     public static boolean checkInputCarName(String[] input) {
+        if (!checkAllCarNameIsEmpty(input)) {
+            System.out.println(Arrays.toString(input));
+            return false;
+        }
         if (!checkAllCarNameLength(input)) {
             System.out.println(Arrays.toString(input));
             return false;
@@ -21,7 +25,6 @@ public class InputCarNameCheck {
             System.out.println(Arrays.toString(input));
             return false;
         }
-
         return true;
     }
 
@@ -60,8 +63,25 @@ public class InputCarNameCheck {
         return true;
     }
 
-    public static boolean checkEachCarNameHasBlank (String name){
+    public static boolean checkEachCarNameHasBlank(String name){
         if (name.contains(" ")) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean checkAllCarNameIsEmpty(String[] carNames) {
+        for (String name : carNames) {
+            if (!checkEachCarNameIsEmpty(name)) {
+                System.out.println("[ERROR] 자동차는 1개 이상 입력되어야 합니다.");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean checkEachCarNameIsEmpty(String name){
+        if (name.equals("")) {
             return false;
         }
         return true;

@@ -8,6 +8,7 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         String[] result = scanner.nextLine().split(",");
         System.out.println(InputCarNameCheck.checkInputCarName(result));
+//        System.out.println(InputCarNameCheck.checkEachCarNameIsEmpty(scanner.nextLine()));
     }
 
 }
