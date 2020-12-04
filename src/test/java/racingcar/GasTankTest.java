@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-public class GasTest {
+public class GasTankTest {
 
     private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 9;
@@ -12,9 +12,9 @@ public class GasTest {
 
     @Test
     public void testCreate() {
-        Gas gas = new Gas();
+        GasTank gasTank = new GasTank();
         for (int i = 0; i < BIG_NUMBER; i++) {
-            assertThat(gas.getChargeGas()).isBetween(MIN_VALUE, MAX_VALUE);
+            assertThat(gasTank.getChargeGas()).isBetween(MIN_VALUE, MAX_VALUE);
         }
     }
 

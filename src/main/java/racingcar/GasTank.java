@@ -2,7 +2,7 @@ package racingcar;
 
 import utils.RandomUtils;
 
-public class Gas {
+public class GasTank {
 
     private static final int MIN_GAS = 0;
     private static final int MAX_GAS = 9;
