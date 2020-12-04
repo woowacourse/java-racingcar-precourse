@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+
 import racingcar.domain.Cars;
 import racingcar.domain.Rule;
 import utils.InputValidator;
@@ -19,27 +20,23 @@ public class InputView {
     public static Cars inputCarNames(Scanner scanner) {
         try {
             System.out.println(INPUT_CAR_NAMES_MESSAGE);
-            String[] carNames = scanner.nextLine().split(",");
-            return new Cars(makeCars(carNames));
+            String inputCarNames = InputValidator.validateInputCarNames(scanner.nextLine());
+            String[] carNames = inputCarNames.split(",");
+            List<Car> cars = new ArrayList<>();
+            for (String carName : carNames) {
+                cars.add(new Car(carName));
+            }
+            return new Cars(cars);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return inputCarNames(scanner);
         }
     }
 
-    private static List<Car> makeCars(String[] carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
-        return cars;
-    }
-
     public static Rule inputAttemptNumber(Scanner scanner) {
         try {
             System.out.println(INPUT_ATTEMPT_NUMBER_MESSAGE);
-            int attemptNumber = InputValidator.validateInteger(scanner.nextLine());
-            return new Rule(attemptNumber);
+            return new Rule(InputValidator.validateInteger(scanner.nextLine()));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return inputAttemptNumber(scanner);
