@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
+import racingcar.domain.car.Name;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +19,7 @@ public class OutputView {
         System.out.print(WINNER_INFO_MESSAGE);
         String printWinner = winners.stream()
                 .map(Car::getName)
+                .map(Name::getValue)
                 .collect(Collectors.joining(DELIMITER_COMMA));
         System.out.println(printWinner);
     }
@@ -35,7 +37,7 @@ public class OutputView {
     }
 
     private static void printCarPosition(Car car) {
-        System.out.println(car.getName() + DELIMITER_COLON + convertToPositionSymbols(car.getPosition()));
+        System.out.println(car.getName().getValue() + DELIMITER_COLON + convertToPositionSymbols(car.getPosition()));
     }
 
     private static String convertToPositionSymbols(int position) {

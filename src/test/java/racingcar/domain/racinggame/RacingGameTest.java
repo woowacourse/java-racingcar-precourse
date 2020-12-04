@@ -58,6 +58,7 @@ class RacingGameTest {
         //then
         assertThat(winners)
                 .extracting("name")
+                .extracting("name")
                 .containsExactlyInAnyOrder("carB", "carC");
     }
 }
