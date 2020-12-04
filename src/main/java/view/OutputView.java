@@ -13,10 +13,6 @@ public class OutputView {
         printMsg(RESULT_MESSAGE);
     }
 
-    public static void printRoundSeparator() {
-        printMsg(NEXT_LINE);
-    }
-
     public static void printNextLine(){
         printMsg(NEXT_LINE);
     }

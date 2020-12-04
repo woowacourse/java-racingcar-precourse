@@ -19,10 +19,6 @@ public class Cars {
         updateFirstPosition();
     }
 
-    public void printCarsPosition() {
-        cars.stream().forEach(Car::printPosition);
-    }
-
     private void updateFirstPosition() {
         boolean needToUpdate = cars.stream()
                 .anyMatch(car -> car.isFartherThan(this.firstPosition));
@@ -30,6 +26,10 @@ public class Cars {
         if (needToUpdate) {
             firstPosition++;
         }
+    }
+
+    public void printCarsPosition() {
+        cars.stream().forEach(Car::printPosition);
     }
 
     public String getWinnerNames() {

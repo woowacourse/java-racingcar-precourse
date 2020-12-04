@@ -16,7 +16,7 @@ public class RacingGame {
         do {
             cars.tryMoveAll();
             cars.printCarsPosition();
-            OutputView.printRoundSeparator();
+            OutputView.printNextLine();
             rounds.next();
         } while (!rounds.isEnd());
 
