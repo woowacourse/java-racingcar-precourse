@@ -39,6 +39,7 @@ public class Car {
     }
 
     public void carMove() {
-
+        this.position += getMovePoint();
+        printCarState();
     }
 }
