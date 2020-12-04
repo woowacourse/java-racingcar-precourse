@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private static final int MAXIMUM_NAME_RANGE = 5;
     private static final int MINIMUM_NAME_RANGE = 1;
@@ -54,5 +54,10 @@ public class Car {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return this.position - car.position;
     }
 }
