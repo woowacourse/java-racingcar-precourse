@@ -24,8 +24,18 @@ public class RacingStadium {
     public void start() {
         initializeCars();
         initializeTryCount();
-        int randomNumber = getRandomNumber();
-        System.out.println("randomNumber = " + randomNumber);
+        for (int i = 0; i < tryCount; i++) {
+            printByRandomNumber();
+        }
+    }
+
+    private void printByRandomNumber() {
+        for (int i = 0; i < cars.size(); i++) {
+            int randomNumber = getRandomNumber();
+            cars.get(i).getCarName();
+            System.out.println(cars.get(i).getCarName() + " " + randomNumber);
+        }
+        System.out.println();
     }
 
     private int getRandomNumber() {

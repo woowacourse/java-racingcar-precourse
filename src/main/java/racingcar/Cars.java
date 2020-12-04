@@ -13,4 +13,12 @@ public class Cars {
     public static Cars of(List<Car> cars) {
         return new Cars(cars);
     }
+
+    public int size() {
+        return cars.size();
+    }
+
+    public Car get(int index) {
+        return cars.get(index);
+    }
 }
