@@ -3,6 +3,8 @@ package racingcar.domain.car;
 import racingcar.domain.exception.CarNameLengthException;
 import racingcar.domain.strategy.MovingStrategy;
 
+import java.util.Objects;
+
 public class Car {
     private static final int MINIMUM_CAR_NAME_LENGTH = 1;
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
@@ -19,7 +21,7 @@ public class Car {
     }
 
     private void validateCarName(String name) {
-        if (name == null) {
+        if (Objects.isNull(name)) {
             throw new CarNameLengthException();
         }
         int trimNameLength = name.trim().length();
