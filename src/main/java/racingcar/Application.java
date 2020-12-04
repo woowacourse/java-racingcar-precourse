@@ -40,6 +40,7 @@ public class Application {
             racing.nextRound();
             view.println(racing.printProgress());
         }
+        view.println(racing.printResult());
     }
 
     private List<Car> makeCarList(String userInput) {
