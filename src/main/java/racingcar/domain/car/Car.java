@@ -10,11 +10,16 @@ public class Car {
     private static final String CAR_NAME_NOT_CONTAIN_BLANK_MESSAGE = "[ERROR] 자동차 이름은 공백을 포함할 수 없습니다.";
 
     private final String name;
-    private int position = 0;
+    private int position;
 
-    public Car(String name) {
+    public Car(String name, int position) {
         validateCar(name);
         this.name = name;
+        this.position = position;
+    }
+
+    public Car(String name) {
+        this(name, 0);
     }
 
     private void validateCar(String name) {
@@ -32,6 +37,14 @@ public class Car {
         if (name.length() > CAR_NAME_MAX_LENGTH_LIMIT || name.length() < CAR_NAME_MIN_LENGTH_LIMIT) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER_MESSAGE);
         }
+    }
+
+    public Car moveForwardOrStop(boolean movable) {
+        if (movable) {
+            return new Car(name, position + 1);
+        }
+
+        return this;
     }
 
     public String getName() {
@@ -53,11 +66,5 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name, position);
-    }
-
-    public void moveForwardOrStop(boolean movable) {
-        if (movable) {
-            this.position++;
-        }
     }
 }

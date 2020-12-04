@@ -16,4 +16,8 @@ public class TryNumber {
             throw new IllegalArgumentException(TRY_NUMBER_NOT_SMALLER_THAN_MIN_TRY_NUMBER_MESSAGE);
         }
     }
+
+    public int getValue() {
+        return tryNumber;
+    }
 }

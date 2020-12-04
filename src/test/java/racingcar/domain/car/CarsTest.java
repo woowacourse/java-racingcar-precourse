@@ -1,8 +1,10 @@
 package racingcar.domain.car;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
@@ -43,5 +45,25 @@ class CarsTest {
         //when //then
         assertThatThrownBy(() -> new Cars(cars))
                 .isExactlyInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("각 자동차들을 전진 or 정지하게하는 기능을 테스트한다")
+    @ParameterizedTest
+    @CsvSource(value = {
+            "carA,carB:false:0", "carA,carB,carC:true:1"
+    }, delimiter = ':')
+    void testMoveAllForwardOrStop(String carNames, boolean movable, int expectedPosition) {
+        //given
+        Cars cars = new Cars(Arrays.stream(carNames.split(","))
+                .map(Car::new)
+                .collect(Collectors.toList()));
+
+        //when
+        Cars expectedCars = cars.moveAllForwardOrStop(() -> movable);
+
+        //then
+        Assertions.assertThat(expectedCars.getValue())
+                .extracting("position")
+                .allMatch(position -> position.equals(expectedPosition));
     }
 }
