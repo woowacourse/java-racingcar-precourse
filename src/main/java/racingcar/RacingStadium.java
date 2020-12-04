@@ -24,7 +24,7 @@ public class RacingStadium {
     }
 
     private void initializeCars() {
-        String[] carNames = inputUtils.inputAndGetCarNames();
+        String[] carNames = inputUtils.getCarNames();
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
             carList.add(new Car(carName));

@@ -1,6 +1,5 @@
 package racingcar;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.InputUtils;
@@ -12,7 +11,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
@@ -33,7 +31,7 @@ class CarTest {
         List<Car> cars = new ArrayList<>();
 
         //when
-        String[] carNames = inputUtils.inputAndGetCarNames();
+        String[] carNames = inputUtils.getCarNames();
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }

@@ -27,7 +27,7 @@ class InputUtilsTest {
         InputUtils inputUtils = getInputUtils(inputText);
 
         //when
-        String [] carNames = inputUtils.inputAndGetCarNames();
+        String [] carNames = inputUtils.getCarNames();
 
         //then
         assertThat(inputText).isEqualTo(carNames[0]);
@@ -41,7 +41,7 @@ class InputUtilsTest {
         InputUtils inputUtils = getInputUtils(inputText);
 
         //when
-        String [] carNames = inputUtils.inputAndGetCarNames();
+        String [] carNames = inputUtils.getCarNames();
 
         //then
         assertThat(inputText).isEqualTo(carNames[0]);
