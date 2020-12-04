@@ -13,14 +13,25 @@ public class InputView {
 
     public static Cars getNames(Scanner scanner){
         OutputView.printMsg("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)\n");
-        String[] names = getInput(scanner).split(NAME_DELIMITER);
-        return CarsFactory.createCars(names);
+        try{
+            String[] names = getInput(scanner).split(NAME_DELIMITER);
+            return CarsFactory.createCars(names);
+        }catch (IllegalArgumentException IAE){
+            OutputView.printError(IAE.getMessage());
+            return getNames(scanner);
+        }
     }
 
     public static Rounds getRounds(Scanner scanner){
         OutputView.printMsg("시도할 횟수\n");
-        int tryNumber = Integer.parseInt(getInput(scanner));
-        return Rounds.initialize(tryNumber);
+
+        try{
+            int tryNumber = Integer.parseInt(getInput(scanner));
+            return Rounds.initialize(tryNumber);
+        }catch (IllegalArgumentException IAE){
+            OutputView.printError(IAE.getMessage());
+            return getRounds(scanner);
+        }
     }
 
     public static String getInput(Scanner scanner){

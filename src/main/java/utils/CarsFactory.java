@@ -11,6 +11,8 @@ public class CarsFactory {
     private CarsFactory(){}
 
     public static Cars createCars(String[] names){
+        InputValidator.checkDuplicatedCarName(names);
+
         List carList = Arrays.stream(names)
                 .map(Car::new)
                 .collect(Collectors.toList());

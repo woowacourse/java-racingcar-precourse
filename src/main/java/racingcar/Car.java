@@ -1,5 +1,6 @@
 package racingcar;
 
+import utils.InputValidator;
 import utils.RandomUtils;
 import view.OutputView;
 
@@ -15,6 +16,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        InputValidator.checkValidCarName(name);
         this.name = name;
     }
 
