@@ -17,7 +17,6 @@ public class InputView {
     public static Cars inputCarNames(Scanner scanner) {
         System.out.println(INPUT_RACING_CAR_NAMES_MESSAGE);
         String carNames = scanner.nextLine();
-
         try {
             return new Cars(
                     Arrays.stream(carNames.split(DELIMITER_COMMA))
