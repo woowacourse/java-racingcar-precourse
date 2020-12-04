@@ -16,12 +16,16 @@ public class Car {
 
     // 추가 기능 구현
     public void increasePosition() {
-        if(RandomUtils.nextInt(DEFAULT_MIN_RANDOM_NUM,DEFAULT_MAX_RANDOM_NUM) > DEFAULT_MOVE_NUM) {
+        if (RandomUtils.nextInt(DEFAULT_MIN_RANDOM_NUM, DEFAULT_MAX_RANDOM_NUM) > DEFAULT_MOVE_NUM) {
             position++;
         }
     }
 
     public int getPosition() {
-        return position;
+        return this.position;
+    }
+
+    public String getCarName() {
+        return this.name;
     }
 }
