@@ -3,6 +3,8 @@ package racingcar.domain.validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -25,5 +27,15 @@ public class RoundValidatorTest {
                 .isExactlyInstanceOf(CustomIllegalArgumentException.class)
                 .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
                         RoundValidator.NOT_NUMERIC_MESSAGE);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1", "-100"})
+    @DisplayName("입력 값이 1미만이라면 예외 발생")
+    public void checkNumeric_BelowOne_ExceptionThrown(String round) {
+        assertThatThrownBy(() -> validator.validate(round))
+                .isExactlyInstanceOf(CustomIllegalArgumentException.class)
+                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
+                        RoundValidator.OUT_OF_BOUND_ROUND_MESSAGE);
     }
 }
