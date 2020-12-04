@@ -13,7 +13,14 @@ public class User {
     private static final String SPACE = " ";
 
     public List<String> createNames(String names) {
+        validateName(names);
         return Arrays.asList(names.split(DELIMITER));
+    }
+
+    private void validateName(String names) {
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException("[ERROR] 이름이 존재하지 않습니다.");
+        }
     }
 
     public int createCount(String nextLine) {
