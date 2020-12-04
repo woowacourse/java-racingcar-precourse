@@ -1,6 +1,6 @@
 package racingcar.domain.validator;
 
-import racingcar.domain.CustomIllegalArgumentException;
+import racingcar.domain.ValidationException;
 
 public abstract class Validator {
 
@@ -12,7 +12,7 @@ public abstract class Validator {
 
     public void checkNullOrEmpty(String input) {
         if (input == null || input.isEmpty()) {
-            throw new CustomIllegalArgumentException(INPUT_EMPTY_MESSAGE);
+            throw new ValidationException(INPUT_EMPTY_MESSAGE);
         }
     }
 }

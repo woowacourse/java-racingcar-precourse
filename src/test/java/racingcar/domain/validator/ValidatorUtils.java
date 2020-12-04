@@ -3,7 +3,7 @@ package racingcar.domain.validator;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import racingcar.domain.CustomIllegalArgumentException;
+import racingcar.domain.ValidationException;
 
 public class ValidatorUtils {
 
@@ -15,8 +15,8 @@ public class ValidatorUtils {
 
     public static void assertValidationFailure(Validator validator, String input, String message) {
         assertThatThrownBy(() -> validator.validate(input))
-                .isExactlyInstanceOf(CustomIllegalArgumentException.class)
-                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
+                .isExactlyInstanceOf(ValidationException.class)
+                .hasMessage(ValidationException.ERROR_MESSAGE +
                         message);
     }
 }

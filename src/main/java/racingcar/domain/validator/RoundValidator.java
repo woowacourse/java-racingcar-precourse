@@ -1,6 +1,6 @@
 package racingcar.domain.validator;
 
-import racingcar.domain.CustomIllegalArgumentException;
+import racingcar.domain.ValidationException;
 
 public class RoundValidator extends Validator {
 
@@ -26,7 +26,7 @@ public class RoundValidator extends Validator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new CustomIllegalArgumentException(
+            throw new ValidationException(
                     NOT_NUMERIC_MESSAGE + String.format(INPUT_ROUND_FORMAT, input));
         }
     }
@@ -35,7 +35,7 @@ public class RoundValidator extends Validator {
         int round = Integer.parseInt(input);
 
         if (round < MINIMUM_ROUND || round > MAXIMUM_ROUND) {
-            throw new CustomIllegalArgumentException(
+            throw new ValidationException(
                     OUT_OF_RANGE_ROUND_MESSAGE + String.format(INPUT_ROUND_FORMAT, input));
         }
     }

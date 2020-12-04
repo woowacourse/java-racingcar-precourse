@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import racingcar.domain.CustomIllegalArgumentException;
+import racingcar.domain.ValidationException;
 
 public class NameValidator extends Validator {
 
@@ -45,7 +45,7 @@ public class NameValidator extends Validator {
     private void checkCarCount(String[] carNameTokens) {
         int carNamesLength = carNameTokens.length;
         if (carNamesLength > MAXIMUM_CAR_COUNT) {
-            throw new CustomIllegalArgumentException(OUT_OF_BOUND_COUNT_MESSAGE +
+            throw new ValidationException(OUT_OF_BOUND_COUNT_MESSAGE +
                     String.format(INPUT_CAR_COUNT_MESSAGE, carNamesLength));
         }
     }
@@ -55,7 +55,7 @@ public class NameValidator extends Validator {
             int carNameLength = carName.length();
 
             if (carNameLength < MINIMUM_NAME_LENGTH || carNameLength > MAXIMUM_NAME_LENGTH) {
-                throw new CustomIllegalArgumentException(OUT_OF_RANGE_NAME_MESSAGE +
+                throw new ValidationException(OUT_OF_RANGE_NAME_MESSAGE +
                         String.format(INPUT_NAME_LENGTH_MESSAGE, carName, carNameLength));
             }
         }
@@ -70,7 +70,7 @@ public class NameValidator extends Validator {
                 continue;
             }
 
-            throw new CustomIllegalArgumentException(
+            throw new ValidationException(
                     String.format(DUPLICATE_NAME_MESSAGE, carName));
         }
     }
