@@ -27,34 +27,47 @@ public class GameManager {
         announceWinners(cars);
     }
 
-    // devide exception cases into smaller pieces of methods
-    private void validateReplayOrQuitInput(String replayOrQuitInput) throws IllegalArgumentException {
-        int replayOrQuit;
+    private void validateInteger(String replayOrQuitInput) throws IllegalArgumentException {
         try {
-            replayOrQuit = Integer.parseInt(replayOrQuitInput);
+            Integer.parseInt(replayOrQuitInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(REPLAY_OR_QUIT_INPUT_ERROR_MESSAGE);
         }
+    }
+
+    private void validateOneOrTwo (String replayOrQuitInput) throws IllegalArgumentException {
+        int replayOrQuit = Integer.parseInt(replayOrQuitInput);
         if (replayOrQuit != 1 && replayOrQuit != 2) {
             throw new IllegalArgumentException(REPLAY_OR_QUIT_INPUT_ERROR_MESSAGE);
         }
-        if (replayOrQuit == 1) {
-            Application.main(null); // REPLAY
+    }
+
+    private int tryToGetReplayOrQuitInput(Scanner scanner) {
+        System.out.println(REPLAY_OR_QUIT_INPUT_MESSAGE);
+        String replayOrQuitInput = scanner.nextLine();
+        try {
+            validateInteger(replayOrQuitInput);
+            validateOneOrTwo(replayOrQuitInput);
+            return Integer.parseInt(replayOrQuitInput);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return 0;
         }
-        // QUIT
+    }
+
+    private int getReplayOrQuitInput(Scanner scanner) {
+        int replayOrQuitInput;
+        do {
+            replayOrQuitInput = tryToGetReplayOrQuitInput(scanner);
+        } while (replayOrQuitInput == 0);
+        return replayOrQuitInput;
     }
 
     public void replayOrQuit(Scanner scanner) {
-        boolean isValidReplayOrQuitInput = false;
-        while (!isValidReplayOrQuitInput) {
-            try {
-                System.out.println(REPLAY_OR_QUIT_INPUT_MESSAGE);
-                String replayOrQuitInput = scanner.nextLine();
-                validateReplayOrQuitInput(replayOrQuitInput);
-                isValidReplayOrQuitInput = true;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
+        int replayOrQuitInput = getReplayOrQuitInput(scanner);
+        if (replayOrQuitInput == 1) {
+            Application.main(null); // REPLAY
         }
+        // OTHERWISE QUIT
     }
 }
