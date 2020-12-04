@@ -21,7 +21,6 @@ public class RacingcarController {
 
     public void run() {
         try {
-
             String inputCarName = InputView.inputCarName(scanner);
             cars = new Cars(convertInputStringToCarList(inputCarName));
             int numberOfProgress = InputView.inputNumberOfProgress(scanner);
@@ -34,8 +33,6 @@ public class RacingcarController {
     }
 
     private void startRacing(int numberOfProgress) {
-
-        OutputView.newLine();
         OutputView.printProgressResultMessage();
         for (int i = 0; i < numberOfProgress; i++) {
             cars.progressTurn();
