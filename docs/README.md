@@ -66,14 +66,18 @@
   - 자동차의 이름을 한 줄에 입력받는다.
   - split한 결과를 받아서 길이가 5보다 클 경우 다시 입력받는다.
   - 수정할 기회를 주고, 길이가 5이하인 입력이 들어올 때 까지 반복한다.
+  - 수정이 필요한 이름들은 처음 저장된 index와 이름을 class 객체 형태로 배열에 저장 후, 기존 배열의 index에 직접 접근하여 수정을 진행한다.
   - 예시 입력: "pobi,jinseong,korea,javajigi,john"
   - 예시 출력: "
         [ERROR] jinseong, javajigi는 길이가 너무 깁니다. 5자 이하로 수정해주세요.
-        jinseong -> $새로운입력(예: jins)
-        javajigi -> $새로운입력(예: najavabara)
-        [ERROR] najavabara는 길이가 너무 깁니다. 5자 이하로 수정해주세요.
-        najavabara -> $새로운입력(예: njvbr)
-        [다음 단계로 진행...]"
+        [MODIFY] jinseong -> $새로운입력(예: jins)
+        [MESSAGE] jinseong은(는) jins(으)로 성공적으로 수정되었습니다.
+        [MODIFY] javajigi -> $새로운입력(예: najavabara)
+        [MESSAGE] najavabara은(는) 길이가 너무 깁니다. 5자 이하로 수정해주세요.
+        [MODIFY] najavabara -> $새로운입력(예: njvbr)
+        [MESSAGE] javajigi은(는) njvbr(으)로 성공적으로 수정되었습니다.
+        [다음 단계로 진행...]"    
+    
  - 이름이 중복된 경우에도 다시 입력받도록 해야한다.
  - 중복되는 경우에는 처음부터 다시 입력받도록 한다.
  - 예시 입력: "pobi,apple,pobi,banana,pobi"
@@ -83,12 +87,6 @@
  * 입력받은 이름을 split해서 배열을 반환
  ```
   - String 클래스에 split(",") 함수를 활용해서 이름을 분리한다.
- ```
-
- * 자동차 이름을 정수로 mapping
- ```
-  - mapping할 때는 Java의 enum(열거형)을 활용한다.
-  - 입력 받은 순서대로 0부터 정수를 부여한다.
  ```
 
  * 시도 회수 입력
