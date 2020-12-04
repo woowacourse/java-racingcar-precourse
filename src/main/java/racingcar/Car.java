@@ -27,11 +27,6 @@ public class Car {
         }
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
-
     public void moveForward() {
         position += 1;
     }
@@ -45,5 +40,19 @@ public class Car {
         System.out.println(name + " : " + progress);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        Car car;
+        if (obj instanceof Car) {
+            car = (Car) obj;
+        } else {
+            return false;
+        }
+        return this.name.equals(car.name) && this.position == car.position;
+    }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
