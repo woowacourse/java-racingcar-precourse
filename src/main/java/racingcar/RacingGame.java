@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import constant.SystemMessage;
@@ -22,6 +24,8 @@ public class RacingGame {
             startRacing();
             printProgress();
         }
+
+        printChampion();
     }
 
     private void startRacing() {
@@ -32,7 +36,7 @@ public class RacingGame {
 
     private void printProgress() {
         for (int i = 0; i < players.length; i++) {
-            System.out.print(players[i].getCarName() + " " + SystemMessage.SEPARATOR + " ");
+            System.out.print(players[i].getCarName() + " " + SystemMessage.SEPARATOR_COLON + " ");
             
             int position = players[i].getCarPosition();
             for (int j = 0; j < position; j++) {
@@ -41,6 +45,30 @@ public class RacingGame {
             System.out.println();
         }
         System.out.println();
+    }
+
+    private void printChampion() {
+        System.out.print(SystemMessage.CHAMPION + " ");
+        List<Integer> championList = getChampionList();
+        System.out.println(players[championList.get(0)].getCarName());
+        for (int i = 1; i < championList.size(); i++) {
+            System.out.print(SystemMessage.SEPARATOR_COMMA + " " + players[championList.get(i)].getCarName());
+        }
+    }
+
+    private List<Integer> getChampionList() {
+        int position = players[0].getCarPosition();
+        for (int i = 1; i < players.length; i++) {
+            position = Math.max(position, players[i].getCarPosition());
+        }
+
+        List<Integer> championList = new ArrayList<>();
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].getCarPosition() == position) {
+                championList.add(i);
+            }
+        }
+        return championList;
     }
 
     private void getCarName() {
