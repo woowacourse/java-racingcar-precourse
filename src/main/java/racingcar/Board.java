@@ -8,9 +8,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class Board {
-    private final String MESSAGE_GAME_RESULT = "\n실행 결과";
-    private final String SYMBOL_CAR_MOVEMENT = "-";
-    private final String SEPARATOR_NAME_PROGRESS = " : ";
+    private static final String MESSAGE_GAME_RESULT = "\n실행 결과";
+    private static final String SYMBOL_CAR_MOVEMENT = "-";
+    private static final String SEPARATOR_NAME_PROGRESS = " : ";
 
     public void printAccumulatedRoundsResult(ArrayList<HashMap<String, Integer>> allRoundsResults,
         int numberTryToMove) {

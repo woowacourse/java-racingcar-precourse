@@ -9,8 +9,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class AwardGiver {
-    private final String MESSAGE_WINNER = "최종 우승자: ";
-    private final String DELIMITER = ", ";
+    private static final String MESSAGE_WINNER = "최종 우승자: ";
+    private static final String DELIMITER = ", ";
     private ArrayList<String> awardReceiverList = new ArrayList<>();
 
     public void printAwardReceiver(HashMap<String, Car> participants,
