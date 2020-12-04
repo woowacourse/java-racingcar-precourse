@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Car {
+
     private final String name;
     private int position = 0;
 
@@ -9,4 +10,20 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public void carMove() {
+
+    }
+
+    public void printCarState() {
+
+    }
+
 }
