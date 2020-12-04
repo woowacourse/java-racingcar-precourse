@@ -38,4 +38,14 @@ public class RoundValidatorTest {
                 .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
                         RoundValidator.OUT_OF_BOUND_ROUND_MESSAGE);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"21", "30", "100"})
+    @DisplayName("입력 값이 20 초과라면 예외 발생")
+    public void checkNumeric_OverTwenty_ExceptionThrown(String round) {
+        assertThatThrownBy(() -> validator.validate(round))
+                .isExactlyInstanceOf(CustomIllegalArgumentException.class)
+                .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
+                        RoundValidator.OUT_OF_BOUND_ROUND_MESSAGE);
+    }
 }
