@@ -29,13 +29,17 @@ public class Car {
     }
 
     public static void moveOrStop(Car car) {
-        if (RandomUtils.nextInt(0,9) >= 4) {
+        if (randomNumGenerator() >= 4) {
             car.move();
         }
     }
 
+    public static int randomNumGenerator() {
+        return RandomUtils.nextInt(0,9);
+    }
+
     public void move() {
-        position++;
+        position += 1;
     }
 
     public static void displayPosition(List<Car> cars) {
@@ -53,6 +57,31 @@ public class Car {
         return positionSign;
     }
 
+    public static List<String> getWinner(List<Car> carList) {
+        int maxPosition = getMaxPosition(carList);
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.position == maxPosition) {
+                winnerList.add(car.name);
+            }
+        }
+        return winnerList;
+    }
 
+    public static int getMaxPosition(List<Car> carList) {
+        int max = 0;
 
+        for (Car car : carList) {
+            if (car.position >= max) {
+                max = car.position;
+            }
+        }
+        return max;
+    }
+
+    public static void printPosition(List<Car> carList) {
+        for (Car car : carList) {
+            System.out.println(car.position);
+        }
+    }
 }
