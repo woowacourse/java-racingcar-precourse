@@ -4,10 +4,11 @@ import utils.RandomUtils;
 
 public class Simulator {
     public static void simulateRace(Car[] gameCars, int gameRound) {
-        for (int i=0; i < gameCars.length; i++){
+        for (int i=0; i < gameRound; i++){
             progressOneRound(gameCars);
             showRacing(gameCars);
         }
+
     }
 
     public static void progressOneRound(Car[] gameCars) {
