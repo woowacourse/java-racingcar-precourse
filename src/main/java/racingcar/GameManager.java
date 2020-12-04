@@ -4,24 +4,6 @@ import utils.RandomUtils;
 
 import java.util.ArrayList;
 
-/* 입력 값들 예외처리 후 받아오기 완료.
-
- * <앞으로 해야할 일>
- * 1. Game Round 별로 Game play
- * 2. Random값 받아와서 forwardPosition() 수행
- * 3. 하드코딩 된 부분 찾아서 상수화(static final) 시키기
- * 4. AskQuestion.java를 분할하고 싶다 !!!!!
- * 5. 변수명에 불용어 찾아보고 대체하기
- * 6. README에 예외 상황 추가 및 input/output 관련된 내용은 삭제해야 하나..?
- * 7. 같은 클래스 내에서 변수 접근할 때 getter, setter로 불필요하게 접근하지 않았는지?
- * 8. 하나의 클래스를 지켜보며 단일 책임 원칙을 지키고 있는지 생각해보자.
- * 9. 패키지 이동이 있을 경우를 대비해서 접근지정자도 한 번 검토를 해보자.
- * 10. 기능 목록에 작성한 단위로 구현 후 commit을 해야하는데 하지 못했다. 3주차+오프라인 때는 꼭 지킬 것.
- * 11. 영어로 commit message를 작성하니 정확한 의미 전달을 못하는 것 같음. 이후로는 한글로 정확히 작성할 것.
- * 12. 0이라도 하드코딩 하지말자. 상수화 해주자.
- * 13. AskQuestion.java에 출력 구문을 함수화 했는데, 한 줄 짜리라면 굳이 안해도 될 듯?
- */
-
 public class GameManager {
 
     public static final int MIN_RANDOM_VALUE = 0;
