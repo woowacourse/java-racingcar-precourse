@@ -40,7 +40,7 @@ public class RacingCarGameController {
             CountValidator countValidator = new CountValidator(this.inputView.receiveCounts());
             return countValidator.makeValidCount();
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            this.outputView.printError(e.getMessage());
             makeCounts();
         }
         return 0;
@@ -51,7 +51,7 @@ public class RacingCarGameController {
             NameValidator nameValidator = new NameValidator(this.inputView.receiveNames());
             return nameValidator.makeDataToNames();
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            this.outputView.printError(e.getMessage());
             makeNames();
         }
         return null;
