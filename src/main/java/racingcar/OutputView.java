@@ -6,27 +6,28 @@ public class OutputView {
     public static void printRacingStatus(Cars cars) {
         ArrayList<Integer> carsPositions = cars.getCarsPosition();
         ArrayList<String> carsNames = cars.getCarsName();
-
+        StringBuilder racingStatus = new StringBuilder();
         for (int i = 0; i < carsNames.size(); i++) {
-            System.out.print(carsNames.get(i) + " " + Constants.COLON + " ");
-
+            racingStatus.append(carsNames.get(i) + " " + Constants.COLON + " ");
             for (int j = 0; j < carsPositions.get(i); j++) {
-                System.out.print(Constants.DASH);
+                racingStatus.append(Constants.DASH);
             }
-            System.out.print(Constants.NEW_LINE);
+            racingStatus.append(Constants.NEW_LINE);
         }
-        System.out.print(Constants.NEW_LINE);
+        System.out.println(racingStatus.toString());
     }
 
     public static void printResult(Cars cars) {
-        System.out.print(Constants.FINAL_WINNER);
+        StringBuilder racingResult = new StringBuilder();
+        racingResult.append(Constants.FINAL_WINNER);
 
         for (int i = 0; i < cars.getCars().size(); i++) {
-            System.out.print(cars.getCars().get(i).getName());
+            racingResult.append(cars.getCars().get(i).getName());
 
             if (i != cars.getCars().size() - 1) {
-                System.out.print(Constants.COMMA);
+                racingResult.append(Constants.COMMA);
             }
         }
+        System.out.print(racingResult.toString());
     }
 }
