@@ -75,4 +75,14 @@ class CarsTest {
 
         assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(1, 1, 1, 1));
     }
+
+    @DisplayName("가장 멀리 이동한 우승 자동차들의 명단을 반환함")
+    @Test
+    public void getWinnerCarNames_우승자_명단을_반환한다() {
+        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+        MovingStrategy alwaysMovingStrategy = () -> true;
+        Cars cars = Cars.createCars(carNames, alwaysMovingStrategy);
+
+        assertThat(cars.getWinnerCarNames()).hasSameElementsAs(carNames);
+    }
 }
