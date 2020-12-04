@@ -43,7 +43,7 @@ public class NameValidatorTest {
         assertThatThrownBy(() -> validator.validate(carNames))
                 .isExactlyInstanceOf(CustomIllegalArgumentException.class)
                 .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
-                        NameValidator.OUT_OF_BOUND_MESSAGE);
+                        NameValidator.OUT_OF_BOUND_NAME_MESSAGE);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class NameValidatorTest {
         assertThatThrownBy(() -> validator.validate(carNames))
                 .isExactlyInstanceOf(CustomIllegalArgumentException.class)
                 .hasMessage(CustomIllegalArgumentException.ERROR_MESSAGE +
-                        NameValidator.OUT_OF_BOUND_MESSAGE);
+                        NameValidator.OUT_OF_BOUND_NAME_MESSAGE);
     }
 
     @Test
