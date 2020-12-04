@@ -7,11 +7,13 @@ public class RacingCarGame {
 
     ArrayList<Car> carList = new ArrayList<>();
     private int carCount = 0;
+    private int tryCount = 0;
 //    private int firstScore = 0;
 
     public void start(Scanner scanner) {
         carNamesInput(scanner);
-        printCarName();
+        tryCountInput(scanner);
+        // printCarName();
     }
 
     private void carNamesInput(Scanner scanner) {
@@ -32,6 +34,16 @@ public class RacingCarGame {
         for (String name : splitNames) {
             carList.add(new Car(name));
             carCount++;
+        }
+    }
+
+    private void tryCountInput(Scanner scanner) {
+        try {
+            System.out.println(Constants.TRY_COUNT_INPUT_REQ_MSG);
+            tryCount = Integer.parseInt(scanner.nextLine());
+        } catch (Exception e) {
+            System.err.println(Constants.STANDARD_ERROR_MSG + " " + Constants.TRY_COUNT_ERROR_MSG);
+            tryCountInput(scanner);
         }
     }
 
