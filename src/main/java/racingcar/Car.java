@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private static final int CRITICAL_VALUE_FOR_MOVE = 4;
 
     private final String name;
