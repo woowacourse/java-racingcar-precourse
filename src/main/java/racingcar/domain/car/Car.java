@@ -47,6 +47,10 @@ public class Car {
         return this;
     }
 
+    public boolean isEqualPositionTo(int position) {
+        return this.position == position;
+    }
+
     public String getName() {
         return name;
     }
@@ -66,9 +70,5 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name, position);
-    }
-
-    public boolean isEqualPositionTo(int position) {
-        return this.position == position;
     }
 }
