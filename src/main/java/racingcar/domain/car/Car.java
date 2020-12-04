@@ -6,10 +6,11 @@ import racingcar.domain.strategy.MovingStrategy;
 public class Car {
     private static final int MINIMUM_CAR_NAME_LENGTH = 1;
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+    private static final int DEFAULT_POSITION = 0;
 
     private final String name;
     private final MovingStrategy movingStrategy;
-    private int position = 0;
+    private int position = DEFAULT_POSITION;
 
     public Car(String name, MovingStrategy movingStrategy) {
         validateCarName(name);
