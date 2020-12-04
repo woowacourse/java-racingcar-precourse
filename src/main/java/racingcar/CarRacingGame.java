@@ -8,13 +8,16 @@ import utils.OutPutPrinter;
 import utils.Validator;
 
 public class CarRacingGame {
+    private static final int INITIAL_VALUE = 0;
+    private static final String COMMA = ",";
+
     private CarList carList;
     private int raceRound;
     private Validator validator;
 
     public CarRacingGame() {
         carList = new CarList();
-        raceRound = 0;
+        raceRound = INITIAL_VALUE;
         validator = new Validator();
     }
 
@@ -27,7 +30,7 @@ public class CarRacingGame {
     private List<String> inputRaceCar(Scanner scanner) {
         try {
             InputPrinter.inputCarPrint();
-            List<String> carList = new ArrayList<>(Arrays.asList(scanner.nextLine().split(",")));
+            List<String> carList = new ArrayList<>(Arrays.asList(scanner.nextLine().split(COMMA)));
             validator.isValidCarNameSize(carList);
             return carList;
         } catch (Exception e) {
@@ -66,6 +69,6 @@ public class CarRacingGame {
                 winners.add(car.getName());
             }
         }
-        OutPutPrinter.carRaceWinnerPrint(String.join(",", winners));
+        OutPutPrinter.carRaceWinnerPrint(String.join(COMMA, winners));
     }
 }

@@ -6,8 +6,9 @@ import utils.RandomUtils;
 public class Race {
     public static final int MOVE = 4;
     public static final int MINIMUM_RANGE = 0;
-    public static final int MAXIMUM_RANGE = 9;
+    public static final int MAXIMUM_RANGE = 10;
     public static final String NEW_LINE = "\n";
+    public static final int INITIAL_VALUE = 0;
 
     private CarList carList;
     private int raceRound;
@@ -16,11 +17,10 @@ public class Race {
     public Race(CarList carList, int raceRound) {
         this.carList = carList;
         this.raceRound = raceRound;
-        raceResult = new String();
     }
 
     public void runCarRace() {
-        int roundIndex = 0;
+        int roundIndex = INITIAL_VALUE;
         while (roundIndex < raceRound) {
             moveCarRandomValue();
             createRaceResult(carList);
