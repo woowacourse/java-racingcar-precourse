@@ -13,12 +13,8 @@ public class Car {
         position++;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
+    public boolean isEqualPosition(int position) {
+        return this.position == position;
     }
 
     public String getMoveSign(String sign) {
@@ -30,8 +26,12 @@ public class Car {
 
         return moveSign.toString();
     }
-    
-    public boolean isEqualPosition(int position) {
-        return this.position == position;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }

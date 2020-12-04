@@ -54,7 +54,7 @@ public class Cars {
 
         OutputView.printNewLine();
     }
-    
+
     public void showRaceResult() {
         OutputView.printWinner(getWinner());
     }
@@ -63,14 +63,14 @@ public class Cars {
         return getWinnerName(getMaxPosition());
     }
 
-    private int getMaxPosition() {
-        return cars.stream().mapToInt(Car::getPosition).max().orElseThrow(EmptyCarException::new);
-    }
-
     private List<String> getWinnerName(int maxPosition) {
         return cars.stream()
                 .filter(car -> car.isEqualPosition(maxPosition))
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        return cars.stream().mapToInt(Car::getPosition).max().orElseThrow(EmptyCarException::new);
     }
 }
