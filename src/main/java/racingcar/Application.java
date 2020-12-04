@@ -50,7 +50,6 @@ public class Application {
         String[] carNames = inputCarNames(scanner);
         int attemptNumber = inputNumberOfAttempts(scanner);
         Car[] cars = createCars(carNames);
-        boolean isNotFinish = true;
         for (int i = 0; i < attemptNumber; i++) {
             for (int j = 0; j < cars.length; j++) {
                 cars[j].carMove();
