@@ -151,6 +151,8 @@ public class Car {
 
 <br>
 
+## 구현 기능 목록
+
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
