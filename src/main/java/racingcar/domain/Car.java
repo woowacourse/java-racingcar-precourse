@@ -3,7 +3,7 @@ package racingcar.domain;
 import racingcar.domain.strategies.CarMovingStrategy;
 
 public class Car {
-    private static final int BOUNDARY_VALUE = 4;
+    public static final int BOUNDARY_VALUE = 4;
 
     private final String name;
     private int position = 0;
