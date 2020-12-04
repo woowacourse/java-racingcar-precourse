@@ -15,6 +15,7 @@ public class User {
 
     public User() {
         this.names = new Names();
+        this.racingCount = new Count();
     }
 
     public List<String> createNames(String input) {
