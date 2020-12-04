@@ -33,10 +33,6 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Cars(List<Car> cars) {
-        this.cars = cars;
-    }
-
     public void race() {
         for (Car car : cars) {
             car.race(RandomUtils.nextInt(MIN_VALUE, MAX_VALUE));
