@@ -1,12 +1,13 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Before;
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarTest {
 
-    private Car newCar(String name) {
+    private Car getCar(String name) {
         return new Car(name);
     }
 
@@ -16,19 +17,20 @@ public class CarTest {
 
     @Test
     public void trimName() {
-        Car aCar = newCar("a");
-        assertThat(newCar("a ")).isEqualTo(aCar);
-        assertThat(newCar(" a")).isEqualTo(aCar);
-        assertThat(newCar(" a ")).isEqualTo(aCar);
+        Car a = getCar("a");
+        assertThat(getCar("a ")).isEqualTo(a);
+        assertThat(getCar(" a")).isEqualTo(a);
+        assertThat(getCar(" a ")).isEqualTo(a);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void validateNameRange_min() {
-        newCar("");
+        getCar("");
     }
+
     @Test(expected = IllegalArgumentException.class)
     public void validateNameRange_max() {
-        newCar("123456");
+        getCar("123456");
     }
 
     @Test
