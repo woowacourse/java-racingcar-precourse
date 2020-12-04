@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -8,12 +7,12 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
 
-        Cars cars = GameSetting.createCars(scanner);
-        int numberOfRounds = GameSetting.getNumberOfRounds(scanner);
+        Cars cars = GameSystem.createCars(scanner);
+        int numberOfRounds = GameSystem.getNumberOfRounds(scanner);
 
-        GameManager gameManager = new GameManager();
-        gameManager.startRacing(cars, numberOfRounds);
+        RacingGame racingGame = new RacingGame();
+        racingGame.startRacing(cars, numberOfRounds);
 
-        gameManager.replayOrQuit(scanner);
+        GameSystem.replayOrQuit(scanner);
     }
 }
