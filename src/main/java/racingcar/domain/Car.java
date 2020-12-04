@@ -20,10 +20,6 @@ public class Car {
         }
     }
 
-    public int getPosition() {
-        return this.position;
-    }
-
     @Override
     public String toString() {
         return this.name + " : " + displayCurrentPosition();
@@ -35,5 +31,13 @@ public class Car {
             currentPosition.append("-");
         }
         return currentPosition.toString();
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
