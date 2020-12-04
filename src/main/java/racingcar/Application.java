@@ -1,5 +1,6 @@
 package racingcar;
 
+import enums.ErrorMessage;
 import enums.GameHost;
 import enums.GameProcess;
 import maintenance.Mechanic;
@@ -52,9 +53,13 @@ public class Application {
             numberOfNamesOverMaxLength += mechanic.countNumberOfNamesOverMaxLength(nameOfCar);
             addCarToList(mechanic.getCarWithValidName(nameOfCar));
         }
-        mechanic.noticeShortenName(numberOfNamesOverMaxLength);
         mechanic.noticeNameTrimmed(numberOfTrimmedNames);
+        mechanic.noticeShortenName(numberOfNamesOverMaxLength);
         mechanic.noticeBlankNameRemoved(namesOfCarsArray , carList);
+        if (isCarListEmpty()) {
+            noticeEmptyCarList();
+            return createCarList(scanner);
+        }
         return carList;
     }
 
@@ -64,7 +69,15 @@ public class Application {
         }
     }
 
-    public void showResultOfEachTurn() {
+    private boolean isCarListEmpty() {
+        return carList.size() == 0;
+    }
+
+    private void noticeEmptyCarList() {
+        System.err.println(ErrorMessage.EMPTY_CAR_LIST.getMessage());
+    }
+
+    private void showResultOfEachTurn() {
         for (Car car : carList) {
             printEachTurnOfCar(car);
             System.out.println();
@@ -73,7 +86,7 @@ public class Application {
         System.out.println();
     }
 
-    public void printEachTurnOfCar(Car car) {
+    private void printEachTurnOfCar(Car car) {
         car.moveOrStay();
         System.out.print(car.getName() + " : ");
         for (int i = 0; i < car.getPosition(); i++) {

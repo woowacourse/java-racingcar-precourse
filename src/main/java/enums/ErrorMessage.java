@@ -7,7 +7,8 @@ public enum ErrorMessage {
                         + GameProcess.MAXIMUM_NAME_LENGTH.getValue()
                         + "자까지 출력됩니다."),
     BLANK_NAME("[ERROR] 이름이 공백인 경우 미입력 처리됩니다."),
-    NAME_WITH_FORE_AND_AFT_BLANK("[ERROR] 이름 앞, 뒤의 공백은 제거됩니다.");
+    NAME_WITH_FORE_AND_AFT_BLANK("[ERROR] 이름 앞, 뒤의 공백은 제거됩니다."),
+    EMPTY_CAR_LIST("[ERROR] 입력된 자동차이름이 없습니다.");
 
     String message = "";
 
