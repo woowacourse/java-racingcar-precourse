@@ -19,7 +19,7 @@ public class Application {
         ConsoleView view = new ConsoleView(scanner);
 
         view.println(REQUEST_INPUT_RACING_CAR_MSG);
-        Cars cars = makeCars(view.inputNextLine());
+        Cars cars = createCars(view.inputNextLine());
 
         view.println(REQUEST_INPUT_ROUND_MSG);
         int round = view.inputNextInt();
@@ -32,9 +32,8 @@ public class Application {
         view.println(racing.printResult());
     }
 
-    private Cars makeCars(String userInput) {
+    private Cars createCars(String userInput) {
         String[] carNames = userInput.split(COMMA);
-
-        return new Cars(carNames);
+        return CarsFactory.createCars(carNames);
     }
 }
