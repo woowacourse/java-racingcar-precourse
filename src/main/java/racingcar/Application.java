@@ -39,7 +39,7 @@ public class Application {
 
         while (racing.hasNextRound()) {
             racing.nextRound();
-            view.println(racing.printResult());
+            view.println(racing.printProgress());
         }
     }
 

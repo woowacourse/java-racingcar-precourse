@@ -11,18 +11,30 @@ public class Racing {
         this.round = round;
     }
 
-    public boolean hasNextRound(){
+    public boolean hasNextRound() {
         return round > 0;
     }
 
-    public void nextRound(){
+    public void nextRound() {
         for (Car car : cars) {
             car.race();
         }
         round--;
     }
 
-    public String printResult() {
-        return "결과물";
+    public String printProgress() {
+        StringBuffer progress = new StringBuffer();
+        for (Car car : cars) {
+            progress.append(car.getName()).append(" : ").append(revertPositionToDash(car.getPosition())).append(System.lineSeparator());
+        }
+        return progress.toString();
+    }
+
+    private String revertPositionToDash(int position) {
+        StringBuffer dash = new StringBuffer();
+        for (int i = 0; i < position; i++) {
+            dash.append("-");
+        }
+        return dash.toString();
     }
 }
