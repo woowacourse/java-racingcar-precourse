@@ -1,6 +1,9 @@
 package racingcar;
 
 public class Rounds {
+    public static final int MIN_TOTAL_ROUND = 0;
+    public static final int MAX_TOTAL_ROUND = Integer.MAX_VALUE;
+
     private final int totalRound;
     private int thisRound;
 

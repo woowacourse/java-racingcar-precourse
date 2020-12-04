@@ -1,6 +1,7 @@
 package utils;
 
 import racingcar.Car;
+import racingcar.Rounds;
 
 import java.util.Arrays;
 
@@ -14,10 +15,7 @@ public class InputValidator {
     }
 
     private static boolean isValidLength(String input, int min, int max){
-        if(input.length() < min || input.length() > max){
-            return false;
-        }
-        return true;
+        return (input.length() >= min &&  input.length() <= max);
     }
 
     public static void checkDuplicatedCarName(String[] name){
@@ -27,9 +25,14 @@ public class InputValidator {
     }
 
     private static boolean hasDuplicatedValue(String[] input){
-        if(Arrays.stream(input).distinct().count() != input.length){
-            return true;
-        }
-        return false;
+        return Arrays.stream(input).distinct().count() != input.length;
+    }
+
+    public static void checkValidRounds(int totalRound){
+        if(isValidRangeNumber(totalRound, Rounds.MIN_TOTAL_ROUND, Rounds.MAX_TOTAL_ROUND));
+    }
+
+    private static boolean isValidRangeNumber(int input, int min, int max){
+        return (input >= min && input <= max);
     }
 }
