@@ -32,10 +32,17 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public int checkMaxPosition() {
+    private int checkMaxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
+    }
+
+    public List<Car> findWinners() {
+        int maxPosition = checkMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isEqualPositionTo(maxPosition))
+                .collect(Collectors.toList());
     }
 }

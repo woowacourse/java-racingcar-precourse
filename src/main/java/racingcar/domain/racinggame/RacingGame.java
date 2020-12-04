@@ -1,9 +1,11 @@
 package racingcar.domain.racinggame;
 
+import racingcar.domain.car.Car;
 import racingcar.domain.car.CarMovement;
 import racingcar.domain.car.Cars;
 import racingcar.domain.trynumber.TryNumber;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -28,5 +30,9 @@ public class RacingGame {
     private Cars updateCars(CarMovement carMovement) {
         this.cars = this.cars.moveAllForwardOrStop(carMovement);
         return this.cars;
+    }
+
+    public List<Car> findWinners() {
+        return Collections.unmodifiableList(cars.findWinners());
     }
 }

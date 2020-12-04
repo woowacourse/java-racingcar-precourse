@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class CarsTest {
 
@@ -67,9 +68,9 @@ class CarsTest {
                 .allMatch(position -> position.equals(expectedPosition));
     }
 
-    @DisplayName("가장 멀리 나아간 자동차의 위치를 찾는 기능을 테스트한다")
+    @DisplayName("우승자가 1명인 경우, 우승자를 찾는 기능을 테스트한다")
     @Test
-    void testCheckMaxPosition() {
+    void testFindWinnersIfWinnerIsExist() {
         //given
         Car carA = new Car("carA", 1);
         Car carB = new Car("carB", 2);
@@ -77,9 +78,28 @@ class CarsTest {
         Cars cars = new Cars(Arrays.asList(carA, carB, carC));
 
         //when
-        int maxPosition = cars.checkMaxPosition();
+        List<Car> winners = cars.findWinners();
 
         //then
-        assertThat(maxPosition).isEqualTo(3);
+        assertThat(winners.get(0)).isEqualTo(carC);
+    }
+
+    @DisplayName("우승자가 여러명인 경우, 우승자를 찾는 기능을 테스트한다")
+    @Test
+    void testFindWinnersIfWinnersAreExist() {
+        //given
+        Car carA = new Car("carA", 1);
+        Car carB = new Car("carB", 3);
+        Car carC = new Car("carC", 3);
+        Cars cars = new Cars(Arrays.asList(carA, carB, carC));
+
+        //when
+        List<Car> winners = cars.findWinners();
+
+        //then
+        assertAll(
+                () -> assertThat(winners.get(0)).isEqualTo(carB),
+                () -> assertThat(winners.get(1)).isEqualTo(carC)
+        );
     }
 }

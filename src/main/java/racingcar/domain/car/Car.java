@@ -67,4 +67,8 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name, position);
     }
+
+    public boolean isEqualPositionTo(int position) {
+        return this.position == position;
+    }
 }
