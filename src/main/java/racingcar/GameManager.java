@@ -14,5 +14,13 @@ public class GameManager {
         InputHandler inputHandler = new InputHandler(scanner);
         String[] carNames = inputHandler.askCarNames();
         cars = new CarList(carNames);
+        int moveCount = inputHandler.askMoveCount();
+        move(moveCount);
+    }
+
+    private void move(int moveCount) {
+        for (int i = 0; i < moveCount; i++) {
+            cars.moveAllCars();
+        }
     }
 }
