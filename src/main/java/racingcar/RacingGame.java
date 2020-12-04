@@ -49,23 +49,25 @@ public class RacingGame {
 
     private void printChampion() {
         System.out.print(SystemMessage.CHAMPION + " ");
-        List<Integer> championList = getChampionList();
-        System.out.println(players[championList.get(0)].getCarName());
+        List<String> championList = getChampionList();
+        System.out.println(championList.get(0));
         for (int i = 1; i < championList.size(); i++) {
-            System.out.print(SystemMessage.SEPARATOR_COMMA + " " + players[championList.get(i)].getCarName());
+            System.out.print(SystemMessage.SEPARATOR_COMMA + " " + championList.get(0));
         }
     }
 
-    private List<Integer> getChampionList() {
+    private List<String> getChampionList() {  
+        // 가장 먼 위치가 몇인지 값을 구함.
         int position = players[0].getCarPosition();
         for (int i = 1; i < players.length; i++) {
             position = Math.max(position, players[i].getCarPosition());
         }
 
-        List<Integer> championList = new ArrayList<>();
+        // 가장 먼 위치에 해당하는 차의 이름을 리스트에 담음.
+        List<String> championList = new ArrayList<>();
         for (int i = 0; i < players.length; i++) {
             if (players[i].getCarPosition() == position) {
-                championList.add(i);
+                championList.add(players[i].getCarName());
             }
         }
         return championList;
