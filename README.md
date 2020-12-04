@@ -11,13 +11,14 @@
 ## 📝 구현 기능 목록
 - 자동자 이름들을 입력받는다
   - 자동차 이름 유효성 검사
-    - 다음 입력 값에 대해 **IllegalArgumentException** 을 던진다
-      - null 혹은 빈 문자열인 경우
-      - 자동차의 이름의 길이가 1 미만 혹은 5 초과일 경우
-      - 입력된 자동차 배열의 크기가 8 초과일 경우
-      - 입력한 자동차들의 이름들 중 중복이 있을 경우
+    - 다음 입력 값에 대해 해당하는 예외를 던진다
+      - null 혹은 빈 문자열인 경우, throw **ValidationException**  
+      - 자동차의 이름의 길이가 1 미만 혹은 5 초과일 경우, throw **NameLengthOutOfBoundsException**
+      - 입력된 자동차 배열의 크기가 8 초과일 경우, throw **CarCountOutOfBoundsException** 
+      - 입력한 자동차들의 이름들 중 중복이 있을 경우, throw **DuplicateNameException**
   - 유효성 검사가 실패하면 에러메시지와 에러가 발생한 값을 출력한다
   - 유효성 검사가 성공할 때까지 재입력을 받는다
+  - 사용자 정의 예외는 **IllegalArgumentException** 을 상속받는다
   
 
 - 입력받은 자동차 이름들을 Split 한 후, Car 클래스에 저장
@@ -25,12 +26,13 @@
 
 - 시도할 회수를 입력받는다
   - 시도 회수 유효성 검사
-    - 다음 입력 값에 대해 **IllegalArgumentException** 을 던진다
-      - null 혹은 빈 문자열인 경우
-      - 입력 값이 숫자가 아닌 경우
-      - 입력 값이 1미만 혹은 20 초과일 경우
+    - 다음 입력 값에 대해 해당하는 예외를 던진다. 
+      - null 혹은 빈 문자열인 경우, throw **ValidationException**
+      - 입력 값이 숫자가 아닌 경우, throw **NotNumericException**
+      - 입력 값이 1미만 혹은 20 초과일 경우, throw **RoundOutOfBoundsException**
   - 유효성 검사가 실패하면 에러메시지와 에러가 발생한 값을 출력한다
   - 유효성 검사가 성공할 때까지 재입력을 받는다
+  - 사용자 정의 예외는 **IllegalArgumentException** 을 상속받는다
   
 
 - 입력받은 시도 회수동안 자동차는 전진 혹은 멈춘다
