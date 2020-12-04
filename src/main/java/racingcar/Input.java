@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class AskCarInfo {
+public class Input {
 
     public static ArrayList<String> askCarInfo(Scanner scanner) {
         String userInput = null;
@@ -17,7 +17,6 @@ public class AskCarInfo {
     }
 
     public static ArrayList<String> parseCar(String userInput, Scanner scanner) {
-
         ArrayList<String> carList = new ArrayList<String>(Arrays.asList(userInput.split(",")));
         try {
             Validate.validateUserInput(userInput, carList);
@@ -27,4 +26,21 @@ public class AskCarInfo {
         }
         return carList;
     }
+
+    public static Integer askRound(Scanner scanner) {
+        int round = 0;
+        if (scanner.hasNext()) {
+            String roundString = scanner.next();
+            try {
+                Validate.isInteger(roundString);
+                round = Integer.parseInt(roundString);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+                round = askRound(scanner);
+            }
+        }
+        return round;
+    }
+
+
 }

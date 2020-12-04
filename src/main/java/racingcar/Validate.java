@@ -36,4 +36,13 @@ public class Validate {
         }
         return false;
     }
+
+    public static boolean isInteger(String numberString) {
+        try {
+            Integer.parseInt(numberString);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 1 이상의 정수를 입력해주세요");
+        }
+        return true;
+    }
 }
