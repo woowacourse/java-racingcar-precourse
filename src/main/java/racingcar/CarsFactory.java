@@ -11,8 +11,10 @@ public class CarsFactory {
     private static final String ERROR_ID_MAX_LENGTH_MSG = "[ERROR] 사용자의 아이디는 5글자 이하여야 합니다.";
     private static final String ERROR_ID_DUPLICATE_MSG = "[ERROR] 중복된 사용자 이름입니다.";
     private static final String ERROR_MAX_SIZE_OF_PEOPLE_MSG = "[ERROR] 인원숫자를 확인해주십시오. (2명 이상 5명 이하)";
+    public static final int MIN_PEOPLE_SIZE = 2;
+    public static final int MAX_PEOPLE_SIZE = 5;
 
-    public static Cars createCars(String[] carNames){
+    public static Cars createCars(String[] carNames) {
         validateCarNamesSize(carNames);
         validateDuplicateCarNames(carNames);
 
@@ -42,7 +44,7 @@ public class CarsFactory {
     }
 
     private static void validateCarNamesSize(String[] carNames) {
-        if (carNames.length > 5 || carNames.length < 2) {
+        if (carNames.length > MAX_PEOPLE_SIZE || carNames.length < MIN_PEOPLE_SIZE) {
             throw new IllegalArgumentException(ERROR_MAX_SIZE_OF_PEOPLE_MSG);
         }
     }
