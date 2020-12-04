@@ -36,4 +36,8 @@ public class Car {
         }
         return sb.toString();
     }
+
+    public boolean isFartherThan(int position){
+        return position < this.position;
+    }
 }
