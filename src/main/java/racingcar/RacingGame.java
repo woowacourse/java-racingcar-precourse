@@ -1,13 +1,14 @@
 package racingcar;
 
+import static racingcar.Messages.TRY_COUNT_IS_NUMBER_ONLY;
+import static utils.PrintUtils.printErrorMessage;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class RacingGame {
-
-    private static final String MESSAGE_ERROR = "[ERROR] ";
 
     private final Scanner scanner;
     private List<Car> cars;
@@ -35,7 +36,7 @@ public class RacingGame {
             try {
                 tryCount = Integer.parseInt(getInput());
             } catch (Exception e) {
-                System.out.println(MESSAGE_ERROR + e.getMessage());
+                printErrorMessage(TRY_COUNT_IS_NUMBER_ONLY);
             }
         }
         return tryCount;
