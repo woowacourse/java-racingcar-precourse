@@ -63,7 +63,7 @@ class CarTest {
         Car car = new Car(carName);
 
         //when
-        car.moveForwardOrStop(isMovable);
+        car = car.moveForwardOrStop(isMovable);
 
         //then
         assertThat(car).extracting("position").isEqualTo(expectedPosition);
