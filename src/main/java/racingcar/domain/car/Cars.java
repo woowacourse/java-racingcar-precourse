@@ -31,6 +31,10 @@ public class Cars {
         }
     }
 
+    public void move() {
+        this.cars.forEach(Car::move);
+    }
+
     public List<String> getCarNames() {
         return this.cars.stream()
                 .map(Car::getName)
