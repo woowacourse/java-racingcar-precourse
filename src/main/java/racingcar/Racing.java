@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
+
     private static List<Car> carList;
     private static int gameNumber;
 
@@ -51,23 +52,23 @@ public class Racing {
     }
 
     /* 이름 리스트를 받아서 Car 객체를 생성하는 메소드*/
-    public static void setCarList(String[] nameList){
-        carList=new ArrayList<Car>();
-        for(int i=0;i<nameList.length;i++){
+    public static void setCarList(String[] nameList) {
+        carList = new ArrayList<>();
+        for (int i = 0; i < nameList.length; i++) {
             carList.add(new Car(nameList[i]));
         }
     }
 
     /*  */
-    public static int inputNumberofGame(Scanner scanner){
-        int gameNumber=0;
+    public static int inputNumberofGame(Scanner scanner) {
+        int gameNumber = 0;
         System.out.println("시도할 회수는 몇회인가요?");
-        try{
-            gameNumber=Integer.parseInt(scanner.nextLine());
-            if(gameNumber<=0){
+        try {
+            gameNumber = Integer.parseInt(scanner.nextLine());
+            if (gameNumber <= 0) {
                 throw new IllegalArgumentException();
             }
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 양의 정수를 입력해주세요.");
             return inputNumberofGame(scanner);
         }
@@ -75,8 +76,8 @@ public class Racing {
     }
 
     /* 회차마다 차들의 경기를 진행하는 메소드 */
-    public static void carRacing(){
-        for(int i=0;i<carList.size();i++){
+    public static void carRacing() {
+        for (int i = 0; i < carList.size(); i++) {
             carList.get(i).movePosition();
         }
         printCarsPosition();
@@ -94,16 +95,16 @@ public class Racing {
     }
 
     /* 어떤 차들이 우승했는지 계산하는 메소드*/
-    public static List<String> whichCarsWin(){
-        int maxPosition=0;
-        List<String> winnerList = new ArrayList<String>();
-        for(int i=0;i<carList.size();i++){
-            if(carList.get(i).getPosition()>maxPosition){
-                maxPosition=carList.get(i).getPosition();
+    public static List<String> whichCarsWin() {
+        int maxPosition = 0;
+        List<String> winnerList = new ArrayList<>();
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getPosition() > maxPosition) {
+                maxPosition = carList.get(i).getPosition();
             }
         }
-        for(int i=0;i<carList.size();i++){
-            if(carList.get(i).getPosition()==maxPosition){
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getPosition() == maxPosition) {
                 winnerList.add(carList.get(i).getName());
             }
         }
@@ -111,7 +112,7 @@ public class Racing {
     }
 
     /* 우승한 차들의 이름을 출력하는 메소드 */
-    public static void printWinners(List<String> winnerList){
-        System.out.printf("최종 우승자: "+String.join(", ",winnerList));
+    public static void printWinners(List<String> winnerList) {
+        System.out.printf("최종 우승자: " + String.join(", ", winnerList));
     }
 }
