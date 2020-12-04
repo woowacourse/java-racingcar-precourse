@@ -16,6 +16,9 @@ public class Racing {
     }
 
     public void nextRound(){
+        for (Car car : cars) {
+            car.race();
+        }
         round--;
     }
 
