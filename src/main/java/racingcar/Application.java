@@ -1,7 +1,5 @@
 package racingcar;
 
-import utils.InputUtils;
-
 import java.util.Scanner;
 
 public class Application {

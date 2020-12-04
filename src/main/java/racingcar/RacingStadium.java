@@ -8,11 +8,12 @@ import java.util.Scanner;
 
 public class RacingStadium {
     private static Cars cars;
+    private static int tryCount;
 
     private final InputUtils inputUtils;
 
     private RacingStadium(Scanner scanner) {
-       this.inputUtils = InputUtils.of(scanner);
+        this.inputUtils = InputUtils.of(scanner);
     }
 
     public static RacingStadium of(Scanner scanner) {
@@ -21,6 +22,11 @@ public class RacingStadium {
 
     public void start() {
         initializeCars();
+        initializeTryCount();
+    }
+
+    private void initializeTryCount() {
+        this.tryCount = inputUtils.getTryCount();
     }
 
     private void initializeCars() {
