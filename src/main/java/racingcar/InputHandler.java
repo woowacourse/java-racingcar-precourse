@@ -23,6 +23,7 @@ public class InputHandler {
         try {
             InputExceptionHandler.validateCarNames(userInput, DELIMITER);
             String[] carNames = userInput.split(DELIMITER);
+            InputExceptionHandler.validateCarNamesArray(carNames);
             return carNames;
         } catch (Exception exception) {
             return askCarNames();
