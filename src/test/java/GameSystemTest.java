@@ -1,12 +1,11 @@
-package racingcar;
-
 import java.util.Scanner;
+import racingcar.GameSystem;
 
-public class Application {
+public class GameSystemTest {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        GameSystem gameSystem = new GameSystem();
+        GameSystem game = new GameSystem();
 
-        gameSystem.playGame(scanner);
+        game.playGame(scanner);
     }
 }
