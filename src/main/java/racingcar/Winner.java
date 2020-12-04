@@ -10,7 +10,16 @@ public class Winner {
     private List<Car> winners = new ArrayList<>();
     private static int winnerPosition = GameProcess.INITIAL_POSITION.getValue();
 
-    public void findWinners(List<Car> carList) {
+    public String getWinnerNames(List<Car> carList) {
+        findWinners(carList);
+        List<String> winnerNames = new ArrayList<>();
+        for (Car winner : winners) {
+            winnerNames.add(winner.getName());
+        }
+        return String.join(GameHost.DELIMITER_TO_SPLIT_WINNERS.getMessage(), winnerNames);
+    }
+
+    private void findWinners(List<Car> carList) {
         setWinnerPosition(carList);
         for (Car car : carList) {
             addWinner(car);
@@ -31,13 +40,5 @@ public class Winner {
 
     public boolean isWinner(Car car) {
         return car.getPosition() == winnerPosition;
-    }
-
-    public String getWinnerNames() {
-        List<String> winnerNames = new ArrayList<>();
-        for (Car winner : winners) {
-            winnerNames.add(winner.getName());
-        }
-        return String.join(GameHost.DELIMITER_TO_SPLIT_WINNERS.getMessage(), winnerNames);
     }
 }

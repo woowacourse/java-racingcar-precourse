@@ -11,14 +11,14 @@ import java.util.Scanner;
 
 public class Application {
 
-    private GamePlayer gamePlayer;
     private Mechanic mechanic;
+    private CommandCenter commandCenter;
     private Winner winner;
     private List<Car> carList;
 
     Application() {
-        gamePlayer = new GamePlayer();
         mechanic = new Mechanic();
+        commandCenter = new CommandCenter(mechanic);
         winner = new Winner();
         carList = new ArrayList<>();
     }
@@ -32,30 +32,22 @@ public class Application {
 
     private void playRacingCarGame(Scanner scanner) {
         carList = createCarList(scanner);
-        Car.setTurnsToTry(gamePlayer.inputTurnsToTry(scanner));
+        Car.setTurnsToTry(commandCenter.inputTurnsToTry(scanner));
         System.out.println();
         System.out.println(GameHost.PROGRESS_RESULT.getMessage());
         while (Car.getTurnsToTry() > GameProcess.NO_TURN.getValue()) {
             showResultOfEachTurn();
         }
-        winner.findWinners(carList);
-        String winnerNames = winner.getWinnerNames();
+        String winnerNames = winner.getWinnerNames(carList);
         System.out.println(GameHost.FINAL_WINNER.getMessage() + winnerNames);
     }
 
     private List<Car> createCarList(Scanner scanner) {
-        String[] namesOfCarsArray = gamePlayer.inputNamesOfCars(scanner);
-        int numberOfTrimmedNames = 0;
-        int numberOfNamesOverMaxLength = 0;
+        String[] namesOfCarsArray = commandCenter.inputNamesOfCars(scanner);
         for (String nameOfCar : namesOfCarsArray) {
-            nameOfCar = nameOfCar.trim();
-            numberOfTrimmedNames += mechanic.countNumberOfNamesWithForeAndAftBlank(nameOfCar);
-            numberOfNamesOverMaxLength += mechanic.countNumberOfNamesOverMaxLength(nameOfCar);
             addCarToList(mechanic.getCarWithValidName(nameOfCar));
         }
-        mechanic.noticeNameTrimmed(numberOfTrimmedNames);
-        mechanic.noticeShortenName(numberOfNamesOverMaxLength);
-        mechanic.noticeBlankNameRemoved(namesOfCarsArray , carList);
+        mechanic.noticeErrors(namesOfCarsArray , carList);
         if (isCarListEmpty()) {
             noticeEmptyCarList();
             return createCarList(scanner);

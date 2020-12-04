@@ -2,10 +2,19 @@ package racingcar;
 
 import enums.ErrorMessage;
 import enums.GameHost;
+import maintenance.Mechanic;
 
 import java.util.Scanner;
 
-public class GamePlayer {
+/**
+ *  입력을 담당한다.(자동차 이름, 시도횟수)
+ */
+public class CommandCenter {
+    Mechanic mechanic;
+
+    CommandCenter(Mechanic mechanic) {
+        this.mechanic = mechanic;
+    }
 
     protected String[] inputNamesOfCars(Scanner scanner) {
         System.out.println(GameHost.ASK_NAMES_OF_CARS.getMessage());
@@ -16,28 +25,10 @@ public class GamePlayer {
     protected int inputTurnsToTry(Scanner scanner) {
         System.out.println(GameHost.ASK_TURNS.getMessage());
         String turnsToTry = scanner.nextLine();
-        if (!isNumberFormat(turnsToTry)) {
+        if (!mechanic.isNumberFormat(turnsToTry)) {
             System.err.println(ErrorMessage.NUMBER_FORMAT.getMessage());
             return inputTurnsToTry(scanner);
         }
-        return getAbsoluteValue(turnsToTry);
-    }
-
-    private boolean isNumberFormat(String turnsToTry) {
-        try {
-            Integer.parseInt(turnsToTry);
-            return true;
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-    }
-
-    public int getAbsoluteValue(String turnsToTry) {
-        int turnsToTryInt = Integer.parseInt(turnsToTry);
-        if (turnsToTryInt < 0) {
-            System.err.println(ErrorMessage.NEGATIVE_NUMBER.getMessage());
-            return Math.abs(turnsToTryInt);
-        }
-        return turnsToTryInt;
+        return mechanic.getAbsoluteValue(turnsToTry);
     }
 }

@@ -8,22 +8,35 @@ import java.util.List;
 
 /**
  *  자동차 이름이 유효한지 정비하고 적절한 이름을 부여한다.
+ *  시도한 횟수 입력이 유효한지 확인하고 적절한 조치를 취한다.
  *  정비한 내용을 알린다.
  */
 public class Mechanic {
 
-    public int countNumberOfNamesWithForeAndAftBlank(String nameOfCar) {
-        if (isStartsWithBlank(nameOfCar) || isEndsWithBlank(nameOfCar)) {
-            return 1;
+    private boolean hasNameOfCarWithForeAndAftBlank = false;
+    private boolean hasNameOfCarOverMaxLength = false;
+
+    public Car getCarWithValidName(String nameOfCar) {
+        checkNameOfCarIsExceptonal(nameOfCar);
+        nameOfCar = shortenNameLengthToMax(nameOfCar.trim());
+        if (isNameBlank(nameOfCar)) {
+            return null;
         }
-        return 0;
+        return new Car(nameOfCar);
     }
 
-    public int countNumberOfNamesOverMaxLength(String nameOfCar) {
-        if (isNameLengthOverMax(nameOfCar)) {
-            return 1;
-        }
-        return 0;
+    private void checkNameOfCarIsExceptonal(String nameOfCar) {
+        nameOfCar = nameOfCar.trim();
+        hasNameOfCarWithForeAndAftBlank = isNameWithForeAndAftBlank(nameOfCar);
+        hasNameOfCarOverMaxLength = isLengthOfNameOverMax(nameOfCar);
+    }
+
+    private boolean isNameWithForeAndAftBlank(String nameOfCar) {
+        return isStartsWithBlank(nameOfCar) || isEndsWithBlank(nameOfCar);
+    }
+
+    private boolean isLengthOfNameOverMax(String nameOfCar) {
+        return nameOfCar.length() > GameProcess.MAXIMUM_NAME_LENGTH.getValue();
     }
 
     private boolean isStartsWithBlank(String nameOfCar) {
@@ -34,38 +47,32 @@ public class Mechanic {
         return nameOfCar.endsWith(" ");
     }
 
-    public Car getCarWithValidName(String nameOfCar) {
-        nameOfCar = shortenNameLengthToMax(nameOfCar.trim());
-        if (isNameBlank(nameOfCar)) {
-            return null;
-        }
-        return new Car(nameOfCar);
-    }
-
     public String shortenNameLengthToMax(String nameOfCar) {
-        if (isNameLengthOverMax(nameOfCar)) {
+        if (isLengthOfNameOverMax(nameOfCar)) {
             return nameOfCar.substring(0, GameProcess.MAXIMUM_NAME_LENGTH.getValue());
         }
         return nameOfCar;
-    }
-
-    private boolean isNameLengthOverMax(String nameOfCar) {
-        return nameOfCar.length() > GameProcess.MAXIMUM_NAME_LENGTH.getValue();
     }
 
     private boolean isNameBlank(String nameOfCar) {
         return nameOfCar.equals("");
     }
 
-    public void noticeShortenName(int numberOfNamesOverMaxLength) {
-        if (numberOfNamesOverMaxLength > 0) {
-            System.err.println(ErrorMessage.OVER_MAXIMUM_NAME_LENGTH.getMessage());
+    public void noticeErrors(String[] namesOfCarsArray , List<Car> carList) {
+        noticeNameTrimmed();
+        noticeShortenName();
+        noticeBlankNameRemoved(namesOfCarsArray , carList);
+    }
+
+    public void noticeNameTrimmed() {
+        if (hasNameOfCarWithForeAndAftBlank ) {
+            System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
         }
     }
 
-    public void noticeNameTrimmed(int numberOfTrimmedNames) {
-        if (numberOfTrimmedNames > 0) {
-            System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
+    public void noticeShortenName() {
+        if (hasNameOfCarOverMaxLength) {
+            System.err.println(ErrorMessage.OVER_MAXIMUM_NAME_LENGTH.getMessage());
         }
     }
 
@@ -77,5 +84,27 @@ public class Mechanic {
 
     private boolean isBlankNameInputted(String[] namesOfCarsArray, List<Car> carList) {
         return namesOfCarsArray.length != carList.size();
+    }
+
+    public boolean isNumberFormat(String turnsToTry) {
+        try {
+            Integer.parseInt(turnsToTry);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
+    public int getAbsoluteValue(String turnsToTry) {
+        int turnsToTryInt = Integer.parseInt(turnsToTry);
+        if (isNegativeNumber(turnsToTryInt)) {
+            System.err.println(ErrorMessage.NEGATIVE_NUMBER.getMessage());
+            return Math.abs(turnsToTryInt);
+        }
+        return turnsToTryInt;
+    }
+
+    private boolean isNegativeNumber(int turnsToTryInt) {
+        return turnsToTryInt < 0;
     }
 }
