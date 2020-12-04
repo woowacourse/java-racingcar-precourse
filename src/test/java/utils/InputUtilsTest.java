@@ -13,6 +13,7 @@ public class InputUtilsTest {
     // 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
     private final String COMMA = ",";
     private String userNames = "ddffffd,pobi,jun,wrak,123456,asdfasfdasfd,assd  ";
+    private String secondUserNames = "ddff,pobi,jun,wrak,12346,fd,  ";
     private final int MAX_LENGTH = 5;
 
     @Test
@@ -21,7 +22,7 @@ public class InputUtilsTest {
         ArrayList<String> wrong_names = new ArrayList<String>();
 
         for (String name : names) {
-            if(name.length() > MAX_LENGTH){
+            if (name.length() > MAX_LENGTH) {
                 wrong_names.add(name);
             }
         }
@@ -31,6 +32,16 @@ public class InputUtilsTest {
         }
 
         System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+    }
+
+    @Test
+    public void testInputUtils() {
+        assertThat(InputUtils.isNameLessThanFive(userNames)).isFalse();
+        assertThat(InputUtils.isNameLessThanFive(secondUserNames)).isTrue();
+
+        assertThat(InputUtils.isLoopTimeInteger("11111")).isTrue();
+        assertThat(InputUtils.isLoopTimeInteger(" f")).isFalse();
+        assertThat(InputUtils.isLoopTimeInteger("1 1")).isFalse();
     }
 
 }
