@@ -1,5 +1,7 @@
 package racingcar;
 
+import view.OutputView;
+
 public class RacingGame {
     private final Cars cars;
     private final int totalRounds;
@@ -12,13 +14,15 @@ public class RacingGame {
     }
 
     public void play(){
+        OutputView.printResultMessage();
         do{
             cars.tryMoveAll();
             printCarsPosition();
+            OutputView.printRoundSeparator();
         }while(checkGameEnd());
         printWinner();
     }
-    
+
     private void printCarsPosition(){
 
     }
