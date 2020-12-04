@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationFailure;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationSuccess;
 
+import racingcar.domain.exception.CarCountOutOfBoundsException;
 import racingcar.domain.exception.DuplicateNameException;
 import racingcar.domain.exception.NameLengthOutOfBoundsException;
 
@@ -88,8 +89,8 @@ public class NameValidatorTest {
         ThrowableAssert.ThrowingCallable callable = () -> validator.validate(carNames);
 
         // then
-        assertValidationFailure(callable, NameValidator.OUT_OF_BOUNDS_MESSAGE +
-                String.format(NameValidator.INPUT_CAR_COUNT_MESSAGE, length));
+        assertValidationFailure(callable, CarCountOutOfBoundsException.OUT_OF_BOUNDS_MESSAGE +
+                String.format(CarCountOutOfBoundsException.INPUT_CAR_COUNT_MESSAGE, length));
     }
 
     @Test
