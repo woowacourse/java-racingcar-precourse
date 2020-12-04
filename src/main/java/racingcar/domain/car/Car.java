@@ -27,6 +27,12 @@ public class Car {
         }
     }
 
+    public void move() {
+        if (this.movingStrategy.isMovable()) {
+            this.position++;
+        }
+    }
+
     public int getPosition() {
         return this.position;
     }
