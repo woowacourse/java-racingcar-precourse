@@ -9,4 +9,15 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void upPosition() {
+        position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
