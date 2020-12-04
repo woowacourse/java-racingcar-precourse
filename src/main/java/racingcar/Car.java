@@ -1,7 +1,11 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class Car {
 
+    private static final int START_INCLUSIVE = 0;
+    private static final int END_INCLUSIVE = 9;
     private final String name;
     private int position = 0;
 
@@ -16,6 +20,14 @@ public class Car {
 
     public int getPosition() {
         return this.position;
+    }
+
+    public int getMovePoint() {
+        int randomNumber = RandomUtils.nextInt(START_INCLUSIVE, END_INCLUSIVE);
+        if (randomNumber > 4) {
+            return 1;
+        }
+        return 0;
     }
 
     public void carMove() {
