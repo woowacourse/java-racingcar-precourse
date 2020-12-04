@@ -54,6 +54,18 @@ public class Race {
         }
     }
 
+    private void printResult() {
+        for (Car car : allRacingCars) {
+            System.out.print(car.getName() + " : ");
+
+            for (int j = 0; j < car.getPosition(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     private void checkRightCarName(String[] cars) {
         if (!Validation.carNameValidation(cars)) {
             throw new IllegalArgumentException(Constant.ERROR_CAR_NAME);
