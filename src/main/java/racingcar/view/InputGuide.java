@@ -1,9 +1,9 @@
 package racingcar.view;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import racingcar.exception.RacingCarErrorException;
-import racingcar.model.Car;
 import utils.ValidateUtils;
 
 /**
@@ -23,11 +23,12 @@ public class InputGuide {
         validateUtils = new ValidateUtils(scanner);
     }
 
-    public List<Car> inputCars() {
+    public List<String> inputCars() {
         System.out.println(CAR_INPUT_MESSAGE);
         String[] cars = splitCarNames(scanner.nextLine());
         try {
-            return validateUtils.isValid(cars);
+            validateUtils.isValid(cars);
+            return Arrays.asList(cars);
         } catch (RacingCarErrorException exception) {
             System.out.println(exception.getMessage());
             return inputCars();

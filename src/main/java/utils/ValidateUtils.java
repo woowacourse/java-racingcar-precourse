@@ -3,9 +3,7 @@ package utils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 import racingcar.exception.RacingCarErrorException;
-import racingcar.model.Car;
 
 /**
  * 입력값이 조건에 맞는지 검증하는 클래스
@@ -26,42 +24,36 @@ public class ValidateUtils {
         this.scanner = scanner;
     }
 
-    public List<Car> isValid(String[] cars) {
+    public void isValid(String[] cars) {
         List<String> carsList = Arrays.asList(cars);
-        if (isMoreThanOne(carsList)) {
-            return makeCars(carsList);
+        if (!isMoreThanOne(carsList)) {
+            throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
         }
-        throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
-    }
-
-    private boolean isNotDuplicate(List<String> cars){
-        return cars.stream()
-            .distinct()
-            .count() != cars.size();
     }
 
     private boolean isMoreThanOne(List<String> cars) {
         if (cars.size() >= TWO) {
-            return isValidateCarNames(cars);
+            isNotDuplicate(cars);
+            isValidateCarNames(cars);
+            return true;
         }
         throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
     }
 
-    private boolean isValidateCarNames(List<String> carNames) {
-        if (carNames.stream().allMatch(this::hasLengthInRange)) {
-            return true;
+    private void isNotDuplicate(List<String> cars) {
+        if (cars.stream().distinct().count() != cars.size()) {
+            throw new RacingCarErrorException(CAR_NAME_INPUT_DUPLICATE_EXCEPTION_MESSAGE);
         }
-        throw new RacingCarErrorException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
+    }
+
+    private void isValidateCarNames(List<String> carNames) {
+        if (!carNames.stream().allMatch(this::hasLengthInRange)) {
+            throw new RacingCarErrorException(CAR_NAME_INPUT_EXCEPTION_MESSAGE);
+        }
     }
 
     private boolean hasLengthInRange(String carName) {
         return carName.length() < FIVE && carName.length() > ZERO;
-    }
-
-    private List<Car> makeCars(List<String> carNames) {
-        return carNames.stream()
-            .map(Car::new)
-            .collect(Collectors.toList());
     }
 
     public int isMoreThanZero() {
