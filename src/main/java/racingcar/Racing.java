@@ -27,7 +27,7 @@ public class Racing {
     }
 
     public String printResult() {
-        List<String> winners = cars.getWinners();
+        List<String> winners = cars.findWinners();
         return FINAL_WINNER_MSG + String.join(COMMA_AND_SPACE, winners);
     }
 

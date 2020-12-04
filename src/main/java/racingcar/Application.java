@@ -37,5 +37,4 @@ public class Application {
 
         return new Cars(carNames);
     }
-
 }
