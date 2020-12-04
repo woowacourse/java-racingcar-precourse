@@ -8,9 +8,7 @@ public class Application {
         RacingGame racingGame = new RacingGame();
 
         racingGame.startGame(scanner);
-        for(int i = 0; i < racingGame.getTryNum(); i++){
-            racingGame.playOneRound();
-        }
+        racingGame.playGame();
         racingGame.endGame();
 
         scanner.close();

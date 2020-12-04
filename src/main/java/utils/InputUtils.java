@@ -13,12 +13,16 @@ public class InputUtils {
         String[] name = names.split(",");
         for(int c=0; c < name.length; c++){
             cars.add(new Car(name[c]));
-            if(CheckUtils.hasLongName(name[c])){
+            if(hasLongName(name[c])){
                 ErrorUtils.printNameError();
                 cars.clear();
                 inputNames(scanner, cars);
             }
         }
+    }
+
+    public static boolean hasLongName(String carName){
+        return carName.length() > 5;
     }
 
     public static int inputTryNumber(Scanner scanner){

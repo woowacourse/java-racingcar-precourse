@@ -24,5 +24,4 @@ public class Car {
             position++;
         }
     }
-
 }
