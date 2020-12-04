@@ -10,7 +10,12 @@ public class Car {
 
     public Car(String name) {
         validateNameRange(name);
+        name = trimName(name);
         this.name = name;
+    }
+
+    private String trimName(String name) {
+        return name.trim();
     }
 
     private void validateNameRange(String name) {
