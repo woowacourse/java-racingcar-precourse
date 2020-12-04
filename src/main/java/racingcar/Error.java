@@ -15,7 +15,7 @@ public class Error {
     static final int MAX_CAR_NAME_LENGTH = 5;
     static final int MIN_CAR_NAME_LENGTH = 1;
 
-    Input input = new Input();
+
 
     public void checkSameCarName(List<String> carNameList) throws IllegalArgumentException{
         Set<String> carNameSet = new HashSet<>(carNameList);
