@@ -73,5 +73,4 @@ public class Game {
             .max()
             .orElseThrow(() -> new RacingCarErrorException(NO_WINNERS_EXCEPTION_MESSAGE));
     }
-
 }
