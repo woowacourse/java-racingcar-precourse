@@ -36,7 +36,13 @@ public class Application {
     }
 
     private static int findMaxPosition(Car[] cars) {
-        return 0;
+        int maxNumber = 0;
+        for (int i = 0; i < cars.length; i++) {
+            if (maxNumber < cars[i].getPosition()) {
+                maxNumber = cars[i].getPosition();
+            }
+        }
+        return maxNumber;
     }
 
     private static void printResult(Car[] cars) {
