@@ -1,6 +1,5 @@
 package utils;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import racingcar.exception.RacingCarErrorException;
@@ -24,9 +23,8 @@ public class ValidateUtils {
         this.scanner = scanner;
     }
 
-    public void isValid(String[] cars) {
-        List<String> carsList = Arrays.asList(cars);
-        if (!isMoreThanOne(carsList)) {
+    public void isValid(List<String> cars) {
+        if (!isMoreThanOne(cars)) {
             throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
         }
     }

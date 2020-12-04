@@ -25,10 +25,10 @@ public class InputGuide {
 
     public List<String> inputCars() {
         System.out.println(CAR_INPUT_MESSAGE);
-        String[] cars = splitCarNames(scanner.nextLine());
+        List<String> cars = Arrays.asList(splitCarNames(scanner.nextLine()));
         try {
             validateUtils.isValid(cars);
-            return Arrays.asList(cars);
+            return cars;
         } catch (RacingCarErrorException exception) {
             System.out.println(exception.getMessage());
             return inputCars();
