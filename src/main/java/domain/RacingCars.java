@@ -22,4 +22,8 @@ public class RacingCars {
             car.moveCar(RandomUtils.nextInt(RANDOM_MINIMUM,RANDOM_MAXIMUM));
         }
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
