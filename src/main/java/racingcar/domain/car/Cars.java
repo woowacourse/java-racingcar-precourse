@@ -3,6 +3,7 @@ package racingcar.domain.car;
 import racingcar.domain.exception.CarNameDuplicationException;
 import racingcar.domain.strategy.MovingStrategy;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,6 +34,15 @@ public class Cars {
 
     public void move() {
         this.cars.forEach(Car::move);
+    }
+
+    public List<String> getWinnerCarNames() {
+        Car maximumPosition = this.cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition)).get();
+        return this.cars.stream()
+                .filter(car -> car.getPosition() == maximumPosition.getPosition())
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     public List<String> getCarNames() {
