@@ -3,6 +3,7 @@ package racingcar;
 public class Car {
     private final String name;
     private int position = 0;
+    private StringBuilder positionLine = new StringBuilder();
 
     public Car(String name) {
         this.name = name;
@@ -10,6 +11,7 @@ public class Car {
 
     public void run() {
         this.position++;
+        this.positionLine.append("-");
     }
 
     public String getName() {
@@ -17,12 +19,6 @@ public class Car {
     }
 
     public String getPositionLine() {
-        StringBuilder positionLine = new StringBuilder();
-
-        for (int i = 0; i < this.position; i++) {
-            positionLine.append("-");
-        }
-
         return positionLine.toString();
     }
 

@@ -9,22 +9,30 @@ public class Simulator {
     private static final int RANDOM_NUMBER_END = 9;
     private static final int THRESHOLD = 4;
 
-    public static void simulateGame(Car[] cars, int stageCount) {
+    private Car[] cars;
+    private int stageCount;
+
+    public Simulator(Car[] cars, int stageCount) {
+        this.cars = cars;
+        this.stageCount = stageCount;
+    }
+
+    public void simulateGame() {
         UserScreen.showSimulateStart();
 
-        for (int i = 0; i < stageCount; i++) {
-            simulateStage(cars);
+        for (int i = 0; i < this.stageCount; i++) {
+            simulateStage();
         }
 
-        ArrayList<String> winners = getWinners(cars);
+        ArrayList<String> winners = getWinners();
         UserScreen.showGameResult(winners);
     }
 
-    public static ArrayList<String> getWinners(Car[] cars) {
+    private ArrayList<String> getWinners() {
         ArrayList<String> winners = new ArrayList<>();
-        int farthestPosition = getFarthestPosition(cars);
+        int farthestPosition = getFarthestPosition();
 
-        for (Car car : cars) {
+        for (Car car : this.cars) {
             if (car.getPosition() == farthestPosition) {
                 winners.add(car.getName());
             }
@@ -33,10 +41,10 @@ public class Simulator {
         return winners;
     }
 
-    public static int getFarthestPosition(Car[] cars) {
+    private int getFarthestPosition() {
         int farthestPosition = 0;
 
-        for (Car car : cars) {
+        for (Car car : this.cars) {
             int position = car.getPosition();
             if (farthestPosition < position) {
                 farthestPosition = position;
@@ -46,8 +54,8 @@ public class Simulator {
         return farthestPosition;
     }
 
-    public static void simulateStage(Car[] cars) {
-        for (Car car : cars) {
+    private void simulateStage() {
+        for (Car car : this.cars) {
             int randomNumber = RandomUtils.nextInt(RANDOM_NUMBER_START, RANDOM_NUMBER_END);
 
             if (randomNumber >= THRESHOLD) {
@@ -55,6 +63,6 @@ public class Simulator {
             }
         }
 
-        UserScreen.showStageResult(cars);
+        UserScreen.showStageResult(this.cars);
     }
 }
