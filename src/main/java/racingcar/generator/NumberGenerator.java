@@ -2,7 +2,11 @@ package racingcar.generator;
 
 import utils.RandomUtils;
 
-/** 0~9 사이에서 random 값을 구하는 클래스 */
+/**
+ * 0~9 사이에서 random 값을 구하는 클래스
+ *
+ * @author Daeun Lee
+ */
 public class NumberGenerator {
 
     private static final int MINIMUM_RANDOM_NUMBER = 0;

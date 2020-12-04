@@ -1,5 +1,10 @@
 package racingcar.type;
 
+/**
+ * 최소, 최대 경계 값 상수를 모아둔 Enum 클래스
+ *
+ * @author Daeun Lee
+ */
 public enum BoundaryType {
 
     MINIMUM_MOVE_NUMBER(4),

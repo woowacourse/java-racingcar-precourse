@@ -1,5 +1,10 @@
 package racingcar.type;
 
+/**
+ * 출력 문구 상수를 모아둔 Enum 클래스
+ *
+ * @author Daeun Lee
+ */
 public enum TextType {
 
     CAR_NAME_TEXT("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),

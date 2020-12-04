@@ -1,7 +1,5 @@
 package racingcar;
 
-import racingcar.controller.CarRacingController;
-
 public class Car {
     private final String name;
     private int position = 0;

@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import org.w3c.dom.Text;
 import racingcar.Car;
 import racingcar.generator.NumberGenerator;
 import racingcar.type.BoundaryType;
@@ -9,7 +8,11 @@ import racingcar.type.TextType;
 
 import java.util.*;
 
-/** 자동차 경주 게임을 컨트롤하는 클래스 */
+/**
+ * 자동차 경주 게임을 컨트롤하는 클래스
+ *
+ * @author Daeun Lee
+ */
 public class CarRacingController {
 
     private static final int MINIMUM_CAR_NAME_LENGTH = 1;
