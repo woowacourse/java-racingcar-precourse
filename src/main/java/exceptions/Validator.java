@@ -11,6 +11,7 @@ public class Validator {
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
     private static final String EMPTY_CAR_NAME_ERROR_MESSAGE = "자동차 이름이 입력되어야 한다.";
     private static final String EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 " + MAXIMUM_CAR_NAME_LENGTH + "자 이하여야 한다.";
+    private static final String MUST_BE_INTEGER_ERROR_MESSAGE = "시도 횟수는 숫자여야 한다.";
 
     public static void validateCarsSize(List<Car> cars) {
         if (cars.size() < MINIMUM_CARS_SIZE) {
@@ -30,7 +31,7 @@ public class Validator {
         try {
             Integer.parseInt(numberOfProgress);
         } catch (Exception e) {
-            throw new NotValidInputException("시도 횟수는 숫자여야 한다.");
+            throw new NotValidInputException(MUST_BE_INTEGER_ERROR_MESSAGE);
         }
     }
 

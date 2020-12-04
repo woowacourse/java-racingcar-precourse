@@ -1,7 +1,6 @@
 package View;
 
 import racingcar.Car;
-import racingcar.Cars;
 
 import java.util.List;
 
@@ -9,8 +8,6 @@ public class OutputView {
 
     private static final String PROGRESS_RESULT_MESSAGE = "실행 결과";
     private static final String WINNERS_MESSAGE = "최종 우승자: ";
-
-    public OutputView() {}
 
     public static void printCurrentStatus(List<Car> cars) {
         cars.stream()
