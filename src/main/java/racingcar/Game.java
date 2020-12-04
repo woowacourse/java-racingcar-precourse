@@ -2,6 +2,8 @@ package racingcar;
 
 import utils.RandomUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -24,6 +26,8 @@ public class Game {
         generateCar(player.getCarNameArray());
         printer.printInputTryNumberMessage();
         player.inputTryNumber();
+        showMovingResult();
+        finish();
     }
 
     /* 각 차수별로 각 자동차를 전진 또는 멈춤하고 실행 결과 출력 */
@@ -44,6 +48,8 @@ public class Game {
 
     /* 최종 우승자 뽑고 출력 */
     public void finish() {
+        printer.printOutputFinalWinner(selectWinner());
+
     }
 
     public int generateRandomNumber() {
@@ -56,13 +62,32 @@ public class Game {
         }
     }
 
-    public void selectWinner() {
+    public List<String> selectWinner() {
+        List<String> winnerNameList = new ArrayList<String>();
+        int maxPosition = getMaxPosition();
+        for (int i =0;i<cars.length;i++){
+            if (maxPosition == cars[i].getPosition()) {
+                winnerNameList.add(cars[i].getName());
+            }
+        }
+        return winnerNameList;
     }
 
+    public int getMaxPosition() {
+        int maxPosition = 0;
+        for (int i =0;i<cars.length;i++){
+            if (maxPosition < cars[i].getPosition()) {
+                maxPosition = cars[i].getPosition();
+            }
+        }
+        return maxPosition;
+    }
     public void generateCar(String[] carNameArray) {
         cars = new Car[carNameArray.length];
         for (int i = 0; i < carNameArray.length; i++) {
             cars[i] = new Car(carNameArray[i]);
         }
     }
+
 }
+
