@@ -8,6 +8,9 @@ public class Race {
     public static final String INPUT_MESSAGE_FOR_CAR_NAMES =
             "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String INPUT_MESSAGE_FOR_TRY_COUNT = "시도할 회수는 몇회인가요?";
+    public static final String DASH_STRING = "-";
+    public static final String RESULT_OF_EXECUTION = "실행 결과";
+
     private ArrayList<Car> cars;
     private int countOfTry;
 
@@ -37,6 +40,36 @@ public class Race {
         countOfTry = Integer.parseInt(input);
     }
 
+    public void startGame() {
+        printExecutionResultMessage();
+        for (int count = 0; count < countOfTry; count++) {
+            moveCars();
+            printNameAndPosition();
+        }
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
+
+    private void printNameAndPosition() {
+        for (Car car : cars) {
+            String dash = convertPositionToDashString(car.getPosition());
+            System.out.println(car.getName() + " : " + dash);
+        }
+        System.out.println();
+    }
+
+    private String convertPositionToDashString(int position) {
+        StringBuilder sb = new StringBuilder();
+        for (int count = 0; count < position; count++) {
+            sb.append(DASH_STRING);
+        }
+        return sb.toString();
+    }
+
     private void initCars(String[] carNames) {
         for (String name : carNames) {
             cars.add(new Car(name));
@@ -46,6 +79,10 @@ public class Race {
     private String[] splitCarNamesWithComma(String input) {
         String[] split = input.split(",");
         return split;
+    }
+
+    private void printExecutionResultMessage() {
+        System.out.println(RESULT_OF_EXECUTION);
     }
 
     private void printInputMessageForName() {

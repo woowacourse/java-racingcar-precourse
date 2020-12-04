@@ -9,5 +9,6 @@ public class Application {
         Race race = new Race();
         race.inputCarNamesWithComma(scanner);
         race.inputCountOfTry(scanner);
+        race.startGame();
     }
 }
