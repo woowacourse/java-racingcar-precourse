@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.exception.CarNameLengthException;
+import racingcar.domain.strategy.RandomMovingStrategy;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 
@@ -15,7 +16,7 @@ class CarTest {
     @ValueSource(strings = {"pobi", "crong", "a", "b1"})
     public void Car_유효한_이름_문자열_객체_생성_성공한다(String name) {
         assertThatCode(() -> {
-            new Car(name);
+            new Car(name, new RandomMovingStrategy());
         }).doesNotThrowAnyException();
     }
 
@@ -25,7 +26,7 @@ class CarTest {
     @ValueSource(strings = {"  \t", " "})
     public void Car_유효하지_않은_이름_문자열_예외_발생한다(String name) {
         assertThatCode(() -> {
-            new Car(name);
+            new Car(name, new RandomMovingStrategy());
         }).isInstanceOf(CarNameLengthException.class);
     }
 }
