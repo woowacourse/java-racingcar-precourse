@@ -16,8 +16,8 @@
 - Game
   - enter : 입력받은 자동차를 게임에 참여자 목록에 추가하기.
   - updateCarNames : 입력받은 이름에 따라 Car객체를 만들고 enter
-  - updateRoundNumber : 입력받은 라운드 횟수 업데이트
-  - 라운드 횟수 만큼, 각각의 차가 play 진행
+  - updateRunCount : 입력받은 실행 횟수 업데이트
+  - 실행 횟수 만큼, 각각의 차가 play 진행
   - 0~9의 랜덤 숫자를 생성
   - 조건에 따라 전진, 멈춤 결정
 - Scoreboard
