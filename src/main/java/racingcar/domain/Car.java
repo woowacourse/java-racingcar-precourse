@@ -60,6 +60,10 @@ public class Car implements Comparable<Car> {
         return stringBuilder.toString();
     }
 
+    @Override
+    public String toString() {
+        return name + COLON + positionToBars();
+    }
 
     @Override
     public int compareTo(Car car) {
