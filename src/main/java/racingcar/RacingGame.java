@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,8 +12,14 @@ public class RacingGame {
     private int turn;
     private Scanner scanner;
     private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final char START_INCLUSIVE = 0;
+    private static final char END_INCLUSIVE = 9;
+    private static final int MIN_TURN = 1;
     private static final String CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE = SystemMessage.ERROR_MESSAGE + " 자동차 이름의 길이는 "
             + MAX_CAR_NAME_LENGTH + "이하여야 합니다.";
+    private static final String TURN_MISMATCH_EXCEPTION_MESSAGE = SystemMessage.ERROR_MESSAGE + " 시도 횟수는 숫자여야 합니다.";
+    private static final String TURN_VALUE_LOWER_ONE_EXCEPTION_MESSAGE = SystemMessage.ERROR_MESSAGE
+            + " 시도 횟수는 1 이상의 정수여야합니다.";
 
     public RacingGame(Scanner scanner) {
         this.scanner = scanner;
@@ -100,7 +107,31 @@ public class RacingGame {
 
     private void inputTurn() {
         System.out.println(SystemMessage.INPUT_TURN_MESSAGE);
-        turn = scanner.nextInt();
+        String input = scanner.next();
+        if (!isInteger(input)) {
+            throw new InputMismatchException(TURN_MISMATCH_EXCEPTION_MESSAGE);
+        }
+
+        if (isValueLowerOne(Integer.parseInt(input))) {
+            throw new IllegalArgumentException(TURN_VALUE_LOWER_ONE_EXCEPTION_MESSAGE);
+        }
+
+        turn = Integer.parseInt(input);
     }
 
+    private boolean isInteger(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            if (!(input.charAt(i) >= START_INCLUSIVE && input.charAt(i) <= END_INCLUSIVE)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isValueLowerOne(int input) {
+        if (input < MIN_TURN) {
+            return true;
+        }
+        return false;
+    }
 }
