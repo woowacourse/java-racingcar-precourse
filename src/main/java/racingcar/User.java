@@ -12,10 +12,12 @@ public class User {
     private static final String WINNER = "최종우승자: ";
     private static final String SPACE = " ";
     private static final CharSequence TAB = "\t";
+    private static final int NAME_LENGTH = 5;
 
     public List<String> createNames(String names) {
         String[] splitNames = names.split(DELIMITER);
         validateName(names);
+        validateNameLength(splitNames);
         return Arrays.asList(splitNames);
     }
 
@@ -25,6 +27,14 @@ public class User {
         }
         if (names.contains(SPACE) || names.contains(TAB)) {
             throw new IllegalArgumentException("[ERROR] 이름에 공백이 존재합니다.");
+        }
+    }
+
+    private void validateNameLength(String[] splitNames) {
+        for (String name : splitNames) {
+            if (name.length() > NAME_LENGTH) {
+                throw new IllegalArgumentException("[ERROR] 이름이 5자가 넘습니다.");
+            }
         }
     }
 
