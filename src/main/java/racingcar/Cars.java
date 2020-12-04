@@ -29,14 +29,16 @@ public class Cars {
     }
 
     public List<Car> findWinners() {
-        int winnersPosition = cars.stream()
+        return cars.stream()
+                .filter(car -> car.getPosition() == findWinnersPosition())
+                .collect(Collectors.toList());
+    }
+
+    private int findWinnersPosition() {
+        return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
-
-        return cars.stream()
-                .filter(car -> car.getPosition() == winnersPosition)
-                .collect(Collectors.toList());
     }
 
     private void compareRandomNumberAndMove(Car car) {
@@ -44,6 +46,5 @@ public class Cars {
             car.moveCarForward();
         }
     }
-
-
+    
 }
