@@ -76,7 +76,7 @@ class InputUtilsTest {
     }
 
     @Test
-    @DisplayName("시도할 회수를 입력받는다")
+    @DisplayName("시도할 횟수를 입력받는다")
     void testInputTryCount() {
         //given
         String inputText = "12";
@@ -87,5 +87,41 @@ class InputUtilsTest {
 
         //then
         assertThat(tryCount).isEqualTo(12);
+    }
+
+    @Test
+    @DisplayName("입력된 횟수가 문자일 시 에러가 발생한다.")
+    void testInputTryCountError() {
+        //given
+        String inputText = "a1";
+        InputUtils inputUtils = getInputUtils(inputText);
+        String secondInputText = "ㅎㅇ?";
+        InputUtils secondInputUtils = getInputUtils(secondInputText);
+
+        //then
+        assertThatThrownBy(() -> inputUtils.getTryCount())
+                .isInstanceOf(NumberFormatException.class)
+                .hasMessage("[ERROR] 시도할 횟수는 숫자만 입력해주세요.");
+        assertThatThrownBy(() -> secondInputUtils.getTryCount())
+                .isInstanceOf(NumberFormatException.class)
+                .hasMessage("[ERROR] 시도할 횟수는 숫자만 입력해주세요.");
+    }
+
+    @Test
+    @DisplayName("입력된 횟수가 1이상이 아닐 시 에러가 발생한다.")
+    void testInputTryCountNotOverThanOne() {
+        //given
+        String inputText = "0";
+        InputUtils inputUtils = getInputUtils(inputText);
+        String secondInputText = "-99";
+        InputUtils secondInputUtils = getInputUtils(secondInputText);
+
+        //then
+        assertThatThrownBy(() -> inputUtils.getTryCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 시도할 회수는 1이상 이어야 합니다.");
+        assertThatThrownBy(() -> secondInputUtils.getTryCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 시도할 회수는 1이상 이어야 합니다.");
     }
 }

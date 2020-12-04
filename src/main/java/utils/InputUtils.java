@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.Arrays;
+import java.util.IllegalFormatException;
 import java.util.Scanner;
 
 public class InputUtils {
@@ -27,8 +28,10 @@ public class InputUtils {
 
     public int getTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String tryCount = getNextLine();
-        return Integer.parseInt(tryCount);
+        String tryCountString = getNextLine();
+        int tryCount = stringToInt(tryCountString);
+        validateTryCount(tryCount);
+        return tryCount;
     }
 
     public String[] splitByRest(String carName) {
@@ -43,5 +46,19 @@ public class InputUtils {
                 throw new IllegalArgumentException("[ERROR] 연속된 쉼표는 허용하지 않습니다.");
             }
         });
+    }
+
+    private void validateTryCount(int tryCount) {
+        if (tryCount < 1) {
+            throw new IllegalArgumentException("[ERROR] 시도할 회수는 1이상 이어야 합니다.");
+        }
+    }
+
+    private int stringToInt(String tryCount) {
+        try {
+            return Integer.parseInt(tryCount);
+        } catch (NumberFormatException numberFormatException) {
+            throw new NumberFormatException("[ERROR] 시도할 횟수는 숫자만 입력해주세요.");
+        }
     }
 }
