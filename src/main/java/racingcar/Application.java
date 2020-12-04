@@ -8,7 +8,8 @@ public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
 
-        String[] names = InputView.getNames(scanner);
+        Cars racingCars = InputView.getNames(scanner);
         int tryNumber = InputView.getTryNumber(scanner);
+
     }
 }
