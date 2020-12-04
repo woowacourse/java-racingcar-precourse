@@ -67,8 +67,8 @@ public class Cars {
 		}
 	}
 
-	public String getCarPositionInformation(Car car) {
-		return car.getName() + " : " + car.getVisualCarPosition();
+	private String getCarPositionInformation(Car car) {
+		return String.format("%-5s", car.getName()) + " : " + car.getVisualCarPosition();
 	}
 
 	public void getCarPositionAnnouncement() {

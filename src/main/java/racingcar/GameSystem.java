@@ -19,6 +19,7 @@ public class GameSystem {
 
     private static List<Car> getCarList(Scanner scanner) {
         return Arrays.stream(getCarNames(scanner))
+                .map(String::trim)
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
