@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import racingcar.domain.exception.DuplicateNameException;
+import racingcar.domain.exception.NameOutOfRangeException;
 import racingcar.domain.exception.ValidationException;
 
 public class NameValidator extends Validator {
@@ -21,12 +22,6 @@ public class NameValidator extends Validator {
             String.format("자동차의 대수는 %d 이하이어야 합니다.", MAXIMUM_CAR_COUNT);
 
     public static final String INPUT_CAR_COUNT_MESSAGE = "입력한 자동차의 대수는 %d 입니다";
-
-    public static final String OUT_OF_RANGE_NAME_MESSAGE =
-            String.format("자동차 이름은 %d글자 이상 %d글자 이하이어야 합니다. ",
-                    MINIMUM_NAME_LENGTH, MAXIMUM_NAME_LENGTH);
-
-    public static final String INPUT_NAME_LENGTH_MESSAGE = "자동차 이름 %s의 길이는 %d글자입니다.";
 
     @Override
     public void validate(String carNames) {
@@ -54,8 +49,7 @@ public class NameValidator extends Validator {
             int carNameLength = carName.length();
 
             if (carNameLength < MINIMUM_NAME_LENGTH || carNameLength > MAXIMUM_NAME_LENGTH) {
-                throw new ValidationException(OUT_OF_RANGE_NAME_MESSAGE +
-                        String.format(INPUT_NAME_LENGTH_MESSAGE, carName, carNameLength));
+                throw new NameOutOfRangeException(carName, carNameLength);
             }
         }
     }

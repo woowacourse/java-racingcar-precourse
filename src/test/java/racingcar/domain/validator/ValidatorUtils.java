@@ -15,7 +15,7 @@ public class ValidatorUtils {
 
     public static void assertValidationFailure(Validator validator, String input, String message) {
         assertThatThrownBy(() -> validator.validate(input))
-                .isExactlyInstanceOf(ValidationException.class)
+                .isInstanceOf(ValidationException.class)
                 .hasMessage(ValidationException.ERROR_MESSAGE +
                         message);
     }
