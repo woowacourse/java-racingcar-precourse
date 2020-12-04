@@ -12,13 +12,16 @@ public class InputCarName {
         return scan.nextLine().split(",");
     }
 
-    public static int inputCount() {
+    public static int inputCount(String str) {
         try {
             System.out.println("시도할 회수는 몇회인가요?");
-            return Integer.parseInt(scan.nextLine());
+            if (InputCountCheck.checkInputCount(str)) {
+                return Integer.parseInt(str);
+            }
         } catch (NumberFormatException e) {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
-            return inputCount();
+            return inputCount(str);
         }
+        return Integer.parseInt(str);
     }
 }
