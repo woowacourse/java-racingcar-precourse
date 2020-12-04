@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import racingcar.domain.exception.DuplicateNameException;
 import racingcar.domain.exception.ValidationException;
 
 public class NameValidator extends Validator {
@@ -26,8 +27,6 @@ public class NameValidator extends Validator {
                     MINIMUM_NAME_LENGTH, MAXIMUM_NAME_LENGTH);
 
     public static final String INPUT_NAME_LENGTH_MESSAGE = "자동차 이름 %s의 길이는 %d글자입니다.";
-
-    public static final String DUPLICATE_NAME_MESSAGE = "자동차 이름 %s는 중복된 이름입니다.";
 
     @Override
     public void validate(String carNames) {
@@ -70,8 +69,7 @@ public class NameValidator extends Validator {
                 continue;
             }
 
-            throw new ValidationException(
-                    String.format(DUPLICATE_NAME_MESSAGE, carName));
+            throw new DuplicateNameException(carName);
         }
     }
 }

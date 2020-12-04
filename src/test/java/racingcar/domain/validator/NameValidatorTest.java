@@ -6,8 +6,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.domain.exception.DuplicateNameException.DUPLICATE_NAME_MESSAGE;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationFailure;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationSuccess;
+
+import racingcar.domain.exception.DuplicateNameException;
+import racingcar.domain.exception.ValidationException;
 
 public class NameValidatorTest {
 
@@ -58,7 +63,9 @@ public class NameValidatorTest {
     @Test
     @DisplayName("중복된 자동차 이름이 존재할 경우 예외 발생")
     public void checkDuplicateName_DuplicateNames_ExceptionThrown() {
-        assertValidationFailure(validator, "pobi,pobi,woni",
-                String.format(NameValidator.DUPLICATE_NAME_MESSAGE, "pobi"));
+        assertThatThrownBy(() -> validator.validate("pobi,pobi,woni"))
+                .isExactlyInstanceOf(DuplicateNameException.class)
+                .hasMessage(ValidationException.ERROR_MESSAGE +
+                        String.format(DUPLICATE_NAME_MESSAGE, "pobi"));
     }
 }
