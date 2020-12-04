@@ -8,5 +8,6 @@ public class Application {
         // TODO 구현 진행
         Racing racing = new Racing();
         racing.playRacingGame(scanner);
+        scanner.close();
     }
 }
