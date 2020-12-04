@@ -22,5 +22,4 @@ public class CarTest {
         assertThatThrownBy(() -> new Car(carName))
                 .isExactlyInstanceOf(IllegalArgumentException.class);
     }
-
 }

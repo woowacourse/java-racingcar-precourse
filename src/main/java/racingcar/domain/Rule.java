@@ -3,10 +3,9 @@ package racingcar.domain;
 import racingcar.view.OutputView;
 
 public class Rule {
-
     private static final int MIN_ATTEMPT_NUMBER = 1;
     private static final String ATTEMPT_NUMBER_RANGE_ERROR = "[ERROR] 시도 횟수는 0보다 커야 합니다.";
-    private int attemptNumber;
+    private final int attemptNumber;
 
     public Rule(int attemptNumber) {
         validateRangeAttemptNumber(attemptNumber);
@@ -22,7 +21,7 @@ public class Rule {
     public void attemptMoveByAttemptNumber(Cars cars) {
         OutputView.printResultMessage();
         for(int i = 0; i < attemptNumber; i++) {
-            cars.goOrStopCars();
+            cars.moveOrStop();
             cars.printResultCars();
         }
     }

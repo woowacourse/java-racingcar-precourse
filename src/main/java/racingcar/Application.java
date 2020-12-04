@@ -1,9 +1,5 @@
 package racingcar;
 
-import racingcar.domain.Cars;
-import racingcar.domain.Rule;
-import racingcar.view.InputView;
-
 import java.util.Scanner;
 
 public class Application {
