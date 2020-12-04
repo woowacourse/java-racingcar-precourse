@@ -9,6 +9,7 @@ public class Application {
         String[] carNames = UserInput.getCarNames(scanner);
         int stageCount = UserInput.getStageCount(scanner);
         Car[] cars = createCars(carNames);
+        Simulator.simulateGame(cars, stageCount);
     }
 
     public static Car[] createCars(String[] carNames) {
