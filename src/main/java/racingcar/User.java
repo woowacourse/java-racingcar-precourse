@@ -13,6 +13,7 @@ public class User {
     private static final String SPACE = " ";
     private static final CharSequence TAB = "\t";
     private static final int NAME_LENGTH = 5;
+    private static final int NAMES_SIZE = 30;
 
     public List<String> createNames(String names) {
         String[] splitNames = names.split(DELIMITER);
@@ -35,6 +36,9 @@ public class User {
             if (name.length() > NAME_LENGTH) {
                 throw new IllegalArgumentException("[ERROR] 이름이 5자가 넘습니다.");
             }
+        }
+        if (splitNames.length > NAMES_SIZE) {
+            throw new IllegalArgumentException("[ERROR] 참가자 수가 30명이 넘습니다.");
         }
     }
 
