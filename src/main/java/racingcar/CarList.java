@@ -6,7 +6,7 @@ import java.util.List;
 
 import utils.RandomUtils;
 
-public class CarList {
+public class CarList implements Iterable<Car> {
     private static final int RANDOM_MINIMUM = 1;
     private static final int RANDOM_MAXIMUM = 9;
 
@@ -27,5 +27,10 @@ public class CarList {
     
     private int getRandomValue() {
         return RandomUtils.nextInt(RANDOM_MINIMUM, RANDOM_MAXIMUM);
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
     }
 }

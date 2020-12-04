@@ -15,12 +15,15 @@ public class GameManager {
         String[] carNames = inputHandler.askCarNames();
         cars = new CarList(carNames);
         int moveCount = inputHandler.askMoveCount();
+        
+        OutputHandler.printRunMessage();
         move(moveCount);
     }
 
     private void move(int moveCount) {
         for (int i = 0; i < moveCount; i++) {
             cars.moveAllCars();
+            OutputHandler.printCarList(cars);
         }
     }
 }
