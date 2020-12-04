@@ -1,7 +1,9 @@
 package utils;
 
 import racingcar.Car;
+import racingcar.Round;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,10 +14,24 @@ public class InputUtils {
         String[] name = names.split(",");
         for(int c=0; c < name.length; c++){
             cars.add(new Car(name[c]));
-            if(CheckUtils.checkName(name[c])){
+            if(CheckUtils.hasLongName(name[c])){
                 ErrorUtils.printNameError();
                 cars.clear();
                 inputNames(scanner, cars);
+            }
+        }
+    }
+
+    public static void inputTryNumber(Scanner scanner, Round round){
+        while(true){
+            try{
+                scanner.nextLine();
+                System.out.println("시도할 횟수는 몇회인가요?");
+                round.setTryNum(scanner.nextInt());
+                break;
+            } catch(InputMismatchException e){
+                ErrorUtils.printNumError();
+                continue;
             }
         }
     }
