@@ -13,13 +13,13 @@ public class Race {
     private final int attemptNum;
     private final List<Car> cars;
 
-    public Race(List<Car> cars, int attemptNum) {
+    public Race(final List<Car> cars, final int attemptNum) {
         this.cars = new ArrayList<>(cars);
         this.attemptNum = attemptNum;
     }
 
     public void raceStart() {
-        int carsNum = cars.size();
+        final int carsNum = cars.size();
         System.out.println(PROCESS_RESULT_MESSAGE);
         for (int i = 0; i < attemptNum; i++) {
             for (int j = 0; j < carsNum; j++) {

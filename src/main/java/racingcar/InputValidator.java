@@ -7,7 +7,7 @@ public class InputValidator {
 
     private InputValidator(){}
 
-    public static void validateCarNames(String[] carNames) {
+    public static void validateCarNames(final String[] carNames) {
         for (String carName : carNames) {
             if (carName.equals("")) {
                 throw new IllegalArgumentException(NAME_EMPTY_EXCEPTION_MESSAGE);
@@ -15,7 +15,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateAttemptNum(String attemptNum) {
+    public static void validateAttemptNum(final String attemptNum) {
         try {
             Integer.parseInt(attemptNum);
         } catch (NumberFormatException e) {
