@@ -1,10 +1,11 @@
 package racingcar;
 
-import utils.Printer;
-import utils.Validator;
-
 import java.util.*;
 import java.util.stream.Collectors;
+
+import utils.InputPrinter;
+import utils.OutPutPrinter;
+import utils.Validator;
 
 public class CarRacingGame {
     private CarList carList;
@@ -20,14 +21,14 @@ public class CarRacingGame {
     public void inputInfoForPlayGame(Scanner scanner)
     {
         carList.setCarList(inputRaceCar(scanner));
-        raceRound = inputPlayRound(scanner);
+        raceRound = inputRaceRound(scanner);
     }
 
     private List<String> inputRaceCar(Scanner scanner) {
         try {
-            Printer.setCarPrint();
+            InputPrinter.inputCarPrint();
             List<String> carList = new ArrayList<>(Arrays.asList(scanner.nextLine().split(",")));
-            validator.isValidCarName(carList);
+            validator.isValidCarNameSize(carList);
             return carList;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -35,15 +36,15 @@ public class CarRacingGame {
         }
     }
 
-    private int inputPlayRound(Scanner scanner) {
+    private int inputRaceRound(Scanner scanner) {
         try {
-            Printer.setPlayRoundPrint();
-            String playRound = scanner.nextLine();
-            validator.isPlayRoundInteger(playRound);
-            return Integer.parseInt(playRound);
+            InputPrinter.inputRaceRoundPrint();
+            String raceRound = scanner.nextLine();
+            validator.isRaceRoundInteger(raceRound);
+            return Integer.parseInt(raceRound);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return inputPlayRound(scanner);
+            return inputRaceRound(scanner);
         }
     }
 
@@ -65,6 +66,6 @@ public class CarRacingGame {
                 winners.add(car.getName());
             }
         }
-        Printer.carRaceWinnerPrint(String.join(",", winners));
+        OutPutPrinter.carRaceWinnerPrint(String.join(",", winners));
     }
 }
