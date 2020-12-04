@@ -18,6 +18,7 @@ public class RacingCarGameManager {
     private void moveCarsDuringRounds() {
         for(int current=0;current<round; current++){
             player.moveCars();
+            player.askToCarsCurrentPosition();
         }
     }
 

@@ -21,4 +21,8 @@ public class Player {
     public void moveCars() {
         cars.moveByRandomNumber();
     }
+
+    public void askToCarsCurrentPosition() {
+        cars.showCarsCurrentPosition();
+    }
 }
