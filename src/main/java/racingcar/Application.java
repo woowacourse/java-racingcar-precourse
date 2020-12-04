@@ -4,10 +4,16 @@ import java.util.Scanner;
 
 public class Application {
 
-    private static String[] inputCarNames(Scanner scanner) {
+    private static String[] inputCarNames(Scanner scanner) throws Exception {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = scanner.next();
-        return names.split(",");
+        String[] carNames = names.split(",");
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].length() > 4) {
+                throw new Exception("자동차 이름은 5자 이하여만 한다.");
+            }
+        }
+        return carNames;
     }
 
     private static int inputNumberOfAttempts(Scanner scanner) throws Exception {
