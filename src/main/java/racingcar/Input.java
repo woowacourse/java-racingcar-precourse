@@ -18,6 +18,11 @@ public class Input {
         return splitCarNamesByComma(carNames);
     }
 
+    public int createRoundNumber(){
+        String roundNumber = scanner.nextLine();
+        return Integer.parseInt(roundNumber);
+    }
+
     private List<String> splitCarNamesByComma(String carNames) {
         List<String> splittedCarNames = Arrays.asList(carNames.split(SEPARATOR));
         Validator.validateCarNames(splittedCarNames);
