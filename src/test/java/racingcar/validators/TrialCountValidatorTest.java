@@ -28,7 +28,7 @@ class TrialCountValidatorTest {
     }
 
     @Test
-    private void 양수가_아닌_시도횟수_입력시_예외_발생() {
+    public void 양수가_아닌_시도횟수_입력시_예외_발생() {
         //given
         String rawTrialCount = "0";
 
