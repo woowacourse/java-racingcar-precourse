@@ -20,6 +20,7 @@ public class InputView {
     public List<String> getCarNames(){
         List<String> names = getCarNames(scanner.nextLine());
         validateZeroPlayer(names);
+        //validateNameLength
         validateBlankName(names);
         validateLengthOverFiveName(names);
         validateDuplicate(names);
@@ -81,12 +82,12 @@ public class InputView {
 
     private void validateDuplicate(List<String> names) {
         Set<String> set = new HashSet<>();
-        for (String name : names) {
+        names.forEach(name -> {
             if (set.contains(name)) {
                 throw new IllegalArgumentException(ERROR_DUPLICATE_NAME);
             }
             set.add(name);
-        }
+        });
     }
 
     private void validatePositiveInt(int number) {
