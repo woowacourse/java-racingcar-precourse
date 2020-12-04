@@ -3,6 +3,8 @@ package racingcar.domain.strategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class MovingStrategyTest {
 
     @DisplayName("항상 이동하는 전략은 true를 반환")
