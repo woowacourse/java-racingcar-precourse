@@ -41,4 +41,13 @@ class CarsTest {
 
         assertThat(cars.getCarNames()).hasSameElementsAs(carNames);
     }
+
+    @DisplayName("Car 객체들의 Position 리스트를 반환한다.")
+    @Test
+    public void getCarPositions_위치가_반환된다() {
+        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+        Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
+
+        assertThat(cars.getCarPositions).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
+    }
 }
