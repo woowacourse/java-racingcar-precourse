@@ -28,20 +28,24 @@ public class RoundValidatorTest {
     @Test
     @DisplayName("입력 값이 숫자가 아니라면 예외 발생")
     public void checkNumeric_NotNumeric_ExceptionThrown() {
-        assertValidationFailure(validator, "숫자", RoundValidator.NOT_NUMERIC_MESSAGE);
+        String round = "숫자";
+        assertValidationFailure(validator, round, RoundValidator.NOT_NUMERIC_MESSAGE +
+                String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"0", "-1", "-100"})
     @DisplayName("입력 값이 1미만이라면 예외 발생")
     public void checkNumeric_BelowOne_ExceptionThrown(String round) {
-        assertValidationFailure(validator, round, RoundValidator.OUT_OF_BOUND_ROUND_MESSAGE);
+        assertValidationFailure(validator, round, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
+                String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"21", "30", "100"})
     @DisplayName("입력 값이 20 초과라면 예외 발생")
     public void checkNumeric_OverTwenty_ExceptionThrown(String round) {
-        assertValidationFailure(validator, round, RoundValidator.OUT_OF_BOUND_ROUND_MESSAGE);
+        assertValidationFailure(validator, round, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
+                String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
     }
 }
