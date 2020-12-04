@@ -19,7 +19,7 @@ public class CarRacingController {
     private static ArrayList<Car> cars = new ArrayList<>();
     private static int times;
     private static ArrayList<Integer> carPositions = new ArrayList<>();
-    private static int maxPosition = -1;
+    private static int maxPosition = 1;
     private static ArrayList<String> winner = new ArrayList<>();
 
     public static void startCarRacing(Scanner scanner) {
@@ -141,8 +141,10 @@ public class CarRacingController {
     public static void calculateMaxPosition() {
         addPosition();
         for (int i = 0; i < carPositions.size(); i++) {
-            if (maxPosition < carPositions.get(i)) {
-                maxPosition = carPositions.get(i);
+            int currentPosition = carPositions.get(i);
+
+            if (maxPosition <= currentPosition) {
+                maxPosition = currentPosition;
             }
         }
     }
@@ -159,6 +161,20 @@ public class CarRacingController {
         calculateMaxPosition();
         checkWinner();
 
+        if (winner.size() == ZERO) {
+            isNoWinner();
+        }
+
+        if (winner.size() != ZERO) {
+            isWinner();
+        }
+    }
+
+    public static void isNoWinner() {
+        System.out.println(ErrorType.NO_WINNER.getError());
+    }
+
+    public static void isWinner() {
         System.out.print(TextType.WINNER.getText());
         for (int i = 0; i < winner.size(); i++) {
             System.out.print(winner.get(i));
