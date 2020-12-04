@@ -2,6 +2,9 @@ package racingcar;
 
 public class Car {
 
+    private static final int MAXIMUM_NAME_RANGE = 5;
+    private static final int MINIMUM_NAME_RANGE = 1;
+
     private final String name;
     private int position = 0;
 
@@ -11,8 +14,10 @@ public class Car {
     }
 
     private void validateNameRange(String name) {
-        // 5자 이하만 가능
-        if (5 < name.length()) {
+        if (MAXIMUM_NAME_RANGE < name.length()) {
+            throw new IllegalArgumentException();
+        }
+        if (MINIMUM_NAME_RANGE > name.length()) {
             throw new IllegalArgumentException();
         }
     }
