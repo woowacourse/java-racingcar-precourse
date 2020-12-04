@@ -15,14 +15,14 @@ public class InputHandler {
 
     public String[] askCarNames() {
         System.out.println(REQUEST_CAR_NAME);
-        String userInput = scanner.nextLine();
+        String userInput = getInput();
         return tryParseCarNames(userInput);
     }
 
     private String[] tryParseCarNames(String userInput) {
         try {
             InputExceptionHandler.validateCarNames(userInput, SEPARATOR);
-            String[] carNames = userInput.split(SEPARATOR);
+            String[] carNames = getCarNames(userInput);
             InputExceptionHandler.validateCarNamesArray(carNames);
             return carNames;
         } catch (Exception exception) {
@@ -32,17 +32,28 @@ public class InputHandler {
 
     public int askMoveCount() {
         System.out.println(REQUEST_MOVE_COUNT);
-        String userInput = scanner.nextLine();
+        String userInput = getInput();
         return tryParseMoveCount(userInput);
     }
 
     private int tryParseMoveCount(String userInput) {
         try {
             InputExceptionHandler.validateMoveCount(userInput);
-            int moveCount = Integer.parseInt(userInput);
-            return moveCount;
+            return getMoveCount(userInput);
         } catch (Exception exception) {
             return askMoveCount();
         }
+    }
+
+    private String getInput() {
+        return scanner.nextLine();
+    }
+
+    private String[] getCarNames(String userInput) {
+        return userInput.split(SEPARATOR);
+    }
+
+    private int getMoveCount(String userInput) {
+        return Integer.parseInt(userInput);
     }
 }

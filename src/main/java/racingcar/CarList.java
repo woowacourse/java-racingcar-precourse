@@ -33,12 +33,7 @@ public class CarList implements Iterable<Car> {
 
     public List<String> getWinners() {
         int maximumPosition = getMaximumPosition();
-        List<String> winners = new ArrayList<String>();
-        for (Car car : carList) {
-            if (car.getPosition() == maximumPosition) {
-                winners.add(car.getName());
-            }
-        }
+        List<String> winners = getCarNamesOfPosition(maximumPosition);
         
         return winners;
     }
@@ -48,6 +43,17 @@ public class CarList implements Iterable<Car> {
                 .max(Comparator.comparing(Car::getPosition))
                 .orElseThrow(NoSuchElementException::new)
                 .getPosition();
+    }
+    
+    private List<String> getCarNamesOfPosition(int position) {
+        List<String> carNames = new ArrayList<String>();
+        for (Car car : carList) {
+            if (car.getPosition() == position) {
+                carNames.add(car.getName());
+            }
+        }
+
+        return carNames;
     }
 
     @Override

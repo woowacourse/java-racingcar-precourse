@@ -20,12 +20,16 @@ public class Car implements Comparable<Car>{
 
     public void attemptToMove(int random) {
         if (isMovable(random)) {
-            position++;
+            move();
         }
     }
 
     private boolean isMovable(int random) {
         return random >= CRITICAL_VALUE_FOR_MOVE;
+    }
+
+    private void move() {
+        position++;
     }
 
     @Override

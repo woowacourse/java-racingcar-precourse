@@ -26,12 +26,19 @@ public class OutputHandler {
     }
     
     private static void printCar(Car car) {
-        System.out.printf(NAME_TAG, car.getName());
-        for (int i = 0; i < car.getPosition(); i++) {
+        printCarName(car.getName());
+        printPosition(car.getPosition());
+        printEmptyLine();
+    }
+    
+    private static void printCarName(String carName) {
+        System.out.printf(NAME_TAG, carName);
+    }
+
+    private static void printPosition(int position) {
+        for (int i = 0; i < position; i++) {
             System.out.print(PROGRESS_BAR);
         }
-        
-        printEmptyLine();
     }
     
     private static void printEmptyLine() {

@@ -12,12 +12,8 @@ public class GameManager {
 
     public void run() {
         GameData gameData = setupGameData();
-        
-        OutputHandler.printRunMessage();
         move(gameData);
-
-        List<String> winners = getWinners(gameData);
-        OutputHandler.printWinners(winners);
+        showResult(gameData);
     }
     
     private GameData setupGameData() {
@@ -30,6 +26,7 @@ public class GameManager {
     }
 
     private void move(GameData gameData) {
+        OutputHandler.printRunMessage();
         for (int i = 0; i < gameData.moveCount; i++) {
             moveAllCars(gameData.carList);
             OutputHandler.printCarList(gameData.carList);
@@ -40,10 +37,11 @@ public class GameManager {
         carList.moveAllCars();
     }
 
-    private List<String> getWinners(GameData gameData) {
-        return getWinners(gameData.carList);
+    private void showResult(GameData gameData) {
+        List<String> winners = getWinners(gameData.carList);
+        OutputHandler.printWinners(winners);
     }
-    
+
     private List<String> getWinners(CarList carList) {
         return carList.getWinners();
     }
