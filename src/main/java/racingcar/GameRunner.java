@@ -57,4 +57,8 @@ public class GameRunner {
     public void printEmptyLine() {
         System.out.println();
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
