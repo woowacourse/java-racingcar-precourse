@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import racingcar.Car;
+import racingcar.generator.NumberGenerator;
+import racingcar.type.BoundaryType;
 import racingcar.type.ErrorType;
 import racingcar.type.TextType;
 
@@ -76,5 +78,23 @@ public class CarRacingController {
         }
 
         return scannerTimes;
+    }
+
+    public static boolean moveCar() {
+        int randomNumber = NumberGenerator.generateNumber();
+
+            if ((BoundaryType.MINIMUM_MOVE_NUMBER.getBoundary() <= randomNumber) &&
+                    (randomNumber <= BoundaryType.MAXIMUM_MOVE_NUMBER.getBoundary())) {
+                // 자동차는 전진한다.
+                return true;
+            }
+
+            if ((BoundaryType.MINIMUM_STOP_NUMBER.getBoundary() <= randomNumber) &&
+                    (randomNumber <= BoundaryType.MAXIMUM_STOP_NUMBER.getBoundary())) {
+                // 자동차는 멈춘다.
+                return false;
+            }
+
+            throw new IllegalArgumentException(ErrorType.INVALID_RANDOM_NUMBER.getError());
     }
 }
