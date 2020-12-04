@@ -66,17 +66,14 @@ public class RacingGame {
                 winner.add(car);
                 continue;
             }
-
             if (winner.get(ARRAY_FIRST_WINNER_CAR).getPosition() == car.getPosition()) {
                 winner.add(car);
             }
-
             if (winner.get(ARRAY_FIRST_WINNER_CAR).getPosition() < car.getPosition()) {
                 winner.clear();
                 winner.add(car);
             }
         }
-
         return winner;
     }
 
