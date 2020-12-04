@@ -13,7 +13,7 @@ public class OutputView {
     public void printCarNameQuestion() {
         System.out.println(CAR_NAME_QUESTION);
     }
-    public void printRoundNumberQuestion() {
+    public void printRunCountQuestion() {
         System.out.println(ROUND_NUMBER_QUESTION);
     }
 

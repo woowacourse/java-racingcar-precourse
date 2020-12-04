@@ -6,16 +6,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-import static java.lang.System.*;
-
 public class Game {
     private final int MIN_RANDOM_NUMBER = 0;
     private final int MAX_RANDOM_NUMBER = 9;
     private final InputView inputView;
     private final OutputView outputView;
     private final ArrayList<Car> cars;
-    private ScoreBoard scoreboard;
-    private int round;
+    private ScoreBoard scoreBoard;
+    private int runCount;
 
     public Game(Scanner scanner) {
         cars = new ArrayList<>();
@@ -25,11 +23,10 @@ public class Game {
 
     public void play() {
         updateCarNames();
-        updateRoundNumber();
-        scoreboard = new ScoreBoard(cars);
+        updateRunCount();
         outputView.printResultMessage();
-        playMultiplePhase();
-        outputView.printWinners(scoreboard);
+        playRunCountTimes();
+        outputView.printWinners(scoreBoard);
     }
 
     private void enter(Car car) {
@@ -45,37 +42,38 @@ public class Game {
         try {
             outputView.printCarNameQuestion();
             inputView.getCarNames().forEach(this::enter);
+            scoreBoard = new ScoreBoard(cars);
         } catch (IllegalArgumentException e) {
             outputView.printError(e);
             updateCarNames();
         }
     }
 
-    private void updateRoundNumber() {
+    private void updateRunCount() {
         try {
-            outputView.printRoundNumberQuestion();
-            round = inputView.getRoundNumber();
+            outputView.printRunCountQuestion();
+            runCount = inputView.getRunCount();
         } catch (IllegalArgumentException e) {
             outputView.printError(e);
-            updateRoundNumber();
+            updateRunCount();
         }
     }
 
-    private void playMultiplePhase() {
-        IntStream.range(0, round).forEach(i -> playSinglePhase());
+    private void playRunCountTimes() {
+        IntStream.range(0, runCount).forEach(i -> playOneTime());
     }
 
-    private void playSinglePhase() {
-        playSingleRound();
-        outputView.printResult(scoreboard);
+    private void playOneTime() {
+        playMoveOrStop();
+        outputView.printResult(scoreBoard);
     }
 
-    private void playSingleRound() {
-        cars.forEach(this::playSingleRound);
+    private void playMoveOrStop() {
+        cars.forEach(this::playMoveOrStop);
     }
 
-    private void playSingleRound(Car car) {
-        if (randomGameNumber() <= 4) {
+    private void playMoveOrStop(Car car) {
+        if (randomGameNumber() >= 4) {
             car.move();
         }
     }

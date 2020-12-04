@@ -33,13 +33,13 @@ public class InputView {
                      .collect(Collectors.toList());
     }
 
-    public int getRoundNumber() {
-        int number= getRoundNumber(scanner.nextLine());
+    public int getRunCount() {
+        int number= getRunCount(scanner.nextLine());
         validatePositiveInt(number);
         return number;
     }
 
-    private int getRoundNumber(String inputString) {
+    private int getRunCount(String inputString) {
         try {
             return Integer.parseInt(inputString.strip());
         } catch (NumberFormatException e) {
