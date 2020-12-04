@@ -1,13 +1,13 @@
 package racingcar;
 
+import static racingcar.Rule.MAXIMUM_COUNT;
+import static racingcar.Rule.MINIMUM_COUNT;
+
 /**
  * @author yhh1056
  * @since 2020/12/04
  */
 public class Count {
-    private static final int MAXIMUM_COUNT = 30;
-    private static final int MINIMUM_COUNT = 1;
-
     private int racingCount = 0;
 
     public int validate(String input) {
@@ -30,7 +30,7 @@ public class Count {
     }
 
     private void validateMinimal() {
-        if (racingCount < MINIMUM_COUNT ) {
+        if (racingCount < MINIMUM_COUNT) {
             throw new IllegalArgumentException("[ERROR] 시도 횟수는 1회 이상이어야 합니다.");
         }
     }

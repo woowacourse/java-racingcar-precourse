@@ -1,6 +1,8 @@
 package racingcar;
 
-import static racingcar.User.DELIMITER;
+import static racingcar.Rule.NAMES_SIZE;
+import static racingcar.Rule.NAME_DELIMITER;
+import static racingcar.Rule.NAME_LENGTH;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -14,8 +16,6 @@ import java.util.Set;
 public class Names {
     private static final CharSequence TAB = "\t";
     private static final String SPACE = " ";
-    private static final int NAME_LENGTH = 5;
-    private static final int NAMES_SIZE = 30;
 
     public List<String> validate(String names) {
         return validateName(names);
@@ -24,7 +24,7 @@ public class Names {
     private List<String> validateName(String names) {
         validateEmpty(names);
         validateWhitespace(names);
-        return validateNames(names.split(DELIMITER));
+        return validateNames(names.split(NAME_DELIMITER));
     }
 
     private void validateWhitespace(String names) {
@@ -34,7 +34,7 @@ public class Names {
     }
 
     private void validateEmpty(String names) {
-        if (names.isEmpty() || names.endsWith(DELIMITER)) {
+        if (names.isEmpty() || names.endsWith(NAME_DELIMITER)) {
             throw new IllegalArgumentException("[ERROR] 이름이 존재하지 않습니다.");
         }
     }

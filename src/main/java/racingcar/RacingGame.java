@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.Rule.END_RANGE;
+import static racingcar.Rule.START_RANGE;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,8 +13,6 @@ import utils.RandomUtils;
  * @since 2020/12/03
  */
 public class RacingGame {
-    private static final int START_RANGE = 0;
-    private static final int END_RANGE = 9;
     private static final int FIRST_CAR = 0;
     private static final String RESULT_MESSAGE = "\n실행 결과";
 

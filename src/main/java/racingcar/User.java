@@ -7,7 +7,7 @@ import java.util.List;
  * @since 2020/12/02
  */
 public class User {
-    public static final String DELIMITER = ",";
+    private static final String DELIMITER = ",";
     private static final String WINNER = "최종우승자: ";
     private static final String SPACE = " ";
     private Names names;

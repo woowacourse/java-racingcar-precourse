@@ -1,8 +1,9 @@
 package racingcar;
 
+import static racingcar.Rule.MOVING_STATE;
+import static racingcar.Rule.POSSIBLE_MOVE_POWER;
+
 public class Car implements Comparable<Car> {
-    private static final int POSSIBLE_MOVE_POWER = 4;
-    private static final String MOVING_STATE = "-";
     private static final String COLON = " : ";
 
     private final String name;
