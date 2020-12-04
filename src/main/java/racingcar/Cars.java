@@ -21,7 +21,7 @@ public class Cars {
 		validateNumberOfCars(cars);
 		validateDuplicate(cars);
 		validateCarNameLength(cars);
-		validateEmptiness(cars);
+		validateVoidName(cars);
 		this.cars = cars;
 	}
 
@@ -52,7 +52,7 @@ public class Cars {
 		}
 	}
 
-	private void validateEmptiness(List<Car> cars) throws IllegalArgumentException {
+	private void validateVoidName(List<Car> cars) throws IllegalArgumentException {
 		for  (Car car : cars) {
 			if (car.getName().trim().isEmpty()) {
 				throw new IllegalArgumentException(CAR_NAME_EMPTY_INPUT_ERROR_MESSAGE);
@@ -61,10 +61,10 @@ public class Cars {
 	}
 
 	public void moveCars() {
-		cars.forEach(car -> {
+		for (Car car : cars) {
 			int randomNumber = RandomUtils.nextInt(START_INCLUSIVE_NUMBER, END_EXCLUSIVE_NUMBER);
 			car.changePosition(randomNumber);
-		});
+		}
 	}
 
 	public String getCarPositionInformation(Car car) {
