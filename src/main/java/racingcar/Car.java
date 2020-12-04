@@ -1,6 +1,7 @@
 package racingcar;
 
 import utils.RandomUtils;
+import view.OutputView;
 
 public class Car {
     private static final int TRY_NUMBER_MIN = 0;
@@ -19,5 +20,20 @@ public class Car {
         if(rand >= MOVE_CONDITION){
             position++;
         }
+    }
+
+    public void printPosition(){
+        OutputView.printMsg(name);
+        OutputView.printMsg(" : ");
+        OutputView.printMsg(getPositionBar());
+        OutputView.printMsg("\n");
+    }
+
+    private String getPositionBar(){
+        StringBuilder sb = new StringBuilder();
+        for(int i =0; i<position; i++){
+            sb.append("-");
+        }
+        return sb.toString();
     }
 }

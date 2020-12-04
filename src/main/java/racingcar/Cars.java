@@ -12,4 +12,8 @@ public class Cars {
     public void tryMoveAll(){
         cars.stream().forEach(Car::tryMove);
     }
+
+    public void printCarsPosition(){
+        cars.stream().forEach(Car::printPosition);
+    }
 }

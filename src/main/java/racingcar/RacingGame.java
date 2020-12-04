@@ -17,14 +17,10 @@ public class RacingGame {
         OutputView.printResultMessage();
         do{
             cars.tryMoveAll();
-            printCarsPosition();
+            cars.printCarsPosition();
             OutputView.printRoundSeparator();
         }while(checkGameEnd());
         printWinner();
-    }
-
-    private void printCarsPosition(){
-
     }
 
     private boolean checkGameEnd(){
