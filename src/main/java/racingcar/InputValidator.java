@@ -23,4 +23,27 @@ public class InputValidator {
             System.exit(0);
         }
     }
+
+    public static void checkIfNaturalNumber(String userString) {
+        checkIfAllDigit(userString);
+        checkIfFirstDigitIsZero(userString);
+    }
+
+    private static void checkIfFirstDigitIsZero(String userString) {
+        if (userString.charAt(0) == '0') {
+            UserScreen.showFirstDigitZeroError();
+            System.exit(0);
+        }
+    }
+
+    private static void checkIfAllDigit(String userString) {
+        for (int i = 0; i < userString.length(); i++) {
+            if ('0' <= userString.charAt(i) && userString.charAt(i) <= '9') {
+                continue;
+            }
+
+            UserScreen.showNotDigitError();
+            System.exit(0);
+        }
+    }
 }

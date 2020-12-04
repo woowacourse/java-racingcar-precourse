@@ -14,4 +14,12 @@ public class UserInput {
 
         return carNames;
     }
+
+    public static int getStageCount(Scanner scanner) {
+        UserScreen.askStageCount();
+        String userString = scanner.nextLine();
+        InputValidator.checkIfNaturalNumber(userString);
+
+        return Integer.parseInt(userString);
+    }
 }
