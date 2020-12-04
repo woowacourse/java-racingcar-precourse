@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import org.w3c.dom.Text;
 import racingcar.Car;
 import racingcar.generator.NumberGenerator;
 import racingcar.type.BoundaryType;
@@ -99,11 +100,31 @@ public class CarRacingController {
     }
 
     public static void playCarRacing() {
+        System.out.println(TextType.RESULT.getText());
+
         for (int i = 0; i < times; i++) {
             for(int j = 0; j < cars.size(); j++) {
                 Car car = cars.get(j);
                 moveCar(car);
             }
+            showResult();
+            System.out.println();
+        }
+    }
+
+    public static StringBuffer countPosition(Car car) {
+        StringBuffer carPosition = new StringBuffer();
+        for (int i = 0; i < car.getPosition(); i++) {
+            carPosition.append(TextType.LINE.getText());
+        }
+
+        return carPosition;
+    }
+
+    public static void showResult() {
+        for (Car car : cars) {
+            StringBuffer carPosition = countPosition(car);
+            System.out.println(car.getName() + " : " + carPosition);
         }
     }
 }
