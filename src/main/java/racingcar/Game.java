@@ -11,13 +11,13 @@ import java.util.Scanner;
 public class Game {
 
     private List<Car> cars = new ArrayList<>();
-    private AttemptsCount attemptsCount;
+    private Attempts attempts;
 
     public void start(Scanner scanner) {
         try {
             inputCarNamesAndSetCars(scanner);
             inputAttemptsCountAndSetAttemptsCount(scanner);
-            completeAttempts();
+            attempts.completeAll(cars);
             List<String> winners = getWinners();
             Output.printWinners(winners);
         } catch (IllegalArgumentException e) {
@@ -56,29 +56,13 @@ public class Game {
     private void tryToInputAttemptsCountAndSetAttemptsCount(Scanner scanner) {
         String attemptsCountInput = Input.receiveAttemptsCount(scanner);
         Input.validateEmpty(attemptsCountInput);
-        attemptsCount = new AttemptsCount(attemptsCountInput);
+        attempts = new Attempts(attemptsCountInput);
     }
 
     private void validateCarNames(String[] carNames) {
         if (carNames.length == 0) {
             throw new IllegalArgumentException(ErrorMessage.SHOULD_BE_NOT_EMPTY_OR_COMMA_NAME);
         }
-    }
-
-    private void completeAttempts() {
-        Output.willPrintResult();
-        for (int i = 0; i < attemptsCount.getCount(); i++) {
-            completeAttempt();
-        }
-    }
-
-    private void completeAttempt() {
-        moveCarsAndPrintResult();
-        Output.printEmptyLine();
-    }
-
-    private void moveCarsAndPrintResult() {
-        cars.stream().forEach(car -> car.moveAndPrintResult());
     }
 
     private List<String> getWinners() {
