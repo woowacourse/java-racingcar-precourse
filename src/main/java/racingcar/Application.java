@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.Car.Cars;
+import racingcar.Car.CarsFactory;
 import view.ConsoleView;
 
 import java.util.Scanner;
@@ -17,7 +19,6 @@ public class Application {
 
     private void start(Scanner scanner) {
         ConsoleView view = new ConsoleView(scanner);
-
         view.println(REQUEST_INPUT_RACING_CAR_MSG);
         Cars cars = createCars(view.inputNextLine());
 

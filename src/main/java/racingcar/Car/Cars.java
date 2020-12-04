@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Car;
 
 import utils.RandomUtils;
 
@@ -12,7 +12,7 @@ public class Cars {
 
     private List<Car> cars;
 
-    public Cars(List<Car> cars){
+    protected Cars(List<Car> cars){
         this.cars = cars;
     }
 

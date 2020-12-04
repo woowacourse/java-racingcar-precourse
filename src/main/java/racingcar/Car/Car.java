@@ -1,11 +1,11 @@
-package racingcar;
+package racingcar.Car;
 
 public class Car {
-    public static final int STOP_NUMBER = 3;
+    private static final int STOP_NUMBER = 3;
     private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    protected Car(String name) {
         this.name = name;
     }
 
