@@ -10,8 +10,15 @@ public class Application {
         return names.split(",");
     }
 
-    private static int inputNumberOfAttempts() {
-        return 0;
+    private static int inputNumberOfAttempts(Scanner scanner) throws Exception {
+        int attemptNumber = 0;
+        System.out.println("시도할 회수는 몇회인가요?");
+        try {
+            attemptNumber = scanner.nextInt();
+        } catch (Exception e) {
+            throw new Exception("[ERROR] 시도횟수는 숫자여야 한다.");
+        }
+        return attemptNumber;
     }
 
     private static Car[] createCars(String[] carNames) {
@@ -27,11 +34,11 @@ public class Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
         String[] carNames = inputCarNames(scanner);
-        int attemptNumber = inputNumberOfAttempts();
+        int attemptNumber = inputNumberOfAttempts(scanner);
         Car[] cars = createCars(carNames);
         boolean isNotFinish = true;
         for (int i = 0; i < attemptNumber; i++) {
