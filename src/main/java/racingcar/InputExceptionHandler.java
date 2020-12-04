@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class InputExceptionHandler {
     private static final String ERROR_FORMAT = "[ERROR] %s%n";
-    private static final String NO_DELIMITER_ERROR = "자동차 이름을 \"%s\"로 구분하여 입력해주세요.";
+    private static final String NO_SEPARATOR_ERROR = "자동차 이름을 \"%s\"로 구분하여 입력해주세요.";
     private static final String INVALID_LENGTH_ERROR = "자동차 이름은 1~5자여야 합니다.";
     private static final String SPACE_NAME_ERROR = "자동차 이름은 공백일 수 없습니다.";
     private static final String NOT_NUMERIC_ERROR = "이동 횟수는 양의 정수여야 합니다.";
@@ -18,19 +18,19 @@ public class InputExceptionHandler {
 
     private InputExceptionHandler() {}
 
-    public static void validateCarNames(String userInput, String delimiter) {
-        checkContainsDelimiter(userInput, delimiter);
-        checkInputTerminalIsDelimiter(userInput, delimiter);
+    public static void validateCarNames(String userInput, String separator) {
+        checkContainsSeparator(userInput, separator);
+        checkTerminalIsSeparator(userInput, separator);
     }
 
-    private static void checkContainsDelimiter(String userInput, String delimiter) {
-        if (!userInput.contains(delimiter)) {
-            printError(String.format(NO_DELIMITER_ERROR, delimiter));
+    private static void checkContainsSeparator(String userInput, String separator) {
+        if (!userInput.contains(separator)) {
+            printError(String.format(NO_SEPARATOR_ERROR, separator));
         }
     }
 
-    private static void checkInputTerminalIsDelimiter(String userInput, String delimiter) {
-        if (userInput.startsWith(delimiter) || userInput.endsWith(delimiter)) {
+    private static void checkTerminalIsSeparator(String userInput, String separator) {
+        if (userInput.startsWith(separator) || userInput.endsWith(separator)) {
             printError(INVALID_LENGTH_ERROR);
         }
     }

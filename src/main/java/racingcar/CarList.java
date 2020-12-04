@@ -10,17 +10,17 @@ public class CarList implements Iterable<Car> {
     private static final int RANDOM_MINIMUM = 1;
     private static final int RANDOM_MAXIMUM = 9;
 
-    private List<Car> cars;
+    private List<Car> carList;
 
     public CarList(String[] carNames) {
-        cars = new ArrayList<Car>();
+        carList = new ArrayList<Car>();
         for (String carName : carNames) {
-            cars.add(new Car(carName));
+            carList.add(new Car(carName));
         }
     }
 
     public void moveAllCars() {
-        for (Car car : cars) {
+        for (Car car : carList) {
             car.attemptToMove(getRandomValue());
         }
     }
@@ -31,6 +31,6 @@ public class CarList implements Iterable<Car> {
 
     @Override
     public Iterator<Car> iterator() {
-        return cars.iterator();
+        return carList.iterator();
     }
 }

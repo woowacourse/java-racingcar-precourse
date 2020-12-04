@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GameManager {
     private Scanner scanner;
-    private CarList cars;
+    private CarList carList;
 
     public GameManager(Scanner scanner) {
         this.scanner = scanner;
@@ -13,7 +13,7 @@ public class GameManager {
     public void run() {
         InputHandler inputHandler = new InputHandler(scanner);
         String[] carNames = inputHandler.askCarNames();
-        cars = new CarList(carNames);
+        carList = new CarList(carNames);
         int moveCount = inputHandler.askMoveCount();
         
         OutputHandler.printRunMessage();
@@ -22,8 +22,8 @@ public class GameManager {
 
     private void move(int moveCount) {
         for (int i = 0; i < moveCount; i++) {
-            cars.moveAllCars();
-            OutputHandler.printCarList(cars);
+            carList.moveAllCars();
+            OutputHandler.printCarList(carList);
         }
     }
 }
