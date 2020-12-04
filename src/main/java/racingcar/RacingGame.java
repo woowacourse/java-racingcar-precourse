@@ -19,7 +19,7 @@ public class RacingGame {
             cars.tryMoveAll();
             cars.printCarsPosition();
             OutputView.printRoundSeparator();
-        }while(checkGameEnd());
+        }while(!checkGameEnd());
         printWinner();
     }
 
