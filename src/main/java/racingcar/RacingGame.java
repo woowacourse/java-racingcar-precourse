@@ -50,7 +50,7 @@ public class RacingGame {
 
             int position = players[i].getCarPosition();
             for (int j = 0; j < position; j++) {
-                System.out.print(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
+                System.out.print(SystemMessage.DISTANCE);
             }
             System.out.println();
         }
