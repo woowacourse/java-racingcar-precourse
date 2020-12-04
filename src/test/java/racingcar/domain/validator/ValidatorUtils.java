@@ -3,7 +3,7 @@ package racingcar.domain.validator;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import racingcar.domain.ValidationException;
+import racingcar.domain.exception.ValidationException;
 
 public class ValidatorUtils {
 

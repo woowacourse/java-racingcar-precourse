@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.exception;
 
 public class ValidationException extends IllegalArgumentException {
 

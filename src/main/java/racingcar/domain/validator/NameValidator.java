@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import racingcar.domain.ValidationException;
+import racingcar.domain.exception.ValidationException;
 
 public class NameValidator extends Validator {
 

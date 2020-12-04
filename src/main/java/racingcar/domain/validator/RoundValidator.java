@@ -1,6 +1,6 @@
 package racingcar.domain.validator;
 
-import racingcar.domain.ValidationException;
+import racingcar.domain.exception.ValidationException;
 
 public class RoundValidator extends Validator {
 
