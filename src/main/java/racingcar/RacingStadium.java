@@ -1,6 +1,7 @@
 package racingcar;
 
 import utils.InputUtils;
+import utils.RandomUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,12 @@ public class RacingStadium {
     public void start() {
         initializeCars();
         initializeTryCount();
+        int randomNumber = getRandomNumber();
+        System.out.println("randomNumber = " + randomNumber);
+    }
+
+    private int getRandomNumber() {
+        return RandomUtils.nextInt(0, 9);
     }
 
     private void initializeTryCount() {
