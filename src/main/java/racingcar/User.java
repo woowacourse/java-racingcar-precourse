@@ -11,6 +11,7 @@ public class User {
     private static final String WINNER = "최종우승자: ";
     private static final String SPACE = " ";
     private Names names;
+    private int racingCount = 0;
 
     public User() {
         this.names = new Names();
@@ -20,8 +21,13 @@ public class User {
         return names.validate(input);
     }
 
-    public int createCount(String nextLine) {
-        return Integer.parseInt(nextLine);
+    public int createCount(String input) {
+        try {
+            racingCount = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("[ERROR] 허용하는 숫자가 아닙니다.");
+        }
+        return racingCount;
     }
 
     public String createWinners(final List<String> winners) {
