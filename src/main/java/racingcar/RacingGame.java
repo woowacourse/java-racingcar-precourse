@@ -4,13 +4,11 @@ import view.OutputView;
 
 public class RacingGame {
     private final Cars cars;
-    private final int totalRounds;
-    private int nowRound;
+    private final Rounds rounds;
 
-    public RacingGame(Cars cars, int totalRounds){
+    public RacingGame(Cars cars, Rounds rounds){
         this.cars = cars;
-        this.totalRounds = totalRounds;
-        nowRound = 0;
+        this.rounds = rounds;
     }
 
     public void play(){
@@ -19,12 +17,9 @@ public class RacingGame {
             cars.tryMoveAll();
             cars.printCarsPosition();
             OutputView.printRoundSeparator();
-        }while(!checkGameEnd());
+            rounds.next();
+        }while(!rounds.isEnd());
         printWinner();
-    }
-
-    private boolean checkGameEnd(){
-        return nowRound > totalRounds;
     }
 
     private void printWinner(){

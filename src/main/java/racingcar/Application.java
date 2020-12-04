@@ -9,9 +9,9 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
 
         Cars racingCars = InputView.getNames(scanner);
-        int tryNumber = InputView.getTryNumber(scanner);
+        Rounds rounds = InputView.getRounds(scanner);
 
-        RacingGame racingGame = new RacingGame(racingCars, tryNumber);
+        RacingGame racingGame = new RacingGame(racingCars, rounds);
         racingGame.play();
     }
 }

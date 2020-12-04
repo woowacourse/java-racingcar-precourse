@@ -1,6 +1,7 @@
 package view;
 
 import racingcar.Cars;
+import racingcar.Rounds;
 import utils.CarsFactory;
 
 import java.util.Scanner;
@@ -16,9 +17,10 @@ public class InputView {
         return CarsFactory.createCars(names);
     }
 
-    public static int getTryNumber(Scanner scanner){
+    public static Rounds getRounds(Scanner scanner){
         OutputView.printMsg("시도할 횟수\n");
-        return Integer.parseInt(getInput(scanner));
+        int tryNumber = Integer.parseInt(getInput(scanner));
+        return Rounds.initialize(tryNumber);
     }
 
     public static String getInput(Scanner scanner){
