@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.IntStream;
 import racingcar.exception.RacingCarErrorException;
 import racingcar.model.Car;
 

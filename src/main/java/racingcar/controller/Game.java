@@ -14,6 +14,7 @@ public class Game {
 
     private static final String SHOW_STATUS_LOG = "실행 결과";
     private static final int MIN = 0;
+
     private final InputGuide inputGuide;
 
     private List<Car> cars;
