@@ -30,8 +30,7 @@ public class Application {
         ConsoleView view = new ConsoleView(scanner);
 
         view.println(REQUEST_INPUT_RACING_CAR_MSG);
-        String carNames = view.inputNextLine();
-        cars = makeCarList(carNames);
+        cars = makeCarList(view.inputNextLine());
 
         view.println(REQUEST_INPUT_ROUND_MSG);
         int round = view.inputNextInt();
@@ -51,7 +50,7 @@ public class Application {
 
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            validateCarNameFormat(carName);
+            validateCarNameFormat(carName.trim());
             cars.add(new Car(carName));
         }
         return cars;
