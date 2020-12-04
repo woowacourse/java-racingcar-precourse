@@ -72,7 +72,9 @@ public class Cars {
 	}
 
 	public void getCarPositionAnnouncement() {
-		cars.forEach(car -> System.out.println(getCarPositionInformation(car)));
+		for (Car car : cars) {
+			System.out.println(getCarPositionInformation(car));
+		}
 	}
 
 	private int getMaxPosition() {
