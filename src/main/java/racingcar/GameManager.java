@@ -1,13 +1,16 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class GameManager {
     private int numberTryToMove; // 이동 횟수 = 라운드 수
     private int participantsTotal; // 참가자 수
     private String[] stringArrayParticipants; // 참가자 이름 목록
+    private String stringInput; //  참가자 입력 자체
     private HashMap<String, Car> participants = new HashMap<String, Car>(); // 참가자 이름: 참가 Car
     private Board board; // 전광판
     private AwardGiver awardGiver; // 시상자
@@ -16,16 +19,17 @@ public class GameManager {
     private static final int LENGTH_EMPTY = 0;
     private static final int MINIMUM_NATURAL_NUMBER = 1;
     private static final String DELIMITER = ",";
+    private static final String MESSAGE_INPUT_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String MESSAGE_ERROR_ABNORMAL_DELIMITER = "[ERROR] 잘못된 구분자(" + DELIMITER + ") 사용이 있습니다.";
+    private static final String MESSAGE_ERROR_DUPLICATED_NAME = "[ERROR] 중복된 자동차 이름이 있습니다.";
     private static final String MESSAGE_ERROR_EMPTY_CAR_NAME = "[ERROR] 자동차 이름이 없습니다.";
     private static final String MESSAGE_ERROR_FOUND_EMPTY_CAR_NAME = "[ERROR] 자동차 이름이 없는 것이 있습니다.";
-    private static final String MESSAGE_INPUT_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String MESSAGE_INPUT_NUMBER_TRY_TO_MOVE = "시도할 횟수는 몇 회인가요?";
     private static final String MESSAGE_ERROR_NOT_VALID_TRY_NUMBER = "[ERROR] 시도 횟수는 1 이상의 자연수여야 합니다.";
     private final int LENGTH_LIMIT_OF_INDIVIDUAL_INPUT = 5; // 참가자 이름 글자 수 제한
     private final String MESSAGE_ERROR_NOT_VALID_CAR_NAME = "[ERROR] 길이 " + LENGTH_LIMIT_OF_INDIVIDUAL_INPUT + "이하의 자동차 이름을 입력해주세요";
 
-
-
+    
     public GameManager() {
         board = new Board();
         awardGiver = new AwardGiver();
@@ -47,7 +51,7 @@ public class GameManager {
     private void inputParticipantsWithoutValidation(Scanner scanner) {
         System.out.println(MESSAGE_INPUT_CARS);
 
-        String stringInput = scanner.nextLine();
+        stringInput = scanner.nextLine();
         stringArrayParticipants = stringInput.split(DELIMITER);
 
         participantsTotal = stringArrayParticipants.length;
@@ -63,27 +67,53 @@ public class GameManager {
     }
 
     private void validateCarInput() {
-        checkAllEmptyName();
-        checkDuplicatedName();
-        checkAbnormalComma();
+        validateAllEmptyName();
+        validateDuplicatedName();
+        validateAbnormalDelimiter();
 
         for (String participant : stringArrayParticipants) {
             validateIndividualCarInputLength(participant);
         }
     }
 
-    private void checkAllEmptyName() {
+    private void validateAllEmptyName() {
         if (participantsTotal == LENGTH_EMPTY) {
             throw new IllegalArgumentException(MESSAGE_ERROR_EMPTY_CAR_NAME);
         }
     }
 
-    private void checkDuplicatedName() {
+    private void validateDuplicatedName() {
+        HashSet nameSet = new HashSet();
+
+        nameSet.addAll(Arrays.asList(stringArrayParticipants));
+
+        if(nameSet.size() != participantsTotal) {
+            throw new IllegalArgumentException(MESSAGE_ERROR_DUPLICATED_NAME);
+        }
+    }
+
+    private void validateAbnormalDelimiter() {
+        int expectedParticipantsTotal;
+        int countDelimiter = 0;
+        char[] charArrayInput = stringInput.toCharArray();
+
+        for (char letter : charArrayInput) {
+            countDelimiter += isChar(letter);
+        }
+
+        expectedParticipantsTotal = countDelimiter + 1; // 예상되는 참가자 수는 구분자 개수 + 1
+
+        if(expectedParticipantsTotal != participantsTotal) {
+            throw new IllegalArgumentException(MESSAGE_ERROR_ABNORMAL_DELIMITER);
+        }
 
     }
 
-    private void checkAbnormalComma() {
-
+    private int isChar(char letter) {
+        if (letter == ',') {
+            return 1;
+        }
+        return 0;
     }
 
     private void validateIndividualCarInputLength(String participant) {
