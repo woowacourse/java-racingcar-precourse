@@ -12,6 +12,8 @@ public class Validator {
     private static final String EMPTY_CAR_NAME_ERROR_MESSAGE = "자동차 이름이 입력되어야 한다.";
     private static final String EXCEED_MAXIMUM_CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 " + MAXIMUM_CAR_NAME_LENGTH + "자 이하여야 한다.";
     private static final String MUST_BE_INTEGER_ERROR_MESSAGE = "시도 횟수는 숫자여야 한다.";
+    private static final String EXCEED_INTEGER_ERROR_MESSAGE = "시도 횟수는 integer 범위에 포함되어야 한다.";
+    private static final String MUST_BE_POSITIVE_NUMBER_ERROR_MESSAGE = "시도 횟수는 양수여야 한다.";
 
     public static void validateCarsSize(List<Car> cars) {
         if (cars.size() < MINIMUM_CARS_SIZE) {
@@ -28,10 +30,23 @@ public class Validator {
     }
 
     public static void validateNumberOfProgress(String numberOfProgress) {
+        for (int i = 0; i < numberOfProgress.length(); i++) {
+            if (!Character.isDigit(numberOfProgress.charAt(i))) {
+                throw new NotValidInputException(MUST_BE_INTEGER_ERROR_MESSAGE);
+            }
+        }
+        checkIntegerRange(numberOfProgress);
+
+        if (Integer.parseInt(numberOfProgress) <= 0) {
+            throw new NotValidInputException(MUST_BE_POSITIVE_NUMBER_ERROR_MESSAGE);
+        }
+    }
+
+    private static void checkIntegerRange(String numberOfProgress) {
         try {
             Integer.parseInt(numberOfProgress);
-        } catch (Exception e) {
-            throw new NotValidInputException(MUST_BE_INTEGER_ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            throw new NotValidInputException(EXCEED_INTEGER_ERROR_MESSAGE);
         }
     }
 
