@@ -39,11 +39,20 @@ public class NameValidatorTest {
     }
 
     @Test
-    @DisplayName("자동차의 이름의 길이가 5 초과일 경우 예외 발생")
-    public void checkNameLength_Six_ExceptionThrown() {
+    @DisplayName("자동차의 이름의 길이가 최대값보다 클 경우 예외 발생")
+    public void checkNameLength_OverMaximumLength_ExceptionThrown() {
         String carName = "woowatechcourse";
         assertValidationFailure(validator, carName, NameValidator.OUT_OF_RANGE_NAME_MESSAGE +
                 String.format(NameValidator.INPUT_NAME_LENGTH_MESSAGE, carName, carName.length()));
+    }
+
+    @Test
+    @DisplayName("자동차의 대수가 최대값보다 클 경우 예외 발생")
+    public void checkCarCount_OverMaximumCount_ExceptionThrown() {
+        String carNames = "a,b,c,d,e,f,g,h,i";
+        assertValidationFailure(validator, carNames, NameValidator.OUT_OF_BOUND_COUNT_MESSAGE +
+                String.format(NameValidator.INPUT_CAR_COUNT_MESSAGE,
+                        carNames.split(NameValidator.DELIMITER).length));
     }
 
     @Test

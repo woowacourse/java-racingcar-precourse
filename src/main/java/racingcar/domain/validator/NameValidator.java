@@ -12,12 +12,18 @@ public class NameValidator extends Validator {
 
     public static final int MAXIMUM_NAME_LENGTH = 5;
 
+    public static final int MAXIMUM_CAR_COUNT = 8;
+
     public static final String DELIMITER = ",";
 
+    public static final String OUT_OF_BOUND_COUNT_MESSAGE =
+            String.format("자동차의 대수는 %d 이하이어야 합니다.", MAXIMUM_CAR_COUNT);
+
+    public static final String INPUT_CAR_COUNT_MESSAGE = "입력한 자동차의 대수는 %d 입니다";
+
     public static final String OUT_OF_RANGE_NAME_MESSAGE =
-            String.format(
-                    "자동차 이름은 %d글자 이상 %d글자 이하이어야 합니다. ", MINIMUM_NAME_LENGTH, MAXIMUM_NAME_LENGTH
-            );
+            String.format("자동차 이름은 %d글자 이상 %d글자 이하이어야 합니다. ",
+                    MINIMUM_NAME_LENGTH, MAXIMUM_NAME_LENGTH);
 
     public static final String INPUT_NAME_LENGTH_MESSAGE = "자동차 이름 %s의 길이는 %d글자입니다.";
 
@@ -31,8 +37,17 @@ public class NameValidator extends Validator {
                 .map(String::trim)
                 .toArray(String[]::new);
 
+        checkCarCount(carNameTokens);
         checkNameLength(carNameTokens);
         checkDuplicateName(carNameTokens);
+    }
+
+    private void checkCarCount(String[] carNameTokens) {
+        int carNamesLength = carNameTokens.length;
+        if (carNamesLength > MAXIMUM_CAR_COUNT) {
+            throw new CustomIllegalArgumentException(OUT_OF_BOUND_COUNT_MESSAGE +
+                    String.format(INPUT_CAR_COUNT_MESSAGE, carNamesLength));
+        }
     }
 
     public void checkNameLength(String[] carNameTokens) {
