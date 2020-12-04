@@ -46,7 +46,17 @@ public class Application {
     }
 
     private static void printResult(Car[] cars) {
-
+        int maxPosition = findMaxPosition(cars);
+        String resultStr = "최종 우승자:";
+        for (int i = 0; i < cars.length; i++) {
+            if (maxPosition == cars[i].getPosition()) {
+                resultStr += " " + cars[i].getName() + ",";
+            }
+        }
+        final int startIndex = 0;
+        final int endIndex = resultStr.length()-1;
+        resultStr = resultStr.substring(startIndex, endIndex);
+        System.out.println(resultStr);
     }
 
 
