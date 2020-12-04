@@ -1,5 +1,6 @@
 package racingcar.domain.validator;
 
+import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,14 +23,26 @@ public class RoundValidatorTest {
     @ValueSource(strings = {"1", "10", "20"})
     @DisplayName("유효한 값 입력 시 예외 미발생")
     public void validate_ValidValue_NoExceptionThrown(String round) {
-        assertValidationSuccess(validator, round);
+
+        // when
+        ThrowableAssert.ThrowingCallable callable = () -> validator.validate(round);
+
+        // then
+        assertValidationSuccess(callable);
     }
 
     @Test
     @DisplayName("입력 값이 숫자가 아니라면 예외 발생")
     public void checkNumeric_NotNumeric_ExceptionThrown() {
+
+        // given
         String round = "숫자";
-        assertValidationFailure(validator, round, RoundValidator.NOT_NUMERIC_MESSAGE +
+
+        // when
+        ThrowableAssert.ThrowingCallable callable = () -> validator.validate(round);
+
+        // then
+        assertValidationFailure(callable, RoundValidator.NOT_NUMERIC_MESSAGE +
                 String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
     }
 
@@ -37,7 +50,12 @@ public class RoundValidatorTest {
     @ValueSource(strings = {"0", "-1", "-100"})
     @DisplayName("입력 값이 최소값보다 작다면 예외 발생")
     public void checkNumeric_BelowMinimum_ExceptionThrown(String round) {
-        assertValidationFailure(validator, round, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
+
+        // when
+        ThrowableAssert.ThrowingCallable callable = () -> validator.validate(round);
+
+        // then
+        assertValidationFailure(callable, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
                 String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
     }
 
@@ -45,7 +63,12 @@ public class RoundValidatorTest {
     @ValueSource(strings = {"21", "30", "100"})
     @DisplayName("입력 값이 최대값보다 크다면 예외 발생")
     public void checkNumeric_OverMaximum_ExceptionThrown(String round) {
-        assertValidationFailure(validator, round, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
+
+        // when
+        ThrowableAssert.ThrowingCallable callable = () -> validator.validate(round);
+
+        // then
+        assertValidationFailure(callable, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
                 String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
     }
 }
