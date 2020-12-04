@@ -11,6 +11,7 @@ public class Cars {
     private static final int RANDOM_START_VALUE = 0;
     private static final int RANDOM_END_VALUE = 10;
     private static final int GO_FORWARD_VALUE = 4;
+    private static final String MOVE_SIGN = "-";
 
     private List<Car> cars;
 
@@ -48,7 +49,7 @@ public class Cars {
 
     private void showEachCarState() {
         for (Car car : cars) {
-            OutputView.printRaceResultEachCar(car.getName(), car.getMoveSign());
+            OutputView.printRaceResultEachCar(car.getName(), car.getMoveSign(MOVE_SIGN));
         }
 
         OutputView.printNewLine();

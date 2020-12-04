@@ -1,8 +1,6 @@
 package racingcar;
 
 public class Car {
-    private static final String MOVE_SIGN = "-";
-
     private final String name;
     private int position = 0;
 
@@ -23,11 +21,11 @@ public class Car {
         return position;
     }
 
-    public String getMoveSign() {
+    public String getMoveSign(String sign) {
         StringBuilder moveSign = new StringBuilder();
 
         for (int i = 0; i < position; i++) {
-            moveSign.append(MOVE_SIGN);
+            moveSign.append(sign);
         }
 
         return moveSign.toString();
