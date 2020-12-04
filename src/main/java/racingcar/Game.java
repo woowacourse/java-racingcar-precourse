@@ -15,8 +15,8 @@ public class Game {
 
     public void start(Scanner scanner) {
         try {
-            setCars(scanner);
-            setAttemptsCount(scanner);
+            inputCarNamesAndSetCars(scanner);
+            inputAttemptsCountAndSetAttemptsCount(scanner);
             completeAttempts();
             List<String> winners = getWinners();
             Output.printWinners(winners);
@@ -25,16 +25,16 @@ public class Game {
         }
     }
 
-    private void setCars(Scanner scanner) {
+    private void inputCarNamesAndSetCars(Scanner scanner) {
         try {
-            tryToSetCars(scanner);
+            tryToInputCarNamesAndSetCars(scanner);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            setCars(scanner);
+            inputCarNamesAndSetCars(scanner);
         }
     }
 
-    private void tryToSetCars(Scanner scanner) {
+    private void tryToInputCarNamesAndSetCars(Scanner scanner) {
         String carNamesInput = Input.receiveRacingCarNames(scanner);
         Input.validateEmpty(carNamesInput);
         String[] carNames = carNamesInput.split(",");
@@ -44,16 +44,16 @@ public class Game {
         }
     }
 
-    private void setAttemptsCount(Scanner scanner) {
+    private void inputAttemptsCountAndSetAttemptsCount(Scanner scanner) {
         try {
-            tryToSetAttemptsCount(scanner);
+            tryToInputAttemptsCountAndSetAttemptsCount(scanner);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            setAttemptsCount(scanner);
+            inputAttemptsCountAndSetAttemptsCount(scanner);
         }
     }
 
-    private void tryToSetAttemptsCount(Scanner scanner) {
+    private void tryToInputAttemptsCountAndSetAttemptsCount(Scanner scanner) {
         String attemptsCountInput = Input.receiveAttemptsCount(scanner);
         Input.validateEmpty(attemptsCountInput);
         attemptsCount = new AttemptsCount(attemptsCountInput);
