@@ -28,5 +28,13 @@ public class Player {
         }
         return false;
     }
+
+    public String getCarName() {
+        return car.getName();
+    }
+
+    public int getCarPosition() {
+        return car.position();
+    }
     
 }
