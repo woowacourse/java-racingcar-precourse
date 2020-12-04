@@ -15,7 +15,7 @@ public class InputView {
     private static final String EMPTY_INPUT = "";
     private static final String ZERO = "0";
 
-    public List<String> inputCarNames(Scanner scanner) {
+    public static List<String> inputCarNames(Scanner scanner) {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String carNames = scanner.nextLine();
         isEmptyValue(carNames);
@@ -23,7 +23,7 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
-    public int inputRoundNumber(Scanner scanner) {
+    public static int inputRoundNumber(Scanner scanner) {
         System.out.println(INPUT_ROUND_NUMBER_MESSAGE);
         String roundNumber = scanner.nextLine();
         isEmptyValue(roundNumber);
@@ -32,13 +32,13 @@ public class InputView {
         return Integer.parseInt(roundNumber);
     }
 
-    private void isEmptyValue(String input) {
+    private static void isEmptyValue(String input) {
         if (input.equals(EMPTY_INPUT)) {
             throw new IllegalArgumentException(EMPTY_EXCEPTION);
         }
     }
 
-    private void isNumber(String input) {
+    private static void isNumber(String input) {
         try {
             Integer.parseInt(input);
         } catch (Exception e) {
@@ -46,7 +46,7 @@ public class InputView {
         }
     }
 
-    private void isZero(String input) {
+    private static void isZero(String input) {
         if (input.equals(ZERO)) {
             throw new IllegalArgumentException(IMPOSSIBLE_NUMBER_ZERO_EXCEPTION);
         }

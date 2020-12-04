@@ -10,7 +10,7 @@ public class OutputView {
     private final static String FINAL_WINNER = "최종 우승자: ";
     private final static String NAME_SEPARATOR = ", ";
     private final static int START_INDEX = 0;
-    private final static int END_INDEX = 1;
+    private final static int END_INDEX = 2;
 
     public static void printOneRound(RacingCars racingCars) {
         for (Car car : racingCars.getCarList()) {
@@ -39,6 +39,6 @@ public class OutputView {
             winnerString += car.getName();
             winnerString += NAME_SEPARATOR;
         }
-        return winnerString.substring(START_INDEX, winnerString.length()-END_INDEX);
+        return winnerString.substring(START_INDEX, winnerString.length() - END_INDEX);
     }
 }
