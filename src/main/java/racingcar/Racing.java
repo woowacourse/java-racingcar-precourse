@@ -16,7 +16,7 @@ public class Racing {
         for(int i=0;i<gameNumber;i++){
             carRacing();
         }
-        whichCarsWin();
+        printWinners(whichCarsWin());
         // TODO 구현 진행
     }
 
@@ -108,5 +108,10 @@ public class Racing {
             }
         }
         return winnerList;
+    }
+
+    /* 우승한 차들의 이름을 출력하는 메소드 */
+    public static void printWinners(List<String> winnerList){
+        System.out.printf("최종 우승자: "+String.join(", ",winnerList));
     }
 }
