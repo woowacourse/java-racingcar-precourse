@@ -1,6 +1,7 @@
 package racingcar;
 
 import static racingcar.Messages.TRY_COUNT_IS_NUMBER_ONLY;
+import static utils.PrintUtils.print;
 import static utils.PrintUtils.printErrorMessage;
 
 import java.util.Arrays;
@@ -31,6 +32,7 @@ public class RacingGame {
 
     private int getTryCount() {
         int tryCount = 0;
+        print("시도할 회수는 몇회인가요?");
 
         while (tryCount <= 0) {
             try {
@@ -43,6 +45,7 @@ public class RacingGame {
     }
 
     private List<Car> getCars() {
+        print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Arrays.stream(getInput().split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
