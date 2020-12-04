@@ -13,11 +13,12 @@ public class RacingCarGame {
         carNamesInput(scanner);
         printCarName();
     }
-    private void carNamesInput(Scanner scanner){
+
+    private void carNamesInput(Scanner scanner) {
         try {
             System.out.println(Constants.NAME_INPUT_REQ_MSG);
             String names = scanner.nextLine();
-            if(!Validator.isValidName(names)) throw new Exception(Constants.STANDARD_ERROR_MSG);
+            if (!Validator.isValidName(names)) throw new Exception(Constants.STANDARD_ERROR_MSG);
             setCarList(names);
 
         } catch (Exception e) {
@@ -26,16 +27,16 @@ public class RacingCarGame {
         }
     }
 
-    private void setCarList(String names){
+    private void setCarList(String names) {
         String[] splitNames = names.split(",");
-        for(String name : splitNames){
+        for (String name : splitNames) {
             carList.add(new Car(name));
             carCount++;
         }
     }
 
-    private void printCarName(){
-        for(Car car : carList){
+    private void printCarName() {
+        for (Car car : carList) {
             System.out.println(car.getName());
         }
     }
