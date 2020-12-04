@@ -1,7 +1,8 @@
 package racingcar;
 
 import java.util.List;
-import java.util.StringJoiner;
+
+import utils.StringUtils;
 
 public class OutputHandler {
     private static final String RUN_MESSAGE = "\n실행 결과";
@@ -47,12 +48,6 @@ public class OutputHandler {
 
     public static void printWinners(List<String> winners) {
         System.out.print(WINNER_IS);
-        
-        StringJoiner stringJoiner = new StringJoiner(DELIMITER);
-        for (String winner : winners) {
-            stringJoiner.add(winner);
-        }
-
-        System.out.println(stringJoiner.toString());
+        System.out.println(StringUtils.join(winners, DELIMITER));
     }
 }
