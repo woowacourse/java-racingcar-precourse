@@ -10,6 +10,12 @@ public class Race {
     }
 
     public static Race generateRace(InputManager inputManager) {
-        return new Race(inputManager.generateCars());
+        while (true) {
+            try {
+                return new Race(inputManager.generateCars());
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
