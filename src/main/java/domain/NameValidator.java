@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NameValidator {
-    private String inputData;
+    private final String inputData;
 
     public NameValidator(String inputData) {
         this.inputData = inputData;
     }
 
     public static void checkSomethingIsHere(String name) {
-        if (name.equals("")) {
-            throw new IllegalArgumentException("이름을 입력해주세요.");
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("이름을 다시 입력해주세요.");
         }
     }
 
@@ -23,9 +23,11 @@ public class NameValidator {
     }
 
     public List<String> makeDataToNames() {
-        List<String> names = Arrays.asList(this.inputData.split(",").clone());
-        names.forEach(NameValidator::checkSomethingIsHere);
-        names.forEach(NameValidator::checkLengthIsFive);
+        List<String> names = Arrays.asList(this.inputData.split(",", -1));
+        names.forEach(s -> {
+            checkSomethingIsHere(s);
+            checkLengthIsFive(s);
+        });
         return names;
     }
 
