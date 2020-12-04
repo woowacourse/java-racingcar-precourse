@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,18 +18,18 @@ public class Host {
     }
 
     public void start() {
-        nameInput();
-        attemptNumberInput();
+        inputCarNameAndProduceCar();
+        inputAttemptNum();
         raceStart();
     }
 
-    private void nameInput() {
+    private void inputCarNameAndProduceCar() {
         System.out.println(NAME_ASK_MESSAGE);
-        String[] carNames = getCarNames();
-        addCar(carNames);
+        String[] carNames = inputCarName();
+        produceCar(carNames);
     }
 
-    private String[] getCarNames() {
+    private String[] inputCarName() {
         String totalCarNames = sc.nextLine().trim();
         totalCarNames = totalCarNames.replace(" ", "");
         String[] carNames = totalCarNames.split(",");
@@ -38,24 +37,20 @@ public class Host {
         return carNames;
     }
 
-    private void attemptNumberInput() {
-        System.out.println(ATTEMPT_NUMBER_ASK_MESSAGE);
-        attemptNum = getAttemptNum();
-        System.out.println();
-    }
-
-    private int getAttemptNum() {
-        String attemptNum = sc.nextLine();
-        validateAttemptNum(attemptNum);
-        return Integer.parseInt(attemptNum);
-    }
-
-    private void addCar(String[] carNames) {
+    private void produceCar(String[] carNames) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
     }
 
+    private void inputAttemptNum() {
+        System.out.println(ATTEMPT_NUMBER_ASK_MESSAGE);
+        String attemptNumString = sc.nextLine();
+        validateAttemptNum(attemptNumString);
+        attemptNum = Integer.parseInt(attemptNumString);
+        System.out.println();
+    }
+    
     private void raceStart() {
         Race race = new Race(cars, attemptNum);
         race.raceStart();
