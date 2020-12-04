@@ -7,21 +7,25 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
 
+    private static final String MESSAGE_ERROR = "[ERROR] ";
+
     private final Scanner scanner;
+    private List<Car> cars;
+    private int tryCount;
 
     public RacingGame(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void play() {
-        int tryCount;
-        List<Car> cars;
-
-        cars = getCars(getInput());
-        tryCount = getTryCount();
-
+        getReady();
         GameResult gameResult = Race.start(cars, tryCount);
         gameResult.printWinners();
+    }
+
+    private void getReady() {
+        cars = getCars();
+        tryCount = getTryCount();
     }
 
     private int getTryCount() {
@@ -31,14 +35,14 @@ public class RacingGame {
             try {
                 tryCount = Integer.parseInt(getInput());
             } catch (Exception e) {
-                System.out.println("[ERROR] 다시 입력");
+                System.out.println(MESSAGE_ERROR + e.getMessage());
             }
         }
         return tryCount;
     }
 
-    private List<Car> getCars(String input) {
-        return Arrays.stream(input.split(","))
+    private List<Car> getCars() {
+        return Arrays.stream(getInput().split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
