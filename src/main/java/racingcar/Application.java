@@ -10,7 +10,7 @@ public class Application {
         String[] carNames = names.split(",");
         for (int i = 0; i < carNames.length; i++) {
             if (carNames[i].length() > 4) {
-                throw new Exception("자동차 이름은 5자 이하여만 한다.");
+                throw new Exception("[ERROR] 자동차 이름은 5자 이하여만 한다.");
             }
         }
         return carNames;
