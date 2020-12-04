@@ -31,8 +31,7 @@ public class Host {
     }
 
     private String[] inputCarName() {
-        String totalCarNames = sc.nextLine().trim();
-        totalCarNames = totalCarNames.replace(" ", "");
+        String totalCarNames = sc.nextLine().replace(" ", "");
         String[] carNames = totalCarNames.split(",");
         validateCarNames(carNames);
         return carNames;
