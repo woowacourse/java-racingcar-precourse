@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author yhh1056
@@ -37,6 +39,12 @@ public class User {
                 throw new IllegalArgumentException("[ERROR] 이름이 5자가 넘습니다.");
             }
         }
+
+        Set<String> nonDuplicateName = new HashSet<>(Arrays.asList(splitNames));
+        if (splitNames.length != nonDuplicateName.size()) {
+            throw new IllegalArgumentException("[ERROR] 이름이 중복됩니다.");
+        }
+
         if (splitNames.length > NAMES_SIZE) {
             throw new IllegalArgumentException("[ERROR] 참가자 수가 30명이 넘습니다.");
         }
