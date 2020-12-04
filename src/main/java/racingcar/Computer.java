@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class Computer {
 
     public String[] parseCarList(String inputCarsName) {
@@ -39,5 +41,21 @@ public class Computer {
         }
 
         return true;
+    }
+
+    public boolean moveOrStop() {
+        int number = getRandomNumber();
+        if (number >= Constants.STANDARD_NUMBER) {
+            return true;
+        }
+        if (number < Constants.STANDARD_NUMBER) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private int getRandomNumber() {
+        return RandomUtils.nextInt(Constants.MIN_NUMBER, Constants.MAX_NUMBER);
     }
 }
