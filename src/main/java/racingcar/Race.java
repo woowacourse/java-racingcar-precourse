@@ -10,15 +10,20 @@ public class Race {
     public static final String INPUT_MESSAGE_FOR_TRY_COUNT = "시도할 회수는 몇회인가요?";
     public static final String DASH_STRING = "-";
     public static final String RESULT_OF_EXECUTION = "실행 결과";
+    public static final String FINAL_WINNER = "최종 우승자: ";
 
     private ArrayList<Car> cars;
+    private Rank rank;
+    private Scanner scanner;
     private int countOfTry;
 
-    public Race() {
+    public Race(Scanner scanner) {
         cars = new ArrayList<>();
+        rank = new Rank();
+        this.scanner = scanner;
     }
 
-    public void inputCarNamesWithComma(Scanner scanner) {
+    public void inputCarNamesWithComma() {
         printInputMessageForName();
         String[] carNames = splitCarNamesWithComma(scanner.nextLine());
 
@@ -30,7 +35,7 @@ public class Race {
         initCars(carNames);
     }
 
-    public void inputCountOfTry(Scanner scanner) {
+    public void inputCountOfTry() {
         printInputMessageForTryCount();
         String input = scanner.next();
         while (!ValidateUtils.validateCountOfTry(input)) {
@@ -41,11 +46,18 @@ public class Race {
     }
 
     public void startGame() {
+        inputCarNamesWithComma();
+        inputCountOfTry();
         printExecutionResultMessage();
         for (int count = 0; count < countOfTry; count++) {
             moveCars();
             printNameAndPosition();
         }
+        printWinner();
+    }
+
+    private void printWinner() {
+        ArrayList<String> winnerNames = rank.judgeWinner(cars);
     }
 
     private void moveCars() {

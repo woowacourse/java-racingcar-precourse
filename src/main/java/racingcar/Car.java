@@ -2,7 +2,7 @@ package racingcar;
 
 import utils.RandomUtils;
 
-public class Car {
+public class Car implements Comparable<Car> {
     public static final int MIN_RANGE = 0;
     public static final int MAX_RANGE = 9;
 
@@ -28,5 +28,10 @@ public class Car {
         return this.name;
     }
 
-    // 추가 기능 구현
+    @Override
+    public int compareTo(Car o) {
+        // TODO Auto-generated method stub
+        return o.position - this.position;
+    }
+
 }
