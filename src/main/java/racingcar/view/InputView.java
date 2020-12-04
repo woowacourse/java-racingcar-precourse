@@ -14,8 +14,7 @@ public class InputView {
     private static final int SPLIT_LIMIT_THRESHOLD_PARAMETER = -1;
     private static final int MINIMUM_CAR_NAME_LENGTH = 1;
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
-    private static final char MINIMUM_DIGIT_NUMBER = '0';
-    private static final char MAXIMUM_DIGIT_NUMBER = '9';
+    private static final char ZERO_DIGIT_NUMBER_CHARACTER = '0';
 
     private final Scanner scanner;
 
@@ -52,9 +51,9 @@ public class InputView {
     }
 
     private void validateCarNameLength(List<String> carNames) {
-        boolean isAllValidLength = carNames.stream()
+        boolean isAllValidCarNameLength = carNames.stream()
                 .allMatch(this::isValidCarNameLength);
-        if (!isAllValidLength) {
+        if (!isAllValidCarNameLength) {
             throw new CarNameLengthException();
         }
     }
@@ -91,13 +90,13 @@ public class InputView {
     }
 
     private void validateRacingTryCountsNumberFormat(String racingTryCounts) {
-        boolean isPositiveNumber = racingTryCounts.chars()
-                .allMatch(digitNumber -> MINIMUM_DIGIT_NUMBER <= digitNumber && digitNumber <= MAXIMUM_DIGIT_NUMBER);
-        if (!isPositiveNumber) {
+        boolean isAllValidDigitNumber = racingTryCounts.chars()
+                .allMatch(Character::isDigit);
+        if (!isAllValidDigitNumber) {
             throw new RacingTryCountsNumberFormatException();
         }
         boolean isZero = racingTryCounts.chars()
-                .allMatch(digitNumber -> digitNumber == MINIMUM_DIGIT_NUMBER);
+                .allMatch(digitNumber -> digitNumber == ZERO_DIGIT_NUMBER_CHARACTER);
         if (isZero) {
             throw new RacingTryCountsNumberFormatException();
         }
