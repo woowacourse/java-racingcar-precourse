@@ -16,6 +16,7 @@ public class Racing {
         for(int i=0;i<gameNumber;i++){
             carRacing();
         }
+        whichCarsWin();
         // TODO 구현 진행
     }
 
@@ -90,5 +91,22 @@ public class Racing {
             carList.get(i).printPosition();
             System.out.println("");
         }
+    }
+
+    /* 어떤 차들이 우승했는지 계산하는 메소드*/
+    public static List<String> whichCarsWin(){
+        int maxPosition=0;
+        List<String> winnerList = new ArrayList<String>();
+        for(int i=0;i<carList.size();i++){
+            if(carList.get(i).getPosition()>maxPosition){
+                maxPosition=carList.get(i).getPosition();
+            }
+        }
+        for(int i=0;i<carList.size();i++){
+            if(carList.get(i).getPosition()==maxPosition){
+                winnerList.add(carList.get(i).getName());
+            }
+        }
+        return winnerList;
     }
 }
