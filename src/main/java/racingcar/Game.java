@@ -73,8 +73,12 @@ public class Game {
     }
 
     private void completeAttempt() {
-        cars.stream().forEach(car -> car.move());
+        moveCarsAndPrintResult();
         Output.printEmptyLine();
+    }
+
+    private void moveCarsAndPrintResult() {
+        cars.stream().forEach(car -> car.moveAndPrintResult());
     }
 
     private List<String> getWinners() {

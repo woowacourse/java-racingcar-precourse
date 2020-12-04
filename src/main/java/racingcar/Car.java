@@ -18,7 +18,7 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
+    public void moveAndPrintResult() {
         int movingDistance = getRandomNumber();
         if (movingDistance >= MOVABLE_STARTING_NUMBER) {
             position += ONE_STEP;
