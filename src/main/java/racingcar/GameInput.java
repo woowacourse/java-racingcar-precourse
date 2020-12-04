@@ -7,9 +7,6 @@ public class GameInput {
         System.out.println(GameConstants.INPUT_CAR_NAMES_MESSAGE);
         String stringNames = scanner.nextLine();
         String[] carNames = stringNames.split(",");
-        for(String name : carNames){
-            System.out.println(name);
-        }
         try {
             validateCarNames(carNames);
             return carNames;
@@ -45,6 +42,14 @@ public class GameInput {
     }
 
     public static boolean validateCarNames(String[] carNames) throws IllegalArgumentException {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException();
+        }
+        for(String name : carNames) {
+            if (name.length() == 0) {
+                throw new IllegalArgumentException();
+            }
+        }
         return true;
     }
 }
