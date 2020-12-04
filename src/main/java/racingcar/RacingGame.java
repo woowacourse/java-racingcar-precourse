@@ -10,6 +10,9 @@ public class RacingGame {
     private Player[] players;
     private int turn;
     private Scanner scanner;
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final String CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE = SystemMessage.ERROR_MESSAGE + " 자동차 이름의 길이는 "
+            + MAX_CAR_NAME_LENGTH + "이하여야 합니다.";
 
     public RacingGame(Scanner scanner) {
         this.scanner = scanner;
@@ -40,7 +43,7 @@ public class RacingGame {
 
             int position = players[i].getCarPosition();
             for (int j = 0; j < position; j++) {
-                System.out.print(SystemMessage.DISTANCE);
+                System.out.print(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
             }
             System.out.println();
         }
@@ -56,7 +59,7 @@ public class RacingGame {
         }
     }
 
-    private List<String> getChampionList() {  
+    private List<String> getChampionList() {
         // 가장 먼 위치가 몇인지 값을 구함.
         int position = players[0].getCarPosition();
         for (int i = 1; i < players.length; i++) {
@@ -75,7 +78,14 @@ public class RacingGame {
 
     private void inputCarName() {
         System.out.println(SystemMessage.INPUT_CAR_NAME_MESSAGE);
+
         String[] input = scanner.next().split(",");
+        for (int i = 0; i < input.length; i++) {
+            if (input[i].length() > MAX_CAR_NAME_LENGTH) {
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
+            }
+        }
+
         players = new Player[input.length];
 
         for (int i = 0; i < players.length; i++) {
