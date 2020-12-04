@@ -19,10 +19,6 @@ public class AskCarInfo {
     public static ArrayList<String> parseCar(String userInput, Scanner scanner) {
 
         ArrayList<String> carList = new ArrayList<String>(Arrays.asList(userInput.split(",")));
-        for (int i = 0; i< carList.size(); i++) {
-            System.out.println(("size" + carList.get(i).length()));
-            System.out.println(carList.get(i));
-        }
         try {
             Validate.validateUserInput(userInput, carList);
         } catch (IllegalArgumentException e) {
