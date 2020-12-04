@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import racingcar.domain.CustomIllegalArgumentException;
@@ -17,6 +18,13 @@ public class RoundValidatorTest {
     @BeforeEach
     public void initRoundValidator() {
         validator = new RoundValidator();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "10", "20"})
+    @DisplayName("유효한 값 입력 시 예외 미발생")
+    public void validate_ValidValue_NoExceptionThrown(String round) {
+        assertThatCode(() -> validator.validate(round)).doesNotThrowAnyException();
     }
 
     @Test
