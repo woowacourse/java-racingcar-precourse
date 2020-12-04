@@ -17,6 +17,7 @@ public class GameManager {
         move(gameData);
 
         List<String> winners = getWinners(gameData);
+        OutputHandler.printWinners(winners);
     }
     
     private GameData setupGameData() {
