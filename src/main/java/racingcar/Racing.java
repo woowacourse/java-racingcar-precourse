@@ -78,14 +78,13 @@ public class Racing {
             List<String> carNameList = input.getCarNameList(input.getCarNameArray(scanner));
             error.checkSameCarName(carNameList);
             error.checkCarNameLength(carNameList);
-            int trial = input.getTrial(scanner);
-            error.checkTrialLessThanOne(trial);
+            String trial = input.getTrial(scanner);
+            error.checkTrialIsInteger(trial);
+            int trialNumber = Integer.parseInt(trial);
+            error.checkTrialLessThanOne(trialNumber);
             List<Car> carList = makeCars(carNameList);
-            printRacingGameResult(carList, trial);
-        } catch (InputMismatchException inputMismatchException) {
-            error.trialNotIntegerError();
-        } catch (IllegalArgumentException illegalArgumentException) {
-
+            printRacingGameResult(carList, trialNumber);
+        }  catch (IllegalArgumentException illegalArgumentException) {
         }
     }
 
