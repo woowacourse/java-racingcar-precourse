@@ -20,13 +20,14 @@ public class RacingcarController {
     }
 
     public void run() {
+        InputView inputView = new InputView(scanner);
+
         try {
-            String inputCarName = InputView.inputCarName(scanner);
+            String inputCarName = inputView.inputCarName();
             cars = new Cars(convertInputStringToCarList(inputCarName));
-            int numberOfProgress = InputView.inputNumberOfProgress(scanner);
+            int numberOfProgress = inputView.inputNumberOfProgress();
 
             startRacing(numberOfProgress);
-
         } catch (NotValidInputException e) {
             e.printStackTrace();
         }
