@@ -1,8 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Input {
 
@@ -17,7 +15,8 @@ public class Input {
         return carNames;
     }
 
-    public List<String> getCarNameList(String[] carNameArray) {
+    public List<String> getCarNameList(Scanner scanner) {
+        String[] carNameArray = getCarNameArray(scanner);
         List<String> carNameList = new ArrayList<>(carNameArray.length);
         for (String carName : carNameArray) {
             carNameList.add(carName);
