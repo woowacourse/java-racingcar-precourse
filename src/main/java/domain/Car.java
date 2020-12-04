@@ -3,19 +3,28 @@ package domain;
 public class Car {
     private static final int NAME_MAX_LENGTH = 5;
     private static final int FOUR_TO_NINE_GO = 4;
-    private static final String LENGTH_OVER_EXCEPTION_MESSAGE = "[ERROR] 이름은 5자 이하여야 합니다.";
+    private static final String TOO_LONG_NAME_EXCEPTION = "[ERROR] 이름은 5자 이하여야 합니다.";
+    private static final String EMPTY_NAME = "";
+    private static final String EMPTY_NAME_EXCEPTION = "[ERROR] 이름은 공백일 수 없습니다.";
 
     private final String name;
     private int position = 0;
 
     public Car(String name) {
-        isValidName(name);
+        isValidLengthName(name);
+        isEmptyName(name);
         this.name = name;
     }
 
-    private void isValidName(String name) {
+    private void isValidLengthName(String name) {
         if (name.length() > NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(LENGTH_OVER_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(TOO_LONG_NAME_EXCEPTION);
+        }
+    }
+
+    private void isEmptyName(String name) {
+        if (name.equals(EMPTY_NAME)) {
+            throw new IllegalArgumentException(EMPTY_NAME_EXCEPTION);
         }
     }
 

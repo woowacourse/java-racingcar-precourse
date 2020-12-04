@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
-    private final static String LONG_NAME = "asdfas";
+    private final static String LONG_NAME = "abcdef";
     private final static String EMPTY_NAME = "";
     private final static String TOO_LONG_NAME = "[ERROR] 이름은 5자 이하여야 합니다.";
-    private final static String EMPTY_NAME_EXCEPTION = "[ERROR] 빈 이름이 있습니다.";
+    private final static String EMPTY_NAME_EXCEPTION = "[ERROR] 이름은 공백일 수 없습니다.";
 
     @Test
     public void makeLongNameCarTest() {
