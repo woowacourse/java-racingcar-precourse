@@ -9,8 +9,8 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        validateNameRange(name);
         name = trimName(name);
+        validateNameRange(name);
         this.name = name;
     }
 
