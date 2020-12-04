@@ -51,6 +51,10 @@ public class InputExceptionHandler {
         }
     }
 
+    public static void validateMoveCount(String userInput) {
+        // TODO 예외처리
+    }
+
     private static void printError(String error) {
         System.out.printf(ERROR_FORMAT, error);
         throw new IllegalArgumentException();
