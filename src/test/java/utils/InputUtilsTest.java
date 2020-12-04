@@ -27,7 +27,7 @@ class InputUtilsTest {
         InputUtils inputUtils = getInputUtils(inputText);
 
         //when
-        String [] carNames = inputUtils.getCarNames();
+        String[] carNames = inputUtils.getCarNames();
 
         //then
         assertThat(inputText).isEqualTo(carNames[0]);
@@ -41,7 +41,7 @@ class InputUtilsTest {
         InputUtils inputUtils = getInputUtils(inputText);
 
         //when
-        String [] carNames = inputUtils.getCarNames();
+        String[] carNames = inputUtils.getCarNames();
 
         //then
         assertThat(inputText).isEqualTo(carNames[0]);
@@ -69,9 +69,23 @@ class InputUtilsTest {
         String inputText = "hello,,,franc";
         InputUtils inputUtils = getInputUtils(inputText);
 
-        //the
+        //then
         assertThatThrownBy(() -> inputUtils.splitByRest(inputText))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 연속된 쉼표는 허용하지 않습니다.");
+    }
+
+    @Test
+    @DisplayName("시도할 회수를 입력받는다")
+    void testInputTryCount() {
+        //given
+        String inputText = "12";
+        InputUtils inputUtils = getInputUtils(inputText);
+
+        //when
+        int tryCount = inputUtils.getTryCount();
+
+        //then
+        assertThat(tryCount).isEqualTo(12);
     }
 }

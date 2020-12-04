@@ -25,6 +25,12 @@ public class InputUtils {
         return carNames;
     }
 
+    public int getTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String tryCount = getNextLine();
+        return Integer.parseInt(tryCount);
+    }
+
     public String[] splitByRest(String carName) {
         String[] carNames = carName.split(",");
         validateSplitNames(carNames);
