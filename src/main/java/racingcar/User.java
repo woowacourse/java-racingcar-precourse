@@ -11,7 +11,7 @@ public class User {
     private static final String WINNER = "최종우승자: ";
     private static final String SPACE = " ";
     private Names names;
-    private int racingCount = 0;
+    private Count racingCount;
 
     public User() {
         this.names = new Names();
@@ -22,20 +22,7 @@ public class User {
     }
 
     public int createCount(String input) {
-        try {
-            racingCount = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new NumberFormatException("[ERROR] 허용하는 숫자가 아닙니다.");
-        }
-
-        if (racingCount <= 0) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 1회 이상이어야 합니다.");
-        }
-
-        if (racingCount > 30) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 30회 이하여야 합니다.");
-        }
-        return racingCount;
+        return racingCount.validate(input);
     }
 
     public String createWinners(final List<String> winners) {
