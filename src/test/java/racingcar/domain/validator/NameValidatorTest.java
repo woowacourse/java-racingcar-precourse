@@ -49,6 +49,6 @@ public class NameValidatorTest {
     @DisplayName("중복된 자동차 이름이 존재할 경우 예외 발생")
     public void checkDuplicateName_DuplicateNames_ExceptionThrown() {
         ValidatorUtils.assertValidationFailure(validator, "pobi,pobi,woni",
-                NameValidator.DUPLICATE_NAME_MESSAGE);
+                String.format(NameValidator.DUPLICATE_NAME_MESSAGE, "pobi"));
     }
 }

@@ -1,7 +1,8 @@
 package racingcar.domain.validator;
 
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 import racingcar.domain.CustomIllegalArgumentException;
 
@@ -46,10 +47,15 @@ public class NameValidator extends Validator {
     }
 
     public void checkDuplicateName(String[] carNameTokens) {
-        int deduplicatedNamesLength = new HashSet<>(Arrays.asList(names)).size();
+        Map<String, Integer> nameCounts = new HashMap<>();
 
-        if (names.length != deduplicatedNamesLength) {
-            throw new CustomIllegalArgumentException(String.format(DUPLICATE_NAME_MESSAGE, name));
+        for (String carName : carNameTokens) {
+            if (!nameCounts.containsKey(carName)) {
+                nameCounts.put(carName, 1);
+                continue;
+            }
+
+            throw new CustomIllegalArgumentException(String.format(DUPLICATE_NAME_MESSAGE, carName));
         }
     }
 }
