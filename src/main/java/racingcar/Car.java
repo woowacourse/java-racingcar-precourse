@@ -10,7 +10,7 @@ public class Car {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
@@ -18,9 +18,9 @@ public class Car {
         return position;
     }
 
-    public void tryToMoveForward(){
+    public void tryToMoveForward() {
         int randomNum = RandomUtils.nextInt(0, 9);
-        if(randomNum > 3){
+        if (randomNum > 3) {
             position++;
         }
     }
