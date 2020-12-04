@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 public class Race {
     private List<Car> allRacingCars = new ArrayList<>();
     private int raceNumber;
+    private int leadPosition = 0;
 
     public Race(Scanner scanner) {
         generateCars(scanner);
@@ -61,6 +62,14 @@ public class Race {
         for (Car car : allRacingCars) {
             int value = car.getRandomValue();
             car.forward(value);
+
+            updateLeadPosition(car.getPosition());
+        }
+    }
+
+    private void updateLeadPosition(int position) {
+        if (leadPosition < position) {
+            this.leadPosition = position;
         }
     }
 
