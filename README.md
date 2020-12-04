@@ -16,12 +16,11 @@
 ##### Host.java
 
 1. ``start()`` : 입력 값을 받고 레이스를 시작해주는 메서드
-2. ``nameInput()`` : 차들의 이름을 입력 받고 차를 생성하는 과정을 담은 메서드
-3. ``getCarNames()`` : 차들의 이름을 입력 받고 검증한 뒤 차 이름 배열을 리턴하는 메서드
-4. ``attemptNumberInput()`` : 시도 횟수를 입력 받아 초기화 시키는 메서드
-5. ``getAttemptNum()`` : 시도 횟수를 입력 받는 메서드
-6. ``addCar(String[] carNames)`` : 입력 받은 차들의 이름을 가지고 차를 추가하는 메서드
-7. ``raceStart()`` : ``Race`` 클래스의 ``raceStart()`` 메서드를 호출하는 메서드
+2. ``inputCarNameAndProduceCar()`` : 차들의 이름을 입력 받고 차를 생성하는 과정을 담은 메서드
+3. ``inputCarName()`` : 차들의 이름을 입력 받고 검증한 뒤 차 이름 배열을 리턴하는 메서드
+4. ``inputAttemptNum()`` : 시도 횟수를 입력 받아 초기화 시키는 메서드
+5. ``produceCar(String[] carNames)`` : 입력 받은 차들의 이름을 가지고 차를 추가하는 메서드
+6. ``raceStart()`` : ``Race`` 클래스의 ``raceStart()`` 메서드를 호출하는 메서드
 
 <br>
 

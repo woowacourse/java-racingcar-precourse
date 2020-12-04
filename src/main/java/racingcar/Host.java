@@ -50,7 +50,7 @@ public class Host {
         attemptNum = Integer.parseInt(attemptNumString);
         System.out.println();
     }
-    
+
     private void raceStart() {
         Race race = new Race(cars, attemptNum);
         race.raceStart();
