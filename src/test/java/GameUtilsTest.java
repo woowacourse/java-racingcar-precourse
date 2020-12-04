@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class GameUtilsTest {
     private static Scanner rightCarName;
     private static Scanner wrongCarName;
+    private static Scanner blankCarName;
     private static Scanner rightNumOfRuns;
     private static Scanner wrongNumOfRuns;
 
@@ -17,6 +19,14 @@ public class GameUtilsTest {
         wrongCarName = new Scanner("itsoverfive");
         rightNumOfRuns = new Scanner("5");
         wrongNumOfRuns = new Scanner("다섯번");
+    }
+
+    @AfterAll
+    public static void tearDown() {
+        rightCarName.close();
+        wrongCarName.close();
+        rightNumOfRuns.close();
+        wrongNumOfRuns.close();
     }
 
     @Test
@@ -32,6 +42,15 @@ public class GameUtilsTest {
         Assertions.assertThatIllegalArgumentException()
                 .isThrownBy(() -> {GameUtils.isCarNameRight(carName);})
                 .withMessage("[ERROR] 차 이름은 5글자 이하여야 한다.");
+    }
+
+    @Test
+    public void carNameBlankTest() {
+        String carName = "";
+
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> {GameUtils.isCarNameRight(carName);})
+                .withMessage("[ERROR] 차 이름은 1글자 이상이어야 한다.");
     }
 
     @Test
