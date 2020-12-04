@@ -8,7 +8,7 @@ public class OutputView {
     private static final String GAME_EXECUTION_RESULT_HEADER_MESSAGE = "\n실행 결과";
     private static final String EACH_CAR_RACING_TRY_RESULT_MESSAGE = "%s : %s\n";
     private static final String WINNER_CAR_NAMES_MESSAGE = "최종 우승자 : %s\n";
-    private static final String WINNER_CAR_NAMES_DELIMITER = ", ";
+    private static final String WINNER_CAR_NAMES_COMMA_DELIMITER = ", ";
     private static final String DISTANCE_DASH_MARK = "-";
     private static final int ZERO_INDEX = 0;
 
@@ -37,5 +37,10 @@ public class OutputView {
             stringBuilder.append(DISTANCE_DASH_MARK);
         }
         return stringBuilder.toString();
+    }
+
+    public static void printWinnerCarNames(List<String> winnerCarNames) {
+        String winnerCarNamesWithDelimiter = String.join(WINNER_CAR_NAMES_COMMA_DELIMITER, winnerCarNames);
+        System.out.printf(WINNER_CAR_NAMES_MESSAGE, winnerCarNamesWithDelimiter);
     }
 }
