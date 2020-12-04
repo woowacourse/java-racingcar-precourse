@@ -1,8 +1,7 @@
 package racingcar;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class OutputView {
     private final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -22,7 +21,7 @@ public class OutputView {
     }
 
     public void printResult(ScoreBoard scoreBoard) {
-        ArrayList<Car> cars = scoreBoard.getResult();
+        List<Car> cars = scoreBoard.getResult();
         cars.forEach(this::printResult);
         System.out.println();
     }
