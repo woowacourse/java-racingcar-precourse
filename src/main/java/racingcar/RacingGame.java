@@ -19,10 +19,7 @@ public class RacingGame {
             OutputView.printRoundSeparator();
             rounds.next();
         }while(!rounds.isEnd());
-        printWinner();
-    }
 
-    private void printWinner(){
-
+        OutputView.printWinner(cars.getWinnerNames());
     }
 }

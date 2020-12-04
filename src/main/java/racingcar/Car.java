@@ -40,4 +40,15 @@ public class Car {
     public boolean isFartherThan(int position){
         return position < this.position;
     }
+
+    public String getNameIfWinner(int firstPosition){
+        if(isOn(firstPosition)){
+            return this.name;
+        }
+        return null;
+    }
+
+    private boolean isOn(int position){
+        return this.position == position;
+    }
 }

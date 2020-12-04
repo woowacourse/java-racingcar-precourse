@@ -1,8 +1,13 @@
 package racingcar;
 
+import view.OutputView;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
+    private static final String NAME_DELIMITER = ",";
+
     private final List<Car> cars;
     private int firstPosition;
 
@@ -27,5 +32,12 @@ public class Cars {
         if(needToUpdate){
             firstPosition++;
         }
+    }
+
+    public String getWinnerNames(){
+        return cars.stream()
+                .map(car -> car.getNameIfWinner(firstPosition))
+                .filter(name -> name != null)
+                .collect(Collectors.joining(NAME_DELIMITER));
     }
 }
