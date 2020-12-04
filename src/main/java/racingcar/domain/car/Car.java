@@ -26,4 +26,8 @@ public class Car {
             throw new CarNameLengthException();
         }
     }
+
+    public int getPosition() {
+        return this.position;
+    }
 }

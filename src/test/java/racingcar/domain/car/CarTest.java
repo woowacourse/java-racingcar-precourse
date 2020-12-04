@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.exception.CarNameLengthException;
 import racingcar.domain.strategy.RandomMovingStrategy;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
 class CarTest {
@@ -36,6 +37,6 @@ class CarTest {
     public void position_기본값은_0이다() {
         Car car = new Car("crong", new RandomMovingStrategy());
 
-        asserThat(car.getPosition()).isEqaulTo(0);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 }
