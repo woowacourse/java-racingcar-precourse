@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -28,5 +29,13 @@ class CarTest {
         assertThatCode(() -> {
             new Car(name, new RandomMovingStrategy());
         }).isInstanceOf(CarNameLengthException.class);
+    }
+
+    @DisplayName("Car의 기본 position 값은 0")
+    @Test
+    public void position_기본값은_0이다() {
+        Car car = new Car("crong", new RandomMovingStrategy());
+
+        asserThat(car.getPosition()).isEqaulTo(0);
     }
 }
