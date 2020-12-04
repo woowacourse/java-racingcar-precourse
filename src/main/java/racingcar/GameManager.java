@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class GameManager {
-    private static int numberTryToMove; // 이동 횟수 = 라운드 수
-    private static int participantsTotal; // 참가자 수
-    private static String[] stringArrayParticipants; // 참가자 이름 목록
-    private static HashMap<String, Car> participants = new HashMap<String, Car>(); // 참가자 이름: 참가 Car
+    private int numberTryToMove; // 이동 횟수 = 라운드 수
+    private int participantsTotal; // 참가자 수
+    private String[] stringArrayParticipants; // 참가자 이름 목록
+    private HashMap<String, Car> participants = new HashMap<String, Car>(); // 참가자 이름: 참가 Car
+    private Board board; // 전광판
+    private AwardGiver awardGiver; // 시상자
+    private Reception reception;
 
     private static final int LENGTH_EMPTY = 0;
     private static final int MINIMUM_NATURAL_NUMBER = 1;
@@ -21,9 +24,7 @@ public class GameManager {
     private final int LENGTH_LIMIT_OF_INDIVIDUAL_INPUT = 5; // 참가자 이름 글자 수 제한
     private final String MESSAGE_ERROR_NOT_VALID_CAR_NAME = "[ERROR] 길이 " + LENGTH_LIMIT_OF_INDIVIDUAL_INPUT + "이하의 자동차 이름을 입력해주세요";
 
-    private static Board board;
-    private static AwardGiver awardGiver;
-    private static Reception reception;
+
 
     public GameManager() {
         board = new Board();
