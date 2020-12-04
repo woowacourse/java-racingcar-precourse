@@ -5,10 +5,9 @@ import java.util.List;
 
 public class RaceGame {
 
-    List<Car> carList;
+    private List<Car> carList;
 
     public RaceGame() {
-
     }
 
     public void inputCarsName(){
@@ -16,6 +15,6 @@ public class RaceGame {
     }
 
     public void checkForwardMovement(){
-        
+
     }
 }
