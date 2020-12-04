@@ -20,7 +20,6 @@ public class Race {
 
     public void raceStart() {
         int carsNum = cars.size();
-
         System.out.println(PROCESS_RESULT_MESSAGE);
         for (int i = 0; i < attemptNum; i++) {
             for (int j = 0; j < carsNum; j++) {
@@ -45,20 +44,16 @@ public class Race {
         StringBuilder curLocation = new StringBuilder();
         String carName = car.getName();
         int position = car.getPosition();
-
         for (int i = 0; i < position; i++) {
             curLocation.append("-");
         }
-
         System.out.println(carName + " : " + curLocation);
     }
 
     private void winnerPrize() {
         List<String> winners = getWinners();
         int winnerNum = winners.size();
-
         System.out.print(FINAL_WINNER_MESSAGE);
-
         for (int i = 0; i < winnerNum; i++) {
             if (i == winnerNum - 1) {
                 System.out.print(winners.get(i));
@@ -71,10 +66,8 @@ public class Race {
     private List<String> getWinners() {
         List<String> winners = new ArrayList<>();
         int maxPosition = 0;
-
         Collections.sort(cars);
         maxPosition = cars.get(0).getPosition();
-
         for (Car car : cars) {
             int position = car.getPosition();
             String carName = car.getName();
@@ -84,7 +77,6 @@ public class Race {
             }
             winners.add(carName);
         }
-
         return winners;
     }
 

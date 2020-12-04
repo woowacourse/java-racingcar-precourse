@@ -5,6 +5,8 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import static racingcar.InputValidator.validateAttemptNum;
+import static racingcar.InputValidator.validateCarNames;
 import static racingcar.MessageBox.*;
 
 public class Host {
@@ -32,7 +34,7 @@ public class Host {
         String totalCarNames = sc.nextLine().trim();
         totalCarNames = totalCarNames.replace(" ", "");
         String[] carNames = totalCarNames.split(",");
-        InputValidator.validateCarNames(carNames);
+        validateCarNames(carNames);
         return carNames;
     }
 
@@ -44,7 +46,7 @@ public class Host {
 
     private int getAttemptNum() {
         String attemptNum = sc.nextLine();
-        InputValidator.validateAttemptNum(attemptNum);
+        validateAttemptNum(attemptNum);
         return Integer.parseInt(attemptNum);
     }
 
