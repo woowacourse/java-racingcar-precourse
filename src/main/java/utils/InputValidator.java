@@ -19,4 +19,17 @@ public class InputValidator {
         }
         return true;
     }
+
+    public static void checkDuplicatedCarName(String[] name){
+        if(hasDuplicatedValue(name)){
+            throw new IllegalArgumentException("중복된 이름을 포함할 수 없습니다.");
+        }
+    }
+
+    private static boolean hasDuplicatedValue(String[] input){
+        if(Arrays.stream(input).distinct().count() != input.length){
+            return true;
+        }
+        return false;
+    }
 }
