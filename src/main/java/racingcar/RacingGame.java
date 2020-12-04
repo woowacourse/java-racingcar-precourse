@@ -16,6 +16,16 @@ public class RacingGame {
     public void playGame() {
         getCarName();
         getTurn();
+
+        for (int i = 0; i < turn; i++) {
+            startRacing();
+        }
+    }
+
+    private void startRacing() {
+        for (int i = 0; i < players.length; i++) {
+            players[i].racing();
+        }
     }
 
     private void getCarName() {
