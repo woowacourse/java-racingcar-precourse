@@ -14,7 +14,7 @@ public class GasTankTest {
     public void testCreate() {
         GasTank gasTank = new GasTank();
         for (int i = 0; i < BIG_NUMBER; i++) {
-            assertThat(gasTank.getChargeGas()).isBetween(MIN_VALUE, MAX_VALUE);
+            assertThat(gasTank.isEnoughGas()).isTrue();
         }
     }
 
