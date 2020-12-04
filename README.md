@@ -163,9 +163,9 @@ public class Car {
  - 경주 게임 interface 구현
    - 경주 게임을 시작하는 기능 (startRacingGame) - public
    - 입력받은 이동 시도 횟수만큼 움직이거나 가만히 있는 기능 (carMoveOrStay) - private
-   - 자동차가 전진하는 기능 (increasePosition)
-   - 경주 완료 후 우승자 선별 기능 (findWinner)
-   - 우승자 출력 기능 (printWinner)
+   - 자동차가 전진하는 기능 (increasePosition) - private
+   - 경주 완료 후 우승자 선별 기능 (findWinner) - private
+   - 우승자 출력 기능 (printWinner) - publicg
  
  - 자동차 경주 게임 class 구현
    - interface에 맞게 구현
