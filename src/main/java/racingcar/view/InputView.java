@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 public class InputView {
     private static final String DELIMITER_COMMA = ",";
+    private static final String ONLY_INPUT_NUMBER_MESSAGE = "숫자만 입력할 수 있습니다.";
+    private static final String INPUT_TRY_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
 
     public static List<Car> inputCarNames(Scanner scanner) {
         String carNames = scanner.nextLine();
@@ -26,11 +28,27 @@ public class InputView {
     }
 
     public static TryNumber inputTryNumber(Scanner scanner) {
+        System.out.println(INPUT_TRY_NUMBER_MESSAGE);
+        String tryNumber = scanner.nextLine();
+
         try {
-            return new TryNumber(scanner.nextInt());
+            validateTryNumberType(tryNumber);
+
+            return new TryNumber(Integer.parseInt(tryNumber));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return inputTryNumber(scanner);
+        }
+    }
+
+    private static void validateTryNumberType(String tryNumber) {
+        char[] eachTryNumbers = tryNumber.toCharArray();
+        for (char eachTryNumber : eachTryNumbers) {
+            if (Character.isDigit(eachTryNumber)) {
+                continue;
+            }
+
+            throw new IllegalArgumentException(ONLY_INPUT_NUMBER_MESSAGE);
         }
     }
 }
