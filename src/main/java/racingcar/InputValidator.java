@@ -1,11 +1,12 @@
 package racingcar;
 
 public class InputValidator {
+    private static final int MINIMUM_LENGTH = 1;
     private static final int MAXIMUM_LENGTH = 5;
 
     public static void checkEachCarNameLength(String[] carNames) {
         for (String carName : carNames) {
-            if (carName.length() <= MAXIMUM_LENGTH) {
+            if (MINIMUM_LENGTH <= carName.length() && carName.length() <= MAXIMUM_LENGTH) {
                 continue;
             }
 
