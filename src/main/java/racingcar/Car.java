@@ -30,4 +30,8 @@ public class Car {
 
         return moveSign.toString();
     }
+    
+    public boolean isEqualPosition(int position) {
+        return this.position == position;
+    }
 }
