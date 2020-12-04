@@ -59,7 +59,7 @@ public class Race {
     private void printWinner() {
         ArrayList<String> winnerNames = rank.judgeWinner(cars);
         String winner = String.join(", ", winnerNames);
-        System.out.println(winner);
+        System.out.println(FINAL_WINNER + winner);
     }
 
     private void moveCars() {
