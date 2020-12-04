@@ -16,7 +16,7 @@ public class CheckValidation {
     }
 
     public static boolean checkValidList(List<String> carList) {
-        return (checkNotSame(carList) && checkNotnull(carList) &&
+        return (checkNotnull(carList) && checkNotSame(carList) &&
                 checkNameLength(carList) && checkContainBlank(carList));
     }
 
