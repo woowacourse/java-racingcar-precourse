@@ -151,6 +151,51 @@ public class Car {
 
 <br>
 
+## 구현 기능 목록
+ 기능구현
+ - 자동차 이름을 입력받는 기능 (inputCarInfo)
+   - 이름을 입력받을 때 쉼표 사이가 붙어있다면 이름이 없으므로 에러 (checkCarNameEmpty)
+   - 이름을 입력받을 때 이름의 길이가 5글자가 넘는다면 에러 (checkCarNameGreaterThenFive)
+ 
+ - 자동차 이동 시도 횟수를 입력받는 기능 (inputCarMoveAttemptCount)
+   - 자동차 이동 시도 횟수가 숫자가 아니라면 에러 (checkCarMoveAttemptCount)
+ 
+ - 경주 게임 interface 구현
+   - 경주 게임을 시작하는 기능 (startRacingGame) - public
+   - 입력받은 이동 시도 횟수만큼 움직이거나 가만히 있는 기능 (carMoveOrStay) - private
+   - 자동차가 전진하는 기능 (increasePosition) - private
+   - 경주 완료 후 우승자 선별 기능 (findWinner) - private
+   - 우승자 출력 기능 (printWinner) - publicg
+ 
+ - 자동차 경주 게임 class 구현
+   - interface에 맞게 구현
+   
+   
+## 실제로 구현한 기능 목록
+ - Application
+   - private String[] inputCarNames(Scanner scanner)
+   - private int inputCarMoveAttemptCount(Scanner scanner)
+   - private int carMoveAttemptCountValidate(String input)
+ - Car
+   - public void carNameValidate()
+   - public void increasePosition()
+   - public int getPosition()
+   - public String getName()
+   - private void checkCarNameNotEmpty(String name)
+   - private void checkCarNameGreaterThenFive(String name)
+ - RacingGame(Interface)
+   - public void addCar(Car car)
+   - public void printWinner()
+   - public void startRacingGame(int carMoveAttemptCount)
+ - CarRacingGame
+   - public void addCar(Car car)
+   - public void printWinner();
+   - public void startRacingGame(int carMoveAttemptCount)
+   - private void carsMoveOrStay()
+   - private void printIntermediateResult()
+   - private int findMaxMoveCount()
+   - private List<String> findWinner(int maxMoveCount)
+   
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
