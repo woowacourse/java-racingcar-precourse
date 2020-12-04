@@ -48,6 +48,6 @@ class CarsTest {
         List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
 
-        assertThat(cars.getCarPositions).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
+        assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
     }
 }

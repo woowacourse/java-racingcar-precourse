@@ -36,4 +36,10 @@ public class Cars {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
+
+    public List<Integer> getCarPositions() {
+        return this.cars.stream()
+                .map(Car::getPosition)
+                .collect(Collectors.toList());
+    }
 }
