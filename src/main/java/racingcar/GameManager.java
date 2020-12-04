@@ -16,7 +16,7 @@ public class GameManager {
     private static final String MESSAGE_ERROR_FOUND_EMPTY_CAR_NAME = "[ERROR] 자동차 이름이 없는 것이 있습니다.";
     private static final String MESSAGE_INPUT_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String MESSAGE_INPUT_NUMBER_TRY_TO_MOVE = "시도할 횟수는 몇 회인가요?";
-    private static final String MESSAGE_ERROR_NOT_VALID_TRY_NUMBER = "[ERROR] 시도 횟수는 숫자여야 합니다.";
+    private static final String MESSAGE_ERROR_NOT_VALID_TRY_NUMBER = "[ERROR] 시도 횟수는 1 이상의 자연수여야 합니다.";
     private static Board board;
     private static AwardGiver awardGiver;
 
@@ -44,12 +44,23 @@ public class GameManager {
     private void inputNumberTryToMove(Scanner scanner) {
         System.out.println(MESSAGE_INPUT_NUMBER_TRY_TO_MOVE);
         String stringInputTryNumber = scanner.nextLine();
-        numberTryToMove = validateTryNumberInput(stringInputTryNumber);
+        validateTryNumberInput(stringInputTryNumber);
     }
 
-    private int validateTryNumberInput(String stringInputTryNumber) {
+    private void validateTryNumberInput(String stringInputTryNumber) {
+        isNumber(stringInputTryNumber);
+        isNaturalNumber(numberTryToMove);
+    }
+
+    private void isNaturalNumber(int numberTryToMove) {
+        if (numberTryToMove < 1) {
+            throw new IllegalArgumentException(MESSAGE_ERROR_NOT_VALID_TRY_NUMBER);
+        }
+    }
+
+    private void isNumber(String stringInputTryNumber) {
         try {
-            return Integer.parseInt(stringInputTryNumber);
+            numberTryToMove = Integer.parseInt(stringInputTryNumber);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(MESSAGE_ERROR_NOT_VALID_TRY_NUMBER);
         }
