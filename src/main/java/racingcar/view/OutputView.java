@@ -22,9 +22,9 @@ public class OutputView {
         System.out.println(printWinner);
     }
 
-    public static void printProcess(List<Cars> process) {
+    public static void printProcess(List<Cars> processes) {
         System.out.println(ACTION_RESULT_MESSAGE);
-        process.stream()
+        processes.stream()
                 .forEach(cars -> printCars(cars));
     }
 
