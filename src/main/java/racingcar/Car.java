@@ -4,6 +4,9 @@ import utils.RandomUtils;
 import view.OutputView;
 
 public class Car {
+    public static final int MIN_NAME_LEN = 1;
+    public static final int MAX_NAME_LEN = 5;
+
     private static final int TRY_NUMBER_MIN = 0;
     private static final int TRY_NUMBER_MAX = 9;
     private static final int MOVE_CONDITION = 4;
