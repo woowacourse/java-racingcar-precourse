@@ -21,16 +21,12 @@ public class InputHandler {
 
     private String[] tryParseCarNames(String userInput) {
         try {
-            return parseCarNames(userInput);
+            InputExceptionHandler.validateCarNames(userInput, DELIMITER);
+            String[] carNames = userInput.split(DELIMITER);
+            return carNames;
         } catch (Exception exception) {
             return askCarNames();
         }
-    }
-
-    private String[] parseCarNames(String userInput) {
-        InputExceptionHandler.validateCarNames(userInput, DELIMITER);
-        String[] carNames = userInput.split(DELIMITER);
-        return carNames;
     }
 
     public int askMoveCount() {
@@ -41,15 +37,11 @@ public class InputHandler {
 
     private int tryParseMoveCount(String userInput) {
         try {
-            return parseMoveCount(userInput);
+            InputExceptionHandler.validateMoveCount(userInput);
+            int moveCount = Integer.parseInt(userInput);
+            return moveCount;
         } catch (Exception exception) {
             return askMoveCount();
         }
-    }
-
-    private int parseMoveCount(String userInput) {
-        InputExceptionHandler.validateMoveCount(userInput);
-        int moveCount = Integer.parseInt(userInput);
-        return moveCount;
     }
 }
