@@ -17,7 +17,7 @@ public class InputCarName {
             System.out.println("시도할 회수는 몇회인가요?");
             return Integer.parseInt(scan.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("숫자(정수)를 입력해주세요.");
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
             return inputCount();
         }
     }
