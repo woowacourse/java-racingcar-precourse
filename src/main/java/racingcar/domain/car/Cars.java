@@ -30,4 +30,10 @@ public class Cars {
             throw new CarNameDuplicationException();
         }
     }
+
+    public List<String> getCarNames() {
+        return this.cars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 }

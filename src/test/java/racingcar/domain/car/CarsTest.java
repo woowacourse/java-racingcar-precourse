@@ -8,6 +8,7 @@ import racingcar.domain.strategy.RandomMovingStrategy;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
 class CarsTest {
@@ -35,9 +36,9 @@ class CarsTest {
     @DisplayName("Car 객체들의 이름 리스트를 반환한다.")
     @Test
     public void getCarNames_이름들이_반환된다() {
-        List<String> carNames = Arrays.asList("pobi", "pobi", "jiko", "ajax");
+        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
 
-        assertThat(cars.getCarNames()).isEqualTo(carNames);
+        assertThat(cars.getCarNames()).hasSameElementsAs(carNames);
     }
 }
