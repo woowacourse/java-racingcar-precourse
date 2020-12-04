@@ -10,6 +10,7 @@ public class GameManager {
     private static HashMap<String, Car> participants = new HashMap<String, Car>(); // 참가자 이름: 참가자 Car
     private static final int LENGTH_LIMIT_OF_INDIVIDUAL_INPUT = 5;
     private static final int LENGTH_EMPTY = 0;
+    private static final int MINIMUM_NATURAL_NUMBER = 1;
     private static final String DELIMITER = ",";
     private static final String MESSAGE_ERROR_NOT_VALID_CAR_NAME = "[ERROR] 길이 "+LENGTH_LIMIT_OF_INDIVIDUAL_INPUT+"이하의 자동차 이름을 입력해주세요";
     private static final String MESSAGE_ERROR_EMPTY_CAR_NAME = "[ERROR] 자동차 이름이 없습니다.";
@@ -53,7 +54,7 @@ public class GameManager {
     }
 
     private void isNaturalNumber(int numberTryToMove) {
-        if (numberTryToMove < 1) {
+        if (numberTryToMove < MINIMUM_NATURAL_NUMBER) {
             throw new IllegalArgumentException(MESSAGE_ERROR_NOT_VALID_TRY_NUMBER);
         }
     }
