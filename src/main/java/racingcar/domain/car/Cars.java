@@ -31,4 +31,11 @@ public class Cars {
     public List<Car> getValue() {
         return Collections.unmodifiableList(cars);
     }
+
+    public int checkMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+    }
 }

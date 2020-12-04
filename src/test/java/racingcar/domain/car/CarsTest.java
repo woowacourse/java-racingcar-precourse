@@ -66,4 +66,20 @@ class CarsTest {
                 .extracting("position")
                 .allMatch(position -> position.equals(expectedPosition));
     }
+
+    @DisplayName("가장 멀리 나아간 자동차의 위치를 찾는 기능을 테스트한다")
+    @Test
+    void testCheckMaxPosition() {
+        //given
+        Car carA = new Car("carA", 1);
+        Car carB = new Car("carB", 2);
+        Car carC = new Car("carC", 3);
+        Cars cars = new Cars(Arrays.asList(carA, carB, carC));
+
+        //when
+        int maxPosition = cars.checkMaxPosition();
+
+        //then
+        assertThat(maxPosition).isEqualTo(3);
+    }
 }
