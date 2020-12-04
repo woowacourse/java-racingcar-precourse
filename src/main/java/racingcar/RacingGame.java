@@ -78,19 +78,24 @@ public class RacingGame {
 
     private void inputCarName() {
         System.out.println(SystemMessage.INPUT_CAR_NAME_MESSAGE);
-
         String[] input = scanner.next().split(",");
-        for (int i = 0; i < input.length; i++) {
-            if (input[i].length() > MAX_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
-            }
+        if (!isValidCarNameLength(input)) {
+            throw new IllegalAccessError(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
         }
 
         players = new Player[input.length];
-
         for (int i = 0; i < players.length; i++) {
             players[i] = new Player(input[i]);
         }
+    }
+
+    private boolean isValidCarNameLength(String[] input) {
+        for (int i = 0; i < input.length; i++) {
+            if (input[i].length() > MAX_CAR_NAME_LENGTH) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void inputTurn() {
