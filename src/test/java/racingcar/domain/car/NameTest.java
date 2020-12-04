@@ -45,5 +45,4 @@ class NameTest {
         assertThatThrownBy(() -> new Name(name))
                 .isExactlyInstanceOf(IllegalArgumentException.class);
     }
-
 }
