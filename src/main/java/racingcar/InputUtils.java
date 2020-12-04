@@ -8,35 +8,35 @@ import java.util.Scanner;
 public class InputUtils {
 
     public static String[] racerNameList;
-    public static int roundCount;
+    public static int lapCount;
 
-    public String inputRunner;
-    public String inputRoundCount;
+    public String inputRacerName;
+    public String inputLapCount;
     public HashSet<String> racerNameDuplicationCheckSet = new HashSet<String>();
 
     public InputUtils(Scanner promptInput) {
         printMessageWithConstant(new String[]{Constants.RACER_NAME_ANNOUNCEMENT});
-        this.inputRunner = promptInput.next();
+        this.inputRacerName = promptInput.next();
         checkRacerStringFormatter();
         setSplitRacerNameByFormat();
         checkRacerNameValidation();
 
         printMessageWithConstant(new String[]{Constants.LAP_QUESTION});
-        this.inputRoundCount = promptInput.next();
-        if (isRoundCountValidation(inputRoundCount)) {
-            roundCount = Integer.parseInt(inputRoundCount);
+        this.inputLapCount = promptInput.next();
+        if (isLapCountValidation(inputLapCount)) {
+            lapCount = Integer.parseInt(inputLapCount);
         }
     }
 
     private void checkRacerStringFormatter() {
-        String isFormatter = inputRunner.substring(0, 1);
+        String isFormatter = inputRacerName.substring(0, 1);
         if (isFormatter.equals(",")) {
             ExceptionUtils.errorThrow(Constants.FORMATTER_ERROR_ANNOUNCEMENT);
         }
     }
 
     private void setSplitRacerNameByFormat() {
-        String[] splitedRacerNameList = inputRunner
+        String[] splitedRacerNameList = inputRacerName
             .split(String.valueOf(Constants.RACER_LIST_FORMAT), 0);
         racerNameList = splitedRacerNameList;
     }
@@ -60,23 +60,23 @@ public class InputUtils {
         }
     }
 
-    private boolean isRoundCountValidation(String inputRoundCount) {
-        if (!isRoundCountDataTypeValidation(inputRoundCount)) {
+    private boolean isLapCountValidation(String inputLapCount) {
+        if (!isLapCountDataTypeValidation(inputLapCount)) {
             return false;
         }
-        if (!isRoundCountPositiveNumberValidation(inputRoundCount)) {
+        if (!isLapCountPositiveNumberValidation(inputLapCount)) {
             return false;
         }
         return true;
     }
 
-    private boolean isRoundCountDataTypeValidation(String inputRoundCount) {
-        for (int i = 0; i < inputRoundCount.length(); i++) {
-            if (!Character.isDigit(inputRoundCount.charAt(i))) {
+    private boolean isLapCountDataTypeValidation(String inputLapCount) {
+        for (int i = 0; i < inputLapCount.length(); i++) {
+            if (!Character.isDigit(inputLapCount.charAt(i))) {
                 ExceptionUtils.errorThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
                 return false;
             }
-            if (inputRoundCount.charAt(i) < 1) {
+            if (inputLapCount.charAt(i) < 1) {
                 ExceptionUtils.errorThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
                 return false;
             }
@@ -84,8 +84,8 @@ public class InputUtils {
         return true;
     }
 
-    private boolean isRoundCountPositiveNumberValidation(String inputRoundCount) {
-        int number = Integer.parseInt(inputRoundCount);
+    private boolean isLapCountPositiveNumberValidation(String inputLapCount) {
+        int number = Integer.parseInt(inputLapCount);
         if (number <= 0) {
             ExceptionUtils.errorThrow(Constants.LAP_IS_INTEGER_ANNOUNCEMENT);
             return false;

@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Racing {
 
-
     public InputUtils racingEvent;
 
     ArrayList<Car> racerList = new ArrayList<Car>();
@@ -31,14 +30,13 @@ public class Racing {
     }
 
     private void goLap(InputUtils racingEvent) {
-        for (int i = 1; i <= racingEvent.roundCount; i++) {
+        for (int i = 1; i <= racingEvent.lapCount; i++) {
             for (Car carInRacingEvent : racerList) {
                 carInRacingEvent.moveForward();
                 String racerPositionBarInThisLap = getCarPositionInThisLap(carInRacingEvent);
                 String[] forwarder = new String[]{carInRacingEvent.getRacerName(),
                     Constants.RACER_POSITION_DIVIDE_CHARACTER, racerPositionBarInThisLap};
                 printMessageWithConstant(forwarder);
-
             }
             printMessageWithConstant(new String[]{});
         }
@@ -54,12 +52,11 @@ public class Racing {
     }
 
     public void showAwards() {
-        String eventWinnerList = "";
+        String eventWinner = "";
         int maxPositionInRacingEvent = -1;
         maxPositionInRacingEvent = getMaxPosition(maxPositionInRacingEvent);
-        eventWinnerList = getRaceWinnerString(maxPositionInRacingEvent);
-
-        String result = eventWinnerList.substring(0, eventWinnerList.length() - 2);
+        eventWinner = getRaceWinnerString(maxPositionInRacingEvent);
+        String result = eventWinner.substring(0, eventWinner.length() - 2);
         printMessageWithConstant(new String[]{Constants.EVENT_WINNER_ANNOUNCEMENT, result});
     }
 
@@ -74,14 +71,14 @@ public class Racing {
     }
 
     private String getRaceWinnerString(int maxPositionInRacingEvent) {
-        String eventWinnerList = "";
+        String eventWinner = "";
         for (Car carInRacingEvent : racerList) {
             int thisRacerPositionInRacingEvent = carInRacingEvent.getPosition();
             if (maxPositionInRacingEvent == thisRacerPositionInRacingEvent) {
-                eventWinnerList += carInRacingEvent.getRacerName();
-                eventWinnerList += Constants.EVENT_WINNER_FORMAT_CHARACTER;
+                eventWinner += carInRacingEvent.getRacerName();
+                eventWinner += Constants.EVENT_WINNER_FORMAT_CHARACTER;
             }
         }
-        return eventWinnerList;
+        return eventWinner;
     }
 }

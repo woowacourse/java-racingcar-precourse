@@ -7,8 +7,7 @@ public class MessageUtils {
         for (String message : messages) {
             printMessages += message;
         }
-        printMessages += "\n";
-        System.out.printf(printMessages);
+        System.out.println(printMessages);
     }
 
 }
