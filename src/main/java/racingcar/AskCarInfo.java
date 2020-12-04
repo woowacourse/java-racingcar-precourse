@@ -13,15 +13,21 @@ public class AskCarInfo {
             userInput = scanner.nextLine();
             System.out.println(userInput);
         }
-        return parseCar(userInput);
+        return parseCar(userInput, scanner);
     }
 
-    public static ArrayList<String> parseCar(String userInput) {
+    public static ArrayList<String> parseCar(String userInput, Scanner scanner) {
 
         ArrayList<String> carList = new ArrayList<String>(Arrays.asList(userInput.split(",")));
         for (int i = 0; i< carList.size(); i++) {
             System.out.println(("size" + carList.get(i).length()));
             System.out.println(carList.get(i));
+        }
+        try {
+            Validate.validateUserInput(userInput, carList);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+            askCarInfo(scanner);
         }
         return carList;
     }
