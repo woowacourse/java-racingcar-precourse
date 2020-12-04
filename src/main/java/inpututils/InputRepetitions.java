@@ -3,13 +3,16 @@ package inpututils;
 import java.util.Scanner;
 
 public class InputRepetitions extends Input{
-	private Scanner scanner;
-
-	InputRepetitions(Scanner scanner){
+	public InputRepetitions(Scanner scanner){
 		super(scanner);
 	}
 
+	@Override
+	Scanner getScanner() {
+		return super.scanner;
+	}
+
 	public int inputAnswer() {
-		return scanner.nextInt();
+		return getScanner().nextInt();
 	}
 }

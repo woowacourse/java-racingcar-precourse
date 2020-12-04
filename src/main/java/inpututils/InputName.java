@@ -3,14 +3,17 @@ package inpututils;
 import java.util.Scanner;
 
 public class InputName extends Input{
-	private Scanner scanner;
-
-	InputName(Scanner scanner){
+	public InputName(Scanner scanner){
 		super(scanner);
 	}
 
+	@Override
+	Scanner getScanner() {
+		return super.scanner;
+	}
+
 	public String[] inputAnswer() {
-		return splitRest(scanner.next());
+		return splitRest(getScanner().next());
 	}
 
 	public String[] splitRest(String answer) {

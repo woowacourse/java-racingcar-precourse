@@ -3,9 +3,9 @@ package inpututils;
 import java.util.Scanner;
 
 public abstract class Input {
-	private Scanner scanner = null;
-
+	protected Scanner scanner;
 	Input(Scanner scanner){
 		this.scanner = scanner;
 	}
+	abstract Scanner getScanner();
 }
