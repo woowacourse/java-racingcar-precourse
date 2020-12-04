@@ -31,7 +31,7 @@ public class RacingGame {
         printWinner(findWinner());
     }
 
-    public void registerCars() {
+    private void registerCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = scanner.next().split("\\,");
         for (String carName : carNames) {
@@ -40,12 +40,12 @@ public class RacingGame {
         }
     }
 
-    public void getNumberOfRunsFromUser() {
+    private void getNumberOfRunsFromUser() {
         System.out.println("시도할 회수는 몇회인가요?");
         this.numberOfRuns = GameUtils.isNumOfRunsRight(scanner.next());
     }
 
-    public void moveCars() {
+    private void moveCars() {
         for (Car car : racingCars) {
             if(RandomUtils.nextInt(RANDOM_NUM_START, RANDOM_NUM_END) > 3){
                 car.moveForward();
@@ -53,13 +53,13 @@ public class RacingGame {
         }
     }
 
-    public void printCars() {
+    private void printCars() {
         for (Car car : racingCars) {
             System.out.println(car.getName() + " : " + (String.join("", Collections.nCopies(car.getPosition(), "-"))));
         }
     }
 
-    public List<Car> findWinner() {
+    private List<Car> findWinner() {
         List<Car> winner = new ArrayList<Car>();
         for (Car car : racingCars) {
             if (winner.isEmpty()) {
@@ -77,7 +77,7 @@ public class RacingGame {
         return winner;
     }
 
-    public void printWinner(List<Car> winner) {
+    private void printWinner(List<Car> winner) {
         ArrayList<String> cars = new ArrayList<String>();
         for (Car car : winner) {
             cars.add(car.getName());
