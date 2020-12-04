@@ -6,6 +6,7 @@ public class Application {
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
+
         CarRacingGame carRacingGame = new CarRacingGame();
         carRacingGame.inputInfoForPlayGame(scanner);
 
