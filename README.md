@@ -152,7 +152,23 @@ public class Car {
 <br>
 
 ## 구현 기능 목록
-
+ 기능구현
+ - 자동차 이름을 입력받는 기능 (inputCarInfo)
+   - 이름을 입력받을 때 쉼표 사이가 붙어있다면 이름이 없으므로 에러 (checkCarNameEmpty)
+   - 이름을 입력받을 때 이름의 길이가 5글자가 넘는다면 에러 (checkCarNameGreaterThenFive)
+ 
+ - 자동차 이동 시도 횟수를 입력받는 기능 (inputCarMoveAttemptCount)
+   - 자동차 이동 시도 횟수가 숫자가 아니라면 에러 (checkCarMoveAttemptCount)
+ 
+ - 경주 게임 interface 구현
+   - 경주 게임을 시작하는 기능 (startRacingGame) - public
+   - 입력받은 이동 시도 횟수만큼 움직이거나 가만히 있는 기능 (carMoveOrStay) - private
+   - 자동차가 전진하는 기능 (increasePosition)
+   - 경주 완료 후 우승자 선별 기능 (findWinner)
+   - 우승자 출력 기능 (printWinner)
+ 
+ - 자동차 경주 게임 class 구현
+   - interface에 맞게 구현
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.

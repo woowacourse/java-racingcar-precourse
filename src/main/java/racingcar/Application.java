@@ -11,27 +11,6 @@ import java.util.Scanner;
  * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
  */
 
-
-/**
- * 기능구현
- * 1. 자동차 이름을 입력받는 기능 (inputCarInfo)
- *   가. 이름을 입력받을 때 쉼표 사이가 붙어있다면 이름이 없으므로 에러 (checkCarNameEmpty)
- *   나. 이름을 입력받을 때 이름의 길이가 5글자가 넘는다면 에러 (checkCarNameGreaterThenFive)
- *
- * 2. 자동차 이동 시도 횟수를 입력받는 기능 (inputCarMoveAttemptCount)
- *   가. 자동차 이동 시도 횟수가 숫자가 아니라면 에러 (checkCarMoveAttemptCount)
- *
- *
- * 3. 경주 게임 interface 구현
- *   가. 경주 게임을 시작하는 기능 (startRacingGame) - public
- *   나. 입력받은 이동 시도 횟수만큼 움직이거나 가만히 있는 기능 (carMoveOrStay) - private
- *   다. 자동차가 전진하는 기능 (increasePosition)
- *   라. 경주 완료 후 우승자 선별 기능 (findWinner)
- *   마. 우승자 출력 기능 (printWinner)
- *
- * 4. 자동차 경주 게임 class 구현
- *
- */
 public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
