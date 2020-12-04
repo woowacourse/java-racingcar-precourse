@@ -13,16 +13,12 @@ public class RacingGame {
 
     public void play(){
         do{
-            moveCars();
+            cars.tryMoveAll();
             printCarsPosition();
         }while(checkGameEnd());
         printWinner();
     }
-
-    private void moveCars(){
-
-    }
-
+    
     private void printCarsPosition(){
 
     }
