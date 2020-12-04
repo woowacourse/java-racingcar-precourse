@@ -7,8 +7,7 @@ public class GameController {
         String[] carNames = GameInput.getCarNames(scanner);
         int gameRound = GameInput.getGameRound(scanner);
         Car[] gameCars = generateCars(carNames);
-//        Simulator.simulateRace(gameCars, gameRound);
-//        Referee.judge(gameCars);
+        Simulator.simulateRace(gameCars, gameRound);
     }
 
     public static Car[] generateCars(String[] carNames) {
