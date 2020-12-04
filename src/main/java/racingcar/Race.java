@@ -85,6 +85,16 @@ public class Race {
         System.out.println();
     }
 
+    private void findWinner() {
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : allRacingCars) {
+            if (car.getPosition() == leadPosition) {
+                winners.add(car.getName());
+            }
+        }
+    }
+
     private void checkRightCarName(String[] cars) {
         if (!Validation.carNameValidation(cars)) {
             throw new IllegalArgumentException(Constant.ERROR_CAR_NAME);
