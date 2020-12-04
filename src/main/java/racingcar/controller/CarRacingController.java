@@ -80,21 +80,19 @@ public class CarRacingController {
         return scannerTimes;
     }
 
-    public static boolean moveCar() {
+    public static void moveCar(Car car) {
         int randomNumber = NumberGenerator.generateNumber();
 
-            if ((BoundaryType.MINIMUM_MOVE_NUMBER.getBoundary() <= randomNumber) &&
-                    (randomNumber <= BoundaryType.MAXIMUM_MOVE_NUMBER.getBoundary())) {
-                // 자동차는 전진한다.
-                return true;
-            }
+        if ((BoundaryType.MINIMUM_MOVE_NUMBER.getBoundary() <= randomNumber) &&
+                (randomNumber <= BoundaryType.MAXIMUM_MOVE_NUMBER.getBoundary())) {
+            // 자동차는 전진한다.
+            car.movePosition();
+        }
 
-            if ((BoundaryType.MINIMUM_STOP_NUMBER.getBoundary() <= randomNumber) &&
-                    (randomNumber <= BoundaryType.MAXIMUM_STOP_NUMBER.getBoundary())) {
-                // 자동차는 멈춘다.
-                return false;
-            }
-
-            throw new IllegalArgumentException(ErrorType.INVALID_RANDOM_NUMBER.getError());
+        if ((BoundaryType.MINIMUM_STOP_NUMBER.getBoundary() <= randomNumber) &&
+                (randomNumber <= BoundaryType.MAXIMUM_STOP_NUMBER.getBoundary())) {
+            // 자동차는 멈춘다.
+            return;
+        }
     }
 }
