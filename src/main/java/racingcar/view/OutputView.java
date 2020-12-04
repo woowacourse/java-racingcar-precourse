@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 public class OutputView {
     private static final String DELIMITER_COLON = " : ";
-    private static final String EACH_POSITION_SYMBOL = "-";
+    private static final String POSITION_SYMBOL = "-";
     private static final String DELIMITER_COMMA = ", ";
     private static final String WINNER_INFO_MESSAGE = "최종 우승자: ";
     private static final String ACTION_RESULT_MESSAGE = "실행 결과";
@@ -39,7 +39,7 @@ public class OutputView {
     }
 
     private static String convertToPositionSymbols(int position) {
-        return Stream.generate(() -> EACH_POSITION_SYMBOL)
+        return Stream.generate(() -> POSITION_SYMBOL)
                 .limit(position)
                 .collect(Collectors.joining());
     }
