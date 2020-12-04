@@ -34,7 +34,7 @@ public class Names {
     }
 
     private void validateEmpty(String names) {
-        if (names.isEmpty()) {
+        if (names.isEmpty() || names.endsWith(DELIMITER)) {
             throw new IllegalArgumentException("[ERROR] 이름이 존재하지 않습니다.");
         }
     }
