@@ -169,6 +169,33 @@ public class Car {
  
  - 자동차 경주 게임 class 구현
    - interface에 맞게 구현
+   
+   
+## 실제로 구현한 기능 목록
+ - Application
+   - private String[] inputCarNames(Scanner scanner)
+   - private int inputCarMoveAttemptCount(Scanner scanner)
+   - private int carMoveAttemptCountValidate(String input)
+ - Car
+   - public void carNameValidate()
+   - public void increasePosition()
+   - public int getPosition()
+   - public String getName()
+   - private void checkCarNameNotEmpty(String name)
+   - private void checkCarNameGreaterThenFive(String name)
+ - RacingGame(Interface)
+   - public void addCar(Car car)
+   - public void printWinner()
+   - public void startRacingGame(int carMoveAttemptCount)
+ - CarRacingGame
+   - public void addCar(Car car)
+   - public void printWinner();
+   - public void startRacingGame(int carMoveAttemptCount)
+   - private void carsMoveOrStay()
+   - private void printIntermediateResult()
+   - private int findMaxMoveCount()
+   - private List<String> findWinner(int maxMoveCount)
+   
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
