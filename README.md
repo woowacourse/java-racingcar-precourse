@@ -151,6 +151,19 @@ public class Car {
 
 <br>
 
+## 기능목록
+
+- 함수원형
+- 자동차 이름입력 함수(쉼표구분, 5글자 이하)
+- 횟수 입력 함수(숫자만 가능, 예외처리)
+- 자동차 생성 함수
+- 자동차-이름얻는 함수
+- 자동차-위치얻는 함수
+- 자동차-이동함수(랜덤함수(0~9사이, 4이상 전진, 3이하 멈춤)을 이용하여 이동)
+- 자동차-현재상황 출력함수(이름 : 이동한칸)
+- 최대이동위치 찾는 함수
+- 결과출력함수 
+
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
