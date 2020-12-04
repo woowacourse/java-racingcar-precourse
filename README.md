@@ -33,15 +33,20 @@
     - Car : 자동차의 전진의 기능, 이름과 현재 위치 저장의 기능을 한다.
     - Cars : 경주 자동차들, 즉 Car의 컬렉션을 관리한다.
     - RacingGame : 경주를 관리한다. 입력 받은 라운드 수 만큼 자동차 이동을 시도한다.
+    - Rounds : 총 시도 횟수와 현재 시도 횟수를 저장하고, 게임이 종료됨을 확인한다.
     
 - #### utils
-    - InputValidator : 사용자 입력이 유효한지 검증한다.
+    - InputValidator : 사용자가 입력한 자동차 이름 문자열과 시도 횟수 숫자가 유효한지 체크한다.
     - CarsFactory : Cars 객체를 생성한다. 
     - RandomUtils : 범위 내 임의의 숫자를 리턴한다.
     
 - #### view
     - InputView : 사용자로부터 입력을 받는다.
     - OutputView : 메시지를 출력한다.
+
+- #### test/java/**
+    - RacingGameTest : 미리 입력된 자동차 이름과 시도 횟수로 RacingGame play() 진행을 테스트한다.
+    - InputValidatorTest : 예외 처리에 문제가 없는지 테스트를 진행한다.
     
 <br>
 
