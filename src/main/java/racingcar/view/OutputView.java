@@ -12,6 +12,7 @@ public class OutputView {
     private static final String EACH_POSITION_SYMBOL = "-";
     private static final String DELIMITER_COMMA = ", ";
     private static final String WINNER_INFO_MESSAGE = "최종 우승자: ";
+    private static final String ACTION_RESULT_MESSAGE = "실행 결과";
 
     public static void printWinners(List<Car> winners) {
         System.out.print(WINNER_INFO_MESSAGE);
@@ -21,13 +22,19 @@ public class OutputView {
         System.out.println(printWinner);
     }
 
-    public static void printCars(Cars cars) {
+    public static void printProcess(List<Cars> process) {
+        System.out.println(ACTION_RESULT_MESSAGE);
+        process.stream()
+                .forEach(cars -> printCars(cars));
+    }
+
+    private static void printCars(Cars cars) {
         cars.getValue().stream()
                 .forEach(car -> printCarPosition(car));
         System.out.println();
     }
 
-    public static void printCarPosition(Car car) {
+    private static void printCarPosition(Car car) {
         System.out.println(car.getName() + DELIMITER_COLON + convertToPositionSymbols(car.getPosition()));
     }
 
