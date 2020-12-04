@@ -55,7 +55,8 @@ public class NameValidator extends Validator {
                 continue;
             }
 
-            throw new CustomIllegalArgumentException(String.format(DUPLICATE_NAME_MESSAGE, carName));
+            throw new CustomIllegalArgumentException(
+                    String.format(DUPLICATE_NAME_MESSAGE, carName));
         }
     }
 }
