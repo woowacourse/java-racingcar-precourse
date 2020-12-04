@@ -62,4 +62,27 @@ class CarTest {
 
         assertThat(car.getPosition()).isZero();
     }
+
+    @DisplayName("Car 객체 2개의 위치가 같으면 비교 true 반환")
+    @Test
+    public void isSamePosition_위치가_같으면_true를_반환한다() {
+        Car car = new Car("test1", () -> true);
+        Car targetCar = new Car("test2", () -> false);
+
+        boolean isSamePosition = car.isSamePosition(targetCar);
+
+        assertThat(isSamePosition).isTrue();
+    }
+
+    @DisplayName("Car 객체 2개의 위치가 다르면 비교 false 반환")
+    @Test
+    public void isSamePosition_위치가_다르면_false를_반환한다() {
+        Car car = new Car("test1", () -> true);
+        Car targetCar = new Car("test2", () -> false);
+
+        car.move();
+        boolean isSamePosition = car.isSamePosition(targetCar);
+
+        assertThat(isSamePosition).isFalse();
+    }
 }
