@@ -25,11 +25,9 @@ public class Input {
         return carNameList;
     }
 
-    public int getTrial(Scanner scanner) {
+    public String getTrial(Scanner scanner) {
         System.out.println(INPUT_TRIAL_MESSAGE);
-        int trial = scanner.nextInt();
+        String trial = scanner.next();
         return trial;
     }
-
-
 }
