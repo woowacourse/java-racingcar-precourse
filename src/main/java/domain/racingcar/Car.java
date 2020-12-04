@@ -1,6 +1,8 @@
 package domain.racingcar;
 
 public class Car {
+    public static final int MINIMUM_NUMBER_TO_MOVE = 4;
+
     private final String name;
     private int position = 0;
 
@@ -10,7 +12,7 @@ public class Car {
 
     // 추가 기능 구현
     public void increasePosition(Integer randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MINIMUM_NUMBER_TO_MOVE) {
             this.position++;
         }
     }

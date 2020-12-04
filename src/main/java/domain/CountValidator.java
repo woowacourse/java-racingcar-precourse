@@ -1,6 +1,7 @@
 package domain;
 
 public class CountValidator {
+    public static final int MINIMUN_OF_COUNT = 0;
     private final String inputData;
 
     public CountValidator(String inputData) {
@@ -16,7 +17,7 @@ public class CountValidator {
     }
 
     private void checkMoreThanZero() {
-        if (Integer.parseInt(this.inputData) < 0) {
+        if (Integer.parseInt(this.inputData) < MINIMUN_OF_COUNT) {
             throw new IllegalArgumentException("횟수 입력은 0 이상이어야 한다.");
         }
     }

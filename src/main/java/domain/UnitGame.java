@@ -5,6 +5,9 @@ import utils.RandomUtils;
 
 import java.util.List;
 
+import static utils.RandomUtils.LOWER_BOUNDARY;
+import static utils.RandomUtils.UPPER_BOUNDARY;
+
 public class UnitGame {
     private final List<Car> cars;
 
@@ -12,7 +15,7 @@ public class UnitGame {
         this.cars = cars;
     }
 
-    public void makeRandomNumbers() {
-        cars.forEach(car -> car.increasePosition(RandomUtils.nextInt(0, 9)));
+    public void giveCarRandomNumber() {
+        cars.forEach(car -> car.increasePosition(RandomUtils.nextInt(LOWER_BOUNDARY, UPPER_BOUNDARY)));
     }
 }

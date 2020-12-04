@@ -10,7 +10,6 @@ import view.InputView;
 import view.OutputView;
 
 import java.util.List;
-import java.util.Objects;
 
 public class RacingCarGameController {
     private final InputView inputView;
@@ -23,15 +22,17 @@ public class RacingCarGameController {
 
     public void run() {
         CarFactory carFactory = new CarFactory();
-        List<Car> cars = carFactory.makeCars(Objects.requireNonNull(makeNames()));
+        List<Car> cars = carFactory.makeCars(makeNames());
         UnitGame unitGame = new UnitGame(cars);
-        int c = makeCounts();
+        int counts = makeCounts();
+
         this.outputView.printResult();
-        for (int i = 0; i < c; i++) {
-            unitGame.makeRandomNumbers();
+        for (int i = 0; i < counts; i++) {
+            unitGame.giveCarRandomNumber();
             cars.forEach(car -> this.outputView.printNowCars(car.getName(), car.getPosition()));
             this.outputView.printOneLine();
         }
+
         this.outputView.printWinner(Winner.makeWinners(cars));
     }
 
@@ -41,9 +42,8 @@ public class RacingCarGameController {
             return countValidator.makeValidCount();
         } catch (IllegalArgumentException e) {
             this.outputView.printError(e.getMessage());
-            makeCounts();
+            return makeCounts();
         }
-        return 0;
     }
 
     private List<String> makeNames() {
@@ -52,8 +52,7 @@ public class RacingCarGameController {
             return nameValidator.makeDataToNames();
         } catch (IllegalArgumentException e) {
             this.outputView.printError(e.getMessage());
-            makeNames();
+            return makeNames();
         }
-        return null;
     }
 }

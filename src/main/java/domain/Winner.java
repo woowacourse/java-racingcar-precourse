@@ -7,7 +7,14 @@ import java.util.stream.Collectors;
 
 public class Winner {
     public static List<String> makeWinners(List<Car> cars) {
-        Integer winnerCount = cars.stream().mapToInt(Car::getPosition).boxed().max(Integer::compareTo).get();
-        return cars.stream().filter(car -> car.getPosition() == winnerCount).map(Car::getName).collect(Collectors.toList());
+        Integer winnerCount = cars.stream()
+                .mapToInt(Car::getPosition)
+                .boxed()
+                .max(Integer::compareTo)
+                .get();
+        return cars.stream()
+                .filter(car -> winnerCount.equals(car.getPosition()))
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }

@@ -3,6 +3,8 @@ package utils;
 import java.util.Random;
 
 public class RandomUtils {
+    public static final int LOWER_BOUNDARY = 0;
+    public static final int UPPER_BOUNDARY = 9;
     private static final Random RANDOM = new Random();
 
     private RandomUtils() {
