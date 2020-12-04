@@ -3,59 +3,63 @@ package racingcar.domain;
 import racingcar.view.OutputView;
 import utils.RandomUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Cars {
-    private static final int ZERO = 0;
-    private static final int NINE = 9;
-    private static final int FOUR = 4;
-    private static final String NAME_LENGTH_ERROR = "[ERROR] 자동차 이름을 입력해주세요";
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 9;
+    private static final int MOVE_NUMBER = 4;
+    private static final String NAME_DUPLICATE_ERROR = "[ERROR] 같은 자동차 이름은 사용할 수 없습니다.";
+
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validateExistCars(cars);
+        validateDuplicate(cars);
         this.cars = cars;
     }
 
-    private void validateExistCars(List<Car> cars) {
-        if (cars.size() == ZERO) {
-            throw new IllegalArgumentException(NAME_LENGTH_ERROR);
+    private void validateDuplicate(List<Car> cars) {
+        Set<String> duplicateCheckSet = new HashSet<>();
+        for (Car car : cars) {
+            duplicateCheckSet.add(car.getName());
+        }
+        if(duplicateCheckSet.size() != cars.size()) {
+            throw new IllegalArgumentException(NAME_DUPLICATE_ERROR);
         }
     }
 
-    public void goOrStopCars() {
+    public void moveOrStop() {
         for (Car car : cars) {
-            if(isGo()) {
-                car.goCar();
+            if(isMove()) {
+                car.moveCar();
             }
         }
     }
 
-    private boolean isGo() {
-        int randomNumber = RandomUtils.nextInt(ZERO, NINE);
-        if(randomNumber >= FOUR) {
+    private boolean isMove() {
+        int randomNumber = RandomUtils.nextInt(MIN_NUMBER, MAX_NUMBER);
+        if(randomNumber >= MOVE_NUMBER) {
             return true;
         }
         return false;
     }
 
-    public Winner getWinnerCars() {
-        List<Car> winner = new ArrayList<>();
+    public Winners getWinnerCars() {
+        List<Car> winners = new ArrayList<>();
         Collections.sort(cars);
         int maxPosition = cars.get(0).getPosition();
         for (Car car : cars) {
-            if(car.isMaxPosition(maxPosition)) {
-                winner.add(car);
+            if(!car.isMaxPosition(maxPosition)) {
+                break;
             }
+            winners.add(car);
         }
-        return new Winner(winner);
+        return new Winners(winners);
     }
 
     public void printResultCars() {
         for (Car car : cars) {
-            OutputView.printResultScore(car);
+            OutputView.printCarNameAndPosition(car);
         }
         System.out.println();
     }
