@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import racingcar.domain.exception.DuplicateNameException;
-import racingcar.domain.exception.NameOutOfRangeException;
+import racingcar.domain.exception.NameLengthOutOfBoundsException;
 import racingcar.domain.exception.ValidationException;
 
 public class NameValidator extends Validator {
@@ -18,7 +18,7 @@ public class NameValidator extends Validator {
 
     public static final String DELIMITER = ",";
 
-    public static final String OUT_OF_BOUND_COUNT_MESSAGE =
+    public static final String OUT_OF_BOUNDS_MESSAGE =
             String.format("자동차의 대수는 %d 이하이어야 합니다.", MAXIMUM_CAR_COUNT);
 
     public static final String INPUT_CAR_COUNT_MESSAGE = "입력한 자동차의 대수는 %d 입니다";
@@ -39,7 +39,7 @@ public class NameValidator extends Validator {
     private void checkCarCount(String[] carNameTokens) {
         int carNamesLength = carNameTokens.length;
         if (carNamesLength > MAXIMUM_CAR_COUNT) {
-            throw new ValidationException(OUT_OF_BOUND_COUNT_MESSAGE +
+            throw new ValidationException(OUT_OF_BOUNDS_MESSAGE +
                     String.format(INPUT_CAR_COUNT_MESSAGE, carNamesLength));
         }
     }
@@ -49,7 +49,7 @@ public class NameValidator extends Validator {
             int carNameLength = carName.length();
 
             if (carNameLength < MINIMUM_NAME_LENGTH || carNameLength > MAXIMUM_NAME_LENGTH) {
-                throw new NameOutOfRangeException(carName, carNameLength);
+                throw new NameLengthOutOfBoundsException(carName, carNameLength);
             }
         }
     }

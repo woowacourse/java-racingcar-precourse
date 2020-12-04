@@ -10,7 +10,7 @@ import static racingcar.domain.validator.ValidatorUtils.assertValidationFailure;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationSuccess;
 
 import racingcar.domain.exception.DuplicateNameException;
-import racingcar.domain.exception.NameOutOfRangeException;
+import racingcar.domain.exception.NameLengthOutOfBoundsException;
 
 public class NameValidatorTest {
 
@@ -37,8 +37,10 @@ public class NameValidatorTest {
     @Test
     @DisplayName("자동차의 이름이 빈 문자열 경우 예외 발생")
     public void checkNameLength_Zero_ExceptionThrown() {
-        assertValidationFailure(validator, "pobi, ", NameOutOfRangeException.OUT_OF_RANGE_MESSAGE +
-                String.format(NameOutOfRangeException.INPUT_NAME_LENGTH_MESSAGE, "", 0));
+        assertValidationFailure(validator, "pobi, ",
+                NameLengthOutOfBoundsException.OUT_OF_BOUNDS_MESSAGE +
+                        String.format(NameLengthOutOfBoundsException.INPUT_NAME_LENGTH_MESSAGE,
+                                "", 0));
     }
 
     @Test
@@ -47,8 +49,10 @@ public class NameValidatorTest {
         String carName = "woowatechcourse";
         int length = carName.length();
 
-        assertValidationFailure(validator, carName, NameOutOfRangeException.OUT_OF_RANGE_MESSAGE +
-                String.format(NameOutOfRangeException.INPUT_NAME_LENGTH_MESSAGE, carName, length));
+        assertValidationFailure(validator, carName,
+                NameLengthOutOfBoundsException.OUT_OF_BOUNDS_MESSAGE +
+                        String.format(NameLengthOutOfBoundsException.INPUT_NAME_LENGTH_MESSAGE,
+                                carName, length));
     }
 
     @Test
@@ -57,7 +61,7 @@ public class NameValidatorTest {
         String carNames = "a,b,c,d,e,f,g,h,i";
         int length = carNames.split(NameValidator.DELIMITER).length;
 
-        assertValidationFailure(validator, carNames, NameValidator.OUT_OF_BOUND_COUNT_MESSAGE +
+        assertValidationFailure(validator, carNames, NameValidator.OUT_OF_BOUNDS_MESSAGE +
                 String.format(NameValidator.INPUT_CAR_COUNT_MESSAGE, length));
     }
 
@@ -65,6 +69,7 @@ public class NameValidatorTest {
     @DisplayName("중복된 자동차 이름이 존재할 경우 예외 발생")
     public void checkDuplicateName_DuplicateNames_ExceptionThrown() {
         String carNames = "pobi,pobi,woni";
+
         assertValidationFailure(validator, carNames,
                 String.format(DuplicateNameException.DUPLICATE_NAME_MESSAGE, "pobi"));
     }
