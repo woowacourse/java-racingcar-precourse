@@ -23,6 +23,8 @@ public class CarRacingController {
         scanCars(scanner);
         System.out.println(TextType.CAR_RACING_TIMES_TEXT.getText());
         scanTimes(scanner);
+        System.out.println();
+        playCarRacing();
     }
 
     public static void scanCars(Scanner scanner) {
@@ -61,8 +63,8 @@ public class CarRacingController {
     public static void checkDuplicatedCar(ArrayList<Car> cars) {
         Set<String> carSet = new HashSet<>();
 
-        for (Car oneCar : cars) {
-            carSet.add(oneCar.getName());
+        for (Car car : cars) {
+            carSet.add(car.getName());
         }
 
         // 자동차 이름이 중복되는 경우
@@ -93,6 +95,15 @@ public class CarRacingController {
                 (randomNumber <= BoundaryType.MAXIMUM_STOP_NUMBER.getBoundary())) {
             // 자동차는 멈춘다.
             return;
+        }
+    }
+
+    public static void playCarRacing() {
+        for (int i = 0; i < times; i++) {
+            for(int j = 0; j < cars.size(); j++) {
+                Car car = cars.get(j);
+                moveCar(car);
+            }
         }
     }
 }
