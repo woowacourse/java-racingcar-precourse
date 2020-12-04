@@ -3,6 +3,7 @@ package racingcar.domain.car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.exception.CarNameDuplicationException;
+import racingcar.domain.strategy.MovingStrategy;
 import racingcar.domain.strategy.RandomMovingStrategy;
 
 import java.util.Arrays;
@@ -49,5 +50,29 @@ class CarsTest {
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
 
         assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
+    }
+
+    @DisplayName("항상 움직이지 않는 전략의 경우, Cars 객체에 move를 요청하면 차량들의 위치가 변하지 않는다.")
+    @Test
+    public void move_항상_움직이지_않는_전략_position이_변함없다() {
+        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+        MovingStrategy neverMovingStrategy = () -> false;
+        Cars cars = Cars.createCars(carNames, neverMovingStrategy);
+
+        cars.move();
+
+        assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
+    }
+
+    @DisplayName("항상 움직이는 전략의 경우, Cars 객체에 move를 요청하면 차량들의 위치가 1 증가한다.")
+    @Test
+    public void move_항상_움직이는_전략_position이_1만큼_증가한다() {
+        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+        MovingStrategy alwaysMovingStrategy = () -> true;
+        Cars cars = Cars.createCars(carNames, alwaysMovingStrategy);
+
+        cars.move();
+
+        assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(1, 1, 1, 1));
     }
 }
