@@ -2,49 +2,42 @@ package racingcar;
 
 import utils.Printer;
 import utils.Validator;
+
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CarRacingGame {
     private CarList carList;
-    private int playRound;
-    private Validator validator = new Validator();
+    private int raceRound;
+    private Validator validator;
 
     public CarRacingGame() {
         carList = new CarList();
-        playRound = 0;
-    }
-
-    public void startCarRacing() {
-        Race race = new Race();
-        int roundIndex = 0;
-        System.out.println("실행결과");
-        while (roundIndex < playRound) {
-            race.runCarRace(carList);
-            roundIndex++;
-        }
+        raceRound = 0;
+        validator = new Validator();
     }
 
     public void inputInfoForPlayGame(Scanner scanner)
     {
-        carList.setCarList(inputCarName(scanner));
-        playRound = inputPlayRound(scanner);
+        carList.setCarList(inputRaceCar(scanner));
+        raceRound = inputPlayRound(scanner);
     }
 
-    public List<String> inputCarName(Scanner scanner) {
+    private List<String> inputRaceCar(Scanner scanner) {
         try {
-            Printer.setCarNamePrinter();
+            Printer.setCarPrint();
             List<String> carList = new ArrayList<>(Arrays.asList(scanner.nextLine().split(",")));
             validator.isValidCarName(carList);
             return carList;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return inputCarName(scanner);
+            return inputRaceCar(scanner);
         }
     }
 
-    public int inputPlayRound(Scanner scanner) {
+    private int inputPlayRound(Scanner scanner) {
         try {
-            Printer.setPlayRoundPrinter();
+            Printer.setPlayRoundPrint();
             String playRound = scanner.nextLine();
             validator.isPlayRoundInteger(playRound);
             return Integer.parseInt(playRound);
@@ -54,19 +47,24 @@ public class CarRacingGame {
         }
     }
 
-
-    //나중에 삭제할 메소드
-    public void inputTest() {
-        System.out.println("--------------");
-        System.out.println("입력값 테스트");
-        for (Car car : carList.getCarList())
-        {
-            System.out.print(car.getName() + " ");
-        }
-        System.out.println();
-        System.out.println(playRound);
-        System.out.println("--------------");
+    public void startCarRacing() {
+        Race race = new Race(carList, raceRound);
+        race.runCarRace();
     }
 
+    public void carRaceWinner() {
+        List<Car> raceDoneCarList = carList.getCarList();
+        List<Car> sortedCarList = raceDoneCarList.stream()
+                .sorted((a, b) -> b.getPosition() - a.getPosition())
+                .collect(Collectors.toList());
 
+        List<String> winners = new ArrayList<>();
+        int maxPosition = sortedCarList.get(0).getPosition();
+        for (Car car : sortedCarList) {
+            if (maxPosition == car.getPosition()) {
+                winners.add(car.getName());
+            }
+        }
+        Printer.carRaceWinnerPrint(String.join(",", winners));
+    }
 }
