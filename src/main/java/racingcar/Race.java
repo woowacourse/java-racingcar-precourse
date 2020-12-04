@@ -12,6 +12,7 @@ public class Race {
     public Race(Scanner scanner) {
         generateCars(scanner);
         decideRaceNumber(scanner);
+        raceStart();
     }
 
     private void generateCars(Scanner scanner) {
@@ -44,6 +45,15 @@ public class Race {
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
+        }
+    }
+
+    private void raceStart() {
+        System.out.println(Constant.RACE_PROCESS);
+
+        for (int i = 0; i < raceNumber; i++) {
+            driveCar();
+            printResult();
         }
     }
 
