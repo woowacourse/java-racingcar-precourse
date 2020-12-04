@@ -2,12 +2,14 @@ package racingcar.domain.car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.dto.CarDto;
 import racingcar.domain.exception.CarNameDuplicationException;
 import racingcar.domain.strategy.MovingStrategy;
 import racingcar.domain.strategy.RandomMovingStrategy;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -40,7 +42,11 @@ class CarsTest {
         List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
 
-        assertThat(cars.getCarNames()).hasSameElementsAs(carNames);
+        List<String> targetCarNames = cars.getCarDtos().stream()
+                .map(CarDto::getName)
+                .collect(Collectors.toList());
+
+        assertThat(targetCarNames).hasSameElementsAs(carNames);
     }
 
     @DisplayName("Car 객체들의 Position 리스트를 반환한다.")
@@ -49,7 +55,11 @@ class CarsTest {
         List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
 
-        assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
+        List<Integer> carPositions = cars.getCarDtos().stream()
+                .map(CarDto::getPosition)
+                .collect(Collectors.toList());
+
+        assertThat(carPositions).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
     }
 
     @DisplayName("항상 움직이지 않는 전략의 경우, Cars 객체에 move를 요청하면 차량들의 위치가 변하지 않는다.")
@@ -60,8 +70,11 @@ class CarsTest {
         Cars cars = Cars.createCars(carNames, neverMovingStrategy);
 
         cars.move();
+        List<Integer> carPositions = cars.getCarDtos().stream()
+                .map(CarDto::getPosition)
+                .collect(Collectors.toList());
 
-        assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
+        assertThat(carPositions).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
     }
 
     @DisplayName("항상 움직이는 전략의 경우, Cars 객체에 move를 요청하면 차량들의 위치가 1 증가한다.")
@@ -72,8 +85,11 @@ class CarsTest {
         Cars cars = Cars.createCars(carNames, alwaysMovingStrategy);
 
         cars.move();
+        List<Integer> carPositions = cars.getCarDtos().stream()
+                .map(CarDto::getPosition)
+                .collect(Collectors.toList());
 
-        assertThat(cars.getCarPositions()).hasSameElementsAs(Arrays.asList(1, 1, 1, 1));
+        assertThat(carPositions).hasSameElementsAs(Arrays.asList(1, 1, 1, 1));
     }
 
     @DisplayName("가장 멀리 이동한 우승 자동차들의 명단을 반환함")

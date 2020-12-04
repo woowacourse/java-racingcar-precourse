@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import racingcar.domain.dto.CarDto;
 import racingcar.domain.exception.CannotFindWinnerCarException;
 import racingcar.domain.exception.CarNameDuplicationException;
 import racingcar.domain.strategy.MovingStrategy;
@@ -51,15 +52,9 @@ public class Cars {
                 .orElseThrow(CannotFindWinnerCarException::new);
     }
 
-    public List<String> getCarNames() {
+    public List<CarDto> getCarDtos() {
         return this.cars.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
-    }
-
-    public List<Integer> getCarPositions() {
-        return this.cars.stream()
-                .map(Car::getPosition)
+                .map(CarDto::from)
                 .collect(Collectors.toList());
     }
 }
