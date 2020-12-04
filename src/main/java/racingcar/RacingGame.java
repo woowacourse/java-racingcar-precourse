@@ -16,8 +16,8 @@ public class RacingGame {
     }
 
     public void playGame() {
-        getCarName();
-        getTurn();
+        inputCarName();
+        inputTurn();
 
         System.out.println("\n" + SystemMessage.RUN_RESULT + "\n");
         for (int i = 0; i < turn; i++) {
@@ -73,7 +73,7 @@ public class RacingGame {
         return championList;
     }
 
-    private void getCarName() {
+    private void inputCarName() {
         System.out.println(SystemMessage.INPUT_CAR_NAME_MESSAGE);
         String[] input = scanner.next().split(",");
         players = new Player[input.length];
@@ -83,7 +83,7 @@ public class RacingGame {
         }
     }
 
-    private void getTurn() {
+    private void inputTurn() {
         System.out.println(SystemMessage.INPUT_TURN_MESSAGE);
         turn = scanner.nextInt();
     }
