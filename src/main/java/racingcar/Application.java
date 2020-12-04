@@ -3,6 +3,7 @@ package racingcar;
 import java.util.Scanner;
 
 public class Application {
+
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         RacingGameSystemMessageIn messageReader = new RacingGameSystemMessageIn(scanner);
@@ -11,8 +12,9 @@ public class Application {
         RacingGameSystemMessageOut.printNameInput();
         while (true) {
             try {
-                 carNameInput = RacingGameException.checkNameInputException(messageReader.submitCarNames());
-                 break;
+                carNameInput = RacingGameException
+                    .checkNameInputException(messageReader.submitCarNames());
+                break;
             } catch (ArrayStoreException e) {
                 RacingGameException.printLongNameInputMessage();
             } catch (NullPointerException e) {
@@ -26,7 +28,7 @@ public class Application {
 
         RacingGameSystemMessageOut.printTimesInput();
         int playNum = 0;
-        while(true) {
+        while (true) {
             try {
                 playNum = RacingGameException.checkTimesInputException(messageReader.submitTimes());
                 break;

@@ -19,14 +19,15 @@ public class RacingGameEmulator {
     }
 
     public void startRacingGame() {
-        for(int i = 0; i < MAX_TIMES; i++) {
+        for (int i = 0; i < MAX_TIMES; i++) {
             RacingGamePlay thisTime = new RacingGamePlay(racingCars);
             thisTime.runTimes(racingCars);
         }
     }
 
     public void startRacingGameWinner() {
-        RacingGameWinner racingGameWinner = new RacingGameWinner(racingCars, Car.getWinningPosition());
+        RacingGameWinner racingGameWinner = new RacingGameWinner(racingCars,
+            Car.getWinningPosition());
         racingGameWinner.findWinner();
         racingGameWinner.printWinner();
     }

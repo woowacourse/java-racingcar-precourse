@@ -12,7 +12,7 @@ public class CarNameDivider {
         String[] carNames = carNameInput.split(",");
 
         for (String carName : carNames) {
-            if(carName.trim().length() > 5) {
+            if (carName.trim().length() > 5) {
                 return "LongName";
             }
             carNameList.add(carName.trim());
@@ -23,9 +23,9 @@ public class CarNameDivider {
             return "DuplicationName";
         }
 
-        if (carNameList.indexOf("") != -1 ){
+        if (carNameList.indexOf("") != -1) {
             return "NoName";
         }
-            return carNameInput;
-        }
+        return carNameInput;
+    }
 }
