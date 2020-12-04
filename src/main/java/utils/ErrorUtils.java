@@ -5,7 +5,7 @@ public class ErrorUtils {
     private static String errorMsg="";
     private static final String MSG = "[ERROR] %s";
 
-    private static void print(Object... args){
+    private static void print(Object args){
         System.out.println(String.format(MSG, args));
     }
 
@@ -19,5 +19,8 @@ public class ErrorUtils {
         print(errorMsg);
     }
 
-
+    public static void printNumError(int tryNum){
+        errorMsg = "0보다 큰 수를 입력해야 한다.";
+        print(errorMsg);
+    }
 }

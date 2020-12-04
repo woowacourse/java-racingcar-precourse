@@ -1,7 +1,6 @@
 package utils;
 
 import racingcar.Car;
-import racingcar.Round;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -22,13 +21,13 @@ public class InputUtils {
         }
     }
 
-    public static void inputTryNumber(Scanner scanner, Round round){
+    public static int inputTryNumber(Scanner scanner){
         while(true){
             try{
                 scanner.nextLine();
                 System.out.println("시도할 횟수는 몇회인가요?");
-                round.setTryNum(scanner.nextInt());
-                break;
+                int tryNum = scanner.nextInt();
+                return tryNum;
             } catch(InputMismatchException e){
                 ErrorUtils.printNumError();
                 continue;
