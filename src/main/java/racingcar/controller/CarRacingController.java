@@ -18,6 +18,9 @@ public class CarRacingController {
 
     private static ArrayList<Car> cars = new ArrayList<>();
     private static int times;
+    private static ArrayList<Integer> carPositions = new ArrayList<>();
+    private static int maxPosition = -1;
+    private static ArrayList<String> winner = new ArrayList<>();
 
     public static void startCarRacing(Scanner scanner) {
         System.out.println(TextType.CAR_NAME_TEXT.getText());
@@ -26,6 +29,7 @@ public class CarRacingController {
         scanTimes(scanner);
         System.out.println();
         playCarRacing();
+        showWinner();
     }
 
     public static void scanCars(Scanner scanner) {
@@ -125,6 +129,42 @@ public class CarRacingController {
         for (Car car : cars) {
             StringBuffer carPosition = countPosition(car);
             System.out.println(car.getName() + " : " + carPosition);
+        }
+    }
+
+    public static void addPosition() {
+        for (Car car : cars) {
+            carPositions.add(car.getPosition());
+        }
+    }
+
+    public static void calculateMaxPosition() {
+        addPosition();
+        for (int i = 0; i < carPositions.size(); i++) {
+            if (maxPosition < carPositions.get(i)) {
+                maxPosition = carPositions.get(i);
+            }
+        }
+    }
+
+    public static void checkWinner() {
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winner.add(car.getName());
+            }
+        }
+    }
+
+    public static void showWinner() {
+        calculateMaxPosition();
+        checkWinner();
+
+        System.out.print(TextType.WINNER.getText());
+        for (int i = 0; i < winner.size(); i++) {
+            System.out.print(winner.get(i));
+            if (i != (winner.size() - 1)) {
+                System.out.print(TextType.COMMA.getText() + TextType.BLANK.getText());
+            }
         }
     }
 }

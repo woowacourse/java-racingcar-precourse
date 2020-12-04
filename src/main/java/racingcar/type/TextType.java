@@ -7,7 +7,8 @@ public enum TextType {
     COMMA(","),
     BLANK(" "),
     RESULT("실행 결과"),
-    LINE("-");
+    LINE("-"),
+    WINNER("최종 우승자: ");
 
     private final String text;
 
