@@ -12,9 +12,10 @@ import racingcar.model.Car;
  */
 public class ValidateUtils {
 
-    private static final String CAR_NAME_INPUT_EXCEPTION_MESSAGE = "자동차 이름은 0자 이상 5자 이내여야 합니다.";
+    private static final String CAR_NAME_INPUT_EXCEPTION_MESSAGE = "자동차 이름은 1자 이상 5자 이내여야 합니다.";
     private static final String CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE = "자동차 갯수는 2개 이상이어야 합니다.";
     private static final String MOVES_INPUT_EXCEPTION_MESSAGE = "자연수를 입력해야 합니다.";
+    private static final String CAR_NAME_INPUT_DUPLICATE_EXCEPTION_MESSAGE = "자동차 이름은 중복되면 안됩니다.";
     private static final int FIVE = 5;
     private static final int TWO = 2;
     private static final int ZERO = 0;
@@ -31,6 +32,12 @@ public class ValidateUtils {
             return makeCars(carsList);
         }
         throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
+    }
+
+    private boolean isNotDuplicate(List<String> cars){
+        return cars.stream()
+            .distinct()
+            .count() != cars.size();
     }
 
     private boolean isMoreThanOne(List<String> cars) {
