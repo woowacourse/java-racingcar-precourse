@@ -30,7 +30,7 @@ public class InputUtils {
 
     private void checkRacerStringFormatter() {
         String isFormatter = inputRacerName.substring(0, 1);
-        if (isFormatter.equals(",")) {
+        if (isFormatter.equals(Character.toString(Constants.RACER_LIST_FORMAT))) {
             ExceptionUtils.errorThrow(Constants.FORMATTER_ERROR_ANNOUNCEMENT);
         }
     }
