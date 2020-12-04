@@ -25,6 +25,6 @@ public class CarRacing {
             CarRacingRepeat.repeatCarRacing(carList);
         }
         List<String> winnerList = CarRacingPrint.printWinnerCar(carList);
-        System.out.println(String.format("%s 가 최종 우승했습니다.", String.join(", ", winnerList)));
+        System.out.println(String.format("최종 우승자: %s ", String.join(", ", winnerList)));
     }
 }
