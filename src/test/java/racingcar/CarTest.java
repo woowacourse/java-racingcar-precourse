@@ -12,13 +12,13 @@ public class CarTest {
     @Test
     public void testCreate() {
         Car car = new Car(name);
-        car.addPosition();
+        car.tryForward();
         assertThat(car.getPosition()).isEqualTo(1);
 
         Car secondCar = new Car(secondname);
-        secondCar.addPosition();
-        secondCar.addPosition();
-        secondCar.addPosition();
+        secondCar.tryForward();
+        secondCar.tryForward();
+        secondCar.tryForward();
         assertThat(secondCar.getPosition()).isEqualTo(3);
     }
 }
