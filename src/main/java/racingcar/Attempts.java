@@ -42,8 +42,4 @@ public class Attempts {
     private void moveCarsAndPrintResult(List<Car> cars) {
         cars.stream().forEach(car -> car.moveAndPrintResult());
     }
-
-    public int getCount() {
-        return count;
-    }
 }
