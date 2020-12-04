@@ -110,7 +110,7 @@ public class AskQuestion {
                 System.out.print(", ");
             }
         }
-        System.out.println("은(는) 길이가 너무 깁니다. 5자 이하로 수정해주세요.\n");
+        System.out.println("은(는) 길이가 너무 깁니다. 5자 이하로 수정해주세요.");
     }
 
     public void modifyTooLongNames(ArrayList<IndexNameSet> tooLongName, String[] carNames) {
@@ -121,11 +121,11 @@ public class AskQuestion {
             System.out.print("[MESSAGE] ");
             if (newName.length() > 5) {
                 System.out.println(newName + "은(는) 길이가 너무 깁니다. 5자 이하로 수정해주세요.");
-                i--;
-            } else {
-                carNames[elem.getIndex()] = newName;
-                System.out.println(elem.getName() + "은(는) " + newName + "(으)로 성공적으로 수정되었습니다.");
+                i--; // re-try
+                continue;
             }
+            carNames[elem.getIndex()] = newName;
+            System.out.println(elem.getName() + "은(는) " + newName + "(으)로 성공적으로 수정되었습니다.");
         }
     }
 
