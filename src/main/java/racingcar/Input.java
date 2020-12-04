@@ -20,6 +20,7 @@ public class Input {
 
     public int createRoundNumber(){
         String roundNumber = scanner.nextLine();
+        Validator.validateRoundNumber(roundNumber);
         return Integer.parseInt(roundNumber);
     }
 
