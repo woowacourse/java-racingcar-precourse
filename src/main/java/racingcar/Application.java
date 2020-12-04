@@ -8,11 +8,12 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         CarRacingGame carRacingGame = new CarRacingGame();
         carRacingGame.inputInfoForPlayGame(scanner);
+
         playGame(carRacingGame);
     }
 
     private static void playGame(CarRacingGame carRacingGame) {
-        carRacingGame.inputTest();
         carRacingGame.startCarRacing();
+        carRacingGame.carRaceWinner();
     }
 }
