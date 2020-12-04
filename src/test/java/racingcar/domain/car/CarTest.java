@@ -22,7 +22,7 @@ class CarTest {
         //then
         assertAll(
                 () -> assertThat(car).extracting("name").extracting("name").isEqualTo(carName),
-                () -> assertThat(car).extracting("position").isEqualTo(0)
+                () -> assertThat(car).extracting("position").extracting("position").isEqualTo(0)
         );
     }
 
@@ -40,6 +40,6 @@ class CarTest {
         car = car.moveForwardOrStop(isMovable);
 
         //then
-        assertThat(car).extracting("position").isEqualTo(expectedPosition);
+        assertThat(car).extracting("position").extracting("position").isEqualTo(expectedPosition);
     }
 }

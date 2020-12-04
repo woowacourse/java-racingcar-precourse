@@ -37,10 +37,12 @@ public class OutputView {
     }
 
     private static void printCarPosition(Car car) {
-        System.out.println(car.getName().getValue() + DELIMITER_COLON + convertToPositionSymbols(car.getPosition()));
+        System.out.println(car.getName().getValue()
+                + DELIMITER_COLON
+                + convertToPositionSymbol(car.getPosition().getValue()));
     }
 
-    private static String convertToPositionSymbols(int position) {
+    private static String convertToPositionSymbol(int position) {
         return Stream.generate(() -> POSITION_SYMBOL)
                 .limit(position)
                 .collect(Collectors.joining());

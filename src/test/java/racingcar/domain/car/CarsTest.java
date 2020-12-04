@@ -65,6 +65,7 @@ class CarsTest {
         //then
         Assertions.assertThat(expectedCars.getValue())
                 .extracting("position")
+                .extracting("position")
                 .allMatch(position -> position.equals(expectedPosition));
     }
 
