@@ -1,7 +1,7 @@
 package racingcar.domain.trynumber;
 
 public class TryNumber {
-    private static final String TRY_NUMBER_NOT_SMALLER_THAN_MIN_TRY_NUMBER_MESSAGE = "1보다 작은 값은 입력할 수 없습니다.";
+    private static final String TRY_NUMBER_NOT_SMALLER_THAN_MIN_TRY_NUMBER_MESSAGE = "[ERROR] 1보다 작은 값은 입력할 수 없습니다.";
     private static final int MIN_TRY_NUMBER = 1;
 
     private final int tryNumber;
