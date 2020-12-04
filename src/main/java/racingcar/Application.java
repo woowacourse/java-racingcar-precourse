@@ -8,5 +8,6 @@ public class Application {
         // TODO 구현 진행
         Race race = new Race();
         race.inputCarNamesWithComma(scanner);
+        race.inputCountOfTry(scanner);
     }
 }
