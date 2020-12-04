@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,11 +11,12 @@ import java.util.Set;
 public class AwardGiver {
     private final String MESSAGE_WINNER = "최종 우승자: ";
     private final String DELIMITER = ", ";
-    static ArrayList<String> awardReceiverList = new ArrayList<>();
+    private ArrayList<String> awardReceiverList = new ArrayList<>();
 
-    public void printAwardReceiver(HashMap<String, Car> participants) {
-        int lastRoundNumber = GameManager.numberTryToMove - 1;
-        HashMap lastRoundInformation = Round.roundsInformation.get(lastRoundNumber);
+    public void printAwardReceiver(HashMap<String, Car> participants,
+        ArrayList<HashMap<String, Integer>> allRoundsResults, int numberTryToMove) {
+        int lastRoundNumber = numberTryToMove - 1;
+        HashMap lastRoundInformation = allRoundsResults.get(lastRoundNumber);
         int longestDistance = (int)Collections.max(lastRoundInformation.values());
 
         findWinnerInParticipants(participants, longestDistance);

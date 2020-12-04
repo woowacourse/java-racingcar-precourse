@@ -8,11 +8,11 @@ public class Car {
         this.name = name;
     }
 
-    public void tryToMove(int roundNumber) {
+    public void tryToMove(Round round, int roundNumber) {
         if (MovementArbiter.canMove()) {
             position++;
         }
-        Round.registerCarMovement(roundNumber, name, position);
+        round.registerCarMovement(roundNumber, name, position);
     }
     public boolean isWinner(int longestDistance) {
         return position == longestDistance;

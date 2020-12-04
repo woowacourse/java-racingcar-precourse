@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,11 +12,12 @@ public class Board {
     private final String SYMBOL_CAR_MOVEMENT = "-";
     private final String SEPARATOR_NAME_PROGRESS = " : ";
 
-    public void printAccumulatedRoundsResult() {
+    public void printAccumulatedRoundsResult(ArrayList<HashMap<String, Integer>> allRoundsResults,
+        int numberTryToMove) {
         System.out.println(MESSAGE_GAME_RESULT);
 
-        for (int roundNumber = 0; roundNumber < GameManager.numberTryToMove; roundNumber++) {
-            HashMap round = Round.roundsInformation.get(roundNumber);
+        for (int roundNumber = 0; roundNumber < numberTryToMove; roundNumber++) {
+            HashMap round = allRoundsResults.get(roundNumber);
             printRoundResult(round);
         }
     }
