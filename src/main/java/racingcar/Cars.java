@@ -17,7 +17,7 @@ public class Cars {
 
 	private final List<Car> cars;
 
-	public Cars(List<Car> cars) {
+	public Cars(List<Car> cars) throws IllegalArgumentException {
 		validateNumberOfCars(cars);
 		validateDuplicate(cars);
 		validateCarNameLength(cars);
@@ -31,8 +31,15 @@ public class Cars {
 		}
 	}
 
+	private long countUniqueCarNames(List<Car> cars) {
+		return cars.stream()
+				.map(Car::getName)
+				.distinct()
+				.count();
+	}
+
 	private void validateDuplicate(List<Car> cars) throws IllegalArgumentException {
-		if (cars.stream().distinct().count() != cars.size()) {
+		if (countUniqueCarNames(cars) != cars.size()) {
 			throw new IllegalArgumentException(DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE);
 		}
 	}
@@ -47,14 +54,10 @@ public class Cars {
 
 	private void validateEmptiness(List<Car> cars) throws IllegalArgumentException {
 		for  (Car car : cars) {
-			if (car.getName().trim().length() == 0) {
+			if (car.getName().trim().isEmpty()) {
 				throw new IllegalArgumentException(CAR_NAME_EMPTY_INPUT_ERROR_MESSAGE);
 			}
 		}
-	}
-
-	public int getNumberOfCars() {
-		return cars.size();
 	}
 
 	public void moveCars() {
