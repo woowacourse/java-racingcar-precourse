@@ -32,7 +32,7 @@ public class Car {
 
     public void printCarState() {
         String state = getName() + " : ";
-        for (int i = 0; i< getPosition(); i++){
+        for (int i = 0; i < getPosition(); i++) {
             state += "-";
         }
         System.out.println(state);
