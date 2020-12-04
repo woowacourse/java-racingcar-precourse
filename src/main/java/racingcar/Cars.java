@@ -18,14 +18,14 @@ public class Cars {
 	private final List<Car> cars;
 
 	public Cars(List<Car> cars) throws IllegalArgumentException {
-		validateNumberOfCars(cars);
+		validateCarAmount(cars);
 		validateDuplicate(cars);
 		validateCarNameLength(cars);
-		validateVoidName(cars);
+		validateVoidCarName(cars);
 		this.cars = cars;
 	}
 
-	private void validateNumberOfCars(List<Car> cars) throws IllegalArgumentException {
+	private void validateCarAmount(List<Car> cars) throws IllegalArgumentException {
 		if (cars.size() == 0) {
 			throw new IllegalArgumentException(NUMBER_OF_CARS_INPUT_ERROR_MESSAGE);
 		}
@@ -52,7 +52,7 @@ public class Cars {
 		}
 	}
 
-	private void validateVoidName(List<Car> cars) throws IllegalArgumentException {
+	private void validateVoidCarName(List<Car> cars) throws IllegalArgumentException {
 		for  (Car car : cars) {
 			if (car.getName().trim().isEmpty()) {
 				throw new IllegalArgumentException(CAR_NAME_EMPTY_INPUT_ERROR_MESSAGE);
@@ -68,7 +68,7 @@ public class Cars {
 	}
 
 	private String getCarPositionInformation(Car car) {
-		return String.format("%-5s", car.getName()) + " : " + car.getVisualCarPosition();
+		return car.getName() + " : " + car.getVisualCarPosition();
 	}
 
 	public void getCarPositionAnnouncement() {
