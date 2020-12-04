@@ -6,7 +6,7 @@ public class TrackTest {
 
     @Test
     public void testCreate() {
-        Track track = new Track();
+        Track track = new Track(5);
     }
 
 }
