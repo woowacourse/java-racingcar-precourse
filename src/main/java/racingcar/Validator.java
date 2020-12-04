@@ -10,7 +10,7 @@ public class Validator {
     private static final String DUPLICATE_NAME_ERROR = "[ERROR] 중복된 자동차 이름이 있습니다.";
     private static final String ONLY_ENGLISH_NUMBER = "^[0-9a-zA-Z]*$";
     private static final int CAR_NAME_LENGTH = 5;
-    
+
     public static void validateCarNames(List<String> splittedCarNames) {
         validateNameLength(splittedCarNames);
         validateSeparator(splittedCarNames);

@@ -15,7 +15,6 @@ public class Input {
 
     public List<String> createCarNames() {
         String carNames = scanner.nextLine().trim();
-
         return splitCarNamesByComma(carNames);
     }
 
