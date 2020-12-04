@@ -76,10 +76,10 @@ public class Race {
 
     private void printResult() {
         for (Car car : allRacingCars) {
-            System.out.print(car.getName() + " : ");
+            System.out.print(car.getName() + Constant.COLON);
 
             for (int j = 0; j < car.getPosition(); j++) {
-                System.out.print("-");
+                System.out.print(Constant.FORWARD_SIGN);
             }
             System.out.println();
         }

@@ -13,6 +13,8 @@ public class Constant {
     public static final String EMPTY_NAME = "";
     public static final String DELIMITER = ",";
     public static final String COMMA = ", ";
+    public static final String COLON = " : ";
+    public static final String FORWARD_SIGN = "-";
 
     public static final int MIN_CAR_NAME_LENGTH = 1;
     public static final int MAX_CAR_NAME_LENGTH = 5;
