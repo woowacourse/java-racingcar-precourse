@@ -9,4 +9,11 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void updatePosition(boolean update) {
+        this.position++;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
