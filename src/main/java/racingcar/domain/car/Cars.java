@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import racingcar.domain.exception.CannotFindWinnerCarException;
 import racingcar.domain.exception.CarNameDuplicationException;
 import racingcar.domain.strategy.MovingStrategy;
 
@@ -37,12 +38,17 @@ public class Cars {
     }
 
     public List<String> getWinnerCarNames() {
-        Car maximumPosition = this.cars.stream()
-                .max(Comparator.comparingInt(Car::getPosition)).get();
+        Car maximumPositionCar = findMaximumPositionCar();
         return this.cars.stream()
-                .filter(car -> car.getPosition() == maximumPosition.getPosition())
+                .filter(car -> car.isSamePosition(maximumPositionCar))
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private Car findMaximumPositionCar() {
+        return this.cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .orElseThrow(CannotFindWinnerCarException::new);
     }
 
     public List<String> getCarNames() {
