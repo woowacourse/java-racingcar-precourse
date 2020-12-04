@@ -20,12 +20,13 @@ public class Referee {
         }
     }
 
-    public void selectWinner(RacingCars racingCars) {
+    public RaceWinner selectWinner(RacingCars racingCars) {
         RaceWinner raceWinner = new RaceWinner();
         for (Car car : racingCars.getCarList()) {
             if (car.getPosition() == maxDistance) {
                 raceWinner.addRaceWinner(car);
             }
         }
+        return raceWinner;
     }
 }
