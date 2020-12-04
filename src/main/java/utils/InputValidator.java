@@ -19,8 +19,8 @@ public class InputValidator {
         return (input.length() >= min && input.length() <= max);
     }
 
-    public static void checkDuplicatedCarName(String[] name) {
-        if (hasDuplicatedValue(name)) {
+    public static void checkDuplicatedCarName(String[] names) {
+        if (hasDuplicatedValue(names)) {
             throw new IllegalArgumentException("중복된 이름을 포함할 수 없습니다.");
         }
     }

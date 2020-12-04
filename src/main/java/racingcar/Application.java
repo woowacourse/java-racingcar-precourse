@@ -8,10 +8,10 @@ public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
 
-        Cars racingCars = InputView.getNames(scanner);
+        Cars cars = InputView.getNames(scanner);
         Rounds rounds = InputView.getRounds(scanner);
 
-        RacingGame racingGame = new RacingGame(racingCars, rounds);
+        RacingGame racingGame = new RacingGame(cars, rounds);
         racingGame.play();
     }
 }

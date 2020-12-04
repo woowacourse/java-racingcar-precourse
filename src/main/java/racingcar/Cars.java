@@ -1,7 +1,5 @@
 package racingcar;
 
-import view.OutputView;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

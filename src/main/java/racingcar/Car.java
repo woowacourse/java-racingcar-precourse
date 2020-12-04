@@ -12,6 +12,9 @@ public class Car {
     private static final int TRY_NUMBER_MAX = 9;
     private static final int MOVE_CONDITION = 4;
 
+    private static final String SEPARATOR_NAME_AND_POSITION = " : ";
+    private static final String POSITION_BAR = "-";
+
     private final String name;
     private int position = 0;
 
@@ -29,15 +32,15 @@ public class Car {
 
     public void printPosition() {
         OutputView.printMsg(name);
-        OutputView.printMsg(" : ");
+        OutputView.printMsg(SEPARATOR_NAME_AND_POSITION);
         OutputView.printMsg(getPositionBar());
-        OutputView.printMsg("\n");
+        OutputView.printNextLine();
     }
 
     private String getPositionBar() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            sb.append("-");
+            sb.append(POSITION_BAR);
         }
         return sb.toString();
     }

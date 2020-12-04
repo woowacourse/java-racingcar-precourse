@@ -2,7 +2,7 @@ package view;
 
 public class OutputView {
     private static final String RESULT_MESSAGE = "실행 횟수\n";
-    private static final String SEPARATOR_ROUND = "\n";
+    private static final String NEXT_LINE = "\n";
     private static final String WINNER_MESSAGE = "최종 우승자 : %s \n";
     private static final String ERROR_MESSAGE = "[ERROR] : %s \n";
 
@@ -14,7 +14,11 @@ public class OutputView {
     }
 
     public static void printRoundSeparator() {
-        printMsg(SEPARATOR_ROUND);
+        printMsg(NEXT_LINE);
+    }
+
+    public static void printNextLine(){
+        printMsg(NEXT_LINE);
     }
 
     public static void printWinner(String winners) {

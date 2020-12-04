@@ -25,7 +25,6 @@ public class InputView {
 
     public static Rounds getRounds(Scanner scanner) {
         OutputView.printMsg("시도할 횟수\n");
-
         try {
             int tryNumber = Integer.parseInt(getInput(scanner));
             return Rounds.initialize(tryNumber);

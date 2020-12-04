@@ -17,6 +17,7 @@ public class CarsFactory {
         List carList = Arrays.stream(names)
                 .map(Car::new)
                 .collect(Collectors.toList());
+        
         return new Cars(carList);
     }
 }
