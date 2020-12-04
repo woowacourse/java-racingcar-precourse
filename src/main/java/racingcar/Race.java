@@ -71,7 +71,6 @@ public class Race {
         for (Car car : cars) {
             int position = car.getPosition();
             String carName = car.getName();
-
             if (position != maxPosition) {
                 break;
             }

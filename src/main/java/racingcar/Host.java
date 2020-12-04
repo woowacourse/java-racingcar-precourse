@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 import static racingcar.InputValidator.validateAttemptNum;
 import static racingcar.InputValidator.validateCarNames;
-import static racingcar.MessageBox.*;
+import static racingcar.MessageBox.ATTEMPT_NUMBER_ASK_MESSAGE;
+import static racingcar.MessageBox.NAME_ASK_MESSAGE;
 
 public class Host {
     private int attemptNum;
