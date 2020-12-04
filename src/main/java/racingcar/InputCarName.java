@@ -1,15 +1,18 @@
 package racingcar;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class InputCarName {
 
-    static Scanner scan = new Scanner(System.in);
-
-    public static String[] inputCarName() {
+    public static boolean inputCarName(String str) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
-        return scan.nextLine().split(",");
+        String[] strList = str.split(",");
+        if (InputCarNameCheck.checkInputCarName(strList)) {
+            System.out.println(Arrays.toString(strList));
+            return true;
+        }
+        System.out.println(Arrays.toString(strList));
+        return false;
     }
 
     public static int inputCount(String str) {
