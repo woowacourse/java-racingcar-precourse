@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 import racingcar.model.Car;
 import racingcar.view.InputGuide;
 import racingcar.view.OutputGuide;
@@ -11,16 +12,37 @@ import racingcar.view.OutputGuide;
  */
 public class Game {
 
+    private static final String SHOW_STATUS_LOG = "실행 결과";
+    private static final int MIN = 0;
     private final InputGuide inputGuide;
+
+    private List<Car> cars;
+    private int moves;
 
     public Game(Scanner scanner) {
         this.inputGuide = new InputGuide(scanner);
     }
 
     public void play() {
-        List<Car> cars = inputGuide.inputCars();
-        int moves = inputGuide.countMove();
-        OutputGuide outputGuide = new OutputGuide(cars, moves);
+        init();
+        race();
+        OutputGuide outputGuide = new OutputGuide(cars);
         outputGuide.showResult();
     }
+
+    private void init(){
+        cars = inputGuide.inputCars();
+        moves = inputGuide.countMove();
+    }
+
+    public void race() {
+        System.out.println(SHOW_STATUS_LOG);
+        IntStream.range(MIN, moves).forEach(value -> racePerRound());
+    }
+
+    private void racePerRound() {
+        cars.forEach(Car::run);
+        System.out.println();
+    }
+
 }
