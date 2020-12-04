@@ -1,6 +1,7 @@
 package racingcar;
 
 import static racingcar.MessageBox.NAME_EMPTY_EXCEPTION_MESSAGE;
+import static racingcar.MessageBox.NUMBER_FORMAT_EXCEPTION_MESSAGE;
 
 public class InputValidator {
 
@@ -18,7 +19,7 @@ public class InputValidator {
         try {
             Integer.parseInt(attemptNum);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(MessageBox.NUMBER_FORMAT_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION_MESSAGE);
         }
     }
 }
