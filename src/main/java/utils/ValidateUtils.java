@@ -14,7 +14,7 @@ public class ValidateUtils {
 
     public static int checkTryCountParseInt(String tryCount) {
         try {
-             Integer.parseInt(tryCount);
+            Integer.parseInt(tryCount);
         } catch (NumberFormatException e) {
             System.err.println("시도 횟수는 숫자여야 합니다.");
         }
