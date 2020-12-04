@@ -18,17 +18,17 @@ public class GameManager {
     }
 
     public void createCar(Scanner scanner) {
-        makeCar(scanner);
-        makeTryTimes(scanner);
+        initCar(scanner);
+        initTryTimes(scanner);
     }
 
-    private void makeCar(Scanner scanner) {
+    private void initCar(Scanner scanner) {
         OutputView.printInputCarName();
 
         cars = new Cars(InputView.inputPlayerName(scanner));
     }
 
-    private void makeTryTimes(Scanner scanner) {
+    private void initTryTimes(Scanner scanner) {
         OutputView.printInputRaceTime();
 
         tryTimes = InputView.inputTryTimes(scanner);
