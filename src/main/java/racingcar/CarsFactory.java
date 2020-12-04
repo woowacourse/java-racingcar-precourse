@@ -20,7 +20,8 @@ public class CarsFactory {
 
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            validateCarNameFormat(carName.trim());
+            carName = carName.trim();
+            validateCarNameFormat(carName);
             cars.add(new Car(carName));
         }
 
