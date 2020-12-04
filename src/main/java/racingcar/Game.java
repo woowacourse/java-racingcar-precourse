@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.domain.Race;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -15,6 +17,10 @@ public class Game {
     public void start() {
         List<String> carNames = inputCarNames();
         int numOfMoves = inputRacingMoves();
+
+        Race race = new Race(carNames, numOfMoves);
+        race.start();
+        System.out.println(race.getRacingResult());
     }
 
     private List<String> inputCarNames() {
