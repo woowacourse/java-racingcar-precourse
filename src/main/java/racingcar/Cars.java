@@ -1,10 +1,10 @@
 package racingcar;
 
+import utils.EmptyCarException;
 import utils.RandomUtils;
 import view.OutputView;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -63,7 +63,7 @@ public class Cars {
     }
 
     private int getMaxPosition() {
-        return cars.stream().mapToInt(Car::getPosition).max().orElseThrow(NoSuchElementException::new);
+        return cars.stream().mapToInt(Car::getPosition).max().orElseThrow(EmptyCarException::new);
     }
 
     private List<String> getWinnerName(int maxPosition) {
