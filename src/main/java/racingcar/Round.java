@@ -1,12 +1,10 @@
 package racingcar;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Round {
-    public static ArrayList<HashMap<String, Integer>> roundsInformation =
-        new ArrayList<>(GameManager.numberTryToMove);
+    public static ArrayList<HashMap<String, Integer>> roundsInformation = new ArrayList<>(GameManager.numberTryToMove);
 
     public Round() {
         roundsInformation.add(new HashMap<>());
