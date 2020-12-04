@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private static final String CAR_NAME_NOT_DUPLICATED_MESSAGE = "자동차의 이름은 중복되면 안됩니다.";
+    private static final String CAR_NAME_NOT_DUPLICATED_MESSAGE = "[ERROR] 자동차의 이름은 중복되면 안됩니다.";
 
     private final List<Car> cars;
 
