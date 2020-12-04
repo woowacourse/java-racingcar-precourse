@@ -11,5 +11,7 @@ public class Application {
         Cars racingCars = InputView.getNames(scanner);
         int tryNumber = InputView.getTryNumber(scanner);
 
+        RacingGame racingGame = new RacingGame(racingCars, tryNumber);
+        racingGame.play();
     }
 }
