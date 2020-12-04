@@ -14,7 +14,6 @@ import racingcar.view.OutputGuide;
  */
 public class Game {
 
-
     private static final int MIN = 0;
     private static final String DELIMITER = ", ";
     private static final String NO_WINNERS_EXCEPTION_MESSAGE = "우승자가 존재하지 않습니다.";
@@ -38,7 +37,7 @@ public class Game {
 
     private void init() {
         cars = makeCars(inputGuide.inputCars());
-        moves = inputGuide.countMove();
+        moves = inputGuide.inputMoves();
     }
 
     private List<Car> makeCars(List<String> carNames) {

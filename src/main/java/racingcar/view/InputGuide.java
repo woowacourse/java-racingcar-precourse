@@ -39,13 +39,13 @@ public class InputGuide {
         return input.split(DELIMITER);
     }
 
-    public int countMove() {
+    public int inputMoves() {
         System.out.println(MOVES_INPUT_MESSAGE);
         try {
             return validateUtils.isMoreThanZero();
         } catch (RacingCarErrorException exception) {
             System.out.println(exception.getMessage());
-            return countMove();
+            return inputMoves();
         }
     }
 }
