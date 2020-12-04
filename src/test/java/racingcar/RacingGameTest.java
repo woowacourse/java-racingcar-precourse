@@ -9,9 +9,9 @@ class RacingGameTest {
 
     @Test
     void play() {
-        String[] names = new String[] {"a","b","c","d"};
-        int totalRound = 3;
-        RacingGame racingGame = new RacingGame(CarsFactory.createCars(names), totalRound);
+        Cars cars = CarsFactory.createCars(new String[]{"a","b","c"});
+        Rounds totalRound = Rounds.initialize(3);
+        RacingGame racingGame = new RacingGame(cars, totalRound);
         racingGame.play();
     }
 }
