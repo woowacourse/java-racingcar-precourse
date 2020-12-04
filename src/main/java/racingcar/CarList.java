@@ -1,8 +1,10 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import utils.RandomUtils;
 
@@ -24,9 +26,28 @@ public class CarList implements Iterable<Car> {
             car.attemptToMove(getRandomValue());
         }
     }
-    
+
     private int getRandomValue() {
         return RandomUtils.nextInt(RANDOM_MINIMUM, RANDOM_MAXIMUM);
+    }
+
+    public List<String> getWinners() {
+        int maximumPosition = getMaximumPosition();
+        List<String> winners = new ArrayList<String>();
+        for (Car car : carList) {
+            if (car.getPosition() == maximumPosition) {
+                winners.add(car.getName());
+            }
+        }
+        
+        return winners;
+    }
+
+    private int getMaximumPosition() {
+        return carList.stream()
+                .max(Comparator.comparing(Car::getPosition))
+                .orElseThrow(NoSuchElementException::new)
+                .getPosition();
     }
 
     @Override

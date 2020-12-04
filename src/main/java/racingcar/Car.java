@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private static final int CRITICAL_VALUE_FOR_MOVE = 4;
 
     private final String name;
@@ -26,5 +26,10 @@ public class Car {
 
     private boolean isMovable(int random) {
         return random >= CRITICAL_VALUE_FOR_MOVE;
+    }
+
+    @Override
+    public int compareTo(Car object) {
+        return Integer.compare(object.position, this.position);
     }
 }

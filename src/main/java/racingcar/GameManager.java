@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GameManager {
@@ -14,6 +15,8 @@ public class GameManager {
         
         OutputHandler.printRunMessage();
         move(gameData);
+
+        List<String> winners = getWinners(gameData);
     }
     
     private GameData setupGameData() {
@@ -34,6 +37,14 @@ public class GameManager {
 
     private void moveAllCars(CarList carList) {
         carList.moveAllCars();
+    }
+
+    private List<String> getWinners(GameData gameData) {
+        return getWinners(gameData.carList);
+    }
+    
+    private List<String> getWinners(CarList carList) {
+        return carList.getWinners();
     }
 
     private class GameData {
