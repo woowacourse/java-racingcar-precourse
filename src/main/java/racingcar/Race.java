@@ -1,55 +1,53 @@
 package racingcar;
 
-import utils.OutPutPrinter;
+import utils.OutPutManager;
 import utils.RandomUtils;
 
 public class Race {
-    public static final int MOVE = 4;
-    public static final int MINIMUM_RANGE = 0;
-    public static final int MAXIMUM_RANGE = 9;
-    public static final String NEW_LINE = "\n";
-    public static final int INITIAL_VALUE = 0;
+    private static final int MOVE = 4;
+    private static final int MINIMUM_RANDOM_VALUE = 0;
+    private static final int MAXIMUM_RANDOM_VALUE = 9;
+    private static final int INITIAL_VALUE = 0;
+    private static final String NEW_LINE = "\n";
+    private static final String MOVE_CHARACTER = "-";
 
-    private CarList carList;
+    private RaceCars raceCars;
     private int raceRound;
-    private String raceResult;
 
-    public Race(CarList carList, int raceRound) {
-        this.carList = carList;
+    public Race(RaceCars raceCars, int raceRound) {
+        this.raceCars = raceCars;
         this.raceRound = raceRound;
-        raceResult = "";
     }
 
     public void runCarRace() {
         int roundIndex = INITIAL_VALUE;
+        StringBuilder raceResult = new StringBuilder();
 
         while (roundIndex < raceRound) {
-            moveCarRandomValue();
-            createRaceResult(carList);
+            moveCarByRandomValue();
+            createRaceResult(raceResult, raceCars);
             roundIndex++;
         }
-        OutPutPrinter.carRacingResultPrint(raceResult);
+        OutPutManager.carRacingResultPrint(raceResult.toString());
     }
 
-    private void moveCarRandomValue () {
-        for (Car car : carList.getCarList()) {
-            int moveStatus = RandomUtils.nextInt(MINIMUM_RANGE, MAXIMUM_RANGE);
+    private void moveCarByRandomValue () {
+        for (Car car : raceCars.getRaceCars()) {
+            int moveStatus = RandomUtils.nextInt(MINIMUM_RANDOM_VALUE, MAXIMUM_RANDOM_VALUE);
             if (moveStatus >= MOVE) {
-                car.setPosition(car.getPosition() + 1);
+                car.movePosition();
             }
         }
     }
 
-    private void createRaceResult(CarList carList) {
-        StringBuilder result = new StringBuilder();
-
-        for (Car car : carList.getCarList()) {
-            result.append(car.getName() + " : ");
+    private void createRaceResult(StringBuilder raceResult, RaceCars raceCars) {
+        for (Car car : raceCars.getRaceCars()) {
+            raceResult.append(car.getName() + " : ");
             for (int i = 0; i < car.getPosition(); i++) {
-                result.append("-");
+                raceResult.append(MOVE_CHARACTER);
             }
-            result.append(NEW_LINE);
+            raceResult.append(NEW_LINE);
         }
-        raceResult += result.toString() + NEW_LINE;
+        raceResult.append(NEW_LINE);
     }
 }
