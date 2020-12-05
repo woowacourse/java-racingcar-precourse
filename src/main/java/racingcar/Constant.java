@@ -11,6 +11,7 @@ public class Constant {
     public static final String ERROR_CAR_NAME_LENGTH = ERROR_PREFIX + "1 ~ 5자의 이름을 입력해야 합니다.";
     public static final String ERROR_CAR_NAME_DUPLICATE = ERROR_PREFIX + "중복된 이름을 입력할 수 없습니다.";
     public static final String ERROR_RACE_NUMBER = ERROR_PREFIX + "올바른 입력의 회수가 아닙니다";
+    public static final String ERROR_RACE_NUMBER_POSITIVE_INTEGER = ERROR_PREFIX + "회수는 1이상의 수여야합니다.";
 
     public static final String EMPTY_NAME = "";
     public static final String DELIMITER = ",";

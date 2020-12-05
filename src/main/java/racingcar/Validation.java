@@ -10,8 +10,9 @@ public class Validation {
         isNonDuplicate(cars);
     }
 
-    public static boolean raceNumberValidation(String number) {
-        return isNumber(number) && isPositiveInteger(number);
+    public static void raceNumberValidation(String number) {
+        isNumber(number);
+        isPositiveInteger(number);
     }
 
     private static void isNotEmptyName(String[] cars) {
@@ -41,20 +42,21 @@ public class Validation {
         }
     }
 
-    private static boolean isNumber(String number) {
+    private static void isNumber(String number) {
         for (int i = 0; i < number.length(); i++) {
             char num = number.charAt(i);
 
             if(!Character.isDigit(num)) {
-                return false;
+                throw new IllegalArgumentException(Constant.ERROR_RACE_NUMBER);
             }
         }
-        return true;
     }
 
-    private static boolean isPositiveInteger(String number) {
+    private static void isPositiveInteger(String number) {
         int num = Integer.parseInt(number);
 
-        return num >= Constant.MIN_RACE_NUMBER;
+        if (num < Constant.MIN_RACE_NUMBER) {
+            throw new IllegalArgumentException(Constant.ERROR_RACE_NUMBER_POSITIVE_INTEGER);
+        }
     }
 }
