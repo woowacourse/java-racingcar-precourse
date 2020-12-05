@@ -1,10 +1,14 @@
 package racingcar;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
+        final PrintStream printStream = new PrintStream(System.out);
+        
+        RacingGame racingGame = new RacingGame(scanner, printStream);
+        racingGame.start();
     }
 }
