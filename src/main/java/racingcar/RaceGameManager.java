@@ -10,10 +10,13 @@ public class RaceGameManager {
 
     public RaceGameManager(Scanner scanner) {
         this.scanner = scanner;
+        raceGame = new RaceGame();
+
+        playGame();
     }
 
     private void playGame(){
-
+        raceGame.inputCarsName();
     }
 
     private void inputRepetitionCount(){
