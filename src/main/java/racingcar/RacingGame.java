@@ -90,6 +90,10 @@ public class RacingGame {
             try {
                 String[] input = isValidCarName(scanner.next().split(","));
                 players = new Player[input.length];
+
+                for (int i = 0; i < players.length; i++) {
+                    players[i] = new Player(input[i]);
+                }
                 break;
             } catch (CarNameLengthExcessException e) {
                 System.out.println(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
