@@ -40,7 +40,8 @@ public class Game {
     private void updateCarNames() {
         try {
             outputView.printCarNameQuestion();
-            inputView.getCarNames().forEach(this::enter);
+            inputView.getCarNames()
+                     .forEach(this::enter);
             scoreBoard = new ScoreBoard(cars);
         } catch (IllegalArgumentException e) {
             outputView.printError(e);
@@ -60,7 +61,8 @@ public class Game {
 
     private void playMultipleRound() {
         outputView.printResultMessage();
-        IntStream.range(0, round).forEach(i -> playSingleRound());
+        IntStream.range(0, round)
+                 .forEach(i -> playSingleRound());
     }
 
     private void playSingleRound() {

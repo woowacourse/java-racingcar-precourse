@@ -19,7 +19,7 @@ public class InputView {
         this.scanner = scanner;
     }
 
-    public List<String> getCarNames(){
+    public List<String> getCarNames() {
         List<String> names = getCarNames(scanner.nextLine());
         validateZeroPlayer(names);
         validateNameLength(names);
@@ -35,7 +35,7 @@ public class InputView {
     }
 
     public int getRound() {
-        int number= getRound(scanner.nextLine());
+        int number = getRound(scanner.nextLine());
         validatePositiveInt(number);
         return number;
     }
@@ -68,7 +68,7 @@ public class InputView {
         if (name.length() < MIN_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_MIN_NAME_LENGTH);
         }
-        if (name.length() > MAX_NAME_LENGTH){
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_MAX_NAME_LENGTH);
         }
     }

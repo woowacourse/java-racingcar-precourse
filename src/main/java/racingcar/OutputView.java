@@ -12,6 +12,7 @@ public class OutputView {
     public void printCarNameQuestion() {
         System.out.println(CAR_NAME_QUESTION);
     }
+
     public void printRoundQuestion() {
         System.out.println(ROUND_NUMBER_QUESTION);
     }
@@ -34,7 +35,7 @@ public class OutputView {
         System.out.println(WINNER_MESSAGE + getWinnerNames(scoreBoard));
     }
 
-    private String getWinnerNames(ScoreBoard scoreBoard){
+    private String getWinnerNames(ScoreBoard scoreBoard) {
         return scoreBoard.getWinners()
                          .stream()
                          .map(Car::getName)
