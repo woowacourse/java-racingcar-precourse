@@ -37,7 +37,7 @@ public class RacingGame {
 		cars = new ArrayList<Car>();
 	}
 
-	public void playOnePeriod() {
+	public void raceOneRound() {
 		for (Car car : cars) {
 			int randNum = RandomUtils.nextInt(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
 			if (randNum >= MOVE_CRITERIA_NUM) {
