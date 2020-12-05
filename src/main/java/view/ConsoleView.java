@@ -3,7 +3,8 @@ package view;
 import java.util.Scanner;
 
 public class ConsoleView {
-    public static final String ERROR_INPUT_MUST_DIGIT_MSG = "[ERROR] 시도 횟수는 숫자여야 한다.";
+    private static final String ERROR_INPUT_MUST_DIGIT_MSG = "[ERROR] 시도 횟수는 숫자여야 한다.";
+
     private final Scanner scanner;
 
     public ConsoleView(Scanner scanner) {

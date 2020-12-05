@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    public static final String COLON_WRAPPED_BLANK = " : ";
-    public static final int MIN_VALUE = 0;
-    public static final int MAX_VALUE = 9;
+    private static final String COLON_WRAPPED_BLANK = " : ";
+    private static final int MIN_VALUE = 0;
+    private static final int MAX_VALUE = 9;
 
     private List<Car> cars;
 
