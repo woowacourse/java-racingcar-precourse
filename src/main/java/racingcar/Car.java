@@ -5,6 +5,8 @@ import utils.RandomUtils;
 public class Car {
     private final String name;
     private int position = 0;
+    static final int RANDOM_MIN_NUM = 0;
+    static final int RANDOM_MAX_NUM = 9;
     static final int MOVE_FORWARD = 4;
 
     public Car(String name) {
@@ -16,7 +18,7 @@ public class Car {
     }
 
     public void runRace() {
-        int roundNumber = RandomUtils.nextInt(0, 9);
+        int roundNumber = RandomUtils.nextInt(RANDOM_MIN_NUM, RANDOM_MAX_NUM);
 
         if (judgeIfRun(roundNumber)) {
             position++;
