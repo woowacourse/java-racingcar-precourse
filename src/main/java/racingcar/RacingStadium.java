@@ -25,15 +25,16 @@ public class RacingStadium {
         initializeCars();
         initializeTryCount();
         for (int i = 0; i < tryCount; i++) {
-            printByRandomNumber();
+            playOnce();
         }
     }
 
-    private void printByRandomNumber() {
-        for (int i = 0; i < cars.size(); i++) {
+    private void playOnce() {
+        for (int carIndex = 0; carIndex < cars.size(); carIndex++) {
             int randomNumber = getRandomNumber();
-            cars.get(i).getCarName();
-            System.out.println(cars.get(i).getCarName() + " " + randomNumber);
+            Car nowCar = cars.get(carIndex);
+            nowCar.moveCar(randomNumber);
+            System.out.println("cars = " + nowCar.getCarName() + " RandomNum = " + randomNumber + " position = " + nowCar.getPosition());
         }
         System.out.println();
     }
