@@ -8,14 +8,12 @@ public class Computer {
 
     public String[] parseCarList(String inputCarsName) {
 
-        String[] carList = inputCarsName.split(",");
-
-        return carList;
+        return inputCarsName.split(",");
     }
 
     public boolean checkCarList(String[] carList) {
-        for (int i = 0; i < carList.length; i++) {
-            if (!isAlpha(carList[i])) {
+        for (String s : carList) {
+            if (!isAlpha(s)) {
                 return false;
             }
         }
@@ -62,30 +60,61 @@ public class Computer {
     }
 
     public void moveCars(Car[] cars) {
-        for (int i = 0; i < cars.length; i++) {
+        for (Car car : cars) {
             if (moveOrStop()) {
-                cars[i].upPosition();
+                car.upPosition();
             }
         }
     }
 
     public void printCurrentCarsPosition(Car[] cars) {
-        for (int i = 0; i < cars.length; i++) {
-            String output = "";
-            output += cars[i].getName() + " : ";
-            output += getSignDistance(cars[i].getPosition());
-            System.out.println(output);
+        for (Car car : cars) {
+            String carPosition = "";
+            carPosition += car.getName() + " : ";
+            carPosition += getSignDistance(car.getPosition());
+            System.out.println(carPosition);
         }
         System.out.println();
     }
 
     private String getSignDistance(int len) {
-        String distance = "";
+        StringBuilder distance = new StringBuilder();
 
         for (int i = 0; i < len; i++) {
-            distance += SIGN_DISTANCE;
+            distance.append(SIGN_DISTANCE);
         }
 
-        return distance;
+        return distance.toString();
+    }
+
+    public void printWinnerList(Car[] cars) {
+        int longestDistance = getLongestDistance(cars);
+
+        String winnerList = getWinnerList(cars, longestDistance);
+
+        System.out.println("최종 우승자 : " + winnerList);
+    }
+
+    private String getWinnerList(Car[] cars, int longestDistance) {
+        StringBuilder winnerList = new StringBuilder();
+
+        for (Car car : cars) {
+            if (car.getPosition() == longestDistance) {
+                winnerList.append(car.getName() + ", ");
+            }
+        }
+
+        return winnerList.substring(0, winnerList.length() - 2);
+
+    }
+
+    private int getLongestDistance(Car[] cars) {
+        int longestDistance = 0;
+
+        for (Car car : cars) {
+            longestDistance = Math.max(longestDistance, car.getPosition());
+        }
+
+        return longestDistance;
     }
 }
