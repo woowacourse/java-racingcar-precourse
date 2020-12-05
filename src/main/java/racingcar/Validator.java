@@ -16,15 +16,15 @@ public class Validator {
     private static final int ZERO = 0;
 
     public static void validateCarNames(List<String> splittedCarNames) {
-        validateNameLength(splittedCarNames);
         validateSeparator(splittedCarNames);
+        validateNameLength(splittedCarNames);
         validateDuplicate(splittedCarNames);
         validateNullName(splittedCarNames);
     }
 
     public static void validateRoundNumber(String roundNumber) {
-        validateNumber(roundNumber);
         validatePositiveNumber(roundNumber);
+        validateNumber(roundNumber);
     }
 
     private static void validateNumber(String roundNumber) {
