@@ -20,7 +20,19 @@
 
 <br>
 
+## methodtest package
+
+---------
+
+### InputTest.java
+    - 입력에 관한 테스트를 진행한 클래스
+    
+### GameRoutineTest.java
+    - 게임이 돌아갈 때 필요한 메소드들을 테스한 클래스.
+
 ## inpututils package
+
+----------
 
 ### Input.java
     - Scanner를 가지고 있는 추상 클래스이다.
@@ -39,6 +51,8 @@
     
 ## racingcar package
 
+----------
+
 ### Application.java
     - 일단은 test로 진행중.
     
@@ -47,3 +61,12 @@
 
 ### GameCycle.java
     - 전체적인 게임 사이클을 관리하는 클래스
+    
+## outpututils package
+
+-------
+### Print.java
+    - 게임의 모든 출력을 관리하는 클래스
+    - 한 턴마다 게임의 결과 출력, 게임 종료 후 출력을 관리함.
+    
+    
