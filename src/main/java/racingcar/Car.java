@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import utils.RandomUtils;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private static final int MINIMUM_LIMIT = 0;
     private static final int MAXIMUM_LIMIT = 9;
     private static final int MOVE_LIMIT = 4;
@@ -17,7 +17,7 @@ public class Car implements Comparable<Car>{
     }
 
     public void moveIfRandomNumberIsBiggerThanLimit() {
-        if (generateRandomNumber() > MOVE_LIMIT) {
+        if (generateRandomNumber() >= MOVE_LIMIT) {
             position++;
         }
     }
@@ -32,7 +32,7 @@ public class Car implements Comparable<Car>{
         return this.position - otherCar.position;
     }
 
-    public boolean isSamePosition(Car otherCar){
+    public boolean isSamePosition(Car otherCar) {
         return this.position == otherCar.position;
     }
 
@@ -42,7 +42,7 @@ public class Car implements Comparable<Car>{
             .collect(Collectors.joining());
     }
 
-    public static int generateRandomNumber(){
-        return RandomUtils.nextInt(MINIMUM_LIMIT,MAXIMUM_LIMIT);
+    protected int generateRandomNumber() {
+        return RandomUtils.nextInt(MINIMUM_LIMIT, MAXIMUM_LIMIT);
     }
 }
