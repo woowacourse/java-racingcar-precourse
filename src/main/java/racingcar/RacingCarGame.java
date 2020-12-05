@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,6 +15,7 @@ public class RacingCarGame {
     public void start(Scanner scanner) {
         carNamesInput(scanner);
         tryCountInput(scanner);
+        gameProgress();
         // printCarName();
     }
 
@@ -44,6 +47,19 @@ public class RacingCarGame {
         } catch (Exception e) {
             System.err.println(Constants.STANDARD_ERROR_MSG + " " + Constants.TRY_COUNT_ERROR_MSG);
             tryCountInput(scanner);
+        }
+    }
+
+    private void gameProgress() {
+        for (int i = 0; i < tryCount; ++i) {
+            carMoveOrNot();
+        }
+    }
+
+    private void carMoveOrNot() {
+        for (Car car : carList) {
+            int randomNum = RandomUtils.nextInt(0, 9);
+            car.carMove(randomNum);
         }
     }
 

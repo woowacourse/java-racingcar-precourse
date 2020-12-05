@@ -11,5 +11,9 @@ public class Car {
     public String getName() {
         return this.name;
     }
+
     // 추가 기능 구현
+    public void carMove(int randomNum) {
+        if (randomNum >= 4) this.position++;
+    }
 }
