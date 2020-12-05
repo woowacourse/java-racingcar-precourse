@@ -16,10 +16,6 @@ public class RacingCars {
         makeRacingCarList(carList);
     }
 
-    public List<Car> getRacingCars() {
-        return cars;
-    }
-
     private void validateSize(List<String> carList) throws IllegalArgumentException {
         if (carList.size() > MAX_NUMBER_OF_CARS || carList.size() < MIN_NUMBER_OF_CARS) {
             throw new IllegalArgumentException("[ERROR] 자동자 개수는 2-5개로 한정 된다.");
@@ -38,6 +34,14 @@ public class RacingCars {
         for (int car = 0; car < carList.size(); car++) {
             Car racingCar = new Car(carList.get(car));
             cars.add(racingCar);
+        }
+    }
+
+    //TODO 중복 이름 검사 메소드 구현
+
+    public void takeOneRound() {
+        for (int car = 0; car < cars.size(); car++) {
+            cars.get(car).runRace();
         }
     }
 }
