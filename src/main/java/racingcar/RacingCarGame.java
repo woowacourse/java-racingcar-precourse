@@ -1,12 +1,15 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import utils.ValidatorUtils;
 
 public class RacingCarGame {
 
     private Scanner scanner;
+    private List<Car> carList = new ArrayList<>();
 
     public RacingCarGame(Scanner scanner) {
         this.scanner = scanner;
@@ -17,16 +20,23 @@ public class RacingCarGame {
     }
 
     private void getCarNames() {
+        String[] carNames;
         while (true) {
             try{
-                String[] carNames = askCarNames();
+                carNames = askCarNames();
                 ValidatorUtils.checkUnderFiveLetters(carNames);
                 break;
             }catch (IllegalArgumentException i){
                 System.out.println(i.getMessage());
             }
         }
-        System.out.println("완료");
+        makeCar(carNames);
+    }
+
+    private void makeCar(String[] carNames) {
+        for(String carName : carNames){
+            carList.add(new Car(carName));
+        }
     }
 
     private String[] askCarNames() {
