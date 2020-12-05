@@ -35,7 +35,7 @@ public class GameManager {
         for (int round = 0; round < numberOfTry; round++) {
             playRound();
         }
-        printWinners();
+        selectWinners();
     }
 
     public void playRound() {
@@ -74,20 +74,20 @@ public class GameManager {
         }
     }
 
-    public void printWinners() {
+    public void selectWinners() {
         int carListSize = carList.size();
-        boolean printedFirstWinner = false;
+        boolean isPrintedFirstWinner = false;
         System.out.print(WINNERS_PREFIX);
         for (int i = 0; i < carListSize; i++) {
             if (carList.get(i).getPosition() == winnerPosition) {
-                printWinnerNames(i, printedFirstWinner);
-                printedFirstWinner = true;
+                printWinnersName(i, isPrintedFirstWinner);
+                isPrintedFirstWinner = true;
             }
         }
     }
 
-    public void printWinnerNames(int index, boolean printedFirstWinner) {
-        if (printedFirstWinner) {
+    public void printWinnersName(int index, boolean isPrintedFirstWinner) {
+        if (isPrintedFirstWinner) {
             System.out.print(NAMES_CONNECTOR);
         }
         System.out.print(carList.get(index).getName());
