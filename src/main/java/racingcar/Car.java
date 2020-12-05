@@ -10,6 +10,9 @@ public class Car {
     private int position = 0;
     private String positionSign = "";
     private static List<Car> carList = new ArrayList<>();
+    private static int MOVE_LIMIT_NUM = 4;
+    private static int MIN_RANDOM_NUM = 0;
+    private static int MAX_RANDOM_NUM = 9;
 
     public Car(String name, int position) {
         this.name = name;
@@ -29,13 +32,13 @@ public class Car {
     }
 
     public static void moveOrStop(Car car) {
-        if (randomNumGenerator() >= 4) {
+        if (randomNumGenerator() >= MOVE_LIMIT_NUM) {
             car.move();
         }
     }
 
     public static int randomNumGenerator() {
-        return RandomUtils.nextInt(0,9);
+        return RandomUtils.nextInt(MIN_RANDOM_NUM,MAX_RANDOM_NUM);
     }
 
     public void move() {
@@ -77,11 +80,5 @@ public class Car {
             }
         }
         return max;
-    }
-
-    public static void printPosition(List<Car> carList) {
-        for (Car car : carList) {
-            System.out.println(car.position);
-        }
     }
 }
