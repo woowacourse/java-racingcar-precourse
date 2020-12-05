@@ -27,8 +27,8 @@ public class Player {
 	private void inputCar(Scanner scanner) {
 		while (true) {
 			System.out.println(START_MESSAGE);
-			car = scanner.nextLine();
-			carNames = Arrays.asList(car.replaceAll(" ", "").split(","));
+			this.car = scanner.nextLine();
+			this.carNames = Arrays.asList(car.replaceAll(" ", "").split(","));
 			
 			if (Validator.isUseableCar(carNames)) {
 				return;
@@ -42,7 +42,7 @@ public class Player {
 			System.out.println(COUNT_QUESTION);
 			
 			try {
-				triedCnt = scanner.nextInt();
+				this.triedCnt = scanner.nextInt();
 			} catch (InputMismatchException e) {
 				System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.\n");
 				scanner.nextLine();
