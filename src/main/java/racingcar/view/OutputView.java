@@ -5,15 +5,15 @@ import racingcar.domain.RacingCars;
 
 public final class OutputView {
 
-    public static final String GAME_RESULT = "\n실행 결과";
+    private static final String GAME_RESULT = "\n실행 결과";
 
-    public static final String FINAL_WINNERS = "최종 우승자: ";
+    private static final String FINAL_WINNERS = "최종 우승자: ";
 
-    public static final String MOVE_SYMBOL = "-";
+    private static final String MOVE_SYMBOL = "-";
 
-    public static final String NULL_CHARACTER = "\0";
+    private static final String NULL_CHARACTER = "\0";
 
-    public static final String WINNERS_DELIMITER = ", ";
+    private static final String WINNERS_DELIMITER = ", ";
 
     public void printGameResult() {
         System.out.println(GAME_RESULT);

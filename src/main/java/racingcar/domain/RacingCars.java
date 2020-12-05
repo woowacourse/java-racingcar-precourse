@@ -26,14 +26,6 @@ public final class RacingCars {
         return racingCars;
     }
 
-    public List<Car> setUpCars(final String carNames) {
-        final List<Car> racingCars = Arrays.stream(carNames.split(InputView.DELIMITER))
-                .map(carName -> new Car(carName.trim()))
-                .collect(Collectors.toList());
-
-        return Collections.unmodifiableList(racingCars);
-    }
-
     public RacingCars moveCars() {
         final List<Car> cars = new ArrayList<>();
 
@@ -56,5 +48,13 @@ public final class RacingCars {
         final int maxPosition = Collections.max(scoreBoard.keySet());
 
         return scoreBoard.get(maxPosition);
+    }
+
+    private List<Car> setUpCars(final String carNames) {
+        final List<Car> racingCars = Arrays.stream(carNames.split(InputView.DELIMITER))
+                .map(carName -> new Car(carName.trim()))
+                .collect(Collectors.toList());
+
+        return Collections.unmodifiableList(racingCars);
     }
 }

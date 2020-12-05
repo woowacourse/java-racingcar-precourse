@@ -6,7 +6,7 @@ import racingcar.domain.generator.RandomFuelGenerator;
 
 public final class Car {
 
-    public static final int MOVE_CONDITION = 4;
+    private static final int MOVE_CONDITION = 4;
 
     private final Name name;
 
