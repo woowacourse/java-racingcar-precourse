@@ -15,6 +15,14 @@ public class Car {
     }
 
     /**
+     * 차의 이름을 반환해주는 메서드
+     * @return 차의 이름
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
      * 지금 현재 위치를 반환해주는 메서드
      * @return 차의 현재위치
      */

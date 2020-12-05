@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.ArrayList;
+
 public class OutputViewer {
     private static final String FIRST_RESULT_MESSAGE = "실행 결과";
     private static final String PARTICIPANT_NAME_MESSAGE = "%s";
@@ -43,12 +45,12 @@ public class OutputViewer {
      * @param finalWinnerNames 여러 우승자들이 담겨져있는 Array
      */
 
-    public static void multipleFinalWinner(String[] finalWinnerNames) {
+    public static void multipleFinalWinner(ArrayList finalWinnerNames) {
         System.out.print(FINAL_WINNER_MESSAGE);
-        for (int i = 0 ; i < finalWinnerNames.length-1; i++) {
-            System.out.printf("%s, ", finalWinnerNames[i]);
+        for (int i = 0 ; i < finalWinnerNames.size()-1; i++) {
+            System.out.printf("%s, ", finalWinnerNames.get(i));
         }
-        System.out.printf("%s", finalWinnerNames[finalWinnerNames.length-1]);
+        System.out.printf("%s", finalWinnerNames.get(finalWinnerNames.size()-1));
     }
 
     /* 게임간 간격 확보영 메서드 */
