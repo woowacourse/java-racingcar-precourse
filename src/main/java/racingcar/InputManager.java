@@ -23,7 +23,7 @@ public class InputManager {
     }
 
     public List<Car> generateCars() throws IllegalArgumentException {
-        String carList = scanner.next();
+        String carList = scanner.nextLine();
         Set<Car> filteredCars = new LinkedHashSet<>();
         String[] preFilteredCars = carList.split(Constants.SEPARATOR);
         for (String preFilteredCar : preFilteredCars) {

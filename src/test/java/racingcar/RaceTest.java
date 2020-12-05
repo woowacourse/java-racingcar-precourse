@@ -14,12 +14,16 @@ public class RaceTest {
         //GIVEN
         String carNames = "pobi,jun,woni";
         InputManager inputManager = new InputManager(new Scanner(carNames));
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
         boolean expectedResult = true;
 
         //WHEN
         boolean actualRusult = true;
         try {
-            Race.generateRace(inputManager);
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualRusult = false;
+            }
         } catch (Exception e) {
             if (e.getMessage() == null) {
                 actualRusult = false;
@@ -35,12 +39,16 @@ public class RaceTest {
         //GIVEN
         String carNames = "pobieg,jun,woni";
         InputManager inputManager = new InputManager(new Scanner(carNames));
-        boolean expectedResult = false;
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+        boolean expectedResult = true;
 
         //WHEN
         boolean actualRusult = true;
         try {
-            Race.generateRace(inputManager);
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualRusult = false;
+            }
         } catch (Exception e) {
             if (e.getMessage() == null) {
                 actualRusult = false;
@@ -56,12 +64,16 @@ public class RaceTest {
         //GIVEN
         String carNames = "pobi,pobi,woni";
         InputManager inputManager = new InputManager(new Scanner(carNames));
-        boolean expectedResult = false;
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+        boolean expectedResult = true;
 
         //WHEN
         boolean actualRusult = true;
         try {
-            Race.generateRace(inputManager);
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualRusult = false;
+            }
         } catch (Exception e) {
             if (e.getMessage() == null) {
                 actualRusult = false;
@@ -77,12 +89,16 @@ public class RaceTest {
         //GIVEN
         String carNames = ",,";
         InputManager inputManager = new InputManager(new Scanner(carNames));
-        boolean expectedResult = false;
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+        boolean expectedResult = true;
 
         //WHEN
         boolean actualRusult = true;
         try {
-            Race.generateRace(inputManager);
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualRusult = false;
+            }
         } catch (Exception e) {
             if (e.getMessage() == null) {
                 actualRusult = false;
@@ -98,12 +114,66 @@ public class RaceTest {
         //GIVEN
         String carNames = ",pobi,";
         InputManager inputManager = new InputManager(new Scanner(carNames));
-        boolean expectedResult = false;
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+        boolean expectedResult = true;
 
         //WHEN
         boolean actualRusult = true;
         try {
-            Race.generateRace(inputManager);
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualRusult = false;
+            }
+        } catch (Exception e) {
+            if (e.getMessage() == null) {
+                actualRusult = false;
+            }
+        }
+
+        //THEN
+        Assertions.assertEquals(expectedResult, actualRusult);
+    }
+
+    @Test
+    public void testCase6_isCarNameEnteredCorrectly() {
+        //GIVEN
+        String carNames = "pobi, jun,woni";
+        InputManager inputManager = new InputManager(new Scanner(carNames));
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+        boolean expectedResult = true;
+
+        //WHEN
+        boolean actualRusult = true;
+        try {
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualRusult = false;
+            }
+        } catch (Exception e) {
+            if (e.getMessage() == null) {
+                actualRusult = false;
+            }
+        }
+
+        //THEN
+        Assertions.assertEquals(expectedResult, actualRusult);
+    }
+
+    @Test
+    public void testCase7_isCarNameEnteredCorrectly() {
+        //GIVEN
+        String carNames = " , , ";
+        InputManager inputManager = new InputManager(new Scanner(carNames));
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+        boolean expectedResult = true;
+
+        //WHEN
+        boolean actualRusult = true;
+        try {
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualRusult = false;
+            }
         } catch (Exception e) {
             if (e.getMessage() == null) {
                 actualRusult = false;

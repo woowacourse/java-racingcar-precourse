@@ -18,6 +18,13 @@ public class Race {
         this.cars = cars;
     }
 
+    /**
+     * only for test
+     */
+    public List<Car> getCars() {
+        return this.cars;
+    }
+
     public static Race generateRace(InputManager inputManager) {
         System.out.println(Constants.CAR_INPUT_STATEMENT);
         while (true) {
