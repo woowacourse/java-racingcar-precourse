@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
-    private final static int RANDOM_MINIMUM = 0;
-    private final static int RANDOM_MAXIMUM = 9;
+    private static final int RANDOM_MINIMUM = 0;
+    private static final int RANDOM_MAXIMUM = 9;
     List<Car> carList = new ArrayList<>();
 
     public RacingCars(List<String> carNameList) {

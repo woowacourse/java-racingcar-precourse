@@ -5,12 +5,12 @@ import domain.RaceWinner;
 import domain.RacingCars;
 
 public class OutputView {
-    private final static String COLON = " : ";
-    private final static String HYPHEN = "-";
-    private final static String FINAL_WINNER = "최종 우승자: ";
-    private final static String NAME_SEPARATOR = ", ";
-    private final static int START_INDEX = 0;
-    private final static int END_INDEX = 2;
+    private static final String COLON = " : ";
+    private static final String HYPHEN = "-";
+    private static final String FINAL_WINNER = "최종 우승자: ";
+    private static final String NAME_SEPARATOR = ", ";
+    private static final int START_INDEX = 0;
+    private static final int END_INDEX = 2;
 
     public static void printOneRound(RacingCars racingCars) {
         for (Car car : racingCars.getCarList()) {

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RacingGame {
-    private final static String RESULT = "실행 결과";
+    private static final String RESULT = "실행 결과";
 
     private int totalRound;
     private RacingCars racingCars;
