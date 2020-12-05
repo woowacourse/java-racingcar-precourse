@@ -2,18 +2,19 @@ package racingcar;
 
 import java.util.Scanner;
 
-import utils.ConsoleManager;
+import utils.InputManager;
 
 public class Application {
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
 
-		ConsoleManager consoleManager = new ConsoleManager(scanner);
+		InputManager inputManager = new InputManager(scanner);
 
-		String[] carNames = consoleManager.getCarNamesFromInput();
+		String[] carNames = inputManager.getCarNamesFromInput();
+		int roundNumber = inputManager.getRoundNumberFromInput();
 
-		RacingGame racingGame = new RacingGame(carNames);
-
-		int moveNumber = consoleManager.getMoveNumberFromInput();
+		Racing racing = new Racing(carNames);
+		
+		racing.start(roundNumber);
 	}
 }
