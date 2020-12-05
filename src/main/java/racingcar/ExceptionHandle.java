@@ -5,10 +5,30 @@ import java.util.HashMap;
 import java.util.Map;
 public class ExceptionHandle {
     public boolean checkInputString(String tmpCarNameSaveParameter){
-        if(!checkInputStringIsBlank(tmpCarNameSaveParameter)||!checkInputStringIsRepeat(tmpCarNameSaveParameter)||checkInputStringSize(tmpCarNameSaveParameter)){
+        if(!checkInputStringInComma(tmpCarNameSaveParameter)||!checkInputStringIsBlank(tmpCarNameSaveParameter)||!checkInputStringIsRepeat(tmpCarNameSaveParameter)||!checkInputStringSize(tmpCarNameSaveParameter)){
             return false;
         }
         return true;
+    }
+    public boolean checkInputStringInComma(String tmpCarNameSaveParameter){
+        int nameNumber=0;
+        for(String t:tmpCarNameSaveParameter.split(",")){
+            nameNumber+=1;
+        }
+        if(countCommaNumber(tmpCarNameSaveParameter)!=nameNumber-1){
+            System.out.println("콤마(,)의 갯수가 차 이름 수와 맞지 않습니다");
+            return false;
+        }
+        return true;
+    }
+    public int countCommaNumber(String tmpCarNameSaveParameter){
+        int commaNumber=0;
+        for(int i=0;i<tmpCarNameSaveParameter.length();i++){
+            if(tmpCarNameSaveParameter.charAt(i)==','){
+                commaNumber+=1;
+            }
+        }
+        return commaNumber;
     }
     public boolean checkInputStringSize(String tmpCarNameSaveParameter){
         for(String t:tmpCarNameSaveParameter.split(",")){
@@ -35,6 +55,7 @@ public class ExceptionHandle {
                 System.out.println("[ERROR] 자동차의 이름은 중복되지 않아야 한다.");
                 return false;
             }
+            tmpCheckMap.put(t,0);
         }
         return true;
     }
