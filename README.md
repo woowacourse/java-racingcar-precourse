@@ -141,6 +141,15 @@ public class Car {
 
 <br>
 
+## 구현 기능 목록
+### 1. 사용자 입력을 통한 플레이어 객체 생성
+### 2. 랜덤으로 자동차의 전진 여부 판단
+### 3. 최종 우승자 비교
+### 4. 예외 처리
+- 시도할 횟수 입력에 대하여 숫자가 아닐 시 예외 처리
+
+<br>
+
 ## 📈 진행 요구사항
 - 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
 - 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
