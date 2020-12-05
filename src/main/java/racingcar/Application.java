@@ -47,7 +47,7 @@ public class Application {
         for (String nameOfCar : namesOfCarsArray) {
             addCarToList(mechanic.getCarWithValidName(nameOfCar));
         }
-        mechanic.noticeErrors(namesOfCarsArray , carList);
+        mechanic.noticeErrors(namesOfCarsArray, carList);
         if (isCarListEmpty()) {
             noticeEmptyCarList();
             return createCarList(scanner);

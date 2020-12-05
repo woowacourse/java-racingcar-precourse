@@ -38,7 +38,7 @@ public class Car {
 
     private int getRandomValue() {
         return RandomUtils.nextInt(GameProcess.RANDOM_START_INCLUSIVE.getValue(),
-                                    GameProcess.RANDOM_END_INCLUSIVE.getValue());
+                GameProcess.RANDOM_END_INCLUSIVE.getValue());
     }
 
     private boolean isRandomValueMoreThanCriteria(int randomValue) {

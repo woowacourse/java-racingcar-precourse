@@ -58,10 +58,10 @@ public class Mechanic {
         return nameOfCar.equals("");
     }
 
-    public void noticeErrors(String[] namesOfCarsArray , List<Car> carList) {
+    public void noticeErrors(String[] namesOfCarsArray, List<Car> carList) {
         noticeNameTrimmed();
         noticeShortenName();
-        noticeBlankNameRemoved(namesOfCarsArray , carList);
+        noticeBlankNameRemoved(namesOfCarsArray, carList);
     }
 
     public void noticeNameTrimmed() {
