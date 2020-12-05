@@ -6,25 +6,23 @@ import java.util.Scanner;
 import java.util.Collection;
 
 public class PlayGame {
-    String tmpCarNameSave;
-    String[] carNameSave;
-    String inputStringAttemptNumber;
-    int doAttemptNumber;
-    Car[] carObject;
+    private String tmpCarNameSave;
+    private String[] carNameSave;
+    private String inputStringAttemptNumber;
+    private int doAttemptNumber;
+    private Car[] carObject;
     ComputeRelatedCar computeRelatedCar=new ComputeRelatedCar();
     ExceptionHandle exceptionHandle=new ExceptionHandle();
     public PlayGame(Scanner scanner) {
+        startRacingCar(scanner);
+    }
+    public void startRacingCar(Scanner scanner){
         inputRacerName(scanner);
         inputAttemptNumber(scanner);
-
         splitCommaInString(scanner);
         makingCarObjectArray();
         implementGetPrintCarPositionToMinus();
         printWinnerName();
-
-    }
-    public void startRacingCar(){
-
     }
     public void inputRacerName(Scanner scanner){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
