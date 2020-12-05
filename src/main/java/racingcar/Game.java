@@ -22,6 +22,8 @@ public class Game {
     public void start() throws InputMismatchException, InvalidInputException {
         initParams();
         playRounds();
+        checkWinners();
+        awardWinners();
     }
 
 
@@ -82,5 +84,36 @@ public class Game {
         for (Car car : cars) {
             car.move();
         }
+    }
+
+
+    private void checkWinners() {
+        for (Car car : cars) {
+            checkIfAdditionalWinner(car);
+            checkIfNewWinner(car);
+        }
+    }
+
+    private void checkIfAdditionalWinner(Car car) {
+        if (car.getPosition() == maxCarPosition)
+            winners.add(car);
+    }
+
+    private void checkIfNewWinner(Car car) {
+        if (car.getPosition() > maxCarPosition) {
+            maxCarPosition = car.getPosition();
+            winners.clear();
+            winners.add(car);
+        }
+    }
+
+
+    private void awardWinners() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자: ");
+        for (Car car : winners)
+            sb.append(car.getName()).append(", ");
+        sb.deleteCharAt(sb.length() - 2);
+        System.out.println(sb.toString());
     }
 }

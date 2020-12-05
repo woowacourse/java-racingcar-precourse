@@ -186,4 +186,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - [x] 이름 input 예외처리
     - [x] 횟수 input 예외처리
 - [x] n라운드 실행 및 결과 출력
-- [ ] 우승자 확인 및 결과 출력 
+- [x] 우승자 확인 및 결과 출력 

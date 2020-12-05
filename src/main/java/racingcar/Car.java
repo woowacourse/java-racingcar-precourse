@@ -15,6 +15,9 @@ public class Car {
         return this.position;
     }
 
+    public String getName() {
+        return this.name;
+    }
 
     public void move() {
         moveOnRandomNum();
