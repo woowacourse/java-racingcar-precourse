@@ -14,6 +14,6 @@ public class Application {
 
 		RacingGame racingGame = new RacingGame(carNames);
 
-		racingGame.moveCars();
+		int moveNumber = consoleManager.getMoveNumberFromInput();
 	}
 }
