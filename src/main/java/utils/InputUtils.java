@@ -1,6 +1,6 @@
 package utils;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.type.BoundaryType;
 import racingcar.type.ErrorType;
 import racingcar.type.TextType;
@@ -16,7 +16,6 @@ import java.util.Set;
  * @author Daeun Lee
  */
 public class InputUtils {
-
     public static Car validateCar(String carName) {
         // 자동차 이름의 길이가 1자 미만 또는 5자 초과인 경우
         if (carName.length() < BoundaryType.MINIMUM_CAR_NAME_LENGTH.getBoundary() ||

@@ -1,16 +1,15 @@
-package racingcar.generator;
+package racingcar.domain;
 
 import racingcar.type.BoundaryType;
 import utils.RandomUtils;
 
 /**
- * 0~9 사이에서 random 값을 구하는 클래스
+ * random 값에 대한 클래스
  *
  * @author Daeun Lee
  */
-public class NumberGenerator {
-
-    public static int generateNumber() {
+public class RandomNumber {
+    public static int generateRandomNumber() {
         return RandomUtils.nextInt(BoundaryType.MINIMUM_RANDOM_NUMBER.getBoundary(),
                 BoundaryType.MAXIMUM_RANDOM_NUMBER.getBoundary());
     }

@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.type.ErrorType;
 import racingcar.type.TextType;
 
@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * @author Daeun Lee
  */
 public class OutputView {
-
     public static void printNewLine() {
         System.out.println();
     }
