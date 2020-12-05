@@ -14,7 +14,14 @@ public class Car {
 	public void increase_position() {
 		this.position++;
 	}
-
+	
+	public int get_position() {
+		return this.position;
+	}
+	
+	public String get_name(){
+		return this.name;
+	}
 	public void move_or_stop() {
 		if (RandomUtils.nextInt(0, 9) >= 4) {
 			increase_position();
@@ -22,7 +29,7 @@ public class Car {
 	}
 
 	public void print_position() {
-		System.out.println(name+" : ");
+		System.out.print(name+" : ");
 		for (int i = 0; i < position; i++) {
 			System.out.print("-");
 		}
