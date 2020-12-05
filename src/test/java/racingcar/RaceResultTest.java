@@ -1,15 +1,14 @@
 package racingcar;
 
 import domain.Car;
-import org.assertj.core.api.Assertions;
+import domain.Participants;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RaceResultTest {
     @Test
@@ -18,14 +17,15 @@ class RaceResultTest {
         //given
         final String WINNER_NAME = "Bomin";
         final int RUNNABLE_NUM = 5;
-        List<Car> multiCars = createMultiCars();
+        Participants participants = Participants.of(createMultiCars());
         //when
-        multiCars.stream()
+        participants.getParticipants().stream()
                 .filter(car -> car.getName().equals(WINNER_NAME))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        RaceResult result = RaceResult.of(multiCars);
-        //then
-        assertThat(result.getWinnersName()).contains(WINNER_NAME);
+        RaceResult raceResult = RaceResult.newInstance();
+        raceResult.setWinnersAmongParticipants(participants);
+//        then
+        assertThat(raceResult.getWinnersName()).contains(WINNER_NAME);
     }
 
     @Test
@@ -34,14 +34,15 @@ class RaceResultTest {
         //given
         final List<String> WINNER_NAMES = Arrays.asList("Bomin", "Daniel");
         final int RUNNABLE_NUM = 5;
-        List<Car> multiCars = createMultiCars();
+        Participants participants = Participants.of(createMultiCars());
         //when
-        multiCars.stream()
+        participants.getParticipants().stream()
                 .filter(car -> WINNER_NAMES.contains(car.getName()))
                 .forEach(car -> car.run(RUNNABLE_NUM));
-        RaceResult result = RaceResult.of(multiCars);
+        RaceResult raceResult = RaceResult.newInstance();
+        raceResult.setWinnersAmongParticipants(participants);
         //then
-        assertThat(WINNER_NAMES).isEqualTo(result.getWinnersName());
+        assertThat(WINNER_NAMES).isEqualTo(raceResult.getWinnersName());
     }
 
     public List<Car> createMultiCars() {

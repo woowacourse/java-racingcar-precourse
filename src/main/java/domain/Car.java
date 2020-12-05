@@ -1,7 +1,7 @@
 package domain;
 
 public class Car {
-    private final int RUNNABLE_MIN_NUM = 4;
+    private static final int RUNNABLE_MIN_NUM = 4;
     private final String name;
     private int position = 0;
 
@@ -27,4 +27,5 @@ public class Car {
     public int getCurrentPosition() {
         return position;
     }
+
 }

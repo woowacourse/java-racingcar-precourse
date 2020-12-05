@@ -1,6 +1,4 @@
-package racingcar;
-
-import domain.Car;
+package domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,11 +6,15 @@ import java.util.stream.Collectors;
 public class Winners {
     private List<Car> winners;
 
-    public Winners(List<Car> winners) {
+    private Winners(List<Car> winners) {
         this.winners = winners;
     }
 
-    public List<String> getWinnersName(){
+    public static Winners of(List<Car> winners) {
+        return new Winners(winners);
+    }
+
+    public List<String> getWinnersName() {
         return winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());

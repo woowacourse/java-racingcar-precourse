@@ -1,6 +1,7 @@
 package racingcar;
 
 import domain.Car;
+import domain.Participants;
 import utils.InputView;
 import utils.Printer;
 import utils.RandomDigitStrategy;
@@ -12,29 +13,38 @@ import java.util.Scanner;
 public class RaceManager {
     private Race race;
 
-    public RaceManager(Scanner scanner) {
-        InputView inputView = new InputView(scanner);
-        String[] names = inputView.inputName();
-        List<Car> cars = createCars(names);
-        int round = inputView.inputRound();
-        race = new Race(cars, round);
+    private RaceManager(Race race) {
+        this.race = race;
     }
 
-    private List<Car> createCars(String[] names) {
+    public static RaceManager of(Scanner scanner) {
+        InputView inputView = new InputView(scanner);
+        String[] names = inputView.inputName();
+        int round = inputView.inputRound();
+        Participants participants = participateRace(names);
+        return new RaceManager(Race.of(participants, round));
+    }
+
+    public static RaceManager of(Participants participants, int round) {
+        return new RaceManager(Race.of(participants, round));
+    }
+
+    private static Participants participateRace(String[] names) {
         List<Car> cars = new ArrayList<>();
         for (String name : names) {
             cars.add(new Car(name));
         }
-        return cars;
+        return Participants.of(cars);
     }
 
-    public void startRace(){
-        Printer.printRaceStart();
+    public void startRandomRace() {
         RaceResult raceResult = race.startRace(new RandomDigitStrategy());
         announceResult(raceResult);
     }
 
     private void announceResult(RaceResult raceResult) {
+        Printer.printRaceStart();
+        Printer.print(raceResult.getLog());
         List<String> winnersName = raceResult.getWinnersName();
         Printer.printWinnerName(winnersName);
     }

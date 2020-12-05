@@ -1,35 +1,30 @@
 package racingcar;
 
-import domain.Car;
+import domain.Participants;
 import utils.DigitStrategy;
-import utils.Printer;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Race {
-    private List<Car> cars;
+    private Participants participants;
     private int round;
 
-    public Race(List<Car> cars, int round) {
-        this.cars = new ArrayList<>(cars);
+    private Race(Participants participants, int round) {
+        this.participants = participants;
         this.round = round;
     }
 
+    public static Race of(Participants participants, int round) {
+        return new Race(participants, round);
+    }
+
     public RaceResult startRace(DigitStrategy digitStrategy) {
+        RaceResult raceResult = RaceResult.newInstance();
         for (int i = 0; i < round; i++) {
-            makeCarRun(digitStrategy);
-            printCurrentPosition();
+            participants.run(digitStrategy);
+            raceResult.writeLog(participants);
         }
-        return RaceResult.of(cars);
+        raceResult.setWinnersAmongParticipants(participants);
+        return raceResult;
     }
 
-    private void makeCarRun(DigitStrategy digitStrategy) {
-        cars.forEach(car -> car.run(digitStrategy.getDigit()));
-    }
 
-    private void printCurrentPosition() {
-        cars.forEach(Printer::printCurrentPosition);
-        System.out.println();
-    }
 }
