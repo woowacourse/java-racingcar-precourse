@@ -5,12 +5,17 @@ import java.util.List;
 public class Validator {
     private static final int MAX_CAR_NAME_SIZE = 5;
 
-    public void isValidCars (List<String> carList) {
+    public void isValidCarsInput(List<String> carList) {
         isValidNumberOfCars(carList);
         isValidCarNameSize(carList);
     }
 
-    private  void isValidNumberOfCars(List<String> carList) {
+    public void isValidRaceRoundInput(String raceRound) {
+        isValidRaceRoundInteger(raceRound);
+        isRaceRoundOverOne(raceRound);
+    }
+
+    private void isValidNumberOfCars(List<String> carList) {
         if (carList.size() < 2) {
             throw new IllegalArgumentException(ExceptionMessage.IS_NOT_VALID_NUMBERS_OF_CARS);
         }
@@ -24,16 +29,11 @@ public class Validator {
         }
     }
 
-    public void isValidRaceRound (String raceRound) {
-        isValidRaceRoundInteger(raceRound);
-        isRaceRoundOverOne(raceRound);
-    }
-
     private void isValidRaceRoundInteger(String raceRound) {
         try {
             Integer.parseInt(raceRound);
-        } catch (NumberFormatException ne) {
-            throw new NumberFormatException(ExceptionMessage.IS_NOT_INTEGER);
+        } catch (IllegalArgumentException ie) {
+            throw new IllegalArgumentException(ExceptionMessage.IS_NOT_INTEGER);
         }
     }
 
