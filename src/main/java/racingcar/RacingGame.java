@@ -1,19 +1,42 @@
 package racingcar;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class RacingGame {
-    Scanner scanner;
+    private Scanner scanner;
+    private Car[] cars;
+    private String[] names;
+    private int move;
+    private int carAmount;
 
-    public RacingGame(Scanner scanner){
+    public RacingGame(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public void startGame(){
+    public void startGame() {
+        getInput();
+        makeCarInstance(names);
+        System.out.println("실행 결과");
+        while (move-- > 0) {
+            for(int i=0; i<carAmount; i++){
+                cars[i].move();
+                cars[i].print();
+            }
+            System.out.println();
+        }
+    }
+
+    private void makeCarInstance(String[] names) {
+        for (int i = 0; i < carAmount; i++) {
+            cars[i] = new Car(names[i]);
+        }
+    }
+
+    private void getInput() {
         Input input = new Input(scanner);
-        String[] names = input.getCarNames();
-        int move = input.getMoveCount();
-//        System.out.println(Arrays.toString(names) + " " + move);
+        names = input.getCarNames();
+        move = input.getMoveCount();
+        carAmount = names.length;
+        cars = new Car[carAmount];
     }
 }
