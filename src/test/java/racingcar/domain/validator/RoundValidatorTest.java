@@ -10,6 +10,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationFailure;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationSuccess;
 
+import racingcar.domain.exception.NotNumericException;
+
 public class RoundValidatorTest {
 
     private RoundValidator validator;
@@ -42,8 +44,8 @@ public class RoundValidatorTest {
         ThrowableAssert.ThrowingCallable callable = () -> validator.validate(round);
 
         // then
-        assertValidationFailure(callable, RoundValidator.NOT_NUMERIC_MESSAGE +
-                String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
+        assertValidationFailure(callable,
+                String.format(NotNumericException.NOT_NUMERIC_MESSAGE, round));
     }
 
     @ParameterizedTest
@@ -56,7 +58,7 @@ public class RoundValidatorTest {
 
         // then
         assertValidationFailure(callable, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
-                String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
+                String.format(round));
     }
 
     @ParameterizedTest
@@ -69,6 +71,6 @@ public class RoundValidatorTest {
 
         // then
         assertValidationFailure(callable, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
-                String.format(RoundValidator.INPUT_ROUND_FORMAT, round));
+                String.format(round));
     }
 }

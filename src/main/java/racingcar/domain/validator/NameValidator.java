@@ -57,7 +57,9 @@ public class NameValidator extends Validator {
         Map<String, Integer> nameCounts = new HashMap<>();
 
         for (String carName : carNameTokens) {
-            nameCounts.merge(carName, 1, (first, second) -> { throw new DuplicateNameException(carName); });
+            nameCounts.merge(carName, 1, (first, second) -> {
+                throw new DuplicateNameException(carName);
+            });
         }
     }
 }
