@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.domain.Race;
+import utils.validator.CarNameValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,12 +40,7 @@ public class Game {
 
     private void validateCarNames(String[] carNames) throws RuntimeException {
         for (String name : carNames) {
-            if (name.length() >= 5) {
-                throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
-            }
-            if (name.equals(" ") || name.equals("")) {
-                throw new IllegalArgumentException("[ERROR] 자동차 이름으로 빈 칸은 안됩니다.");
-            }
+            CarNameValidator.validateCarName(name);
         }
     }
 
