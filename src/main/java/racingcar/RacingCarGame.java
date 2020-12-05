@@ -16,9 +16,18 @@ public class RacingCarGame {
         this.scanner = scanner;
     }
 
-    public void startGame() {
+    public void initGame() {
         getCarNames();
         getHowManyMoves();
+        startRacing();
+    }
+
+    private void startRacing() {
+        for(int i = 0 ; i< moves; i++){
+            for (Car car : carList){
+                System.out.println(car.getName() + " : " + car.moveOrNot());
+            }
+        }
     }
 
     private void getHowManyMoves() {
@@ -32,7 +41,6 @@ public class RacingCarGame {
                 System.out.println(i.getMessage());
             }
         }
-        System.out.println(moves);
     }
 
     private String askMoves() {
