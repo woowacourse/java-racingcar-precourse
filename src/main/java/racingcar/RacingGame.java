@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import constant.SystemMessage;
+import exception.CarNameLengthExcessException;
 
 public class RacingGame {
     private Player[] players;
@@ -85,16 +86,23 @@ public class RacingGame {
     }
 
     private void inputCarName() {
-        System.out.println(SystemMessage.INPUT_CAR_NAME_MESSAGE);
-        String[] input = scanner.next().split(",");
-        if (!isValidCarNameLength(input)) {
-            throw new IllegalAccessError(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
+        while (true) {
+            System.out.println(SystemMessage.INPUT_CAR_NAME_MESSAGE);
+            try {
+                String[] input = isValidCarName(scanner.next().split(","));
+                players = new Player[input.length];
+                break;
+            } catch (CarNameLengthExcessException e) {
+                System.out.println(CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE);
+            }
         }
+    }
 
-        players = new Player[input.length];
-        for (int i = 0; i < players.length; i++) {
-            players[i] = new Player(input[i]);
+    private String[] isValidCarName(String[] input) {
+        if (!isValidCarNameLength(input)) {
+            throw new CarNameLengthExcessException();
         }
+        return input;
     }
 
     private boolean isValidCarNameLength(String[] input) {
