@@ -6,7 +6,11 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+
     }
 
+    public Move() {
+
+    }
     // 추가 기능 구현
 }
