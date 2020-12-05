@@ -15,6 +15,10 @@ public class Application {
 
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
+		play(scanner);
+	}
+
+	private static void play(Scanner scanner) {
 		inputCarNames(scanner);
 		inputRound(scanner);
 		printWinners();
@@ -23,7 +27,7 @@ public class Application {
 	private static void inputCarNames(Scanner scanner) {
 		RacingGame racingGame = RacingGame.getInstance();
 		racingGame.clearCars();
-		
+
 		System.out.println(INPUT_NAME_MESSAGE);
 		String[] names = scanner.nextLine().split(DELIMITER);
 
@@ -35,16 +39,16 @@ public class Application {
 			inputCarNames(scanner);
 		}
 	}
-	
+
 	private static void inputRound(Scanner scanner) {
 		RacingGame racingGame = RacingGame.getInstance();
-		
+
 		System.out.println(INPUT_ROUND_MESSAGE);
 		String round = scanner.nextLine();
-		
+
 		try {
 			RoundInputValidator.inputVaildCheck(round);
-			for(int nowRound = ZERO; nowRound < Integer.parseInt(round); nowRound++) {
+			for (int nowRound = ZERO; nowRound < Integer.parseInt(round); nowRound++) {
 				racingGame.raceOneRound();
 				racingGame.printCars();
 			}
@@ -53,12 +57,12 @@ public class Application {
 			inputRound(scanner);
 		}
 	}
-	
+
 	private static void printWinners() {
 		RacingGame racingGame = RacingGame.getInstance();
 		StringBuilder winnerMessage = new StringBuilder();
-		for(String winnerName : racingGame.getWinnerNames()) {
-			if(winnerMessage.length() > ZERO) {
+		for (String winnerName : racingGame.getWinnerNames()) {
+			if (winnerMessage.length() > ZERO) {
 				winnerMessage.append(DELIMITER_WHITESPACE);
 			}
 			winnerMessage.append(winnerName);
