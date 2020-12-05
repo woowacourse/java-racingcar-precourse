@@ -27,8 +27,8 @@ public class InputManager {
     }
 
     private boolean checkIfNumber(String trialsNum) {
-        for(int i = 0; i < trialsNum.length(); i++) {
-            if(!Character.isDigit(trialsNum.charAt(i))){
+        for (int i = 0; i < trialsNum.length(); i++) {
+            if (!Character.isDigit(trialsNum.charAt(i))) {
                 return false;
             }
         }
