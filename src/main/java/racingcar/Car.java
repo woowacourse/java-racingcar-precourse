@@ -5,6 +5,7 @@ import utils.RandomUtils;
 public class Car {
     private final String name;
     private int position = 0;
+    static final int MOVE_FORWARD = 4;
 
     public Car(String name) {
         this.name = name;
@@ -23,6 +24,6 @@ public class Car {
     }
 
     private boolean judgeIfRun(int roundNumber) {
-        return roundNumber >= 4;
+        return roundNumber >= MOVE_FORWARD;
     }
 }
