@@ -3,12 +3,12 @@ package racingcar;
 import utils.RandomUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class RacingCarGame {
 
-    ArrayList<Car> carList = new ArrayList<>();
-    private int carCount = 0;
+    private ArrayList<Car> carList = new ArrayList<>();
     private int tryCount = 0;
 //    private int firstScore = 0;
 
@@ -37,7 +37,6 @@ public class RacingCarGame {
         String[] splitNames = names.split(",");
         for (String name : splitNames) {
             carList.add(new Car(name));
-            carCount++;
         }
     }
 

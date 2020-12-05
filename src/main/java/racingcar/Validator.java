@@ -7,7 +7,9 @@ public class Validator {
 
         if (splitNames.length < 2) return false;
         for (String name : splitNames) {
-            if (!Validator.isLengthValid(name)) return false;
+            if (!Validator.isLengthValid(name)) {
+                return false;
+            }
         }
         return true;
     }
