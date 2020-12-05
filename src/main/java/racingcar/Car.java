@@ -4,7 +4,7 @@ import utils.RandomUtils;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private static final int SINGLE_DIGIT_MIN = 0;
     private static final int SINGLE_DIGIT_MAX = 9;
     private static final int STOP_LIMIT = 3;
@@ -45,6 +45,19 @@ public class Car {
     @Override
     public String toString() {
         return name + " : " + POSITION_BAR.repeat(position);
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return car.position - this.position;
+    }
+
+    public boolean isWinner(Car maxPositionCar) {
+        return this.position == maxPositionCar.position;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
 }

@@ -1,10 +1,14 @@
 package racingcar;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
     private static final String RACE_RESULT = "실행 결과";
     private static final String CAR_INPUT_STATEMENT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String WINNERS = "최종 우승자: ";
+    private static final String SEPARATE = ",";
+    private static final String BLANK = " ";
 
     private List<Car> cars;
 
@@ -32,5 +36,18 @@ public class Race {
             }
             System.out.println();
         }
+    }
+
+    public void decideWinner() {
+        Collections.sort(cars);
+        StringBuilder sb = new StringBuilder();
+        sb.append(WINNERS);
+        for (Car car : cars) {
+            if (car.isWinner(cars.get(0))) {
+                sb.append(car.getName()).append(SEPARATE).append(BLANK);
+            }
+        }
+        sb.deleteCharAt(sb.length() - 1).deleteCharAt(sb.length() - 1);
+        System.out.println(sb.toString());
     }
 }
