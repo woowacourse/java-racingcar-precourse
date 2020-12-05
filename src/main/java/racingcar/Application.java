@@ -8,5 +8,6 @@ public class Application {
         AskQuestion askQuestion = new AskQuestion(scanner);
         GameManager gameManager = askQuestion.readyToGame();
         gameManager.gameStart();
+        scanner.close();
     }
 }
