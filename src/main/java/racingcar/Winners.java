@@ -11,6 +11,18 @@ public class Winners {
         this.winners = winners;
     }
 
+    public static Winners getWinners(List<Car> cars) {
+        Car winner = cars.stream()
+                .max(Car::compareTo)
+                .get();
+
+        List<Car> winners = cars.stream()
+                .filter(car -> car.isSamePosition(winner))
+                .collect(Collectors.toList());
+
+        return new Winners(winners);
+    }
+
     public String getWinnerNames() {
         return winners.stream()
                 .map(Object::toString)

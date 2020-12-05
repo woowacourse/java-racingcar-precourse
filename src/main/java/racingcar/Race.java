@@ -1,6 +1,7 @@
 package racingcar;
 
-import java.util.ArrayList;
+import static racingcar.GameResult.getResult;
+
 import java.util.List;
 import utils.RandomUtils;
 
@@ -11,8 +12,6 @@ public class Race {
     public static final int MOVE = 4;
 
     public static GameResult start(List<Car> cars, int tryCount) {
-        // todo 각 차수별 실행 결과 구하기
-        List<Car> winners = new ArrayList<>();
 
         System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
@@ -24,8 +23,9 @@ public class Race {
             }
         }
 
-        return new GameResult(new Winners(winners));
+        return getResult(cars);
     }
+
 
     private static boolean isMove() {
         // 4 이상일 경우 전진하고, 3 이하의 값이면 멈춘다

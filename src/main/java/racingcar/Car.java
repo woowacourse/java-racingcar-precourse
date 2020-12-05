@@ -40,6 +40,10 @@ public class Car implements Comparable<Car> {
         System.out.println(name + " : " + progress);
     }
 
+    public boolean isSamePosition(Car car) {
+        return this.position == car.position;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Car car;
