@@ -63,10 +63,8 @@ public class RacingCarsTest {
                 new Car("tico", 3)
         );
 
-        RacingCars racingCars = new RacingCars(cars);
-
         // when
-        racingCars = racingCars.moveCars();
+        RacingCars racingCars = new RacingCars(cars).moveCars();
 
         // then
         List<Integer> positions = racingCars.getRacingCars()
@@ -75,5 +73,43 @@ public class RacingCarsTest {
                 .collect(Collectors.toList());
 
         assertThat(positions).containsExactly(1, 1, 0);
+    }
+
+    @Test
+    @DisplayName("우승자가 1명일 경우 우승자 반환 테스트")
+    public void findWinners_OneWinner_ReturnWinner() {
+
+        // given
+        List<Car> cars = Arrays.asList(
+                new Car("equus", 9),
+                new Car("SM5", 3),
+                new Car("tico", 3)
+        );
+
+
+        // when
+        RacingCars racingCars = new RacingCars(cars).moveCars();
+
+        //then
+        assertThat(racingCars.findWinners()).containsExactly("equus");
+    }
+
+    @Test
+    @DisplayName("우승자가 여러 명일 경우 우승자 반환 테스트")
+    public void findWinners_ManyWinners_ReturnWinners() {
+
+        // given
+        List<Car> cars = Arrays.asList(
+                new Car("equus", 9),
+                new Car("SM5", 5),
+                new Car("K7", 7),
+                new Car("tico", 3)
+        );
+
+        // when
+        RacingCars racingCars = new RacingCars(cars).moveCars();
+
+        //then
+        assertThat(racingCars.findWinners()).containsExactly("equus", "SM5", "K7");
     }
 }

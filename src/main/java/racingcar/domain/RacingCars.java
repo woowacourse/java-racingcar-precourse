@@ -3,7 +3,9 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import racingcar.view.InputView;
@@ -40,5 +42,19 @@ public class RacingCars {
         }
 
         return new RacingCars(cars);
+    }
+
+    public List<String> findWinners() {
+        Map<Integer, List<String>> scoreBoard = new HashMap<>();
+
+        for (Car racingCar : racingCars) {
+            List<String> names =
+                    scoreBoard.computeIfAbsent(racingCar.getPosition(), ArrayList::new);
+            names.add(racingCar.getName());
+        }
+
+        int maxPosition = Collections.max(scoreBoard.keySet());
+
+        return scoreBoard.get(maxPosition);
     }
 }
