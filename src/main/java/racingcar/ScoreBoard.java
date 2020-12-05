@@ -20,7 +20,7 @@ public class ScoreBoard {
     public List<Car> getWinners() {
         return cars.stream()
                    .filter(car -> car.getPosition() == getWinner(cars).getPosition())
-                   .collect(Collectors.toCollection(ArrayList::new));
+                   .collect(Collectors.toList());
     }
 
     private Car getWinner(List<Car> cars) {
