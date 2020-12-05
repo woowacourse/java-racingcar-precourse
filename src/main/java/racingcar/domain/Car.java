@@ -1,18 +1,45 @@
 package racingcar.domain;
 
 public class Car {
+
+    public static final int MOVE_CONDITION = 4;
+
     private final Name name;
 
-    private Position position;
+    private final Position position;
+
+    private final FuelGenerator fuelGenerator;
 
     public Car(String name) {
-        this(name, 0);
+        this(name, 0, new RandomFuelGenerator());
     }
 
-    public Car(String name, int position) {
+    public Car(String name, int fuel) {
+        this(name, 0, new FixedFuelGenerator(fuel));
+    }
+
+    public Car(String name, int position, FuelGenerator fuelGenerator) {
         this.name = new Name(name);
         this.position = new Position(position);
+        this.fuelGenerator = fuelGenerator;
+    }
+
+    public Car(Name name, Position position, FuelGenerator fuelGenerator) {
+        this.name = name;
+        this.position = position;
+        this.fuelGenerator = fuelGenerator;
+    }
+
+    public int getPosition() {
+        return position.getPosition();
     }
 
     // 추가 기능 구현
+    public Car move() {
+        if (fuelGenerator.generate() >= MOVE_CONDITION) {
+            return new Car(name, position.increase(), fuelGenerator);
+        }
+
+        return this;
+    }
 }
