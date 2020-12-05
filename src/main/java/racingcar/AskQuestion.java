@@ -26,6 +26,22 @@ class IndexNameSet {
 // 예외 처리 & 입력 검증 부분은 따로 Verify 클래스를 만드는게 나을까?
 public class AskQuestion {
 
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int PREVIOUS_INDEX = -1;
+
+    private static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String CAR_NAME_DELIMITER = ",";
+    private static final String NUMBER_OF_TRY_QUESTION = "시도할 회수는 몇회인가요?";
+    private static final String POSTPOSITION = "은(는) ";
+    private static final String ERROR_PREFIX = "[ERROR] ";
+    private static final String ERROR_DUPLICATE = "중복되는 이름이 존재합니다. 다시 입력해주세요.";
+    private static final String ERROR_TOO_LONG = "길이가 너무 깁니다. " + MAX_NAME_LENGTH + "자 이하로 수정해주세요.";
+    private static final String ERROR_NOT_POSITIVE_INTEGER = "시도 횟수는 양의 정수여야 합니다. 다시 입력해주세요.";
+    private static final String MODIFY_PREFIX = "[MODIFY] ";
+    private static final String MODIFY_ARROW = " -> ";
+    private static final String MODIFY_SUCCESS = "(으)로 성공적으로 수정되었습니다.";
+    private static final String MESSAGE_PREFIX = "[MESSAGE] ";
+
     // 여기도 private 또는 final이 붙어야 할까?
     Scanner scanner;
     GameManager gameManager;
@@ -36,19 +52,15 @@ public class AskQuestion {
     }
     
     public void startQuestions() {
-        carNameQuestion();
+        System.out.println(CAR_NAME_QUESTION);
         String[] carNames = carNameInput();
-        numberOfTryQuestion();
+        System.out.println(NUMBER_OF_TRY_QUESTION);
         int numberOfTry = numberOfTryInput();
         gameManager = new GameManager(carNames, numberOfTry);
     }
 
     public GameManager readyToGame() {
         return gameManager;
-    }
-
-    public void carNameQuestion() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     public String[] carNameInput() {
@@ -63,9 +75,9 @@ public class AskQuestion {
         String[] splitNames;
         while (true) {
             rawNames = scanner.nextLine();
-            splitNames = rawNames.split(",");
+            splitNames = rawNames.split(CAR_NAME_DELIMITER);
             if (hasDuplicateElement(splitNames)) {
-                errorDuplicate();
+                System.out.println(ERROR_PREFIX + ERROR_DUPLICATE);
                 continue;
             }
             break;
@@ -84,14 +96,10 @@ public class AskQuestion {
         return false;
     }
 
-    public void errorDuplicate() {
-        System.out.println("[ERROR] 중복되는 이름이 존재합니다. 다시 입력해주세요.");
-    }
-
     public void checkLength(String[] carNames) {
         ArrayList<IndexNameSet> tooLongName = new ArrayList<>();
         for (int i = 0; i < carNames.length; i++) {
-            if (carNames[i].length() > 5) {
+            if (carNames[i].length() > MAX_NAME_LENGTH) {
                 tooLongName.add(new IndexNameSet(i, carNames[i]));
             }
         }
@@ -103,54 +111,47 @@ public class AskQuestion {
     }
 
     public void errorTooLongNames(ArrayList<IndexNameSet> tooLongName) {
-        System.out.print("[ERROR] ");
+        System.out.print(ERROR_PREFIX);
         for (int i = 0; i < tooLongName.size(); i++) {
             System.out.print(tooLongName.get(i).getName());
-            if (i < tooLongName.size() - 1) {
-                System.out.print(", ");
+            if (i < tooLongName.size() + PREVIOUS_INDEX) {
+                System.out.print(GameManager.NAMES_CONNECTOR);
             }
         }
-        System.out.println("은(는) 길이가 너무 깁니다. 5자 이하로 수정해주세요.");
+        System.out.println(POSTPOSITION + ERROR_TOO_LONG);
     }
 
     public void modifyTooLongNames(ArrayList<IndexNameSet> tooLongName, String[] carNames) {
         for (int i = 0; i < tooLongName.size(); i++) {
-            IndexNameSet elem = tooLongName.get(i);
-            System.out.print("[MODIFY] " + elem.getName() + " -> ");
+            IndexNameSet tooLongSet = tooLongName.get(i);
+            System.out.print(MODIFY_PREFIX + tooLongSet.getName() + MODIFY_ARROW);
             String newName = scanner.nextLine();
-            System.out.print("[MESSAGE] ");
-            if (newName.length() > 5) {
-                System.out.println(newName + "은(는) 길이가 너무 깁니다. 5자 이하로 수정해주세요.");
-                i--; // re-try
+            System.out.print(MESSAGE_PREFIX);
+            if (newName.length() > MAX_NAME_LENGTH) {
+                System.out.println(newName + POSTPOSITION + ERROR_TOO_LONG);
+                i = i + PREVIOUS_INDEX; // re-try
                 continue;
             }
-            carNames[elem.getIndex()] = newName;
-            System.out.println(elem.getName() + "은(는) " + newName + "(으)로 성공적으로 수정되었습니다.");
+            carNames[tooLongSet.getIndex()] = newName;
+            System.out.println(tooLongSet.getName() + POSTPOSITION + newName + MODIFY_SUCCESS);
         }
     }
 
-    public void numberOfTryQuestion() {
-        System.out.println("시도할 회수는 몇회인가요?");
-    }
-
     public int numberOfTryInput() {
-        boolean isNumber = false;
-        int numberOfTry = 0;
+        boolean isNumber = GameManager.INITIALIZATION_BOOLEAN;
+        int numberOfTry = GameManager.INITIALIZATION_INTEGER;
         while (!isNumber) {
             try {
                 numberOfTry = scanner.nextInt();
                 scanner.nextLine(); // buffer flush
                 isNumber = true;
             } catch (Exception e) {
-                errorNumberOfTryNotInt();
+                System.out.println(ERROR_PREFIX + ERROR_NOT_POSITIVE_INTEGER);
                 scanner.nextLine(); // buffer flush
             }
         }
         return numberOfTry;
     }
 
-    public void errorNumberOfTryNotInt() {
-        System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다. 다시 입력해주세요.");
-    }
-
 }
+

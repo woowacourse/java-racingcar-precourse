@@ -1,17 +1,25 @@
 package racingcar;
 
 import utils.RandomUtils;
-
 import java.util.ArrayList;
 
 public class GameManager {
 
-    public static final int MIN_RANDOM_VALUE = 0;
-    public static final int MAX_RANDOM_VALUE = 9;
-    public static final int BOUNDARY_OF_TOGGLE = 3;
+    public static final boolean INITIALIZATION_BOOLEAN = false;
+    public static final int INITIALIZATION_INTEGER = 0;
+    public static final String NAMES_CONNECTOR = ", ";
 
-    private int numberOfTry = 0;
-    private int winnerPosition = 0;
+    private static final int MIN_RANDOM_VALUE = 0;
+    private static final int MAX_RANDOM_VALUE = 9;
+    private static final int BOUNDARY_OF_TOGGLE = 3;
+
+    private static final String EXECUTION_RESULT = "실행결과";
+    private static final String CAR_POSITION_START_POINT = " : ";
+    private static final String CAR_POSITION_STATUS_BAR = "-";
+    private static final String WINNERS_PREFIX = "최종 우승자: ";
+
+    private int numberOfTry = INITIALIZATION_INTEGER;
+    private int winnerPosition = INITIALIZATION_INTEGER;
     private ArrayList<Car> carList = new ArrayList<>();
 
     public GameManager(String[] names, int numberOfTry) {
@@ -22,7 +30,7 @@ public class GameManager {
     }
 
     public void gameStart() {
-        System.out.println("\n실행결과");
+        System.out.println("\n" + EXECUTION_RESULT);
         for (int round = 0; round < numberOfTry; round++) {
             playRound();
         }
@@ -46,7 +54,7 @@ public class GameManager {
 
     public void printResultOfRound() {
         for (Car car : carList) {
-            System.out.print(car.getName() + " : ");
+            System.out.print(car.getName() + CAR_POSITION_START_POINT);
             printStatusBar(car);
         }
         System.out.println();
@@ -54,7 +62,7 @@ public class GameManager {
 
     public void printStatusBar(Car car) {
         for (int i = 0; i < car.getPosition(); i++) {
-            System.out.print("-");
+            System.out.print(CAR_POSITION_STATUS_BAR);
         }
         System.out.println();
     }
@@ -68,7 +76,7 @@ public class GameManager {
     public void printWinners() {
         int carListSize = carList.size();
         boolean printedFirstWinner = false;
-        System.out.print("최종 우승자: ");
+        System.out.print(WINNERS_PREFIX);
         for (int i = 0; i < carListSize; i++) {
             if (carList.get(i).getPosition() == winnerPosition) {
                 printWinnerNames(i, printedFirstWinner);
@@ -79,7 +87,7 @@ public class GameManager {
 
     public void printWinnerNames(int index, boolean printedFirstWinner) {
         if (printedFirstWinner) {
-            System.out.print(", ");
+            System.out.print(NAMES_CONNECTOR);
         }
         System.out.print(carList.get(index).getName());
     }

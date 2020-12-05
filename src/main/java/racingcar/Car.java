@@ -2,8 +2,7 @@ package racingcar;
 
 public class Car {
     private final String name;
-    private int position = 0;
-
+    private int position = GameManager.INITIALIZATION_INTEGER;
     public Car(String name) {
         this.name = name;
     }
