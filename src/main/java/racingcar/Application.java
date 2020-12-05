@@ -8,11 +8,11 @@ public class Application {
 		// TODO 구현 진행
 
 		Cars cars = GameSystem.createCars(scanner);
-		int numberOfRounds = GameSystem.getRounds(scanner);
+		int numberOfRounds = GameSystem.getNumberOfRounds(scanner);
 
 		RacingGame racingGame = new RacingGame();
 		racingGame.startRacing(cars, numberOfRounds);
 
-		GameSystem.decideReplayQuit(scanner);
+		GameSystem.decideReplayOrQuit(scanner);
 	}
 }

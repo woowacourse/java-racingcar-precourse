@@ -17,7 +17,7 @@ public class GameSystem {
 		return scanner.nextLine().split(DELIMITER, -1);
 	}
 
-	private static List<Car> getCarList(Scanner scanner) {
+	private static List<Car> getCarGroup(Scanner scanner) {
 		return Arrays.stream(getCarNames(scanner))
 				.map(String::trim)
 				.map(Car::new)
@@ -28,7 +28,7 @@ public class GameSystem {
 		Cars cars;
 		System.out.println(CAR_NAME_INPUT_MESSAGE);
 		try {
-			cars = new Cars(getCarList(scanner));
+			cars = new Cars(getCarGroup(scanner));
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			cars = null; // flag for while loop in the createCars method
@@ -44,82 +44,81 @@ public class GameSystem {
 		return cars;
 	}
 
-	private static void validateIntegerRounds(String rounds) throws IllegalArgumentException {
+	private static void validateIntegerNumberOfRounds(String numberOfRounds) throws IllegalArgumentException {
 		try {
-			Integer.parseInt(rounds);
+			Integer.parseInt(numberOfRounds);
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException(NON_INTEGER_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE);
 		}
 	}
 
-	private static void validatePositiveRounds(String rounds) throws IllegalArgumentException {
-		int numberOfRoundsInput = Integer.parseInt(rounds);
+	private static void validatePositiveNumberOfRounds(String numberOfRounds) throws IllegalArgumentException {
+		int numberOfRoundsInput = Integer.parseInt(numberOfRounds);
 		if (numberOfRoundsInput < MINIMUM_NUMBER_OF_ROUNDS) {
 			throw new IllegalArgumentException(NON_POSITIVE_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE);
 		}
 	}
 
-	private static int tryToGetRounds(Scanner scanner) {
+	private static int tryToGetNumberOfRounds(Scanner scanner) {
 		System.out.println(NUMBER_OF_ROUNDS_INPUT_MESSAGE);
-		String rounds = scanner.nextLine();
+		String numberOfRounds = scanner.nextLine();
 		try {
-			validateIntegerRounds(rounds);
-			validatePositiveRounds(rounds);
+			validateIntegerNumberOfRounds(numberOfRounds);
+			validatePositiveNumberOfRounds(numberOfRounds);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			rounds = "0"; // flag for while loop in the getNumberOfRounds method
+			numberOfRounds = "0"; // flag for while loop in the getNumberOfRounds method
 		}
-		return Integer.parseInt(rounds);
+		return Integer.parseInt(numberOfRounds);
 	}
 
-	public static int getRounds(Scanner scanner) {
-		int rounds;
+	public static int getNumberOfRounds(Scanner scanner) {
+		int numberOfRounds;
 		do {
-			rounds = tryToGetRounds(scanner);
-		} while (rounds == 0);
+			numberOfRounds = tryToGetNumberOfRounds(scanner);
+		} while (numberOfRounds == 0);
 		System.out.println();
-		return rounds;
+		return numberOfRounds;
 	}
 
-	private static void validateIntegerReplayQuit(String replayQuit) throws IllegalArgumentException {
+	private static void validateIntegerReplayOrQuit(String replayOrQuit) throws IllegalArgumentException {
 		try {
-			Integer.parseInt(replayQuit);
+			Integer.parseInt(replayOrQuit);
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException(REPLAY_OR_QUIT_INPUT_ERROR_MESSAGE);
 		}
 	}
 
-	private static void validateOneOrTwoReplayQuit(String replayQuit) throws IllegalArgumentException {
-		int replayQuitInt = Integer.parseInt(replayQuit);
-		if (replayQuitInt != 1 && replayQuitInt != 2) {
+	private static void validateOneTwoReplayOrQuit(String replayOrQuit) throws IllegalArgumentException {
+		if (Integer.parseInt(replayOrQuit) != 1 && Integer.parseInt(replayOrQuit) != 2) {
 			throw new IllegalArgumentException(REPLAY_OR_QUIT_INPUT_ERROR_MESSAGE);
 		}
 	}
 
-	private static int tryToGetReplayQuit(Scanner scanner) {
+	private static int tryToGetReplayOrQuit(Scanner scanner) {
 		System.out.println(REPLAY_OR_QUIT_INPUT_MESSAGE);
-		String replayQuit = scanner.nextLine();
+		String replayOrQuit = scanner.nextLine();
 		try {
-			validateIntegerReplayQuit(replayQuit);
-			validateOneOrTwoReplayQuit(replayQuit);
+			validateIntegerReplayOrQuit(replayOrQuit);
+			validateOneTwoReplayOrQuit(replayOrQuit);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			replayQuit = "0"; // flag for while loop in the getReplayOrQuitInput method
+			replayOrQuit = "0"; // flag for while loop in the getReplayOrQuitInput method
 		}
-		return Integer.parseInt(replayQuit);
+		return Integer.parseInt(replayOrQuit);
 	}
 
-	private static int getReplayQuit(Scanner scanner) {
-		int replayQuit;
+	private static int getReplayOrQuit(Scanner scanner) {
+		int replayOrQuit;
 		do {
-			replayQuit = tryToGetReplayQuit(scanner);
-		} while (replayQuit == 0);
-		return replayQuit;
+			replayOrQuit = tryToGetReplayOrQuit(scanner);
+		} while (replayOrQuit == 0);
+		return replayOrQuit;
 	}
 
-	public static void decideReplayQuit(Scanner scanner) {
-		int replayOrQuitInput = getReplayQuit(scanner);
-		if (replayOrQuitInput == 1) {
+	public static void decideReplayOrQuit(Scanner scanner) {
+		int replayOrQuit = getReplayOrQuit(scanner);
+		if (replayOrQuit == 1) {
 			Application.main(null); // REPLAY
 		}
 		// OTHERWISE QUIT

@@ -2,13 +2,16 @@ package racingcar;
 
 import utils.RandomUtils;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
 	private static final int MINIMUM_NUMBER_OF_CARS_REQUIRED = 1;
+	private static final int CAR_NAME_LENGTH_LOWER_BOUND = 1;
+	private static final int CAR_NAME_LENGTH_UPPER_BOUND = 5;
 	private static final String DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름이 중복됩니다.";
-	private static final String CAR_NAME_LENGTH_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름은 1자 이상 5자 이하여야 합니다.";
+	private static final String CAR_NAME_LENGTH_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름은 " + CAR_NAME_LENGTH_LOWER_BOUND + "자 이상 "
+			+ CAR_NAME_LENGTH_UPPER_BOUND + "자 이하여야 합니다.";
 	private static final String CAR_NAME_EMPTY_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름은 공백일 수 없습니다";
 	private static final String NUMBER_OF_CARS_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름이 적어도 " + MINIMUM_NUMBER_OF_CARS_REQUIRED + "개 필요합니다.";
 	private static final int START_INCLUSIVE_NUMBER = 0;
@@ -31,7 +34,7 @@ public class Cars {
 		}
 	}
 
-	private long countUniqueCarNames(List<Car> cars) {
+	private long countUniqueCarName(List<Car> cars) {
 		return cars.stream()
 				.map(Car::getName)
 				.distinct()
@@ -39,21 +42,21 @@ public class Cars {
 	}
 
 	private void validateDuplicateCarName(List<Car> cars) throws IllegalArgumentException {
-		if (countUniqueCarNames(cars) != cars.size()) {
+		if (countUniqueCarName(cars) != cars.size()) {
 			throw new IllegalArgumentException(DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE);
 		}
 	}
 
 	private void validateCarNameLength(List<Car> cars) throws IllegalArgumentException {
-		for  (Car car : cars) {
-			if (car.getName().length() < 1 || 5 < car.getName().length()) {
+		for (Car car : cars) {
+			if (car.getName().length() < CAR_NAME_LENGTH_LOWER_BOUND || CAR_NAME_LENGTH_UPPER_BOUND < car.getName().length()) {
 				throw new IllegalArgumentException(CAR_NAME_LENGTH_INPUT_ERROR_MESSAGE);
 			}
 		}
 	}
 
 	private void validateVoidCarName(List<Car> cars) throws IllegalArgumentException {
-		for  (Car car : cars) {
+		for (Car car : cars) {
 			if (car.getName().trim().isEmpty()) {
 				throw new IllegalArgumentException(CAR_NAME_EMPTY_INPUT_ERROR_MESSAGE);
 			}
@@ -67,13 +70,13 @@ public class Cars {
 		}
 	}
 
-	private String getCarPositionInformation(Car car) {
+	private String getCarPositionStatus(Car car) {
 		return car.getName() + " : " + car.getVisualCarPosition();
 	}
 
 	public void getCarPositionAnnouncement() {
 		for (Car car : cars) {
-			System.out.println(getCarPositionInformation(car));
+			System.out.println(getCarPositionStatus(car));
 		}
 	}
 
