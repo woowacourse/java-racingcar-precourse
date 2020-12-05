@@ -42,7 +42,7 @@ public class Game {
     }
 
     private String getNamesInput() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Information.NAME_INPUT);
         return scanner.nextLine();
     }
 
@@ -60,13 +60,13 @@ public class Game {
     }
 
     private String getRoundInput() {
-        System.out.println("시도할 횟수는 몇 회인가요?");
+        System.out.println(Information.ROUND_INPUT);
         return scanner.nextLine();
     }
 
 
     private void playRounds() {
-        System.out.println("\n실행 결과");
+        System.out.println(Information.RESULT);
         for (int i = 0; i < round; i++) {
             playOneRound();
             System.out.println();
@@ -103,7 +103,7 @@ public class Game {
 
     private void awardWinners() {
         StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자: ");
+        sb.append(Information.WINNERS);
         for (Car car : winners)
             sb.append(car.getName()).append(", ");
         sb.deleteCharAt(sb.length() - 2);
