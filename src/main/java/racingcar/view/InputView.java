@@ -16,8 +16,8 @@ public class InputView {
     public static ArrayList<Car> scanCars(Scanner scanner) {
         String scannerCars = scanner.nextLine();
 
-        List<String> carNames = new ArrayList<>(
-                Arrays.asList(scannerCars.split(TextType.COMMA_TEXT.getText())));
+        List<String> carNames =
+                new ArrayList<>(Arrays.asList(scannerCars.split(TextType.COMMA_TEXT.getText())));
         ArrayList<Car> cars = new ArrayList<>();
 
         for (String carName : carNames) {

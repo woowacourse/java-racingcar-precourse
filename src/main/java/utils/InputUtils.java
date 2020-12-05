@@ -18,8 +18,8 @@ import java.util.Set;
 public class InputUtils {
     public static Car validateCar(String carName) {
         // 자동차 이름의 길이가 1자 미만 또는 5자 초과인 경우
-        if (carName.length() < BoundaryType.MINIMUM_CAR_NAME_LENGTH.getBoundary() ||
-                carName.length() > BoundaryType.MAXIMUM_CAR_NAME_LENGTH.getBoundary()) {
+        if ((carName.length() < BoundaryType.MINIMUM_CAR_NAME_LENGTH.getBoundary())
+                || (carName.length() > BoundaryType.MAXIMUM_CAR_NAME_LENGTH.getBoundary())) {
             throw new IllegalArgumentException(ErrorType.INVALID_LENGTH.getError());
         }
 
