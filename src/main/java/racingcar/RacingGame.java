@@ -19,6 +19,7 @@ public class RacingGame {
     public void play() {
         this.prepare();
         this.race();
+        this.finish();
     }
 
     private void prepare() {
@@ -26,14 +27,19 @@ public class RacingGame {
         cars = request.requestCarNames();
         response.printNumberStageRequestMessage();
         numberRound = request.requestNumberRound();
-        response.printEndPrepareMessage();
+        response.printPrepareEndMessage();
     }
 
     private void race() {
         response.printRaceStartMessage();
         for (int round = 0; round < this.numberRound; round++) {
             updateCarPositions();
+            response.printRaceSituation(cars);
         }
+    }
+
+    private void finish() {
+
     }
 
     private void updateCarPositions() {

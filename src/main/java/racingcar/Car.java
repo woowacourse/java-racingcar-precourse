@@ -30,4 +30,8 @@ public class Car {
     public String getCarName() {
         return this.name;
     }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
