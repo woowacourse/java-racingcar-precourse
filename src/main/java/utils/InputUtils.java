@@ -1,8 +1,10 @@
 package utils;
 
 import racingcar.Car;
+import racingcar.type.BoundaryType;
 import racingcar.type.ErrorType;
 import racingcar.type.TextType;
+import racingcar.type.ValueType;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,13 +12,10 @@ import java.util.Set;
 
 public class InputUtils {
 
-    private static final int MINIMUM_CAR_NAME_LENGTH = 1;
-    private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
-    private static final int ZERO = 0;
-
     public static Car validateCar(String carName) {
         // 자동차 이름의 길이가 1자 미만 또는 5자 초과인 경우
-        if (carName.length() < MINIMUM_CAR_NAME_LENGTH || carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
+        if (carName.length() < BoundaryType.MINIMUM_CAR_NAME_LENGTH.getBoundary() ||
+                carName.length() > BoundaryType.MAXIMUM_CAR_NAME_LENGTH.getBoundary()) {
             throw new IllegalArgumentException(ErrorType.INVALID_LENGTH.getError());
         }
 
@@ -43,7 +42,7 @@ public class InputUtils {
 
     public static void validateTimes(int scannerTimes) {
         // 시도할 횟수에 음수 또는 0이 입력되는 경우
-        if (scannerTimes <= ZERO) {
+        if (scannerTimes <= ValueType.ZERO.getValue()) {
             throw new IllegalArgumentException(ErrorType.INVALID_ZERO_TIME.getError());
         }
     }

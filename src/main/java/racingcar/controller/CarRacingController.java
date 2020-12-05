@@ -5,6 +5,7 @@ import racingcar.generator.NumberGenerator;
 import racingcar.type.BoundaryType;
 import racingcar.type.ErrorType;
 import racingcar.type.TextType;
+import racingcar.type.ValueType;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -16,8 +17,6 @@ import java.util.*;
  * @author Daeun Lee
  */
 public class CarRacingController {
-
-    private static final int ZERO = 0;
 
     private static ArrayList<Car> cars = new ArrayList<>();
     private static int times;
@@ -119,11 +118,11 @@ public class CarRacingController {
         calculateMaxPosition();
         checkWinner();
 
-        if (winner.size() == ZERO) {
+        if (winner.size() == ValueType.ZERO.getValue()) {
             isNoWinner();
         }
 
-        if (winner.size() != ZERO) {
+        if (winner.size() != ValueType.ZERO.getValue()) {
             isWinner();
         }
     }
