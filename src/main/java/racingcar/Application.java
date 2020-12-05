@@ -8,13 +8,16 @@ import utils.RoundInputValidator;
 public class Application {
 	private static final Integer ZERO = 0;
 	private static final String DELIMITER = ",";
+	private static final String DELIMITER_WHITESPACE = ", ";
 	private static final String INPUT_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String INPUT_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
+	private static final String WINNER_MESSAGE_PREFIX = "최종 우승자: ";
 
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
 		inputCarNames(scanner);
 		inputRound(scanner);
+		printWinners();
 	}
 
 	private static void inputCarNames(Scanner scanner) {
@@ -49,5 +52,17 @@ public class Application {
 			System.out.println(e.getMessage());
 			inputRound(scanner);
 		}
+	}
+	
+	private static void printWinners() {
+		RacingGame racingGame = RacingGame.getInstance();
+		StringBuilder winnerMessage = new StringBuilder();
+		for(String winnerName : racingGame.getWinnerNames()) {
+			if(winnerMessage.length() > ZERO) {
+				winnerMessage.append(DELIMITER_WHITESPACE);
+			}
+			winnerMessage.append(winnerName);
+		}
+		System.out.println(WINNER_MESSAGE_PREFIX + winnerMessage.toString());
 	}
 }
