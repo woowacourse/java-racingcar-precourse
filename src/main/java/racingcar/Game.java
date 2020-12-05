@@ -1,11 +1,8 @@
 package racingcar;
 
-import exception.InvalidCarNameLengthException;
 import exception.InvalidInputException;
-import exception.NonNumberRoundException;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -57,12 +54,14 @@ public class Game {
     }
 
     private void initRound() throws InvalidInputException {
+        String line = getRoundInput();
+        RoundParser roundParser = new RoundParser(line);
+        round = roundParser.parseRound();
+    }
+
+    private String getRoundInput() {
         System.out.println("시도할 횟수는 몇 회인가요?");
-        try {
-            round = scanner.nextInt();
-        } catch (InputMismatchException e) {
-            throw new NonNumberRoundException();
-        }
+        return scanner.nextLine();
     }
 
 

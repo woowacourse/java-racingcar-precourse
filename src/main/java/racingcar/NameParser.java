@@ -15,7 +15,6 @@ public class NameParser {
 
     private String line;
     private List<String> names = new ArrayList<>();
-
     public NameParser(String line) {
         this.line = line;
     }
