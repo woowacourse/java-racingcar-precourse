@@ -9,5 +9,6 @@ public class Application {
 
         String carNames = inputView.receiveCarNames();
         CarValidator.validateDuplication(carNames);
+        new GameRound(inputView.receiveGameRound());
     }
 }
