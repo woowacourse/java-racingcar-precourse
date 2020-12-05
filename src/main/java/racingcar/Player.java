@@ -11,6 +11,7 @@ public class Player {
             "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String TRY_TIMES_INPUT_MESSAGE =
             "시도할 횟수는 몇 회인가요?";
+    private static final String START_RESULT_MESSAGE = "실행 결과";
     private static final String ERROR_MESSAGE_PREFIX = "[ERROR]";
     private static final String CAR_NAMES_LEGNTH_ERROR_MESSAGE =
             ERROR_MESSAGE_PREFIX + " 각 이름의 길이가 "
@@ -66,6 +67,18 @@ public class Player {
         }
         
         return tryTimes;
+    }
+    
+    public void printStartResult() {
+        System.out.println("");
+        System.out.println(START_RESULT_MESSAGE);
+    }
+    
+    public void printCarsStatus(Car[] cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() +  " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println("");
     }
     
     private String[] parseCarNames(String rawInput) {

@@ -9,5 +9,6 @@ public class Application {
         Race race = new Race(player);
         
         race.setUp();
+        race.run();
     }
 }

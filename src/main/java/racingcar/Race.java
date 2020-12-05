@@ -16,6 +16,13 @@ public class Race {
         setUpTryTimes();
     }
     
+    public void run() {
+        player.printStartResult();
+        for (int i = 0; i < this.tryTimes; i++) {
+            runOneTry();
+        }
+    }
+    
     private void setUpCars() {
         String[] carNames = this.player.carNamesInput();
         
@@ -27,5 +34,12 @@ public class Race {
     
     private void setUpTryTimes() {
         this.tryTimes = this.player.tryTimesInput();
+    }
+    
+    private void runOneTry() {
+        for (Car car : this.cars) {
+            car.tryMoveForward();
+        }
+        player.printCarsStatus(this.cars);
     }
 }
