@@ -1,5 +1,6 @@
 package racingcar;
 
+import static racingcar.Message.RESULT_MESSAGE;
 import static racingcar.Rule.END_RANGE;
 import static racingcar.Rule.START_RANGE;
 
@@ -14,7 +15,6 @@ import utils.RandomUtils;
  */
 public class RacingGame {
     private static final int FIRST_CAR = 0;
-    private static final String RESULT_MESSAGE = "\n실행 결과";
 
     private final List<Car> cars;
 

@@ -1,11 +1,10 @@
 package racingcar;
 
+import static racingcar.Message.showWinners;
 import static racingcar.Rule.MOVING_STATE;
 import static racingcar.Rule.POSSIBLE_MOVE_POWER;
 
 public class Car implements Comparable<Car> {
-    private static final String COLON = " : ";
-
     private final String name;
     private int position = 0;
     private StringBuilder state = new StringBuilder();
@@ -31,7 +30,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        return name + COLON + state;
+        return showWinners(name, state.toString());
     }
 
     @Override

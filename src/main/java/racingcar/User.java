@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.Message.WINNER_DELIMITER;
+import static racingcar.Message.WINNER_MESSAGE;
+
 import java.util.List;
 
 /**
@@ -7,9 +10,6 @@ import java.util.List;
  * @since 2020/12/02
  */
 public class User {
-    private static final String DELIMITER = ",";
-    private static final String WINNER = "최종우승자: ";
-    private static final String SPACE = " ";
     private Names names;
     private Count racingCount;
 
@@ -27,6 +27,6 @@ public class User {
     }
 
     public String createWinners(final List<String> winners) {
-        return WINNER + String.join(DELIMITER + SPACE, winners);
+        return WINNER_MESSAGE + String.join(WINNER_DELIMITER, winners);
     }
 }
