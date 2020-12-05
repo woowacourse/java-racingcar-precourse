@@ -17,6 +17,9 @@ public class Constants {
 
     public static final String ERROR_NO_COMMA = "[ERROR] 자동차 이름은 \",\"로 구분되야 한다.";
     public static final String ERROR_CAR_NAME_LENGTH_GREATER_THAN_FIVE = "[ERROR] 자동차 이름은 5자 이하여야 한다.";
+    public static final String ERROR_CAR_NAME_LENGTH_LESS_THAN_ONE = "[ERROR] 자동차 이름은 1자 이상이여야 한다.";
+    public static final String ERROR_ONLY_ONE_CAR = "[ERROR] 2대 이상의 자동차의 이름을 입력해야한다.";
+    public static final String ERROR_SAME_NAME_CAR = "[ERROR] 서로 다른 이름의 자동차 이름을 입력해야 한다.";
     public static final String ERROR_NUMBER_OF_ATTEMPTS_IS_NOT_NATURAL_NUMBER = "[ERROR] 시도 횟수는 숫자여야 한다.";
 
 
@@ -25,6 +28,8 @@ public class Constants {
      */
 
     public static final int MAX_CAR_NAME_LENGTH = 5;
+    public static final int MIN_CAR_NAME_LENGTH = 1;
+    public static final int MIN_TOTAL_CARS_AMOUNT = 2;
     public static final int MOVEMENT_RANGE = 1;
     public static final int POSITION_INIT_VALUE = 0;
     public static final int MIN_RANDOM_VALUE = 0;
