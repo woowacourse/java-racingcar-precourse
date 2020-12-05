@@ -7,5 +7,14 @@ public class TestSplit {
         for (String name : splitName) {
             System.out.println(name);
         }
+
+        names = "a, ,   ,,,pobi";
+        splitName = names.split(",");
+
+        System.out.println("size: " + splitName.length);
+        for (String name : splitName) {
+            System.out.print("len: " + name.length() + " -> ");
+            System.out.println(name);
+        }
     }
 }
