@@ -7,5 +7,4 @@ public class Message {
 	public static final String CAR_ROUND_NUMBER_ERROR = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	
 	public static final String RACING_START = "실행 결과";
-	}
 }
