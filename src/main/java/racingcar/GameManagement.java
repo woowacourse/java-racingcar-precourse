@@ -24,8 +24,8 @@ public class GameManagement {
 	private void StartGame() {
 		System.out.println("\n실행결과");
 		for (int turn = 0; turn < repetitionTime; turn++) {
-				TurnManagement();
-				Print.PrintResult(participatedCars);
+			TurnManagement();
+			Print.PrintResult(participatedCars);
 		}
 	}
 

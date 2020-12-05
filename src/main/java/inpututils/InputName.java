@@ -2,8 +2,8 @@ package inpututils;
 
 import java.util.Scanner;
 
-public class InputName extends Input{
-	public InputName(Scanner scanner){
+public class InputName extends Input {
+	public InputName(Scanner scanner) {
 		super(scanner);
 	}
 

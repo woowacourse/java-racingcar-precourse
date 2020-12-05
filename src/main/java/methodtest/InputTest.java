@@ -11,7 +11,7 @@ public class InputTest {
 		InputName inputNameTest = new InputName(scanner);
 
 		String[] testAnswer = inputNameTest.inputAnswer();
-		for(String answer : testAnswer){
+		for (String answer : testAnswer) {
 			System.out.println(answer);
 		}
 

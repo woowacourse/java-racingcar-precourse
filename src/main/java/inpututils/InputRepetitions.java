@@ -2,8 +2,8 @@ package inpututils;
 
 import java.util.Scanner;
 
-public class InputRepetitions extends Input{
-	public InputRepetitions(Scanner scanner){
+public class InputRepetitions extends Input {
+	public InputRepetitions(Scanner scanner) {
 		super(scanner);
 	}
 
