@@ -124,12 +124,11 @@ public class AskQuestion {
             try {
                 numberOfTry = scanner.nextInt();
                 isPositiveNumber(numberOfTry);
-                scanner.nextLine(); // buffer flush
                 isNumber = true;
             } catch (Exception e) {
                 System.out.println(ERROR_PREFIX + ERROR_NOT_POSITIVE_INTEGER);
-                scanner.nextLine(); // buffer flush
             }
+            scanner.nextLine(); // buffer flush
         }
         return numberOfTry;
     }
