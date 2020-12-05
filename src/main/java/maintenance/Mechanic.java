@@ -8,8 +8,10 @@ import java.util.List;
 
 public class Mechanic {
 
-    private int numberOfNamesOfCarsWithForeAndAftBlank = 0;
-    private int numberOfNamesOfCarsOverMaxLength = 0;
+    private int numberOfNamesOfCarsWithForeAndAftBlank =
+            GameProcess.INITIAL_EXCEPTION_NUMBER.getValue();
+    private int numberOfNamesOfCarsOverMaxLength =
+            GameProcess.INITIAL_EXCEPTION_NUMBER.getValue();
 
     public Car getCarWithValidName(String nameOfCar) {
         checkNameOfCarIsExceptonal(nameOfCar);
@@ -63,13 +65,15 @@ public class Mechanic {
     }
 
     public void noticeNameTrimmed() {
-        if (numberOfNamesOfCarsWithForeAndAftBlank > 0) {
+        if (numberOfNamesOfCarsWithForeAndAftBlank
+                > GameProcess.INITIAL_EXCEPTION_NUMBER.getValue()) {
             System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
         }
     }
 
     public void noticeShortenName() {
-        if (numberOfNamesOfCarsOverMaxLength > 0) {
+        if (numberOfNamesOfCarsOverMaxLength
+                > GameProcess.INITIAL_EXCEPTION_NUMBER.getValue()) {
             System.err.println(ErrorMessage.OVER_MAXIMUM_NAME_LENGTH.getMessage());
         }
     }

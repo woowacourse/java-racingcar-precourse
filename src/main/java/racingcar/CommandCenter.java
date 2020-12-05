@@ -2,6 +2,7 @@ package racingcar;
 
 import enums.ErrorMessage;
 import enums.GameHost;
+import enums.GameProcess;
 import maintenance.Mechanic;
 
 import java.util.Scanner;
@@ -14,8 +15,10 @@ public class CommandCenter {
     }
 
     protected String[] inputNamesOfCars(Scanner scanner) {
-        mechanic.setNumberOfNamesOfCarsWithForeAndAftBlank(0);
-        mechanic.setNumberOfNamesOfCarsOverMaxLength(0);
+        mechanic.setNumberOfNamesOfCarsWithForeAndAftBlank(
+                GameProcess.INITIAL_EXCEPTION_NUMBER.getValue());
+        mechanic.setNumberOfNamesOfCarsOverMaxLength(
+                GameProcess.INITIAL_EXCEPTION_NUMBER.getValue());
         System.out.println(GameHost.ASK_NAMES_OF_CARS.getMessage());
         String namesOfCars = scanner.nextLine();
         return namesOfCars.split(GameHost.DELIMITER_TO_SPLIT_NAMES.getMessage());
