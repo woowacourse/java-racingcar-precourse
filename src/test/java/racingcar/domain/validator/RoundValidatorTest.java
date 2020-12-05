@@ -11,6 +11,7 @@ import static racingcar.domain.validator.ValidatorUtils.assertValidationFailure;
 import static racingcar.domain.validator.ValidatorUtils.assertValidationSuccess;
 
 import racingcar.domain.exception.NotNumericException;
+import racingcar.domain.exception.RoundOutOfBoundsException;
 
 public class RoundValidatorTest {
 
@@ -57,8 +58,9 @@ public class RoundValidatorTest {
         ThrowableAssert.ThrowingCallable callable = () -> validator.validate(round);
 
         // then
-        assertValidationFailure(callable, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
-                String.format(round));
+        assertValidationFailure(callable,
+                String.format(RoundOutOfBoundsException.OUT_OF_RANGE_ROUND_MESSAGE,
+                        RoundValidator.MINIMUM_ROUND, RoundValidator.MAXIMUM_ROUND, round));
     }
 
     @ParameterizedTest
@@ -70,7 +72,8 @@ public class RoundValidatorTest {
         ThrowableAssert.ThrowingCallable callable = () -> validator.validate(round);
 
         // then
-        assertValidationFailure(callable, RoundValidator.OUT_OF_RANGE_ROUND_MESSAGE +
-                String.format(round));
+        assertValidationFailure(callable,
+                String.format(RoundOutOfBoundsException.OUT_OF_RANGE_ROUND_MESSAGE,
+                        RoundValidator.MINIMUM_ROUND, RoundValidator.MAXIMUM_ROUND, round));
     }
 }
