@@ -9,10 +9,12 @@
     3. 사용자가 반복횟수를 입력하는 클래스(InputRepetitions.java)
     
 - 출력
-    1. 각 횟수마다 실행 결과를 출력하는 메소드
-    2. 최종 우승자를 출력하는 메소드(1명 이상 가능) 
+    1. 각 횟수마다 실행 결과를 출력하는 메소드(Print.java)
+    2. 최종 우승자를 출력하는 메소드(1명 이상 가능)(Print.java) 
+    
 - 게임 운영
-    1. 게임 진행에 전부를 관리하는 클래스(GameCycle.java)
+    1. 게임 진행에 전부를 관리하는 클래스(GameManagement.java)
+    2. 최종적인 승자를 찾아내어 관리하는 클래스(GameWinner.java)
     
 - 예외 처리
     1. 이름이 5자 이상일 때 발생하는 예외
@@ -59,8 +61,11 @@
 ### Car.java
     - 입력받은 이름을 저장하고, position을 관리하는 클래스. 
 
-### GameCycle.java
-    - 전체적인 게임 사이클을 관리하는 클래스
+### GameManagemet.java
+    - Car객체들을 선언하므로써 게임의 시작을 관리하는 클래스
+    
+### GameWinners.java 
+    - 게임의 승자를 확인하는 클래스
     
 ## outpututils package
 
