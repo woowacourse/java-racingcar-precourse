@@ -1,5 +1,13 @@
 package racingcar;
-
+/*
+ * Constants
+ *
+ * version 1.0
+ *
+ * 2020.12.05
+ *
+ * Copyright (c) by Davinci.J
+ */
 public class Constants {
     public static final int SINGLE_DIGIT_MIN = 0;
     public static final int SINGLE_DIGIT_MAX = 9;

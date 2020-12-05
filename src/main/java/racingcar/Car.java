@@ -1,5 +1,13 @@
 package racingcar;
-
+/*
+ * Car
+ *
+ * version 1.0
+ *
+ * 2020.12.05
+ *
+ * Copyright (c) by Davinci.J
+ */
 import utils.RandomUtils;
 
 import java.util.Objects;

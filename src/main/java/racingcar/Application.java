@@ -1,5 +1,13 @@
 package racingcar;
-
+/*
+ * Application
+ *
+ * version 1.0
+ *
+ * 2020.12.05
+ *
+ * Copyright (c) by Davinci.J
+ */
 import java.util.Scanner;
 
 public class Application {
