@@ -4,6 +4,8 @@ import utils.RandomUtils;
 
 public class Computer {
 
+    private static final String SIGN_DISTANCE = "-";
+
     public String[] parseCarList(String inputCarsName) {
 
         String[] carList = inputCarsName.split(",");
@@ -43,7 +45,7 @@ public class Computer {
         return true;
     }
 
-    public boolean moveOrStop() {
+    private boolean moveOrStop() {
         int number = getRandomNumber();
         if (number >= Constants.STANDARD_NUMBER) {
             return true;
@@ -57,5 +59,33 @@ public class Computer {
 
     private int getRandomNumber() {
         return RandomUtils.nextInt(Constants.MIN_NUMBER, Constants.MAX_NUMBER);
+    }
+
+    public void moveCars(Car[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            if (moveOrStop()) {
+                cars[i].upPosition();
+            }
+        }
+    }
+
+    public void printCurrentCarsPosition(Car[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            String output = "";
+            output += cars[i].getName() + " : ";
+            output += getSignDistance(cars[i].getPosition());
+            System.out.println(output);
+        }
+        System.out.println();
+    }
+
+    private String getSignDistance(int len) {
+        String distance = "";
+
+        for (int i = 0; i < len; i++) {
+            distance += SIGN_DISTANCE;
+        }
+
+        return distance;
     }
 }
