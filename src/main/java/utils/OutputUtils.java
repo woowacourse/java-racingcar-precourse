@@ -13,14 +13,14 @@ public class OutputUtils {
     private static final String COLON = " : ";
     private static final String DASH_OF_POSITION = "-";
 
-    private OutputUtils(){
+    private OutputUtils() {
     }
 
-    public static void printPleaseInputCarNames(){
+    public static void printPleaseInputCarNames() {
         System.out.println(PLEASE_INPUT_CAR_NAMES);
     }
 
-    public static void printPleaseInputLoopTime(){
+    public static void printPleaseInputLoopTime() {
         System.out.println(PLEASE_INPUT_LOOP_TIME);
     }
 
@@ -41,14 +41,14 @@ public class OutputUtils {
 
         stringBuiler.append(name);
         stringBuiler.append(COLON);
-        for (int i = 0; i < position; i++){
+        for (int i = 0; i < position; i++) {
             stringBuiler.append(DASH_OF_POSITION);
         }
 
         System.out.println(stringBuiler);
     }
 
-    public static void printEnterLine(){
+    public static void printEnterLine() {
         System.out.println();
     }
 }

@@ -9,7 +9,7 @@ public class GasTank {
     private static final int ENOUGH_GAS = 4;
 
     public boolean isEnoughGas() {
-        if(RandomUtils.nextInt(MIN_GAS, MAX_GAS) < ENOUGH_GAS){
+        if (RandomUtils.nextInt(MIN_GAS, MAX_GAS) < ENOUGH_GAS) {
             return false;
         }
         return true;
