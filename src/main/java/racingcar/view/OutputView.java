@@ -37,12 +37,17 @@ public class OutputView {
     }
 
     public static void printWinner(ArrayList<String> winner) {
-        System.out.print(TextType.WINNER_TEXT.getText());
+        printWinnerText();
+
         for (int i = 0; i < winner.size(); i++) {
             System.out.print(winner.get(i));
             if (i != (winner.size() - 1)) {
                 System.out.print(TextType.COMMA_TEXT.getText() + TextType.BLANK_TEXT.getText());
             }
         }
+    }
+
+    public static void printWinnerText() {
+        System.out.print(TextType.WINNER_TEXT.getText());
     }
 }
