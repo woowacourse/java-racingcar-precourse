@@ -1,6 +1,11 @@
 package racingcar;
 
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 import java.util.Scanner;
+
+import static racingcar.Constant.OUTPUT_VIEW_REPETITION_COUNT;
 
 public class RaceGameManager {
 
@@ -17,10 +22,12 @@ public class RaceGameManager {
 
     private void playGame(){
         raceGame.inputCarsName();
+        inputRepetitionCount();
     }
 
     private void inputRepetitionCount(){
-
+        OutputView.printNormal(OUTPUT_VIEW_REPETITION_COUNT);
+        InputView.getRepetitionCount();
     }
 
 }

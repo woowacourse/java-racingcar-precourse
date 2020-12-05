@@ -1,9 +1,12 @@
 package racingcar;
 
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 import java.util.Scanner;
+
+import static racingcar.Constant.*;
 
 public class RaceGame {
 
@@ -15,6 +18,7 @@ public class RaceGame {
     }
 
     public void inputCarsName(){
+        OutputView.printNormal(OUTPUT_VIEW_NAME);
         carList = InputView.getCarList(scanner);
     }
 

@@ -7,8 +7,8 @@ public class OutputView {
     public OutputView() {
     }
 
-    public static void printNormal(){
-
+    public static void printNormal(String normalMessage){
+        System.out.println(normalMessage);
     }
 
     public static void printErrorMessage(String errorMessage){

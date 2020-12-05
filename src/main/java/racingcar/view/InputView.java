@@ -40,7 +40,6 @@ public class InputView {
     }
 
     public static int getRepetitionCount() {
-
         return 0;
     }
 }
