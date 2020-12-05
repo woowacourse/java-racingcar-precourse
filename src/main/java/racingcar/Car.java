@@ -5,6 +5,7 @@ import utils.RandomUtils;
 public class Car {
     public static final int NAME_MIN_LENGTH = 1;
     public static final int NAME_MAX_LENGTH = 5;
+    public static final int POSITION_START = 0;
     private static final int MOVE_FORWARD_RANDOM_MIN = 0;
     private static final int MOVE_FORWARD_RANDOM_MAX = 9;
     private static final int MOVE_FORWARD_MIN_CONDITION = 4;

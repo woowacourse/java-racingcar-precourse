@@ -12,6 +12,8 @@ public class Player {
     private static final String TRY_TIMES_INPUT_MESSAGE =
             "시도할 횟수는 몇 회인가요?";
     private static final String START_RESULT_MESSAGE = "실행 결과";
+    private static final String WINNER_MESSAGE_PREFIX = "최종 우승: ";
+    private static final String WINNER_NAMES_DELIMITER = ", ";
     private static final String ERROR_MESSAGE_PREFIX = "[ERROR]";
     private static final String CAR_NAMES_LEGNTH_ERROR_MESSAGE =
             ERROR_MESSAGE_PREFIX + " 각 이름의 길이가 "
@@ -79,6 +81,16 @@ public class Player {
             System.out.println(car.getName() +  " : " + "-".repeat(car.getPosition()));
         }
         System.out.println("");
+    }
+    
+    public void printWinners(Car[] winners) {
+        String[] winnerNames = new String[winners.length];
+        
+        for (int i = 0; i < winners.length; i++) {
+            winnerNames[i] =  winners[i].getName();
+        }
+        
+        System.out.println(WINNER_MESSAGE_PREFIX + String.join(WINNER_NAMES_DELIMITER, winnerNames));
     }
     
     private String[] parseCarNames(String rawInput) {

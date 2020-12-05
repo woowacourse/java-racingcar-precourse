@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class Race {
     public static final int TRY_TIMES_MIN = 1;
     
@@ -21,6 +23,7 @@ public class Race {
         for (int i = 0; i < this.tryTimes; i++) {
             runOneTry();
         }
+        player.printWinners(judgeWinners(cars));
     }
     
     private void setUpCars() {
@@ -41,5 +44,27 @@ public class Race {
             car.tryMoveForward();
         }
         player.printCarsStatus(this.cars);
+    }
+    
+    private Car[] judgeWinners(Car[] cars) {
+        ArrayList<Car> winnerList = new ArrayList<Car>();
+        int positionWinner = Car.POSITION_START;
+        int positionCurrentCar;
+        
+        for (Car car : cars) {
+            positionCurrentCar = car.getPosition();
+            if (positionCurrentCar < positionWinner) {
+                continue;
+            }
+            if (positionCurrentCar == positionWinner) {
+                winnerList.add(car);
+                continue;
+            }
+            winnerList.clear();
+            winnerList.add(car);
+            positionWinner = positionCurrentCar;
+        }
+        
+        return winnerList.toArray(new Car[winnerList.size()]);
     }
 }
