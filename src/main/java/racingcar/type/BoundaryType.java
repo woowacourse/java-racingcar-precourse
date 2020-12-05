@@ -6,7 +6,6 @@ package racingcar.type;
  * @author Daeun Lee
  */
 public enum BoundaryType {
-
     MINIMUM_MOVE_NUMBER(4),
     MAXIMUM_MOVE_NUMBER(9),
     MINIMUM_STOP_NUMBER(0),

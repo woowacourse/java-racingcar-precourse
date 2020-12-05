@@ -6,7 +6,6 @@ package racingcar.type;
  * @author Daeun Lee
  */
 public enum ValueType {
-
     ZERO(0);
 
     private final int value;

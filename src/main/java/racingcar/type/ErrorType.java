@@ -6,7 +6,6 @@ package racingcar.type;
  * @author Daeun Lee
  */
 public enum ErrorType {
-
     ERROR("[ERROR] "),
     INVALID_LENGTH(ERROR.getError() + "자동차 이름의 길이가 1자 이상 5자 이하가 되도록 입력해주세요."),
     INVALID_FORMAT(ERROR.getError() + "자동차 이름은 공백 없이 입력해주세요."),
