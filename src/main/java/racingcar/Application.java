@@ -16,5 +16,6 @@ public class Application {
 		Racing racing = new Racing(carNames);
 		
 		racing.start(roundNumber);
+		racing.printWinner();
 	}
 }
