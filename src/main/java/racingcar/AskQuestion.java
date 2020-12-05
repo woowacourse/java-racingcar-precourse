@@ -47,12 +47,6 @@ public class AskQuestion {
     }
 
     public String[] carNameInput() {
-        String[] carNames = checkDuplicate();
-        checkLength(carNames);
-        return carNames;
-    }
-
-    public String[] checkDuplicate() {
         String rawNames;
         String[] splitNames;
         while (true) {
@@ -63,6 +57,7 @@ public class AskQuestion {
             }
             break;
         }
+        checkLength(splitNames);
         return splitNames;
     }
 
