@@ -13,20 +13,28 @@ import static racingcar.Constant.*;
 public class InputView {
 
     public static List<Car> getCarList(Scanner scanner) {
-        String nameSentence = scanner.next();
-        List<String> nameList = getValidNames(nameSentence);
-
+        List<String> nameList = getValidNames(scanner);
+        for(String str : nameList)
+            System.out.print(str + " ");
         List<Car> carList = new ArrayList<>();
         return new ArrayList<>();
     }
 
-    private static List<String> getValidNames(String nameSentence) {
+    private static List<String> getValidNames(Scanner scanner) {
+        String nameSentence = scanner.nextLine();
         List<String> nameList = splitString(nameSentence);
-        return nameList;
+
+        try{
+            NameValidator.checkNameList(nameList);
+            return nameList;
+        } catch (IllegalArgumentException e){
+            OutputView.printErrorMessage(e.getMessage());
+            return getValidNames(scanner);
+        }
     }
 
     private static List<String> splitString(String nameSentence) {
-        List<String> nameList = Arrays.asList(nameSentence.split(INPUT_DELIMITER));
+        List<String> nameList = Arrays.asList(nameSentence.split(INPUT_DELIMITER,-1));
         return nameList;
     }
 
