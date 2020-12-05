@@ -1,57 +1,53 @@
 package controller;
 
 import domain.CountValidator;
-import domain.NameValidator;
-import domain.UnitGame;
-import domain.Winner;
-import domain.racingcar.Car;
+import domain.NamesValidator;
 import domain.racingcar.CarFactory;
 import view.InputView;
 import view.OutputView;
 
 import java.util.List;
 
+/**
+ * 전체 게임을 진행하는 클래스
+ *
+ * @author 조연우
+ * @version 1.0 2020년 12월 3일
+ */
 public class RacingCarGameController {
     private final InputView inputView;
-    private final OutputView outputView;
 
-    public RacingCarGameController(InputView inputView, OutputView outputView) {
+    public RacingCarGameController(InputView inputView) {
         this.inputView = inputView;
-        this.outputView = outputView;
     }
 
     public void run() {
-        CarFactory carFactory = new CarFactory();
-        List<Car> cars = carFactory.makeCars(makeNames());
-        UnitGame unitGame = new UnitGame(cars);
-        int counts = makeCounts();
+        CarFactory carFactory = new CarFactory(makeNames());
+        Integer counts = makeCounts();
 
-        this.outputView.printResult();
-        for (int i = 0; i < counts; i++) {
-            unitGame.giveCarRandomNumber();
-            cars.forEach(car -> this.outputView.printNowCars(car.getName(), car.getPosition()));
-            this.outputView.printOneLine();
+        OutputView.printResult();
+        while (counts-- > 0) {
+            carFactory.giveRandomNumbers();
+            OutputView.printNowCars(carFactory.makeCarsInfo());
+            OutputView.printOneLine();
         }
-
-        this.outputView.printWinner(Winner.makeWinners(cars));
+        OutputView.printWinner(carFactory.makeWinners());
     }
 
-    private int makeCounts() {
+    private Integer makeCounts() {
         try {
-            CountValidator countValidator = new CountValidator(this.inputView.receiveCounts());
-            return countValidator.makeValidCount();
+            return CountValidator.makeValidCount(this.inputView.receiveCounts());
         } catch (IllegalArgumentException e) {
-            this.outputView.printError(e.getMessage());
+            OutputView.printError(e.getMessage());
             return makeCounts();
         }
     }
 
     private List<String> makeNames() {
         try {
-            NameValidator nameValidator = new NameValidator(this.inputView.receiveNames());
-            return nameValidator.makeDataToNames();
+            return NamesValidator.makeNames(this.inputView.receiveNames());
         } catch (IllegalArgumentException e) {
-            this.outputView.printError(e.getMessage());
+            OutputView.printError(e.getMessage());
             return makeNames();
         }
     }

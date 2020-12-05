@@ -2,8 +2,14 @@ package view;
 
 import java.util.Scanner;
 
+/**
+ * 입력을 담당하는 객체
+ *
+ * @author 조연우
+ * @version 1.0 2020년 12월 3일
+ */
 public class InputView {
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public InputView(Scanner scanner) {
         this.scanner = scanner;
