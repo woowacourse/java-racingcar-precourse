@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Race {
     private static final String RACE_RESULT = "실행 결과";
+    private static final String CAR_INPUT_STATEMENT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 
     private List<Car> cars;
 
@@ -12,6 +13,7 @@ public class Race {
     }
 
     public static Race generateRace(InputManager inputManager) {
+        System.out.println(CAR_INPUT_STATEMENT);
         while (true) {
             try {
                 return new Race(inputManager.generateCars());
