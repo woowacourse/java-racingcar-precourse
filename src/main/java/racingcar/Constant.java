@@ -6,4 +6,5 @@ public class Constant {
     public static final int MIN_NAME_LEN = 0;
     public static final int MAX_NAME_LEN = 5;
     public static final int ADVANCE_NUM = 4;
+    public static final int ZERO = 0;
 }
