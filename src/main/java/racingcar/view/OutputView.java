@@ -6,6 +6,11 @@ import racingcar.type.TextType;
 
 import java.util.ArrayList;
 
+/**
+ * 출력을 위한 클래스
+ *
+ * @author Daeun Lee
+ */
 public class OutputView {
 
     public static void printNewLine() {

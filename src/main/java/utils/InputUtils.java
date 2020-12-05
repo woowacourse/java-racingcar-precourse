@@ -10,6 +10,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 비정상적인 입력에 대해서는 예외를 발생시키는 클래스
+ *
+ * @author Daeun Lee
+ */
 public class InputUtils {
 
     public static Car validateCar(String carName) {

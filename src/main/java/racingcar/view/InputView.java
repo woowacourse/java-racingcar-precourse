@@ -7,6 +7,11 @@ import utils.InputUtils;
 
 import java.util.*;
 
+/**
+ * 입력을 위한 클래스
+ *
+ * @author Daeun Lee
+ */
 public class InputView {
 
     public static ArrayList<Car> scanCars(ArrayList<Car> cars, Scanner scanner) {
