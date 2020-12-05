@@ -4,6 +4,7 @@ import racingcar.domain.strategies.CarMovingStrategy;
 
 public class Car {
     public static final int BOUNDARY_VALUE = 4;
+    public static final int MAX_LENGTH_OF_CAR_NAME = 5;
 
     private final String name;
     private int position = 0;

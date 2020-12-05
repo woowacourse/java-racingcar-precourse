@@ -1,5 +1,6 @@
 package racingcar.validators;
 
+import racingcar.domain.Car;
 import racingcar.exceptions.CompletelyBlankCarNameException;
 import racingcar.exceptions.DuplicatedCarNameException;
 import racingcar.exceptions.PartiallyBlankCarNameException;
@@ -10,7 +11,6 @@ import java.util.List;
 import java.util.Set;
 
 public class CarNameValidator {
-    private static final int MAX_LENGTH_OF_CAR_NAME = 5;
     private static final int ZERO = 0;
     private static final int ONE = 1;
 
@@ -53,7 +53,7 @@ public class CarNameValidator {
 
     private static boolean isOverMaxLength(List<String> carNames) {
         return carNames.stream()
-                .anyMatch((carName) -> carName.length() > MAX_LENGTH_OF_CAR_NAME);
+                .anyMatch((carName) -> carName.length() > Car.MAX_LENGTH_OF_CAR_NAME);
     }
 
     private static void validateDuplicateName(List<String> carNames) {
