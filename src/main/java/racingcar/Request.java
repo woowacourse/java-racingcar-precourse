@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Request {
     private static final String SEPARATOR = ",";
-    
+
     private final Scanner scanner;
     private final PrintStream printStream;
 
@@ -18,13 +18,13 @@ public class Request {
     public ArrayList<Car> requestCarNames() {
         String input = scanner.nextLine();
         String[] carNames = input.split(SEPARATOR, -1);
-        GameStatus gameStatus = CarNameManager.checkValidCarNames(carNames);
+        GameStatus gameStatus = ExceptionManager.checkValidCarNames(carNames);
         if (gameStatus != GameStatus.OK) {
             this.handleError(gameStatus);
         }
         return createCarsByNames(carNames);
     }
-    
+
     private ArrayList<Car> createCarsByNames(String[] carNames) {
         ArrayList<Car> carList = new ArrayList<Car>();
         for (String carName : carNames) {
@@ -32,8 +32,16 @@ public class Request {
         }
         return carList;
     }
-    
-    
+
+    public int requestNumberStage() {
+        String input = scanner.nextLine();
+        GameStatus gameStatus = ExceptionManager.checkValidNumberStage(input);
+        if (gameStatus != GameStatus.OK) {
+            this.handleError(gameStatus);
+        }
+        return Integer.parseInt(input);
+    }
+
     private void handleError(GameStatus gameStatus) {
         printStream.println(gameStatus.toString());
         throw new IllegalArgumentException();
