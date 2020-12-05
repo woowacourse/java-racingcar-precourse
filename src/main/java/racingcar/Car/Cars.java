@@ -23,9 +23,12 @@ public class Cars {
     }
 
     public String printProgress() {
-        StringBuffer progress = new StringBuffer();
+        StringBuilder progress = new StringBuilder();
         for (Car car : cars) {
-            progress.append(car.getName()).append(COLON_WRAPPED_BLANK).append(revertPositionToDash(car.getPosition())).append(System.lineSeparator());
+            progress.append(car.getName())
+                    .append(COLON_WRAPPED_BLANK)
+                    .append(revertPositionToDash(car.getPosition()))
+                    .append(System.lineSeparator());
         }
         return progress.toString();
     }
@@ -47,7 +50,7 @@ public class Cars {
     }
 
     private String revertPositionToDash(int position) {
-        StringBuffer dash = new StringBuffer();
+        StringBuilder dash = new StringBuilder();
         for (int i = 0; i < position; i++) {
             dash.append("-");
         }

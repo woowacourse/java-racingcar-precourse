@@ -37,7 +37,7 @@ class CarsTest {
         }
 
         int position = car1.getPosition();
-        StringBuffer expectedString = new StringBuffer(car1.getName() + " : ");
+        StringBuilder expectedString = new StringBuilder(car1.getName() + " : ");
         for (int i = 0; i < position; i++) {
             expectedString.append("-");
         }
