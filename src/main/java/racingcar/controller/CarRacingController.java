@@ -5,6 +5,8 @@ import racingcar.generator.NumberGenerator;
 import racingcar.type.BoundaryType;
 import racingcar.type.ErrorType;
 import racingcar.type.TextType;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.*;
 
@@ -15,8 +17,6 @@ import java.util.*;
  */
 public class CarRacingController {
 
-    private static final int MINIMUM_CAR_NAME_LENGTH = 1;
-    private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
     private static final int ZERO = 0;
 
     private static ArrayList<Car> cars = new ArrayList<>();
@@ -32,66 +32,19 @@ public class CarRacingController {
     }
 
     public static void initRacingCar(Scanner scanner) {
-        System.out.println(TextType.CAR_NAME_TEXT.getText());
-        scanCars(scanner);
-        System.out.println(TextType.CAR_RACING_TIMES_TEXT.getText());
-        scanTimes(scanner);
-        System.out.println();
+        initCars(scanner);
+        initTimes(scanner);
+        OutputView.printNewLine();
     }
 
-    public static void scanCars(Scanner scanner) {
-        String scannerCars = scanner.nextLine();
-        List<String> carNames = new ArrayList<>(Arrays.asList(scannerCars.split(TextType.COMMA.getText())));
-        for (String carName : carNames) {
-            cars.add(validateCar(carName));
-        }
-        checkDuplicatedCar(cars);
+    public static void initCars(Scanner scanner) {
+        OutputView.printCarNamesText();
+        cars = InputView.scanCars(cars, scanner);
     }
 
-    public static void scanTimes(Scanner scanner) {
-        while (!scanner.hasNextInt()) {
-            scanner.next();
-            System.out.println(ErrorType.INVALID_CHARACTER.getError());
-        }
-
-        int scannerTimes = scanner.nextInt();
-        times = validateTimes(scannerTimes);
-    }
-
-    public static Car validateCar(String carName) {
-        // 자동차 이름의 길이가 1자 미만 또는 5자 초과인 경우
-        if (carName.length() < MINIMUM_CAR_NAME_LENGTH || carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorType.INVALID_LENGTH.getError());
-        }
-
-        // 자동차 이름에 공백이 있는 경우
-        if (carName.contains(TextType.BLANK.getText())) {
-            throw new IllegalArgumentException(ErrorType.INVALID_FORMAT.getError());
-        }
-
-        return new Car(carName);
-    }
-
-    public static void checkDuplicatedCar(ArrayList<Car> cars) {
-        Set<String> carSet = new HashSet<>();
-
-        for (Car car : cars) {
-            carSet.add(car.getName());
-        }
-
-        // 자동차 이름이 중복되는 경우
-        if (cars.size() != carSet.size()) {
-            throw new IllegalArgumentException(ErrorType.INVALID_DUPLICATION.getError());
-        }
-    }
-
-    public static int validateTimes(int scannerTimes) {
-        // 시도할 횟수에 음수 또는 0이 입력되는 경우
-        if (scannerTimes <= ZERO) {
-            throw new IllegalArgumentException(ErrorType.INVALID_ZERO_TIME.getError());
-        }
-
-        return scannerTimes;
+    public static void initTimes(Scanner scanner) {
+        OutputView.printCarRacingTimesText();
+        times = InputView.scanTimes(scanner);
     }
 
     public static void moveCar(Car car) {
@@ -111,21 +64,21 @@ public class CarRacingController {
     }
 
     public static void playCarRacing() {
-        System.out.println(TextType.RESULT.getText());
+        OutputView.printResultText();
 
         for (int i = 0; i < times; i++) {
             for (Car car : cars) {
                 moveCar(car);
             }
             showResult();
-            System.out.println();
+            OutputView.printNewLine();
         }
     }
 
     public static StringBuffer countPosition(Car car) {
         StringBuffer carPosition = new StringBuffer();
         for (int i = 0; i < car.getPosition(); i++) {
-            carPosition.append(TextType.LINE.getText());
+            carPosition.append(TextType.LINE_TEXT.getText());
         }
 
         return carPosition;
@@ -134,7 +87,7 @@ public class CarRacingController {
     public static void showResult() {
         for (Car car : cars) {
             StringBuffer carPosition = countPosition(car);
-            System.out.println(car.getName() + " : " + carPosition);
+            OutputView.printResult(car, carPosition);
         }
     }
 
@@ -176,16 +129,10 @@ public class CarRacingController {
     }
 
     public static void isNoWinner() {
-        System.out.println(ErrorType.NO_WINNER.getError());
+        OutputView.printNoWinner();
     }
 
     public static void isWinner() {
-        System.out.print(TextType.WINNER.getText());
-        for (int i = 0; i < winner.size(); i++) {
-            System.out.print(winner.get(i));
-            if (i != (winner.size() - 1)) {
-                System.out.print(TextType.COMMA.getText() + TextType.BLANK.getText());
-            }
-        }
+        OutputView.printWinner(winner);
     }
 }
