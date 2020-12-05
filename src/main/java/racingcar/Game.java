@@ -3,15 +3,17 @@ package racingcar;
 import exception.InvalidCarNameException;
 import exception.InvalidInputException;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Game {
 
     private Scanner scanner;
+
     private Car[] cars;
     private int round;
+
+    private List<Car> winners = new ArrayList<>();
+    private int maxCarPosition = Integer.MIN_VALUE;
 
     public Game(Scanner scanner) {
         this.scanner = scanner;
@@ -19,7 +21,9 @@ public class Game {
 
     public void start() throws InputMismatchException, InvalidInputException {
         initParams();
+        playRounds();
     }
+
 
     private void initParams() throws InputMismatchException, InvalidInputException {
         initCars();
@@ -63,5 +67,20 @@ public class Game {
     private void initRound() throws InvalidInputException {
         System.out.println("시도할 횟수는 몇 회인가요?");
         round = scanner.nextInt();
+    }
+
+
+    private void playRounds() {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < round; i++) {
+            playOneRound();
+            System.out.println();
+        }
+    }
+
+    private void playOneRound() {
+        for (Car car : cars) {
+            car.move();
+        }
     }
 }
