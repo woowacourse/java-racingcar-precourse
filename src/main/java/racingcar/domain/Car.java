@@ -1,7 +1,7 @@
 /*
  * Car.java
  *
- * version 1.1
+ * version 1.2
  *
  * 2020/12/05
  *
@@ -10,7 +10,7 @@
 
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable{
     private final String name;
     private int position = 0;
 
@@ -30,5 +30,10 @@ public class Car {
         if (Move.isMove()) {
             position++;
         }
+    }
+
+    public int compareTo(Object object) {
+        Car car = (Car) object;
+        return car.getPosition() - this.getPosition();
     }
 }
