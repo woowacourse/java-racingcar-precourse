@@ -38,7 +38,7 @@ public class PlayGame {
         this.doAttemptNumber=Integer.parseInt(inputStringAttemptNumber);
     }
     public void splitCommaInString(Scanner scanner){
-        if(!exceptionHandle.checkStringSize(tmpCarNameSave)){
+        if(!exceptionHandle.checkInputString(tmpCarNameSave)){
             inputRacerName(scanner);
         }
         carNameSave=tmpCarNameSave.split(",");
