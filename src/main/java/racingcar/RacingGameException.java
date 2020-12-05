@@ -2,60 +2,123 @@ package racingcar;
 
 public class RacingGameException {
 
-    public static String checkNameInputException(String carNameInput) throws Exception {
+    private static final String LONGNAME_MESSAGE = "[ERROR] 자동차의 이름은 5자 이하여야 한다.";
+    private static final String DUPLICATION_NAME_MESSAGE = "[ERROR] 하나의 자동차는 하나의 레인에만 참가할 수 있다.";
+    private static final String NO_NAME_MESSAGE = "[ERROR] 자동차의 이름은 공백일 수 없다.";
+    private static final String NAME_INPUT_EMPTY_MESSAGE = "[ERROR] 하나 이상의 자동차가 참가해야 한다.";
+    private static final String NO_NUMBER_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
+    private static final String ZERO_NUMBER_MESSAGE = "[ERROR] 0보다 큰 숫자를 입력해야 한다";
+    private static final String MINUS_NUMBER_MESSAGE = "[ERROR] 음수를 입력할 수 없다";
+
+    public static String checkNameInputException(String carNameInput)
+        throws NameInputEmptyException, LongNameException, DuplicationException, NoNameException {
         if ("".equals(carNameInput)) {
-            throw new NullPointerException();
+            throw new NameInputEmptyException(NAME_INPUT_EMPTY_MESSAGE);
         }
         if (CarNameDivider.divideName(carNameInput).equals("LongName")) {
-            throw new ArrayStoreException();
+            throw new LongNameException(LONGNAME_MESSAGE);
         }
         if (CarNameDivider.divideName(carNameInput).equals("DuplicationName")) {
-            throw new ArrayIndexOutOfBoundsException();
+            throw new DuplicationException(DUPLICATION_NAME_MESSAGE);
         }
         if (CarNameDivider.divideName(carNameInput).equals("NoName")) {
-            throw new Exception();
+            throw new NoNameException(NO_NAME_MESSAGE);
         }
 
         return carNameInput;
     }
 
-    public static int checkTimesInputException(String timesInput) throws Exception {
-        int times = Integer.parseInt(timesInput);
+    public static int checkTimesInputException(String timesInput)
+        throws NoNumberException, ZeroNumberException, MinusNumberException {
+        try {
+            int times = Integer.parseInt(timesInput);
 
-        if (times == 0) {
-            throw new IllegalAccessException();
+            if (times == 0) {
+                throw new ZeroNumberException(ZERO_NUMBER_MESSAGE);
+            }
+            if (times < 0) {
+                throw new MinusNumberException(MINUS_NUMBER_MESSAGE);
+            }
+            return times;
+        } catch (NumberFormatException e) {
+            throw new NoNumberException(NO_NUMBER_MESSAGE);
         }
-        if (times < 0) {
-            throw new Exception("음수를 입력할 수 없음");
-        }
-        return times;
     }
 
-    public static void printLongNameInputMessage() {
-        System.out.println("[ERROR] 자동차의 이름은 5자 이하여야 합니다.");
+    public static void printLongNameInputMessage(Exception e) {
+        System.out.println(e.getMessage());
     }
 
-    public static void printDuplicationInputMessage() {
-        System.out.println("[ERROR] 하나의 자동차는 하나의 레인에만 참가할 수 있습니다.");
+    public static void printDuplicationInputMessage(Exception e) {
+        System.out.println(e.getMessage());
     }
 
-    public static void printNoNameInputMessage() {
-        System.out.println("[ERROR] 자동차의 이름은 공백일 수 없습니다.");
+    public static void printNoNameInputMessage(Exception e) {
+        System.out.println(e.getMessage());
     }
 
-    public static void printNameInputMessage() {
-        System.out.println("[ERROR] 하나 이상의 자동차가 참가해야 합니다.");
+    public static void printNameInputMessage(Exception e) {
+        System.out.println(e.getMessage());
     }
 
-    public static void printInvalidInputMessage() {
-        System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+    public static void printNoNumberInputMessage(Exception e) {
+        System.out.println(e.getMessage());
     }
 
-    public static void printZeroInputMessage() {
-        System.out.println("[ERROR] 0보다 큰 숫자를 입력해야 한다");
+    public static void printZeroInputMessage(Exception e) {
+        System.out.println(e.getMessage());
     }
 
-    public static void printMinusInputMessage() {
-        System.out.println("[ERROR] 음수를 입력할 수 없다");
+    public static void printMinusInputMessage(Exception e) {
+        System.out.println(e.getMessage());
+    }
+}
+
+class NoNameException extends Exception {
+
+    public NoNameException(String msg) {
+        super(msg);
+    }
+}
+
+class LongNameException extends Exception {
+
+    public LongNameException(String msg) {
+        super(msg);
+    }
+}
+
+class DuplicationException extends Exception {
+
+    public DuplicationException(String msg) {
+        super(msg);
+    }
+}
+
+class NameInputEmptyException extends Exception {
+
+    public NameInputEmptyException(String msg) {
+        super(msg);
+    }
+}
+
+class NoNumberException extends Exception {
+
+    public NoNumberException(String msg) {
+        super(msg);
+    }
+}
+
+class ZeroNumberException extends Exception {
+
+    public ZeroNumberException(String msg) {
+        super(msg);
+    }
+}
+
+class MinusNumberException extends Exception {
+
+    public MinusNumberException(String msg) {
+        super(msg);
     }
 }

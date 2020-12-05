@@ -15,14 +15,14 @@ public class Application {
                 carNameInput = RacingGameException
                     .checkNameInputException(messageReader.submitCarNames());
                 break;
-            } catch (ArrayStoreException e) {
-                RacingGameException.printLongNameInputMessage();
-            } catch (NullPointerException e) {
-                RacingGameException.printNameInputMessage();
-            } catch (ArrayIndexOutOfBoundsException e) {
-                RacingGameException.printDuplicationInputMessage();
-            } catch (Exception e) {
-                RacingGameException.printNoNameInputMessage();
+            } catch (LongNameException e) {
+                RacingGameException.printLongNameInputMessage(e);
+            } catch (NameInputEmptyException e) {
+                RacingGameException.printNameInputMessage(e);
+            } catch (DuplicationException e) {
+                RacingGameException.printDuplicationInputMessage(e);
+            } catch (NoNameException e) {
+                RacingGameException.printNoNameInputMessage(e);
             }
         }
 
@@ -32,12 +32,12 @@ public class Application {
             try {
                 playNum = RacingGameException.checkTimesInputException(messageReader.submitTimes());
                 break;
-            } catch (NumberFormatException e) {
-                RacingGameException.printInvalidInputMessage();
-            } catch (IllegalAccessException e) {
-                RacingGameException.printZeroInputMessage();
-            } catch (Exception e) {
-                RacingGameException.printMinusInputMessage();
+            } catch (NoNumberException e) {
+                RacingGameException.printNoNumberInputMessage(e);
+            } catch (ZeroNumberException e) {
+                RacingGameException.printZeroInputMessage(e);
+            } catch (MinusNumberException e) {
+                RacingGameException.printMinusInputMessage(e);
             }
         }
         RacingGameSystemMessageOut.printResultMoves();
