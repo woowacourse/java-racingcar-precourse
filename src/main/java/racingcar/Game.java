@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -9,12 +10,13 @@ public class Game {
     //진행 해야할 게임의 횟수
     //차량 정보 Cars 배열로 저장
     private static int frontRunnerPosition;
+    private static ArrayList<Car> carsInGame;
 
     public static void play(Scanner scanner) {
         GameInformation.getUserInput(scanner);
         numberOfCarsInGame = GameInformation.getNumberOfCarsInGame();
         numberOfTrial = GameInformation.getNumberOfTrial();
-        GameInformation.getCarsArray();
+        carsInGame = GameInformation.getCarsArray();
 
         //차수별 실행
         for(int i=0; i<numberOfTrial; i++) {
@@ -26,10 +28,10 @@ public class Game {
 
     private static void singleTrial() {
         //자동차 객체 하나씩 랜덤으로 값 구해서 전진 or 멈춤
-        for(int i=0; i<numberOfCarsInGame; i++) {
-            GameProgression.progressOrStop(/*Car 객체*/);
-            GameProgression.printPosition(/*Car 객체*/);
-            frontRunnerPosition = GameProgression.checkFrontRunner(/*Car 객체 , */ frontRunnerPosition);
+        for(Car i : carsInGame) {
+            GameProgression.progressOrStop(i);
+            GameProgression.printPosition(i);
+            frontRunnerPosition = GameProgression.checkFrontRunner(i, frontRunnerPosition);
         }
     }
 
