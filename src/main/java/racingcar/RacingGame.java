@@ -29,8 +29,10 @@ public class RacingGame {
 		return racingGame;
 	}
 
-	public void addCarByName(String name) {
-		cars.add(new Car(name));
+	public void addCarByNames(String[] names) {
+		for(String name : names) {
+			cars.add(new Car(name));
+		}
 	}
 
 	public void clearCars() {
