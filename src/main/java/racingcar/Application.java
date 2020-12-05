@@ -11,5 +11,7 @@ public class Application {
 		ConsoleManager consoleManager = new ConsoleManager(scanner);
 
 		String[] carNames = consoleManager.getCarNamesForInput();
+		
+		RacingGame racingGame = new RacingGame(carNames);
 	}
 }
