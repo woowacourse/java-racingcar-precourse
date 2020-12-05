@@ -34,7 +34,6 @@ public class Race {
     private void moveCarRandomValue () {
         for (Car car : carList.getCarList()) {
             int moveStatus = RandomUtils.nextInt(MINIMUM_RANGE, MAXIMUM_RANGE);
-            System.out.println(moveStatus);
             if (moveStatus >= MOVE) {
                 car.setPosition(car.getPosition() + 1);
             }
