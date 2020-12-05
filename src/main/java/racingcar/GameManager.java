@@ -55,7 +55,8 @@ public class GameManager {
 
     public void printResultOfRound() {
         for (Car car : carList) {
-            System.out.print(car.getName() + CAR_POSITION_START_POINT);
+            System.out.printf("%5s", car.getName()); // 칸 맞춰 출력하기
+            System.out.print(CAR_POSITION_START_POINT);
             printStatusBar(car);
         }
         System.out.println();
