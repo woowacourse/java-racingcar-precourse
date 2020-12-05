@@ -1,7 +1,7 @@
 package racingcar;
 
 import exception.EmptyCarNameException;
-import exception.InvalidCarNameException;
+import exception.InvalidCarNameLengthException;
 import exception.InvalidInputException;
 
 import java.util.ArrayList;
@@ -46,6 +46,6 @@ public class NameParser {
 
     private void validateNameLength(String name) throws InvalidInputException {
         if (name.length() > MAX_NAME_LENGTH)
-            throw new InvalidCarNameException();
+            throw new InvalidCarNameLengthException();
     }
 }
