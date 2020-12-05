@@ -10,7 +10,16 @@ public class InputView {
         this.scanner = scanner;
     }
 
+    public String scanCarName() {
+        printNameInputMessage();
+        return scanUserInput();
+    }
+
     private void printNameInputMessage() {
         System.out.println(NAME_INPUT_MESSAGE);
+    }
+
+    private String scanUserInput() {
+        return this.scanner.nextLine();
     }
 }
