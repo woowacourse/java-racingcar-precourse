@@ -10,7 +10,7 @@ public class Application {
 
 		ConsoleManager consoleManager = new ConsoleManager(scanner);
 
-		String[] carNames = consoleManager.getCarNamesForInput();
+		String[] carNames = consoleManager.getCarNamesFromInput();
 
 		RacingGame racingGame = new RacingGame(carNames);
 

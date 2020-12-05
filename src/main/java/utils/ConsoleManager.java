@@ -14,7 +14,7 @@ public class ConsoleManager {
 		this.scanner = scanner;
 	}
 
-	public String[] getCarNamesForInput() {
+	public String[] getCarNamesFromInput() {
 		System.out.println(CAR_NAME_INPUT_GUIDE);
 
 		String[] scannedCarNames = scanner.nextLine().split(",");
