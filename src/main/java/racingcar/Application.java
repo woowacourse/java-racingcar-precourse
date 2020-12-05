@@ -19,7 +19,7 @@ public class Application {
         while (true) {
             try {
                 race.startCarRace(inputManager.inputTrialCount());
-                race.decideWinner();
+                System.out.println(race.decideWinner());
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

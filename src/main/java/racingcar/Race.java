@@ -40,7 +40,7 @@ public class Race {
         }
     }
 
-    public void decideWinner() {
+    public String decideWinner() {
         Collections.sort(cars);
         StringBuilder sb = new StringBuilder();
         sb.append(Constants.WINNERS);
@@ -50,6 +50,6 @@ public class Race {
             }
         }
         sb.deleteCharAt(sb.length() - 1).deleteCharAt(sb.length() - 1);
-        System.out.println(sb.toString());
+        return sb.toString();
     }
 }
