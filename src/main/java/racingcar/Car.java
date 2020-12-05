@@ -5,11 +5,6 @@ import utils.RandomUtils;
 import java.util.Objects;
 
 public class Car implements Comparable<Car>{
-    private static final int SINGLE_DIGIT_MIN = 0;
-    private static final int SINGLE_DIGIT_MAX = 9;
-    private static final int STOP_LIMIT = 3;
-    private static final String POSITION_BAR = "-";
-
     private final String name;
     private int position = 0;
 
@@ -31,6 +26,16 @@ public class Car implements Comparable<Car>{
         return Objects.hash(name);
     }
 
+    @Override
+    public String toString() {
+        return name + " : " + Constants.POSITION_BAR.repeat(position);
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return car.position - this.position;
+    }
+
     public void moveCar() {
         if (isPossibleMove()) {
             position++;
@@ -38,18 +43,9 @@ public class Car implements Comparable<Car>{
     }
 
     private boolean isPossibleMove() {
-        int movementState = RandomUtils.nextInt(SINGLE_DIGIT_MIN, SINGLE_DIGIT_MAX);
-        return movementState > STOP_LIMIT;
-    }
-
-    @Override
-    public String toString() {
-        return name + " : " + POSITION_BAR.repeat(position);
-    }
-
-    @Override
-    public int compareTo(Car car) {
-        return car.position - this.position;
+        int movementState = RandomUtils.nextInt(Constants.SINGLE_DIGIT_MIN,
+                                                    Constants.SINGLE_DIGIT_MAX);
+        return movementState > Constants.STOP_LIMIT;
     }
 
     public boolean isWinner(Car maxPositionCar) {
