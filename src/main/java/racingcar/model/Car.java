@@ -8,6 +8,7 @@ public class Car {
 
     public Car(String name) {
         validateMaxNameLength(name);
+        validateMINNameLength(name);
         this.name = name;
         this.position = POSITION_INIT_VALUE;
     }
@@ -16,6 +17,14 @@ public class Car {
 
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH_GREATER_THAN_FIVE);
+        }
+
+    }
+
+    private void validateMINNameLength(String name) {
+
+        if (name.length() < MIN_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH_LESS_THAN_ONE);
         }
 
     }

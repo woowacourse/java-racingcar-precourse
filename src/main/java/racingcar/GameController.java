@@ -28,7 +28,7 @@ public class GameController {
     public void registerCars() {
         this.cars = new Cars(CarNameTokenizer.split(inputView.inputCarName())
                 .stream()
-                .map(carName -> new Car(carName))
+                .map(carName -> new Car(carName.trim()))
                 .collect(Collectors.toList()));
     }
 
