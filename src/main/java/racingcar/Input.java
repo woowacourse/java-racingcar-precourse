@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Input {
     private Scanner scanner;
-    private String pattern = "^[1-9]+$";
+    private String pattern = "^[0-9]+$";
 
     public Input(Scanner scanner) {
         this.scanner = scanner;
@@ -24,9 +24,9 @@ public class Input {
         return moveCount;
     }
 
-    private String[] makeValidNameList(String inputNames){
+    private String[] makeValidNameList(String inputNames) {
         String[] names = inputNames.split(",");
-        if(inputNames.length()==0){
+        if (names.length == 0) {
             throw new IllegalArgumentException("[ERROR] 하나 이상의 자동차 이름을 입력해야 합니다.");
         }
         for (int i = 0; i < names.length; i++) {
@@ -42,12 +42,16 @@ public class Input {
         return (input.length() <= Constant.MAX_NAME_LEN) && (input.length() > Constant.MIN_NAME_LEN);
     }
 
-    private int makeValidMoveCount(String inputNum){
+    private int makeValidMoveCount(String inputNum) {
         for(int i=Constant.ZERO; i<inputNum.length(); i++){
-            if(!String.valueOf(inputNum.charAt(i)).matches(pattern)) {
+            if (!String.valueOf(inputNum.charAt(i)).matches(pattern)) {
                 throw new IllegalArgumentException("[ERROR] 시도 횟수에는 숫자만 입력 가능합니다.");
             }
         }
-        return Integer.parseInt(inputNum);
+        try {
+            return Integer.parseInt(inputNum);
+        }catch (NumberFormatException e){
+            throw new NumberFormatException("[ERROR] 유효한 범위의 숫자를 입력해주세요");
+        }
     }
 }
