@@ -3,6 +3,7 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car {
+
     private final String name;
     private int position = 0;
     private final int moveCriteria = 3;
@@ -12,18 +13,18 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public void moveOrNot(){
-        int computerNumber = RandomUtils.nextInt(0,9);
-        if(computerNumber > moveCriteria){
-            position +=1;
+    public void moveOrNot() {
+        int computerNumber = RandomUtils.nextInt(0, 9);
+        if (computerNumber > moveCriteria) {
+            position += 1;
         }
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 }
