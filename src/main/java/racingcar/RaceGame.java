@@ -22,6 +22,10 @@ public class RaceGame {
         carList = InputView.getCarList(scanner);
     }
 
+    public void playRounds(){
+
+    }
+
     public void checkForwardMovement(){
 
     }
