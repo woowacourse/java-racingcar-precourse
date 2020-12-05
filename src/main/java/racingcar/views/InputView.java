@@ -19,11 +19,11 @@ public class InputView {
         List<String> carNames = StringConverter.toListSplitByComma(scanner.nextLine());
         try {
             CarNameValidator.validateCarNames(carNames);
+            return carNames;
         } catch (IllegalArgumentException exception) {
             OutputView.printMessageAndNewLine(exception.getMessage());
-            carNames = inputCarNames(scanner);
+            return inputCarNames(scanner);
         }
-        return carNames;
     }
 
     public static int inputTrialCount(Scanner scanner) {
