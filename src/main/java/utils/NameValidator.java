@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -32,10 +33,14 @@ public class NameValidator {
     }
 
     private static void checkNamesLength(List<String> nameList) {
-
+        for(String name : nameList) {
+            if (name.length() > CHECK_LENGTH ) {
+                throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_LENGTH);
+            }
+        }
     }
 
     private static void checkNameDuplicate(List<String> nameList) {
-
+        
     }
 }
