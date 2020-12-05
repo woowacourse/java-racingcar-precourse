@@ -29,10 +29,6 @@ public class Car implements Comparable<Car> {
         return name;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public String getProgressBar() {
         String progressBar = "";
         for (int i = 0; i < position; i++) {
