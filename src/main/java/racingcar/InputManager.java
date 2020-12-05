@@ -4,7 +4,7 @@ package racingcar;
  *
  * version 1.0
  *
- * 2020.12.05
+ * 2020.12.06
  *
  * Copyright (c) by Davinci.J
  */
@@ -39,7 +39,7 @@ public class InputManager {
         return new ArrayList<>(filteredCars);
     }
 
-    public int inputTrialCount() throws IllegalArgumentException{
+    public int inputCountOfAttempts() throws IllegalArgumentException{
         System.out.println(Constants.COUNT_INPUT_STATEMENT);
         String trialCount = scanner.next();
         for (int i=0; i<trialCount.length(); i++) {

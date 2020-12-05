@@ -4,7 +4,7 @@ package racingcar;
  *
  * version 1.0
  *
- * 2020.12.05
+ * 2020.12.06
  *
  * Copyright (c) by Davinci.J
  */
@@ -14,7 +14,8 @@ public class Constants {
     public static final int STOP_LIMIT = 3;
     public static final String POSITION_BAR = "-";
     public static final String CAR_ERROR_STATEMENT = "[ERROR] 이름이 6자 이상 또는 " +
-                                                        "중복 이름일 경우는 허용하지 않습니다";
+                                                        "0자 이하인 경우는 허용하지 않습니다. " +
+                                                        "중복 이름일 경우도 허용하지 않습니다";
     public static final String COUNT_ERROR_STATEMENT = "[ERROR] 숫자가 아닌 경우는 허용하지 않습니다";
     public static final String COUNT_INPUT_STATEMENT = "시도할 회수는 몇회인가요?";
     public static final int NAME_MAX_LENGTH = 5;

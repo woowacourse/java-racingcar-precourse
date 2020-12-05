@@ -4,7 +4,7 @@ package racingcar;
  *
  * version 1.0
  *
- * 2020.12.05
+ * 2020.12.06
  *
  * Copyright (c) by Davinci.J
  */

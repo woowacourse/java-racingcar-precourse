@@ -4,7 +4,7 @@ package racingcar;
  *
  * version 1.0
  *
- * 2020.12.05
+ * 2020.12.06
  *
  * Copyright (c) by Davinci.J
  */
@@ -12,7 +12,7 @@ import utils.RandomUtils;
 
 import java.util.Objects;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
 
