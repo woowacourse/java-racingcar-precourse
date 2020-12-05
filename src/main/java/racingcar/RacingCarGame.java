@@ -1,7 +1,7 @@
 package racingcar;
 
+import racingcar.domain.AttemptNumber;
 import racingcar.domain.Cars;
-import racingcar.domain.Rule;
 import racingcar.domain.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,9 +17,9 @@ public class RacingCarGame {
 
     public void play() {
         Cars cars = InputView.inputCarNames(scanner);
-        Rule rule = InputView.inputAttemptNumber(scanner);
-        rule.attemptMoveByAttemptNumber(cars);
+        AttemptNumber attemptNumber = InputView.inputAttemptNumber(scanner);
+        attemptNumber.moveOrStopByAttemptNumber(cars);
         Winners winners = cars.getWinnerCars();
-        OutputView.printWinner(winners);
+        OutputView.printWinnerNames(winners);
     }
 }

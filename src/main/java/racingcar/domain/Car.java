@@ -4,7 +4,7 @@ public class Car implements Comparable<Car> {
     private static final int MIN_CAR_NAME_LENGTH = 1;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final char BLANK = ' ';
-    private static final char BAR = '-';
+    private static final char DASH = '-';
     private static final String COLON = " : ";
     private static final String NAME_LENGTH_ERROR = "[ERROR] 자동차 이름은 1자 이상 5자 이하만 가능합니다.";
     private static final String NAME_BLANK_ERROR = "[ERROR] 자동차 이름에 공백이 있으면 안됩니다.";
@@ -38,10 +38,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean isMaxPosition(int maxPosition) {
-        if (position == maxPosition) {
-            return true;
-        }
-        return false;
+        return position == maxPosition;
     }
 
     public String getName() {
@@ -52,17 +49,17 @@ public class Car implements Comparable<Car> {
         return position;
     }
 
-    private String positionToBars() {
+    private String positionToDash() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            stringBuilder.append(BAR);
+            stringBuilder.append(DASH);
         }
         return stringBuilder.toString();
     }
 
     @Override
     public String toString() {
-        return name + COLON + positionToBars();
+        return name + COLON + positionToDash();
     }
 
     @Override

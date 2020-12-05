@@ -23,14 +23,14 @@ public class Cars {
         for (Car car : cars) {
             duplicateCheckSet.add(car.getName());
         }
-        if(duplicateCheckSet.size() != cars.size()) {
+        if (duplicateCheckSet.size() != cars.size()) {
             throw new IllegalArgumentException(NAME_DUPLICATE_ERROR);
         }
     }
 
     public void moveOrStop() {
         for (Car car : cars) {
-            if(isMove()) {
+            if (isMove()) {
                 car.moveCar();
             }
         }
@@ -38,10 +38,7 @@ public class Cars {
 
     private boolean isMove() {
         int randomNumber = RandomUtils.nextInt(MIN_NUMBER, MAX_NUMBER);
-        if(randomNumber >= MOVE_NUMBER) {
-            return true;
-        }
-        return false;
+        return randomNumber >= MOVE_NUMBER;
     }
 
     public Winners getWinnerCars() {
@@ -49,15 +46,16 @@ public class Cars {
         Collections.sort(cars);
         int maxPosition = cars.get(0).getPosition();
         for (Car car : cars) {
-            if(!car.isMaxPosition(maxPosition)) {
-                break;
+            if (car.isMaxPosition(maxPosition)) {
+                winners.add(car);
+                continue;
             }
-            winners.add(car);
+            break;
         }
         return new Winners(winners);
     }
 
-    public void printResultCars() {
+    public void printResultState() {
         for (Car car : cars) {
             OutputView.printCarNameAndPosition(car);
         }
