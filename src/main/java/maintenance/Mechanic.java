@@ -6,11 +6,6 @@ import racingcar.Car;
 
 import java.util.List;
 
-/**
- *  자동차 이름이 유효한지 정비하고 적절한 이름을 부여한다.
- *  시도한 횟수 입력이 유효한지 확인하고 적절한 조치를 취한다.
- *  정비한 내용을 알린다.
- */
 public class Mechanic {
 
     private boolean hasNameOfCarWithForeAndAftBlank = false;
@@ -65,7 +60,7 @@ public class Mechanic {
     }
 
     public void noticeNameTrimmed() {
-        if (hasNameOfCarWithForeAndAftBlank ) {
+        if (hasNameOfCarWithForeAndAftBlank) {
             System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
         }
     }

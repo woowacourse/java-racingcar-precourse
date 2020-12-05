@@ -6,9 +6,6 @@ import maintenance.Mechanic;
 
 import java.util.Scanner;
 
-/**
- *  입력을 담당한다.(자동차 이름, 시도횟수)
- */
 public class CommandCenter {
     Mechanic mechanic;
 
