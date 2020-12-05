@@ -1,6 +1,7 @@
 package racingcar;
 
 import utils.RandomUtils;
+
 import java.util.ArrayList;
 
 public class GameManager {
@@ -36,7 +37,7 @@ public class GameManager {
         }
         printWinners();
     }
-    
+
     public void playRound() {
         for (Car car : carList) {
             if (keepGoing()) {
