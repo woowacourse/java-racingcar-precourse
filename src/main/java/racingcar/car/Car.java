@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.car;
 
+import racingcar.Constant;
 import utils.RandomUtils;
 
 public class Car {

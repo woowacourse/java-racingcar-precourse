@@ -1,4 +1,8 @@
-package racingcar;
+package racingcar.race;
+
+import racingcar.Constant;
+import racingcar.Validation;
+import racingcar.car.Car;
 
 import java.util.ArrayList;
 import java.util.List;
