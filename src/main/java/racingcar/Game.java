@@ -3,11 +3,14 @@ package racingcar;
 import exception.InvalidCarNameException;
 import exception.InvalidInputException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     private Car[] cars;
     private int round;
@@ -33,30 +36,15 @@ public class Game {
     }
 
     private void initCars() throws InvalidCarNameException {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String line = scanner.nextLine();
-        String[] names = parseCarNames(line);
-        validateCarNames(names);
+        String line = getNamesInput();
+        NameParser nameParser = new NameParser(line);
+        String[] names = nameParser.parseCarNames();
         createCars(names);
     }
 
-    private String[] parseCarNames(String line) throws InvalidInputException {
-        StringTokenizer tk = new StringTokenizer(line, ",");
-        String[] names = new String[tk.countTokens()];
-        int i = 0;
-        while (tk.hasMoreTokens())
-            names[i++] = tk.nextToken();
-        return names;
-    }
-
-    private void validateCarNames(String[] names) throws InvalidInputException {
-        for (String name : names)
-            validateNameLength(name);
-    }
-
-    private void validateNameLength(String name) throws InvalidInputException {
-        if (name.length() > 5)
-            throw new InvalidCarNameException();
+    private String getNamesInput() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        return scanner.nextLine();
     }
 
     private void createCars(String[] names) {
