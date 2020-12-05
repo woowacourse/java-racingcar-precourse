@@ -4,6 +4,8 @@ import utils.RandomUtils;
 
 public class Car {
 
+    private static final int STAY = 3;
+
     private final String name;
     private int position = 0;
 
@@ -19,6 +21,7 @@ public class Car {
         return this.name;
     }
 
+
     public void move() {
         moveOnRandomNum();
         printResult();
@@ -26,7 +29,7 @@ public class Car {
 
     private void moveOnRandomNum() {
         int randomNum = RandomUtils.nextInt(0, 9);
-        if (randomNum >= 4)
+        if (randomNum > STAY)
             this.position++;
     }
 
