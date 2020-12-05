@@ -21,15 +21,15 @@ public class InputView {
         this.scanner = scanner;
     }
 
-    public void askCarNames() {
-        ask(CAR_NAMES_QUESTION, new NameValidator());
+    public String askCarNames() {
+        return ask(CAR_NAMES_QUESTION, new NameValidator());
     }
 
-    public void askRound() {
-        ask(ROUND_QUESTION, new RoundValidator());
+    public int askRound() {
+        return Integer.parseInt(ask(ROUND_QUESTION, new RoundValidator()));
     }
 
-    private void ask(String message, Validator validator) {
+    private String ask(String message, Validator validator) {
         System.out.println(message);
 
         String input = scanner.nextLine();
@@ -37,6 +37,8 @@ public class InputView {
         while (!isValid(validator, input)) {
             input = scanner.nextLine();
         }
+
+        return input;
     }
 
     private boolean isValid(Validator validator, String input) {
