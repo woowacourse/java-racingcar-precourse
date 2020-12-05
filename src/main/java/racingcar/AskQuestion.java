@@ -9,6 +9,7 @@ public class AskQuestion {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int INVALID_NAME_LENGTH = 0;
     private static final int PREVIOUS_INDEX = -1;
+    private static final int MIN_NUMBER_OF_TRY = 1;
 
     private static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String CAR_NAME_DELIMITER = ",";
@@ -151,7 +152,7 @@ public class AskQuestion {
     }
 
     public void isPositiveNumber(int input) {
-        if (input < 1) {
+        if (input < MIN_NUMBER_OF_TRY) {
             throw new IllegalArgumentException();
         }
     }
