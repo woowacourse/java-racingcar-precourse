@@ -25,7 +25,8 @@
   - 사용자 정의 예외는 **IllegalArgumentException** 을 상속받는다
   
 
-- 입력받은 자동차 이름들을 Split 한 후, Car 클래스에 저장
+- 입력받은 자동차 이름들을 Split 한 후, Car 객체에 저장
+  - 자동차들을 한 번 입력받고 난 후, 추가적인 수정이 없으므로 **UnmodifiableList** 로 생성 
   
 
 - 시도할 회수를 입력받는다

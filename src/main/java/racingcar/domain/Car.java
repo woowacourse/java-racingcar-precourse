@@ -42,7 +42,6 @@ public class Car {
         return position.getPosition();
     }
 
-    // 추가 기능 구현
     public Car move() {
         if (fuelGenerator.generate() >= MOVE_CONDITION) {
             return new Car(name, position.increase(), fuelGenerator);

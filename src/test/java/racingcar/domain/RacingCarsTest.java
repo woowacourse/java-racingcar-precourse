@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.assertj.core.api.ThrowableAssert;
@@ -43,12 +45,40 @@ public class RacingCarsTest {
     @DisplayName("자동차 리스트가 불변 리스트인지 테스트")
     public void add_NewCar_ExceptionThrown() {
 
+        // given
+        Car car = new Car("tico");
+
         // when
         ThrowableAssert.ThrowingCallable callable =
-                () -> racingCars.getRacingCars().add(new Car("tico"));
+                () -> racingCars.getRacingCars().add(car);
 
         // then
         assertThatThrownBy(callable).isExactlyInstanceOf(UnsupportedOperationException.class)
                 .hasMessage(null);
+    }
+
+    @Test
+    @DisplayName("자동차 전진 테스트")
+    public void moveCars_RacingCars_returnMovedPosition() {
+
+        // given
+        List<Car> cars = Arrays.asList(
+                new Car("equus", 5),
+                new Car("SM5", 4),
+                new Car("tico", 3)
+        );
+
+        racingCars = new RacingCars(cars);
+
+        // when
+        racingCars = racingCars.moveCars();
+
+        // then
+        List<Integer> positions = racingCars.getRacingCars()
+                .stream()
+                .map(Car::getPosition)
+                .collect(Collectors.toList());
+
+        assertThat(positions).containsExactly(1, 1, 0);
     }
 }
