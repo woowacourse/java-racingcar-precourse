@@ -10,7 +10,9 @@ public enum BoundaryType {
     MINIMUM_MOVE_NUMBER(4),
     MAXIMUM_MOVE_NUMBER(9),
     MINIMUM_STOP_NUMBER(0),
-    MAXIMUM_STOP_NUMBER(3);
+    MAXIMUM_STOP_NUMBER(3),
+    MINIMUM_RANDOM_NUMBER(0),
+    MAXIMUM_RANDOM_NUMBER(9);
 
     private final int boundary;
 
