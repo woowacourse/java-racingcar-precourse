@@ -3,7 +3,6 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car implements Comparable<Car>{
-    private static final String BAR = "-";
     private final String name;
     private int position = 0;
     private int randNum;
@@ -39,7 +38,7 @@ public class Car implements Comparable<Car>{
     public void print() {
         StringBuilder result = new StringBuilder(name + " : ");
         for (int i = Constant.ZERO; i < position; i++) {
-            result.append(BAR);
+            result.append(Constant.BAR);
         }
         System.out.println(result);
     }
