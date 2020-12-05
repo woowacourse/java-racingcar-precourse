@@ -20,15 +20,15 @@ public class Car {
 
     }
 
-    private int getPosition() {
+    public int getPosition() {
         return this.position;
     }
 
-    private String getName() {
+    public String getName() {
         return this.name;
     }
 
-    private void moveFoward() {
+    public void moveFoward() {
         this.position += MOVEMENT_RANGE;
     }
 }
