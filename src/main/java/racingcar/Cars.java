@@ -12,8 +12,7 @@ public class Cars {
 
     public void moveByRandomNumber() {
         for (Car car : cars) {
-            int randomNumber = RandomNumberGenerator.generateRandomNumber();
-            car.moveIfRandomNumberIsBiggerThanLimit(randomNumber);
+            car.moveIfRandomNumberIsBiggerThanLimit();
         }
 
     }

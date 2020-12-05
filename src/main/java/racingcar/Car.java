@@ -2,18 +2,22 @@ package racingcar;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import utils.RandomUtils;
 
 public class Car implements Comparable<Car>{
+    private static final int MINIMUM_LIMIT = 0;
+    private static final int MAXIMUM_LIMIT = 9;
+    private static final int MOVE_LIMIT = 4;
+
     private final String name;
     private int position = 0;
-    private int MOVE_LIMIT = 4;
 
     public Car(String name) {
         this.name = name;
     }
 
-    public void moveIfRandomNumberIsBiggerThanLimit(int randomNumber) {
-        if (randomNumber > MOVE_LIMIT) {
+    public void moveIfRandomNumberIsBiggerThanLimit() {
+        if (generateRandomNumber() > MOVE_LIMIT) {
             position++;
         }
     }
@@ -36,5 +40,9 @@ public class Car implements Comparable<Car>{
         return Stream.generate(() -> "-")
             .limit(position)
             .collect(Collectors.joining());
+    }
+
+    public static int generateRandomNumber(){
+        return RandomUtils.nextInt(MINIMUM_LIMIT,MAXIMUM_LIMIT);
     }
 }
