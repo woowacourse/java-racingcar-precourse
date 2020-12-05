@@ -30,7 +30,7 @@ public class GameController {
 
     private void getWinner(){
         Car[] cars = carController.cars;
-        StringBuilder winnerNames = new StringBuilder();
+        StringBuilder winnerNames = new StringBuilder("최종 우승자 : ");
         Arrays.sort(cars);
         int maxMove = cars[0].getPosition();
         for(int i=Constant.ZERO; i<carController.carAmount; i++) {

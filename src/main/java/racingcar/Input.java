@@ -3,8 +3,8 @@ package racingcar;
 import java.util.Scanner;
 
 public class Input {
-    Scanner scanner;
-    String pattern = "^[1-9]+$";
+    private Scanner scanner;
+    private String pattern = "^[1-9]+$";
 
     public Input(Scanner scanner) {
         this.scanner = scanner;
@@ -26,6 +26,9 @@ public class Input {
 
     private String[] makeValidNameList(String inputNames){
         String[] names = inputNames.split(",");
+        if(inputNames.length()==0){
+            throw new IllegalArgumentException("[ERROR] 하나 이상의 자동차 이름을 입력해야 합니다.");
+        }
         for (int i = 0; i < names.length; i++) {
             names[i] = names[i].trim();
             if (!checkNameLen(names[i])) {
@@ -36,7 +39,7 @@ public class Input {
     }
 
     private boolean checkNameLen(String input) {
-        return (input.length() <= Constant.MAX_NAME_LEN) && (input.length() >= Constant.MIN_NAME_LEN);
+        return (input.length() <= Constant.MAX_NAME_LEN) && (input.length() > Constant.MIN_NAME_LEN);
     }
 
     private int makeValidMoveCount(String inputNum){

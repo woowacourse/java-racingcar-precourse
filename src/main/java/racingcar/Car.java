@@ -26,6 +26,7 @@ public class Car implements Comparable<Car>{
 
     public void move() {
         int randNum = RandomUtils.nextInt(Constant.MIN_RANGE_NUM, Constant.MAX_RANGE_NUM);
+        System.out.println(randNum);
         if (randNum >= Constant.ADVANCE_NUM) {
             advance();
         }
@@ -36,10 +37,10 @@ public class Car implements Comparable<Car>{
     }
 
     public void print() {
-        System.out.print(name + " : ");
+        StringBuilder result = new StringBuilder(name + " : ");
         for (int i = Constant.ZERO; i < position; i++) {
-            System.out.print(bar);
+            result.append(bar);
         }
-        System.out.println();
+        System.out.println(result);
     }
 }
