@@ -7,6 +7,7 @@ import java.util.Map;
 import racingcar.domain.exception.CarCountOutOfBoundsException;
 import racingcar.domain.exception.DuplicateNameException;
 import racingcar.domain.exception.NameLengthOutOfBoundsException;
+import racingcar.view.InputView;
 
 public class NameValidator extends Validator {
 
@@ -16,13 +17,11 @@ public class NameValidator extends Validator {
 
     public static final int MAXIMUM_CAR_COUNT = 8;
 
-    public static final String DELIMITER = ",";
-
     @Override
     public void validate(String carNames) {
         super.validate(carNames);
 
-        String[] carNameTokens = Arrays.stream(carNames.split(DELIMITER))
+        String[] carNameTokens = Arrays.stream(carNames.split(InputView.DELIMITER))
                 .map(String::trim)
                 .toArray(String[]::new);
 

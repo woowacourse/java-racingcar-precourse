@@ -13,6 +13,7 @@ import static racingcar.domain.validator.ValidatorUtils.assertValidationSuccess;
 import racingcar.domain.exception.CarCountOutOfBoundsException;
 import racingcar.domain.exception.DuplicateNameException;
 import racingcar.domain.exception.NameLengthOutOfBoundsException;
+import racingcar.view.InputView;
 
 public class NameValidatorTest {
 
@@ -83,7 +84,7 @@ public class NameValidatorTest {
 
         // given
         String carNames = "a,b,c,d,e,f,g,h,i";
-        int length = carNames.split(NameValidator.DELIMITER).length;
+        int length = carNames.split(InputView.DELIMITER).length;
 
         // when
         ThrowableAssert.ThrowingCallable callable = () -> validator.validate(carNames);
