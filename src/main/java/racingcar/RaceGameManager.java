@@ -9,7 +9,7 @@ import static racingcar.Constant.OUTPUT_VIEW_REPETITION_COUNT;
 
 public class RaceGameManager {
 
-    private Scanner scanner;
+    private final Scanner scanner;
     private RaceGame raceGame;
     private int repetitionCount;
 
@@ -22,12 +22,13 @@ public class RaceGameManager {
 
     private void playGame(){
         raceGame.inputCarsName();
-        inputRepetitionCount();
+        repetitionCount = inputRepetitionCount();
+        
     }
 
-    private void inputRepetitionCount(){
+    private int inputRepetitionCount(){
         OutputView.printNormal(OUTPUT_VIEW_REPETITION_COUNT);
-        InputView.getRepetitionCount(scanner);
+        return InputView.getRepetitionCount(scanner);
     }
 
 }

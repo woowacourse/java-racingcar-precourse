@@ -3,7 +3,6 @@ package utils;
 import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 import static racingcar.Constant.*;
 

@@ -10,7 +10,7 @@ import static racingcar.Constant.*;
 
 public class RaceGame {
 
-    private Scanner scanner;
+    private final Scanner scanner;
     private List<Car> carList;
 
     public RaceGame(Scanner scanner){
