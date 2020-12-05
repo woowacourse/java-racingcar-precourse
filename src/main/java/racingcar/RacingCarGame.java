@@ -10,6 +10,7 @@ public class RacingCarGame {
 
     private Scanner scanner;
     private List<Car> carList = new ArrayList<>();
+    private int moves;
 
     public RacingCarGame(Scanner scanner) {
         this.scanner = scanner;
@@ -17,6 +18,26 @@ public class RacingCarGame {
 
     public void startGame() {
         getCarNames();
+        getHowManyMoves();
+    }
+
+    private void getHowManyMoves() {
+       while (true){
+            try {
+               String movesBeforeCheck = askMoves();
+               ValidatorUtils.checkIsNumber(movesBeforeCheck);
+               moves = Integer.parseInt(movesBeforeCheck);
+               break;
+            }catch (IllegalArgumentException i ){
+                System.out.println(i.getMessage());
+            }
+        }
+        System.out.println(moves);
+    }
+
+    private String askMoves() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return scanner.nextLine().trim();
     }
 
     private void getCarNames() {
