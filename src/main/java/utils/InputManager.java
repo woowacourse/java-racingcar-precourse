@@ -3,10 +3,7 @@ package utils;
 import static utils.Message.*;
 
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
-
-import racingcar.Car;
 
 public class InputManager {
 	private static final int CAR_NAME_MAX_LENGTH = 5;
@@ -35,7 +32,7 @@ public class InputManager {
 		}
 	}
 
-	public int getMoveNumberFromInput() {
+	public int getRoundNumberFromInput() {
 		System.out.println(CAR_MOVE_NUMBER_INPUT_GUIDE);
 
 		int moveNumber = 0;
