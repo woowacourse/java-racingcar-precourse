@@ -36,12 +36,9 @@ public class InputUtilsTest {
 
     @Test
     public void testInputUtils() {
-        assertThat(InputUtils.isNameLessThanFive(userNames)).isFalse();
-        assertThat(InputUtils.isNameLessThanFive(secondUserNames)).isTrue();
-
-        assertThat(InputUtils.isLoopTimeInteger("11111")).isTrue();
-        assertThat(InputUtils.isLoopTimeInteger(" f")).isFalse();
-        assertThat(InputUtils.isLoopTimeInteger("1 1")).isFalse();
+        Scanner scanner = new Scanner(System.in);
+        assertThat(InputUtils.inputCarNames(scanner));
+        assertThat(InputUtils.inputLoopTime(scanner));
     }
 
 }
