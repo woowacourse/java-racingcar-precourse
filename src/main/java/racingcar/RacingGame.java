@@ -10,7 +10,8 @@ import utils.RandomUtils;
  * 기능 2. Car 리스트에 이름으로 새로운 Car 객체 추가
  * 기능 3. Car 리스트 초기화
  * 기능 4. Car 리스트의 Car 객체들이 모두 랜덤한 숫자를 기준으로 전진하거나 멈춰있는 기능
- * 기능 5. Car 리스트에서 position이 가장 큰 승자의 이름들을 ArrayList로 반환
+ * 기능 5. Car 리스트의 모든 객체들의 toString 출력
+ * 기능 6. Car 리스트에서 position이 가장 큰 승자의 이름들을 ArrayList로 반환
  */
 public class RacingGame {
 	private static final Integer MAX_RANDOM_NUM = 9;
@@ -43,6 +44,13 @@ public class RacingGame {
 				car.moveForwardByOne();
 			}
 		}
+	}
+	
+	public void printCars() {
+		for (Car car : cars) {
+			System.out.println(car.toString());
+		}
+		System.out.println();
 	}
 
 	public ArrayList<String> getWinnerNames() {
