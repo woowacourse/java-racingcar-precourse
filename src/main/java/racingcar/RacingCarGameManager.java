@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class RacingCarGameManager {
@@ -13,6 +14,12 @@ public class RacingCarGameManager {
     public void startRacingCarGame() {
         initialize();
         moveCarsDuringRounds();
+        findWinners();
+    }
+
+    private void findWinners() {
+       List<Car> winningCars = player.findWinningCars();
+        WinningCarsOutput.announceWinningCars(winningCars);
     }
 
     private void moveCarsDuringRounds() {

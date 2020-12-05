@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
@@ -24,5 +25,9 @@ public class Player {
 
     public void askToCarsCurrentPosition() {
         cars.showCarsCurrentPosition();
+    }
+
+    public List<Car> findWinningCars() {
+        return cars.findMaxPositionCars();
     }
 }

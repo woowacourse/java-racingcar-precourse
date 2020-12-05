@@ -20,9 +20,19 @@ public class Cars {
 
     public void showCarsCurrentPosition() {
         for (Car car : cars) {
-            System.out.println(car);
+            System.out.println(car + " : " + car.convertPositionToBar());
         }
         System.out.println();
+    }
+
+    public List<Car> findMaxPositionCars() {
+        Car winningCar = cars.stream()
+            .max(Car::compareTo)
+            .get();
+
+        return cars.stream()
+            .filter(car -> winningCar.isSamePosition(car))
+            .collect(Collectors.toList());
     }
 
     private List<Car> convertStringToCar(List<String> carNames) {
