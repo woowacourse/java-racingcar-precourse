@@ -13,11 +13,16 @@ public class PlayGame {
         tmpCarNameSave = scanner.nextLine();
         System.out.println("시도할 회수는 몇회인가요?");
         doAttemptNumber = scanner.nextInt();
-        carNameSave=tmpCarNameSave.split(",");
-        makingCarObject();
-        sd();
+        splitCommaInString();
+        makingCarObjectArray();
     }
-    public void makingCarObject(){
+    public void startRacingCar(){
+
+    }
+    public void splitCommaInString(){
+        carNameSave=tmpCarNameSave.split(",");
+    }
+    public void makingCarObjectArray(){
         carObject=new Car[carNameSave.length];
         for(int i=0;i<carObject.length;i++){
             carObject[i]=new Car(carNameSave[i]);
