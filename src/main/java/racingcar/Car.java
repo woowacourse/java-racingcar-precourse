@@ -5,6 +5,7 @@ import utils.RandomUtils;
 public class Car implements Comparable<Car> {
     public static final int MIN_RANGE = 0;
     public static final int MAX_RANGE = 9;
+    public static final int PIVOT_FOR_MOVE = 4;
 
     private final String name;
     private int position = 0;
@@ -15,7 +16,7 @@ public class Car implements Comparable<Car> {
 
     public void move() {
         int randomNumber = RandomUtils.nextInt(MIN_RANGE, MAX_RANGE);
-        if (randomNumber > 4) {
+        if (randomNumber >= PIVOT_FOR_MOVE) {
             position++;
         }
     }
