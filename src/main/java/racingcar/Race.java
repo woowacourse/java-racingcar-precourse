@@ -6,7 +6,7 @@ import utils.RandomUtils;
 public class Race {
     public static final int MOVE = 4;
     public static final int MINIMUM_RANGE = 0;
-    public static final int MAXIMUM_RANGE = 10;
+    public static final int MAXIMUM_RANGE = 9;
     public static final String NEW_LINE = "\n";
     public static final int INITIAL_VALUE = 0;
 
@@ -17,10 +17,12 @@ public class Race {
     public Race(CarList carList, int raceRound) {
         this.carList = carList;
         this.raceRound = raceRound;
+        raceResult = "";
     }
 
     public void runCarRace() {
         int roundIndex = INITIAL_VALUE;
+
         while (roundIndex < raceRound) {
             moveCarRandomValue();
             createRaceResult(carList);
@@ -32,6 +34,7 @@ public class Race {
     private void moveCarRandomValue () {
         for (Car car : carList.getCarList()) {
             int moveStatus = RandomUtils.nextInt(MINIMUM_RANGE, MAXIMUM_RANGE);
+            System.out.println(moveStatus);
             if (moveStatus >= MOVE) {
                 car.setPosition(car.getPosition() + 1);
             }

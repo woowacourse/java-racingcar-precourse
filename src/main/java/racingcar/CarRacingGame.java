@@ -31,7 +31,7 @@ public class CarRacingGame {
         try {
             InputPrinter.inputCarPrint();
             List<String> carList = new ArrayList<>(Arrays.asList(scanner.nextLine().split(COMMA)));
-            validator.isValidCarNameSize(carList);
+            validator.isValidCars(carList);
             return carList;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -43,7 +43,7 @@ public class CarRacingGame {
         try {
             InputPrinter.inputRaceRoundPrint();
             String raceRound = scanner.nextLine();
-            validator.isRaceRoundInteger(raceRound);
+            validator.isValidRaceRound(raceRound);
             return Integer.parseInt(raceRound);
         } catch (Exception e) {
             System.out.println(e.getMessage());
