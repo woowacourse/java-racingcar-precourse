@@ -39,24 +39,16 @@ public class RacingGame {
     }
 
     private void finish() {
-        ArrayList<Car> winners = this.findWinners();
+        Winners winners = this.findWinners();
+        response.printWinners(winners);
     }
 
-    private ArrayList<Car> findWinners() {
-        ArrayList<Car> result = null;
-        int maxPosition = -1;
+    private Winners findWinners() {
+        Winners winners = new Winners();
         for (Car car : cars) {
-            int carPosition = car.getPosition();
-            if (maxPosition == carPosition) {
-                // 최대값일 경우 우승자 리스트에 추가한다.
-                result.add(car);
-            } else if (maxPosition < carPosition) {
-                // 현재 최대값보다 더 멀리간 자동차가 있을 경우 최대값을 갱신하고 우승자 리스트를 새로 만든다.
-                maxPosition = carPosition;
-                result = new ArrayList<Car>();
-            }
+            winners.updateWinners(car);
         }
-        return result;
+        return winners;
     }
 
     private void updateCarPositions() {
