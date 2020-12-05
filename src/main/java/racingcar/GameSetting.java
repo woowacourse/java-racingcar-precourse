@@ -53,17 +53,14 @@ public class GameSetting {
     static int trackLength(Scanner scanner) {
         String resultString = inputAndOutput.inputString(scanner, inputTrackLengthPrint);
         int result;
-
         try {
             result = Integer.parseInt(resultString);
         }catch (Exception e){
             throw new IllegalArgumentException(exceptionTrackLengthPrint);
         }
-
         if (result == 0) {
             throw new IllegalArgumentException(exceptionTrackLengthPrint);
         }
-
         return result;
     }
 

@@ -15,6 +15,10 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     boolean isMove() {
         int randomInt = RandomUtils.nextInt(0, 9);
         if (randomInt >= 4) {

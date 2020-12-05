@@ -10,7 +10,10 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         ArrayList<Car> carList = GameSetting.carListCatchException(scanner);
         int trackLength = GameSetting.trackLengthException(scanner);
+        ArrayList<String> winnerList;
 
         GamePlay.play(trackLength, carList);
+        winnerList = GamePlay.whoIsWinner(carList);
+        GamePlay.printWinner(winnerList);
     }
 }
