@@ -4,7 +4,9 @@ import racingcar.domain.engine.Engine;
 
 public class Car {
 
-    private static final int MOVE_NUM = 4;
+    private static final int GO_FORWARD_NUM = 4;
+    private static final String GO_FORWARD_MARKING = "-";
+    private static final int GO_FORWARD_DISTANCE = 1;
 
     private final String name;
     private int position = 0;
@@ -15,8 +17,8 @@ public class Car {
 
     // 추가 기능 구현
     public void move(Engine engine) {
-        if (engine.getDigit() >= MOVE_NUM) {
-            this.position += 1;
+        if (engine.getDigit() >= GO_FORWARD_NUM) {
+            this.position += GO_FORWARD_DISTANCE;
         }
     }
 
@@ -28,7 +30,7 @@ public class Car {
     private String displayCurrentPosition() {
         StringBuilder currentPosition = new StringBuilder();
         for (int i = 0; i < this.position; i++) {
-            currentPosition.append("-");
+            currentPosition.append(GO_FORWARD_MARKING);
         }
         return currentPosition.toString();
     }

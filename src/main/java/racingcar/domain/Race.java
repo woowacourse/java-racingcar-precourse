@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Race {
 
+    private static final String WINNNING_CARS_MSG = "최종 우승자: ";
+
     private RacingCars racingCars;
     private int numOfMove;
     private StringBuilder racingResult = new StringBuilder();
@@ -34,7 +36,7 @@ public class Race {
         }
 
         racingResult
-                .append("최종 우승자: ")
+                .append(WINNNING_CARS_MSG)
                 .append(getFastestCarsName());
     }
 

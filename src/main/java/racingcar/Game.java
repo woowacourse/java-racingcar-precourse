@@ -10,6 +10,9 @@ import java.util.Scanner;
 
 public class Game {
 
+    private static final String INPUT_CAR_NAMES_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_MOVE_NUM_MSG = "시도할 회수는 몇회인가요?";
+
     private final Scanner scanner;
 
     public Game(Scanner scanner) {
@@ -26,7 +29,7 @@ public class Game {
     }
 
     private List<String> inputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAMES_MSG);
 
         while (true) {
             try {
@@ -46,7 +49,7 @@ public class Game {
     }
 
     private int inputRacingMoves() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_MOVE_NUM_MSG);
 
         while (true) {
             try {
