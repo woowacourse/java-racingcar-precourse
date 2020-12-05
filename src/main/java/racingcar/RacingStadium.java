@@ -31,10 +31,10 @@ public class RacingStadium {
 
     private void playOnce() {
         for (int carIndex = 0; carIndex < cars.size(); carIndex++) {
-            int randomNumber = getRandomNumber();
             Car nowCar = cars.get(carIndex);
+            int randomNumber = getRandomNumber();
             nowCar.moveCar(randomNumber);
-            System.out.println("cars = " + nowCar.getCarName() + " RandomNum = " + randomNumber + " position = " + nowCar.getPosition());
+            nowCar.printStatus();
         }
         System.out.println();
     }

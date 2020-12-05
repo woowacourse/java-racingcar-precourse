@@ -26,6 +26,14 @@ public class Car {
         }
     }
 
+    public void printStatus() {
+        String positionToString = "";
+        for (int positionCount = 0; positionCount < position; positionCount++) {
+            positionToString += "-";
+        }
+        System.out.println(this.name + " : " + positionToString);
+    }
+
     private void addPosition() {
         this.position += MOVE_DISTANCE;
     }

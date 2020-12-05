@@ -206,6 +206,6 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 - [x] 랜덤 값이 3이하 일시 Car 객체의 위치 값 변경하지 않기 테스트 
 - [x] 랜덤 값이 4이상 일시 Car 객체의 위치 값 1 추가하기 
 - [x] 랜덤 값이 3이하 일시 Car 객체의 위치 값 변경하지 않기 
-- [ ] 매 이동시 마다 자동차들의 위치값 출력하기
+- [x] 매 이동시 마다 자동차들의 위치값 출력하기
     - 현재 위치 출력은 "-" 을 통해셔 표시한다. ex) pobi : ---
 - [ ] 모든 이동이 완료 됐을 시 Car 객체들의 위치 값을 통해 우승자 출력하기 
