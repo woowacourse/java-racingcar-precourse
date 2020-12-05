@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Mechanic {
 
-    private boolean hasNameOfCarWithForeAndAftBlank = false;
-    private boolean hasNameOfCarOverMaxLength = false;
+    private int numberOfNamesOfCarsWithForeAndAftBlank = 0;
+    private int numberOfNamesOfCarsOverMaxLength = 0;
 
     public Car getCarWithValidName(String nameOfCar) {
         checkNameOfCarIsExceptonal(nameOfCar);
@@ -21,9 +21,12 @@ public class Mechanic {
     }
 
     private void checkNameOfCarIsExceptonal(String nameOfCar) {
-        nameOfCar = nameOfCar.trim();
-        hasNameOfCarWithForeAndAftBlank = isNameWithForeAndAftBlank(nameOfCar);
-        hasNameOfCarOverMaxLength = isLengthOfNameOverMax(nameOfCar);
+        if (isNameWithForeAndAftBlank(nameOfCar)) {
+            numberOfNamesOfCarsWithForeAndAftBlank++;
+        }
+        if (isLengthOfNameOverMax(nameOfCar.trim())) {
+            numberOfNamesOfCarsOverMaxLength++;
+        }
     }
 
     private boolean isNameWithForeAndAftBlank(String nameOfCar) {
@@ -60,13 +63,13 @@ public class Mechanic {
     }
 
     public void noticeNameTrimmed() {
-        if (hasNameOfCarWithForeAndAftBlank) {
+        if (numberOfNamesOfCarsWithForeAndAftBlank > 0) {
             System.err.println(ErrorMessage.NAME_WITH_FORE_AND_AFT_BLANK.getMessage());
         }
     }
 
     public void noticeShortenName() {
-        if (hasNameOfCarOverMaxLength) {
+        if (numberOfNamesOfCarsOverMaxLength > 0) {
             System.err.println(ErrorMessage.OVER_MAXIMUM_NAME_LENGTH.getMessage());
         }
     }
