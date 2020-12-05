@@ -13,7 +13,7 @@ public class RacingGame {
         this.scanner = scanner;
     }
 
-    public void startGame() {
+    public void playingGame() {
         getInput();
         makeCarInstance(names);
         System.out.println("실행 결과");
