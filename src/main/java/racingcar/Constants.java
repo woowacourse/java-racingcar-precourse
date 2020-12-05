@@ -18,6 +18,7 @@ public class Constants {
     public static final String COUNT_ERROR_STATEMENT = "[ERROR] 숫자가 아닌 경우는 허용하지 않습니다";
     public static final String COUNT_INPUT_STATEMENT = "시도할 회수는 몇회인가요?";
     public static final int NAME_MAX_LENGTH = 5;
+    public static final int NAME_MIN_LENGTH = 1;
     public static final String SEPARATOR = ",";
     public static final String RACE_RESULT = "실행 결과";
     public static final String CAR_INPUT_STATEMENT = "경주할 자동차 이름을 입력하세요." +
