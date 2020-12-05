@@ -157,4 +157,23 @@ class CarTest {
         assertThat(helloCar.getPosition()).isEqualTo(1);
         assertThat(worldCar.getPosition()).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("랜덤 번호가 3이하일 시 position을 추가하지 않는다.")
+    void stopCar() {
+        //given
+        Car helloCar = new Car("hello");
+        Car worldCar = new Car("world");
+        int randomNumber = 0;
+        int secondRandomNumber = 3;
+
+        //when
+        helloCar.moveCar(randomNumber);
+        worldCar.moveCar(secondRandomNumber);
+        worldCar.moveCar(secondRandomNumber);
+
+        //then
+        assertThat(helloCar.getPosition()).isEqualTo(0);
+        assertThat(worldCar.getPosition()).isEqualTo(0);
+    }
 }
