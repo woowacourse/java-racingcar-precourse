@@ -49,6 +49,9 @@ public class GameInput {
             if (name.length() == 0) {
                 throw new IllegalArgumentException();
             }
+            if (name.length() > GameConstants.CAR_NAME_MAX_LENGTH) {
+                throw new IllegalArgumentException();
+            }
         }
         return true;
     }
