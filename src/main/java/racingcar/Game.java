@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.Race;
 import utils.validator.CarNameValidator;
+import utils.validator.MoveInputValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -50,20 +51,15 @@ public class Game {
         while (true) {
             try {
                 String input = scanner.nextLine();
-                int numOfMoves = Integer.parseInt(input);
-                validatePositiveNumber(numOfMoves);
-                return numOfMoves;
-            } catch (NumberFormatException e) {
-                System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+                int numOfMove = convertStringToIntegerAndValidate(input);
+                return numOfMove;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    private void validatePositiveNumber(int positiveNumber) {
-        if (positiveNumber < 0) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 양수여야 합니다.");
-        }
+    private int convertStringToIntegerAndValidate(String input) {
+        return MoveInputValidator.validateNumOfMove(input);
     }
 }
