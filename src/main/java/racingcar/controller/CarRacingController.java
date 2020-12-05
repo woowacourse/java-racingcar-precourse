@@ -26,13 +26,17 @@ public class CarRacingController {
     private static ArrayList<String> winner = new ArrayList<>();
 
     public static void startCarRacing(Scanner scanner) {
+        initRacingCar(scanner);
+        playCarRacing();
+        showWinner();
+    }
+
+    public static void initRacingCar(Scanner scanner) {
         System.out.println(TextType.CAR_NAME_TEXT.getText());
         scanCars(scanner);
         System.out.println(TextType.CAR_RACING_TIMES_TEXT.getText());
         scanTimes(scanner);
         System.out.println();
-        playCarRacing();
-        showWinner();
     }
 
     public static void scanCars(Scanner scanner) {
