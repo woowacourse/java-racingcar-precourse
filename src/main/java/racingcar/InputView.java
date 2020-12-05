@@ -22,7 +22,6 @@ public class InputView {
     public List<String> getCarNames(){
         List<String> names = getCarNames(scanner.nextLine());
         validateZeroPlayer(names);
-        validateBlankName(names);
         validateNameLength(names);
         validateDuplicate(names);
         return names;
@@ -35,13 +34,13 @@ public class InputView {
                      .collect(Collectors.toList());
     }
 
-    public int getRunCount() {
-        int number= getRunCount(scanner.nextLine());
+    public int getRound() {
+        int number= getRound(scanner.nextLine());
         validatePositiveInt(number);
         return number;
     }
 
-    private int getRunCount(String inputString) {
+    private int getRound(String inputString) {
         try {
             return Integer.parseInt(inputString.strip());
         } catch (NumberFormatException e) {

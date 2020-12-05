@@ -13,7 +13,7 @@ public class Game {
     private final OutputView outputView;
     private final ArrayList<Car> cars;
     private ScoreBoard scoreBoard;
-    private int runCount;
+    private int round;
 
     public Game(Scanner scanner) {
         cars = new ArrayList<>();
@@ -23,9 +23,8 @@ public class Game {
 
     public void play() {
         updateCarNames();
-        updateRunCount();
-        outputView.printResultMessage();
-        playRunCountTimes();
+        updateRound();
+        playMultipleRound();
         outputView.printWinners(scoreBoard);
     }
 
@@ -49,21 +48,22 @@ public class Game {
         }
     }
 
-    private void updateRunCount() {
+    private void updateRound() {
         try {
-            outputView.printRunCountQuestion();
-            runCount = inputView.getRunCount();
+            outputView.printRoundQuestion();
+            round = inputView.getRound();
         } catch (IllegalArgumentException e) {
             outputView.printError(e);
-            updateRunCount();
+            updateRound();
         }
     }
 
-    private void playRunCountTimes() {
-        IntStream.range(0, runCount).forEach(i -> playOneTime());
+    private void playMultipleRound() {
+        outputView.printResultMessage();
+        IntStream.range(0, round).forEach(i -> playSingleRound());
     }
 
-    private void playOneTime() {
+    private void playSingleRound() {
         playMoveOrStop();
         outputView.printResult(scoreBoard);
     }
