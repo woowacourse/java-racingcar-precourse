@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.assertj.core.api.ThrowableAssert;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,30 +13,25 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingCarsTest {
 
-    private RacingCars racingCars;
-
-    @BeforeEach
-    public void initRacingCars() {
-        String carNames = "equus, lexus, SM5, K7";
-
-        racingCars = new RacingCars(carNames);
-    }
-
     @Test
     @DisplayName("자동차 이름들의 문자열에서 리스트 생성 테스트")
     public void setUpCars_carNames_returnSameName() {
 
         // given
-        String expectedCarNames = "[equus, lexus, SM5, K7]";
+        String carNames = "equus, lexus, SM5, K7";
 
         // when
+        RacingCars racingCars = new RacingCars(carNames);
+
+        // then
+        String expectedCarNames = "[equus, lexus, SM5, K7]";
+
         String carNameListString = racingCars.getRacingCars()
                 .stream()
                 .map(Car::getName)
                 .collect(Collectors.toList())
                 .toString();
 
-        // then
         assertThat(carNameListString).isEqualTo(expectedCarNames);
     }
 
@@ -46,11 +40,12 @@ public class RacingCarsTest {
     public void add_NewCar_ExceptionThrown() {
 
         // given
-        Car car = new Car("tico");
+        String carNames = "equus, lexus, SM5, K7";
+        RacingCars racingCars = new RacingCars(carNames);
 
         // when
         ThrowableAssert.ThrowingCallable callable =
-                () -> racingCars.getRacingCars().add(car);
+                () -> racingCars.getRacingCars().add(new Car("tico"));
 
         // then
         assertThatThrownBy(callable).isExactlyInstanceOf(UnsupportedOperationException.class)
@@ -68,7 +63,7 @@ public class RacingCarsTest {
                 new Car("tico", 3)
         );
 
-        racingCars = new RacingCars(cars);
+        RacingCars racingCars = new RacingCars(cars);
 
         // when
         racingCars = racingCars.moveCars();
