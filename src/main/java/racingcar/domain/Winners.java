@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Winners {
-    private List<String> winners;
+    private final List<String> winners;
 
     public Winners(List<String> winners) {
         this.winners = winners;
