@@ -19,6 +19,7 @@ public class OutputView {
     private static final String WINNER_MESSAGE = "최종 우승자:";
 
     public static void executionMessage() {
+        System.out.println();
         System.out.println(EXECUTION_RESULT_MESSAGE);
     }
 
