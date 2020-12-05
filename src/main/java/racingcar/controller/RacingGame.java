@@ -44,14 +44,13 @@ public class RacingGame {
     }
 
     private void processGame(int turnNumber) {
+        OutputViewer.initiateResult();
         for (int i = 0; i < turnNumber; i++) {
             this.gameSet.oneTurn();
         }
-        OutputViewer.spaceBetweenGames();
     }
 
     private void endGame() {
-        OutputViewer.initiateResult();
         ArrayList<String> winnerList = gameSet.getWinners();
         showWinners(winnerList);
     }
@@ -59,6 +58,7 @@ public class RacingGame {
     private void showWinners(ArrayList<String> winnerList) {
         if (winnerList.size() == 1) {
             soloWinner(winnerList);
+            return;
         }
         multiWinners(winnerList);
     }

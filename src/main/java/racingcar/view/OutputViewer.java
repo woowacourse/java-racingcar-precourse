@@ -10,7 +10,8 @@ public class OutputViewer {
 
     /* 결과 표시 시작을 알리는 메시지 */
     public static void initiateResult() {
-        System.out.printf("\n%s", FIRST_RESULT_MESSAGE);
+        System.out.println(" ");
+        System.out.printf("%s \n", FIRST_RESULT_MESSAGE);
     }
 
     /**

@@ -42,6 +42,7 @@ public class Cars {
         for (Car car : this.carList) {
             OutputViewer.participantScoreName(car.getName(), car.getPosition());
         }
+        OutputViewer.spaceBetweenGames();
     }
 
     /**
