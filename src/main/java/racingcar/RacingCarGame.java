@@ -15,17 +15,18 @@ public class RacingCarGame {
     public void start(Scanner scanner) {
         carNamesInput(scanner);
         tryCountInput(scanner);
+        System.out.println(Constants.PROGRESS_RESULT);
         gameProgress();
-        // printCarName();
     }
 
     private void carNamesInput(Scanner scanner) {
         try {
             System.out.println(Constants.NAME_INPUT_REQ_MSG);
             String names = scanner.nextLine();
-            if (!Validator.isValidName(names)) throw new Exception(Constants.STANDARD_ERROR_MSG);
+            if (!Validator.isValidName(names)) {
+                throw new Exception(Constants.STANDARD_ERROR_MSG);
+            }
             setCarList(names);
-
         } catch (Exception e) {
             System.err.println(e.getMessage() + " " + Constants.NAME_ERROR_MSG);
             carNamesInput(scanner);
@@ -53,6 +54,8 @@ public class RacingCarGame {
     private void gameProgress() {
         for (int i = 0; i < tryCount; ++i) {
             carMoveOrNot();
+            printCarStatus();
+            System.out.println();
         }
     }
 
@@ -63,9 +66,9 @@ public class RacingCarGame {
         }
     }
 
-    private void printCarName() {
+    private void printCarStatus() {
         for (Car car : carList) {
-            System.out.println(car.getName());
+            car.printCurStatus();
         }
     }
 }
