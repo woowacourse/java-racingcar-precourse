@@ -37,7 +37,7 @@ public class Application {
 			racingGame.addCarByNames(names);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			inputCarNames(scanner);
+			inputCarNames(scanner); /** 에러 출력하고 입력 다시 받음 */
 		}
 	}
 
@@ -53,14 +53,14 @@ public class Application {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			inputRound(scanner);
+			inputRound(scanner); /** 에러 출력하고 입력 다시 받음 */
 		}
 	}
 
 	private static void printWinners() {
 		StringBuilder winnerMessage = new StringBuilder();
 		for (String winnerName : racingGame.getWinnerNames()) {
-			if (winnerMessage.length() > ZERO) {
+			if (winnerMessage.length() > ZERO) { /** 첫 우승자 이름 앞에는 쉼표 붙이지 않음 */
 				winnerMessage.append(DELIMITER_WHITESPACE);
 			}
 			winnerMessage.append(winnerName);
