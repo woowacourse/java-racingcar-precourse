@@ -16,6 +16,11 @@ public class Print {
 		System.out.println();
 	}
 
+	public static void PrintWinner(ArrayList<String> winners){
+		System.out.print("최종 우승자: ");
+		System.out.println(winners.toString());
+	}
+
 	private static void PrintTurnResult(Car player){
 		System.out.print(player.GetName() + " : ");
 		PrintPlayerPosition(player);
