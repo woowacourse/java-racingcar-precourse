@@ -1,4 +1,4 @@
-package racingcar;
+package parser;
 
 import exception.InvalidInputException;
 import exception.NonNumberRoundException;
