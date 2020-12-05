@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -9,7 +11,23 @@ public class Car {
     }
 
     // 추가 기능 구현
-    void test(){
-        System.out.println(this.name);
+    public String getName() {
+        return name;
+    }
+
+    boolean isMove() {
+        int randomInt = RandomUtils.nextInt(0, 9);
+        if (randomInt >= 4) {
+            return true;
+        }
+        return false;
+    }
+
+    int move() {
+        boolean isMove = isMove();
+        if (isMove) {
+            position++;
+        }
+        return position;
     }
 }
