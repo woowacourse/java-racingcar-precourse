@@ -16,14 +16,19 @@ public class Race {
         System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
             for (Car car : cars) {
-                if (isMove()) {
-                    car.moveForward();
-                }
-                car.printStatus();
+                moveCar(car);
             }
+            System.out.println();
         }
 
         return getResult(cars);
+    }
+
+    private static void moveCar(Car car) {
+        if (isMove()) {
+            car.moveForward();
+        }
+        car.printStatus();
     }
 
 
