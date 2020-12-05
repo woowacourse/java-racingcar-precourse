@@ -4,13 +4,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class InputView {
-    private final  int NAME_LENGTH_STANDARD = 5;
+    private final int MAX_NAME_LENGTH = 5;
+    private final int MIN_NAME_LENGTH = 1;
     private final String ERROR_NOT_INTEGER = "[ERROR] 시도 횟수는 숫자여야 한다.";
     private final String ERROR_NOT_POSITIVE_INTEGER = "[ERROR] 시도 횟수는 양수여야 한다.";
     private final String ERROR_BLANK_INPUT = "[ERROR] 입력값이 공백이면 안된다.";
     private final String ERROR_ZERO_PLAYER = "[ERROR] 참가자 수는 한명 이상이여야 한다.";
-    private final String ERROR_BLANK_NAME = "[ERROR] 이름은 공백이면 안된다.";
-    private final String ERROR_NAME_LENGTH = "[ERROR] 이름은 5글자 이하여야 한다.";
+    private final String ERROR_MIN_NAME_LENGTH = "[ERROR] 이름이 길이가 " + MIN_NAME_LENGTH + "이상이여야 한다.";
+    private final String ERROR_MAX_NAME_LENGTH = "[ERROR] 이름이 길이가 " + MAX_NAME_LENGTH + "이하여야 한다.";
     private final String ERROR_DUPLICATE_NAME = "[ERROR] 이름이 같은 참가자가 있으면 안된다.";
     private final Scanner scanner;
 
@@ -60,23 +61,16 @@ public class InputView {
         }
     }
 
-    private void validateBlankName(List<String> names) {
-        names.forEach(this::validateBlankName);
-    }
-
-    private void validateBlankName(String name) {
-        if (name.isEmpty()){
-            throw new IllegalArgumentException(ERROR_BLANK_NAME);
-        }
-    }
-
     private void validateNameLength(List<String> names) {
         names.forEach(this::validateNameLength);
     }
 
     private void validateNameLength(String name) {
-        if (name.length() > NAME_LENGTH_STANDARD){
-            throw new IllegalArgumentException(ERROR_NAME_LENGTH);
+        if (name.length() < MIN_NAME_LENGTH) {
+            throw new IllegalArgumentException(ERROR_MIN_NAME_LENGTH);
+        }
+        if (name.length() > MAX_NAME_LENGTH){
+            throw new IllegalArgumentException(ERROR_MAX_NAME_LENGTH);
         }
     }
 
