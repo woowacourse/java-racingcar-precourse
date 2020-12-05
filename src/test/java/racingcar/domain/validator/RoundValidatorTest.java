@@ -1,7 +1,6 @@
 package racingcar.domain.validator;
 
 import org.assertj.core.api.ThrowableAssert;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,12 +14,7 @@ import racingcar.domain.exception.RoundOutOfBoundsException;
 
 public class RoundValidatorTest {
 
-    private RoundValidator validator;
-
-    @BeforeEach
-    public void initRoundValidator() {
-        validator = new RoundValidator();
-    }
+    private final RoundValidator validator = new RoundValidator();
 
     @ParameterizedTest
     @ValueSource(strings = {"1", "10", "20"})

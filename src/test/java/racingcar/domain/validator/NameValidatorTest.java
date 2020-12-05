@@ -17,11 +17,7 @@ import racingcar.view.InputView;
 
 public class NameValidatorTest {
 
-    private final Validator validator;
-
-    public NameValidatorTest() {
-        this.validator = new NameValidator();
-    }
+    private final Validator validator = new NameValidator();
 
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "pobi, woni", "pobi,워니,준1"})

@@ -13,7 +13,7 @@ public final class OutputView {
 
     private static final String NULL_CHARACTER = "\0";
 
-    private static final String WINNERS_DELIMITER = ", ";
+    private static final String WINNER_DELIMITER = ", ";
 
     public void printGameResult() {
         System.out.println(GAME_RESULT);
@@ -29,7 +29,7 @@ public final class OutputView {
     }
 
     public void printWinners(final RacingCars racingCars) {
-        System.out.println(FINAL_WINNERS + String.join(WINNERS_DELIMITER, racingCars.findWinners()));
+        System.out.println(FINAL_WINNERS + String.join(WINNER_DELIMITER, racingCars.findWinners()));
     }
 
     private String repeatSymbol(final int times) {
