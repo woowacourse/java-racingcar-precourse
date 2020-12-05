@@ -49,9 +49,7 @@ public class Racing {
     }
 
     private Car getFirst() {
-        return cars.stream()
-                .max(Car::compareTo)
-                .get();
+        return Collections.max(this.cars);
     }
 
     @Override
