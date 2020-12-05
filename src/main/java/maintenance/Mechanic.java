@@ -105,4 +105,13 @@ public class Mechanic {
     private boolean isNegativeNumber(int turnsToTryInt) {
         return turnsToTryInt < 0;
     }
+
+    public void setNumberOfNamesOfCarsWithForeAndAftBlank(
+            int numberOfNamesOfCarsWithForeAndAftBlank) {
+        this.numberOfNamesOfCarsWithForeAndAftBlank = numberOfNamesOfCarsWithForeAndAftBlank;
+    }
+
+    public void setNumberOfNamesOfCarsOverMaxLength(int numberOfNamesOfCarsOverMaxLength) {
+        this.numberOfNamesOfCarsOverMaxLength = numberOfNamesOfCarsOverMaxLength;
+    }
 }
