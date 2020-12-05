@@ -34,6 +34,10 @@ public class Car {
         this.fuelGenerator = fuelGenerator;
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
     public int getPosition() {
         return position.getPosition();
     }
