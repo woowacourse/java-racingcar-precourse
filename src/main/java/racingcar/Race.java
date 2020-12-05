@@ -62,11 +62,6 @@ public class Race {
 
     private void printWinner() {
         ArrayList<String> winnerNames = rank.judgeWinner(cars);
-        System.out.println("printWinner");
-        for (Car c : cars) {
-            System.out.print(c.getName() + " , ");
-        }
-        System.out.println();
         String winner = String.join(", ", winnerNames);
         System.out.println(FINAL_WINNER + winner);
     }
