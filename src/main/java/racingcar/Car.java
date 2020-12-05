@@ -1,6 +1,11 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class Car {
+
+    private static final int STAY = 3;
+
     private final String name;
     private int position = 0;
 
@@ -8,5 +13,31 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public int getPosition() {
+        return this.position;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+
+    public void move() {
+        moveOnRandomNum();
+        printResult();
+    }
+
+    private void moveOnRandomNum() {
+        int randomNum = RandomNumMaker.run();
+        if (randomNum > STAY)
+            this.position++;
+    }
+
+    private void printResult() {
+        System.out.print(this.name + " : ");
+        for (int i = 0; i < this.position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
