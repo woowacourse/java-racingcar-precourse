@@ -3,14 +3,17 @@ package utils;
 import static utils.Message.*;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleManager {
+import racingcar.Car;
+
+public class InputManager {
 	private static final int CAR_NAME_MAX_LENGTH = 5;
 
 	private final Scanner scanner;
 
-	public ConsoleManager(Scanner scanner) {
+	public InputManager(Scanner scanner) {
 		this.scanner = scanner;
 	}
 
