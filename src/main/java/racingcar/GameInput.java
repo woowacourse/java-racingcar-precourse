@@ -28,7 +28,7 @@ public class GameInput {
         }
     }
 
-    public static boolean validateGameRound(String gameRound) throws IllegalArgumentException {
+    public static void validateGameRound(String gameRound) throws IllegalArgumentException {
         // 숫자가 아닌 값이 입력되면 예외 발생
         for (int i = 0; i < gameRound.length(); i++) {
             if (!Character.isDigit(gameRound.charAt(i))) {
@@ -38,10 +38,9 @@ public class GameInput {
         if (Integer.parseInt(gameRound) < 1) {
             throw new IllegalArgumentException();
         }
-        return true;
     }
 
-    public static boolean validateCarNames(String[] carNames) throws IllegalArgumentException {
+    public static void validateCarNames(String[] carNames) throws IllegalArgumentException {
         if (carNames.length == 0) {
             throw new IllegalArgumentException();
         }
@@ -53,6 +52,5 @@ public class GameInput {
                 throw new IllegalArgumentException();
             }
         }
-        return true;
     }
 }
