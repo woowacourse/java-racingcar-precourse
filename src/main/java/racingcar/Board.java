@@ -7,16 +7,23 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-public class Board {
-    private static final String MESSAGE_GAME_RESULT = "\n실행 결과";
-    private static final String SYMBOL_CAR_MOVEMENT = "-";
-    private static final String SEPARATOR_NAME_PROGRESS = " : ";
+interface Readable {
+    String MESSAGE_GAME_RESULT = "\n실행 결과";
+    String SYMBOL_CAR_MOVEMENT = "-";
+    String SEPARATOR_NAME_PROGRESS = " : ";
+
+    void printAccumulatedRoundsResult(ArrayList<HashMap<String, Integer>> allRoundsResults,
+        int numberTotalRounds);
+}
+
+public class Board implements Readable {
+
 
     public void printAccumulatedRoundsResult(ArrayList<HashMap<String, Integer>> allRoundsResults,
-        int numberTryToMove) {
+            int numberTotalRounds) {
         System.out.println(MESSAGE_GAME_RESULT);
 
-        for (int roundNumber = 0; roundNumber < numberTryToMove; roundNumber++) {
+        for (int roundNumber = 0; roundNumber < numberTotalRounds; roundNumber++) {
             HashMap round = allRoundsResults.get(roundNumber);
             printRoundResult(round);
         }
@@ -28,13 +35,13 @@ public class Board {
 
         while (roundIterator.hasNext()) {
             Map.Entry entry = (Map.Entry)roundIterator.next();
-            System.out.printf(entry.getKey().toString()+SEPARATOR_NAME_PROGRESS);
-            printCarProgressPerRound(entry);
+            System.out.printf(entry.getKey().toString() + SEPARATOR_NAME_PROGRESS);
+            printCarMovementProgressPerRound(entry);
         }
         System.out.println("");
     }
 
-    private void printCarProgressPerRound(Entry entry) {
+    private void printCarMovementProgressPerRound(Entry entry) {
         int currentCarPosition = (int)entry.getValue();
 
         for (int i = 0; i < currentCarPosition; i++) {

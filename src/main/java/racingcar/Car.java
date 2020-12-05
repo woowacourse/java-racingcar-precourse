@@ -1,6 +1,11 @@
 package racingcar;
 
-public class Car {
+interface Participatory {
+    void tryToMove(Round round, int roundNumber);
+    boolean isWinner(int longestDistance);
+}
+
+public class Car implements Participatory {
     private final String name;
     private int position = 0;
 

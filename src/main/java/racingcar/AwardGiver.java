@@ -8,23 +8,31 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+interface Awardable {
+    String MESSAGE_WINNER = "최종 우승자: ";
+    String DELIMITER = ", ";
+
+    void printAwardReceiver(HashMap<String, Car> carNameAndCarObjects,
+        ArrayList<HashMap<String, Integer>> allRoundResults, int numberTotalRounds);
+}
+
 public class AwardGiver implements Awardable {
 
-    private ArrayList<String> awardReceiverList = new ArrayList<>();
+    private ArrayList<String> listAwardReceiver = new ArrayList<>();
     private int distanceForWinner;
 
-    public void printAwardReceiver(HashMap<String, Car> participants,
+    public void printAwardReceiver(HashMap<String, Car> carNameAndCarObjects,
             ArrayList<HashMap<String, Integer>> allRoundsResults, int numberTotalRounds) {
 
-        distanceForWinner = findWinnerCondition(allRoundsResults, numberTotalRounds);
+        distanceForWinner = findConditionToWin(allRoundsResults, numberTotalRounds);
 
-        findWinnerInParticipants(participants);
+        findWinner(carNameAndCarObjects);
 
         System.out.printf(MESSAGE_WINNER);
-        System.out.println(String.join(DELIMITER, awardReceiverList));
+        System.out.println(String.join(DELIMITER, listAwardReceiver));
     }
 
-    private int findWinnerCondition(ArrayList<HashMap<String, Integer>> allRoundsResults,
+    private int findConditionToWin(ArrayList<HashMap<String, Integer>> allRoundsResults,
             int numberTotalRounds) {
 
         int lastRoundNumber = numberTotalRounds - 1;
@@ -34,8 +42,8 @@ public class AwardGiver implements Awardable {
     }
 
 
-    private void findWinnerInParticipants(HashMap<String, Car> participants) {
-        Set carsSet = participants.entrySet();
+    private void findWinner(HashMap<String, Car> carNameAndCarObjects) {
+        Set carsSet = carNameAndCarObjects.entrySet();
         Iterator carsIterator = carsSet.iterator();
 
         while (carsIterator.hasNext()) {
@@ -48,7 +56,7 @@ public class AwardGiver implements Awardable {
         Car car = (Car)entry.getValue();
 
         if (car.isWinner(distanceForWinner)) {
-            awardReceiverList.add((String)entry.getKey());
+            listAwardReceiver.add((String)entry.getKey());
         }
     }
 }

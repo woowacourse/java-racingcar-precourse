@@ -12,7 +12,7 @@ public class InputRound implements AcceptableRound {
     }
 
     private static String inputNumberRounds(Scanner scanner) {
-        System.out.println(MESSAGE_INPUT_NUMBER_TRY_TO_MOVE);
+        System.out.println(MESSAGE_INPUT_NUMBER_ROUNDS);
 
         return scanner.nextLine();
     }
@@ -26,13 +26,13 @@ public class InputRound implements AcceptableRound {
         try {
             numberRounds = Integer.parseInt(stringInputNumberRounds);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(MESSAGE_ERROR_NOT_VALID_TRY_NUMBER);
+            throw new IllegalArgumentException(MESSAGE_ERROR_NOT_VALID_ROUND_NUMBER);
         }
     }
 
     private void isNaturalNumber(int numberRounds) {
         if (numberRounds < MINIMUM_NATURAL_NUMBER) {
-            throw new IllegalArgumentException(MESSAGE_ERROR_NOT_VALID_TRY_NUMBER);
+            throw new IllegalArgumentException(MESSAGE_ERROR_NOT_VALID_ROUND_NUMBER);
         }
     }
 }

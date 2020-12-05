@@ -3,7 +3,16 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Round {
+interface playableRound {
+
+    static ArrayList<HashMap<String, Integer>> getRoundsInformation() {
+        return null;
+    }
+    void registerCarMovement(int roundNumber, String name, int position);
+    void start(HashMap<String, Car> carNameAndCarObjects, Round round, int roundNumber);
+}
+
+public class Round implements playableRound {
     private static ArrayList<HashMap<String, Integer>> roundsInformation = new ArrayList<>();
 
     public Round() {
@@ -15,9 +24,9 @@ public class Round {
         roundInformation.put(name, position);
     }
 
-    public void start(HashMap<String, Car> participants, Round round, int roundNumber) {
-        for (String participant : participants.keySet()) {
-            participants.get(participant).tryToMove(round, roundNumber);
+    public void start(HashMap<String, Car> carNameAndCarObjects, Round round, int roundNumber) {
+        for (String carName : carNameAndCarObjects.keySet()) {
+            carNameAndCarObjects.get(carName).tryToMove(round, roundNumber);
         }
     }
 
