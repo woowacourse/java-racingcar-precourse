@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 import racingcar.domain.generator.FixedFuelGenerator;
 import racingcar.domain.generator.FuelGenerator;
 import racingcar.domain.generator.RandomFuelGenerator;
@@ -19,7 +21,11 @@ public final class Car {
     }
 
     public Car(final String name, final int fuel) {
-        this(name, 0, new FixedFuelGenerator(fuel));
+        this(name, 0, fuel);
+    }
+
+    public Car(final String name, final int position, final int fuel) {
+        this(name, position, new FixedFuelGenerator(fuel));
     }
 
     public Car(final String name, final int position, final FuelGenerator fuelGenerator) {
@@ -48,5 +54,19 @@ public final class Car {
         }
 
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (!(o instanceof Car)) { return false; }
+        Car car = (Car) o;
+        return Objects.equals(getName(), car.getName()) &&
+                Objects.equals(getPosition(), car.getPosition());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getPosition());
     }
 }

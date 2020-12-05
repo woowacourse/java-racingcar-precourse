@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import racingcar.view.InputView;
@@ -56,5 +57,18 @@ public final class RacingCars {
                 .collect(Collectors.toList());
 
         return Collections.unmodifiableList(racingCars);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (!(o instanceof RacingCars)) { return false; }
+        RacingCars that = (RacingCars) o;
+        return Objects.equals(getRacingCars(), that.getRacingCars());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getRacingCars());
     }
 }

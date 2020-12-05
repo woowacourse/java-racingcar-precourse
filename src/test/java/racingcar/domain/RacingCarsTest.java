@@ -1,10 +1,11 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.assertj.core.api.ThrowableAssert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,35 +14,24 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingCarsTest {
 
-    @Test
-    @DisplayName("자동차 이름들의 문자열에서 리스트 생성 테스트")
-    public void setUpCars_carNames_returnSameName() {
+    private RacingCars racingCars;
 
-        // given
-        String carNames = "equus, lexus, SM5, K7";
+    private List<Car> cars;
 
-        // when
-        RacingCars racingCars = new RacingCars(carNames);
+    @BeforeEach
+    public void initRacingCars() {
+        Car equus = new Car("equus", 5);
+        Car sm5 = new Car("SM5", 3);
+        Car tico = new Car("tico", 3);
 
-        // then
-        String expectedCarNames = "[equus, lexus, SM5, K7]";
+        cars = new ArrayList<>(Arrays.asList(equus, sm5, tico));
 
-        String carNameListString = racingCars.getRacingCars()
-                .stream()
-                .map(Car::getName)
-                .collect(Collectors.toList())
-                .toString();
-
-        assertThat(carNameListString).isEqualTo(expectedCarNames);
+        racingCars = new RacingCars(cars);
     }
 
     @Test
     @DisplayName("자동차 리스트가 불변 리스트인지 테스트")
     public void add_NewCar_ExceptionThrown() {
-
-        // given
-        String carNames = "equus, lexus, SM5, K7";
-        RacingCars racingCars = new RacingCars(carNames);
 
         // when
         ThrowableAssert.ThrowingCallable callable =
@@ -57,22 +47,19 @@ public class RacingCarsTest {
     public void moveCars_RacingCars_returnMovedPosition() {
 
         // given
-        List<Car> cars = Arrays.asList(
-                new Car("equus", 5),
-                new Car("SM5", 4),
-                new Car("tico", 3)
-        );
+        Car equus = new Car("equus", 1, 5);
+        Car sm5 = new Car("SM5", 0, 3);
+        Car tico = new Car("tico", 0, 3);
+
+        List<Car> expectedCars = Arrays.asList(equus, sm5, tico);
+
+        RacingCars expectedRacingCars = new RacingCars(expectedCars);
 
         // when
-        RacingCars racingCars = new RacingCars(cars).moveCars();
+        racingCars = racingCars.moveCars();
 
         // then
-        List<Integer> positions = racingCars.getRacingCars()
-                .stream()
-                .map(Car::getPosition)
-                .collect(Collectors.toList());
-
-        assertThat(positions).containsExactly(1, 1, 0);
+        assertThat(racingCars).isEqualTo(expectedRacingCars);
     }
 
     @Test
@@ -80,18 +67,13 @@ public class RacingCarsTest {
     public void findWinners_OneWinner_ReturnWinner() {
 
         // given
-        List<Car> cars = Arrays.asList(
-                new Car("equus", 9),
-                new Car("SM5", 3),
-                new Car("tico", 3)
-        );
-
+        racingCars = racingCars.moveCars();
 
         // when
-        RacingCars racingCars = new RacingCars(cars).moveCars();
+        List<String> winners = racingCars.findWinners();
 
         //then
-        assertThat(racingCars.findWinners()).containsExactly("equus");
+        assertThat(winners).containsExactly("equus");
     }
 
     @Test
@@ -99,17 +81,12 @@ public class RacingCarsTest {
     public void findWinners_ManyWinners_ReturnWinners() {
 
         // given
-        List<Car> cars = Arrays.asList(
-                new Car("equus", 9),
-                new Car("SM5", 5),
-                new Car("K7", 7),
-                new Car("tico", 3)
-        );
+        cars.add(new Car("K7", 7));
 
         // when
         RacingCars racingCars = new RacingCars(cars).moveCars();
 
         //then
-        assertThat(racingCars.findWinners()).containsExactly("equus", "SM5", "K7");
+        assertThat(racingCars.findWinners()).containsExactly("equus", "K7");
     }
 }
