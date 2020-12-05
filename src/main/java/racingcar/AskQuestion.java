@@ -123,6 +123,7 @@ public class AskQuestion {
         while (!isNumber) {
             try {
                 numberOfTry = scanner.nextInt();
+                isPositiveNumber(numberOfTry);
                 scanner.nextLine(); // buffer flush
                 isNumber = true;
             } catch (Exception e) {
@@ -133,5 +134,10 @@ public class AskQuestion {
         return numberOfTry;
     }
 
-}
+    public void isPositiveNumber(int input) {
+        if (input < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
 
+}
