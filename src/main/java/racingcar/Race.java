@@ -111,9 +111,7 @@ public class Race {
     }
 
     private void checkRightCarName(String[] cars) {
-        if (!Validation.carNameValidation(cars)) {
-            throw new IllegalArgumentException(Constant.ERROR_CAR_NAME);
-        }
+        Validation.carNameValidation(cars);
     }
 
     private void carRegistration(String[] cars) {
