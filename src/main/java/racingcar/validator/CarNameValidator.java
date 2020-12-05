@@ -4,9 +4,10 @@ public class CarNameValidator {
     private static final int ZERO = 0;
     private static final int MAX_NAME_LENGTH = 5;
 
-    public static void validate(String name) {
+    public static String validate(String name) {
         validateNameLengthZero(name);
         validateNameLengthLong(name);
+        return name;
     }
 
     private static void validateNameLengthZero(String name) {
@@ -17,7 +18,7 @@ public class CarNameValidator {
 
     private static void validateNameLengthLong(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("[ERROR] 지동차의 이름이 너무 깁니다. " + name);
+            throw new IllegalArgumentException("[ERROR] 지동차의 이름이 너무 깁니다. name: " + name);
         }
     }
 }
