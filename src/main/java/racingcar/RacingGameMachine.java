@@ -6,20 +6,20 @@ import racingcar.domain.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGameMachine {
+public final class RacingGameMachine {
 
     private final InputView inputView;
 
     private final OutputView outputView;
 
-    public RacingGameMachine(Scanner scanner) {
+    public RacingGameMachine(final Scanner scanner) {
         this.inputView = new InputView(scanner);
         this.outputView = new OutputView();
     }
 
     public void run() {
-        String carNames = inputView.askCarNames();
-        int round = inputView.askRound();
+        final String carNames = inputView.askCarNames();
+        final int round = inputView.askRound();
 
         RacingCars racingCars = new RacingCars(carNames);
 

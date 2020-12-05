@@ -7,7 +7,7 @@ import racingcar.domain.validator.NameValidator;
 import racingcar.domain.validator.RoundValidator;
 import racingcar.domain.validator.Validator;
 
-public class InputView {
+public final class InputView {
 
     public static final String DELIMITER = ",";
 
@@ -29,7 +29,7 @@ public class InputView {
         return Integer.parseInt(ask(ROUND_QUESTION, new RoundValidator()));
     }
 
-    private String ask(String message, Validator validator) {
+    private String ask(final String message, final Validator validator) {
         System.out.println(message);
 
         String input = scanner.nextLine();
@@ -41,7 +41,7 @@ public class InputView {
         return input;
     }
 
-    private boolean isValid(Validator validator, String input) {
+    private boolean isValid(final Validator validator, final String input) {
         try {
             validator.validate(input);
         } catch (ValidationException e) {

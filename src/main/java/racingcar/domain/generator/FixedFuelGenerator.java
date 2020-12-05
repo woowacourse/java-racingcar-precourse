@@ -1,10 +1,10 @@
 package racingcar.domain.generator;
 
-public class FixedFuelGenerator implements FuelGenerator {
+public final class FixedFuelGenerator implements FuelGenerator {
 
     private final int fuel;
 
-    public FixedFuelGenerator(int fuel) {
+    public FixedFuelGenerator(final int fuel) {
         this.fuel = fuel;
     }
 

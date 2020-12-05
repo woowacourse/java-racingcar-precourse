@@ -3,12 +3,12 @@ package racingcar.domain;
 import racingcar.domain.exception.NameLengthOutOfBoundsException;
 import racingcar.domain.validator.NameValidator;
 
-public class Name {
+public final class Name {
 
     private final String name;
 
-    public Name(String name) {
-        int nameLength = name.length();
+    public Name(final String name) {
+        final int nameLength = name.length();
 
         if (nameLength < NameValidator.MINIMUM_NAME_LENGTH ||
                 nameLength > NameValidator.MAXIMUM_NAME_LENGTH) {

@@ -10,15 +10,15 @@ import java.util.stream.Collectors;
 
 import racingcar.view.InputView;
 
-public class RacingCars {
+public final class RacingCars {
 
     private final List<Car> racingCars;
 
-    public RacingCars(String carNames) {
+    public RacingCars(final String carNames) {
         this.racingCars = setUpCars(carNames);
     }
 
-    public RacingCars(List<Car> racingCars) {
+    public RacingCars(final List<Car> racingCars) {
         this.racingCars = Collections.unmodifiableList(racingCars);
     }
 
@@ -26,8 +26,8 @@ public class RacingCars {
         return racingCars;
     }
 
-    public List<Car> setUpCars(String carNames) {
-        List<Car> racingCars = Arrays.stream(carNames.split(InputView.DELIMITER))
+    public List<Car> setUpCars(final String carNames) {
+        final List<Car> racingCars = Arrays.stream(carNames.split(InputView.DELIMITER))
                 .map(carName -> new Car(carName.trim()))
                 .collect(Collectors.toList());
 
@@ -35,7 +35,7 @@ public class RacingCars {
     }
 
     public RacingCars moveCars() {
-        List<Car> cars = new ArrayList<>();
+        final List<Car> cars = new ArrayList<>();
 
         for (Car racingCar : racingCars) {
             cars.add(racingCar.move());
@@ -45,15 +45,15 @@ public class RacingCars {
     }
 
     public List<String> findWinners() {
-        Map<Integer, List<String>> scoreBoard = new HashMap<>();
+        final Map<Integer, List<String>> scoreBoard = new HashMap<>();
 
         for (Car racingCar : racingCars) {
-            List<String> names =
+            final List<String> names =
                     scoreBoard.computeIfAbsent(racingCar.getPosition(), ArrayList::new);
             names.add(racingCar.getName());
         }
 
-        int maxPosition = Collections.max(scoreBoard.keySet());
+        final int maxPosition = Collections.max(scoreBoard.keySet());
 
         return scoreBoard.get(maxPosition);
     }

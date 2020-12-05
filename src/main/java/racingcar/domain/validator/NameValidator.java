@@ -9,7 +9,7 @@ import racingcar.domain.exception.DuplicateNameException;
 import racingcar.domain.exception.NameLengthOutOfBoundsException;
 import racingcar.view.InputView;
 
-public class NameValidator extends Validator {
+public final class NameValidator extends Validator {
 
     public static final int MINIMUM_NAME_LENGTH = 1;
 
@@ -18,10 +18,10 @@ public class NameValidator extends Validator {
     public static final int MAXIMUM_CAR_COUNT = 8;
 
     @Override
-    public void validate(String carNames) {
+    public void validate(final String carNames) {
         super.validate(carNames);
 
-        String[] carNameTokens = Arrays.stream(carNames.split(InputView.DELIMITER))
+        final String[] carNameTokens = Arrays.stream(carNames.split(InputView.DELIMITER))
                 .map(String::trim)
                 .toArray(String[]::new);
 
@@ -30,30 +30,30 @@ public class NameValidator extends Validator {
         checkDuplicateName(carNameTokens);
     }
 
-    private void checkCarCount(String[] carNameTokens) {
-        int carNamesLength = carNameTokens.length;
+    private void checkCarCount(final String[] carNameTokens) {
+        final int carNamesLength = carNameTokens.length;
 
         if (carNamesLength > MAXIMUM_CAR_COUNT) {
             throw new CarCountOutOfBoundsException(carNamesLength);
         }
     }
 
-    private void checkAllCarNameLength(String[] carNameTokens) {
+    private void checkAllCarNameLength(final String[] carNameTokens) {
         for (String carName : carNameTokens) {
             checkCarNameLength(carName);
         }
     }
 
-    private void checkCarNameLength(String carName) {
-        int carNameLength = carName.length();
+    private void checkCarNameLength(final String carName) {
+        final int carNameLength = carName.length();
 
         if (carNameLength < MINIMUM_NAME_LENGTH || carNameLength > MAXIMUM_NAME_LENGTH) {
             throw new NameLengthOutOfBoundsException(carName, carNameLength);
         }
     }
 
-    private void checkDuplicateName(String[] carNameTokens) {
-        Map<String, Integer> nameCounts = new HashMap<>();
+    private void checkDuplicateName(final String[] carNameTokens) {
+        final Map<String, Integer> nameCounts = new HashMap<>();
 
         for (String carName : carNameTokens) {
             nameCounts.merge(carName, 1, (first, second) -> {

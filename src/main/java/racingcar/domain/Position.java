@@ -3,11 +3,11 @@ package racingcar.domain;
 import racingcar.domain.exception.RoundOutOfBoundsException;
 import racingcar.domain.validator.RoundValidator;
 
-public class Position {
+public final class Position {
 
     private final int position;
 
-    public Position(int position) {
+    public Position(final int position) {
         if (position > RoundValidator.MAXIMUM_ROUND) {
             throw new RoundOutOfBoundsException();
         }

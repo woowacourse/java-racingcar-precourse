@@ -3,7 +3,7 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
 
-public class OutputView {
+public final class OutputView {
 
     public static final String GAME_RESULT = "\n실행 결과";
 
@@ -19,7 +19,7 @@ public class OutputView {
         System.out.println(GAME_RESULT);
     }
 
-    public void printRoundResult(RacingCars racingCars) {
+    public void printRoundResult(final RacingCars racingCars) {
         for (Car racingCar : racingCars.getRacingCars()) {
             System.out.printf("%s : %s\n",
                     racingCar.getName(), repeatSymbol(racingCar.getPosition()));
@@ -28,13 +28,13 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinners(RacingCars racingCars) {
+    public void printWinners(final RacingCars racingCars) {
         String winners = racingCars.findWinners().toString();
         String removedBracketWinners = winners.substring(OPEN_BRACKET_INDEX, winners.length() - 1);
         System.out.println(FINAL_WINNERS + removedBracketWinners);
     }
 
-    private String repeatSymbol(int times) {
+    private String repeatSymbol(final int times) {
         return new String(new char[times]).replace(NULL_CHARACTER, MOVE_SYMBOL);
     }
 }

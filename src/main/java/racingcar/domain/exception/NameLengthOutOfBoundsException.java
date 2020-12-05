@@ -2,7 +2,7 @@ package racingcar.domain.exception;
 
 import racingcar.domain.validator.NameValidator;
 
-public class NameLengthOutOfBoundsException extends ValidationException {
+public final class NameLengthOutOfBoundsException extends ValidationException {
 
     public static final String OUT_OF_BOUNDS_MESSAGE =
             String.format("자동차 이름은 %d글자 이상 %d글자 이하이어야 합니다. ",
@@ -10,7 +10,7 @@ public class NameLengthOutOfBoundsException extends ValidationException {
 
     public static final String INPUT_NAME_MESSAGE = "자동차 이름 %s의 길이는 %d글자입니다.";
 
-    public NameLengthOutOfBoundsException(String carName, int carNameLength) {
+    public NameLengthOutOfBoundsException(final String carName, final int carNameLength) {
         super(OUT_OF_BOUNDS_MESSAGE +
                 String.format(INPUT_NAME_MESSAGE, carName, carNameLength));
     }

@@ -2,7 +2,7 @@ package racingcar.domain.generator;
 
 import utils.RandomUtils;
 
-public class RandomFuelGenerator implements FuelGenerator {
+public final class RandomFuelGenerator implements FuelGenerator {
 
     public static final int LOWER_BOUND = 0;
 
