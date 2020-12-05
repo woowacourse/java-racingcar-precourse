@@ -23,6 +23,15 @@ public class InputView {
         this.scanner = scanner;
     }
 
+    public Car[] getCars() {
+        String[] carNames = getCarList();
+        Car[] cars = new Car[carNames.length];
+        for (int i = 0; i < carNames.length; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
+        return cars;
+    }
+
     public String[] getCarList() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String[] carNames = getNames();

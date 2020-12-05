@@ -4,19 +4,15 @@ import java.util.Scanner;
 
 public class RacingCarGame {
 
-    private final Scanner scanner;
+    private final InputView inputView;
 
     RacingCarGame(Scanner scanner) {
-        this.scanner = scanner;
+        inputView = new InputView(scanner);
     }
 
-    public Car[] getCars() {
-        InputView inputView = new InputView(scanner);
-        String[] carNames = inputView.getCarList();
-        Car[] cars = new Car[carNames.length];
-        for (int i = 0; i < carNames.length; i++) {
-            cars[i] = new Car(carNames[i]);
-        }
-        return cars;
+
+    public void runGame() {
+        Car[] cars = inputView.getCars();
+        int trial = inputView.getTrials();
     }
 }

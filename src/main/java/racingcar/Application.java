@@ -7,6 +7,5 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
         RacingCarGame racingCarGame = new RacingCarGame(scanner);
-        racingCarGame.runGame();
     }
 }

@@ -15,13 +15,16 @@ public class Car {
 
     // 추가 기능 구현
     public void move() {
-        int randomNumber = RandomUtils.nextInt(LOWER_BOUND, UPPER_BOUND);
+        int randomNumber = getRandomNumber();
         if (randomNumber > 3) {
             position++;
         }
         result();
     }
 
+    public int getRandomNumber() {
+        return RandomUtils.nextInt(LOWER_BOUND, UPPER_BOUND);
+    }
 
     public void result() {
         System.out.print(name + ":");
