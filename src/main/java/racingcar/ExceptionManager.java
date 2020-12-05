@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 public class ExceptionManager {
     protected static final int MINIMUM_CAR_NAME_LENGTH = 1;
     protected static final int MAXIMUM_CAR_NAME_LENGTH = 5;
-    protected static final int MINUMUM_NUMBER_STAGE = 1;
-    protected static final int MAXIMUM_NUMBER_STAGE = Integer.MAX_VALUE;
+    protected static final int MINUMUM_NUMBER_ROUND = 1;
+    protected static final int MAXIMUM_NUMBER_ROUND = Integer.MAX_VALUE;
 
     public static GameStatus checkValidCarNames(String[] carNames) {
         for (String carName : carNames) {
@@ -21,12 +21,12 @@ public class ExceptionManager {
         return GameStatus.OK;
     }
 
-    public static GameStatus checkValidNumberStage(String input) {
+    public static GameStatus checkValidNumberRound(String input) {
         if (!isNumber(input)) {
-            return GameStatus.INVALID_NUMBER_STAGE_TYPE;
+            return GameStatus.INVALID_NUMBER_ROUND_TYPE;
         }
-        if (!isValidNumberStageRange(input)) {
-            return GameStatus.INVALID_NUMBER_STAGE_RANGE;
+        if (!isValidNumberRoundRange(input)) {
+            return GameStatus.INVALID_NUMBER_ROUND_RANGE;
         }
         return GameStatus.OK;
     }
@@ -36,10 +36,10 @@ public class ExceptionManager {
         return Pattern.matches(numberPattern, input);
     }
 
-    private static boolean isValidNumberStageRange(String input) {
+    private static boolean isValidNumberRoundRange(String input) {
         try {
             int convertedNumber = Integer.parseInt(input);
-            if (convertedNumber < MINUMUM_NUMBER_STAGE || convertedNumber > MAXIMUM_NUMBER_STAGE) {
+            if (convertedNumber < MINUMUM_NUMBER_ROUND || convertedNumber > MAXIMUM_NUMBER_ROUND) {
                 return false;
             }
         } catch (Exception exception) {

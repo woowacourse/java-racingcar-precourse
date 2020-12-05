@@ -1,10 +1,10 @@
+package racingcar;
+
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
-import racingcar.Request;
 
 class RequestTest {
     private static final String FAIL_MESSAGE_FORMAT = "%s는 IllegalArgumentException가 발생해야됩니다.";
@@ -47,28 +47,28 @@ class RequestTest {
     }
 
     @Test
-    void testRequestNumberStage() {
+    void testRequestNumberRound() {
         String[] correctInputs = {"1", "2", "+50", "2147483647"};
         String[] faultInputs = {"0", "2147483648", "-", "2-1", "abc", "984-"};
 
-        testCorrectRequestNumberStage(correctInputs);
-        testFaultReqeustNumberStage(faultInputs);
+        testCorrectRequestNumberRound(correctInputs);
+        testFaultReqeustNumberRound(faultInputs);
     }
 
-    private void testCorrectRequestNumberStage(String[] correctInputs) {
+    private void testCorrectRequestNumberRound(String[] correctInputs) {
         for (String input : correctInputs) {
             Scanner scanner = new Scanner(input);
             Request request = new Request(scanner, printStream);
-            assertEquals(Integer.parseInt(input), request.requestNumberStage());
+            assertEquals(Integer.parseInt(input), request.requestNumberRound());
         }
     }
 
-    private void testFaultReqeustNumberStage(String[] faultInputs) {
+    private void testFaultReqeustNumberRound(String[] faultInputs) {
         for (String input : faultInputs) {
             Scanner scanner = new Scanner(input);
             Request request = new Request(scanner, printStream);
             try {
-                request.requestNumberStage();
+                request.requestNumberRound();
                 fail(String.format(FAIL_MESSAGE_FORMAT, input));
             } catch (IllegalArgumentException iae) {
             }

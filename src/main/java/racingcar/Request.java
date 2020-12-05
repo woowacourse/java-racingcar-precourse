@@ -33,9 +33,9 @@ public class Request {
         return carList;
     }
 
-    public int requestNumberStage() {
+    public int requestNumberRound() {
         String input = scanner.nextLine();
-        GameStatus gameStatus = ExceptionManager.checkValidNumberStage(input);
+        GameStatus gameStatus = ExceptionManager.checkValidNumberRound(input);
         if (gameStatus != GameStatus.OK) {
             this.handleError(gameStatus);
         }

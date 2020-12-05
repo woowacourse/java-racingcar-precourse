@@ -9,6 +9,6 @@ public class Application {
         final PrintStream printStream = new PrintStream(System.out);
 
         RacingGame racingGame = new RacingGame(scanner, printStream);
-        racingGame.start();
+        racingGame.play();
     }
 }

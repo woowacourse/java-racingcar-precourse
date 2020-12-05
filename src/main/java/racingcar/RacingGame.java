@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class RacingGame {
     private final Request request;
     private final Response response;
-    private int numberStage;
+    private int numberRound;
     private ArrayList<Car> cars;
 
     public RacingGame(Scanner scanner, PrintStream printStream) {
@@ -16,10 +16,31 @@ public class RacingGame {
         cars = null;
     }
 
-    public void start() {
+    public void play() {
+        this.prepare();
+        this.race();
+    }
+
+    private void prepare() {
         response.printNamesRequestMessage();
         cars = request.requestCarNames();
         response.printNumberStageRequestMessage();
-        numberStage = request.requestNumberStage();
+        numberRound = request.requestNumberRound();
+        response.printEndPrepareMessage();
+    }
+
+    private void race() {
+        response.printRaceStartMessage();
+        for (int round = 0; round < this.numberRound; round++) {
+            updateCarPositions();
+        }
+    }
+
+    private void updateCarPositions() {
+        for (Car car : cars) {
+            if (car.isMovable()) {
+                car.move();
+            }
+        }
     }
 }
