@@ -23,21 +23,36 @@ public class RacingCarGame {
     }
 
     private void startRacing() {
-        for(int i = 0 ; i< moves; i++){
-            for (Car car : carList){
-                System.out.println(car.getName() + " : " + car.moveOrNot());
-            }
+        System.out.println("실행결과");
+        for (int i = 0; i < moves; i++) {
+            oneLap();
+            System.out.println();
+        }
+    }
+
+    private void oneLap() {
+        for (Car car : carList) {
+            car.moveOrNot();
+            System.out.print(car.getName() + " : ");
+            printPosition(car);
+            System.out.println();
+        }
+    }
+
+    private void printPosition(Car car) {
+        for (int j = 0; j < car.getPosition(); j++) {
+            System.out.print("-");
         }
     }
 
     private void getHowManyMoves() {
-       while (true){
+        while (true) {
             try {
-               String movesBeforeCheck = askMoves();
-               ValidatorUtils.checkIsNumber(movesBeforeCheck);
-               moves = Integer.parseInt(movesBeforeCheck);
-               break;
-            }catch (IllegalArgumentException i ){
+                String movesBeforeCheck = askMoves();
+                ValidatorUtils.checkIsNumber(movesBeforeCheck);
+                moves = Integer.parseInt(movesBeforeCheck);
+                break;
+            } catch (IllegalArgumentException i) {
                 System.out.println(i.getMessage());
             }
         }
@@ -51,11 +66,11 @@ public class RacingCarGame {
     private void getCarNames() {
         String[] carNames;
         while (true) {
-            try{
+            try {
                 carNames = askCarNames();
                 ValidatorUtils.checkUnderFiveLetters(carNames);
                 break;
-            }catch (IllegalArgumentException i){
+            } catch (IllegalArgumentException i) {
                 System.out.println(i.getMessage());
             }
         }
@@ -63,7 +78,7 @@ public class RacingCarGame {
     }
 
     private void makeCar(String[] carNames) {
-        for(String carName : carNames){
+        for (String carName : carNames) {
             carList.add(new Car(carName));
         }
     }

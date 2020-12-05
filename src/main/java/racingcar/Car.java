@@ -12,13 +12,17 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public int moveOrNot(){
+    public void moveOrNot(){
         int computerNumber = RandomUtils.nextInt(0,9);
         if(computerNumber > moveCriteria){
             position +=1;
         }
+    }
+
+    public int getPosition(){
         return position;
     }
+
     public String getName(){
         return name;
     }
