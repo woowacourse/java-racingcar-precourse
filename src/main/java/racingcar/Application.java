@@ -13,6 +13,8 @@ public class Application {
 	private static final String INPUT_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
 	private static final String WINNER_MESSAGE_PREFIX = "최종 우승자: ";
 
+	private static final RacingGame racingGame = RacingGame.getInstance();
+
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
 		play(scanner);
@@ -25,7 +27,6 @@ public class Application {
 	}
 
 	private static void inputCarNames(Scanner scanner) {
-		RacingGame racingGame = RacingGame.getInstance();
 		racingGame.clearCars();
 
 		System.out.println(INPUT_NAME_MESSAGE);
@@ -41,8 +42,6 @@ public class Application {
 	}
 
 	private static void inputRound(Scanner scanner) {
-		RacingGame racingGame = RacingGame.getInstance();
-
 		System.out.println(INPUT_ROUND_MESSAGE);
 		String round = scanner.nextLine();
 
@@ -59,7 +58,6 @@ public class Application {
 	}
 
 	private static void printWinners() {
-		RacingGame racingGame = RacingGame.getInstance();
 		StringBuilder winnerMessage = new StringBuilder();
 		for (String winnerName : racingGame.getWinnerNames()) {
 			if (winnerMessage.length() > ZERO) {
