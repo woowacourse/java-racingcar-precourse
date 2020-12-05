@@ -38,10 +38,12 @@ public class Race {
     public void inputCountOfTry() {
         printInputMessageForTryCount();
         String input = scanner.next();
+
         while (!ValidateUtils.validateCountOfTry(input)) {
             printInputMessageForTryCount();
             input = scanner.next();
         }
+
         countOfTry = Integer.parseInt(input);
     }
 
@@ -49,15 +51,22 @@ public class Race {
         inputCarNamesWithComma();
         inputCountOfTry();
         printExecutionResultMessage();
+
         for (int count = 0; count < countOfTry; count++) {
             moveCars();
             printNameAndPosition();
         }
+
         printWinner();
     }
 
     private void printWinner() {
         ArrayList<String> winnerNames = rank.judgeWinner(cars);
+        System.out.println("printWinner");
+        for (Car c : cars) {
+            System.out.print(c.getName() + " , ");
+        }
+        System.out.println();
         String winner = String.join(", ", winnerNames);
         System.out.println(FINAL_WINNER + winner);
     }

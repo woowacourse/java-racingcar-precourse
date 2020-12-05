@@ -2,23 +2,17 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class Rank {
 
     public ArrayList<String> judgeWinner(ArrayList<Car> cars) {
         Collections.sort(cars);
-        ArrayList<String> winnerNames = new ArrayList<>();
 
-        String winnerName = cars.get(0).getName();
         int winnerPosition = cars.get(0).getPosition();
-        winnerNames.add(winnerName);
-
-        for (int index = 1; index < cars.size(); index++) {
-            if (cars.get(index).getPosition() != winnerPosition) {
-                break;
-            }
-            winnerNames.add(cars.get(index).getName());
-        }
+        ArrayList<String> winnerNames =
+                cars.stream().filter(it -> it.getPosition() == winnerPosition)
+                        .map(it -> it.getName()).collect(Collectors.toCollection(ArrayList::new));
 
         return winnerNames;
     }
