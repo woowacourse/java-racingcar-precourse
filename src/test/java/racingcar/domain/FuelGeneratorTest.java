@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import racingcar.domain.generator.FixedFuelGenerator;
+import racingcar.domain.generator.FuelGenerator;
+
 public class FuelGeneratorTest {
 
     @Test

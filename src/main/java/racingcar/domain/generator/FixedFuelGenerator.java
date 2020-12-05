@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.generator;
 
 public class FixedFuelGenerator implements FuelGenerator {
 

@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import racingcar.domain.generator.FixedFuelGenerator;
+import racingcar.domain.generator.FuelGenerator;
+import racingcar.domain.generator.RandomFuelGenerator;
+
 public class Car {
 
     public static final int MOVE_CONDITION = 4;

@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.generator;
 
 public interface FuelGenerator {
 
