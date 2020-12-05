@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import utils.RandomUtils;
 
 /**
- * 자동차 경주 게임 객체 생성을 위한 클래스 기능
- * 1. 자동차 경주 게임 싱글톤 객체 반환 기능
- * 2. Car 리스트에 이름으로 새로운 Car 객체 추가 기능
- * 3. Car 리스트 초기화 기능
- * 4. Car 리스트의 Car 객체들이 모두 랜덤한 숫자를 기준으로 전진하거나 멈춰있는 기능
+ * 자동차 경주 게임 객체 생성을 위한 클래스
+ * 기능 1. 자동차 경주 게임 싱글톤 객체 반환
+ * 기능 2. Car 리스트에 이름으로 새로운 Car 객체 추가
+ * 기능 3. Car 리스트 초기화
+ * 기능 4. Car 리스트의 Car 객체들이 모두 랜덤한 숫자를 기준으로 전진하거나 멈춰있는 기능
+ * 기능 5. Car 리스트에서 position이 가장 큰 승자의 이름들을 ArrayList로 반환
  */
 public class RacingGame {
 	private static final Integer MAX_RANDOM_NUM = 9;
@@ -42,5 +43,22 @@ public class RacingGame {
 				car.moveForwardByOne();
 			}
 		}
+	}
+
+	public ArrayList<String> getWinnerNames() {
+		int positionToWin = Integer.MIN_VALUE;
+		ArrayList<String> winnerNames = null;
+		for (Car car : cars) {
+			if (car.getPostion() > positionToWin) {
+				winnerNames = new ArrayList<String>();
+				winnerNames.add(car.getName());
+				positionToWin = car.getPostion();
+				continue;
+			}
+			if (car.getPostion() == positionToWin) {
+				winnerNames.add(car.getName());
+			}
+		}
+		return winnerNames;
 	}
 }
