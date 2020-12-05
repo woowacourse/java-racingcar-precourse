@@ -18,8 +18,8 @@ public class Race {
             for (Car car : cars) {
                 if (isMove()) {
                     car.moveForward();
-                    car.printStatus();
                 }
+                car.printStatus();
             }
         }
 
