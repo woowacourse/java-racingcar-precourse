@@ -22,6 +22,7 @@ public class Game {
         this.scanner = scanner;
     }
 
+
     public void start() throws InputMismatchException, InvalidInputException {
         initParams();
         playRounds();
