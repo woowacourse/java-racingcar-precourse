@@ -7,4 +7,9 @@ public class inputAndOutput {
         System.out.println(print);
         return scanner.next();
     }
+
+    static int inputInt(Scanner scanner, String print) {
+        System.out.println(print);
+        return scanner.nextInt();
+    }
 }
