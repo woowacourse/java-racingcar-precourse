@@ -110,8 +110,7 @@ public class CarRacingController {
         System.out.println(TextType.RESULT.getText());
 
         for (int i = 0; i < times; i++) {
-            for(int j = 0; j < cars.size(); j++) {
-                Car car = cars.get(j);
+            for (Car car : cars) {
                 moveCar(car);
             }
             showResult();
@@ -143,9 +142,8 @@ public class CarRacingController {
 
     public static void calculateMaxPosition() {
         addPosition();
-        for (int i = 0; i < carPositions.size(); i++) {
-            int currentPosition = carPositions.get(i);
 
+        for (int currentPosition : carPositions) {
             if (maxPosition <= currentPosition) {
                 maxPosition = currentPosition;
             }
