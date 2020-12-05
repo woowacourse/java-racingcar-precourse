@@ -5,9 +5,9 @@ import java.util.List;
 
 import static racingcar.constant.Constants.ERROR_NO_COMMA;
 
-public class SplitCarNames {
+public class CarNameTokenizer {
 
-    private SplitCarNames() {
+    private CarNameTokenizer() {
     }
 
     public static List<String> split(String carNames) {
