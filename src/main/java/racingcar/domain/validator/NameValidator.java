@@ -27,7 +27,7 @@ public class NameValidator extends Validator {
                 .toArray(String[]::new);
 
         checkCarCount(carNameTokens);
-        checkNameLength(carNameTokens);
+        checkAllCarNameLength(carNameTokens);
         checkDuplicateName(carNameTokens);
     }
 
@@ -39,26 +39,25 @@ public class NameValidator extends Validator {
         }
     }
 
-    public void checkNameLength(String[] carNameTokens) {
+    private void checkAllCarNameLength(String[] carNameTokens) {
         for (String carName : carNameTokens) {
-            int carNameLength = carName.length();
-
-            if (carNameLength < MINIMUM_NAME_LENGTH || carNameLength > MAXIMUM_NAME_LENGTH) {
-                throw new NameLengthOutOfBoundsException(carName, carNameLength);
-            }
+            checkCarNameLength(carName);
         }
     }
 
-    public void checkDuplicateName(String[] carNameTokens) {
+    private void checkCarNameLength(String carName) {
+        int carNameLength = carName.length();
+
+        if (carNameLength < MINIMUM_NAME_LENGTH || carNameLength > MAXIMUM_NAME_LENGTH) {
+            throw new NameLengthOutOfBoundsException(carName, carNameLength);
+        }
+    }
+
+    private void checkDuplicateName(String[] carNameTokens) {
         Map<String, Integer> nameCounts = new HashMap<>();
 
         for (String carName : carNameTokens) {
-            if (!nameCounts.containsKey(carName)) {
-                nameCounts.put(carName, 1);
-                continue;
-            }
-
-            throw new DuplicateNameException(carName);
+            nameCounts.merge(carName, 1, (first, second) -> { throw new DuplicateNameException(carName); });
         }
     }
 }
