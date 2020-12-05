@@ -20,5 +20,9 @@ public class InputView {
                 .map(s -> s.trim())
                 .collect(Collectors.toList());
     }
+
+    public String inputAttemptNumber() {
+        return scanner.nextLine();
+    }
 }
 
