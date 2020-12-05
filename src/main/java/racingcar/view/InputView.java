@@ -2,11 +2,9 @@ package racingcar.view;
 
 import racingcar.Car;
 import utils.NameValidator;
+import utils.RepetitionCountValidator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static racingcar.Constant.*;
 
@@ -39,7 +37,15 @@ public class InputView {
         return nameList;
     }
 
-    public static int getRepetitionCount() {
-        return 0;
+    public static int getRepetitionCount(Scanner scanner) {
+        String count = scanner.next();
+
+        try {
+            RepetitionCountValidator.checkValidRepetitionCount(count);
+            return Integer.parseInt(count);
+        }catch (IllegalArgumentException e){
+            OutputView.printErrorMessage(e.getMessage());
+            return getRepetitionCount(scanner);
+        }
     }
 }

@@ -27,7 +27,7 @@ public class RaceGameManager {
 
     private void inputRepetitionCount(){
         OutputView.printNormal(OUTPUT_VIEW_REPETITION_COUNT);
-        InputView.getRepetitionCount();
+        InputView.getRepetitionCount(scanner);
     }
 
 }
