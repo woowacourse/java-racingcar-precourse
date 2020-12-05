@@ -57,7 +57,7 @@ public class AskQuestion {
             }
             break;
         }
-        checkLength(splitNames);
+        checkCarNameLength(splitNames);
         return splitNames;
     }
 
@@ -93,7 +93,7 @@ public class AskQuestion {
         return false;
     }
 
-    public void checkLength(String[] carNames) {
+    public void checkCarNameLength(String[] carNames) {
         ArrayList<IndexNameSet> tooLongName = new ArrayList<>();
         for (int i = 0; i < carNames.length; i++) {
             if (carNames[i].length() > MAX_NAME_LENGTH) {
