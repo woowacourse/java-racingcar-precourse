@@ -8,6 +8,7 @@ public class Car {
     private static final int SINGLE_DIGIT_MIN = 0;
     private static final int SINGLE_DIGIT_MAX = 9;
     private static final int STOP_LIMIT = 3;
+    private static final String POSITION_BAR = "-";
 
     private final String name;
     private int position = 0;
@@ -39,6 +40,11 @@ public class Car {
     private boolean isPossibleMove() {
         int movementState = RandomUtils.nextInt(SINGLE_DIGIT_MIN, SINGLE_DIGIT_MAX);
         return movementState > STOP_LIMIT;
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + POSITION_BAR.repeat(position);
     }
 
 }
