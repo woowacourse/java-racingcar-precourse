@@ -6,6 +6,9 @@ import java.util.Scanner;
 import java.util.Collection;
 
 public class PlayGame {
+    private static final String INPUT_RACING_CAR_NAME="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_ATTEMPT_NUMBER="시도할 회수는 몇회인가요?";
+    private static final String FINAL_WINNER_NAME="최종 우승자: ";
     private String tmpCarNameSave;
     private String[] carNameSave;
     private String inputStringAttemptNumber;
@@ -20,17 +23,15 @@ public class PlayGame {
         inputRacerName(scanner);
         inputAttemptNumber(scanner);
         splitCommaInString(scanner);
-        makingCarObjectArray();
         implementGetPrintCarPositionToMinus();
-        printWinnerName();
     }
     public void inputRacerName(Scanner scanner){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_RACING_CAR_NAME);
         this.tmpCarNameSave=scanner.nextLine();
         splitCommaInString(scanner);
     }
     public void inputAttemptNumber(Scanner scanner){
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_ATTEMPT_NUMBER);
         inputStringAttemptNumber = scanner.nextLine();
         if(!exceptionHandle.checkInputAttemptNumber(inputStringAttemptNumber)){
             inputAttemptNumber(scanner);
@@ -42,6 +43,7 @@ public class PlayGame {
             inputRacerName(scanner);
         }
         carNameSave=tmpCarNameSave.split(",");
+        makingCarObjectArray();
     }
     public void makingCarObjectArray(){
         carObject=new Car[carNameSave.length];
@@ -56,7 +58,6 @@ public class PlayGame {
             System.out.print("-");
         }
         System.out.println();
-
     }
     public void getPrintCarPositionToMinus(){
         for(int i=0;i<carObject.length;i++){
@@ -68,9 +69,10 @@ public class PlayGame {
             getPrintCarPositionToMinus();
             System.out.println();
         }
+        printWinnerName();
     }
     public void printWinnerName(){
-        System.out.print("최종 우승자: ");
+        System.out.print(FINAL_WINNER_NAME);
         Arrays.sort(carObject);
         int winnerNumber=computeRelatedCar.getWinnerNumber(carObject);
         for(int i=0;i<winnerNumber;i++){
@@ -82,10 +84,4 @@ public class PlayGame {
             }
         }
     }
-
-
-
-
-
-
 }
