@@ -30,6 +30,10 @@ public class Car {
         return movingNumber >= BOUNDARY_VALUE;
     }
 
+    public boolean isWinner(int maxPosition) {
+        return getPosition() == maxPosition;
+    }
+
     public int getPosition() {
         return position;
     }
