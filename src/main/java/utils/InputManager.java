@@ -33,16 +33,16 @@ public class InputManager {
 	}
 
 	public int getRoundNumberFromInput() {
-		System.out.println(CAR_MOVE_NUMBER_INPUT_GUIDE);
+		System.out.println(CAR_ROUND_NUMBER_INPUT_GUIDE);
 
-		int moveNumber = 0;
+		int roundNumber = 0;
 
 		try {
-			moveNumber = scanner.nextInt();
+			roundNumber = scanner.nextInt();
 		} catch (InputMismatchException mismatchException) {
-			throw new IllegalArgumentException(CAR_MOVE_NUMBER_ERROR);
+			throw new IllegalArgumentException(CAR_ROUND_NUMBER_ERROR);
 		}
 
-		return moveNumber;
+		return roundNumber;
 	}
 }
