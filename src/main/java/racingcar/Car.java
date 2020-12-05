@@ -1,6 +1,8 @@
 package racingcar;
 
 public class Car {
+    private static final int MOVE_DISTANCE = 1;
+
     private final String name;
     private int position = 0;
 
@@ -12,6 +14,20 @@ public class Car {
     // 추가 기능 구현
     public String getCarName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void moveCar(int randomNumber) {
+        if (randomNumber >= 4 && randomNumber < 10) {
+            addPosition();
+        }
+    }
+
+    private void addPosition() {
+        this.position += MOVE_DISTANCE;
     }
 
     private void validateCarName() {

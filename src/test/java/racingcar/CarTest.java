@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
 
@@ -136,5 +137,24 @@ class CarTest {
         assertThatThrownBy(() -> new Car(nameBye))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 이름에는 대,소문 영문자만 입력 해주세요.");
+    }
+
+    @Test
+    @DisplayName("랜덤 번호가 4이상이거나 9이하일 시 position을 1추가한다.")
+    void moveCar() {
+        //given
+        Car helloCar = new Car("hello");
+        Car worldCar = new Car("world");
+        int randomNumber = 4;
+        int secondRandomNumber = 9;
+
+        //when
+        helloCar.moveCar(randomNumber);
+        worldCar.moveCar(secondRandomNumber);
+        worldCar.moveCar(secondRandomNumber);
+
+        //then
+        assertThat(helloCar.getPosition()).isEqualTo(1);
+        assertThat(worldCar.getPosition()).isEqualTo(2);
     }
 }
