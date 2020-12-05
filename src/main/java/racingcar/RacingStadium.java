@@ -58,9 +58,17 @@ public class RacingStadium {
             Car nowCar = cars.get(carIndex);
             int randomNumber = getRandomNumber();
             nowCar.moveCar(randomNumber);
-            nowCar.printStatus();
+            printCarStatus(nowCar);
         }
         System.out.println();
+    }
+
+    private void printCarStatus(Car nowCar) {
+        String positionToString = "";
+        for (int positionCount = 0; positionCount < nowCar.getPosition(); positionCount++) {
+            positionToString += "-";
+        }
+        System.out.println(nowCar.getCarName() + " : " + positionToString);
     }
 
     private int getRandomNumber() {
