@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import utils.ValidatorUtils;
 
 public class RacingCarGame {
 
@@ -19,7 +20,7 @@ public class RacingCarGame {
         while (true) {
             try{
                 String[] carNames = askCarNames();
-                checkUnderFiveLetters(carNames);
+                ValidatorUtils.checkUnderFiveLetters(carNames);
                 break;
             }catch (IllegalArgumentException i){
                 System.out.println(i.getMessage());
@@ -37,11 +38,5 @@ public class RacingCarGame {
         return carNames;
     }
 
-    private void checkUnderFiveLetters(String[] carNames) {
-        for (String carName:  carNames) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하이어야 한다.");
-            }
-        }
-    }
+
 }
