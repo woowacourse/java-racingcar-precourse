@@ -49,10 +49,11 @@ public class RacingGame {
             System.out.print(players[i].getCarName() + " " + SystemMessage.SEPARATOR_COLON + " ");
 
             int position = players[i].getCarPosition();
+            String result = "";
             for (int j = 0; j < position; j++) {
-                System.out.print(SystemMessage.DISTANCE);
+                result += SystemMessage.DISTANCE;
             }
-            System.out.println();
+            System.out.println(result);
         }
         System.out.println();
     }
