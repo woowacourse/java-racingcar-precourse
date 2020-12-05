@@ -4,20 +4,23 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-// 예외 처리 & 입력 검증 부분은 따로 Verify 클래스를 만드는게 나을까?
 public class AskQuestion {
 
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int INVALID_NAME_LENGTH = 0;
     private static final int PREVIOUS_INDEX = -1;
 
     private static final String CAR_NAME_QUESTION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String CAR_NAME_DELIMITER = ",";
     private static final String NUMBER_OF_TRY_QUESTION = "시도할 회수는 몇회인가요?";
     private static final String POSTPOSITION = "은(는) ";
+    private static final String TRY_AGAIN = " 다시 입력해주세요.";
     private static final String ERROR_PREFIX = "[ERROR] ";
-    private static final String ERROR_DUPLICATE = "중복되는 이름이 존재합니다. 다시 입력해주세요.";
     private static final String ERROR_TOO_LONG = "길이가 너무 깁니다. " + MAX_NAME_LENGTH + "자 이하로 수정해주세요.";
-    private static final String ERROR_NOT_POSITIVE_INTEGER = "시도 횟수는 양의 정수여야 합니다. 다시 입력해주세요.";
+    private static final String ERROR_DUPLICATE = "중복되는 이름이 존재합니다." + TRY_AGAIN;
+    private static final String ERROR_NOT_POSITIVE_INTEGER = "시도 횟수는 양의 정수여야 합니다." + TRY_AGAIN;
+    private static final String ERROR_INVALID = "유효하지 않은 이름이 포함되어 있습니다." + TRY_AGAIN;
+    private static final String ERROR_CONTAIN_SPACE = "이름에 공백은 허용하지 않습니다." + TRY_AGAIN;
     private static final String MODIFY_PREFIX = "[MODIFY] ";
     private static final String MODIFY_ARROW = " -> ";
     private static final String MODIFY_SUCCESS = "(으)로 성공적으로 수정되었습니다.";
@@ -30,7 +33,7 @@ public class AskQuestion {
         this.scanner = scanner;
         startQuestions();
     }
-    
+
     public void startQuestions() {
         System.out.println(CAR_NAME_QUESTION);
         String[] carNames = carNameInput();
@@ -49,15 +52,13 @@ public class AskQuestion {
         return carNames;
     }
 
-    // 입력부와 중복 예외 처리부 분할하는게 나을지도
     public String[] checkDuplicate() {
         String rawNames;
         String[] splitNames;
         while (true) {
             rawNames = scanner.nextLine();
             splitNames = rawNames.split(CAR_NAME_DELIMITER);
-            if (hasDuplicateElement(splitNames)) {
-                System.out.println(ERROR_PREFIX + ERROR_DUPLICATE);
+            if (hasInvalidNames(splitNames) || hasSpaceInNames(splitNames) || hasDuplicateNames(splitNames)) {
                 continue;
             }
             break;
@@ -65,13 +66,34 @@ public class AskQuestion {
         return splitNames;
     }
 
-    public boolean hasDuplicateElement(String[] splitNames) {
+    public boolean hasDuplicateNames(String[] splitNames) {
         HashSet<String> verifyUnique = new HashSet<>();
         for (String name : splitNames) {
             if (verifyUnique.contains(name)) {
+                System.out.println(ERROR_PREFIX + ERROR_DUPLICATE);
                 return true;
             }
             verifyUnique.add(name);
+        }
+        return false;
+    }
+
+    public boolean hasInvalidNames(String[] splitNames) {
+        for (String name : splitNames) {
+            if (name.length() == INVALID_NAME_LENGTH) {
+                System.out.println(ERROR_PREFIX + ERROR_INVALID);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasSpaceInNames(String[] splitNames) {
+        for (String name : splitNames) {
+            if (name.contains(" ")) {
+                System.out.println(ERROR_PREFIX + ERROR_CONTAIN_SPACE);
+                return true;
+            }
         }
         return false;
     }
