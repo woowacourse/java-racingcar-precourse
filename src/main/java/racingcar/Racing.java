@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Racing 게임을 진행하는 클래스
+ *
+ * @author  483759@naver.com / 윤이진
+ * @version 1.0 2020/12/05
+ */
 public class Racing {
 
     private static List<Car> carList;
@@ -59,7 +65,7 @@ public class Racing {
         }
     }
 
-    /*  */
+    /* 시도할 게임 회수를 입력하는 메소드 */
     public static int inputNumberofGame(Scanner scanner) {
         int gameNumber = 0;
         System.out.println("시도할 회수는 몇회인가요?");

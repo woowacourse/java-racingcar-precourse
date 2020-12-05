@@ -2,6 +2,12 @@ package utils;
 
 import java.util.Random;
 
+/**
+ * Random 난수를 발생시키는 함수
+ *
+ * @author  483759@naver.com / 윤이진
+ * @version 1.0 2020/12/05
+ */
 public class RandomUtils {
     private static final Random RANDOM = new Random();
 

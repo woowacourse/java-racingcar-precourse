@@ -2,6 +2,12 @@ package racingcar;
 
 import utils.RandomUtils;
 
+/**
+ * Car 객체를 다루는 클래스
+ *
+ * @author  483759@naver.com / 윤이진
+ * @version 1.0 2020/12/05
+ */
 public class Car {
     private final String name;
     private int position = 0;
