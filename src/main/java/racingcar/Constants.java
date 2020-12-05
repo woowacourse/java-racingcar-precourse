@@ -6,6 +6,7 @@ public class Constants {
     public static final String TRY_COUNT_INPUT_REQ_MSG = "시도할 회수는 몇회인가요?";
 
     public static final String PROGRESS_RESULT = "실행결과";
+    public static final String RACING_GAME_RESULT = "최종 우승자 :";
 
     public static final String STANDARD_ERROR_MSG = "[ERROR]";
     public static final String NAME_ERROR_MSG = "잘못된 자동차 이름입니다. 다시 입력해주세요";

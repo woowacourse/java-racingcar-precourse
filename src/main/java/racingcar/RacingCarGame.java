@@ -9,14 +9,16 @@ import java.util.Scanner;
 public class RacingCarGame {
 
     private ArrayList<Car> carList = new ArrayList<>();
+    private HashMap<String, Integer> ScoreMap = new HashMap<>();
+
     private int tryCount = 0;
-//    private int firstScore = 0;
 
     public void start(Scanner scanner) {
         carNamesInput(scanner);
         tryCountInput(scanner);
         System.out.println(Constants.PROGRESS_RESULT);
         gameProgress();
+        printGameResult();
     }
 
     private void carNamesInput(Scanner scanner) {
@@ -69,5 +71,25 @@ public class RacingCarGame {
         for (Car car : carList) {
             car.printCurStatus();
         }
+    }
+
+    private void printGameResult() {
+        StringBuilder winners = new StringBuilder(Constants.RACING_GAME_RESULT);
+        int maxPosition = getMaxScore();
+
+        for (Car car : carList) {
+            if (car.isImWinner(maxPosition)) {
+                winners.append(" ").append(car.getName()).append(",");
+            }
+        }
+        System.out.println(winners.substring(0, winners.length() - 1));
+    }
+
+    private int getMaxScore() {
+        int maxPosition = 0;
+        for (Car car : carList) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
     }
 }

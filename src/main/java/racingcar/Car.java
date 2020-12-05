@@ -24,4 +24,16 @@ public class Car {
             System.out.print('-');
         }
     }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public boolean isImWinner(int position) {
+        return this.position == position;
+    }
 }
