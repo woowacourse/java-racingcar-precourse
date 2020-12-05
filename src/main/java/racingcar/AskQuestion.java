@@ -4,25 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-// 구조체처럼 사용하기
-class IndexNameSet {
-    private int index;
-    private String name;
-
-    public IndexNameSet(int index, String name) {
-        this.index = index;
-        this.name = name;
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
-
 // 예외 처리 & 입력 검증 부분은 따로 Verify 클래스를 만드는게 나을까?
 public class AskQuestion {
 
@@ -42,9 +23,8 @@ public class AskQuestion {
     private static final String MODIFY_SUCCESS = "(으)로 성공적으로 수정되었습니다.";
     private static final String MESSAGE_PREFIX = "[MESSAGE] ";
 
-    // 여기도 private 또는 final이 붙어야 할까?
-    Scanner scanner;
-    GameManager gameManager;
+    private final Scanner scanner;
+    private GameManager gameManager;
 
     public AskQuestion(Scanner scanner) {
         this.scanner = scanner;

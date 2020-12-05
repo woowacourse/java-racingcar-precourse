@@ -18,9 +18,9 @@ public class GameManager {
     private static final String CAR_POSITION_STATUS_BAR = "-";
     private static final String WINNERS_PREFIX = "최종 우승자: ";
 
-    private int numberOfTry = INITIALIZATION_INTEGER;
+    private final int numberOfTry;
+    private final ArrayList<Car> carList = new ArrayList<>();
     private int winnerPosition = INITIALIZATION_INTEGER;
-    private ArrayList<Car> carList = new ArrayList<>();
 
     public GameManager(String[] names, int numberOfTry) {
         for (String name : names) {
