@@ -14,10 +14,11 @@ public class InputView {
 
     public static List<Car> getCarList(Scanner scanner) {
         List<String> nameList = getValidNames(scanner);
-        for(String str : nameList)
-            System.out.println(str);
         List<Car> carList = new ArrayList<>();
-        return new ArrayList<>();
+        for(String name : nameList){
+            carList.add(new Car(name));
+        }
+        return carList;
     }
 
     private static List<String> getValidNames(Scanner scanner) {
