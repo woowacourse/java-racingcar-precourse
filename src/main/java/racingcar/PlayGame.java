@@ -1,13 +1,15 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Collection;
 
 public class PlayGame {
     String tmpCarNameSave;
     String[] carNameSave;
     int doAttemptNumber;
     Car[] carObject;
-
+    ComputeRelatedCar computeRelatedCar=new ComputeRelatedCar();
     public PlayGame(Scanner scanner) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         tmpCarNameSave = scanner.nextLine();
@@ -16,6 +18,8 @@ public class PlayGame {
         splitCommaInString();
         makingCarObjectArray();
         implementGetPrintCarPositionToMinus();
+        printWinnerName();
+
     }
     public void startRacingCar(){
 
@@ -49,6 +53,19 @@ public class PlayGame {
             System.out.println();
         }
     }
+    public void printWinnerName(){
+        Arrays.sort(carObject);
+        int winnerNumber=computeRelatedCar.getWinnerNumber(carObject);
+        for(int i=0;i<winnerNumber;i++){
+            if(i<winnerNumber-1){
+                System.out.print(carObject[i].getName()+", ");
+            }
+            if(i==winnerNumber-1){
+                System.out.print(carObject[i].getName());
+            }
+        }
+    }
+
 
 
 
