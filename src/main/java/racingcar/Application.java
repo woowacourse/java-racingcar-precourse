@@ -23,7 +23,6 @@ public class Application {
 
         RacingGame racingGame = new RacingGame(carNames, new RandomNumberStrategy());
         playAsManyAsTrialCount(racingGame, trialCount);
-
         selectAndPrintWinners(racingGame);
     }
 
