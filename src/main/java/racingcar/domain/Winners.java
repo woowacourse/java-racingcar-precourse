@@ -15,7 +15,7 @@ public class Winners {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < winners.size(); i++) {
             stringBuilder.append(winners.get(i).getName());
-            if(i != winners.size() - 1) {
+            if (i != winners.size() - 1) {
                 stringBuilder.append(COMMA_SPACE);
             }
         }

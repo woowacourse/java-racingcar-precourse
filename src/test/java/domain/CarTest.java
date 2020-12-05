@@ -8,7 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarTest {
-
     @ParameterizedTest()
     @ValueSource(strings = {"A","AB","ABC","ABCD","ABCDE"})
     void 이름_1자이상_5자이하_자동차_생성(String carName) {
