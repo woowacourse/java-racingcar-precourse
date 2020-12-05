@@ -7,14 +7,13 @@ import java.util.Scanner;
 
 import constant.SystemMessage;
 import exception.CarNameLengthExcessException;
+import exception.ValueLowerOneException;
 
 public class RacingGame {
     private Player[] players;
     private int turn;
     private Scanner scanner;
     private static final int MAX_CAR_NAME_LENGTH = 5;
-    private static final char START_INCLUSIVE = 0;
-    private static final char END_INCLUSIVE = 9;
     private static final int MIN_TURN = 1;
     private static final String CAR_NAME_LENGTH_EXCESS_EXCEPTION_MESSAGE = SystemMessage.ERROR_MESSAGE + " 자동차 이름의 길이는 "
             + MAX_CAR_NAME_LENGTH + "이하여야 합니다.";
@@ -115,26 +114,24 @@ public class RacingGame {
     }
 
     private void inputTurn() {
-        System.out.println(SystemMessage.INPUT_TURN_MESSAGE);
-        String input = scanner.next();
-        if (!isInteger(input)) {
-            throw new InputMismatchException(TURN_MISMATCH_EXCEPTION_MESSAGE);
-        }
-
-        if (isValueLowerOne(Integer.parseInt(input))) {
-            throw new IllegalArgumentException(TURN_VALUE_LOWER_ONE_EXCEPTION_MESSAGE);
-        }
-
-        turn = Integer.parseInt(input);
-    }
-
-    private boolean isInteger(String input) {
-        for (int i = 0; i < input.length(); i++) {
-            if (!(input.charAt(i) >= START_INCLUSIVE && input.charAt(i) <= END_INCLUSIVE)) {
-                return true;
+        while (true) {
+            System.out.println(SystemMessage.INPUT_TURN_MESSAGE);
+            try {
+                turn = isValidTurn(scanner.nextInt());
+                break;
+            } catch (InputMismatchException e) { // 정수가 아닐 경우.
+                System.out.println(TURN_MISMATCH_EXCEPTION_MESSAGE);
+            } catch (ValueLowerOneException e) {
+                System.out.println(TURN_VALUE_LOWER_ONE_EXCEPTION_MESSAGE);
             }
         }
-        return false;
+    }
+
+    private int isValidTurn(int input) {
+        if (isValueLowerOne(input)) {
+            throw new ValueLowerOneException();
+        }
+        return input;
     }
 
     private boolean isValueLowerOne(int input) {
