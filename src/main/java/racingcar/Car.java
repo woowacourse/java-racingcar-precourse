@@ -3,15 +3,16 @@ package racingcar;
 public class Car {
     private final String name;
     private int position = 0;
-    private GasTank gasTank;
+    public GasTank gasTank;
 
-    public Car(String name) {
+    public Car(String name, GasTank gasTank) {
         this.name = name;
+        this.gasTank = gasTank;
     }
 
     // 추가 기능 구현
 
-    public void forward() {
+    public void tryForward() {
         if(gasTank.isEnoughGas()){
             position++;
         }
