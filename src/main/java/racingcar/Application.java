@@ -36,13 +36,13 @@ public class Application {
     }
 
     private static int findMaxPosition(Car[] cars) {
-        int maxNumber = 0;
+        int maxPosition = 0;
         for (int i = 0; i < cars.length; i++) {
-            if (maxNumber < cars[i].getPosition()) {
-                maxNumber = cars[i].getPosition();
+            if (maxPosition < cars[i].getPosition()) {
+                maxPosition = cars[i].getPosition();
             }
         }
-        return maxNumber;
+        return maxPosition;
     }
 
     private static void printResult(Car[] cars) {
@@ -54,7 +54,7 @@ public class Application {
             }
         }
         final int startIndex = 0;
-        final int endIndex = resultStr.length()-1;
+        final int endIndex = resultStr.length() - 1;
         resultStr = resultStr.substring(startIndex, endIndex);
         System.out.println(resultStr);
     }
