@@ -15,12 +15,13 @@ public class CarTest {
 
         // given
         Car car = new Car(carName, fuel);
+        Car expectedCar = new Car(carName, 0, fuel);
 
         // when
         car = car.move();
 
         // then
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car).isEqualTo(expectedCar);
     }
 
     @ParameterizedTest
@@ -30,11 +31,12 @@ public class CarTest {
 
         // given
         Car car = new Car(carName, fuel);
+        Car expectedCar = new Car(carName, 1, fuel);
 
         // when
         car = car.move();
 
         // then
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car).isEqualTo(expectedCar);
     }
 }
