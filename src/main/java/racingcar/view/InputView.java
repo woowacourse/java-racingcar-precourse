@@ -4,18 +4,26 @@ import racingcar.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class InputView {
 
-    public InputView() {
-    }
+    public static List<Car> getCarList(Scanner scanner){
+        String nameSentence = scanner.next();
+        List<String> nameList = getValidNames(nameSentence);
 
-    public static List<Car> getCarList(){
+
+        List<Car> carList = new ArrayList<>();
 
         return new ArrayList<>();
     }
 
-    private List<Car> splitString(String string){
+    private static List<String> getValidNames(String nameSentence){
+
+        return new ArrayList<>();
+    }
+
+    private static List<String> splitString(String nameSentence){
 
         return new ArrayList<>();
     }

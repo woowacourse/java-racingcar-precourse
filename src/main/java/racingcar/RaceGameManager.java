@@ -10,7 +10,7 @@ public class RaceGameManager {
 
     public RaceGameManager(Scanner scanner) {
         this.scanner = scanner;
-        raceGame = new RaceGame();
+        raceGame = new RaceGame(scanner);
 
         playGame();
     }

@@ -1,8 +1,10 @@
 package utils;
 
+import java.util.List;
+
 public class NameValidator {
 
-    public static void checkNameList(){
+    public static void checkNameList(List<String> list){
 
     }
 
