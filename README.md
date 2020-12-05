@@ -183,7 +183,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 
 - [x] 구현할 기능 정리 및 목록 작성
 - [x] 자동차 객체 생성 및 파라미터 초기화
-    - [ ] 이름 input 예외처리
-    - [ ] 횟수 input 예외처리
+    - [x] 이름 input 예외처리
+    - [x] 횟수 input 예외처리
 - [ ] 한 차수 실행 및 결과 출력
 - [ ] 우승자 확인 및 결과 출력 
