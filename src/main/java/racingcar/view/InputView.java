@@ -15,7 +15,7 @@ public class InputView {
     public static List<Car> getCarList(Scanner scanner) {
         List<String> nameList = getValidNames(scanner);
         for(String str : nameList)
-            System.out.print(str + " ");
+            System.out.println(str);
         List<Car> carList = new ArrayList<>();
         return new ArrayList<>();
     }

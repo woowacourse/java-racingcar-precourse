@@ -10,15 +10,19 @@ public class NameValidator {
 
     public static void checkNameList(List<String> nameList) {
         checkNull(nameList);
-        checkInvalidCharacters(nameList);
+        checkPartialSpace(nameList);
         checkNamesLength(nameList);
         checkNameDuplicate(nameList);
     }
 
-    private static void checkInvalidCharacters(List<String> nameList) {
+    private static void checkNull(List<String> nameList) {
+
+    }
+
+    private static void checkPartialSpace(List<String> nameList){
         for(String name : nameList) {
-            if (!Pattern.matches(CHECK_INVALID_CHARACTER_REGEX, name)) {
-                throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_INVALID_CHARACTER);
+            if (!Pattern.matches(CHECK_PARTIAL_SPACE_REGEX, name)) {
+                throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_PARTIAL_SPACE);
             }
         }
     }
@@ -30,9 +34,4 @@ public class NameValidator {
     private static void checkNameDuplicate(List<String> nameList) {
 
     }
-
-    private static void checkNull(List<String> nameList) {
-
-    }
-
 }
