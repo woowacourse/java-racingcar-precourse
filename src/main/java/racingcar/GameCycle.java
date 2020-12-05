@@ -1,5 +1,8 @@
 package racingcar;
 
+import outpututils.Print;
+import utils.RandomUtils;
+
 import java.util.ArrayList;
 
 public class GameCycle {
@@ -8,14 +11,16 @@ public class GameCycle {
 
 	public GameCycle(String[] carInformation, int repetitionTime) {
 		this.repetitionTime = repetitionTime;
-		SettingGame(carInformation);
+		SetGame(carInformation);
 		GameStart();
+		/*test
 		for(Car test : participatedCar){
 			test.Print();
 		}
+		 */
 	}
 
-	private void SettingGame(String[] carInformation) {
+	private void SetGame(String[] carInformation) {
 		for (int i = 0; i < carInformation.length; i++) {
 			participatedCar.add(new Car(carInformation[i]));
 		}
@@ -27,8 +32,10 @@ public class GameCycle {
 	}
 
 	private void GameStart() {
+		System.out.println("\n실행결과");
 		for (int turn = 0; turn < repetitionTime; turn++) {
 			TurnManagement();
+			Print.PrintResult(participatedCar);
 		}
 	}
 

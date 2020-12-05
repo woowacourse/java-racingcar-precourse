@@ -11,11 +11,11 @@ public class Car {
     }
 
     // 추가 기능 구현
-    //test
+    /*test
     public void Print(){
         System.out.println(name);
         System.out.println(position);
-    }
+    }*/
 
     protected void StopOrGo(){
         if(RandomUtils.nextInt(0, 9) >= 4)
@@ -25,4 +25,6 @@ public class Car {
     public int GetPosition(){
         return position;
     }
+
+    public String GetName(){return name;}
 }
