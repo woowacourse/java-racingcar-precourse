@@ -28,7 +28,7 @@ public class Car {
     }
 
     private void moveOnRandomNum() {
-        int randomNum = RandomUtils.nextInt(0, 9);
+        int randomNum = RandomNumMaker.run();
         if (randomNum > STAY)
             this.position++;
     }
