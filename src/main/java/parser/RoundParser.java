@@ -24,16 +24,16 @@ public class RoundParser {
         return round;
     }
 
-    private void validateRound() throws InvalidInputException {
-        if (round < MIN_ROUND)
-            throw new ZeroRoundException();
-    }
-
     private void getRoundFromLine() throws InvalidInputException {
         try {
             round = Integer.parseInt(line);
         } catch (InputMismatchException | NumberFormatException e) {
             throw new NonNumberRoundException();
         }
+    }
+
+    private void validateRound() throws InvalidInputException {
+        if (round < MIN_ROUND)
+            throw new ZeroRoundException();
     }
 }
