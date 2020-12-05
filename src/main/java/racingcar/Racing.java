@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import utils.InputUtils;
+import utils.PrintUtils;
 
 /**
  * Racing 게임을 진행하는 클래스
@@ -16,18 +17,22 @@ public class Racing {
     private static List<Car> carList;
     private static int gameNumber;
 
+    private static InputUtils inputUtils;
+    private static PrintUtils printUtils;
+
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        final InputUtils inputUtils = new InputUtils();
+        inputUtils = new InputUtils();
+        printUtils = new PrintUtils();
 
+        printUtils.printInputNamesGuide();
         String[] nameList = inputUtils.inputCarsName();
         setCarList(nameList);
         gameNumber = inputNumberofGame(scanner);
         for(int i=0;i<gameNumber;i++){
             carRacing();
         }
-        printWinners(whichCarsWin());
-        // TODO 구현 진행
+        printUtils.printWinners(whichCarsWin());
     }
 
     /* 이름 리스트를 받아서 Car 객체를 생성하는 메소드*/
@@ -43,8 +48,7 @@ public class Racing {
         for (int i = 0; i < carList.size(); i++) {
             carList.get(i).movePosition();
         }
-        printCarsPosition();
-        System.out.println("");
+        printUtils.printCarsPosition(carList);
     }
 
     /* 차량들의 전진 상황을 출력하는 메소드 */
@@ -74,8 +78,4 @@ public class Racing {
         return winnerList;
     }
 
-    /* 우승한 차들의 이름을 출력하는 메소드 */
-    public static void printWinners(List<String> winnerList) {
-        System.out.printf("최종 우승자: " + String.join(", ", winnerList));
-    }
 }
