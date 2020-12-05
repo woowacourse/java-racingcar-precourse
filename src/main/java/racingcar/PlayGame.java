@@ -12,7 +12,7 @@ public class PlayGame {
     int doAttemptNumber;
     Car[] carObject;
     ComputeRelatedCar computeRelatedCar=new ComputeRelatedCar();
-
+    ExceptionHandle exceptionHandle=new ExceptionHandle();
     public PlayGame(Scanner scanner) {
         inputRacerName(scanner);
         inputAttemptNumber(scanner);
@@ -34,11 +34,15 @@ public class PlayGame {
     public void inputAttemptNumber(Scanner scanner){
         System.out.println("시도할 회수는 몇회인가요?");
         inputStringAttemptNumber = scanner.nextLine();
-
+        if(!exceptionHandle.checkInputAttemptNumber(inputStringAttemptNumber)){
+            inputAttemptNumber(scanner);
+        }
         this.doAttemptNumber=Integer.parseInt(inputStringAttemptNumber);
     }
     public void splitCommaInString(Scanner scanner){
-
+        if(!exceptionHandle.checkStringSize(tmpCarNameSave)){
+            inputRacerName(scanner);
+        }
         carNameSave=tmpCarNameSave.split(",");
     }
     public void makingCarObjectArray(){
