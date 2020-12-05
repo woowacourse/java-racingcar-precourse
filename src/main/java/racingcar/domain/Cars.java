@@ -12,6 +12,7 @@ public class Cars {
 
     public Cars(String[] carNames) {
         checkOverlap(carNames);
+        this.carList = new ArrayList();
         for (String carName : carNames) {
             Car tempCar = new Car(carName);
             this.carList.add(tempCar);
