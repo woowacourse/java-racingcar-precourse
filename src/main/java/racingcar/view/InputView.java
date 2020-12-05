@@ -45,7 +45,7 @@ public class InputView {
         try {
             validator.validate(input);
         } catch (ValidationException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "\n");
             return false;
         }
         return true;
