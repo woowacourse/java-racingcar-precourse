@@ -29,4 +29,9 @@ public class InputManager {
         }
         return new ArrayList<>(filteredCars);
     }
+
+    public int inputTrialCount() {
+        String trialCount = scanner.next();
+        return Integer.parseInt(trialCount);
+    }
 }
