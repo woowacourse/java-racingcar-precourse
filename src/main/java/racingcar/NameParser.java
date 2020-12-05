@@ -1,5 +1,6 @@
 package racingcar;
 
+import exception.EmptyCarNameException;
 import exception.InvalidCarNameException;
 import exception.InvalidInputException;
 
@@ -33,8 +34,14 @@ public class NameParser {
     }
 
     private void validateNames() throws InvalidInputException {
+        validateNamesExists();
         for (String name : names)
             validateNameLength(name);
+    }
+
+    private void validateNamesExists() throws InvalidInputException {
+        if (names.isEmpty())
+            throw new EmptyCarNameException();
     }
 
     private void validateNameLength(String name) throws InvalidInputException {
