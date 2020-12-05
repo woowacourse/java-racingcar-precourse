@@ -5,11 +5,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class CarRacingPrint {
+    private final static int PRINT_CAR_RACING_INDEX = 0;
+    private final static int PRINT_WINNER_CAR_INDEX = 0;
 
     public static void printCarRacing(int positionCount) {
         String meter = "-";
-        for (int i = 0; i < positionCount; i++) {
-            System.out.printf(meter);
+        for (int i = PRINT_CAR_RACING_INDEX; i < positionCount; i++) {
+            System.out.print(meter);
         }
     }
 
@@ -21,7 +23,7 @@ public class CarRacingPrint {
 
         int maxMeter = Collections.max(carMaxList);
         List<String> winnerList = new ArrayList<>();
-        for (int i = 0; i < carMaxList.size(); i++) {
+        for (int i = PRINT_WINNER_CAR_INDEX; i < carMaxList.size(); i++) {
             if (maxMeter == carMaxList.get(i)) {
                 winnerList.add(cars.get(i).getCarName());
             }

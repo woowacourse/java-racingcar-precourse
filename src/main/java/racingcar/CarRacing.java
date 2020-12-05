@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CarRacing {
+    private final static String WINNERS_SPLITER = ", ";
+    private final static int TRYCOUNT_INDEX = 0;
     private final Scanner scanner;
 
     public CarRacing(Scanner scanner) {
@@ -18,13 +20,15 @@ public class CarRacing {
         List<String> carNamesSplitList = CarNamesSplitList.carNamesSplitList(carNameInput);
         ValidateUtils.carNameLengthCheck(carNamesSplitList);
         List<Car> carList = CarGenerate.carGenerate(carNamesSplitList);
+
         System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = ValidateUtils.checkTryCountParseInt(scanner.nextLine());
         System.out.println("실행 결과");
-        for (int i = 0; i < tryCount; i++) {
+        for (int i = TRYCOUNT_INDEX; i < tryCount; i++) {
             CarRacingRepeat.repeatCarRacing(carList);
         }
+
         List<String> winnerList = CarRacingPrint.printWinnerCar(carList);
-        System.out.println(String.format("최종 우승자: %s ", String.join(", ", winnerList)));
+        System.out.println(String.format("최종 우승자: %s ", String.join(WINNERS_SPLITER, winnerList)));
     }
 }

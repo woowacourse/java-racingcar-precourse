@@ -14,7 +14,6 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
     public void increasePosition() {
         if (RandomUtils.nextInt(DEFAULT_MIN_RANDOM_NUM, DEFAULT_MAX_RANDOM_NUM) > DEFAULT_MOVE_NUM) {
             position++;

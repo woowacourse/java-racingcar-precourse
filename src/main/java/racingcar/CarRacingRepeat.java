@@ -5,11 +5,10 @@ import java.util.List;
 public class CarRacingRepeat {
 
     public static void repeatCarRacing(List<Car> carList) {
-
-        for (int i = 0; i < carList.size(); i++) {
-            carList.get(i).increasePosition();
-            System.out.printf("%s : ", carList.get(i).getCarName());
-            CarRacingPrint.printCarRacing(carList.get(i).getPosition());
+        for (Car car : carList) {
+            car.increasePosition();
+            System.out.printf("%s : ", car.getCarName());
+            CarRacingPrint.printCarRacing(car.getPosition());
             System.out.println();
         }
         System.out.println();
