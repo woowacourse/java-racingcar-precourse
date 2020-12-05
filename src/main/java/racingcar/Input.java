@@ -51,7 +51,7 @@ public class Input {
         try {
             return Integer.parseInt(inputNum);
         }catch (NumberFormatException e){
-            throw new NumberFormatException("[ERROR] 유효한 범위의 숫자를 입력해주세요");
+            throw new NumberFormatException("[ERROR] 입력하신 수의 범위가 유효하지 않습니다.");
         }
     }
 }

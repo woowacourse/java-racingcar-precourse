@@ -3,9 +3,10 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car implements Comparable<Car>{
+    private static final String BAR = "-";
     private final String name;
     private int position = 0;
-    private String bar = "-";
+    private int randNum;
 
     public Car(String name) {
         this.name = name;
@@ -25,8 +26,7 @@ public class Car implements Comparable<Car>{
     }
 
     public void move() {
-        int randNum = RandomUtils.nextInt(Constant.MIN_RANGE_NUM, Constant.MAX_RANGE_NUM);
-        System.out.println(randNum);
+        randNum = RandomUtils.nextInt(Constant.MIN_RANGE_NUM, Constant.MAX_RANGE_NUM);
         if (randNum >= Constant.ADVANCE_NUM) {
             advance();
         }
@@ -39,7 +39,7 @@ public class Car implements Comparable<Car>{
     public void print() {
         StringBuilder result = new StringBuilder(name + " : ");
         for (int i = Constant.ZERO; i < position; i++) {
-            result.append(bar);
+            result.append(BAR);
         }
         System.out.println(result);
     }
