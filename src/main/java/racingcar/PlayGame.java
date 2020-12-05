@@ -15,6 +15,7 @@ public class PlayGame {
         doAttemptNumber = scanner.nextInt();
         splitCommaInString();
         makingCarObjectArray();
+        implementGetPrintCarPositionToMinus();
     }
     public void startRacingCar(){
 
@@ -26,6 +27,26 @@ public class PlayGame {
         carObject=new Car[carNameSave.length];
         for(int i=0;i<carObject.length;i++){
             carObject[i]=new Car(carNameSave[i]);
+        }
+    }
+    public void printCarPositionToMinus(Car tmpCarObjectParameter){
+        tmpCarObjectParameter.decidePositionNumber();
+        System.out.print(tmpCarObjectParameter.getName()+" : ");
+        for(int i=0;i<tmpCarObjectParameter.getPosition();i++){
+            System.out.print("-");
+        }
+        System.out.println();
+
+    }
+    public void getPrintCarPositionToMinus(){
+        for(int i=0;i<carObject.length;i++){
+            printCarPositionToMinus(carObject[i]);
+        }
+    }
+    public void implementGetPrintCarPositionToMinus(){
+        for(int i=0;i<doAttemptNumber;i++){
+            getPrintCarPositionToMinus();
+            System.out.println();
         }
     }
 
