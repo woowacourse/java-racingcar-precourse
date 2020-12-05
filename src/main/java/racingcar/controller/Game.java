@@ -58,12 +58,9 @@ public class Game {
 
     private String findWinner() {
         int max = findMaxMove();
-        StringBuilder stringBuilder = new StringBuilder();
-        cars.stream()
-            .filter(car -> car.getPosition() == max)
-            .forEach(car -> stringBuilder.append(car.getName()).append(DELIMITER));
-        stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(DELIMITER));
-        return stringBuilder.toString();
+        return cars.stream().filter(car->car.isOnPosition(max))
+        .map(Car::getName)
+        .collect(Collectors.joining(DELIMITER));
     }
 
     private int findMaxMove() {

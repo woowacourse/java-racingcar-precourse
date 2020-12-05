@@ -31,6 +31,10 @@ public class Car {
         return RandomUtils.nextInt(MIN, MAX) >= RUNNING_CRITERIA;
     }
 
+    public boolean isOnPosition(int position){
+        return this.position == position;
+    }
+
     public String getName() {
         return this.name;
     }
