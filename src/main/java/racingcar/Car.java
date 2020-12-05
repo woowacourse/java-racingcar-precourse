@@ -10,8 +10,18 @@ public class Car {
         CarValidator.validateCarName(name);
         this.name = name;
     }
+    
+    public void moveOrStop() {
+        if (isMove()) {
+            position++;
+        }
+    }
+    
+    private boolean isMove() {
+        return (makeRandomNumber() >= 4);
+    }
 
-    public int makeRandomNumber() {
+    private int makeRandomNumber() {
         return RandomUtils.nextInt(0, 9);
     }
 }
