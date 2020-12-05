@@ -39,6 +39,4 @@ public class Cars {
             .map(Car::new)
             .collect(Collectors.toList());
     }
-
-
 }
