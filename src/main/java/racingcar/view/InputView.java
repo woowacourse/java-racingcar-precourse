@@ -10,9 +10,9 @@ public class InputView {
         this.scanner = scanner;
     }
 
-    public String scanCarName() {
+    public String[] scanCarName() {
         printNameInputMessage();
-        return scanUserInput();
+        return splitInputToName(scanUserInput());
     }
 
     private void printNameInputMessage() {
@@ -21,5 +21,10 @@ public class InputView {
 
     private String scanUserInput() {
         return this.scanner.nextLine();
+    }
+
+    private String[] splitInputToName(String inputNameList) {
+        String[] names = inputNameList.split(",");
+        return names;
     }
 }
