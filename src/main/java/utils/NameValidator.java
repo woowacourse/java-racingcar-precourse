@@ -16,7 +16,11 @@ public class NameValidator {
     }
 
     private static void checkNull(List<String> nameList) {
-
+        for(String name : nameList) {
+            if (Pattern.matches(CHECK_NULL_REGEX, name)) {
+                throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_NULL);
+            }
+        }
     }
 
     private static void checkPartialSpace(List<String> nameList){
