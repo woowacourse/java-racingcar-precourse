@@ -2,9 +2,9 @@ package utils;
 
 public class InputValidator {
     private static final int ZERO = 0;
-    private static final String INCORRECT_NUMBER_ERROR = "[ERROR] 시도 횟수로 자연수를 입력해주세요.";
-    private static final String NAME_LENGTH_ERROR = "[ERROR] 자동차 이름은 1자 이상 5자 이하만 가능합니다.";
     private static final char COMMA = ',';
+    private static final String INCORRECT_NUMBER_ERROR = "[ERROR] 숫자를 잘못 입력하셨습니다.";
+    private static final String NAME_LENGTH_ERROR = "[ERROR] 자동차 이름은 1자 이상 5자 이하만 가능합니다.";
 
     private InputValidator() {
     }
@@ -19,22 +19,27 @@ public class InputValidator {
 
     public static String validateInputCarNames(String carNames) {
         validateNull(carNames);
-        validateComma(carNames);
+        validateFirstOrContinuousComma(carNames);
+        validateEndComma(carNames);
         return carNames;
     }
 
-    private static String validateComma(String carNames) {
-        if (carNames.charAt(carNames.length()-1) == COMMA) {
+    private static String validateNull(String carNames) {
+        if (carNames == null || carNames.equals("")) {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
+        return carNames;
+    }
+
+    private static String validateFirstOrContinuousComma(String carNames) {
         if (carNames.split(String.valueOf(COMMA)).length == ZERO) {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
         return carNames;
     }
 
-    private static String validateNull(String carNames) {
-        if (carNames.equals("") || carNames == null) {
+    private static String validateEndComma(String carNames) {
+        if (carNames.charAt(carNames.length() - 1) == COMMA) {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
         return carNames;
