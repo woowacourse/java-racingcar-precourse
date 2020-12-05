@@ -19,7 +19,7 @@ public class Cars {
 
 	public Cars(List<Car> cars) throws IllegalArgumentException {
 		validateCarAmount(cars);
-		validateDuplicate(cars);
+		validateDuplicateCarName(cars);
 		validateCarNameLength(cars);
 		validateVoidCarName(cars);
 		this.cars = cars;
@@ -38,7 +38,7 @@ public class Cars {
 				.count();
 	}
 
-	private void validateDuplicate(List<Car> cars) throws IllegalArgumentException {
+	private void validateDuplicateCarName(List<Car> cars) throws IllegalArgumentException {
 		if (countUniqueCarNames(cars) != cars.size()) {
 			throw new IllegalArgumentException(DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE);
 		}
@@ -77,7 +77,7 @@ public class Cars {
 		}
 	}
 
-	private int getMaxPosition() {
+	private int getLeadingPosition() {
 		return cars.stream()
 				.mapToInt(Car::getPosition)
 				.max()
@@ -85,9 +85,9 @@ public class Cars {
 	}
 
 	public String getWinners() {
-		int maxPosition = getMaxPosition();
+		int LeadingPosition = getLeadingPosition();
 		return cars.stream()
-				.filter(car -> car.getPosition() == maxPosition)
+				.filter(car -> car.getPosition() == LeadingPosition)
 				.map(Car::getName)
 				.collect(Collectors.joining(WINNER_DELIMITER));
 	}
