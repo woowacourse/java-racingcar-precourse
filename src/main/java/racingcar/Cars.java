@@ -29,16 +29,19 @@ public class Cars {
     }
 
     public List<Car> findWinners() {
+        return findCoWinners(findOneWinner());
+    }
+
+    private List<Car> findCoWinners(Car winner) {
         return cars.stream()
-                .filter(car -> car.getPosition() == findWinnersPosition())
+                .filter(car -> car.isSamePositionAs(winner))
                 .collect(Collectors.toList());
     }
 
-    private int findWinnersPosition() {
+    private Car findOneWinner() {
         return cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .getAsInt();
+                .max(Car::compareTo)
+                .get();
     }
 
     private void compareRandomNumberAndMove(Car car) {
@@ -46,5 +49,5 @@ public class Cars {
             car.moveCarForward();
         }
     }
-    
+
 }
