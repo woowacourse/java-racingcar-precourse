@@ -18,4 +18,12 @@ public class Race {
             }
         }
     }
+
+    public void startCarRace(int trialCount) {
+        for (int i=0; i<trialCount; i++) {
+            for (Car car : cars) {
+                car.moveCar();
+            }
+        }
+    }
 }

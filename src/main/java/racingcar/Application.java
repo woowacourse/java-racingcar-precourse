@@ -8,5 +8,13 @@ public class Application {
         // TODO 구현 진행
         InputManager inputManager = new InputManager(scanner);
         Race race = Race.generateRace(inputManager);
+        while (true) {
+            try {
+                race.startCarRace(inputManager.inputTrialCount());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
