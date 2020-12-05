@@ -19,6 +19,7 @@ public class Track {
     public void start(Scanner scanner) {
         tryEnrollCars(scanner);
         tryEnrollLoopTime(scanner);
+        OutputUtils.printStartRacing();
         playRacing();
         awardWinners();
 
@@ -41,6 +42,7 @@ public class Track {
     private void playRacing() {
         for (int i = 0; i < loopTime; i++) {
             forwardCars();
+            OutputUtils.printEnterLine();
         }
     }
 

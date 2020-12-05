@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.OutputUtils;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -16,6 +18,7 @@ public class Car {
         if(gasTank.isEnoughGas()){
             position++;
         }
+        OutputUtils.printRacing(name, position);
     }
 
     public int getPosition() {

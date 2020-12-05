@@ -9,6 +9,9 @@ public class OutputUtils {
     private static final String ERROR = "[ERROR] ";
     private static final String WINNER = "최종 우승자: ";
     private static final String JOIN_COMMA = ", ";
+    private static final String START_RACING = "\n실행 결과";
+    private static final String COLON = " : ";
+    private static final String DASH_OF_POSITION = "-";
 
     private OutputUtils(){
     }
@@ -27,5 +30,25 @@ public class OutputUtils {
 
     public static void printWinners(ArrayList<String> winners) {
         System.out.println(WINNER + String.join(JOIN_COMMA, winners));
+    }
+
+    public static void printStartRacing() {
+        System.out.println(START_RACING);
+    }
+
+    public static void printRacing(String name, int position) {
+        StringBuilder stringBuiler = new StringBuilder();
+
+        stringBuiler.append(name);
+        stringBuiler.append(COLON);
+        for (int i = 0; i < position; i++){
+            stringBuiler.append(DASH_OF_POSITION);
+        }
+
+        System.out.println(stringBuiler);
+    }
+
+    public static void printEnterLine(){
+        System.out.println();
     }
 }
