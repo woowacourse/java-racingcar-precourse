@@ -4,20 +4,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class ReceptionForCars {
+public class InputCar implements AcceptableCar {
     private int participantsTotal; // 참가자 수
     private String[] stringArrayParticipants; // 참가자 이름 목록
     private String stringInputWithoutValidation; //  참가자 입력 자체
 
-    private static final int LENGTH_EMPTY = 0;
-    private static final String DELIMITER = ",";
-    private static final String MESSAGE_INPUT_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String MESSAGE_ERROR_ABNORMAL_DELIMITER = "[ERROR] 잘못된 구분자(" + DELIMITER + ") 사용이 있습니다.";
-    private static final String MESSAGE_ERROR_DUPLICATED_NAME = "[ERROR] 중복된 자동차 이름이 있습니다.";
-    private static final String MESSAGE_ERROR_EMPTY_CAR_NAME = "[ERROR] 자동차 이름이 없습니다.";
-    private static final String MESSAGE_ERROR_FOUND_EMPTY_CAR_NAME = "[ERROR] 자동차 이름이 없는 것이 있습니다.";
-    private final int LENGTH_LIMIT_OF_INDIVIDUAL_INPUT = 5; // 참가자 이름 글자 수 제한
-    private final String MESSAGE_ERROR_NOT_VALID_CAR_NAME = "[ERROR] 길이 " + LENGTH_LIMIT_OF_INDIVIDUAL_INPUT + "이하의 자동차 이름을 입력해주세요";
+    public final int LENGTH_LIMIT_OF_INDIVIDUAL_INPUT = 5; // 참가자 이름 글자 수 제한
+    public final String MESSAGE_ERROR_NOT_VALID_CAR_NAME = "[ERROR] 길이 " + LENGTH_LIMIT_OF_INDIVIDUAL_INPUT + "이하의 자동차 이름을 입력해주세요";
 
     public String[] input(Scanner scanner) {
         inputParticipants(scanner);
