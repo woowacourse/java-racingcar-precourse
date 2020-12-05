@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Collection;
@@ -7,15 +8,16 @@ import java.util.Collection;
 public class PlayGame {
     String tmpCarNameSave;
     String[] carNameSave;
+    String inputStringAttemptNumber;
     int doAttemptNumber;
     Car[] carObject;
     ComputeRelatedCar computeRelatedCar=new ComputeRelatedCar();
+
     public PlayGame(Scanner scanner) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        tmpCarNameSave = scanner.nextLine();
-        System.out.println("시도할 회수는 몇회인가요?");
-        doAttemptNumber = scanner.nextInt();
-        splitCommaInString();
+        inputRacerName(scanner);
+        inputAttemptNumber(scanner);
+
+        splitCommaInString(scanner);
         makingCarObjectArray();
         implementGetPrintCarPositionToMinus();
         printWinnerName();
@@ -24,7 +26,19 @@ public class PlayGame {
     public void startRacingCar(){
 
     }
-    public void splitCommaInString(){
+    public void inputRacerName(Scanner scanner){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        this.tmpCarNameSave=scanner.nextLine();
+        splitCommaInString(scanner);
+    }
+    public void inputAttemptNumber(Scanner scanner){
+        System.out.println("시도할 회수는 몇회인가요?");
+        inputStringAttemptNumber = scanner.nextLine();
+
+        this.doAttemptNumber=Integer.parseInt(inputStringAttemptNumber);
+    }
+    public void splitCommaInString(Scanner scanner){
+
         carNameSave=tmpCarNameSave.split(",");
     }
     public void makingCarObjectArray(){
@@ -54,6 +68,7 @@ public class PlayGame {
         }
     }
     public void printWinnerName(){
+        System.out.print("최종 우승자: ");
         Arrays.sort(carObject);
         int winnerNumber=computeRelatedCar.getWinnerNumber(carObject);
         for(int i=0;i<winnerNumber;i++){
