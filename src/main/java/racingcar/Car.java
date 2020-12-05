@@ -9,4 +9,29 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void goForward() {
+        position++;
+    }
+
+    public boolean isEqualPosition(int position) {
+        return this.position == position;
+    }
+
+    public String getMoveSign(String sign) {
+        StringBuilder moveSign = new StringBuilder();
+
+        for (int i = 0; i < position; i++) {
+            moveSign.append(sign);
+        }
+
+        return moveSign.toString();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
