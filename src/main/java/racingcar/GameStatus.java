@@ -12,7 +12,7 @@ public class GameStatus {
     public static void printWinner(RacingCars racingCars) {
         List<String> winners = new ArrayList<>();
         for (int carIndex = 0; carIndex < racingCars.getTotalNumberOfCars(); carIndex++) {
-            if (racingCars.getCar(carIndex).isWinner(racingCars.maxPosition)) {
+            if (racingCars.getCar(carIndex).isWinner(racingCars.getMaxPosition())) {
                 winners.add(racingCars.getCar(carIndex).getName());
             }
         }

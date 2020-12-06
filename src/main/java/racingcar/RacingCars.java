@@ -9,7 +9,7 @@ public class RacingCars {
     final static int MIN_NUMBER_OF_CARS = 2;
 
     private List<Car> cars = new ArrayList<>();
-    int maxPosition = 0;
+    private int maxPosition = 0;
 
     public RacingCars(List<String> carList) {
         validateSize(carList);
