@@ -1,6 +1,9 @@
 package utils;
 
 import racingcar.domain.setting.CarSetting;
+import racingcar.exception.DuplicateNameException;
+import racingcar.exception.InvalidNameException;
+import racingcar.exception.InvalidNumberException;
 
 import java.util.Arrays;
 
@@ -9,24 +12,18 @@ public class Validator {
     public Validator() {
     }
 
-    /*
-     * 1. 중복값이 있는지 확인
-     * 2. 5글자가 넘는지 확인
-     * 3. Repeat Count 양의 정수인지 확인!!
-     *
-     * */
     public static void validateNames(String[] input) {
 
         if (input.length == 0 && input == null) {
-            throw new IllegalArgumentException("널,빈문자");
+            throw new InvalidNameException();
         }
 
         if (hasDuplicate(input)) {
-            throw new IllegalArgumentException("중복이 있다");
+            throw new InvalidNameException(input);
         }
 
         if (isLengthOver(input)) {
-            throw new IllegalArgumentException("이름은 5자 이하로");
+            throw new InvalidNameException();
         }
 
     }
@@ -39,20 +36,20 @@ public class Validator {
     public static void validateRepeat(String input) {
 
         if (!isNumberType(input)) {
-            throw new IllegalArgumentException("숫자만 넣어줘");
+            throw new InvalidNumberException(input);
         }
 
         double number = Double.parseDouble(input);
         if (number != (int) number) {
-            throw new IllegalArgumentException("소수 불가!");
+            throw new InvalidNumberException(input);
         }
 
         if (number < 0) {
-            throw new IllegalArgumentException("양수만 넣어줘");
+            throw new InvalidNumberException(input);
         }
     }
 
-    public static boolean isLengthOver(String... names) {
+    public static boolean isLengthOver(String[] names) {
 
         for (String name : names) {
             if (name.length() > CarSetting.NAME_MAX_LENGTH.get()) {
