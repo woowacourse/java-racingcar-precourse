@@ -17,9 +17,21 @@ public class RacingCars {
         makeRacingCarList(carList);
     }
 
+    public int getTotalNumberOfCars () {
+        return cars.size();
+    }
+
+    public String getCarName(int carIndex) {
+        return cars.get(carIndex).getName();
+    }
+
+    public int getCarPosition(int carIndex) {
+        return cars.get(carIndex).getPosition();
+    }
+
     private void validateSize(List<String> carList) throws IllegalArgumentException {
         if (carList.size() > MAX_NUMBER_OF_CARS || carList.size() < MIN_NUMBER_OF_CARS) {
-            throw new IllegalArgumentException("[ERROR] 자동자 개수는 2-5개로 한정 됩니다.");
+            throw new IllegalArgumentException("[ERROR] 자동자 개수는 2-7개로 한정 됩니다.");
         }
     }
 
