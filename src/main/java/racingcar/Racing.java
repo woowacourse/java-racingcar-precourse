@@ -5,7 +5,7 @@ import java.util.*;
 public class Racing {
 
     static final String TRIAL_RESULT = "실행 결과";
-    static final String PRINT_WINNERS = "최종 우승자 : ";
+    static final String PRINT_WINNERS = "최종 우승자: ";
 
     Input input = new Input();
     Error error = new Error();
@@ -65,6 +65,7 @@ public class Racing {
     }
 
     public void printRacingGameResult(List<Car> carList, int trial) {
+        System.out.println();
         System.out.println(TRIAL_RESULT);
         for (int i = 0; i < trial; i++) {
             oneTrialGame(carList);
