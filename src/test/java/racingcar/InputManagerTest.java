@@ -12,20 +12,19 @@ public class InputManagerTest {
         //GIVEN
         String countOfAttempts = "10";
         InputManager inputManager = new InputManager(new Scanner(countOfAttempts));
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             inputManager.inputCountOfAttempts();
         } catch (Exception e) {
             if (e.getMessage().equals(Constants.COUNT_ERROR_STATEMENT)) {
-                actualRusult = false;
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertTrue(actualResult);
     }
 
     @Test
@@ -33,20 +32,19 @@ public class InputManagerTest {
         //GIVEN
         String countOfAttempts = "a5";
         InputManager inputManager = new InputManager(new Scanner(countOfAttempts));
-        boolean expectedResult = false;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             inputManager.inputCountOfAttempts();
         } catch (Exception e) {
             if (e.getMessage().equals(Constants.COUNT_ERROR_STATEMENT)) {
-                actualRusult = false;
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 
     @Test
@@ -54,20 +52,19 @@ public class InputManagerTest {
         //GIVEN
         String countOfAttempts = "09";
         InputManager inputManager = new InputManager(new Scanner(countOfAttempts));
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             inputManager.inputCountOfAttempts();
         } catch (Exception e) {
             if (e.getMessage().equals(Constants.COUNT_ERROR_STATEMENT)) {
-                actualRusult = false;
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertTrue(actualResult);
     }
 
     @Test
@@ -75,20 +72,19 @@ public class InputManagerTest {
         //GIVEN
         String countOfAttempts = "aB";
         InputManager inputManager = new InputManager(new Scanner(countOfAttempts));
-        boolean expectedResult = false;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             inputManager.inputCountOfAttempts();
         } catch (Exception e) {
             if (e.getMessage().equals(Constants.COUNT_ERROR_STATEMENT)) {
-                actualRusult = false;
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 
     @Test
@@ -96,20 +92,19 @@ public class InputManagerTest {
         //GIVEN
         String countOfAttempts = "10a";
         InputManager inputManager = new InputManager(new Scanner(countOfAttempts));
-        boolean expectedResult = false;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             inputManager.inputCountOfAttempts();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             if (e.getMessage().equals(Constants.COUNT_ERROR_STATEMENT)) {
-                actualRusult = false;
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 }

@@ -17,23 +17,22 @@ public class RaceTest {
         String carNames = "pobi,jun,woni";
         InputManager inputManager = new InputManager(new Scanner(carNames));
         String[] splitedNames = carNames.split(Constants.SEPARATOR);
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             Race race = Race.generateRace(inputManager);
             if (splitedNames.length != race.getCars().size()) {
-                actualRusult = false;
+                actualResult = false;
             }
         } catch (Exception e) {
-            if (e.getMessage() == null) {
-                actualRusult = false;
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertTrue(actualResult);
     }
 
     @Test
@@ -42,23 +41,22 @@ public class RaceTest {
         String carNames = "pobieg,jun,woni";
         InputManager inputManager = new InputManager(new Scanner(carNames));
         String[] splitedNames = carNames.split(Constants.SEPARATOR);
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             Race race = Race.generateRace(inputManager);
             if (splitedNames.length != race.getCars().size()) {
-                actualRusult = false;
+                actualResult = false;
             }
         } catch (Exception e) {
-            if (e.getMessage() == null) {
-                actualRusult = false;
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 
     @Test
@@ -67,23 +65,22 @@ public class RaceTest {
         String carNames = "pobi,pobi,woni";
         InputManager inputManager = new InputManager(new Scanner(carNames));
         String[] splitedNames = carNames.split(Constants.SEPARATOR);
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             Race race = Race.generateRace(inputManager);
             if (splitedNames.length != race.getCars().size()) {
-                actualRusult = false;
+                actualResult = false;
             }
         } catch (Exception e) {
-            if (e.getMessage() == null) {
-                actualRusult = false;
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 
     @Test
@@ -92,23 +89,22 @@ public class RaceTest {
         String carNames = ",,";
         InputManager inputManager = new InputManager(new Scanner(carNames));
         String[] splitedNames = carNames.split(Constants.SEPARATOR);
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             Race race = Race.generateRace(inputManager);
             if (splitedNames.length != race.getCars().size()) {
-                actualRusult = false;
+                actualResult = false;
             }
         } catch (Exception e) {
-            if (e.getMessage() == null) {
-                actualRusult = false;
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 
     @Test
@@ -117,23 +113,22 @@ public class RaceTest {
         String carNames = ",pobi,";
         InputManager inputManager = new InputManager(new Scanner(carNames));
         String[] splitedNames = carNames.split(Constants.SEPARATOR);
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             Race race = Race.generateRace(inputManager);
             if (splitedNames.length != race.getCars().size()) {
-                actualRusult = false;
+                actualResult = false;
             }
         } catch (Exception e) {
-            if (e.getMessage() == null) {
-                actualRusult = false;
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 
     @Test
@@ -142,23 +137,22 @@ public class RaceTest {
         String carNames = "pobi, jun,woni";
         InputManager inputManager = new InputManager(new Scanner(carNames));
         String[] splitedNames = carNames.split(Constants.SEPARATOR);
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             Race race = Race.generateRace(inputManager);
             if (splitedNames.length != race.getCars().size()) {
-                actualRusult = false;
+                actualResult = false;
             }
         } catch (Exception e) {
-            if (e.getMessage() == null) {
-                actualRusult = false;
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertTrue(actualResult);
     }
 
     @Test
@@ -167,23 +161,22 @@ public class RaceTest {
         String carNames = " , , ";
         InputManager inputManager = new InputManager(new Scanner(carNames));
         String[] splitedNames = carNames.split(Constants.SEPARATOR);
-        boolean expectedResult = true;
 
         //WHEN
-        boolean actualRusult = true;
+        boolean actualResult = true;
         try {
             Race race = Race.generateRace(inputManager);
             if (splitedNames.length != race.getCars().size()) {
-                actualRusult = false;
+                actualResult = false;
             }
         } catch (Exception e) {
-            if (e.getMessage() == null) {
-                actualRusult = false;
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
             }
         }
 
         //THEN
-        Assertions.assertEquals(expectedResult, actualRusult);
+        Assertions.assertFalse(actualResult);
     }
 
     @Test

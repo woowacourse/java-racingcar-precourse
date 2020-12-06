@@ -26,4 +26,5 @@ public class Constants {
                                                         "(이름은 쉼표(,) 기준으로 구분)";
     public static final String WINNERS = "최종 우승자: ";
     public static final String BLANK = " ";
+    public static final String NO_LINE_FOUND = "No line found";
 }
