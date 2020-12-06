@@ -41,4 +41,8 @@ public class Car {
         return positionString.toString();
     }
 
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
 }
