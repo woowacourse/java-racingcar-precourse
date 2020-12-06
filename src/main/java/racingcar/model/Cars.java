@@ -3,7 +3,6 @@ package racingcar.model;
 import racingcar.Constants;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -43,20 +42,6 @@ public class Cars {
         }
 
         return carsName;
-    }
-
-    public void selectWinners() {
-        int winnerPosition = Collections.max(getCars()).getPosition();
-        List<Car> winners = new ArrayList<>();
-
-        for (Car car : cars) {
-
-            if (car.getPosition() == winnerPosition) {
-                winners.add(car);
-            }
-
-        }
-        this.cars = winners;
     }
 
     public void isValidUserNames(String userNamesInput) {

@@ -6,6 +6,9 @@ import racingcar.view.InputView;
 import racingcar.model.Cars;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class RacingManager {
@@ -29,8 +32,8 @@ public class RacingManager {
             OutputView.printRacingStatus(cars);
         }
 
-        cars.selectWinners();
-        OutputView.printResult(cars);
+        List<Car> winners = selectWinners();
+        OutputView.printResult(winners);
     }
 
     public void runCars() {
@@ -64,6 +67,20 @@ public class RacingManager {
             }
         }
         return 0;
+    }
+
+    public List<Car> selectWinners() {
+        int winnerPosition = Collections.max(cars.getCars()).getPosition();
+        List<Car> winners = new ArrayList<>();
+
+        for (Car car : cars.getCars()) {
+
+            if (car.getPosition() == winnerPosition) {
+                winners.add(car);
+            }
+
+        }
+        return winners;
     }
 }
 
