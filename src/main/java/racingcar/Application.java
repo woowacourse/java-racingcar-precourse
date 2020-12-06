@@ -23,6 +23,9 @@ public class Application {
         int cntInput = scanner.nextInt();
         System.out.println();
 
+        game.setGame(cntInput, carList);
+        game.start();
+
     }
 
     private static List<Car> createCars(String[] cars) {
