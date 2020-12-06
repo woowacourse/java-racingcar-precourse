@@ -11,6 +11,7 @@ import racingcar.domain.strategy.RandomMovingStrategy;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
 class RacingGameTest {
@@ -47,5 +48,16 @@ class RacingGameTest {
         RacingGame racingGame = new RacingGame(cars, 3);
 
         assertThat(racingGame.isEnd()).isFalse();
+    }
+
+    @DisplayName("RacingGame이 한 차례 경주하면, 시도 횟수가 1회 차감된다")
+    @Test
+    public void race_1번_경주하면_시도_횟수가_1만큼_차감되고_isEnd는_true를_반환한다() {
+        Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
+        RacingGame racingGame = new RacingGame(cars, 1);
+
+        racingGame.race();
+
+        assertThat(racingGame.isEnd()).isTrue();
     }
 }
