@@ -11,6 +11,10 @@ public class GameView {
         this.scanner = scanner;
     }
 
+    public String userInput() {
+        return scanner.nextLine();
+    }
+
     public void printGameMessage(GameMessage gameMessage) {
         System.out.print(gameMessage);
     }
