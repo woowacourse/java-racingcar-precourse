@@ -6,14 +6,20 @@ import java.util.List;
 public class InputManager {
     public InputManager() {}
 
-    public List<String> readCarList(String input) {
+    public List<String> readCarList(String input) throws IllegalArgumentException {
+        List<String> carList;
         input = input.replace(" ", "");
 
-        while (input.startsWith(",")) {
-            input = input.substring(1);
+        carList = Arrays.asList(input.split(","));
+        if (checkIfNoEmptyName(carList)) {
+            throw new IllegalArgumentException("[Error] 빈 자동차 이름이 입력되었습니다.");
         }
 
-        return Arrays.asList(input.split(","));
+        return carList;
+    }
+
+    private boolean checkIfNoEmptyName(List<String> carList) {
+        return carList.contains("");
     }
 
     public int readTrialNum(String trialsNum) throws IllegalArgumentException {
