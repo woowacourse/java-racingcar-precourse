@@ -3,6 +3,7 @@ package racingcar;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+import racingcar.ExceptionManager.GameStatus;
 
 public class Request {
     private static final String SEPARATOR = ",";
