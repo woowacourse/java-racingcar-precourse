@@ -27,4 +27,20 @@ public class InputView {
         String[] names = inputNameList.split(",");
         return names;
     }
+
+    private boolean validationNameList(String[] nameList) {
+        for (int idx = 0; idx < nameList.length; idx++) {
+            if (!validationNameLength(nameList[idx])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean validationNameLength(String name) {
+        if (name.length() <= 5) {
+            return true;
+        }
+        return false;
+    }
 }
