@@ -8,7 +8,8 @@ public class CarNameValidator {
     }
 
     public static void validateCarName(String carName) {
-
+        String carNames[] = splitCarName(carName);
+        validateCarNameCount(carNames);
     }
 
     private static String[] splitCarName(String carName) {
@@ -16,11 +17,13 @@ public class CarNameValidator {
         return carNames;
     }
 
-    private static void validateCarNameCount(String carName) {
-
+    private static void validateCarNameCount(String[] carName) {
+        if (carName.length == 1) {
+            throw new IllegalArgumentException("경주할 자동차는 한 대 이상이어야 합니다.");
+        }
     }
 
-    private static void validateCarNameLength(String carName) {
+    private static void validateCarNameLength(String[] carName) {
 
     }
 }
