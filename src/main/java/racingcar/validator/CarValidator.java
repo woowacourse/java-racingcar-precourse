@@ -1,9 +1,6 @@
 package racingcar.validator;
 
-import racingcar.exception.DelimiterInputException;
-import racingcar.exception.InputWithoutNameException;
-import racingcar.exception.InvalidNameLengthException;
-import racingcar.exception.SpaceInputException;
+import racingcar.exception.*;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -23,6 +20,7 @@ public class CarValidator {
         validateDelimiterInput(racingCarNames);
         validateNameLength(racingCarNames);
         validateInputWithoutName(racingCarNames);
+        valiateNameDuplication(racingCarNames);
     }
 
     static private void validateSpaceInput(String racingCarNames) {
@@ -50,6 +48,15 @@ public class CarValidator {
     static private void validateInputWithoutName(String racingCarNames) {
         if (racingCarNames.split(DELIMITER).length == ZERO) {
             throw new InputWithoutNameException();
+        }
+    }
+
+    static private void valiateNameDuplication(String racingCarNames) {
+        boolean duplicated = Arrays.stream(racingCarNames.split(DELIMITER))
+                .distinct()
+                .count() != racingCarNames.split(DELIMITER).length;
+        if (duplicated) {
+            throw new NameDuplicationException();
         }
     }
 }
