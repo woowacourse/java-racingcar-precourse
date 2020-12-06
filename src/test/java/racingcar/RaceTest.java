@@ -180,6 +180,78 @@ public class RaceTest {
     }
 
     @Test
+    public void testCase8_isCarNameEnteredCorrectly() {
+        //GIVEN
+        String carNames = " ,  ,   ";
+        InputManager inputManager = new InputManager(new Scanner(carNames));
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+
+        //WHEN
+        boolean actualResult = true;
+        try {
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualResult = false;
+            }
+        } catch (Exception e) {
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
+            }
+        }
+
+        //THEN
+        Assertions.assertFalse(actualResult);
+    }
+
+    @Test
+    public void testCase9_isCarNameEnteredCorrectly() {
+        //GIVEN
+        String carNames = " jun, po bi , pobi ";
+        InputManager inputManager = new InputManager(new Scanner(carNames));
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+
+        //WHEN
+        boolean actualResult = true;
+        try {
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualResult = false;
+            }
+        } catch (Exception e) {
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
+            }
+        }
+
+        //THEN
+        Assertions.assertTrue(actualResult);
+    }
+
+    @Test
+    public void testCase10_isCarNameEnteredCorrectly() {
+        //GIVEN
+        String carNames = " jun , po  bi , pobi ";
+        InputManager inputManager = new InputManager(new Scanner(carNames));
+        String[] splitedNames = carNames.split(Constants.SEPARATOR);
+
+        //WHEN
+        boolean actualResult = true;
+        try {
+            Race race = Race.generateRace(inputManager);
+            if (splitedNames.length != race.getCars().size()) {
+                actualResult = false;
+            }
+        } catch (Exception e) {
+            if (e.getMessage().equals(Constants.NO_LINE_FOUND)) {
+                actualResult = false;
+            }
+        }
+
+        //THEN
+        Assertions.assertFalse(actualResult);
+    }
+
+    @Test
     public void testCase1_isWinnerDecidedCorrectly() {
         //GIVEN
         List<Car> cars = Arrays.asList(new Car("davinci").setPosition(2),

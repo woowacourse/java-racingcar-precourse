@@ -29,11 +29,12 @@ public class InputManager {
         Set<Car> filteredCars = new LinkedHashSet<>();
         String[] preFilteredCars = carList.split(Constants.SEPARATOR);
         for (String preFilteredCar : preFilteredCars) {
-            if (preFilteredCar.length() > Constants.NAME_MAX_LENGTH
-                    || preFilteredCar.length() < Constants.NAME_MIN_LENGTH) {
+            String trimedPreFilteredCar = preFilteredCar.trim();
+            if (trimedPreFilteredCar.length() > Constants.NAME_MAX_LENGTH
+                    || trimedPreFilteredCar.length() < Constants.NAME_MIN_LENGTH) {
                 throw CAR_INPUT_ERROR;
             }
-            filteredCars.add(new Car(preFilteredCar));
+            filteredCars.add(new Car(trimedPreFilteredCar));
         }
         if (preFilteredCars.length == 0 || preFilteredCars.length != filteredCars.size()) {
             throw CAR_INPUT_ERROR;
