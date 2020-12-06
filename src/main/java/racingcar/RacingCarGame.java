@@ -1,6 +1,9 @@
 package racingcar;
 
-import java.util.List;
+import jdk.nashorn.internal.runtime.regexp.RegExpFactory;
+import racingcar.exception.RacingCarException;
+import racingcar.validator.CarValidator;
+
 import java.util.Scanner;
 
 public class RacingCarGame {
@@ -14,13 +17,26 @@ public class RacingCarGame {
     }
 
     public void startGame() {
-        Cars cars = new Cars();
-        cars.createCars(inputRacingCars());
+        try {
+            initRacingCars();
+        } catch (RacingCarException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public String inputRacingCars() {
+    private void initRacingCars() {
+        String racingCarNames = inputRacingCars();
+        validateCar(racingCarNames);
+        this.cars = new Cars();
+        cars.createCars(racingCarNames);
+    }
+
+    private String inputRacingCars() {
         System.out.println(INPUT_RACING_CARS);
         return scanner.nextLine();
     }
 
+    private void validateCar(String racingCarNames) {
+        CarValidator.validate(racingCarNames);
+    }
 }
