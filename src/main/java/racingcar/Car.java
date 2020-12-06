@@ -3,6 +3,8 @@ package racingcar;
 public class Car {
 
     private final int MOVE_FRONT_MIN = 4;
+    private final String positionIndicator = "-";
+    private final String namePositionDelimiter = " : ";
 
     private final String name;
     private int position = 0;
@@ -27,6 +29,16 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public String getPositionString() {
+        StringBuilder positionString = new StringBuilder();
+        positionString.append(name);
+        positionString.append(namePositionDelimiter);
+        for (int i = 0; i < position; i++) {
+            positionString.append(positionIndicator);
+        }
+        return positionString.toString();
     }
 
 }
