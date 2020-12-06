@@ -8,6 +8,7 @@ import racingcar.exception.InvalidNumberException;
 
 import static utils.Validator.*;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -28,6 +29,7 @@ public class InputController {
             String input = scanner.nextLine();
             String[] names = Stream
                     .of(input.split(NAME_SEPARATOR))
+                    .map(String::trim)
                     .toArray(String[]::new);
 
             validateNames(names);

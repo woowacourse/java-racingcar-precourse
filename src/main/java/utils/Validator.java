@@ -14,7 +14,7 @@ public class Validator {
 
     public static void validateNames(String[] input) {
 
-        if (input.length == 0 && input == null) {
+        if (hasBlank(input)) {
             throw new InvalidNameException();
         }
 
@@ -28,11 +28,6 @@ public class Validator {
 
     }
 
-    /*
-     * 반복횟수에 대한 제한은 없지만
-     * 1. 음수 불가
-     * 2. 소수 당연히 불가
-     * */
     public static void validateRepeat(String input) {
 
         if (!isNumberType(input)) {
@@ -49,7 +44,17 @@ public class Validator {
         }
     }
 
-    public static boolean isLengthOver(String[] names) {
+    private static boolean hasBlank(String[] names) {
+
+        for (String name : names) {
+            if (name.length() == 0 || name.isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean isLengthOver(String[] names) {
 
         for (String name : names) {
             if (name.length() > CarSetting.NAME_MAX_LENGTH.get()) {
