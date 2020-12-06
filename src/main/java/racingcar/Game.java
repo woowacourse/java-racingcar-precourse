@@ -13,10 +13,14 @@ public class Game {
     private final InputManager inputManager;
     private final OutputManager outputManager;
     private Car[] cars;
+    private List<String> winnerNameList;
+    private int maxPosition;
 
     public Game(Scanner scanner) {
         inputManager = new InputManager(scanner);
         outputManager = new OutputManager();
+        winnerNameList = new ArrayList<String>();
+        maxPosition = 0;
     }
 
     public void run() {
@@ -66,28 +70,25 @@ public class Game {
     }
 
     public void finish() {
+        produceMaxPosition();
         outputManager.printOutputFinalWinner(selectWinner());
     }
 
+    public void produceMaxPosition() {
+        for (int i = 0; i < cars.length; i++) {
+            if (maxPosition < cars[i].getPosition()) {
+                maxPosition = cars[i].getPosition();
+            }
+        }
+    }
+
     public List<String> selectWinner() {
-        List<String> winnerNameList = new ArrayList<String>();
-        int maxPosition = getMaxPosition();
         for (int i = 0; i < cars.length; i++) {
             if (maxPosition == cars[i].getPosition()) {
                 winnerNameList.add(cars[i].getName());
             }
         }
         return winnerNameList;
-    }
-
-    public int getMaxPosition() {
-        int maxPosition = 0;
-        for (int i = 0; i < cars.length; i++) {
-            if (maxPosition < cars[i].getPosition()) {
-                maxPosition = cars[i].getPosition();
-            }
-        }
-        return maxPosition;
     }
 }
 
