@@ -6,7 +6,7 @@ public class Referee {
     public static void printWinner(Car[] gameCars) {
         int maxPosition = getMaxPosition(gameCars);
         ArrayList<String> winnerList = getWinnerList(gameCars, maxPosition);
-        System.out.println(String.join(GameConstants.CAR_NAME_DELIMETER, winnerList));
+        System.out.println(GameConstants.FINAL_WINNER+String.join(GameConstants.CAR_NAME_DELIMETER, winnerList));
     }
 
     public static int getMaxPosition(Car[] gameCars) {

@@ -4,6 +4,8 @@ import utils.RandomUtils;
 
 public class Simulator {
     public static void simulateRace(Car[] gameCars, int gameRound) {
+        System.out.println();
+        System.out.println(GameConstants.SIMULARE_RESULT_MESSAGE);
         for (int i = 0; i < gameRound; i++) {
             progressOneRound(gameCars);
             showRacing(gameCars);
