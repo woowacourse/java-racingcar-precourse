@@ -7,33 +7,33 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    private final Player player;
-    private final Printer printer;
+    private final InputManager inputManager;
+    private final OutputManager outputManager;
     private static final int START_INCLUSIVE = 0;
     private static final int END_INCLUSIVE = 9;
     private static final int MOVEMENT_BASE_VALUE = 4;
     private Car[] cars;
 
     public Game(Scanner scanner) {
-        player = new Player(scanner);
-        printer = new Printer();
+        inputManager = new InputManager(scanner);
+        outputManager = new OutputManager();
     }
 
     /* 경주할 자동차 이름, 시도할 횟수 입력 받기 */
     public void start() {
-        printer.printInputCarNameMessage();
-        player.inputCarNameArray();
-        generateCar(player.getCarNameArray());
-        printer.printInputTryNumberMessage();
-        player.inputTryNumber();
+        outputManager.printInputCarNameMessage();
+        inputManager.inputCarNameArray();
+        generateCar(inputManager.getCarNameArray());
+        outputManager.printInputTryNumberMessage();
+        inputManager.inputTryNumber();
         showMovingResult();
         finish();
     }
 
     /* 각 차수별로 각 자동차를 전진 또는 멈춤하고 실행 결과 출력 */
     public void showMovingResult() {
-        printer.printMovingResultHeader();
-        for (int i = 0; i < player.getTryNumber(); i++) {
+        outputManager.printMovingResultHeader();
+        for (int i = 0; i < inputManager.getTryNumber(); i++) {
             produceResult();
         }
     }
@@ -41,14 +41,14 @@ public class Game {
     public void produceResult() {
         for (int i = 0; i < cars.length; i++) {
             judgeMovement(cars[i]);
-            printer.printOutputEachResultPosition(cars[i].getName(),cars[i].getPosition());
+            outputManager.printOutputEachResultPosition(cars[i].getName(),cars[i].getPosition());
         }
         System.out.println();
     }
 
     /* 최종 우승자 뽑고 출력 */
     public void finish() {
-        printer.printOutputFinalWinner(selectWinner());
+        outputManager.printOutputFinalWinner(selectWinner());
 
     }
 
