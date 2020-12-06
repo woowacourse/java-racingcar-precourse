@@ -8,7 +8,7 @@ public class RacingCars {
     final static int MAX_NUMBER_OF_CARS = 7;
     final static int MIN_NUMBER_OF_CARS = 2;
 
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
     private int maxPosition = 0;
 
     public RacingCars(List<String> carList) {
