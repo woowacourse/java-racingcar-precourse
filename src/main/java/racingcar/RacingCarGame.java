@@ -25,18 +25,12 @@ public class RacingCarGame {
     }
 
     private void initRacingCars() {
-        String racingCarNames = inputRacingCars();
-        validateCar(racingCarNames);
         this.cars = new Cars();
-        cars.createCars(racingCarNames);
+        cars.createCars(inputRacingCars());
     }
 
     private String inputRacingCars() {
         System.out.println(INPUT_RACING_CARS);
         return scanner.nextLine();
-    }
-
-    private void validateCar(String racingCarNames) {
-        CarValidator.validate(racingCarNames);
     }
 }
