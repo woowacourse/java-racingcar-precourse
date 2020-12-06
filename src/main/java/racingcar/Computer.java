@@ -11,6 +11,9 @@ public class Computer {
     }
 
     public void checkCarList(String[] carList) {
+        if(carList.length == 0){
+            throw new IllegalArgumentException("Input Error");
+        }
         for (String carName : carList) {
             if (!isAlpha(carName) || !checkNameLength(carName)) {
                 throw new IllegalArgumentException("Input Error");
@@ -19,7 +22,7 @@ public class Computer {
     }
 
     private static boolean checkNameLength(String carName) {
-        return carName.length() <= Constants.MAX_NAME_LENGTH;
+        return carName.length() > 0 && carName.length() <= Constants.MAX_NAME_LENGTH;
     }
 
     private static boolean isAlpha(String carName) {
@@ -100,6 +103,7 @@ public class Computer {
                 winnerList.append(car.getName() + ", ");
             }
         }
+        //마지막에 추가된 , 제거
         return winnerList.substring(0, winnerList.length() - 2);
     }
 
