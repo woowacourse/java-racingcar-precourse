@@ -22,12 +22,8 @@ public class RacingCars {
         return cars.size();
     }
 
-    public String getCarName(int carIndex) {
-        return cars.get(carIndex).getName();
-    }
-
-    public int getCarPosition(int carIndex) {
-        return cars.get(carIndex).getPosition();
+    public Car getCar(int carIndex) {
+        return cars.get(carIndex);
     }
 
     public int getMaxPosition() {
