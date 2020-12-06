@@ -28,4 +28,8 @@ public class GameState {
             throw new RacingTryCountsNumberFormatException();
         }
     }
+
+    public boolean isEnd() {
+        return !this.racingTryCounts.hasNext();
+    }
 }
