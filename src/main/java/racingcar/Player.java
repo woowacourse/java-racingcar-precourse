@@ -25,6 +25,7 @@ public class Player {
             thisRound++;
         }
         Winner winner = new Winner(players);
+        OutputView.printWinner(winner);
     }
 
     private void moveOrStop() {

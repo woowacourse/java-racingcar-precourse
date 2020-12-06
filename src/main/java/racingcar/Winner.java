@@ -37,4 +37,8 @@ public class Winner {
         }
         return highestPosition;
     }
+
+    public String showWinnerName() {
+        return String.join(", ", winner);
+    }
 }
