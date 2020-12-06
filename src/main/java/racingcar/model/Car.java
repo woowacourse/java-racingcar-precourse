@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.model;
 
+import racingcar.Constants;
 import utils.RandomUtils;
 
 public class Car implements Comparable<Car> {

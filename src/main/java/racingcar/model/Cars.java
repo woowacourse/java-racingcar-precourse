@@ -1,33 +1,28 @@
-package racingcar;
+package racingcar.model;
+
+import racingcar.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Cars {
-    List<Car> cars = new ArrayList<>();
+    List<Car> cars;
 
-    private void addCar(Car car) {
-        this.cars.add(car);
-    }
-
-    public void makeCars(String userInput) {
+    public Cars(String userInput) {
+        isValidUserNames(userInput);
+        List<Car> cars = new ArrayList<>();
         String[] users = userInput.split(Constants.COMMA);
 
         for (String user : users) {
             Car raceCar = new Car(user);
-            addCar(raceCar);
+            cars.add(raceCar);
         }
+        this.cars = cars;
     }
 
     public List<Car> getCars() {
         return cars;
-    }
-
-    public void runCars() {
-        for (Car car : cars) {
-            car.moveCar();
-        }
     }
 
     public ArrayList<Integer> getCarsPosition() {
@@ -62,5 +57,21 @@ public class Cars {
 
         }
         this.cars = winners;
+    }
+
+    public void isValidUserNames(String userNamesInput) {
+        String[] users = userNamesInput.split(Constants.COMMA);
+
+        if (users.length <= 1) {
+            throw new IllegalArgumentException();
+        }
+
+        for (String user : users) {
+            user = user.trim();
+
+            if (user.length() > Constants.MAX_LENGTH_USER_NAME) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
