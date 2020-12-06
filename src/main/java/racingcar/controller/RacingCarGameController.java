@@ -55,6 +55,7 @@ public class RacingCarGameController {
             OutputView.printCarsStatus(cars);
         }
         findRacingWinners();
+        OutputView.printCarNames(winners);
     }
 
 }

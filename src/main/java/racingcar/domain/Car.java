@@ -21,6 +21,10 @@ public class Car {
         return false;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         String distanceBar = "";
