@@ -2,8 +2,8 @@ package racingcar;
 
 public class RacingGame {
 
-    private Player player;
-    private Computer computer;
+    private final Player player;
+    private final Computer computer;
     private Car[] cars;
 
     public RacingGame(Player player, Computer computer) {
@@ -14,35 +14,19 @@ public class RacingGame {
     public void start() {
 
         String[] carList = getCarList();
-
-        if (!computer.checkCarList(carList)) {
-            System.out.println("[ERROR] 비정상적인 자동차 이름 입력");
-            return;
-        }
-
-        String stringTryCount = getTryCount();
-
-        if (!computer.isDigit(stringTryCount)) {
-            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-            return;
-        }
-
-        cars = createCarInstance(carList);
-
-        int tryCount = Integer.parseInt(stringTryCount);
+        int tryCount = getTryCount();
+        createCarInstance(carList);
 
         playRace(tryCount);
     }
 
 
-    private Car[] createCarInstance(String[] carList) {
-        Car[] cars = new Car[carList.length];
+    private void createCarInstance(String[] carList) {
+        cars = new Car[carList.length];
 
         for (int i = 0; i < carList.length; i++) {
             cars[i] = new Car(carList[i]);
         }
-
-        return cars;
     }
 
     private void playRace(int tryCount) {
@@ -57,17 +41,42 @@ public class RacingGame {
     }
 
     private String[] getCarList() {
+
+        String[] carList;
+
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputString = player.getInput();
-        String[] carList = computer.parseCarList(inputString);
+
+        while (true) {
+            try {
+                String inputString = player.getInput();
+                carList = computer.parseCarList(inputString);
+                computer.checkCarList(carList);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 비정상적인 자동차 이름 입력");
+            }
+        }
 
         return carList;
     }
 
-    private String getTryCount() {
+    private int getTryCount() {
+
+        String stringTryCount;
+
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return player.getInput();
+        while (true) {
+            try {
+                stringTryCount = player.getInput();
+                computer.isDigit(stringTryCount);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            }
+        }
+
+        return Integer.parseInt(stringTryCount);
     }
 
 }
