@@ -3,7 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Game {
+public class SingleGame {
     private static int numberOfCarsInGame;
     private static int numberOfTrial;
     private static int finalFrontRunnerPosition = 0;
