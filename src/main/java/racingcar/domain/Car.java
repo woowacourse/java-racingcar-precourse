@@ -21,4 +21,13 @@ public class Car {
         return false;
     }
 
+    @Override
+    public String toString() {
+        String distanceBar = "";
+        for (int i = 0; i < position; i++) {
+            distanceBar += "-";
+        }
+        return name + " : " + distanceBar;
+    }
+
 }

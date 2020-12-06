@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.io.InputView;
+import racingcar.io.OutputView;
 import utils.RandomUtils;
 
 public class RacingCarGameController {
@@ -48,8 +49,10 @@ public class RacingCarGameController {
 
     public static void run() {
         initGameConfig();
+        OutputView.printRacingResultMessage();
         for (int i = 0; i < raceCount; i++) {
             race();
+            OutputView.printCarsStatus(cars);
         }
         findRacingWinners();
     }
