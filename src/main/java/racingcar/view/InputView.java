@@ -27,7 +27,7 @@ public class InputView {
         for (String carName : carNames) {
             cars.add(InputUtils.validateCar(carName));
         }
-        InputUtils.checkDuplicatedCar(cars);
+        InputUtils.validateDuplicateCar(cars);
 
         return cars;
     }

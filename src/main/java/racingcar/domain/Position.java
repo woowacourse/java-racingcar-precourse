@@ -14,7 +14,7 @@ public class Position {
      * @param car 자동차
      * @return 자동차의 전진을 나타내는 "-"을 가진 스트링 버퍼
      */
-    public static StringBuffer countPosition(Car car) {
+    public static StringBuffer drawPosition(Car car) {
         StringBuffer carPosition = new StringBuffer();
 
         for (int i = 0; i < car.getPosition(); i++) {
@@ -28,7 +28,7 @@ public class Position {
      * @param cars 자동차를 원소로 가진 리스트
      * @return 자동차의 위치를 원소로 가진 리스트
      */
-    public static ArrayList<Integer> addPosition(ArrayList<Car> cars) {
+    public static ArrayList<Integer> extractPosition(ArrayList<Car> cars) {
         ArrayList<Integer> carPositions = new ArrayList<>();
 
         for (Car car : cars) {

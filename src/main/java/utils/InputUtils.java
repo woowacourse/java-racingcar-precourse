@@ -38,7 +38,7 @@ public class InputUtils {
     /**
      * @param cars 자동차를 원소로 가진 리스트
      */
-    public static void checkDuplicatedCar(ArrayList<Car> cars) {
+    public static void validateDuplicateCar(ArrayList<Car> cars) {
         Set<String> carSet = new HashSet<>();
 
         for (Car car : cars) {

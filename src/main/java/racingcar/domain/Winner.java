@@ -18,7 +18,7 @@ public class Winner {
      * @param cars 자동차를 원소로 가진 리스트
      */
     public static void showWinner(ArrayList<Car> cars) {
-        ArrayList<Integer> carPositions = Position.addPosition(cars);
+        ArrayList<Integer> carPositions = Position.extractPosition(cars);
         maxPosition = Position.calculateMaxPosition(carPositions);
 
         checkWinner(cars);
