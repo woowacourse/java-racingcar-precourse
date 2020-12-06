@@ -50,6 +50,17 @@ public class GameRunner {
         return true;
     }
 
+    public void getMoveCount(final Scanner scanner) {
+        if (!scanner.hasNextInt()) {
+            throw new MoveCountNotIntegerException();
+        }
+        int inputMoveCount = scanner.nextInt();
+        if (inputMoveCount <= 0) {
+            throw new MoveCountNotOverZeroException();
+        }
+        moveCount = inputMoveCount;
+    }
+
     public void printMessage(String message) {
         System.out.println(message);
     }
