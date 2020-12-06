@@ -8,7 +8,7 @@ public class Input {
     static final String INPUT_TRIAL_MESSAGE = "시도할 회수는 몇회인가요?";
     static final String COMMA = ",";
 
-    public String[] getCarNameArray(Scanner scanner) {
+    private String[] getCarNameArray(Scanner scanner) {
         System.out.println(INPUT_NAME_MESSAGE);
         String inputCars = scanner.next();
         String[] carNames = inputCars.split(COMMA);
