@@ -1,33 +1,28 @@
 package racingcar.domain.engine;
 
+import racingcar.domain.setting.CarSetting;
 import utils.RandomUtils;
 
 public class DefaultEngine implements Engine {
-
-    private static final int RANDOM_MAX_NUMBER = 9;
-    private static final int RANDOM_MIN_NUMBER = 0;
-    private static final int STOP = 0;
-    private static final int MOVE = 1;
-    private static final int REQUIRE_POWER = 4;
 
     @Override
     public int getPower() {
 
         int randomNumber = getRandomNumber();
 
-        if(canMove(randomNumber)){
-            return MOVE;
+        if (canMove(randomNumber)) {
+            return CarSetting.MOVE.get();
         }
 
-        return STOP;
+        return CarSetting.STAY.get();
     }
 
     private int getRandomNumber() {
-        return RandomUtils.nextInt(RANDOM_MIN_NUMBER, RANDOM_MAX_NUMBER);
+        return RandomUtils.nextInt(CarSetting.RANDOM_MIN_NUMBER.get(), CarSetting.RANDOM_MAX_NUMBER.get());
     }
 
     private boolean canMove(int number) {
-        if (number < REQUIRE_POWER) {
+        if (number < CarSetting.REQUIRE_POWER.get()) {
             return false;
         }
         return true;
