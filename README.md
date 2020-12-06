@@ -175,9 +175,9 @@ public class Car {
 ### Racing 클래스
 - 레이싱 게임을 진행하고 결과를 출력하는 메서드들을 가짐 
     - 자동차 이름 입력값으로 Car 객체들을 생성하여 리스트로 반환하는 메서드 (makeCars)
-    - 1회 시도했을 때 자동차의 position을 반영하여 Car 객체 리스트로 반환하는 메서드 (oneTrialGame)
+    - 1회 시도했을 때 자동차의 position을 반영하여 Car 객체 리스트로 반환하는 메서드 (tryOneGame)
     - 자동차가 앞으로 전진했을때 "-"를 출력하는 메서드 (printMove)
-    - 우승자의 위치를 반환하는 메서드 (winnerPosition)
+    - 우승자의 위치를 반환하는 메서드 (getWinnerPosition)
     - 우승자(들)의 이름을 리스트로 반환하는 메서드 (getWinnersList)
     - 우승자(들)의 이름 리스트를 요구사항에 맞는 형태로 출력하는 메서드 (printWinnersName)
     - 실행 결과를 출력하는 메서드 (printRacingGameResult)

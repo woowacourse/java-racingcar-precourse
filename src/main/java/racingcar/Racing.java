@@ -28,7 +28,7 @@ public class Racing {
         }
     }
 
-    public void oneTrialGame(List<Car> carList) {
+    public void tryOneGame(List<Car> carList) {
         for (Car car : carList) {
             car.tryMove();
             System.out.print(car.getName() + SPACE_COLON_SPACE);
@@ -38,7 +38,7 @@ public class Racing {
         System.out.println();
     }
 
-    public int winnerPosition(List<Car> carList) {
+    public int getWinnerPosition(List<Car> carList) {
         List<Integer> carPosition = new ArrayList<>();
         for (Car car : carList) {
             carPosition.add(car.getPosition());
@@ -71,9 +71,9 @@ public class Racing {
         System.out.println();
         System.out.println(TRIAL_RESULT);
         for (int i = 0; i < trial; i++) {
-            oneTrialGame(carList);
+            tryOneGame(carList);
         }
-        List<String> winnersList = getWinnersList(carList, winnerPosition(carList));
+        List<String> winnersList = getWinnersList(carList, getWinnerPosition(carList));
         printWinnersName(winnersList);
     }
 
