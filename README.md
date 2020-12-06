@@ -32,6 +32,8 @@
 ### GameRoutineTest.java
     - 게임이 돌아갈 때 필요한 메소드들을 테스한 클래스.
 
+<br>
+
 ## inpututils package
 
 
@@ -49,10 +51,11 @@
     - 사용자가 반복횟수를 정하는 클래스이다.
     - 숫자만 입력받는다.(나머지는 예외로 처리 -> 진행중)
     - 제한은 없다.
+
+<br>
     
 ## racingcar package
 
-----------
 
 ### Application.java
     - 일단은 test로 진행중.
@@ -60,19 +63,25 @@
 ### Car.java
     - 입력받은 이름을 저장하고, position을 관리하는 클래스. 
 
-### GameManagemet.java
+### GameManagement.java
     - Car객체들을 선언하므로써 게임의 시작을 관리하는 클래스
     
 ### GameWinners.java 
     - 게임의 승자를 확인하는 클래스
     
+<br>
+
 ## outpututils package
+
 
 ### Print.java
     - 게임의 모든 출력을 관리하는 클래스
     - 한 턴마다 게임의 결과 출력, 게임 종료 후 출력을 관리함.
+
+<br>
     
 ## controlexception package
+
 
 ### UserInputNameLengthException.java
     - 사용자가 입력한 이름이 5를 넘어갔을 때 예외를 처리하기 위해만든 예외 클래스
