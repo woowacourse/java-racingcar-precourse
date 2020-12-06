@@ -9,8 +9,12 @@ public class CarNameValidator {
 
     public static void validateCarName(String carName) {
         String[] carNames = splitCarName(carName);
-        validateCarNameCount(carNames);
-        validateCarNameLength(carNames);
+        try {
+            validateCarNameCount(carNames);
+            validateCarNameLength(carNames);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static String[] splitCarName(String carNames) {

@@ -1,5 +1,7 @@
 package view;
 
+import validation.CarNameValidator;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -11,6 +13,12 @@ public class InputView {
     public static String getCarName(Scanner scanner) {
         System.out.println(CAR_NAME_MESSAGE);
         String carName = scanner.next();
+        try {
+            CarNameValidator.validateCarName(carName);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            getCarName(scanner);
+        }
         return carName;
     }
 }
