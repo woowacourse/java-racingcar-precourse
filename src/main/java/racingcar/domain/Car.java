@@ -1,3 +1,11 @@
+/**
+ * Car.java
+ * 자동차 객체를 생성하는 클래스
+ *
+ * @author 원작자: 우아한 테크코스(github.com/woowacourse)
+ * 수정: Kimun Kim, github.com/tributetothemoon
+ */
+
 package racingcar.domain;
 
 public class Car {

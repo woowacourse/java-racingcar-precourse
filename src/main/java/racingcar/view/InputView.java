@@ -1,3 +1,10 @@
+/**
+ * InputView.java
+ * 입력과 출력이 섞인 로직을 담당하는 View 클래스
+ *
+ * @author Kimun Kim / kkm97351@gmail.com
+ */
+
 package racingcar.view;
 
 import java.util.Arrays;

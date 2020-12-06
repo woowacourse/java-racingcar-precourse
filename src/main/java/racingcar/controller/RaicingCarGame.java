@@ -1,3 +1,10 @@
+/**
+ * RaicingCarGame.java
+ * 경주가 진행되는 도중의 로직을 관장하는 클래스
+ *
+ * @author Kimun Kim, github.com/tributetothemoon
+ */
+
 package racingcar.controller;
 
 import racingcar.domain.Cars;
