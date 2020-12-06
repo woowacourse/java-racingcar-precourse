@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
+import racingcar.domain.engine.DefaultEngine;
 
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 
 class CarTest {
-
 
     @RepeatedTest(10)
     @Description("Car의 현재 위치 출력 값을 확인하는 테스트")
@@ -18,7 +18,7 @@ class CarTest {
 
         //given
         String name = "자동차씨";
-        Car car = Car.createNameBy(name);
+        Car car = Car.create(name, new DefaultEngine());
 
         //when
         car.move();
@@ -26,6 +26,7 @@ class CarTest {
 
         //then
         // 예시 : woni : ----
+        // 정규표현식 : [\\S]{1,5} : [-]{0,}
         boolean result = Pattern.matches("[\\S]{1,5} : [-]{0,}", currentPosition);
         Assertions.assertTrue(result);
 
@@ -36,9 +37,9 @@ class CarTest {
     public void isBigOrEqualThenTest() throws NoSuchFieldException, IllegalAccessException {
 
         //given
-        Car A = Car.createNameBy("A");
-        Car B = Car.createNameBy("B");  //position = 0
-        Car C = Car.createNameBy("C");  //position = 0
+        Car A = Car.create("A", new DefaultEngine());
+        Car B = Car.create("B", new DefaultEngine());  //position = 0
+        Car C = Car.create("C", new DefaultEngine());  //position = 0
 
         //when
         Field position = Car.class.getDeclaredField("position");
@@ -50,8 +51,6 @@ class CarTest {
         Assertions.assertFalse(B.isBigOrEqualThen(A));
         Assertions.assertTrue(B.isBigOrEqualThen(C));
 
-
     }
-
 
 }
