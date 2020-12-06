@@ -23,3 +23,52 @@
     - [x] 각 자동차별 ```position``` 출력
 - [x] position 값이 제일 높은 우승자 뽑기
 - [x] 최종 우승자 출력
+
+## 🏗 프로그램 구조
+### 🗂 racingcar
+**Application**
+* 게임 실행
+
+**Car**
+* move : 자동차 객체의 위치 전진
+* getName : 자동차 객체의 이름 반환
+* getPosition : 자동차 객체의 위치 반환
+
+**Game**
+* run : 게임 실행
+* inputProgress : 재시작, 종료 여부 입력
+* setUp : 게임에 필요한 값들 세팅
+* generateCar : 이름별 자동차 객체 생성
+* showMovingResult : 각 차수별 실행 결과
+* produceResult : 각 자동차별 결과 산출
+* judgeMovement : 자동차가 판단
+* generateRandomNumber : 0에서 9까지 랜덤 숫자 생성
+* finish : 게임 종료
+* produceMaxPosition : 가장 높은 위치값 산출
+* selectWinner : 우승자 선정
+
+**InputManager**
+* inputCarNameArray : 사용자에게 경주할 자동차 이름들 입력받기
+* inputTryNumber : 사용자에게 시도할 횟수 입력받기
+* splitCarNamesWithComma : 쉼표(,) 기준으로 이름 분리
+* stringToInteger : 문자열을 정수로 변환
+* getCarNameArray : 자동차 이름 배열 반환
+* getTryNumber : 시도할 횟수 반환
+
+**OutputManager**
+* printInputCarNamesMessage : "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" 출력
+* printInputTryNumberMessage : "시도할 횟수는 몇회인가요?" 출력
+* printMovingResultHeader : "실행 결과" 출력
+* printOutputFinalWinner : 최종 우승자 출력
+
+### 🗂 utils
+**RandomUtils**
+* nextInt : 임의의 수 생성
+
+**ValidationUtils**
+* validateCarNameArray : 자동차 이름 배열 유효성 확인
+* validateTryNumber : 입력한 시도할 횟수 유효성 확인
+* isInvalidLength : 자동차 이름의 길이가 최대 길이를 넘지 않는지 확인
+* isNotLetter : 자동차 이름이 문자인지 확인
+* isNotDigit : 시도할 횟수가 숫자인지 확인
+* hasDuplicateValue : 자동차 이름이 중복되었는지 
