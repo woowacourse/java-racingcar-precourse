@@ -30,8 +30,7 @@ public class Application {
         CarValidator carValidator = new CarValidator();
         for (String carName : cars) {
             if (!carValidator.isValid(carName)) {
-                System.out.println("[ERROR] 자동차 이름은 5자 이하로 입력하세요.");
-                return false;
+                System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
             }
         }
         return true;
@@ -48,7 +47,7 @@ public class Application {
     private static boolean validGameCntInput(String cntInput) {
         for (int i = 0; i < cntInput.length(); i++) {
             if (!Character.isDigit(cntInput.charAt(i))) {
-                System.out.println("[ERROR] " + "시도횟수는 숫자여야 한다.");
+                System.out.println("[ERROR] 시도횟수는 숫자여야 한다.");
                 return false;
             }
         }
