@@ -28,8 +28,12 @@ public class RacingGame {
     }
 
     public void race() {
-        this.racingTryCounts.next();
+        decreaseRacingTryCounts();
         this.cars.move();
+    }
+
+    private void decreaseRacingTryCounts() {
+        this.racingTryCounts.next();
     }
 
     public boolean isEnd() {
