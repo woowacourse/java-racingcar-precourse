@@ -23,7 +23,7 @@ public class RaceGameManager {
     private void playGame(){
         raceGame.inputCarsName();
         repetitionCount = inputRepetitionCount();
-        
+        raceGame.playRounds(repetitionCount);
     }
 
     private int inputRepetitionCount(){

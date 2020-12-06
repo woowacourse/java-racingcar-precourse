@@ -1,5 +1,7 @@
 package utils;
 
+import racingcar.view.OutputView;
+
 import static racingcar.Constant.*;
 
 public class RepetitionCountValidator {

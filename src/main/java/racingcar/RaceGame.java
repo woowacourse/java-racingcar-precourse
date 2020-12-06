@@ -13,20 +13,22 @@ public class RaceGame {
     private final Scanner scanner;
     private List<Car> carList;
 
-    public RaceGame(Scanner scanner){
+    public RaceGame(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public void inputCarsName(){
+    public void inputCarsName() {
         OutputView.printNormal(OUTPUT_VIEW_NAME);
         carList = InputView.getCarList(scanner);
     }
 
-    public void playRounds(){
+    public void playRounds(int repetitionCount) {
+        for (int i = 0; i < repetitionCount; i++) {
 
+        }
     }
 
-    public void checkForwardMovement(){
+    public void checkForwardMovement() {
 
     }
 }
