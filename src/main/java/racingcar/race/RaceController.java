@@ -15,7 +15,6 @@ public class RaceController {
     private int leadPosition = 0;
 
     public RaceController() {
-        this.cars = new ParticipatingCars();
         this.racePreparation = new RacePreparation();
         this.raceProcess = new RaceProcess();
         this.raceResult = new RaceResult();
@@ -27,7 +26,7 @@ public class RaceController {
 
             try {
                 String[] allCarName = racePreparation.getAllCarName(scanner);
-                racePreparation.carRegistration(cars, allCarName);
+                this.cars = new ParticipatingCars(allCarName);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

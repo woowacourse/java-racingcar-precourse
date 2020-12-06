@@ -2,29 +2,30 @@ package racingcar.race;
 
 import racingcar.Constant;
 import racingcar.car.Car;
-import racingcar.car.CarNameValidation;
-import racingcar.car.ParticipatingCars;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class RacePreparation {
     public String[] getAllCarName(Scanner scanner) {
         String input = scanner.nextLine();
-        String[] allCarName = Stream.of(input.split(Constant.DELIMITER))
-                .map(s -> s.replaceAll(Constant.BLANK, Constant.EMPTY_NAME))
-                .toArray(String[]::new);
 
-        CarNameValidation.validation(allCarName);
-
-        return allCarName;
+        return Stream.of(input.split(Constant.DELIMITER))
+                    .map(s -> s.replaceAll(Constant.BLANK, Constant.EMPTY_NAME))
+                    .toArray(String[]::new);
     }
 
-    public void carRegistration(ParticipatingCars cars, String[] allCarName) {
+    public List<Car> carRegistration(String[] allCarName) {
+        List<Car> cars = new ArrayList<>();
+
         for (String carName : allCarName) {
             Car car = new Car(carName);
-            cars.addCar(car);
+            cars.add(car);
         }
+
+        return cars;
     }
 
     public int getRaceRound(Scanner scanner) {
