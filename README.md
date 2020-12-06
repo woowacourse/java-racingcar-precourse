@@ -34,8 +34,8 @@
 ### 🚥Racing 클래스
 |기능|메소드명|-|
 |-------|-----|---|
-|이름을 (,)를 기준으로 분할하여 리스트를 반환|getCarNameList()|
 |이름 리스트를 받아서 Car 객체를 생성|setCarList()|
+|게임 회수를 입력받아 설정|setGameNumber()|
 |게임 횟수만큼 레이싱 게임을 진행|carRacing()|
 |각 게임마다 자동차의 전진 상황을 출력|printCarPositions()|
 |어떤 차(들)가 우승했는지 계산|whichCarsWin()|
