@@ -8,6 +8,11 @@ public class InputManager {
 
     public List<String> readCarList(String input) {
         input = input.replace(" ", "");
+
+        while (input.startsWith(",")) {
+            input = input.substring(1);
+        }
+
         return Arrays.asList(input.split(","));
     }
 
