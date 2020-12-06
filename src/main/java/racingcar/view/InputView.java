@@ -4,6 +4,8 @@ import racingcar.exception.NameLengthOutOfBoundsException;
 import racingcar.exception.EmptyNameException;
 
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 public class InputView {
     private static final String NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -16,9 +18,9 @@ public class InputView {
         this.scanner = scanner;
     }
 
-    public String[] scanCarName() {
+    public List<String> scanCarName() {
         printNameInputMessage();
-        String[] nameList = splitInputToName(scanUserInput());
+        List<String> nameList = splitInputToName(scanUserInput());
         while (!isValidNameList(nameList)) {
             printReInputMessage();
             nameList = splitInputToName(scanUserInput());
@@ -34,12 +36,12 @@ public class InputView {
         return this.scanner.nextLine();
     }
 
-    private String[] splitInputToName(String inputNameList) {
-        String[] names = inputNameList.split(",");
+    private List<String> splitInputToName(String inputNameList) {
+        List<String> names = Arrays.asList(inputNameList.split(","));
         return names;
     }
 
-    private boolean isValidNameList(String[] nameList) {
+    private boolean isValidNameList(List<String> nameList) {
         try {
             validationNameList(nameList);
             return true;
@@ -49,12 +51,12 @@ public class InputView {
         }
     }
 
-    private boolean validationNameList(String[] nameList) {
-        for (int idx = 0; idx < nameList.length; idx++) {
-            if (!validationNameLength(nameList[idx])) {
+    private boolean validationNameList(List<String> nameList) {
+        for (int idx = 0; idx < nameList.size(); idx++) {
+            if (!validationNameLength(nameList.get(idx))) {
                 throw new NameLengthOutOfBoundsException();
             }
-            if (!validationEmptyName(nameList[idx])) {
+            if (!validationEmptyName(nameList.get(idx))) {
                 throw new EmptyNameException();
             }
         }
