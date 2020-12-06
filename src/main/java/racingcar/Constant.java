@@ -28,4 +28,6 @@ public class Constant {
             + "(" + INPUT_DELIMITER + ") 기준으로 구분)";
     public final static String OUTPUT_VIEW_REPETITION_COUNT = "시도할 횟수는 몇회인가요?";
     public final static String OUTPUT_VIEW_ROUND_RESULT_HEADER = "\n실행 결과";
+    public final static String OUTPUT_VIEW_DIVIDER = " : ";
+    public final static String OUTPUT_VIEW_CAR_POSITION_MARK = "-";
 }

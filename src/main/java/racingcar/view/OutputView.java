@@ -23,9 +23,9 @@ public class OutputView {
     public static void printRoundResult(List<Car> carList){
         for(Car car : carList){
             System.out.print(car.getName());
-            System.out.print(" : ");
+            System.out.print(OUTPUT_VIEW_DIVIDER);
             for(int i=0; i<car.getPosition(); i++){
-                System.out.print("-");
+                System.out.print(OUTPUT_VIEW_CAR_POSITION_MARK);
             }
             System.out.println();
         }
