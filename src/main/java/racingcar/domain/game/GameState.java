@@ -1,5 +1,6 @@
 package racingcar.domain.game;
 
+import racingcar.domain.exception.CannotRaceException;
 import racingcar.domain.exception.RacingTryCountsNumberFormatException;
 
 import java.util.Iterator;
@@ -27,6 +28,13 @@ public class GameState {
         if (racingTryCounts < MINIMUM_RACING_TRY_COUNTS) {
             throw new RacingTryCountsNumberFormatException();
         }
+    }
+
+    public void decreaseRacingTryCounts() {
+        if (isEnd()) {
+            throw new CannotRaceException();
+        }
+        this.racingTryCounts.next();
     }
 
     public boolean isEnd() {
