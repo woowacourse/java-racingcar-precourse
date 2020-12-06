@@ -13,8 +13,8 @@ public class RacePreparation {
         String input = scanner.nextLine();
 
         return Stream.of(input.split(Constant.DELIMITER))
-                    .map(s -> s.replaceAll(Constant.BLANK, Constant.EMPTY_NAME))
-                    .toArray(String[]::new);
+                .map(s -> s.replaceAll(Constant.BLANK, Constant.EMPTY_NAME))
+                .toArray(String[]::new);
     }
 
     public List<Car> carRegistration(String[] allCarName) {

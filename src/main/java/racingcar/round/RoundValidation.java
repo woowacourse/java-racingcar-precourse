@@ -12,7 +12,7 @@ public class RoundValidation {
         for (int i = 0; i < number.length(); i++) {
             char num = number.charAt(i);
 
-            if(!Character.isDigit(num)) {
+            if (!Character.isDigit(num)) {
                 throw new IllegalArgumentException(Constant.ERROR_RACE_NUMBER);
             }
         }
