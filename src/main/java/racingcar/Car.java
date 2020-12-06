@@ -10,23 +10,16 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
-    /*test
-    public void Print(){
-        System.out.println(name);
-        System.out.println(position);
-    }*/
-
-	protected void StopOrGo() {
+	protected void stopOrGo() {
 		if (RandomUtils.nextInt(0, 9) >= 4)
 			position++;
 	}
 
-	public int GetPosition() {
+	public int getPosition() {
 		return position;
 	}
 
-	public String GetName() {
+	public String getName() {
 		return name;
 	}
 }

@@ -6,34 +6,34 @@ public class GameWinners {
 	final private ArrayList<String> winners = new ArrayList<String>();
 	private int victoryScore = 0;
 
-	public ArrayList<String> GetGameWinners() {
+	public ArrayList<String> getGameWinners() {
 		return winners;
 	}
 
 	public GameWinners(ArrayList<Car> participatedCars, int repetitionTime) {
-		FindVictoryScore(participatedCars);
-		FindWinner(participatedCars);
+		findVictoryScore(participatedCars);
+		findWinner(participatedCars);
 	}
 
-	private void FindWinner(ArrayList<Car> participatedCars) {
+	private void findWinner(ArrayList<Car> participatedCars) {
 		for (Car player : participatedCars) {
-			CheckWinner(player);
+			checkWinner(player);
 		}
 	}
 
-	private void CheckWinner(Car player) {
-		if (player.GetPosition() == victoryScore) {
-			winners.add((player.GetName()));
+	private void checkWinner(Car player) {
+		if (player.getPosition() == victoryScore) {
+			winners.add((player.getName()));
 		}
 	}
 
-	private void FindVictoryScore(ArrayList<Car> participatedCars) {
+	private void findVictoryScore(ArrayList<Car> participatedCars) {
 		for (Car player : participatedCars) {
-			CheckVictoryScore(player.GetPosition());
+			checkVictoryScore(player.getPosition());
 		}
 	}
 
-	private void CheckVictoryScore(int playerScore) {
+	private void checkVictoryScore(int playerScore) {
 		if (playerScore > victoryScore) {
 			victoryScore = playerScore;
 		}

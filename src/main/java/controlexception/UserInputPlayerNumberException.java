@@ -1,8 +1,9 @@
 package controlexception;
 
-public class UserInputPlayerNumberException extends RuntimeException{
+public class UserInputPlayerNumberException extends RuntimeException {
 	static private int playerNumber;
-	public UserInputPlayerNumberException(int playerNumber){
+
+	public UserInputPlayerNumberException(int playerNumber) {
 		this.playerNumber = playerNumber;
 	}
 

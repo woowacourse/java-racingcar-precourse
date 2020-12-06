@@ -10,28 +10,28 @@ public class GameManagement {
 
 	public GameManagement(String[] carInformation, int repetitionTime) {
 		this.repetitionTime = repetitionTime;
-		SetGamePlayer(carInformation);
-		StartGame();
-		Print.PrintWinner(new GameWinners(participatedCars, repetitionTime).GetGameWinners());
+		setGamePlayer(carInformation);
+		startGame();
+		Print.printWinner(new GameWinners(participatedCars, repetitionTime).getGameWinners());
 	}
 
-	private void SetGamePlayer(String[] carInformation) {
+	private void setGamePlayer(String[] carInformation) {
 		for (int i = 0; i < carInformation.length; i++) {
 			participatedCars.add(new Car(carInformation[i]));
 		}
 	}
 
-	private void StartGame() {
+	private void startGame() {
 		System.out.println("\n실행결과");
 		for (int turn = 0; turn < repetitionTime; turn++) {
-			TurnManagement();
-			Print.PrintResult(participatedCars);
+			turnManagement();
+			Print.printResult(participatedCars);
 		}
 	}
 
-	private void TurnManagement() {
+	private void turnManagement() {
 		for (Car player : participatedCars) {
-			player.StopOrGo();
+			player.stopOrGo();
 		}
 	}
 
