@@ -1,6 +1,7 @@
 package racingcar;
 
 import static racingcar.Message.RESULT_MESSAGE;
+import static racingcar.Message.print;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class RacingGame {
     }
 
     public void startRace(int gameCount) {
-        System.out.println(RESULT_MESSAGE);
+        print(RESULT_MESSAGE);
         cars.moves(gameCount);
     }
 

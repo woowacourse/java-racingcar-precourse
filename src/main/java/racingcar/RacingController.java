@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Message.print;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -47,7 +49,6 @@ public class RacingController {
     }
 
     private void showWinners() {
-        Winner winners = racingGame.findWinners();
-        System.out.println(winners);
+        print(racingGame.findWinners().toString());
     }
 }

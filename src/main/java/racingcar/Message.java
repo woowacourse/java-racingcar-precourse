@@ -19,4 +19,12 @@ public class Message {
     public static String showWinners(String name, String state) {
         return name + COLON + state;
     }
+
+    public static void print() {
+        System.out.println();
+    }
+
+    public static void print(String outputMessage) {
+        System.out.println(outputMessage);
+    }
 }

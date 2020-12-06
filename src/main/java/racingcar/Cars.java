@@ -1,5 +1,6 @@
 package racingcar;
 
+import static racingcar.Message.print;
 import static racingcar.Rule.END_RANGE;
 import static racingcar.Rule.START_RANGE;
 
@@ -30,9 +31,9 @@ public class Cars {
     private void move() {
         for (Car car : cars) {
             car.move(getRandomNumber());
-            System.out.println(car);
+            print(car.toString());
         }
-        System.out.println();
+        print();
     }
 
     private int getRandomNumber() {
