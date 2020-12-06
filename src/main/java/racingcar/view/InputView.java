@@ -90,9 +90,9 @@ public class InputView {
     }
 
     private void validateRacingTryCountsNumberFormat(String racingTryCounts) {
-        boolean isAllValidDigitNumber = racingTryCounts.chars()
+        boolean isAllValidPositiveDigitNumber = racingTryCounts.chars()
                 .allMatch(Character::isDigit);
-        if (!isAllValidDigitNumber) {
+        if (!isAllValidPositiveDigitNumber) {
             throw new RacingTryCountsNumberFormatException();
         }
         boolean isZero = racingTryCounts.chars()
