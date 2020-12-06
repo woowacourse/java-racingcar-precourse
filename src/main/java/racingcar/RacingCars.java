@@ -13,20 +13,31 @@ public class RacingCars {
     public RacingCars(List<String> carList) {
         validateSize(carList);
         validateNameLength(carList);
+        validateDuplicatedName(carList);
         makeRacingCarList(carList);
     }
 
     private void validateSize(List<String> carList) throws IllegalArgumentException {
         if (carList.size() > MAX_NUMBER_OF_CARS || carList.size() < MIN_NUMBER_OF_CARS) {
-            throw new IllegalArgumentException("[ERROR] 자동자 개수는 2-5개로 한정 된다.");
+            throw new IllegalArgumentException("[ERROR] 자동자 개수는 2-5개로 한정 됩니다.");
         }
     }
 
     private void validateNameLength(List<String> carList) throws IllegalArgumentException {
         for (int car = 0; car < carList.size(); car++) {
-            if (carList.get(car).length() > NAME_LENGTH_LIMIT) {
-                throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하여야 한다.");
+            if (carList.get(car).length() >  NAME_LENGTH_LIMIT) {
+                throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
             }
+        }
+    }
+
+    private void validateDuplicatedName(List<String> carList) throws IllegalArgumentException {
+        boolean duplicated = carList.stream()
+                .distinct()
+                .count() != carList.size();
+
+        if (duplicated) {
+            throw new IllegalArgumentException("[ERROR] 동일한 자동차 이름을 입력할 수 없습니다.");
         }
     }
 
@@ -36,8 +47,6 @@ public class RacingCars {
             cars.add(racingCar);
         }
     }
-
-    //TODO 중복 이름 검사 메소드 구현
 
     public void takeOneRound() {
         for (int car = 0; car < cars.size(); car++) {
