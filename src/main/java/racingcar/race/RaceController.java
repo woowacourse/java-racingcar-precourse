@@ -2,6 +2,7 @@ package racingcar.race;
 
 import racingcar.Constant;
 import racingcar.car.ParticipatingCars;
+import racingcar.round.Round;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class RaceController {
     private RacePreparation racePreparation;
     private RaceProcess raceProcess;
     private RaceResult raceResult;
-    private int raceRound;
+    private Round round;
     private int leadPosition = 0;
 
     public RaceController() {
@@ -39,7 +40,8 @@ public class RaceController {
             System.out.println(Constant.RACE_NUMBER_INPUT_MESSAGE);
 
             try {
-                raceRound = racePreparation.getRaceRound(scanner);
+                String number = racePreparation.getRaceRound(scanner);
+                this.round = new Round(number);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -50,7 +52,7 @@ public class RaceController {
     public void start() {
         System.out.println(Constant.RACE_PROCESS);
 
-        for (int i = 0; i < raceRound; i++) {
+        for (int i = 0; i < round.getRound(); i++) {
             this.leadPosition = raceProcess.driveCar(cars, leadPosition);
             raceProcess.showCurrentSituation(cars);
         }

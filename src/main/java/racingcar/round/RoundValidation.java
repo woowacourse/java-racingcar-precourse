@@ -1,8 +1,8 @@
-package racingcar.race;
+package racingcar.round;
 
 import racingcar.Constant;
 
-public class RaceRoundValidation {
+public class RoundValidation {
     public static void validation(String number) {
         isNumber(number);
         isPositiveInteger(number);

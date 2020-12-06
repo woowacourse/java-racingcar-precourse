@@ -28,10 +28,7 @@ public class RacePreparation {
         return cars;
     }
 
-    public int getRaceRound(Scanner scanner) {
-        String number = scanner.nextLine();
-        RaceRoundValidation.validation(number);
-
-        return Integer.parseInt(number);
+    public String getRaceRound(Scanner scanner) {
+        return scanner.nextLine();
     }
 }
