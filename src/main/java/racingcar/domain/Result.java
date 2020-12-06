@@ -5,9 +5,10 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 
 /**
- * 결과에 대한 클래스
+ * Result.java : 결과에 대한 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class Result {
     /**

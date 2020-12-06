@@ -1,9 +1,10 @@
 package racingcar.type;
 
 /**
- * 값 상수를 모아둔 Enum 클래스
+ * ValueType.java : 값 상수를 모아둔 Enum 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public enum ValueType {
     ZERO(0);

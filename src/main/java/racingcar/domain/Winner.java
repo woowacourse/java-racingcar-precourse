@@ -6,9 +6,10 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 
 /**
- * 우승자에 대한 클래스
+ * Winner.java : 우승자에 대한 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class Winner {
     private static int maxPosition;

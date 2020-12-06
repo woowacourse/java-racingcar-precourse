@@ -3,9 +3,10 @@ package racingcar.domain;
 import racingcar.type.BoundaryType;
 
 /**
- * 자동차에 대한 클래스
+ * Car.java : 자동차에 대한 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class Car {
     private final String name;

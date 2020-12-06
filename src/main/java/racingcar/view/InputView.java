@@ -8,9 +8,10 @@ import utils.InputUtils;
 import java.util.*;
 
 /**
- * 입력을 위한 클래스
+ * InputView.java : 입력을 위한 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class InputView {
     /**

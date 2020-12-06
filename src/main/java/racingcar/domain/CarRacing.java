@@ -5,9 +5,10 @@ import racingcar.view.OutputView;
 import java.util.*;
 
 /**
- * 자동차 경주 게임에 대한 클래스
+ * CarRacing.java : 자동차 경주 게임에 대한 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class CarRacing {
     private static ArrayList<Car> cars = new ArrayList<>();

@@ -5,9 +5,10 @@ import racingcar.type.TextType;
 import java.util.ArrayList;
 
 /**
- * 위치에 대한 클래스
+ * Position.java : 위치에 대한 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class Position {
     /**

@@ -11,9 +11,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 비정상적인 입력에 대해서는 예외를 발생시키는 클래스
+ * InputUtils.java : 비정상적인 입력에 대해서는 예외를 발생시키는 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class InputUtils {
     /**

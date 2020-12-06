@@ -1,9 +1,10 @@
 package racingcar.type;
 
 /**
- * 에러 문구 상수를 모아둔 Enum 클래스
+ * ErrorType.java : 에러 문구 상수를 모아둔 Enum 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public enum ErrorType {
     ERROR("[ERROR] "),

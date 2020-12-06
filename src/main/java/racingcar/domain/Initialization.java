@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * 초기화에 대한 클래스
+ * Initialization.java : 초기화에 대한 클래스
  *
  * @author Daeun Lee
+ * @version 1.0
  */
 public class Initialization {
     /**
