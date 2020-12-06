@@ -32,7 +32,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printWinners(){
+    public static void printWinners(List<Car> carList){
 
     }
 
