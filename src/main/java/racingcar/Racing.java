@@ -19,6 +19,12 @@ public class Racing {
         return carList;
     }
 
+    public void printMove(int move) {
+        for (int i = 0; i < move; i++) {
+            System.out.print("-");
+        }
+    }
+
     public void oneTrialGame(List<Car> carList) {
         for (Car car : carList) {
             car.tryMove();
@@ -27,12 +33,6 @@ public class Racing {
             System.out.println();
         }
         System.out.println();
-    }
-
-    public void printMove(int move) {
-        for (int i = 0; i < move; i++) {
-            System.out.print("-");
-        }
     }
 
     public int winnerPosition(List<Car> carList) {
@@ -45,8 +45,8 @@ public class Racing {
 
     public List<String> getWinnersList(List<Car> carList, int winnerPosition) {
         List<String> winners = new ArrayList<>();
-        for(Car car : carList) {
-            if(car.getPosition() == winnerPosition) {
+        for (Car car : carList) {
+            if (car.getPosition() == winnerPosition) {
                 winners.add(car.getName());
             }
         }
@@ -73,7 +73,7 @@ public class Racing {
         printWinnersName(winnersList);
     }
 
-    public void playRacingGame(Scanner scanner) {
+    public void play(Scanner scanner) {
         try {
             List<String> carNameList = input.getCarNameList(scanner);
             error.checkSameCarName(carNameList);
@@ -84,18 +84,9 @@ public class Racing {
             error.checkTrialLessThanOne(trialNumber);
             List<Car> carList = makeCars(carNameList);
             printRacingGameResult(carList, trialNumber);
-        }  catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalArgumentException) {
         }
     }
-
-
-
-
-
-
-
-
-
 
 
 }
