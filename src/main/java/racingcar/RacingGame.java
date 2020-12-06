@@ -38,6 +38,12 @@ public class RacingGame {
 	public void clearCars() {
 		cars = new ArrayList<Car>();
 	}
+	
+	public void playOneRound() {
+		raceOneRound();
+		printCars();
+		System.out.println();
+	}
 
 	public void raceOneRound() {
 		for (Car car : cars) {
@@ -52,7 +58,6 @@ public class RacingGame {
 		for (Car car : cars) {
 			System.out.println(car.toString());
 		}
-		System.out.println();
 	}
 
 	public ArrayList<String> getWinnerNames() {

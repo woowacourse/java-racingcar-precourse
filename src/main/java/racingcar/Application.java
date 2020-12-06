@@ -48,9 +48,7 @@ public class Application {
 		try {
 			RoundInputValidator.inputVaildCheck(round);
 			for (int nowRound = ZERO; nowRound < Integer.parseInt(round); nowRound++) {
-				racingGame.raceOneRound();
-				racingGame.printCars();
-				System.out.println();
+				racingGame.playOneRound();
 			}
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
