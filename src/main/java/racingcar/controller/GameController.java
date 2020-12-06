@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.GameMessage;
 import racingcar.model.RacingCarGame;
 import racingcar.view.GameView;
 
@@ -15,5 +16,6 @@ public class GameController {
     }
 
     public void run() {
+        gameView.printGameMessage(GameMessage.ENTER_CAR_NAMES);
     }
 }
