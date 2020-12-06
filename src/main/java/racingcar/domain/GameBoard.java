@@ -11,9 +11,10 @@ public class GameBoard {
         this.carList = carList;
     }
 
-    public void runRound() {
+    public List<Car> runRound() {
         for (int idx = 0; idx < this.carList.size(); idx++) {
             this.carList.get(idx).move();
         }
+        return this.carList;
     }
 }
