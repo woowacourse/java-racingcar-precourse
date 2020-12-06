@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +9,7 @@ public class RacingGame {
     private static final int END = 9;
 
     private String[] carNames;
+    private String numberOfTimes;
 
     public void playGame(Scanner scanner) {
 
@@ -17,15 +17,22 @@ public class RacingGame {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             carNames = scanner.nextLine().split(",");
 
-            if (haveBlankCarName() || !isValidSizeCarName() || isDuplicateName()) {
-                continue;
+            if (!haveBlankCarName() && isValidSizeCarName() && !isDuplicateName()) {
+                break;
             }
-            break;
         }
 
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
             carList.add(new Car(carName));
+        }
+
+        while (true) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            numberOfTimes = scanner.nextLine();
+            if (isInteger() && isPositiveNumber()) {
+                break;
+            }
         }
     }
 
@@ -42,7 +49,7 @@ public class RacingGame {
     private boolean isValidSizeCarName() {
         for (String carName : carNames) {
             if (carName.length() <= 0 || carName.length() > 5) {
-                System.out.println("[ERROR] 자동차 이름은 0자이상 5자이하만 가능합니다.");
+                System.out.println("[ERROR] 자동차 이름은 1자이상 5자이하만 가능합니다.");
                 return false;
             }
         }
@@ -64,5 +71,23 @@ public class RacingGame {
         }
 
         return false;
+    }
+
+    private boolean isInteger() {
+        try {
+            Integer.parseInt(numberOfTimes);
+        } catch (NumberFormatException ne) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다. (입력가능범위 : 1 ~ 2147483647)");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isPositiveNumber() {
+        if (Integer.parseInt(numberOfTimes) < 1) {
+            System.out.println("[ERROR] 시도 횟수는 1이상의 양수여야 한다. (입력가능범위 : 1 ~ 2147483647)");
+            return false;
+        }
+        return true;
     }
 }
