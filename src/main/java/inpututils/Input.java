@@ -8,6 +8,4 @@ public abstract class Input {
 	Input(Scanner scanner) {
 		this.scanner = scanner;
 	}
-
-	abstract Scanner getScanner();
 }
