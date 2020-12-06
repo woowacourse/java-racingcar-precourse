@@ -17,6 +17,10 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public void runRace() {
         int roundNumber = RandomUtils.nextInt(RANDOM_MIN_NUM, RANDOM_MAX_NUM);
 
