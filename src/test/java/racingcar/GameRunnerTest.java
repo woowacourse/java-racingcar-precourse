@@ -1,11 +1,16 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.setDescriptionConsumer;
 import static org.junit.jupiter.api.Assertions.*;
 
 import exception.CarNameOverFiveException;
+import exception.MoveCountNotIntegerException;
+import exception.MoveCountNotOverZeroException;
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -51,6 +56,28 @@ class GameRunnerTest {
         GameRunner gameRunner = new GameRunner();
         Assertions.assertThrows(CarNameOverFiveException.class,
             () -> gameRunner.checkCarNameLengthLimit("123456"));
+    }
+
+    @Test
+    public void Should_ThrownException_When_Move_Count_Not_Integer() {
+        String data = "Yes";
+        System.setIn(new ByteArrayInputStream(data.getBytes()));
+        Scanner scanner = new Scanner(System.in);
+
+        GameRunner gameRunner = new GameRunner();
+        Assertions.assertThrows(MoveCountNotIntegerException.class,
+            () -> gameRunner.getMoveCount(scanner));
+    }
+
+    @Test
+    public void Should_ThrownException_When_Move_Count_Not_Over_Zero() {
+        String data = "0";
+        System.setIn(new ByteArrayInputStream(data.getBytes()));
+        Scanner scanner = new Scanner(System.in);
+
+        GameRunner gameRunner = new GameRunner();
+        Assertions.assertThrows(MoveCountNotOverZeroException.class,
+            () -> gameRunner.getMoveCount(scanner));
     }
 
 }
