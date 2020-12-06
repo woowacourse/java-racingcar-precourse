@@ -1,10 +1,10 @@
 package controlexception;
 
-public class UserInputNameException extends RuntimeException{
+public class UserInputNameLengthException extends RuntimeException{
 	//입력에 관련된 예외를 처리하는 클래스.
 	static final private String LENGTHLIMIT = "5";
 	static private String userInputNumber;
-	public UserInputNameException(int userInputNumber){
+	public UserInputNameLengthException(int userInputNumber){
 		this.userInputNumber = Integer.toString(userInputNumber);
 	}
 
