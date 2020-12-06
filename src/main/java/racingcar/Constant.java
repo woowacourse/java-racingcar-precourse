@@ -13,6 +13,7 @@ public class Constant {
     public static final String ERROR_RACE_NUMBER = ERROR_PREFIX + "올바른 입력의 회수가 아닙니다";
     public static final String ERROR_RACE_NUMBER_POSITIVE_INTEGER = ERROR_PREFIX + "회수는 1이상의 수여야합니다.";
 
+    public static final String BLANK = " ";
     public static final String EMPTY_NAME = "";
     public static final String DELIMITER = ",";
     public static final String COMMA = ", ";

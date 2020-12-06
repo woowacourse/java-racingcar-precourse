@@ -12,7 +12,10 @@ import java.util.stream.Stream;
 public class RaceService {
     public String[] getAllCarName(Scanner scanner) {
         String input = scanner.nextLine();
-        String[] allCarName = Stream.of(input.split(Constant.DELIMITER)).map(String::trim).toArray(String[]::new);
+        String[] allCarName = Stream.of(input.split(Constant.DELIMITER))
+                                    .map(s -> s.replaceAll(Constant.BLANK, Constant.EMPTY_NAME))
+                                    .toArray(String[]::new);
+
         checkRightCarName(allCarName);
 
         return allCarName;
