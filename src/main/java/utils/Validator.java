@@ -1,10 +1,10 @@
 package utils;
 
+import racingcar.domain.setting.CarSetting;
+
 import java.util.Arrays;
 
 public class Validator {
-
-    private static int NAME_MAX_LENGTH = 5;
 
     public Validator() {
     }
@@ -55,7 +55,7 @@ public class Validator {
     public static boolean isLengthOver(String... names) {
 
         for (String name : names) {
-            if (name.length() > NAME_MAX_LENGTH) {
+            if (name.length() > CarSetting.NAME_MAX_LENGTH.get()) {
                 return true;
             }
         }
