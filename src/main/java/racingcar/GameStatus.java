@@ -18,7 +18,7 @@ public class GameStatus {
         }
 
         System.out.print(WINNER_IS);
-        System.out.println(String.join(",", winners));
+        System.out.println(String.join(", ", winners));
     }
 
     public static void printStatus(RacingCars racingCars) {
