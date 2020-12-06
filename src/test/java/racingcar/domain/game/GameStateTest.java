@@ -26,4 +26,12 @@ class GameStateTest {
             GameState.initiate(racingTryCounts);
         }).isInstanceOf(RacingTryCountsNumberFormatException.class);
     }
+
+    @DisplayName("경주 시도 횟수가 남았다면, isEnd는 false 반환")
+    @Test
+    public void isEnd_시도_횟수_남아있으면_false를_반환한다() {
+        GameState gameState = GameState.initiate(3);
+
+        assertThat(gameState.isEnd()).isFalse();
+    }
 }
