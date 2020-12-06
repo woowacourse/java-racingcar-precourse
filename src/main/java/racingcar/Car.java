@@ -1,21 +1,20 @@
 package racingcar;
 
+import static utils.ConstantUtils.*;
 import utils.RandomUtils;
 
 public class Car {
 
     private final String name;
     private int position = 0;
-    private final int moveCriteria = 3;
 
     public Car(String name) {
         this.name = name;
     }
 
-    // 추가 기능 구현
     public void moveOrNot() {
-        int computerNumber = RandomUtils.nextInt(0, 9);
-        if (computerNumber > moveCriteria) {
+        int computerNumber = RandomUtils.nextInt(MIN_RANDOM_ZERO, MAX_RANDOM_NINE);
+        if (computerNumber > MAX_NO_MOVE) {
             position += 1;
         }
     }

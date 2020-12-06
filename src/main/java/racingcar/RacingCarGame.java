@@ -1,29 +1,24 @@
 package racingcar;
 
+import static utils.ConstantUtils.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class RacingCarGame {
 
-    private static final String FINAL_WINNER = "최종 우승자: ";
-    private static final String RACE_RESULT = "실행결과";
-    private static final String NAME_RESULT_SEPARATOR = " : ";
-    private static final String RACING_BAR = "-";
-    private static final String JOIN_DELIMITER = ", ";
+
+
     private final List<Car> carList = new ArrayList<>();
     private final List<String> winnerList = new ArrayList<>();
-    private final PlayerResponse playerResponse;
-    private int moves;
+    private final int moves;
     private int maxScore = 0;
 
-    public RacingCarGame(Scanner scanner) {
-        playerResponse = new PlayerResponse(scanner);
+    public RacingCarGame(String[] carNames, int moves) {
+        makeCar(carNames);
+        this.moves = moves;
     }
 
     public void initGame() {
-        makeCar(playerResponse.getCarNames());
-        moves = playerResponse.getHowManyMoves();
         startRacing();
         announceWinner();
     }
@@ -71,7 +66,7 @@ public class RacingCarGame {
     private void announceWinner() {
         System.out.print(FINAL_WINNER);
         addWinnerList();
-        System.out.println(String.join(JOIN_DELIMITER, winnerList));
+        System.out.println(String.join(WINNERS_JOIN_DELIMITER, winnerList));
     }
 
     private void addWinnerList() {
