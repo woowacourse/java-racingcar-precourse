@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -9,12 +10,7 @@ public class Application {
         Player player;
         GameRound gameRound;
 
-        String carNames = inputView.receiveCarNames();
-        try {
-            CarValidator.validateDuplication(carNames);
-        } catch (IllegalCarNameException e) {
-            System.out.println(e.getMessage());
-        }
+        List<String> carNames = inputView.receiveCarNames();
         player = new Player(carNames);
 
         String round = inputView.receiveGameRound();
