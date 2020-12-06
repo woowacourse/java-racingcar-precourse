@@ -16,6 +16,10 @@ import org.junit.jupiter.api.Test;
 
 class GameRunnerTest {
 
+    private final int RANDOM_METHOD_CHECK_COUNT = 1000;
+    private final int RANDOM_MIN = 0;
+    private final int RANDOM_MAX = 9;
+
     @Test
     public void Should_Parse_Three_Name_When_Three_Serial_String_Input() {
         List<Car> testCarList = new ArrayList<>();
@@ -80,4 +84,17 @@ class GameRunnerTest {
             () -> gameRunner.getMoveCount(scanner));
     }
 
+    @Test
+    public void Should_Random_Number_On_Domain() {
+        boolean randomNumberCheck = true;
+        for (int i = 0; i < RANDOM_METHOD_CHECK_COUNT; i++) {
+            GameRunner gameRunner = new GameRunner();
+            int randomNumber = gameRunner.getRandomNumber();
+            if (randomNumber < RANDOM_MIN || randomNumber > RANDOM_MAX) {
+                randomNumberCheck = false;
+                break;
+            }
+        }
+        assertThat(randomNumberCheck).isEqualTo(true);
+    }
 }
