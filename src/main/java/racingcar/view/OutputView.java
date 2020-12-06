@@ -18,7 +18,7 @@ public class OutputView {
 
     private static void printScore(Car car) {
         System.out.print(car.getName() + COLON);
-        System.out.print(new String(new char[car.getPosition()]).replace("\0",SCORE));
+        System.out.println(new String(new char[car.getPosition()]).replace("\0",SCORE));
     }
 
 }
