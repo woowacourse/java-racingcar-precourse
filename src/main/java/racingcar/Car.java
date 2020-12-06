@@ -3,11 +3,12 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car {
-    private final String name;
-    private int position = 0;
     static final int RANDOM_MIN_NUM = 0;
     static final int RANDOM_MAX_NUM = 9;
     static final int MOVE_FORWARD = 4;
+
+    private final String name;
+    private int position = 0;
 
     public Car(String name) {
         this.name = name;
