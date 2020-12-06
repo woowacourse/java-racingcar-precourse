@@ -23,7 +23,7 @@ public class CarNameDivider {
             return "DuplicationName";
         }
 
-        if (carNameList.indexOf("") != -1) {
+        if (carNameList.indexOf("") != -1 || carNames.length == 0) {
             return "NoName";
         }
         return carNameInput;
