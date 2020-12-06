@@ -5,6 +5,7 @@ import racingcar.domain.setting.Message;
 import utils.Validator;
 
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class InputController {
 
@@ -20,7 +21,9 @@ public class InputController {
         System.out.println(Message.INPUT_NAME_MESSAGE);
 
         String input = scanner.nextLine();
-        String[] names = input.split(NAME_SEPARATOR);
+        String[] names = Stream
+                .of(input.split(NAME_SEPARATOR))
+                .toArray(String[]::new);
 
         Validator.validateNames(names);
 
@@ -32,6 +35,8 @@ public class InputController {
         System.out.println(Message.INPUT_REPEAT_MESSAGE);
 
         String input = scanner.nextLine();
+
+        Validator.validateRepeat(input);
 
         scanner.close();
         return Integer.parseInt(input);
