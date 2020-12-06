@@ -18,7 +18,7 @@ public class Application {
     public static void run(GameController gameController) {
         setPlayers(gameController);
         setRounds(gameController);
-        playgame(gameController);
+        playGame(gameController);
     }
 
     public static void setPlayers(GameController gameController) {
@@ -43,7 +43,7 @@ public class Application {
 
     }
 
-    public static void playgame(GameController gameController) {
+    public static void playGame(GameController gameController) {
         gameController.startRace();
     }
 }
