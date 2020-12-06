@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-	private static final int MINIMUM_NUMBER_OF_CARS_REQUIRED = 1;
 	private static final int CAR_NAME_LENGTH_LOWER_BOUND = 1;
 	private static final int CAR_NAME_LENGTH_UPPER_BOUND = 5;
 	private static final String DUPLICATE_CAR_NAME_ERROR_MESSAGE = "[ERROR] 차 이름이 중복됩니다.";
