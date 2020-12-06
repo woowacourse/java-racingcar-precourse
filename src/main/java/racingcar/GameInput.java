@@ -6,7 +6,7 @@ public class GameInput {
     public static String[] getCarNames(Scanner scanner) {
         System.out.println(GameConstants.INPUT_CAR_NAMES_MESSAGE);
         String stringNames = scanner.nextLine();
-        String[] carNames = stringNames.split(GameConstants.CAR_NAME_SPLITTER);
+        String[] carNames = preprocessCarNames(stringNames);
         try {
             validateCarNames(carNames);
             return carNames;
@@ -14,6 +14,14 @@ public class GameInput {
             System.out.println(GameConstants.INVALID_CAR_NAMES_MESSAGE);
             return getCarNames(scanner);
         }
+    }
+
+    public static String[] preprocessCarNames(String stringNames) {
+        String[] carNames = stringNames.split(GameConstants.CAR_NAME_SPLITTER);
+        for (int i = 0; i < carNames.length; i++) {
+            carNames[i] = carNames[i].trim();
+        }
+        return carNames;
     }
 
     public static int getGameRound(Scanner scanner) {
@@ -44,7 +52,7 @@ public class GameInput {
         if (carNames.length == 0) {
             throw new IllegalArgumentException();
         }
-        for(String name : carNames) {
+        for (String name : carNames) {
             if (name.length() == 0) {
                 throw new IllegalArgumentException();
             }
