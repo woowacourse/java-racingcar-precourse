@@ -12,6 +12,9 @@ public class CarRacingGame {
     }
 
     public void start() {
-        String carName = InputView.getCarName(scanner);
+        while (true) {
+            String carName = InputView.getCarName(scanner);
+            int tryNumber = InputView.getTryNumber(scanner);
+        }
     }
 }
