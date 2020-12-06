@@ -1,8 +1,8 @@
 package racingcar;
 
-import static racingcar.Message.print;
-import static racingcar.Rule.END_RANGE;
-import static racingcar.Rule.START_RANGE;
+import static game.Message.print;
+import static game.Rule.END_RANGE;
+import static game.Rule.START_RANGE;
 
 import java.util.Collections;
 import java.util.List;

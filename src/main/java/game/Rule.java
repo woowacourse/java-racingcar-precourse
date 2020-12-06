@@ -1,4 +1,4 @@
-package racingcar;
+package game;
 
 /**
  * @author yhh1056

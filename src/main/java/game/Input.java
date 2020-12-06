@@ -1,7 +1,7 @@
-package racingcar;
+package game;
 
-import static racingcar.Message.INPUT_COUNT_MESSAGE;
-import static racingcar.Message.INPUT_NAME_MESSAGE;
+import static game.Message.INPUT_COUNT_MESSAGE;
+import static game.Message.INPUT_NAME_MESSAGE;
 
 import java.util.Scanner;
 

@@ -1,10 +1,14 @@
-package racingcar;
+package controller;
 
-import static racingcar.Message.print;
+import static game.Message.print;
 
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import racingcar.Car;
+import game.Input;
+import game.RacingGame;
+import game.User;
 
 /**
  * @author yhh1056

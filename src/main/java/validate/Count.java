@@ -1,7 +1,7 @@
-package racingcar;
+package validate;
 
-import static racingcar.Rule.MAXIMUM_COUNT;
-import static racingcar.Rule.MINIMUM_COUNT;
+import static game.Rule.MAXIMUM_COUNT;
+import static game.Rule.MINIMUM_COUNT;
 
 /**
  * @author yhh1056

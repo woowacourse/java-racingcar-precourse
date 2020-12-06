@@ -1,7 +1,7 @@
 package racingcar;
 
-import static racingcar.Message.WINNER_DELIMITER;
-import static racingcar.Message.WINNER_MESSAGE;
+import static game.Message.WINNER_DELIMITER;
+import static game.Message.WINNER_MESSAGE;
 
 import java.util.List;
 

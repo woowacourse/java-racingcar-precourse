@@ -1,9 +1,12 @@
-package racingcar;
+package game;
 
-import static racingcar.Message.RESULT_MESSAGE;
-import static racingcar.Message.print;
+import static game.Message.RESULT_MESSAGE;
+import static game.Message.print;
 
 import java.util.List;
+import racingcar.Car;
+import racingcar.Cars;
+import racingcar.Winner;
 
 /**
  * @author yhh1056

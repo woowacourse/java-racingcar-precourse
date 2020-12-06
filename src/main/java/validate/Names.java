@@ -1,9 +1,9 @@
-package racingcar;
+package validate;
 
-import static racingcar.Rule.MAXIMUM_COUNT;
-import static racingcar.Rule.NAMES_SIZE;
-import static racingcar.Rule.NAME_DELIMITER;
-import static racingcar.Rule.NAME_LENGTH;
+import static game.Rule.MAXIMUM_COUNT;
+import static game.Rule.NAMES_SIZE;
+import static game.Rule.NAME_DELIMITER;
+import static game.Rule.NAME_LENGTH;
 
 import java.util.Arrays;
 import java.util.HashSet;

@@ -1,8 +1,8 @@
 package racingcar;
 
-import static racingcar.Message.showWinners;
-import static racingcar.Rule.MOVING_STATE;
-import static racingcar.Rule.POSSIBLE_MOVE_POWER;
+import static game.Message.showWinners;
+import static game.Rule.MOVING_STATE;
+import static game.Rule.POSSIBLE_MOVE_POWER;
 
 public class Car implements Comparable<Car> {
     private final String name;

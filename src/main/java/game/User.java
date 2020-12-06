@@ -1,6 +1,8 @@
-package racingcar;
+package game;
 
 import java.util.List;
+import validate.Count;
+import validate.Names;
 
 /**
  * @author yhh1056
