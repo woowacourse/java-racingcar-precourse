@@ -1,7 +1,5 @@
 package racingcar;
 
-import utils.RandomUtils;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class inputAndOutput {
     static String inputString(Scanner scanner, String print) {
         System.out.println(print);
-        return scanner.next();
+        String input = scanner.next();
+        return input.replaceAll(" ", "");
     }
 
     static void outputOneStepStateBar(int nowPosition, String stateBar) {

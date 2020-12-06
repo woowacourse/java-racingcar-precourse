@@ -38,6 +38,7 @@ public class GameSetting {
     static ArrayList<Car> carList(Scanner scanner) {
         ArrayList<Car> result = new ArrayList<Car>();
         String inputString = inputAndOutput.inputString(scanner, inputCarNamePrint);
+        nameStringException(inputString);
         String[] carNameList = carNameList(inputString);
         for (int i = 0; i < carNameList.length; i++) {
             nameLengthException(carNameList[i]);
@@ -70,6 +71,13 @@ public class GameSetting {
 
     static void nameLengthException(String carName) {
         if ((carName.length() > 5) || carName.equals("")) {
+            throw new IllegalArgumentException(exceptionCarNamePrint);
+        }
+    }
+
+    static void nameStringException(String inputString) {
+        String lastChar = inputString.substring(inputString.length() - 1, inputString.length());
+        if (lastChar.equals(",")) {
             throw new IllegalArgumentException(exceptionCarNamePrint);
         }
     }
