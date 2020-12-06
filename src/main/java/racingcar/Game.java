@@ -2,30 +2,30 @@ package racingcar;
 
 import racingcar.view.InputView;
 import racingcar.domain.Car;
-import racingcar.domain.Scoreboard;
+import racingcar.domain.GameBoard;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
     private final InputView inputView;
-    private Scoreboard scoreboard;
+    private GameBoard gameBoard;
 
     public Game(InputView inputView) {
         this.inputView = inputView;
     }
 
     public void play() {
-        setScoreboard();
+        setGameBoard();
         int attemptCount = this.inputView.scanAttemptCount();
         for (int round = 0; round < attemptCount; round++) {
-            scoreboard.runRound();
+            gameBoard.runRound();
         }
     }
 
-    private void setScoreboard() {
-        Scoreboard scoreboard = new Scoreboard(makeCars());
-        this.scoreboard = scoreboard;
+    private void setGameBoard() {
+        GameBoard gameBoard = new GameBoard(makeCars());
+        this.gameBoard = gameBoard;
     }
 
     private List<Car> makeCars() {

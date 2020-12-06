@@ -4,10 +4,10 @@ import racingcar.domain.Car;
 
 import java.util.List;
 
-public class Scoreboard {
+public class GameBoard {
     private final List<Car> carList;
 
-    public Scoreboard(List<Car> carList) {
+    public GameBoard(List<Car> carList) {
         this.carList = carList;
     }
 
