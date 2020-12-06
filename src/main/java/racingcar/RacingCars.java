@@ -9,6 +9,7 @@ public class RacingCars {
     final static int MIN_NUMBER_OF_CARS = 2;
 
     private List<Car> cars = new ArrayList<>();
+    int maxPosition = 0;
 
     public RacingCars(List<String> carList) {
         validateSize(carList);
@@ -27,6 +28,10 @@ public class RacingCars {
 
     public int getCarPosition(int carIndex) {
         return cars.get(carIndex).getPosition();
+    }
+
+    public int getMaxPosition() {
+        return maxPosition;
     }
 
     private void validateSize(List<String> carList) throws IllegalArgumentException {
@@ -63,6 +68,13 @@ public class RacingCars {
     public void takeOneRound() {
         for (int car = 0; car < cars.size(); car++) {
             cars.get(car).runRace();
+            updateMaxPosition(cars.get(car));
+        }
+    }
+
+    private void updateMaxPosition(Car car) {
+        if (maxPosition < car.getPosition()) {
+            maxPosition = car.getPosition();
         }
     }
 }
