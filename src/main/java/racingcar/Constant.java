@@ -24,6 +24,6 @@ public class Constant {
 
 
     public final static String OUTPUT_VIEW_NAME = "경주할 자동차 이름을 입력하세요.(이름은 " + INPUT_DELIMITER_KOREAN
-            + "(" + INPUT_DELIMITER + ") 기준으로 구분";
+            + "(" + INPUT_DELIMITER + ") 기준으로 구분)";
     public final static String OUTPUT_VIEW_REPETITION_COUNT = "시도할 횟수는 몇회인가요?";
 }
