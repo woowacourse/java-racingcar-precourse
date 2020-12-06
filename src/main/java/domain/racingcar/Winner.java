@@ -28,7 +28,7 @@ public class Winner {
     private static int makeWinnerCount(List<Car> cars) {
         int maxPosition = INIT_POSITION_TO_COMPARE;
         for (Car car : cars) {
-            maxPosition = car.isGreaterThan(maxPosition);
+            maxPosition = car.findGreaterPosition(maxPosition);
         }
         return maxPosition;
     }

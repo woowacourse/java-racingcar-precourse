@@ -28,9 +28,10 @@ public class RacingCarGameController {
         OutputView.printResult();
         while (counts-- > 0) {
             carFactory.giveRandomNumbers();
-            OutputView.printNowCars(carFactory.makeCarsInfo());
+            OutputView.printNowCars(carFactory.makeCarsResult());
             OutputView.printOneLine();
         }
+
         OutputView.printWinner(carFactory.makeWinners());
     }
 

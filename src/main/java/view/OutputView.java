@@ -23,15 +23,15 @@ public class OutputView {
     }
 
     public static void printNowCars(List<List<String>> cars) {
-        for (List<String> oneCarInfo : cars) {
-            System.out.println(formatNamePosition(oneCarInfo));
+        for (List<String> carNamePosition : cars) {
+            System.out.println(formatNamePosition(carNamePosition));
         }
     }
 
-    private static String formatNamePosition(List<String> oneCarInfo) {
-        return oneCarInfo.get(INDEX_OF_NAME) +
+    private static String formatNamePosition(List<String> carNamePosition) {
+        return carNamePosition.get(INDEX_OF_NAME) +
                 DIVIDE_NAME_POSITION +
-                printPosition(Integer.parseInt(oneCarInfo.get(INDEX_OF_POSITION)));
+                printPosition(Integer.parseInt(carNamePosition.get(INDEX_OF_POSITION)));
     }
 
     private static String printPosition(int position) {

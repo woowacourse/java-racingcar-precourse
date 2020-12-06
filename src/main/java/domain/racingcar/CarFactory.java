@@ -34,8 +34,8 @@ public class CarFactory {
         }
     }
 
-    public List<List<String>> makeCarsInfo() {
-        return this.cars.stream().map(Car::getInfo).collect(Collectors.toList());
+    public List<List<String>> makeCarsResult() {
+        return this.cars.stream().map(Car::getNamePosition).collect(Collectors.toList());
     }
 
     public List<String> makeWinners() {

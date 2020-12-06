@@ -28,7 +28,7 @@ public class Car {
         }
     }
 
-    public int isGreaterThan(int maxPosition) {
+    public int findGreaterPosition(int maxPosition) {
         return Math.max(maxPosition, this.position);
     }
 
@@ -36,11 +36,11 @@ public class Car {
         return maxPosition == this.position;
     }
 
-    public List<String> getInfo() {
-        List<String> information = new ArrayList<>();
-        information.add(this.name);
-        information.add(String.valueOf(this.position));
-        return information;
+    public List<String> getNamePosition() {
+        List<String> namePosition = new ArrayList<>();
+        namePosition.add(this.name);
+        namePosition.add(String.valueOf(this.position));
+        return namePosition;
     }
 
     public String getName() {

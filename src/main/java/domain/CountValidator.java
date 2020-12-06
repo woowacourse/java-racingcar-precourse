@@ -9,29 +9,29 @@ package domain;
 public class CountValidator {
     private static final int MINIMUM_OF_COUNT = 0;
 
-    public static int makeValidCount(String inputData) {
-        checkNumber(inputData);
-        checkMoreThanZero(inputData);
-        return Integer.parseInt(inputData);
+    public static int makeValidCount(String inputCount) {
+        checkNumber(inputCount);
+        checkMoreThanZero(inputCount);
+        return Integer.parseInt(inputCount);
     }
 
-    private static boolean isNotNumber(String inputData) {
+    private static boolean isNotNumber(String inputCount) {
         try {
-            Integer.parseInt(inputData);
+            Integer.parseInt(inputCount);
             return false;
         } catch (NumberFormatException e) {
             return true;
         }
     }
 
-    private static void checkNumber(String inputData) {
-        if (isNotNumber(inputData)) {
+    private static void checkNumber(String inputCount) {
+        if (isNotNumber(inputCount)) {
             throw new IllegalArgumentException("횟수 입력은 숫자여야 한다.");
         }
     }
 
-    private static void checkMoreThanZero(String inputData) {
-        if (Integer.parseInt(inputData) < MINIMUM_OF_COUNT) {
+    private static void checkMoreThanZero(String inputCount) {
+        if (Integer.parseInt(inputCount) < MINIMUM_OF_COUNT) {
             throw new IllegalArgumentException("횟수 입력은 0 이상이어야 한다.");
         }
     }
