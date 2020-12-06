@@ -34,7 +34,7 @@ class CarTest {
 
     @Test
     @Description("Car A의 position이 B보다 높거나 같은 경우, true를 반환")
-    public void isBigOrEqualThenTest() throws NoSuchFieldException, IllegalAccessException {
+    public void atFirstPositionTest() throws NoSuchFieldException, IllegalAccessException {
 
         //given
         Car A = Car.create("A", new DefaultEngine());
@@ -44,12 +44,12 @@ class CarTest {
         //when
         Field position = Car.class.getDeclaredField("position");
         position.setAccessible(true);
-        position.set(A, 1);              //position = 1;
+        position.set(A, 10);              //position = 1;
 
         //then
-        Assertions.assertTrue(A.isBigOrEqualThen(B));
-        Assertions.assertFalse(B.isBigOrEqualThen(A));
-        Assertions.assertTrue(B.isBigOrEqualThen(C));
+        Assertions.assertFalse(A.atFirstPosition(B));
+        Assertions.assertFalse(B.atFirstPosition(A));
+        Assertions.assertTrue(B.atFirstPosition(C));
 
     }
 
