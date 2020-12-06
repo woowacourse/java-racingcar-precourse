@@ -4,7 +4,6 @@
 
 - Car 객체에 이름, 전진, 랜덤값이 담긴 클래스
 - Cars Car 객체들을 리스트로 담긴 클래스
-- Race Cars의 레이싱 로직을 구현 할 클래스
 - InputView 사용자의 입력 클래스
 - OutputView 게임의 출력 클래스
 - Message 게임 진행 시 출력 되는 문자열을 담은 클래스
