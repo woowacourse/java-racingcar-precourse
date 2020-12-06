@@ -36,8 +36,12 @@ public class Car {
 		return name.length();
 	}
 
+	public boolean hasSpacesInName() {
+		return name.contains(" ");
+	}
+
 	public boolean hasEmptyName() {
-		if (name.isEmpty()) {
+		if (name.trim().isEmpty()) {
 			return true;
 		}
 		return false;

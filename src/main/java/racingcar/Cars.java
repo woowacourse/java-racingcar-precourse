@@ -24,6 +24,7 @@ public class Cars {
 		validateCarAmount(cars);
 		validateDuplicateCarName(cars);
 		validateCarNameLength(cars);
+		validateSpacesInCarName(cars);
 		validateVoidCarName(cars);
 		this.cars = cars;
 	}
@@ -51,6 +52,14 @@ public class Cars {
 		for (Car car : cars) {
 			if (car.getNameLength() < CAR_NAME_LENGTH_LOWER_BOUND || CAR_NAME_LENGTH_UPPER_BOUND < car.getNameLength()) {
 				throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+			}
+		}
+	}
+
+	private void validateSpacesInCarName(List<Car> cars) throws IllegalArgumentException {
+		for (Car car : cars) {
+			if (car.hasSpacesInName()) {
+				throw new IllegalArgumentException(CAR_VOID_NAME_ERROR_MESSAGE);
 			}
 		}
 	}

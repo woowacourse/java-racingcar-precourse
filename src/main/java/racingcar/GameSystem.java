@@ -19,7 +19,6 @@ public class GameSystem {
 
 	private static List<Car> getCarGroup(Scanner scanner) {
 		return Arrays.stream(getCarNames(scanner))
-				.map(String::trim) // do not allow spaces in car name
 				.map(Car::new)
 				.collect(Collectors.toList());
 	}
