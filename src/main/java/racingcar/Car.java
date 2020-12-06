@@ -32,4 +32,8 @@ public class Car {
     private boolean judgeIfRun(int roundNumber) {
         return roundNumber >= MOVE_FORWARD;
     }
+
+    public boolean isWinner(int maxPosition) {
+        return position == maxPosition;
+    }
 }
