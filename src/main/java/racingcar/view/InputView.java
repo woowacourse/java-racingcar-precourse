@@ -61,7 +61,7 @@ public class InputView {
 
     private boolean isValidNameList(List<String> nameList) {
         try {
-            validationNameList(nameList);
+            validateNameList(nameList);
             return true;
         } catch(RuntimeException errorMessage) {
             System.out.println(errorMessage);
@@ -71,7 +71,7 @@ public class InputView {
 
     private boolean isValidAttemptCount(String attemptCount) {
         try{
-            validationCountNumber(attemptCount);
+            validateCountNumber(attemptCount);
             return true;
         } catch (AttemptCountTypeException errorMessage) {
             System.out.println(errorMessage);
@@ -79,36 +79,36 @@ public class InputView {
         }
     }
 
-    private boolean validationNameList(List<String> nameList) {
+    private boolean validateNameList(List<String> nameList) {
         for (int idx = 0; idx < nameList.size(); idx++) {
-            if (!validationNameLength(nameList.get(idx))) {
+            if (!validateNameLength(nameList.get(idx))) {
                 throw new NameLengthOutOfBoundsException();
             }
-            if (!validationEmptyName(nameList.get(idx))) {
+            if (!validateEmptyName(nameList.get(idx))) {
                 throw new EmptyNameException();
             }
         }
-        if (!validationOverlapName(nameList)) {
+        if (!validateOverlapName(nameList)) {
             throw new OverlapNameException();
         }
         return true;
     }
 
-    private boolean validationNameLength(String name) {
+    private boolean validateNameLength(String name) {
         if (name.length() <= MAX_NAME_LENGTH) {
             return true;
         }
         return false;
     }
 
-    private boolean validationEmptyName(String name) {
+    private boolean validateEmptyName(String name) {
         if (name.trim().length() < MIN_NAME_LENGTH) {
             return false;
         }
         return true;
     }
 
-    private boolean validationOverlapName(List<String> nameList) {
+    private boolean validateOverlapName(List<String> nameList) {
         HashSet<String> names = new HashSet<String>(nameList);
         if (names.size() == nameList.size()) {
             return true;
@@ -116,7 +116,7 @@ public class InputView {
         return false;
     }
 
-    private boolean validationCountNumber(String attemptCount) {
+    private boolean validateCountNumber(String attemptCount) {
         try {
             Integer.parseInt(attemptCount);
             return true;
