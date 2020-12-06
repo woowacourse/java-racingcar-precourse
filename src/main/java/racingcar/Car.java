@@ -4,6 +4,7 @@ public class Car implements Comparable<Car> {
 
     private static final int MAXIMUM_NAME_RANGE = 5;
     private static final int MINIMUM_NAME_RANGE = 1;
+    public static final String DRIVE_PROGRESS = "-";
 
     private final String name;
     private int position = 0;
@@ -34,7 +35,7 @@ public class Car implements Comparable<Car> {
     public void printStatus() {
         StringBuilder progress = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            progress.append("-");
+            progress.append(DRIVE_PROGRESS);
         }
 
         System.out.println(name + " : " + progress);
