@@ -67,8 +67,9 @@ public class Car implements Comparable<Car> {
     /**
      * only for test
      */
-    public void setPosition(int position) {
+    public Car setPosition(int position) {
         this.position = position;
+        return this;
     }
 
 }
