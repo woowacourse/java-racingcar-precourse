@@ -27,5 +27,7 @@ public class GameController {
     public void run() {
         gameView.printGameMessage(GameMessage.ENTER_CAR_NAMES);
         String carNames = validateCarNames(gameView.userInput());
+
+        gameView.printGameMessage(GameMessage.ENTER_NUMBER_OF_MOVES);
     }
 }
