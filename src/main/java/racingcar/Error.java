@@ -14,6 +14,7 @@ public class Error {
     static final String INVALID_TRIAL_TYPE_ERROR = "시도 횟수는 숫자여야 한다";
     static final int MAX_CAR_NAME_LENGTH = 5;
     static final int MIN_CAR_NAME_LENGTH = 1;
+    static final int MIN_TRIAL = 1;
 
 
     public void checkSameCarName(List<String> carNameList) throws IllegalArgumentException {
@@ -35,7 +36,7 @@ public class Error {
     }
 
     public void checkTrialLessThanOne(int trial) throws IllegalArgumentException {
-        if (trial < 1) {
+        if (trial < MIN_TRIAL) {
             System.out.println(ERROR_PREFIX + INVALID_TRIAL_NUMBER_ERROR);
             throw new IllegalArgumentException();
         }
