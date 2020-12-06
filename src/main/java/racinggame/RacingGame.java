@@ -19,9 +19,15 @@ public class RacingGame {
     }
 
     public static RacingGame prepareRacingGame(Scanner scanner) {
-        RacingCars racingCars = new RacingCars(InputView.inputCarNames(scanner));
-        String round = InputView.inputRoundNumber(scanner);
-        return new RacingGame(racingCars, new TotalRound(round));
+        RacingGame newGame = null;
+        try {
+            RacingCars racingCars = new RacingCars(InputView.inputCarNames(scanner));
+            String round = InputView.inputRoundNumber(scanner);
+            newGame = new RacingGame(racingCars, new TotalRound(round));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        return newGame;
     }
 
     public void gamePlay() {
