@@ -22,7 +22,7 @@ public class Racing {
     public Racing(Scanner scanner) {
         this.inputView = new InputView(scanner);
         this.cars = new Cars(this.inputView.getCarNames());
-        this.trial = inputView.getTrialNumber();
+        this.trial = this.inputView.getTrialNumber();
     }
 
     public void start() {
