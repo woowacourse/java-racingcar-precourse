@@ -8,6 +8,7 @@ package racingcar;
  *
  * Copyright (c) by Davinci.J
  */
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class Race {
      * only for test
      */
     public List<Car> getCars() {
-        return this.cars;
+        return new ArrayList<>(cars);
     }
 
     public static Race generateRace(InputManager inputManager) {
