@@ -5,15 +5,31 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.exception.DuplicateNameException;
+import racingcar.exception.InvalidNameException;
+import racingcar.exception.InvalidNumberException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ValidatorTest {
 
+    @Test
+    public void test1(){
+
+        String input = "aaa,     ,\t ,ccccc ,ddddd";
+
+        String[] strings = Stream.of(input.split(","))
+                .toArray(String[]::new);
+
+        Arrays.stream(strings)
+                .forEach(System.out::println);
+
+    }
 
     @ParameterizedTest
     @ValueSource(strings = {
@@ -48,10 +64,8 @@ class ValidatorTest {
                 .map(String::trim)
                 .toArray(String[]::new);
 
-        System.out.println("names.length : " + names.length);
-
         //when
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(InvalidNameException.class, () -> {
 
             //then
             Validator.validateNames(names);
@@ -125,7 +139,7 @@ class ValidatorTest {
 
 
         //when
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(InvalidNumberException.class, () -> {
             method.invoke(validator, input);
         });
 
