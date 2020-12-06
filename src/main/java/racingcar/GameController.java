@@ -5,7 +5,6 @@ import racingcar.model.Cars;
 import racingcar.model.GameRounds;
 import racingcar.service.CarNameTokenizer;
 import racingcar.service.RandomNumberGenerator;
-import racingcar.service.WinnersFinder;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -44,7 +43,7 @@ public class GameController {
             outputView.showEachRoundResult(this.cars);
         }
 
-        outputView.showWinners(WinnersFinder.find(this.cars.getCarList()));
+        outputView.showWinners(this.cars.findWinners());
     }
 
     public void startEachRound() {
