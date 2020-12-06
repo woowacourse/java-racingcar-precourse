@@ -56,15 +56,7 @@ public class RacingGame {
     }
 
     private void showWinners(ArrayList<String> winnerList) {
-        if (winnerList.size() == 1) {
-            soloWinner(winnerList.get(0));
-            return;
-        }
         String winners = String.join(", ",winnerList);
-        soloWinner(winners);
-    }
-
-    private void soloWinner(String winner) {
-        OutputViewer.finalWinner(winner);
+        OutputViewer.finalWinner(winners);
     }
 }
