@@ -12,4 +12,15 @@ public class Cars {
     public List<Car> getCars() {
         return this.cars;
     }
+
+    public int getMaxPosition() {
+        int max = 0;
+        for (Car car : this.cars) {
+            int position = car.getPosition();
+            if (position > max) {
+                max = position;
+            }
+        }
+        return max;
+    }
 }

@@ -50,23 +50,12 @@ public class Racing {
 
     private List<String> getWinners() {
         List<String> winners = new ArrayList<>();
-        int maxPosition = maxPosition();
+        int maxPosition = cars.getMaxPosition();
         for (Car car : cars.getCars()) {
             if (car.getPosition() == maxPosition) {
                 winners.add(car.getName());
             }
         }
         return winners;
-    }
-
-    private int maxPosition() {
-        int max = 0;
-        for (Car car : this.cars.getCars()) {
-            int position = car.getPosition();
-            if (position > max) {
-                max = position;
-            }
-        }
-        return max;
     }
 }
