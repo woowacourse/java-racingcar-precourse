@@ -45,6 +45,7 @@ public class RacingGame {
     }
 
     private List<Car> getCars() {
+        // todo 입력 예외처리
         print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Arrays.stream(getInput().split(","))
                 .map(Car::new)

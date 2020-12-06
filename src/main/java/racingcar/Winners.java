@@ -5,10 +5,10 @@ import java.util.stream.Collectors;
 
 public class Winners {
 
-    private final List<Car> winners;
+    private final List<Car> cars;
 
     public Winners(List<Car> winners) {
-        this.winners = winners;
+        this.cars = winners;
     }
 
     public static Winners getWinners(List<Car> cars) {
@@ -24,8 +24,19 @@ public class Winners {
     }
 
     public String getWinnerNames() {
-        return winners.stream()
+        return cars.stream()
                 .map(Object::toString)
                 .collect(Collectors.joining(", "));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Winners winners;
+        if (obj instanceof Winners) {
+            winners = (Winners) obj;
+        } else {
+            return false;
+        }
+        return this.cars.equals(winners.cars);
     }
 }
