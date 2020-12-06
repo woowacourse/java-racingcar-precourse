@@ -26,7 +26,7 @@ public class OutputView {
         for (Car car : cars) {
             carNames.add(car.getName());
         }
-        System.out.println(String.join(",", carNames));
+        System.out.println(String.join(", ", carNames));
     }
 
 }
