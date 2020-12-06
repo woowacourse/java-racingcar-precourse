@@ -12,6 +12,7 @@ public class Cars {
 	private static final String DUPLICATE_CAR_NAME_ERROR_MESSAGE = "[ERROR] 차 이름이 중복됩니다.";
 	private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "[ERROR] 차 이름은 " + CAR_NAME_LENGTH_LOWER_BOUND + "자 이상 "
 			+ CAR_NAME_LENGTH_UPPER_BOUND + "자 이하여야 합니다.";
+	private static final String SPACES_IN_CAR_NAME_ERROR_MESSAGE = "[ERROR] 차 이름에 공백이 포함될 수 없습니다.";
 	private static final String CAR_VOID_NAME_ERROR_MESSAGE = "[ERROR] 차 이름은 공백일 수 없습니다";
 	private static final String NUMBER_OF_CARS_ERROR_MESSAGE = "[ERROR] 차 이름이 적어도 " + MINIMUM_NUMBER_OF_CARS_REQUIRED + "개 필요합니다.";
 	private static final int START_INCLUSIVE_NUMBER = 0;
@@ -25,7 +26,6 @@ public class Cars {
 		validateDuplicateCarName(cars);
 		validateCarNameLength(cars);
 		validateSpacesInCarName(cars);
-		validateVoidCarName(cars);
 		this.cars = cars;
 	}
 
@@ -59,15 +59,7 @@ public class Cars {
 	private void validateSpacesInCarName(List<Car> cars) throws IllegalArgumentException {
 		for (Car car : cars) {
 			if (car.hasSpacesInName()) {
-				throw new IllegalArgumentException(CAR_VOID_NAME_ERROR_MESSAGE);
-			}
-		}
-	}
-
-	private void validateVoidCarName(List<Car> cars) throws IllegalArgumentException {
-		for (Car car : cars) {
-			if (car.hasEmptyName()) {
-				throw new IllegalArgumentException(CAR_VOID_NAME_ERROR_MESSAGE);
+				throw new IllegalArgumentException(SPACES_IN_CAR_NAME_ERROR_MESSAGE);
 			}
 		}
 	}
