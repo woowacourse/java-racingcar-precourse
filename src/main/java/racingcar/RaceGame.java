@@ -24,6 +24,10 @@ public class RaceGame {
         carList = InputView.getCarList(scanner);
     }
 
+    public void printWinners(){
+        OutputView.printWinners(carList);
+    }
+
     public void playRounds(int repetitionCount) {
         OutputView.printNormal(OUTPUT_VIEW_ROUND_RESULT_HEADER);
         for (int i = 0; i < repetitionCount; i++) {

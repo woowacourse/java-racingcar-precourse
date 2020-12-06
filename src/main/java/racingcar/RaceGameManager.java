@@ -24,6 +24,7 @@ public class RaceGameManager {
         raceGame.inputCarsName();
         repetitionCount = inputRepetitionCount();
         raceGame.playRounds(repetitionCount);
+        raceGame.printWinners();
     }
 
     private int inputRepetitionCount(){

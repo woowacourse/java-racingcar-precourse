@@ -30,4 +30,6 @@ public class Constant {
     public final static String OUTPUT_VIEW_ROUND_RESULT_HEADER = "\n실행 결과";
     public final static String OUTPUT_VIEW_DIVIDER = " : ";
     public final static String OUTPUT_VIEW_CAR_POSITION_MARK = "-";
+    public final static String OUTPUT_VIEW_WINNER_HEADER = "최종 우승자: ";
+    public final static String OUTPUT_VIEW_WINNER_DELIMITER = ", ";
 }
