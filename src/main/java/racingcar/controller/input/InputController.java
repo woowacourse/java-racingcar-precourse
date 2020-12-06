@@ -2,7 +2,11 @@ package racingcar.controller.input;
 
 
 import racingcar.domain.setting.Message;
-import utils.Validator;
+import racingcar.exception.DuplicateNameException;
+import racingcar.exception.InvalidNameException;
+import racingcar.exception.InvalidNumberException;
+
+import static utils.Validator.*;
 
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -20,26 +24,39 @@ public class InputController {
     public String[] inputNames() {
         System.out.println(Message.INPUT_NAME_MESSAGE);
 
-        String input = scanner.nextLine();
-        String[] names = Stream
-                .of(input.split(NAME_SEPARATOR))
-                .toArray(String[]::new);
+        try {
+            String input = scanner.nextLine();
+            String[] names = Stream
+                    .of(input.split(NAME_SEPARATOR))
+                    .toArray(String[]::new);
 
-        Validator.validateNames(names);
+            validateNames(names);
+            return names;
+        } catch (InvalidNameException | DuplicateNameException e) {
+            System.out.println(e.getMessage());
+            return inputNames();
+        }
 
-        return names;
+
     }
 
     public int inputRepeatCount() {
 
-        System.out.println(Message.INPUT_REPEAT_MESSAGE);
+        try {
+            System.out.println(Message.INPUT_REPEAT_MESSAGE);
 
-        String input = scanner.nextLine();
+            String input = scanner.nextLine();
 
-        Validator.validateRepeat(input);
+            validateRepeat(input);
 
-        scanner.close();
-        return Integer.parseInt(input);
+            return Integer.parseInt(input);
+
+        } catch (InvalidNumberException e) {
+            System.out.println(e.getMessage());
+            return inputRepeatCount();
+        } finally {
+            scanner.close();
+        }
     }
 
 
