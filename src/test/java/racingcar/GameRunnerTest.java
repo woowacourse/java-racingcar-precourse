@@ -97,4 +97,45 @@ class GameRunnerTest {
         }
         assertThat(randomNumberCheck).isEqualTo(true);
     }
+
+    @Test
+    public void Should_Get_One_Winner() {
+        GameRunner gameRunner = new GameRunner();
+
+        List<Car> carList = new ArrayList<>();
+        Car winnerCar = new Car("winner");
+        winnerCar.setPosition(3);
+        carList.add(winnerCar);
+        Car loserCar = new Car("loser");
+        winnerCar.setPosition(2);
+        carList.add(loserCar);
+
+        gameRunner.setCarList(carList);
+        gameRunner.renewMaxPosition();
+
+        String winner = gameRunner.getWinner();
+        assertThat(winner).isEqualTo("winner");
+    }
+
+    @Test
+    public void Should_Get_Two_Winner() {
+        GameRunner gameRunner = new GameRunner();
+
+        List<Car> carList = new ArrayList<>();
+        Car winnerCar = new Car("winner");
+        winnerCar.setPosition(3);
+        carList.add(winnerCar);
+        Car winnerCar2 = new Car("winner2");
+        winnerCar2.setPosition(3);
+        carList.add(winnerCar2);
+        Car loserCar = new Car("loser");
+        loserCar.setPosition(2);
+        carList.add(loserCar);
+
+        gameRunner.setCarList(carList);
+        gameRunner.renewMaxPosition();
+
+        String winner = gameRunner.getWinner();
+        assertThat(winner).isEqualTo("winner, winner2");
+    }
 }
