@@ -15,6 +15,7 @@ public class GameRunner {
     private final int RANDOM_MAX = 9;
 
     private final String nameSplitter = ",";
+    private final String winnerDelimiter = ", ";
 
     private List<Car> carList;
     private int moveCount;
@@ -99,6 +100,16 @@ public class GameRunner {
         }
     }
 
+    public String getWinner() {
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                winnerList.add(car.getName());
+            }
+        }
+        return String.join(winnerDelimiter, winnerList);
+    }
+
     public void printMessage(String message) {
         System.out.println(message);
     }
@@ -109,5 +120,9 @@ public class GameRunner {
 
     public List<Car> getCarList() {
         return carList;
+    }
+
+    public void setCarList(List<Car> carList) {
+        this.carList = carList;
     }
 }
