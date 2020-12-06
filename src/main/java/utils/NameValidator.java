@@ -11,6 +11,7 @@ public class NameValidator {
     public static void checkNameList(List<String> nameList) {
         checkNull(nameList);
         checkPartialSpace(nameList);
+        checkRaceAlone(nameList);
         checkNamesLength(nameList);
         checkNameDuplicate(nameList);
     }
@@ -28,6 +29,12 @@ public class NameValidator {
             if (!Pattern.matches(CHECK_PARTIAL_SPACE_REGEX, name)) {
                 throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_PARTIAL_SPACE);
             }
+        }
+    }
+
+    private static void checkRaceAlone(List<String> nameList) {
+        if(nameList.size() <= 1){
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_ALONE);
         }
     }
 

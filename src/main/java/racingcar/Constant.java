@@ -17,6 +17,7 @@ public class Constant {
     public final static String ERROR_HEADER = "[ERROR] ";
     public final static String ILLEGAL_ARGUMENT_EXCEPTION_NULL = "이름이 공백일 수 없습니다.";
     public final static String ILLEGAL_ARGUMENT_EXCEPTION_PARTIAL_SPACE = "이름 앞, 뒤, 사이에 공백없이 작성해주세요.";
+    public final static String ILLEGAL_ARGUMENT_EXCEPTION_ALONE = "자동차 이름은 2개 이상 입력해주세요.";
     public final static String ILLEGAL_ARGUMENT_EXCEPTION_LENGTH = "이름은 " + CHECK_LENGTH + "자 이하로 작성해주세요.";
     public final static String ILLEGAL_ARGUMENT_EXCEPTION_DUPLICATE = "중복된 이름이 있습니다.";
     public final static String ILLEGAL_ARGUMENT_EXCEPTION_NOT_INTEGER = "시도 횟수는 "+INTEGER_RANGE+" 범위 내 숫자여야 합니다.";
