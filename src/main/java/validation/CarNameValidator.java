@@ -7,14 +7,10 @@ public class CarNameValidator {
     private CarNameValidator() {
     }
 
-    public static void validateCarName(String carName) {
+    public static void validateCarName(String carName) throws IllegalArgumentException {
         String[] carNames = splitCarName(carName);
-        try {
-            validateCarNameCount(carNames);
-            validateCarNameLength(carNames);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        validateCarNameCount(carNames);
+        validateCarNameLength(carNames);
     }
 
     private static String[] splitCarName(String carNames) {
