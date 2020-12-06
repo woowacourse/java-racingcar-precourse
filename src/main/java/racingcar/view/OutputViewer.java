@@ -36,22 +36,9 @@ public class OutputViewer {
      * 우승자가 하나일 경우에, 결과를 보여주는 메서드
      * @param finalSoloWinnerName 솔로 우승자
      */
-    public static void singleFinalWinner(String finalSoloWinnerName) {
+    public static void finalWinner(String finalSoloWinnerName) {
         System.out.print(FINAL_WINNER_MESSAGE);
         System.out.printf("%s", finalSoloWinnerName);
-    }
-
-    /**
-     * 우승자가 여럿일 때, 결과를 보여주는 메서드
-     * @param finalWinnerNames 여러 우승자들이 담겨져있는 Array
-     */
-
-    public static void multipleFinalWinner(ArrayList finalWinnerNames) {
-        System.out.print(FINAL_WINNER_MESSAGE);
-        for (int i = 0 ; i < finalWinnerNames.size()-1; i++) {
-            System.out.printf("%s, ", finalWinnerNames.get(i));
-        }
-        System.out.printf("%s", finalWinnerNames.get(finalWinnerNames.size()-1));
     }
 
     /* 게임간 간격 확보영 메서드 */

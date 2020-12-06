@@ -57,18 +57,14 @@ public class RacingGame {
 
     private void showWinners(ArrayList<String> winnerList) {
         if (winnerList.size() == 1) {
-            soloWinner(winnerList);
+            soloWinner(winnerList.get(0));
             return;
         }
-        multiWinners(winnerList);
+        String winners = String.join(", ",winnerList);
+        soloWinner(winners);
     }
 
-    private void soloWinner(ArrayList<String> winnerList) {
-        String winner = winnerList.get(0);
-        OutputViewer.singleFinalWinner(winner);
-    }
-
-    private void multiWinners(ArrayList<String> winnerList) {
-        OutputViewer.multipleFinalWinner(winnerList);
+    private void soloWinner(String winner) {
+        OutputViewer.finalWinner(winner);
     }
 }
