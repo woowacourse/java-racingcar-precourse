@@ -3,12 +3,12 @@
 ## 📌 구현할 기능 목록 
 - (Application) 자동차 이름 쉼표 기준으로 구분하기
 - (CarValidator) 자동차 이름 5자 이내인지 확인하기(CarValidator 클래스 추가)
-- (Car) position 업데이트 함수 생성
-- (Car) position 반환 함수 생성
-- (Application) Game 객체 생성하기
+- (Car) position 업데이트 기능
+- (Car) position 반환 기능
+- (Application) Game 객체로 게임 동작 관리하기
 - (Application) 사용자로부터 이동시킬 횟수 입력받기
-- (Game) Game 을 주어진 횟수만큼 동작시키기 
-- (Car) name 반환 함수 생성
+- (Game) Game 을 입력한 횟수만큼 동작시키기 
+- (Car) name 반환 기능 
 - (Game) 0~9 사이 랜덤값을 통해 자동차 이동 여부 처리하기
 - (Game, Car) 매 회 마다 자동차 이름과 함께 position 출력시키기
 - (Game) 최종 우승자 출력시 단독, 공동 우승자 구분하여 출력하기
