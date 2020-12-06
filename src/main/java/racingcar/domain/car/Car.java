@@ -18,7 +18,6 @@ public class Car implements Comparable<Car> {
 
     // 추가 기능 구현
 
-
     public Car(String name, Engine engine) {
         this.name = name;
         this.engine = engine;
@@ -51,8 +50,8 @@ public class Car implements Comparable<Car> {
         position += engine.getPower();
     }
 
-    public boolean isBigOrEqualThen(Car car) {
-        if (this.compareTo(car) >= 0) {
+    public boolean atFirstPosition(Car car) {
+        if (this.compareTo(car) == 0) {
             return true;
         }
         return false;
@@ -82,8 +81,8 @@ public class Car implements Comparable<Car> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return getPositionMarks() == car.getPositionMarks() &&
-                Objects.equals(name, car.name);
+        return getPosition() == ((Car) o).getPosition() &&
+                getName().equals(((Car) o).getName());
     }
 
     @Override
