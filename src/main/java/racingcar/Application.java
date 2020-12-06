@@ -1,7 +1,9 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Scanner;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {

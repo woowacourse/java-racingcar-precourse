@@ -39,4 +39,9 @@ public class Car {
     public int hashCode() {
         return this.name.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s@name: %s, position: %d", this.getClass().toString(), this.name, this.position);
+    }
 }
