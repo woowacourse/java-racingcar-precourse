@@ -1,36 +1,33 @@
 package racinggame;
 
-import domain.RaceWinner;
 import domain.RacingCars;
+import domain.TotalRound;
 import views.InputView;
 import views.OutputView;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class RacingGame {
     private static final String RESULT = "실행 결과";
 
-    private int totalRound;
+    private TotalRound totalRound;
     private RacingCars racingCars;
 
-    private RacingGame(RacingCars racingCars, int totalRound) {
+    private RacingGame(RacingCars racingCars, TotalRound totalRound) {
         this.racingCars = racingCars;
         this.totalRound = totalRound;
     }
 
     public static RacingGame prepareRacingGame(Scanner scanner) {
-        List<String> carName = InputView.inputCarNames(scanner);
-        RacingCars racingCars = new RacingCars(carName);
-
-        int round = InputView.inputRoundNumber(scanner);
-        return new RacingGame(racingCars, round);
+        RacingCars racingCars = new RacingCars(InputView.inputCarNames(scanner));
+        String round = InputView.inputRoundNumber(scanner);
+        return new RacingGame(racingCars, new TotalRound(round));
     }
 
     public void gamePlay() {
         System.out.println();
         System.out.println(RESULT);
-        for (int round = 1; round <= totalRound; round++) {
+        for (int round = 1; round <= totalRound.getTotalRound(); round++) {
             racingCars.moveAllCar();
             OutputView.printOneRound(racingCars);
         }
@@ -40,7 +37,6 @@ public class RacingGame {
         Referee referee = new Referee();
         referee.calculateMaxDistance(racingCars);
 
-        RaceWinner raceWinner = referee.selectWinner(racingCars);
-        OutputView.printWinner(raceWinner);
+        OutputView.printWinner(referee.selectWinner(racingCars));
     }
 }
