@@ -1,8 +1,8 @@
 package racingcar.race;
 
 import racingcar.Constant;
-import racingcar.Validation;
 import racingcar.car.Car;
+import racingcar.car.CarNameValidation;
 import racingcar.car.ParticipatingCars;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class RaceService {
                                     .map(s -> s.replaceAll(Constant.BLANK, Constant.EMPTY_NAME))
                                     .toArray(String[]::new);
 
-        checkRightCarName(allCarName);
+        CarNameValidation.validation(allCarName);
 
         return allCarName;
     }
@@ -31,7 +31,7 @@ public class RaceService {
 
     public int getRaceRound(Scanner scanner) {
         String number = scanner.nextLine();
-        checkRightNumber(number);
+        RaceRoundValidation.validation(number);
 
         return Integer.parseInt(number);
     }
@@ -89,13 +89,5 @@ public class RaceService {
 
     private int getLeadPosition(int leadPosition, int position) {
         return Math.max(leadPosition, position);
-    }
-
-    private void checkRightCarName(String[] cars) {
-        Validation.carNameValidation(cars);
-    }
-
-    private void checkRightNumber(String number) {
-        Validation.raceNumberValidation(number);
     }
 }
