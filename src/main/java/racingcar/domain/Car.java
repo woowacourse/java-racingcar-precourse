@@ -9,6 +9,10 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int move() {
         position++;
         return position;
@@ -21,17 +25,13 @@ public class Car {
         return false;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public String toString() {
-        String distanceBar = "";
+        String distanceSign = "";
         for (int i = 0; i < position; i++) {
-            distanceBar += "-";
+            distanceSign += "-";
         }
-        return name + " : " + distanceBar;
+        return name + " : " + distanceSign;
     }
 
 }

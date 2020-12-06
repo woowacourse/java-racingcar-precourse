@@ -26,7 +26,7 @@ public class InputView {
     public static List<Car> getCars() {
         System.out.println(RACING_CAR_NAME_REQUEST_MESSAGE);
         try {
-            List<String> carNames = parseCarNameInput(scanner.nextLine());
+            List<String> carNames = parseCarNames(scanner.nextLine());
             List<Car> cars = new LinkedList<>();
             for (int i = 0; i < carNames.size(); i++) {
                 cars.add(new Car(carNames.get(i)));
@@ -38,18 +38,18 @@ public class InputView {
         }
     }
 
-    private static List<String> parseCarNameInput(String input) {
+    private static List<String> parseCarNames(String input) {
         input = input.replaceAll(" ", "");
         validateContainSeparator(input);
         validateContainSpecialCharacters(input);
 
         List<String> carNames = Arrays.asList(input.split(RACING_CAR_NAME_SEPARATOR, 0));
-        validateSeparateInput(carNames);
-        validateContainDuplicatedNames(carNames);
+        validateCanSeparated(carNames);
+        validateContainDuplication(carNames);
 
         List<String> paredCarNames = new LinkedList<>();
         for (String carName : carNames) {
-            validateCarNameLength(carName);
+            validateLength(carName);
             paredCarNames.add(carName);
         }
         return paredCarNames;
@@ -67,7 +67,7 @@ public class InputView {
         }
     }
 
-    public static void validateSeparateInput(List<String> inputs) {
+    public static void validateCanSeparated(List<String> inputs) {
         for (String input : inputs) {
             if (input.length() == 0) {
                 throw new IllegalArgumentException(SEPARATE_ERROR_MESSAGE);
@@ -75,7 +75,7 @@ public class InputView {
         }
     }
 
-    public static void validateContainDuplicatedNames(List<String> names) {
+    public static void validateContainDuplication(List<String> names) {
         Set<String> set = new HashSet<>();
 
         for (String name : names) {
@@ -86,7 +86,7 @@ public class InputView {
         }
     }
 
-    public static void validateCarNameLength(String name) {
+    public static void validateLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_MESSAGE);
         }

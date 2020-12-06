@@ -11,7 +11,7 @@ public class Application {
 
         InputView.scanner = scanner;
         RacingCarGameController game = new RacingCarGameController();
-        game.run();
+        game.start();
     }
 
 }

@@ -15,7 +15,6 @@ public class RacingCarGameController {
     private static int maxPosition = 0;
     private static int raceCount;
     private static List<Car> cars = new LinkedList<>();
-    private static List<Car> winners = new LinkedList<>();
 
     private static void setCars() {
         cars = InputView.getCars();
@@ -23,11 +22,6 @@ public class RacingCarGameController {
 
     private static void setRaceCount() {
         raceCount = InputView.getRaceCount();
-    }
-
-    private static void initGameConfig() {
-        setCars();
-        setRaceCount();
     }
 
     private static void race() {
@@ -39,23 +33,25 @@ public class RacingCarGameController {
         }
     }
 
-    private static void findRacingWinners() {
+    private static List<Car> makeWinners() {
+        List<Car> winners = new LinkedList<>();
         for (Car car : cars) {
             if (car.isMaxPosition(maxPosition)) {
                 winners.add(car);
             }
         }
+        return winners;
     }
 
-    public static void run() {
-        initGameConfig();
+    public static void start() {
+        setCars();
+        setRaceCount();
         OutputView.printRacingResultMessage();
         for (int i = 0; i < raceCount; i++) {
             race();
             OutputView.printCarsStatus(cars);
         }
-        findRacingWinners();
-        OutputView.printCarNames(winners);
+        OutputView.printCarNames(makeWinners());
     }
 
 }
