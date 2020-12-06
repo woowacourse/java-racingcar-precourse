@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.Model.Cars;
+
 import java.util.ArrayList;
 
 public class OutputView {
