@@ -27,6 +27,11 @@ public class RacingGame {
         }
     }
 
+    public void race() {
+        this.racingTryCounts.next();
+        this.cars.move();
+    }
+
     public boolean isEnd() {
         return !this.racingTryCounts.hasNext();
     }
