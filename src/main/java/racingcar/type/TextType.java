@@ -20,6 +20,9 @@ public enum TextType {
         this.text = text;
     }
 
+    /**
+     * @return 출력 문구 상수
+     */
     public String getText() {
         return text;
     }

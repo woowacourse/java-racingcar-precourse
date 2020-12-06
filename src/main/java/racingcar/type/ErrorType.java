@@ -20,6 +20,9 @@ public enum ErrorType {
         this.error = error;
     }
 
+    /**
+     * @return 에러 문구 상수
+     */
     public String getError() {
         return error;
     }

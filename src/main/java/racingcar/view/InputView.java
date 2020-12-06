@@ -13,6 +13,10 @@ import java.util.*;
  * @author Daeun Lee
  */
 public class InputView {
+    /**
+     * @param scanner 입력 값
+     * @return 자동차를 원소로 가진 리스트
+     */
     public static ArrayList<Car> scanCars(Scanner scanner) {
         String scannerCars = scanner.nextLine();
 
@@ -28,6 +32,10 @@ public class InputView {
         return cars;
     }
 
+    /**
+     * @param scanner 입력 값
+     * @return 자동차 경주 게임을 시도할 횟수
+     */
     public static int scanTimes(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             scanner.next();

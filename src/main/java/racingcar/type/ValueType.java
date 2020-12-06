@@ -14,6 +14,9 @@ public enum ValueType {
         this.value = value;
     }
 
+    /**
+     * @return 값 상수
+     */
     public int getValue() {
         return value;
     }

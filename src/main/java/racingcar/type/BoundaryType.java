@@ -21,6 +21,9 @@ public enum BoundaryType {
         this.boundary = boundary;
     }
 
+    /**
+     * @return 경계 값 상수
+     */
     public int getBoundary() {
         return boundary;
     }

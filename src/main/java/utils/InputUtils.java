@@ -16,6 +16,10 @@ import java.util.Set;
  * @author Daeun Lee
  */
 public class InputUtils {
+    /**
+     * @param carName 자동차 이름
+     * @return 자동차
+     */
     public static Car validateCar(String carName) {
         // 자동차 이름의 길이가 1자 미만 또는 5자 초과인 경우
         if ((carName.length() < BoundaryType.MINIMUM_CAR_NAME_LENGTH.getBoundary())
@@ -31,6 +35,9 @@ public class InputUtils {
         return new Car(carName);
     }
 
+    /**
+     * @param cars 자동차를 원소로 가진 리스트
+     */
     public static void checkDuplicatedCar(ArrayList<Car> cars) {
         Set<String> carSet = new HashSet<>();
 
@@ -44,6 +51,9 @@ public class InputUtils {
         }
     }
 
+    /**
+     * @param scannerTimes 사용자가 입력한 자동차 경주 게임을 시도할 횟수
+     */
     public static void validateTimes(int scannerTimes) {
         // 시도할 횟수에 음수 또는 0이 입력되는 경우
         if (scannerTimes <= ValueType.ZERO.getValue()) {

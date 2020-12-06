@@ -13,12 +13,18 @@ public class CarRacing {
     private static ArrayList<Car> cars = new ArrayList<>();
     private static int times;
 
+    /**
+     * @param scanner 입력 값
+     */
     public static void runCarRacing(Scanner scanner) {
         startCarRacing(scanner);
         playCarRacing();
         finishCarRacing();
     }
 
+    /**
+     * @param scanner 입력 값
+     */
     public static void startCarRacing(Scanner scanner) {
         cars = Initialization.initCars(scanner);
         times = Initialization.initTimes(scanner);

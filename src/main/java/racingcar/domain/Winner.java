@@ -14,6 +14,9 @@ public class Winner {
     private static int maxPosition;
     private static ArrayList<String> winner = new ArrayList<>();
 
+    /**
+     * @param cars 자동차를 원소로 가진 리스트
+     */
     public static void showWinner(ArrayList<Car> cars) {
         ArrayList<Integer> carPositions = Position.addPosition(cars);
         maxPosition = Position.calculateMaxPosition(carPositions);
@@ -29,6 +32,9 @@ public class Winner {
         }
     }
 
+    /**
+     * @param cars 자동차를 원소로 가진 리스트
+     */
     public static void checkWinner(ArrayList<Car> cars) {
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {

@@ -10,6 +10,10 @@ import java.util.ArrayList;
  * @author Daeun Lee
  */
 public class Position {
+    /**
+     * @param car 자동차
+     * @return 자동차의 전진을 나타내는 "-"을 가진 스트링 버퍼
+     */
     public static StringBuffer countPosition(Car car) {
         StringBuffer carPosition = new StringBuffer();
 
@@ -20,6 +24,10 @@ public class Position {
         return carPosition;
     }
 
+    /**
+     * @param cars 자동차를 원소로 가진 리스트
+     * @return 자동차의 위치를 원소로 가진 리스트
+     */
     public static ArrayList<Integer> addPosition(ArrayList<Car> cars) {
         ArrayList<Integer> carPositions = new ArrayList<>();
 
@@ -30,6 +38,10 @@ public class Position {
         return carPositions;
     }
 
+    /**
+     * @param carPositions 자동차의 위치를 원소로 가진 리스트
+     * @return 자동차 위치 최댓값
+     */
     public static int calculateMaxPosition(ArrayList<Integer> carPositions) {
         int maxPosition = 1;
 

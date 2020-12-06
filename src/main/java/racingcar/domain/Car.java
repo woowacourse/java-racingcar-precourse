@@ -24,6 +24,9 @@ public class Car {
         return position;
     }
 
+    /**
+     * @param car 자동차
+     */
     public static void moveCar(Car car) {
         int randomNumber = RandomNumber.generateRandomNumber();
 

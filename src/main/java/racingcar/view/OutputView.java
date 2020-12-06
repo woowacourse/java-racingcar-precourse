@@ -36,6 +36,9 @@ public class OutputView {
         System.out.println(ErrorType.NO_WINNER.getError());
     }
 
+    /**
+     * @param winner 자동차 경주 게임의 우승자를 원소로 가진 리스트
+     */
     public static void printWinner(ArrayList<String> winner) {
         printWinnerText();
 
