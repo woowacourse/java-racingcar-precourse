@@ -24,4 +24,8 @@ public class Car {
     private void goForward() {
         this.position++;
     }
+
+    public String getName() {
+        return name;
+    }
 }
