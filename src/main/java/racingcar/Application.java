@@ -9,20 +9,19 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         String[] cars;
         List<Car> carList;
+        String cntInput;
         do {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             String carsInput = scanner.next();
             cars = carsInput.split(",");
         } while (!validCarNameList(cars));
         carList = createCars(cars);
-
-        Game game = new Game();
-        String cntInput;
         do {
             System.out.println("시도할 회수는 몇회인가요?");
             cntInput = scanner.next();
         } while (!validGameCntInput(cntInput));
-        game.setGame(Integer.parseInt(cntInput), carList);
+
+        Game game = new Game(Integer.parseInt(cntInput), carList);
         game.start();
     }
 

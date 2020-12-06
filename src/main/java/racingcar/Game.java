@@ -10,7 +10,7 @@ public class Game {
     private int gameCnt = 0;
     private List<Car> carList;
 
-    public void setGame(int cnt, List<Car> carList) {
+    public Game(int cnt, List<Car> carList) {
         this.gameCnt = cnt;
         this.carList = carList;
     }
@@ -30,7 +30,7 @@ public class Game {
         List<String> winnerList = getWinner();
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.print(winnerList.get(i));
-            if(i != winnerList.size() - 1) {
+            if (i != winnerList.size() - 1) {
                 System.out.print(", ");
             }
         }
