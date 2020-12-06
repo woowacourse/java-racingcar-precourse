@@ -18,4 +18,8 @@ public class GameView {
     public void printGameMessage(GameMessage gameMessage) {
         System.out.print(gameMessage);
     }
+
+    public void printGameResult(String gameResult) {
+        System.out.println(gameResult);
+    }
 }
