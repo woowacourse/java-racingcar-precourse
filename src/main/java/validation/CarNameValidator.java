@@ -8,12 +8,12 @@ public class CarNameValidator {
     }
 
     public static void validateCarName(String carName) {
-        String carNames[] = splitCarName(carName);
+        String[] carNames = splitCarName(carName);
         validateCarNameCount(carNames);
     }
 
     private static String[] splitCarName(String carName) {
-        String carNames[] = carName.split(",");
+        String[] carNames = carName.split(",");
         return carNames;
     }
 
