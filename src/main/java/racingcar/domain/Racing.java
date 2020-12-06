@@ -17,10 +17,6 @@ public class Racing {
 
     public static Racing create(String... names) {
 
-        if (names.length == 0) {
-            throw new IllegalArgumentException("1개이상 입력해주세요");
-        }
-
         List<Car> cars = createCars(names);
 
         return new Racing(cars);
@@ -41,10 +37,10 @@ public class Racing {
     }
 
     public List<Car> getWinners() {
-        Car first = getFirst();
+        Car firstCar = getFirst();
 
         return cars.stream()
-                .filter(car -> car.isBigOrEqualThen(first))
+                .filter(car -> car.atFirstPosition(firstCar))
                 .collect(Collectors.toList());
     }
 
