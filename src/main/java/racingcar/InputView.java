@@ -26,6 +26,16 @@ public class InputView {
 
     public String receiveGameRound() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return scanner.nextLine();
+        return validateRound(scanner.nextLine());
+    }
+
+    private String validateRound(String round) {
+        try {
+            GameRoundValidator.validateGameRound(round);
+            return round;
+        } catch (IllegalGameRoundException e) {
+            System.out.println(e.getMessage());
+            return receiveGameRound();
+        }
     }
 }

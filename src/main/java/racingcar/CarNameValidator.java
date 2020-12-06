@@ -37,14 +37,22 @@ public class CarNameValidator {
     }
 
     private static void checkNotOverLengthOf(String eachName) {
-        if (eachName.length() > MAXIMUM_LENGTH_OF_NAME) {
+        if (isLongerThanMax(eachName)) {
             throw new IllegalCarNameException("[ERROR] 자동차 이름은 5자 이하여야 한다.\n");
         }
     }
+    
+    private static boolean isLongerThanMax(String eachName) {
+        return eachName.length() > MAXIMUM_LENGTH_OF_NAME;
+    }
 
     private static void checkRightFormatOf(String eachName) {
-        if (!eachName.matches(CAR_NAME_REGEX)) {
+        if (!isMatchRightFormat(eachName)) {
             throw new IllegalCarNameException("[ERROR] 자동차 이름은 한글, 알파벳, 숫자 조합으로만 이루어져야 한다.\n");
         }
+    }
+    
+    private static boolean isMatchRightFormat(String eachName) {
+        return eachName.matches(CAR_NAME_REGEX);
     }
 }
