@@ -1,7 +1,9 @@
 package racingcar;
 
 import static racingcar.GameResult.getResult;
+import static racingcar.Messages.MESSAGE_GAME_RESULT;
 import static utils.PrintUtils.print;
+import static utils.PrintUtils.printEmptyLine;
 
 import java.util.List;
 import utils.RandomUtils;
@@ -13,7 +15,7 @@ public class Race {
     public static final int MOVE = 4;
 
     public static GameResult start(List<Car> cars, int tryCount) {
-        print("실행 결과");
+        print(MESSAGE_GAME_RESULT);
         for (int i = 0; i < tryCount; i++) {
             playSingleGame(cars);
         }
@@ -25,7 +27,7 @@ public class Race {
         for (Car car : cars) {
             driveOrStopCar(car);
         }
-        System.out.println();
+        printEmptyLine();
     }
 
     private static void driveOrStopCar(Car car) {
@@ -34,7 +36,6 @@ public class Race {
         }
         car.printStatus();
     }
-
 
     private static boolean isDrive() {
         // 4 이상일 경우 전진하고, 3 이하의 값이면 멈춘다
