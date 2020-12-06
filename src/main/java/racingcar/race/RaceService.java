@@ -51,11 +51,14 @@ public class RaceService {
     public void showCurrentSituation(List<Car> allRacingCars) {
         for (Car car : allRacingCars) {
             System.out.print(car.getName() + Constant.COLON);
+            showEachCarSituation(car.getPosition());
+        }
+        System.out.println();
+    }
 
-            for (int j = 0; j < car.getPosition(); j++) {
-                System.out.print(Constant.FORWARD_SIGN);
-            }
-            System.out.println();
+    private void showEachCarSituation(int position) {
+        for (int j = 0; j < position; j++) {
+            System.out.print(Constant.FORWARD_SIGN);
         }
         System.out.println();
     }
