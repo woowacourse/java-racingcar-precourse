@@ -17,6 +17,8 @@ public class CarRace {
     }
 
     public void doRace(int raceNumber) {
+        System.out.println("실행 결과");
+
         for (int i = 0; i < raceNumber; i++) {
             for (Car c : racingCars) {
                 c.move();
@@ -24,6 +26,7 @@ public class CarRace {
             }
             System.out.println();
         }
+
         addWinnerToList();
         printWinner();
     }
@@ -41,9 +44,7 @@ public class CarRace {
 
         int winnerPosition = 0;
         for (Car c : racingCars) {
-            if (c.getPosition() > winnerPosition) {
-                winnerPosition = c.getPosition();
-            }
+            winnerPosition = Math.max(winnerPosition, c.getPosition());
         }
         for (Car c : racingCars) {
             if (c.getPosition() >= winnerPosition) {
