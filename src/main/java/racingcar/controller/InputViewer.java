@@ -19,7 +19,7 @@ public class InputViewer {
     }
 
     List<String> inputCarNameList() {
-        String inputToken = this.scanner.next();
+        String inputToken = this.scanner.nextLine();
         List<String> carNameList = new ArrayList<>();
         StringTokenizer stringTokenizer = new StringTokenizer(inputToken, NAME_TOKEN_DELIM);
 
@@ -31,7 +31,7 @@ public class InputViewer {
     }
 
     int inputTryNumber() {
-        String token = this.scanner.next();
+        String token = this.scanner.nextLine().trim();
         return Integer.parseInt(token);
     }
 

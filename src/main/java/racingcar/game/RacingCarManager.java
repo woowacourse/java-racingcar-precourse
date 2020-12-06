@@ -11,6 +11,7 @@ public class RacingCarManager {
     private static final String MIDDLE_DELIM_OF_RESULT = " : ";
     private static final String MOVING_POSITION_MARK = "-";
     private static final int START_INDEX = 0;
+    private static final String SPACE = " ";
 
     private final List<Car> racingCarList;
 
@@ -22,11 +23,11 @@ public class RacingCarManager {
     }
 
     private Car makeValidateCar(String carName) {
-        if (carName.length() <= MAX_LEN_CAR_NAME) {
-            return new Car(carName);
+        if (carName.length() > MAX_LEN_CAR_NAME || carName.contains(SPACE)) {
+            throw new IllegalArgumentException();
         }
 
-        throw new IllegalArgumentException();
+        return new Car(carName);
     }
 
     public int numberOfRacingCar() {

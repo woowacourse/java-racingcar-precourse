@@ -8,7 +8,7 @@ public class OutputViewer {
     private static final int ONE = 1;
 
     void printExceedMaxLenCarNameErrorMessage() {
-        System.out.println(ERROR_MESSAGE_PREFIX + "최대 자동차 이름 길이를 넘겼습니다.");
+        System.out.println(ERROR_MESSAGE_PREFIX + "최대 자동차 이름 길이가 5보다 크거나 공백이 있습니다.");
     }
 
     void printErrorInputTypeMessage() {
