@@ -19,9 +19,7 @@ public class Game {
     public void play() {
         setGameBoard();
         int attemptCount = this.inputView.scanAttemptCount();
-        for (int round = 0; round < attemptCount; round++) {
-            OutputView.printRoundResult(gameBoard.runRound());
-        }
+        OutputView.printScoreboard(attemptCount, gameBoard);
     }
 
     private void setGameBoard() {
