@@ -20,7 +20,7 @@ public class InputGuide {
 
     public InputGuide(Scanner scanner) {
         this.scanner = scanner;
-        validateUtils = new ValidateUtils(scanner);
+        validateUtils = new ValidateUtils();
     }
 
     public List<String> inputCars() {
@@ -42,7 +42,7 @@ public class InputGuide {
     public int inputMoves() {
         System.out.println(MOVES_INPUT_MESSAGE);
         try {
-            return validateUtils.isMoreThanZero();
+            return validateUtils.isNumber(scanner.nextLine());
         } catch (RacingCarErrorException exception) {
             System.out.println(exception.getMessage());
             return inputMoves();

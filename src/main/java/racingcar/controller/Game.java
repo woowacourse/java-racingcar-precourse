@@ -14,9 +14,9 @@ import racingcar.view.OutputGuide;
  */
 public class Game {
 
-    private static final int MIN = 0;
-    private static final String DELIMITER = ", ";
     private static final String NO_WINNERS_EXCEPTION_MESSAGE = "우승자가 존재하지 않습니다.";
+    private static final String DELIMITER = ", ";
+    private static final int MIN = 0;
 
     private final InputGuide inputGuide;
     private final OutputGuide outputGuide;
@@ -30,12 +30,12 @@ public class Game {
     }
 
     public void play() {
-        init();
+        initialize();
         race();
         outputGuide.showWinner(findWinner());
     }
 
-    private void init() {
+    private void initialize() {
         cars = makeCars(inputGuide.inputCars());
         moves = inputGuide.inputMoves();
     }
@@ -53,12 +53,14 @@ public class Game {
 
     private void racePerRound() {
         cars.forEach(Car::run);
+        cars.forEach(car -> outputGuide.drawTrace(car.getName(),car.getPosition()));
         System.out.println();
     }
 
     private String findWinner() {
         int max = findMaxMove();
-        return cars.stream().filter(car->car.isOnPosition(max))
+        return cars.stream()
+            .filter(car->car.isOnPosition(max))
         .map(Car::getName)
         .collect(Collectors.joining(DELIMITER));
     }

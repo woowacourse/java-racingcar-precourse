@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.List;
-import java.util.Scanner;
 import racingcar.exception.RacingCarErrorException;
 
 /**
@@ -17,23 +16,15 @@ public class ValidateUtils {
     private static final int TWO = 2;
     private static final int ZERO = 0;
 
-    private final Scanner scanner;
-
-    public ValidateUtils(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
     public void isValid(List<String> cars) {
-        if (!isMoreThanOne(cars)) {
-            throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
-        }
+        isMoreThanOne(cars);
     }
 
-    private boolean isMoreThanOne(List<String> cars) {
+    private void isMoreThanOne(List<String> cars) {
         if (cars.size() >= TWO) {
             isNotDuplicate(cars);
             isValidateCarNames(cars);
-            return true;
+            return;
         }
         throw new RacingCarErrorException(CAR_NUMBERS_INPUT_EXCEPTION_MESSAGE);
     }
@@ -54,10 +45,9 @@ public class ValidateUtils {
         return carName.length() < FIVE && carName.length() > ZERO;
     }
 
-    public int isMoreThanZero() {
+    public int isNumber(String input) {
         try {
-            int input = Integer.parseInt(scanner.nextLine());
-            return isNaturalNumber(input);
+            return isNaturalNumber(Integer.parseInt(input));
         } catch (NumberFormatException | RacingCarErrorException exception) {
             throw new RacingCarErrorException(MOVES_INPUT_EXCEPTION_MESSAGE);
         }

@@ -28,4 +28,5 @@ public class OutputGuide {
             .forEach(value -> carPosition.append(POSITION_DASH));
         System.out.println(carPosition.toString());
     }
+
 }
