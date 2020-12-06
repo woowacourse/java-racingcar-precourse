@@ -25,22 +25,29 @@ public class Racing {
         inputUtils = new InputUtils();
         printUtils = new PrintUtils();
 
-        printUtils.printInputNamesGuide();
-        String[] nameList = inputUtils.inputCarsName();
-        setCarList(nameList);
-        gameNumber = inputNumberofGame(scanner);
-        for(int i=0;i<gameNumber;i++){
+        setCarList();
+        setGameNumber();
+        printUtils.printGameResultMessage();
+        for (int i = 0; i < gameNumber; i++) {
             carRacing();
         }
         printUtils.printWinners(whichCarsWin());
     }
 
     /* 이름 리스트를 받아서 Car 객체를 생성하는 메소드*/
-    public static void setCarList(String[] nameList) {
+    public static void setCarList() {
         carList = new ArrayList<>();
+
+        printUtils.printInputNamesGuide();
+        String[] nameList = inputUtils.inputCarsName();
         for (int i = 0; i < nameList.length; i++) {
             carList.add(new Car(nameList[i]));
         }
+    }
+
+    public static void setGameNumber(){
+        printUtils.printInputNumberGuide();
+        gameNumber = inputUtils.inputNumberOfGame();
     }
 
     /* 회차마다 차들의 경기를 진행하는 메소드 */
