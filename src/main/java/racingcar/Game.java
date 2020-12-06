@@ -10,7 +10,7 @@ public class Game {
     private static ArrayList<Car> carsInGame;
 
     public static void play(Scanner scanner) {
-        setGameInformation(scanner);
+        setGame(scanner);
 
         TrialProgression.trialProgress(numberOfTrial, carsInGame);
         finalFrontRunnerPosition = TrialProgression.getFrontRunnerPosition();
@@ -19,8 +19,9 @@ public class Game {
         WinnerAnnouncement.announce();
     }
 
-    private static void setGameInformation(Scanner scanner) {
+    private static void setGame(Scanner scanner) {
         GameInformation.getUserInput(scanner);
+
         numberOfCarsInGame = GameInformation.getNumberOfCarsInGame();
         numberOfTrial = GameInformation.getNumberOfTrial();
         carsInGame = GameInformation.getCarsInGame();
