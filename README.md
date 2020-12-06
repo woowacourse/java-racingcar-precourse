@@ -154,3 +154,32 @@ public class Car {
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+
+<br>
+
+## 🛒구현할 기능 목록
+
+두 가지의 클래스를 만든다.
+`class Car`, `class Game`
+
+각각의 클래스가 가지는 기능은 아래와 같다.
+
+### `Car`
+
+- 이름이 있다. (생성될 때 받는다.)
+  - 5자 이하이다.
+- 위치값을 갖는다.
+  - setPosition은 웬만해서는 하지 않는다.
+- 랜덤값을 `Car`에서 만들어야 할까?
+
+### `Game`
+
+- 입력은 총 두 번 받는다.
+  - 경주할 자동차 이름을 입력할 때
+  - 회수를 입력할 때
+- 자동차 이름을 입력하면 `new Car`
+- 입력한 회수만큼 게임을 진행한다. (반복문으로)
+- 게임 진행시마다 자동차 이름과 위치를 출력한다.
+- 전진 조건을 만족하는지 확인한다.
+- 회수가 완료되면 최종 우승자를 판별한다. 
+  - 어떤 자동차가 `position` 값이 가장 큰지
