@@ -30,7 +30,7 @@ public class Game {
     }
 
     public void setUp() {
-        outputManager.printInputCarNameMessage();
+        outputManager.printInputCarNamesMessage();
         inputManager.inputCarNameArray();
         generateCar(inputManager.getCarNameArray());
         outputManager.printInputTryNumberMessage();

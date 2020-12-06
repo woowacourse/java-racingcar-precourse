@@ -10,7 +10,7 @@ public class OutputManager {
     private static final String OUTPUT_EACH_MOVING_RESULT_BAR = "-";
     private static final String OUTPUT_FINAL_WINNER_MESSAGE = "최종 우승자: ";
 
-    public void printInputCarNameMessage() {
+    public void printInputCarNamesMessage() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class InputManager {
     private final Scanner scanner;
     private String[] carNameArray;
-    private String inputCarNameString;
+    private String inputCarNames;
     private String inputTryNumberString;
     private int tryNumber;
 
@@ -16,7 +16,7 @@ public class InputManager {
     }
 
     public void inputCarNameArray() {
-        inputCarNameString = scanner.nextLine();
+        inputCarNames = scanner.nextLine();
         splitCarNamesWithComma();
     }
 
@@ -27,7 +27,7 @@ public class InputManager {
     }
 
     public void splitCarNamesWithComma() {
-        carNameArray = inputCarNameString.split(",");
+        carNameArray = inputCarNames.split(",");
         ValidationUtils.validateCarNameArray(carNameArray);
     }
 
