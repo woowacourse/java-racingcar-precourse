@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
+    private static final int MINIMUM_POSITION = 0;
+
     private List<Car> players;
-    public List<String> winner = new ArrayList<>();
+    private List<String> winner = new ArrayList<>();
 
     Winner(List<Car> players) {
         this.players = players;
@@ -29,7 +31,7 @@ public class Winner {
     }
 
     private int findHighestPosition() {
-        int highestPosition = 0;
+        int highestPosition = MINIMUM_POSITION;
         for (Car car : players) {
             highestPosition = car.getPositionIfBiggerThan(highestPosition);
         }

@@ -5,8 +5,13 @@ import java.util.List;
 import utils.RandomUtils;
 
 public class Car {
+    private static final int READY = 0;
+    private static final int MOVE_STANDARD = 4;
+    private static final int RANGE_START = 0;
+    private static final int RANGE_END = 9;
+
     private final String name;
-    private int position = 0;
+    private int position = READY;
 
     public Car(String name) {
         CarValidator.validateCarName(name);
@@ -20,11 +25,11 @@ public class Car {
     }
 
     private boolean isMove() {
-        return (makeRandomNumber() >= 4);
+        return (makeRandomNumber() >= MOVE_STANDARD);
     }
 
     private int makeRandomNumber() {
-        return RandomUtils.nextInt(0, 9);
+        return RandomUtils.nextInt(RANGE_START, RANGE_END);
     }
 
     public int getPositionIfBiggerThan(int highestPosition) {
