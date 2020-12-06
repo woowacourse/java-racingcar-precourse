@@ -8,11 +8,10 @@ import racingcar.view.InputViewer;
 import racingcar.view.OutputViewer;
 
 public class Cars {
-    private ArrayList<Car> carList;
+    private final ArrayList<Car> carList = new ArrayList<Car>();
 
     public Cars(String[] carNames) {
         checkOverlap(carNames);
-        this.carList = new ArrayList();
         for (String carName : carNames) {
             Car tempCar = new Car(carName);
             this.carList.add(tempCar);
@@ -50,7 +49,7 @@ public class Cars {
      * @return 우승자들
      */
     public ArrayList<String> getWinners() {
-        ArrayList winner = new ArrayList();
+        ArrayList<String> winner = new ArrayList<String>();
         int maxDistance = getMaxDistance();
         for (Car car : this.carList){
             addWinners(winner, car, maxDistance);
@@ -67,13 +66,10 @@ public class Cars {
     }
 
     private int compareDistance(Car car, int maximumNumber) {
-        if (maximumNumber < car.getPosition()) {
-            return car.getPosition();
-        }
-        return maximumNumber;
+        return Math.max(maximumNumber, car.getPosition());
     }
 
-    private void addWinners(ArrayList winner, Car candiate, int maxDistance) {
+    private void addWinners(ArrayList<String> winner, Car candiate, int maxDistance) {
         if (candiate.isMaxDistance(maxDistance)) {
             winner.add(candiate.getName());
         }
