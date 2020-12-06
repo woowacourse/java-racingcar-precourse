@@ -1,8 +1,5 @@
 package racingcar;
 
-import static racingcar.Message.WINNER_DELIMITER;
-import static racingcar.Message.WINNER_MESSAGE;
-
 import java.util.List;
 
 /**
@@ -24,9 +21,5 @@ public class User {
 
     public int createCount(String input) {
         return racingCount.validate(input);
-    }
-
-    public String createWinners(final List<String> winners) {
-        return WINNER_MESSAGE + String.join(WINNER_DELIMITER, winners);
     }
 }

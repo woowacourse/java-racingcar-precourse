@@ -20,7 +20,7 @@ public class RacingGame {
         cars.moves(gameCount);
     }
 
-    public List<String> findWinners() {
-        return cars.findWinners();
+    public Winner findWinners() {
+        return new Winner(cars);
     }
 }

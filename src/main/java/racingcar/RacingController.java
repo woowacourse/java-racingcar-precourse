@@ -47,7 +47,7 @@ public class RacingController {
     }
 
     private void showWinners() {
-        String winners = user.createWinners(racingGame.findWinners());
+        Winner winners = racingGame.findWinners();
         System.out.println(winners);
     }
 }

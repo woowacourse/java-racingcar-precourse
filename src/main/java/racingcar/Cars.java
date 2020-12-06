@@ -39,13 +39,13 @@ public class Cars {
         return RandomUtils.nextInt(START_RANGE, END_RANGE);
     }
 
-    private Car getWinner() {
-        Collections.sort(cars);
-        return cars.get(FIRST_CAR);
+    public List<String> findWinners() {
+        return findCoWinners(getFirstCar());
     }
 
-    public List<String> findWinners() {
-        return findCoWinners(getWinner());
+    public Car getFirstCar() {
+        Collections.sort(cars);
+        return cars.get(FIRST_CAR);
     }
 
     private List<String> findCoWinners(Car winner) {
