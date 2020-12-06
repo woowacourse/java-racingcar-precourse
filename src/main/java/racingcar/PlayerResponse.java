@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import utils.ValidatorUtils;
 
@@ -42,7 +43,7 @@ public class PlayerResponse {
     }
 
     private String[] responseOfCarNames() {
-        String[] carNames = scanner.nextLine().split(NAMES_DELIMITER);
+        String[] carNames = scanner.nextLine().split(NAMES_DELIMITER,-1);
         return deleteWhiteSpace(carNames);
     }
 
