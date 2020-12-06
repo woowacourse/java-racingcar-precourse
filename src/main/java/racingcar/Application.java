@@ -13,5 +13,7 @@ public class Application {
         GamePlay.play(trackLength, carList);
         winnerList = GamePlay.whoIsWinner(carList);
         GamePlay.printWinner(winnerList);
+
+        scanner.close();
     }
 }
