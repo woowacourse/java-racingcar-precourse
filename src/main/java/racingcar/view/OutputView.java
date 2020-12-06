@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import racingcar.Car;
+
+import java.util.List;
+
 import static racingcar.Constant.*;
 
 public class OutputView {
@@ -16,8 +20,16 @@ public class OutputView {
         System.out.println(errorMessage);
     }
 
-    public static void printRaceResults(){
-
+    public static void printRoundResult(List<Car> carList){
+        for(Car car : carList){
+            System.out.print(car.getName());
+            System.out.print(" : ");
+            for(int i=0; i<car.getPosition(); i++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     public static void printWinners(){

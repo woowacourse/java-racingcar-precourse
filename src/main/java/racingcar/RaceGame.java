@@ -25,6 +25,7 @@ public class RaceGame {
     }
 
     public void playRounds(int repetitionCount) {
+        OutputView.printNormal(OUTPUT_VIEW_ROUND_RESULT_HEADER);
         for (int i = 0; i < repetitionCount; i++) {
             doRound();
         }
@@ -32,7 +33,7 @@ public class RaceGame {
 
     private void doRound() {
         manageCarMovement();
-        OutputView.printRaceResults();
+        OutputView.printRoundResult(carList);
     }
 
     private void manageCarMovement(){
