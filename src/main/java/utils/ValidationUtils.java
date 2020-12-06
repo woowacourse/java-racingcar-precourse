@@ -51,24 +51,15 @@ public class ValidationUtils {
     }
 
     private static boolean isInvalidLength(String carName) {
-        if (carName.length() > MAX_CAR_NAME_LENGTH) {
-            return true;
-        }
-        return false;
+        return carName.length() > MAX_CAR_NAME_LENGTH;
     }
 
     private static boolean isNotLetter(String carName) {
-        if (Pattern.matches(REGEX_ALPHA, carName) || Pattern.matches(REGEX_KOREAN, carName)) {
-            return false;
-        }
-        return true;
+        return !Pattern.matches(REGEX_ALPHA, carName) && !Pattern.matches(REGEX_KOREAN, carName);
     }
 
     public static boolean isNotDigit(String tryNumber) {
-        if (Pattern.matches(REGEX_DIGIT, tryNumber)) {
-            return false;
-        }
-        return true;
+        return !Pattern.matches(REGEX_DIGIT, tryNumber);
     }
 
     private static boolean hasDuplicateValue(String[] carNameArray) {
