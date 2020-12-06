@@ -50,8 +50,9 @@ public class Application {
 			for (int nowRound = ZERO; nowRound < Integer.parseInt(round); nowRound++) {
 				racingGame.raceOneRound();
 				racingGame.printCars();
+				System.out.println();
 			}
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			inputRound(scanner); /** 에러 출력하고 입력 다시 받음 */
 		}
