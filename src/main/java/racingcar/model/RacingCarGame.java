@@ -58,4 +58,20 @@ public class RacingCarGame {
         }
         return resultSet.toString();
     }
+
+    public String selectWinner() {
+        List<String> winners = new ArrayList<>();
+        int greatestPosition = 0;
+        for (Car car : cars) {
+            if (greatestPosition > car.position()) {
+                continue;
+            }
+            if (greatestPosition < car.position()) {
+                greatestPosition = car.position();
+                winners.clear();
+            }
+            winners.add(car.name());
+        }
+        return String.join(CAR_NAME_DELIMITER, winners);
+    }
 }

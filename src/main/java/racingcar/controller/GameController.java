@@ -39,6 +39,8 @@ public class GameController {
             racingCarGame.tryToMoveCar();
             gameView.printGameResult(racingCarGame.sendResult());
         }
+        gameView.printGameMessage(GameMessage.NOTICE_GAME_WINNER);
+        gameView.printGameResult(racingCarGame.selectWinner());
     }
 
     public void run() {
