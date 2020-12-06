@@ -1,6 +1,9 @@
 package racingcar.domain.game;
 
 import racingcar.domain.car.Cars;
+import racingcar.domain.dto.CarDto;
+
+import java.util.List;
 
 public class RacingGame {
 
@@ -19,5 +22,13 @@ public class RacingGame {
 
     public boolean isEnd() {
         return this.gameState.isEnd();
+    }
+
+    public List<CarDto> getCarDtos() {
+        return this.cars.getCarDtos();
+    }
+
+    public List<String> getWinnerCarNames() {
+        return this.cars.getWinnerCarNames();
     }
 }
