@@ -1,4 +1,7 @@
 # 미션 - 자동차 경주 게임
+우아한테크코스 웹 백엔드 프리코스 2주차 미션 프로젝트입니다.
+
+<br>
 
 ## 👩‍💻 구현할 기능 목록
 ### 사용자
@@ -57,6 +60,38 @@
 - [ ] README 문서를 상세하게 작성한다.
 
 <br>
+
+## 📂 완성된 디렉토리 구조
+```
+└─java-racingcar-precourse
+    │
+    ├─docs
+    │   └─README.md
+    └─src
+        └─main
+            └─java
+                ├─racingcar
+                │   ├─domain
+                │   │   ├─Car.java
+                │   │   ├─CarRacing.java
+                │   │   ├─Initialization.java
+                │   │   ├─Position.java
+                │   │   ├─RandomNumber.java
+                │   │   ├─Result.java
+                │   │   └─Winner.java
+                │   ├─type
+                │   │   ├─BoundaryType.java
+                │   │   ├─ErrorType.java
+                │   │   ├─TextType.java
+                │   │   └─ValueType.java
+                │   ├─view
+                │   │   ├─InputView.java
+                │   │   └─OutputView.java
+                │   └─Appication.java
+                └─utils
+                    ├─InputUtils.java
+                    └─RandomUtils.java
+```
 
 ## 📝 License
 
