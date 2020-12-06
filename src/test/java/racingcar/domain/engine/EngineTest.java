@@ -1,18 +1,16 @@
 package racingcar.domain.engine;
 
 import jdk.jfr.Description;
-import jdk.jfr.internal.test.WhiteBox;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Spy;
+import racingcar.domain.setting.CarSetting;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class EngineTest {
 
@@ -49,7 +47,7 @@ class EngineTest {
         boolean result = (boolean) canMove.invoke(engine, number);
 
         //then
-        Assertions.assertEquals(number >= 4, result);
+        Assertions.assertEquals(number >= CarSetting.REQUIRE_POWER.get(), result);
 
     }
 
@@ -64,7 +62,8 @@ class EngineTest {
         int result = engine.getPower();
 
         //then
-        assertTrue(result == 1 || result == 0);
+        assertTrue(result == CarSetting.MOVE.get()
+                || result == CarSetting.STAY.get());
 
     }
 
