@@ -16,4 +16,8 @@ public class Round {
             throw new RoundIllegalArgumentException();
         }
     }
+
+    public int getRound() {
+        return round;
+    }
 }
