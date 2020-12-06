@@ -18,7 +18,7 @@ public class GameInformation {
     private static final String ENTER_NUMBER_OF_TRIAL = "시도할 회수는 몇회인가요?";
     private static final String ERROR_CAR_NAME = "[ERROR] 경주할 자동차 이름이 올바르게 입력되지 않았습니다.";
     private static final String ERROR_CAR_DUPLICATE = "[ERROR] 경주할 자동차 이름이 중복됩니다.";
-    private static final String ERROR_TRIAL_NUMBER = "[ERROR] 시도 횟수는 숫자여야 합니다.";
+    private static final String ERROR_TRIAL_NUMBER = "[ERROR] 시도 횟수는 자연수여야 합니다.";
 
     //return String
     public static void getUserInput(Scanner scanner) {
@@ -88,11 +88,12 @@ public class GameInformation {
     private static void getTrialInput(Scanner scanner) {
         System.out.println(ENTER_NUMBER_OF_TRIAL);
         String userInput = scanner.nextLine();
-        int trialInput = checkNumberOfTrialInput(userInput);
+        int trialInput = checkTrialInput(userInput);
+        checkNaturalNumber(trialInput);
         setNumberOfTrial(trialInput);
     }
 
-    private static int checkNumberOfTrialInput(String userInput) {
+    private static int checkTrialInput(String userInput) {
         int trialInput = 0;
         try {
             trialInput = Integer.parseInt(userInput);
@@ -101,6 +102,17 @@ public class GameInformation {
             System.exit(0);
         }
         return trialInput;
+    }
+
+    private static void checkNaturalNumber(int trialInput) {
+        try {
+            if(trialInput <= 0) {
+                throw new UserInputException();
+            }
+        } catch (UserInputException e) {
+            System.err.println(ERROR_TRIAL_NUMBER);
+            System.exit(0);
+        }
     }
 
     private static void setNumberOfTrial(int trialInput) {
