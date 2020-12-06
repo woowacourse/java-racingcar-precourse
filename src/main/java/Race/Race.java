@@ -15,7 +15,7 @@ public class Race {
         createCars(carNames);
     }
 
-    void createCars(List<String> carNames) {
+    public void createCars(List<String> carNames) {
         this.carNum = carNames.toArray().length;
 
         for(int index = 0; index < this.carNum; index += 1) {
@@ -23,9 +23,18 @@ public class Race {
         }
     }
 
-    public void roundProcess(int roundNum) {
-        for(int index = 0; )
+    public void totalRoundProcess(int roundNum) {
+        for(int index = 0; index < roundNum; index++) {
+            oneRoundProcess();
+        }
     }
+
+    private void oneRoundProcess() {
+        for(int index = 0; index < this.carNum; index++) {
+            Cars.get(index).tryingMove();
+        }
+    }
+
 
 
 }
