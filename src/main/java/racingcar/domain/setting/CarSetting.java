@@ -1,4 +1,4 @@
-package racingcar.domain.game;
+package racingcar.domain.setting;
 
 public enum CarSetting {
 
@@ -6,16 +6,18 @@ public enum CarSetting {
     , RANDOM_MIN_NUMBER(0)
     , STAY(0)
     , MOVE(1)
-    , REQUIRE_POWER(4);
+    , REQUIRE_POWER(4)
+    , NAME_MAX_LENGTH(5)
+    ;
 
-    private final int digit;
+    private final int value;
 
-    CarSetting(int digit) {
-        this.digit = digit;
+    CarSetting(int value) {
+        this.value = value;
     }
 
     public int get() {
-        return digit;
+        return value;
     }
 
     @Override

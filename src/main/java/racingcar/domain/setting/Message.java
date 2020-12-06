@@ -1,4 +1,4 @@
-package racingcar.domain.game;
+package racingcar.domain.setting;
 
 public enum Message {
 
@@ -6,6 +6,7 @@ public enum Message {
     , INPUT_REPEAT_MESSAGE("시도할 회수는 몇회인가요?")
     , RESULT_MESSAGE("실행 결과 \n")
     , WINNER_MESSAGE("최종 우승자: ")
+    , POSITION_MARK("-")
     ;
 
     private final String message;
