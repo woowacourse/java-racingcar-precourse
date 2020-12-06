@@ -5,7 +5,7 @@ import utils.RandomUtils;
 public class Car implements Comparable<Car>{
     private final String name;
     private int position = 0;
-    private int randNum;
+    private int randomNumber;
 
     public Car(String name) {
         this.name = name;
@@ -25,8 +25,8 @@ public class Car implements Comparable<Car>{
     }
 
     public void move() {
-        randNum = RandomUtils.nextInt(Constant.MIN_RANGE_NUM, Constant.MAX_RANGE_NUM);
-        if (randNum >= Constant.ADVANCE_NUM) {
+        randomNumber = RandomUtils.nextInt(Constant.MIN_RANGE_NUM, Constant.MAX_RANGE_NUM);
+        if (randomNumber >= Constant.ADVANCE_NUM) {
             advance();
         }
     }

@@ -36,9 +36,9 @@ public class GameController {
         for(int i=Constant.ZERO; i<carController.carAmount; i++) {
             if (cars[i].getPosition() != maxMove) break;
             winnerNames.append(cars[i].getName());
-            winnerNames.append(", ");
+            winnerNames.append(",");
         }
-        System.out.println(winnerNames.substring(0, winnerNames.length()-2));
+        System.out.println(winnerNames.substring(0, winnerNames.length()-1));
     }
 
 }
