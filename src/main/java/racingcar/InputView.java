@@ -41,8 +41,7 @@ public class InputView {
 
     private boolean isValidCarNameList(String scannerInput) {
         if (!isInBound(scannerInput, CAR_NAME_LENGTH_INCLUSIVE_START, CAR_NAME_LENGTH_INCLUSIVE_END)) {
-            System.out.println(ERROR_MESSAGE_START + ERROR_MESSGAE_END_NAME_ISINBOUND);
-            return false;
+            throw new IllegalArgumentException(ERROR_MESSAGE_START + ERROR_MESSGAE_END_NAME_ISINBOUND);
         }
         return true;
     }
@@ -71,13 +70,11 @@ public class InputView {
 
     private boolean isValidRacingCount(String scannerInput) {
         if (!isInt(scannerInput)) {
-            System.out.println(ERROR_MESSAGE_START + ERROR_MESSGAE_END_COUNT_ISINT);
-            return false;
+            throw new IllegalArgumentException(ERROR_MESSAGE_START + ERROR_MESSGAE_END_COUNT_ISINT);
         }
         int scannerInputToInt = Integer.parseInt(scannerInput);
         if (!isBiggerZero(scannerInputToInt)) {
-            System.out.println(ERROR_MESSAGE_START + ERROR_MESSGAE_END_COUNT_ISBIGGERZERO);
-            return false;
+            throw new IllegalArgumentException(ERROR_MESSAGE_START + ERROR_MESSGAE_END_COUNT_ISBIGGERZERO);
         }
         return true;
     }
