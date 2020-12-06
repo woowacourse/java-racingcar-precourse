@@ -9,7 +9,7 @@ public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         ArrayList<Car> carList = GameSetting.carListCatchException(scanner);
-        int trackLength = GameSetting.trackLengthException(scanner);
+        int trackLength = GameSetting.trackLengthCatchException(scanner);
         ArrayList<String> winnerList;
 
         GamePlay.play(trackLength, carList);
