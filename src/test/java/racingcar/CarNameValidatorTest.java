@@ -33,4 +33,22 @@ public class CarNameValidatorTest {
     public void testDuplication() {
         CarNameValidator.validateCarName("pobi,woni,pobi");
     }
+
+    @Test(expected = IllegalCarNameException.class)
+    @DisplayName("쉼표가 연속되면 예외 발생")
+    public void testDelimIsSerial() {
+        CarNameValidator.validateCarName("pobi,,woni");
+    }
+
+    @Test(expected = IllegalCarNameException.class)
+    @DisplayName("쉼표가 맨 앞에 오면 예외 발생")
+    public void testStartWithDelim() {
+        CarNameValidator.validateCarName(",pobi,woni");
+    }
+
+    @Test(expected = IllegalCarNameException.class)
+    @DisplayName("쉼표가 맨 뒤에 오면 예외 발생")
+    public void testEndWithDelim() {
+        CarNameValidator.validateCarName("pobi,woni,");
+    }
 }
