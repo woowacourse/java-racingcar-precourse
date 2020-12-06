@@ -26,11 +26,16 @@ public class RaceGame {
 
     public void playRounds(int repetitionCount) {
         for (int i = 0; i < repetitionCount; i++) {
-            doCarsForwardMovement();
+            doRound();
         }
     }
 
-    private void doCarsForwardMovement() {
+    private void doRound() {
+        manageCarMovement();
+        OutputView.printRaceResults();
+    }
+
+    private void manageCarMovement(){
         for(Car car : carList){
             int number = RandomUtils.nextInt(START_INCLUSIVE, END_INCLUSIVE);
             if(isOverPivot(number)){
