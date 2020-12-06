@@ -13,8 +13,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move(boolean marchOrder) {
-        if (marchOrder) {
+    public void move() {
+        if (checkMarchOrder(generateRandomNumber())) {
             moveForward();
         }
     }
@@ -23,7 +23,7 @@ public class Car {
         this.position += 1;
     }
 
-    private boolean CheckMarchOrder(int randomNumber) {
+    private boolean checkMarchOrder(int randomNumber) {
         if (randomNumber >= MARCH_ORDER_STANDARD) {
             return true;
         }
