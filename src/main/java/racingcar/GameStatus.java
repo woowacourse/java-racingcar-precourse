@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameStatus {
+    final static String ROUND_RESULT = "실행 결과";
+    final static String WINNER_IS = "최종 우승자: ";
 
     public GameStatus() {
     }
@@ -16,10 +18,12 @@ public class GameStatus {
             }
         }
 
+        System.out.print(WINNER_IS);
         System.out.println(String.join(",", winners));
     }
 
     public static void printStatus(RacingCars racingCars) {
+        System.out.println(ROUND_RESULT);
         for (int carIndex = 0; carIndex < racingCars.getTotalNumberOfCars(); carIndex++) {
             printName(racingCars, carIndex);
             printPosition(racingCars, carIndex);
