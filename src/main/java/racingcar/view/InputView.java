@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class InputView {
     private static final String NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String REINPUT_MESSAGE = "다시 입력하십시오.";
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_NAME_LENGTH = 1;
     private final Scanner scanner;
 
     public InputView(Scanner scanner) {
@@ -60,14 +62,14 @@ public class InputView {
     }
 
     private boolean validationNameLength(String name) {
-        if (name.length() <= 5) {
+        if (name.length() <= MAX_NAME_LENGTH) {
             return true;
         }
         return false;
     }
 
     private boolean validationEmptyName(String name) {
-        if (name.trim().length() == 0) {
+        if (name.trim().length() < MIN_NAME_LENGTH) {
             return false;
         }
         return true;
