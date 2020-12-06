@@ -11,9 +11,13 @@ public class Track {
     private ArrayList<String> winners;
     private int loopTime;
 
-    public Track(ArrayList<Car> cars, ArrayList<String> winners) {
+    private Track(ArrayList<Car> cars, ArrayList<String> winners) {
         this.cars = cars;
         this.winners = winners;
+    }
+
+    public static Track makeTrack() {
+        return new Track(new ArrayList<Car>(), new ArrayList<String>());
     }
 
     public void start(Scanner scanner) {
@@ -22,7 +26,6 @@ public class Track {
         OutputUtils.printStartRacing();
         playRacing();
         awardWinners();
-
     }
 
     private void awardWinners() {

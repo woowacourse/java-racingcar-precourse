@@ -8,7 +8,7 @@ public class TrackTest {
 
     @Test
     public void testCreate() {
-        Track track = new Track(new ArrayList<>(), new ArrayList<>());
+        Track track = Track.makeTrack();
         Scanner scanner = new Scanner(System.in);
         track.start(scanner);
     }
