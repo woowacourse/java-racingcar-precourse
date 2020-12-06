@@ -18,10 +18,12 @@
     - 시도할 회수 출력 하는 기능
     - 시도할 회수 만큼 게임 게임 실행하는 기능
 - CarValidator
-    - 이름은 (,)로 구분하며, 입력 값에 대한 에러는 아래와 같다.
+    - 이름은 시스템에 설정 된 구분 문자로 구분하며, 입력 값에 대한 에러는 아래와 같다.
         - 입력 값이 없는 경우 : SpaceInputException
         - 구분 기호가 엾는 경우 : WithoutDelimiterException
         - 이름 입력이 유효하지 않는 에러 : InvalidNameLengthException    
+        - 중복 이름이 있는 경우 : NameDuplicationException
+        - 구분 문자만 입력하고, 이름은 입력하지 않은 경우 : InputWithoutNameException
     
 <br>
 
