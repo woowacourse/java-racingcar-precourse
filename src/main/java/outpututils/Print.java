@@ -15,7 +15,7 @@ public class Print {
 
 	public static void PrintWinner(ArrayList<String> winners) {
 		System.out.print("최종 우승자: ");
-		System.out.println(winners.toString());
+		System.out.println(String.join(", ",winners));
 	}
 
 	private static void PrintTurnResult(Car player) {
