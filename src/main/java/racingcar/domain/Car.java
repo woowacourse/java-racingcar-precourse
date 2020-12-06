@@ -19,6 +19,14 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     private void moveForward() {
         this.position += 1;
     }

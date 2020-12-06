@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 import racingcar.domain.Car;
 import racingcar.domain.GameBoard;
 
@@ -19,7 +20,7 @@ public class Game {
         setGameBoard();
         int attemptCount = this.inputView.scanAttemptCount();
         for (int round = 0; round < attemptCount; round++) {
-            gameBoard.runRound();
+            OutputView.printRoundResult(gameBoard.runRound());
         }
     }
 
