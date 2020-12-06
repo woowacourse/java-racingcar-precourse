@@ -9,11 +9,11 @@ public class Cars {
 	private static final int MINIMUM_NUMBER_OF_CARS_REQUIRED = 1;
 	private static final int CAR_NAME_LENGTH_LOWER_BOUND = 1;
 	private static final int CAR_NAME_LENGTH_UPPER_BOUND = 5;
-	private static final String DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름이 중복됩니다.";
-	private static final String CAR_NAME_LENGTH_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름은 " + CAR_NAME_LENGTH_LOWER_BOUND + "자 이상 "
+	private static final String DUPLICATE_CAR_NAME_ERROR_MESSAGE = "[ERROR] 차 이름이 중복됩니다.";
+	private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "[ERROR] 차 이름은 " + CAR_NAME_LENGTH_LOWER_BOUND + "자 이상 "
 			+ CAR_NAME_LENGTH_UPPER_BOUND + "자 이하여야 합니다.";
-	private static final String CAR_NAME_EMPTY_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름은 공백일 수 없습니다";
-	private static final String NUMBER_OF_CARS_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름이 적어도 " + MINIMUM_NUMBER_OF_CARS_REQUIRED + "개 필요합니다.";
+	private static final String CAR_VOID_NAME_ERROR_MESSAGE = "[ERROR] 차 이름은 공백일 수 없습니다";
+	private static final String NUMBER_OF_CARS_ERROR_MESSAGE = "[ERROR] 차 이름이 적어도 " + MINIMUM_NUMBER_OF_CARS_REQUIRED + "개 필요합니다.";
 	private static final int START_INCLUSIVE_NUMBER = 0;
 	private static final int END_EXCLUSIVE_NUMBER = 10;
 	private static final String WINNER_DELIMITER = ", ";
@@ -30,7 +30,7 @@ public class Cars {
 
 	private void validateCarAmount(List<Car> cars) throws IllegalArgumentException {
 		if (cars.size() == 0) {
-			throw new IllegalArgumentException(NUMBER_OF_CARS_INPUT_ERROR_MESSAGE);
+			throw new IllegalArgumentException(NUMBER_OF_CARS_ERROR_MESSAGE);
 		}
 	}
 
@@ -43,22 +43,22 @@ public class Cars {
 
 	private void validateDuplicateCarName(List<Car> cars) throws IllegalArgumentException {
 		if (countUniqueCarName(cars) != cars.size()) {
-			throw new IllegalArgumentException(DUPLICATE_CAR_NAME_INPUT_ERROR_MESSAGE);
+			throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR_MESSAGE);
 		}
 	}
 
 	private void validateCarNameLength(List<Car> cars) throws IllegalArgumentException {
 		for (Car car : cars) {
-			if (car.getName().length() < CAR_NAME_LENGTH_LOWER_BOUND || CAR_NAME_LENGTH_UPPER_BOUND < car.getName().length()) {
-				throw new IllegalArgumentException(CAR_NAME_LENGTH_INPUT_ERROR_MESSAGE);
+			if (car.getNameLength() < CAR_NAME_LENGTH_LOWER_BOUND || CAR_NAME_LENGTH_UPPER_BOUND < car.getNameLength()) {
+				throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
 			}
 		}
 	}
 
 	private void validateVoidCarName(List<Car> cars) throws IllegalArgumentException {
 		for (Car car : cars) {
-			if (car.getName().trim().isEmpty()) {
-				throw new IllegalArgumentException(CAR_NAME_EMPTY_INPUT_ERROR_MESSAGE);
+			if (car.isNameEmpty()) {
+				throw new IllegalArgumentException(CAR_VOID_NAME_ERROR_MESSAGE);
 			}
 		}
 	}

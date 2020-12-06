@@ -31,4 +31,15 @@ public class Car {
 	public int getPosition() {
 		return this.position;
 	}
+
+	public int getNameLength() {
+		return name.length();
+	}
+
+	public boolean isNameEmpty() {
+		if (name.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
 }

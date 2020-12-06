@@ -19,7 +19,7 @@ public class GameSystem {
 
 	private static List<Car> getCarGroup(Scanner scanner) {
 		return Arrays.stream(getCarNames(scanner))
-				.map(String::trim)
+				.map(String::trim) // do not allow spaces in car name
 				.map(Car::new)
 				.collect(Collectors.toList());
 	}
@@ -53,8 +53,7 @@ public class GameSystem {
 	}
 
 	private static void validatePositiveNumberOfRounds(String numberOfRounds) throws IllegalArgumentException {
-		int numberOfRoundsInput = Integer.parseInt(numberOfRounds);
-		if (numberOfRoundsInput < MINIMUM_NUMBER_OF_ROUNDS) {
+		if (Integer.parseInt(numberOfRounds) < MINIMUM_NUMBER_OF_ROUNDS) {
 			throw new IllegalArgumentException(NON_POSITIVE_NUMBER_OF_ROUNDS_INPUT_ERROR_MESSAGE);
 		}
 	}
