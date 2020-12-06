@@ -12,7 +12,7 @@ public class RaceResult {
         List<String> winners = new ArrayList<>();
 
         for (Car car : allRacingCars.getCars()) {
-            if (car.getPosition() == leadPosition) {
+            if (car.isWinner(leadPosition)) {
                 winners.add(car.getName());
             }
         }
