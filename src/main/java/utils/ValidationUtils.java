@@ -58,7 +58,7 @@ public class ValidationUtils {
         return !Pattern.matches(REGEX_ALPHA, carName) && !Pattern.matches(REGEX_KOREAN, carName);
     }
 
-    public static boolean isNotDigit(String tryNumber) {
+    private static boolean isNotDigit(String tryNumber) {
         return !Pattern.matches(REGEX_DIGIT, tryNumber);
     }
 
