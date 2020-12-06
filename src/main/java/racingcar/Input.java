@@ -21,7 +21,7 @@ public class Input {
         return splitCarNamesByComma(carNames);
     }
 
-    public int createRoundNumber(){
+    public int createRoundNumber() {
         System.out.println(ROUND_NUMBER_INPUT_MESSAGE);
         String roundNumber = scanner.nextLine();
         Validator.validateRoundNumber(roundNumber);

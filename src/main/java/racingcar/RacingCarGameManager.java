@@ -18,12 +18,12 @@ public class RacingCarGameManager {
     }
 
     private void findWinners() {
-       List<Car> winningCars = player.findWinningCars();
+        List<Car> winningCars = player.findWinningCars();
         WinningCarsOutput.announceWinningCars(winningCars);
     }
 
     private void moveCarsDuringRounds() {
-        for(int current=0;current<round; current++){
+        for (int current = 0; current < round; current++) {
             player.moveCars();
             player.askToCarsCurrentPosition();
         }

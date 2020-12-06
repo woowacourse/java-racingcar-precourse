@@ -14,7 +14,6 @@ public class Cars {
         for (Car car : cars) {
             car.moveIfRandomNumberIsBiggerThanLimit();
         }
-
     }
 
     public void showCarsCurrentPosition() {

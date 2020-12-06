@@ -28,13 +28,13 @@ public class Validator {
     }
 
     private static void validateNumber(String roundNumber) {
-        if(!Pattern.matches(ONLY_NUMBER,roundNumber)){
+        if (!Pattern.matches(ONLY_NUMBER, roundNumber)) {
             throw new IllegalArgumentException(ROUND_NUMBER_ERROR);
         }
     }
 
     private static void validatePositiveNumber(String roundNumber) {
-        if(Integer.parseInt(roundNumber) <= ZERO){
+        if (Integer.parseInt(roundNumber) <= ZERO) {
             throw new IllegalArgumentException(POSITIVE_NUMBER_ERROR);
         }
     }
@@ -62,7 +62,7 @@ public class Validator {
     }
 
     private static void validateNullName(List<String> splittedCarNames) {
-        for(String carName:splittedCarNames){
+        for (String carName : splittedCarNames) {
             isNotEnglishAndNumber(carName);
         }
     }
@@ -74,7 +74,7 @@ public class Validator {
     }
 
     private static void isNotEnglishAndNumber(String carName) {
-        if(!Pattern.matches(ONLY_ENGLISH_NUMBER, carName)) {
+        if (!Pattern.matches(ONLY_ENGLISH_NUMBER, carName)) {
             throw new IllegalArgumentException(STRANGE_NAME_ERROR);
         }
     }
