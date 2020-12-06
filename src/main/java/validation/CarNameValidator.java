@@ -28,6 +28,10 @@ public class CarNameValidator {
     }
 
     private static void validateCarNameLength(String[] carNames) {
-
+        for (String carName : carNames) {
+            if (carName.length() < MINIMUM_CAR_NAME_LENGTH || MAXIMUM_CAR_NAME_LENGTH < carName.length()) {
+                throw new IllegalArgumentException("경주할 자동차의 이름은 1 이상 5이하여야 합니다.");
+            }
+        }
     }
 }
