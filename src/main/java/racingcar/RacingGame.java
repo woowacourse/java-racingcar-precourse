@@ -34,6 +34,7 @@ public class RacingGame {
         playRace(tryCount);
     }
 
+
     private Car[] createCarInstance(String[] carList) {
         Car[] cars = new Car[carList.length];
 
@@ -45,30 +46,28 @@ public class RacingGame {
     }
 
     private void playRace(int tryCount) {
+
+        System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
-            moveCars();
+            computer.moveCars(cars);
+            computer.printCurrentCarsPosition(cars);
         }
-    }
 
-    private void moveCars() {
-        for (int i = 0; i < cars.length; i++) {
-            if(computer.moveOrStop()){
-                cars[i].upPosition();
-            }
-        }
-    }
-
-    private String getTryCount() {
-        String inputString = player.getInput();
-
-        return inputString;
+        computer.printWinnerList(cars);
     }
 
     private String[] getCarList() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputString = player.getInput();
         String[] carList = computer.parseCarList(inputString);
 
         return carList;
+    }
+
+    private String getTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        return player.getInput();
     }
 
 }
