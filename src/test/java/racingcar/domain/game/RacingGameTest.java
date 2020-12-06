@@ -60,4 +60,16 @@ class RacingGameTest {
 
         assertThat(racingGame.isEnd()).isTrue();
     }
+
+    @DisplayName("잔여 시도 횟수가 없을 때, RacingGame이 경주를 시도하면 예외 발생")
+    @Test
+    public void race_시도_횟수가_없을때_예외가_발생한다() {
+        Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
+        RacingGame racingGame = new RacingGame(cars, 1);
+        racingGame.race();
+
+        assertThatCode(() -> {
+            racingGame.race();
+        }).isInstanceOf(CannotRaceException.class);
+    }
 }
