@@ -4,15 +4,14 @@ import java.util.Arrays;
 
 public class InputCarName {
 
-    public static boolean inputCarName(String str) {
+    public static String inputCarName(String str) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] strList = str.split(",");
         if (InputCarNameCheck.checkInputCarName(strList)) {
             System.out.println(Arrays.toString(strList));
-            return true;
+            return Arrays.toString(strList);
         }
-        System.out.println(Arrays.toString(strList));
-        return false;
+        return "0";
     }
 
     public static int inputCount(String str) {
