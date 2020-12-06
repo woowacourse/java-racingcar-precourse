@@ -12,12 +12,17 @@ public class Computer {
     }
 
     public void checkCarList(String[] carList) {
-        for (String s : carList) {
-            if (!isAlpha(s)) {
+        for (String carName : carList) {
+            if (!isAlpha(carName) || !checkNameLength(carName)) {
                 throw new IllegalArgumentException("Input Error");
             }
         }
 
+    }
+
+    private static boolean checkNameLength(String carName) {
+
+        return carName.length() <= Constants.MAX_NAME_LENGTH;
     }
 
     private static boolean isAlpha(String carName) {
