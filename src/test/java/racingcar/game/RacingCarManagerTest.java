@@ -28,6 +28,32 @@ class RacingCarManagerTest {
     }
 
     @Test
+    void 생성자_공백_포함_문자열_예외() {
+        // given
+        final String spaceAddedStr = "ab cd";
+        List<String> spaceAddedStrList = new ArrayList<>();
+
+        // when
+        spaceAddedStrList.add(spaceAddedStr);
+
+        // then
+        assertThrows(IllegalArgumentException.class, () -> new RacingCarManager(spaceAddedStrList));
+    }
+
+    @Test
+    void 생성자_공백_2개_포함_문자열_예외() {
+        // given
+        final String spaceAddedStr = "a d c";
+        List<String> spaceAddedStrList = new ArrayList<>();
+
+        // when
+        spaceAddedStrList.add(spaceAddedStr);
+
+        // then
+        assertThrows(IllegalArgumentException.class, () -> new RacingCarManager(spaceAddedStrList));
+    }
+
+    @Test
     void 생성자_성공_원소_길이_검증() {
         // given
         final String nonExceedLenStr = "abcde";
