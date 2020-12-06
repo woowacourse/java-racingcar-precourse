@@ -9,19 +9,20 @@
     - 현재 position을 리턴해주는 기능
 - Cars
     - 인자(String)를 기준으로 Car 객체들 생성
-        - 이름은 (,)로 구분하며, 입력 값에 대한 에러는 아래와 같다.
-            - 입력 값이 없는 경우 : SpaceInputException
-            - 구분자가 엾는 경우 ( 레이싱 경주 자동차가 1개 ) : WithoutInputCommaException
-            - 이름 입력이 유효하지 않는 에러 : InvalidNameException
-            - 이름을 5글자 이상 입력 할 경우 : MaximumNameLengthException
     - 매 회차 결과를 출력 하는 기능 
-    - 경주 자동차리스트를 출력해주는 기능        
-    
+    - 경주 자동차리스트를 출력해주는 기능            
 - RacingCarGame
+    - 게임 시작 기능
     - 경주할 자동차를 입력 받는 기능
     - 시도할 회수 입력 받는 기능
     - 시도할 회수 출력 하는 기능
     - 시도할 회수 만큼 게임 게임 실행하는 기능
+- CarValidator
+    - 이름은 (,)로 구분하며, 입력 값에 대한 에러는 아래와 같다.
+        - 입력 값이 없는 경우 : SpaceInputException
+        - 구분 기호가 엾는 경우 : WithoutDelimiterException
+        - 이름 입력이 유효하지 않는 에러 : InvalidNameException
+        - 이름을 5글자 이상 입력 할 경우 : MaximumNameLengthException    
     
 <br>
 
