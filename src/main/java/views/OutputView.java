@@ -14,7 +14,7 @@ public class OutputView {
 
     public static void printOneRound(RacingCars racingCars) {
         for (Car car : racingCars.getCarList()) {
-            System.out.print(car.getName() + COLON);
+            System.out.print(car.getName().getName() + COLON); // 메소드명 수정 필요
             drawPosition(car);
             System.out.println();
         }
@@ -36,7 +36,7 @@ public class OutputView {
     private static String makeWinnerString(RaceWinner raceWinner) {
         String winnerString = new String();
         for (Car car : raceWinner.getRaceWinners()) {
-            winnerString += car.getName();
+            winnerString += car.getName().getName(); // 메소드명 수정 필요
             winnerString += NAME_SEPARATOR;
         }
         return winnerString.substring(START_INDEX, winnerString.length() - END_INDEX);
