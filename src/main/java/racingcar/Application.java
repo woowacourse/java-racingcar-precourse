@@ -20,6 +20,7 @@ public class Application {
         String round = inputView.receiveGameRound();
         try {
             gameRound = new GameRound(round);
+            OutputView.printPlayingScreen();
             player.play(gameRound);
         } catch (IllegalGameRoundException e) {
             System.out.println(e.getMessage());

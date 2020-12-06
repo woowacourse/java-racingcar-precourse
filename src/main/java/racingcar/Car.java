@@ -9,6 +9,8 @@ public class Car {
     private static final int MOVE_STANDARD = 4;
     private static final int RANGE_START = 0;
     private static final int RANGE_END = 9;
+    private static final String BLANK = "";
+    private static final String MOVING_MARK = "-";
 
     private final String name;
     private int position = READY;
@@ -45,5 +47,13 @@ public class Car {
 
     public void addNameToWinner(List<String> winner) {
         winner.add(name);
+    }
+
+    public String showHowMuchEachCarMoved() {
+        String movingResult = BLANK;
+        for (int i = 0; i < position; i++) {
+            movingResult += MOVING_MARK;
+        }
+        return String.format("%s : %s", name, movingResult);
     }
 }

@@ -21,6 +21,7 @@ public class Player {
         int thisRound = FIRST_ROUND;
         while (!gameRound.isGameOver(thisRound)) {
             moveOrStop();
+            OutputView.printResultOfEachRound(players);
             thisRound++;
         }
         Winner winner = new Winner(players);
