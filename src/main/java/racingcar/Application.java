@@ -7,14 +7,14 @@ public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
 
-        CarRacingGame carRacingGame = new CarRacingGame();
-        carRacingGame.inputInfoForPlayGame(scanner);
+        RacingCarGame racingCarGame = new RacingCarGame();
+        racingCarGame.inputInfoForPlayGame(scanner);
 
-        playGame(carRacingGame);
+        playGame(racingCarGame);
     }
 
-    private static void playGame(CarRacingGame carRacingGame) {
-        carRacingGame.startCarRacing();
-        carRacingGame.carRaceWinner();
+    private static void playGame(RacingCarGame racingCarGame) {
+        racingCarGame.startCarRacing();
+        racingCarGame.carRaceWinner();
     }
 }

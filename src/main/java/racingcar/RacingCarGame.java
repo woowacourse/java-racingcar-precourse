@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 import utils.InputManager;
 import utils.OutPutManager;
 
-public class CarRacingGame {
+public class RacingCarGame {
     private static final int INITIAL_VALUE = 0;
 
     private final RaceCars raceCars;
     private int raceRound;
 
-    public CarRacingGame() {
+    public RacingCarGame() {
         raceCars = new RaceCars();
         raceRound = INITIAL_VALUE;
     }
