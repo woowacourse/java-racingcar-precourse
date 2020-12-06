@@ -2,10 +2,8 @@ package racingcar.domain.game;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.car.Cars;
-import racingcar.domain.exception.RacingTryCountsNumberFormatException;
+import racingcar.domain.exception.CannotRaceException;
 import racingcar.domain.strategy.RandomMovingStrategy;
 
 import java.util.Arrays;
@@ -22,30 +20,20 @@ class RacingGameTest {
     @Test
     public void RacingGmae_객체_정상_생성한다() {
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
-        int racingTryCounts = 3;
+        GameState gameState = GameState.initiate(3);
 
         assertThatCode(() -> {
-            new RacingGame(cars, racingTryCounts);
+            new RacingGame(cars, gameState);
         }).doesNotThrowAnyException();
-    }
-
-    @DisplayName("RacingGame 객체 생성 예외 : racingTryCounts가 1 미만인 경우")
-    @ParameterizedTest
-    @ValueSource(ints = {-1, 0})
-    public void RacingGame_시도_횟수가_1_미만이면_예외_발생(int racingTryCounts) {
-        Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
-
-        assertThatCode(() -> {
-            new RacingGame(cars, racingTryCounts);
-        }).isInstanceOf(RacingTryCountsNumberFormatException.class);
     }
 
     @DisplayName("RacingGame 시도 횟수가 남았다면, isEnd는 false 반환")
     @Test
     public void isEnd_시도_횟수_남아있으면_false를_반환한다() {
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
+        GameState gameState = GameState.initiate(3);
 
-        RacingGame racingGame = new RacingGame(cars, 3);
+        RacingGame racingGame = new RacingGame(cars, gameState);
 
         assertThat(racingGame.isEnd()).isFalse();
     }
@@ -54,7 +42,8 @@ class RacingGameTest {
     @Test
     public void race_1번_경주하면_시도_횟수가_1만큼_차감되고_isEnd는_true를_반환한다() {
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
-        RacingGame racingGame = new RacingGame(cars, 1);
+        GameState gameState = GameState.initiate(1);
+        RacingGame racingGame = new RacingGame(cars, gameState);
 
         racingGame.race();
 
@@ -65,7 +54,8 @@ class RacingGameTest {
     @Test
     public void race_시도_횟수가_없을때_예외가_발생한다() {
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
-        RacingGame racingGame = new RacingGame(cars, 1);
+        GameState gameState = GameState.initiate(1);
+        RacingGame racingGame = new RacingGame(cars, gameState);
         racingGame.race();
 
         assertThatCode(() -> {
