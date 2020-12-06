@@ -30,4 +30,12 @@ class CarTest {
 
         assertThat(car.getPosition()).isEqualTo(0);
     }
+
+    @Test
+    public void Should_Return_String_Name_And_Position() {
+        Car car = new Car("Test");
+        car.setPosition(3);
+        String positionString = car.getPositionString();
+        assertThat(positionString).isEqualTo("Test : ---");
+    }
 }
