@@ -29,7 +29,7 @@ public class RacingGame {
                 printResult();
             }
             printWinner();
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
