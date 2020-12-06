@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.exception.NameLengthOutOfBoundsException;
+import racingcar.exception.EmptyNameException;
 
 import java.util.Scanner;
 
@@ -40,7 +41,7 @@ public class InputView {
         try {
             validationNameList(nameList);
             return true;
-        } catch(NameLengthOutOfBoundsException errorMessage) {
+        } catch(RuntimeException errorMessage) {
             System.out.println(errorMessage);
             return false;
         }
@@ -51,6 +52,9 @@ public class InputView {
             if (!validationNameLength(nameList[idx])) {
                 throw new NameLengthOutOfBoundsException();
             }
+            if (!validationEmptyName(nameList[idx])) {
+                throw new EmptyNameException();
+            }
         }
         return true;
     }
@@ -60,6 +64,13 @@ public class InputView {
             return true;
         }
         return false;
+    }
+
+    private boolean validationEmptyName(String name) {
+        if (name.trim().length() == 0) {
+            return false;
+        }
+        return true;
     }
 
     private void printReInputMessage() {
