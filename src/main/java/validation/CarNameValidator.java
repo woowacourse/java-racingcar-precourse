@@ -10,20 +10,24 @@ public class CarNameValidator {
     public static void validateCarName(String carName) {
         String[] carNames = splitCarName(carName);
         validateCarNameCount(carNames);
+        validateCarNameLength(carNames);
     }
 
-    private static String[] splitCarName(String carName) {
-        String[] carNames = carName.split(",");
-        return carNames;
+    private static String[] splitCarName(String carNames) {
+        if (!carNames.contains(",")) {
+            String[] carName = {carNames};
+            return carName;
+        }
+        return carNames.split(",");
     }
 
-    private static void validateCarNameCount(String[] carName) {
-        if (carName.length == 1) {
+    private static void validateCarNameCount(String[] carNames) {
+        if (carNames.length == 1) {
             throw new IllegalArgumentException("경주할 자동차는 한 대 이상이어야 합니다.");
         }
     }
 
-    private static void validateCarNameLength(String[] carName) {
+    private static void validateCarNameLength(String[] carNames) {
 
     }
 }
