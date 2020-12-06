@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 /*
  * Race
  *
@@ -8,6 +8,9 @@ package racingcar;
  *
  * Copyright (c) by Davinci.J
  */
+import racingcar.Constants;
+import racingcar.InputManager;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

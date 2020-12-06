@@ -8,6 +8,8 @@ package racingcar;
  *
  * Copyright (c) by Davinci.J
  */
+import racingcar.model.Race;
+
 import java.util.Scanner;
 
 public class Application {

@@ -8,6 +8,8 @@ package racingcar;
  *
  * Copyright (c) by Davinci.J
  */
+import racingcar.model.Car;
+
 import java.util.*;
 
 public class InputManager {
