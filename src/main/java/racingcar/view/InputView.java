@@ -2,10 +2,12 @@ package racingcar.view;
 
 import racingcar.exception.NameLengthOutOfBoundsException;
 import racingcar.exception.EmptyNameException;
+import racingcar.exception.OverlapNameException;
 
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.List;
+import java.util.HashSet;
 
 public class InputView {
     private static final String NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -60,6 +62,9 @@ public class InputView {
                 throw new EmptyNameException();
             }
         }
+        if (!validationOverlapName(nameList)) {
+            throw new OverlapNameException();
+        }
         return true;
     }
 
@@ -75,6 +80,14 @@ public class InputView {
             return false;
         }
         return true;
+    }
+
+    private boolean validationOverlapName(List<String> nameList) {
+        HashSet<String> names = new HashSet<String>(nameList);
+        if (names.size() == nameList.size()) {
+            return true;
+        }
+        return false;
     }
 
     private void printReInputMessage() {
