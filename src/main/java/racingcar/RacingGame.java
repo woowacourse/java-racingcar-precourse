@@ -2,9 +2,7 @@ package racingcar;
 
 import utils.GameUtils;
 
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 
 import utils.RandomUtils;
 
@@ -24,9 +22,13 @@ public class RacingGame {
         try {
             inputCars();
             inputNumberOfGames();
+            final String OUTPUT_MESSAGE = "실행 결과";
+            System.out.println(OUTPUT_MESSAGE);
             for (int i = 0; i < this.numberOfGames; i++) {
                 moveCars();
+                printResult();
             }
+            printWinner();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -62,10 +64,6 @@ public class RacingGame {
         this.numberOfGames = Integer.parseInt(userNumber);
     }
 
-    public void getCarinfo() {
-
-    }
-
     public void moveCars() {
         for (int i = 0; i < this.Cars.size(); i++) {
             Car nowCar = Cars.get(i);
@@ -80,10 +78,47 @@ public class RacingGame {
     }
 
     public void printResult() {
+        for (int i = 0; i < this.Cars.size(); i++) {
+            Car nowCar = Cars.get(i);
+            String positionBar = makePositionBar(nowCar.getCarPosition());
+            System.out.println(nowCar.getCarName() + " : " + positionBar);
+        }
+        System.out.println();
+    }
+
+    public String makePositionBar(int position) {
+        String bar = "";
+        for (int i = 0; i < position; i++) {
+            bar += "-";
+        }
+        return bar;
     }
 
     public void printWinner() {
-
+        final String OUTPUT_MESSAGE = "최종 우승자: ";
+        ArrayList<String> winnerList = getWinnerList();
+        System.out.println(OUTPUT_MESSAGE + Arrays.toString(winnerList.toArray()).replaceAll("[\\[\\]]", ""));
     }
 
+    public ArrayList<String> getWinnerList() {
+        Collections.sort(this.Cars, new UserComparator());
+        final int winnerPosition = this.Cars.get(0).getCarPosition(); //우승자가 맨 처음에 있음
+        ArrayList<String> winnerList = new ArrayList<String>();
+        for (int i = 0; i < this.Cars.size(); i++) {
+            Car nowCar = this.Cars.get(i);
+            if (winnerPosition == nowCar.getCarPosition()) {
+                winnerList.add(nowCar.getCarName());
+            }
+        }
+        return winnerList;
+    }
+}
+
+class UserComparator implements Comparator<Car> {
+    @Override
+    public int compare(Car c1, Car c2) {
+        if (c1.getCarPosition() < c2.getCarPosition()) return 1;
+        if (c1.getCarPosition() > c2.getCarPosition()) return -1;
+        return 0;
+    }
 }
