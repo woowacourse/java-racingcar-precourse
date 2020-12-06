@@ -27,6 +27,17 @@ public class GameRunner {
         maxPosition = 0;
     }
 
+    public void run(final Scanner scanner) {
+        printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        getCarName(scanner);
+        printMessage("시도할 회수는 몇회인가요?");
+        getMoveCount(scanner);
+        printEmptyLine();
+        printMessage("실행 결과");
+        runCarRace();
+        printMessage("최종 우승자: " + getWinner());
+    }
+
     public void getCarName(final Scanner scanner) {
         if (!scanner.hasNext()) {
             throw new IllegalArgumentException();
