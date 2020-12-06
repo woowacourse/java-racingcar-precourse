@@ -5,6 +5,7 @@ public class Car {
     public static final int MIN_CAR_NAME_LENGTH = 1;
     public static final int MOVEMENT_RANGE = 1;
     public static final int POSITION_INIT_VALUE = 0;
+    public static final int STANDARD_VALUE_FOR_MOVE_FORWARD = 4;
     public static final String ERROR_CAR_NAME_LENGTH_GREATER_THAN_FIVE = "[ERROR] 자동차 이름은 5자 이하여야 한다.";
     public static final String ERROR_CAR_NAME_LENGTH_LESS_THAN_ONE = "[ERROR] 자동차 이름은 1자 이상이여야 한다.";
     private final String name;
@@ -41,7 +42,11 @@ public class Car {
         return this.name;
     }
 
-    public void moveForward() {
-        this.position += MOVEMENT_RANGE;
+    public void moveForward(int randomNumber) {
+
+        if (randomNumber >= STANDARD_VALUE_FOR_MOVE_FORWARD) {
+            this.position += MOVEMENT_RANGE;
+        }
+
     }
 }

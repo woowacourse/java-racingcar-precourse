@@ -11,7 +11,6 @@ import racingcar.view.OutputView;
 import java.util.stream.Collectors;
 
 public class GameController {
-    public static final int STANDARD_VALUE_FOR_MOVE_FORWARD = 4;
     public static final int MIN_INDEX_VALUE = 0;
     private final InputView inputView;
     private final OutputView outputView;
@@ -49,15 +48,7 @@ public class GameController {
 
         for (Car car : this.cars.getCarList()) {
             int randomNumber = RandomNumberGenerator.generateRandomNumber();
-            updateEachRoundResult(randomNumber, car);
-        }
-
-    }
-
-    public void updateEachRoundResult(int randomNumber, Car car) {
-
-        if (randomNumber >= STANDARD_VALUE_FOR_MOVE_FORWARD) {
-            car.moveForward();
+            car.moveForward(randomNumber);
         }
 
     }
