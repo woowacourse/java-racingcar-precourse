@@ -11,6 +11,8 @@ import utils.RandomUtils;
 public class GameRunner {
 
     private final int CAR_NAME_LENGTH_LIMIT = 5;
+    private final int RANDOM_MIN = 0;
+    private final int RANDOM_MAX = 9;
 
     private final String nameSplitter = ",";
 
@@ -59,6 +61,42 @@ public class GameRunner {
             throw new MoveCountNotOverZeroException();
         }
         moveCount = inputMoveCount;
+    }
+
+    public void runCarRace() {
+        for (int i = 0; i < moveCount; i++) {
+            moveAllCar();
+            renewMaxPosition();
+            printAllCarMovement();
+            printEmptyLine();
+        }
+    }
+
+    public void moveAllCar() {
+        for (Car car : carList) {
+            int random = getRandomNumber();
+            car.move(random);
+        }
+    }
+
+    public int getRandomNumber() {
+        return RandomUtils.nextInt(RANDOM_MIN, RANDOM_MAX);
+    }
+
+    public void renewMaxPosition() {
+        for (Car car : carList) {
+            int curPosition = car.getPosition();
+
+            if (curPosition > maxPosition) {
+                maxPosition = curPosition;
+            }
+        }
+    }
+
+    public void printAllCarMovement() {
+        for (Car car : carList) {
+            printMessage(car.getPositionString());
+        }
     }
 
     public void printMessage(String message) {
