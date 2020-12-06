@@ -3,7 +3,6 @@ package racingcar;
 import utils.OutputUtils;
 
 public class Car {
-
     private final String name;
     private int position = 0;
     public GasTank gasTank;
@@ -19,7 +18,7 @@ public class Car {
     }
 
     public void tryForward() {
-        if (gasTank.isEnoughGas()) {
+        if(gasTank.isEnoughGas()){
             position++;
         }
         OutputUtils.printRacing(name, position);
