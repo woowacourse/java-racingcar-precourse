@@ -151,6 +151,39 @@ public class Car {
 
 <br>
 
+## 구현할 기능
+
+### Car 클래스
+- name(이름)과 (position)을 변수로 가짐
+    - name을 반환하는 메서드 (getName)
+    - postition을 전진하는 조건에 따라 값을 정하는 메서드 (tryMove)
+    - postition 값을 반환하는 메서드 (getPosition)
+    
+### Input 클래스
+- 입력값(자동차 이름, 시도 횟수)를 원하는 형태로 반환하는 메서드들을 가짐
+    - 자동차 이름 입력값을 ","를 제거하여 배열로 반환하는 메서드 (getCarNameArray)
+    - 자동차 이름 배열을 리스트로 반환하는 메서드 (getCarNameList)
+    - 시도 횟수를 리턴하는 메서드 (getTrial)
+    
+### Error 클래스
+- 잘못된 입력값에 대한 에러 메시지를 가짐
+    - 자동차 이름이 중복될때의 에러 메시지 (checkSameCarName)
+    - 자동차 이름이 0자이거나 5자 이상일 때의 에러 메시지 (checkCarNameLength)
+    - 시도 횟수 입력값이 1 미만일 때의 에러 메시지 (checkTrialLessThanOne)
+    - 시도 횟수 입력값이 정수형이 아닐 때의 에러 메시지 (checkTrialIsInteger)
+    
+### Racing 클래스
+- 레이싱 게임을 진행하고 결과를 출력하는 메서드들을 가짐 
+    - 자동차 이름 입력값으로 Car 객체들을 생성하여 리스트로 반환하는 메서드 (makeCars)
+    - 1회 시도했을 때 자동차의 position을 반영하여 Car 객체 리스트로 반환하는 메서드 (tryOneGame)
+    - 자동차가 앞으로 전진했을때 "-"를 출력하는 메서드 (printMove)
+    - 우승자의 위치를 반환하는 메서드 (getWinnerPosition)
+    - 우승자(들)의 이름을 리스트로 반환하는 메서드 (getWinnersList)
+    - 우승자(들)의 이름 리스트를 요구사항에 맞는 형태로 출력하는 메서드 (printWinnersName)
+    - 실행 결과를 출력하는 메서드 (printRacingGameResult)
+    - 요구사항에 맞는 전체 게임 결과를 출력하는 메서드 (play)
+    
+
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
