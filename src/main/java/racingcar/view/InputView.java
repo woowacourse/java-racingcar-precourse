@@ -21,7 +21,7 @@ public class InputView {
             isEmptyStringOrThrowException(rawString);
             return parseString(rawString);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            OutputView.showErrorMessage(e);
             return getCarNames();
         }
     }
