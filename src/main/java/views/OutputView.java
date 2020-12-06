@@ -21,11 +21,13 @@ public class OutputView {
         System.out.println();
     }
 
-    private static void drawPosition(Car car) {
+    private static void drawPosition(Car car) { // 메소드 분리필요
         int position = car.getPosition();
+        StringBuilder moveDistance = new StringBuilder();
         for (int i = 1; i <= position; i++) {
-            System.out.print(HYPHEN);
+            moveDistance.append(HYPHEN);
         }
+        System.out.println(moveDistance.toString());
     }
 
     public static void printWinner(RaceWinner raceWinner) {
@@ -34,10 +36,10 @@ public class OutputView {
     }
 
     private static String makeWinnerString(RaceWinner raceWinner) {
-        String winnerString = new String();
+        StringBuilder winnerString = new StringBuilder();
         for (Car car : raceWinner.getRaceWinners()) {
-            winnerString += car.getName();
-            winnerString += NAME_SEPARATOR;
+            winnerString.append(car.getName());
+            winnerString.append(NAME_SEPARATOR);
         }
         return winnerString.substring(START_INDEX, winnerString.length() - END_INDEX);
     }
