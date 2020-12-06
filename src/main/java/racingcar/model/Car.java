@@ -1,8 +1,12 @@
 package racingcar.model;
 
-import static racingcar.constant.Constants.*;
-
 public class Car {
+    public static final int MAX_CAR_NAME_LENGTH = 5;
+    public static final int MIN_CAR_NAME_LENGTH = 1;
+    public static final int MOVEMENT_RANGE = 1;
+    public static final int POSITION_INIT_VALUE = 0;
+    public static final String ERROR_CAR_NAME_LENGTH_GREATER_THAN_FIVE = "[ERROR] 자동차 이름은 5자 이하여야 한다.";
+    public static final String ERROR_CAR_NAME_LENGTH_LESS_THAN_ONE = "[ERROR] 자동차 이름은 1자 이상이여야 한다.";
     private final String name;
     private int position;
 

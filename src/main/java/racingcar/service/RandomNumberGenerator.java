@@ -2,10 +2,9 @@ package racingcar.service;
 
 import utils.RandomUtils;
 
-import static racingcar.constant.Constants.MAX_RANDOM_VALUE;
-import static racingcar.constant.Constants.MIN_RANDOM_VALUE;
-
 public class RandomNumberGenerator {
+    public static final int MIN_RANDOM_VALUE = 0;
+    public static final int MAX_RANDOM_VALUE = 9;
 
     private RandomNumberGenerator() {
     }

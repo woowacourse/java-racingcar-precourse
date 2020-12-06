@@ -10,10 +10,9 @@ import racingcar.view.OutputView;
 
 import java.util.stream.Collectors;
 
-import static racingcar.constant.Constants.MIN_INDEX_VALUE;
-import static racingcar.constant.Constants.STANDARD_VALUE_FOR_MOVE_FORWARD;
-
 public class GameController {
+    public static final int STANDARD_VALUE_FOR_MOVE_FORWARD = 4;
+    public static final int MIN_INDEX_VALUE = 0;
     private final InputView inputView;
     private final OutputView outputView;
     private Cars cars;

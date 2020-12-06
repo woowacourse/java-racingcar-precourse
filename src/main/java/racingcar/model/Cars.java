@@ -4,9 +4,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.constant.Constants.*;
-
 public class Cars {
+    public static final String ERROR_ONLY_ONE_CAR = "[ERROR] 2대 이상의 자동차의 이름을 입력해야한다.";
+    public static final String ERROR_SAME_NAME_CAR = "[ERROR] 서로 다른 이름의 자동차 이름을 입력해야 한다.";
+    public static final int MIN_POSITION_VALUE = 0;
+    public static final int MIN_TOTAL_CARS_AMOUNT = 2;
     private List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -43,7 +45,7 @@ public class Cars {
         return this.cars.stream()
                 .map(Car::getPosition)
                 .max(Comparator.naturalOrder())
-                .orElse(POSITION_INIT_VALUE);
+                .orElse(MIN_POSITION_VALUE);
     }
 
     private List<Car> findMaxPositionCars(int maxPosition) {

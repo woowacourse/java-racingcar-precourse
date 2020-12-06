@@ -3,9 +3,8 @@ package racingcar.service;
 import java.util.Arrays;
 import java.util.List;
 
-import static racingcar.constant.Constants.ERROR_NO_COMMA;
-
 public class CarNameTokenizer {
+    public static final String ERROR_NO_COMMA = "[ERROR] 자동차 이름은 \",\"로 구분되야 한다.";
 
     private CarNameTokenizer() {
     }

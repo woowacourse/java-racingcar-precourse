@@ -6,9 +6,10 @@ import racingcar.service.NumberToDashConverter;
 
 import java.util.List;
 
-import static racingcar.constant.Constants.*;
-
 public class OutputView {
+    public static final String GAME_RESULT = "실행 결과";
+    public static final String WINNERS = "최종 우승자: ";
+    public static final int MIN_INDEX_VALUE = 0;
 
     public void showGameResult() {
         System.out.println();

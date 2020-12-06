@@ -1,8 +1,7 @@
 package racingcar.service;
 
-import static racingcar.constant.Constants.MIN_INDEX_VALUE;
-
 public class NumberToDashConverter {
+    public static final int MIN_INDEX_VALUE = 0;
 
     private NumberToDashConverter() {
     }
