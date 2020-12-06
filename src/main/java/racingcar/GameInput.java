@@ -6,7 +6,7 @@ public class GameInput {
     public static String[] getCarNames(Scanner scanner) {
         System.out.println(GameConstants.INPUT_CAR_NAMES_MESSAGE);
         String stringNames = scanner.nextLine();
-        String[] carNames = stringNames.split(",");
+        String[] carNames = stringNames.split(GameConstants.CAR_NAME_SPLITTER);
         try {
             validateCarNames(carNames);
             return carNames;

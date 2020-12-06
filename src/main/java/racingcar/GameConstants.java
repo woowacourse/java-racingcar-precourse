@@ -8,7 +8,7 @@ public class GameConstants {
     public static final String SHOW_RACING_NAME_MARGIN = " : ";
     public static final String RACING_ROAD = "-";
     public static final String CAR_NAME_DELIMETER = ",";
-    public static final String CAR_NAME_SPLITTER = ", ";
+    public static final String CAR_NAME_SPLITTER = ",";
 
     public static final int CAR_NAME_MAX_LENGTH = 5;
     public static final int MIN_RANDOM_NUM = 0;
