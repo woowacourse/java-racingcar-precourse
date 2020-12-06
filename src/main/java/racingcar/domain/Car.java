@@ -28,7 +28,7 @@ public class Car implements Comparable<Car> {
     private void validateNameBlank(String name) {
         for (int i = 0; i < name.length(); i++) {
             if (name.charAt(i) == BLANK) {
-               throw new IllegalArgumentException(NAME_BLANK_ERROR);
+                throw new IllegalArgumentException(NAME_BLANK_ERROR);
             }
         }
     }
