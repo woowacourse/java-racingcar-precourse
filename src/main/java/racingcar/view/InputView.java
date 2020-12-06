@@ -11,11 +11,11 @@ public class InputView {
     private static final String INPUT_TRIAL_NUMBER_PHRASE = "시도할 횟수는 몇 회인가요\n";
 
     private Scanner scanner;
-    private InputException inputException;
+    private InputValidator inputValidator;
 
     public InputView(Scanner scanner) {
         this.scanner = scanner;
-        this.inputException = new InputException();
+        this.inputValidator = new InputValidator();
     }
 
     public List<Car> getCarNames() {
@@ -30,7 +30,7 @@ public class InputView {
 
     private List<Car> parseCarNames(String validatedInput) {
         List<Car> parsedCars = new ArrayList<>();
-        for (String s : validatedInput.split(InputException.SPLIT_REGEX)) {
+        for (String s : validatedInput.split(InputValidator.SPLIT_REGEX)) {
             parsedCars.add(new Car(s));
         }
         return parsedCars;
@@ -40,7 +40,7 @@ public class InputView {
         String validatedCarNames;
         while (true) {
             validatedCarNames = getInput();
-            if (!inputException.invokeRegardingToCarNames(validatedCarNames)) {
+            if (!inputValidator.invokeRegardingToCarNames(validatedCarNames)) {
                 break;
             }
         }
@@ -56,7 +56,7 @@ public class InputView {
         String validatedTrialNumber;
         while (true) {
             validatedTrialNumber = getInput();
-            if (!inputException.invokeRegardingToTrialNumber(validatedTrialNumber)) {
+            if (!inputValidator.invokeRegardingToTrialNumber(validatedTrialNumber)) {
                 break;
             }
         }
