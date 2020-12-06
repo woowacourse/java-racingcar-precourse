@@ -28,7 +28,7 @@ public class ConsoleView implements ViewController {
         stringBuilder.append(Message.WINNER_MESSAGE);
 
         String winnerName = winners.stream()
-                .map(car -> car.toString())
+                .map(Car::toString)
                 .collect(Collectors.joining(NAME_SEPARATOR));
 
         stringBuilder.append(winnerName);

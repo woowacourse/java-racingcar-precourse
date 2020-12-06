@@ -90,7 +90,6 @@ public class Car implements Comparable<Car> {
         return Objects.hash(name, getPositionMarks());
     }
 
-
     @Override
     public int compareTo(Car o) {
         return position - o.getPosition();

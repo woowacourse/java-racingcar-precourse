@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 
@@ -48,16 +49,6 @@ class RacingTest {
                 );
 
         Assertions.assertTrue(result);
-
-    }
-
-    @Test
-    @Description("Car.create() 생성시 이름을 1개 이상 보내야된다. 그렇지 않으면 예외발생")
-    public void carCreateExceptionTest() {
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Racing.create();
-        });
 
     }
 

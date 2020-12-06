@@ -1,7 +1,6 @@
 package utils;
 
-import racingcar.domain.setting.CarSetting;
-import racingcar.exception.DuplicateNameException;
+import racingcar.domain.setting.EngineSetting;
 import racingcar.exception.InvalidNameException;
 import racingcar.exception.InvalidNumberException;
 
@@ -57,7 +56,7 @@ public class Validator {
     private static boolean isLengthOver(String[] names) {
 
         for (String name : names) {
-            if (name.length() > CarSetting.NAME_MAX_LENGTH.get()) {
+            if (name.length() > EngineSetting.NAME_MAX_LENGTH) {
                 return true;
             }
         }

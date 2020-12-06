@@ -63,12 +63,8 @@ public class Racing {
 
     @Override
     public String toString() {
-
-        StringBuilder sb = new StringBuilder();     //TODO 출력한 String값만 따로 모으는 방법 생각하기
-
-        String result = cars.stream()
+        return cars.stream()
                 .map(car -> car.getCurrentPosition())
                 .collect(Collectors.joining(NEW_LINE));
-        return result;
     }
 }

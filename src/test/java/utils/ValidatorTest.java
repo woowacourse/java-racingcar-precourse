@@ -37,7 +37,7 @@ class ValidatorTest {
             , "다섯글자, 넘지말자, 그러면성공"
             , "1234,숫자도,가능하다,이름으로,사용가능하"
     })
-    @Description("입력으로 들어온 문자열이 유요한 이름인지 확인하는 테스트, 아무것도 발생안해야 성공")
+    @Description("입력으로 들어온 문자열이 유효한 이름인지 확인하는 테스트, 아무것도 발생안해야 성공")
     public void validateNamesTest(String inputs) {
 
         //given
@@ -124,8 +124,9 @@ class ValidatorTest {
 
 
     /*
-     *  TODO 예외는 정삭적으로 발생하나 reflection을 이용한 테스트라서,
+     *   예외는 정삭적으로 발생하나 reflection을 이용한 테스트라서,
      *   InvocationTargetException예외가 발생 테스트케이스 수정
+     *   테스트를 성공시킬 방법을 모르겠다. 예상값은 제대로 나온다.
      */
     @Disabled
     @ParameterizedTest
@@ -144,17 +145,6 @@ class ValidatorTest {
         });
 
     }
-
-    public Method getReflectMethodAndInvoke(String methodName, Class<?> argType, Object obj
-            , Object... args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = obj.getClass().getDeclaredMethod(methodName, argType);
-        method.setAccessible(true);
-
-        method.invoke(obj, args);
-
-        return method;
-    }
-
 
     public Method getReflectMethod(String methodName, Class<?> argType) throws NoSuchMethodException {
         Method method = Validator.class.getDeclaredMethod(methodName, argType);
