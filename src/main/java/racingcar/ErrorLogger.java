@@ -1,16 +1,16 @@
 package racingcar;
 
-import racingcar.exception.ParticipantNameSizeOverException;
+import racingcar.exception.ParticipantNameException;
 import java.util.InputMismatchException;
 
 import static utils.TextResource.*;
 
 public class ErrorLogger {
-    private static final String PREFIX_ERROR = "[ERROR]";
+    public static final String PREFIX_ERROR = "[ERROR]";
 
     public static void printError(Exception e) {
-        if (e instanceof ParticipantNameSizeOverException) {
-            System.out.println(PREFIX_ERROR + STATEMENT_ERROR_CAR_NAME_SIZE_OVER);
+        if (e instanceof ParticipantNameException) {
+            ((ParticipantNameException) e).printError();
             return;
         }
 

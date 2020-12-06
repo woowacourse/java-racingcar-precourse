@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.exception.ParticipantNameSizeOverException;
+import racingcar.exception.ParticipantNameException;
 import utils.TextResource;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class ReceptionDesk {
     public static final String SEPARATOR = ",";
     public static final int MAX_PARTICIPANTS_NAME_LENGTH = 5;
 
-    public Cars applyCars(Scanner scanner) throws ParticipantNameSizeOverException {
+    public Cars applyCars(Scanner scanner) throws ParticipantNameException {
         System.out.println(TextResource.STATEMENT_INPUT_CAR_NAME);
         String input = scanner.nextLine();
         List<String> participants = parseInput(input);
@@ -32,10 +32,10 @@ public class ReceptionDesk {
         return Arrays.asList(input.split(SEPARATOR));
     }
 
-    private void checkParticipantNameValid(List<String> participants) throws ParticipantNameSizeOverException {
+    private void checkParticipantNameValid(List<String> participants) throws ParticipantNameException {
         for (String name : participants) {
             if (name.length() > MAX_PARTICIPANTS_NAME_LENGTH) {
-                throw new ParticipantNameSizeOverException();
+                throw new ParticipantNameException(ParticipantNameException.ERROR_CODE_NAME_SIZE_OVER);
             }
         }
     }

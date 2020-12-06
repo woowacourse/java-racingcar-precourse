@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.exception.ParticipantNameSizeOverException;
+import racingcar.exception.ParticipantNameException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class Stadium {
         scoreBoard = new ScoreBoard();
     }
 
-    public void readyRace(Scanner scanner) throws ParticipantNameSizeOverException, InputMismatchException {
+    public void readyRace(Scanner scanner) throws ParticipantNameException, InputMismatchException {
         Cars participants = receptionDesk.applyCars(scanner);
         RaceSetting raceSetting = new RaceSetting();
         raceSetting.init();
