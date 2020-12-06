@@ -53,4 +53,53 @@ public class ValidationUtilsTest {
         boolean validated = ValidationUtils.isValidCarNames(carNames);
         assertThat(validated).isFalse();
     }
+
+    @Test
+    public void isValidNumberOfMoves() {
+        String numberOfMoves = "5";
+        boolean validated = ValidationUtils.isValidNumberOfMoves(numberOfMoves);
+        assertThat(validated).isTrue();
+    }
+
+    @Test
+    public void isValidNumberOfMoves_empty() {
+        String numberOfMoves = "";
+        boolean validated = ValidationUtils.isValidNumberOfMoves(numberOfMoves);
+        assertThat(validated).isFalse();
+    }
+
+    @Test
+    public void isValidNumberOfMoves_includeBlank() {
+        String numberOfMoves = " ";
+        boolean validated = ValidationUtils.isValidNumberOfMoves(numberOfMoves);
+        assertThat(validated).isFalse();
+    }
+
+    @Test
+    public void isValidNumberOfMoves_notNumeric() {
+        String numberOfMoves = "five";
+        boolean validated = ValidationUtils.isValidNumberOfMoves(numberOfMoves);
+        assertThat(validated).isFalse();
+    }
+
+    @Test
+    public void isValidNumberOfMoves_zero() {
+        String numberOfMoves = "0";
+        boolean validated = ValidationUtils.isValidNumberOfMoves(numberOfMoves);
+        assertThat(validated).isFalse();
+    }
+
+    @Test
+    public void isValidNumberOfMoves_negativeNumber() {
+        String numberOfMoves = "-2";
+        boolean validated = ValidationUtils.isValidNumberOfMoves(numberOfMoves);
+        assertThat(validated).isFalse();
+    }
+
+    @Test
+    public void isValidNumberOfMoves_exceedMovingRange() {
+        String numberOfMoves = "999";
+        boolean validated = ValidationUtils.isValidNumberOfMoves(numberOfMoves);
+        assertThat(validated).isFalse();
+    }
 }
