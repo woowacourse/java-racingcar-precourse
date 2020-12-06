@@ -11,6 +11,7 @@ public class InputView {
     private static final int MAX_NAME_LENGTH = 5;
     private static final String RACING_CAR_NAME_REQUEST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String RACING_CAR_NAME_SEPARATOR = ",";
+    private static final String RACING_MOVE_COUNT = "시도할 회수는 몇회인가요?";
     public static Scanner scanner;
 
     public static List<Car> getCars() {
@@ -43,6 +44,37 @@ public class InputView {
             paredInputs.add(delimitedInput);
         }
         return paredInputs;
+    }
+
+    public static int getRaceCount() {
+        System.out.println(RACING_MOVE_COUNT);
+        try {
+            String input = scanner.nextLine();
+            validateIsNumber(input);
+            int raceCount = Integer.parseInt(input);
+            validateMoreThanZero(raceCount);
+            return raceCount;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return getRaceCount();
+        }
+    }
+
+    private static void validateIsNumber(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '-' || input.charAt(i) == '+') {
+                continue;
+            }
+            if (!Character.isDigit(input.charAt(i))) {
+                throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
+            }
+        }
+    }
+
+    private static void validateMoreThanZero(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 0보다 커야합니다.");
+        }
     }
 
 }
