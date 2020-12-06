@@ -21,8 +21,7 @@
     - 이름은 (,)로 구분하며, 입력 값에 대한 에러는 아래와 같다.
         - 입력 값이 없는 경우 : SpaceInputException
         - 구분 기호가 엾는 경우 : WithoutDelimiterException
-        - 이름 입력이 유효하지 않는 에러 : InvalidNameException
-        - 이름을 5글자 이상 입력 할 경우 : MaximumNameLengthException    
+        - 이름 입력이 유효하지 않는 에러 : InvalidNameLengthException    
     
 <br>
 
