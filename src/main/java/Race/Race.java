@@ -1,16 +1,16 @@
-package Race;
+package RaceReferee;
 
 import racingcar.Car;
 
 import java.util.List;
 
-public class Race {
+public class RaceReferee {
 
     private List<Car> Cars;
     private int carNum = 0;
     private int roundNum = 0;
 
-    Race(List<String> carNames, int roundNum) {
+    RaceReferee(List<String> carNames, int roundNum) {
         this.roundNum = roundNum;
         createCars(carNames);
     }
@@ -34,6 +34,8 @@ public class Race {
             Cars.get(index).tryingMove();
         }
     }
+    
+
 
 
 
