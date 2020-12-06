@@ -24,10 +24,19 @@ public class GameController {
         return carName;
     }
 
+    private int validateNumberOfMoves(String numberOfMoves) {
+        while (!ValidationUtils.isValidNumberOfMoves(numberOfMoves)) {
+            gameView.printGameMessage(GameMessage.ERROR_INVALID_INPUT);
+            numberOfMoves = gameView.userInput();
+        }
+        return Integer.parseInt(numberOfMoves);
+    }
+
     public void run() {
         gameView.printGameMessage(GameMessage.ENTER_CAR_NAMES);
         String carNames = validateCarNames(gameView.userInput());
 
         gameView.printGameMessage(GameMessage.ENTER_NUMBER_OF_MOVES);
+        int numberOfMoves = validateNumberOfMoves(gameView.userInput());
     }
 }
