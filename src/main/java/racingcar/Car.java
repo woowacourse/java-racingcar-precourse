@@ -1,5 +1,7 @@
 package racingcar;
 
+import static utils.PrintUtils.print;
+
 public class Car implements Comparable<Car> {
 
     private static final int MAXIMUM_NAME_RANGE = 5;
@@ -37,8 +39,7 @@ public class Car implements Comparable<Car> {
         for (int i = 0; i < position; i++) {
             progress.append(DRIVE_PROGRESS);
         }
-
-        System.out.println(name + " : " + progress);
+        print(name + " : " + progress);
     }
 
     public boolean isSamePosition(Car car) {
