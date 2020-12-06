@@ -17,8 +17,8 @@ import org.junit.jupiter.api.Test;
 class GameRunnerTest {
 
     private final int RANDOM_METHOD_CHECK_COUNT = 1000;
-    private final int RANDOM_MIN = 0;
-    private final int RANDOM_MAX = 9;
+    private final int RANDOM_MIN = Constants.RANDOM_MIN.getValue();
+    private final int RANDOM_MAX = Constants.RANDOM_MAX.getValue();
 
     @Test
     public void Should_Parse_Three_Name_When_Three_Serial_String_Input() {

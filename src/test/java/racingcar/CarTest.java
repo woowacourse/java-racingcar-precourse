@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
-    private final int MOVE_FRONT_MIN = 4;
+    private final int MOVE_FRONT_MIN = Constants.MOVE_FRONT_MIN.getValue();
 
     @Test
     public void Should_Move_Front_When_More_Than_4() {

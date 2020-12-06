@@ -1,8 +1,10 @@
 package racingcar;
 
+import java.util.Collections;
+
 public class Car {
 
-    private final int MOVE_FRONT_MIN = 4;
+    private final int MOVE_FRONT_MIN = Constants.MOVE_FRONT_MIN.getValue();
     private final String positionIndicator = "-";
     private final String namePositionDelimiter = " : ";
 

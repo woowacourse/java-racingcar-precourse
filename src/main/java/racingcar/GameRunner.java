@@ -11,8 +11,8 @@ import utils.RandomUtils;
 public class GameRunner {
 
     private final int CAR_NAME_LENGTH_LIMIT = 5;
-    private final int RANDOM_MIN = 0;
-    private final int RANDOM_MAX = 9;
+    private final int RANDOM_MIN = Constants.RANDOM_MIN.getValue();
+    private final int RANDOM_MAX = Constants.RANDOM_MAX.getValue();
 
     private final String nameSplitter = ",";
     private final String winnerDelimiter = ", ";
