@@ -13,7 +13,21 @@ public class RacingGameReader {
     }
 
     public void startGameReader() {
+        startNameReader();
+        startTimesReader();
+    }
+
+    public void startNameReader() {
         RacingGameSystemMessageOut.printNameInput();
+        tryNameException();
+    }
+
+    public void startTimesReader() {
+        RacingGameSystemMessageOut.printTimesInput();
+        tryTimesException();
+    }
+
+    public void tryNameException() {
         while (true) {
             try {
                 carNameInput = RacingGameException
@@ -29,9 +43,9 @@ public class RacingGameReader {
                 RacingGameException.printNoNameInputMessage(e);
             }
         }
+    }
 
-        RacingGameSystemMessageOut.printTimesInput();
-
+    public void tryTimesException() {
         while (true) {
             try {
                 playNum = RacingGameException.checkTimesInputException(messageReader.submitTimes());
@@ -44,7 +58,6 @@ public class RacingGameReader {
                 RacingGameException.printMinusInputMessage(e);
             }
         }
-        RacingGameSystemMessageOut.printResultMoves();
     }
 
     public String getCarNameInput() {

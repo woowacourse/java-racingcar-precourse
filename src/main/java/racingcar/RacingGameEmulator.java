@@ -19,6 +19,7 @@ public class RacingGameEmulator {
     }
 
     public void startRacingGame() {
+        RacingGameSystemMessageOut.printResultMoves();
         for (int i = 0; i < MAX_TIMES; i++) {
             RacingGamePlay thisTime = new RacingGamePlay(racingCars);
             thisTime.runTimes(racingCars);
