@@ -2,7 +2,9 @@ package racingcar;
 
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import utils.RandomUtils;
 
+import javax.print.attribute.standard.PrinterName;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,11 +26,23 @@ public class RaceGame {
 
     public void playRounds(int repetitionCount) {
         for (int i = 0; i < repetitionCount; i++) {
-
+            doCarsForwardMovement();
         }
     }
 
-    public void checkForwardMovement() {
+    private void doCarsForwardMovement() {
+        for(Car car : carList){
+            int number = RandomUtils.nextInt(START_INCLUSIVE, END_INCLUSIVE);
+            if(isOverPivot(number)){
+                car.moveForward();
+            }
+        }
+    }
 
+    private boolean isOverPivot(int number){
+        if(number >= RANDOM_UTILS_NUMBER_PIVOT){
+            return true;
+        }
+        return false;
     }
 }

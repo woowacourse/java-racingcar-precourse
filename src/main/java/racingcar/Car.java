@@ -19,7 +19,7 @@ public class Car {
     }
 
     public void moveForward(){
-
+        position++;
     }
 
 }
