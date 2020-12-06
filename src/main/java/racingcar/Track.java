@@ -64,7 +64,7 @@ public class Track {
 
     private void enrollCars(ArrayList<String> carNames) {
         for (String carName : carNames) {
-            cars.add(new Car(carName, new GasTank()));
+            cars.add(Car.makeRandomForwardCar(carName));
         }
     }
 

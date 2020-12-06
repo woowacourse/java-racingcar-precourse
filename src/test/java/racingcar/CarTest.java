@@ -11,11 +11,11 @@ public class CarTest {
 
     @Test
     public void testCreate() {
-        Car car = new Car(name, new GasTank());
+        Car car = Car.makeRandomForwardCar(name);
         car.tryForward();
         assertThat(car.getPosition()).isEqualTo(1);
 
-        Car secondCar = new Car(secondname, new GasTank());
+        Car secondCar = Car.makeRandomForwardCar(secondname);
         secondCar.tryForward();
         secondCar.tryForward();
         secondCar.tryForward();
@@ -24,9 +24,9 @@ public class CarTest {
 
     @Test
     public void testGasTankInstance() {
-        Car car1 = new Car("porori1", new GasTank());
-        Car car2 = new Car("porori2", new GasTank());
-        Car car3 = new Car("porori3", new GasTank());
+        Car car1 = Car.makeRandomForwardCar("poriri1");
+        Car car2 = Car.makeRandomForwardCar("poriri2");
+        Car car3 = Car.makeRandomForwardCar("poriri3");
 
         for (int i = 0; i < 3; i++) {
             car1.tryForward();

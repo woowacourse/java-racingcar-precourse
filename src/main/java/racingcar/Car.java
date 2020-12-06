@@ -12,9 +12,13 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public Car(String name, GasTank gasTank) {
+    private Car(String name, GasTank gasTank) {
         this.name = name;
         this.gasTank = gasTank;
+    }
+
+    public static Car makeRandomForwardCar(String name) {
+        return new Car(name, GasTank.randomChargeGasTank());
     }
 
     public void tryForward() {
