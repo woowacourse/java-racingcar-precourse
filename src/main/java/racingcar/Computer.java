@@ -7,7 +7,6 @@ public class Computer {
     private static final String SIGN_DISTANCE = "-";
 
     public String[] parseCarList(String inputCarsName) {
-
         return inputCarsName.split(",");
     }
 
@@ -17,11 +16,9 @@ public class Computer {
                 throw new IllegalArgumentException("Input Error");
             }
         }
-
     }
 
     private static boolean checkNameLength(String carName) {
-
         return carName.length() <= Constants.MAX_NAME_LENGTH;
     }
 
@@ -32,7 +29,6 @@ public class Computer {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -53,7 +49,6 @@ public class Computer {
         if (number < Constants.STANDARD_NUMBER) {
             return false;
         }
-
         return true;
     }
 
@@ -105,9 +100,7 @@ public class Computer {
                 winnerList.append(car.getName() + ", ");
             }
         }
-
         return winnerList.substring(0, winnerList.length() - 2);
-
     }
 
     private int getLongestDistance(Car[] cars) {
@@ -116,7 +109,6 @@ public class Computer {
         for (Car car : cars) {
             longestDistance = Math.max(longestDistance, car.getPosition());
         }
-
         return longestDistance;
     }
 }

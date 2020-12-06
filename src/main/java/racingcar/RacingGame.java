@@ -41,13 +41,11 @@ public class RacingGame {
     }
 
     private String[] getCarList() {
-
         String[] carList;
-
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         while (true) {
             try {
+                System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
                 String inputString = player.getInput();
                 carList = computer.parseCarList(inputString);
                 computer.checkCarList(carList);
@@ -56,18 +54,15 @@ public class RacingGame {
                 System.out.println("[ERROR] 비정상적인 자동차 이름 입력");
             }
         }
-
         return carList;
     }
 
     private int getTryCount() {
-
         String stringTryCount;
-
-        System.out.println("시도할 회수는 몇회인가요?");
 
         while (true) {
             try {
+                System.out.println("시도할 회수는 몇회인가요?");
                 stringTryCount = player.getInput();
                 computer.isDigit(stringTryCount);
                 break;
@@ -75,7 +70,6 @@ public class RacingGame {
                 System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
             }
         }
-
         return Integer.parseInt(stringTryCount);
     }
 
