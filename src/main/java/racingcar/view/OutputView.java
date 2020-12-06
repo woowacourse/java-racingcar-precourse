@@ -9,6 +9,7 @@ public class OutputView {
     private static final String COLON = " : ";
     private static final String SCORE = "_";
     private static final String RESULT_MESSAGE = "\n실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자: ";
     private OutputView() {
     }
 
@@ -17,6 +18,11 @@ public class OutputView {
         for (int round = 0; round < attemptCount; round++) {
             printRoundResult(gameBoard.runRound());
         }
+    }
+
+    public static void printWinner(List<String> winnerList) {
+        System.out.print(WINNER_MESSAGE);
+        System.out.println(String.join(", ", winnerList));
     }
 
     private static void printResultMessage() {

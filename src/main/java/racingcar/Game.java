@@ -20,6 +20,7 @@ public class Game {
         setGameBoard();
         int attemptCount = this.inputView.scanAttemptCount();
         OutputView.printScoreboard(attemptCount, gameBoard);
+        OutputView.printWinner(gameBoard.getWinner());
     }
 
     private void setGameBoard() {

@@ -19,18 +19,18 @@ public class GameBoard {
         return this.carList;
     }
 
-    public List<Car> getWinner() {
-        List<Car> winnerList = new ArrayList<Car>;
+    public List<String> getWinner() {
+        List<String> winnerList = new ArrayList<String>();
         int maxScore = 0;
         for (int idx = 0; idx < this.carList.size(); idx++) {
             Car car = this.carList.get(idx);
+            if (car.getPosition() == maxScore) {
+                winnerList.add(car.getName());
+            }
             if (car.getPosition() > maxScore) {
                 maxScore = car.getPosition();
                 winnerList.clear();
-                winnerList.add(car);
-            }
-            if (car.getPosition() == maxScore) {
-                winnerList.add(car);
+                winnerList.add(car.getName());
             }
         }
         return winnerList;
