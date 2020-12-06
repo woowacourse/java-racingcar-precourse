@@ -8,8 +8,8 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
         InputView inputView = new InputView(scanner);
-        List<String> nameList = inputView.scanCarName();
+        Game game = new Game(inputView);
+        game.play();
     }
 }
