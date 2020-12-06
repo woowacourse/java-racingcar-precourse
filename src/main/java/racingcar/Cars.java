@@ -57,7 +57,7 @@ public class Cars {
 
 	private void validateVoidCarName(List<Car> cars) throws IllegalArgumentException {
 		for (Car car : cars) {
-			if (car.isNameEmpty()) {
+			if (car.hasEmptyName()) {
 				throw new IllegalArgumentException(CAR_VOID_NAME_ERROR_MESSAGE);
 			}
 		}

@@ -36,7 +36,7 @@ public class Car {
 		return name.length();
 	}
 
-	public boolean isNameEmpty() {
+	public boolean hasEmptyName() {
 		if (name.isEmpty()) {
 			return true;
 		}
