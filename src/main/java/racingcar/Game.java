@@ -34,6 +34,7 @@ public class Game {
         List<Car> carList = new ArrayList<Car>();
         for (int idx = 0; idx < carNameList.size(); idx++) {
             Car car = new Car(carNameList.get(idx));
+            carList.add(car);
         }
         return carList;
     }

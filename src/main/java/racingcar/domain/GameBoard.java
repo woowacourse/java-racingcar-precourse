@@ -5,7 +5,7 @@ import racingcar.domain.Car;
 import java.util.List;
 
 public class GameBoard {
-    private List<Car> carList;
+    private final List<Car> carList;
 
     public GameBoard(List<Car> carList) {
         this.carList = carList;
