@@ -9,7 +9,7 @@ import utils.ValidateUtils;
 /**
  * 입력값을 받는 클래스
  */
-public class InputGuide {
+public class InputView {
 
     private static final String CAR_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
     private static final String MOVES_INPUT_MESSAGE = "시도할 횟수는 몇회인가요? : ";
@@ -18,7 +18,7 @@ public class InputGuide {
     private final ValidateUtils validateUtils;
     private final Scanner scanner;
 
-    public InputGuide(Scanner scanner) {
+    public InputView(Scanner scanner) {
         this.scanner = scanner;
         validateUtils = new ValidateUtils();
     }

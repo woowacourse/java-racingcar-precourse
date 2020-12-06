@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 /**
  * 주어진 결과를 출력하는 클래스
  */
-public class OutputGuide {
+public class OutputView {
 
     private static final String SHOW_STATUS_LOG = "실행 결과";
     private static final String WINNER_IS = "최종 우승자: ";

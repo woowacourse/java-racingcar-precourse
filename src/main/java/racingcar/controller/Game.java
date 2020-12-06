@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.exception.RacingCarErrorException;
 import racingcar.model.Car;
-import racingcar.view.InputGuide;
-import racingcar.view.OutputGuide;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 /**
  * 게임이 진행되는 클래스
@@ -18,26 +18,26 @@ public class Game {
     private static final String DELIMITER = ", ";
     private static final int MIN = 0;
 
-    private final InputGuide inputGuide;
-    private final OutputGuide outputGuide;
+    private final InputView inputView;
+    private final OutputView outputView;
 
     private List<Car> cars;
     private int moves;
 
     public Game(Scanner scanner) {
-        this.inputGuide = new InputGuide(scanner);
-        this.outputGuide = new OutputGuide();
+        this.inputView = new InputView(scanner);
+        this.outputView = new OutputView();
     }
 
     public void play() {
         initialize();
         race();
-        outputGuide.showWinner(findWinner());
+        outputView.showWinner(findWinner());
     }
 
     private void initialize() {
-        cars = makeCars(inputGuide.inputCars());
-        moves = inputGuide.inputMoves();
+        cars = makeCars(inputView.inputCars());
+        moves = inputView.inputMoves();
     }
 
     private List<Car> makeCars(List<String> carNames) {
@@ -47,13 +47,13 @@ public class Game {
     }
 
     public void race() {
-        outputGuide.showResult();
+        outputView.showResult();
         IntStream.range(MIN, moves).forEach(value -> racePerRound());
     }
 
     private void racePerRound() {
         cars.forEach(Car::run);
-        cars.forEach(car -> outputGuide.drawTrace(car.getName(),car.getPosition()));
+        cars.forEach(car -> outputView.drawTrace(car.getName(),car.getPosition()));
         System.out.println();
     }
 
