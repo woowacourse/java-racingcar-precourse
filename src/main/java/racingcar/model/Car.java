@@ -41,7 +41,7 @@ public class Car {
         return this.name;
     }
 
-    public void moveFoward() {
+    public void moveForward() {
         this.position += MOVEMENT_RANGE;
     }
 }

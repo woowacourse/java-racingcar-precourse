@@ -57,7 +57,7 @@ public class GameController {
     public void updateEachRoundResult(int randomNumber, Car car) {
 
         if (randomNumber >= STANDARD_VALUE_FOR_MOVE_FORWARD) {
-            car.moveFoward();
+            car.moveForward();
         }
 
     }
