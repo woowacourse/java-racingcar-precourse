@@ -13,7 +13,7 @@ public class Racing {
     Input input = new Input();
     Error error = new Error();
 
-    public List<Car> makeCars(List<String> carNames) {
+    private List<Car> makeCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName);
@@ -22,13 +22,13 @@ public class Racing {
         return carList;
     }
 
-    public void printMove(int move) {
+    private void printMove(int move) {
         for (int i = 0; i < move; i++) {
             System.out.print(DASH);
         }
     }
 
-    public void tryOneGame(List<Car> carList) {
+    private void tryOneGame(List<Car> carList) {
         for (Car car : carList) {
             car.tryMove();
             System.out.print(car.getName() + SPACE_COLON_SPACE);
@@ -38,7 +38,7 @@ public class Racing {
         System.out.println();
     }
 
-    public int getWinnerPosition(List<Car> carList) {
+    private int getWinnerPosition(List<Car> carList) {
         List<Integer> carPosition = new ArrayList<>();
         for (Car car : carList) {
             carPosition.add(car.getPosition());
@@ -46,7 +46,7 @@ public class Racing {
         return Collections.max(carPosition);
     }
 
-    public List<String> getWinnersList(List<Car> carList, int winnerPosition) {
+    private List<String> getWinnersList(List<Car> carList, int winnerPosition) {
         List<String> winners = new ArrayList<>();
         for (Car car : carList) {
             if (car.getPosition() == winnerPosition) {
@@ -56,7 +56,7 @@ public class Racing {
         return winners;
     }
 
-    public void printWinnersName(List<String> winners) {
+    private void printWinnersName(List<String> winners) {
         Iterator<String> iterator = winners.iterator();
         System.out.print(PRINT_WINNERS);
         if (iterator.hasNext()) {
@@ -67,7 +67,7 @@ public class Racing {
         }
     }
 
-    public void printRacingGameResult(List<Car> carList, int trial) {
+    private void printRacingGameResult(List<Car> carList, int trial) {
         System.out.println();
         System.out.println(TRIAL_RESULT);
         for (int i = 0; i < trial; i++) {
