@@ -11,7 +11,9 @@ public class RaceProcess {
             int value = car.getRandomValue();
             car.forward(value);
 
-            leadPosition = getLeadPosition(leadPosition, car.getPosition());
+            if (car.isLead(leadPosition)) {
+                leadPosition++;
+            }
         }
 
         return leadPosition;
@@ -30,9 +32,5 @@ public class RaceProcess {
             System.out.print(Constant.FORWARD_SIGN);
         }
         System.out.println();
-    }
-
-    private int getLeadPosition(int leadPosition, int position) {
-        return Math.max(leadPosition, position);
     }
 }

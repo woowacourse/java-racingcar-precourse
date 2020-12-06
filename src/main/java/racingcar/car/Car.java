@@ -32,4 +32,8 @@ public class Car {
     public boolean isWinner(int position) {
         return this.position == position;
     }
+
+    public boolean isLead(int leadPosition) {
+        return this.position > leadPosition;
+    }
 }
