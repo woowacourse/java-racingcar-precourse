@@ -11,14 +11,13 @@ public class Computer {
         return inputCarsName.split(",");
     }
 
-    public boolean checkCarList(String[] carList) {
+    public void checkCarList(String[] carList) {
         for (String s : carList) {
             if (!isAlpha(s)) {
-                return false;
+                throw new IllegalArgumentException("Input Error");
             }
         }
 
-        return true;
     }
 
     private static boolean isAlpha(String carName) {
@@ -32,15 +31,13 @@ public class Computer {
         return true;
     }
 
-    public boolean isDigit(String tryCount) {
+    public void isDigit(String tryCount) {
         for (int i = 0; i < tryCount.length(); i++) {
             char c = tryCount.charAt(i);
             if (c < '0' || c > '9') {
-                return false;
+                throw new IllegalArgumentException("Input Error");
             }
         }
-
-        return true;
     }
 
     private boolean moveOrStop() {
