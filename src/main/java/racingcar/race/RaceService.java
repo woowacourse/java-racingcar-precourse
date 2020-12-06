@@ -3,6 +3,7 @@ package racingcar.race;
 import racingcar.Constant;
 import racingcar.Validation;
 import racingcar.car.Car;
+import racingcar.car.ParticipatingCars;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +22,11 @@ public class RaceService {
         return allCarName;
     }
 
-    public List<Car> carRegistration(String[] cars) {
-        List<Car> allRacingCars = new ArrayList<>();
-
-        for (String carName : cars) {
+    public void carRegistration(ParticipatingCars cars, String[] allCarName) {
+        for (String carName : allCarName) {
             Car car = new Car(carName);
-            allRacingCars.add(car);
+            cars.addCar(car);
         }
-
-        return allRacingCars;
     }
 
     public int getRaceRound(Scanner scanner) {
@@ -39,9 +36,9 @@ public class RaceService {
         return Integer.parseInt(number);
     }
 
-    public int driveCar(List<Car> allRacingCars, int position) {
+    public int driveCar(ParticipatingCars allRacingCars, int position) {
         int leadPosition = position;
-        for (Car car : allRacingCars) {
+        for (Car car : allRacingCars.getCars()) {
             int value = car.getRandomValue();
             car.forward(value);
 
@@ -51,8 +48,8 @@ public class RaceService {
         return leadPosition;
     }
 
-    public void showCurrentSituation(List<Car> allRacingCars) {
-        for (Car car : allRacingCars) {
+    public void showCurrentSituation(ParticipatingCars allRacingCars) {
+        for (Car car : allRacingCars.getCars()) {
             System.out.print(car.getName() + Constant.COLON);
             showEachCarSituation(car.getPosition());
         }
@@ -66,10 +63,10 @@ public class RaceService {
         System.out.println();
     }
 
-    public List<String> findWinner(List<Car> allRacingCars, int leadPosition) {
+    public List<String> findWinner(ParticipatingCars allRacingCars, int leadPosition) {
         List<String> winners = new ArrayList<>();
 
-        for (Car car : allRacingCars) {
+        for (Car car : allRacingCars.getCars()) {
             if (car.getPosition() == leadPosition) {
                 winners.add(car.getName());
             }
