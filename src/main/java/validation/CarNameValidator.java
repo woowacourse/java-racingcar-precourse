@@ -1,5 +1,7 @@
 package validation;
 
+import view.OutputView;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,14 +30,14 @@ public class CarNameValidator {
 
     private static void validateCarNameCount(String[] carNames) {
         if (carNames.length == 1) {
-            throw new IllegalArgumentException("[ERROR] 경주할 자동차는 한 대 이상이어야 합니다.");
+            throw new IllegalArgumentException(OutputView.getCarNameCountErrorMessage());
         }
     }
 
     private static void validateCarNameLength(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() < MINIMUM_CAR_NAME_LENGTH || MAXIMUM_CAR_NAME_LENGTH < carName.length()) {
-                throw new IllegalArgumentException("[ERROR] 경주할 자동차의 이름은 1 이상 5이하여야 합니다.");
+                throw new IllegalArgumentException(OutputView.getCarNameLengthErrorMessage());
             }
         }
     }
@@ -44,7 +46,7 @@ public class CarNameValidator {
         int originalSize = carNames.length;
         Set<String> carNameSet = new HashSet<String>(Arrays.asList(carNames));
         if (originalSize != carNameSet.size()) {
-            throw new IllegalArgumentException("[ERROR] 경주할 자동차의 이름이 중복됩니다.");
+            throw new IllegalArgumentException(OutputView.getCarNameDuplicationErrorMessage());
         }
     }
 }

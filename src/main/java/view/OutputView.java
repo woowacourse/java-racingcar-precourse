@@ -1,0 +1,43 @@
+package view;
+
+public class OutputView {
+    private static final String CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String TRY_NUMBER_MESSAGE = "시도할 횟수는 몇 회인가요?";
+    private static final String CAR_NAME_COUNT_ERROR_MESSAGE = "[ERROR] 경주할 자동차는 한 대 이상이어야 합니다.";
+    private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "[ERROR] 경주할 자동차는 한 대 이상이어야 합니다.";
+    private static final String CAR_NAME_DUPLICATION_ERROR_MESSAGE = "[ERROR] 경주할 자동차는 한 대 이상이어야 합니다.";
+    private static final String TRY_NUMBER_TYPE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 합니다.";
+    private static final String TRY_NUMBER_NEGATIVE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 양수여야 합니다.";
+
+    private OutputView() {
+    }
+
+    public static void showCarNameMessage() {
+        System.out.println(CAR_NAME_MESSAGE);
+    }
+
+    public static void showTryNumberMessage() {
+        System.out.println(TRY_NUMBER_MESSAGE);
+    }
+
+    public static void showTryNumberTypeErrorMessage() {
+        System.out.println(TRY_NUMBER_TYPE_ERROR_MESSAGE);
+    }
+
+    public static String getNegativeErrorMessage() {
+        return TRY_NUMBER_NEGATIVE_ERROR_MESSAGE;
+    }
+
+    public static String getCarNameCountErrorMessage() {
+        return CAR_NAME_COUNT_ERROR_MESSAGE;
+    }
+
+    public static String getCarNameLengthErrorMessage() {
+        return CAR_NAME_LENGTH_ERROR_MESSAGE;
+    }
+
+    public static String getCarNameDuplicationErrorMessage() {
+        return CAR_NAME_DUPLICATION_ERROR_MESSAGE;
+    }
+
+}
