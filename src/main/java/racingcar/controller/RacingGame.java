@@ -27,7 +27,20 @@ public class RacingGame {
     private void askParticipant(Scanner scanner) {
         InputViewer.carsInput();
         String[] participantsArray = scanner.nextLine().split(",");
+        checkParticipantsLength(participantsArray);
         this.gameSet = initiateGameSet(participantsArray);
+    }
+    
+    private void checkParticipantsLength(String[] participantsArray) {
+        for (String parcipant : participantsArray) {
+            checkParicipantLength(parcipant);
+        }
+    }
+
+    private void checkParicipantLength(String participant){
+        if (participant.length() >5) {
+            InputViewer.lengthInputError();
+        }
     }
 
     private Cars initiateGameSet(String[] parcipantArray) {
