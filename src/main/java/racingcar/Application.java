@@ -21,17 +21,16 @@ public class Application {
     private static final int MOVE = 4;
     private static final int MIN_RANDOM = 0;
     private static final int MAX_RANDOM = 9;
-    private static int gameCount;
-    private static Car[] cars;
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        gameSetting(scanner);
-        playGame();
+        Car[] cars = gameSetting(scanner);
+        int gameCount = inputGameCount(scanner);
+        playGame(gameCount, cars);
         scanner.close();
     }
 
-    private static void gameSetting(Scanner kbd) {
+    private static Car[] gameSetting(Scanner kbd) {
         displayGuideMessage(CAR_NAME_CASE);
         String[] names = inputCarNames(kbd);
         boolean check = checkCarNames(names);
@@ -40,19 +39,19 @@ public class Application {
             names = inputCarNames(kbd);
             check = checkCarNames(names);
         }
-        cars = makeCars(names);
-        gameCount = inputGameCount(kbd);
+        Car[] cars = makeCars(names);
+        return cars;
     }
 
-    private static void playGame() {
+    private static void playGame(int gameCount, Car[] cars) {
         displayGuideMessage(GAME_RESULT_CASE);
         for (int i = 0; i < gameCount; i++) {
-            playEachGame();
+            playEachGame(cars);
         }
-        displayGameResult();
+        displayGameResult(cars);
     }
 
-    private static void playEachGame() {
+    private static void playEachGame(Car[] cars) {
         for (int i = 0; i < cars.length; i++) {
             int random = RandomUtils.nextInt(MIN_RANDOM,MAX_RANDOM);
             if (random >= MOVE)
@@ -62,13 +61,13 @@ public class Application {
         System.out.println();
     }
 
-    private static void displayGameResult() {
-        int maxPosition = findMaxPosition();
-        String winner = findWinner(maxPosition);
+    private static void displayGameResult(Car[] cars) {
+        int maxPosition = findMaxPosition(cars);
+        String winner = findWinner(maxPosition, cars);
         System.out.println("최종 우승자: " + winner);
     }
 
-    private static int findMaxPosition() {
+    private static int findMaxPosition(Car[] cars) {
         int maxPosition = 0;
         for (Car car : cars) {
             maxPosition = Math.max(maxPosition, car.getPosition());
@@ -76,7 +75,7 @@ public class Application {
         return maxPosition;
     }
 
-    private static int countWinners(int maxPosition) {
+    private static int countWinners(int maxPosition, Car[] cars) {
         int winnerCount = 0;
         for (int i = 0; i < cars.length; i++)
             if (cars[i].getPosition() == maxPosition)
@@ -84,8 +83,8 @@ public class Application {
         return winnerCount;
     }
 
-    private static String findWinner(int maxPosition) {
-        String[] winnerCars = new String[countWinners(maxPosition)];
+    private static String findWinner(int maxPosition, Car[] cars) {
+        String[] winnerCars = new String[countWinners(maxPosition, cars)];
         int winnerIndex = 0;
         for (int i = 0; i < cars.length; i++)
             if (cars[i].getPosition() == maxPosition)
