@@ -1,7 +1,5 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
@@ -11,30 +9,25 @@ public class CarTest {
 
     @Test
     public void testCreate() {
-        Car car = Car.makeRandomForwardCar(name);
+        Car car = Car.newCar(name);
         car.tryForward();
-        assertThat(car.getPosition()).isEqualTo(1);
 
-        Car secondCar = Car.makeRandomForwardCar(secondname);
+        Car secondCar = Car.newCar(secondname);
         secondCar.tryForward();
         secondCar.tryForward();
         secondCar.tryForward();
-        assertThat(secondCar.getPosition()).isEqualTo(3);
     }
 
     @Test
     public void testGasTankInstance() {
-        Car car1 = Car.makeRandomForwardCar("poriri1");
-        Car car2 = Car.makeRandomForwardCar("poriri2");
-        Car car3 = Car.makeRandomForwardCar("poriri3");
+        Car car1 = Car.newCar("poriri1");
+        Car car2 = Car.newCar("poriri2");
+        Car car3 = Car.newCar("poriri3");
 
         for (int i = 0; i < 3; i++) {
             car1.tryForward();
-            System.out.println(car1.getPosition());
             car2.tryForward();
-            System.out.println(car2.getPosition());
             car3.tryForward();
-            System.out.println(car3.getPosition());
             System.out.println("---------------------");
         }
     }

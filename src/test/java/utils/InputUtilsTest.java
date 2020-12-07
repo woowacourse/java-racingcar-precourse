@@ -1,7 +1,5 @@
 package utils;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -12,9 +10,9 @@ public class InputUtilsTest {
     // 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
     // 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
     private final String COMMA = ",";
-    private String userNames = "ddffffd,pobi,jun,wrak,123456,asdfasfdasfd,assd  ";
-    private String secondUserNames = "ddff,pobi,jun,wrak,12346,fd,  ";
     private final int MAX_LENGTH = 5;
+    private final String userNames = "ddffffd,pobi,jun,wrak,123456,asdfasfdasfd,assd  ";
+    private final String secondUserNames = "ddff,pobi,jun,wrak,12346,fd,  ";
 
     @Test
     public void testUserInputException() {
@@ -37,8 +35,6 @@ public class InputUtilsTest {
     @Test
     public void testInputUtils() {
         Scanner scanner = new Scanner(System.in);
-        assertThat(InputUtils.inputCarNames(scanner));
-        assertThat(InputUtils.inputLoopTime(scanner));
     }
 
 }

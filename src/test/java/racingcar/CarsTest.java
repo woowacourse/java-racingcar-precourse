@@ -8,8 +8,8 @@ public class CarsTest {
 
     @Test
     public void testCreate() {
-        Cars cars = Cars.makeCars("pobi,jun,joy");
-        
+        Cars cars = Cars.newCars("pobi,jun,joy");
+
         assertThat(cars).isNotNull();
     }
 

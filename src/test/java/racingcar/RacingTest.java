@@ -7,8 +7,8 @@ public class RacingTest {
 
     @Test
     public void testCreate() {
-        Racing racing = Racing.holdWithCars();
         Scanner scanner = new Scanner(System.in);
-        //racing.start(scanner);
+        Racing racing = new Racing();
+        racing.start(scanner);
     }
 }
