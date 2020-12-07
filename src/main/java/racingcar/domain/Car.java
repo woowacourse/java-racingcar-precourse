@@ -38,7 +38,7 @@ public class Car implements Comparable<Car> {
     }
 
     private String convertPositionToBar() {
-        return String.join("", Collections.nCopies(position, BAR));
+        return String.join(DELIMITER, Collections.nCopies(position, BAR));
     }
 
     @Override
