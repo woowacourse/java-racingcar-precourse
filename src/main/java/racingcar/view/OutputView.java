@@ -32,4 +32,9 @@ public class OutputView {
         System.out.println(information);
         System.out.println();
     }
+
+    public void showWinner(String result) {
+        System.out.print(WINNER_MSG);
+        System.out.print(result);
+    }
 }

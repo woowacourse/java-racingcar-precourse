@@ -16,4 +16,8 @@ public class Car {
     void move() {
         this.position += 1;
     }
+
+    public boolean isMaxPosition(int lastMaxPosition) {
+        return this.position > lastMaxPosition;
+    }
 }
