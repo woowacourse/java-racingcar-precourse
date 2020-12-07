@@ -35,4 +35,8 @@ public class Cars {
             throw new IllegalArgumentException("[ERROR] 입력된 이름이 없습니다.");
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
