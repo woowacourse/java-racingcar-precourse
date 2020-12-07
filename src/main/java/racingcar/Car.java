@@ -6,8 +6,7 @@ public class Car {
 
     private final String name;
     private int position = 0;
-    private static final int UPPER_BOUND = 9;
-    private static final int LOWER_BOUND = 0;
+    private static final int MOVE_BOUND = 3;
 
     public Car(String name) {
         this.name = name;
@@ -22,16 +21,15 @@ public class Car {
         return position;
     }
 
-    public void move() {
-        int randomNumber = getRandomNumber();
-        if (randomNumber > 3) {
+    public void move(int random) {
+        if (isMoving(random)) {
             position++;
         }
         result();
     }
 
-    public int getRandomNumber() {
-        return RandomUtils.nextInt(LOWER_BOUND, UPPER_BOUND);
+    public boolean isMoving(int random) {
+        return random > MOVE_BOUND;
     }
 
     public void result() {

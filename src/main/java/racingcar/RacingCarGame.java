@@ -2,10 +2,16 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
+import utils.RandomUtils;
 
 public class RacingCarGame {
+
+    private static final String RESULT = "실행 결과";
+    private static final String FINAL_WINNERS = "최종 우승자: ";
+    private static final String JOIN_DELIM = ",";
+    private static final int UPPER_BOUND = 9;
+    private static final int LOWER_BOUND = 0;
 
     private final InputView inputView;
 
@@ -16,9 +22,9 @@ public class RacingCarGame {
 
     public void runGame() {
         int maxPosition;
-        int trial = inputView.getTrials();
         ArrayList<String> winners;
         Car[] cars = inputView.getCars();
+        int trial = inputView.getTrials();
 
         race(cars, trial);
         maxPosition = getMaxPosition(cars);
@@ -28,7 +34,7 @@ public class RacingCarGame {
     }
 
     public void race(Car[] cars, int trial) {
-        System.out.println("실행 결과");
+        System.out.println(RESULT);
         repeatMove(cars, trial);
     }
 
@@ -41,9 +47,14 @@ public class RacingCarGame {
 
     public void move(Car[] cars) {
         for (Car car : cars) {
-            car.move();
+            car.move(getRandom());
         }
     }
+
+    public int getRandom() {
+        return RandomUtils.nextInt(LOWER_BOUND, UPPER_BOUND);
+    }
+
 
     public void breakLine() {
         System.out.println();
@@ -51,14 +62,12 @@ public class RacingCarGame {
 
     public int getMaxPosition(Car[] cars) {
         int[] positions = new int[cars.length];
-        int maxPosition;
 
         for (int i = 0; i < cars.length; i++) {
             positions[i] = cars[i].getPosition();
         }
         Arrays.sort(positions);
-        maxPosition = positions[positions.length - 1];
-        return maxPosition;
+        return positions[positions.length - 1];
     }
 
     public ArrayList<String> getWinners(Car[] cars, int maxPosition) {
@@ -72,7 +81,7 @@ public class RacingCarGame {
     }
 
     public void printWinners(ArrayList<String> winners) {
-        System.out.print("최종 우승자: ");
-        System.out.println(String.join(",", winners));
+        System.out.print(FINAL_WINNERS);
+        System.out.println(String.join(JOIN_DELIM, winners));
     }
 }
