@@ -13,7 +13,7 @@ public class OutputView {
     private static final String COLON = " : ";
     private static final String BAR = "-";
 
-    public static void writeTryNumber(){
+    public static void writeTryNumber() {
         print(WRITE_TRY_NUMBER);
     }
 
@@ -21,17 +21,17 @@ public class OutputView {
         print(WRITE_CAR_NAME);
     }
 
-    public static void gameResult(){
+    public static void gameResult() {
         print(GAME_RESULT);
     }
 
-    public static void gameStatus(List<Car> cars){
-        for(Car car : cars){
+    public static void gameStatus(List<Car> cars) {
+        for (Car car : cars) {
             print(car.getName() + COLON + bar(car.getPosition()));
         }
     }
 
-    public static void theWinner(List<String> winners){
+    public static void theWinner(List<String> winners) {
         print(WINNER_IS + String.join(DELIMITER, winners));
     }
 

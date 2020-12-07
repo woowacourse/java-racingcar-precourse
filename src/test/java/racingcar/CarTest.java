@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarTest {
 
     @Test
-    public void isAppropriateName(){
+    public void isAppropriateName() {
         String input = "abcde";
         Car car = new Car(input);
 
@@ -17,7 +17,7 @@ class CarTest {
     }
 
     @Test
-    public void isUnappropriatedName(){
+    public void isUnappropriatedName() {
         String input = "abcdef";
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,
                 () -> new Car(input));
@@ -26,7 +26,7 @@ class CarTest {
     }
 
     @Test
-    public void go(){
+    public void go() {
         int number = 4;
         Car car = new Car("test");
         car.goOrStop(4);
@@ -35,7 +35,7 @@ class CarTest {
     }
 
     @Test
-    public void stop(){
+    public void stop() {
         int number = 3;
         Car car = new Car("test");
         car.goOrStop(number);
