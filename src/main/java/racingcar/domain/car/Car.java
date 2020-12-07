@@ -18,7 +18,7 @@ public class Car implements Comparable<Car> {
 
     // 추가 기능 구현
 
-    public Car(String name, Engine engine) {
+    private Car(String name, Engine engine) {
         this.name = name;
         this.engine = engine;
     }
