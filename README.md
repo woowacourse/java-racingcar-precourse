@@ -166,20 +166,20 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - **5자리 이하의 대,소 영문자 이름 쉼표를 기준으로 입력**
     - 5자리 이하의 대,소 영문자 이름이 아닐 시 에러 
         - 쉼표만 입력 받을시, 아무것도 입력하지 않을시, 숫자, 특수문자, 스페이스가 포함될 시 
-        - IllegalArgumentException
+        - `IllegalArgumentException`
 - 시도할 횟수 입력 
     - **1 이상의 자연수를 입력**
     - 숫자가 아닐 시 에러
-        - NumberFormatException
+        - `NumberFormatException`
     - 1 이상인 자연수가 아닐 시 에러
-        - IllegalArgumentException
+        - `IllegalArgumentException`
 - 횟수별 실행 결과 출력
     - **매 횟수 별 자동차 이동 결과 출력**
         - 이동결과는 '-'을 통해서 표현
-        - ex) " livenow : -- "
+        - `ex) " livenow : -- "`
 - 최종 우승자 출력 
     - **우승자는 1명 이상일 수 있음**
-        - ex) " 최종우승자 : livenow, pobi "
+        - `ex) " 최종우승자 : livenow, pobi "`
 
 <br>
 
@@ -192,16 +192,18 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 - 이름을 반환할 수 있다.
 - 입력된 값이 4이상일 경우 위치 값을 추가 하고, 3이하일 경우 추가 하지 않는다.
 
+### 자동차모임
+- 자동차들의 이름과 위치 값으로 현재 진행 상황을 출력할 수 있다.
+- 자동차들의 우승 이동 횟수를 구할 수 있다.
+- 게임이 완료 된 후 누가 우승했는지 출력한다.
+
 ### 사용자
 - 자동차의 이름을 입력 할 수 있다.
 - 시도 할 횟수를 입력 할 수 있다.
 
 ### 경기장
 - 시도 할 횟수를 요구할 수 있다. 
-- 우승 이동 횟수를 구할 수 있다.
-- 게임이 완료 된 후 누가 우승했는지 출력한다.
-- 자동차들의 이름과 위치를 요구 할 수 있다.
-- 자동차들의 이름과 위치 값으로 현재 진행 상황을 출력할 수 있다.
+- 자동차들의 상태를 요구할 수 있다.
 - 랜덤 값을 랜덤 숫자 생성기에 요구할 수 있다.
 - 매 횟수, 자동차별 랜덤 번호를 부여할 수 있다.  
 
