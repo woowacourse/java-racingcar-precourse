@@ -1,7 +1,6 @@
 package racingcar.domain;
 
-import racingcar.validator.CarNameValidator;
-
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,17 +9,30 @@ import java.util.stream.Collectors;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<String> carNames) {
-        validate(carNames);
-        cars = carNames.stream()
-                .map(CarNameValidator::validate)
-                .map(Car::new)
-                .collect(Collectors.toList());
+    public Cars(List<Car> cars) {
+        validate(cars);
+        this.cars = new ArrayList<>(cars);
     }
 
-    private void validate(List<String> carNames) {
+    public static Cars generate(List<String> carNames) {
+        List<Car> cars = carNames.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
+
+        return new Cars(cars);
+    }
+
+    private void validate(List<Car> cars) {
+        validateCarNames(cars);
+        validateEmpty(cars);
+    }
+
+    private void validateCarNames(List<Car> cars) {
+        List<String> carNames = cars.stream()
+                .map(car -> car.getName())
+                .collect(Collectors.toList());
+
         validateDuplicatedName(carNames);
-        validateEmpty(carNames);
     }
 
     private void validateDuplicatedName(List<String> carNames) {
@@ -30,9 +42,9 @@ public class Cars {
         }
     }
 
-    private void validateEmpty(List<String> carNames) {
-        if (carNames.isEmpty()) {
-            throw new IllegalArgumentException("[ERROR] 입력된 이름이 없습니다.");
+    private void validateEmpty(List<Car> cars) {
+        if (cars.isEmpty()) {
+            throw new IllegalArgumentException("[ERROR] 쉼표(,)를 기준으로 한 대 이상의 자동차 이름을 입력해야 합니다.");
         }
     }
 

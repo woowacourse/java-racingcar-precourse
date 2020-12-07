@@ -3,13 +3,13 @@ package racingcar.domain;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.domain.Cars;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class CarsTests {
     private static Stream<Arguments> correctArguments() {
@@ -31,7 +31,7 @@ class CarsTests {
     @ParameterizedTest
     @MethodSource("correctArguments")
     public void 객체생성_성공(List<String> names) {
-        assertThatCode(() -> new Cars(names))
+        assertThatCode(() -> Cars.generate(names))
                 .doesNotThrowAnyException();
     }
 
@@ -39,7 +39,7 @@ class CarsTests {
     @MethodSource("wrongArguments")
     public void 객체생성_실패_예외발생(List<String> names) {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new Cars(names));
+                .isThrownBy(() -> Cars.generate(names));
     }
 }
 
