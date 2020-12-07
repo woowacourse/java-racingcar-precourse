@@ -4,11 +4,12 @@ import utils.RandomUtils;
 
 import java.util.Collections;
 
-public class Car implements Comparable<Car>{
-    private final int START_INCLUSIVE = 1;
-    private final int END_INCLUSIVE = 9;
-    private final int FORWARD_CRITERION = 4;
-    private final String BAR = "-";
+public class Car implements Comparable<Car> {
+    private final static int START_INCLUSIVE = 1;
+    private final static int END_INCLUSIVE = 9;
+    private final static int FORWARD_CRITERION = 4;
+    private final static String BAR = "-";
+    private final static String DELIMITER = "";
 
     private final String name;
     private int position = 0;
