@@ -1,6 +1,7 @@
 package RaceReferee;
 
 import racingcar.Car;
+import View.ScoreView;
 
 import java.util.List;
 
@@ -41,7 +42,6 @@ public class RaceReferee {
         for(int index = 0; index < this.carNum; index++) {
             currentCar = Cars.get(index);
 
-            System.out.println();
         }
     }
     
