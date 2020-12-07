@@ -1,9 +1,9 @@
 package racingcar;
 
-import static racingcar.Messages.TRY_COUNT_IS_NUMBER_ONLY;
+import static racingcar.Messages.HOW_MANY_TIME_TO_TRY;
 import static utils.PrintUtils.print;
-import static utils.PrintUtils.printErrorMessage;
 
+import exceptions.TryCountInvalidInputException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -26,30 +26,37 @@ public class RacingGame {
     }
 
     private void getReady() {
-        cars = getCars();
-        tryCount = getTryCount();
+        getCarsReady();
+        getTryCountReady();
     }
 
-    private int getTryCount() {
+    private void getTryCountReady() {
         int tryCount = 0;
-        print("시도할 회수는 몇회인가요?");
+        print(HOW_MANY_TIME_TO_TRY);
 
         while (tryCount <= 0) {
+
             try {
                 tryCount = Integer.parseInt(getInput());
-            } catch (Exception e) {
-                printErrorMessage(TRY_COUNT_IS_NUMBER_ONLY);
+            } catch (NumberFormatException e) {
+                throw new TryCountInvalidInputException();
             }
+
+            if (tryCount < 1) {
+                throw new TryCountInvalidInputException();
+            }
+
         }
-        return tryCount;
+        this.tryCount = tryCount;
     }
 
-    private List<Car> getCars() {
+    private void getCarsReady() {
         // todo 입력 예외처리
         print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Arrays.stream(getInput().split(","))
+        List<Car> cars = Arrays.stream(getInput().split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
+        this.cars = cars;
     }
 
     private String getInput() {

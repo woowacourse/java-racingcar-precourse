@@ -2,6 +2,8 @@ package racingcar;
 
 import static utils.PrintUtils.print;
 
+import exceptions.InvalidInputException;
+
 public class Car implements Comparable<Car> {
 
     private static final int MAXIMUM_NAME_RANGE = 5;
@@ -21,9 +23,9 @@ public class Car implements Comparable<Car> {
         return name.trim();
     }
 
-    private void validateNameRange(String name) {
+    private void validateNameRange(String name){
         if (MAXIMUM_NAME_RANGE < name.length()) {
-            throw new IllegalArgumentException();
+            throw new InvalidInputException();
         }
         if (MINIMUM_NAME_RANGE > name.length()) {
             throw new IllegalArgumentException();
