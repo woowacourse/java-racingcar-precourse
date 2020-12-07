@@ -13,7 +13,7 @@ public class GameController {
 
     public static Car[] generateCars(String[] carNames) {
         Car[] gameCars = new Car[carNames.length];
-        for (int i=0; i < carNames.length; i++){
+        for (int i = 0; i < carNames.length; i++) {
             gameCars[i] = new Car(carNames[i]);
         }
         return gameCars;
