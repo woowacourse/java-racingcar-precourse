@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.List;
 import ui.Output;
 
 public class Attempts {
@@ -13,15 +12,15 @@ public class Attempts {
         this.count = attemptsCount;
     }
 
-    public void completeAll(List<Car> cars) {
+    public void completeAll(Cars cars) {
         Output.willPrintResult();
         for (int i = 0; i < count; i++) {
             completeOne(cars);
         }
     }
 
-    private void completeOne(List<Car> cars) {
-        moveCarsAndPrintResult(cars);
+    private void completeOne(Cars cars) {
+        cars.moveCarsAndPrintResult();
         Output.printEmptyLine();
     }
 
@@ -37,9 +36,5 @@ public class Attempts {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.SHOULD_INPUT_ONLY_NUMBER);
         }
-    }
-
-    private void moveCarsAndPrintResult(List<Car> cars) {
-        cars.stream().forEach(car -> car.moveAndPrintResult());
     }
 }

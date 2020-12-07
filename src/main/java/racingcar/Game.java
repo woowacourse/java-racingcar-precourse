@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.stream.Collectors;
 import ui.Input;
 import ui.Output;
 
@@ -10,7 +9,7 @@ import java.util.Scanner;
 
 public class Game {
 
-    private List<Car> cars = new ArrayList<>();
+    private Cars cars;
     private Attempts attempts;
 
     public void start(Scanner scanner) {
@@ -18,7 +17,7 @@ public class Game {
             inputCarNamesAndSetCars(scanner);
             inputAttemptsCountAndSetAttemptsCount(scanner);
             attempts.completeAll(cars);
-            List<String> winners = getWinners();
+            List<String> winners = cars.getWinners();
             Output.printWinners(winners);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -39,9 +38,11 @@ public class Game {
         Input.validateEmpty(carNamesInput);
         String[] carNames = carNamesInput.split(",");
         validateCarNames(carNames);
+        List<Car> cars = new ArrayList<>();
         for (int i = 0; i < carNames.length; i++) {
             cars.add(new Car(carNames[i]));
         }
+        this.cars = new Cars(cars);
     }
 
     private void inputAttemptsCountAndSetAttemptsCount(Scanner scanner) {
@@ -63,17 +64,5 @@ public class Game {
         if (carNames.length == 0) {
             throw new IllegalArgumentException(ErrorMessage.SHOULD_BE_NOT_EMPTY_OR_COMMA_NAME);
         }
-    }
-
-    private List<String> getWinners() {
-        int maxPosition = cars.stream()
-            .map(car -> car.getPosition())
-            .mapToInt(x -> x)
-            .max()
-            .getAsInt();
-        return cars.stream()
-            .filter(car -> car.getPosition() == maxPosition)
-            .map(car -> car.getName())
-            .collect(Collectors.toList());
     }
 }
