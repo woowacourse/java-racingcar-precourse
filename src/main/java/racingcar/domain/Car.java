@@ -39,4 +39,8 @@ public class Car {
     private String convertPositionToBar() {
         return String.join("", Collections.nCopies(position, BAR));
     }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
