@@ -28,9 +28,10 @@ public class Input {
     }
     public int getNumberOfTry() {
         System.out.println(GET_NUMBER_OF_TRY_MESSAGE);
-        numberOfTry = scanner.nextInt();
+        String numberOfTry = scanner.next();
         checkIsDigit(numberOfTry);
-        return numberOfTry;
+        this.numberOfTry = Integer.parseInt(numberOfTry);
+        return this.numberOfTry;
     }
     
     public void checkCarNameLength(String carName) {
@@ -38,9 +39,11 @@ public class Input {
         	throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
     }
-    public void checkIsDigit(int numberOfTry) {
-        if (!Character.isDigit(numberOfTry)) {
-        	throw new IllegalArgumentException(NON_NUMERIC_ERROR_MESSAGE);
-        }
+    public void checkIsDigit(String numberOfTry) {
+        for (int i = 0; i < numberOfTry.length(); i++) {
+            if (!Character.isDigit(numberOfTry.charAt(i))) {
+                throw new IllegalArgumentException(NON_NUMERIC_ERROR_MESSAGE);
+            }
+    	}
     }
 }
