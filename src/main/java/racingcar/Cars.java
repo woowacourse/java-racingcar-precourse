@@ -51,8 +51,8 @@ public class Cars {
 
     private List<String> findCoWinners(Car winner) {
         return cars.stream()
-            .filter(winner::equalsPosition)
-            .map(Car::getName)
-            .collect(Collectors.toList());
+                   .filter(winner::equalsPosition)
+                   .map(Car::getName)
+                   .collect(Collectors.toList());
     }
 }

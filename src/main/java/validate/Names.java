@@ -19,7 +19,7 @@ public class Names extends Error {
     public static final String EMPTY = "이름이 존재하지 않습니다.";
     public static final String OVER_LENGTH = "이름이 " + NAME_LENGTH + "자가 넘습니다.";
     public static final String DUPLICATE = "이름이 중복됩니다.";
-    public static final String OVER_SIZE = "참가자 수가" + MAXIMUM_COUNT + "명이 넘습니다.";
+    public static final String OVER_SIZE = "참가자 수가 " + MAXIMUM_COUNT + "명이 넘습니다.";
 
     private static final CharSequence TAB = "\t";
     private static final String SPACE = " ";
@@ -34,15 +34,15 @@ public class Names extends Error {
         return validateNames(names.split(NAME_DELIMITER));
     }
 
-    private void validateWhitespace(String names) {
-        if (names.contains(SPACE) || names.contains(TAB)) {
-            throwMessage(EXIST_WHITESPACE);
-        }
-    }
-
     private void validateEmpty(String names) {
         if (names.isEmpty() || names.endsWith(NAME_DELIMITER)) {
             throwMessage(EMPTY);
+        }
+    }
+
+    private void validateWhitespace(String names) {
+        if (names.contains(SPACE) || names.contains(TAB)) {
+            throwMessage(EXIST_WHITESPACE);
         }
     }
 

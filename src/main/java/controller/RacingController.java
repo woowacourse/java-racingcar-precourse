@@ -40,7 +40,9 @@ public class RacingController {
     }
 
     private List<Car> registerCars(List<String> names) {
-        return names.stream().map(Car::new).collect(Collectors.toList());
+        return names.stream()
+                    .map(Car::new)
+                    .collect(Collectors.toList());
     }
 
     private void start() {
