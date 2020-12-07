@@ -23,7 +23,7 @@ public class OutputView {
         System.out.print("최종 우승자: " + racingCars[0].getName());
         for (int i = 1; i < racingCars.length - 1; i++) {
             if (racingCars[0].compareTo(racingCars[i]) == 0) {
-                System.out.print(COMMA_SPACE+racingCars[i].getName());
+                System.out.print(COMMA_SPACE + racingCars[i].getName());
             }
         }
     }
