@@ -1,6 +1,6 @@
 package racingcar.domain.game;
 
-import racingcar.domain.exception.CannotRaceException;
+import racingcar.domain.exception.CannotPlayGameException;
 import racingcar.domain.exception.RacingTryCountsNumberFormatException;
 
 import java.util.Iterator;
@@ -32,7 +32,7 @@ public class GameState {
 
     public void decreaseRacingTryCounts() {
         if (isEnd()) {
-            throw new CannotRaceException();
+            throw new CannotPlayGameException();
         }
         this.racingTryCounts.next();
     }

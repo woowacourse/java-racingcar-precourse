@@ -3,7 +3,7 @@ package racingcar.domain.game;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Cars;
-import racingcar.domain.exception.CannotRaceException;
+import racingcar.domain.exception.CannotPlayGameException;
 import racingcar.domain.strategy.RandomMovingStrategy;
 
 import java.util.Arrays;
@@ -62,7 +62,7 @@ class RacingGameTest {
 
         assertThatCode(() -> {
             racingGame.race();
-        }).isInstanceOf(CannotRaceException.class)
+        }).isInstanceOf(CannotPlayGameException.class)
                 .hasMessage("[ERROR] 시도 횟수를 초과했기 때문에 경주를 진행할 수 없습니다.");
     }
 }

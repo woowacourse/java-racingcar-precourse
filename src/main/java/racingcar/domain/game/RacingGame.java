@@ -16,7 +16,7 @@ public class RacingGame {
     }
 
     public void race() {
-        gameState.decreaseRacingTryCounts();
+        this.gameState.decreaseRacingTryCounts();
         this.cars.move();
     }
 
