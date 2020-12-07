@@ -40,6 +40,10 @@ public class Car {
         return String.join("", Collections.nCopies(position, BAR));
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public int getPosition() {
         return this.position;
     }
