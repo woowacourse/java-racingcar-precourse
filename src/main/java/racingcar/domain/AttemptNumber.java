@@ -26,10 +26,10 @@ public class AttemptNumber {
     private void validateNumberRange(String attemptNumber) {
         int convertedAttemptNumber = Integer.parseInt(attemptNumber);
         if (convertedAttemptNumber < MIN_ATTEMPT_NUMBER) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는" + MIN_ATTEMPT_NUMBER + " 이상의 숫자여야 합니다.");
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 " + MIN_ATTEMPT_NUMBER + "이상의 숫자여야 합니다.");
         }
         if (convertedAttemptNumber > MAX_ATTEMPT_NUMBER) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는" + MAX_ATTEMPT_NUMBER + " 이하의 숫자여야 합니다.");
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 " + MAX_ATTEMPT_NUMBER + "이하의 숫자여야 합니다.");
         }
     }
 }
