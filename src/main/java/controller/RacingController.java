@@ -19,7 +19,7 @@ public class RacingController {
     private User user;
     private RacingGame racingGame;
 
-    public RacingController(Scanner scanner) {
+    public RacingController(final Scanner scanner) {
         this.input = new Input(scanner);
         this.user = new User();
     }
@@ -39,7 +39,7 @@ public class RacingController {
         return registerCars(user.createNames(input.nextLine()));
     }
 
-    private List<Car> registerCars(List<String> names) {
+    private List<Car> registerCars(final List<String> names) {
         return names.stream()
                     .map(Car::new)
                     .collect(Collectors.toList());

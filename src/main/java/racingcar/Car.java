@@ -13,18 +13,18 @@ public class Car implements Comparable<Car> {
         this.name = name;
     }
 
-    public void move(int power) {
+    public void move(final int power) {
         checkPossibleMovement(power);
     }
 
-    private void checkPossibleMovement(int power) {
+    private void checkPossibleMovement(final int power) {
         if (power >= POSSIBLE_MOVE_POWER) {
             ++position;
             state.append(MOVING_STATE);
         }
     }
 
-    public boolean equalsPosition(Car car) {
+    public boolean equalsPosition(final Car car) {
         return this.position == car.position;
     }
 
@@ -34,7 +34,7 @@ public class Car implements Comparable<Car> {
     }
 
     @Override
-    public int compareTo(Car car) {
+    public int compareTo(final Car car) {
         return car.position - this.position;
     }
 

@@ -17,11 +17,11 @@ public class User {
         this.racingCount = new Count();
     }
 
-    public List<String> createNames(String input) {
+    public List<String> createNames(final String input) {
         return names.validate(input);
     }
 
-    public int createCount(String input) {
+    public int createCount(final String input) {
         return racingCount.validate(input);
     }
 }

@@ -16,13 +16,13 @@ public class Count extends Error {
 
     private int racingCount = 0;
 
-    public int validate(String input) {
+    public int validate(final String input) {
         validateNumber(input);
         validateRange();
         return racingCount;
     }
 
-    private void validateNumber(String input) {
+    private void validateNumber(final String input) {
         try {
             racingCount = Integer.parseInt(input);
         } catch (NumberFormatException e) {

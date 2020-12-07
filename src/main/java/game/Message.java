@@ -16,7 +16,7 @@ public class Message {
     private Message() {
     }
 
-    public static String showStatus(String name, String state) {
+    public static String showStatus(final String name, final String state) {
         return name + COLON + state;
     }
 
@@ -24,7 +24,7 @@ public class Message {
         System.out.println();
     }
 
-    public static void print(String outputMessage) {
+    public static void print(final String outputMessage) {
         System.out.println(outputMessage);
     }
 }

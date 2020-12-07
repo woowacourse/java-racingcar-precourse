@@ -18,7 +18,7 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    public Cars(final List<Car> cars) {
         this.cars = cars;
     }
 
@@ -49,7 +49,7 @@ public class Cars {
         return cars.get(FIRST_CAR);
     }
 
-    private List<String> findCoWinners(Car winner) {
+    private List<String> findCoWinners(final Car winner) {
         return cars.stream()
                    .filter(winner::equalsPosition)
                    .map(Car::getName)

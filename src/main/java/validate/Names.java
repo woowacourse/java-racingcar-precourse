@@ -25,36 +25,36 @@ public class Names extends Error {
     private static final CharSequence TAB = "\t";
     private static final String SPACE = " ";
 
-    public List<String> validate(String names) {
+    public List<String> validate(final String names) {
         return validateName(names);
     }
 
-    private List<String> validateName(String names) {
+    private List<String> validateName(final String names) {
         validateEmpty(names);
         validateWhitespace(names);
         return validateNames(names.split(NAME_DELIMITER));
     }
 
-    private void validateEmpty(String names) {
+    private void validateEmpty(final String names) {
         if (names.isEmpty() || names.endsWith(NAME_DELIMITER)) {
             throwMessage(EMPTY);
         }
     }
 
-    private void validateWhitespace(String names) {
+    private void validateWhitespace(final String names) {
         if (names.contains(SPACE) || names.contains(TAB)) {
             throwMessage(EXIST_WHITESPACE);
         }
     }
 
-    private List<String> validateNames(String[] splitNames) {
+    private List<String> validateNames(final String[] splitNames) {
         validateNameLength(splitNames);
         validateDuplicate(splitNames);
         validateNamesSize(splitNames);
         return Arrays.asList(splitNames);
     }
 
-    private void validateNameLength(String[] splitNames) {
+    private void validateNameLength(final String[] splitNames) {
         for (String name : splitNames) {
             if (name.length() > NAME_LENGTH) {
                 throwMessage(OVER_LENGTH);
@@ -62,14 +62,14 @@ public class Names extends Error {
         }
     }
 
-    private void validateDuplicate(String[] splitNames) {
+    private void validateDuplicate(final String[] splitNames) {
         Set<String> nonDuplicateName = new HashSet<>(Arrays.asList(splitNames));
         if (splitNames.length != nonDuplicateName.size()) {
             throwMessage(DUPLICATE);
         }
     }
 
-    private void validateNamesSize(String[] splitNames) {
+    private void validateNamesSize(final String[] splitNames) {
         if (splitNames.length > NAMES_SIZE) {
             throwMessage(OVER_SIZE);
         }

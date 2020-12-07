@@ -15,11 +15,11 @@ import racingcar.Winner;
 public class RacingGame {
     private Cars cars;
 
-    public RacingGame(List<Car> cars) {
+    public RacingGame(final List<Car> cars) {
         this.cars = new Cars(cars);
     }
 
-    public void startRace(int gameCount) {
+    public void startRace(final int gameCount) {
         print(RESULT_MESSAGE);
         cars.moves(gameCount);
     }

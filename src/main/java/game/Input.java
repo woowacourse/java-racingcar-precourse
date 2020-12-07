@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Input {
     private final Scanner scanner;
 
-    public Input(Scanner scanner) {
+    public Input(final Scanner scanner) {
         this.scanner = scanner;
     }
 
@@ -28,7 +28,7 @@ public class Input {
         print(INPUT_COUNT_MESSAGE);
     }
 
-    private void print(String message) {
+    private void print(final String message) {
         System.out.println(message);
     }
 }

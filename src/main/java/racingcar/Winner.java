@@ -12,7 +12,7 @@ import java.util.List;
 public class Winner {
     private String winners;
 
-    public Winner(Cars cars) {
+    public Winner(final Cars cars) {
         this.winners = winnersToString(cars.findWinners());
     }
 
