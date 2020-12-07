@@ -3,8 +3,8 @@ package racingcar;
 import java.util.ArrayList;
 
 public class Validate {
-    public static boolean validateUserInput(String userInput, ArrayList<String> carList) throws IllegalArgumentException {
-        if (endsWithComma(userInput)) {
+    public static boolean validateCarName(String userInput, ArrayList<String> carList) throws IllegalArgumentException {
+        if (isEmptyLine(userInput) || endsWithComma(userInput)) {
             return false;
         }
         for (int i = 0; i < carList.size(); i++) {
@@ -14,6 +14,12 @@ public class Validate {
             }
         }
         return true;
+    }
+    public static boolean isEmptyLine(String userInput) {
+        if (userInput.equals("")) {
+            throw new IllegalArgumentException("[Error] 글자를 입력해주세요.");
+        }
+        return false;
     }
 
     public static boolean endsWithComma(String userInput) {

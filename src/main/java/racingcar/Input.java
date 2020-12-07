@@ -7,23 +7,25 @@ import java.util.Scanner;
 public class Input {
 
     public static ArrayList<String> askCarInfo(Scanner scanner) {
-        String userInput = null;
+//        String userInput = null;
+//        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+//        if (scanner.hasNext() || userInput == null) {
+//            userInput = scanner.nextLine();
+//        }
+//        return parseCar(userInput, scanner);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        if (scanner.hasNext() || userInput == null) {
-            userInput = scanner.nextLine();
-        }
-        return parseCar(userInput, scanner);
+        return parseCar(scanner.nextLine(), scanner);
     }
 
-    public static ArrayList<String> parseCar(String userInput, Scanner scanner) {
-        ArrayList<String> carList = new ArrayList<String>(Arrays.asList(userInput.split(",")));
+    public static ArrayList<String> parseCar(String carInfoString, Scanner scanner) {
+        ArrayList<String> carList = new ArrayList<String>(Arrays.asList(carInfoString.split(",")));
         try {
-            Validate.validateUserInput(userInput, carList);
+            Validate.validateCarName(carInfoString, carList);
+            return carList;
         } catch (IllegalArgumentException e) {
             System.out.println(e);
-            askCarInfo(scanner);
+            return askCarInfo(scanner);
         }
-        return carList;
     }
 
     public static Integer askRound(Scanner scanner) {
