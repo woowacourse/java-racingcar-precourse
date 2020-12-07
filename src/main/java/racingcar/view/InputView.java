@@ -1,11 +1,10 @@
-package racingcar;
+package racingcar.view;
 
-import javax.jws.soap.SOAPBinding;
-import java.lang.reflect.Array;
+import racingcar.Car;
+import racingcar.InputValidation;
+
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 public class InputView {
     private static ArrayList<Car> carsInGame = new ArrayList<Car>();

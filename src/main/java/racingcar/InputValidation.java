@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.UserInputException;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -73,7 +75,7 @@ public class InputValidation {
 
     private static void checkNaturalNumber(int trialInput) {
         try {
-            if(trialInput <= 0) {
+            if (trialInput <= 0) {
                 throw new UserInputException();
             }
         } catch (UserInputException e) {

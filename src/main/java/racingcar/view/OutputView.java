@@ -1,11 +1,18 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.Car;
 
 import java.util.ArrayList;
 
-public class WinnerAnnouncement {
+public class OutputView {
     private static ArrayList<String> winners = new ArrayList<String>();
 
     private static final String WINNER_ANNOUNCEMENT = "최종 우승자: ";
+
+    public static void announceWinner(int finalFrontRunnerPosition, ArrayList<Car> carsInGame) {
+        checkWinner(finalFrontRunnerPosition, carsInGame);
+        announce();
+    }
 
     public static void checkWinner(int finalFrontRunnerPosition, ArrayList<Car> carsInGame) {
         for (Car car : carsInGame) {
