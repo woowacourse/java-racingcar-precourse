@@ -31,9 +31,12 @@
 * 경기 반복 진행 기능
 * 승자 판단 기능
   
-  
+
 <br>
 
+### 결과 출력
+* 승자 출력
+<br>
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
