@@ -52,7 +52,7 @@ public class RacingCarGame {
     private void startRacing() {
         System.out.println(EXECUTION_RESULT);
         for (int currentRound = 0; currentRound < round.getRound(); currentRound++) {
-            cars.startRacingRound();
+            cars.racing();
         }
     }
 }

@@ -16,7 +16,7 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public void startRacingRound() {
+    public void racing() {
         for (Car car: cars) {
             car.startTurn();
             car.printResult();
