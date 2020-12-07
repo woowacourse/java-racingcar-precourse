@@ -1,6 +1,7 @@
 package racingcar;
 
 import static racingcar.Messages.FINAL_WINNER_IS;
+import static utils.PrintUtils.print;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public class GameResult {
     }
 
     public void printWinners() {
-        System.out.println(FINAL_WINNER_IS + winners.getWinnerNames());
+        print(FINAL_WINNER_IS + winners.getNames());
     }
 }

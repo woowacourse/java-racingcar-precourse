@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Messages.NAME_SHOULD_BE_LONGER_THAN_ONE;
+import static racingcar.Messages.NAME_SHOULD_BE_SHORTER_THAN_FIVE;
 import static utils.PrintUtils.print;
 
 import exceptions.InvalidInputException;
@@ -25,10 +27,10 @@ public class Car implements Comparable<Car> {
 
     private void validateNameRange(String name){
         if (MAXIMUM_NAME_RANGE < name.length()) {
-            throw new InvalidInputException();
+            throw new InvalidInputException(NAME_SHOULD_BE_SHORTER_THAN_FIVE);
         }
         if (MINIMUM_NAME_RANGE > name.length()) {
-            throw new IllegalArgumentException();
+            throw new InvalidInputException(NAME_SHOULD_BE_LONGER_THAN_ONE);
         }
     }
 

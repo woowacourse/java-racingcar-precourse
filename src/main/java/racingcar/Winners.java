@@ -23,7 +23,7 @@ public class Winners {
         return new Winners(winners);
     }
 
-    public String getWinnerNames() {
+    public String getNames() {
         return cars.stream()
                 .map(Object::toString)
                 .collect(Collectors.joining(", "));

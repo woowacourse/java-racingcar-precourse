@@ -25,7 +25,7 @@ public class WinnersTest {
         Winners gameResult = new Winners(
                 Arrays.asList(a, b));
 
-        assertThat(gameResult.getWinnerNames()).isEqualTo("a, b");
+        assertThat(gameResult.getNames()).isEqualTo("a, b");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class WinnersTest {
         Winners gameResult = new Winners(
                 Collections.singletonList(a));
 
-        assertThat(gameResult.getWinnerNames()).isEqualTo("a");
+        assertThat(gameResult.getNames()).isEqualTo("a");
     }
 
     @Test
