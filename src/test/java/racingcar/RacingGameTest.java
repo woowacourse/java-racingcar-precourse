@@ -1,7 +1,8 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import game.RacingGame;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,9 +33,9 @@ class RacingGameTest {
     void winner() {
         yhhCar.move(5);
 
-        List<Car> winners = racingGame.findWinners();
+        Winner winners = racingGame.findWinners();
 
-        assertEquals(1, winners.size());
+        assertEquals("최종우승자: yhh", winners.toString());
     }
 
     @Test
@@ -43,8 +44,8 @@ class RacingGameTest {
         yhhCar.move(5);
         crong.move(5);
 
-        List<Car> winners = racingGame.findWinners();
+        Winner winners = racingGame.findWinners();
 
-        assertEquals(2, winners.size());
+        assertEquals("최종우승자: yhh, crong", winners.toString());
     }
 }

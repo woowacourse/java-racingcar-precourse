@@ -24,7 +24,7 @@ class CarTest {
         car.move(possibleMovePower);
         car.move(impossibleMovePower);
 
-        assertEquals("2", car.toString());
+        assertEquals("tester : --", car.toString());
     }
 
     @Test
@@ -41,7 +41,7 @@ class CarTest {
 
         Collections.sort(cars);
 
-        assertEquals("1", cars.get(0).toString());
-        assertEquals("0", cars.get(1).toString());
+        assertEquals("pobi : -", cars.get(0).toString());
+        assertEquals("yhh : ", cars.get(1).toString());
     }
 }
