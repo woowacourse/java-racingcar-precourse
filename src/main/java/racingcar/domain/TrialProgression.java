@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import racingcar.Car;
 import racingcar.view.OutputView;
-import utils.RandomUtils;
 
 import java.util.ArrayList;
 

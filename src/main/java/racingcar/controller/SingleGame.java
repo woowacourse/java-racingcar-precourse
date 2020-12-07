@@ -1,7 +1,8 @@
 package racingcar.controller;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.domain.TrialProgression;
+import racingcar.domain.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,6 +18,10 @@ public class SingleGame {
         trialProgression.progress();
         int finalFrontRunnerPosition = trialProgression.getFrontRunnerPosition();
 
-        OutputView.announceWinner(finalFrontRunnerPosition, carsInGame);
+        Winners finalWinners = new Winners();
+        finalWinners.checkWinners(finalFrontRunnerPosition, carsInGame);
+        ArrayList<String> winners = finalWinners.getWinners();
+
+        OutputView.printWinners(winners);
     }
 }

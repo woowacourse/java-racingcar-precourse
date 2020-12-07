@@ -1,12 +1,10 @@
 package racingcar.view;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 
 import java.util.ArrayList;
 
 public class OutputView {
-    private static ArrayList<String> winners = new ArrayList<String>();
-
     private static final String TRIAL_RESULT = "실행 결과";
     private static final String CAR_NAME_PRINT_FORMAT = " : ";
     private static final String POSITION_INDICATOR = "-";
@@ -31,20 +29,7 @@ public class OutputView {
         System.out.println(printCurrentPosition.toString());
     }
 
-    public static void announceWinner(int finalFrontRunnerPosition, ArrayList<Car> carsInGame) {
-        checkWinner(finalFrontRunnerPosition, carsInGame);
-        announce();
-    }
-
-    public static void checkWinner(int finalFrontRunnerPosition, ArrayList<Car> carsInGame) {
-        for (Car car : carsInGame) {
-            if (car.getPosition() == finalFrontRunnerPosition) {
-                winners.add(car.getName());
-            }
-        }
-    }
-
-    public static void announce() {
+    public static void printWinners(ArrayList<String> winners) {
         System.out.print(WINNER_ANNOUNCEMENT);
         StringBuilder announcement = new StringBuilder();
         for (String winner : winners) {
