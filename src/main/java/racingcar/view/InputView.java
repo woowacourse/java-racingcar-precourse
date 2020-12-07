@@ -89,15 +89,21 @@ public class InputView {
     }
 
     private void validateRacingTryCountsNumberFormat(String racingTryCounts) {
-        boolean isAllValidPositiveDigitNumber = racingTryCounts.chars()
+        if (!isPositiveNumber(racingTryCounts)) {
+            throw new RacingTryCountsNumberFormatException();
+        }
+        if (isZero(racingTryCounts)) {
+            throw new RacingTryCountsNumberFormatException();
+        }
+    }
+
+    private boolean isPositiveNumber(String racingTryCounts) {
+        return racingTryCounts.chars()
                 .allMatch(Character::isDigit);
-        if (!isAllValidPositiveDigitNumber) {
-            throw new RacingTryCountsNumberFormatException();
-        }
-        boolean isZero = racingTryCounts.chars()
+    }
+
+    private boolean isZero(String racingTryCounts) {
+        return racingTryCounts.chars()
                 .allMatch(digitNumber -> digitNumber == ZERO_DIGIT_NUMBER_CHARACTER);
-        if (isZero) {
-            throw new RacingTryCountsNumberFormatException();
-        }
     }
 }
