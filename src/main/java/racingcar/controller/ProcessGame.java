@@ -9,7 +9,7 @@ public class ProcessGame {
      * @param gameSet 진행할 게임 세트
      * @param turnNumber 게임을 진행할 횟수
      */
-    public static void playTurns(Cars gameSet, int turnNumber) {
+    public void playTurns(Cars gameSet, int turnNumber) {
         OutputViewer.initiateResult();
         for (int i = 0; i < turnNumber; i++) {
             gameSet.processOneTurn();
@@ -17,7 +17,7 @@ public class ProcessGame {
         }
     }
 
-    private static void showTurnResult(Cars gameSet) {
+    private void showTurnResult(Cars gameSet) {
         gameSet.getCarList().forEach(OutputViewer::participantScoreName);
         OutputViewer.spaceBetweenGames();
     }
