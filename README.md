@@ -168,6 +168,8 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 
 - 이름이 있다. (생성될 때 받는다.)
   - 5자 이하이다.
+  - 1자 이상 5자 이하 이도록 검증한다.
+  - 중복을 막을지, 중복되는 이름이면 1234를 붙여줄지...
 - 위치값을 갖는다.
   - setPosition은 웬만해서는 하지 않는다.
 - 랜덤값을 `Car`에서 만들어야 할까?
