@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import racingcar.view.InputViewer;
 import racingcar.view.ErrorViewer;
 
 import java.util.Arrays;
@@ -15,7 +14,7 @@ public class Cars {
         checkOverlap(carNames);
         for (String carName : carNames) {
             Car tempCar = new Car(carName);
-            this.carList.add(tempCar);
+            carList.add(tempCar);
         }
     }
 
@@ -27,12 +26,12 @@ public class Cars {
     }
 
     public ArrayList<Car> getCarList() {
-        return this.carList;
+        return carList;
     }
 
     /*게임 한턴을 진행시켜주는 메서드 */
     public void processOneTurn() {
-        this.carList.forEach(Car::oneTurn);
+        carList.forEach(Car::oneTurn);
     }
 
     /**
@@ -42,13 +41,14 @@ public class Cars {
     public ArrayList<String> getWinners() {
         ArrayList<String> winner = new ArrayList<String>();
         int maxDistance = getMaxDistance();
-        this.carList.forEach(car -> addWinners(winner, car, maxDistance));
+        carList.forEach(car -> addWinners(winner, car, maxDistance));
         return winner;
     }
 
     private int getMaxDistance() {
-        IntStream carStream = this.carList.stream().mapToInt(Car::getPosition);
-        return carStream.summaryStatistics().getMax();
+        IntStream carStream = carList.stream().mapToInt(Car::getPosition);
+        return carStream.summaryStatistics()    //통계요약본 만들기
+                        .getMax();              // 최대값 반환
     }
 
     private void addWinners(ArrayList<String> winner, Car candidate, int maxDistance) {

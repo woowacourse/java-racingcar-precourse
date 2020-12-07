@@ -18,7 +18,8 @@ public class ProcessGame {
     }
 
     private void showTurnResult(Cars gameSet) {
-        gameSet.getCarList().forEach(OutputViewer::participantScoreName);
+        gameSet.getCarList()                                    //gameSet으로부터 CarList 받기
+               .forEach(OutputViewer::participantScoreName);    //각각의 진행단계 출력하기
         OutputViewer.spaceBetweenGames();
     }
 }
