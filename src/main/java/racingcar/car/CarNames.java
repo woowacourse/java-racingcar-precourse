@@ -37,7 +37,7 @@ public class CarNames {
     // ex: name1,name2,name3 (3 names and 2 commas)
     private static void validateNameCommaCountMatch(String rawCarNames) {
         if (nameCommaCountNotMatching(rawCarNames)) {
-            throw new IllegalArgumentException(OutputView.NO_NAME_ERROR);
+            throw new IllegalArgumentException(OutputView.COMMA_COUNT_ERROR);
         }
     }
 
