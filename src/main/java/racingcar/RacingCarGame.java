@@ -1,8 +1,8 @@
 package racingcar;
 
-import static utils.ConstantUtils.*;
 import java.util.ArrayList;
 import java.util.List;
+import utils.ConstantUtils;
 
 public class RacingCarGame {
 
@@ -28,7 +28,7 @@ public class RacingCarGame {
     }
 
     private void startRacing() {
-        System.out.println(RACE_RESULT);
+        System.out.println(ConstantUtils.RACE_RESULT);
         for (int i = 0; i < moves; i++) {
             oneLap();
             System.out.println();
@@ -44,14 +44,14 @@ public class RacingCarGame {
     }
 
     private void printResultOfEachCar(Car car) {
-        System.out.print(car.getName() + NAME_RESULT_SEPARATOR);
+        System.out.print(car.getName() + ConstantUtils.NAME_RESULT_SEPARATOR);
         printPosition(car);
         System.out.println();
     }
 
     private void printPosition(Car car) {
         for (int j = 0; j < car.getPosition(); j++) {
-            System.out.print(RACING_BAR);
+            System.out.print(ConstantUtils.RACING_BAR);
         }
     }
 
@@ -62,9 +62,9 @@ public class RacingCarGame {
     }
 
     private void announceWinner() {
-        System.out.print(FINAL_WINNER);
+        System.out.print(ConstantUtils.FINAL_WINNER);
         addWinnerList();
-        System.out.println(String.join(WINNERS_JOIN_DELIMITER, winnerList));
+        System.out.println(String.join(ConstantUtils.WINNERS_JOIN_DELIMITER, winnerList));
     }
 
     private void addWinnerList() {

@@ -1,12 +1,13 @@
 package racingcar;
 
 import java.util.Scanner;
-import static utils.ConstantUtils.*;
+import utils.ConstantUtils;
 
 public class PlayerResponse {
 
     private final Scanner scanner;
     private final Validator validator;
+
     public PlayerResponse(Scanner scanner) {
         this.scanner = scanner;
         validator = new Validator();
@@ -16,7 +17,7 @@ public class PlayerResponse {
         String[] carNames;
         while (true) {
             try {
-                System.out.println(ASKING_NAMES_MESSAGE);
+                System.out.println(ConstantUtils.ASKING_NAMES_MESSAGE);
                 carNames = responseOfCarNames();
                 validator.checkCarNames(carNames);
                 return carNames;
@@ -29,7 +30,7 @@ public class PlayerResponse {
     public int getHowManyMoves() {
         while (true) {
             try {
-                System.out.println(ASKING_MOVES_MESSAGE);
+                System.out.println(ConstantUtils.ASKING_MOVES_MESSAGE);
                 String movesBeforeCheck = responseOfMoves();
                 validator.checkNumber(movesBeforeCheck);
                 return Integer.parseInt(movesBeforeCheck);
@@ -40,7 +41,7 @@ public class PlayerResponse {
     }
 
     private String[] responseOfCarNames() {
-        String[] carNames = scanner.nextLine().split(NAMES_DELIMITER, -1);
+        String[] carNames = scanner.nextLine().split(ConstantUtils.NAMES_DELIMITER, -1);
         return deleteWhiteSpace(carNames);
     }
 
