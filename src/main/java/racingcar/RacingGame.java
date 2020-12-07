@@ -35,19 +35,28 @@ public class RacingGame {
         print(HOW_MANY_TIME_TO_TRY);
 
         while (tryCount <= 0) {
-
             try {
-                tryCount = Integer.parseInt(getInput());
-            } catch (NumberFormatException e) {
-                throw new TryCountInvalidInputException();
+                tryCount = getTryCountByInput();
+            } catch (Exception e) {
+                print(e.getMessage());
             }
-
-            if (tryCount < 1) {
-                throw new TryCountInvalidInputException();
-            }
-
         }
         this.tryCount = tryCount;
+    }
+
+    private int getTryCountByInput() throws TryCountInvalidInputException{
+        int tryCount;
+
+        try {
+            tryCount = Integer.parseInt(getInput());
+        } catch (NumberFormatException e) {
+            throw new TryCountInvalidInputException();
+        }
+
+        if (tryCount < 1) {
+            throw new TryCountInvalidInputException();
+        }
+        return tryCount;
     }
 
     private void getCarsReady() {
