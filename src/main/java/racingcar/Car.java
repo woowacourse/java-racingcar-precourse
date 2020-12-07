@@ -1,6 +1,6 @@
 package racingcar;
 
-import static game.Message.showWinners;
+import static game.Message.showStatus;
 import static game.Rule.MOVING_STATE;
 import static game.Rule.POSSIBLE_MOVE_POWER;
 
@@ -14,10 +14,10 @@ public class Car implements Comparable<Car> {
     }
 
     public void move(int power) {
-        isMove(power);
+        checkPossibleMovement(power);
     }
 
-    private void isMove(int power) {
+    private void checkPossibleMovement(int power) {
         if (power >= POSSIBLE_MOVE_POWER) {
             ++position;
             state.append(MOVING_STATE);
@@ -30,7 +30,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        return showWinners(name, state.toString());
+        return showStatus(name, state.toString());
     }
 
     @Override

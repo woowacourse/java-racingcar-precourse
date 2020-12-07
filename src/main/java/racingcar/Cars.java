@@ -1,8 +1,8 @@
 package racingcar;
 
 import static game.Message.print;
-import static game.Rule.END_RANGE;
-import static game.Rule.START_RANGE;
+import static game.Rule.END_RANGE_NUMBER;
+import static game.Rule.START_RANGE_NUMBER;
 
 import java.util.Collections;
 import java.util.List;
@@ -37,7 +37,7 @@ public class Cars {
     }
 
     private int getRandomNumber() {
-        return RandomUtils.nextInt(START_RANGE, END_RANGE);
+        return RandomUtils.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
     }
 
     public List<String> findWinners() {

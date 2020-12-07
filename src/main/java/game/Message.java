@@ -16,7 +16,7 @@ public class Message {
     private Message() {
     }
 
-    public static String showWinners(String name, String state) {
+    public static String showStatus(String name, String state) {
         return name + COLON + state;
     }
 

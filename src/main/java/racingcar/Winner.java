@@ -13,11 +13,7 @@ public class Winner {
     private String winners;
 
     public Winner(Cars cars) {
-        this.winners = createWinnersToString(cars);
-    }
-
-    private String createWinnersToString(Cars cars) {
-        return winnersToString(cars.findWinners());
+        this.winners = winnersToString(cars.findWinners());
     }
 
     private String winnersToString(final List<String> winners) {

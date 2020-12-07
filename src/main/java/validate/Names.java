@@ -1,6 +1,6 @@
 package validate;
 
-import static game.Rule.MAXIMUM_COUNT;
+import static game.Rule.MAXIMUM_RACING_COUNT;
 import static game.Rule.NAMES_SIZE;
 import static game.Rule.NAME_DELIMITER;
 import static game.Rule.NAME_LENGTH;
@@ -19,7 +19,8 @@ public class Names extends Error {
     public static final String EMPTY = "이름이 존재하지 않습니다.";
     public static final String OVER_LENGTH = "이름이 " + NAME_LENGTH + "자가 넘습니다.";
     public static final String DUPLICATE = "이름이 중복됩니다.";
-    public static final String OVER_SIZE = "참가자 수가 " + MAXIMUM_COUNT + "명이 넘습니다.";
+    public static final String OVER_SIZE =
+            "참가자 수가 " + MAXIMUM_RACING_COUNT + "명이 넘습니다.";
 
     private static final CharSequence TAB = "\t";
     private static final String SPACE = " ";
