@@ -23,4 +23,9 @@ public class Cars {
         }
         System.out.println();
     }
+
+    public List<Car> getFastestCars() {
+        Car fastestCar = cars.stream().max(Car::compareTo).orElseThrow(IllegalArgumentException::new);
+        return cars.stream().filter(car -> car.isSamePosition(fastestCar)).collect(Collectors.toList());
+    }
 }
