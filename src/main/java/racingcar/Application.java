@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -53,15 +55,36 @@ public class Application {
 
     private static boolean checkCarNames(String[] names) {
         boolean check = true;
+        check = checkCarsLength(names, check);
+        for (int i = 0; i < names.length; i++) {
+            check = checkNameLength(names[i], check);
+        }
+        check = checkSameName(names, check);
+        return check;
+    }
+
+    private static boolean checkCarsLength(String[] names, boolean check) {
         if (names.length < MIN_CAR_LENGTH) {
             check = false;
             displayErrorMessage(NO_CAR_ERROR);
         }
-        for (int i = 0; i < names.length; i++) {
-            if (names[i].length() > MAX_NAME_LENGTH) {
-                check = false;
-                displayErrorMessage(LENGTH_RANGE_ERROR);
-            }
+        return check;
+    }
+
+    private static boolean checkNameLength(String name, boolean check) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            check = false;
+            displayErrorMessage(LENGTH_RANGE_ERROR);
+        }
+        return check;
+    }
+
+    private static boolean checkSameName(String[] names, boolean check) {
+        HashSet<String> namesSet = new HashSet<>();
+        namesSet.addAll(Arrays.asList(names));
+        if (names.length != namesSet.size()) {
+            check = false;
+            displayErrorMessage(SAME_NAME_ERROR);
         }
         return check;
     }
