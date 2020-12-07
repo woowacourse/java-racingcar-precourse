@@ -5,6 +5,7 @@ import racingcar.view.InputViewer;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.stream.IntStream;
 
 public class Cars {
     private final ArrayList<Car> carList = new ArrayList<Car>();
@@ -30,9 +31,7 @@ public class Cars {
 
     /*게임 한턴을 진행시켜주는 메서드 */
     public void processOneTurn() {
-        for (Car car : this.carList) {
-            car.oneTurn();
-        }
+        this.carList.forEach(Car::oneTurn);
     }
 
     /**
@@ -48,20 +47,13 @@ public class Cars {
     }
 
     private int getMaxDistance() {
-        int maxDistance = 0;
-        for (Car car : this.carList) {
-            maxDistance = compareDistance(car, maxDistance);
-        }
-        return maxDistance;
+        IntStream carStream = this.carList.stream().mapToInt(Car::getPosition);
+        return carStream.summaryStatistics().getMax();
     }
 
-    private int compareDistance(Car car, int maximumNumber) {
-        return Math.max(maximumNumber, car.getPosition());
-    }
-
-    private void addWinners(ArrayList<String> winner, Car candiate, int maxDistance) {
-        if (candiate.isMaxDistance(maxDistance)) {
-            winner.add(candiate.getName());
+    private void addWinners(ArrayList<String> winner, Car candidate, int maxDistance) {
+        if (candidate.isMaxDistance(maxDistance)) {
+            winner.add(candidate.getName());
         }
     }
 }
