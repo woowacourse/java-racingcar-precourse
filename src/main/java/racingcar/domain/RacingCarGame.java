@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.exception.RacingCarException;
+import racingcar.view.InputView;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,16 +9,14 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class RacingCarGame {
-    private final String INPUT_RACING_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉽표(,) 기준으로 구분)";
-    private final String INPUT_RACING_ROUND = "시도할 회수는 몇회인가요?";
     private final String EXECUTION_RESULT = "\n실행 결과";
+    private final InputView inputView;
 
-    private final Scanner scanner;
     private Cars cars;
     private Round round;
 
     public RacingCarGame(Scanner scanner) {
-        this.scanner = scanner;
+        this.inputView = new InputView(scanner);
     }
 
     public void startGame() {
@@ -36,21 +35,11 @@ public class RacingCarGame {
     }
 
     private void initRacingCars() {
-        this.cars = new Cars(inputRacingCars());
-    }
-
-    private String inputRacingCars() {
-        System.out.println(INPUT_RACING_CARS);
-        return scanner.nextLine();
+        cars = new Cars(inputView.inputRacingCars());
     }
 
     private void initRacingRound() {
-        this.round = new Round(inputRacingRound());
-    }
-
-    private String inputRacingRound() {
-        System.out.println(INPUT_RACING_ROUND);
-        return scanner.nextLine();
+        this.round = new Round(inputView.inputRacingRound());
     }
 
     private void startRacing() {
@@ -63,8 +52,8 @@ public class RacingCarGame {
     private void printWinners() {
         System.out.println("최종 우승자 : "
                 + cars.getFastestCars()
-                    .stream()
-                    .map(car -> String.valueOf(car.getName()))
-                    .collect(Collectors.joining(", ")));
+                .stream()
+                .map(car -> String.valueOf(car.getName()))
+                .collect(Collectors.joining(", ")));
     }
 }
