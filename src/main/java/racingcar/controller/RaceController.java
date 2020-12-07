@@ -17,6 +17,7 @@ public class RaceController {
     public void run() {
         inputCarName();
         inputTimes();
+        startRace();
     }
 
     private void inputCarName() {
@@ -25,5 +26,15 @@ public class RaceController {
 
     private void inputTimes() {
         times = view.askTime();
+    }
+
+    private void startRace() {
+        view.showResultMessage();
+
+        while (--times >= 0) {
+            cars.move();
+
+        }
+
     }
 }

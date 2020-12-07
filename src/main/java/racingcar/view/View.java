@@ -37,4 +37,9 @@ public class View {
             outputView.errorInvalidTime();
         }
     }
+
+    public void showResultMessage() {
+        outputView.resultMessage();
+    }
+
 }
