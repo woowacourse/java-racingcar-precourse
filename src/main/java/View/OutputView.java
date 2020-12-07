@@ -7,7 +7,7 @@ public class OutputView {
 
     }
 
-    private String showScore(int score) {
+    private String scoreMessage(int score) {
         String message = "";
         for(int index = 0; index < score; index++) {
             message += this.SYMBOL;
@@ -15,5 +15,7 @@ public class OutputView {
         return message;
     }
 
-
+    public void showState(String name, int score) {
+        System.out.println(name + " : "+ scoreMessage(score));
+    }
 }
