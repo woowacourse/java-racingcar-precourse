@@ -43,6 +43,10 @@ public class Car {
         }
     }
 
+    public CarDTO toDTO() {
+        return new CarDTO(this.name, this.position);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
