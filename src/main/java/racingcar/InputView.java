@@ -18,7 +18,7 @@ public class InputView {
     public static ArrayList<Car> getUserCarInput(Scanner scanner) {
         System.out.println(ENTER_CAR_NAME);
         String userInput = scanner.nextLine();
-        String[] cars = CarInputValidation.checkCarNameInput(userInput);
+        String[] cars = InputValidation.checkCarNameInput(userInput);
         setCarInformation(cars);
         return carsInGame;
     }
@@ -26,7 +26,7 @@ public class InputView {
     public static int getUserTrialInput(Scanner scanner) {
         System.out.println(ENTER_NUMBER_OF_TRIAL);
         String userInput = scanner.nextLine();
-        int trialInput = TrialInputValidation.checkTrialInput(userInput);
+        int trialInput = InputValidation.checkTrialInput(userInput);
         setNumberOfTrial(trialInput);
         return numberOfTrial;
     }
