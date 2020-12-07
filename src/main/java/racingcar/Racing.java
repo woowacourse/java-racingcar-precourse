@@ -25,15 +25,22 @@ public class Racing {
     }
 
     private void whoIsWinner() {
-        int max = cars.stream()
-                .map(Car::getPosition)
-                .max(Integer::compareTo)
-                .get();
-        List<String> winners = cars.stream()
+        int max = findMaxPosition();
+        OutputView.theWinner(winners(max));
+    }
+
+    private List<String> winners(int max) {
+        return cars.stream()
                 .filter(car -> car.isMax(max))
                 .map(Car::getName)
                 .collect(Collectors.toList());
-        OutputView.theWinner(winners);
+    }
+
+    private int findMaxPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo)
+                .get();
     }
 
     private void raceStart() {
