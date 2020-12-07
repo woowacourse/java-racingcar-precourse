@@ -12,6 +12,7 @@ package racingcar;
 import java.util.Scanner;
 import racingcar.controller.RaicingCarGame;
 import racingcar.domain.Cars;
+import racingcar.domain.Turn;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -22,7 +23,8 @@ public class Application {
         InputView.setScanner(scanner);
 
         Cars cars = getCarNamesFromUser();
-        RaicingCarGame raicingCarGame = new RaicingCarGame(cars);
+        Turn tryNumber = getTryNumberFromUser();
+        RaicingCarGame raicingCarGame = RaicingCarGame.createNewGame(cars, tryNumber);
         raicingCarGame.play();
     }
 
@@ -32,6 +34,15 @@ public class Application {
         }catch (IllegalArgumentException e) {
             OutputView.showErrorMessage(e);
             return getCarNamesFromUser();
+        }
+    }
+
+    private static Turn getTryNumberFromUser() {
+        try{
+            return Turn.from(InputView.getTryNumber());
+        }catch (IllegalArgumentException e) {
+            OutputView.showErrorMessage(e);
+            return getTryNumberFromUser();
         }
     }
 }
