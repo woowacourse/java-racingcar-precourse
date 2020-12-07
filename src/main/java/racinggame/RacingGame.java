@@ -3,7 +3,8 @@ package racinggame;
 import domain.RacingCars;
 import domain.TotalRound;
 import views.InputView;
-import views.OutputView;
+import views.MovementOutputView;
+import views.WinnerOutputView;
 
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ public class RacingGame {
         System.out.println(RESULT);
         for (int round = 1; round <= totalRound.getTotalRound(); round++) {
             racingCars.moveAllCar();
-            OutputView.printOneRound(racingCars);
+            MovementOutputView.printAllCarMovement(racingCars);
         }
     }
 
@@ -43,6 +44,6 @@ public class RacingGame {
         Referee referee = new Referee();
         referee.calculateMaxDistance(racingCars);
 
-        OutputView.printWinner(referee.selectWinner(racingCars));
+        WinnerOutputView.printWinner(referee.selectWinner(racingCars));
     }
 }
