@@ -35,6 +35,6 @@ public class RaceController {
             cars.move();
             view.informPosition(cars.position());
         }
-
+        view.showWinner(cars.findWinner());
     }
 }

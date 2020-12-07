@@ -41,4 +41,10 @@ public class Cars {
                 .collect(Collectors.joining());
     }
 
+    public String findWinner() {
+        return carList.stream()
+                .filter(car -> car.isWinner(maxDistance))
+                .map(car -> car.getName())
+                .collect(Collectors.joining(WINNER_PRINT_DELIMITER));
+    }
 }
