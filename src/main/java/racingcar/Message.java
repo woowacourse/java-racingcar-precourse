@@ -13,7 +13,7 @@ public class Message {
 		System.out.println("실행 결과");
 		}
 	
-	public static void finalWinner() { 
-		System.out.println("최종 우승자");
+	public static void finalWinner(StringBuffer winner) { 
+		System.out.print("최종 우승자: " + winner.substring(0, winner.length()-1));
 		}
 }
