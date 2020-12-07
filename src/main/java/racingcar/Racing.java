@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
+    private static final String DELIMITER = ",";
 
-    List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
 
     public void init(Scanner scanner){
         saveCarName(scanner);
@@ -16,7 +17,11 @@ public class Racing {
 
     public void saveCarName(Scanner scanner){
         OutputView.writeCarName();
-        
+        String temp = scanner.next();
+        String[] names = temp.split(DELIMITER);
+        for(String name : names){
+            cars.add(new Car(name));
+        }
     }
 
 }
