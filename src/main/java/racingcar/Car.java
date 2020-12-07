@@ -9,4 +9,15 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void drive() {
+        position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int position() {
+        return position;
+    }
 }
