@@ -1,20 +1,18 @@
-package RaceReferee;
+package Race;
 
-import java.util.Collections;
-import java.util.Comparator;
 import racingcar.Car;
 import View.OutputView;
 
 import java.util.List;
 
-public class RaceReferee {
+public class RaceProcess {
 
     private List<Car> Cars;
     private int carNum = 0;
     private int roundNum = 0;
     private OutputView scoreBoard = new OutputView();
 
-    public RaceReferee(List<String> carNames, int roundNum) {
+    public RaceProcess(List<String> carNames, int roundNum) {
         this.roundNum = roundNum;
         this.carNum = carNames.toArray().length;
 
@@ -47,7 +45,8 @@ public class RaceReferee {
             scoreBoard.showState(currentCar.getName(), currentCar.getScore());
         }
     }
-    
+
+
 
 
 

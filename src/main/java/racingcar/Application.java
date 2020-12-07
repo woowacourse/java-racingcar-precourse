@@ -1,8 +1,5 @@
 package racingcar;
 
-import RaceReferee.RaceReferee;
-import View.InputView;
-
 import java.util.Scanner;
 
 public class Application {
