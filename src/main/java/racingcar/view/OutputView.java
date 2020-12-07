@@ -6,9 +6,10 @@ import java.util.Collections;
 
 public class OutputView {
     private static final String BAR = "-";
-    private static final String DELIMITER = "";
+    private static final String SPACE_DELIMITER = "";
     private static final String EXECUTION_RESULT = "\n실행 결과";
     private static final String TURN_RESULT = "%s : %s\n";
+    private static final String FINAL_WINNERS = "최종 우승자 : %s\n";
 
     public static void printExecutionResult() {
         System.out.println(EXECUTION_RESULT);
@@ -23,10 +24,14 @@ public class OutputView {
     }
 
     private static String convertPositionToBar(int position) {
-        return String.join(DELIMITER, Collections.nCopies(position, BAR));
+        return String.join(SPACE_DELIMITER, Collections.nCopies(position, BAR));
     }
 
     public static void printErrorLog(String msg) {
         System.out.println(msg);
+    }
+
+    public static void printWinnerNames(String winners) {
+        System.out.printf(FINAL_WINNERS, winners);
     }
 }
