@@ -11,6 +11,6 @@ public class UserInputNameLengthException extends RuntimeException {
 
 	@Override
 	public String getMessage() {
-		return "[ERROR] 입력된 데이터의 길이가 " + userInputNumber + "입니다. 다시 입력해주세요." + "(제한된 길이 : " + LENGTHLIMIT + ")";
+		return "[ERROR] 입력된 이름중에 길이가 " + userInputNumber + "인 이름이 있습니다. 다시 입력해주세요." + "(제한된 길이 : " + LENGTHLIMIT + ")";
 	}
 }
