@@ -2,6 +2,7 @@ package utils;
 
 public class SplitUtils {
     private static final String COMMA = ",";
+    
     private SplitUtils() {
     }
 
