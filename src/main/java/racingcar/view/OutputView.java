@@ -25,4 +25,8 @@ public class OutputView {
     private static String convertPositionToBar(int position) {
         return String.join(DELIMITER, Collections.nCopies(position, BAR));
     }
+
+    public static void printErrorLog(String msg) {
+        System.out.println(msg);
+    }
 }

@@ -23,7 +23,7 @@ public class RacingCarGame {
             startRacing();
             printWinners();
         } catch (RacingCarException e) {
-            System.out.println(e.getMessage());
+            OutputView.printErrorLog(e.getMessage());
         }
     }
 
