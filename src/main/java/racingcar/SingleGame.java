@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SingleGame {
-    private static int numberOfCarsInGame;
+    private static ArrayList<Car> carsInGame;
     private static int numberOfTrial;
     private static int finalFrontRunnerPosition = 0;
-    private static ArrayList<Car> carsInGame;
 
     public static void play(Scanner scanner) {
-        setGame(scanner);
+        carsInGame = InputView.getUserCarInput(scanner);
+        numberOfTrial = InputView.getUserTrialInput(scanner);
 
         TrialProgression.trialProgress(numberOfTrial, carsInGame);
         finalFrontRunnerPosition = TrialProgression.getFrontRunnerPosition();
@@ -19,11 +19,4 @@ public class SingleGame {
         WinnerAnnouncement.announce();
     }
 
-    private static void setGame(Scanner scanner) {
-        GameInformation.getUserInput(scanner);
-
-        numberOfCarsInGame = GameInformation.getNumberOfCarsInGame();
-        numberOfTrial = GameInformation.getNumberOfTrial();
-        carsInGame = GameInformation.getCarsInGame();
-    }
 }
