@@ -1,9 +1,11 @@
 package Race;
 
 import racingcar.Car;
+import racingcar.Cars;
 import View.OutputView;
 
 import java.util.List;
+
 
 public class RaceProcess {
 
@@ -12,23 +14,16 @@ public class RaceProcess {
     private int roundNum = 0;
     private OutputView scoreBoard = new OutputView();
 
-    public RaceProcess(List<String> carNames, int roundNum) {
+    public RaceProcess(int roundNum) {
         this.roundNum = roundNum;
-        this.carNum = carNames.toArray().length;
-
-        createCars(carNames);
     }
 
-    public void createCars(List<String> carNames) {
-        for(int index = 0; index < this.carNum; index += 1) {
-            this.Cars.add(new Car(carNames.get(index)));
-        }
-    }
 
-    public void totalRoundProcess(int roundNum) {
+
+    public void totalRoundProcess(int roundNum, Cars cars) {
         for(int index = 0; index < roundNum; index++) {
             this.oneRoundProcess();
-            this.currentResult();
+            this.currentResult(cars);
         }
     }
 
@@ -38,10 +33,10 @@ public class RaceProcess {
         }
     }
 
-    private void currentResult() {
+    private void currentResult(Cars cars) {
         Car currentCar;
         for(int index = 0; index < this.carNum; index++) {
-            currentCar = Cars.get(index);
+            currentCar = cars.getCar(index);
             scoreBoard.showState(currentCar.getName(), currentCar.getScore());
         }
     }
