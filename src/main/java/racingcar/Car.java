@@ -13,6 +13,10 @@ public class Car {
         this.name = name;
     }
     
+    public int getPosition() {
+        return position;
+    }
+
     public void move() {
         position++;
     }
