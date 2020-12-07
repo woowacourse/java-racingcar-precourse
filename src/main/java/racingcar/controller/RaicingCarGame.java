@@ -26,6 +26,7 @@ public class RaicingCarGame {
     public void play() {
         // 게임 실행 로직
         while (!turn.isEnd()) {
+            cars.moveCars();
             turn.turnOver();
         }
     }

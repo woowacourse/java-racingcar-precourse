@@ -44,6 +44,10 @@ public class Cars {
         return true;
     }
 
+    public void moveCars() {
+        this.cars.forEach(Car::move);
+    }
+
     public List<Car> toList() {
         return cars;
     }
