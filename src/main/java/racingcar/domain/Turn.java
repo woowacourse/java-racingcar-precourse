@@ -1,3 +1,10 @@
+/**
+ * Turn.java
+ * 게임의 회차를 담당하는 클래스
+ *
+ * 수정: Kimun Kim, github.com/tributetothemoon
+ */
+
 package racingcar.domain;
 
 public class Turn {
