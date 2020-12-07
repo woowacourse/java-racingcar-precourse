@@ -8,7 +8,11 @@ import java.util.Scanner;
 
 public class Initiator {
     private static final int LIMIT_PARTICIPANT_NAME = 5;
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner;
+
+    public static void setScanner(Scanner scanner) {
+        Initiator.scanner = scanner;
+    }
 
     /**
      * 참가하는 참여자를 묻는 메서드
@@ -48,7 +52,7 @@ public class Initiator {
 
     private static int integerTranslator(String primitiveNumber) {
         try {
-            return Integer.parseInt(scanner.nextLine());
+            return Integer.parseInt(primitiveNumber);
         } catch (Exception e) {
             ErrorViewer.numberInputError();
             return 0;
