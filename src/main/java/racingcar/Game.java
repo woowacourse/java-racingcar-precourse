@@ -12,6 +12,7 @@ public class Game {
     private final String TRIAL_MESSAGE = "시도할 회수는 몇회인가요?";
     private final String RESULT_MESSAGE = "실행 결과";
     private final String MOVEMENT = "-";
+    private final String WINNER_MESSAGE = "최종 우승자: ";
 
     private int trial;
     private List<Car> cars;
@@ -58,7 +59,7 @@ public class Game {
         System.out.println(maxScore);
         getWinner();
         String winners = String.join(",", winner);
-        System.out.println(winners);
+        System.out.println(WINNER_MESSAGE + winners);
     }
 
     public void move(Car car) {
