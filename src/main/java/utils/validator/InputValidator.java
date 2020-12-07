@@ -16,15 +16,7 @@ public class InputValidator {
 
         String[] names = inputNames.split(nameValidator.DELIMITER);
 
-        if (!nameValidator.validLength(names)) {
-            return null;
-        }
-
-        if (!nameValidator.validCharacter(names)) {
-            return null;
-        }
-
-        if (nameValidator.duplicate(names)) {
+        if (!nameValidator.validLength(names) || !nameValidator.validCharacter(names) || nameValidator.duplicate(names)) {
             return null;
         }
 
@@ -36,15 +28,7 @@ public class InputValidator {
             return true;
         }
 
-        if (!timeValidator.isDigit(time)) {
-            return true;
-        }
-
-        if (timeValidator.isZero(time)) {
-            return true;
-        }
-
-        if (timeValidator.isNegative(time)) {
+        if (!timeValidator.isDigit(time) || timeValidator.isZero(time) || timeValidator.isNegative(time)) {
             return true;
         }
 

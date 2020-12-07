@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class NameValidator {
     public static final String DELIMITER = ",";
-    private static final int NAME_MAX_LEN = 5;
     private static final String CHAR_PATTERN = "^[a-zA-Z0-9ㄱ-ㅎ가-힣]*$";
+    private static final int NAME_MAX_LEN = 5;
 
     boolean validDelimiter(String inputNames) {
         if (inputNames.startsWith(DELIMITER) || inputNames.endsWith(DELIMITER)) {
