@@ -5,7 +5,7 @@ import racingcar.Car;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racegame.Constant.OUTPUT_VIEW_WINNER_DELIMITER;
+import static racinggame.Constant.OUTPUT_VIEW_WINNER_DELIMITER;
 
 public class WinnersFinder {
 

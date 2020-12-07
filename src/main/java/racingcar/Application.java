@@ -1,6 +1,6 @@
 package racingcar;
 
-import racegame.RaceGameManager;
+import racinggame.RaceGameManager;
 
 import java.util.Scanner;
 

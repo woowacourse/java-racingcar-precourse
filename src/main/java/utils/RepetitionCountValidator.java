@@ -1,6 +1,6 @@
 package utils;
 
-import static racegame.Constant.*;
+import static racinggame.Constant.*;
 
 public class RepetitionCountValidator {
 

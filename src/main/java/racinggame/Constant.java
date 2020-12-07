@@ -1,4 +1,4 @@
-package racegame;
+package racinggame;
 
 public class Constant {
     public final static String INPUT_DELIMITER = ",";

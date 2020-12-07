@@ -1,16 +1,15 @@
-package racegame;
+package racinggame;
 
-import racegame.view.InputView;
-import racegame.view.OutputView;
+import racinggame.view.InputView;
+import racinggame.view.OutputView;
 import racingcar.Car;
 import utils.RandomUtils;
 import utils.WinnersFinder;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static racegame.Constant.*;
+import static racinggame.Constant.*;
 
 public class RaceGame {
 

@@ -1,10 +1,10 @@
-package racegame.view;
+package racinggame.view;
 
 import racingcar.Car;
 
 import java.util.List;
 
-import static racegame.Constant.*;
+import static racinggame.Constant.*;
 
 public class OutputView {
 

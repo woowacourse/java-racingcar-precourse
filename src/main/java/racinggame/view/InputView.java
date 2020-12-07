@@ -1,4 +1,4 @@
-package racegame.view;
+package racinggame.view;
 
 import racingcar.Car;
 import utils.NameValidator;
@@ -6,7 +6,7 @@ import utils.RepetitionCountValidator;
 
 import java.util.*;
 
-import static racegame.Constant.*;
+import static racinggame.Constant.*;
 
 public class InputView {
 
