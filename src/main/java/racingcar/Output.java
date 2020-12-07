@@ -7,22 +7,23 @@ public class Output {
     private static final String FINAL_WINNER_INFO_MESSAGE = "최종 우승자: ";
     private static final String SPLIT_DELIMITER = ", ";
     
-    private Car[] car;
+    private ArrayList<Car> cars;
     
-    public Output(Car[] car) {
-        this.car = car;
+    public Output(ArrayList<Car> cars) {
+        this.cars = cars;
     }
     
     public void printResult(){
-        for (int i = 0; i < car.length; i++) {
-            String carName = car[i].getName();
-            int carPosition = car[i].getPosition();
+    	for (Car car : cars) {
+            String carName = car.getName();
+            int carPosition = car.getPosition();
             System.out.print(carName + " : ");
             for (int j = 0; j < carPosition; j++) {
                 System.out.print(GO_MARK);
             }
             System.out.println();
         }
+    	System.out.println();
     }
     public void printFinalWinner() {
         ArrayList<Car> finalWinner = getFinalWinner();
@@ -40,12 +41,12 @@ public class Output {
     public ArrayList<Car> getFinalWinner() {
         ArrayList<Car> finalWinner = new ArrayList<Car>();
         int maxPosition = 0;
-        for (int i = 0; i < car.length; i++) {
-            maxPosition = Math.max(maxPosition, car[i].getPosition());
+    	for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
         }
-        for (int i = 0; i < car.length; i++) {
-            if (car[i].getPosition() == maxPosition) {
-                finalWinner.add(car[i]);
+    	for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                finalWinner.add(car);
             }
         }
         return finalWinner;
