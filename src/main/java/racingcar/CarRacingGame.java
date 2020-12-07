@@ -19,6 +19,7 @@ public class CarRacingGame {
         String carNames = InputView.getCarName(scanner);
         int tryNumber = InputView.getTryNumber(scanner);
         Car[] racingCars = makeRacingCars(carNames);
+        playAllRound(tryNumber, racingCars);
     }
 
     private Car[] makeRacingCars(String carNames) {
@@ -31,5 +32,22 @@ public class CarRacingGame {
             racingCars[i] = new Car(racingCarNames[i]);
         }
         return racingCars;
+    }
+
+    private void playAllRound(int tryNumber, Car[] racingCars) {
+        OutputView.showAllRoundResultMessage();
+        for (int i = 0; i < tryNumber; i++) {
+            playOneRound(racingCars);
+            System.out.println();
+        }
+    }
+
+    private void playOneRound(Car[] racingCars) {
+        for (Car racingCar : racingCars) {
+            if (racingCar.makeRandomNumber() >= MOVE_FORWARD) {
+                racingCar.move();
+            }
+            OutputView.showOneRoundResult(racingCar);
+        }
     }
 }
