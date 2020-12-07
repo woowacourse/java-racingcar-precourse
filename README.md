@@ -1,6 +1,22 @@
 # 미션 - 자동차 경주 게임
 
-## 구현할 기능 목록
+### ▶ 실행 방법
+
+- 원하는 디렉토리 위치에서 git 명령어 입력
+```
+git clone -b yhh1056 https://github.com/yhh1056/java-racingcar-precourse.git
+```
+- 프로그램 실행 (인텔리제이) 2가지 방법
+```
+1. 상단 메뉴바 Run -> Run 'Application' 클릭
+```
+```
+2. src/main/java/racingcar 경로에 있는 Application 실행
+```
+
+<br>
+
+## 🖊 구현할 기능 목록
 
 ### 기능 목록
 
@@ -38,7 +54,7 @@
 
 <br>
 
-## 커밋 메시지 규칙
+## 📃 커밋 메시지 규칙
 
 - Feat : 새로운 기능 추가
 - Fix : 버그 수정
@@ -46,6 +62,45 @@
 - Style : 코드의 수정 없이 스타일만 변경
 - Refactor : 코드를 리펙토링
 - Test : Test 관련한 코드의 추가, 수정
+
+<br>
+
+## 💻 자동차 경주 게임 실행 결과
+
+```
+경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
+pobi,woni,jun,yhh
+시도할 회수는 몇회인가요?
+5
+
+실행 결과
+pobi : 
+woni : 
+jun : 
+yhh : -
+
+pobi : -
+woni : -
+jun : -
+yhh : --
+
+pobi : --
+woni : --
+jun : --
+yhh : ---
+
+pobi : ---
+woni : --
+jun : ---
+yhh : ---
+
+pobi : ---
+woni : --
+jun : ----
+yhh : ----
+
+최종우승자: jun, yhh
+```
 
 <br>
 
