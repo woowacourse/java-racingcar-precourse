@@ -16,11 +16,11 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 class CarsTest {
 
+    private final List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+
     @DisplayName("Cars 객체 생성 성공 : 이름들에 중복이 없는 경우")
     @Test
-    public void createCars_중복없는_이름들_객체_생성_성공() {
-        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
-
+    void createCars_중복없는_이름들_객체_생성_성공() {
         assertThatCode(() -> {
             Cars.createCars(carNames, new RandomMovingStrategy());
         }).doesNotThrowAnyException();
@@ -28,18 +28,18 @@ class CarsTest {
 
     @DisplayName("Cars 객체 생성 실패 : 이름들에 중복이 존재하는 경우")
     @Test
-    public void createCars_중복있는_이름들_예외_발생() {
-        List<String> carNames = Arrays.asList("pobi", "pobi", "jiko", "ajax");
+    void createCars_중복있는_이름들_예외_발생() {
+        List<String> duplicatedCarNames = Arrays.asList("pobi", "pobi", "jiko", "ajax");
 
         assertThatCode(() -> {
-            Cars.createCars(carNames, new RandomMovingStrategy());
-        }).isInstanceOf(CarNameDuplicationException.class);
+            Cars.createCars(duplicatedCarNames, new RandomMovingStrategy());
+        }).isInstanceOf(CarNameDuplicationException.class)
+                .hasMessage("[ERROR] 자동차 이름들 중 중복이 존재해서는 안됩니다.");
     }
 
-    @DisplayName("Car 객체들의 이름 리스트를 반환한다.")
+    @DisplayName("Car 객체들의 DTO 리스트를 반환")
     @Test
-    public void getCarNames_이름들이_반환된다() {
-        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+    void getCarDtos_name_리스트를_확인한다() {
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
 
         List<String> targetCarNames = cars.getCarDtos().stream()
@@ -49,10 +49,9 @@ class CarsTest {
         assertThat(targetCarNames).hasSameElementsAs(carNames);
     }
 
-    @DisplayName("Car 객체들의 Position 리스트를 반환한다.")
+    @DisplayName("Car 객체들의 DTO 리스트를 반환")
     @Test
-    public void getCarPositions_위치가_반환된다() {
-        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+    void getCarDtos_position_리스트를_확인한다() {
         Cars cars = Cars.createCars(carNames, new RandomMovingStrategy());
 
         List<Integer> carPositions = cars.getCarDtos().stream()
@@ -62,14 +61,13 @@ class CarsTest {
         assertThat(carPositions).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
     }
 
-    @DisplayName("항상 움직이지 않는 전략의 경우, Cars 객체에 move를 요청하면 차량들의 위치가 변하지 않는다.")
+    @DisplayName("Cars 객체에서 move가 실패하면 position은 변함 없음")
     @Test
-    public void move_항상_움직이지_않는_전략_position이_변함없다() {
-        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+    void move_실패시_position이_변함없다() {
         MovingStrategy neverMovingStrategy = () -> false;
         Cars cars = Cars.createCars(carNames, neverMovingStrategy);
-
         cars.move();
+
         List<Integer> carPositions = cars.getCarDtos().stream()
                 .map(CarDto::getPosition)
                 .collect(Collectors.toList());
@@ -77,14 +75,13 @@ class CarsTest {
         assertThat(carPositions).hasSameElementsAs(Arrays.asList(0, 0, 0, 0));
     }
 
-    @DisplayName("항상 움직이는 전략의 경우, Cars 객체에 move를 요청하면 차량들의 위치가 1 증가한다.")
+    @DisplayName("Cars 객체에서 move가 성공하면 position은 1만큼 증가함")
     @Test
-    public void move_항상_움직이는_전략_position이_1만큼_증가한다() {
-        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+    void move_성공시_position이_1만큼_증가한다() {
         MovingStrategy alwaysMovingStrategy = () -> true;
         Cars cars = Cars.createCars(carNames, alwaysMovingStrategy);
-
         cars.move();
+
         List<Integer> carPositions = cars.getCarDtos().stream()
                 .map(CarDto::getPosition)
                 .collect(Collectors.toList());
@@ -94,11 +91,12 @@ class CarsTest {
 
     @DisplayName("가장 멀리 이동한 우승 자동차들의 명단을 반환함")
     @Test
-    public void getWinnerCarNames_우승자_명단을_반환한다() {
-        List<String> carNames = Arrays.asList("pobi", "crong", "jiko", "ajax");
+    void getWinnerCarNames_우승_자동차_이름_명단을_반환한다() {
         MovingStrategy alwaysMovingStrategy = () -> true;
         Cars cars = Cars.createCars(carNames, alwaysMovingStrategy);
 
-        assertThat(cars.getWinnerCarNames()).hasSameElementsAs(carNames);
+        List<String> winnerCarNames = cars.getWinnerCarNames();
+
+        assertThat(winnerCarNames).hasSameElementsAs(carNames);
     }
 }
