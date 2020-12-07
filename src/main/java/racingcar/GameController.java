@@ -46,7 +46,7 @@ public class GameController {
 
     public void startEachRound() {
 
-        for (Car car : this.cars.getCarList()) {
+        for (Car car : this.cars.getCars()) {
             int randomNumber = RandomNumberGenerator.generateRandomNumber();
             car.moveForward(randomNumber);
         }
