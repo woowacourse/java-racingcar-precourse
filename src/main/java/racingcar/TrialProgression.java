@@ -7,9 +7,6 @@ import java.util.ArrayList;
 public class TrialProgression {
     private static int frontRunnerPosition = 0;
 
-    private static final int RANDOM_MIN_NUMBER = 0;
-    private static final int RANDOM_MAX_NUMBER = 9;
-    private static final int MOVE_FORWARD_POINT = 4;
     private static final String CAR_NAME_PRINT_FORMAT = " : ";
     private static final String POSITION_INDICATOR = "-";
     private static final String TRIAL_RESULT = "실행 결과";
@@ -28,7 +25,7 @@ public class TrialProgression {
 
     private static void singleTrial(ArrayList<Car> carsInGame) {
         for (Car car : carsInGame) {
-            moveOrStop(car);
+            car.moveOrStop();
             printCarName(car);
             printPosition(car);
             checkFrontRunner(car);
@@ -36,12 +33,6 @@ public class TrialProgression {
         System.out.println();
     }
 
-    private static void moveOrStop(Car car) {
-        int progressCheck = RandomUtils.nextInt(RANDOM_MIN_NUMBER, RANDOM_MAX_NUMBER);
-        if (progressCheck >= MOVE_FORWARD_POINT) {
-            car.moveForward();
-        }
-    }
 
     private static void printCarName(Car car) {
         String carName = car.getName();
