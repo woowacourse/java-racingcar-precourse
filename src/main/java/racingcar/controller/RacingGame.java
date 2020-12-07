@@ -38,7 +38,7 @@ public class RacingGame {
     }
 
     private void checkParicipantLength(String participant){
-        if (participant.length() >5) {
+        if (participant.length() > 5) {
             InputViewer.lengthInputError();
         }
     }
