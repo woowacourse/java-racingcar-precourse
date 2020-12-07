@@ -71,5 +71,4 @@ public class OutputView {
     public static String getCarNameDuplicationErrorMessage() {
         return CAR_NAME_DUPLICATION_ERROR_MESSAGE;
     }
-
 }
