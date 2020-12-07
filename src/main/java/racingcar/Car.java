@@ -16,7 +16,7 @@ public class Car {
 
     public void tryingMove() {
         int distance = randomDistance();
-        if(isReallyMoving(distance)) {
+        if(isPossiblyMoving(distance)) {
             this.position += distance;
         }
     }
@@ -33,7 +33,7 @@ public class Car {
         return RandomUtils.nextInt(MINIMUM_DISTANCE, MAXIMUM_DISTANCE);
     }
 
-    private boolean isReallyMoving(int distance) {
+    private boolean isPossiblyMoving(int distance) {
         return distance >= MIN_LENGTH_FOR_MOVING_POSSIBLE;
     }
     // 추가 기능 구현
