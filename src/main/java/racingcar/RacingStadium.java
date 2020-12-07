@@ -23,7 +23,7 @@ public class RacingStadium {
     public void start() {
         initializeCars();
         initializeTryCount();
-        for (int i = 0; i < tryCount; i++) {
+        for (int count = 0; count < tryCount; count++) {
             playOnce();
         }
         cars.printWinners();

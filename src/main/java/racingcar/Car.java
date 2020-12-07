@@ -34,8 +34,8 @@ public class Car {
         if (this.name.length() > 5) {
             throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 입력 해주세요.");
         }
-        for (int i = 0; i < this.name.length(); i++) {
-            char targetChar = this.name.charAt(i);
+        for (int index = 0; index < this.name.length(); index++) {
+            char targetChar = this.name.charAt(index);
             validateSingleChar(targetChar);
         }
     }
