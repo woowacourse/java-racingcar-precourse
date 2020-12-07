@@ -1,11 +1,14 @@
 package utils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.regex.Pattern;
-import java.util.stream.DoubleStream;
 
-public class userInputData {
+public class UserInputData {
 
+    static final String splitter = ",";
+    static final int splitLimit = -1;
     private static final String spaceErrorCheckPattern = ".*[ ].*";
     private static final String integerOnlyPossiblePattern = "[1-9]+[0-9]*";
     private static final int MINIMUM_CAR_NAME = 1;
@@ -16,9 +19,27 @@ public class userInputData {
     private static final String NAME_RANGE_ERROR = "[ERROR] 자동차의 이름은 " + MINIMUM_CAR_NAME +
         " 자리 이상 " + MAXIMUM_CAR_NAME + " 자리 이하여야 합니다.";
     private static final String NOT_INTEGER_ERROR = "[ERROR] 시도 횟수는 1 이상의 숫자만 입력 가능합니다.";
-    private static final String NO_ERROR = "";
 
-    private userInputData() {
+
+    private UserInputData() {
+    }
+
+    public static String[] carNameChoice(Scanner scanner) {
+        String[] carNames = scanner.nextLine().split(splitter, splitLimit);
+        if (carNameErrorCheck(carNames)) {
+            carNameErrorMessagePrint(carNames);
+            throw new IllegalArgumentException();
+        }
+        return carNames;
+    }
+
+    public static int matchCountChoice(Scanner scanner) {
+        String matchTryNumber = scanner.nextLine();
+        if (matchTryNumberErrorCheck(matchTryNumber)) {
+            matchTryNumberErrorPrint(matchTryNumber);
+            throw new IllegalArgumentException();
+        }
+        return Integer.parseInt(matchTryNumber);
     }
 
     public static boolean carNameErrorCheck(String[] carNames) {
@@ -54,31 +75,33 @@ public class userInputData {
         return (!Pattern.matches(integerOnlyPossiblePattern, userInput));
     }
 
-    public static void carNameErrorMessagePrint(String[] carNames){
-        if (duplicationNameCheck(carNames)){ System.out.println(DUPLICATION_ERROR); }
-        for(String carName:carNames){
-            if (spaceErrorCheck(carName)){
+    public static void carNameErrorMessagePrint(String[] carNames) {
+        if (duplicationNameCheck(carNames)) {
+            System.out.println(DUPLICATION_ERROR);
+        }
+        for (String carName : carNames) {
+            if (spaceErrorCheck(carName)) {
                 System.out.println(SPACE_ERROR);
                 break;
             }
         }
-        for(String carName:carNames){
-            if (availableRangeCheck(carName)){
+        for (String carName : carNames) {
+            if (availableRangeCheck(carName)) {
                 System.out.println(NAME_RANGE_ERROR);
                 break;
             }
         }
     }
 
-    public static void matchTryNumberErrorPrint(String tryNumber){
-            if (spaceErrorCheck(tryNumber)){
-                System.out.println(SPACE_ERROR);
+    public static void matchTryNumberErrorPrint(String tryNumber) {
+        if (spaceErrorCheck(tryNumber)) {
+            System.out.println(SPACE_ERROR);
 
-            }
-            if (isRealIntegerCheck(tryNumber)){
-                System.out.println(NOT_INTEGER_ERROR);
+        }
+        if (isRealIntegerCheck(tryNumber)) {
+            System.out.println(NOT_INTEGER_ERROR);
 
-            }
+        }
 
     }
 }
