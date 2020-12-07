@@ -2,9 +2,11 @@ package utils.validator;
 
 public class InputValidator {
     private NameValidator nameValidator;
+    private TimeValidator timeValidator;
 
     public InputValidator() {
         nameValidator = new NameValidator();
+        timeValidator = new TimeValidator();
     }
 
     public String[] validNames(String inputNames) {
