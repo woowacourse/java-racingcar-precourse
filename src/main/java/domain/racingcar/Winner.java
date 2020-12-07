@@ -13,19 +13,19 @@ import java.util.stream.Collectors;
 public class Winner {
     public static final int INIT_POSITION_TO_COMPARE = -1;
 
-    public static List<String> makeWinnersName(List<Car> cars) {
+    public static List<String> makeWinnersName(final List<Car> cars) {
         List<String> winnerNames = new ArrayList<>();
-        for (Car car : makeWinner(cars)) {
+        for (Car car : makeWinners(cars)) {
             winnerNames.add(car.getName());
         }
         return winnerNames;
     }
 
-    private static List<Car> makeWinner(List<Car> cars) {
+    private static List<Car> makeWinners(final List<Car> cars) {
         return cars.stream().filter(car -> car.isSameThan(makeWinnerCount(cars))).collect(Collectors.toList());
     }
 
-    private static int makeWinnerCount(List<Car> cars) {
+    private static int makeWinnerCount(final List<Car> cars) {
         int maxPosition = INIT_POSITION_TO_COMPARE;
         for (Car car : cars) {
             maxPosition = car.findGreaterPosition(maxPosition);

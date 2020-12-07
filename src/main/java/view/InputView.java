@@ -6,12 +6,12 @@ import java.util.Scanner;
  * 입력을 담당하는 객체
  *
  * @author 조연우
- * @version 1.0 2020년 12월 3일
+ * @version 1.0 2020년 12월 7일
  */
 public class InputView {
     private final Scanner scanner;
 
-    public InputView(Scanner scanner) {
+    public InputView(final Scanner scanner) {
         this.scanner = scanner;
     }
 
