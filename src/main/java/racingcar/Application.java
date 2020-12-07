@@ -15,25 +15,28 @@ public class Application {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int CAR_NAME_CASE = 0;
     private static final int GAME_COUNT_CASE = 1;
+    private static final int GAME_RESULT_CASE = 2;
+    private static int gameCount;
+    private static Car[] cars;
+
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        Car[] cars = gameSetting(scanner);
-        int gameCount = inputGameCount(scanner);
-        System.out.println(gameCount);
+        gameSetting(scanner);
+        displayGuideMessage(GAME_RESULT_CASE);
         scanner.close();
     }
 
-    private static Car[] gameSetting(Scanner kbd) {
-        displayInputMessage(CAR_NAME_CASE);
+    private static void gameSetting(Scanner kbd) {
+        displayGuideMessage(CAR_NAME_CASE);
         String[] names = inputCarNames(kbd);
         boolean check = checkCarNames(names);
         while (!check) {
-            displayInputMessage(CAR_NAME_CASE);
+            displayGuideMessage(CAR_NAME_CASE);
             names = inputCarNames(kbd);
             check = checkCarNames(names);
         }
-        Car[] cars = makeCars(names);
-        return cars;
+        cars = makeCars(names);
+        gameCount = inputGameCount(kbd);
     }
 
     private static Car[] makeCars(String[] names) {
@@ -44,18 +47,20 @@ public class Application {
         return cars;
     }
 
-    private static void displayInputMessage(int inputCase) {
+    private static void displayGuideMessage(int inputCase) {
         if (inputCase == CAR_NAME_CASE)
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         if (inputCase == GAME_COUNT_CASE)
             System.out.println("시도할 회수는 몇회인가요?");
+        if (inputCase == GAME_RESULT_CASE)
+            System.out.println("\n실행 결과");
     }
 
     private static int inputGameCount(Scanner kbd) {
         int gameCount = 0;
         boolean check = false;
         while(!check) {
-            displayInputMessage(GAME_COUNT_CASE);
+            displayGuideMessage(GAME_COUNT_CASE);
             String input = kbd.nextLine();
             check = isInt(input);
             if (check) {
