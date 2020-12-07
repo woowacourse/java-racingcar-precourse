@@ -17,4 +17,14 @@ public class InputView {
         String inputNames = scanner.nextLine();
         return inputValidator.validNames(inputNames);
     }
+
+    public Integer askTime() {
+        String time = scanner.nextLine();
+
+        if (inputValidator.invalidTime(time)) {
+            return null;
+        }
+
+        return Integer.parseInt(time);
+    }
 }

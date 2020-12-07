@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class RaceController {
     private Cars cars;
     private View view;
+    private int times;
 
     public RaceController(Scanner scanner) {
         view = new View(scanner);
@@ -15,9 +16,14 @@ public class RaceController {
 
     public void run() {
         inputCarName();
+        inputTimes();
     }
 
     private void inputCarName() {
         cars = new Cars(view.askCarName());
+    }
+
+    private void inputTimes() {
+        times = view.askTime();
     }
 }

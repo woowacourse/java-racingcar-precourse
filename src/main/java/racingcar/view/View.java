@@ -23,4 +23,18 @@ public class View {
             outputView.errorInvalidName();
         }
     }
+
+    public int askTime() {
+        Integer times;
+
+        while (true) {
+            outputView.askTime();
+            times = inputView.askTime();
+
+            if (times != null) {
+                return times;
+            }
+            outputView.errorInvalidTime();
+        }
+    }
 }

@@ -28,4 +28,17 @@ public class InputValidator {
 
         return names;
     }
+
+    public boolean invalidTime(String time) {
+        if (time.isEmpty()) {
+            return true;
+        }
+
+        if (!timeValidator.isDigit(time)) {
+            return true;
+        }
+
+
+        return false;
+    }
 }
