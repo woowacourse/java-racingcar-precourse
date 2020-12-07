@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.Car;
-import racingcar.InputValidation;
 
 import java.util.ArrayList;
 import java.util.Scanner;
