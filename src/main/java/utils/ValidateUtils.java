@@ -66,7 +66,7 @@ public class ValidateUtils {
         int nameCount = (int)Stream.of(rawCarNames.split(NAME_SEPARATOR))
                 .count();
         int commaCount = (int)Stream.of(rawCarNames.split(DEFAULT_SEPARATOR))
-                .filter(x -> x.equals(","))
+                .filter(x -> x.equals(NAME_SEPARATOR))
                 .count();
         return nameCount - 1 != commaCount;
     }

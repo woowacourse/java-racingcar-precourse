@@ -23,26 +23,6 @@ public class Game {
         OutputView.printWinners(racingCars);
     }
 
-    private void moveCars() {
-        setRoundCount();
-        racingCars.moveFor(roundCount);
-    }
-
-    public void setRoundCount() {
-        try {
-            roundCount = userInputRoundCount();
-        } catch (IllegalArgumentException e) {
-            OutputView.printError(e);
-            moveCars();
-        }
-    }
-
-    private int userInputRoundCount() {
-        String rawRoundCount = inputView.getRoundCount();
-        ValidateUtils.validateRoundCount(rawRoundCount);
-        return Integer.parseInt(rawRoundCount);
-    }
-
     private void createRacingCars() {
         try {
             List<Car> userCars = Stream.of(setCarNames())
@@ -64,5 +44,25 @@ public class Game {
         String rawCarNames = inputView.getCarNames();
         ValidateUtils.validateCarNames(rawCarNames);
         return rawCarNames;
+    }
+
+    private void moveCars() {
+        setRoundCount();
+        racingCars.moveFor(roundCount);
+    }
+
+    public void setRoundCount() {
+        try {
+            roundCount = userInputRoundCount();
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            moveCars();
+        }
+    }
+
+    private int userInputRoundCount() {
+        String rawRoundCount = inputView.getRoundCount();
+        ValidateUtils.validateRoundCount(rawRoundCount);
+        return Integer.parseInt(rawRoundCount);
     }
 }
