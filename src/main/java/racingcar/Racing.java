@@ -6,6 +6,7 @@ import utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Racing {
     private static final String DELIMITER = ",";
@@ -19,9 +20,23 @@ public class Racing {
         saveCarName(scanner);
         saveTryNumber(scanner);
         raceStart();
+        whoIsWinner();
+    }
+
+    private void whoIsWinner() {
+        int max = cars.stream()
+                .map(car -> car.getPosition())
+                .max(Integer::compareTo)
+                .get();
+        List<String> winners = cars.stream()
+                .filter(car -> car.isMax(max))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        OutputView.theWinner(winners);
     }
 
     private void raceStart() {
+        OutputView.gameResult();
         for(int i = 0;i<tryNumber;i++){
             racing();
         }
@@ -31,6 +46,8 @@ public class Racing {
         for(Car car : cars){
             car.goOrStop(RandomUtils.nextInt(START_NUMBER, END_NUMBER));
         }
+        OutputView.gameStatus(cars);
+
     }
 
     private void saveTryNumber(Scanner scanner) {
