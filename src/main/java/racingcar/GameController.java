@@ -11,7 +11,7 @@ import racingcar.view.OutputView;
 import java.util.stream.Collectors;
 
 public class GameController {
-    public static final int MIN_INDEX_VALUE = 0;
+    public static final int INDEX_VALUE_MIN = 0;
     private final InputView inputView;
     private final OutputView outputView;
     private Cars cars;
@@ -36,7 +36,7 @@ public class GameController {
     public void startRace() {
         outputView.showGameResult();
 
-        for (int index = MIN_INDEX_VALUE; index < this.gameRound.getRounds(); index++) {
+        for (int index = INDEX_VALUE_MIN; index < this.gameRound.getRounds(); index++) {
             startEachRound();
             outputView.showEachRoundResult(this.cars);
         }

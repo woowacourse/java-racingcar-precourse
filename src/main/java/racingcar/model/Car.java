@@ -1,8 +1,8 @@
 package racingcar.model;
 
 public class Car {
-    public static final int MAX_CAR_NAME_LENGTH = 5;
-    public static final int MIN_CAR_NAME_LENGTH = 1;
+    public static final int CAR_NAME_LENGTH_MAX = 5;
+    public static final int CAR_NAME_LENGTH_MIN = 1;
     public static final int MOVEMENT_RANGE = 1;
     public static final int POSITION_INIT_VALUE = 0;
     public static final int STANDARD_VALUE_FOR_MOVE_FORWARD = 4;
@@ -20,7 +20,7 @@ public class Car {
 
     private void validateMaxNameLength(String name) {
 
-        if (name.length() > MAX_CAR_NAME_LENGTH) {
+        if (name.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH_GREATER_THAN_FIVE);
         }
 
@@ -28,7 +28,7 @@ public class Car {
 
     private void validateMinNameLength(String name) {
 
-        if (name.length() < MIN_CAR_NAME_LENGTH) {
+        if (name.length() < CAR_NAME_LENGTH_MIN) {
             throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH_LESS_THAN_ONE);
         }
 

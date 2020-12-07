@@ -9,7 +9,7 @@ import java.util.List;
 public class OutputView {
     public static final String GAME_RESULT = "실행 결과";
     public static final String WINNERS = "최종 우승자: ";
-    public static final int MIN_INDEX_VALUE = 0;
+    public static final int INDEX_VALUE_MIN = 0;
 
     public void showGameResult() {
         System.out.println();
@@ -30,7 +30,7 @@ public class OutputView {
         stringBuilder.append(WINNERS);
         int lastCarIndex = winners.size() - 1;
 
-        for (int index = MIN_INDEX_VALUE; index < lastCarIndex; index++) {
+        for (int index = INDEX_VALUE_MIN; index < lastCarIndex; index++) {
             stringBuilder.append(winners.get(index).getName() + ", ");
         }
 
