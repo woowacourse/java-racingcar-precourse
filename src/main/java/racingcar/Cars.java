@@ -11,9 +11,8 @@ public class Cars {
     }
 
     public void moveByRandomNumber() {
-        for (Car car : cars) {
-            car.moveIfRandomNumberIsBiggerThanLimit();
-        }
+        cars.stream()
+            .forEach(Car::moveIfRandomNumberIsBiggerThanLimit);
     }
 
     public void showCarsCurrentPosition() {
