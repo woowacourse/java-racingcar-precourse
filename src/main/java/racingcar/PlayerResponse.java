@@ -40,7 +40,7 @@ public class PlayerResponse {
     }
 
     private String[] responseOfCarNames() {
-        String[] carNames = scanner.nextLine().split(NAMES_DELIMITER,-1);
+        String[] carNames = scanner.nextLine().split(NAMES_DELIMITER, -1);
         return deleteWhiteSpace(carNames);
     }
 
