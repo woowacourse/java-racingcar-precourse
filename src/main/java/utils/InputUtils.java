@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.Arrays;
-import java.util.IllegalFormatException;
 import java.util.Scanner;
 
 public class InputUtils {
@@ -41,9 +40,12 @@ public class InputUtils {
     }
 
     private void validateSplitNames(String[] carNames) {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException("[ERROR] 쉼표만 쓰일 수 없습니다.");
+        }
         Arrays.stream(carNames).forEach(carName -> {
             if (carName.equals("")) {
-                throw new IllegalArgumentException("[ERROR] 연속된 쉼표는 허용하지 않습니다.");
+                throw new IllegalArgumentException("[ERROR] 공백은 허용하지 않습니다.");
             }
         });
     }

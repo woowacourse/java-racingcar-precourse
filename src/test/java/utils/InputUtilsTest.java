@@ -7,7 +7,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Scanner;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputUtilsTest {
 
@@ -72,7 +73,46 @@ class InputUtilsTest {
         //then
         assertThatThrownBy(() -> inputUtils.splitByRest(inputText))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 연속된 쉼표는 허용하지 않습니다.");
+                .hasMessage("[ERROR] 공백은 허용하지 않습니다.");
+    }
+
+    @Test
+    @DisplayName("공백 일 시 에러가 발생한다")
+    void testSplitsCarNameEmpty() {
+        //given
+        String inputText = "";
+        InputUtils inputUtils = getInputUtils(inputText);
+
+        //then
+        assertThatThrownBy(() -> inputUtils.splitByRest(inputText))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 공백은 허용하지 않습니다.");
+    }
+
+    @Test
+    @DisplayName("쉼표 앞이 공백 일 시 에러가 발생한다")
+    void testSplitsCarNameEmpty2() {
+        //given
+        String inputText = ",hello";
+        InputUtils inputUtils = getInputUtils(inputText);
+
+        //then
+        assertThatThrownBy(() -> inputUtils.splitByRest(inputText))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 공백은 허용하지 않습니다.");
+    }
+
+    @Test
+    @DisplayName("쉼표만 입력될 시 에러가 발생한다")
+    void testSplitsCarNameOnlyRest() {
+        //given
+        String inputText = ",";
+        InputUtils inputUtils = getInputUtils(inputText);
+
+        //then
+        assertThatThrownBy(() -> inputUtils.splitByRest(inputText))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 쉼표만 쓰일 수 없습니다.");
     }
 
     @Test
