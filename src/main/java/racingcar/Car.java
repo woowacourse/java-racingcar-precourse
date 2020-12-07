@@ -8,5 +8,23 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void updatePosition() {
+        this.position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public void printCarState() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
