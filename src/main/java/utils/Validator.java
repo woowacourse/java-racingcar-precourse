@@ -38,7 +38,7 @@ public class Validator {
             throw new InvalidNumberException(input);
         }
 
-        if (number < 0) {
+        if (number <= 0) {
             throw new InvalidNumberException(input);
         }
     }
@@ -78,6 +78,5 @@ public class Validator {
             return false;
         }
     }
-
 
 }
