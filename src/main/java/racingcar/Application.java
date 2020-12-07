@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.controller.Game;
 import racingcar.view.InputView;
 
 import java.util.Scanner;
