@@ -3,12 +3,10 @@ package ui;
 import java.util.List;
 
 public class Output {
-    private static final String RESULT = "실행 결과";
-    private static final String WINNER = "최종 우승자";
     private static final String ONE_STEP = "-";
 
     public static void willPrintResult() {
-        System.out.println(RESULT);
+        System.out.println("실행 결과");
     }
 
     public static void printResult(String name, int position) {
@@ -24,7 +22,7 @@ public class Output {
     }
 
     public static void printWinners(List<String> winners) {
-        System.out.print(WINNER + ": ");
+        System.out.print("최종 우승자: ");
         System.out.println(String.join(", ", winners));
     }
 }
