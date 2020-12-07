@@ -6,7 +6,6 @@ import java.util.stream.Stream;
 import view.OutputView;
 
 public class CarNames {
-
     public static final String NAME_SEPARATOR = ",";
     public static final String DEFAULT_SEPARATOR = "";
     public static final int MAXIMUM_NAME_LENGTH = 5;
@@ -34,6 +33,8 @@ public class CarNames {
         return targetString.equals(NAME_SEPARATOR);
     }
 
+    // rawCarNames should have n amount of names and n - 1 amount of commas
+    // ex: name1,name2,name3 (3 names and 2 commas)
     private static void validateNameCommaCountMatch(String rawCarNames) {
         if (nameCommaCountNotMatching(rawCarNames)) {
             throw new IllegalArgumentException(OutputView.NO_NAME_ERROR);

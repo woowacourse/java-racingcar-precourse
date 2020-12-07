@@ -3,7 +3,6 @@ package racingcar.game;
 import view.OutputView;
 
 public class GameRound {
-
     public static final int MINIMAL_COUNT = 1;
 
     private final int count;

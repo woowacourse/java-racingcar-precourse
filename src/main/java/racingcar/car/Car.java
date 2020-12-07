@@ -3,7 +3,6 @@ package racingcar.car;
 import utils.RandomUtils;
 
 public class Car {
-
     public static final int MINIMUM_DECISION_VALUE = 0;
     public static final int MAXIMUM_DECISION_VALUE = 9;
     public static final int NOT_FORWARD_DECISION_BOUNDARY = 3;

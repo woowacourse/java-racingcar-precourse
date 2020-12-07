@@ -5,7 +5,6 @@ import view.InputView;
 import view.OutputView;
 
 public class Game {
-
     private final InputView inputView;
     private RacingCars racingCars;
     private GameRound gameRound;

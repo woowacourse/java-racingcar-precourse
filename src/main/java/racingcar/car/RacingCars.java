@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 import view.OutputView;
 
 public class RacingCars {
-
     private final List<Car> cars;
 
     public RacingCars(String rawCarNames) {
