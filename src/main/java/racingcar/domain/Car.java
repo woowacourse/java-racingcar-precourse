@@ -8,13 +8,8 @@
 
 package racingcar.domain;
 
-import utils.RandomUtils;
-
 public class Car implements Comparable<Car> {
     private static final int MAX_NAME_LENGTH = 5;
-    private static final int MIN_SEED = 0;
-    private static final int MAX_SEED = 9;
-    private static final int MOVE_THRESHOLD = 4;
 
     private final String name;
     private int position = 0;
@@ -37,8 +32,7 @@ public class Car implements Comparable<Car> {
     }
 
     void move() {
-        int randomNumber = RandomUtils.nextInt(MIN_SEED, MAX_SEED);
-        if (MOVE_THRESHOLD <= randomNumber) {
+        if (DecisionMaker.makeDecision()) {
             this.position++;
         }
     }
