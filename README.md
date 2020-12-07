@@ -10,70 +10,6 @@
 
 <br>
 
-## ✍🏻 입출력 요구사항
-### ⌨️ 입력
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
-```
-pobi,woni,jun
-```
-- 시도할 회수
-```
-5
-```
-
-### 🖥 출력
-- 각 차수별 실행 결과
-```
-pobi : --
-woni : ----
-jun : ---
-```
-- 단독 우승자 안내 문구
-```
-최종 우승자: pobi
-```
-- 공동 우승자 안내 문구
-```
-최종 우승자: pobi, jun
-```
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
-```
-[ERROR] 시도 횟수는 숫자여야 한다.
-```
-
-### 💻 프로그래밍 실행 결과 예시
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자: pobi, jun
-```
-
-<br>
-
 ## 🎱 프로그래밍 요구사항
 - 자바 코드 컨벤션을 지키면서 프로그래밍한다.
   - 기본적으로 [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)을 원칙으로 한다.
@@ -93,63 +29,23 @@ jun : -----
   - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
   - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
 
-### 프로그래밍 요구사항 - Application
-- Application 클래스를 활용해 구현해야 한다.
-- Application의 패키지 구조와 구현은 변경하지 않는다.
-- `final Scanner scanner = new Scanner(System.in);`는 변경하지 않는다.
-- `// TODO 구현 진행` 이 후 부터 구현한다.
+## 구현할 기능
 
-```java
-public class Application {
-    public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
-    }
-}
-```
+- 시도 횟수를 입력 -> 라운드 길이를 정하는 Round class 구현
+  * 게임 초기 입력받아 setter를 통해 설정
+- 현재 트랙 현황을 나타내는 TrackStatus class 구현
+- 누가 이겼는 지 판별하는 Judge class 구현 ❌
+  * Judge class 구현 취소, 대신 GameManager class에 직접 구현(20.12.03)
+- 출력될 문자열을 모아 둔 Sentences class 구현
+- 실질적인 게임 진행을 도와줄 GameManager class 구현
 
-### 프로그래밍 요구사항 - RandomUtils
-- RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
-- RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
+- Car 객체를 입력받은 자동차 이름 갯수에 따라 어떻게 생성할까??
+  * ArrayList를 통한 객체 배열 생성을 통해 핸들링(20.12.03)
 
-```java
-private static final Random RANDOM = new Random();
-    private RandomUtils() {
-    }
-    public static int nextInt(final int startInclusive, final int endInclusive) {
-    ...
-```
-
-### 프로그래밍 요구사항 - Car 객체
-- 다음 Car 객체를 활용해 구현해야 한다.
-- Car 기본 생성자를 추가할 수 없다.
-- name, position 변수의 접근 제어자인 private을 변경할 수 없다.
-- 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
-
-```java
-public class Car {
-    private final String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
-    // 추가 기능 구현
-}
-```
-
-<br>
-
-## 📈 진행 요구사항
-- 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
-- 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
-- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
-  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-- [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 절차를 따라 미션을 제출한다.
-  - [프리코스 과제 FAQ](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse/faq) 문서를 참고하여 진행할 수 있다.
-
-<br>
+ ### 예외 사항
+ - 최종 우승자 출력 시 출력값 맨 뒤에 콤마(,) 출력 문제
+   * substring(0, a.length()-1)을 통해 해결(20.12.03)
+ 
 
 ## 📝 License
 
