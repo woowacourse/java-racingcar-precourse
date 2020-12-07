@@ -25,14 +25,18 @@ public class Race {
         int maxPosition = -1;
         int tempPosition;
         for (Car car : cars){
-            tempPosition = car.getCarPosition()
+            tempPosition = car.getCarPosition();
             if (maxPosition <= tempPosition) { maxPosition = tempPosition; }
         }
         return maxPosition;
     }
 
-    public static void printWinnerList(){
-
+    public void printWinnerList(){
+        int maxPosition = findMaxPosition();
+        for (Car car : cars){
+            if (car.getCarPosition() == maxPosition){ winners.add(car.getCarName()); }
+        }
+        System.out.println("최종 우승자 : " + String.join(",",winners));
     }
 
 
