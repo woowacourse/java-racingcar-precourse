@@ -1,11 +1,8 @@
-package racingcar;
-
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+package racegame;
 
 import java.util.Scanner;
 
-import static racingcar.Constant.OUTPUT_VIEW_REPETITION_COUNT;
+import static racegame.Constant.OUTPUT_VIEW_REPETITION_COUNT;
 
 public class RaceGameManager {
 

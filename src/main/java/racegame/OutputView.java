@@ -1,11 +1,11 @@
-package racingcar.view;
+package racegame;
 
 import racingcar.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.Constant.*;
+import static racegame.Constant.*;
 
 public class OutputView {
 

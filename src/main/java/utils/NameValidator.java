@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static racingcar.Constant.*;
+import static racegame.Constant.*;
 
 public class NameValidator {
 
