@@ -4,15 +4,17 @@
 ### racingcar
 게임 로직과 관련된 클래스를 담은 패키지
 #### RacingGame
-- 게임을 시작 및 종료
+- runGme : setUp, startRace를 호출해주는 함수
+- setUp : 자동차 관련 변수를 초기화 해주는 함수
+- startRace : race 횟수를 받고 결과를 출력해주는 함수
 
 ### Domain
 도매인 클래스들을 담는 패키지
 
 #### Car
-- Engine : 엔진을 저장하는 매게변수
-- move : Engine 에서 리턴하는 값을 현재 변수에 더해줌
-- toString : 자동차 이름과 현재 거리를 출력
+- Engine: 엔진을 저장하는 매게변수
+- move: Engine 에서 리턴하는 값을 현재 변수에 더해줌
+- toString: 자동차 이름과 현재 거리를 출력
 
 #### Engine
 - run : RandomNumberGenerator 의 값을 이용해서 4이상일 경우 1리턴, 3이하일 경우 0리턴
@@ -20,17 +22,22 @@
 ### Generator
 값을 생성해주는 클래스를 모은 패키지
 #### RandomNumberGenerator
-- RandomUtils를 이용해 0~9중 하나의 숫자를 생성
+- generateRandomNumber: RandomUtils를 이용해 0~9중 하나의 숫자를 생성
 
 ### View
 화면에 나타날 text와 관련된 클래스를 담은 패키지
 #### InputView
-- 입력값이 요구될 때, 출력되는 view 출력
+- printCarNameInputLog: 자동차 이름 입력값이 요구될 때, 출력되는 view 출력
+- printRaceNumInputLog: 경주 횟수 입력값이 요구될 때, 출력되는 view 출력
 
 ### OutputView
-- 결과값으로 출력될 view 출력
+- printRaceStartLog: 경기 시작시 문구를 포함하는 view를 출력
+- printRaceProgressLog: 진행상황을 표시해 주는 view 출력
+- printWinnerLog: 우승자를 표시해 주는 view 출력
 
 ### ErrorView
+- printCarNameInputLogError: 자동차 이름에 이상이 있을 떄 view 출력
+- printRaceNumInputLogErrorNotNumber: 경기 횟수 input이 숫자가 아닐 경우 view 출력
 
 
 ## 🚀 기능 요구사항

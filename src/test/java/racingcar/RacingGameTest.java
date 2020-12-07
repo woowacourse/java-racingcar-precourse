@@ -2,20 +2,18 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.view.ErrorView;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Scanner;
 
-import static javax.swing.UIManager.get;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RacingGameTest {
     private RacingGame racingGame;
