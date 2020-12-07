@@ -2,7 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.Car;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarTest {
 
@@ -14,9 +14,14 @@ public class CarTest {
     }
 
     @Test
-    public void move_실행된다() {
+    public void tryMove_실행된다() {
         car.tryMove();
         assertEquals(car.getPosition(), 1);
+    }
+
+    @Test
+    public void toString_잘반환된다() {
+        assertEquals(car.toString(), "parkcar : ");
     }
 
 }
