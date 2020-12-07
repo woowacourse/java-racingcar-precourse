@@ -5,7 +5,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class RacingCarGame {
     private final InputView inputView;
@@ -21,7 +20,7 @@ public class RacingCarGame {
         try {
             initialize();
             startRacing();
-            printWinners();
+            OutputView.printWinnerNames(GameRule.getRacingWinners(cars));
         } catch (RacingCarException e) {
             OutputView.printErrorLog(e.getMessage());
         }
@@ -45,13 +44,5 @@ public class RacingCarGame {
         for (int currentRound = 0; currentRound < round; currentRound++) {
             cars.racing();
         }
-    }
-
-    private void printWinners() {
-        System.out.println("최종 우승자 : "
-                + cars.getFastestCars()
-                .stream()
-                .map(car -> String.valueOf(car.getName()))
-                .collect(Collectors.joining(", ")));
     }
 }
