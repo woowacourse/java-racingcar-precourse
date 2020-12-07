@@ -45,3 +45,20 @@
 - Car 객체에서 setter 지양하기
 - 메소드의 depth 는 2이하
 - 메소드는 한가지 일만 잘하도록 최대한 작게 만들기
+
+### 구조도
+
+```
+-docs
+    ㄴREADME
+-src/main/java
+    ㄴracingcar
+        -Application
+        -Car
+        -PlayerResponse
+        -RacingCarGame
+        -Validator
+    ㄴutils
+        -ConstantUtils
+        -RandomUtils
+```
