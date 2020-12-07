@@ -20,8 +20,8 @@ public class RacingGame {
 
     /* 전체적인 게임 세팅 및 플레이를 하는 메서드 */
     public void play() {
-        Cars gameSet = initiator.setParticipants();
-        int turnNumber = initiator.setTurns();
+        Cars gameSet = initiator.askParticipants();
+        int turnNumber = initiator.askTurns();
         processGame.playTurns(gameSet, turnNumber);
         endGame.announceWinner(gameSet);
     }

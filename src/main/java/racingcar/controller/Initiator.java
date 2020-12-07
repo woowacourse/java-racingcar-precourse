@@ -18,7 +18,7 @@ public class Initiator {
      * 참가하는 참여자를 묻는 메서드
      * @return 참여자들이 객체로서 들어있는 Cars 객체
      */
-    public Cars setParticipants() {
+    public Cars askParticipants() {
         InputViewer.carsInput();
         String primitiveArray = scanner.nextLine();
         checkVoid(primitiveArray);
@@ -43,7 +43,7 @@ public class Initiator {
      * 게임의 총 횟수를 물어보는 메서드
      * @return 오류 체크가 끝난 게임의 총 진행 횟수
      */
-    public int setTurns() {
+    public int askTurns() {
         InputViewer.numberInput();
         String primitiveNumber = scanner.nextLine();
         checkVoid(primitiveNumber);
