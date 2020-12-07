@@ -1,11 +1,10 @@
 package racingcar.domain;
 
+import racingcar.view.InputViewer;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
-
-import racingcar.view.InputViewer;
-import racingcar.view.OutputViewer;
 
 public class Cars {
     private final ArrayList<Car> carList = new ArrayList<Car>();
@@ -30,11 +29,7 @@ public class Cars {
     }
 
     /*게임 한턴을 진행시켜주는 메서드 */
-    public void oneTurn() {
-        processOneTurn();
-    }
-
-    private void processOneTurn() {
+    public void processOneTurn() {
         for (Car car : this.carList) {
             car.oneTurn();
         }
@@ -42,6 +37,7 @@ public class Cars {
 
     /**
      * 전체 중 우승자를 찾는 메서드
+     *
      * @return 우승자들
      */
     public ArrayList<String> getWinners() {

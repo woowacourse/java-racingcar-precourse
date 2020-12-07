@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import javax.sound.midi.SysexMessage;
-
 public class InputViewer {
     private static final String CARS_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
     private static final String NUMBER_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -30,7 +28,7 @@ public class InputViewer {
     }
 
     /* 시도 횟수가 정수가 아닐 시에 메세지 */
-    public static void numberInputError(){
+    public static void numberInputError() {
         throw new IllegalArgumentException(NUMBER_INPUT_ERROR_MESSAGE);
     }
 }

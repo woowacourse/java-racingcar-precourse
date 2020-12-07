@@ -7,7 +7,7 @@ public class ProcessGame {
     public static void playTurns(Cars gameSet, int turnNumber) {
         OutputViewer.initiateResult();
         for (int i = 0; i < turnNumber; i++) {
-            gameSet.oneTurn();
+            gameSet.processOneTurn();
             showTurnResult(gameSet);
         }
     }

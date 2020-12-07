@@ -10,7 +10,7 @@ public class OutputViewer {
 
     /* 결과 표시 시작을 알리는 메시지 */
     public static void initiateResult() {
-        System.out.println(" ");
+        System.out.println();
         System.out.printf("%s \n", FIRST_RESULT_MESSAGE);
     }
 
@@ -27,10 +27,10 @@ public class OutputViewer {
     }
 
     private static void participantScore(int position) {
-        for(int i = 0 ; i < position ; i++){
+        for (int i = 0; i < position; i++) {
             System.out.print(EXPRESS_PROGRESS_MESSAGE);
         }
-        System.out.println(" ");
+        System.out.println();
     }
 
     /**

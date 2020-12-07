@@ -14,18 +14,10 @@ public class Car {
         this.name = name;
     }
 
-    /**
-     * 차의 이름을 반환해주는 메서드
-     * @return 차의 이름
-     */
     public String getName() {
         return this.name;
     }
 
-    /**
-     * 지금 현재 위치를 반환해주는 메서드
-     * @return 차의 현재위치
-     */
     public int getPosition() {
         return this.position;
     }
@@ -35,7 +27,7 @@ public class Car {
      */
     public void oneTurn() {
         int randomCriteria = RandomUtils.nextInt(START_INDEX, END_INDEX);
-        if (randomCriteria >=CRITERIA) {
+        if (randomCriteria >= CRITERIA) {
             this.position++;
         }
     }
@@ -46,11 +38,9 @@ public class Car {
      * @return 최대 거리인지 아닌지를 판단
      */
     public boolean isMaxDistance(int maxDistance) {
-        boolean maxJudgement = false;
         if (this.position == maxDistance) {
-            maxJudgement = true;
-            return maxJudgement;
+            return true;
         }
-        return maxJudgement;
+        return false;
     }
 }

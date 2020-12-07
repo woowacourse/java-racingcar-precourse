@@ -19,13 +19,14 @@ public class Initiator {
         checkParticipantsLength(participantsArray);
         return new Cars(participantsArray);
     }
+
     private static void checkParticipantsLength(String[] participantsArray) {
         for (String parcipant : participantsArray) {
             checkParicipantLength(parcipant);
         }
     }
 
-    private static void checkParicipantLength(String participant){
+    private static void checkParicipantLength(String participant) {
         if (participant.length() > LIMIT_PARTICIPANT_NAME) {
             InputViewer.lengthInputError();
         }
