@@ -25,4 +25,22 @@ class CarTest {
         assertThat("[ERROR] 5자 이하의 이름을 입력하세요.").isEqualTo(thrown.getMessage());
     }
 
+    @Test
+    public void go(){
+        int number = 4;
+        Car car = new Car("test");
+        car.goOrStop(4);
+
+        assertThat(1).isEqualTo(car.getPosition());
+    }
+
+    @Test
+    public void stop(){
+        int number = 3;
+        Car car = new Car("test");
+        car.goOrStop(number);
+
+        assertThat(0).isEqualTo(car.getPosition());
+    }
+
 }

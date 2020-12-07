@@ -1,6 +1,7 @@
 package racingcar;
 
 import View.OutputView;
+import utils.RandomUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.Scanner;
 
 public class Racing {
     private static final String DELIMITER = ",";
+    private static final int START_NUMBER = 0;
+    private static final int END_NUMBER = 9;
 
     private List<Car> cars = new ArrayList<>();
     private int tryNumber;
@@ -24,7 +27,11 @@ public class Racing {
         }
     }
 
-
+    private void racing() {
+        for(Car car : cars){
+            car.goOrStop(RandomUtils.nextInt(START_NUMBER, END_NUMBER));
+        }
+    }
 
     private void saveTryNumber(Scanner scanner) {
         OutputView.writeTryNumber();
