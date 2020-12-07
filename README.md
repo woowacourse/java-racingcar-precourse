@@ -171,7 +171,9 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
   - 1자 이상 5자 이하 이도록 검증한다.
   - 중복을 막을지, 중복되는 이름이면 1234를 붙여줄지...
 - 위치값을 갖는다.
-  - setPosition은 웬만해서는 하지 않는다.
+  - ~~setPosition은 웬만해서는 하지 않는다.~~
+  - setPosition(int position)을 하지 말것이 권고되니, 인자를 주어 변경하는 것을 지양하면 되는 듯하다.
+    `++` 증감 연산자를 사용하기로 했다.
 - 랜덤값을 `Car`에서 만들어야 할까?
 
 ### `Game`
