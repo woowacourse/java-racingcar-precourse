@@ -36,7 +36,6 @@ public class Cars {
 
     /**
      * 전체 중 우승자를 찾는 메서드
-     *
      * @return 우승자들
      */
     public ArrayList<String> getWinners() {
