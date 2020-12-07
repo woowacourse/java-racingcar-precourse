@@ -14,19 +14,19 @@ public class Car {
         this.name = name;
     }
 
+    public void tryingMove() {
+        int distance = randomDistance();
+        if(isReallyMoving(distance)) {
+            this.position += distance;
+        }
+    }
+
     private int randomDistance() {
         return RandomUtils.nextInt(MINIMUM_DISTANCE, MAXIMUM_DISTANCE);
     }
 
     private boolean isReallyMoving(int distance) {
         return distance >= MOVING_POSSIBLE_MIN_LENGTH;
-    }
-
-    public void tryingMove() {
-        int distance = randomDistance();
-        if(isReallyMoving(distance)) {
-            this.position += distance;
-        }
     }
     // 추가 기능 구현
 }

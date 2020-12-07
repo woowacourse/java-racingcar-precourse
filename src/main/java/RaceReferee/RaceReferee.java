@@ -10,7 +10,7 @@ public class RaceReferee {
     private int carNum = 0;
     private int roundNum = 0;
 
-    RaceReferee(List<String> carNames, int roundNum) {
+    public RaceReferee(List<String> carNames, int roundNum) {
         this.roundNum = roundNum;
         createCars(carNames);
     }
@@ -32,6 +32,16 @@ public class RaceReferee {
     private void oneRoundProcess() {
         for(int index = 0; index < this.carNum; index++) {
             Cars.get(index).tryingMove();
+        }
+    }
+
+    private void scoreBoard() {
+        Car currentCar;
+
+        for(int index = 0; index < this.carNum; index++) {
+            currentCar = Cars.get(index);
+
+            System.out.println();
         }
     }
     

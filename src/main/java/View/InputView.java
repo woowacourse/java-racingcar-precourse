@@ -1,4 +1,4 @@
-package InputView;
+package View;
 
 
 import java.util.Arrays;
