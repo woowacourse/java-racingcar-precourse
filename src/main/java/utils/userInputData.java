@@ -2,6 +2,7 @@ package utils;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.stream.DoubleStream;
 
 public class userInputData {
 
@@ -32,7 +33,7 @@ public class userInputData {
         return false;
     }
 
-    public static boolean tryNumberErrorCheck(String tryNumber) {
+    public static boolean matchTryNumberErrorCheck(String tryNumber) {
         return (isRealIntegerCheck(tryNumber) || spaceErrorCheck(tryNumber));
     }
 
@@ -53,4 +54,31 @@ public class userInputData {
         return (!Pattern.matches(integerOnlyPossiblePattern, userInput));
     }
 
+    public static void carNameErrorMessagePrint(String[] carNames){
+        if (duplicationNameCheck(carNames)){ System.out.println(DUPLICATION_ERROR); }
+        for(String carName:carNames){
+            if (spaceErrorCheck(carName)){
+                System.out.println(SPACE_ERROR);
+                break;
+            }
+        }
+        for(String carName:carNames){
+            if (availableRangeCheck(carName)){
+                System.out.println(NAME_RANGE_ERROR);
+                break;
+            }
+        }
+    }
+
+    public static void matchTryNumberErrorPrint(String tryNumber){
+            if (spaceErrorCheck(tryNumber)){
+                System.out.println(SPACE_ERROR);
+
+            }
+            if (isRealIntegerCheck(tryNumber)){
+                System.out.println(NOT_INTEGER_ERROR);
+
+            }
+
+    }
 }
