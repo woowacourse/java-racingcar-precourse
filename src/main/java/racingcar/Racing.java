@@ -10,9 +10,15 @@ public class Racing {
     private static final String DELIMITER = ",";
 
     private List<Car> cars = new ArrayList<>();
+    private Number number;
 
     public void init(Scanner scanner){
         saveCarName(scanner);
+        saveTryNumber(scanner);
+    }
+
+    private void saveTryNumber(Scanner scanner) {
+        OutputView.writeTryNumber();
     }
 
     public void saveCarName(Scanner scanner){
