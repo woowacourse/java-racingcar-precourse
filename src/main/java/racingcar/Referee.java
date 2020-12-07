@@ -3,10 +3,13 @@ package racingcar;
 import java.util.ArrayList;
 
 public class Referee {
+    public static final String FINAL_WINNER = "최종 우승자: ";
+    public static final String CAR_NAME_DELIMETER = ",";
+
     public static void printWinner(Car[] gameCars) {
         int maxPosition = getMaxPosition(gameCars);
         ArrayList<String> winnerList = getWinnerList(gameCars, maxPosition);
-        System.out.println(GameConstants.FINAL_WINNER+String.join(GameConstants.CAR_NAME_DELIMETER, winnerList));
+        System.out.println(FINAL_WINNER+String.join(CAR_NAME_DELIMETER, winnerList));
     }
 
     public static int getMaxPosition(Car[] gameCars) {
