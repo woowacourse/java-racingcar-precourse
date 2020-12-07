@@ -1,14 +1,14 @@
-package utils;
+package racingcar;
 
 import static utils.ConstantUtils.*;
 
-public class ValidatorUtils {
+public class Validator {
 
-    private ValidatorUtils() {
+    public Validator() {
 
     }
 
-    public static void checkCarNames(String[] carNames) {
+    public void checkCarNames(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_NAME) {
                 throw new IllegalArgumentException(OVER_FIVE_LETTERS);
@@ -19,7 +19,7 @@ public class ValidatorUtils {
         }
     }
 
-    public static void checkNumber(String num) {
+    public void checkNumber(String num) {
         try {
             int number = Integer.parseInt(num);
             if (number < MIN_LAP) {

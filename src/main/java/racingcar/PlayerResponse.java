@@ -1,15 +1,15 @@
 package racingcar;
 
 import java.util.Scanner;
-import utils.ValidatorUtils;
 import static utils.ConstantUtils.*;
 
 public class PlayerResponse {
 
     private final Scanner scanner;
-
+    private final Validator validator;
     public PlayerResponse(Scanner scanner) {
         this.scanner = scanner;
+        validator = new Validator();
     }
 
     public String[] getCarNames() {
@@ -18,7 +18,7 @@ public class PlayerResponse {
             try {
                 System.out.println(ASKING_NAMES_MESSAGE);
                 carNames = responseOfCarNames();
-                ValidatorUtils.checkCarNames(carNames);
+                validator.checkCarNames(carNames);
                 return carNames;
             } catch (IllegalArgumentException i) {
                 System.out.println(i.getMessage());
@@ -31,7 +31,7 @@ public class PlayerResponse {
             try {
                 System.out.println(ASKING_MOVES_MESSAGE);
                 String movesBeforeCheck = responseOfMoves();
-                ValidatorUtils.checkNumber(movesBeforeCheck);
+                validator.checkNumber(movesBeforeCheck);
                 return Integer.parseInt(movesBeforeCheck);
             } catch (IllegalArgumentException i) {
                 System.out.println(i.getMessage());
