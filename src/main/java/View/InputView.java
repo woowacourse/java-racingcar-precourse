@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class InputView {
     private final int VALID_MINIMUM_CAR_NAMES_LENGTH = 2;
     private final String ERROR_TAG = "[Error]";
-    private final String INVAlID_INPUT_LENGTH = "You should input at least one car name";
+    private final String INVAlID_INPUT_MESSAGE = "You should input at least one car name";
 
     private final Scanner scanner;
 
