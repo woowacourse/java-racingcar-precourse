@@ -15,7 +15,9 @@ public class Initiator {
      */
     public static Cars setParticipants() {
         InputViewer.carsInput();
-        String[] participantsArray = scanner.nextLine().split(",");
+        String primitiveArray = scanner.nextLine();
+        checkVoid(primitiveArray);
+        String[] participantsArray = primitiveArray.split(",");
         checkParticipantsLength(participantsArray);
         return new Cars(participantsArray);
     }
@@ -37,13 +39,24 @@ public class Initiator {
      * @return 오류 체크가 끝난 게임의 총 진행 횟수
      */
     public static int setTurns() {
-        int turnNumber = 0;
         InputViewer.numberInput();
+        String primitiveNumber = scanner.nextLine();
+        checkVoid(primitiveNumber);
+        return integerTranslator(primitiveNumber);
+    }
+
+    private static int integerTranslator(String primitiveNumber) {
         try {
-            turnNumber = Integer.parseInt(scanner.nextLine());
+            return Integer.parseInt(scanner.nextLine());
         } catch (Exception e) {
             InputViewer.numberInputError();
+            return 0;
         }
-        return turnNumber;
+    }
+
+    private static void checkVoid(String argument) {
+        if (argument.equals("")) {
+            InputViewer.voidInputError();
+        }
     }
 }

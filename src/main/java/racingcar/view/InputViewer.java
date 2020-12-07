@@ -6,7 +6,7 @@ public class InputViewer {
     private static final String LENGTH_INPUT_ERROR_MESSAGE = "[ERROR] 차 이름의 길이는 5를 넘어선 안된다.";
     private static final String CARS_INPUT_ERROR_MESSAGE = "[ERROR] 중복된 차 이름이 있으면 안된다.";
     private static final String NUMBER_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
-
+    private static final String VOID_INPUT_ERROR_MESSAGE = "[ERROR] 빈 값을 입력해선 안된다.";
     /* 초기 차들의 이름을 받는 메세지 */
     public static void carsInput() {
         System.out.println(CARS_INPUT_MESSAGE);
@@ -30,5 +30,10 @@ public class InputViewer {
     /* 시도 횟수가 정수가 아닐 시에 메세지 */
     public static void numberInputError() {
         throw new IllegalArgumentException(NUMBER_INPUT_ERROR_MESSAGE);
+    }
+
+    /* 빈 값을 입력했을 떄 나타나는 메세지 */
+    public static void voidInputError() {
+        throw new IllegalArgumentException(VOID_INPUT_ERROR_MESSAGE);
     }
 }
