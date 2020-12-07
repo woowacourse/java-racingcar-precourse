@@ -45,4 +45,8 @@ public class View {
     public void informPosition(String information) {
         outputView.showPosition(information);
     }
+
+    public void showWinner(String result) {
+        outputView.showWinner(result);
+    }
 }
