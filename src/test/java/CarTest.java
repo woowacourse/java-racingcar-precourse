@@ -15,7 +15,7 @@ public class CarTest {
 
     @Test
     public void move_실행된다() {
-        car.move();
+        car.tryMove();
         assertEquals(car.getPosition(), 1);
     }
 

@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RacingGame {
-    private static final int START = 0;
-    private static final int END = 9;
-
     private String[] carNames;
     private String numberOfTimes;
 
@@ -33,6 +30,16 @@ public class RacingGame {
             if (isInteger() && isPositiveNumber()) {
                 break;
             }
+        }
+        System.out.println();
+
+        for (int round = 0; round < Integer.parseInt(numberOfTimes); round++) {
+            System.out.println("실행 결과");
+            for (Car car : carList) {
+                car.tryMove();
+                System.out.println(car.toString());
+            }
+            System.out.println();
         }
     }
 
