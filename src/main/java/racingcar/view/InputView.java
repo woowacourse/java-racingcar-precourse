@@ -28,6 +28,18 @@ public class InputView {
         return string.replaceAll("\\s+", "");
     }
 
+    private static String getInputWithMessage(String message) {
+        System.out.println(message);
+        try {
+            String rawString = deleteWhiteSpaces(scanner.nextLine());
+            isNotEmptyStringOrThrowException(rawString);
+            return rawString;
+        }catch (IllegalArgumentException e) {
+            OutputView.showErrorMessage(e);
+            return getInputWithMessage(message);
+        }
+    }
+
     private static boolean isNotEmptyStringOrThrowException(String string) {
         if (string.equals("")) {
             throw new IllegalArgumentException(ERROR_NONE_INPUT_VALUE);
@@ -36,15 +48,8 @@ public class InputView {
     }
 
     public static List<String> getCarNames() {
-        System.out.println(REQUEST_CAR_NAMES_MESSAGE);
-        String rawString = deleteWhiteSpaces(scanner.nextLine());
-        try {
-            isNotEmptyStringOrThrowException(rawString);
-            return parseString(rawString);
-        } catch (IllegalArgumentException e) {
-            OutputView.showErrorMessage(e);
-            return getCarNames();
-        }
+        String rawString = getInputWithMessage(REQUEST_CAR_NAMES_MESSAGE);
+        return parseString(rawString);
     }
 
     private static List<String> parseString(String rawString) {
@@ -52,10 +57,8 @@ public class InputView {
     }
 
     public static int getTryNumber() {
-        System.out.println(REQUEST_TRY_NUMBER_MESSAGE);
-        String rawString = deleteWhiteSpaces(scanner.nextLine());
+        String rawString = getInputWithMessage(REQUEST_TRY_NUMBER_MESSAGE);
         try {
-            isNotEmptyStringOrThrowException(rawString);
             return parseIntOrThrowException(rawString);
         } catch (IllegalArgumentException e) {
             OutputView.showErrorMessage(e);
