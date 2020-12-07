@@ -14,7 +14,9 @@ public class InputValidator {
 
         String[] names = inputNames.split(nameValidator.DELIMITER);
 
-
+        if (!nameValidator.validLength(names)) {
+            return null;
+        }
 
         return names;
     }
