@@ -9,6 +9,6 @@ public class Application {
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
 		// TODO 구현 진행
-		GameManagement gameTest = new GameManagement(new InputName(scanner).inputPlayerName(), new inputRepetitions(scanner).inputanswer());
+		new GameManagement(new InputName(scanner).inputPlayerName(), new inputRepetitions(scanner).inputanswer());
 	}
 }
