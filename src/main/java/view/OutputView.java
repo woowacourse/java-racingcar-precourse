@@ -1,7 +1,7 @@
 package view;
 
-import racingcar.RacingCars;
-import racingcar.CarNames;
+import racingcar.car.RacingCars;
+import racingcar.car.CarNames;
 
 public class OutputView {
 
