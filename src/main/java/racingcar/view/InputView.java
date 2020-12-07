@@ -15,6 +15,8 @@ import java.util.Scanner;
 public class InputView {
     private static final String REQUEST_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String REQUEST_TRY_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String ERROR_NONE_INPUT_VALUE = "입력값이 없습니다.";
+    private static final String ERROR_INVALID_INPUT_VALUE = "유효하지 않은 입력입니다.";
 
     private static Scanner scanner;
 
@@ -26,9 +28,9 @@ public class InputView {
         return string.replaceAll("\\s+", "");
     }
 
-    private static boolean isEmptyStringOrThrowException(String string) {
+    private static boolean isNotEmptyStringOrThrowException(String string) {
         if (string.equals("")) {
-            throw new IllegalArgumentException("입력값이 없습니다.");
+            throw new IllegalArgumentException(ERROR_NONE_INPUT_VALUE);
         }
         return true;
     }
@@ -37,7 +39,7 @@ public class InputView {
         System.out.println(REQUEST_CAR_NAMES_MESSAGE);
         String rawString = deleteWhiteSpaces(scanner.nextLine());
         try {
-            isEmptyStringOrThrowException(rawString);
+            isNotEmptyStringOrThrowException(rawString);
             return parseString(rawString);
         } catch (IllegalArgumentException e) {
             OutputView.showErrorMessage(e);
@@ -53,7 +55,7 @@ public class InputView {
         System.out.println(REQUEST_TRY_NUMBER_MESSAGE);
         String rawString = deleteWhiteSpaces(scanner.nextLine());
         try {
-            isEmptyStringOrThrowException(rawString);
+            isNotEmptyStringOrThrowException(rawString);
             return parseIntOrThrowException(rawString);
         } catch (IllegalArgumentException e) {
             OutputView.showErrorMessage(e);
@@ -65,7 +67,7 @@ public class InputView {
         try {
             return Integer.parseInt(string);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("유효하지 않은 입력입니다.");
+            throw new IllegalArgumentException(ERROR_INVALID_INPUT_VALUE);
         }
     }
 
