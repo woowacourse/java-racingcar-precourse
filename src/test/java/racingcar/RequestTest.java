@@ -14,7 +14,7 @@ class RequestTest {
     void testRequestCarNames() {
         String[] correctInputs = {"pobi,woni,jun", "root,pobi,jun", "a,b,c"};
         String[] faultInputs =
-                {",woni,jun", "pobi,woni,junnnn", "pobi,woni,pobi", "woni,jun,", ",,,,"};
+                {",woni,jun", "pobi,woni,junnnn", "pobi,woni,pobi", "woni,jun,", ",,,,", "\n"};
         String[][] expectedOutputs =
                 {{"pobi", "woni", "jun"}, {"root", "pobi", "jun"}, {"a", "b", "c"}};
 
@@ -26,7 +26,6 @@ class RequestTest {
         for (int inputIndex = 0; inputIndex < correctInputs.length; inputIndex++) {
             Scanner scanner = new Scanner(correctInputs[inputIndex]);
             Request request = new Request(scanner, printStream);
-
             ArrayList<Car> cars = request.requestCarNames();
             for (int i = 0; i < expectedOutput.length; i++) {
                 assertEquals(expectedOutput[inputIndex][i], cars.get(i).getCarName());

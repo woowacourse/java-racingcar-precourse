@@ -11,15 +11,15 @@ public class RacingGame {
     private ArrayList<Car> cars;
 
     public RacingGame(Scanner scanner, PrintStream printStream) {
-        this.request = new Request(scanner, printStream);
-        this.response = new Response(printStream);
+        request = new Request(scanner, printStream);
+        response = new Response(printStream);
         cars = null;
     }
 
     public void play() {
-        this.prepare();
-        this.race();
-        this.finish();
+        prepare();
+        race();
+        finish();
     }
 
     private void prepare() {
@@ -32,14 +32,14 @@ public class RacingGame {
 
     private void race() {
         response.printRaceStartMessage();
-        for (int round = 0; round < this.numberRound; round++) {
+        for (int round = 0; round < numberRound; round++) {
             updateCarPositions();
             response.printRaceSituation(cars);
         }
     }
 
     private void finish() {
-        Winners winners = this.findWinners();
+        Winners winners = findWinners();
         response.printWinners(winners);
     }
 

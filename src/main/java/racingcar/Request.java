@@ -21,7 +21,7 @@ public class Request {
         String[] carNames = input.split(SEPARATOR, -1);
         GameStatus gameStatus = ExceptionManager.checkValidCarNames(carNames);
         if (gameStatus != GameStatus.OK) {
-            this.handleError(gameStatus);
+            handleError(gameStatus);
         }
         return createCarsByNames(carNames);
     }
@@ -38,7 +38,7 @@ public class Request {
         String input = scanner.nextLine();
         GameStatus gameStatus = ExceptionManager.checkValidNumberRound(input);
         if (gameStatus != GameStatus.OK) {
-            this.handleError(gameStatus);
+            handleError(gameStatus);
         }
         return Integer.parseInt(input);
     }

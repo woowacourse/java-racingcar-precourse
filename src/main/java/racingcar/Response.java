@@ -54,7 +54,7 @@ public class Response {
         printStream.printf(WINNERS_MESSAGE_FORMAT, convertCarListToString(winners.getCars()));
     }
 
-    public String convertCarListToString(ArrayList<Car> cars) {
+    private String convertCarListToString(ArrayList<Car> cars) {
         String result = "";
         for (int i = 0; i < cars.size(); i++) {
             result += cars.get(i).getCarName();

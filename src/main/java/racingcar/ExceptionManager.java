@@ -9,7 +9,8 @@ public class ExceptionManager {
     private static final int MINUMUM_NUMBER_ROUND = 1;
     private static final int MAXIMUM_NUMBER_ROUND = Integer.MAX_VALUE;
 
-    public enum GameStatus {
+    // 게임의 예외 상태를 나타내기 위한 enum
+    public static enum GameStatus {
         OK("에러가 발생하지 않았습니다."), 
         DUPLICATED_NAME("중복된 이름이 존재하면 안됩니다."), 
         INVALID_NAME_LENGTH("이름의 길이가 " + ExceptionManager.MINIMUM_CAR_NAME_LENGTH + "이상 "
@@ -19,15 +20,15 @@ public class ExceptionManager {
         INVALID_NUMBER_ROUND_RANGE("가능한 이동 회수는 " + ExceptionManager.MINUMUM_NUMBER_ROUND + "이상 "
                 + ExceptionManager.MAXIMUM_NUMBER_ROUND + "이하여야 됩니다.");
 
-        private static final String errorMessageFormat = "[ERROR] %s";
+        private static final String ERROR_MESSAGE_FORMAT = "[ERROR] %s";
         private final String message;
 
-        GameStatus(String message) {
-            this.message = String.format(errorMessageFormat, message);
+        private GameStatus(String message) {
+            this.message = String.format(ERROR_MESSAGE_FORMAT, message);
         }
 
         public String toString() {
-            return this.message;
+            return message;
         }
     }
 

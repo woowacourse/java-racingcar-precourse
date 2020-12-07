@@ -3,10 +3,10 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car {
-    private static int MINIMUM_RPM = 0;
-    private static int MAXIMUM_RPM = 9;
-    private static int MOVABLE_MINIMUM_RPM = 4;
-    private static int SPEED = 1;
+    private static final int MINIMUM_RPM = 0;
+    private static final int MAXIMUM_RPM = 9;
+    private static final int MOVABLE_MINIMUM_RPM = 4;
+    private static final int SPEED = 1;
 
     private final String name;
     private int position = 0;
@@ -24,14 +24,14 @@ public class Car {
     }
 
     public void move() {
-        this.position += SPEED;
+        position += SPEED;
     }
 
     public String getCarName() {
-        return this.name;
+        return name;
     }
 
     public int getPosition() {
-        return this.position;
+        return position;
     }
 }
