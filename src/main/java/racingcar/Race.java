@@ -7,19 +7,27 @@ public class Race {
     private ArrayList<Car> cars = new ArrayList();
     private ArrayList<String> winners = new ArrayList();
 
-    public static void runRace(){
+    private int times;
+
+    public void runRace(Scanner scanner){
+        inputParticipationCar(scanner);
+        inputTimes(scanner);
+
 
     }
 
-
-    public static String[] inputCarName(Scanner scanner){
-        String[] players = scanner.nextLine().split(",");
-        return players;
+    // 예외 처리 필요
+    public void inputParticipationCar(Scanner scanner){
+        for (String participationCar : scanner.nextLine().split(",")){
+            cars.add(new Car(participationCar));
+        }
     }
 
-    public static int inputTimes(Scanner scanner){
-        return scanner.nextInt();
+    // 예외 처리 필요
+    public void inputTimes(Scanner scanner){
+        times = scanner.nextInt();
     }
+
 
     public int findMaxPosition(){
         int maxPosition = -1;
