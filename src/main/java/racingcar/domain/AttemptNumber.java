@@ -3,7 +3,10 @@ package racingcar.domain;
 public class AttemptNumber {
     private static final int MAX_ATTEMPT_NUMBER = 100;
     private static final int MIN_ATTEMPT_NUMBER = 1;
-    private final int attemptNumber;
+    private static final int ONE = 0;
+    private static final int ZERO = 0;
+
+    private int attemptNumber;
 
     public AttemptNumber(String attemptNumber) {
         validate(attemptNumber);
@@ -31,5 +34,17 @@ public class AttemptNumber {
         if (convertedAttemptNumber > MAX_ATTEMPT_NUMBER) {
             throw new IllegalArgumentException("[ERROR] 시도 횟수는 " + MAX_ATTEMPT_NUMBER + "이하의 숫자여야 합니다.");
         }
+    }
+
+    public boolean isRemain() {
+        return attemptNumber > ZERO;
+    }
+
+    public void decrease() {
+        minus(ONE);
+    }
+
+    private void minus(int number) {
+        attemptNumber -= number;
     }
 }
