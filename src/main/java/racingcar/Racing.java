@@ -1,48 +1,26 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
-    private List<String> finalwinnerNameList;
     private int maximumPosition;
-    private List<Car> carList;
     private InputView inputView;
     private OutputView outputView;
 
     public void run(Scanner scanner) {
-        inputView = new InputView(scanner);
-        inputView.setCarNameList();
-        inputView.setRacingCount();
-
-        outputView = new OutputView(this);
-        setCarList();
-        raceAllRound();
-
-        setFinalWinnerNameList();
-        outputView.printFinalWinner(finalwinnerNameList);
+        inputView = new InputView();
+        outputView = new OutputView();
+        inputView.setCarNameList(scanner);
+        inputView.setRoundCount(scanner);
+        CarGroup carGroup = new CarGroup(inputView.getCarList());
+        raceAllRound(carGroup, inputView.getRoundCount());
+        setMaximumPosition(carGroup);
+        outputView.printFinalWinner(carGroup.getFinalWinner(maximumPosition));
     }
 
-    public List<Car> getCarList() {
-        return carList;
-    }
-
-    public void setFinalWinnerNameList() {
-        setMaximumPosition();
-        finalwinnerNameList = new ArrayList<>();
-        Car currentCar;
-        for (Car car : carList) {
-            currentCar = car;
-            if (currentCar.getPosition() >= maximumPosition) {
-                finalwinnerNameList.add(currentCar.getName());
-            }
-        }
-    }
-
-    private void setMaximumPosition() {
+    private void setMaximumPosition(CarGroup carGroup) {
         int currentPosition;
-        for (Car car : carList) {
+        for (Car car : carGroup.getCarGroup()) {
             currentPosition = car.getPosition();
             if (maximumPosition < currentPosition) {
                 maximumPosition = currentPosition;
@@ -50,24 +28,11 @@ public class Racing {
         }
     }
 
-    private void raceAllRound() {
+    private void raceAllRound(CarGroup carGroup,int roundCount) {
         outputView.printRacingStartMessage();
-        for (int i = 0; i < inputView.getRacingCount(); i++) {
-            raceOneRound();
-            outputView.printRoundResult();
-        }
-    }
-
-    private void raceOneRound() {
-        for (Car car : carList) {
-            car.moveForwardOrStop();
-        }
-    }
-
-    public void setCarList() {
-        carList = new ArrayList<>();
-        for (String carName : inputView.getCarNameList()) {
-            carList.add(new Car(carName));
+        for (int i = 0; i < roundCount; i++) {
+            carGroup.raceOneRound();
+            outputView.printRoundResult(carGroup);
         }
     }
 }
