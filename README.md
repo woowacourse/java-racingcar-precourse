@@ -29,6 +29,18 @@
     - Car의 결과를 출력하는 기능
     - position을 (-) 문자열로 변경하는 기능
    
-    
+<br>
+
+## ⛔ 예외 처리
+프로젝트의 예외 정의는 다음과 같다. 
+- IllegalArgumentException
+    - RacingCarException 
+        - SpaceInputException : 공백 입력 에러 
+        - DelimiterInputException : 구분 기호가 엾는 압력 에러 
+        - InvalidNameLengthException : 유효하지 않는 이름 에러  
+        - NameDuplicationException : 중복 이름 에러 
+        - InputWithoutNameException : 이름을 입력 값 에러
+        - RoundIllegalArgumentException : 라운드 입력 값 에러 
+
     
     
