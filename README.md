@@ -165,7 +165,10 @@ public class Car {
         * 경기 진행 후 가장 position 값이 높은 Car 객체들 우승자 list에 추가하고 반복문으로 list 안 객체들 우승자로 출력
 4. 결과물 출력 
     - Application.class 의 main 에서 Car 이름과 실행횟수를 입력받고 실제로 경기를 진행하도록 구현 
-
+5. 에러 문구 출력 
+    - 에러 클래스를 새로 생성하여 입력값을 검증하는 메서드 구현 
+    - CarRace 클래스 내에서 검증
+    
 <br>
 
 ## 📝 License
