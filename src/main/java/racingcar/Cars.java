@@ -20,4 +20,12 @@ public class Cars {
     public Car getCar(int location) {
         return this.cars.get(location);
     }
+
+    private int getMaxPosition() {
+        return this.cars.stream()
+               .mapToInt(Car::getScore)
+               .max()
+               .getAsInt();
+    }
+
 }
