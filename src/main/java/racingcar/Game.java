@@ -30,7 +30,7 @@ public class Game {
 		StringBuffer winner = new StringBuffer();
 		for (Car car : cars) {
 			if (car.getPosition() == maxPosition) {
-				winner.append(car.getName()+",");
+				winner.append(car.getName() + ",");
 			}
 		}
 		Message.finalWinner(winner);

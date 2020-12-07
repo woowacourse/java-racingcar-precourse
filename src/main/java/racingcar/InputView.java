@@ -9,10 +9,10 @@ public class InputView {
 		Message.chooseCarName();
 		String carNames = scanner.nextLine();
 		String[] carNamesArray = carNames.split(",");
-		
+
 		return carNamesArray;
 	}
-	
+
 	public int inputChooseRacingCount() {
 		Message.chooseRacingCount();
 		int racingCount = scanner.nextInt();
