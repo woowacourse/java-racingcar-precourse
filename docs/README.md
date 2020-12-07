@@ -34,19 +34,19 @@
 
 ### 기능 구현 목록
 
-1. [x] main 게임 플레이 구현
+1. [x] GamePlayer 구현 (GamePlayer)
 
-2. [x] car class에 field, method 추가하여 구현
+2. [x] Car class에 field, method 추가하여 구현 (Car)
 
-3. [x] 상수들의 목록을 담을 class 구현
+3. [x] CarMaker로 Car 인스턴스 배열을 구현 (CarMaker)
 
-4. [x] 조건에 맞춰 에러를 처리할 class 구현
+4. [x] 조건에 맞춰 에러를 처리할 class 구현 (ErrorValidator)
 
-5. [x] 3의 에러 처리를 활용하여 사용자의 입력을 받을 class 구현
+5. [x] 3의 에러 처리를 활용하여 사용자의 입력을 받을 class 구현 (UserInput)
 
-6. [x] 자동차 별 레이싱 진행 상태를 보여줄 view 구현
+6. [x] 자동차 별 레이싱 진행 상태를 보여줄 view 구현 (Racing)
 
-7. [x] 최종 우승자를 판별하는 class 구현
+7. [x] 최종 우승자를 판별하는 class 구현 (WinnerSelection)
 
 
 <br>
