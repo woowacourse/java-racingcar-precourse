@@ -18,7 +18,10 @@ public class Car {
         forward(ONE);
     }
 
-    private void forward(int step) {
+    public void forward(int step) {
+        if (step <= ZERO) {
+            return;
+        }
         position += step;
     }
 
