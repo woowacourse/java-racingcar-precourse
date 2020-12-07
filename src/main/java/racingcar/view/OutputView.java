@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import racingcar.model.Car;
-import racingcar.model.Cars;
 import racingcar.service.NumberToDashConverter;
 
 import java.util.List;
