@@ -48,9 +48,10 @@ public class NameValidator {
 
     private static void checkNameDuplicate(List<String> nameList) {
         HashSet<String> hashSet = new HashSet<String>();
-        for (int i = 0; i < nameList.size(); i++) {
-            hashSet.add(nameList.get(i));
+        for(String name : nameList){
+            hashSet.add(name);
         }
+
         if (hashSet.size() != nameList.size()) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_DUPLICATE);
         }
