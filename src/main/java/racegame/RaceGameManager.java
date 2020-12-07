@@ -20,14 +20,14 @@ public class RaceGameManager {
         playGame();
     }
 
-    private void playGame(){
+    private void playGame() {
         raceGame.inputCarsName();
         repetitionCount = inputRepetitionCount();
         raceGame.playRounds(repetitionCount);
         raceGame.printWinners();
     }
 
-    private int inputRepetitionCount(){
+    private int inputRepetitionCount() {
         OutputView.printNormal(OUTPUT_VIEW_REPETITION_COUNT);
         return InputView.getRepetitionCount(scanner);
     }

@@ -38,22 +38,22 @@ public class RaceGame {
         OutputView.printRoundResult(carList);
     }
 
-    public void printWinners(){
+    public void printWinners() {
         String winners = WinnersFinder.getWinnersStringBuffer(carList);
         OutputView.printWinners(winners);
     }
 
-    private void manageCarMovement(){
-        for(Car car : carList){
+    private void manageCarMovement() {
+        for (Car car : carList) {
             int number = RandomUtils.nextInt(START_INCLUSIVE, END_INCLUSIVE);
-            if(isOverPivot(number)){
+            if (isOverPivot(number)) {
                 car.moveForward();
             }
         }
     }
 
-    private boolean isOverPivot(int number){
-        if(number >= RANDOM_UTILS_NUMBER_PIVOT){
+    private boolean isOverPivot(int number) {
+        if (number >= RANDOM_UTILS_NUMBER_PIVOT) {
             return true;
         }
         return false;

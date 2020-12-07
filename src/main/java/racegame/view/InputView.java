@@ -13,7 +13,7 @@ public class InputView {
     public static List<Car> getCarList(Scanner scanner) {
         List<String> nameList = getValidNames(scanner);
         List<Car> carList = new ArrayList<>();
-        for(String name : nameList){
+        for (String name : nameList) {
             carList.add(new Car(name));
         }
         return carList;
@@ -23,17 +23,17 @@ public class InputView {
         String nameSentence = scanner.nextLine();
         List<String> nameList = splitString(nameSentence);
 
-        try{
+        try {
             NameValidator.checkNameList(nameList);
             return nameList;
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             OutputView.printErrorMessage(e.getMessage());
             return getValidNames(scanner);
         }
     }
 
     private static List<String> splitString(String nameSentence) {
-        List<String> nameList = Arrays.asList(nameSentence.split(INPUT_DELIMITER,-1));
+        List<String> nameList = Arrays.asList(nameSentence.split(INPUT_DELIMITER, -1));
         return nameList;
     }
 
@@ -43,7 +43,7 @@ public class InputView {
         try {
             RepetitionCountValidator.checkValidRepetitionCount(count);
             return Integer.parseInt(count);
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             OutputView.printErrorMessage(e.getMessage());
             return getRepetitionCount(scanner);
         }

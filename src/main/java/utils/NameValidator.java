@@ -17,15 +17,15 @@ public class NameValidator {
     }
 
     private static void checkNull(List<String> nameList) {
-        for(String name : nameList) {
+        for (String name : nameList) {
             if (Pattern.matches(CHECK_NULL_REGEX, name)) {
                 throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_NULL);
             }
         }
     }
 
-    private static void checkPartialSpace(List<String> nameList){
-        for(String name : nameList) {
+    private static void checkPartialSpace(List<String> nameList) {
+        for (String name : nameList) {
             if (!Pattern.matches(CHECK_PARTIAL_SPACE_REGEX, name)) {
                 throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_PARTIAL_SPACE);
             }
@@ -33,14 +33,14 @@ public class NameValidator {
     }
 
     private static void checkRaceAlone(List<String> nameList) {
-        if(nameList.size() <= 1){
+        if (nameList.size() <= 1) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_ALONE);
         }
     }
 
     private static void checkNamesLength(List<String> nameList) {
-        for(String name : nameList) {
-            if (name.length() > CHECK_LENGTH ) {
+        for (String name : nameList) {
+            if (name.length() > CHECK_LENGTH) {
                 throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_LENGTH);
             }
         }
@@ -48,7 +48,7 @@ public class NameValidator {
 
     private static void checkNameDuplicate(List<String> nameList) {
         HashSet<String> hashSet = new HashSet<String>();
-        for(String name : nameList){
+        for (String name : nameList) {
             hashSet.add(name);
         }
 
