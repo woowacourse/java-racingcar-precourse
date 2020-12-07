@@ -33,34 +33,34 @@ public class RacingCarGame {
 
     }
 
-    public void race(Car[] cars, int trial) {
+    private void race(Car[] cars, int trial) {
         System.out.println(RESULT);
         repeatMove(cars, trial);
     }
 
-    public void repeatMove(Car[] cars, int trial) {
+    private void repeatMove(Car[] cars, int trial) {
         for (int i = 0; i < trial; i++) {
             move(cars);
             breakLine();
         }
     }
 
-    public void move(Car[] cars) {
+    private void move(Car[] cars) {
         for (Car car : cars) {
             car.move(getRandom());
         }
     }
 
-    public int getRandom() {
+    private int getRandom() {
         return RandomUtils.nextInt(LOWER_BOUND, UPPER_BOUND);
     }
 
 
-    public void breakLine() {
+    private void breakLine() {
         System.out.println();
     }
 
-    public int getMaxPosition(Car[] cars) {
+    private int getMaxPosition(Car[] cars) {
         int[] positions = new int[cars.length];
 
         for (int i = 0; i < cars.length; i++) {
@@ -70,7 +70,7 @@ public class RacingCarGame {
         return positions[positions.length - 1];
     }
 
-    public ArrayList<String> getWinners(Car[] cars, int maxPosition) {
+    private ArrayList<String> getWinners(Car[] cars, int maxPosition) {
         ArrayList<String> winners = new ArrayList<>();
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
@@ -80,7 +80,7 @@ public class RacingCarGame {
         return winners;
     }
 
-    public void printWinners(ArrayList<String> winners) {
+    private void printWinners(ArrayList<String> winners) {
         System.out.print(FINAL_WINNERS);
         System.out.println(String.join(JOIN_DELIM, winners));
     }

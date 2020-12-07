@@ -28,7 +28,7 @@ public class Car {
         result();
     }
 
-    public boolean isMoving(int random) {
+    private boolean isMoving(int random) {
         return random > MOVE_BOUND;
     }
 

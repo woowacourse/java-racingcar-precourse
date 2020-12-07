@@ -16,7 +16,7 @@ public class InputView {
 
     private final Scanner scanner;
 
-    public InputView(Scanner scanner) {
+    InputView(Scanner scanner) {
         this.scanner = scanner;
     }
 
@@ -29,7 +29,7 @@ public class InputView {
         return cars;
     }
 
-    public String[] getCarList() {
+    private String[] getCarList() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String[] carNames = getNames();
         if (!isValidCar(carNames)) {
