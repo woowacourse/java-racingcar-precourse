@@ -39,6 +39,6 @@ public class GameController {
 
     private void winnerPrint(String[] winner) {
         String winners = Arrays.toString(winner);
-        System.out.println("최종 우승자: " + winners.substring(1,winners.length()-1));
+        System.out.println("최종 우승자: " + winners.substring(1, winners.length() - 1));
     }
 }
