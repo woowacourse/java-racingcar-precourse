@@ -4,7 +4,7 @@ import utils.RandomUtils;
 
 import java.util.Collections;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private final int START_INCLUSIVE = 1;
     private final int END_INCLUSIVE = 9;
     private final int FORWARD_CRITERION = 4;
@@ -38,6 +38,11 @@ public class Car {
 
     private String convertPositionToBar() {
         return String.join("", Collections.nCopies(position, BAR));
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return this.position - car.getPosition();
     }
 
     public String getName() {
