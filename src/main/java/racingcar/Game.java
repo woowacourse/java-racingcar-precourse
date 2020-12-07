@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.List;
@@ -14,6 +15,8 @@ public class Game {
 
     private int trial;
     private List<Car> cars;
+    private final List<String> winner = new ArrayList<>();
+    private int maxScore = 0;
 
     public Game(Scanner scanner) {
         this.startGame(scanner);
@@ -51,6 +54,11 @@ public class Game {
             }
             System.out.println();
         }
+        findMaximum();
+        System.out.println(maxScore);
+        getWinner();
+        String winners = String.join(",", winner);
+        System.out.println(winners);
     }
 
     public void move(Car car) {
@@ -72,6 +80,25 @@ public class Game {
     public void movementCheck(Car car) {
         if (car.moveForward()) {
             car.setPosition();
+        }
+    }
+
+    public void findMaximum() {
+        for (Car car : cars) {
+            int position = car.getPositon();
+            if (position > maxScore) {
+                maxScore = position;
+            }
+        }
+    }
+
+    public void getWinner() {
+        for (Car car : cars) {
+            int position = car.getPositon();
+            String name = car.getName();
+            if (position == maxScore) {
+                winner.add(name);
+            }
         }
     }
 }
