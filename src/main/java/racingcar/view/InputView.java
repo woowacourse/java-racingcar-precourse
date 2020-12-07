@@ -2,9 +2,7 @@ package racingcar.view;
 
 import racingcar.exception.*;
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 public class InputView {
     private static final int ZERO = 0;
@@ -20,11 +18,11 @@ public class InputView {
         this.scanner = scanner;
     }
 
-    public String inputRacingCars() {
+    public List<String> inputRacingCars() {
         System.out.println(INPUT_RACING_CARS);
         String racingCarNames = scanner.nextLine();
         validate(racingCarNames);
-        return racingCarNames;
+        return Arrays.asList(racingCarNames.split(NAME_DELIMITER));
     }
 
     private void validate(String racingCarNames) {
