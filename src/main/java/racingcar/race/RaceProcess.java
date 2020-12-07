@@ -13,7 +13,7 @@ public class RaceProcess {
 
             car.forward(value);
 
-            if (car.isLead(leadPosition)) {
+            if (updateLeadPosition(car, leadPosition)) {
                 leadPosition++;
             }
         }
@@ -28,6 +28,10 @@ public class RaceProcess {
         }
 
         System.out.println();
+    }
+
+    private boolean updateLeadPosition(Car car, int leadPosition) {
+        return car.isLead(leadPosition);
     }
 
     private void showEachCarSituation(int position) {
