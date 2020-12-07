@@ -1,14 +1,17 @@
 package racingcar;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class InputValidator {
     static final int CAR_NAME_SIZE_CONDITION = 5;
 
     public boolean validateCarName(String[] cars) {
-        InputValidator inputValidator = new InputValidator();
-        for (String carName : cars) {
-            if (!inputValidator.isNameValid(carName)) {
-                System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
-            }
+        if (!isNameSizeValid(cars)) {
+            return false;
+        }
+        if (!isNameDistinct(cars)){
+            return false;
         }
         return true;
     }
@@ -23,9 +26,25 @@ public class InputValidator {
         return true;
     }
 
-    private boolean isNameValid(String carName) {
-        if (carName.length() > CAR_NAME_SIZE_CONDITION)
-            return false;
+    private boolean isNameSizeValid(String[] cars) {
+        for (String carName : cars) {
+            if (carName.length() > CAR_NAME_SIZE_CONDITION) {
+                System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isNameDistinct(String[] cars) {
+        Set set = new HashSet();
+        for (String carName : cars) {
+            if(set.contains(carName)) {
+                System.out.println("[ERROR] 중복된 자동차 이름이 입력되었습니다.");
+                return false;
+            }
+            set.add(carName);
+        }
         return true;
     }
 }
