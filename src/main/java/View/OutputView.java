@@ -7,9 +7,13 @@ public class OutputView {
 
     }
 
-    void showScore(int score) {
+    private String showScore(int score) {
+        String message = "";
         for(int index = 0; index < score; index++) {
-            System.out.print(this.SYMBOL);
+            message += this.SYMBOL;
         }
+        return message;
     }
+
+
 }
