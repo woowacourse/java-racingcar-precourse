@@ -1,6 +1,9 @@
-package racingcar;
+package view;
 
 import java.util.List;
+
+import racingcar.Car;
+import racingcar.Winner;
 
 public class OutputView {
     public static void printPlayingScreen() {

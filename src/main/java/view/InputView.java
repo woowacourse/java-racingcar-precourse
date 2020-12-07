@@ -1,12 +1,17 @@
-package racingcar;
+package view;
 
 import java.util.List;
 import java.util.Scanner;
 
+import racingcar.CarNameValidator;
+import racingcar.GameRoundValidator;
+import racingcar.IllegalCarNameException;
+import racingcar.IllegalGameRoundException;
+
 public class InputView {
     private Scanner scanner;
 
-    InputView(Scanner scanner) {
+    public InputView(Scanner scanner) {
         this.scanner = scanner;
     }
 

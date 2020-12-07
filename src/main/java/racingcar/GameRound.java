@@ -3,7 +3,7 @@ package racingcar;
 public class GameRound {
     private int gameRound;
 
-    GameRound(String round) {
+    public GameRound(String round) {
         this.gameRound = Integer.parseInt(round);
     }
 

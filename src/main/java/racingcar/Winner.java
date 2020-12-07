@@ -9,7 +9,7 @@ public class Winner {
     private List<Car> players;
     private List<String> winner = new ArrayList<>();
 
-    Winner(List<Car> players) {
+    public Winner(List<Car> players) {
         this.players = players;
         findWinnerName();
     }

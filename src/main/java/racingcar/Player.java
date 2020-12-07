@@ -3,12 +3,14 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+import view.OutputView;
+
 public class Player {
     private static final int FIRST_ROUND = 1;
 
     private List<Car> players = new ArrayList<>();
 
-    Player(List<String> carNames) {
+    public Player(List<String> carNames) {
         for (String carName : carNames)
             players.add(new Car(carName));
     }
