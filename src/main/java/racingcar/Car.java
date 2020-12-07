@@ -12,18 +12,20 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
-    
-    public int getPosition() {
-        return position;
+
+    public int makeRandomNumber() {
+        return RandomUtils.nextInt(MIN, MAX);
     }
 
     public void move() {
         position++;
     }
 
-    private int makeRandomNumber() {
-        return RandomUtils.nextInt(MIN, MAX);
+    public String getName() {
+        return name;
     }
 
-    // 추가 기능 구현
+    public int getPosition() {
+        return position;
+    }
 }
