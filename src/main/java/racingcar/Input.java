@@ -11,7 +11,6 @@ public class Input {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         if (scanner.hasNext() || userInput == null) {
             userInput = scanner.nextLine();
-            System.out.println(userInput);
         }
         return parseCar(userInput, scanner);
     }
@@ -28,6 +27,7 @@ public class Input {
     }
 
     public static Integer askRound(Scanner scanner) {
+        System.out.println("시도할 회수는 몇회인가요?");
         int round = 0;
         if (scanner.hasNext()) {
             String roundString = scanner.next();
