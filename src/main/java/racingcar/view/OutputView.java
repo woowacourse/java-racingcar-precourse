@@ -9,16 +9,24 @@ package racingcar.view;
 
 import racingcar.domain.CarDTO;
 
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class OutputView {
     private static final String ERROR_PREFIX = "[ERROR] ";
     private static final String DISPLAY_POSITION_FORMAT = "%s : %s";
+    private static final String EXECUTION_RESULT = "실행 결과";
+    private static final String WINNERS_LIST = "최종 우승자 : ";
     private static final char POSITION_CHARACTER = '-';
 
     public static void showErrorMessage(Exception e) {
         System.out.println(ERROR_PREFIX + e.getMessage());
+    }
+
+    public static void showResultMessage() {
+        System.out.println(EXECUTION_RESULT);
     }
 
     public static void showCarsPosition(List<CarDTO> carsDTO) {
@@ -32,5 +40,15 @@ public class OutputView {
                 .forEach(i -> positionStringBuffer.append(POSITION_CHARACTER));
         System.out.print(String.format(DISPLAY_POSITION_FORMAT, carDTO.getName(), positionStringBuffer));
         System.out.println();   // 개행
+    }
+
+    public static void showWinners(List<String> winners) {
+        Collections.sort(winners);
+        System.out.print(WINNERS_LIST);
+        Iterator<String> iterator = winners.iterator();
+        System.out.print(iterator.next());
+        while(iterator.hasNext()) {
+            System.out.print(", " + iterator.next());
+        }
     }
 }

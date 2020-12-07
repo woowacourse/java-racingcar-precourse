@@ -47,6 +47,14 @@ public class Car implements Comparable<Car> {
         return new CarDTO(this.name, this.position);
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
