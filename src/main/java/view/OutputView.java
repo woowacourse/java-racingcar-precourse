@@ -4,8 +4,8 @@ public class OutputView {
     private static final String CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String TRY_NUMBER_MESSAGE = "시도할 횟수는 몇 회인가요?";
     private static final String CAR_NAME_COUNT_ERROR_MESSAGE = "[ERROR] 경주할 자동차는 한 대 이상이어야 합니다.";
-    private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "[ERROR] 경주할 자동차는 한 대 이상이어야 합니다.";
-    private static final String CAR_NAME_DUPLICATION_ERROR_MESSAGE = "[ERROR] 경주할 자동차는 한 대 이상이어야 합니다.";
+    private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "[ERROR] 경주할 자동차의 이름 길이는 1 이상 5 이하여야 합니다.";
+    private static final String CAR_NAME_DUPLICATION_ERROR_MESSAGE = "[ERROR] 경주할 자동차의 이름이 중복됩니다.";
     private static final String TRY_NUMBER_TYPE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 합니다.";
     private static final String TRY_NUMBER_NEGATIVE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 양수여야 합니다.";
 
