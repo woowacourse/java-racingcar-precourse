@@ -8,5 +8,20 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void movePosition() {
+        position += 1;
+    }
+
+    public boolean isMaxPosition(int maxPosition) {
+        return position == maxPosition;
+    }
+
 }
