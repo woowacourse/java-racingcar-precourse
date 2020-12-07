@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -16,13 +18,16 @@ public class Application {
     private static final int CAR_NAME_CASE = 0;
     private static final int GAME_COUNT_CASE = 1;
     private static final int GAME_RESULT_CASE = 2;
+    private static final int MOVE = 4;
+    private static final int MIN_RANDOM = 0;
+    private static final int MAX_RANDOM = 9;
     private static int gameCount;
     private static Car[] cars;
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         gameSetting(scanner);
-        displayGuideMessage(GAME_RESULT_CASE);
+        playGame();
         scanner.close();
     }
 
@@ -39,6 +44,23 @@ public class Application {
         gameCount = inputGameCount(kbd);
     }
 
+    private static void playGame() {
+        displayGuideMessage(GAME_RESULT_CASE);
+        for (int i = 0; i < gameCount; i++) {
+            playEachGame();
+        }
+    }
+
+    private static void playEachGame() {
+        for (int i = 0; i < cars.length; i++) {
+            int random = RandomUtils.nextInt(MIN_RANDOM,MAX_RANDOM);
+            if (random >= MOVE)
+                cars[i].moveForward();
+            cars[i].displayPosition();
+        }
+        System.out.println();
+    }
+
     private static Car[] makeCars(String[] names) {
         Car[] cars = new Car[names.length];
         for (int i = 0; i < names.length; i++) {
@@ -47,12 +69,12 @@ public class Application {
         return cars;
     }
 
-    private static void displayGuideMessage(int inputCase) {
-        if (inputCase == CAR_NAME_CASE)
+    private static void displayGuideMessage(int guideCase) {
+        if (guideCase == CAR_NAME_CASE)
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        if (inputCase == GAME_COUNT_CASE)
+        if (guideCase == GAME_COUNT_CASE)
             System.out.println("시도할 회수는 몇회인가요?");
-        if (inputCase == GAME_RESULT_CASE)
+        if (guideCase == GAME_RESULT_CASE)
             System.out.println("\n실행 결과");
     }
 
