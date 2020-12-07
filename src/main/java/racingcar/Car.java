@@ -3,11 +3,11 @@ package racingcar;
 import utils.RandomUtils;
 
 public class Car {
-    private static final int MINIMUM_DISTANCE = 0;
-    private static final int MAXIMUM_DISTANCE = 9;
-    private static final int MIN_LENGTH_FOR_MOVING_POSSIBLE = 4;
+    private static final int START_VALUE = 0;
+    private static final int END_VALUE = 9;
+    private static final int MIN_LENGTH = 4;
 
-    private final String name;
+    private String name;
     private int position = 0;
 
     public Car(String name) {
@@ -30,11 +30,10 @@ public class Car {
     }
 
     private int randomDistance() {
-        return RandomUtils.nextInt(MINIMUM_DISTANCE, MAXIMUM_DISTANCE);
+        return RandomUtils.nextInt(START_VALUE, END_VALUE);
     }
 
     private boolean isPossiblyMoving(int distance) {
-        return distance >= MIN_LENGTH_FOR_MOVING_POSSIBLE;
+        return distance >= MIN_LENGTH;
     }
-    // 추가 기능 구현
 }
