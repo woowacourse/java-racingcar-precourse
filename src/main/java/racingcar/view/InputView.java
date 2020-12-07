@@ -57,7 +57,7 @@ public class InputView {
     }
 
     private List<String> splitInputToNameList(String inputNameList) {
-        List<String> names = Arrays.asList(inputNameList.split(SPLIT_MARKER));
+        List<String> names = Arrays.asList(inputNameList.split(SPLIT_MARKER,-1));
         return names;
     }
 
