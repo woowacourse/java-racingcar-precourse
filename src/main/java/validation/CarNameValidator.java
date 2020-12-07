@@ -1,5 +1,6 @@
 package validation;
 
+import utils.SplitUtils;
 import view.OutputView;
 
 import java.util.Arrays;
@@ -14,18 +15,10 @@ public class CarNameValidator {
     }
 
     public static void validateCarName(String carName) throws IllegalArgumentException {
-        String[] carNames = splitCarName(carName);
+        String[] carNames = SplitUtils.splitCarName(carName);
         validateCarNameCount(carNames);
         validateCarNameLength(carNames);
         validateCarNameDuplication(carNames);
-    }
-
-    private static String[] splitCarName(String carNames) {
-        if (!carNames.contains(",")) {
-            String[] carName = {carNames};
-            return carName;
-        }
-        return carNames.split(",");
     }
 
     private static void validateCarNameCount(String[] carNames) {
