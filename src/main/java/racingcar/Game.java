@@ -45,14 +45,23 @@ public class Game {
 
     public void play() {
         System.out.println(RESULT_MESSAGE);
-//        for (int i=0; i<trial; i++) {
-//
-//        }
+        for (int i=0; i<trial; i++) {
+            for (Car car : cars) {
+                move(car);
+            }
+            System.out.println();
+        }
     }
 
     public void move(Car car) {
-        String name = car.getName();
-        int position = car.getPositon();
+        String name;
+        int position;
+
+        movementCheck(car);
+
+        name = car.getName();
+        position = car.getPositon();
+
         String movement = "";
         for (int p=0; p<position; p++) {
             movement = movement.concat(MOVEMENT);
@@ -60,4 +69,9 @@ public class Game {
         System.out.println(name + " : " + movement);
     }
 
+    public void movementCheck(Car car) {
+        if (car.moveForward()) {
+            car.setPosition();
+        }
+    }
 }
