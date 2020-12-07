@@ -10,6 +10,7 @@ public class Application {
     private static final int NO_INT_ERROR = 1;
     private static final int LENGTH_RANGE_ERROR = 2;
     private static final int SAME_NAME_ERROR = 3;
+    private static final int NO_COUNT_ERROR = 4;
     private static final int MIN_CAR_LENGTH = 2;
     private static final int MAX_NAME_LENGTH = 5;
     private static final int CAR_NAME_CASE = 0;
@@ -17,7 +18,8 @@ public class Application {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         Car[] cars = gameSetting(scanner);
-        displayInputMessage(GAME_COUNT_CASE);
+        int gameCount = inputGameCount(scanner);
+        System.out.println(gameCount);
         scanner.close();
     }
 
@@ -47,6 +49,41 @@ public class Application {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         if (inputCase == GAME_COUNT_CASE)
             System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    private static int inputGameCount(Scanner kbd) {
+        int gameCount = 0;
+        boolean check = false;
+        while(!check) {
+            displayInputMessage(GAME_COUNT_CASE);
+            String input = kbd.nextLine();
+            check = isInt(input);
+            if (check) {
+                gameCount = Integer.parseInt(input);
+                check = isZero(gameCount);
+            }
+        }
+        return gameCount;
+    }
+
+    private static boolean isInt(String input) {
+        boolean check = true;
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            check = false;
+            displayErrorMessage(NO_INT_ERROR);
+        }
+        return check;
+    }
+
+    private static boolean isZero(int gameCount) {
+        boolean check = true;
+        if (gameCount < 1) {
+            check = false;
+            displayErrorMessage(NO_COUNT_ERROR);
+        }
+        return check;
     }
 
     private static String[] inputCarNames(Scanner kbd) {
@@ -105,5 +142,7 @@ public class Application {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다");
         if (errorCase == SAME_NAME_ERROR)
             System.out.println("[ERROR] 이름을 중복하여 사용할 수 없습니다");
+        if (errorCase == NO_COUNT_ERROR)
+            System.out.println("[ERROR] 시도 횟수를 1회 이상 입력해주세요");
     }
 }
