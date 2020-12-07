@@ -26,7 +26,7 @@ public class Racing {
 
     private void whoIsWinner() {
         int max = cars.stream()
-                .map(car -> car.getPosition())
+                .map(Car::getPosition)
                 .max(Integer::compareTo)
                 .get();
         List<String> winners = cars.stream()
@@ -38,13 +38,13 @@ public class Racing {
 
     private void raceStart() {
         OutputView.gameResult();
-        for(int i = 0;i<tryNumber;i++){
+        for (int i = 0; i < tryNumber; i++) {
             racing();
         }
     }
 
     private void racing() {
-        for(Car car : cars){
+        for (Car car : cars) {
             car.goOrStop(RandomUtils.nextInt(START_NUMBER, END_NUMBER));
         }
         OutputView.gameStatus(cars);
