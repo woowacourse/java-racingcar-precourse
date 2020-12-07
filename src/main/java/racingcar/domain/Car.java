@@ -10,7 +10,7 @@ package racingcar.domain;
 
 import utils.RandomUtils;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MIN_SEED = 0;
     private static final int MAX_SEED = 9;
@@ -67,5 +67,10 @@ public class Car {
     @Override
     public String toString() {
         return String.format("%s@name: %s, position: %d", this.getClass().toString(), this.name, this.position);
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return Integer.compare(this.position, o.position);
     }
 }
