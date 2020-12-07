@@ -42,7 +42,7 @@ public class UserInputData {
         return Integer.parseInt(matchTryNumber);
     }
 
-    public static boolean carNameErrorCheck(String[] carNames) {
+    private static boolean carNameErrorCheck(String[] carNames) {
         if (duplicationNameCheck(carNames)) {
             return true;
         }
@@ -54,7 +54,7 @@ public class UserInputData {
         return false;
     }
 
-    public static boolean matchTryNumberErrorCheck(String tryNumber) {
+    private static boolean matchTryNumberErrorCheck(String tryNumber) {
         return (isRealIntegerCheck(tryNumber) || spaceErrorCheck(tryNumber));
     }
 
@@ -75,7 +75,7 @@ public class UserInputData {
         return (!Pattern.matches(integerOnlyPossiblePattern, userInput));
     }
 
-    public static void carNameErrorMessagePrint(String[] carNames) {
+    private static void carNameErrorMessagePrint(String[] carNames) {
         if (duplicationNameCheck(carNames)) {
             System.out.println(DUPLICATION_ERROR);
         }
@@ -93,7 +93,7 @@ public class UserInputData {
         }
     }
 
-    public static void matchTryNumberErrorPrint(String tryNumber) {
+    private static void matchTryNumberErrorPrint(String tryNumber) {
         if (spaceErrorCheck(tryNumber)) {
             System.out.println(SPACE_ERROR);
 
