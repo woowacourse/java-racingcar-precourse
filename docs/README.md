@@ -55,10 +55,10 @@
     ㄴracingcar
         -Application
         -Car
+        -Constants
         -PlayerResponse
         -RacingCarGame
         -Validator
-        -Constants
     ㄴutils
         -RandomUtils
 ```
