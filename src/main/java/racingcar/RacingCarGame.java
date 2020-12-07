@@ -1,19 +1,17 @@
 package racingcar;
 
-import jdk.nashorn.internal.runtime.regexp.RegExpFactory;
 import racingcar.exception.RacingCarException;
-import racingcar.validator.CarValidator;
 
 import java.util.Scanner;
 
 public class RacingCarGame {
     private final String INPUT_RACING_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉽표(,) 기준으로 구분)";
     private final String INPUT_RACING_ROUND = "시도할 회수는 몇회인가요?";
+    private final String EXECUTION_RESULT = "\n실행 결과";
 
     private final Scanner scanner;
     private Cars cars;
     private Round round;
-
 
     public RacingCarGame(Scanner scanner) {
         this.scanner = scanner;
@@ -22,6 +20,7 @@ public class RacingCarGame {
     public void startGame() {
         try {
             initialize();
+            startRound();
         } catch (RacingCarException e) {
             System.out.println(e.getMessage());
         }
@@ -48,5 +47,12 @@ public class RacingCarGame {
     private String inputRacingRound() {
         System.out.println(INPUT_RACING_ROUND);
         return scanner.nextLine();
+    }
+
+    private void startRound() {
+        System.out.println(EXECUTION_RESULT);
+        for (int currentRound = 0; currentRound < round.getRound(); currentRound++) {
+            cars.startRacingRound();
+        }
     }
 }
