@@ -58,7 +58,7 @@
         -PlayerResponse
         -RacingCarGame
         -Validator
+        -Constants
     ㄴutils
-        -ConstantUtils
         -RandomUtils
 ```
