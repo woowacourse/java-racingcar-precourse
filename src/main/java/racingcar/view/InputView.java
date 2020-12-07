@@ -1,7 +1,6 @@
 package racingcar.view;
 
-import racingcar.domain.exception.CarNameDuplicationException;
-import racingcar.domain.exception.CarNameLengthException;
+import racingcar.domain.exception.CarNameException;
 import racingcar.domain.exception.RacingTryCountsNumberFormatException;
 
 import java.util.*;
@@ -54,7 +53,7 @@ public class InputView {
         boolean isAllValidCarNameLength = carNames.stream()
                 .allMatch(this::isValidCarNameLength);
         if (!isAllValidCarNameLength) {
-            throw new CarNameLengthException();
+            throw CarNameException.ofInvalidNameLength();
         }
     }
 
@@ -66,7 +65,7 @@ public class InputView {
     private void validateDuplication(List<String> carNames) {
         Set<String> distinctCarNames = new HashSet<>(carNames);
         if (distinctCarNames.size() != carNames.size()) {
-            throw new CarNameDuplicationException();
+            throw CarNameException.ofDuplicatedNames();
         }
     }
 

@@ -63,6 +63,6 @@ class RacingGameTest {
         assertThatCode(() -> {
             racingGame.race();
         }).isInstanceOf(CannotPlayGameException.class)
-                .hasMessage("[ERROR] 시도 횟수를 초과했기 때문에 경주를 진행할 수 없습니다.");
+                .hasMessage("[ERROR] 시도 횟수를 초과했기 때문에 게임을 진행할 수 없습니다.");
     }
 }

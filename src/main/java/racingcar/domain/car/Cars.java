@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import racingcar.domain.dto.CarDto;
 import racingcar.domain.exception.CannotFindWinnerCarException;
-import racingcar.domain.exception.CarNameDuplicationException;
+import racingcar.domain.exception.CarNameException;
 import racingcar.domain.strategy.MovingStrategy;
 
 import java.util.Comparator;
@@ -30,7 +30,7 @@ public class Cars {
     private static void validateDuplication(List<String> carNames) {
         Set<String> distinctCarNames = new HashSet<>(carNames);
         if (distinctCarNames.size() != carNames.size()) {
-            throw new CarNameDuplicationException();
+            throw CarNameException.ofDuplicatedNames();
         }
     }
 
