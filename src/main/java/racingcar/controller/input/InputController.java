@@ -1,20 +1,23 @@
 package racingcar.controller.input;
 
 
+import racingcar.controller.view.ConsoleView;
+import racingcar.controller.view.ViewController;
 import racingcar.domain.setting.Message;
 import racingcar.exception.DuplicateNameException;
 import racingcar.exception.InvalidNameException;
 import racingcar.exception.InvalidNumberException;
 
-import static utils.Validator.*;
-
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
+
+import static utils.Validator.validateNames;
+import static utils.Validator.validateRepeat;
 
 public class InputController {
 
     private static Scanner scanner;
+    private static final ViewController viewController = ConsoleView.getInstance();
 
     private static final String NAME_SEPARATOR = ",";
 
@@ -35,7 +38,7 @@ public class InputController {
             validateNames(names);
             return names;
         } catch (InvalidNameException | DuplicateNameException e) {
-            System.out.println(e.getMessage());
+            viewController.printException(e);
             return inputNames();
         }
 
@@ -54,7 +57,7 @@ public class InputController {
             return Integer.parseInt(input);
 
         } catch (InvalidNumberException e) {
-            System.out.println(e.getMessage());
+            viewController.printException(e);
             return inputRepeatCount();
         } finally {
             scanner.close();

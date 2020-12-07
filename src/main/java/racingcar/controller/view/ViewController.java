@@ -8,5 +8,6 @@ public interface ViewController {
     void recordCarsPosition(String positon);
     void recordWinner(List<Car> winners);
     void printResult();
+    void printException(Exception e);
 }
     

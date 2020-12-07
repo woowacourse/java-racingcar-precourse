@@ -17,7 +17,7 @@ public class Game {
 
     public Game(Scanner scanner) {
         this.inputController = new InputController(scanner);
-        this.viewController = new ConsoleView();
+        this.viewController = ConsoleView.getInstance();
     }
 
     public Game(Scanner scanner, ViewController viewController) {
