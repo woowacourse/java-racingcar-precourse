@@ -1,3 +1,10 @@
+/**
+ * DecisionMaker.java
+ * 자동차에게 전진 여부를 판단해주는 클래스
+ *
+ * @author Kimun Kim, github.com/tributetothemoon
+ */
+
 package racingcar.domain;
 
 import utils.RandomUtils;

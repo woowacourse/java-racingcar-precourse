@@ -2,7 +2,7 @@
  * CarDTO.java
  * Car객체에 대한 DTO 클래스
  *
- * 수정: Kimun Kim, github.com/tributetothemoon
+ * @author Kimun Kim, github.com/tributetothemoon
  */
 
 package racingcar.domain;

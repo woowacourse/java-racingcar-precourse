@@ -2,7 +2,7 @@
  * Ranking.java
  * 경주의 우열을 가리고 정보를 담는 클래스
  *
- * 수정: Kimun Kim, github.com/tributetothemoon
+ * @author Kimun Kim, github.com/tributetothemoon
  */
 
 package racingcar.domain;
