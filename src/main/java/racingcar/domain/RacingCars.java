@@ -5,6 +5,14 @@ import racingcar.domain.engine.Engine;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 이 클래스는 레이스에 참여하는 자동차들을 관리하는 클래스입니다.
+ * 레이스에 참여하는 자동차들을 멤버 변수로 가지고 있으며,
+ * 모든 자동차에게 이동 요청과 우승자를 판별하는 책임을 수행합니다.
+ *
+ * @author Byeonghwa Kim
+ * @version 1.0
+ */
 public class RacingCars {
 
     private List<Car> cars;

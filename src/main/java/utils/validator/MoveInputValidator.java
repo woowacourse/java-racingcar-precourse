@@ -1,5 +1,13 @@
 package utils.validator;
 
+/**
+ * 이 클래스는 자동차 이동 횟수 입력을 검증하는 클래스입니다.
+ * - 입력된 값이 숫자(정수)인지 검증합니다.
+ * - 입력된 값이 양수인지 검증합니다.
+ *
+ * @author Byeonghwa Kim
+ * @version 1.0
+ */
 public class MoveInputValidator {
 
     private static final String NUMBER_FORMAT_ERROR_MSG = "[ERROR] 시도 횟수는 숫자여야 한다.";

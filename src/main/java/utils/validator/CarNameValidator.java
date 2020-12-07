@@ -1,5 +1,13 @@
 package utils.validator;
 
+/**
+ * 이 클래스는 자동차 이름 입력을 검증하는 클래스입니다.
+ * - 자동차 이름의 길이를 검증합니다.
+ * - 자동차 이름이 비어있거나 공백인지 검증합니다.
+ *
+ * @author Byeonghwa Kim
+ * @version 1.0
+ */
 public class CarNameValidator {
 
     private static final String NAME_LENGTH_ERROR_MSG = "[ERROR] 자동차 이름은 5자 이하여야 합니다.";

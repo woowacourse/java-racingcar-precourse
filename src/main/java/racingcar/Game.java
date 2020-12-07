@@ -8,6 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 이 클래스는 사용자 입력을 받아 레이스를 시작시키는 클래스입니다.
+ *
+ * @author Byeonghwa Kim
+ * @version 1.0
+ */
 public class Game {
 
     private static final String INPUT_CAR_NAMES_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";

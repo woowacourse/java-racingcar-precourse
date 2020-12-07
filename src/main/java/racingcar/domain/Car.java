@@ -2,6 +2,14 @@ package racingcar.domain;
 
 import racingcar.domain.engine.Engine;
 
+/**
+ * 이 클래스는 레이스에 참여하는 자동차 클래스입니다.
+ * 자동차 이름과 현재 위치를 멤버 변수로 가지고 있으며,
+ * Engine에게 숫자 생성을 요청하여 이동하는 책임을 수행하고 있습니다.
+ *
+ * @author Byeonghwa Kim
+ * @version 1.0
+ */
 public class Car {
 
     private static final int GO_FORWARD_NUM = 4;
