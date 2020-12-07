@@ -1,4 +1,4 @@
-package racingcar;
+package utils;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
@@ -21,15 +21,19 @@ public class userInputData {
     }
 
     public static boolean carNameErrorCheck(String[] carNames) {
-        if (duplicationNameCheck(carNames)){
+        if (duplicationNameCheck(carNames)) {
             return true;
         }
         for (String carName : carNames) {
-            if (spaceErrorCheck(carName) || availableRangeCheck(carName)){
+            if (spaceErrorCheck(carName) || availableRangeCheck(carName)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public static boolean tryNumberErrorCheck(String tryNumber) {
+        return (isRealIntegerCheck(tryNumber) || spaceErrorCheck(tryNumber));
     }
 
     private static boolean spaceErrorCheck(String userInput) {
@@ -43,6 +47,10 @@ public class userInputData {
 
     private static boolean duplicationNameCheck(String[] userInputSet) {
         return (userInputSet.length != Arrays.stream(userInputSet).distinct().count());
+    }
+
+    private static boolean isRealIntegerCheck(String userInput) {
+        return (!Pattern.matches(integerOnlyPossiblePattern, userInput));
     }
 
 }
