@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import java.util.ArrayList;
+import racingcar.domain.Car;
 
 public class OutputViewer {
     private static final String FIRST_RESULT_MESSAGE = "실행 결과";
@@ -15,34 +15,35 @@ public class OutputViewer {
     }
 
     /**
-     * 참여자들의 스코어를 보여주는 메서드
-     * @param participantName 참여자의 이름
-     * @param score 참여자의 스코어
+     * 참여자들의 스코어를 보여주는 메소드
+     * @param car 결과를 보여줄 참여 자동차
      */
-    public static void participantScoreName(String participantName, int score) {
+    public static void participantScoreName(Car car) {
+        String participantName = car.getName();
+        int position = car.getPosition();
         System.out.printf(PARTICIPANT_NAME_MESSAGE, participantName);
         System.out.print(" : ");
-        participantScore(score);
+        participantScore(position);
     }
 
-    private static void participantScore(int score) {
-        for(int i = 0 ; i < score ; i++){
+    private static void participantScore(int position) {
+        for(int i = 0 ; i < position ; i++){
             System.out.print(EXPRESS_PROGRESS_MESSAGE);
         }
         System.out.println(" ");
     }
 
     /**
-     * 우승자가 하나일 경우에, 결과를 보여주는 메서드
-     * @param finalSoloWinnerName 솔로 우승자
+     * 우승자 결과를 보여주는 메서드
+     * @param finalWinnerName 우승자 명단
      */
-    public static void finalWinner(String finalSoloWinnerName) {
+    public static void finalWinner(String finalWinnerName) {
         System.out.print(FINAL_WINNER_MESSAGE);
-        System.out.printf("%s", finalSoloWinnerName);
+        System.out.printf("%s", finalWinnerName);
     }
 
     /* 게임간 간격 확보영 메서드 */
     public static void spaceBetweenGames() {
-        System.out.println(" ");
+        System.out.println();
     }
 }

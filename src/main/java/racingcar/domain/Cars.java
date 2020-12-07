@@ -25,23 +25,19 @@ public class Cars {
         }
     }
 
+    public ArrayList<Car> getCarList() {
+        return this.carList;
+    }
+
     /*게임 한턴을 진행시켜주는 메서드 */
     public void oneTurn() {
         processOneTurn();
-        showTurnResult();
     }
 
     private void processOneTurn() {
         for (Car car : this.carList) {
             car.oneTurn();
         }
-    }
-
-    private void showTurnResult() {
-        for (Car car : this.carList) {
-            OutputViewer.participantScoreName(car.getName(), car.getPosition());
-        }
-        OutputViewer.spaceBetweenGames();
     }
 
     /**
@@ -51,9 +47,7 @@ public class Cars {
     public ArrayList<String> getWinners() {
         ArrayList<String> winner = new ArrayList<String>();
         int maxDistance = getMaxDistance();
-        for (Car car : this.carList){
-            addWinners(winner, car, maxDistance);
-        }
+        this.carList.forEach(car -> addWinners(winner, car, maxDistance));
         return winner;
     }
 
