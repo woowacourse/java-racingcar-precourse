@@ -3,14 +3,11 @@ package racingcar;
 import utils.RandomUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class RacingCarGame {
 
     private ArrayList<Car> carList = new ArrayList<>();
-    private HashMap<String, Integer> ScoreMap = new HashMap<>();
-
     private int tryCount = 0;
 
     public void start(Scanner scanner) {
@@ -74,18 +71,18 @@ public class RacingCarGame {
     }
 
     private void printGameResult() {
-        StringBuilder winners = new StringBuilder(Constants.RACING_GAME_RESULT);
-        int maxPosition = getMaxScore();
+        StringBuilder resultMsg = new StringBuilder(Constants.RACING_GAME_RESULT);
+        int maxPosition = getMaxPosition();
 
         for (Car car : carList) {
             if (car.isImWinner(maxPosition)) {
-                winners.append(" ").append(car.getName()).append(",");
+                resultMsg.append(" ").append(car.getName()).append(",");
             }
         }
-        System.out.println(winners.substring(0, winners.length() - 1));
+        System.out.println(resultMsg.substring(0, resultMsg.length() - 1));
     }
 
-    private int getMaxScore() {
+    private int getMaxPosition() {
         int maxPosition = 0;
         for (Car car : carList) {
             maxPosition = Math.max(maxPosition, car.getPosition());
