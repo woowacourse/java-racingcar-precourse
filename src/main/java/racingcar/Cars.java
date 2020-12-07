@@ -12,27 +12,22 @@ public class Cars {
 			Car car = new Car(carName[i]);
 			carList.add(i, car);
 		}
-		moveCarRun(carList);
+		carListRacing(carList);
 	}
 
-	private void moveCarRun(ArrayList<Car> carList) {
+	private void carListRacing(ArrayList<Car> carList) {
 		InputView inputView = new InputView();
 		int count = inputView.inputChooseRacingCount();
-
-		for (int i = 0; i < carList.size(); i++) {
-			Car a = carList.get(i);
-			a.countMovePosition(count);
-		}
-		printMoveCars(carList);
-	}
-
-	private void printMoveCars(ArrayList<Car> carList) {
 		Message.executionResult();
 		
-		for (int i = 0; i < carList.size(); i++) {
-			Car a = carList.get(i);
-			a.printCarMoving();
+		while (count != 0) {
+			for (int i = 0; i < carList.size(); i++) {
+				Car car = carList.get(i);
+				car.printCarMoving();
+			}
+			count--;
 			System.out.println();
 		}
 	}
+
 }
