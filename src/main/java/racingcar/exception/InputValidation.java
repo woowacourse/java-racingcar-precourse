@@ -1,6 +1,4 @@
-package racingcar.view;
-
-import racingcar.UserInputException;
+package racingcar.exception;
 
 import java.util.HashSet;
 import java.util.Set;
