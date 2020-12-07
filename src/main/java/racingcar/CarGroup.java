@@ -36,14 +36,4 @@ public class CarGroup {
             car.moveForwardOrStop();
         }
     }
-
-    public String getFinalWinner(int MaximumPosition) {
-        List<String> finalWinnerList = new ArrayList<>();
-        for (Car car : carGroup) {
-            if (car.getPosition() == MaximumPosition) {
-                finalWinnerList.add(car.getName());
-            }
-        }
-        return String.join(", ", finalWinnerList);
-    }
 }
