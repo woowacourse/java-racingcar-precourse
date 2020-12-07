@@ -16,26 +16,26 @@ public class Game {
 
     public void play() {
         setRacingCars();
-        setRoundCount();
+        setGameRound();
         moveCarsEachRound();
         OutputView.printWinners(racingCars);
     }
 
     private void setRacingCars() {
         try {
-            racingCars = new RacingCars(inputView.getCarNames());
+            racingCars = new RacingCars(inputView.setCarNames());
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             setRacingCars();
         }
     }
 
-    private void setRoundCount() {
+    private void setGameRound() {
         try {
-            gameRound = new GameRound(inputView.getRoundCount());
+            gameRound = new GameRound(inputView.setRoundCount());
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
-            setRoundCount();
+            setGameRound();
         }
     }
 
