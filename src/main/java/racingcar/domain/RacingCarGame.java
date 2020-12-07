@@ -20,7 +20,7 @@ public class RacingCarGame {
     public void startGame() {
         try {
             initialize();
-            startRound();
+            startRacing();
         } catch (RacingCarException e) {
             System.out.println(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class RacingCarGame {
         return scanner.nextLine();
     }
 
-    private void startRound() {
+    private void startRacing() {
         System.out.println(EXECUTION_RESULT);
         for (int currentRound = 0; currentRound < round.getRound(); currentRound++) {
             cars.startRacingRound();
