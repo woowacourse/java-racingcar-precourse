@@ -5,13 +5,14 @@ import utils.RandomUtils;
 public class Computer {
 
     private static final String SIGN_DISTANCE = "-";
+    private static final String COMMA = ",";
 
     public String[] parseCarList(String inputCarsName) {
-        return inputCarsName.split(",");
+        return inputCarsName.split(COMMA);
     }
 
     public void checkCarList(String[] carList) {
-        if(carList.length == 0){
+        if (carList.length == 0) {
             throw new IllegalArgumentException("Input Error");
         }
         for (String carName : carList) {
@@ -100,7 +101,7 @@ public class Computer {
 
         for (Car car : cars) {
             if (car.getPosition() == longestDistance) {
-                winnerList.append(car.getName() + ", ");
+                winnerList.append(car.getName() + COMMA + " ");
             }
         }
         //마지막에 추가된 , 제거
