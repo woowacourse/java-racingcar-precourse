@@ -19,6 +19,7 @@ public class Racing {
 
     private void saveTryNumber(Scanner scanner) {
         OutputView.writeTryNumber();
+        number = new Number(scanner.next());
     }
 
     public void saveCarName(Scanner scanner){
