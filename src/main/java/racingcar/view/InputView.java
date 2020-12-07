@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.exception.RoundIllegalArgumentException;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -17,9 +19,13 @@ public class InputView {
         return scanner.nextLine();
     }
 
-    public String inputRacingRound() {
+    public int inputRacingRound() {
         System.out.println(INPUT_RACING_ROUND);
-        return scanner.nextLine();
+        try {
+            return Integer.parseInt(scanner.nextLine());
+        } catch (Exception e) {
+            throw new RoundIllegalArgumentException();
+        }
     }
 
 }

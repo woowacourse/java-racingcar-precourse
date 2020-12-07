@@ -13,7 +13,7 @@ public class RacingCarGame {
     private final InputView inputView;
 
     private Cars cars;
-    private Round round;
+    private int round;
 
     public RacingCarGame(Scanner scanner) {
         this.inputView = new InputView(scanner);
@@ -39,12 +39,12 @@ public class RacingCarGame {
     }
 
     private void initRacingRound() {
-        this.round = new Round(inputView.inputRacingRound());
+        this.round = inputView.inputRacingRound();
     }
 
     private void startRacing() {
         System.out.println(EXECUTION_RESULT);
-        for (int currentRound = 0; currentRound < round.getRound(); currentRound++) {
+        for (int currentRound = 0; currentRound < round; currentRound++) {
             cars.racing();
         }
     }
