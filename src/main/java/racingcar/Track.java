@@ -7,8 +7,8 @@ import utils.OutputUtils;
 
 public class Track {
 
-    private ArrayList<Car> cars;
-    private ArrayList<String> winners;
+    private final ArrayList<Car> cars;
+    private final ArrayList<String> winners;
     private int loopTime;
 
     private Track(ArrayList<Car> cars, ArrayList<String> winners) {

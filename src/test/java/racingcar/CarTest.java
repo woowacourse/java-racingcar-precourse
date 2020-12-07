@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 public class CarTest {
 
-    private static String name = "pobi";
-    private static String secondname = "json";
+    private static final String name = "pobi";
+    private static final String secondname = "json";
 
     @Test
     public void testCreate() {
@@ -37,9 +37,5 @@ public class CarTest {
             System.out.println(car3.getPosition());
             System.out.println("---------------------");
         }
-
-        System.out.println(car1.gasTank);
-        System.out.println(car2.gasTank);
-        System.out.println(car3.gasTank);
     }
 }
