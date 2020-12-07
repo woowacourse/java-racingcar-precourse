@@ -8,8 +8,6 @@ public class Car implements Comparable<Car> {
     private final static int START_INCLUSIVE = 1;
     private final static int END_INCLUSIVE = 9;
     private final static int FORWARD_CRITERION = 4;
-    private final static String BAR = "-";
-    private final static String DELIMITER = "";
 
     private final String name;
     private int position = 0;
@@ -31,14 +29,6 @@ public class Car implements Comparable<Car> {
 
     private void goForward() {
         this.position++;
-    }
-
-    public void printResult() {
-        System.out.printf("%s : %s\n", this.name, convertPositionToBar());
-    }
-
-    private String convertPositionToBar() {
-        return String.join(DELIMITER, Collections.nCopies(position, BAR));
     }
 
     @Override

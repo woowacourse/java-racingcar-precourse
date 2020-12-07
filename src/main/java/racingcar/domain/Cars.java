@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,9 +17,9 @@ public class Cars {
     public void racing() {
         for (Car car : cars) {
             car.startTurn();
-            car.printResult();
+            OutputView.printTurnResult(car);
         }
-        System.out.println();
+        OutputView.printNewLine();
     }
 
     public List<Car> getFastestCars() {

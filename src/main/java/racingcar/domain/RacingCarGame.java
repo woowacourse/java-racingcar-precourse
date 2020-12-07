@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import racingcar.exception.RacingCarException;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +10,6 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class RacingCarGame {
-    private final String EXECUTION_RESULT = "\n실행 결과";
     private final InputView inputView;
 
     private Cars cars;
@@ -43,7 +43,7 @@ public class RacingCarGame {
     }
 
     private void startRacing() {
-        System.out.println(EXECUTION_RESULT);
+        OutputView.printExecutionResult();
         for (int currentRound = 0; currentRound < round; currentRound++) {
             cars.racing();
         }
