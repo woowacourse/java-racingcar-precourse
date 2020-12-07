@@ -7,8 +7,8 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
 
         PlayerResponse playerResponse = new PlayerResponse(scanner);
-        String[] carNames = playerResponse.getCarNames();
-        int moves = playerResponse.getHowManyMoves();
+        final String[] carNames = playerResponse.getCarNames();
+        final int moves = playerResponse.getHowManyMoves();
         scanner.close();
 
         RacingCarGame racingCarGame = new RacingCarGame(carNames, moves);
