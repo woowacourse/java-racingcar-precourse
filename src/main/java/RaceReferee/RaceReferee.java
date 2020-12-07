@@ -28,7 +28,7 @@ public class RaceReferee {
     public void totalRoundProcess(int roundNum) {
         for(int index = 0; index < roundNum; index++) {
             this.oneRoundProcess();
-            this.oneRoundResult();
+            this.currentResult();
         }
     }
 
@@ -38,10 +38,11 @@ public class RaceReferee {
         }
     }
 
-    private void oneRoundResult() {
+    private void currentResult() {
         Car currentCar;
         for(int index = 0; index < this.carNum; index++) {
             currentCar = Cars.get(index);
+            scoreBoard.showState(currentCar.getName(), currentCar.getScore());
         }
     }
     
