@@ -6,7 +6,7 @@ public class Car {
 
     public static final int MINIMUM_DECISION_VALUE = 0;
     public static final int MAXIMUM_DECISION_VALUE = 9;
-    public static final int DECISION_BOUNDARY = 3;
+    public static final int NOT_FORWARD_DECISION_BOUNDARY = 3;
 
     private final String name;
     private int position = 0;
@@ -16,13 +16,21 @@ public class Car {
     }
 
     public void move() {
-        int decision = RandomUtils.nextInt(MINIMUM_DECISION_VALUE, MAXIMUM_DECISION_VALUE);
-        if (decision > DECISION_BOUNDARY) {
+        int decision = getRandomDecision();
+        if (isForwardDecision(decision)) {
             forward();
         }
     }
 
-    public void forward() {
+    private int getRandomDecision() {
+        return RandomUtils.nextInt(MINIMUM_DECISION_VALUE, MAXIMUM_DECISION_VALUE);
+    }
+
+    private boolean isForwardDecision(int decision) {
+        return decision > NOT_FORWARD_DECISION_BOUNDARY;
+    }
+
+    private void forward() {
         ++position;
     }
 
