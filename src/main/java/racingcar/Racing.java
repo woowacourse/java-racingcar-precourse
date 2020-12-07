@@ -12,7 +12,7 @@ public class Racing {
     private List<Car> cars = new ArrayList<>();
     private Number number;
 
-    public void init(Scanner scanner){
+    public void init(Scanner scanner) {
         saveCarName(scanner);
         saveTryNumber(scanner);
     }
@@ -22,11 +22,11 @@ public class Racing {
         number = new Number(scanner.next());
     }
 
-    public void saveCarName(Scanner scanner){
+    public void saveCarName(Scanner scanner) {
         OutputView.writeCarName();
         String temp = scanner.next();
         String[] names = temp.split(DELIMITER);
-        for(String name : names){
+        for (String name : names) {
             cars.add(new Car(name));
         }
     }
