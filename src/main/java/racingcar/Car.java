@@ -8,28 +8,24 @@ import exceptions.InvalidInputException;
 
 public class Car implements Comparable<Car> {
 
-    private static final int MAXIMUM_NAME_RANGE = 5;
-    private static final int MINIMUM_NAME_RANGE = 1;
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_NAME_LENGTH = 1;
     public static final String DRIVE_PROGRESS = "-";
 
     private final String name;
     private Integer position = 0;
 
     public Car(String name) {
-        name = trimName(name);
-        validateNameRange(name);
+        name = name.trim();
+        validateNameLength(name);
         this.name = name;
     }
 
-    private String trimName(String name) {
-        return name.trim();
-    }
-
-    private void validateNameRange(String name){
-        if (MAXIMUM_NAME_RANGE < name.length()) {
+    private void validateNameLength(String name){
+        if (MAX_NAME_LENGTH < name.length()) {
             throw new InvalidInputException(NAME_SHOULD_BE_SHORTER_THAN_FIVE);
         }
-        if (MINIMUM_NAME_RANGE > name.length()) {
+        if (MIN_NAME_LENGTH > name.length()) {
             throw new InvalidInputException(NAME_SHOULD_BE_LONGER_THAN_ONE);
         }
     }
