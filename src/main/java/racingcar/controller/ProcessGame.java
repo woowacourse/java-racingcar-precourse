@@ -4,8 +4,7 @@ import racingcar.domain.Cars;
 import racingcar.view.OutputViewer;
 
 public class ProcessGame {
-
-    public void playTurns(Cars gameSet, int turnNumber) {
+    public static void playTurns(Cars gameSet, int turnNumber) {
         OutputViewer.initiateResult();
         for (int i = 0; i < turnNumber; i++) {
             gameSet.oneTurn();
@@ -13,7 +12,7 @@ public class ProcessGame {
         }
     }
 
-    private void showTurnResult(Cars gameSet) {
+    private static void showTurnResult(Cars gameSet) {
         gameSet.getCarList().forEach(OutputViewer::participantScoreName);
         OutputViewer.spaceBetweenGames();
     }
