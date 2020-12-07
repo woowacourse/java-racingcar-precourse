@@ -8,6 +8,7 @@ public class Race {
     private ArrayList<String> winners = new ArrayList();
 
     private int times;
+    private int maxPosition;
 
     public void startRace(Scanner scanner){
         inputParticipationCars(scanner);
@@ -37,24 +38,17 @@ public class Race {
     }
 
 
-    public int findMaxPosition(){
-        int maxPosition = -1;
-        int tempPosition;
+    public void findMaxPosition(){
         for (Car car : cars){
-            tempPosition = car.getCarPosition();
-            if (maxPosition < tempPosition) { maxPosition = tempPosition; }
+            if (maxPosition < car.getCarPosition()) { maxPosition = car.getCarPosition(); }
         }
-        return maxPosition;
     }
 
     public void printWinnerList(){
-        int maxPosition = findMaxPosition();
+        findMaxPosition();
         for (Car car : cars){
             if (car.getCarPosition() == maxPosition){ winners.add(car.getCarName()); }
         }
         System.out.println("최종 우승자 : " + String.join(",",winners));
     }
-
-
-
 }
