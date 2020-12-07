@@ -27,6 +27,7 @@ public class InputView {
         while (!scanner.hasNextInt()) {
             scanner.next();
             OutputView.showTryNumberTypeErrorMessage();
+            OutputView.showTryNumberMessage();
         }
         int tryNumber = scanner.nextInt();
 
