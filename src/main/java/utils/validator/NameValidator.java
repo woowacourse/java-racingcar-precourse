@@ -24,4 +24,10 @@ public class NameValidator {
         return Arrays.stream(names)
                 .allMatch(name -> Pattern.matches(CHAR_PATTERN, name));
     }
+
+    boolean duplicate(String[] names) {
+        return Arrays.stream(names)
+                .distinct()
+                .count() != names.length;
+    }
 }

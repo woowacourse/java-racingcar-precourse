@@ -22,6 +22,10 @@ public class InputValidator {
             return null;
         }
 
+        if (nameValidator.duplicate(names)) {
+            return null;
+        }
+
         return names;
     }
 }
