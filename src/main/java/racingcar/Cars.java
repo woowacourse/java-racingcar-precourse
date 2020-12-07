@@ -15,4 +15,12 @@ public class Cars {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    public void startRacingRound() {
+        for (Car car: cars) {
+            car.startTurn();
+            car.printResult();
+        }
+        System.out.println();
+    }
 }
