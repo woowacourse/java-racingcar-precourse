@@ -14,19 +14,31 @@ public class Player {
     }
 
     public void play(GameRound gameRound) {
+        OutputView.printPlayingScreen();
+        run(gameRound);
+        findWinner();
+    }
+
+    private void run(GameRound gameRound) {
         int thisRound = FIRST_ROUND;
         while (!gameRound.isGameOver(thisRound)) {
-            moveOrStop();
-            OutputView.printResultOfEachRound(players);
+            moveOrStopAndPrintResult();
             thisRound++;
         }
-        Winner winner = new Winner(players);
-        OutputView.printWinner(winner);
+    }
+
+    private void moveOrStopAndPrintResult() {
+        moveOrStop();
+        OutputView.printResultOfEachRound(players);
     }
 
     private void moveOrStop() {
         for (Car car : players) {
             car.moveOrStop();
         }
+    }
+
+    private void findWinner() {
+        OutputView.printWinner(new Winner(players));
     }
 }

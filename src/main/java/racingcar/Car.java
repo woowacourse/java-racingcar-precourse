@@ -48,7 +48,7 @@ public class Car {
         winner.add(name);
     }
 
-    public String showHowMuchEachCarMoved() {
+    public String printHowMuchEachCarMoved() {
         String movingResult = BLANK;
         for (int i = 0; i < position; i++) {
             movingResult += MOVING_MARK;

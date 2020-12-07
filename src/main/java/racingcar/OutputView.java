@@ -10,7 +10,7 @@ public class OutputView {
 
     public static void printResultOfEachRound(List<Car> players) {
         for (Car car : players) {
-            System.out.println(car.showHowMuchEachCarMoved());
+            System.out.println(car.printHowMuchEachCarMoved());
         }
         System.out.println();
     }

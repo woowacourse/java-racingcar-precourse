@@ -26,23 +26,23 @@ public class CarNameValidator {
         checkStartOrEndWithDelim(name);
         checkDelimIsSerial(name);
     }
-    
+
     private static void checkStartOrEndWithDelim(String name) {
         if (isStartOrEndWithDelim(name)) {
             throw new IllegalCarNameException("[ERROR] 구분자가 맨 앞이나 맨 뒤에 있으면 안된다.\n");
         }
     }
-    
+
     private static boolean isStartOrEndWithDelim(String name) {
         return (name.startsWith(DELIM) || name.endsWith(DELIM));
     }
-    
+
     private static void checkDelimIsSerial(String name) {
         if (isDelimSerial(name)) {
             throw new IllegalCarNameException("[ERROR] 구분자가 연속으로 입력되면 안된다.\n");
         }
     }
-    
+
     private static boolean isDelimSerial(String name) {
         return name.contains(SERIAL_DELIM);
     }
