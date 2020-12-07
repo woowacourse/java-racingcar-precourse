@@ -6,8 +6,6 @@ import java.util.List;
 
 public class RacingCarGame {
 
-
-
     private final List<Car> carList = new ArrayList<>();
     private final List<String> winnerList = new ArrayList<>();
     private final int moves;

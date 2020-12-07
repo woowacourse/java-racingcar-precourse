@@ -6,7 +6,6 @@ import static utils.ConstantUtils.*;
 
 public class PlayerResponse {
 
-
     private final Scanner scanner;
 
     public PlayerResponse(Scanner scanner) {
@@ -19,7 +18,7 @@ public class PlayerResponse {
             try {
                 System.out.println(ASKING_NAMES_MESSAGE);
                 carNames = responseOfCarNames();
-                ValidatorUtils.checkUnderFiveLetters(carNames);
+                ValidatorUtils.checkCarNames(carNames);
                 return carNames;
             } catch (IllegalArgumentException i) {
                 System.out.println(i.getMessage());
@@ -32,7 +31,7 @@ public class PlayerResponse {
             try {
                 System.out.println(ASKING_MOVES_MESSAGE);
                 String movesBeforeCheck = responseOfMoves();
-                ValidatorUtils.checkIsNumber(movesBeforeCheck);
+                ValidatorUtils.checkNumber(movesBeforeCheck);
                 return Integer.parseInt(movesBeforeCheck);
             } catch (IllegalArgumentException i) {
                 System.out.println(i.getMessage());
