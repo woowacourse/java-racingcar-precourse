@@ -1,5 +1,8 @@
 package racegame;
 
+import racegame.view.InputView;
+import racegame.view.OutputView;
+
 import java.util.Scanner;
 
 import static racegame.Constant.OUTPUT_VIEW_REPETITION_COUNT;

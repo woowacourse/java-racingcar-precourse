@@ -1,4 +1,4 @@
-package racegame;
+package racegame.view;
 
 import racingcar.Car;
 

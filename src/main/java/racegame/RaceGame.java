@@ -1,5 +1,7 @@
 package racegame;
 
+import racegame.view.InputView;
+import racegame.view.OutputView;
 import racingcar.Car;
 import utils.RandomUtils;
 
