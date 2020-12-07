@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.view.InputViewer;
+import racingcar.view.ErrorViewer;
 
 import java.util.Scanner;
 
@@ -23,14 +24,14 @@ public class Initiator {
     }
 
     private static void checkParticipantsLength(String[] participantsArray) {
-        for (String parcipant : participantsArray) {
-            checkParicipantLength(parcipant);
+        for (String participant : participantsArray) {
+            checkSingleParticipantLength(participant);
         }
     }
 
-    private static void checkParicipantLength(String participant) {
+    private static void checkSingleParticipantLength(String participant) {
         if (participant.length() > LIMIT_PARTICIPANT_NAME) {
-            InputViewer.lengthInputError();
+            ErrorViewer.lengthInputError();
         }
     }
 
@@ -49,14 +50,14 @@ public class Initiator {
         try {
             return Integer.parseInt(scanner.nextLine());
         } catch (Exception e) {
-            InputViewer.numberInputError();
+            ErrorViewer.numberInputError();
             return 0;
         }
     }
 
     private static void checkVoid(String argument) {
         if (argument.equals("")) {
-            InputViewer.voidInputError();
+            ErrorViewer.voidInputError();
         }
     }
 }

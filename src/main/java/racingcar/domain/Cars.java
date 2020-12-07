@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.view.InputViewer;
+import racingcar.view.ErrorViewer;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Cars {
     private void checkOverlap(String[] carNames) {
         HashSet<String> checkOverlapSet = new HashSet<>(Arrays.asList(carNames));
         if (checkOverlapSet.size() != carNames.length) {
-            InputViewer.carsInputError();
+            ErrorViewer.carsInputError();
         }
     }
 
