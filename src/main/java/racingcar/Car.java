@@ -10,11 +10,10 @@ public class Car {
         this.name = name;
     }
 
-    public int move() {
+    public void move() {
         if (RandomUtils.nextInt(0, 9) > 3) {
             position++;
         }
-        return position;
     }
 
     public String getName() {

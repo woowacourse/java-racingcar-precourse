@@ -66,12 +66,4 @@ public class CarRace {
             }
         }
     }
-
-    public List<Car> getRacingCars() {
-        return racingCars;
-    }
-
-    public List<Car> getWinnerCars() {
-        return winnerCars;
-    }
 }

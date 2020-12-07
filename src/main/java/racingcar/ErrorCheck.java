@@ -8,7 +8,7 @@ public class ErrorCheck {
             throw new IllegalArgumentException();
         }
 
-        if (carName.length() >5) {
+        if (carName.length() > 5) {
             System.out.println("[ERROR] 이름은 5자 이하여야 합니다.");
             throw new IllegalArgumentException();
         }
