@@ -11,7 +11,7 @@ public class Car implements Comparable<Car> {
     public static final String DRIVE_PROGRESS = "-";
 
     private final String name;
-    private int position = 0;
+    private Integer position = 0;
 
     public Car(String name) {
         name = trimName(name);
@@ -45,7 +45,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean isSamePosition(Car car) {
-        return this.position == car.position;
+        return this.position.equals(car.position);
     }
 
     @Override
@@ -56,7 +56,15 @@ public class Car implements Comparable<Car> {
         } else {
             return false;
         }
-        return this.name.equals(car.name) && this.position == car.position;
+        return this.name.equals(car.name) && this.position.equals(car.position);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + position.hashCode();
+        result = 31 * result + name.hashCode();
+        return result;
     }
 
     @Override
