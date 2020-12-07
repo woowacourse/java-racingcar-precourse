@@ -37,15 +37,23 @@ public class Racing {
     }
 
     public List<Car> getWinners() {
-        Car firstCar = getFirst();
-
-        return cars.stream()
+        Car firstCar = getFirstCar();
+        List<Car> winners = cars.stream()
                 .filter(car -> car.atFirstPosition(firstCar))
                 .collect(Collectors.toList());
+
+        return toUnmodifiable(winners);
     }
 
-    private Car getFirst() {
-        return Collections.max(this.cars);
+    private List<Car> toUnmodifiable(List<Car> winners) {
+        return Collections.unmodifiableList(winners);
+    }
+
+    /*
+     * 해당 메서드는 다른 객체에게 노출 금지
+     * */
+    private Car getFirstCar() {
+        return Collections.max(cars);
     }
 
     @Override
