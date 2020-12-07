@@ -3,15 +3,19 @@ package racingcar;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import utils.ValidateUtils;
+import java.util.stream.Stream;
 import view.OutputView;
 
 public class RacingCars {
 
     private final List<Car> cars;
 
-    public RacingCars(List<Car> cars) {
-        this.cars = cars;
+    public RacingCars(String rawCarNames) {
+        CarNames.validate(rawCarNames);
+        cars = Stream.of(rawCarNames.split(CarNames.NAME_SEPARATOR))
+                .map(String::trim)
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     public void moveFor(int roundCount) {
@@ -26,21 +30,21 @@ public class RacingCars {
         cars.forEach(Car::move);
     }
 
-    public void printResult() {
-        cars.forEach(System.out::println);
-    }
-
     public String getWinners() {
         return cars.stream()
                 .filter(x -> x.isPosition(getWinningPosition()))
                 .map(Car::getName)
-                .collect(Collectors.joining(ValidateUtils.NAME_SEPARATOR));
+                .collect(Collectors.joining(CarNames.NAME_SEPARATOR));
     }
 
-    public int getWinningPosition() {
+    private int getWinningPosition() {
         Optional<Integer> maxPosition = cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compare);
         return maxPosition.orElse(0);
+    }
+
+    public void printResult() {
+        cars.forEach(System.out::println);
     }
 }

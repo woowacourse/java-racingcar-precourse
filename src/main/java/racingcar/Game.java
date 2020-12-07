@@ -1,8 +1,5 @@
 package racingcar;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import view.InputView;
 import view.OutputView;
 
@@ -17,37 +14,19 @@ public class Game {
     }
 
     public void play() {
-        createRacingCars();
-        moveCars();
+        setRacingCars();
+        setRoundCount();
+        moveCarsEachRound();
         OutputView.printWinners(racingCars);
     }
 
-    private void createRacingCars() {
+    private void setRacingCars() {
         try {
-            List<Car> userCars = Stream.of(setCarNames())
-                    .map(String::trim)
-                    .map(Car::new)
-                    .collect(Collectors.toList());
-            racingCars = new RacingCars(userCars);
+            racingCars = new RacingCars(inputView.getCarNames());
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
-            createRacingCars();
+            setRacingCars();
         }
-    }
-
-    private String[] setCarNames() {
-        return userInputCarNames().split(CarNames.NAME_SEPARATOR);
-    }
-
-    private String userInputCarNames() {
-        String rawCarNames = inputView.getCarNames();
-        CarNames.validate(rawCarNames);
-        return rawCarNames;
-    }
-
-    private void moveCars() {
-        setRoundCount();
-        racingCars.moveFor(gameRound.getCount());
     }
 
     private void setRoundCount() {
@@ -57,5 +36,9 @@ public class Game {
             OutputView.printError(e);
             setRoundCount();
         }
+    }
+
+    private void moveCarsEachRound() {
+        racingCars.moveFor(gameRound.getCount());
     }
 }

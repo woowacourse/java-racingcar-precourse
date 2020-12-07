@@ -35,15 +35,15 @@ public class CarNames {
     }
 
     private static void validateNameCommaCountMatch(String rawCarNames) {
-        if(nameCommaCountNotMatching(rawCarNames)) {
+        if (nameCommaCountNotMatching(rawCarNames)) {
             throw new IllegalArgumentException(OutputView.NO_NAME_ERROR);
         }
     }
 
     private static boolean nameCommaCountNotMatching(String rawCarNames) {
-        int nameCount = (int)Stream.of(rawCarNames.split(NAME_SEPARATOR))
+        int nameCount = (int) Stream.of(rawCarNames.split(NAME_SEPARATOR))
                 .count();
-        int commaCount = (int)Stream.of(rawCarNames.split(DEFAULT_SEPARATOR))
+        int commaCount = (int) Stream.of(rawCarNames.split(DEFAULT_SEPARATOR))
                 .filter(x -> x.equals(NAME_SEPARATOR))
                 .count();
         return nameCount - 1 != commaCount;
@@ -82,7 +82,7 @@ public class CarNames {
     }
 
     private static void validateNoDuplicate(String rawCarNames) {
-        if(hasDuplicate(rawCarNames)) {
+        if (hasDuplicate(rawCarNames)) {
             throw new IllegalArgumentException(OutputView.HAS_DUPLICATE_ERROR);
         }
     }
