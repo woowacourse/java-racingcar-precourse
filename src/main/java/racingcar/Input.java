@@ -13,18 +13,18 @@ public class Input {
     
     private final Scanner scanner;
     
-    private String carNames;
+    private String[] carNames;
     private int numberOfTry;
     
     public Input(Scanner scanner) {
         this.scanner = scanner;
     }
     
-    public String[] getCarName() {
+    public String[] getCarNames() {
         System.out.println(GET_CAR_NAMES_MESSAGE);
-        carNames = scanner.next();
-        String[] carName = carNames.split(SPLIT_DELIMITER);
-        return carName;
+        String carNames = scanner.next();
+        this.carNames = carNames.split(SPLIT_DELIMITER);
+        return this.carNames;
     }
     public int getNumberOfTry() {
         System.out.println(GET_NUMBER_OF_TRY_MESSAGE);
@@ -34,9 +34,11 @@ public class Input {
         return this.numberOfTry;
     }
     
-    public void checkCarNameLength(String carName) {
-        if (carName.length() > 5) {
-        	throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+    public void checkCarNameLength(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].length() > 5) {
+            	throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+            }
         }
     }
     public void checkIsDigit(String numberOfTry) {
