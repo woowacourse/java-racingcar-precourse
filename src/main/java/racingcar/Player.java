@@ -4,16 +4,16 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Player {
-    private static final String CAR_NAMES_DELIMITER = ",";
     private static final int SPLIT_LIMIT_INCLUDE_EMPTY_TOKENS = -1;
     private static final int INPUT_MIN_LENGTH = 1;
-    private static final String CAR_NAMES_INPUT_MESSAGE =
-            "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String TRY_TIMES_INPUT_MESSAGE =
-            "시도할 횟수는 몇 회인가요?";
+    private static final String EMPTY_LINE = "";
+    private static final String CAR_NAMES_DELIMITER = ",";
+    private static final String ATTRIBUTE_VALUE_DELIMITER = ":";
+    private static final String CAR_POSITION_MARK = "-";
+    private static final String CAR_NAMES_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String TRY_TIMES_INPUT_MESSAGE = "시도할 횟수는 몇 회인가요?";
     private static final String START_RESULT_MESSAGE = "실행 결과";
-    private static final String WINNER_MESSAGE_PREFIX = "최종 우승: ";
-    private static final String WINNER_NAMES_DELIMITER = ", ";
+    private static final String WINNER_MESSAGE_PREFIX = "최종 우승자";
     private static final String ERROR_MESSAGE_PREFIX = "[ERROR]";
     private static final String CAR_NAMES_LEGNTH_ERROR_MESSAGE =
             ERROR_MESSAGE_PREFIX + " 각 이름의 길이가 "
@@ -72,15 +72,16 @@ public class Player {
     }
     
     public void printStartResult() {
-        System.out.println("");
+        System.out.println(EMPTY_LINE);
         System.out.println(START_RESULT_MESSAGE);
     }
     
     public void printCarsStatus(Car[] cars) {
         for (Car car : cars) {
-            System.out.println(car.getName() +  " : " + "-".repeat(car.getPosition()));
+            System.out.println(car.getName() + " " + ATTRIBUTE_VALUE_DELIMITER + " "
+                    + CAR_POSITION_MARK.repeat(car.getPosition()));
         }
-        System.out.println("");
+        System.out.println(EMPTY_LINE);
     }
     
     public void printWinners(Car[] winners) {
@@ -90,7 +91,8 @@ public class Player {
             winnerNames[i] =  winners[i].getName();
         }
         
-        System.out.println(WINNER_MESSAGE_PREFIX + String.join(WINNER_NAMES_DELIMITER, winnerNames));
+        System.out.println(WINNER_MESSAGE_PREFIX + ATTRIBUTE_VALUE_DELIMITER + " "
+                + String.join(CAR_NAMES_DELIMITER + " ", winnerNames));
     }
     
     private String[] parseCarNames(String rawInput) {

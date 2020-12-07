@@ -11,7 +11,7 @@ public class Car {
     private static final int MOVE_FORWARD_MIN_CONDITION = 4;
     
     private final String name;
-    private int position = 0;
+    private int position = POSITION_START;
 
     public Car(String name) {
         this.name = name;
