@@ -5,7 +5,7 @@ import utils.RandomUtils;
 public class Car {
     private static final int MINIMUM_DISTANCE = 0;
     private static final int MAXIMUM_DISTANCE = 9;
-    private static final int MOVING_POSSIBLE_MIN_LENGTH = 4;
+    private static final int MIN_LENGTH_FOR_MOVING_POSSIBLE = 4;
 
     private final String name;
     private int position = 0;
@@ -26,7 +26,7 @@ public class Car {
     }
 
     private boolean isReallyMoving(int distance) {
-        return distance >= MOVING_POSSIBLE_MIN_LENGTH;
+        return distance >= MIN_LENGTH_FOR_MOVING_POSSIBLE;
     }
     // 추가 기능 구현
 }
