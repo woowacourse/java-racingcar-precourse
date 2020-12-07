@@ -7,8 +7,8 @@ public class OutputView {
 
     }
 
-    void showState(int score) {
-        for(int index = 0; index < this.score; index++) {
+    void showScore(int score) {
+        for(int index = 0; index < score; index++) {
             System.out.print(this.SYMBOL);
         }
     }
