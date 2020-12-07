@@ -9,18 +9,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SingleGame {
-    private ArrayList<Car> carsInGame;
-    private int numberOfTrial;
-    private int finalFrontRunnerPosition = 0;
-
     public void play(Scanner scanner) {
-        carsInGame = InputView.getUserCarInput(scanner);
-        numberOfTrial = InputView.getUserTrialInput(scanner);
+        ArrayList<Car> carsInGame = InputView.getUserCarInput(scanner);
+        int numberOfTrial = InputView.getUserTrialInput(scanner);
 
-        TrialProgression.trialProgress(numberOfTrial, carsInGame);
-        finalFrontRunnerPosition = TrialProgression.getFrontRunnerPosition();
+        TrialProgression trialProgression = new TrialProgression(carsInGame, numberOfTrial);
+        trialProgression.progress();
+        int finalFrontRunnerPosition = trialProgression.getFrontRunnerPosition();
 
         OutputView.announceWinner(finalFrontRunnerPosition, carsInGame);
     }
-
 }

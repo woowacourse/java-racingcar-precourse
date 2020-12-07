@@ -1,55 +1,43 @@
 package racingcar.domain;
 
 import racingcar.Car;
+import racingcar.view.OutputView;
 import utils.RandomUtils;
 
 import java.util.ArrayList;
 
 public class TrialProgression {
-    private static int frontRunnerPosition = 0;
+    private ArrayList<Car> carsInGame;
+    private int numberOfTrial;
+    private int frontRunnerPosition = 0;
 
-    private static final String CAR_NAME_PRINT_FORMAT = " : ";
-    private static final String POSITION_INDICATOR = "-";
-    private static final String TRIAL_RESULT = "실행 결과";
+    public TrialProgression(ArrayList<Car> carsInGame, int numberOfTrial) {
+        this.carsInGame = carsInGame;
+        this.numberOfTrial = numberOfTrial;
+    }
 
-    public static void trialProgress(int numberOfTrial, ArrayList<Car> carsInGame) {
-        System.out.println();
-        System.out.println(TRIAL_RESULT);
+    public void progress() {
+        OutputView.printTrialResultFormat();
         for (int i = 0; i < numberOfTrial; i++) {
-            singleTrial(carsInGame);
+            singleTrial();
         }
     }
 
-    public static int getFrontRunnerPosition() {
+    public int getFrontRunnerPosition() {
         return frontRunnerPosition;
     }
 
-    private static void singleTrial(ArrayList<Car> carsInGame) {
+    private void singleTrial() {
         for (Car car : carsInGame) {
             car.moveOrStop();
-            printCarName(car);
-            printPosition(car);
+            OutputView.printCarName(car);
+            OutputView.printPosition(car);
             checkFrontRunner(car);
         }
         System.out.println();
     }
 
-
-    private static void printCarName(Car car) {
-        String carName = car.getName();
-        System.out.print(carName + CAR_NAME_PRINT_FORMAT);
-    }
-
-    private static void printPosition(Car car) {
-        int carPosition = car.getPosition();
-        StringBuilder printCurrentPosition = new StringBuilder();
-        for (int i = 0; i < carPosition; i++) {
-            printCurrentPosition.append(POSITION_INDICATOR);
-        }
-        System.out.println(printCurrentPosition.toString());
-    }
-
-    private static void checkFrontRunner(Car car) {
+    private void checkFrontRunner(Car car) {
         int carPosition = car.getPosition();
         if (carPosition > frontRunnerPosition) {
             frontRunnerPosition = carPosition;
