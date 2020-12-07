@@ -37,6 +37,12 @@
 ### 결과 출력
 * 승자 출력
 <br>
+
+### 프로그램 동작 및 안내문구 추가
+* 자동차 이름, 시도 횟수, 실행 결과 문구 추가
+* 에러시 종료하도록 기능 추가 
+
+<br>
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
