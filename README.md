@@ -1,5 +1,55 @@
 # 미션 - 자동차 경주 게임
 
+## Feature list (To-do)
+
+1.  입력 `InputUtils`
+    - **생성자**
+		- 이름 입력받기 `setSplitRacerNameByFormat`
+		- 시도할 횟수 입력받기 -> 횟수 검증
+	- **이름을 검증하는 메소드** `checkRacerNameValidation`
+        - 이름이 동일한 경우 예외 처리 `checkRacerNameDuplication`
+        - 이름이 5자 초과인 경우 예외 처리 `checkRacerNameLength`
+        - 맨 앞 필드가 ,인 경우 예외 처리 `checkRacerStringFormatter`
+    - **시도할 횟수를 입력받는 메소드**
+        - 시도할 횟수에 양수 이외 문자 예외 처리 `isRoundCountValidation`
+			- 입력된 문자의 데이터 타입 검사 `isRoundCountDataTypeValidation`
+			- 입력된 문자의 양수 검사 `isRoundCountPositiveNumberValidation`
+
+
+2.  자동차 `Car`
+	- **생성자**
+		- 레이서 이름 지정 `this.name`
+    - **차량 전진**
+        - 생성된 랜덤값으로 전진 (Car객체 요구사항 - setter 메소드 흡수) `moveForward`
+		- 난수 생성 메소드 `isMoveForward`
+			- RandomUtils 사용하여 0에서 9 사이 랜덤값 생성하여 이동 여부 확인 
+				- 4이상 전진, 3이하 멈춤
+    - **현재 상태 getter** `getPosition`
+    - **레이서 이름 getter** `getRacerName`
+
+
+3.  게임 `Racing`
+    - **생성자**
+        - StringUtils로 입력 데이터 파싱 (이름, 시도할 횟수)
+    	- 레이서 (인원수 만큼 Car 인스턴스 배열 만들기) `setGrid`
+    - **라운드 (게임 플레이)** `standingStart`
+        - 시도할 횟수만큼 게임 반복 `goLap`
+        - 매 게임마다 Car 인스턴스들의 현재 상태 설정 `getCarPositionInThisLap`
+    - **시상식 (게임 결과 판정)** `showAwards`
+		- 가장 큰 position 찾기 `getMaxPosition`
+        - 가장 큰 position과 같은 레이서 찾기 `getRaceWinnerString`
+
+4.  출력 `MessageUtils`
+    - 상수를 포함한 복합 메시지 출력 `printMessageWithConstant`
+
+5. 예외처리 `ExceptionUtils`
+	- prefix를 포함한 복합 에러메시지 출력 및 예외처리 `errorThrow`
+
+5.  게임 실행 `Application`
+    1.  **레이싱 인스턴스 생성** `Racing`
+    2.  **레이스** `startEvent`
+    3.  **시상식** `showAwards`
+		
 ## 🚀 기능 요구사항
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 - 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
