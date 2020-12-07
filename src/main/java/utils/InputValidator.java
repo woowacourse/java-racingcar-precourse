@@ -22,17 +22,15 @@ public class InputValidator {
         return carNames;
     }
 
-    private static String validateNull(String carNames) {
+    private static void validateNull(String carNames) {
         if (carNames == null || carNames.equals("")) {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
-        return carNames;
     }
 
-    private static String validateEndComma(String carNames) {
+    private static void validateEndComma(String carNames) {
         if (carNames.charAt(carNames.length() - 1) == COMMA) {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
-        return carNames;
     }
 }
