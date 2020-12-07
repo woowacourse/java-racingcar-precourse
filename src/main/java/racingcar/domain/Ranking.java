@@ -33,9 +33,4 @@ public class Ranking {
         }
         return winners;
     }
-
-    @Override
-    public String toString() {
-        return ranking.toString();
-    }
 }

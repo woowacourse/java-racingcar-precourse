@@ -58,10 +58,4 @@ public class Cars {
     public List<Car> toList() {
         return cars;
     }
-
-    @Override
-    public String toString() {
-        return this.cars.toString();
-    }
-
 }
