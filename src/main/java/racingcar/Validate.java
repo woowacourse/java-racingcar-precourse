@@ -11,6 +11,7 @@ public class Validate {
     public static final String ERR_MSG_HAS_EMPTY_NAME = "[Error] 비어있는 차 이름이 존재합니다.";
     public static final String ERR_MSG_HAS_DUPLICATE = "[ERROR] 중복된 차 이름이 존재합니다.";
     public static final String ERR_MSG_IS_NOT_INT = "[ERROR] 1 이상의 정수를 입력해주세요";
+    public static final String ERR_MSG_LESS_THAN_ONE = "[ERROR] 0보다 큰 정수를 입력해주세요";
     public static final int MAX_CAR_NAME_LENGTH = 5;
 
     public static ArrayList<String> validateCarName(String carNamesInput) throws IllegalArgumentException {
@@ -67,11 +68,21 @@ public class Validate {
         }
     }
 
-    public static void isInteger(String numberString) {
+    public static Integer validateRound(String roundInput) throws IllegalArgumentException {
+        Integer roundNumber = stringToNumber(roundInput);
+        isBiggerThanZero(roundNumber);
+        return roundNumber;
+    }
+    public static Integer stringToNumber(String numberString) {
         try {
-            Integer.parseInt(numberString);
+            return Integer.parseInt(numberString);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERR_MSG_IS_NOT_INT);
+        }
+    }
+    public static void isBiggerThanZero(Integer roundNumber) {
+        if (roundNumber < 1) {
+            throw new IllegalArgumentException(ERR_MSG_LESS_THAN_ONE);
         }
     }
 }
