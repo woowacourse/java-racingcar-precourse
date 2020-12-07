@@ -1,7 +1,7 @@
 package racingcar;
 
 import static racingcar.GameResult.getResult;
-import static racingcar.Messages.MESSAGE_GAME_RESULT;
+import static racingcar.Messages.GAME_RESULT_IS;
 import static utils.PrintUtils.print;
 import static utils.PrintUtils.printEmptyLine;
 
@@ -15,7 +15,7 @@ public class Race {
     public static final int MOVE = 4;
 
     public static GameResult start(List<Car> cars, int tryCount) {
-        print(MESSAGE_GAME_RESULT);
+        print(GAME_RESULT_IS);
         for (int i = 0; i < tryCount; i++) {
             cars.forEach(Race::moveCar);
             printEmptyLine();
