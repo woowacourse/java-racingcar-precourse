@@ -3,7 +3,7 @@ package racingcar.domain;
 public class AttemptNumber {
     private static final int MAX_ATTEMPT_NUMBER = 100;
     private static final int MIN_ATTEMPT_NUMBER = 1;
-    private static final int ONE = 0;
+    private static final int ONE = 1;
     private static final int ZERO = 0;
 
     private int attemptNumber;
