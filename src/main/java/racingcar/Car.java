@@ -25,6 +25,7 @@ public class Car {
         }
         System.out.print("\n");
     }
+
     public String getName () {
         return this.name;
     }
