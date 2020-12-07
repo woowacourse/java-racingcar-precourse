@@ -1,9 +1,9 @@
 /*
  * RacingGame.java
  *
- * version 1.2
+ * version 1.3
  *
- * 2020/12/05
+ * 2020/12/07
  *
  * Copyright (c) 2020 Junhyoung Park
  */
@@ -24,11 +24,11 @@ import static view.OutputView.finalWinner;
 
 public class RacingGame {
     private int numberOfAttemps = 0;
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Car> cars;
 
     public void start(Scanner scanner) {
         cars = Setting.initCar(scanner);
-        numberOfAttemps = inputNumberOfAttempts(scanner);
+        numberOfAttemps = Setting.initNumberOfAttempts(scanner);
         executionMessage();
         racing();
 

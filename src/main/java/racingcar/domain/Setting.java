@@ -1,15 +1,17 @@
 /*
  * Setting.java
  *
- * version 1.0
+ * version 1.1
  *
- * 2020/12/05
+ * 2020/12/07
  *
  * Copyright (c) 2020 Junhyoung Park
  */
 
 package racingcar.domain;
 
+import racingcar.domain.validator.CountValidator;
+import racingcar.domain.validator.InputValidator;
 import view.InputView;
 
 import java.util.ArrayList;
@@ -19,12 +21,16 @@ public class Setting {
     static ArrayList<Car> cars = new ArrayList<>();
 
     public static ArrayList<Car> initCar(Scanner scanner) {
-        ArrayList<String> carNames = initCarName(scanner);
+        ArrayList<String> carNames = InputValidator.filterCarName(initCarName(scanner));
         for (String carName : carNames) {
             Car car = new Car(carName);
             cars.add(car);
         }
         return cars;
+    }
+
+    public static int initNumberOfAttempts(Scanner scanner) {
+        return InputValidator.filterNumberOfAttempts(InputView.inputNumberOfAttempts(scanner));
     }
 
     private static ArrayList<String> initCarName(Scanner scanner) {
