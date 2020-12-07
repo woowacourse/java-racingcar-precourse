@@ -8,10 +8,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RacingStadium {
-    private static Cars cars;
-    private static int tryCount;
-
     private final InputUtils inputUtils;
+    private Cars cars;
+    private int tryCount;
 
     private RacingStadium(Scanner scanner) {
         this.inputUtils = InputUtils.of(scanner);
