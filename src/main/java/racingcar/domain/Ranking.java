@@ -9,27 +9,36 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
-import java.util.PriorityQueue;
 
 public class Ranking {
-    private final PriorityQueue<Car> ranking;
+    private static final int ZERO = 0;
 
-    private Ranking(PriorityQueue<Car> ranking) {
+    private final ArrayList<Car> ranking;
+
+    private Ranking(ArrayList<Car> ranking) {
         this.ranking = ranking;
     }
 
     public static Ranking from(Cars cars) {
-        PriorityQueue<Car> ranking = new PriorityQueue<>(Collections.reverseOrder());
-        cars.toList().forEach(ranking::offer);
+        ArrayList<Car> ranking = new ArrayList<>();
+        ranking.addAll(cars.toList());
+        Collections.sort(ranking);
+        Collections.reverse(ranking);
         return new Ranking(ranking);
     }
 
     public List<String> getWinner() {
-        List<String> winners = new ArrayList<>();
-        int topPosition = ranking.peek().getPosition();
-        while(!ranking.isEmpty() && ranking.peek().getPosition() == topPosition) {
-            winners.add(ranking.poll().getName());
+        ArrayList<String> winners = new ArrayList<>();
+        Iterator<Car> iterator = ranking.iterator();
+        int topPosition = ranking.get(ZERO).getPosition();
+        while (iterator.hasNext()) {
+            Car currentCar = iterator.next();
+            if (currentCar.getPosition() < topPosition) {
+                break;
+            }
+            winners.add(currentCar.getName());
         }
         return winners;
     }
