@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class Racing {
     private static final String DELIMITER = ",";
+    private static final String SPACE = "";
     private static final int START_NUMBER = 0;
     private static final int END_NUMBER = 9;
 
@@ -47,6 +48,7 @@ public class Racing {
             car.goOrStop(RandomUtils.nextInt(START_NUMBER, END_NUMBER));
         }
         OutputView.gameStatus(cars);
+        OutputView.print(SPACE);
 
     }
 

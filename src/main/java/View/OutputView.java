@@ -35,11 +35,11 @@ public class OutputView {
         print(WINNER_IS + String.join(DELIMITER, winners));
     }
 
-    private static String bar(int position) {
+    public static String bar(int position) {
         return BAR.repeat(position);
     }
 
-    private static void print(String string) {
+    public static void print(String string) {
         System.out.println(string);
     }
 }
