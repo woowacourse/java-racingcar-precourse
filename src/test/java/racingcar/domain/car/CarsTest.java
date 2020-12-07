@@ -3,7 +3,7 @@ package racingcar.domain.car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.dto.CarDto;
-import racingcar.domain.exception.CarNameDuplicationException;
+import racingcar.domain.exception.CarNameException;
 import racingcar.domain.strategy.MovingStrategy;
 import racingcar.domain.strategy.RandomMovingStrategy;
 
@@ -33,7 +33,7 @@ class CarsTest {
 
         assertThatCode(() -> {
             Cars.createCars(duplicatedCarNames, new RandomMovingStrategy());
-        }).isInstanceOf(CarNameDuplicationException.class)
+        }).isInstanceOf(CarNameException.class)
                 .hasMessage("[ERROR] 자동차 이름들 중 중복이 존재해서는 안됩니다.");
     }
 

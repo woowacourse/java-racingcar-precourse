@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.exception.CarNameLengthException;
+import racingcar.domain.exception.CarNameException;
 import racingcar.domain.strategy.MovingStrategy;
 import racingcar.domain.strategy.RandomMovingStrategy;
 
@@ -30,7 +30,7 @@ class CarTest {
     void Car_유효하지_않은_이름_문자열_예외가_발생한다(String name) {
         assertThatCode(() -> {
             new Car(name, new RandomMovingStrategy());
-        }).isInstanceOf(CarNameLengthException.class)
+        }).isInstanceOf(CarNameException.class)
                 .hasMessage("[ERROR] 자동차 이름의 길이는 1자 이상 5자 이하여야 합니다.");
     }
 
