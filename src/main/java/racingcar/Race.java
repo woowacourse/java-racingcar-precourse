@@ -9,4 +9,7 @@ public class Race {
         return players;
     }
 
+    public static int inputTimes(Scanner scanner){
+        return scanner.nextInt();
+    }
 }
