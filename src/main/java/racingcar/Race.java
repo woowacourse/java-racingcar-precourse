@@ -10,7 +10,7 @@ public class Race {
     private int times;
 
     public void startRace(Scanner scanner){
-        inputParticipationCar(scanner);
+        inputParticipationCars(scanner);
         inputTimes(scanner);
     }
 
@@ -25,7 +25,7 @@ public class Race {
     }
 
     // 예외 처리 필요
-    public void inputParticipationCar(Scanner scanner){
+    public void inputParticipationCars(Scanner scanner){
         for (String participationCar : scanner.nextLine().split(",")){
             cars.add(new Car(participationCar));
         }
@@ -42,7 +42,7 @@ public class Race {
         int tempPosition;
         for (Car car : cars){
             tempPosition = car.getCarPosition();
-            if (maxPosition <= tempPosition) { maxPosition = tempPosition; }
+            if (maxPosition < tempPosition) { maxPosition = tempPosition; }
         }
         return maxPosition;
     }
