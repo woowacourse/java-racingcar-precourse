@@ -4,8 +4,6 @@ import racingcar.exception.RacingCarException;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 

@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import utils.RandomUtils;
 
-import java.util.Collections;
-
 public class Car implements Comparable<Car> {
     private final static int START_INCLUSIVE = 1;
     private final static int END_INCLUSIVE = 9;
