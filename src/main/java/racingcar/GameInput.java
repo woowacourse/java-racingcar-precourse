@@ -6,7 +6,7 @@ public class GameInput {
     public static final String INPUT_ROUND_MESSAGE = "시도할 횟수를 입력해주세요: ";
     public static final String ERROR_PREFIX = "[ERROR] ";
     public static final String INVALID_ROUND_INPUT_NOT_INTEGER_MESSAGE = "시도 횟수는 숫자여야 한다.";
-    public static final String INVALID_ROUND_INPUT_SMALLER_THAN_ZERO_MESSAGE = "시도 횟수는 1보다 큰 숫자여야 한다.";
+    public static final String INVALID_ROUND_INPUT_SMALLER_THAN_ZERO_MESSAGE = "시도 횟수는 0보다 큰 숫자여야 한다.";
     public static final String INPUT_CAR_NAMES_MESSAGE = "경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)하여 입력해주세요: ";
     public static final String INVALID_CAR_NAMES_ZERO_NAME_MESSAGE = "하나 이상의 자동차 이름을 쉼표로 구분하여 입력해주세요";
     public static final String INVALID_CAR_NAMES_ZERO_LENGTH_MESSAGE = "자동차의 이름은 1이상이어야 합니다";
@@ -49,12 +49,13 @@ public class GameInput {
 
     public static void validateGameRound(String gameRound) throws IllegalArgumentException {
         // 숫자가 아닌 값이 입력되면 예외 발생
-        for (int i = 0; i < gameRound.length(); i++) {
-            if (!Character.isDigit(gameRound.charAt(i))) {
-                throw new IllegalArgumentException(ERROR_PREFIX + INVALID_ROUND_INPUT_NOT_INTEGER_MESSAGE);
-            }
+        int intGameRound;
+        try {
+            intGameRound = Integer.parseInt(gameRound);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ERROR_PREFIX + INVALID_ROUND_INPUT_NOT_INTEGER_MESSAGE);
         }
-        if (Integer.parseInt(gameRound) < 1) {
+        if (intGameRound < 1) {
             throw new IllegalArgumentException(ERROR_PREFIX + INVALID_ROUND_INPUT_SMALLER_THAN_ZERO_MESSAGE);
         }
     }
