@@ -8,9 +8,9 @@ public class GameManager {
     public void activate(Scanner scanner) {
         String[] cars = inputCars(scanner);
         List<Car> carList = createCars(cars);
-        String cntInput = inputGameCnt(scanner);
+        int gameCnt = inputGameCnt(scanner);
 
-        Game game = new Game(Integer.parseInt(cntInput), carList);
+        Game game = new Game(gameCnt, carList);
         game.start();
     }
 
@@ -33,13 +33,13 @@ public class GameManager {
         return carList;
     }
 
-    private String inputGameCnt(Scanner scanner) {
-        String cntInput;
+    private int inputGameCnt(Scanner scanner) {
+        String inputCnt;
         InputValidator inputValidator = new InputValidator();
         do {
             System.out.println("시도할 회수는 몇회인가요?");
-            cntInput = scanner.next();
-        } while (!inputValidator.validGameCntInput(cntInput));
-        return cntInput;
+            inputCnt = scanner.next();
+        } while (!inputValidator.validGameCntInput(inputCnt));
+        return Integer.parseInt(inputCnt);
     }
 }
