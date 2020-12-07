@@ -2,7 +2,10 @@ package racingcar.domain;
 
 import racingcar.exception.RacingCarException;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class RacingCarGame {
     private final String INPUT_RACING_CARS = "경주할 자동차 이름을 입력하세요.(이름은 쉽표(,) 기준으로 구분)";
@@ -21,6 +24,7 @@ public class RacingCarGame {
         try {
             initialize();
             startRacing();
+            printWinners();
         } catch (RacingCarException e) {
             System.out.println(e.getMessage());
         }
@@ -54,5 +58,13 @@ public class RacingCarGame {
         for (int currentRound = 0; currentRound < round.getRound(); currentRound++) {
             cars.racing();
         }
+    }
+
+    private void printWinners() {
+        System.out.println("최종 우승자 : "
+                + cars.getFastestCars()
+                    .stream()
+                    .map(car -> String.valueOf(car.getName()))
+                    .collect(Collectors.joining(", ")));
     }
 }
