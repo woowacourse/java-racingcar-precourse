@@ -18,7 +18,7 @@ public class Car {
     private static final int CAR_NAME_LENGTH_INCLUSIVE_START = 1;
     private static final int CAR_NAME_LENGTH_INCLUSIVE_END = 5;
     private static final String ERROR_MESSAGE_START = "[ERROR] ";
-    private static final String ERROR_MESSGAE_END_NAME_ISINBOUND = "경주할 자동차 이름은 1글자 이상, 5글자 이하여야 한다.";
+    private static final String ERROR_MESSGAE_END_NAME_LENGTH = "경주할 자동차 이름은 1글자 이상, 5글자 이하여야 한다.";
 
     public String getName() {
         return name;
@@ -31,7 +31,7 @@ public class Car {
     private void validateLength(String name) {
         int nameLength = name.length();
         if (name == null || nameLength > CAR_NAME_LENGTH_INCLUSIVE_END || nameLength < CAR_NAME_LENGTH_INCLUSIVE_START) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_START + ERROR_MESSGAE_END_NAME_ISINBOUND);
+            throw new IllegalArgumentException(ERROR_MESSAGE_START + ERROR_MESSGAE_END_NAME_LENGTH);
         }
     }
 
