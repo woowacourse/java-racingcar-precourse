@@ -1,6 +1,5 @@
 package racingcar;
 
-import utils.CompareUtils;
 import utils.SplitUtils;
 import view.InputView;
 import view.OutputView;
@@ -40,6 +39,7 @@ public class CarRacingGame {
             playOneRound(racingCars);
             System.out.println();
         }
+        OutputView.showWinner(racingCars);
     }
 
     private void playOneRound(Car[] racingCars) {
