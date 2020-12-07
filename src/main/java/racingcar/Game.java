@@ -71,7 +71,7 @@ public class Game {
 
     public void finish() {
         produceMaxPosition();
-        outputManager.printOutputFinalWinner(selectWinner());
+        outputManager.printOutputFinalWinner(pickWinnerNameList());
     }
 
     public void produceMaxPosition() {
@@ -82,7 +82,7 @@ public class Game {
         }
     }
 
-    public List<String> selectWinner() {
+    public List<String> pickWinnerNameList() {
         for (int i = 0; i < cars.length; i++) {
             if (maxPosition == cars[i].getPosition()) {
                 winnerNameList.add(cars[i].getName());
