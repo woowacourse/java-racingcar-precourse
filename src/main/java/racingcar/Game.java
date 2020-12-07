@@ -7,13 +7,15 @@ public class Game {
     private ArrayList<String> carNames;
     private ArrayList<Car> carList = new ArrayList<Car>();
     private int round;
+    private Scanner scanner;
 
-    public Game() {
+    public Game(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public void startGame(Scanner scanner) {
-        this.carNames = Input.askCarInfo(scanner);
-        this.round = Input.askRound(scanner);
+    public void startGame() {
+        this.carNames = Input.askCarInfo(this.scanner);
+        this.round = Input.askRound(this.scanner);
         ArrayList<String> winnerList;
 
         for (int i = 0; i < carNames.size(); i++) {
