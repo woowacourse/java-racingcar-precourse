@@ -53,6 +53,7 @@ public class RacingGame {
     }
 
     private int getTryCountByInput(String input) throws TryCountInvalidInputException {
+        // todo 개선 필요: 입력값 검증은 다른 객체로 역할 분리 고려
         int tryCount;
 
         try {

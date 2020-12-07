@@ -14,6 +14,8 @@ public class Cars {
     }
 
     public static List<Car> getCars(String input) throws InvalidInputException {
+        // todo 개선 필요: 유틸성 클래스가 아닌 객체로 변경 고려
+
         List<Car> cars = Arrays.stream(input.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());

@@ -31,7 +31,6 @@ public class Race {
     }
 
     private static boolean isMove() {
-        // 4 이상일 경우 전진하고, 3 이하의 값이면 멈춘다
         return MOVE <= RandomUtils.nextInt(RANDOM_MIN, RANDOM_MAX);
     }
 }

@@ -12,6 +12,7 @@ public class Winners {
     }
 
     public static Winners getWinners(List<Car> cars) {
+        // todo 개선 필요
         Car winner = cars.stream()
                 .max(Car::compareTo)
                 .get();
