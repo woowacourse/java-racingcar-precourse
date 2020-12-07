@@ -23,7 +23,8 @@ public class OutputManager {
     }
 
     public void printOutputEachResultPosition(String carName, int carPosition) {
-        System.out.println(carName + OUTPUT_EACH_MOVING_RESULT_COLON + OUTPUT_EACH_MOVING_RESULT_BAR.repeat(carPosition));
+        printCarName(carName);
+        printCarPosition(carPosition);
     }
 
     public void printOutputFinalWinner(List<String> winnerNameList) {
@@ -31,6 +32,14 @@ public class OutputManager {
         for (String winnerName : winnerNameList) {
             System.out.print(winnerName + " ");
         }
+    }
+
+    private void printCarName(String carName) {
+        System.out.print(carName + OUTPUT_EACH_MOVING_RESULT_COLON);
+    }
+
+    private void printCarPosition(int carPosition) {
+        System.out.println(OUTPUT_EACH_MOVING_RESULT_BAR.repeat(carPosition));
     }
 }
 
