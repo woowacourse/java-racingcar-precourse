@@ -7,6 +7,9 @@ import java.util.List;
 
 public class Game {
     static final int START_POSITION = 0;
+    static final int MOVE_THRESHOLD = 4;
+    static final int RANDOM_START_INCLUSIVE = 0;
+    static final int RANDOM_END_INCLUSIVE = 9;
     private int gameCnt = 0;
     private List<Car> carList;
 
@@ -62,13 +65,13 @@ public class Game {
     private void play() {
         int[] carRandomNum = new int[carList.size()];
         for (int i = 0; i < carList.size(); i++) {
-            carRandomNum[i] = RandomUtils.nextInt(0, 9);
+            carRandomNum[i] = RandomUtils.nextInt(RANDOM_START_INCLUSIVE, RANDOM_END_INCLUSIVE);
             checkMove(i, carRandomNum[i]);
         }
     }
 
     private void checkMove(int carIdx, int randomNum) {
-        if (randomNum >= 4) {
+        if (randomNum >= MOVE_THRESHOLD) {
             carList.get(carIdx).updatePosition();
         }
     }
