@@ -17,9 +17,9 @@ public class Cars {
 
 	private void carListRacing(ArrayList<Car> carList) {
 		InputView inputView = new InputView();
+		Game game = new Game();
 		int count = inputView.inputChooseRacingCount();
 		Message.executionResult();
-		
 		while (count != 0) {
 			for (int i = 0; i < carList.size(); i++) {
 				Car car = carList.get(i);
@@ -28,6 +28,9 @@ public class Cars {
 			count--;
 			System.out.println();
 		}
+		game.findWinner(carList);
 	}
+
+	
 
 }
