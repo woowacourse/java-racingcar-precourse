@@ -6,9 +6,14 @@ import racingcar.domain.Cars;
 import java.util.List;
 
 public class OutputView {
+    private static final String EXECUTION_RESULT_MESSAGE = "\n실행 결과\n";
     private static final String PROGRESS_BAR = "-";
 
     private OutputView() {}
+
+    public static void printExecutionResultMessage() {
+        System.out.print(EXECUTION_RESULT_MESSAGE);
+    }
 
     public static void printProgress(Cars cars) {
         for (Car car : cars.getCars()) {

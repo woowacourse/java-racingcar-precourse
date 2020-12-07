@@ -26,6 +26,7 @@ public class Racing {
     }
 
     public void start() {
+        OutputView.printExecutionResultMessage();
         for (int i = 0; i < this.trial; i++) {
             turn();
             OutputView.printProgress(this.cars);
