@@ -1,6 +1,5 @@
 package racingcar;
 
-
 import utils.ConstantUtils;
 import utils.RandomUtils;
 
@@ -14,7 +13,8 @@ public class Car {
     }
 
     public void moveOrNot() {
-        int computerNumber = RandomUtils.nextInt(ConstantUtils.MIN_RANDOM_ZERO, ConstantUtils.MAX_RANDOM_NINE);
+        int computerNumber = RandomUtils
+            .nextInt(ConstantUtils.MIN_RANDOM_ZERO, ConstantUtils.MAX_RANDOM_NINE);
         if (computerNumber > ConstantUtils.MAX_NO_MOVE) {
             position += 1;
         }
