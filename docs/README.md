@@ -59,11 +59,14 @@
 * printInputCarNamesMessage : "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" 출력
 * printInputTryNumberMessage : "시도할 횟수는 몇회인가요?" 출력
 * printMovingResultHeader : "실행 결과" 출력
+* printOutputEachResultPosition : 각 자동차별 ```position``` 출
 * printOutputFinalWinner : 최종 우승자 출력
+* printCarName : 자동차 이름 출력
+* printCarPosition : 자동차 위치 출력
 
 ### 🗂 utils
 **RandomUtils**
-* nextInt : 임의의 수 생성
+* nextInt : random 값 생성
 
 **ValidationUtils**
 * validateCarNameArray : 자동차 이름 배열 유효성 확인
