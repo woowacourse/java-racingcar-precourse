@@ -1,7 +1,7 @@
 package RaceReferee;
 
 import racingcar.Car;
-import View.ScoreView;
+import View.OutputView;
 
 import java.util.List;
 
@@ -13,11 +13,12 @@ public class RaceReferee {
 
     public RaceReferee(List<String> carNames, int roundNum) {
         this.roundNum = roundNum;
+        this.carNum = carNames.toArray().length;
+
         createCars(carNames);
     }
 
     public void createCars(List<String> carNames) {
-        this.carNum = carNames.toArray().length;
 
         for(int index = 0; index < this.carNum; index += 1) {
             this.Cars.add(new Car(carNames.get(index)));

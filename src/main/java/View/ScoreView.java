@@ -1,9 +1,9 @@
 package View;
 
-public class ScoreView {
+public class OutputView {
     private static final String SYMBOL = "-";
 
-    public ScoreView(int score) {
+    public OutputView(int score) {
 
     }
 
