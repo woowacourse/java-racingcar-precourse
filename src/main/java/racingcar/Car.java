@@ -1,12 +1,25 @@
 package racingcar;
 
 public class Car {
+    private static final int ZERO = 0;
+    private static final int ONE = 1;
+
     private final String name;
-    private int position = 0;
+    private int position = ZERO;
 
     public Car(String name) {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void forwardOneStep() {
+        forward(ONE);
+    }
+
+    private void forward(int step) {
+        position += step;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
