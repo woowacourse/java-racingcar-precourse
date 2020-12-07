@@ -29,7 +29,7 @@ public class Car {
         return this.name;
     }
 
-    public boolean beat(Car opponent) {
+    public boolean beatOpponent(Car opponent) {
         return this.getScore() > opponent.getScore();
     }
 
