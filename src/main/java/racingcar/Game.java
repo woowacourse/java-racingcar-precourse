@@ -3,7 +3,6 @@ package racingcar;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import utils.ValidateUtils;
 import view.InputView;
 import view.OutputView;
 
@@ -11,7 +10,7 @@ public class Game {
 
     private final InputView inputView;
     private RacingCars racingCars;
-    private int roundCount;
+    private GameRound gameRound;
 
     public Game(InputView inputView) {
         this.inputView = inputView;
@@ -37,32 +36,26 @@ public class Game {
     }
 
     private String[] setCarNames() {
-        return userInputCarNames().split(ValidateUtils.NAME_SEPARATOR);
+        return userInputCarNames().split(CarNames.NAME_SEPARATOR);
     }
 
     private String userInputCarNames() {
         String rawCarNames = inputView.getCarNames();
-        ValidateUtils.validateCarNames(rawCarNames);
+        CarNames.validate(rawCarNames);
         return rawCarNames;
     }
 
     private void moveCars() {
         setRoundCount();
-        racingCars.moveFor(roundCount);
+        racingCars.moveFor(gameRound.getCount());
     }
 
-    public void setRoundCount() {
+    private void setRoundCount() {
         try {
-            roundCount = userInputRoundCount();
+            gameRound = new GameRound(inputView.getRoundCount());
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
-            moveCars();
+            setRoundCount();
         }
-    }
-
-    private int userInputRoundCount() {
-        String rawRoundCount = inputView.getRoundCount();
-        ValidateUtils.validateRoundCount(rawRoundCount);
-        return Integer.parseInt(rawRoundCount);
     }
 }
