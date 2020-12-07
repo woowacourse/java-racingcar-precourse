@@ -6,9 +6,12 @@ import racingcar.Car;
 import racingcar.Winner;
 
 public class OutputView {
+    private static final String RESULT_MESSAGE = "실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자: ";
+
     public static void printPlayingScreen() {
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(RESULT_MESSAGE);
     }
 
     public static void printResultOfEachRound(List<Car> players) {
@@ -19,7 +22,7 @@ public class OutputView {
     }
 
     public static void printWinner(Winner winner) {
-        System.out.print("최종 우승자: ");
+        System.out.print(WINNER_MESSAGE);
         System.out.println(winner.showWinnerName());
     }
 }
