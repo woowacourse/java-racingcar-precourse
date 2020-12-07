@@ -29,7 +29,7 @@ public class Validator {
 
     public static void validateRepeat(String input) {
 
-        if (!isNumberType(input)) {
+        if (!isNumeric(input)) {
             throw new InvalidNumberException(input);
         }
 
@@ -70,7 +70,7 @@ public class Validator {
                 .count() != names.length;
     }
 
-    private static boolean isNumberType(String count) {
+    private static boolean isNumeric(String count) {
         try {
             Integer.parseInt(count);
             return true;
