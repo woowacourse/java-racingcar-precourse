@@ -1,9 +1,9 @@
 package racingcar.view;
 
-import racingcar.exception.NameLengthOutOfBoundsException;
-import racingcar.exception.EmptyNameException;
-import racingcar.exception.OverlapNameException;
-import racingcar.exception.AttemptCountTypeException;
+import racingcar.domain.exception.NameLengthOutOfBoundsException;
+import racingcar.domain.exception.EmptyNameException;
+import racingcar.domain.exception.OverlapNameException;
+import racingcar.domain.exception.AttemptCountTypeException;
 
 import java.util.Scanner;
 import java.util.Arrays;
