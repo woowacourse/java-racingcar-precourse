@@ -1,9 +1,9 @@
 /*
  * RandomNumber.java
  *
- * version 1.0
+ * version 1.1
  *
- * 2020/12/04
+ * 2020/12/07
  *
  * Copyright (c) 2020 Junhyoung Park
  */
@@ -24,5 +24,4 @@ public class RandomNumber {
         }
         return false;
     }
-
 }
