@@ -26,30 +26,7 @@ public class RacingStadium {
         for (int i = 0; i < tryCount; i++) {
             playOnce();
         }
-        printWinners(findWinCount());
-    }
-
-    private void printWinners(int winnerMove) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("최종 우승자: ");
-        for (int carIndex = 0; carIndex < cars.size(); carIndex++) {
-            Car nowCar = cars.get(carIndex);
-            if (nowCar.getPosition() == winnerMove) {
-                stringBuilder.append(nowCar.getCarName());
-                stringBuilder.append(", ");
-            }
-        }
-        stringBuilder.delete(stringBuilder.length()-2, stringBuilder.length()-1);
-        System.out.println(stringBuilder.toString());
-    }
-
-    private int findWinCount() {
-        int winnerMove = -1;
-        for (int carIndex = 0; carIndex < cars.size(); carIndex++) {
-            Car nowCar = cars.get(carIndex);
-            winnerMove = Math.max(winnerMove, nowCar.getPosition());
-        }
-        return winnerMove;
+        cars.printWinners();
     }
 
     private void playOnce() {
@@ -57,17 +34,8 @@ public class RacingStadium {
             Car nowCar = cars.get(carIndex);
             int randomNumber = getRandomNumber();
             nowCar.moveCar(randomNumber);
-            printCarStatus(nowCar);
         }
-        System.out.println();
-    }
-
-    private void printCarStatus(Car nowCar) {
-        String positionToString = "";
-        for (int positionCount = 0; positionCount < nowCar.getPosition(); positionCount++) {
-            positionToString += "-";
-        }
-        System.out.println(nowCar.getCarName() + " : " + positionToString);
+        cars.printCarStatus();
     }
 
     private int getRandomNumber() {
