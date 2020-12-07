@@ -21,11 +21,6 @@ public class Game {
         this.viewController = ConsoleView.getInstance();
     }
 
-    public Game(Scanner scanner, ViewController viewController) {
-        this.inputController = new InputController(scanner);
-        this.viewController = viewController;
-    }
-
     public void start() {
 
         setRacing();

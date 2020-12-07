@@ -91,7 +91,7 @@ class ValidatorTest {
 
         //given
         Validator validator = new Validator();
-        Method method = getReflectMethod("isNumberType", String.class);
+        Method method = getReflectMethod("isNumeric", String.class);
 
         //when
         String input = "10";

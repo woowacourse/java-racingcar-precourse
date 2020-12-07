@@ -37,7 +37,9 @@ public class Racing {
     }
 
     public List<Car> getWinners() {
+
         Car firstCar = getFirstCar();
+
         List<Car> winners = cars.stream()
                 .filter(car -> car.atFirstPosition(firstCar))
                 .collect(Collectors.toList());

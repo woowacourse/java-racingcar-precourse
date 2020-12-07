@@ -36,11 +36,11 @@ public class ConsoleView implements ViewController {
     public void recordWinner(List<Car> winners) {
         stringBuilder.append(Message.WINNER_MESSAGE);
 
-        String winnerName = winners.stream()
+        String winnersName = winners.stream()
                 .map(Car::toString)
                 .collect(Collectors.joining(NAME_SEPARATOR));
 
-        stringBuilder.append(winnerName);
+        stringBuilder.append(winnersName);
     }
 
     private void appendBlankLine() {
