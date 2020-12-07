@@ -18,6 +18,10 @@ public class InputValidator {
             return null;
         }
 
+        if (!nameValidator.validCharacter(names)) {
+            return null;
+        }
+
         return names;
     }
 }
