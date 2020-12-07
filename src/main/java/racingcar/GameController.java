@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.OptionalInt;
 
 public class GameController {
 
@@ -15,13 +14,15 @@ public class GameController {
         }
     }
 
-    public String[] playGame(int matchTryNumber) {
+    public void playGame(int matchTryNumber) {
         for (int i = 0; i < matchTryNumber; i++) {
             for (Car car : carList) {
                 car.moveCar();
             }
+            System.out.println("");
         }
-        return checkWinner();
+        String[] winner = checkWinner();
+        winnerPrint(winner);
     }
 
     private String[] checkWinner() {
@@ -34,5 +35,10 @@ public class GameController {
             }
         }
         return winner.toArray(new String[0]);
+    }
+
+    private void winnerPrint(String[] winner) {
+        String winners = Arrays.toString(winner);
+        System.out.println("최종 우승자: " + winners.substring(1,winners.length()-1));
     }
 }
