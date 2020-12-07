@@ -19,6 +19,10 @@ public class RacingGame {
         printBestCarNames();
     }
 
+    /**
+     * 사용자에게 차 이름을 입력받는 메서드
+     * InputError 클래스의 checkInputCarNames 메서드를 사용해 입력받은 값을 검사함
+     */
     private void getCarNames() {
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -36,10 +40,10 @@ public class RacingGame {
         }
     }
 
-    private void sortCarList() {
-        this.carList.sort((o1, o2) -> o2.getPosition() - o1.getPosition());
-    }
-
+    /**
+     * 사용자에게 몇회 진행할지 입력받는 메서드
+     * InputError 클래스의 checkInputNumber 메서드를 사용해 입력받은 값을 검사함
+     */
     private void getNumberOfTimes() {
         while (true) {
             System.out.println("시도할 회수는 몇회인가요?");
@@ -51,9 +55,12 @@ public class RacingGame {
         System.out.println();
     }
 
+    /**
+     * 각 라운드마다 실행 결과를 출력하는 메서드
+     */
     private void printResultRacing() {
+        System.out.println("실행 결과");
         for (int round = 0; round < Integer.parseInt(numberOfTimes); round++) {
-            System.out.println("실행 결과");
             for (Car car : carList) {
                 car.tryMove();
                 System.out.println(car.toString());
@@ -62,6 +69,9 @@ public class RacingGame {
         }
     }
 
+    /**
+     * 최종 우승한 차이름을 출력하는 메서드
+     */
     private void printBestCarNames() {
         sortCarList();
         StringBuilder sb = new StringBuilder("최종 우승자: ");
@@ -72,5 +82,9 @@ public class RacingGame {
             }
         }
         System.out.println(sb.substring(0, sb.length() - 2));
+    }
+
+    private void sortCarList() {
+        this.carList.sort((o1, o2) -> o2.getPosition() - o1.getPosition());
     }
 }
