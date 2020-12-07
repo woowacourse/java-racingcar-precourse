@@ -11,4 +11,8 @@ public class TimeValidator {
                 .stream()
                 .allMatch(time -> Pattern.matches(NUMBER_PATTERN, number));
     }
+
+    boolean isZero(String time) {
+        return time.equals("0");
+    }
 }

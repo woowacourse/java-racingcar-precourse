@@ -40,6 +40,9 @@ public class InputValidator {
             return true;
         }
 
+        if (timeValidator.isZero(time)) {
+            return true;
+        }
 
         return false;
     }
