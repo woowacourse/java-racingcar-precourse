@@ -3,12 +3,12 @@ package racingcar;
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
-public class TrackTest {
+public class RacingTest {
 
     @Test
     public void testCreate() {
-        Track track = Track.makeTrack();
+        Racing racing = Racing.holdWithCars();
         Scanner scanner = new Scanner(System.in);
-        track.start(scanner);
+        //racing.start(scanner);
     }
 }
