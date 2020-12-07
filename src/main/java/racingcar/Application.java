@@ -86,9 +86,10 @@ public class Application {
 
     private static String findWinner(int maxPosition) {
         String[] winnerCars = new String[countWinners(maxPosition)];
+        int winnerIndex = 0;
         for (int i = 0; i < cars.length; i++)
             if (cars[i].getPosition() == maxPosition)
-                winnerCars[i] = cars[i].getName();
+                winnerCars[winnerIndex++] = cars[i].getName();
         return String.join(", ", winnerCars);
     }
 
