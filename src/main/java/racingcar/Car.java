@@ -14,6 +14,9 @@ public class Car {
         this.name = name;
     }
 
+    public String getCarName() { return name; }
+    public int getCarPositin() { return position; }
+
     public void moveCar(){
         if (nextInt(MIN_NUMBER,MAX_NUMBER) >= 4) {this.position += 1;}
     }
