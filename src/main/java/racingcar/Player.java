@@ -42,7 +42,6 @@ public class Player {
             try {
                 System.out.println(CAR_NAMES_INPUT_MESSAGE);
                 carNames = parseCarNames(this.scanner.nextLine());
-                checkValidCarNames(carNames);
                 break;
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
@@ -53,15 +52,12 @@ public class Player {
     }
     
     public int tryTimesInput() {
-        String rawInput;
         int tryTimes;
         
         while (true) {
             try {
                 System.out.println(TRY_TIMES_INPUT_MESSAGE);
-                rawInput = this.scanner.nextLine().trim();
-                checkValidTryTimes(rawInput);
-                tryTimes = Integer.parseInt(rawInput);
+                tryTimes = parseTryTimes(this.scanner.nextLine().trim());
                 break;
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
@@ -102,7 +98,23 @@ public class Player {
             carNames[i] = carNames[i].trim();
         }
         
+        try {
+            checkValidCarNames(carNames);
+        } catch (IllegalArgumentException exception) {
+            throw exception;
+        }
+        
         return carNames;
+    }
+    
+    private int parseTryTimes(String rawInput) {
+        try {
+            checkValidTryTimes(rawInput);
+        } catch (IllegalArgumentException exception) {
+            throw exception;
+        }
+        
+        return Integer.parseInt(rawInput);
     }
     
     private void checkValidCarNames(String[] carNames) {

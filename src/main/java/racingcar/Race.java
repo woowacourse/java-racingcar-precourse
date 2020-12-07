@@ -49,22 +49,25 @@ public class Race {
     private Car[] judgeWinners(Car[] cars) {
         ArrayList<Car> winnerList = new ArrayList<Car>();
         int positionWinner = Car.POSITION_START;
-        int positionCurrentCar;
         
         for (Car car : cars) {
-            positionCurrentCar = car.getPosition();
-            if (positionCurrentCar < positionWinner) {
-                continue;
-            }
-            if (positionCurrentCar == positionWinner) {
-                winnerList.add(car);
-                continue;
-            }
-            winnerList.clear();
-            winnerList.add(car);
-            positionWinner = positionCurrentCar;
+            positionWinner = refreshWinner(winnerList, car, positionWinner);
         }
         
         return winnerList.toArray(new Car[winnerList.size()]);
+    }
+    
+    private int refreshWinner(ArrayList<Car> winnerList, Car carCurrent, int positionWinner) {
+        int positionCarCurrent = carCurrent.getPosition();
+        
+        if (positionCarCurrent < positionWinner) {
+            return positionWinner;
+        }
+        if (positionCarCurrent > positionWinner) {
+            winnerList.clear();
+        }
+        
+        winnerList.add(carCurrent);
+        return positionCarCurrent;
     }
 }
