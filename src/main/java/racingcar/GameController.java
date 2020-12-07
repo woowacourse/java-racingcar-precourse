@@ -38,7 +38,7 @@ public class GameController {
 
         for (int index = INDEX_VALUE_MIN; index < this.gameRound.getRounds(); index++) {
             startEachRound();
-            outputView.showEachRoundResult(this.cars);
+            outputView.showEachRoundResult(this.cars.findParticipants(), this.cars.findCurrentPositions());
         }
 
         outputView.showWinners(this.cars.findWinners());

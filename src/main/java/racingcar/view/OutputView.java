@@ -16,25 +16,19 @@ public class OutputView {
         System.out.println(GAME_RESULT);
     }
 
-    public void showEachRoundResult(Cars cars) {
+    public void showEachRoundResult(List<String> carNames, List<Integer> carPositions) {
 
-        for (Car car : cars.getCarList()) {
-            System.out.println(car.getName() + " : " + NumberToDashConverter.convert(car.getPosition()));
+        for (int index = INDEX_VALUE_MIN; index < carNames.size(); index++) {
+            System.out.println(carNames.get(index) + " : " + NumberToDashConverter.convert(carPositions.get(index)));
         }
 
         System.out.println();
     }
 
-    public void showWinners(List<Car> winners) {
+    public void showWinners(List<String> winners) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(WINNERS);
-        int lastCarIndex = winners.size() - 1;
-
-        for (int index = INDEX_VALUE_MIN; index < lastCarIndex; index++) {
-            stringBuilder.append(winners.get(index).getName() + ", ");
-        }
-
-        stringBuilder.append(winners.get(lastCarIndex).getName());
+        stringBuilder.append(String.join(", ", winners));
         System.out.println(stringBuilder.toString());
     }
 }

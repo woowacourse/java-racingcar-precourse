@@ -21,8 +21,20 @@ public class Cars {
         return cars;
     }
 
-    public List<Car> findWinners() {
+    public List<String> findWinners() {
         return findMaxPositionCars(findMaxPosition());
+    }
+
+    public List<String> findParticipants() {
+        return this.cars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    public List<Integer> findCurrentPositions() {
+        return this.cars.stream()
+                .map(Car::getPosition)
+                .collect(Collectors.toList());
     }
 
     private void validateCarAmount(List<Car> cars) {
@@ -48,9 +60,10 @@ public class Cars {
                 .orElse(MIN_POSITION_VALUE);
     }
 
-    private List<Car> findMaxPositionCars(int maxPosition) {
+    private List<String> findMaxPositionCars(int maxPosition) {
         return this.cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }
