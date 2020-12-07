@@ -10,6 +10,7 @@ public class RaceReferee {
     private List<Car> Cars;
     private int carNum = 0;
     private int roundNum = 0;
+    private OutputView scoreBoard = new OutputView();
 
     public RaceReferee(List<String> carNames, int roundNum) {
         this.roundNum = roundNum;
@@ -26,7 +27,8 @@ public class RaceReferee {
 
     public void totalRoundProcess(int roundNum) {
         for(int index = 0; index < roundNum; index++) {
-            oneRoundProcess();
+            this.oneRoundProcess();
+            this.oneRoundResult();
         }
     }
 
@@ -36,11 +38,10 @@ public class RaceReferee {
         }
     }
 
-    private void scoreBoard() {
+    private void oneRoundResult() {
         Car currentCar;
         for(int index = 0; index < this.carNum; index++) {
             currentCar = Cars.get(index);
-
         }
     }
     

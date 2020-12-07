@@ -21,6 +21,14 @@ public class Car {
         }
     }
 
+    public int getScore() {
+        return this.position;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
     private int randomDistance() {
         return RandomUtils.nextInt(MINIMUM_DISTANCE, MAXIMUM_DISTANCE);
     }

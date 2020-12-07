@@ -3,7 +3,7 @@ package View;
 public class OutputView {
     private static final String SYMBOL = "-";
 
-    public OutputView(int score) {
+    public OutputView() {
 
     }
 
