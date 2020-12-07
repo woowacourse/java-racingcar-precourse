@@ -8,7 +8,8 @@ public class ForwardingChecker {
     private static final int MOVING_CRITERION = 4;
 
     public static void run(Cars cars) {
-        cars.getCars().stream()
+        cars.getCars()
+                .stream()
                 .filter(ForwardingChecker::isMovable)
                 .forEach(Car::forwardOneStep);
     }
