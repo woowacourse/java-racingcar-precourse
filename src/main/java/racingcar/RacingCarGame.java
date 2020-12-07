@@ -28,6 +28,7 @@ public class RacingCarGame {
     }
 
     private void startRacing() {
+        System.out.println();
         System.out.println(ConstantUtils.RACE_RESULT);
         for (int i = 0; i < moves; i++) {
             oneLap();
