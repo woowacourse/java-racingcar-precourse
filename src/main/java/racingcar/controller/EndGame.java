@@ -6,6 +6,7 @@ import racingcar.view.OutputViewer;
 import java.util.ArrayList;
 
 public class EndGame {
+    private static final String JOIN_DELIMITER = ", ";
     /**
      * 게임 최종 우승자를 계산하여 발표합니다.
      * @param gameSet 이때까지 진행한 게임
@@ -16,7 +17,7 @@ public class EndGame {
     }
 
     private void showWinners(ArrayList<String> winnerList) {
-        String winners = String.join(", ", winnerList);
+        String winners = String.join(JOIN_DELIMITER, winnerList);
         OutputViewer.finalWinner(winners);
     }
 }
