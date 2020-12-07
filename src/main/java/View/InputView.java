@@ -9,6 +9,7 @@ public class InputView {
     private static final String ERROR_TAG = "[Error]";
     private static final String INVAlID_INPUT_MESSAGE = "You should input at least one car name";
     private static final String ASKING_ROUND_NUM = "시도할 횟수는 몇회인가요?";
+    private static final String ASKING_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분";
     private static final int VALID_MINIMUM_CAR_NAMES_LENGTH = 2;
 
     private final Scanner scanner;
@@ -18,8 +19,8 @@ public class InputView {
     }
 
     public List<String> inputCarNames() {
+        System.out.println(this.ASKING_CAR_NAMES);
         String carNames = this.scanner.nextLine();
-
         if(!isValidInput(carNames)) {
             Exception e = new Exception(ERROR_TAG + INVAlID_INPUT_MESSAGE);
             System.out.println(e.toString());
