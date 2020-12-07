@@ -10,7 +10,7 @@ public class Winners {
         this.winners = winners;
     }
 
-    public static Winners of(List<Car> winners) {
+    public static Winners from(List<Car> winners) {
         return new Winners(winners);
     }
 

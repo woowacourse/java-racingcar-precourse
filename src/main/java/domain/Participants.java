@@ -11,7 +11,7 @@ public class Participants {
         this.participants = participants;
     }
 
-    public static Participants of(List<Car> participants) {
+    public static Participants from(List<Car> participants) {
         return new Participants(participants);
     }
 

@@ -28,7 +28,7 @@ public class RaceResult {
     }
 
     public void setWinnersAmongParticipants(Participants participants) {
-        Winners winners = Winners.of(filterWinner(participants));
+        Winners winners = Winners.from(filterWinner(participants));
         this.winners = winners;
     }
 

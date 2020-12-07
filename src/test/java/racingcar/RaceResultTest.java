@@ -17,14 +17,14 @@ class RaceResultTest {
         //given
         final String WINNER_NAME = "Bomin";
         final int RUNNABLE_NUM = 5;
-        Participants participants = Participants.of(createMultiCars());
+        Participants participants = Participants.from(createMultiCars());
         //when
         participants.getParticipants().stream()
                 .filter(car -> car.getName().equals(WINNER_NAME))
                 .forEach(car -> car.run(RUNNABLE_NUM));
         RaceResult raceResult = RaceResult.newInstance();
         raceResult.setWinnersAmongParticipants(participants);
-//        then
+        //then
         assertThat(raceResult.getWinnersName()).contains(WINNER_NAME);
     }
 
@@ -34,7 +34,7 @@ class RaceResultTest {
         //given
         final List<String> WINNER_NAMES = Arrays.asList("Bomin", "Daniel");
         final int RUNNABLE_NUM = 5;
-        Participants participants = Participants.of(createMultiCars());
+        Participants participants = Participants.from(createMultiCars());
         //when
         participants.getParticipants().stream()
                 .filter(car -> WINNER_NAMES.contains(car.getName()))

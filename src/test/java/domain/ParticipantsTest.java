@@ -19,7 +19,7 @@ class ParticipantsTest {
         //given
         List<Car> carList = createCarList();
         //when
-        Participants participants = Participants.of(carList);
+        Participants participants = Participants.from(carList);
         //then
         Assertions.assertThat(participants.getParticipants()).isEqualTo(carList);
     }
@@ -29,7 +29,7 @@ class ParticipantsTest {
     public void testParticipateRun() throws Exception {
         //given
         List<Car> carList = createCarList();
-        Participants participants = Participants.of(carList);
+        Participants participants = Participants.from(carList);
         //when
         participants.run(new InputDigitStrategy(MIN_RUNNABLE_NUM));
         //then

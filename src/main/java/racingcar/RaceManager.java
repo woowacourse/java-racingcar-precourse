@@ -17,7 +17,7 @@ public class RaceManager {
         this.race = race;
     }
 
-    public static RaceManager of(Scanner scanner) {
+    public static RaceManager from(Scanner scanner) {
         InputView inputView = new InputView(scanner);
         String[] names = inputView.inputName();
         int round = inputView.inputRound();
@@ -25,7 +25,7 @@ public class RaceManager {
         return new RaceManager(Race.of(participants, round));
     }
 
-    public static RaceManager of(Participants participants, int round) {
+    public static RaceManager from(Participants participants, int round) {
         return new RaceManager(Race.of(participants, round));
     }
 
@@ -34,7 +34,7 @@ public class RaceManager {
         for (String name : names) {
             cars.add(new Car(name));
         }
-        return Participants.of(cars);
+        return Participants.from(cars);
     }
 
     public void startRandomRace() {
