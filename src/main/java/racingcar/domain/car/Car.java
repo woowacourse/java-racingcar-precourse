@@ -30,4 +30,8 @@ public class Car implements CarInterface {
     public int getPosition() {
         return position;
     }
+
+    public String getName() {
+        return name;
+    }
 }
