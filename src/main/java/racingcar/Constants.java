@@ -1,8 +1,8 @@
-package utils;
+package racingcar;
 
-public class ConstantUtils {
+public class Constants {
 
-    private ConstantUtils(){
+    private Constants(){
 
     }
 
