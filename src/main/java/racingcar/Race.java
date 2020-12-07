@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Race {
+    private ArrayList<Car> cars = new ArrayList();
+    private ArrayList<String> winners = new ArrayList();
 
     public static void runRace(){
 
