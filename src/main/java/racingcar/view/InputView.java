@@ -30,7 +30,7 @@ public class InputView {
         validateDelimiterInput(racingCarNames);
         validateNameLength(racingCarNames);
         validateInputWithoutName(racingCarNames);
-        valiateNameDuplication(racingCarNames);
+        validateNameDuplication(racingCarNames);
     }
 
     private void validateSpaceInput(String racingCarNames) {
@@ -61,7 +61,7 @@ public class InputView {
         }
     }
 
-    private void valiateNameDuplication(String racingCarNames) {
+    private void validateNameDuplication(String racingCarNames) {
         boolean duplicated = Arrays.stream(racingCarNames.split(NAME_DELIMITER))
                 .distinct()
                 .count() != racingCarNames.split(NAME_DELIMITER).length;
