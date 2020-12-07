@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    public static final String ERROR_ONLY_ONE_CAR = "[ERROR] 2대 이상의 자동차의 이름을 입력해야한다.";
-    public static final String ERROR_SAME_NAME_CAR = "[ERROR] 서로 다른 이름의 자동차 이름을 입력해야 한다.";
+    public static final String ERROR_ONLY_ONE_CAR = "[ERROR] 경주를 하기 위해서 2대 이상의 자동차를 입력받아야 한다.";
+    public static final String ERROR_SAME_NAME_CAR = "[ERROR] 자동차의 이름이 중복되면 안된다.";
     public static final int MIN_POSITION_VALUE = 0;
     public static final int MIN_TOTAL_CARS_AMOUNT = 2;
     private List<Car> cars;
