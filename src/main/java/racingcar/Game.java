@@ -5,9 +5,10 @@ import java.util.ArrayList;
 
 public class Game {
     private Scanner scanner;
-    public static final String MSG_RACE_RESULT = "\n실행 결과";
-    public static final String DELIMITER_WINNER_STRING = ", ";
-    public static final String PREFIX_WINNER_LIST = "최종 우승자: ";
+    private static final String NEXT_LINE = "\n";
+    private static final String MSG_RACE_RESULT = NEXT_LINE + "실행 결과";
+    private static final String DELIMITER_WINNER_STRING = ", ";
+    private static final String PREFIX_WINNER_LIST = "최종 우승자: ";
     private ArrayList<String> carNames;
     private ArrayList<Car> carList;
     private ArrayList<String> winnerList;
@@ -49,8 +50,13 @@ public class Game {
     }
 
     public void finalRound() {
-        winnerList = Winner.getWinner(carList);
+        winnerFromCarList();
         printFinalResult();
+    }
+
+    public void winnerFromCarList() {
+        Winner newWinner = new Winner(carList);
+        winnerList = newWinner.findWinner();
     }
 
     public void printFinalResult() {
