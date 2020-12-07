@@ -49,6 +49,7 @@ public class Application {
         for (int i = 0; i < gameCount; i++) {
             playEachGame();
         }
+        displayGameResult();
     }
 
     private static void playEachGame() {
@@ -59,6 +60,36 @@ public class Application {
             cars[i].displayPosition();
         }
         System.out.println();
+    }
+
+    private static void displayGameResult() {
+        int maxPosition = findMaxPosition();
+        String winner = findWinner(maxPosition);
+        System.out.println("최종 우승자: " + winner);
+    }
+
+    private static int findMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
+
+    private static int countWinners(int maxPosition) {
+        int winnerCount = 0;
+        for (int i = 0; i < cars.length; i++)
+            if (cars[i].getPosition() == maxPosition)
+                winnerCount++;
+        return winnerCount;
+    }
+
+    private static String findWinner(int maxPosition) {
+        String[] winnerCars = new String[countWinners(maxPosition)];
+        for (int i = 0; i < cars.length; i++)
+            if (cars[i].getPosition() == maxPosition)
+                winnerCars[i] = cars[i].getName();
+        return String.join(", ", winnerCars);
     }
 
     private static Car[] makeCars(String[] names) {
