@@ -12,11 +12,13 @@ public class CarRace {
 
         String[] carNames = carName.replace(" ", "").split(",");
         for (String s : carNames) {
+            ErrorCheck.nameCheck(s);
             racingCars.add(new Car(s));
         }
     }
 
     public void doRace(int raceNumber) {
+        ErrorCheck.numberCheck(raceNumber);
         System.out.println("실행 결과");
 
         for (int i = 0; i < raceNumber; i++) {
