@@ -6,9 +6,9 @@ public class Car {
     private static final int CRITERIA = 4;
     private static final int START_INDEX = 1;
     private static final int END_INDEX = 9;
+
     private final String name;
     private int position = 0;
-
 
     public Car(String name) {
         this.name = name;

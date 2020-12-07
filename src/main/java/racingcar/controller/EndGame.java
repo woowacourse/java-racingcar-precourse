@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class EndGame {
     private static final String JOIN_DELIMITER = ", ";
+
     /**
      * 게임 최종 우승자를 계산하여 발표합니다.
      * @param gameSet 이때까지 진행한 게임

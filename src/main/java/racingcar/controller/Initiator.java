@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 public class Initiator {
     private static final int LIMIT_PARTICIPANT_NAME = 5;
+    private static final String NO_SPACE = "";
+    private static final String SPLIT_DELIMITER = ",";
+
     private final Scanner scanner;
 
     public Initiator(Scanner scanner) {
@@ -22,7 +25,7 @@ public class Initiator {
         InputViewer.carsInput();
         String primitiveArray = scanner.nextLine();
         checkVoid(primitiveArray);
-        String[] participantsArray = primitiveArray.split(",");
+        String[] participantsArray = primitiveArray.split(SPLIT_DELIMITER);
         checkParticipantsLength(participantsArray);
         return new Cars(participantsArray);
     }
@@ -60,7 +63,7 @@ public class Initiator {
     }
 
     private void checkVoid(String argument) {
-        if (argument.equals("")) {
+        if (argument.equals(NO_SPACE)) {
             ErrorViewer.voidInputError();
         }
     }
