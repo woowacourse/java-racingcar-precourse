@@ -17,6 +17,7 @@ public class InputView {
     private static final String SPLIT_MARKER = ",";
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MIN_NAME_LENGTH = 1;
+
     private final Scanner scanner;
 
     public InputView(Scanner scanner) {
