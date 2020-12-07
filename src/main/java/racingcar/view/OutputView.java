@@ -31,12 +31,12 @@ public class OutputView {
 
     private static void printRoundResult(List<Car> carList) {
         for (int idx = 0; idx < carList.size(); idx++) {
-            printScore(carList.get(idx));
+            printCarPosition(carList.get(idx));
         }
         System.out.println();
     }
 
-    private static void printScore(Car car) {
+    private static void printCarPosition(Car car) {
         System.out.print(car.getName() + COLON);
         System.out.println(new String(new char[car.getPosition()]).replace("\0",SCORE));
     }

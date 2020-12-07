@@ -24,10 +24,10 @@ public class InputView {
 
     public List<String> scanCarName() {
         printNameInputMessage();
-        List<String> nameList = splitInputToName(scanUserInput());
+        List<String> nameList = splitInputToNameList(scanUserInput());
         while (!isValidNameList(nameList)) {
             printReInputMessage();
-            nameList = splitInputToName(scanUserInput());
+            nameList = splitInputToNameList(scanUserInput());
         }
         return nameList;
     }
@@ -54,7 +54,7 @@ public class InputView {
         return this.scanner.nextLine();
     }
 
-    private List<String> splitInputToName(String inputNameList) {
+    private List<String> splitInputToNameList(String inputNameList) {
         List<String> names = Arrays.asList(inputNameList.split(","));
         return names;
     }
