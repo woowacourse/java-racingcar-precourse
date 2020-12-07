@@ -9,11 +9,19 @@ public class Race {
 
     private int times;
 
-    public void runRace(Scanner scanner){
+    public void startRace(Scanner scanner){
         inputParticipationCar(scanner);
         inputTimes(scanner);
+    }
 
-
+    public void runRace(){
+        for (int i = 0; i < times; i++){
+            System.out.println("Lap #"+(i+1));
+            for(Car car : cars){
+                car.moveCar();
+                car.printCarPosition();
+            }
+        }
     }
 
     // 예외 처리 필요
