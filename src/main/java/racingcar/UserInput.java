@@ -21,6 +21,7 @@ public class UserInput {
     public static int getStageCount(Scanner scanner) {
         UserScreen.askStageCount();
         String userString = scanner.nextLine();
+        InputValidator.checkIfEmptyOrNull(userString);
         InputValidator.checkIfNaturalNumber(userString);
 
         return Integer.parseInt(userString);
