@@ -32,15 +32,16 @@ public class InputValidator {
     }
 
     public boolean invalidTime(String time) {
-        if (time.isEmpty()) {
-            return true;
-        }
 
         if (!timeValidator.isDigit(time)) {
             return true;
         }
 
         if (timeValidator.isZero(time)) {
+            return true;
+        }
+
+        if (timeValidator.isNegative(time)) {
             return true;
         }
 

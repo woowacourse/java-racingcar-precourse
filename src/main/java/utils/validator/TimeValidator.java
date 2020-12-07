@@ -15,4 +15,8 @@ public class TimeValidator {
     boolean isZero(String time) {
         return time.equals("0");
     }
+
+    boolean isNegative(String time) {
+        return (Integer.parseInt(time) < 0);
+    }
 }
