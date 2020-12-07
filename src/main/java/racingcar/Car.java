@@ -9,7 +9,6 @@ public class Car {
     private static final int MOVE_STANDARD = 4;
     private static final int RANGE_START = 0;
     private static final int RANGE_END = 9;
-    private static final String BLANK = "";
     private static final String MOVING_MARK = "-";
 
     private final String name;
@@ -49,10 +48,10 @@ public class Car {
     }
 
     public String printHowMuchEachCarMoved() {
-        String movingResult = BLANK;
+        StringBuilder movingResult = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            movingResult += MOVING_MARK;
+            movingResult.append(MOVING_MARK);
         }
-        return String.format("%s : %s", name, movingResult);
+        return String.format("%s : %s", name, movingResult.toString());
     }
 }
