@@ -32,7 +32,7 @@ public class Output {
         for (Car car : finalWinner) {
             System.out.print(car.getName());
             index++;
-            if (index != finalWinner.size() - 1) {
+            if (index != finalWinner.size()) {
                 System.out.print(SPLIT_DELIMITER);
             }
         }
