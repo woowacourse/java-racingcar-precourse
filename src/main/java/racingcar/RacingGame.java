@@ -41,6 +41,15 @@ public class RacingGame {
             }
             System.out.println();
         }
+        carList = sortCarList(carList);
+        StringBuilder sb = new StringBuilder("최종 우승자: ");
+        int bestPosition = carList.get(0).getPosition();
+        for (Car car : carList) {
+            if (car.getPosition() == bestPosition) {
+                sb.append(car.getName() + ", ");
+            }
+        }
+        System.out.println(sb.substring(0, sb.length() - 2));
     }
 
     private boolean haveBlankCarName() {
@@ -96,5 +105,10 @@ public class RacingGame {
             return false;
         }
         return true;
+    }
+
+    private List<Car> sortCarList(List<Car> carList) {
+        carList.sort((o1, o2) -> o2.getPosition() - o1.getPosition());
+        return carList;
     }
 }

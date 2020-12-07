@@ -20,8 +20,12 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public int getPosition() {
-        return position;
+        return this.position;
     }
 
     public String toString() {
@@ -29,7 +33,7 @@ public class Car {
         for (int i = 0; i < position; i++) {
             sb.append(moveCharacter);
         }
-        return name + " : " + sb;
+        return this.name + " : " + sb;
     }
 
     // 추가 기능 구현
