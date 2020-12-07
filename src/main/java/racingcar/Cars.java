@@ -14,7 +14,6 @@ public class Cars {
     }
 
     public static void moveCars() {
-        System.out.println(cars);
         for (Car car : cars) {
             car.goOrStop(RandomUtils.nextInt(1, 9));
         }
@@ -41,12 +40,14 @@ public class Cars {
 
     public String getWinner(int maxPosition) {
         StringBuilder winner = new StringBuilder();
+
+        winner.append("최종 우승자: ");
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 winner.append(car.getName());
                 winner.append(",");
             }
         }
-        return winner.toString();
+        return winner.substring(0, winner.length() - 1);
     }
 }

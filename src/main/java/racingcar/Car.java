@@ -30,5 +30,4 @@ public class Car {
         }
         return carPosition.toString();
     }
-
 }
