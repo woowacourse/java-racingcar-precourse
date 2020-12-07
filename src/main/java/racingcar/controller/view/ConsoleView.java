@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class ConsoleView implements ViewController {
 
+    private static final ViewController instance = new ConsoleView();
     private static final StringBuilder stringBuilder = new StringBuilder();
 
     private static final String NEW_LINE = "\n";
@@ -15,6 +16,14 @@ public class ConsoleView implements ViewController {
 
     static {
         stringBuilder.append(Message.RESULT_MESSAGE);
+    }
+
+    private ConsoleView() {
+
+    }
+
+    public static ViewController getInstance(){
+        return instance;
     }
 
     @Override
@@ -45,4 +54,8 @@ public class ConsoleView implements ViewController {
         System.out.println(stringBuilder.toString());
     }
 
+    @Override
+    public void printException(Exception e) {
+        System.out.println(e.getMessage());
+    }
 }
