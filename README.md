@@ -13,28 +13,33 @@
 ## :pencil: 기능 구현 사항
 * Car
     * 자동차 이동 가능 여부 확인 기능
-        * 자동자 객체가 스스로 판단하게 한다.
+        * 자동자 객체가 **스스로 판단**하게 한다.
         * `carMove(int randomNum)` 
-    * 본인의 이동 거리를 출력하는 기능
-        * `printCurStatus()` , `printCurMovement()`
-    * 본인이 승자인지 확인하는 기능
+    * 본인의 이동 거리를 출력하는 기능 `printCurStatus()` , `printCurMovement()`
+    * 본인이 승자인지 확인하는 기능 `isImWinner()`
     
 * CarRacingGame
-    * 자동차 이름 입력 기능
-        * 공백이 있어서는 안된다.
-        * 경주에 참여하는 차의 개수는 2대 이상 이여야 한다.
-        * 차의 이름은 1자 이상 5자 이하여야 한다.
-    * 게임 횟수 입력 기능
+    * 자동차 이름 입력 기능 `carNamesInput()`
+      * `Validator()` 클래스의 static 메소드 `isValidName(names)` 호출
+    * 게임 횟수 입력 기능 `tryCountInput(Scanner scanner)`
         * 입력받은것을 `int` 형으로 변경할때 예외가 발생하면 재입력 받는다.
-    * 진행상황 출력 요청 기능
+            * `Integer.parseInt(scanner.nextLine())` 에서 바로 판별!
+    * 게임 진행 기능 `gameProgress()`
+        * 자동차 객체에게 객체 스스로 움직일수 있는지를 확인하는것을 **요청** 한다.
+            * `carMoveOrNot()`
         * 자동차 객체에게 객체 스스로의 상황을 출력하게 **요청**한다.
-    * 최종결과 출력 기능
+            * `printCarStatus()`
+    * 최종결과 출력 기능 `printGameResult()`
+        * 1등의 위치를 찾는 기능 `getMaxPosition()`
     
 * Validator
-    * 입력 이름 검증 기능
+    * 입력 이름 검증 기능 `isValidName(names)`
+    * 공백이 있어서는 안된다.
+    * 경주에 참여하는 차의 개수는 2대 이상 이여야 한다.
+    * 차의 이름은 1자 이상 5자 이하여야 한다.
 
 * Constants
-    * 상수로 쓰이는것들을 보관하는 클래스
+    * 하드코딩값을 쓰지 않고 상수로 쓰이는것들을 보관하는 클래스
     
 <br>
 
