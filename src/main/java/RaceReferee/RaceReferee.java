@@ -19,7 +19,6 @@ public class RaceReferee {
     }
 
     public void createCars(List<String> carNames) {
-
         for(int index = 0; index < this.carNum; index += 1) {
             this.Cars.add(new Car(carNames.get(index)));
         }
@@ -39,7 +38,6 @@ public class RaceReferee {
 
     private void scoreBoard() {
         Car currentCar;
-
         for(int index = 0; index < this.carNum; index++) {
             currentCar = Cars.get(index);
 
