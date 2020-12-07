@@ -14,5 +14,7 @@ public class Application {
         race.setRaceRound(scanner);
         race.start();
         race.showWinner();
+
+        scanner.close();
     }
 }
