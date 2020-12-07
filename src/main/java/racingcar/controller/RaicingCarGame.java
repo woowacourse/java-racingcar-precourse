@@ -9,6 +9,7 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Turn;
+import racingcar.view.OutputView;
 
 public class RaicingCarGame {
     private final Cars cars;
@@ -27,6 +28,7 @@ public class RaicingCarGame {
         // 게임 실행 로직
         while (!turn.isEnd()) {
             cars.moveCars();
+            OutputView.showCarsPosition(cars.exportAsListOfDTO());
             turn.turnOver();
         }
     }
