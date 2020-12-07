@@ -21,6 +21,16 @@ public class Race {
         return scanner.nextInt();
     }
 
+    public int findMaxPosition(){
+        int maxPosition = -1;
+        int tempPosition;
+        for (Car car : cars){
+            tempPosition = car.getCarPosition()
+            if (maxPosition <= tempPosition) { maxPosition = tempPosition; }
+        }
+        return maxPosition;
+    }
+
     public static void printWinnerList(){
 
     }

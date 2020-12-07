@@ -15,13 +15,15 @@ public class Car {
     }
 
     public String getCarName() { return name; }
-    public int getCarPositin() { return position; }
+    public int getCarPosition() { return position; }
 
     public void moveCar(){
         if (nextInt(MIN_NUMBER,MAX_NUMBER) >= 4) {this.position += 1;}
     }
 
-    public void printCarPositin(){
+    public void printCarPosition(){
         System.out.println(name + " : " + new String(new char[position]).replace("\0",POSITION_MARK));
     }
+
+
 }
