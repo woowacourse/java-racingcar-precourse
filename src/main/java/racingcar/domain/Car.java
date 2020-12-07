@@ -8,6 +8,11 @@ public class Car {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(position) + "\n";
+    }
+
     void move() {
         this.position += 1;
     }

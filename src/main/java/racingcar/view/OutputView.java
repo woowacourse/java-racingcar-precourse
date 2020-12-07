@@ -27,4 +27,9 @@ public class OutputView {
     public void resultMessage() {
         System.out.println(RESULT_MSG);
     }
+
+    public void showPosition(String information) {
+        System.out.println(information);
+        System.out.println();
+    }
 }

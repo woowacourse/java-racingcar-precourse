@@ -27,5 +27,9 @@ public class Cars {
                 });
     }
 
-
+    public String position() {
+        return carList.stream()
+                .map(car -> car.toString())
+                .collect(Collectors.joining());
+    }
 }
