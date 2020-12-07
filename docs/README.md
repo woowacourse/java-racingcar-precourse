@@ -39,8 +39,8 @@
     |- utils
         ㄴ RandomUtils.java
     |- view
-        ㄴ InputView
-        ㄴ OutputView
+        ㄴ InputView.java
+        ㄴ OutputView.java
 ```
 
 ## 👨‍🏫 클래스 설명
