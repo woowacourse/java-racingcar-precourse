@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Referee {
     public static final String FINAL_WINNER = "최종 우승자: ";
-    public static final String CAR_NAME_DELIMITER = ",";
+    public static final String WINNER_NAME_DELIMITER = ", ";
 
     public static void printWinner(Car[] gameCars) {
         int maxPosition = getMaxPosition(gameCars);
         ArrayList<String> winnerList = getWinnerList(gameCars, maxPosition);
-        System.out.println(FINAL_WINNER + String.join(CAR_NAME_DELIMITER, winnerList));
+        System.out.println(FINAL_WINNER + String.join(WINNER_NAME_DELIMITER, winnerList));
     }
 
     public static int getMaxPosition(Car[] gameCars) {
