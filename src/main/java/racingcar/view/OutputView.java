@@ -12,6 +12,7 @@ public class OutputView {
     private static final String WINNER_MESSAGE = "최종 우승자: ";
     private static final String SPLIT_MARKER = ", ";
     private static final String BLANK = "\0";
+
     private OutputView() {
     }
 
