@@ -21,7 +21,7 @@ public class Car {
         if (nextInt(MIN_NUMBER,MAX_NUMBER) >= 4) {this.position += 1;}
     }
 
-    public void printNowStatus(){
+    public void printCarPositin(){
         System.out.println(name + " : " + new String(new char[position]).replace("\0",POSITION_MARK));
     }
 }

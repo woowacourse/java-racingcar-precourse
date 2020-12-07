@@ -16,7 +16,7 @@ public class Application {
             System.out.println("#"+(i+1));
             for (Car nowCar : carList){
                 nowCar.moveCar();
-                nowCar.printNowStatus();
+                nowCar.printCarPositin();
             }
         }
     }
