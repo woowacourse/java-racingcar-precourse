@@ -8,9 +8,12 @@ public class UserInput {
     public static String[] getCarNames(Scanner scanner) {
         UserScreen.askCarNames();
         String userString = scanner.nextLine();
+        InputValidator.checkIfEmptyOrNull(userString);
         InputValidator.checkIfSplitterAtStartOrEnd(userString, NAME_SPLITTER);
         String[] carNames = userString.split(NAME_SPLITTER);
         InputValidator.checkEachCarNameLength(carNames);
+        InputValidator.checkIfNamesAreAlphabetic(carNames);
+        InputValidator.checkIfNamesAreDifferent(carNames);
 
         return carNames;
     }

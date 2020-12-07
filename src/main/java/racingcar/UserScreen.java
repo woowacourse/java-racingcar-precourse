@@ -10,6 +10,9 @@ public class UserScreen {
     private static final String NOT_DIGIT_ERROR = "[ERROR] 시도 횟수는 숫자여야 한다.";
     private static final String FIRST_DIGIT_ZERO_ERROR = "[ERROR] 시도 횟수는 0으로 시작하지 않아야 한다.";
     private static final String SIMULATE_START_MESSAGE = "\n실행 결과";
+    private static final String EMPTY_OR_NULL_ERROR = "[ERROR] 입력을 해야 한다.";
+    private static final String NOT_ALPHABETIC_ERROR = "[ERROR] 이름은 알파벳이여야 한다.";
+    private static final String NAMES_ARE_NOT_DIFFERENT_ERROR = "[ERROR] 이름은 서로 달라야 한다.";
 
     public static void askCarNames() {
         System.out.println(ASK_CAR_NAMES_MESSAGE);
@@ -35,6 +38,22 @@ public class UserScreen {
         System.out.println(FIRST_DIGIT_ZERO_ERROR);
     }
 
+    public static void showSimulateStart() {
+        System.out.println(SIMULATE_START_MESSAGE);
+    }
+
+    public static void showNotAlphabeticError() {
+        System.out.println(NOT_ALPHABETIC_ERROR);
+    }
+
+    public static void showEmptyOrNullError() {
+        System.out.println(EMPTY_OR_NULL_ERROR);
+    }
+
+    public static void showNamesAreNotDifferentError() {
+        System.out.println(NAMES_ARE_NOT_DIFFERENT_ERROR);
+    }
+
     public static void showStageResult(Car[] cars) {
         for (Car car : cars) {
             String name = car.getName();
@@ -57,9 +76,5 @@ public class UserScreen {
         }
 
         System.out.println(gameResultMessage.toString());
-    }
-
-    public static void showSimulateStart() {
-        System.out.println(SIMULATE_START_MESSAGE);
     }
 }
