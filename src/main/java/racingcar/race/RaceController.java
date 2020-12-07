@@ -37,7 +37,7 @@ public class RaceController {
 
     public void setRaceRound(Scanner scanner) {
         while (true) {
-            System.out.println(Constant.RACE_NUMBER_INPUT_MESSAGE);
+            System.out.println(Constant.RACE_ROUND_INPUT_MESSAGE);
 
             try {
                 String number = racePreparation.getRaceRound(scanner);

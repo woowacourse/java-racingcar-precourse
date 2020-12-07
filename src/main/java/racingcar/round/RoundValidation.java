@@ -13,7 +13,7 @@ public class RoundValidation {
             char num = number.charAt(i);
 
             if (!Character.isDigit(num)) {
-                throw new IllegalArgumentException(Constant.ERROR_RACE_NUMBER);
+                throw new IllegalArgumentException(Constant.ERROR_RACE_ROUND);
             }
         }
     }
@@ -21,8 +21,8 @@ public class RoundValidation {
     private static void isPositiveInteger(String number) {
         int num = Integer.parseInt(number);
 
-        if (num < Constant.MIN_RACE_NUMBER) {
-            throw new IllegalArgumentException(Constant.ERROR_RACE_NUMBER_POSITIVE_INTEGER);
+        if (num < Constant.MIN_RACE_ROUND) {
+            throw new IllegalArgumentException(Constant.ERROR_RACE_ROUND_NON_POSITIVE_INTEGER);
         }
     }
 }
