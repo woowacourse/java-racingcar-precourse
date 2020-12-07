@@ -18,9 +18,8 @@ public class Input {
     }
 
     public static ArrayList<String> parseCar(String carInfoString, Scanner scanner) {
-        ArrayList<String> carList = new ArrayList<String>(Arrays.asList(carInfoString.split(",")));
         try {
-            Validate.validateCarName(carInfoString, carList);
+            ArrayList<String> carList = Validate.validateCarName(carInfoString);
             return carList;
         } catch (IllegalArgumentException e) {
             System.out.println(e);
