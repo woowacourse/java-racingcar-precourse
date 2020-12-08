@@ -28,7 +28,7 @@ public class GameController {
             printDistance();
             System.out.println();
         }
-        
+        printResult();
     }
 
     /**
@@ -63,7 +63,7 @@ public class GameController {
                 System.out.println(name + "[ERROR] 자동차 이름으로 빈 문자열을 사용할 수 없습니다.");
                 return FAIL;
             } else if (name.length() > MAX_NAME_LENGTH) {
-                System.out.println("[ERROR] 자동차 이름 1~5 글자만 가능합니다.");
+                System.out.println("[ERROR] 자동차 이름은 1~5 글자만 가능합니다.");
                 return FAIL;
             }
         }
@@ -104,5 +104,14 @@ public class GameController {
         }
     }
 
-
+    /**
+     * 우승자를 출력하는 메소드
+     */
+    public static void printResult() {
+        String candidates = cars.stream()
+                .filter(car -> car.isMaxPosition(maxDistance))
+                .map(Car::getName)
+                .collect(joining(", "));
+        System.out.println(candidates + "가 최종 우승했습니다.");
+    }
 }
