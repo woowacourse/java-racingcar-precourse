@@ -9,7 +9,7 @@ import utils.PrintUtils;
 /**
  * Racing 게임을 진행하는 클래스
  *
- * @author  483759@naver.com / 윤이진
+ * @author 483759@naver.com / 윤이진
  * @version 1.0 2020/12/05
  */
 public class Racing {
@@ -44,7 +44,7 @@ public class Racing {
         }
     }
 
-    public static void setGameNumber(){
+    public static void setGameNumber() {
         printUtils.printInputNumberGuide();
         gameNumber = inputUtils.inputNumberOfGame();
     }
