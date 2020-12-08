@@ -32,7 +32,7 @@ public class Car implements Comparable<Car> {
     }
 
     void move() {
-        if (DecisionMaker.makeDecision()) {
+        if (DecisionMaker.makeDecision()) { // 전진 여부에 대한 판단을 위임합니다.
             this.position++;
         }
     }

@@ -22,27 +22,27 @@ public class Application {
 
         InputView.setScanner(scanner);
 
-        Cars cars = getCarNamesFromUser();
-        Turn tryNumber = getTryNumberFromUser();
-        RaicingCarGame raicingCarGame = RaicingCarGame.createNewGame(cars, tryNumber);
+        Cars cars = createCarsFromUser();
+        Turn turn = createTurnFromUser();
+        RaicingCarGame raicingCarGame = RaicingCarGame.createNewGame(cars, turn);
         raicingCarGame.play();
     }
 
-    private static Cars getCarNamesFromUser() {
+    private static Cars createCarsFromUser() {
         try{
             return Cars.of(InputView.getCarNames());
         }catch (IllegalArgumentException e) {
             OutputView.showErrorMessage(e);
-            return getCarNamesFromUser();
+            return createCarsFromUser();
         }
     }
 
-    private static Turn getTryNumberFromUser() {
+    private static Turn createTurnFromUser() {
         try{
             return Turn.from(InputView.getTryNumber());
         }catch (IllegalArgumentException e) {
             OutputView.showErrorMessage(e);
-            return getTryNumberFromUser();
+            return createTurnFromUser();
         }
     }
 }

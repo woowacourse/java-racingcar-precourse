@@ -26,7 +26,7 @@ public class RaicingCarGame {
     }
 
     public void play() {
-        OutputView.showResultMessage();
+        OutputView.showResultMessage(); // "실행 결과"를 출력합니다.
         while (!turn.isEnd()) {
             cars.moveCars();
             OutputView.showCarsPosition(cars.exportAsListOfDTO());
