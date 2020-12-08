@@ -20,8 +20,8 @@ public class InputValidator {
         return turns;
     }
 
-    public boolean isInValid() {
-        return !valid;
+    public boolean isValid() {
+        return valid;
     }
 
     public void validate(String input) {
