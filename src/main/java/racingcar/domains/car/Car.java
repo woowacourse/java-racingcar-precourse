@@ -23,7 +23,7 @@ public class Car implements Comparable<Car> {
     }
 
     public Output getStatus() {
-        return new CarStatus(name, position);
+        return new CarStatus(this);
     }
 
     private void move() {
@@ -47,5 +47,10 @@ public class Car implements Comparable<Car> {
     public String getName() {
         return name;
     }
+
+    public int getPosition() {
+        return position;
+    }
+
 }
 
