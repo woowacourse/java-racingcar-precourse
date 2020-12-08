@@ -1,5 +1,7 @@
 package racingcar.domains.validate;
 
+import racingcar.domains.error.RacingCarGameException;
+
 public interface Validator<T> {
-    public void isValid(T name);
+    void isValid(T object) throws RacingCarGameException;
 }
