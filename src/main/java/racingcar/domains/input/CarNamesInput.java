@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class CarNamesInput implements Input<List<String>> {
 
+    private static final String INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String DELIMITER = ",";
 
     private Scanner scanner;
@@ -21,9 +22,19 @@ public class CarNamesInput implements Input<List<String>> {
 
     @Override
     public List<String> get() throws RacingCarGameException {
-        carNames = scanner.nextLine();
+        printInputMessage();
+        inputFromUser();
         isValid();
+
         return toList();
+    }
+
+    private void printInputMessage() {
+        System.out.println(INPUT_MESSAGE);
+    }
+
+    private void inputFromUser() {
+        carNames = scanner.nextLine();
     }
 
     private void isValid() throws RacingCarGameException {
