@@ -24,7 +24,6 @@ public class InputManager {
         inputTryNumberString = scanner.nextLine();
         ValidationUtils.validateTryNumber(inputTryNumberString);
         stringToInteger(inputTryNumberString);
-        scanner.close();
     }
 
     public void splitCarNamesWithComma() {
