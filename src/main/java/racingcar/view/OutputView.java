@@ -75,4 +75,8 @@ public class OutputView {
         System.out.print(SPACE);
         System.out.println(connectedCarNames);
     }
+
+    public static void printErrorMessage(Exception e) {
+        System.out.println(e.getMessage());
+    }
 }

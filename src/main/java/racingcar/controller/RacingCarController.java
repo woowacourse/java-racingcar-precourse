@@ -20,15 +20,35 @@ public class RacingCarController {
     }
 
     public void requestCarNames() {
-        OutputView.printRequestCarNamesMessage();
-        List<String> carNames = inputView.inputCarNames();
-        this.cars = Cars.generate(carNames);
+        while (!isValidRequestCarNames()) ;
+    }
+
+    private boolean isValidRequestCarNames() {
+        try {
+            OutputView.printRequestCarNamesMessage();
+            List<String> carNames = inputView.inputCarNames();
+            this.cars = Cars.generate(carNames);
+        } catch (Exception e) {
+            OutputView.printErrorMessage(e);
+            return false;
+        }
+        return true;
     }
 
     public void requestAttemptNumber() {
-        OutputView.printRequestAttemptNumberMessage();
-        String inputAttempNumber = inputView.inputAttemptNumber();
-        this.attemptNumber = new AttemptNumber(inputAttempNumber);
+        while (!isValidRequestAttemptNumber()) ;
+    }
+
+    private boolean isValidRequestAttemptNumber() {
+        try {
+            OutputView.printRequestAttemptNumberMessage();
+            String inputAttempNumber = inputView.inputAttemptNumber();
+            this.attemptNumber = new AttemptNumber(inputAttempNumber);
+        } catch (Exception e) {
+            OutputView.printErrorMessage(e);
+            return false;
+        }
+        return true;
     }
 
     public void runGame() {
