@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
-
 import java.util.Collections;
 
 public class OutputView {
@@ -31,7 +30,7 @@ public class OutputView {
         System.out.println(msg);
     }
 
-    public static void printWinnerNames(String winners) {
+    public static void printWinners(String winners) {
         System.out.printf(FINAL_WINNERS, winners);
     }
 }
