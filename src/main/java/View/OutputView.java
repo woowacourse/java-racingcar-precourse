@@ -3,8 +3,10 @@ package View;
 import java.util.List;
 
 public class OutputView {
+
     private static final String SYMBOL = "-";
     private static final String DELIMITER = ",";
+    private static final String FINAL_WINNER = "최종 우승자: ";
 
     public OutputView() {
 
@@ -15,14 +17,14 @@ public class OutputView {
     }
 
     public void showWinners(List<String> winners) {
-        String message = "";
-        for(String winner: winners) {
-            message += winner;
-            message += DELIMITER;
-        }
-
-        System.out.println(message);
+        String message = String.join(this.DELIMITER, winners);
+        System.out.println(this.FINAL_WINNER + message);
     }
+
+    public void printLine() {
+        System.out.println();
+    }
+
     private String scoreMessage(int score) {
         String message = "";
         for(int index = 0; index < score; index++) {
@@ -30,6 +32,4 @@ public class OutputView {
         }
         return message;
     }
-
-
 }

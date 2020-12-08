@@ -1,9 +1,10 @@
 package Domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<Car>();
     private int carNum = 0;
 
     public Cars(List<String> carNames) {

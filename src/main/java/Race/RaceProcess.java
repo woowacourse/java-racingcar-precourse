@@ -6,30 +6,29 @@ import View.OutputView;
 
 import java.util.List;
 
-
 public class RaceProcess {
 
-    private List<Car> Cars;
+    private Cars cars;
     private int carNum = 0;
     private int roundNum = 0;
     private OutputView scoreBoard = new OutputView();
 
-    public RaceProcess(int roundNum) {
+    public RaceProcess(int roundNum, Cars cars) {
         this.roundNum = roundNum;
+        this.cars = cars;
+        this.carNum = cars.getCarNum();
     }
 
-
-
-    public void totalRoundProcess(int roundNum, Cars cars) {
-        for(int index = 0; index < roundNum; index++) {
+    public void totalRoundProcess() {
+        for(int index = 0; index < this.roundNum; index++) {
             this.oneRoundProcess();
-            this.currentResult(cars);
+            this.currentResult(this.cars);
         }
     }
 
     private void oneRoundProcess() {
         for(int index = 0; index < this.carNum; index++) {
-            Cars.get(index).tryingMove();
+            this.cars.getCar(index).tryingMove();
         }
     }
 
@@ -39,6 +38,7 @@ public class RaceProcess {
             currentCar = cars.getCar(index);
             scoreBoard.showState(currentCar.getName(), currentCar.getScore());
         }
+        scoreBoard.printLine();
     }
 
 

@@ -4,21 +4,21 @@ import View.OutputView;
 import Domain.Car;
 import Domain.Cars;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Referee {
-    private OutputView winnerBoard = new OutputView();
-    private List<String> winners = null;
+    private List<String> winners = new ArrayList<String>();
 
     public Referee() {
 
     }
 
-    private List<String> getWinners() {
+    public List<String> getWinners() {
         return this.winners;
     }
 
-    private void saveAllWinner(Cars cars) {
+    public void saveAllWinner(Cars cars) {
         int maxScore = cars.getMaxScore();
         int carNum = cars.getCarNum();
         Car currentCar;
