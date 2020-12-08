@@ -28,6 +28,7 @@
 ### [우승자 안내]
 - __가장 앞서있는 Car 객체 출력__
 
+<br>
 
 ## 📜 디렉토리 구조 
 - 제가 작업한 디렉토리는 다음과 같습니다
@@ -49,16 +50,18 @@
     |       |       |-- InputView.java              - 콘솔에서 사용자의 input을 받기
     |       |       `-- OutputView.java             - 콘솔에서 사용자에게 output을 보여주기
     |       `-- utils
-    |           |-- RandomUtils.java
+    |           |-- RandomUtils.java                - Car의 전진/멈춤을 판별하는 난수 생성에 사용
     |           `-- exception
-    |               |-- InputValidation.java
-    |               `-- UserInputException.java
+    |               |-- InputValidation.java        - 사용자가 알맞은 input을 입력했는지 검증
+    |               `-- UserInputException.java     - 사용자가 틀린 input을 입력했을 때 발생시키는 예외
     `-- test
         `-- java
             `-- empty.txt
 
 ```    
     
+<br>
+
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
