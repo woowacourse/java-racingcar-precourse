@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Application {
 	private static final String INPUT_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+	private static final int INPUT_MAX_LENGTH = 5; 
 	private static final String ERROR_NAME_MESSAGE = "[ERROR] 5자초과에 이름은 가질수없으므로 삭제됩니다";
 	private static final String INPUT_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 	private static final String ERROR_INPUT_COUNT_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	private static final String GAME_START_MESSAGE = "\n실행 결과.";
+	private static final String RESULT_MESSAGE = "최종 우승자: ";
 	
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
@@ -47,7 +49,7 @@ public class Application {
 	}
 
 	public static Boolean checkLength(String inputCar) {
-		if (inputCar.length() <= 5) {
+		if (inputCar.length() <= INPUT_MAX_LENGTH) {
 			return true;
 		}
 		System.out.println(ERROR_NAME_MESSAGE);
@@ -85,7 +87,7 @@ public class Application {
 			System.out.println();
 		}
 		
-		
+		resultGame(cars);
 	}
 
 	public static void moveCar(Car[] cars) {
@@ -93,5 +95,30 @@ public class Application {
 			cars[carsCount].move();
 			cars[carsCount].statusPrint();
 		}
+	}
+	
+	public static void resultGame(Car[] cars)
+	{
+		int topPosition =0;
+		String resultMessage = "";
+		for (int carsCount = 0; carsCount < cars.length; carsCount++) {
+			if(topPosition < cars[carsCount].getPosition())
+			{
+				topPosition = cars[carsCount].getPosition();
+				resultMessage = cars[carsCount].getName();
+			}
+			else if(topPosition == cars[carsCount].getPosition())
+			{
+				resultMessage = resultMessage + ", " + cars[carsCount].getName();
+			}
+		}
+		
+		System.out.println(RESULT_MESSAGE + " " + resultMessage);
+	}
+	
+	public static String result()
+	{
+		
+		return "";
 	}
 }
