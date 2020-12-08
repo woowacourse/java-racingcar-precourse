@@ -10,10 +10,10 @@ public class AttemptNumberInput implements Input<Integer> {
 
     private static final String INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 
-    private Scanner scanner;
+    private final Scanner scanner;
     private String attemptNumber;
 
-    public AttemptNumberInput(Scanner scanner) {
+    public AttemptNumberInput(final Scanner scanner) {
         this.scanner = scanner;
     }
 

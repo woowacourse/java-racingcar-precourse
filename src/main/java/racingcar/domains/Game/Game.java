@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class Game {
     private static final String EXECUTION_RESULT_MESSAGE = "\n실행 결과";
 
-    private Scanner scanner;
+    private final Scanner scanner;
     private Cars cars;
     private List<String> carNames;
     private Integer attemptNumber;
 
-    public Game(Scanner scanner) {
+    public Game(final Scanner scanner) {
         this.scanner = scanner;
     }
 
