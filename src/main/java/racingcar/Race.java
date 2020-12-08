@@ -25,13 +25,13 @@ public class Race {
         System.out.println(name + " : " + movement);
     }
 
-    public void movementCheck(Car car) {
+    private void movementCheck(Car car) {
         if (moveForward()) {
             car.setPosition();
         }
     }
 
-    public boolean moveForward() {
+    private boolean moveForward() {
         int conditionNumber = RandomUtils.nextInt(0, 9);
         return conditionNumber > 3;
     }

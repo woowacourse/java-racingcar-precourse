@@ -21,7 +21,7 @@ public class Game {
         this.startGame(scanner);
     }
 
-    public void startGame(Scanner scanner) {
+    private void startGame(Scanner scanner) {
         System.out.println(START_MESSAGE);
         new Player().setPlayer(scanner);
         this.cars = Player.getCars();
@@ -32,7 +32,7 @@ public class Game {
         playGame();
     }
 
-    public void setTrial(Scanner scanner) {
+    private void setTrial(Scanner scanner) {
         String input = scanner.nextLine();
         try {
             new Errors().trialValidation(input);
@@ -42,12 +42,12 @@ public class Game {
         this.trial = Integer.parseInt(input);
     }
 
-    public void playGame() {
+    private void playGame() {
         playRace();
         finishGame();
     }
 
-    public void playRace() {
+    private void playRace() {
         System.out.println(RESULT_MESSAGE);
 
         for (int i=0; i<trial; i++) {
@@ -58,7 +58,7 @@ public class Game {
         }
     }
 
-    public void finishGame() {
+    private void finishGame() {
         race.findMaximum(cars);
         List<String> winner = race.getWinner(cars);
         String winners = String.join(", ", winner);
