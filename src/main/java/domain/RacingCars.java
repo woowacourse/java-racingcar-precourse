@@ -14,7 +14,7 @@ public class RacingCars {
     private static final String SEPARATOR = ",";
     private static final int UNAVAILABLE_CAR_NUMBER = 1;
 
-    List<Car> racingCarList = new ArrayList<>();
+    private List<Car> racingCarList = new ArrayList<>();
 
     public RacingCars(String carNames) {
         for (String carName : namesToNameList(carNames)) {

@@ -1,12 +1,15 @@
 package domain;
 
+import java.util.List;
+
 public class Referee {
     private int maxPosition;
 
-    public void calculateMaxPosition(RacingCars racingCars) {
-        for (Car car : racingCars.getCarList()) {
+    public int calculateMaxPosition(List<Car> cars) {
+        for (Car car : cars) {
             setMaxPosition(car);
         }
+        return maxPosition;
     }
 
     private void setMaxPosition(Car car) {
@@ -19,9 +22,9 @@ public class Referee {
         return carPosition > maxPosition;
     }
 
-    public RaceWinner setWinner(RacingCars racingCars) {
+    public RaceWinner setWinner(List<Car> cars) {
         RaceWinner raceWinner = new RaceWinner();
-        for (Car car : racingCars.getCarList()) {
+        for (Car car : cars) {
             chooseWinner(raceWinner, car);
         }
         return raceWinner;

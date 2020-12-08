@@ -43,8 +43,8 @@ public class RacingGame {
 
     public void awardGame() {
         Referee referee = new Referee();
-        referee.calculateMaxPosition(racingCars);
+        referee.calculateMaxPosition(racingCars.getCarList());
 
-        WinnerOutputView.printWinner(referee.setWinner(racingCars));
+        WinnerOutputView.printWinner(referee.setWinner(racingCars.getCarList()));
     }
 }
