@@ -28,7 +28,7 @@ public class Game {
 
         System.out.println("시도할 회수는 몇회인가요?");
         while (tryCnt < 0) {
-            enterRound(scanner);
+            enterTryCnt(scanner);
         }
     }
 
@@ -51,7 +51,7 @@ public class Game {
         }
     }
 
-    private static void enterRound(Scanner scanner) {
+    private static void enterTryCnt(Scanner scanner) {
         try {
             String input = scanner.nextLine();
             tryCnt = Integer.parseInt(input);
