@@ -24,7 +24,7 @@ class WinnerCheckerTests {
 
     @ParameterizedTest
     @MethodSource("positionArguments")
-    public void test(List<Integer> positions, int winnerCount) {
+    public void 정답과_우승자_수_같으면_성공(List<Integer> positions, int winnerCount) {
         String[] carNameSamples = {"a", "b", "c", "d", "e", "f", "g"};
         List<Car> carList = new ArrayList<>();
         for (int i = 0; i < positions.size(); i++) {
