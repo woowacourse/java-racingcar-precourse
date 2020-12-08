@@ -4,6 +4,8 @@ import racingcar.domain.AttemptNumber;
 import racingcar.domain.Cars;
 import racingcar.domain.ForwardingChecker;
 import racingcar.domain.WinnerChecker;
+import racingcar.utils.CarNamesConverter;
+import racingcar.validator.CarNamesInputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -26,7 +28,9 @@ public class RacingCarController {
     private boolean isValidRequestCarNames() {
         try {
             OutputView.printRequestCarNamesMessage();
-            List<String> carNames = inputView.inputCarNames();
+            String carNamesInput = inputView.inputCarNames();
+            CarNamesInputValidator.validate(carNamesInput);
+            List<String> carNames = CarNamesConverter.convert(carNamesInput);
             this.cars = Cars.generate(carNames);
         } catch (Exception e) {
             OutputView.printErrorMessage(e);
