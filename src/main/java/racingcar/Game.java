@@ -47,7 +47,7 @@ public class Game {
         System.out.println("실행결과");
         for (int i = 0; i < numberOfTry; i++) {
             for (Car car : cars) {
-            car.goOrStop();
+                car.goOrStop();
             }
             output = new Output(cars);
             output.printResult();

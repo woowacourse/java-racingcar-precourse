@@ -14,7 +14,7 @@ public class Output {
     }
     
     public void printResult(){
-    	for (Car car : cars) {
+        for (Car car : cars) {
             String carName = car.getName();
             int carPosition = car.getPosition();
             System.out.print(carName + " : ");
@@ -23,7 +23,7 @@ public class Output {
             }
             System.out.println();
         }
-    	System.out.println();
+        System.out.println();
     }
     public void printFinalWinner() {
         ArrayList<Car> finalWinner = getFinalWinner();
@@ -41,10 +41,10 @@ public class Output {
     public ArrayList<Car> getFinalWinner() {
         ArrayList<Car> finalWinner = new ArrayList<Car>();
         int maxPosition = 0;
-    	for (Car car : cars) {
+        for (Car car : cars) {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
-    	for (Car car : cars) {
+        for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 finalWinner.add(car);
             }

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Input {
-	private static final String SPLIT_DELIMITER = ",";
+    private static final String SPLIT_DELIMITER = ",";
     private static final String BLANK_SPACE = "";
     private static final char NEGATIVE = '-';
 	
@@ -43,13 +43,13 @@ public class Input {
     public void checkCarNameLength(String[] carNames) {
         for (int i = 0; i < carNames.length; i++) {
             if (carNames[i].length() > 5) {
-            	throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
             }
         }
     }
     public void checkCarNameDuplicate(String[] carNames) {
         HashSet<String> name = new HashSet<String>();
-    	for (int i = 0; i < carNames.length; i++) {
+        for (int i = 0; i < carNames.length; i++) {
             name.add(carNames[i]);
         }
         if (name.size() != carNames.length) {
@@ -69,7 +69,7 @@ public class Input {
             if (!Character.isDigit(numberOfTry.charAt(i)) && (numberOfTry.charAt(i) != NEGATIVE)) {
                 throw new IllegalArgumentException(NON_NUMERIC_ERROR_MESSAGE);
             }
-    	}
+        }
     }
     public void checkNegativeNumber(int numberOfTry) {
         if (numberOfTry < 0) {
