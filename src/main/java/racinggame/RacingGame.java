@@ -23,7 +23,9 @@ public class RacingGame {
     public static RacingGame prepareRacingGame(Scanner scanner) {
         while (true) {
             try {
-                return new RacingGame(new RacingCars(InputView.inputCarNames(scanner)), new TotalRound(InputView.inputRoundNumber(scanner)));
+                RacingCars racingCars = new RacingCars(InputView.inputCarNames(scanner));
+                TotalRound totalRound = new TotalRound(InputView.inputRoundNumber(scanner));
+                return new RacingGame(racingCars, totalRound);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
