@@ -1,0 +1,77 @@
+/**
+ * InputView.java
+ * 입력과 출력이 섞인 로직을 담당하는 View 클래스
+ *
+ * @author Kimun Kim / kkm97351@gmail.com
+ */
+
+package racingcar.view;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class InputView {
+    private static final String REQUEST_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String REQUEST_TRY_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String ERROR_NONE_INPUT_VALUE = "입력값이 없습니다.";
+    private static final String ERROR_INVALID_INPUT_VALUE = "유효하지 않은 입력입니다.";
+
+    private static Scanner scanner;
+
+    public static void setScanner(Scanner scanner) {
+        InputView.scanner = scanner;
+    }
+
+    private static String deleteWhiteSpaces(String string) {
+        return string.replaceAll("\\s+", "");
+    }
+
+    private static String getInputWithMessage(String message) {
+        System.out.println(message);
+        try {
+            String rawString = deleteWhiteSpaces(scanner.nextLine());
+            isNotEmptyStringOrThrowException(rawString);
+            return rawString;
+        }catch (IllegalArgumentException e) {
+            OutputView.showErrorMessage(e);
+            return getInputWithMessage(message);
+        }
+    }
+
+    private static boolean isNotEmptyStringOrThrowException(String string) {
+        if (string.equals("")) {
+            throw new IllegalArgumentException(ERROR_NONE_INPUT_VALUE);
+        }
+        return true;
+    }
+
+    public static List<String> getCarNames() {
+        String rawString = getInputWithMessage(REQUEST_CAR_NAMES_MESSAGE);
+        return parseString(rawString);
+    }
+
+    private static List<String> parseString(String rawString) {
+        return new ArrayList<>(Arrays.asList(rawString.split(",")));
+    }
+
+    public static int getTryNumber() {
+        String rawString = getInputWithMessage(REQUEST_TRY_NUMBER_MESSAGE);
+        try {
+            return parseIntOrThrowException(rawString);
+        } catch (IllegalArgumentException e) {
+            OutputView.showErrorMessage(e);
+            return getTryNumber();
+        }
+    }
+
+    private static int parseIntOrThrowException(String string) {
+        try {
+            return Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ERROR_INVALID_INPUT_VALUE);
+        }
+    }
+
+}

@@ -1,156 +1,121 @@
-# 미션 - 자동차 경주 게임
+# 우아한테크코스 3기 프리코스 - 자동차 경주 게임
 
-## 🚀 기능 요구사항
-- 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
-- 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
-- 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
-- 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-- 전진하는 조건은 0에서 9 사이에서 random 값을 구한 후 random 값이 4 이상일 경우 전진하고, 3 이하의 값이면 멈춘다.
-- 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
+## 💻 기능 구현 목록
 
-<br>
+#### :flags: 경주 시작 전
 
-## ✍🏻 입출력 요구사항
-### ⌨️ 입력
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
+
+- [x] 사용자로부터 경주에 참여할 자동차 이름을 받고, 쉼표 단위로 나눈다.
+  - [x] 예외: 공백입력
+  - [x] 예외: 이름이 5글자를 넘어가는 개체가 있는 경우
+  - [x] 예외: 이름이 중복되는 경우
+  - [x] 예외: 하나만 입력하는 경우
+- [x] 입력 값에 따라 자동차를 생성한다.
+- [x] 사용자로부터 시도 회수를 입력받는다.
+  - [x] 예외: 숫자가 아니거나 실수형식으로 입력한 경우
+  - [x] 예외: 지나치게 큰 값(int 범위 초과)을 입력한 경우
+  - [x] 예외: 0이하를 입력한 경우
+  - [x] 예외: 공백 입력
+- [x] *모든 예외는 [ERROR]로 시작하는 문구와 함께 출력한다.
+
+#### :car: 게임 중
+- [x] 사용자가 입력한 시도 회수만큼의 회차(Turn)가 진행된다.
+  - [x] 각 회차마다 자동차별로 난수를 생성해 4이상이면 전진, 이하면 움직이지 않는다. *RandomUtils를 이용한다.
+  - [x] 각 회차마다 자동차 이름과 위치를 출력한다.
+- [x] 모든 회차가 끝난 후 승자를 출력한다.
+------------
+## :newspaper: Update Log. Updated 2020.12.08.
+### :scroll: 프로젝트 구조 및 클래스 설명
+
 ```
-pobi,woni,jun
+raicingcar ── Application.java
+           │
+           ├─ controller ─── RaicingCarGame.java
+           │
+           ├─   domain   ─┬─ Car.java
+           │              ├  CarDTO.java 
+           │              ├  Cars.java 
+           │              ├  DecisionMaker.java
+           │              ├  Turn.java
+           │              └  Winners.java
+           │
+           └     view    ─┬─ InputView.java
+                          └  OutputView.java
 ```
-- 시도할 회수
-```
-5
-```
+----------------------
+##### Application
+- 프로그램 실행 전, 한 번의 게임을 위해 필요한 객체들을 생성하고 게임을 생성합니다.
 
-### 🖥 출력
-- 각 차수별 실행 결과
-```
-pobi : --
-woni : ----
-jun : ---
-```
-- 단독 우승자 안내 문구
-```
-최종 우승자: pobi
-```
-- 공동 우승자 안내 문구
-```
-최종 우승자: pobi, jun
-```
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
-```
-[ERROR] 시도 횟수는 숫자여야 한다.
-```
+----------------------
+### controller 패키지
 
-### 💻 프로그래밍 실행 결과 예시
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
 
-실행 결과
-pobi : -
-woni : 
-jun : -
+##### RaicingCarGame
+- 게임 진행 중 전반적인 로직을 담당하는 Controller입니다.
 
-pobi : --
-woni : -
-jun : --
+----------------------
+### domain 패키지
 
-pobi : ---
-woni : --
-jun : ---
 
-pobi : ----
-woni : ---
-jun : ----
+##### Car
+- 자동차 클래스입니다.
+- 사용자입력으로부터 생성 검증 로직을 가집니다.
+- *move()* 메소드를 통해 자신의 *position*을 변화시킵니다.
 
-pobi : -----
-woni : ----
-jun : -----
+##### Cars
+- *Car* 객체들을 가지는 일급컬렉션입니다.
+- 사용자입력으로부터 생성 검증 로직을 가집니다.
+- *Car* 객체들에게 일괄적으로 (확률적으로)전진하라는 메시지를 전달합니다.
 
-최종 우승자: pobi, jun
-```
+##### CarDTO
+- 레이어간 정보 전송을 위한 DTO클래스입니다.
+- 필요 최소한의 정보와 메소드를 담습니다.
 
-<br>
+##### DecisionMaker
+- *Car* 객체는 확률적으로 움직이는데, 이 때 *Car* 객체는 전진 여부를 판단하는 로직을 *DecisionMaker*에 위임합니다.
 
-## 🎱 프로그래밍 요구사항
-- 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-  - 기본적으로 [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)을 원칙으로 한다.
-  - 단, 들여쓰기는 '2 spaces'가 아닌 '4 spaces'로 한다.
-- indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-  - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-  - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
-- 3항 연산자를 쓰지 않는다.
-- 함수(또는 메소드)가 한 가지 일만 하도록 최대한 작게 만들어라.
-- 프로그래밍 요구사항에서 별도로 변경 불가 안내가 없는 경우 파일 수정과 패키지 이동을 자유롭게 할 수 있다.
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 `[ERROR]` 로 시작해야 한다.
+##### Turn
+- 게임 회차(시도 회수)만큼 게임이 진행되도록 관리하는 클래스입니다.
+- 사용자입력으로부터 생성 검증 로직을 가집니다.
 
-### 추가된 요구사항
-- 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
-  - 함수(또는 메소드)가 한 가지 일만 잘 하도록 구현한다.
-- else 예약어를 쓰지 않는다.
-  - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
-  - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
+##### Winners
+- 우승자들을 가려냅니다.
 
-### 프로그래밍 요구사항 - Application
-- Application 클래스를 활용해 구현해야 한다.
-- Application의 패키지 구조와 구현은 변경하지 않는다.
-- `final Scanner scanner = new Scanner(System.in);`는 변경하지 않는다.
-- `// TODO 구현 진행` 이 후 부터 구현한다.
+----------------------
+### view패키지
 
-```java
-public class Application {
-    public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        // TODO 구현 진행
-    }
-}
-```
 
-### 프로그래밍 요구사항 - RandomUtils
-- RandomUtils 클래스를 활용해 랜덤 기능을 구현해야 한다.
-- RandomUtils의 패키지 구조와 구현은 변경하지 않는다.
+##### InputView
+- 입력과 출력이 섞인 UI 로직을 담당합니다.
+- 공백 입력과 같은 비교적 가벼운 예외 처리를 담당합니다.
 
-```java
-private static final Random RANDOM = new Random();
-    private RandomUtils() {
-    }
-    public static int nextInt(final int startInclusive, final int endInclusive) {
-    ...
-```
+##### OutputView
+- 출력 로직을 담당합니다.
 
-### 프로그래밍 요구사항 - Car 객체
-- 다음 Car 객체를 활용해 구현해야 한다.
-- Car 기본 생성자를 추가할 수 없다.
-- name, position 변수의 접근 제어자인 private을 변경할 수 없다.
-- 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
+----------------------
 
-```java
-public class Car {
-    private final String name;
-    private int position = 0;
+### :alarm_clock: 프로그램 Flow
 
-    public Car(String name) {
-        this.name = name;
-    }
+![KakaoTalk_20201208_223741480](https://user-images.githubusercontent.com/49346677/101490990-80038200-39a6-11eb-839b-1914795c4bf5.png)
 
-    // 추가 기능 구현
-}
-```
+- 게임이 시작되기 전, 유저로부터 적합한 자동차 이름 목록과 시도 회수를 받습니다.
+- 각각의 객체들이 생성 과정에서 자신에게 적합한 값이 넘어왔는지 스스로 검증을 합니다.
+- 객체들이 문제없이 생성된 경우, *Application*은 이 객체들을 *RaicingCarGame*으로 넘겨주며 게임을 실행토록 합니다.
 
-<br>
+![KakaoTalk_20201208_225011968](https://user-images.githubusercontent.com/49346677/101492022-c5747f00-39a7-11eb-97fb-6e4acc413c82.png)
 
-## 📈 진행 요구사항
-- 미션은 [java-racingcar-precourse 저장소](https://github.com/woowacourse/java-racingcar-precourse) 를 fork/clone해 시작한다.
-- 기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리해 추가한다.
-- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
-  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-- [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 절차를 따라 미션을 제출한다.
-  - [프리코스 과제 FAQ](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse/faq) 문서를 참고하여 진행할 수 있다.
+- 게임이 시작되고 난 후에 Controller 객체 *RaicingCarGame*은 *Turn*과 진행 상태를 주고 받으며 계속 진행할지를 판단합니다.
+- 진행중인 과정에서 *RaicingCarGame*은 *Cars*에게 매 회차마다 자동차들을 전진시키라는 메시지를 넘깁니다.
+- *Cars*는 *Car*객체들에게 일괄적으로 전진 메시지를 넘깁니다.
+- *Car*는 각각 *Decision Maker*에게 난수에 의한 전진 판단 여부를 위임, 판단 여부에 따라 전진하고 상태를 변화시킵니다.
+- *View* Layer까지 데이터를 전송하기 위해 *Cars*로부터 *CarDTO* 목록들을 받습니다. 이 때, *Car* 객체는 스스로 DTO 객체로 변환한 객체를 *Cars*에게 넘겨줍니다.
+- *View*는 *CarDTO* 목록들을 받아 출력합니다.
 
-<br>
+![KakaoTalk_20201208_223835461](https://user-images.githubusercontent.com/49346677/101490995-8134af00-39a6-11eb-93d1-dd63101a93c2.png)
 
-## 📝 License
+- *Turn* 객체에서 종료 값이 넘어오면 *RaicingCarGame*은 *Winners*에게 *Cars*객체를 넘깁니다.
+- *Winners*는 *Cars*에서 우승자를 추려 *Winners* 객체를 생성합니다.
+- 이후 *RaicingCarGame*는 *Winners*에게 우승자 명단을 받아와 *View*에게 넘겨주어 우승자 명단 출력을 요청합니다.
 
-This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+---------------------------------
+작성자 : 김기문(Kimun Kim, TributeToTheMoon)
