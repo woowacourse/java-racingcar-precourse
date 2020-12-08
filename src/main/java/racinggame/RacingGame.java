@@ -1,6 +1,7 @@
 package racinggame;
 
 import domain.RacingCars;
+import domain.Referee;
 import domain.TotalRound;
 import views.InputView;
 import views.MovementOutputView;
@@ -20,18 +21,16 @@ public class RacingGame {
     }
 
     public static RacingGame prepareRacingGame(Scanner scanner) {
-        RacingGame newGame = null;
-        try {
-            RacingCars racingCars = new RacingCars(InputView.inputCarNames(scanner));
-            String round = InputView.inputRoundNumber(scanner);
-            newGame = new RacingGame(racingCars, new TotalRound(round));
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+        while(true) {
+            try {
+                return new RacingGame(new RacingCars(InputView.inputCarNames(scanner)), new TotalRound(InputView.inputRoundNumber(scanner)));
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        return newGame;
     }
 
-    public void gamePlay() {
+    public void playGame() {
         System.out.println();
         System.out.println(RESULT);
         for (int round = 1; round <= totalRound.getTotalRound(); round++) {
@@ -40,10 +39,10 @@ public class RacingGame {
         }
     }
 
-    public void gameResult() {
+    public void awardGame() {
         Referee referee = new Referee();
-        referee.calculateMaxDistance(racingCars);
+        referee.calculateMaxPosition(racingCars);
 
-        WinnerOutputView.printWinner(referee.selectWinner(racingCars));
+        WinnerOutputView.printWinner(referee.setWinner(racingCars));
     }
 }

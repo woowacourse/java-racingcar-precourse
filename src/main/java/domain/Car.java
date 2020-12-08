@@ -2,6 +2,8 @@ package domain;
 
 public class Car {
     private static final int FOUR_TO_NINE_GO = 4;
+    private static final boolean GO = true;
+    private static final boolean STOP = false;
 
     private final Name name;
     private Position position;
@@ -11,11 +13,17 @@ public class Car {
         this.position = new Position();
     }
 
-    // 0~9의 랜덤한 숫자를 매개변수로 입력
-    public void moveCar(int randomNumber) {
-        if (randomNumber >= FOUR_TO_NINE_GO) {
+    public void moveCar(int randomNumber) { // 0과 9사이의 랜덤한 숫자를 받아 4이상이면 전진, 이하이면 정지
+         if(isMoveAvailable(randomNumber)) {
             this.position.movePosition();
         }
+    }
+
+    private boolean isMoveAvailable(int randomNumber) {
+        if (randomNumber >= FOUR_TO_NINE_GO) {
+            return GO;
+        }
+        return STOP;
     }
 
     public String getName() {
