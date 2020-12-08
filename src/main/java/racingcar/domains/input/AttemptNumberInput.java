@@ -1,5 +1,6 @@
 package racingcar.domains.input;
 
+import racingcar.domains.error.RacingCarGameException;
 import racingcar.domains.validate.Validator;
 import racingcar.domains.validate.Validators;
 
@@ -15,14 +16,14 @@ public class AttemptNumberInput implements Input<Integer> {
     }
 
     @Override
-    public Integer get() {
+    public Integer get() throws RacingCarGameException {
         attemptNumber = scanner.nextLine();
         isValid();
 
         return Integer.parseInt(attemptNumber);
     }
 
-    public void isValid() {
+    public void isValid() throws RacingCarGameException {
         Validator validator = Validators.getAttemptNumberInputValidator();
         validator.isValid(attemptNumber);
     }

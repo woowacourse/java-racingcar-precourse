@@ -1,5 +1,6 @@
 package racingcar.domains.input;
 
+import racingcar.domains.error.RacingCarGameException;
 import racingcar.domains.validate.Validator;
 import racingcar.domains.validate.Validators;
 
@@ -19,13 +20,13 @@ public class CarNamesInput implements Input<List<String>> {
     }
 
     @Override
-    public List<String> get() {
+    public List<String> get() throws RacingCarGameException {
         carNames = scanner.nextLine();
         isValid();
         return toList();
     }
 
-    private void isValid() {
+    private void isValid() throws RacingCarGameException {
         Validator validator = Validators.getCarNameInputValidator();
         validator.isValid(carNames);
     }
