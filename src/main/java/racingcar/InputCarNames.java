@@ -13,7 +13,6 @@ public class InputCarNames {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNamesInputString;
         String[] carNames;
-
         try {
             carNamesInputString = scanner.nextLine();
             carNames = carNamesInputString.split(",\\s*");
@@ -25,32 +24,26 @@ public class InputCarNames {
             System.out.println("[ERROR] 경주할 자동차가 존재하지 않습니다.");
             throw new IllegalStateException();
         }
-        if (!validateCarNameLength(carNames)) {
-            throw new IllegalLengthException();
-        }
-        if (!validateCarNameDuplicate(carNames)) {
-            throw new IllegalDuplicateException();
-        }
+        validateCarNameLength(carNames);
+        validateCarNameDuplicate(carNames);
         return carNames;
     }
 
-    private static boolean validateCarNameLength(String[] carNames) {
+    private static void validateCarNameLength(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_NAME) {
-                return false;
+                throw new IllegalLengthException();
             }
         }
-        return true;
     }
 
-    private static boolean validateCarNameDuplicate(String[] carNames) {
+    private static void validateCarNameDuplicate(String[] carNames) {
         Arrays.sort(carNames);
 
         for (int i = 0; i < carNames.length - 1; i++) {
             if (carNames[i].equals(carNames[i + 1])) {
-                return false;
+                throw new IllegalDuplicateException();
             }
         }
-        return true;
     }
 }
