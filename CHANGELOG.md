@@ -6,6 +6,17 @@
 ---
 # Car Racing Game Project
 
+## [0.4.0] (2020-12-08)
+
+feat<IRacingGamePinter>: Upload IRacingGamePinter interface
+
+    Post upload 2020-12-08 - 22:06
+        - IRacingGamePinter.java
+          
+    Upload IRacingGamePinter interface
+        This interface prints all the situations in this game
+---
+
 ## [0.3.0] (2020-12-08)
 
 feat<IRacingGamePlayers>: Upload IRacingGamePlayers interface
