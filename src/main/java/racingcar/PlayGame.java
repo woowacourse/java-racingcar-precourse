@@ -23,6 +23,7 @@ public class PlayGame {
         inputRacerName(scanner);
         inputAttemptNumber(scanner);
         splitCommaInString(scanner);
+
         implementGetPrintCarPositionToMinus();
     }
     public void inputRacerName(Scanner scanner){
@@ -52,12 +53,13 @@ public class PlayGame {
         }
     }
     public void printCarPositionToMinus(Car tmpCarObjectParameter){
+        System.out.println();
         tmpCarObjectParameter.decidePositionNumber();
         System.out.print(tmpCarObjectParameter.getName()+" : ");
         for(int i=0;i<tmpCarObjectParameter.getPosition();i++){
             System.out.print("-");
         }
-        System.out.println();
+
     }
     public void getPrintCarPositionToMinus(){
         for(int i=0;i<carObject.length;i++){
@@ -72,6 +74,7 @@ public class PlayGame {
         printWinnerName();
     }
     public void printWinnerName(){
+        System.out.println();
         System.out.print(FINAL_WINNER_NAME);
         Arrays.sort(carObject);
         int winnerNumber=computeRelatedCar.getWinnerNumber(carObject);
