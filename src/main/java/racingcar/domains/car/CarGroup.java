@@ -7,19 +7,19 @@ import racingcar.domains.output.Output;
 import java.util.Arrays;
 import java.util.List;
 
-public class Cars {
+public class CarGroup {
     private List<Car> cars;
 
-    private Cars(List<Car> cars) {
+    private CarGroup(List<Car> cars) {
         this.cars = cars;
     }
 
-    public static Cars getInstanceWithCarNames(List<String> carNames) {
+    public static CarGroup getInstanceWithCarNames(List<String> carNames) {
         Car[] cars = carNames.stream()
                 .map(Car::new)
                 .toArray(Car[]::new);
 
-        return new Cars(Arrays.asList(cars));
+        return new CarGroup(Arrays.asList(cars));
     }
 
     public Output getGameResult() {

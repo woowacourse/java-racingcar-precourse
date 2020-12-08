@@ -1,6 +1,6 @@
 package racingcar.domains.Game;
 
-import racingcar.domains.car.Cars;
+import racingcar.domains.car.CarGroup;
 import racingcar.domains.error.RacingCarGameException;
 import racingcar.domains.input.AttemptNumberInput;
 import racingcar.domains.input.CarNamesInput;
@@ -12,7 +12,7 @@ public class Game {
     private static final String EXECUTION_RESULT_MESSAGE = "\n실행 결과";
 
     private final Scanner scanner;
-    private Cars cars;
+    private CarGroup carGroup;
     private List<String> carNames;
     private Integer attemptNumber;
 
@@ -45,18 +45,18 @@ public class Game {
     }
 
     private void getCars() {
-        cars = Cars.getInstanceWithCarNames(carNames);
+        carGroup = CarGroup.getInstanceWithCarNames(carNames);
     }
 
     private void moveCarsAndPrint() {
         System.out.println(EXECUTION_RESULT_MESSAGE);
         for (int i = 0; i < attemptNumber; i++) {
-            cars.move();
-            cars.getGameStatus().print();
+            carGroup.move();
+            carGroup.getGameStatus().print();
         }
     }
 
     private void printResult() {
-        cars.getGameResult().print();
+        carGroup.getGameResult().print();
     }
 }
