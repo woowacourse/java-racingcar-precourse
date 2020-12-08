@@ -14,6 +14,10 @@ public class Referee {
 
     }
 
+    private List<String> getWinners() {
+        return this.winners;
+    }
+
     private void saveAllWinner(Cars cars) {
         int maxScore = cars.getMaxScore();
         int carNum = cars.getCarNum();
