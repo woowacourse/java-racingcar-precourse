@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -8,11 +10,23 @@ public class Car {
         this.name = name;
     }
 
-
     // 異붽� 湲곕뒫 援ы쁽
-    
+
     public void statusPrint()
     {
-    	System.out.println(name);
+    	String range = "";
+    	for(int i = 0; i<position;i++)
+    	{
+    		range+="-";
+    	}
+    	System.out.println(name + " : " + range);
+    }
+    
+    public void move()
+    {
+    	if(RandomUtils.nextInt(0, 9) >= 4)
+    	{
+    		position++;
+    	}
     }
 }
