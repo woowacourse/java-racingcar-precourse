@@ -3,6 +3,7 @@ package racingcar;
 import static racingcar.InputCarNames.getCarNames;
 import static racingcar.InputTryCount.getTryCount;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Application {
@@ -18,9 +19,11 @@ public class Application {
             startGame(racingCars);
             tryCount--;
         }
+        ArrayList<String> winners = getWinners(racingCars);
+        System.out.print("최종 우승자: " + String.join(", ", winners));
     }
 
-    public static Car[] makeCars(String[] carNames) {
+    private static Car[] makeCars(String[] carNames) {
         int carCount = carNames.length;
         Car[] racingCars = new Car[carCount];
         for (int i = 0; i < carCount; i++) {
@@ -29,11 +32,30 @@ public class Application {
         return racingCars;
     }
 
-    public static void startGame(Car[] racingCars) {
+    private static void startGame(Car[] racingCars) {
         for (Car car : racingCars) {
             car.ride();
             System.out.printf("%s : %s\n", car.getName(), "-".repeat(car.getPosition()));
         }
         System.out.println();
+    }
+
+    private static ArrayList<String> getWinners(Car[] racingCars) {
+        ArrayList<String> winners = new ArrayList<>();
+        int max = 0;
+
+        for (Car car : racingCars) {
+            if (max < car.getPosition()) {
+                // first car is included
+                winners.clear();
+                winners.add(car.getName());
+                max = car.getPosition();
+                continue;
+            }
+            if (max == car.getPosition()) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 }
