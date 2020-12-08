@@ -13,6 +13,8 @@ public class RacingCars {
     private static final int RANDOM_MINIMUM = 0;
     private static final int RANDOM_MAXIMUM = 9;
     private static final String SEPARATOR = ",";
+    private static final int UNAVAILABLE_CAR_NUMBER = 1;
+    private static final int CAR_NAME_LAST_INDEX = 1;
     private static final char SEPARATOR_CHAR = ',';
 
     List<Car> racingCarList = new ArrayList<>();
@@ -26,7 +28,7 @@ public class RacingCars {
 
     public void moveAllCar() {
         for (Car car : racingCarList) {
-            car.moveCar(RandomUtils.nextInt(RANDOM_MINIMUM,RANDOM_MAXIMUM));
+            car.moveCar(RandomUtils.nextInt(RANDOM_MINIMUM, RANDOM_MAXIMUM));
         }
     }
 
@@ -39,13 +41,13 @@ public class RacingCars {
     }
 
     private static void isSingleCar(List<String> carNameList) {
-        if (carNameList.size() == 1) {
+        if (carNameList.size() == UNAVAILABLE_CAR_NUMBER) {
             throw new IllegalArgumentException(SINGLE_CAR_UNAVAILABLE);
         }
     }
 
     private static void isCommaLast(String carNames) {
-        if (carNames.charAt(carNames.length()-1) == SEPARATOR_CHAR) {
+        if (carNames.charAt(carNames.length() - CAR_NAME_LAST_INDEX) == SEPARATOR_CHAR) {
             throw new IllegalArgumentException(COMMA_LAST_UNAVAILABLE);
         }
     }

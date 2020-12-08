@@ -21,7 +21,7 @@ public class RacingGame {
     }
 
     public static RacingGame prepareRacingGame(Scanner scanner) {
-        while(true) {
+        while (true) {
             try {
                 return new RacingGame(new RacingCars(InputView.inputCarNames(scanner)), new TotalRound(InputView.inputRoundNumber(scanner)));
             } catch (IllegalArgumentException e) {
