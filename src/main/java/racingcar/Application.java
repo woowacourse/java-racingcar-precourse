@@ -11,6 +11,8 @@ public class Application {
 	private static final String GAME_START_MESSAGE = "\n½ÇÇà °á°ú.";
 	private static final String RESULT_MESSAGE = "ÃÖÁ¾ ¿ì½ÂÀÚ: ";
 	
+	static int topPosition = 0;
+	
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
 		// TODO êµ¬í˜„ ì§„í–‰
@@ -99,26 +101,31 @@ public class Application {
 	
 	public static void resultGame(Car[] cars)
 	{
-		int topPosition =0;
+		topPosition =0;
 		String resultMessage = "";
+		
 		for (int carsCount = 0; carsCount < cars.length; carsCount++) {
-			if(topPosition < cars[carsCount].getPosition())
-			{
-				topPosition = cars[carsCount].getPosition();
-				resultMessage = cars[carsCount].getName();
-			}
-			else if(topPosition == cars[carsCount].getPosition())
-			{
-				resultMessage = resultMessage + ", " + cars[carsCount].getName();
-			}
+			resultMessage = winCheck(cars[carsCount], resultMessage);
 		}
 		
+		topPosition =0;
 		System.out.println(RESULT_MESSAGE + " " + resultMessage);
 	}
 	
-	public static String result()
+	public static String winCheck(Car car, String resultMessage)
 	{
 		
-		return "";
+		if(topPosition < car.getPosition())
+		{
+			topPosition = car.getPosition();
+			return car.getName();
+		}
+		
+		if(topPosition == car.getPosition())
+		{
+			return resultMessage + ", " + car.getName();
+		}
+		
+		return resultMessage;
 	}
 }
