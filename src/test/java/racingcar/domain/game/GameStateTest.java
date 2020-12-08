@@ -42,9 +42,9 @@ class GameStateTest {
 
     @DisplayName("경주 시도 횟수 차감을 요청하면, 경주 시도 횟수가 1만큼 줄어든다")
     @Test
-    void decreaseRacingTryCounts_경주_시도_횟수가_1만큼_줄어든다() {
+    void decreaseRacingTryCount_경주_시도_횟수가_1만큼_줄어든다() {
         GameState gameState = GameState.initiate(1);
-        gameState.decreaseRacingTryCounts();
+        gameState.decreaseRacingTryCount();
 
         boolean isEnd = gameState.isEnd();
 
@@ -53,11 +53,11 @@ class GameStateTest {
 
     @DisplayName("잔여 시도 횟수가 없을 때, 경주 시도 횟수 차감을 요청하면 예외 발생")
     @Test
-    void decreaseRacingTryCounts_남은_경주_시도_횟수가_없으면_예외가_발생한다() {
+    void decreaseRacingTryCount_남은_경주_시도_횟수가_없으면_예외가_발생한다() {
         GameState gameState = GameState.initiate(1);
-        gameState.decreaseRacingTryCounts();
+        gameState.decreaseRacingTryCount();
 
-        assertThatCode(gameState::decreaseRacingTryCounts)
+        assertThatCode(gameState::decreaseRacingTryCount)
                 .isInstanceOf(CannotPlayGameException.class)
                 .hasMessage("[ERROR] 시도 횟수를 초과했기 때문에 게임을 진행할 수 없습니다.");
     }

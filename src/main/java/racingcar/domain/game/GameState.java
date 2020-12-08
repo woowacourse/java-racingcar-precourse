@@ -30,7 +30,7 @@ public class GameState {
         }
     }
 
-    public void decreaseRacingTryCounts() {
+    public void decreaseRacingTryCount() {
         if (isEnd()) {
             throw new CannotPlayGameException();
         }
