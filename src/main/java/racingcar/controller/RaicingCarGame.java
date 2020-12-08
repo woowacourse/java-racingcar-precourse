@@ -8,8 +8,8 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
-import racingcar.domain.Ranking;
 import racingcar.domain.Turn;
+import racingcar.domain.Winners;
 import racingcar.view.OutputView;
 
 public class RaicingCarGame {
@@ -27,12 +27,13 @@ public class RaicingCarGame {
 
     public void play() {
         OutputView.showResultMessage();
-        // 게임 실행 로직
         while (!turn.isEnd()) {
             cars.moveCars();
             OutputView.showCarsPosition(cars.exportAsListOfDTO());
             turn.turnOver();
         }
-        OutputView.showWinners(Ranking.from(cars).getWinner());
+
+        Winners winners = Winners.of(cars);
+        OutputView.showWinners(winners.getListOfNames());
     }
 }
