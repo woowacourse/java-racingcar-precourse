@@ -5,6 +5,7 @@ import racingcar.View.OutputView;
 import utils.RandomUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
@@ -13,7 +14,7 @@ public class Game {
     private final int MAX_RANDOM_NUMBER = 9;
     private final InputView inputView;
     private final OutputView outputView;
-    private final ArrayList<Car> cars;
+    private final List<Car> cars;
     private ScoreBoard scoreBoard;
     private int round;
 
