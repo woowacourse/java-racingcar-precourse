@@ -1,5 +1,9 @@
 package racingcar;
 
+import exceptions.Errors;
+import exceptions.RacingException;
+
+import java.lang.management.PlatformLoggingMXBean;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,6 +19,7 @@ public class Game {
     private final String WINNER_MESSAGE = "최종 우승자: ";
 
     private int trial;
+    private List<String> names;
     private List<Car> cars;
     private final List<String> winner = new ArrayList<>();
     private int maxScore = 0;
@@ -24,27 +29,22 @@ public class Game {
     }
 
     public void startGame(Scanner scanner) {
-        setPlayer(scanner);
+        System.out.println(START_MESSAGE);
+        new Player(scanner);
+        System.out.println(TRIAL_MESSAGE);
         setTrial(scanner);
         play();
     }
 
-    public void setPlayer(Scanner scanner) {
-        System.out.println(START_MESSAGE);
-        String temp = scanner.nextLine();
-        this.cars = Arrays.stream(temp.split(","))
-                .map(String::trim)
-                .map(Car::new)
-                .collect(Collectors.toList());
-        for (Car car : cars) {
-            System.out.println(car.getName());
-        }
-    }
 
     public void setTrial(Scanner scanner) {
-        System.out.println(TRIAL_MESSAGE);
-        trial = scanner.nextInt();
-        System.out.println(trial);
+        String input = scanner.nextLine();
+        try {
+            new Errors().trialValidation(input);
+        } catch (RacingException e) {
+            setTrial(scanner);
+        }
+        this.trial = Integer.parseInt(input);
     }
 
     public void play() {
@@ -58,7 +58,7 @@ public class Game {
         findMaximum();
         System.out.println(maxScore);
         getWinner();
-        String winners = String.join(",", winner);
+        String winners = String.join(", ", winner);
         System.out.println(WINNER_MESSAGE + winners);
     }
 
