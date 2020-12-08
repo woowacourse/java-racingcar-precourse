@@ -24,13 +24,7 @@ public class GameController {
     public static void start(Scanner scanner) {
         setCarNames(scanner); //자동차 이름을 입력받음
         setCount(scanner); //시도할 횟수를 입력받음
-        System.out.println("실행결과");
-        for (int i = 0; i < count; i++) {
-            cars.forEach(Car::moveCar);
-            printDistance();
-            System.out.println();
-        }
-        printResult();
+        printResult(); //결과를 출력
     }
 
     /**
@@ -42,7 +36,7 @@ public class GameController {
         List<String> names;
         do {
             status = SUCCESS;
-            System.out.println("경주할 자동차 이름을  입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             names = Arrays.stream(scanner.nextLine().split(","))
                     .map(String::trim)
                     .collect(Collectors.toList());
@@ -110,16 +104,35 @@ public class GameController {
     }
 
     /**
-     * 우승자를 출력하는 메소드
+     * 입력이 끝난 후 결과를 출력하는 메소드
      */
     public static void printResult() {
+        System.out.println("실행 결과");
+        for (int i = 0; i < count; i++) {
+            cars.forEach(Car::moveCar);
+            printDistance();
+            System.out.println();
+        }
+        printWinner();
+    }
+
+    /**
+     * 우승자를 출력하는 메소드
+     */
+    public static void printWinner() {
         String candidates = cars.stream()
                 .filter(car -> car.isMaxPosition(maxDistance))
                 .map(Car::getName)
                 .collect(joining(", "));
-        if (checkWinner(candidates)) System.out.println(candidates + "가 최종 우승했습니다.");
+        if (checkWinner(candidates)) System.out.println("최종 우승자: " + candidates);
     }
 
+    /**
+     * 우승자 여부를 반환하는 메소드
+     *
+     * @param candidates
+     * @return
+     */
     public static boolean checkWinner(String candidates) {
         if (!candidates.isEmpty()) return true;
         System.out.println("모든 차량이 이동하지 않아서 우승자가 없습니다.");
