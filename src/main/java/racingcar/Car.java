@@ -2,7 +2,7 @@ package racingcar;
 
 import utils.RandomUtils;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     public static final int MINIMUM = 0;
     public static final int MAXIMUM = 9;
     public static final int CRITERION = 4;

@@ -20,7 +20,7 @@ public class InputService {
                 checkCarNames(carNames);
                 break;
             } catch (Exception e) {
-                System.out.println("[ERROR]"+e.getMessage());
+                System.out.println("[ERROR]" + e.getMessage());
             }
         }
         return carNames;
@@ -46,7 +46,7 @@ public class InputService {
                 totalPhaseNumber = checkTotalPhaseNumber(input);
                 break;
             } catch (Exception e) {
-                System.out.println("[ERROR]"+e.getMessage());
+                System.out.println("[ERROR]" + e.getMessage());
             }
         }
         return totalPhaseNumber;

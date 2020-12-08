@@ -2,6 +2,7 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import racingcar.Car;
 
 public class GameService {
@@ -53,9 +54,9 @@ public class GameService {
         List<Car> winners = findWinners();
 
         System.out.print("최종 우승자: ");
-        for (int i=0; i < winners.size()-1; i++) {
+        for (int i = 0; i < winners.size() - 1; i++) {
             System.out.print(winners.get(i).getName() + ",");
         }
-        System.out.print(winners.get(winners.size()-1).getName());
+        System.out.print(winners.get(winners.size() - 1).getName());
     }
 }
