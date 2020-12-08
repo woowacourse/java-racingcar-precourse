@@ -3,6 +3,7 @@ package racingcar.domain;
 public class Car {
 
     private final String name;
+    private static final String MINUS = ",";
     private int position = 0;
 
     public Car(String name) {
@@ -29,7 +30,7 @@ public class Car {
     public String toString() {
         String distanceSign = "";
         for (int i = 0; i < position; i++) {
-            distanceSign += "-";
+            distanceSign += MINUS;
         }
         return name + " : " + distanceSign;
     }

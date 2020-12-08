@@ -12,6 +12,8 @@ import racingcar.domain.Car;
 public class InputView {
 
     private static final int MAX_NAME_LENGTH = 5;
+    private static final char PLUS = '+';
+    private static final char MINUS = '-';
     private static final String RACING_CAR_NAME_REQUEST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String RACING_CAR_NAME_SEPARATOR = ",";
     private static final String RACING_MOVE_COUNT = "시도할 회수는 몇회인가요?";
@@ -21,6 +23,7 @@ public class InputView {
     private static final String UNDER_ZERO_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 0보다 커야합니다.";
     private static final String SPECIAL_CHARACTER_ERROR_MESSAGE = "[ERROR] 자동차 이름에 특수 문자는 허용되지 않습니다.";
     private static final String DUPLICATED_CAR_NAME_ERROR_MESSAGE = "[ERROR] 중복된 자동차 이름이 존재합니다.";
+    private static final String CAR_NAME_PATTERN = "[0-9|a-z |A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힝 | ,]*";
     private static Scanner scanner;
 
     public InputView(Scanner scanner) {
@@ -65,8 +68,9 @@ public class InputView {
         }
     }
 
+
     private void validateContainSpecialCharacters(String name) {
-        if (!Pattern.matches("[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힝 | ,]*", name)) {
+        if (!Pattern.matches(CAR_NAME_PATTERN, name)) {
             throw new IllegalArgumentException(SPECIAL_CHARACTER_ERROR_MESSAGE);
         }
     }
@@ -112,7 +116,7 @@ public class InputView {
 
     private void validateNumber(String input) {
         for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == '-' || input.charAt(i) == '+') {
+            if (input.charAt(i) == PLUS || input.charAt(i) == MINUS) {
                 continue;
             }
             if (!Character.isDigit(input.charAt(i))) {
