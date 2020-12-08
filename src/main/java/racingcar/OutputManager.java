@@ -9,6 +9,7 @@ public class OutputManager {
     private static final String OUTPUT_EACH_MOVING_RESULT_COLON = " : ";
     private static final String OUTPUT_EACH_MOVING_RESULT_BAR = "-";
     private static final String OUTPUT_FINAL_WINNER_MESSAGE = "최종 우승자: ";
+    private static final String OUTPUT_FINAL_WINNER_COMMA = ", ";
 
     public void printInputCarNamesMessage() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
@@ -29,8 +30,11 @@ public class OutputManager {
 
     public void printOutputFinalWinner(List<String> winnerNameList) {
         System.out.print(OUTPUT_FINAL_WINNER_MESSAGE);
-        for (String winnerName : winnerNameList) {
-            System.out.print(winnerName + " ");
+        for (int i = 0; i < winnerNameList.size(); i++) {
+            System.out.print(winnerNameList.get(i));
+            if (i < winnerNameList.size() - 1) {
+                System.out.print(OUTPUT_FINAL_WINNER_COMMA);
+            }
         }
     }
 
