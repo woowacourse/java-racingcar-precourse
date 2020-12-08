@@ -6,6 +6,18 @@
 ---
 # Car Racing Game Project
 
+## [3.1.1] (2020-12-08)
+
+feat<GameController>: add call game start feature
+
+    Post update 2020-12-08 - 23:25
+        - GameController.java
+        
+    Add call game start feature
+    it just calls start feature in game class
+            
+---
+
 ## [3.1.0] (2020-12-08)
 
 feat<GameController>: add repeat reps input feature

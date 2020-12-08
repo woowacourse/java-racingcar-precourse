@@ -24,5 +24,6 @@ public class GameController implements IController {
 
     @Override
     public void run() {
+        game.start();
     }
 }
