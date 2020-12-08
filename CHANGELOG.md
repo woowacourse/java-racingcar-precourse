@@ -6,26 +6,24 @@
 ---
 # Car Racing Game Project
 
-## [1.3.0] (2020-12-08)
+## [3.0.0] (2020-12-08)
 
-feat<RacingGamePinter>: add print wrong reps input feature
+feat<GameController>: add repeat name input feature
 
-    Post update 2020-12-08 - 23:13
-        - RacingGamePinter.java
+    Post upload 2020-12-08 - 23:22
+        - GameController.java
         
-    Add print wrong reps input feature
-        
-        - RandomDiceRacingGame.java
-        
-    Add call that print feature
-        
-        - README.md
+    Add repeat name input feature
+    it repeats name input feature until it get validation of input
     
-    Add some more features in coding plan
-        - Controller : 이름 입력값이 적합할때까지 반복하는 기능
-        - Controller : 시도할 횟수 입력값이 적합할때까지 반복하는 기능
-        - Controller : 게임을 실행하는 기능
-    
+    Post update
+        - Application.java
+        
+    Application creates Controller and set it up
+
+### BREAKING CHANGE
+    Now we can actually input something in this game and it prints the result
+        
 ---
 
 ## [2.2.0] (2020-12-08)
