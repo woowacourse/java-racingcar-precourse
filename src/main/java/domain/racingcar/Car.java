@@ -7,7 +7,7 @@ import java.util.List;
  * 자동차의 정보인 이름과 위치를 가진 객체
  *
  * @author 조연우
- * @version 1.0 2020년 12월 7일
+ * @version 1.0 2020년 12월 8일
  */
 public class Car {
     private static final int MINIMUM_NUMBER_TO_MOVE = 4;
@@ -21,9 +21,13 @@ public class Car {
 
     // 추가 기능 구현
     public void increasePosition(final Integer randomNumber) {
-        if (randomNumber >= MINIMUM_NUMBER_TO_MOVE) {
+        if (isGreaterThanMoveNumber(randomNumber)) {
             this.position++;
         }
+    }
+
+    private boolean isGreaterThanMoveNumber(final Integer randomNumber) {
+        return randomNumber >= MINIMUM_NUMBER_TO_MOVE;
     }
 
     public int findGreaterPosition(final int maxPosition) {

@@ -1,6 +1,5 @@
 package domain.racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,17 +7,13 @@ import java.util.stream.Collectors;
  * 자동차 리스트를 가지고 우승자를 추출해주는 클래스
  *
  * @author 조연우
- * @version 1.0 2020년 12월 3일
+ * @version 1.0 2020년 12월 8일
  */
 public class Winner {
     public static final int INIT_POSITION_TO_COMPARE = -1;
 
     public static List<String> makeWinnersName(final List<Car> cars) {
-        List<String> winnerNames = new ArrayList<>();
-        for (Car car : makeWinners(cars)) {
-            winnerNames.add(car.getName());
-        }
-        return winnerNames;
+        return makeWinners(cars).stream().map(Car::getName).collect(Collectors.toList());
     }
 
     private static List<Car> makeWinners(final List<Car> cars) {
