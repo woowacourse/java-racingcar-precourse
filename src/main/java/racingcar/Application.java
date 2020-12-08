@@ -22,14 +22,17 @@ public class Application {
         try {
             carNamesInputString = scanner.next();
             carNames = carNamesInputString.split(",");
-            if (!validateCarNameLength(carNames)) {
-                throw new IllegalLengthException();
-            }
         } catch (Exception e) {
             // TODO 에러사항 세분화 하기 : 중복 제거, Empty 처리하기
             System.out.println("[ERROR] 잘못된 입력값입니다.");
             throw new IllegalArgumentException();
         }
+        if (carNames.length==0){
+            System.out.println("[ERROR] 경주할 자동차가 존재하지 않습니다.");
+            throw new IllegalStateException();
+        }
+        if (!validateCarNameLength(carNames))
+            throw new IllegalLengthException();
 
         return carNames;
     }
