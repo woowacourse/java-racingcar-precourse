@@ -8,9 +8,11 @@ import static domain.NamesValidator.COMMA_DELIMITER;
  * 출력을 담당하는 클래스
  *
  * @author 조연우
- * @version 1.0 2020년 12월 7일
+ * @version 1.0 2020년 12월 8일
  */
 public class OutputView {
+    public static final String PRINT_BEFORE_RESULT = "실행 결과";
+    public static final String PRINT_WINNERS = "최종 우승자: ";
     private static final int INDEX_OF_NAME = 0;
     private static final int INDEX_OF_POSITION = 1;
     private static final String DIVIDE_NAME_POSITION = " : ";
@@ -44,11 +46,11 @@ public class OutputView {
 
     public static void printResult() {
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(PRINT_BEFORE_RESULT);
     }
 
     public static void printWinner(final List<String> winners) {
-        System.out.println("최종 우승자: " + String.join(COMMA_DELIMITER + SPACE_DELIMITER, winners));
+        System.out.println(PRINT_WINNERS + String.join(COMMA_DELIMITER + SPACE_DELIMITER, winners));
     }
 
     public static void printError(final String errorMessage) {

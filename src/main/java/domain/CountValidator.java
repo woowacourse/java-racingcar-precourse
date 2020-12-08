@@ -4,9 +4,11 @@ package domain;
  * 입력받은 횟수의 유효성을 판단하여 유효한 값을 돌려주는 클래스
  *
  * @author 조연우
- * @version 1.0 2020년 12월 7일
+ * @version 1.0 2020년 12월 8일
  */
 public class CountValidator {
+    public static final String ERROR_MESSAGE_WITH_NUMBER = "횟수 입력은 숫자여야 한다.";
+    public static final String ERROR_MESSAGE_WITH_NEGATIVE = "횟수 입력은 0 이상이어야 한다.";
     private static final int MINIMUM_OF_COUNT = 0;
 
     public static int makeValidCount(final String inputCount) {
@@ -26,13 +28,13 @@ public class CountValidator {
 
     private static void checkNumber(final String inputCount) {
         if (isNotNumber(inputCount)) {
-            throw new IllegalArgumentException("횟수 입력은 숫자여야 한다.");
+            throw new IllegalArgumentException(ERROR_MESSAGE_WITH_NUMBER);
         }
     }
 
     private static void checkMoreThanZero(final String inputCount) {
         if (Integer.parseInt(inputCount) < MINIMUM_OF_COUNT) {
-            throw new IllegalArgumentException("횟수 입력은 0 이상이어야 한다.");
+            throw new IllegalArgumentException(ERROR_MESSAGE_WITH_NEGATIVE);
         }
     }
 }

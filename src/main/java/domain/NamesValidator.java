@@ -7,10 +7,12 @@ import java.util.List;
  * 입력받은 이름의 유효성을 판단하여 유효한 값을 돌려주는 클래스
  *
  * @author 조연우
- * @version 1.0 2020년 12월 7일
+ * @version 1.0 2020년 12월 8일
  */
 public class NamesValidator {
     public static final String COMMA_DELIMITER = ",";
+    public static final String ERROR_MESSAGE_WITH_NAME = "이름을 다시 입력해주세요.";
+    public static final String ERROR_MESSAGE_WITH_LENGTH = "이름은 5자 이하여야 한다.";
     private static final int LIMIT_FOR_ARRAY_SIZE = -1;
     private static final int MAXIMUM_NAME_LENGTH = 5;
 
@@ -25,13 +27,13 @@ public class NamesValidator {
 
     private static void checkSomethingIsHere(final String inputNames) {
         if (inputNames.isEmpty()) {
-            throw new IllegalArgumentException("이름을 다시 입력해주세요.");
+            throw new IllegalArgumentException(ERROR_MESSAGE_WITH_NAME);
         }
     }
 
     private static void checkLengthIsFive(final String inputNames) {
         if (inputNames.length() > MAXIMUM_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름은 5자 이하여야 한다.");
+            throw new IllegalArgumentException(ERROR_MESSAGE_WITH_LENGTH);
         }
     }
 }
