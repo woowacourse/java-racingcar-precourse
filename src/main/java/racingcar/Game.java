@@ -23,14 +23,24 @@ public class Game {
     
     public void inputCarName() {
         String[] carNames = input.getCarNames();
-        input.checkCarNameLength(carNames);
+        checkCarNameException(carNames);
         for (int i = 0; i < carNames.length; i++) {
             cars.add(new Car(carNames[i]));
         }
     }
     public void inputNumberOfTry() {
         numberOfTry = input.getNumberOfTry();
+        checkNumberOfTryException(numberOfTry);
         System.out.println();
+    }
+    
+    public void checkCarNameException(String[] carNames) {
+        input.checkCarNameLength(carNames);
+        input.checkCarNameDuplicate(carNames);
+        input.checkCarNameBlankSpace(carNames);
+    }
+    public void checkNumberOfTryException(int numberOfTry) {
+        input.checkNegativeNumber(numberOfTry);
     }
     
     public void printRoundOfGameResult() {
