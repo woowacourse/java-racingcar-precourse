@@ -5,6 +5,8 @@ import racingcar.Car;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.joining;
+
 /** 레이싱게임의 로직을 담당하는 클래스*/
 public class GameController {
     private static final int SUCCESS = 1;
@@ -26,6 +28,7 @@ public class GameController {
             printDistance();
             System.out.println();
         }
+        
     }
 
     /**
@@ -52,15 +55,15 @@ public class GameController {
      */
     public static int validateName(List<String> names) {
         if (names.isEmpty()) {
-            System.out.println("자동차 이름으로 콤마를 입력했습니다. 다시 입력하세요.");
+            System.out.println("[ERROR] 자동차 이름으로 콤마를 입력했습니다. 다시 입력하세요.");
             return FAIL;
         }
         for (String name : names) {
             if (name.isBlank()) {
-                System.out.println(name + "자동차 이름으로 빈 문자열을 사용할 수 없습니다.");
+                System.out.println(name + "[ERROR] 자동차 이름으로 빈 문자열을 사용할 수 없습니다.");
                 return FAIL;
             } else if (name.length() > MAX_NAME_LENGTH) {
-                System.out.println("자동차 이름은 다섯 글자 이하만 가능합니다.");
+                System.out.println("[ERROR] 자동차 이름 1~5 글자만 가능합니다.");
                 return FAIL;
             }
         }
@@ -78,22 +81,15 @@ public class GameController {
             try {
                 count = scanner.nextInt();
                 if (count < MIN_COUNT) {
-                    System.out.println("시도 횟수는 1 이상이어야 합니다. 다시 입력하세요.");
+                    System.out.println("[ERROR] 시도 횟수는 1 이상이어야 합니다. 다시 입력하세요.");
                     status = FAIL;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("시도 횟수는 숫자(정수)값이어야 합니다.");
+                System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
                 status = FAIL;
                 scanner.next();
             }
         } while (status == FAIL);
-    }
-
-    /**
-     *
-     */
-    public static void printResult() {
-
     }
 
     /**
@@ -107,4 +103,6 @@ public class GameController {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
     }
+
+
 }
