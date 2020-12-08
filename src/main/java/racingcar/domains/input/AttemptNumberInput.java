@@ -8,8 +8,10 @@ import java.util.Scanner;
 
 public class AttemptNumberInput implements Input<Integer> {
 
-    Scanner scanner;
-    String attemptNumber;
+    private static final String INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+
+    private Scanner scanner;
+    private String attemptNumber;
 
     public AttemptNumberInput(Scanner scanner) {
         this.scanner = scanner;
@@ -17,13 +19,22 @@ public class AttemptNumberInput implements Input<Integer> {
 
     @Override
     public Integer get() throws RacingCarGameException {
-        attemptNumber = scanner.nextLine();
+        printInputMessage();
+        inputFromUser();
         isValid();
 
         return Integer.parseInt(attemptNumber);
     }
 
-    public void isValid() throws RacingCarGameException {
+    private void printInputMessage() {
+        System.out.println(INPUT_MESSAGE);
+    }
+
+    private void inputFromUser() {
+        attemptNumber = scanner.nextLine();
+    }
+
+    private void isValid() throws RacingCarGameException {
         Validator validator = Validators.getAttemptNumberInputValidator();
         validator.isValid(attemptNumber);
     }
