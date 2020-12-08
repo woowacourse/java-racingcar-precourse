@@ -1,12 +1,9 @@
 package racingcar;
 
-import static racingcar.Messages.PLEASE_INPUT_TURNS;
 import static racingcar.Messages.PLEASE_INPUT_NAMES_OF_CAR;
-import static racingcar.Messages.TRY_COUNT_IS_NATURAL_NUMBER_ONLY;
-import static racingcar.Messages.TRY_COUNT_IS_INTEGER_ONLY;
+import static racingcar.Messages.PLEASE_INPUT_TURNS;
 import static utils.PrintUtils.print;
 
-import exceptions.InvalidInputException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,40 +30,20 @@ public class RacingGame {
 
     private void getCarsReady() {
         print(PLEASE_INPUT_NAMES_OF_CAR);
-        while (cars == null) {
-            try {
-                cars = Cars.getCars(getInput());
-            } catch (InvalidInputException e) {
-                print(e.getMessage());
-            }
+        CarsInputValidator carsInputValidator = new CarsInputValidator();
+        while (!carsInputValidator.isValid()) {
+            carsInputValidator.validate(getInput());
         }
+        cars = carsInputValidator.getCars();
     }
 
     private void getTryCountReady() {
         print(PLEASE_INPUT_TURNS);
-        while (turns == null) {
-            try {
-                turns = getTryCountByInput(getInput());
-            } catch (InvalidInputException e) {
-                print(e.getMessage());
-            }
+        TurnsInputValidator turnsInputValidator = new TurnsInputValidator();
+        while (!turnsInputValidator.isValid()) {
+            turnsInputValidator.validate(getInput());
         }
-    }
-
-    private int getTryCountByInput(String input) throws InvalidInputException {
-        // todo 개선 필요: 입력값 검증은 다른 객체로 역할 분리 고려
-        int tryCount;
-
-        try {
-            tryCount = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new InvalidInputException(TRY_COUNT_IS_INTEGER_ONLY);
-        }
-
-        if (tryCount < 1) {
-            throw new InvalidInputException(TRY_COUNT_IS_NATURAL_NUMBER_ONLY);
-        }
-        return tryCount;
+        turns = turnsInputValidator.getTurns();
     }
 
     private String getInput() {
