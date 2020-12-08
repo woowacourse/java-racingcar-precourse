@@ -1,5 +1,7 @@
 package racingcar.domains.car;
 
+import racingcar.domains.output.CarStatus;
+import racingcar.domains.output.Output;
 import utils.RandomUtils;
 
 public class Car {
@@ -20,7 +22,11 @@ public class Car {
         }
     }
 
-    private void move() {
+    public Output getStatus() {
+        return new CarStatus(name, position);
+    }
+
+   private void move() {
         position++;
     }
 
