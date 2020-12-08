@@ -3,6 +3,12 @@ package utils;
 import java.util.List;
 import racingcar.Car;
 
+/**
+ * 프로그램의 출력 부분을 담당하는 클래스
+ *
+ * @author  483759@naver.com / 윤이진
+ * @version 1.0 2020/12/05
+ */
 public class PrintUtils {
     public void printInputNamesGuide(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -30,7 +36,6 @@ public class PrintUtils {
         System.out.println("");
     }
 
-    /* 우승한 차들의 이름을 출력하는 메소드 */
     public static void printWinners(List<String> winnerList) {
         System.out.printf("최종 우승자: " + String.join(", ", winnerList));
     }

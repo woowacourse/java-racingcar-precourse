@@ -34,7 +34,6 @@ public class Racing {
         printUtils.printWinners(whichCarsWin());
     }
 
-    /* 이름 리스트를 받아서 Car 객체를 생성하는 메소드*/
     public static void setCarList() {
         carList = new ArrayList<>();
 
@@ -50,7 +49,6 @@ public class Racing {
         gameNumber = inputUtils.inputNumberOfGame();
     }
 
-    /* 회차마다 차들의 경기를 진행하는 메소드 */
     public static void carRacing() {
         for (int i = 0; i < carList.size(); i++) {
             carList.get(i).movePosition();
