@@ -6,6 +6,31 @@
 ---
 # Car Racing Game Project
 
+## [1.1.0] (2020-12-08)
+
+feat<RacingGamePlayer>: add RacingGamePlayer class
+
+    Post upload 2020-12-08 - 22:38
+        - RacingGamePlayer.java
+          
+    Upload RacingGamePlayer class
+        This class implements IRacingGamePlayer interface
+        Added car name input validation feature in this project
+        Now it can check the input is validate or not
+        
+    Post update
+        - IRacingGamePlayer.java
+        
+    Added comments in IRacingGamePlayer interface
+    
+        - IRacingGamePrinter.java
+        
+    Fix typo in comments
+        경주 상황이 담긴 값을 반환 -> 경주 상황이 담긴 값을 출력
+        우승자 명단을 반환 -> 우승자 명단을 출력
+
+---
+
 ## [1.0.0] (2020-12-08)
 
 feat<RacingGamePinter>: add RacingGamePinter class

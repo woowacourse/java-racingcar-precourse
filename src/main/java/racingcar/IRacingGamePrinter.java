@@ -19,13 +19,13 @@ public interface IRacingGamePrinter {
     void start();
 
     /**
-     * 경주 상황이 담긴 값을 반환
+     * 경주 상황이 담긴 값을 출력
      * @param cars 모든 차량
      */
     void status(ArrayList<Car> cars);
 
     /**
-     * 우승자 명단을 반환
+     * 우승자 명단을 출력
      * @param cars 모든 우승한 차량
      */
     void winner(ArrayList<Car> cars);
