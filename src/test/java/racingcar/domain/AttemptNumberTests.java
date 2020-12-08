@@ -8,7 +8,6 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class AttemptNumberTests {
-
     @ParameterizedTest
     @ValueSource(strings = {"1", "10", "45", "100"})
     public void 올바른_숫자_유효성검사_통과(String attemptNumber) {
