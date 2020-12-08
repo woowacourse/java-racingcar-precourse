@@ -6,6 +6,28 @@
 ---
 # Car Racing Game Project
 
+## [1.0.0] (2020-12-08)
+
+feat<RacingGamePinter>: add RacingGamePinter class
+
+    Post upload 2020-12-08 - 22:23
+        - RacingGamePinter.java
+          
+    Upload RacingGamePinter class
+        This class implements IRacingGamePrinter interface
+        Added print feature in this project
+        Now it can print that this game is ready to get name input
+        
+    Post update
+        - IRacingGamePinter.java
+        
+    Added comments in IRacingGamePrinter interface
+
+### BREAKING CHANGE
+    Added print feature
+        
+---
+
 ## [0.4.0] (2020-12-08)
 
 feat<IRacingGamePinter>: Upload IRacingGamePinter interface
