@@ -20,17 +20,14 @@ public class Car {
     }
 
     public boolean isMaxPosition(int maxPosition) {
-        if (position == maxPosition) {
-            return true;
-        }
-        return false;
+        return position == maxPosition;
     }
 
     @Override
     public String toString() {
-        String distanceSign = "";
+        StringBuilder distanceSign = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            distanceSign += MINUS;
+            distanceSign.append(MINUS);
         }
         return name + " : " + distanceSign;
     }
