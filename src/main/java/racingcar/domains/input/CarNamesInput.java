@@ -39,7 +39,7 @@ public class CarNamesInput implements Input<List<String>> {
     }
 
     private void isValid() throws RacingCarGameException {
-        Validator validator = new CarNamesInputValidator();
+        Validator<String> validator = new CarNamesInputValidator();
         validator.isValid(carNames);
     }
 

@@ -35,7 +35,7 @@ public class AttemptNumberInput implements Input<Integer> {
     }
 
     private void isValid() throws RacingCarGameException {
-        Validator validator = new AttemptNumberInputValidator();
+        Validator<String> validator = new AttemptNumberInputValidator();
         validator.isValid(attemptNumber);
     }
 }
