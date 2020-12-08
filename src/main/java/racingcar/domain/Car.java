@@ -6,16 +6,12 @@ import utils.RandomUtils;
 public class Car {
     private static final int CRITERIA = 4;
     private static final int END_INDEX = 9;
-    private static final int LIMIT_PARTICIPANT_NAME = 5;
     private static final int START_INDEX = 0;
-    private static final String VOID = "";
-    private static final String VOID_SPACE = " ";
 
     private final String name;
     private int position = 0;
 
     public Car(String name) {
-        checkParticipantCondition(name);
         this.name = name;
     }
 
@@ -47,29 +43,5 @@ public class Car {
             return true;
         }
         return false;
-    }
-
-    private void checkParticipantCondition(String participant) {
-        checkSingleParticipantLength(participant);
-        checkSingleParticipantVoid(participant);
-        checkSingleParticipantIncludeVoid(participant);
-    }
-
-    private void checkSingleParticipantLength(String participant) {
-        if (participant.length() > LIMIT_PARTICIPANT_NAME) {
-            ErrorViewer.showLengthInputError();
-        }
-    }
-
-    private void checkSingleParticipantVoid(String participant) {
-        if (participant.equals(VOID)) {
-            ErrorViewer.showVoidCarError();
-        }
-    }
-
-    private void checkSingleParticipantIncludeVoid(String participant) {
-        if (participant.contains(VOID_SPACE)) {
-            ErrorViewer.showVoidSpaceCarError();
-        }
     }
 }
