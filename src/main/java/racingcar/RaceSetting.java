@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RaceSetting {
+
     private Round round;
 
     public void init() {

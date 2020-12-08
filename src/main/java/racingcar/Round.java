@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Round {
+
     public static final int DEFAULT_ROUND = 1;
     private int round;
 

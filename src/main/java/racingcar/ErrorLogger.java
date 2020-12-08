@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import static utils.TextResource.*;
 
 public class ErrorLogger {
+
     public static final String PREFIX_ERROR = "[ERROR]";
 
     public static void printError(Exception e) {

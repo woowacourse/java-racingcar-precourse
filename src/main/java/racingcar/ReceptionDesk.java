@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ReceptionDesk {
+
     public static final String SEPARATOR = ",";
     public static final int MAX_PARTICIPANTS_NAME_LENGTH = 5;
 
@@ -32,10 +33,12 @@ public class ReceptionDesk {
         return Arrays.asList(input.split(SEPARATOR));
     }
 
-    private void checkParticipantNameValid(List<String> participants) throws ParticipantNameException {
+    private void checkParticipantNameValid(List<String> participants)
+        throws ParticipantNameException {
         for (String name : participants) {
             if (name.length() > MAX_PARTICIPANTS_NAME_LENGTH) {
-                throw new ParticipantNameException(ParticipantNameException.ERROR_CODE_NAME_SIZE_OVER);
+                throw new ParticipantNameException(
+                    ParticipantNameException.ERROR_CODE_NAME_SIZE_OVER);
             }
         }
     }

@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Stadium {
+
     private Race race;
     private ScoreBoard scoreBoard;
     private ReceptionDesk receptionDesk;

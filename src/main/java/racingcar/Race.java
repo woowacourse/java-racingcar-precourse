@@ -3,12 +3,14 @@ package racingcar;
 import utils.TextResource;
 
 public class Race {
+
     private Cars cars;
     private RaceSetting raceSetting;
     private WinnerCondition winnerCondition;
     private RaceStatusListener raceStatusListener;
 
-    public Race(Cars cars, RaceSetting raceSetting, WinnerCondition winnerCondition, RaceStatusListener raceStatusListener) {
+    public Race(Cars cars, RaceSetting raceSetting, WinnerCondition winnerCondition,
+        RaceStatusListener raceStatusListener) {
         this.cars = cars;
         this.raceSetting = raceSetting;
         this.winnerCondition = winnerCondition;
@@ -26,6 +28,7 @@ public class Race {
     }
 
     interface RaceStatusListener {
+
         void finishRound(Cars participants);
 
         void finishGame(Cars Winner);

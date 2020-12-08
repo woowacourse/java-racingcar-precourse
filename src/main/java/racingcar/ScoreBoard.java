@@ -5,6 +5,7 @@ import java.util.StringJoiner;
 import static utils.TextResource.WORD_WINNER;
 
 public class ScoreBoard {
+
     public static final String POSITION_VIEW = " -";
     public static final String NAME_VALUE_SEPARATOR = " : ";
 
