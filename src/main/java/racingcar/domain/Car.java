@@ -3,9 +3,9 @@ package racingcar.domain;
 import utils.RandomUtils;
 
 public class Car implements Comparable<Car> {
-    private final static int START_INCLUSIVE = 1;
-    private final static int END_INCLUSIVE = 9;
-    private final static int FORWARD_CRITERION = 4;
+    private static final int START_INCLUSIVE = 1;
+    private static final int END_INCLUSIVE = 9;
+    private static final int FORWARD_CRITERION = 4;
 
     private final String name;
     private int position = 0;
