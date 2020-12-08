@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.joining;
 
-/** 레이싱게임의 로직을 담당하는 클래스*/
+/**
+ * 레이싱게임의 로직을 담당하는 클래스
+ */
 public class GameController {
     private static final int SUCCESS = 1;
     private static final int FAIL = 0;
@@ -16,7 +18,7 @@ public class GameController {
 
     private static int status;
     private static int count;
-    private static int maxDistance = 0;
+    private static int maxDistance = 1;
     private static List<Car> cars = new ArrayList<>();
 
     public static void start(Scanner scanner) {
@@ -33,6 +35,7 @@ public class GameController {
 
     /**
      * 자동차의 이름을 등록하는 메소드
+     *
      * @param scanner
      */
     public static void setCarNames(Scanner scanner) {
@@ -51,6 +54,7 @@ public class GameController {
 
     /**
      * 입력받은 값이 정상인지 검증하는 메소드
+     *
      * @param names
      */
     public static int validateName(List<String> names) {
@@ -72,6 +76,7 @@ public class GameController {
 
     /**
      * 게임을 시도할 횟수를 입력받는 메소드
+     *
      * @param scanner
      */
     public static void setCount(Scanner scanner) {
@@ -112,6 +117,12 @@ public class GameController {
                 .filter(car -> car.isMaxPosition(maxDistance))
                 .map(Car::getName)
                 .collect(joining(", "));
-        System.out.println(candidates + "가 최종 우승했습니다.");
+        if (checkWinner(candidates)) System.out.println(candidates + "가 최종 우승했습니다.");
+    }
+
+    public static boolean checkWinner(String candidates) {
+        if (!candidates.isEmpty()) return true;
+        System.out.println("모든 차량이 이동하지 않아서 우승자가 없습니다.");
+        return false;
     }
 }
