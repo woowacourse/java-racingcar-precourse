@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.View;
 
 import java.util.*;
 import java.util.stream.Collectors;

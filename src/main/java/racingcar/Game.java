@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.View.InputView;
+import racingcar.View.OutputView;
 import utils.RandomUtils;
 
 import java.util.ArrayList;

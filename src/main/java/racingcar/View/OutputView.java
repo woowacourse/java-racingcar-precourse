@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.View;
+
+import racingcar.Car;
+import racingcar.ScoreBoard;
 
 import java.util.List;
 import java.util.stream.Collectors;

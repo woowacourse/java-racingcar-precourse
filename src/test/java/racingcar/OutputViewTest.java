@@ -2,10 +2,9 @@ package racingcar;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.View.OutputView;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OutputViewTest {
     private OutputView outputView;
