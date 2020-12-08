@@ -6,6 +6,19 @@
 ---
 # Car Racing Game Project
 
+## [5.0.1] (2020-12-08)
+
+refactor<RacingGamePlayers>: replace primal number to static
+
+    Post update 2020-12-08 - 23:48
+        - RacingGamePlayers.java
+        
+    Replace primal number to static
+        5 -> MAX_NAME_LENGTH
+        1 -> MIN_NAME_LENGTH
+    
+---    
+        
 ## [5.0.0] (2020-12-08)
 
 feat<RacingGamePinter>: add print winner feature

@@ -3,6 +3,9 @@ package racingcar;
 import java.util.ArrayList;
 
 public class RacingGamePlayers implements IRacingGamePlayers {
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_NAME_LENGTH = 1;
+
     private ArrayList<Car> cars;
 
     @Override
@@ -23,7 +26,7 @@ public class RacingGamePlayers implements IRacingGamePlayers {
             return false;
         }
         for (String name : input.split(",")) {
-            if ((name.length() < 1) || (5 < name.length())) {
+            if ((name.length() < MIN_NAME_LENGTH) || (MAX_NAME_LENGTH < name.length())) {
                 return false;
             }
         }
