@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
 import java.util.stream.Collectors;
 
 public class GameRule {
@@ -8,7 +9,11 @@ public class GameRule {
     private GameRule() {
     }
 
-    public static String getRacingWinners(Cars cars) {
+    public static void printRacingWinners(Cars cars) {
+        OutputView.printWinners(getRacingWinners(cars));
+    }
+
+    private static String getRacingWinners(Cars cars) {
         return cars.getFastestCars()
                 .stream()
                 .map(car -> String.valueOf(car.getName()))

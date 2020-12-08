@@ -3,12 +3,10 @@ package racingcar.domain;
 import racingcar.exception.RacingCarException;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
 import java.util.Scanner;
 
 public class RacingCarGame {
     private final InputView inputView;
-
     private Cars cars;
     private int round;
 
@@ -20,7 +18,7 @@ public class RacingCarGame {
         try {
             initialize();
             startRacing();
-            OutputView.printWinnerNames(GameRule.getRacingWinners(cars));
+            GameRule.printRacingWinners(cars);
         } catch (RacingCarException e) {
             OutputView.printErrorLog(e.getMessage());
         }
