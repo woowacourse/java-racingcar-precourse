@@ -17,10 +17,10 @@ public class Game {
     private int maxPosition;
 
     public Game(Scanner scanner) {
-        inputManager = new InputManager(scanner);
-        outputManager = new OutputManager();
-        winnerNameList = new ArrayList<String>();
-        maxPosition = 0;
+        this.inputManager = new InputManager(scanner);
+        this.outputManager = new OutputManager();
+        this.winnerNameList = new ArrayList<String>();
+        this.maxPosition = 0;
     }
 
     public void run() {
@@ -38,7 +38,7 @@ public class Game {
     }
 
     public void generateCar(String[] carNameArray) {
-        cars = new Car[carNameArray.length];
+        this.cars = new Car[carNameArray.length];
         for (int i = 0; i < carNameArray.length; i++) {
             cars[i] = new Car(carNameArray[i]);
         }
