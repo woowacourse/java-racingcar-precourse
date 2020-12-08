@@ -18,12 +18,17 @@ public class Player {
     }
 
     private void getNames(Scanner scanner) {
-        this.names = Arrays.stream(scanner.nextLine().split(","))
+        final Errors errors = new Errors();
+
+        String input = scanner.nextLine();
+        this.names = Arrays.stream(input.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
         for (String name : names) {
             try {
-                new Errors().nameValidation(name);
+                errors.playerNumberValidation(names);
+                errors.nameValidation(name);
+                errors.nameDuplication(names, name);
             } catch (RacingException e) {
                 getNames(scanner);
             }
