@@ -1,22 +1,17 @@
-package racinggame;
-
-import domain.Car;
-import domain.RaceWinner;
-import domain.RacingCars;
+package domain;
 
 public class Referee {
     private int maxPosition;
 
     public void calculateMaxPosition(RacingCars racingCars) {
         for (Car car : racingCars.getCarList()) {
-            checkMaxPosition(car);
+            setMaxPosition(car);
         }
     }
 
-    private void checkMaxPosition(Car car) {
-        int carPosition = car.getPosition();
-        if (isMaxPosition(carPosition)) {
-            maxPosition = carPosition;
+    private void setMaxPosition(Car car) {
+        if (isMaxPosition(car.getPosition())) {
+            maxPosition = car.getPosition();
         }
     }
 
@@ -27,12 +22,12 @@ public class Referee {
     public RaceWinner setWinner(RacingCars racingCars) {
         RaceWinner raceWinner = new RaceWinner();
         for (Car car : racingCars.getCarList()) {
-            selectWinner(raceWinner, car);
+            chooseWinner(raceWinner, car);
         }
         return raceWinner;
     }
 
-    private void selectWinner(RaceWinner raceWinner, Car car) {
+    private void chooseWinner(RaceWinner raceWinner, Car car) {
         if (isWinner(car)) {
             raceWinner.addRaceWinner(car);
         }
