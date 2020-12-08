@@ -25,11 +25,11 @@ public class CarNamesInputValidator implements Validator<String> {
     public void isValid(String carNames) throws RacingCarGameException {
         this.carNames = carNames;
 
-        isRightFrom();
+        isRightFormat();
         isRightLength();
     }
 
-    private void isRightFrom() throws RacingCarGameException {
+    private void isRightFormat() throws RacingCarGameException {
         if (!Pattern.matches(CAR_NAMES_INPUT_FORMAT, carNames)) {
             throw new RacingCarGameException(INVALID_FORMAT_MESSAGE);
         }
