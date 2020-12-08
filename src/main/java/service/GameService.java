@@ -13,4 +13,12 @@ public class GameService {
             this.cars.add(car);
         }
     }
+
+    public void runPhase() {
+        for (Car car : this.cars) {
+            car.moveRandomly();
+            System.out.println(car);
+        }
+        System.out.println();
+    }
 }
