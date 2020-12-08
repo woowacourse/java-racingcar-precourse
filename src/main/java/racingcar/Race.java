@@ -16,6 +16,7 @@ public class Race {
     public void startRace(Scanner scanner){
         inputCars(scanner);
         inputTimes(scanner);
+
     }
 
     public void runRace(){
@@ -28,7 +29,7 @@ public class Race {
         }
     }
 
-    // 예외 처리 필요
+
     public void inputCars(Scanner scanner){
         for (String participationCar : scanner.nextLine().split(",")){
             try {

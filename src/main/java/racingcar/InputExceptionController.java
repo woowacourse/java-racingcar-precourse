@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class InputExceptionController {
     private static int MAX_NAME_LENGTH = 5;
+    private static int MIN_PARTICIPATION_NUMBER = 2;
     private static String ERROR_MARK = "[ERROR]";
 
     public static boolean isDuplication(ArrayList<Car> cars, String participationCar) {
@@ -20,6 +21,10 @@ public class InputExceptionController {
         return participationCar.length() > MAX_NAME_LENGTH;
     }
 
+    public static boolean isParticipationLess(ArrayList<Car> cars){
+        return cars.size() < MIN_PARTICIPATION_NUMBER;
+    }
+
     public static void checkInputCars(ArrayList<Car> cars, String participationCar) {
         if(isDuplication(cars,participationCar)){
             throw new IllegalArgumentException(ERROR_MARK+"중복된 이름이 있습니다.");
@@ -29,8 +34,10 @@ public class InputExceptionController {
         }
     }
 
-    public static void checkInputTimes(String times) {
-
+    public static void checkParticipation(ArrayList<Car> cars) {
+        if(isParticipationLess(cars)){
+            throw new IllegalArgumentException(ERROR_MARK+"참가 인원이 부족합니다.");
+        }
     }
 
 }
