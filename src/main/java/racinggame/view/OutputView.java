@@ -1,0 +1,39 @@
+package racinggame.view;
+
+import racingcar.Car;
+
+import java.util.List;
+
+import static racinggame.Constant.*;
+
+public class OutputView {
+
+    public OutputView() {
+    }
+
+    public static void printNormal(String normalMessage) {
+        System.out.println(normalMessage);
+    }
+
+    public static void printErrorMessage(String errorMessage) {
+        System.out.print(ERROR_HEADER);
+        System.out.println(errorMessage);
+    }
+
+    public static void printRoundResult(List<Car> carList) {
+        for (Car car : carList) {
+            System.out.print(car.getName());
+            System.out.print(OUTPUT_VIEW_DIVIDER);
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print(OUTPUT_VIEW_CAR_POSITION_MARK);
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printWinners(String winners) {
+        System.out.print(OUTPUT_VIEW_WINNER_HEADER);
+        System.out.println(winners);
+    }
+}

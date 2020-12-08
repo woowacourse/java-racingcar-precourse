@@ -1,0 +1,26 @@
+package utils;
+
+import static racinggame.Constant.*;
+
+public class RepetitionCountValidator {
+
+    public static void checkValidRepetitionCount(String count) {
+        checkInteger(count);
+        checkPositiveInteger(count);
+    }
+
+    private static void checkInteger(String count) {
+        try {
+            Integer.parseInt(count);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_NOT_INTEGER);
+        }
+    }
+
+    private static void checkPositiveInteger(String count) {
+        if (Integer.parseInt(count) <= REPETITION_COUNT_VALIDATOR_POSITIVE_INTEGER_PIVOT) {
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_NOT_POSITIVE_INTEGER);
+        }
+    }
+
+}
