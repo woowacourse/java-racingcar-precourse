@@ -13,5 +13,7 @@ public class Referee {
 
     }
 
-
+    private boolean isWinner(Car car, int winnerScore) {
+        return car.getScore() == winnerScore;
+    }
 }
