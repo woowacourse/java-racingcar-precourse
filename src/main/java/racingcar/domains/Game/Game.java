@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
+    private static final String EXECUTION_RESULT_MESSAGE = "\n실행 결과";
+
     private Scanner scanner;
     private Cars cars;
     private List<String> carNames;
@@ -17,14 +19,18 @@ public class Game {
         this.scanner = scanner;
     }
 
-    public void run() throws RacingCarGameException {
-        getCarNamesFromUser();
-        getAttemptNumberFromUser();
-        getCars();
+    public void run() {
+        try {
+            getCarNamesFromUser();
+            getAttemptNumberFromUser();
+            getCars();
 
-        moveCarsAndPrint();
+            moveCarsAndPrint();
 
-        printResult();
+            printResult();
+        } catch (RacingCarGameException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void getCarNamesFromUser() throws RacingCarGameException {
@@ -40,6 +46,7 @@ public class Game {
     }
 
     private void moveCarsAndPrint() {
+        System.out.println(EXECUTION_RESULT_MESSAGE);
         for (int i = 0; i < attemptNumber; i++) {
             cars.move();
             cars.getGameStatus().print();
