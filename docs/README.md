@@ -44,3 +44,89 @@
     * 우승자는 1명 혹은 여러 명이 될 수 있다.
 
 <br>
+
+## 최종 패키지 및 클래스 구성
+
+> AssertJ를 사용하여 테스트 코드를 작성했습니다.
+
+* racingcar 패키지
+    * controller 패키지
+        * RacingGameController
+    * domain 패키지
+        * car 패키지
+            * Car
+            * Cars
+        * dto 패키지
+            * CarDto
+        * game 패키지
+            * GameState
+            * RacingGame
+        * strategy 패키지
+            * MovingStrategy
+            * RandomMovingStrategy
+        * exception 패키지
+            * CannotFindWinnerCarException
+            * CannotPlayGameException
+            * CarNameException
+            * RacingTryCountsNumberFormatException
+            * RandomMovingNumberRangeException
+    * view 패키지
+        * InputView
+        * OutputView
+    * Application
+
+* utils 패키지
+    * RandomUtils
+
+* test code
+    
+<br>
+
+## 게임 실행 결과
+
+### 자동차 이름 입력
+
+```
+경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
+pobi,woni,jun
+```
+
+### 게임 시도 횟수 입력
+
+```
+시도할 회수는 몇회인가요?
+5
+```
+
+### 주행 현황 결과 출력
+
+```
+실행 결과
+pobi : -
+woni : 
+jun : -
+
+pobi : --
+woni : -
+jun : --
+
+pobi : ---
+woni : --
+jun : ---
+
+pobi : ----
+woni : ---
+jun : ----
+
+pobi : -----
+woni : ----
+jun : -----
+```
+
+### 우승자 명단 출력
+
+```
+최종 우승자: pobi, jun
+```
+
+---
