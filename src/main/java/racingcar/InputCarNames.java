@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class InputCarNames {
+    private final static int MAX_CAR_NAME = 5;
+
     public static String[] getCarNames(Scanner scanner) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNamesInputString;
@@ -31,7 +33,7 @@ public class InputCarNames {
 
     private static boolean validateCarNameLength(String[] carNames) {
         for (String carName : carNames) {
-            if (carName.length() > 5) {
+            if (carName.length() > MAX_CAR_NAME) {
                 return false;
             }
         }
