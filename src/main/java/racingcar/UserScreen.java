@@ -22,7 +22,7 @@ public class UserScreen {
         System.out.println(NAME_LENGTH_ERROR);
     }
 
-    public static void splitterStartOrEndError() {
+    public static void showSplitterStartOrEndError() {
         System.out.println(SPLITTER_START_OR_END_ERROR);
     }
 

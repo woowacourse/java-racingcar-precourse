@@ -22,8 +22,7 @@ public class InputValidator {
     public static void checkIfSplitterAtStartOrEnd(String userString, String nameSplitter) {
         if (userString.charAt(0) == nameSplitter.charAt(0)
                 || userString.charAt(userString.length() - 1) == nameSplitter.charAt(0)) {
-
-            UserScreen.splitterStartOrEndError();
+            UserScreen.showSplitterStartOrEndError();
             System.exit(0);
         }
     }
