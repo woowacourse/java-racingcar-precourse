@@ -1,5 +1,7 @@
 package racingcar;
 
+import utils.RandomUtils;
+
 public class RandomDiceRacingGame implements IRacingGame {
     private final IRacingGamePlayers players;
     private final IRacingGamePrinter printer;
@@ -44,5 +46,10 @@ public class RandomDiceRacingGame implements IRacingGame {
 
     @Override
     public void start() {
+        for (Car car : players.getCars()) {
+            if (RandomUtils.nextInt(0, 9) > 3) {
+                car.drive();
+            }
+        }
     }
 }

@@ -6,6 +6,23 @@
 ---
 # Car Racing Game Project
 
+## [3.2.0] (2020-12-08)
+
+feat<RandomDiceRacingGame>: add random dice drive feature
+
+    Post update 2020-12-08 - 23:30
+        - RandomDiceRacingGame.java
+        
+    Add random dice drive feature
+    it drive cars when the random number is bigger than 3
+        
+        - Car.java
+        
+    Add drive feature
+    it increase it's position
+            
+---
+
 ## [3.1.1] (2020-12-08)
 
 feat<GameController>: add call game start feature
