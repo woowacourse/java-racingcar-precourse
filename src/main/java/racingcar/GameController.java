@@ -16,6 +16,10 @@ public class GameController implements IController {
         do {
             game.readyForSetCars();
         } while (!game.trySetCars(scanner.nextLine()));
+
+        do {
+            game.readyForSetReps();
+        } while (!game.trySetReps(scanner.nextLine()));
     }
 
     @Override

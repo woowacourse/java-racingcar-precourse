@@ -6,6 +6,18 @@
 ---
 # Car Racing Game Project
 
+## [3.1.0] (2020-12-08)
+
+feat<GameController>: add repeat reps input feature
+
+    Post update 2020-12-08 - 23:23
+        - GameController.java
+        
+    Add repeat reps input feature
+    it repeats reps input feature until it get validation of input
+            
+---
+
 ## [3.0.0] (2020-12-08)
 
 feat<GameController>: add repeat name input feature
