@@ -1,5 +1,7 @@
 package racingcar.domains.car;
 
+import racingcar.domains.output.GameResult;
+import racingcar.domains.output.GameStatus;
 import racingcar.domains.output.Output;
 
 import java.util.Arrays;
@@ -21,14 +23,14 @@ public class Cars {
     }
 
     public Output getGameResult() {
-        return null;
+        return new GameResult(cars);
     }
 
     public Output getGameStatus() {
-        return null;
+        return new GameStatus(cars);
     }
 
     public void move() {
-
+        cars.forEach(Car::moveOrNot);
     }
 }
