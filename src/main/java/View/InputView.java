@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Exception.NoCarExistException;
+import Exception.RoundNumTypeException;
 
 public class InputView {
 
@@ -15,7 +16,7 @@ public class InputView {
 
     private final Scanner scanner;
 
-   public InputView(final Scanner scanner) {
+    public InputView(final Scanner scanner) {
         this.scanner = scanner;
     }
 
@@ -24,20 +25,27 @@ public class InputView {
         String carNames = this.scanner.nextLine();
 
         try {
-            isValidInput(carNames);
+            isCarExists(carNames);
             return this.convertToList(carNames);
         } catch(NoCarExistException e) {
-            String errorMessage = e.getMessage();
-            System.out.println(errorMessage);
+            System.out.println(e.getMessage());
             System.exit(1);
             return null;
         }
     }
 
     public int inputRoundNum() {
-       System.out.println(this.ASKING_ROUND_NUM);
-       int roundNum = this.scanner.nextInt();
-       return roundNum;
+        System.out.println(this.ASKING_ROUND_NUM);
+        String roundNum = this.scanner.nextLine();
+        try {
+            this.isInteger(roundNum);
+       } catch (RoundNumTypeException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+            return -1;
+       }
+
+       return Integer.parseInt(roundNum);
     }
 
     private List<String> convertToList(String target) {
@@ -45,11 +53,19 @@ public class InputView {
        return Arrays.asList(arr);
     }
 
-    private void isValidInput(String inputCarNames) throws NoCarExistException {
+    private void isCarExists(String inputCarNames) throws NoCarExistException {
         if(inputCarNames.length() < this.VALID_MINIMUM_CAR_NAMES_LENGTH) {
             throw new NoCarExistException();
 
         }
+    }
 
+    private void isInteger(String target) throws RoundNumTypeException {
+        try{
+            Integer.parseInt(target);
+        }
+        catch (NumberFormatException e) {
+            throw new RoundNumTypeException();
+        }
     }
 }
