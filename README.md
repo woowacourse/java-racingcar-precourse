@@ -24,8 +24,8 @@
   - [x] 각 회차마다 자동차 이름과 위치를 출력한다.
 - [x] 모든 회차가 끝난 후 승자를 출력한다.
 ------------
-### :newspaper: Update Log. Updated 2020.12.08.
-#### :scroll: 프로젝트 구조 및 클래스 설명
+## :newspaper: Update Log. Updated 2020.12.08.
+### :scroll: 프로젝트 구조 및 클래스 설명
 
 ```
 raicingcar ── Application.java
@@ -49,7 +49,6 @@ raicingcar ── Application.java
 ----------------------
 ### controller 패키지
 
-----------------------
 
 ##### RaicingCarGame
 - 게임 진행 중 전반적인 로직을 담당하는 Controller입니다.
@@ -57,7 +56,6 @@ raicingcar ── Application.java
 ----------------------
 ### domain 패키지
 
-----------------------
 
 ##### Car
 - 자동차 클래스입니다.
@@ -86,7 +84,6 @@ raicingcar ── Application.java
 ----------------------
 ### view패키지
 
-----------------------
 
 ##### InputView
 - 입력과 출력이 섞인 UI 로직을 담당합니다.
