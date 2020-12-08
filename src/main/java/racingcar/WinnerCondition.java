@@ -6,7 +6,6 @@ import java.util.List;
 public class WinnerCondition {
 
     public Cars getWinners(Cars participants) {
-
         return new Cars(checkWinner(participants.getCars()));
     }
 

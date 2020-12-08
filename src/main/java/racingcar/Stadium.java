@@ -29,7 +29,6 @@ public class Stadium {
 
 
     private Race.RaceStatusListener raceStatusListener = new Race.RaceStatusListener() {
-
         @Override
         public void finishRound(Cars participants) {
             scoreBoard.printCurrentRacingStatus(participants);
