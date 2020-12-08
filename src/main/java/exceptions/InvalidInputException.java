@@ -3,18 +3,18 @@ package exceptions;
 public class InvalidInputException extends IllegalArgumentException {
 
     private static final String HEADER = "[ERROR] ";
-    private static final String MESSAGE = "";
+    private String message = null;
 
     public InvalidInputException() {
         super();
     }
 
     public InvalidInputException(String s) {
-        super(s);
+        message = s;
     }
 
     @Override
     public String getMessage() {
-        return HEADER + MESSAGE;
+        return HEADER + message;
     }
 }
