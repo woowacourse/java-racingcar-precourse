@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static racingcar.InputExceptionController.checkInputCars;
+import static racingcar.InputExceptionController.checkParticipation;
 
 public class Race {
     private ArrayList<Car> cars = new ArrayList();
@@ -15,6 +16,7 @@ public class Race {
 
     public void startRace(Scanner scanner){
         inputCars(scanner);
+        checkParticipationCars(cars);
         inputTimes(scanner);
 
     }
@@ -42,7 +44,6 @@ public class Race {
         }
     }
 
-    // 예외 처리 필요
     public void inputTimes(Scanner scanner){
         try{
             times = scanner.nextInt();
@@ -52,6 +53,15 @@ public class Race {
         }
     }
 
+    public void checkParticipationCars(ArrayList<Car> cars){
+        try{
+            checkParticipation(cars);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            System.exit(0);
+        }
+
+    }
 
     public void findMaxPosition(){
         for (Car car : cars){
