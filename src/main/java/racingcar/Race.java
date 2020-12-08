@@ -1,7 +1,10 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static racingcar.InputExceptionController.checkInputCars;
 
 public class Race {
     private ArrayList<Car> cars = new ArrayList();
@@ -11,7 +14,7 @@ public class Race {
     private int maxPosition;
 
     public void startRace(Scanner scanner){
-        inputParticipationCars(scanner);
+        inputCars(scanner);
         inputTimes(scanner);
     }
 
@@ -26,15 +29,16 @@ public class Race {
     }
 
     // 예외 처리 필요
-    public void inputParticipationCars(Scanner scanner){
+    public void inputCars(Scanner scanner){
         for (String participationCar : scanner.nextLine().split(",")){
+            checkInputCars(cars, participationCar);
             cars.add(new Car(participationCar));
         }
     }
 
     // 예외 처리 필요
     public void inputTimes(Scanner scanner){
-        times = scanner.nextInt();
+            times = scanner.nextInt();
     }
 
 
