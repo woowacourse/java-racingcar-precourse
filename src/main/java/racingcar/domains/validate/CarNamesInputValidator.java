@@ -30,7 +30,7 @@ public class CarNamesInputValidator implements Validator<String> {
     }
 
     private void isRightFrom() throws RacingCarGameException {
-        if (Pattern.matches(CAR_NAMES_INPUT_FORMAT, carNames)) {
+        if (!Pattern.matches(CAR_NAMES_INPUT_FORMAT, carNames)) {
             throw new RacingCarGameException(INVALID_FORMAT_MESSAGE);
         }
     }
