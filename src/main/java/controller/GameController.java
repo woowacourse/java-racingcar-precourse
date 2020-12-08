@@ -5,6 +5,7 @@ import racingcar.Car;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.flatMapping;
 import static java.util.stream.Collectors.joining;
 
 /**
@@ -55,6 +56,9 @@ public class GameController {
         if (names.isEmpty()) {
             System.out.println("[ERROR] 자동차 이름으로 콤마를 입력했습니다. 다시 입력하세요.");
             return FAIL;
+        } else if (checkDuplicateName(names)) {
+            System.out.println("[ERROR] 중복된 자동차 이름이 있습니다.");
+            return FAIL;
         }
         for (String name : names) {
             if (name.isBlank()) {
@@ -66,6 +70,22 @@ public class GameController {
             }
         }
         return SUCCESS;
+    }
+
+    /**
+     * 자동차 이름의 중복 여부를 체크하는 메소드
+     *
+     * @param names
+     * @return
+     */
+    public static boolean checkDuplicateName(List<String> names) {
+        Set<String> carSet = new HashSet<>();
+
+        for (int i = 0; i < names.size(); i++) {
+            carSet.add(names.get(i));
+        }
+        if (names.size() == carSet.size()) return false;
+        return true;
     }
 
     /**
