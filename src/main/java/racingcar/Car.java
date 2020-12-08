@@ -24,4 +24,15 @@ public class Car {
         }
         System.out.println();
     }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String nominateCar(int max, String winners) {
+        if (max == position) {
+            return winners.concat(", " + name);
+        }
+        return name;
+    }
 }

@@ -8,5 +8,6 @@ public class Application {
 
         Game.setGame(scanner);
         Game.playGame();
+        Game.finishGame();
     }
 }

@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Game {
 
     static final int NAME_LENGTH_LIMIT = 5;
-    static final int UNSET_TRY_COUNT = -1;
+    static final int UNSET_INT = -1;
 
     private static String[] carNames;
     private static Car[] cars;
-    private static int tryCnt = UNSET_TRY_COUNT;
+    private static int tryCnt = UNSET_INT;
 
     private Game() {
     }
@@ -56,7 +56,7 @@ public class Game {
             tryCnt = Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-            tryCnt = UNSET_TRY_COUNT;
+            tryCnt = UNSET_INT;
         }
     }
 
@@ -68,5 +68,19 @@ public class Game {
             }
             System.out.println();
         }
+    }
+
+    public static void finishGame() {
+        int max = UNSET_INT;
+        String winners = "";
+        for (Car car : cars) {
+            int carPosition = car.getPosition();
+            if (max > carPosition) {
+                continue;
+            }
+            winners = car.nominateCar(max, winners);
+            max = carPosition;
+        }
+        System.out.println("최종 우승자: " + winners);
     }
 }
