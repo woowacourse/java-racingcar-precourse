@@ -12,7 +12,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Cars getInstanceWithCarNames(List<String> carNames) {
+    public static Cars getInstanceWithCarNames(List<String> carNames) {
         Car[] cars = carNames.stream()
                 .map(Car::new)
                 .toArray(Car[]::new);
