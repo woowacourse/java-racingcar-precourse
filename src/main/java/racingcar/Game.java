@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
+    private static final String GAME_RESULT_MESSAGE = "실행결과";
+    
     private Input input;
     private Output output;
+    private Exception exception;
     
     private ArrayList<Car> cars = new ArrayList<Car>();
     private int numberOfTry;
     
     public Game(Scanner scanner) {
         input = new Input(scanner);
+        exception = new Exception();
     }
     
     public void run() {
@@ -23,28 +27,19 @@ public class Game {
     
     public void inputCarName() {
         String[] carNames = input.getCarNames();
-        checkCarNameException(carNames);
+        exception.checkCarNameException(carNames);
         for (int i = 0; i < carNames.length; i++) {
             cars.add(new Car(carNames[i]));
         }
     }
     public void inputNumberOfTry() {
         numberOfTry = input.getNumberOfTry();
-        checkNumberOfTryException(numberOfTry);
+        exception.checkNumberOfTryException(numberOfTry);
         System.out.println();
     }
     
-    public void checkCarNameException(String[] carNames) {
-        input.checkCarNameLength(carNames);
-        input.checkCarNameDuplicate(carNames);
-        input.checkCarNameBlankSpace(carNames);
-    }
-    public void checkNumberOfTryException(int numberOfTry) {
-        input.checkNegativeNumber(numberOfTry);
-    }
-    
     public void printRoundOfGameResult() {
-        System.out.println("실행결과");
+        System.out.println(GAME_RESULT_MESSAGE);
         for (int i = 0; i < numberOfTry; i++) {
             for (Car car : cars) {
                 car.goOrStop();
