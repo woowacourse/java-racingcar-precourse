@@ -6,8 +6,4 @@ public class RacingException extends Exception {
     public RacingException (String msg) {
         System.out.println(ERROR_MESSAGE + msg);
     }
-
-    public RacingException (Exception ex) {
-        super(ex);
-    }
 }
