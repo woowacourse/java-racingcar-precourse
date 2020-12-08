@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Input {
 	private static final String SPLIT_DELIMITER = ",";
     private static final String BLANK_SPACE = "";
+    private static final char NEGATIVE = '-';
 	
     private static final String GET_CAR_NAMES_MESSAGE = "경주 할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String GET_NUMBER_OF_TRY_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -14,6 +15,7 @@ public class Input {
     private static final String CAR_NAME_DUPLICATE_ERROR_MESSAGE = "[ERROR] 자동차 이름이 중복됩니다.";
     private static final String CAR_NAME_BLANK_ERROR_MESSAGE = "[ERROR] 자동차 이름이 공백입니다.";
     private static final String NON_NUMERIC_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 합니다.";
+    private static final String NEGATIVE_NUMBER_ERROR_MESSAGE = "[ERROR] 시도 횟수는 양수여야 합니다.";
     
     private final Scanner scanner;
     
@@ -64,9 +66,14 @@ public class Input {
     
     public void checkIsDigit(String numberOfTry) {
         for (int i = 0; i < numberOfTry.length(); i++) {
-            if (!Character.isDigit(numberOfTry.charAt(i))) {
+            if (!Character.isDigit(numberOfTry.charAt(i)) && (numberOfTry.charAt(i) != NEGATIVE)) {
                 throw new IllegalArgumentException(NON_NUMERIC_ERROR_MESSAGE);
             }
     	}
+    }
+    public void checkNegativeNumber(int numberOfTry) {
+        if (numberOfTry < 0) {
+            throw new IllegalArgumentException(NEGATIVE_NUMBER_ERROR_MESSAGE);
+        }
     }
 }
