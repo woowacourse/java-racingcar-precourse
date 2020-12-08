@@ -1,11 +1,14 @@
 package racingcar;
 
 import java.util.Scanner;
+import utils.ScriptUtils;
 
 public class Game {
 
-    static final int NAME_LENGTH_LIMIT = 5;
-    static final int UNSET_INT = -1;
+    private static final int NAME_LENGTH_LIMIT = 5;
+    private static final int UNSET_INT = -1;
+    private static final String DELIMITER = ",";
+    private static final String UNSET_STRING = "";
 
     private static String[] carNames;
     private static Car[] cars;
@@ -14,37 +17,20 @@ public class Game {
     private Game() {
     }
 
-    public static void setGame(Scanner scanner) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        while (carNames == null) {
-            enterName(scanner);
-        }
-
-        cars = new Car[carNames.length];
-        for (int i = 0; i < carNames.length; i++) {
-            cars[i] = new Car(carNames[i]);
-        }
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        while (tryCnt < 0) {
-            enterTryCnt(scanner);
-        }
-    }
-
     private static void enterName(Scanner scanner) {
         String input = scanner.nextLine();
-        carNames = input.split(",");
+        carNames = input.split(DELIMITER);
         try {
             checkName();
         } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 자동차 이름은 쉼표(,) 기준으로 구분하며 이름은 5자 이하여야 한다.");
+            System.out.println(ScriptUtils.ERROR_ILLEGAL_NAME);
             carNames = null;
         }
     }
 
     private static void checkName() {
-        for (int i = 0; i < carNames.length; i++) {
-            if (carNames[i].length() > NAME_LENGTH_LIMIT) {
+        for (String carName : carNames) {
+            if (carName.length() > NAME_LENGTH_LIMIT) {
                 throw new IllegalArgumentException();
             }
         }
@@ -55,13 +41,29 @@ public class Game {
             String input = scanner.nextLine();
             tryCnt = Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            System.out.println(ScriptUtils.ERROR_ILLEGAL_TRY_CNT);
             tryCnt = UNSET_INT;
         }
     }
 
+    public static void setGame(Scanner scanner) {
+        System.out.println(ScriptUtils.ASK_CAR_NAMES);
+        while (carNames == null) {
+            enterName(scanner);
+        }
+        cars = new Car[carNames.length];
+        for (int i = 0; i < carNames.length; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
+
+        System.out.println(ScriptUtils.ASK_TRY_COUNT);
+        while (tryCnt <= UNSET_INT) {
+            enterTryCnt(scanner);
+        }
+    }
+
     public static void playGame() {
-        System.out.println("\n실행 결과");
+        System.out.println(ScriptUtils.INFORM_RESULT);
         for (int i = 0; i < Game.tryCnt; i++) {
             for (Car car : cars) {
                 car.moveCar();
@@ -72,7 +74,7 @@ public class Game {
 
     public static void finishGame() {
         int max = UNSET_INT;
-        String winners = "";
+        String winners = UNSET_STRING;
         for (Car car : cars) {
             int carPosition = car.getPosition();
             if (max > carPosition) {
@@ -81,6 +83,6 @@ public class Game {
             winners = car.nominateCar(max, winners);
             max = carPosition;
         }
-        System.out.println("최종 우승자: " + winners);
+        System.out.println(ScriptUtils.INFORM_WINNER + winners);
     }
 }

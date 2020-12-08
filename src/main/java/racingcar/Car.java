@@ -4,13 +4,17 @@ import utils.RandomUtils;
 
 public class Car {
 
-    private final static String PROGRESS_BAR = "-";
+    private static final String PROGRESS_BAR = "-";
 
     private final String name;
     private int position = 0;
 
     public Car(String name) {
         this.name = name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     public void moveCar() {
@@ -23,10 +27,6 @@ public class Car {
             System.out.print(PROGRESS_BAR);
         }
         System.out.println();
-    }
-
-    public int getPosition() {
-        return position;
     }
 
     public String nominateCar(int max, String winners) {
