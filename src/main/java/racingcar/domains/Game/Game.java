@@ -2,7 +2,8 @@ package racingcar.domains.Game;
 
 import racingcar.domains.car.Cars;
 import racingcar.domains.error.RacingCarGameException;
-import racingcar.domains.input.Inputs;
+import racingcar.domains.input.AttemptNumberInput;
+import racingcar.domains.input.CarNamesInput;
 
 import java.util.List;
 import java.util.Scanner;
@@ -34,11 +35,13 @@ public class Game {
     }
 
     private void getCarNamesFromUser() throws RacingCarGameException {
-        carNames = Inputs.getCarNamesInput(scanner).get();
+        CarNamesInput carNamesInput = new CarNamesInput(scanner);
+        carNames = carNamesInput.get();
     }
 
     private void getAttemptNumberFromUser() throws RacingCarGameException {
-        attemptNumber = Inputs.getAttemptNumberInput(scanner).get();
+        AttemptNumberInput attemptNumberInput = new AttemptNumberInput(scanner);
+        attemptNumber = attemptNumberInput.get();
     }
 
     private void getCars() {

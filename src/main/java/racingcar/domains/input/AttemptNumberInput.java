@@ -1,8 +1,8 @@
 package racingcar.domains.input;
 
 import racingcar.domains.error.RacingCarGameException;
+import racingcar.domains.validate.AttemptNumberInputValidator;
 import racingcar.domains.validate.Validator;
-import racingcar.domains.validate.Validators;
 
 import java.util.Scanner;
 
@@ -35,7 +35,7 @@ public class AttemptNumberInput implements Input<Integer> {
     }
 
     private void isValid() throws RacingCarGameException {
-        Validator validator = Validators.getAttemptNumberInputValidator();
+        Validator validator = new AttemptNumberInputValidator();
         validator.isValid(attemptNumber);
     }
 }

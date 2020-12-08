@@ -1,8 +1,8 @@
 package racingcar.domains.input;
 
 import racingcar.domains.error.RacingCarGameException;
+import racingcar.domains.validate.CarNamesInputValidator;
 import racingcar.domains.validate.Validator;
-import racingcar.domains.validate.Validators;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,7 +39,7 @@ public class CarNamesInput implements Input<List<String>> {
     }
 
     private void isValid() throws RacingCarGameException {
-        Validator validator = Validators.getCarNameInputValidator();
+        Validator validator = new CarNamesInputValidator();
         validator.isValid(carNames);
     }
 
