@@ -37,7 +37,7 @@ public class Cars {
 
     public String position() {
         return carList.stream()
-                .map(car -> car.toString())
+                .map(car -> car.position())
                 .collect(Collectors.joining());
     }
 

@@ -8,12 +8,11 @@ public class Car {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
+    String position() {
         return name + " : " + "-".repeat(position) + "\n";
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
@@ -21,11 +20,11 @@ public class Car {
         this.position += 1;
     }
 
-    public boolean isMaxPosition(int lastMaxPosition) {
+    boolean isMaxPosition(int lastMaxPosition) {
         return this.position > lastMaxPosition;
     }
 
-    public boolean isWinner(int winnerDistance) {
+    boolean isWinner(int winnerDistance) {
         return position == winnerDistance;
     }
 }
