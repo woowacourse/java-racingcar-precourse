@@ -29,10 +29,6 @@ public class Car {
         return this.name;
     }
 
-    public boolean beatOpponent(Car opponent) {
-        return this.getScore() > opponent.getScore();
-    }
-
     private int randomDistance() {
         return RandomUtils.nextInt(START_VALUE, END_VALUE);
     }
