@@ -2,11 +2,7 @@ package controller;
 
 import racingcar.Car;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collector;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /** 레이싱게임의 로직을 담당하는 클래스*/
@@ -23,6 +19,7 @@ public class GameController {
 
     public static void start(Scanner scanner) {
         setCarNames(scanner);
+        setCount(scanner);
     }
 
     /**
@@ -62,5 +59,23 @@ public class GameController {
             }
         }
         return SUCCESS;
+    }
+
+    public static void setCount(Scanner scanner) {
+        do {
+            status = SUCCESS;
+            System.out.println("시도할 횟수는 몇 회인가요?");
+            try {
+                count = scanner.nextInt();
+                if (count < MIN_COUNT) {
+                    System.out.println("시도 횟수는 1 이상이어야 합니다. 다시 입력하세요.");
+                    status = FAIL;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("시도 횟수는 숫자(정수)값이어야 합니다.");
+                status = FAIL;
+                scanner.next();
+            }
+        } while (status == FAIL);
     }
 }
