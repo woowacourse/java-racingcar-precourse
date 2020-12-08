@@ -15,10 +15,12 @@ public class CarNamesInput implements Input<List<String>> {
     private static final String DELIMITER = ",";
 
     private final Scanner scanner;
+    private Validator<String> validator;
     private String carNames;
 
-    public CarNamesInput(final Scanner scanner) {
+    public CarNamesInput(final Scanner scanner, Validator<String> validator) {
         this.scanner = scanner;
+        this.validator = validator;
     }
 
     @Override
@@ -39,7 +41,6 @@ public class CarNamesInput implements Input<List<String>> {
     }
 
     private void isValid() throws RacingCarGameException {
-        Validator<String> validator = new CarNamesInputValidator();
         validator.isValid(carNames);
     }
 

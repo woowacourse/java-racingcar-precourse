@@ -11,10 +11,12 @@ public class AttemptNumberInput implements Input<Integer> {
     private static final String INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 
     private final Scanner scanner;
+    private Validator<String> validator;
     private String attemptNumber;
 
-    public AttemptNumberInput(final Scanner scanner) {
+    public AttemptNumberInput(final Scanner scanner, Validator<String> validator) {
         this.scanner = scanner;
+        this.validator = validator;
     }
 
     @Override
@@ -35,7 +37,6 @@ public class AttemptNumberInput implements Input<Integer> {
     }
 
     private void isValid() throws RacingCarGameException {
-        Validator<String> validator = new AttemptNumberInputValidator();
         validator.isValid(attemptNumber);
     }
 }
