@@ -32,7 +32,7 @@ public class ValidateUtils {
 			throw new IllegalArgumentException(Message.nameDuplication);
 		}
 	}
-	
+
 	public static void checkZeroCount(int number) {
 		if (number == 0) {
 			throw new IllegalArgumentException(Message.inputCountZero);
