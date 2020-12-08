@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class InputExceptionController {
     private static String ERROR_MARK = "[ERROR]";
 
-    public static void isDuplication() {
-
+    public static boolean isDuplication(ArrayList<Car> cars, String participationCar) {
+        return cars.contains(participationCar);
     }
 
     public static void isLengthExcess() {
