@@ -5,12 +5,12 @@ public class InputViewer {
     private static final String NUMBER_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 
     /* 초기 차들의 이름을 받는 메세지 */
-    public static void carsInput() {
+    public static void showCarsInput() {
         System.out.println(CARS_INPUT_MESSAGE);
     }
 
     /* 경주 횟수를 묻는 메세지 */
-    public static void numberInput() {
+    public static void showNumberInput() {
         System.out.println(NUMBER_INPUT_MESSAGE);
     }
 }

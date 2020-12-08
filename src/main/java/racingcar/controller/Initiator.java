@@ -22,7 +22,7 @@ public class Initiator {
      * @return 참여자들이 객체로서 들어있는 Cars 객체
      */
     public Cars askParticipants() {
-        InputViewer.carsInput();
+        InputViewer.showCarsInput();
         String primitiveArray = scanner.nextLine();
         checkVoid(primitiveArray);
         String[] participantsArray = primitiveArray.split(SPLIT_DELIMITER);
@@ -38,7 +38,7 @@ public class Initiator {
 
     private void checkSingleParticipantLength(String participant) {
         if (participant.length() > LIMIT_PARTICIPANT_NAME) {
-            ErrorViewer.lengthInputError();
+            ErrorViewer.showLengthInputError();
         }
     }
 
@@ -47,24 +47,24 @@ public class Initiator {
      * @return 오류 체크가 끝난 게임의 총 진행 횟수
      */
     public int askTurns() {
-        InputViewer.numberInput();
+        InputViewer.showNumberInput();
         String primitiveNumber = scanner.nextLine();
         checkVoid(primitiveNumber);
-        return integerTranslator(primitiveNumber);
+        return translateInteger(primitiveNumber);
     }
 
-    private int integerTranslator(String primitiveNumber) {
+    private int translateInteger(String primitiveNumber) {
         try {
             return Integer.parseInt(primitiveNumber);
         } catch (Exception e) {
-            ErrorViewer.numberInputError();
-            return 0;
+            ErrorViewer.showNumberInputError();
+            return Integer.parseInt(primitiveNumber);
         }
     }
 
     private void checkVoid(String argument) {
         if (argument.equals(NO_SPACE)) {
-            ErrorViewer.voidInputError();
+            ErrorViewer.showVoidInputError();
         }
     }
 }

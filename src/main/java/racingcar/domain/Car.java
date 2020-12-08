@@ -25,7 +25,7 @@ public class Car {
     /**
      * 한 턴을 진행하여 일정한 확률로 전진을 결정한다.
      */
-    public void oneTurn() {
+    public void playOneTurn() {
         int randomCriteria = RandomUtils.nextInt(START_INDEX, END_INDEX);
         if (randomCriteria >= CRITERIA) {
             this.position++;

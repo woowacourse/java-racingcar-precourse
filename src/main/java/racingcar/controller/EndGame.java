@@ -19,6 +19,6 @@ public class EndGame {
 
     private void showWinners(ArrayList<String> winnerList) {
         String winners = String.join(JOIN_DELIMITER, winnerList);
-        OutputViewer.finalWinner(winners);
+        OutputViewer.showFinalWinner(winners);
     }
 }

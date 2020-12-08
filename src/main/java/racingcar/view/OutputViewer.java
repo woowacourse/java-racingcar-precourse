@@ -3,9 +3,10 @@ package racingcar.view;
 import racingcar.domain.Car;
 
 public class OutputViewer {
-    private static final String FIRST_RESULT_MESSAGE = "실행 결과";
-    private static final String PARTICIPANT_NAME_MESSAGE = "%s";
+    private static final int START_POINT = 0;
+    private static final String COLON_MESSAGE = " : ";
     private static final String EXPRESS_PROGRESS_MESSAGE = "-";
+    private static final String FIRST_RESULT_MESSAGE = "실행 결과";
     private static final String FINAL_WINNER_MESSAGE = "최종 우승자: ";
 
     /* 결과 표시 시작을 알리는 메시지 */
@@ -18,16 +19,16 @@ public class OutputViewer {
      * 참여자들의 스코어를 보여주는 메소드
      * @param car 결과를 보여줄 참여 자동차
      */
-    public static void participantScoreName(Car car) {
+    public static void showScoreName(Car car) {
         String participantName = car.getName();
         int position = car.getPosition();
-        System.out.printf(PARTICIPANT_NAME_MESSAGE, participantName);
-        System.out.print(" : ");
-        participantScore(position);
+        System.out.printf("%s", participantName);
+        System.out.print(COLON_MESSAGE);
+        showParticipantScore(position);
     }
 
-    private static void participantScore(int position) {
-        for (int i = 0; i < position; i++) {
+    private static void showParticipantScore(int position) {
+        for (int i = START_POINT; i < position; i++) {
             System.out.print(EXPRESS_PROGRESS_MESSAGE);
         }
         System.out.println();
@@ -37,13 +38,13 @@ public class OutputViewer {
      * 우승자 결과를 보여주는 메서드
      * @param finalWinnerName 우승자 명단
      */
-    public static void finalWinner(String finalWinnerName) {
+    public static void showFinalWinner(String finalWinnerName) {
         System.out.print(FINAL_WINNER_MESSAGE);
         System.out.printf("%s", finalWinnerName);
     }
 
     /* 게임간 간격 확보영 메서드 */
-    public static void spaceBetweenGames() {
+    public static void insertSpaceBetweenGames() {
         System.out.println();
     }
 }
