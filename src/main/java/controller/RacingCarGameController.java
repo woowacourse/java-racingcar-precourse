@@ -12,7 +12,7 @@ import java.util.List;
  * 전체 게임을 진행하는 클래스
  *
  * @author 조연우
- * @version 1.0 2020년 12월 7일
+ * @version 1.0 2020년 12월 8일
  */
 public class RacingCarGameController {
     private final InputView inputView;
@@ -28,11 +28,11 @@ public class RacingCarGameController {
         OutputView.printResult();
         while (count.isBiggerThanZeroWhenDecreaseOne()) {
             cars.playUnitGame();
-            OutputView.printNowCars(cars.makeCarsResult());
+            OutputView.printNowCars(cars.makeUnitResult());
             OutputView.printOneLine();
         }
 
-        OutputView.printWinner(cars.makeWinners());
+        OutputView.printWinner(cars.generateWinners());
     }
 
     private List<String> makeNames() {

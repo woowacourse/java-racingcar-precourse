@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class NamesValidator {
     public static final String COMMA_DELIMITER = ",";
-    public static final String ERROR_MESSAGE_WITH_NAME = "이름을 다시 입력해주세요.";
-    public static final String ERROR_MESSAGE_WITH_LENGTH = "이름은 5자 이하여야 한다.";
+    private static final String ERROR_MESSAGE_WITH_NAME = "이름을 다시 입력해주세요.";
+    private static final String ERROR_MESSAGE_WITH_LENGTH = "이름은 5자 이하여야 한다.";
     private static final int LIMIT_FOR_ARRAY_SIZE = -1;
     private static final int MAXIMUM_NAME_LENGTH = 5;
 

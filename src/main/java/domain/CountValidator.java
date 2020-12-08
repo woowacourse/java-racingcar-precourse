@@ -7,8 +7,8 @@ package domain;
  * @version 1.0 2020년 12월 8일
  */
 public class CountValidator {
-    public static final String ERROR_MESSAGE_WITH_NUMBER = "횟수 입력은 숫자여야 한다.";
-    public static final String ERROR_MESSAGE_WITH_NEGATIVE = "횟수 입력은 0 이상이어야 한다.";
+    private static final String ERROR_MESSAGE_WITH_NUMBER = "횟수 입력은 숫자여야 한다.";
+    private static final String ERROR_MESSAGE_WITH_NEGATIVE = "횟수 입력은 0 이상이어야 한다.";
     private static final int MINIMUM_OF_COUNT = 0;
 
     public static int makeValidCount(final String inputCount) {

@@ -1,6 +1,6 @@
 package domain.racingcar;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,29 +20,26 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public void increasePosition(final Integer randomNumber) {
-        if (isGreaterThanMoveNumber(randomNumber)) {
+    public void movePosition(final Integer randomNumber) {
+        if (isGreaterThanMinimumNumber(randomNumber)) {
             this.position++;
         }
     }
 
-    private boolean isGreaterThanMoveNumber(final Integer randomNumber) {
+    private boolean isGreaterThanMinimumNumber(final Integer randomNumber) {
         return randomNumber >= MINIMUM_NUMBER_TO_MOVE;
     }
 
-    public int findGreaterPosition(final int maxPosition) {
-        return Math.max(maxPosition, this.position);
+    public int findGreaterPosition(final int comparedPosition) {
+        return Math.max(comparedPosition, this.position);
     }
 
-    public boolean isSameThan(final int maxPosition) {
-        return maxPosition == this.position;
+    public boolean isSameThan(final int comparedPosition) {
+        return comparedPosition == this.position;
     }
 
-    public List<String> getNamePosition() {
-        List<String> namePosition = new ArrayList<>();
-        namePosition.add(this.name);
-        namePosition.add(String.valueOf(this.position));
-        return namePosition;
+    public List<String> getNameAndPosition() {
+        return Arrays.asList(this.name, String.valueOf(this.position));
     }
 
     public String getName() {

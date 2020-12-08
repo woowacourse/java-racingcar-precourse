@@ -11,14 +11,14 @@ import static domain.NamesValidator.COMMA_DELIMITER;
  * @version 1.0 2020년 12월 8일
  */
 public class OutputView {
-    public static final String PRINT_BEFORE_RESULT = "실행 결과";
-    public static final String PRINT_WINNERS = "최종 우승자: ";
     private static final int INDEX_OF_NAME = 0;
     private static final int INDEX_OF_POSITION = 1;
     private static final String DIVIDE_NAME_POSITION = " : ";
     private static final String EXPRESSION_OF_UNIT_SIZE = "-";
     private static final String ERROR_MESSAGE_STARTER = "[ERROR] ";
     private static final String SPACE_DELIMITER = " ";
+    private static final String PRINT_BEFORE_RESULT = "실행 결과";
+    private static final String PRINT_WINNERS = "최종 우승자: ";
 
     public static void printOneLine() {
         System.out.println();
