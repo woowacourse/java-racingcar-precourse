@@ -18,8 +18,14 @@ public class GameController {
     private static List<Car> cars = new ArrayList<>();
 
     public static void start(Scanner scanner) {
-        setCarNames(scanner);
-        setCount(scanner);
+        setCarNames(scanner); //자동차 이름을 입력받음
+        setCount(scanner); //시도할 횟수를 입력받음
+        System.out.println("실행결과");
+        for (int i = 0; i < count; i++) {
+            cars.forEach(Car::go);
+            printDistance();
+            System.out.println();
+        }
     }
 
     /**
@@ -61,6 +67,10 @@ public class GameController {
         return SUCCESS;
     }
 
+    /**
+     * 게임을 시도할 횟수를 입력받는 메소드
+     * @param scanner
+     */
     public static void setCount(Scanner scanner) {
         do {
             status = SUCCESS;
@@ -77,5 +87,24 @@ public class GameController {
                 scanner.next();
             }
         } while (status == FAIL);
+    }
+
+    /**
+     *
+     */
+    public static void printResult() {
+
+    }
+
+    /**
+     * 각 자동차의 이동거리를 출력하는 메소드
+     */
+    public static void printDistance() {
+        for (Car car : cars) {
+            if (car.getPosition() > maxDistance) {
+                maxDistance = car.getPosition();
+            }
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
     }
 }
