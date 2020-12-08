@@ -7,16 +7,16 @@ import java.util.List;
 
 public class Race {
     private final String MOVEMENT = "-";
-    private int maxScore = 0;
+    private int maxPosition = 0;
 
     public void move(Car car) {
         String name;
         int position;
 
-        movementCheck(car);
+        moveToForward(car);
 
         name = car.getName();
-        position = car.getPositon();
+        position = car.getPosition();
 
         String movement = "";
         for (int p=0; p<position; p++) {
@@ -25,22 +25,22 @@ public class Race {
         System.out.println(name + " : " + movement);
     }
 
-    private void movementCheck(Car car) {
-        if (moveForward()) {
+    private void moveToForward(Car car) {
+        if (movementCheck()) {
             car.setPosition();
         }
     }
 
-    private boolean moveForward() {
+    private boolean movementCheck() {
         int conditionNumber = RandomUtils.nextInt(0, 9);
         return conditionNumber > 3;
     }
 
-    public void findMaximum(List<Car> cars) {
+    public void findMaximumPosition(List<Car> cars) {
         for (Car car : cars) {
-            int position = car.getPositon();
-            if (position > maxScore) {
-                maxScore = position;
+            int position = car.getPosition();
+            if (position > maxPosition) {
+                maxPosition = position;
             }
         }
     }
@@ -48,9 +48,9 @@ public class Race {
     public List<String> getWinner(List<Car> cars) {
         List<String> winner = new ArrayList<>();
         for (Car car : cars) {
-            int position = car.getPositon();
+            int position = car.getPosition();
             String name = car.getName();
-            if (position == maxScore) {
+            if (position == maxPosition) {
                 winner.add(name);
             }
         }

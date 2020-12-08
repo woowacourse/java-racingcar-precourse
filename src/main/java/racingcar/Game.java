@@ -60,7 +60,7 @@ public class Game {
     }
 
     private void finishGame() {
-        race.findMaximum(cars);
+        race.findMaximumPosition(cars);
         List<String> winner = race.getWinner(cars);
         String winners = String.join(", ", winner);
         System.out.println(WINNER_MESSAGE + winners);

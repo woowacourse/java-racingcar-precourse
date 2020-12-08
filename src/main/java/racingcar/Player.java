@@ -13,11 +13,11 @@ public class Player {
     private static List<Car> cars;
 
     public void setPlayer(Scanner scanner) {
-        getNames(scanner);
+        setNames(scanner);
         setCars(this.names);
     }
 
-    private void getNames(Scanner scanner) {
+    private void setNames(Scanner scanner) {
         final Errors errors = new Errors();
 
         String input = scanner.nextLine();
@@ -30,7 +30,7 @@ public class Player {
                 errors.nameValidation(name);
                 errors.nameDuplication(names, name);
             } catch (RacingException e) {
-                getNames(scanner);
+                setNames(scanner);
             }
         }
     }
