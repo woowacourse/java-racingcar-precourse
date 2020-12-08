@@ -6,11 +6,33 @@
 ---
 # Car Racing Game Project
 
+## [5.0.0] (2020-12-08)
+
+feat<RacingGamePinter>: add print winner feature
+
+    Post update 2020-12-08 - 23:39
+        - RacingGamePinter.java
+        
+    Add print winner feature
+    
+        - RandomDiceRacingGame.java
+        
+    It calls the print winner and toss player's winner data
+    
+        - Application.java
+        
+    It runs it all
+     
+### BREAKING CHANGE
+    This project is completely done
+
+---
+
 ## [4.1.0] (2020-12-08)
 
 feat<RacingGamePlayers>: add get winner feature
 
-    Post update 2020-12-08 - 23:39
+    Post update 2020-12-08 - 23:42
         - RacingGamePlayers.java
         
     Add get winner feature

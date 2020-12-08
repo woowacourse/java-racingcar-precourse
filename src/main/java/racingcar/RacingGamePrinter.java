@@ -11,6 +11,7 @@ public class RacingGamePrinter implements IRacingGamePrinter {
     private static final String START = "실행 결과\n";
     private static final String SCORE_GUIDE = " : ";
     private static final String DISTANCE = "-";
+    private static final String WINNER = "최종 우승자: ";
 
     @Override
     public void inputNames() {
@@ -51,5 +52,10 @@ public class RacingGamePrinter implements IRacingGamePrinter {
 
     @Override
     public void winner(ArrayList<Car> cars) {
+        System.out.print(WINNER);
+        for (int i = 0; i < cars.size() - 1; i++) {
+            System.out.print(cars.get(i).getName() + ", ");
+        }
+        System.out.println(cars.get(cars.size() - 1).getName());
     }
 }

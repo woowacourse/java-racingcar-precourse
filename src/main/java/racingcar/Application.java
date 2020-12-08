@@ -13,5 +13,6 @@ public class Application {
         IController controller = new GameController(game, scanner);
 
         controller.setUp();
+        controller.run();
     }
 }

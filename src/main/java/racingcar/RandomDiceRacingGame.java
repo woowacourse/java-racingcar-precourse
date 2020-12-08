@@ -51,6 +51,7 @@ public class RandomDiceRacingGame implements IRacingGame {
             race();
             printer.status(players.getCars());
         }
+        printer.winner(players.getWinner());
     }
 
     private void race() {
