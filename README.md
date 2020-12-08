@@ -47,7 +47,7 @@ raicingcar ── Application.java
 - 프로그램 실행 전, 한 번의 게임을 위해 필요한 객체들을 생성하고 게임을 생성합니다.
 
 ----------------------
-#### controller 패키지
+### controller 패키지
 
 ----------------------
 
@@ -55,7 +55,7 @@ raicingcar ── Application.java
 - 게임 진행 중 전반적인 로직을 담당하는 Controller입니다.
 
 ----------------------
-#### domain 패키지
+### domain 패키지
 
 ----------------------
 
@@ -84,7 +84,7 @@ raicingcar ── Application.java
 - 우승자들을 가려냅니다.
 
 ----------------------
-#### view패키지
+### view패키지
 
 ----------------------
 
@@ -97,5 +97,28 @@ raicingcar ── Application.java
 
 ----------------------
 
-작성자 : 김기문(Kimun Kim, TributeToTheMoon)
+### :alarm_clock: 프로그램 Flow
 
+![KakaoTalk_20201208_223741480](https://user-images.githubusercontent.com/49346677/101490990-80038200-39a6-11eb-839b-1914795c4bf5.png)
+
+- 게임이 시작되기 전, 유저로부터 적합한 자동차 이름 목록과 시도 회수를 받습니다.
+- 각각의 객체들이 생성 과정에서 자신에게 적합한 값이 넘어왔는지 스스로 검증을 합니다.
+- 객체들이 문제없이 생성된 경우, *Application*은 이 객체들을 *RaicingCarGame*으로 넘겨주며 게임을 실행토록 합니다.
+
+![KakaoTalk_20201208_225011968](https://user-images.githubusercontent.com/49346677/101492022-c5747f00-39a7-11eb-97fb-6e4acc413c82.png)
+
+- 게임이 시작되고 난 후에 Controller 객체 *RaicingCarGame*은 *Turn*과 진행 상태를 주고 받으며 계속 진행할지를 판단합니다.
+- 진행중인 과정에서 *RaicingCarGame*은 *Cars*에게 매 회차마다 자동차들을 전진시키라는 메시지를 넘깁니다.
+- *Cars*는 *Car*객체들에게 일괄적으로 전진 메시지를 넘깁니다.
+- *Car*는 각각 *Decision Maker*에게 난수에 의한 전진 판단 여부를 위임, 판단 여부에 따라 전진하고 상태를 변화시킵니다.
+- *View* Layer까지 데이터를 전송하기 위해 *Cars*로부터 *CarDTO* 목록들을 받습니다. 이 때, *Car* 객체는 스스로 DTO 객체로 변환한 객체를 *Cars*에게 넘겨줍니다.
+- *View*는 *CarDTO* 목록들을 받아 출력합니다.
+
+![KakaoTalk_20201208_223835461](https://user-images.githubusercontent.com/49346677/101490995-8134af00-39a6-11eb-93d1-dd63101a93c2.png)
+
+- *Turn* 객체에서 종료 값이 넘어오면 *RaicingCarGame*은 *Winners*에게 *Cars*객체를 넘깁니다.
+- *Winners*는 *Cars*에서 우승자를 추려 *Winners* 객체를 생성합니다.
+- 이후 *RaicingCarGame*는 *Winners*에게 우승자 명단을 받아와 *View*에게 넘겨주어 우승자 명단 출력을 요청합니다.
+
+---------------------------------
+작성자 : 김기문(Kimun Kim, TributeToTheMoon)
