@@ -1,7 +1,7 @@
 package Race;
 
-import racingcar.Car;
-import racingcar.Cars;
+import Domain.Car;
+import Domain.Cars;
 import View.OutputView;
 
 import java.util.List;

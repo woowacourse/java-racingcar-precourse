@@ -1,4 +1,4 @@
-package racingcar;
+package Domain;
 
 import utils.RandomUtils;
 
