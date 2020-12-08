@@ -7,6 +7,7 @@ import racingcar.domains.validate.Validators;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class CarNamesInput implements Input<List<String>> {
 
@@ -44,6 +45,8 @@ public class CarNamesInput implements Input<List<String>> {
 
     private List<String> toList() {
         String[] splitCarNames = carNames.split(DELIMITER);
-        return Arrays.asList(splitCarNames);
+        return Arrays.stream(splitCarNames)
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 }
