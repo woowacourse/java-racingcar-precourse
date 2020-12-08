@@ -2,8 +2,8 @@ package racingcar.domain;
 
 public class Car {
 
+    private static final String MINUS = "-";
     private final String name;
-    private static final String MINUS = ",";
     private int position = 0;
 
     public Car(String name) {
