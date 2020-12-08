@@ -8,6 +8,18 @@
 
 ## [3.2.0] (2020-12-08)
 
+feat<RandomDiceRacingGame>: add reps racing feature
+
+    Post update 2020-12-08 - 23:33
+        - RandomDiceRacingGame.java
+        
+    Add reps racing feature
+    it repeats racing as reps times
+            
+---
+
+## [3.2.0] (2020-12-08)
+
 feat<RandomDiceRacingGame>: add random dice drive feature
 
     Post update 2020-12-08 - 23:30

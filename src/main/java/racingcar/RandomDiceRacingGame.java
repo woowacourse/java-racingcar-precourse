@@ -46,6 +46,13 @@ public class RandomDiceRacingGame implements IRacingGame {
 
     @Override
     public void start() {
+        printer.start();
+        for (int i = 0; i < reps; i++) {
+            race();
+        }
+    }
+
+    private void race() {
         for (Car car : players.getCars()) {
             if (RandomUtils.nextInt(0, 9) > 3) {
                 car.drive();
