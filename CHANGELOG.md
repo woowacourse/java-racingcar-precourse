@@ -6,6 +6,20 @@
 ---
 # Car Racing Game Project
 
+## [2.0.0] (2020-12-08)
+
+feat<RacingGamePlayer>: add create cars feature
+
+    Post update 2020-12-08 - 22:50
+        - RacingGamePlayer.java
+        
+    Add trying to create cars and answering the result feature
+    
+### BREAKING CHANGE
+    Added create cars feature
+    Now it can memorize all the car informations
+        
+---
 ## [1.2.0] (2020-12-08)
 
 feat<RacingGamePinter>: add print wrong name input feature
