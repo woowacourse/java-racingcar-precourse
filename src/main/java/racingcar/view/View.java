@@ -42,7 +42,7 @@ public class View {
         outputView.resultMessage();
     }
 
-    public void informPosition(String information) {
+    public void showPosition(String information) {
         outputView.showPosition(information);
     }
 

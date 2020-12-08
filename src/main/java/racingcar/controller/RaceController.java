@@ -33,7 +33,7 @@ public class RaceController {
 
         while (--times >= 0) {
             cars.move();
-            view.informPosition(cars.position());
+            view.showPosition(cars.position());
         }
         view.showWinner(cars.findWinner());
     }
