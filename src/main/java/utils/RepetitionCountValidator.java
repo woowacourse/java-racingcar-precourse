@@ -18,7 +18,7 @@ public class RepetitionCountValidator {
     }
 
     private static void checkPositiveInteger(String count) {
-        if (Integer.parseInt(count) <= 0) {
+        if (Integer.parseInt(count) <= REPETITION_COUNT_VALIDATOR_POSITIVE_INTEGER_PIVOT) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXCEPTION_NOT_POSITIVE_INTEGER);
         }
     }

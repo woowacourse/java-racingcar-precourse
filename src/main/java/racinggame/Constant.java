@@ -4,9 +4,10 @@ public class Constant {
     public final static String INPUT_DELIMITER = ",";
     public final static String INPUT_DELIMITER_KOREAN = "쉼표";
 
-    public static final int START_INCLUSIVE = 0;
-    public static final int END_INCLUSIVE = 9;
-    public static final int RANDOM_UTILS_NUMBER_PIVOT = 4;
+    public final static int START_INCLUSIVE = 0;
+    public final static int END_INCLUSIVE = 9;
+    public final static int RANDOM_UTILS_NUMBER_PIVOT = 4;
+    public final static int REPETITION_COUNT_VALIDATOR_POSITIVE_INTEGER_PIVOT = 0;
 
     public final static String CHECK_NULL_REGEX = "^$|^\\s$";
     public final static String CHECK_PARTIAL_SPACE_REGEX = "^*\\S*$";
