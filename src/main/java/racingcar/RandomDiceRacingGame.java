@@ -49,6 +49,7 @@ public class RandomDiceRacingGame implements IRacingGame {
         printer.start();
         for (int i = 0; i < reps; i++) {
             race();
+            printer.status(players.getCars());
         }
     }
 

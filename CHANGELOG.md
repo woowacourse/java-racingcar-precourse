@@ -6,6 +6,28 @@
 ---
 # Car Racing Game Project
 
+## [4.0.0] (2020-12-08)
+
+feat<RacingGamePinter>: add print racing feature
+
+    Post update 2020-12-08 - 23:39
+        - RacingGamePinter.java
+        
+    Add print racing feature
+    
+        - Car.java
+        
+    Add getPosition and getName feature
+    
+        - RandomDiceRacingGame.java
+        
+    It calls the print feature and toss player's cars data
+     
+### BREAKING CHANGE
+    Finally we can see the racing
+
+---
+
 ## [3.2.0] (2020-12-08)
 
 feat<RandomDiceRacingGame>: add reps racing feature
