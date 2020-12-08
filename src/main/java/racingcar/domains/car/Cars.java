@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
-    List<Car> cars;
+    private List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    private Cars(List<Car> cars) {
         this.cars = cars;
     }
 
