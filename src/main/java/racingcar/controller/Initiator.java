@@ -7,7 +7,6 @@ import racingcar.view.ErrorViewer;
 import java.util.Scanner;
 
 public class Initiator {
-    private static final int LIMIT_PARTICIPANT_NAME = 5;
     private static final String NO_SPACE = "";
     private static final String SPLIT_DELIMITER = ",";
 
@@ -26,20 +25,7 @@ public class Initiator {
         String primitiveArray = scanner.nextLine();
         checkVoid(primitiveArray);
         String[] participantsArray = primitiveArray.split(SPLIT_DELIMITER);
-        checkParticipantsLength(participantsArray);
         return new Cars(participantsArray);
-    }
-
-    private void checkParticipantsLength(String[] participantsArray) {
-        for (String participant : participantsArray) {
-            checkSingleParticipantLength(participant);
-        }
-    }
-
-    private void checkSingleParticipantLength(String participant) {
-        if (participant.length() > LIMIT_PARTICIPANT_NAME) {
-            ErrorViewer.showLengthInputError();
-        }
     }
 
     /**
@@ -50,15 +36,23 @@ public class Initiator {
         InputViewer.showNumberInput();
         String primitiveNumber = scanner.nextLine();
         checkVoid(primitiveNumber);
-        return translateInteger(primitiveNumber);
+        int processedInteger = translateInteger(primitiveNumber);
+        checkPositiveNumber(processedInteger);
+        return processedInteger;
     }
 
     private int translateInteger(String primitiveNumber) {
         try {
             return Integer.parseInt(primitiveNumber);
         } catch (Exception e) {
-            ErrorViewer.showNumberInputError();
+            ErrorViewer.showIntegerInputError();
             return Integer.parseInt(primitiveNumber);
+        }
+    }
+
+    private void checkPositiveNumber(int primitiveNumber) {
+        if (primitiveNumber <=0) {
+            ErrorViewer.showNotPositiveInputError();
         }
     }
 
