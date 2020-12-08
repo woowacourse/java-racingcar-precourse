@@ -19,7 +19,6 @@ public class View {
             if (names != null) {
                 return names;
             }
-
             outputView.errorInvalidName();
         }
     }
