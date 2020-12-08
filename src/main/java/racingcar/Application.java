@@ -1,6 +1,8 @@
 package racingcar;
 
+import exception.IllegalDuplicateException;
 import exception.IllegalLengthException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Application {
@@ -23,23 +25,34 @@ public class Application {
             carNamesInputString = scanner.next();
             carNames = carNamesInputString.split(",");
         } catch (Exception e) {
-            // TODO 에러사항 세분화 하기 : 중복 제거, Empty 처리하기
             System.out.println("[ERROR] 잘못된 입력값입니다.");
             throw new IllegalArgumentException();
         }
-        if (carNames.length==0){
+        if (carNames.length == 0) {
             System.out.println("[ERROR] 경주할 자동차가 존재하지 않습니다.");
             throw new IllegalStateException();
         }
         if (!validateCarNameLength(carNames))
             throw new IllegalLengthException();
-
+        if (!validateCarNameDuplicate(carNames))
+            throw new IllegalDuplicateException();
         return carNames;
     }
 
     private static boolean validateCarNameLength(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean validateCarNameDuplicate(String[] carNames) {
+        Arrays.sort(carNames);
+
+        for (int i = 0; i < carNames.length - 1; i++) {
+            if (carNames[i].equals(carNames[i + 1])) {
                 return false;
             }
         }
