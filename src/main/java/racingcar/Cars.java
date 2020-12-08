@@ -10,7 +10,8 @@ public class Cars {
     private static List<Car> cars;
 
     public Cars(ArrayList<String> cars) {
-        this.cars = cars.stream().map(String::trim).map(Car::new).collect(Collectors.toList());
+        this.cars = cars.stream().map(String::trim)
+                .map(Car::new).collect(Collectors.toList());
     }
 
     public static void moveCars() {
@@ -45,7 +46,7 @@ public class Cars {
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 winner.append(car.getName());
-                winner.append(",");
+                winner.append(", ");
             }
         }
         return winner.substring(0, winner.length() - 1);

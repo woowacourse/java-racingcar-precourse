@@ -20,12 +20,10 @@ public class Game {
         ArrayList<String> carnames = new ArrayList<>(Arrays.asList(names.split(",")));
         Cars cars = new Cars(carnames);
 
-
         System.out.println("\n실행 결과");
         for (int i = 0; i < trial; i++) {
             cars.moveCars();
             System.out.println(cars.getCarCurrentPosition());
-
         }
         System.out.println(cars.getWinner(cars.getMaxPosition()));
     }
