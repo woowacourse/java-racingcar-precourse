@@ -1,4 +1,4 @@
-package racingcar.exception;
+package utils.exception;
 
 public class UserInputException extends Exception {
 

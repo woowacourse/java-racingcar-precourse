@@ -1,4 +1,4 @@
-package racingcar.exception;
+package utils.exception;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,17 +6,42 @@ import java.util.Set;
 public class InputValidation {
     private static final int MIN_CAR_NAME_LENGTH = 0;
     private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int CHECK_LAST_CHAR = 1;
     private static final String ERROR_CAR_NAME = "[ERROR] 경주할 자동차 이름이 올바르게 입력되지 않았습니다.";
-    private static final String ERROR_CAR_DUPLICATE = "[ERROR] 경주할 자동차 이름이 중복됩니다.";
     private static final String ERROR_TRIAL_NUMBER = "[ERROR] 시도 횟수는 자연수여야 합니다.";
 
     public static String[] checkCarNameInput(String userInput) {
+        checkCommaLast(userInput);
         String[] cars = userInput.split(",");
+        checkCarNumber(cars);
         checkCarDuplicate(cars);
         for (String car : cars) {
             checkEachCarName(car);
         }
         return cars;
+    }
+
+    private static void checkCommaLast(String userInput) {
+        try {
+            char lastCharacter = userInput.charAt(userInput.length() - CHECK_LAST_CHAR);
+            if (lastCharacter == ',') {
+                throw new UserInputException();
+            }
+        } catch (UserInputException e) {
+            System.err.println(ERROR_CAR_NAME);
+            System.exit(0);
+        }
+    }
+
+    private static void checkCarNumber(String[] cars) {
+        try {
+            if (cars.length == 0) {
+                throw new UserInputException();
+            }
+        } catch (UserInputException e) {
+            System.err.println(ERROR_CAR_NAME);
+            System.exit(0);
+        }
     }
 
     private static void checkCarDuplicate(String[] cars) {
@@ -26,7 +51,7 @@ public class InputValidation {
                 throw new UserInputException();
             }
         } catch (UserInputException e) {
-            System.err.println(ERROR_CAR_DUPLICATE);
+            System.err.println(ERROR_CAR_NAME);
             System.exit(0);
         }
     }

@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
-import racingcar.exception.InputValidation;
+import utils.exception.InputValidation;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -38,13 +38,5 @@ public class InputView {
 
     private static void setNumberOfTrial(int trialInput) {
         numberOfTrial = trialInput;
-    }
-
-    public static int getNumberOfTrial() {
-        return numberOfTrial;
-    }
-
-    public static ArrayList getCarsInGame() {
-        return carsInGame;
     }
 }
