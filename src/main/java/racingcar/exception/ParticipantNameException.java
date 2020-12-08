@@ -7,7 +7,7 @@ public class ParticipantNameException extends Exception {
 
     public static final int ERROR_CODE_NAME_SIZE_OVER = 0;
 
-    private int errorCode = 0;
+    private int errorCode;
 
     public ParticipantNameException(int code) {
         this.errorCode = code;
