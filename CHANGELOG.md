@@ -6,6 +6,25 @@
 ---
 # Car Racing Game Project
 
+## [2.2.0] (2020-12-08)
+
+feat<RandomDiceRacingGame>: add trying to set racing reps feature
+
+    Post upload 2020-12-08 - 23:05
+        - RandomDiceRacingGame.java
+          
+    Upload RandomDiceRacingGame class
+        This class implements IRacingGame interface
+        
+        Added trying to set racing reps feature
+        it validates the racing reps input and set it
+        
+    Post update
+            - IRacingGame.java
+            
+        Added comments in IRacingGame interface
+        
+---
 ## [2.1.0] (2020-12-08)
 
 feat<RacingGamePinter>: add print ready to get reps input feature
