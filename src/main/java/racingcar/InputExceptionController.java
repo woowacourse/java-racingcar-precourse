@@ -1,13 +1,19 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class InputExceptionController {
     private static int MAX_NAME_LENGTH = 5;
     private static String ERROR_MARK = "[ERROR]";
 
     public static boolean isDuplication(ArrayList<Car> cars, String participationCar) {
-        return cars.contains(participationCar);
+        for (Car car : cars){
+            if (car.getCarName().equals(participationCar)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean isLengthExcess(String participationCar) {
@@ -23,7 +29,7 @@ public class InputExceptionController {
         }
     }
 
-    public static void checkInputTimes() {
+    public static void checkInputTimes(String times) {
 
     }
 

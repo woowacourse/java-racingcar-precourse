@@ -31,14 +31,24 @@ public class Race {
     // 예외 처리 필요
     public void inputCars(Scanner scanner){
         for (String participationCar : scanner.nextLine().split(",")){
-            checkInputCars(cars, participationCar);
+            try {
+                checkInputCars(cars, participationCar);
+            } catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+                System.exit(0);
+            }
             cars.add(new Car(participationCar));
         }
     }
 
     // 예외 처리 필요
     public void inputTimes(Scanner scanner){
+        try{
             times = scanner.nextInt();
+        } catch (InputMismatchException e){
+            System.out.println("[ERROR]숫자형식이 아닙니다.");
+            System.exit(0);
+        }
     }
 
 

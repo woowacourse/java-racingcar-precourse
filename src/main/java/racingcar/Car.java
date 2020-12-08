@@ -25,5 +25,4 @@ public class Car {
         System.out.println(name + " : " + new String(new char[position]).replace("\0",POSITION_MARK));
     }
 
-
 }
