@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class InputCarNames {
+
     private final static int MAX_CAR_NAME = 5;
 
     public static String[] getCarNames(Scanner scanner) {
@@ -24,10 +25,12 @@ public class InputCarNames {
             System.out.println("[ERROR] 경주할 자동차가 존재하지 않습니다.");
             throw new IllegalStateException();
         }
-        if (!validateCarNameLength(carNames))
+        if (!validateCarNameLength(carNames)) {
             throw new IllegalLengthException();
-        if (!validateCarNameDuplicate(carNames))
+        }
+        if (!validateCarNameDuplicate(carNames)) {
             throw new IllegalDuplicateException();
+        }
         return carNames;
     }
 
