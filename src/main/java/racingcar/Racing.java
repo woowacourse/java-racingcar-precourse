@@ -12,26 +12,31 @@ public class Racing {
     private CarGroup carGroup;
 
     public void run(Scanner scanner) {
+        setUpRace(scanner);
+        raceAllRound(inputView.getRoundCount());
+        chooseFinalWinner();
+    }
+
+    private void setUpRace(Scanner scanner) {
         inputView = new InputView();
         outputView = new OutputView();
         inputView.setCarNameList(scanner);
-        inputView.setRoundCount(scanner);
         carGroup = new CarGroup(inputView.getCarList());
+        inputView.setRoundCount(scanner);
+    }
 
-        raceAllRound(inputView.getRoundCount());
+    private void raceAllRound(int roundCount) {
+        outputView.printRacingStartMessage();
+        for (int i = 0; i < roundCount; i++) {
+            carGroup.raceOneRound();
+            outputView.printRoundResult(carGroup);
+        }
+    }
+
+    private void chooseFinalWinner() {
         setMaximumPosition();
         setFinalWinner();
         outputView.printFinalWinner(finalWinner);
-    }
-
-    public void setFinalWinner() {
-        List<String> finalWinnerList = new ArrayList<>();
-        for (Car car : carGroup.getCarGroup()) {
-            if (car.getPosition() == maximumPosition) {
-                finalWinnerList.add(car.getName());
-            }
-        }
-        finalWinner = String.join(", ", finalWinnerList);
     }
 
     private void setMaximumPosition() {
@@ -44,11 +49,13 @@ public class Racing {
         }
     }
 
-    private void raceAllRound(int roundCount) {
-        outputView.printRacingStartMessage();
-        for (int i = 0; i < roundCount; i++) {
-            carGroup.raceOneRound();
-            outputView.printRoundResult(carGroup);
+    public void setFinalWinner() {
+        List<String> finalWinnerList = new ArrayList<>();
+        for (Car car : carGroup.getCarGroup()) {
+            if (car.getPosition() == maximumPosition) {
+                finalWinnerList.add(car.getName());
+            }
         }
+        finalWinner = String.join(", ", finalWinnerList);
     }
 }
