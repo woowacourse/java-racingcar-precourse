@@ -40,7 +40,7 @@ raicingcar ── Application.java
            │              └  Winners.java
            │
            └     view    ─┬─ InputView.java
-                          └  CarDTO.java 
+                          └  OutputView.java
 ```
 ----------------------
 ##### Application
