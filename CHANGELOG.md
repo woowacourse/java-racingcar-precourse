@@ -6,6 +6,18 @@
 ---
 # Car Racing Game Project
 
+## [0.3.0] (2020-12-08)
+
+feat<IRacingGamePlayers>: Upload IRacingGamePlayers interface
+
+    Post upload 2020-12-08 - 22:02
+        - IRacingGamePlayers.java
+          
+    Upload IRacingGamePlayers interface
+        This interface answers the success of cars initialization
+        and returns cars and winners
+---
+
 ## [0.2.0] (2020-12-08)
 
 feat<IRacingGame>: Upload IRacingGame interface

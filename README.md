@@ -8,7 +8,7 @@
 ## 인터페이스
 - ~~Controller : Game과 입력(Scanner) 객체를 주입받아 게임을 준비하고 실행~~
 - ~~Game : Players와 출력(Printer) 객체를 주입받아 상황에 맞게 진행~~
-- Players : Car 객체들을 저장하며 차량들과 우승자를 반환
+- ~~Players : Car 객체들을 저장하며 차량들과 우승자를 반환~~
 - Printer : 우승자나 차량들을 전달받거나 상황별 안내를 지시받아 출력 
 
 ---
