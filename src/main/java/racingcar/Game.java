@@ -28,6 +28,7 @@ public class Game {
 
 	private void printWinner(int maxPosition, ArrayList<Car> cars) {
 		StringBuffer winner = new StringBuffer();
+		
 		for (Car car : cars) {
 			if (car.getPosition() == maxPosition) {
 				winner.append(car.getName() + ",");
