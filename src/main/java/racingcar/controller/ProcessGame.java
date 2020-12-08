@@ -1,20 +1,20 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Turns;
 import racingcar.view.OutputViewer;
 
 public class ProcessGame {
-    private static final int START_TURN = 0;
-
     /**
      * 정해진 횟수만큼 게임을 진행한다.
      * @param gameSet 진행할 게임 세트
-     * @param turnNumber 게임을 진행할 횟수
+     * @param turns 게임을 진행할 턴
      */
-    public void playTurns(Cars gameSet, int turnNumber) {
+    public void playTurns(Cars gameSet, Turns turns) {
         OutputViewer.initiateResult();
-        for (int i = START_TURN; i < turnNumber; i++) {
+        while (!turns.isEndTurns()) {
             gameSet.processOneTurn();
+            turns.processTurn();
             showTurnResult(gameSet);
         }
     }
