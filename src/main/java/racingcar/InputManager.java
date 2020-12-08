@@ -27,7 +27,7 @@ public class InputManager {
     }
 
     public void splitCarNamesWithComma() {
-        carNameArray = inputCarNames.split(",");
+        carNameArray = inputCarNames.split(",",-1);
         ValidationUtils.validateCarNameArray(carNameArray);
     }
 
