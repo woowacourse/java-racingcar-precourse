@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Race {
     private final String MOVEMENT = "-";
+    private final String PRINTING_FORMAT = " : ";
     private int maxPosition = 0;
 
     public void move(Car car) {
@@ -22,7 +23,7 @@ public class Race {
         for (int p=0; p<position; p++) {
             movement = movement.concat(MOVEMENT);
         }
-        System.out.println(name + " : " + movement);
+        System.out.println(name + PRINTING_FORMAT + movement);
     }
 
     private void moveToForward(Car car) {
