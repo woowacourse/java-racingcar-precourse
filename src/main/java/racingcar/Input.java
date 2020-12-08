@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Input {
@@ -9,6 +10,7 @@ public class Input {
     private static final String GET_NUMBER_OF_TRY_MESSAGE = "시도할 회수는 몇회인가요?";
     
     private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "[ERROR] 자동차 이름은 5자 이하여야 합니다.";
+    private static final String CAR_NAME_DUPLICATE_ERROR_MESSAGE = "[ERROR] 자동차 이름이 중복됩니다.";
     private static final String NON_NUMERIC_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 합니다.";
     
     private final Scanner scanner;
@@ -39,6 +41,15 @@ public class Input {
             if (carNames[i].length() > 5) {
             	throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
             }
+        }
+    }
+    public void checkCarNameDuplicate(String[] carNames) {
+        HashSet<String> name = new HashSet<String>();
+    	for (int i = 0; i < carNames.length; i++) {
+            name.add(carNames[i]);
+        }
+        if (name.size() != carNames.length) {
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR_MESSAGE);
         }
     }
     public void checkIsDigit(String numberOfTry) {
