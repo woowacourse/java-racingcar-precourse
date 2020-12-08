@@ -14,14 +14,18 @@ public class Car implements Comparable<Car> {
     }
 
     public void move(final int power) {
-        checkPossibleMovement(power);
+        if (hasPower(power)) {
+            move();
+        }
     }
 
-    private void checkPossibleMovement(final int power) {
-        if (power >= POSSIBLE_MOVE_POWER) {
-            ++position;
-            state.append(MOVING_STATE);
-        }
+    private boolean hasPower(int power) {
+        return power >= POSSIBLE_MOVE_POWER;
+    }
+
+    private void move() {
+        ++position;
+        state.append(MOVING_STATE);
     }
 
     public boolean equalsPosition(final Car car) {
