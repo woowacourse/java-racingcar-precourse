@@ -6,6 +6,16 @@
 ---
 # Car Racing Game Project
 
+## [0.2.0] (2020-12-08)
+
+feat<IRacingGame>: Upload IRacingGame interface
+
+    Post upload 2020-12-08 - 21:55
+        - IRacingGame.java
+          
+    Upload IRacingGame interface
+        This interface answers user input validations
+        and setup the game itself and run it
 ---
 
 ## [0.1.0] (2020-12-08)
