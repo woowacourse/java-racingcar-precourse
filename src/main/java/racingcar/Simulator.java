@@ -46,6 +46,7 @@ public class Simulator {
 
         for (Car car : this.cars) {
             int position = car.getPosition();
+
             if (farthestPosition < position) {
                 farthestPosition = position;
             }
