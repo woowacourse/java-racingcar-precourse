@@ -8,9 +8,20 @@
 
 ---
 
+## [0.1.0] (2020-12-08)
+
+feat<IController>: Upload IController interface
+
+    Post upload 2020-12-08 - 21:46
+        - IController.java
+          
+    Upload IController interface
+        This interface setup the game and run it with user inputs
+---
+
 ## [0.0.1] (2020-12-08)
 
-docs<[README.md]>: Upload coding plan
+docs<README.md>: Upload coding plan
 
     Post upload 2020-12-08 - 21:40
         - README.md
