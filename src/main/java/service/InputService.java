@@ -4,8 +4,13 @@ import java.util.Scanner;
 
 public class InputService {
     private static final String SEPARATOR = ",";
+    private Scanner scanner;
 
-    public static String[] getCarNames(Scanner scanner) {
+    public InputService(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public String[] getCarNames() {
         String[] carNames;
         while(true){
             try {
@@ -21,7 +26,7 @@ public class InputService {
         return carNames;
     }
 
-    private static void checkCarNames(String[] carNames) {
+    private void checkCarNames(String[] carNames) {
         for (String carName : carNames) {
             if(carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
@@ -32,7 +37,7 @@ public class InputService {
         }
     }
 
-    public static int getToTalPhaseNumber(Scanner scanner) {
+    public int getToTalPhaseNumber() {
         int totalPhaseNumber;
         while (true) {
             try {
@@ -47,7 +52,7 @@ public class InputService {
         return totalPhaseNumber;
     }
 
-    public static int checkTotalPhaseNumber(String input) {
+    private int checkTotalPhaseNumber(String input) {
         int totalPhaseNumber;
 
         try {
