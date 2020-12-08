@@ -32,11 +32,26 @@ public class RacingGamePlayers implements IRacingGamePlayers {
 
     @Override
     public ArrayList<Car> getCars() {
-        return null;
+        return cars;
     }
 
     @Override
     public ArrayList<Car> getWinner() {
-        return null;
+        int highestScore = getHighestScore();
+        ArrayList<Car> winner = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == highestScore) {
+                winner.add(car);
+            }
+        }
+        return winner;
+    }
+
+    private int getHighestScore() {
+        int score = 0;
+        for (Car car : cars) {
+            score = Math.max(score, car.getPosition());
+        }
+        return score;
     }
 }

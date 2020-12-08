@@ -6,6 +6,17 @@
 ---
 # Car Racing Game Project
 
+## [4.1.0] (2020-12-08)
+
+feat<RacingGamePlayers>: add get winner feature
+
+    Post update 2020-12-08 - 23:39
+        - RacingGamePlayers.java
+        
+    Add get winner feature
+
+---
+
 ## [4.0.0] (2020-12-08)
 
 feat<RacingGamePinter>: add print racing feature
