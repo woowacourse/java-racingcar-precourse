@@ -10,10 +10,10 @@ import static racingcar.InputExceptionController.checkParticipation;
 public class Race {
     private ArrayList<Car> cars = new ArrayList();
     private ArrayList<String> winners = new ArrayList();
-
     private int times;
     private int maxPosition;
 
+    // 초기 준비 메서드
     public void startRace(Scanner scanner){
         inputCars(scanner);
         checkParticipationCars(cars);
@@ -21,6 +21,7 @@ public class Race {
 
     }
 
+    // 경주 진행 메서드
     public void runRace(){
         for (int i = 0; i < times; i++){
             System.out.println("Lap #"+(i+1));
@@ -31,9 +32,10 @@ public class Race {
         }
     }
 
-
+    // 차량 입력 메서드
     public void inputCars(Scanner scanner){
-        for (String participationCar : scanner.nextLine().split(",")){
+        for (String inputCar : scanner.nextLine().split(",")){
+            String participationCar = inputCar.replaceAll(" ","");
             try {
                 checkInputCars(cars, participationCar);
             } catch (IllegalArgumentException e){
@@ -44,6 +46,7 @@ public class Race {
         }
     }
 
+    // 시도횟수 입력 메서드
     public void inputTimes(Scanner scanner){
         try{
             times = scanner.nextInt();
@@ -53,6 +56,7 @@ public class Race {
         }
     }
 
+    // 참가인원 확인 메서드
     public void checkParticipationCars(ArrayList<Car> cars){
         try{
             checkParticipation(cars);
@@ -63,12 +67,14 @@ public class Race {
 
     }
 
+    // 가장 먼 위치 확인 메서드
     public void findMaxPosition(){
         for (Car car : cars){
             if (maxPosition < car.getCarPosition()) { maxPosition = car.getCarPosition(); }
         }
     }
 
+    // 우승자 출력 메서드
     public void printWinnerList(){
         findMaxPosition();
         for (Car car : cars){
