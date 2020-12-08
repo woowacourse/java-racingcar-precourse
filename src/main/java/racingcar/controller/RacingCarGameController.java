@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 import racingcar.domain.Car;
 import racingcar.io.InputView;
 import racingcar.io.OutputView;
@@ -12,19 +13,26 @@ public class RacingCarGameController {
     private static final int MOVE_CONDITION_NUM = 4;
     private static final int MAX_RANDOM_NUM = 9;
     private static final int MIN_RANDOM_NUM = 0;
-    private static int maxPosition = 0;
-    private static int raceCount;
-    private static List<Car> cars = new LinkedList<>();
+    private static InputView inputView;
+    private static OutputView outputView;
+    private int maxPosition = 0;
+    private int raceCount;
+    private List<Car> cars = new LinkedList<>();
 
-    private static void setCars() {
-        cars = InputView.getCars();
+    public RacingCarGameController(Scanner scanner) {
+        inputView = new InputView(scanner);
+        outputView = new OutputView();
     }
 
-    private static void setRaceCount() {
-        raceCount = InputView.getRaceCount();
+    private void setCars() {
+        cars = inputView.getCars();
     }
 
-    private static void race() {
+    private void setRaceCount() {
+        raceCount = inputView.getRaceCount();
+    }
+
+    private void race() {
         for (Car car : cars) {
             if (RandomUtils.nextInt(MIN_RANDOM_NUM, MAX_RANDOM_NUM) >= MOVE_CONDITION_NUM) {
                 int carPosition = car.move();
@@ -33,7 +41,7 @@ public class RacingCarGameController {
         }
     }
 
-    private static List<Car> makeWinners() {
+    private List<Car> makeWinners() {
         List<Car> winners = new LinkedList<>();
         for (Car car : cars) {
             if (car.isMaxPosition(maxPosition)) {
@@ -43,15 +51,15 @@ public class RacingCarGameController {
         return winners;
     }
 
-    public static void start() {
+    public void start() {
         setCars();
         setRaceCount();
-        OutputView.printRacingResultMessage();
+        outputView.printRacingResultMessage();
         for (int i = 0; i < raceCount; i++) {
             race();
-            OutputView.printCarsStatus(cars);
+            outputView.printCarsStatus(cars);
         }
-        OutputView.printCarNames(makeWinners());
+        outputView.printCarNames(makeWinners());
     }
 
 }

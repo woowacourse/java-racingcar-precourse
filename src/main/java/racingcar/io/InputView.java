@@ -21,15 +21,19 @@ public class InputView {
     private static final String UNDER_ZERO_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 0보다 커야합니다.";
     private static final String SPECIAL_CHARACTER_ERROR_MESSAGE = "[ERROR] 자동차 이름에 특수 문자는 허용되지 않습니다.";
     private static final String DUPLICATED_CAR_NAME_ERROR_MESSAGE = "[ERROR] 중복된 자동차 이름이 존재합니다.";
-    public static Scanner scanner;
+    private static Scanner scanner;
 
-    public static List<Car> getCars() {
+    public InputView(Scanner scanner) {
+        InputView.scanner = scanner;
+    }
+
+    public List<Car> getCars() {
         System.out.println(RACING_CAR_NAME_REQUEST_MESSAGE);
         try {
             List<String> carNames = parseCarNames(scanner.nextLine());
             List<Car> cars = new LinkedList<>();
-            for (int i = 0; i < carNames.size(); i++) {
-                cars.add(new Car(carNames.get(i)));
+            for (String carName : carNames) {
+                cars.add(new Car(carName));
             }
             return cars;
         } catch (Exception e) {
@@ -38,7 +42,7 @@ public class InputView {
         }
     }
 
-    private static List<String> parseCarNames(String input) {
+    private List<String> parseCarNames(String input) {
         input = input.replaceAll(" ", "");
         validateContainSeparator(input);
         validateContainSpecialCharacters(input);
@@ -55,19 +59,19 @@ public class InputView {
         return paredCarNames;
     }
 
-    public static void validateContainSeparator(String input) {
+    private void validateContainSeparator(String input) {
         if (!input.contains(RACING_CAR_NAME_SEPARATOR)) {
             throw new IllegalArgumentException(SEPARATE_ERROR_MESSAGE);
         }
     }
 
-    public static void validateContainSpecialCharacters(String name) {
+    private void validateContainSpecialCharacters(String name) {
         if (!Pattern.matches("[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힝 | ,]*", name)) {
             throw new IllegalArgumentException(SPECIAL_CHARACTER_ERROR_MESSAGE);
         }
     }
 
-    public static void validateCanSeparated(List<String> inputs) {
+    private void validateCanSeparated(List<String> inputs) {
         for (String input : inputs) {
             if (input.length() == 0) {
                 throw new IllegalArgumentException(SEPARATE_ERROR_MESSAGE);
@@ -75,7 +79,7 @@ public class InputView {
         }
     }
 
-    public static void validateContainDuplication(List<String> names) {
+    private void validateContainDuplication(List<String> names) {
         Set<String> set = new HashSet<>();
 
         for (String name : names) {
@@ -86,13 +90,13 @@ public class InputView {
         }
     }
 
-    public static void validateLength(String name) {
+    private void validateLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_MESSAGE);
         }
     }
 
-    public static int getRaceCount() {
+    public int getRaceCount() {
         System.out.println(RACING_MOVE_COUNT);
         try {
             String input = scanner.nextLine();
@@ -106,7 +110,7 @@ public class InputView {
         }
     }
 
-    private static void validateNumber(String input) {
+    private void validateNumber(String input) {
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '-' || input.charAt(i) == '+') {
                 continue;
@@ -117,7 +121,7 @@ public class InputView {
         }
     }
 
-    private static void validateOverZero(int number) {
+    private void validateOverZero(int number) {
         if (number <= 0) {
             throw new IllegalArgumentException(UNDER_ZERO_INPUT_ERROR_MESSAGE);
         }
