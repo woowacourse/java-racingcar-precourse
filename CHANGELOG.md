@@ -6,6 +6,17 @@
 ---
 # Car Racing Game Project
 
+## [2.1.0] (2020-12-08)
+
+feat<RacingGamePinter>: add print ready to get reps input feature
+
+    Post update 2020-12-08 - 22:53
+        - RacingGamePinter.java
+        
+    Add print it is ready to get reps input feature
+    
+---
+
 ## [2.0.0] (2020-12-08)
 
 feat<RacingGamePlayer>: add create cars feature
