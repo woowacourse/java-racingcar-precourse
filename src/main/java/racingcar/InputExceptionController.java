@@ -15,7 +15,12 @@ public class InputExceptionController {
     }
 
     public static void checkInputCars(ArrayList<Car> cars, String participationCar) {
-
+        if(isDuplication(cars,participationCar)){
+            throw new IllegalArgumentException(ERROR_MARK+"중복된 이름이 있습니다.");
+        }
+        if(isLengthExcess(participationCar)){
+            throw new IllegalArgumentException(ERROR_MARK+"이름이 5자를 초과했습니다.");
+        }
     }
 
     public static void checkInputTimes() {
