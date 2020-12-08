@@ -9,9 +9,9 @@ import racingcar.domain.Turns;
 import java.util.Scanner;
 
 public class RacingGame {
-    private final Initiator initiator;
-    private final ProcessGame processGame;
-    private final EndGame endGame;
+    private Initiator initiator;
+    private ProcessGame processGame;
+    private EndGame endGame;
 
     RacingGame(Scanner scanner) {
         this.initiator = new Initiator(scanner);

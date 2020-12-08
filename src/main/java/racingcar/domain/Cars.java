@@ -32,28 +32,4 @@ public class Cars {
     public void processOneTurn() {
         carList.forEach(Car::playOneTurn);
     }
-
-    /**
-     * 전체 중 우승자를 찾는 메서드
-     * @return 우승자들
-     */
-    public ArrayList<String> getWinners() {
-        ArrayList<String> winner = new ArrayList<String>();
-        int maxDistance = getMaxDistance();
-        carList.forEach(car -> addWinner(winner, car, maxDistance));
-        return winner;
-    }
-
-    private int getMaxDistance() {
-        return carList.stream()                     // carList를 대상으로 하는 스트림 생성
-                      .mapToInt(Car::getPosition)   // carList에서 위치 반환
-                      .summaryStatistics()          // 통계요약본 만들기
-                      .getMax();                    // 최대값 반환
-    }
-
-    private void addWinner(ArrayList<String> winner, Car candidate, int maxDistance) {
-        if (candidate.isMaxDistance(maxDistance)) {
-            winner.add(candidate.getName());
-        }
-    }
 }

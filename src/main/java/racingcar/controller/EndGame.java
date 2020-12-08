@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Winners;
 import racingcar.view.OutputViewer;
 
 import java.util.ArrayList;
@@ -13,7 +14,8 @@ public class EndGame {
      * @param gameSet 이때까지 진행한 게임
      */
     public void announceWinner(Cars gameSet) {
-        ArrayList<String> winnerList = gameSet.getWinners();
+        Winners winners = new Winners(gameSet);
+        ArrayList<String> winnerList = winners.getWinnerList();
         showWinners(winnerList);
     }
 
