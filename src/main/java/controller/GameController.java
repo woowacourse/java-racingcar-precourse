@@ -24,7 +24,7 @@ public class GameController {
         setCount(scanner); //시도할 횟수를 입력받음
         System.out.println("실행결과");
         for (int i = 0; i < count; i++) {
-            cars.forEach(Car::go);
+            cars.forEach(Car::moveCar);
             printDistance();
             System.out.println();
         }
