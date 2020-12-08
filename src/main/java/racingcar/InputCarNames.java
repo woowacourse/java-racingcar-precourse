@@ -14,8 +14,8 @@ public class InputCarNames {
         String[] carNames;
 
         try {
-            carNamesInputString = scanner.next();
-            carNames = carNamesInputString.split(",");
+            carNamesInputString = scanner.nextLine();
+            carNames = carNamesInputString.split(",\\s*");
         } catch (Exception e) {
             System.out.println("[ERROR] 잘못된 입력값입니다.");
             throw new IllegalArgumentException();
