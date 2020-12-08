@@ -1,6 +1,6 @@
 package racingcar.domains.validate;
 
-import racingcar.ErrorMessageGenerator;
+import racingcar.domains.error.ErrorMessageGenerator;
 import racingcar.domains.error.RacingCarGameException;
 
 public class AttemptNumberInputValidator implements Validator<String> {

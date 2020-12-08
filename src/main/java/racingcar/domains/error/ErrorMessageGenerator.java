@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domains.error;
 
 public class ErrorMessageGenerator {
     private static final String format = "[ERROR] %s";
