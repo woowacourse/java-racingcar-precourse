@@ -28,7 +28,7 @@ public class GameManager {
         carListInitializer();
         roundCountInitializer();
 
-        System.out.println(SysMessages.executeMessage);
+        executionTitlePrinter();
         while (!hasAnyWinner()) {
             moveAllCars();
             displayAllCarState();
@@ -46,6 +46,10 @@ public class GameManager {
 
     private void roundCountInitializer() {
         roundCount = inputHandler.getValidRoundCount();
+    }
+
+    private void executionTitlePrinter() {
+        System.out.println(SysMessages.executeMessage);
     }
 
     private boolean hasAnyWinner() {
