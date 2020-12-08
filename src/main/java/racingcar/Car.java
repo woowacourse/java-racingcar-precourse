@@ -8,5 +8,11 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+
+    // 異붽� 湲곕뒫 援ы쁽
+    
+    public void statusPrint()
+    {
+    	System.out.println(name);
+    }
 }
