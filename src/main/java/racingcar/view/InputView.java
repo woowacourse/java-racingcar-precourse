@@ -1,8 +1,15 @@
 package racingcar.view;
 
-import racingcar.exception.*;
-
-import java.util.*;
+import racingcar.exception.DelimiterInputException;
+import racingcar.exception.InputWithoutNameException;
+import racingcar.exception.InvalidNameLengthException;
+import racingcar.exception.NameDuplicationException;
+import racingcar.exception.RoundIllegalArgumentException;
+import racingcar.exception.SpaceInputException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 
 public class InputView {
     private static final int ZERO = 0;
