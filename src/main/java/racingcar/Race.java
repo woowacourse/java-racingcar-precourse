@@ -2,16 +2,12 @@ package racingcar;
 
 import utils.RandomUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
     private final String MOVEMENT = "-";
     private int maxScore = 0;
-//    private List<Car> cars;
-
-//    public Race(List<Car> cars) {
-//        this.cars = cars;
-//    }
 
     public void move(Car car) {
         String name;
@@ -35,6 +31,11 @@ public class Race {
         }
     }
 
+    public boolean moveForward() {
+        int conditionNumber = RandomUtils.nextInt(0, 9);
+        return conditionNumber > 3;
+    }
+
     public void findMaximum(List<Car> cars) {
         for (Car car : cars) {
             int position = car.getPositon();
@@ -44,8 +45,15 @@ public class Race {
         }
     }
 
-    public boolean moveForward() {
-        int conditionNumber = RandomUtils.nextInt(0, 9);
-        return conditionNumber > 3;
+    public List<String> getWinner(List<Car> cars) {
+        List<String> winner = new ArrayList<>();
+        for (Car car : cars) {
+            int position = car.getPositon();
+            String name = car.getName();
+            if (position == maxScore) {
+                winner.add(name);
+            }
+        }
+        return winner;
     }
 }

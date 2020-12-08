@@ -3,7 +3,6 @@ package racingcar;
 import exceptions.Errors;
 import exceptions.RacingException;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
@@ -14,10 +13,9 @@ public class Game {
     private final String WINNER_MESSAGE = "최종 우승자: ";
 
     private int trial;
-    private List<String> names;
     private List<Car> cars;
-    private final List<String> winner = new ArrayList<>();
-    private int maxScore = 0;
+
+    final Race race = new Race();
 
     public Game(Scanner scanner) {
         this.startGame(scanner);
@@ -31,7 +29,7 @@ public class Game {
         System.out.println(TRIAL_MESSAGE);
         setTrial(scanner);
 
-        play();
+        playGame();
     }
 
     public void setTrial(Scanner scanner) {
@@ -44,9 +42,12 @@ public class Game {
         this.trial = Integer.parseInt(input);
     }
 
-    public void play() {
-        final Race race = new Race();
+    public void playGame() {
+        playRace();
+        finishGame();
+    }
 
+    public void playRace() {
         System.out.println(RESULT_MESSAGE);
 
         for (int i=0; i<trial; i++) {
@@ -55,23 +56,12 @@ public class Game {
             }
             System.out.println();
         }
-
-        race.findMaximum(cars);
-        System.out.println(maxScore);
-        getWinner();
-        String winners = String.join(", ", winner);
-        System.out.println(WINNER_MESSAGE + winners);
     }
 
-
-
-    public void getWinner() {
-        for (Car car : cars) {
-            int position = car.getPositon();
-            String name = car.getName();
-            if (position == maxScore) {
-                winner.add(name);
-            }
-        }
+    public void finishGame() {
+        race.findMaximum(cars);
+        List<String> winner = race.getWinner(cars);
+        String winners = String.join(", ", winner);
+        System.out.println(WINNER_MESSAGE + winners);
     }
 }
