@@ -16,7 +16,7 @@ public class GameStatus implements Output {
     public void print() {
         cars.forEach(car -> {
             car.getStatus().print();
-            System.out.println();
         });
+        System.out.println();
     }
 }
