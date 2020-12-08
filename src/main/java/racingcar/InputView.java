@@ -58,5 +58,4 @@ public class InputView {
             throw new IllegalArgumentException(ERROR_MESSAGE_START + ERROR_MESSGAE_END_COUNT_ISBIGGERZERO);
         }
     }
-
 }

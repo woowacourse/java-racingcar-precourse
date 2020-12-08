@@ -1,12 +1,10 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class CarGroup {
-
     private static final String ERROR_MESSAGE_START = "[ERROR] ";
     private static final String ERROR_MESSGAE_END_NAME_DUPLICATE = "자동차 이름은 중복되지 않아야 한다.";
 
