@@ -12,7 +12,6 @@ public class Game {
     private final String RESULT_MESSAGE = "실행 결과";
     private final String WINNER_MESSAGE = "최종 우승자: ";
 
-    private String input;
     private int trial;
     private List<Car> cars;
 
@@ -34,7 +33,7 @@ public class Game {
     }
 
     private void setTrial(Scanner scanner) {
-        this.input = scanner.nextLine();
+        String input = scanner.nextLine();
         try {
             new Errors().trialValidation(input);
         } catch (RacingException e) {
