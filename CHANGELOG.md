@@ -6,6 +6,17 @@
 ---
 # Car Racing Game Project
 
+## [1.2.0] (2020-12-08)
+
+feat<RacingGamePinter>: add print wrong name input feature
+
+    Post update 2020-12-08 - 22:43
+        - RacingGamePinter.java
+        
+    Add print wrong name input feature
+    
+---
+
 ## [1.1.0] (2020-12-08)
 
 feat<RacingGamePlayer>: add RacingGamePlayer class
