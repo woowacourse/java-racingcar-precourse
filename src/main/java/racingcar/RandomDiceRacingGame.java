@@ -38,6 +38,7 @@ public class RandomDiceRacingGame implements IRacingGame {
             }
         } catch (NumberFormatException ignored) {
         }
+        printer.errorInputReps();
         return false;
     }
 

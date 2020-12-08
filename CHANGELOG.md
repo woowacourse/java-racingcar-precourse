@@ -6,6 +6,28 @@
 ---
 # Car Racing Game Project
 
+## [1.3.0] (2020-12-08)
+
+feat<RacingGamePinter>: add print wrong reps input feature
+
+    Post update 2020-12-08 - 23:13
+        - RacingGamePinter.java
+        
+    Add print wrong reps input feature
+        
+        - RandomDiceRacingGame.java
+        
+    Add call that print feature
+        
+        - README.md
+    
+    Add some more features in coding plan
+        - Controller : 이름 입력값이 적합할때까지 반복하는 기능
+        - Controller : 시도할 횟수 입력값이 적합할때까지 반복하는 기능
+        - Controller : 게임을 실행하는 기능
+    
+---
+
 ## [2.2.0] (2020-12-08)
 
 feat<RandomDiceRacingGame>: add trying to set racing reps feature
