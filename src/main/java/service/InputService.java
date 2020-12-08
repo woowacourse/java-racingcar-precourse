@@ -38,12 +38,28 @@ public class InputService {
             try {
                 System.out.println("시도할 횟수는 몇회인가요?");
                 String input = scanner.nextLine();
-                totalPhaseNumber = Integer.parseInt(input);
+                totalPhaseNumber = checkTotalPhaseNumber(input);
                 break;
             } catch (Exception e) {
-                System.out.println("[ERROR]시도 횟수는 숫자여야 합니다.");
+                System.out.println("[ERROR]"+e.getMessage());
             }
         }
+        return totalPhaseNumber;
+    }
+
+    public static int checkTotalPhaseNumber(String input) {
+        int totalPhaseNumber;
+
+        try {
+            totalPhaseNumber = Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        }
+
+        if(totalPhaseNumber <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 양수여야 합니다.");
+        }
+
         return totalPhaseNumber;
     }
 }
