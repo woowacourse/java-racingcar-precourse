@@ -14,14 +14,13 @@ public class Game {
     private Game() {
     }
 
-    public static void playGame(Scanner scanner) {
+    public static void setGame(Scanner scanner) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         while (carNames == null) {
             enterName(scanner);
         }
 
         cars = new Car[carNames.length];
-
         for (int i = 0; i < carNames.length; i++) {
             cars[i] = new Car(carNames[i]);
         }
@@ -58,6 +57,16 @@ public class Game {
         } catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
             tryCnt = UNSET_TRY_COUNT;
+        }
+    }
+
+    public static void playGame() {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < Game.tryCnt; i++) {
+            for (Car car : cars) {
+                car.moveCar();
+            }
+            System.out.println();
         }
     }
 }
