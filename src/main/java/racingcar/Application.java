@@ -12,9 +12,11 @@ public class Application {
         String[] carNames = getCarNames(scanner);
         int tryCount = getTryCount(scanner);
         Car[] racingCars = makeCars(carNames);
-        // for debugging
-        for (Car car : racingCars) {
-            System.out.println(car.getName());
+
+        System.out.println("\n실행 결과");
+        while (tryCount > 0) {
+            startGame(racingCars);
+            tryCount--;
         }
     }
 
@@ -25,5 +27,13 @@ public class Application {
             racingCars[i] = new Car(carNames[i]);
         }
         return racingCars;
+    }
+
+    public static void startGame(Car[] racingCars) {
+        for (Car car : racingCars) {
+            car.ride();
+            System.out.printf("%s : %s\n", car.getName(), "-".repeat(car.getPosition()));
+        }
+        System.out.println();
     }
 }
