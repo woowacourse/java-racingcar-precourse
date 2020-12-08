@@ -49,4 +49,14 @@ public class GameService {
 
         return winners;
     }
+
+    public void showResult() {
+        List<Car> winners = findWinners();
+
+        System.out.print("최종 우승자: ");
+        for(int i=0; i < winners.size()-1; i++) {
+            System.out.print(winners.get(i).getName() + ",");
+        }
+        System.out.print(winners.get(winners.size()-1).getName());
+    }
 }
