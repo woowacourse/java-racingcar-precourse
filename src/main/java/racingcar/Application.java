@@ -1,9 +1,8 @@
 package racingcar;
 
+import java.util.Scanner;
 import service.GameService;
 import service.InputService;
-
-import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
@@ -11,6 +10,7 @@ public class Application {
 
         InputService inputService = new InputService(scanner);
         runGame(inputService);
+
         scanner.close();
     }
 
@@ -19,9 +19,11 @@ public class Application {
         int totalPhaseNumber = inputService.getToTalPhaseNumber();
         GameService gameService = new GameService(carNames);
         System.out.println("\n실행 결과");
+
         for (int i=0; i<totalPhaseNumber; i++) {
             gameService.runPhase();
         }
+
         gameService.showResult();
     }
 }
