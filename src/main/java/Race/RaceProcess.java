@@ -7,7 +7,6 @@ import View.OutputView;
 import java.util.List;
 
 public class RaceProcess {
-
     private Cars cars;
     private int carNum = 0;
     private int roundNum = 0;
@@ -40,10 +39,4 @@ public class RaceProcess {
         }
         scoreBoard.printLine();
     }
-
-
-
-
-
-
 }

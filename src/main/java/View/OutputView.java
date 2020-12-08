@@ -3,7 +3,6 @@ package View;
 import java.util.List;
 
 public class OutputView {
-
     private static final String SYMBOL = "-";
     private static final String DELIMITER = ",";
     private static final String FINAL_WINNER = "최종 우승자: ";

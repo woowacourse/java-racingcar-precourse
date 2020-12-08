@@ -32,5 +32,4 @@ public class Cars {
                .max()
                .getAsInt();
     }
-
 }

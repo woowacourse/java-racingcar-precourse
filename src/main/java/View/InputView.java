@@ -39,6 +39,7 @@ public class InputView {
        int roundNum = this.scanner.nextInt();
        return roundNum;
     }
+
     private List<String> convertToList(String target) {
        String [] arr = target.split(this.DELIMITER);
        return Arrays.asList(arr);
