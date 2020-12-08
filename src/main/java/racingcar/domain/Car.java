@@ -15,14 +15,6 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public String getName() {
-        return this.name;
-    }
-
-    public int getPosition() {
-        return this.position;
-    }
-
     public void moveOrStop() {
         int progressCheck = RandomUtils.nextInt(RANDOM_MIN_NUMBER, RANDOM_MAX_NUMBER);
         if (progressCheck >= MOVE_FORWARD_POINT) {
@@ -33,4 +25,13 @@ public class Car {
     private void moveForward() {
         position++;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
 }

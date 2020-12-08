@@ -21,10 +21,6 @@ public class TrialProgression {
         }
     }
 
-    public int getFrontRunnerPosition() {
-        return frontRunnerPosition;
-    }
-
     private void singleTrial() {
         for (Car car : carsInGame) {
             car.moveOrStop();
@@ -40,5 +36,9 @@ public class TrialProgression {
         if (carPosition > frontRunnerPosition) {
             frontRunnerPosition = carPosition;
         }
+    }
+
+    public int getFrontRunnerPosition() {
+        return frontRunnerPosition;
     }
 }
