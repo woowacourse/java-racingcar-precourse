@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.view.OutputView;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
