@@ -6,12 +6,12 @@ import static utils.PrintUtils.print;
 
 import exceptions.InvalidInputException;
 
-public class InputValidator {
+public class TurnsInputValidator {
 
     private boolean valid;
     private Integer turns;
 
-    public InputValidator() {
+    public TurnsInputValidator() {
         valid = false;
         turns = null;
     }
