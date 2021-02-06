@@ -7,10 +7,8 @@ public class Car {
         this.position = 0;
     }
 
-    public void printResult() {
-        for (int i = 0; i < this.position ; i++) {
-            System.out.println("-");
-        }
+    public void move(int score) {
+        this.position += score;
     }
 
     public String getName() {
