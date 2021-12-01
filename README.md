@@ -8,8 +8,7 @@
 ### ✅ CarView
 #### package java.racingcar
 * view
-  * 값 입력, 횟수, 실행 중 결과, 최종 우승자, 에러 등 모든 화면 출력
-  * 횟수는 view에서 controller로 넘기지 않음
+  * 안내 print, 게임 진행 print, 우승자 print 
 
 ### ✅ CarController
 #### package java.racingcar
@@ -32,6 +31,7 @@
 * repository
   * 저장
   * 전체 객체 가져오기 (return 저장된 모든 car)
+  * 모두 삭제
 
 ### ✅ CarValidator
 #### package java.racingcar
