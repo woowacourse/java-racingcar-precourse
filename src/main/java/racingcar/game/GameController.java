@@ -1,22 +1,25 @@
 package racingcar.game;
 
 import racingcar.car.CarNames;
+import racingcar.car.Cars;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
 
 public class GameController {
 	public void run() {
 		Game game = new Game();
+		CarNames carNames = new CarNames();
 		InputView.startMessage();
-		inputCarName();
+		inputCarName(carNames);
+		Cars cars = new Cars(carNames.generateCar());
 	}
 
-	public void inputCarName() {
+	public void inputCarName(CarNames carNames) {
 		try {
-			CarNames carNames = new CarNames();
+			carNames.input();
 		} catch (IllegalArgumentException illegalArgumentException) {
 			ErrorView.show(illegalArgumentException.getMessage());
-			inputCarName();
+			inputCarName(carNames);
 		}
 	}
 }

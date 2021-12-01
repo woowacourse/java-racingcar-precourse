@@ -2,6 +2,7 @@ package racingcar.car;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -19,11 +20,7 @@ public class CarNames {
 
 	private List<String> names;
 
-	public CarNames() {
-		input();
-	}
-
-	private void input() {
+	public void input() {
 		String input = Console.readLine();
 		names = Arrays.asList(input.split(DELIMITER));
 		validate();
@@ -65,5 +62,9 @@ public class CarNames {
 		if (names.size() != names.stream().distinct().count()) {
 			throw new IllegalArgumentException(ERROR_DUPLICATE);
 		}
+	}
+
+	public List<Car> generateCar() {
+		return names.stream().map(name -> new Car(name)).collect(Collectors.toList());
 	}
 }
