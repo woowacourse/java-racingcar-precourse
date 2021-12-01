@@ -14,6 +14,8 @@
 
    - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우
 
+4. (수정) `GameHandler` 가 자동차의 이름을 알 수 있게 하기 위해서 `name()` method 필요.
+
 <br>
 
 ## GameHandler
@@ -23,26 +25,26 @@
    2.  `MAX_NAME_LENGTH` (==5)
    3. `IMPROPER_CHARACTER`(=='`,`')
    4. `SPLIT_STRING`(=="`,`")
-2. (수정) 멤버 변수
+2. 멤버 변수
    1. 자동차들에 대한 정보 필요 → `private List<Car> cars`
    2. 얼마나 이동할 것인지에 대한 정보 저장 필요 → `private int stages`
 3. 자동차들을 생성해야 함 → `createCars()`
    1. 처음에 자동차 이름을 받아야 함 → `getCarsName()` 
-      1. (수정) 사용자의 입력을 받는 method → `getUserInput()`
+      1. 사용자의 입력을 받는 method → `getUserInputNames()`
          1. 각 자동차의 이름 확인하는 method 필요. → `checkValidName()`
             1. 글자수 1~5인지 판단해줘야 함 → `isInValidNameLength(String name)`
             2. 맨 뒤에 `,` 가 쓰였는지 확인해줘야 함. → `isLastCharImproper(String userInput)`
    2. 잘못된 입력이면 다시 받도록 해야 함 (1-1, 1-2 는 `try-catch` 로 구현하기)
 4. 몇번의 이동을 할지 정해야 함. → `getStages()`
-   1. 사용자의 입력을 받아야 함. → `get`
+   1. 사용자의 입력을 받아야 함. → `getUserInputStages()`
       1. 사용자의 입력이 `int type` 이 아니면 `IllegalArugmentException`
 5. 이동횟수만큼 자동차들이 `go` 하게 만든다.
-6. (수정) 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult(List<Car> cars)`
+6. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult(List<Car> cars)`
 7. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners(List<Car> cars)`
-8. (수정) 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
+8. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
    1. `createCars()` → 알맞은 자동차 생성
    2. `getStages()` → 얼마나 이동할 것인지
-   3. 이동횟수 만큼 아래의 프로세스를 실행
+   3. `excuteStage()` → 이동횟수 만큼 아래의 프로세스를 실행 
       1. 각 자동차들 모두 `go`.
       2. 각 자동차들 현재 위치 출력. → `showEachStageResult(List<Car> cars)`
    4. 우승자 출력 →  `showWinners(List<Car> cars)`
