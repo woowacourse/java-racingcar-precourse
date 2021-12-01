@@ -27,6 +27,7 @@ public class Game {
     private boolean checkCars() {
         try {
             boolean checking = true;
+            rightInput();
 
         } catch (IllegalArgumentException) {
 
@@ -35,17 +36,17 @@ public class Game {
         return checking;
     }
 
-    private boolean rightInput() {
+    private void rightInput() throws IllegalArgumentException{
         carNames = input.split(",");
         if (carNames.length == 1) {
-            return true;
+            return;
         }
         for (int i=0;i<carNames.length; i++) {
             if (carNames[i].length() > 5) {
-                return false;
+                throw new IllegalArgumentException();
             }
         }
-        return true;
+        return;
     }
     
 
