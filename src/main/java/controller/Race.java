@@ -16,6 +16,7 @@ public class Race {
 		Cars cars = new Cars(names);
 		MoveCount moveCount = InputView.inputMoveCount();
 
+		OutputView.printResultMessage();
 		for (int i = 0; i < moveCount.toInt(); i++) {
 			moveCars(cars);
 			printCars(cars);
