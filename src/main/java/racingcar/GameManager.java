@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameManager {
@@ -20,6 +23,7 @@ public class GameManager {
 		for (int i = 0; i < inputManager.numberOfMove; i++) {
 			playRound();
 		}
+		printWinner();
 		// for (int i = 0; i < cars.length; i++) {
 		// 	System.out.println(cars[i].getName() + " " + cars[i].getPosition());
 		// }
@@ -48,6 +52,32 @@ public class GameManager {
 				System.out.print("-");
 			}
 			System.out.println();
+		}
+		System.out.println();
+	}
+
+	public void printWinner() {
+		int[] position = new int[cars.length];
+		ArrayList<String> winner = new ArrayList<>();
+		for (int i = 0; i < position.length; i++) {
+			position[i] = cars[i].getPosition();
+		}
+		Arrays.sort(position);
+		System.out.print("최종 우승자 : ");
+		for (int i = 0; i < position.length; i++) {
+			if (cars[i].getPosition() == position[cars.length - 1]) {
+				winner.add(cars[i].getName());
+			}
+		}
+		if (winner.size() == 1) {
+			System.out.print(winner.get(0));
+		} else if (winner.size() != 1) {
+			for (int i = 0; i < winner.size(); i++) {
+				System.out.print(winner.get(i));
+				if (i != winner.size() - 1) {
+					System.out.print(", ");
+				}
+			}
 		}
 		System.out.println();
 	}
