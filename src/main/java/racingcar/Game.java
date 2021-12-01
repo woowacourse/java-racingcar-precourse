@@ -20,6 +20,12 @@ public class Game {
         for(Car car : cars){
             tryMove(car);
         }
+        showStatus();
+    }
+    private static void showStatus(){
+        for(Car car: cars){
+            System.out.println(car.showPosition());
+        }
     }
     private static void tryMove(Car car){
         if(canMove()){
