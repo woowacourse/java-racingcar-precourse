@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Game {
     private static List<Car> cars = new ArrayList<>();
@@ -17,77 +16,19 @@ public class Game {
         for (int i = 1; i <= trialNumber; i++) {
             startRound();
         }
-        showResult();
-    }
-
-    private static void showResult() {
-        List<String> winner = decideWinner();
-        printResult(winner);
-    }
-
-    private static List<String> decideWinner() {
-        List<String> winner = new ArrayList<>();
-        int maxPosition = findMax();
-        for (Car car : cars) {
-            isWinner(winner, maxPosition, car);
-        }
-        return winner;
-    }
-
-    private static List<String> isWinner(List<String> winner, int maxPosition, Car car) {
-        if (car.getPosition() == maxPosition) {
-            winner.add(car.getName());
-        }
-        return winner;
-    }
-
-    private static int findMax() {
-        List<Integer> position = new ArrayList<>();
-        for (Car car : cars) {
-            position.add(car.getPosition());
-        }
-        return Collections.max(position);
-    }
-
-    private static void printResult(List<String> winner) {
-        String Result = "최종 우승자 : ";
-        for (String name : winner) {
-            Result += (name + ", ");
-        }
-        System.out.print(removeCommaAtEnd(Result));
-    }
-
-    private static String removeCommaAtEnd(String targetString) {
-        return targetString.substring(0, targetString.length() - 2);
+        Board.showResult(cars);
     }
 
     private static void startRound() {
         for (Car car : cars) {
-            tryMove(car);
+            GameUtil.tryMove(car);
         }
-        showStatus();
-    }
-
-    private static void showStatus() {
-        for (Car car : cars) {
-            System.out.println(car.showPosition());
-        }
-        System.out.println();
-    }
-
-    private static void tryMove(Car car) {
-        if (canMove()) {
-            car.goForward();
-        }
-    }
-
-    private static boolean canMove() {
-        return (Randoms.pickNumberInRange(0, 9) >= 4);
+        Board.showStatus(cars);
     }
 
     private static void setGame() {
         setCars();
-        setTrialNumber();
+        trialNumber = setTrialNumber();
     }
 
     private static void setCars() {
@@ -95,69 +36,17 @@ public class Game {
         String input;
         do {
             input = Console.readLine();
-        } while (!isValidateInput(input));
-        cars = parseStringToList(new ArrayList<>(), input);
+        } while (!Validator.isValidateInput(input));
+        cars = Validator.parseStringToList(new ArrayList<>(), input);
     }
 
-    private static boolean isValidateInput(String input) {
-        List<Car> templist = parseStringToList(new ArrayList<>(), input);
-        int flag = 1;
-        for (Car car : templist) {
-            flag *= isValidateName(car.getName());
-        }
-        if (flag == 0) {
-            return false;
-        }
-        return true;
-    }
-
-    private static int isValidateName(String name) {
-        try {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 자동차의 이름은 5자 이하여야 한다.");
-            return 0;
-        }
-        return 1;
-    }
-
-    private static List<Car> parseStringToList(List<Car> list, String input) {
-        String[] carNames = input.split(",");
-        for (String carName : carNames) {
-            list.add(new Car(carName));
-        }
-        return list;
-    }
-
-    private static void setTrialNumber() {
+    private static int setTrialNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input;
         do {
             input = Console.readLine();
-        } while (!isValidateNumber(input));
-        trialNumber = Integer.parseInt(input);
+        } while (!Validator.isValidateNumber(input));
+        return Integer.parseInt(input);
     }
 
-    private static boolean isValidateNumber(String input) {
-        try {
-            if (!isNumberFormat(input)) {
-                throw new IllegalArgumentException();
-            }
-        } catch (IllegalArgumentException e) {  
-            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-            return false;
-        }
-        return true;
-    }
-
-    private static boolean isNumberFormat(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
 }
