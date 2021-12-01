@@ -8,25 +8,25 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarsTest {
-    @DisplayName("names가 빈값, 5자리를 넘을경우 예외발생 테스트")
+    @DisplayName("Cars 생성 시 빈값, 5자리를 넘는 입력값에 대한 예외발생 테스트")
     @ParameterizedTest
-    @ValueSource(strings = {"", "123456"})
-    void illegalCarsName(String name) {
+    @ValueSource(strings = {"", "123456", "123456789"})
+    void carsFromInvalidValue(String name) {
         assertThatThrownBy(() -> Cars.createByNames(name)
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("names가 null일 경우 예외발생 테스트")
+    @DisplayName("Cars 생성 시 입력값이 null일 경우 예외발생 테스트")
     @Test
-    void nullNameTest() {
+    void carsFromNull() {
         assertThatThrownBy(() -> Cars.createByNames(null)
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("유효한 names 일 경우 테스트 패스")
+    @DisplayName("Cars 생성 시 유효한 입력값인 경우 통과 테스트")
     @ParameterizedTest
-    @ValueSource(strings = {"1", "12345"})
-    void validName(String name) {
+    @ValueSource(strings = {"1", "12345", "12345,1", "12345,12345"})
+    void carsFromValidValue(String name) {
        Cars.createByNames(name);
     }
 }
