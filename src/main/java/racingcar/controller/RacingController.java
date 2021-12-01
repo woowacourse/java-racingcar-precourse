@@ -16,7 +16,5 @@ public class RacingController {
 	public void start() {
 		Racing racing = new Racing(player.enterCarsName(), player.enterMoveNum());
 		racing.startRacing();
-
-
 	}
 }

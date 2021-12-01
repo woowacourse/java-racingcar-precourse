@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 
 import racingcar.Car;
 import racingcar.util.RandomNumberGenerator;
@@ -21,25 +20,25 @@ public class Racing {
 		this.moveNum = moveNum;
 	}
 
-	public void startRacing(){
+	public void startRacing() {
 		System.out.println(RESULT_START_MESSAGE);
 		for (int round = 0; round < moveNum; ++round) {
 			moveAndPrintCurrentPosition();
 		}
-		System.out.printf(RESULT_WINNER_MESSAGE,findWinner());
+		System.out.printf(RESULT_WINNER_MESSAGE, findWinner());
 	}
 
-	private ArrayList<Car> createCarList(List<String> names){
+	private ArrayList<Car> createCarList(List<String> names) {
 		cars = new ArrayList<>();
-		for(String name : names){
+		for (String name : names) {
 			cars.add(new Car(name));
 		}
 		return cars;
 	}
 
-	private void moveAndPrintCurrentPosition(){
-		for(Car car : cars){
-			if(randomNumberGenerator.generateRandomNumber() >= PIVOT){
+	private void moveAndPrintCurrentPosition() {
+		for (Car car : cars) {
+			if (randomNumberGenerator.generateRandomNumber() >= PIVOT) {
 				car.moveAhead();
 			}
 			car.printCurrentPosition();
@@ -47,16 +46,15 @@ public class Racing {
 		System.out.println();
 	}
 
-	private String findWinner(){
+	private String findWinner() {
 		int winnerPosition = cars.stream().mapToInt(car -> car.currentPosition()).max().getAsInt();
 		ArrayList<String> winners = new ArrayList<>();
-		for(Car car : cars){
-			if(car.isWinner(winnerPosition)){
+		for (Car car : cars) {
+			if (car.isWinner(winnerPosition)) {
 				winners.add(car.getName());
 			}
 		}
-		return String.join(",",winners);
+		return String.join(",", winners);
 	}
-
 
 }

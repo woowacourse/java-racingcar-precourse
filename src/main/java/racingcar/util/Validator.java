@@ -10,9 +10,9 @@ public class Validator {
 		}
 	}
 
-	public static void isNumber(String input){
-		for(char num : input.toCharArray()){
-			if(!Character.isDigit(num)){
+	public static void isNumber(String input) {
+		for (char num : input.toCharArray()) {
+			if (!Character.isDigit(num)) {
 				throw new IllegalArgumentException(ErrorMessage.NOT_NUMBER_INPUT);
 			}
 		}

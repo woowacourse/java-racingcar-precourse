@@ -8,7 +8,7 @@ public class Car {
 		this.name = name;
 	}
 
-	public int currentPosition(){
+	public int currentPosition() {
 		return position;
 	}
 
@@ -16,19 +16,19 @@ public class Car {
 		return name;
 	}
 
-	public void moveAhead(){
+	public void moveAhead() {
 		++position;
 	}
 
-	public void printCurrentPosition(){
-		System.out.printf("%s : %s\n",name,visualizePosition());
+	public void printCurrentPosition() {
+		System.out.printf("%s : %s\n", name, visualizePosition());
 	}
 
-	public boolean isWinner(int maxPosition){
+	public boolean isWinner(int maxPosition) {
 		return position == maxPosition;
 	}
 
-	private String visualizePosition(){
+	private String visualizePosition() {
 		StringBuilder builder = new StringBuilder();
 		for (int locate = 0; locate < position; ++locate) {
 			builder.append("-");

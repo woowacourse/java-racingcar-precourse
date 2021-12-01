@@ -7,9 +7,6 @@ import racingcar.util.Validator;
 import racingcar.view.InputView;
 
 public class Player {
-	private InputView inputView;
-	private Validator validator;
-
 	public final int ZERO = 0;
 	public final String ENTER_CARS_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	public final String ENTER_MOVE_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -19,7 +16,7 @@ public class Player {
 		do {
 			System.out.println(ENTER_CARS_MESSAGE);
 			try {
-				cars = isValidateName(inputView.getInput());
+				cars = isValidateName(InputView.getInput());
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
@@ -32,7 +29,7 @@ public class Player {
 		do {
 			System.out.println(ENTER_MOVE_NUMBER_MESSAGE);
 			try {
-				moveNum = isValidateNumber(inputView.getInput());
+				moveNum = isValidateNumber(InputView.getInput());
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
@@ -43,7 +40,7 @@ public class Player {
 	private String isValidateName(String input) throws IllegalArgumentException {
 		String[] names = input.trim().split(",");
 		for (String name : names) {
-			validator.isLengthOverFive(name);
+			Validator.isLengthOverFive(name);
 		}
 		return input;
 	}
@@ -53,7 +50,7 @@ public class Player {
 	}
 
 	private int isValidateNumber(String input) {
-		validator.isNumber(input);
+		Validator.isNumber(input);
 		return Integer.parseInt(input);
 	}
 
