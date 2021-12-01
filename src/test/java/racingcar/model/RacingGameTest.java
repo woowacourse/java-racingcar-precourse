@@ -75,4 +75,20 @@ public class RacingGameTest {
 
 		assertThat(racingGame.getWinners()).containsExactlyInAnyOrder("pobi");
 	}
+
+	@Test
+	@DisplayName("공동 우승자 반환")
+	void return_cowinners() {
+		when(Randoms.pickNumberInRange(0, 9))
+			.thenReturn(MOVE_NUMBER).thenReturn(STOP_NUMBER).thenReturn(STOP_NUMBER)
+			.thenReturn(STOP_NUMBER).thenReturn(MOVE_NUMBER).thenReturn(STOP_NUMBER)
+			.thenReturn(MOVE_NUMBER).thenReturn(MOVE_NUMBER).thenReturn(MOVE_NUMBER);
+		RacingGame racingGame = RacingGame.of(RacingInfo.of(3, Arrays.asList("pobi", "woni", "jun")));
+
+		while (!racingGame.isFinished()) {
+			racingGame.proceed();
+		}
+
+		assertThat(racingGame.getWinners()).containsExactlyInAnyOrder("pobi", "woni");
+	}
 }

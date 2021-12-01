@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Car;
@@ -48,9 +48,29 @@ public class RacingGame {
 	}
 
 	public List<String> getWinners() {
-		List<Car> sortedCar = cars.stream()
-			.sorted((a, b) -> Integer.compare(b.getPosition(), a.getPosition()))
-			.collect(Collectors.toList());
-		return Arrays.asList(sortedCar.get(0).getName());
+		return findWinners(findMostFarCar());
+	}
+
+	private Car findMostFarCar() {
+		return cars.stream()
+			.sorted(descendingOrderByPosition())
+			.collect(Collectors.toList())
+			.get(0);
+	}
+
+	private List<String> findWinners(Car mostFar) {
+		return cars.stream()
+			.filter(c -> isSamePosition(mostFar, c))
+			.map(Car::getName)
+			.collect(toList());
+	}
+
+	private boolean isSamePosition(Car mostFar, Car c) {
+		return c.getPosition() == mostFar.getPosition();
+	}
+
+
+	private Comparator<Car> descendingOrderByPosition() {
+		return (a, b) -> Integer.compare(b.getPosition(), a.getPosition());
 	}
 }
