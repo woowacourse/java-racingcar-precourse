@@ -1,8 +1,11 @@
 package racingcar;
 
+import java.util.Arrays;
+
 public class Printer {
 	private static final String RESULT_MESSAGE = "실행 결과";
 	private static final String DASH = "-";
+	private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
 	public static void printProgress(Car[] cars) {
 		System.out.println(RESULT_MESSAGE);
@@ -20,5 +23,13 @@ public class Printer {
 			result.append(DASH);
 		}
 		return result.toString();
+	}
+
+	public static void printWinnersAt(Car[] cars, int position) {
+		String[] winners = Arrays.stream(cars)
+			.filter(c -> c.getPosition() == position)
+			.map(Car::getName)
+			.toArray(String[]::new);
+		System.out.println(WINNER_MESSAGE + String.join(", ", winners));
 	}
 }

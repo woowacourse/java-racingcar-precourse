@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingGame {
 	private Car[] cars;
 	private int turn;
+	private int maxPosition;
 
 	public void start() {
 		String[] carInput = Request.carInput();
@@ -15,6 +16,7 @@ public class RacingGame {
 			.toArray(Car[]::new);
 		turn = Request.turnInput();
 		startRace();
+		printWinners();
 	}
 
 	private void startRace() {
@@ -33,6 +35,11 @@ public class RacingGame {
 	private void moveCarRandomly(Car car) {
 		if (Randoms.pickNumberInRange(0, 9) >= 4) {
 			car.moveForward();
+			maxPosition = Math.max(maxPosition, car.getPosition());
 		}
+	}
+
+	private void printWinners() {
+		Printer.printWinnersAt(cars, maxPosition);
 	}
 }
