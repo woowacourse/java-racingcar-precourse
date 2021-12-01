@@ -15,15 +15,15 @@ public abstract class Reader<T> {
 
 	public T read() {
 		consoleDisplay.info(inputMessage);
-		T result = handleInputValue(Console.readLine());
+		String input = Console.readLine();
 
-		if(!isValid(result)) {
+		if(!isValid(input)) {
 			throw new IllegalArgumentException(errorMessage);
 		}
 
-		return result;
+		return handleInputValue(Console.readLine());
 	}
 
-	protected abstract boolean isValid(T result);
+	protected abstract boolean isValid(String input);
 	protected abstract T handleInputValue(String input);
 }

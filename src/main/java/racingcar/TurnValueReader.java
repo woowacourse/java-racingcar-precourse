@@ -8,12 +8,12 @@ public class TurnValueReader extends Reader<Integer>{
 	}
 
 	@Override
-	protected boolean isValid(Integer result) {
+	protected boolean isValid(String result) {
 		return true;
 	}
 
 	@Override
 	protected Integer handleInputValue(String input) {
-		return 0;
+		return Integer.valueOf(input);
 	}
 }

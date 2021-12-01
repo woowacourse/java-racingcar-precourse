@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class CarNameReader extends Reader<List<String>>{
 	public static final String INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -13,13 +14,13 @@ public class CarNameReader extends Reader<List<String>>{
 	}
 
 	@Override
-	protected List<String> handleInputValue(String input) {
-		return Arrays.asList(input.split(","));
+	protected boolean isValid(String input) {
+		return Stream.of(input.split(",")).anyMatch(name -> isLessThanBoundaryLength(name));
 	}
 
 	@Override
-	protected boolean isValid(List<String> names) {
-		return names.stream().anyMatch(name -> isLessThanBoundaryLength(name));
+	protected List<String> handleInputValue(String input) {
+		return Arrays.asList(input.split(","));
 	}
 
 	private boolean isLessThanBoundaryLength(String name) {

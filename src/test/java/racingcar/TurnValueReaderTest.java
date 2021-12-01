@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 public class TurnValueReaderTest {
@@ -31,5 +32,17 @@ public class TurnValueReaderTest {
 		turnValueReader.read();
 
 		verify(consoleDisplay).info(TurnValueReader.INPUT_MESSAGE);
+	}
+
+	@Test
+	@DisplayName("시도 회수 읽기")
+	void read_turn_value() {
+		when(Console.readLine()).thenReturn("12");
+		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
+		TurnValueReader turnValueReader = new TurnValueReader(consoleDisplay);
+
+		int value = turnValueReader.read();
+
+		assertThat(value).isEqualTo(12);
 	}
 }
