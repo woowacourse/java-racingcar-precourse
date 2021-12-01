@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game {
-    private final static List<Car> cars = new ArrayList<>();
+    private static List<Car> cars = new ArrayList<>();
     private static int trialNumber;
 
     public static void play() {
@@ -96,16 +96,16 @@ public class Game {
         do {
             input = Console.readLine();
         } while (!isValidateInput(input));
+        cars = parseStringToList(new ArrayList<>(), input);
     }
 
     private static boolean isValidateInput(String input) {
-        cars.clear();
-        parseStringToList(input);
-        int flag=1;
-        for (Car car : cars) {
-            flag*=isValidateName(car.getName());
+        List<Car> templist = parseStringToList(new ArrayList<>(), input);
+        int flag = 1;
+        for (Car car : templist) {
+            flag *= isValidateName(car.getName());
         }
-        if(flag==0){
+        if (flag == 0) {
             return false;
         }
         return true;
@@ -123,15 +123,41 @@ public class Game {
         return 1;
     }
 
-    private static void parseStringToList(String input) {
+    private static List<Car> parseStringToList(List<Car> list, String input) {
         String[] carNames = input.split(",");
         for (String carName : carNames) {
-            cars.add(new Car(carName));
+            list.add(new Car(carName));
         }
+        return list;
     }
 
     private static void setTrialNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        trialNumber = Integer.parseInt(Console.readLine());
+        String input;
+        do {
+            input = Console.readLine();
+        } while (!isValidateNumber(input));
+        trialNumber = Integer.parseInt(input);
+    }
+
+    private static boolean isValidateNumber(String input) {
+        try {
+            if (!isNumberFormat(input)) {
+                throw new IllegalArgumentException();
+            }
+        } catch (IllegalArgumentException e) {  
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean isNumberFormat(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
     }
 }
