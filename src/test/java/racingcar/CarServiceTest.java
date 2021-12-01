@@ -19,7 +19,7 @@ class CarServiceTest {
 
     @DisplayName("자동차 저장_성공")
     @Test
-    void save_cars_true(){
+    void save_cars_true() {
         carService.saveCars("jae, hun, choi");
         List<Car> findCars = carService.findAllCars();
 
@@ -28,31 +28,31 @@ class CarServiceTest {
 
     @DisplayName("자동차 저장 길이초과_실패")
     @Test
-    void save_cars_range_false(){
+    void save_cars_range_false() {
         assertThrows(IllegalArgumentException.class, ()
                 -> carService.saveCars("jae,hun,choizzz"));
     }
 
     @DisplayName("자동차 저장 중복이름_실패")
     @Test
-    void save_cars_duplicate_false(){
+    void save_cars_duplicate_false() {
         assertThrows(IllegalArgumentException.class, ()
                 -> carService.saveCars("jae,hun,hun"));
     }
 
     @DisplayName("자동차 저장 빈칸입력_실패")
     @Test
-    void save_cars_blank_false(){
+    void save_cars_blank_false() {
         assertThrows(IllegalArgumentException.class, ()
                 -> carService.saveCars("jae,hun, "));
     }
 
     @DisplayName("자동차 위치 업데이트")
     @Test
-    void update_car_position(){
+    void update_car_position() {
         carService.saveCars("jae,hun,choi");
-        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)){
-            mock.when(() -> Randoms.pickNumberInRange(anyInt(),anyInt())).thenReturn(3,4,5);
+        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(3, 4, 5);
             carService.updateCarPosition();
         }
         List<Car> findCars = carService.findAllCars();
@@ -78,7 +78,7 @@ class CarServiceTest {
     }
 
     @AfterEach
-    void tearDown(){
+    void tearDown() {
         carRepository.clear();
     }
 
