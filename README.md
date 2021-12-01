@@ -1,5 +1,30 @@
 # 미션 - 자동차 경주 게임
 
+## 💻 구현 기능 목록
+- Game(Main)
+    - Input, Output
+    - 주어진 횟수(Input) 동안 n대의 자동차(Car)를 플레이한다.
+    - 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨다.
+        - "[ERROR]"로 시작하는 에러 메세지 입력 후 재입력 받는다.
+- Input
+    - 시도할 횟수 입력받는다.
+- Output
+    - 횟수가 종료되면 Judge로 부터 결과를 받아 우승자 출력한다. (자동차 이름은 쉼표(,)를 기준으로 구분하여 출력)
+- Car
+    - 변수
+        - final String `name`: 고유한 이름을 가진다. 단, 5자 이하만 가능하다.
+        - int `position`: 해당하는 Car 객체에 대한 위치 정보를 int형으로 저장한다.
+        - int `randomNumber` : RandomNumberBox에 입력받은 값을 저장한다.
+    - 메서드
+        - `move()`: randomNumber의 값이 4이상의 값이 나오면 전진한다. (position 값 +1 증가)
+        - `stop()`: randomNumber의 값이 3이하의 값이 나오면 멈춘다.
+        - `getRandomNumber()` : RandomNumberBox 객체로 부터 0~9중 무작위의 수를 randomNumber에 입력받는다.
+- Judge
+    - `judge(...Car)`: 모든 Car 객체 중에서 가장 높은 postion 값을 가진 객체를 출력한다.
+        - 만약, 가장 높은 postion을 가진 객체가 여러 개일 경우 모두 출력한다.
+- RandomNumberBox
+    - 0~9중 무작위의 수를 생성한다.
+    
 ## 🔍 진행방식
 
 - 미션은 **기능 요구사항, 프로그래밍 요구사항, 과제 진행 요구사항** 세 가지로 구성되어 있다.
