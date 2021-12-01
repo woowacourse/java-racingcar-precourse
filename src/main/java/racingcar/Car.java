@@ -22,7 +22,7 @@ public class Car {
         }
     }
 
-    public int moveThisDistance() {
+    public int showMovingDistance() {
         return position;
     }
 

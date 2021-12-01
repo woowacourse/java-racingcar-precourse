@@ -20,6 +20,7 @@ public class RacingGame {
 			everyCar.moveEveryCarThisTiming();
 		}
 		//everyCar의 eachCar. eachCar의 position이 가장 큰게 뭘까? 그리고 그 큰 값과 동일한 애들 전부 가져와서 이름을 보여주기.
+		everyCar.showThisGameWinner();
 	}
 
 	private void makeEveryCarInstance(String[] everyCarName) {
