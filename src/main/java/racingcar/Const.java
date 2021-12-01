@@ -8,6 +8,9 @@ public class Const {
 	public static final String NAME_SEPARATOR = ",";
 	public static final String ROUND_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 	public static final String ERROR_INPUT_ROUND_MESSAGE = ERROR_MESSAGE + " 시도 횟수는 숫자여야 합니다.";
+	public static final String RACE_RESULT_MESSAGE = "실행 결과";
+	public static final String CAR_PRINT_SEPARATOR = " : ";
+	public static final String CAR_POSITION_MARKER = "-";
 
 	public static final int MAX_NAME_COUNT = 5;
 	public static final int MIN_RANDOM_VALUE = 0;

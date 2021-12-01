@@ -14,11 +14,15 @@ public class Race {
 	}
 
 	public void start() {
+		System.out.println(Const.RACE_RESULT_MESSAGE);
 		for(int i = 0; i < round; i++) {
 			cars.forEach(Car::moveOrStop);
-
-			System.out.println(cars);
+			printRoundResult();
 		}
 	}
 
+	private void printRoundResult() {
+		cars.forEach(Car::printPosition);
+		System.out.println();
+	}
 }

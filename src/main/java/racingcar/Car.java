@@ -20,6 +20,14 @@ public class Car {
             this.position++;
     }
 
+    public void printPosition() {
+        String outputText = name + Const.CAR_PRINT_SEPARATOR;
+        for (int i = 0; i < position; i++) {
+            outputText += Const.CAR_POSITION_MARKER;
+        }
+        System.out.println(outputText);
+    }
+
     public static List<Car> generateCars(List<String> names) {
         List<Car> result = new ArrayList<>();
 
