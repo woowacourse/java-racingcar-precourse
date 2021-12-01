@@ -1,5 +1,8 @@
 package racingcar;
 
+import static utils.Message.*;
+import static utils.Validator.*;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,10 +17,18 @@ public class Game {
 	}
 
 	private void inputCarNames() {
-		System.out.println(Message.RACING_CAR_NAME_INPUT_MESSAGE);
-		String[] carNames = Console.readLine().split(",");
+		System.out.println(RACING_CAR_NAME_INPUT_MESSAGE);
 
-		this.carNames = Arrays.asList(carNames);
+		while (true) {
+			try {
+				String[] carNames = Console.readLine().split(",");
+				validateCarName(carNames);
+
+				this.carNames = Arrays.asList(carNames);
+				break;
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+			}
+		}
 	}
-
 }
