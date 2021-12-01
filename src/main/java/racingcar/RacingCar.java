@@ -2,6 +2,8 @@ package racingcar;
 
 import racingcar.car.CarRepository;
 import racingcar.car.CarRepositoryService;
+import racingcar.exceptions.ProcessException;
+import racingcar.process.Process;
 import racingcar.view.CarListView;
 import racingcar.view.ProcessView;
 import racingcar.view.View;
@@ -34,12 +36,11 @@ public class RacingCar {
 	private void saveCars(String userCarList) {
 		try {
 			carRepositoryService.checkException(userCarList);
-
-
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			getUserCarList();
 		}
+
 		printProcessView();
 	}
 
@@ -53,6 +54,12 @@ public class RacingCar {
 	private void getUserProcessInput() {
 		String userProcess = view.getUserInput();
 
+		try {
+			ProcessException.processException(userProcess);
 
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			getUserProcessInput();
+		}
 	}
 }

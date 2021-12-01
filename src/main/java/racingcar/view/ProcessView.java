@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class ProcessView implements View {
 
 	private String PROCESS_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -11,6 +13,6 @@ public class ProcessView implements View {
 
 	@Override
 	public String getUserInput() {
-		return null;
+		return Console.readLine();
 	}
 }
