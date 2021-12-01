@@ -20,7 +20,7 @@ public class CarValidator {
 
     private static void isNumber(String input){
         for(int i = 0 ; i < input.length(); i++){
-            if (Character.isDigit(input.charAt(i))){
+            if (!Character.isDigit(input.charAt(i))){
                 throw new IllegalArgumentException(ERROR_PREFIX + " " + TRY_NUMBER_NOT_NUMBER_MESSAGE);
             }
         }
@@ -28,7 +28,7 @@ public class CarValidator {
 
     private static void isRightRange(String input){
         int inputNum = Integer.parseInt(input);
-        if(inputNum <= MIN_INPUT){
+        if(inputNum <= ZERO){
             throw new IllegalArgumentException(ERROR_PREFIX + " " + NUMBER_OUT_OF_RANGE_MESSAGE);
         }
     }

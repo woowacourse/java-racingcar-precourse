@@ -51,7 +51,7 @@ public class CarService {
         return false;
     }
 
-    public List<Car> findAllCar(){
+    public List<Car> findAllCars(){
         return carRepository.findAll();
     }
 
