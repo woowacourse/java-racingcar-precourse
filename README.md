@@ -194,3 +194,6 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 
 - 레이싱 게임 매 턴마다 각 자동차 전진 여부를 판별할 랜덤값을 만드는 인스턴스의 클래스 구현(branch: feature/random-number)
 - 레이싱 게임에서 사용될 각 차량의 상태를 저장하는 인스턴스에 대한 클래스 구현(branch: feature/car)
+- 실제 레이싱 게임 로직 구현(branch: feature/racing-game)
+    - 만약 사용자가 입력한 차량의 이름들 중 이름이 6자 이상인 것이 있다면 IllegalArgumentException을 발생시킨다. 그 후 
+    "[ERROR] {차량이름}은 5자 이하여야 합니다"라는 문구를 출력한 후 해당 이름부터 다시 입력받는다.    
