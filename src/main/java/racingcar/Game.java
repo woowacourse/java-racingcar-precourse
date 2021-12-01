@@ -9,7 +9,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class Game {
 	public static void play() {
 		List<Car> cars = readCars();
-		System.out.println(cars);
+		int round = readRound();
 	}
 
 	private static List<Car> readCars() {
@@ -27,5 +27,23 @@ public class Game {
 		}
 
 		return result;
+	}
+
+	private static int readRound() {
+		System.out.println(Const.ROUND_INPUT_MESSAGE);
+		String userInput = Console.readLine();
+		int result;
+		try {
+			result = validateRound(userInput);
+		} catch (IllegalArgumentException e) {
+			System.out.println(Const.ERROR_INPUT_ROUND_MESSAGE);
+			return readRound();
+		}
+
+		return result;
+	}
+
+	private static int validateRound(String userInput) throws IllegalArgumentException {
+		return Integer.parseInt(userInput);
 	}
 }
