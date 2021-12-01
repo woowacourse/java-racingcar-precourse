@@ -33,13 +33,19 @@
   * 전체 객체 가져오기 (return 저장된 모든 car)
   * 모두 삭제
 
-### ✅ CarValidator
-#### package java.racingcar
+### ✅ NumberValidator
+#### package java.racingcar.validator
+* validator
+  * 숫자를 입력했는지
+  * 범위가 맞는지 (0 초과)
+
+### ✅ NameValidator
+#### package java.racingcar.validator
 * validator
   * 이름 5자 이상 확인 (요청사항)
-  * 인원 수 제한은 ?
-  * 동일한 이름이 들어올 경우 ?
-  * 회수가 너무 많거나, 0회 이하일 경우?
+  * 빈칸 입력 불가
+  * 인원 수 제한은 ? - denied
+  * 동일한 이름이 들어올 경우 ? - accepted (승자 구분이 안됨) 
 
 ### ✅ CarConstant
 #### package java.util
