@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 public class TryNumber {
-    private final Integer no;
+    private Integer no;
 
     public TryNumber(Integer tryNumber) {
         validTryNumber(tryNumber);
@@ -16,5 +16,9 @@ public class TryNumber {
 
     public boolean finish() {
         return this.no == 0;
+    }
+
+    public void minus() {
+        this.no -= 1;
     }
 }
