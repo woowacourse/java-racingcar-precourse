@@ -22,15 +22,19 @@ public class RacingGame {
 
 	private void startRace() {
 		for (int i = 0; i < turn; i++) {
-			moveCars();
+			moveCarsRandomly();
 		}
 	}
 
-	private void moveCars() {
+	private void moveCarsRandomly() {
 		for (Car car : cars) {
-			if (Randoms.pickNumberInRange(0, 9) >= 4) {
-				car.moveForward();
-			}
+			moveCarRandomly(car);
+		}
+	}
+
+	private void moveCarRandomly(Car car) {
+		if (Randoms.pickNumberInRange(0, 9) >= 4) {
+			car.moveForward();
 		}
 	}
 }
