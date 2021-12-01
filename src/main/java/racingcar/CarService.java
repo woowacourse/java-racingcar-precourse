@@ -53,4 +53,23 @@ public class CarService {
         return carRepository.findAll();
     }
 
+    public List<Car> findWinners(){
+        List<Car> findCars = carRepository.findAll();
+        int maxPosition = findMaxPosition(findCars);
+
+        return findCars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
+    }
+
+    private int findMaxPosition(List<Car> findCars) {
+        int max = 0;
+        for (Car findCar : findCars) {
+            if(findCar.getPosition() > max){
+                max = findCar.getPosition();
+            }
+        }
+        return max;
+    }
+
 }
