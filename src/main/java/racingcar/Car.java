@@ -8,5 +8,13 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    void moveIfNumGTE4(int num){
+        if (num >= 4){
+            this.position++;
+        }
+    }
+
+    int getPosition(){
+        return this.position;
+    }
 }
