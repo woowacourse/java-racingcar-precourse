@@ -44,9 +44,7 @@ public class OutputView {
 	}
 
 	public static void printCars(List<CarDto> carDtos) {
-		carDtos.forEach(
-			OutputView::printCar
-		);
+		carDtos.forEach(OutputView::printCar);
 		System.out.println();
 	}
 
