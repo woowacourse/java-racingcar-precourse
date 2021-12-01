@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
-import domain.Car;
 import domain.MoveCount;
+import domain.Name;
 
 public class InputView {
 	private static final String NAME_DELIMITER = ",";
 
-	public static List<Car> inputCarNames() {
+	public static List<Name> inputCarNames() {
 		OutputView.printInputCarNames();
 
 		try {
 			String input = Console.readLine();
 			return Arrays.stream(input.split(NAME_DELIMITER))
-				.map(Car::new)
+				.map(Name::new)
 				.collect(Collectors.toList());
 		} catch (IllegalArgumentException e) {
 			OutputView.printErrorMessage(e.getMessage());
