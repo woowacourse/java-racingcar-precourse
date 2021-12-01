@@ -19,6 +19,10 @@ public class Validator {
     }
 
     private static void validateCarNameLength(String carName) {
+        if (carName.length() == 0) {
+            throw new IllegalArgumentException(ERROR + "자동차명은 최소 1글자여야 한다.");
+        }
+
         if (carName.length() >= 6) {
             throw new IllegalArgumentException(ERROR + "자동차명은 최대 5글자여야 한다.");
         }
