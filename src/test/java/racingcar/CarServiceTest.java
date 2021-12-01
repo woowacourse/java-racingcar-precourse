@@ -26,17 +26,31 @@ class CarServiceTest {
         assertThat(findCars.size()).isEqualTo(3);
     }
 
-    @DisplayName("자동차 저장_실패")
+    @DisplayName("자동차 저장 길이초과_실패")
     @Test
-    void save_cars_false(){
+    void save_cars_range_false(){
         assertThrows(IllegalArgumentException.class, ()
-                -> carService.saveCars("jae, hun, choizzz"));
+                -> carService.saveCars("jae,hun,choizzz"));
+    }
+
+    @DisplayName("자동차 저장 중복이름_실패")
+    @Test
+    void save_cars_duplicate_false(){
+        assertThrows(IllegalArgumentException.class, ()
+                -> carService.saveCars("jae,hun,hun"));
+    }
+
+    @DisplayName("자동차 저장 빈칸입력_실패")
+    @Test
+    void save_cars_blank_false(){
+        assertThrows(IllegalArgumentException.class, ()
+                -> carService.saveCars("jae,hun, "));
     }
 
     @DisplayName("자동차 위치 업데이트")
     @Test
     void update_car_position(){
-        carService.saveCars("jae, hun, choi");
+        carService.saveCars("jae,hun,choi");
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)){
             mock.when(() -> Randoms.pickNumberInRange(anyInt(),anyInt())).thenReturn(3,4,5);
             carService.updateCarPosition();
