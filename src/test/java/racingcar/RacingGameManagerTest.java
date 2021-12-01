@@ -39,4 +39,23 @@ public class RacingGameManagerTest {
 		inOrder.verify(consoleDisplay).info(CarNameReader.INPUT_MESSAGE);
 		inOrder.verify(consoleDisplay).info(TurnValueReader.INPUT_MESSAGE);
 	}
+
+	@Test
+	@DisplayName("잘못된 값이 입력될 경우 에러 메시지 출력과 재입력")
+	void print_error_message_when_input_invalid_value() {
+		when(Console.readLine()).thenReturn("123456").thenReturn("pobi,woni,jun").thenReturn("number").thenReturn("6");
+		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
+		RacingGameManager manager = new RacingGameManager(consoleDisplay, new CarNameReader(consoleDisplay),
+			new TurnValueReader(consoleDisplay));
+
+		manager.read();
+
+		InOrder inOrder = Mockito.inOrder(consoleDisplay);
+		inOrder.verify(consoleDisplay).info(CarNameReader.INPUT_MESSAGE);
+		inOrder.verify(consoleDisplay).info(CarNameReader.ERROR_MESSAGE);
+		inOrder.verify(consoleDisplay).info(CarNameReader.INPUT_MESSAGE);
+		inOrder.verify(consoleDisplay).info(TurnValueReader.INPUT_MESSAGE);
+		inOrder.verify(consoleDisplay).info(TurnValueReader.ERROR_MESSAGE);
+		inOrder.verify(consoleDisplay).info(TurnValueReader.INPUT_MESSAGE);
+	}
 }

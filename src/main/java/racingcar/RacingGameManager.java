@@ -17,7 +17,25 @@ public class RacingGameManager {
 	}
 
 	public void read() {
-		List<String> carNames = carNameReader.read();
-		int turnValue = turnValueReader.read();
+		List<String> carNames = readCarNames();
+		int turnValue = readTurnValue();
+	}
+
+	private List<String> readCarNames() {
+		try {
+			return carNameReader.read();
+		} catch (IllegalArgumentException e) {
+			consoleDisplay.info(e.getMessage());
+			return readCarNames();
+		}
+	}
+
+	private Integer readTurnValue() {
+		try {
+			return turnValueReader.read();
+		} catch (IllegalArgumentException e) {
+			consoleDisplay.info(e.getMessage());
+			return readTurnValue();
+		}
 	}
 }

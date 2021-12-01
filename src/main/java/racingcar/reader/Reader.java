@@ -22,7 +22,7 @@ public abstract class Reader<T> {
 			throw new IllegalArgumentException(errorMessage);
 		}
 
-		return handleInputValue(Console.readLine());
+		return handleInputValue(input);
 	}
 
 	protected abstract boolean isValid(String input);
