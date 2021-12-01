@@ -27,4 +27,9 @@ public class Car {
 		}
 	}
 
+	public int moveCar(int distance) {
+		this.position += distance;
+		return this.position;
+	}
+
 }
