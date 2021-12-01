@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.reader;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
+import racingcar.ConsoleDisplay;
 import racingcar.reader.TurnValueReader;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

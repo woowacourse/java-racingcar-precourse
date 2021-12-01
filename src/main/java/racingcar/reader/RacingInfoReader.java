@@ -1,19 +1,15 @@
-package racingcar;
+package racingcar.reader;
 
 import java.util.List;
-import racingcar.reader.CarNameReader;
-import racingcar.reader.Reader;
-import racingcar.reader.TurnValueReader;
+import racingcar.ConsoleDisplay;
 
 public class RacingInfoReader {
 	private final Reader<List<String>> carNameReader;
 	private final Reader<Integer> turnValueReader;
-	private final ConsoleDisplay consoleDisplay;
 
 	public RacingInfoReader(ConsoleDisplay consoleDisplay) {
 		this.carNameReader = new CarNameReader(consoleDisplay);
 		this.turnValueReader = new TurnValueReader(consoleDisplay);
-		this.consoleDisplay = consoleDisplay;
 	}
 
 	public RacingInfo read() {
@@ -26,7 +22,6 @@ public class RacingInfoReader {
 		try {
 			return carNameReader.read();
 		} catch (IllegalArgumentException e) {
-			consoleDisplay.info(e.getMessage());
 			return readCarNames();
 		}
 	}
@@ -35,7 +30,6 @@ public class RacingInfoReader {
 		try {
 			return turnValueReader.read();
 		} catch (IllegalArgumentException e) {
-			consoleDisplay.info(e.getMessage());
 			return readTurnValue();
 		}
 	}
