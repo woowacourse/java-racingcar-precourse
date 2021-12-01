@@ -1,6 +1,7 @@
 package racingcar.reader;
 
 import java.util.List;
+import racingcar.model.RacingInfo;
 
 public class RacingInfoReader {
 	private final Reader<List<String>> carNameReader;

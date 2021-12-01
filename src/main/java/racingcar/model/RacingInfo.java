@@ -1,4 +1,4 @@
-package racingcar.reader;
+package racingcar.model;
 
 import java.util.List;
 

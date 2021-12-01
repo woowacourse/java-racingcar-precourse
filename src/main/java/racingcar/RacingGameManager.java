@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.reader.RacingInfo;
+import racingcar.model.RacingInfo;
 import racingcar.reader.RacingInfoReader;
 
 public class RacingGameManager {

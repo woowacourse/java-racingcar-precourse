@@ -9,10 +9,7 @@ import org.mockito.InOrder;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.ConsoleDisplay;
-import racingcar.reader.CarNameReader;
-import racingcar.reader.RacingInfo;
-import racingcar.reader.RacingInfoReader;
-import racingcar.reader.TurnValueReader;
+import racingcar.model.RacingInfo;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
