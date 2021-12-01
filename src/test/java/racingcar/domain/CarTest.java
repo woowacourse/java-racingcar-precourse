@@ -7,16 +7,15 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
-    private Car car;
+    private Cars cars;
     @BeforeEach
     void SetUp(){
-
+        cars = new Cars();
     }
 
     @Test
     void 글자길이가_5가_넘어가면_예외출력(){
-        assertThatThrownBy(() -> {car = new Car("leeMinJae");})
+        assertThatThrownBy(() -> {cars.addCar("pobi,minjaea");})
                 .isInstanceOf(IllegalArgumentException.class);
-
     }
 }
