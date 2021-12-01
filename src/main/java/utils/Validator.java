@@ -22,6 +22,18 @@ public class Validator {
 		}
 	}
 
+	public static void validateAttemptNumber(String attemptNumber) {
+		try {
+			int number = Integer.parseInt(attemptNumber);
+
+			if (!validatePositiveNumber(number)) {
+				throw new IllegalArgumentException(NUMBER_NOT_POSITIVE_MESSAGE);
+			}
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException(NUMBER_FORMAT_MESSAGE);
+		}
+	}
+
 	private static boolean validateBlank(String carName) {
 		return (carName == null) || (carName.trim().length() == 0);
 	}
@@ -34,5 +46,9 @@ public class Validator {
 		long count = Arrays.stream(carNames).distinct().count();
 
 		return carNames.length == count;
+	}
+
+	private static boolean validatePositiveNumber(int number) {
+		return 0 < number;
 	}
 }
