@@ -8,5 +8,4 @@ public class RacingCar {
 	public RacingCar(List<Car> racingCars) {
 		this.racingCars = racingCars;
 	}
-
 }

@@ -40,7 +40,5 @@ public class RacingCarController {
 			tmpRacingCar.add(tmpCar);
 		}
 		racingCar = new RacingCar(tmpRacingCar);
-		racingCar.check();
 	}
-
 }
