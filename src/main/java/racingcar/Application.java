@@ -45,14 +45,17 @@ public class Application {
         }
     }
 
-    final static String parser = "/";
+    final static String parser = ",";
 
     static String[] ParseCarNamesInput(String carNamesInput) {
         String[] carNames = carNamesInput.split(parser);
 
         for (String s : carNames) {
+            System.out.println(s + '-');
+        }
+
+        for (String s : carNames) {
             if (s.length() > 5) {
-                PrintErrorMessage(NAME_INPUT_ERROR);
                 throw new IllegalArgumentException();
             }
         }
@@ -103,7 +106,7 @@ public class Application {
         for (Car c : carList) {
             c.PlayMoving();
         }
-        System.out.println("\n");
+        System.out.println();
     }
 
     static void AnnounceWinners() {
