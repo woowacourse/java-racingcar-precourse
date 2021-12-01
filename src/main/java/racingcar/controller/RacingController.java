@@ -17,6 +17,8 @@ public class RacingController {
 
 	public void startRacing() {
 		List<String> cars = player.enterCarsName();
+		int moveNum = player.enterMoveNum();
+
 
 	}
 }
