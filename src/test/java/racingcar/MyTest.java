@@ -2,6 +2,8 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.DisplayName;
@@ -43,28 +45,6 @@ public class MyTest {
 	}
 
 	@Test
-	public void ex정규식일케쓰는거맞나() {
-		String pattern = "^[가-힣\\w,]*$";
-
-		assertThat("abc,".matches(pattern))
-			.isEqualTo(true);
-
-		assertThat("abc-".matches(pattern))
-			.isEqualTo(false);
-
-		assertThat(",".matches(pattern))
-			.isEqualTo(true);
-
-		assertThat("가나다,다라마".matches(pattern))
-			.isEqualTo(true);
-
-		assertThat("가나다,다라마-".matches(pattern))
-			.isEqualTo(false);
-		assertThat("가나다,다라마123".matches(pattern))
-			.isEqualTo(true);
-	}
-
-	@Test
 	public void ex중복여부검사함수잘되나() {
 		assertThat(InputView.isNotDuplicate(new String[] {"abc", "abc"}))
 			.isEqualTo(false);
@@ -78,7 +58,7 @@ public class MyTest {
 
 		try {
 			// 여기에 오류 유발 코드를 구현한다.
-			InputView.InputToStringArray("");
+			InputView.inputToStringArray("");
 
 		} catch (IllegalArgumentException e) {
 			exceptionCatched = true;
@@ -93,7 +73,7 @@ public class MyTest {
 
 		try {
 			// 여기에 오류 유발 코드를 구현한다.
-			InputView.InputToStringArray("지우,범주");
+			InputView.inputToStringArray("지우,범주");
 
 		} catch (IllegalArgumentException e) {
 			exceptionCatched = true;
@@ -108,7 +88,7 @@ public class MyTest {
 
 		try {
 			// 여기에 오류 유발 코드를 구현한다.
-			InputView.InputToStringArray("지우,,범주");
+			InputView.inputToStringArray("지우,,범주");
 
 		} catch (IllegalArgumentException e) {
 			exceptionCatched = true;
@@ -123,7 +103,7 @@ public class MyTest {
 
 		try {
 			// 여기에 오류 유발 코드를 구현한다.
-			InputView.InputToStringArray(",지우,범주");
+			InputView.inputToStringArray(",지우,범주");
 
 		} catch (IllegalArgumentException e) {
 			exceptionCatched = true;
@@ -138,7 +118,7 @@ public class MyTest {
 
 		try {
 			// 여기에 오류 유발 코드를 구현한다.
-			InputView.InputToStringArray("abcdef,agdwrh");
+			InputView.inputToStringArray("abcdef,agdwrh");
 
 		} catch (IllegalArgumentException e) {
 			exceptionCatched = true;
@@ -153,7 +133,7 @@ public class MyTest {
 
 		try {
 			// 여기에 오류 유발 코드를 구현한다.
-			InputView.InputToStringArray("abcdef,abcdef");
+			InputView.inputToStringArray("abcdef,abcdef");
 
 		} catch (IllegalArgumentException e) {
 			exceptionCatched = true;
@@ -168,7 +148,7 @@ public class MyTest {
 
 		try {
 			// 여기에 오류 유발 코드를 구현한다.
-			InputView.InputToStringArray("abcdef,ab=-");
+			InputView.inputToStringArray("abcdef,ab=-");
 
 		} catch (IllegalArgumentException e) {
 			exceptionCatched = true;
@@ -177,4 +157,74 @@ public class MyTest {
 			.isEqualTo(true);
 	}
 
+	@Test
+	public void 문자열이정수맞나() {
+		assertThat(InputView.isInt("01"))
+			.isEqualTo(false);
+
+		assertThat(InputView.isInt("111"))
+			.isEqualTo(true);
+	}
+
+	@Test
+	public void 라운드이상한숫자인풋뷰작동잘되나() {
+		boolean exceptionCatched = false;
+
+		try {
+			// 여기에 오류 유발 코드를 구현한다.
+			InputView.inputToInt("01");
+		} catch (IllegalArgumentException e) {
+			exceptionCatched = true;
+		}
+		assertThat(exceptionCatched)
+			.isEqualTo(true);
+	}
+
+	@Test
+	public void 라운드숫자인풋뷰작동잘되나() {
+		boolean exceptionCatched = false;
+
+		try {
+			// 여기에 오류 유발 코드를 구현한다.
+			InputView.inputToInt("5");
+		} catch (IllegalArgumentException e) {
+			exceptionCatched = true;
+		}
+		assertThat(exceptionCatched)
+			.isEqualTo(false);
+	}
+
+	@Test
+	public void 라운드숫자빈거인풋뷰작동잘되나() {
+		boolean exceptionCatched = false;
+
+		try {
+			// 여기에 오류 유발 코드를 구현한다.
+			InputView.inputToInt("");
+		} catch (IllegalArgumentException e) {
+			exceptionCatched = true;
+		}
+		assertThat(exceptionCatched)
+			.isEqualTo(true);
+	}
+
+	public static InputStream input(String input) {
+		return new ByteArrayInputStream(input.getBytes());
+	}
+
+	@Test
+	public void 라운드총괄인풋뷰작동잘되나() {
+		boolean exceptionCatched = false;
+
+		try {
+			// 여기에 오류 유발 코드를 구현한다.
+			InputStream in = input("10");
+			System.setIn(in);
+			InputView.inputToInt(InputView.roundInput());
+		} catch (IllegalArgumentException e) {
+			exceptionCatched = true;
+		}
+		assertThat(exceptionCatched)
+			.isEqualTo(false);
+	}
 }
