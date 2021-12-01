@@ -1,5 +1,8 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -7,8 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
 
 public class CarNameReaderTest {
 	MockedStatic<Console> consoleMockedStatic;
@@ -45,5 +46,18 @@ public class CarNameReaderTest {
 		List<String> names = carNameReader.read();
 
 		assertThat(names).containsExactlyInAnyOrder("pobi", "jun", "woni");
+	}
+
+	@Test
+	@DisplayName("자동차 이름은 5글자 이하")
+	void invalid_car_name() {
+	    when(Console.readLine()).thenReturn("fiveCar");
+		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
+		CarNameReader carNameReader = new CarNameReader(consoleDisplay);
+
+		IllegalArgumentException exception =
+			assertThrows(IllegalArgumentException.class, () -> carNameReader.read());
+
+		assertThat(exception.getMessage()).isEqualTo(CarNameReader.ERROR_MESSAGE);
 	}
 }
