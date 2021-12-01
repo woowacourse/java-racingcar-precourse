@@ -1,20 +1,23 @@
 package racingcar;
 
 public class Car {
-    private final String name;
-    private int position = 0;
+	private static final int FORWARD_THRESHOLD_NUMBER = 4;
+	private final String name;
+	private int position = 0;
 
-    public Car(String name) {
-        this.name = name;
-    }
+	public Car(String name) {
+		this.name = name;
+	}
 
-    public int getPosition() {
-        return this.position;
-    }
+	public static boolean isForward(int randNo) {
+		return randNo >= FORWARD_THRESHOLD_NUMBER;
+	}
 
-    public void forward() {
-        this.position++;
-    }
+	public int getPosition() {
+		return this.position;
+	}
 
-    // 추가 기능 구현
+	public void forward() {
+		this.position++;
+	}
 }
