@@ -49,7 +49,6 @@ public class Game {
                 throw new IllegalArgumentException();
             }
         }
-        return;
     }
 
     private boolean checkTimes() {
@@ -72,6 +71,9 @@ public class Game {
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    private void checkPositive() throws IllegalArgumentException {
         times = Integer.parseInt(input);
         if (times < 0) {
             throw new IllegalArgumentException();
