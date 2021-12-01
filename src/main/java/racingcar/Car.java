@@ -9,11 +9,11 @@ public class Car {
     }
 
     public String getName(){
-        return this.name;
+        return name;
     }
 
     public int getPosition(){
-        return this.position;
+        return position;
     }
     // 추가 기능 구현
 }
