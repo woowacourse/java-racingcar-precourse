@@ -1,5 +1,29 @@
 # 미션 - 자동차 경주 게임
 
+---
+## 구현할 기능 리스트
+- 게임을 생성
+- 사용자로부터 자동차 이름을 입력받고 자동차를 생성
+- 사용자로부터 이동 횟수를 입력
+- 전진 여부를 판단하기 위한 무작위 수를 생성
+- 전진 여부를 판단하여 자동차의 위치를 계산
+- 차수별 실행 결과를 출력
+- 우승자 확인
+- 우승자 출력
+
+---
+## 구현할 클래스 리스트
+- Game
+  - 게임 진행을 담당하는 클래스
+- Car
+  - 자동차 클래스
+  - 이름, 위치를 필드로 가짐
+- Print
+  - 출력을 담당할 클래스
+- Constant
+  - 프로그램에 사용되는 상수들을 저장하는 클래스
+
+---
 ## 🔍 진행방식
 
 - 미션은 **기능 요구사항, 프로그래밍 요구사항, 과제 진행 요구사항** 세 가지로 구성되어 있다.
@@ -123,10 +147,10 @@ jun : -----
 - 프로그램을 실행하는 시작점은 `Application`의 `main()`이다.
 - JDK 8 버전에서 실행 가능해야 한다. **JDK 8에서 정상 동작하지 않을 경우 0점 처리**한다.
 - 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-   - https://naver.github.io/hackday-conventions-java
+  - https://naver.github.io/hackday-conventions-java
 - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-   - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-   - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
+  - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
+  - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
 - 3항 연산자를 쓰지 않는다.
 - 함수(또는 메소드)가 한 가지 일만 하도록 최대한 작게 만들어라.
 - 프로그래밍 요구사항에서 별도로 변경 불가 안내가 없는 경우 파일 수정과 패키지 이동을 자유롭게 할 수 있다.
@@ -134,10 +158,10 @@ jun : -----
 ### 추가된 요구사항
 
 - 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
-   - 함수(또는 메소드)가 한 가지 일만 잘 하도록 구현한다.
+  - 함수(또는 메소드)가 한 가지 일만 잘 하도록 구현한다.
 - else 예약어를 쓰지 않는다.
-   - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
-   - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
+  - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
+  - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
 
 ### 프로그래밍 요구사항 - Car 객체
 
@@ -148,22 +172,22 @@ jun : -----
 
 ```java
 public class Car {
-    private final String name;
-    private int position = 0;
+  private final String name;
+  private int position = 0;
 
-    public Car(String name) {
-        this.name = name;
-    }
+  public Car(String name) {
+    this.name = name;
+  }
 
-    // 추가 기능 구현
+  // 추가 기능 구현
 }
 ```
 
 ### 프로그래밍 요구사항 - Randoms, Console
 
 - JDK에서 기본 제공하는 Random, Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms`, `Console` API를 활용해 구현해야 한다.
-   - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
-   - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+  - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+  - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 - 프로그램 구현을 완료했을 때 `src/test/java` 디렉터리의 `ApplicationTest`에 있는 모든 테스트 케이스가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
 
 <br>
@@ -175,7 +199,7 @@ public class Car {
 - 미션은 [java-racingcar-precourse](https://github.com/woowacourse/java-racingcar-precourse) 저장소를 Fork/Clone해 시작한다.
 - **기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리**해 추가한다.
 - **Git의 커밋 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위**로 추가한다.
-   - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
+  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고한다.
 
 <br>
