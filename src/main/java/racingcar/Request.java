@@ -29,12 +29,12 @@ public class Request {
 		return receiveTurnInput();
 	}
 
-	public static String carInput() {
+	public static String[] carInput() {
 		System.out.println(CAR_INPUT_MESSAGE);
 		return receiveCarInput();
 	}
 
-	private static String receiveCarInput() {
+	private static String[] receiveCarInput() {
 		String carInput = Console.readLine();
 
 		try {
@@ -43,10 +43,10 @@ public class Request {
 			System.out.println(CAR_INPUT_ERROR_MESSAGE);
 			return receiveCarInputAgain();
 		}
-		return carInput;
+		return carInput.split(",");
 	}
 
-	private static String receiveCarInputAgain() {
+	private static String[] receiveCarInputAgain() {
 		return receiveCarInput();
 	}
 }
