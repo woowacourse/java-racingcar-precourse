@@ -1,7 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
-import static racingcar.Validator.validateCarNames;
-import static racingcar.Validator.validateTrialNum;
+import static racingcar.utils.Validator.validateCarNames;
+import static racingcar.utils.Validator.validateTrialNum;
 
 import camp.nextstep.edu.missionutils.Console;
 
