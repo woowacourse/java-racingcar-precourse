@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.Arrays;
-
 public class Validator {
 	public static void validateCarInput(String input) {
 		String[] cars = input.split(",");
