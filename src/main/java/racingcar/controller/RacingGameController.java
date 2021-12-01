@@ -22,21 +22,20 @@ public class RacingGameController {
 
     private void prepareTryNumber() {
         try {
-            TryNumber tryNumber = new TryNumber(InputView.requireTryNumber());
+            this.tryNumber = new TryNumber(InputView.requireTryNumber());
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
             prepareTryNumber();
         }
-        this.tryNumber = tryNumber;
+
     }
 
     private void prepareCars() {
         try {
-            Cars cars = new Cars(InputView.requirePlayersName());
+            this.cars = new Cars(InputView.requirePlayersName());
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
             prepareCars();
         }
-        this.cars = cars;
     }
 }
