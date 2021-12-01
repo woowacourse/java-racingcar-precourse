@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 public class TurnValueReaderTest {
@@ -44,5 +45,18 @@ public class TurnValueReaderTest {
 		int value = turnValueReader.read();
 
 		assertThat(value).isEqualTo(12);
+	}
+
+	@Test
+	@DisplayName("숫자가 아닌 회수 값 읽기")
+	void read_invalid_turn_value() {
+		when(Console.readLine()).thenReturn("number");
+		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
+		TurnValueReader turnValueReader = new TurnValueReader(consoleDisplay);
+
+		IllegalArgumentException exception =
+			assertThrows(IllegalArgumentException.class, () -> turnValueReader.read());
+
+		assertThat(exception.getMessage()).isEqualTo(TurnValueReader.ERROR_MESSAGE);
 	}
 }
