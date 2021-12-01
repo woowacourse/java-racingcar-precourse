@@ -25,14 +25,14 @@ public class Game {
     }
 
     private boolean checkCars() {
+        boolean checking = true;
         try {
-            boolean checking = true;
+            Exception e = new Exception();
             rightInput();
-
-        } catch (IllegalArgumentException) {
-
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+            checking = false;
         }
-
         return checking;
     }
 
