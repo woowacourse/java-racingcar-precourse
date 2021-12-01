@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
+
     private final List<Car> cars;
 
     public GameManager() {
@@ -42,22 +43,28 @@ public class GameManager {
     }
 
     private List<String> getWinners() {
-        int maxPosition = 0;
         List<String> winners = new ArrayList<>();
+        int maxPosition = this.getMaxPosition();
 
         for (Car car : cars) {
-            int curPosition = car.getPosition();
-            if (curPosition < maxPosition) {
-                continue;
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
             }
-            if (curPosition > maxPosition) {
-                winners.clear();
-                maxPosition = curPosition;
-            }
-            winners.add(car.getName());
         }
 
         return winners;
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+
+        for (Car car : this.cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+
+        return maxPosition;
     }
 
     private void printWinners(List<String> winners) {
