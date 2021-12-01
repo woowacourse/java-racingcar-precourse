@@ -6,10 +6,16 @@ import java.util.stream.Collectors;
 public class Cars {
 	private final List<Car> cars;
 
-	public Cars(Names names) {
-		this.cars = names.getNames().stream()
+	private Cars(List<Car> cars) {
+		this.cars = cars;
+	}
+
+	public static Cars from(Names names) {
+		List<Car> cars = names.getNames().stream()
 			.map(Car::new)
 			.collect(Collectors.toList());
+
+		return new Cars(cars);
 	}
 
 	public List<Car> getCars() {

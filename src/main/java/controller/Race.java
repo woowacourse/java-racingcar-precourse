@@ -13,7 +13,7 @@ import view.OutputView;
 public class Race {
 	public void startRace() {
 		Names names = InputView.inputCarNames();
-		Cars cars = new Cars(names);
+		Cars cars = Cars.from(names);
 		MoveCount moveCount = InputView.inputMoveCount();
 
 		OutputView.printResultMessage();
