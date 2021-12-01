@@ -2,6 +2,10 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +21,17 @@ public class ValidationUtilsTest {
 
 	@Test
 	@DisplayName("숫자인지 체크")
-	void isNumber_test() {
+	void validNumber_test() {
 		assertThat(ValidationUtils.validNumber("a1")).isFalse();
 		assertThat(ValidationUtils.validNumber("a")).isFalse();
+	}
+
+	@Test
+	@DisplayName("사용자 입력 자동차 목록 테스트")
+	void validCarList() {
+		String[] testStr = {"abc", "def111", "ghi"};
+		List<String> testList;
+		testList = Arrays.asList(testStr);
+		assertThat(ValidationUtils.validCarList(testList)).isFalse();
 	}
 }

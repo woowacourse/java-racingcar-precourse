@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class ValidationUtils {
 
 	private static final int MAX_LENGTH_CAR_NAME = 5;
@@ -19,6 +21,19 @@ public class ValidationUtils {
 	}
 
 	public static boolean validCarName(String testCarName) {
-		return testCarName.length() <= MAX_LENGTH_CAR_NAME;
+		if (testCarName.length() > MAX_LENGTH_CAR_NAME) {
+			System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean validCarList(List<String> carList) {
+		for (String car : carList) {
+			if (!validCarName(car)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
