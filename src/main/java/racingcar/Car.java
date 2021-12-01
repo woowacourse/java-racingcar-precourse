@@ -14,6 +14,14 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     public void moveOrStop() {
         int dice = Randoms.pickNumberInRange(Const.MIN_RANDOM_VALUE, Const.MAX_RANDOM_VALUE);
         if(dice >= Const.FORWARD_STANDARD)

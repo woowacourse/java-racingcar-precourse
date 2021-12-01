@@ -15,8 +15,7 @@ public class Game {
 		Race race = new Race(cars, round);
 
 		race.start();
-
-
+		race.printWinners();
 	}
 
 	private static List<Car> readCars() {

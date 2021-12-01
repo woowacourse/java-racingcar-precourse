@@ -11,6 +11,7 @@ public class Const {
 	public static final String RACE_RESULT_MESSAGE = "실행 결과";
 	public static final String CAR_PRINT_SEPARATOR = " : ";
 	public static final String CAR_POSITION_MARKER = "-";
+	public static final String WINNER_MESSAGE = "최종 우승자 : ";
 
 	public static final int MAX_NAME_COUNT = 5;
 	public static final int MIN_RANDOM_VALUE = 0;
