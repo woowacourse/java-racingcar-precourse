@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'checkstyle'
 
 version = '1.0.0'
 
@@ -21,3 +22,6 @@ java {
 test {
     useJUnitPlatform()
 }
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
