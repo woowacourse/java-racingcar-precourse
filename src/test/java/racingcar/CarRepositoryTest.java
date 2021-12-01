@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CarRepositoryTest {
 
-    CarRepository carRepository = new CarRepository();
+    CarRepository carRepository = CarRepository.getInstance();
 
     @BeforeEach
     void setUp(){

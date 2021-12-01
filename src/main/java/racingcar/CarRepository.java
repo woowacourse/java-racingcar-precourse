@@ -7,6 +7,15 @@ public class CarRepository {
     private final List<Car> carList = new ArrayList<>();
     private final static int DEFAULT_VALUE = 0;
 
+    private final static CarRepository instance = new CarRepository();
+
+    private CarRepository(){
+    }
+
+    public static CarRepository getInstance(){
+        return instance;
+    }
+
     public void saveAll(List<Car> cars){
         for (Car car : cars) {
             carList.add(car);
