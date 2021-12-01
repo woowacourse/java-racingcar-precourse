@@ -193,3 +193,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 ## 💻 구현할 목록
 
 - 레이싱 게임 매 턴마다 각 자동차 전진 여부를 판별할 랜덤값을 만드는 인스턴스의 클래스 구현(branch: feature/random-number)
+- 레이싱 게임에서 사용될 각 차량의 상태를 저장하는 인스턴스에 대한 클래스 구현(branch: feature/car)
