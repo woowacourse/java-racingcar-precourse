@@ -10,13 +10,21 @@ public class RacingGame {
 	private int maxPosition;
 
 	public void start() {
+		setCarsFromInput();
+		setTurnFromInput();
+		startRace();
+		printWinners();
+	}
+
+	private void setCarsFromInput() {
 		String[] carInput = Request.carInput();
 		cars = Arrays.stream(carInput)
 			.map(Car::new)
 			.toArray(Car[]::new);
+	}
+
+	private void setTurnFromInput() {
 		turn = Request.turnInput();
-		startRace();
-		printWinners();
 	}
 
 	private void startRace() {
