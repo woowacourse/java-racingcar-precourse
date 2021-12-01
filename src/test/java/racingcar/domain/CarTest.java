@@ -1,14 +1,21 @@
 package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
+	private static final String carName = "자1동차";
+	Car car;
+
+	@BeforeEach
+	void setUp() {
+		car = new Car(carName);
+	}
 
 	@Test
 	void 자동차_전진_3_입력() {
 		// given
-		Car car = new Car("자동차");
 		int previousCarPosition = car.getPosition();
 
 		// when
@@ -21,7 +28,6 @@ public class CarTest {
 	@Test
 	void 자동차_전진_4_입력() {
 		// given
-		Car car = new Car("자동차");
 		int previousCarPosition = car.getPosition();
 
 		// when
