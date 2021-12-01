@@ -18,7 +18,7 @@ public class Name {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String toString() {
 		return this.name;
 	}
 
