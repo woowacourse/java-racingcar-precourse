@@ -3,15 +3,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 
 public class Game {
+    private String input;
 
     public Game() {
 
     }
 
-    private String CarsInput() {
-        String input;
+    private void CarsInput() {
         input = Console.readLine();
-        return input;
     }
 
     public void gameStart() {
