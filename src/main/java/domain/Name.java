@@ -4,7 +4,9 @@ import java.util.Objects;
 
 public class Name {
 	private static final String LENGTH_ERROR_MESSAGE = "이름은 1글자 이상, 5글자 이하를 입력해야 합니다.";
-	private static final String ONLY_SPACES_ERROR_MESSAGE = "이름은 공백만으로 구성될 수 없습니다.";
+	private static final String SPACE_INCLUDED_ERROR_MESSAGE = "이름에 공백이 포함될 수 없습니다.";
+
+	private static final String SPACE = " ";
 
 	private static final int MINIMUM_LENGTH = 1;
 	private static final int MAXIMUM_LENGTH = 5;
@@ -13,7 +15,7 @@ public class Name {
 
 	public Name(String name) {
 		validateLength(name);
-		validateOnlySpace(name);
+		validateSpaceIncluded(name);
 
 		this.name = name;
 	}
@@ -29,10 +31,9 @@ public class Name {
 		}
 	}
 
-	private void validateOnlySpace(String name) {
-		String spaceRemovedName = name.replace(" ", "");
-		if (spaceRemovedName.length() == 0) {
-			throw new IllegalArgumentException(ONLY_SPACES_ERROR_MESSAGE);
+	private void validateSpaceIncluded(String name) {
+		if (name.contains(SPACE)) {
+			throw new IllegalArgumentException(SPACE_INCLUDED_ERROR_MESSAGE);
 		}
 	}
 
