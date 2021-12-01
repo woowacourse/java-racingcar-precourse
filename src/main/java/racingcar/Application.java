@@ -13,13 +13,12 @@ public class Application {
     }
 
     private static boolean GoOrStop() {
-        boolean randomGoStop;
         int randomNum = Randoms.pickNumberInRange(0,9);
         if (randomNum >= 4) {
-            randomGoStop = true;
+            return true;
         }
         else {
-            randomGoStop = false;
+            return false;
         }
     }
 
