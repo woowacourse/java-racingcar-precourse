@@ -3,6 +3,8 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.*;
 import static camp.nextstep.edu.missionutils.Randoms.*;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -32,6 +34,7 @@ public class RacingGame {
 		for (int i = 0; i < rounds; i++) {
 			playRacingGame();
 		}
+		printGameResult();
 	}
 
 	private void setGame() {
@@ -75,10 +78,18 @@ public class RacingGame {
 		System.out.println();
 	}
 
+	private void printGameResult() {
+		participantList.sort((car1, car2) -> car2.getLocation() - car1.getLocation());
+		for (Car car : participantList) {
+			System.out.println(car.getLocation());
+		}
+	}
+
 	private void validateNumber(String number) {
 		boolean isNumeric = number.matches("[+-]?\\d*(\\.\\d+)?");
 		if (!isNumeric) {
 			throw new IllegalArgumentException(VALIDATE_MESSAGE);
 		}
 	}
+
 }

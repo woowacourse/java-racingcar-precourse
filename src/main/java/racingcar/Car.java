@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car implements Comparable {
+public class Car {
 
 	private static final String NAMING_ERROR_MESSAGE = "길이는 5글자 이내로 입력해야 합니다.";
 	private static final int LENGTH_LIMIT = 5;
@@ -31,12 +31,4 @@ public class Car implements Comparable {
 		this.position += distance;
 	}
 
-	@Override
-	public int compareTo(Object object) {
-		Car other = (Car)object;
-		if (this.getLocation() < other.getLocation()) {
-			return -1;
-		}
-		return 1;
-	}
 }
