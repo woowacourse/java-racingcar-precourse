@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class Name {
 	private static final String LENGTH_ERROR_MESSAGE = "이름은 1글자 이상, 5글자 이하를 입력해야 합니다.";
 	private static final String ONLY_SPACES_ERROR_MESSAGE = "이름은 공백만으로 구성될 수 없습니다.";
@@ -34,4 +36,20 @@ public class Name {
 		}
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Name otherName = (Name)o;
+		return this.name.equals(otherName.name);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name);
+	}
 }

@@ -1,24 +1,24 @@
 package view;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.MoveCount;
 import domain.Name;
+import domain.Names;
 
 public class InputView {
 	private static final String NAME_DELIMITER = ",";
 
-	public static List<Name> inputCarNames() {
+	public static Names inputCarNames() {
 		OutputView.printInputCarNames();
 
 		try {
 			String input = Console.readLine();
-			return Arrays.stream(input.split(NAME_DELIMITER))
+			return new Names(Arrays.stream(input.split(NAME_DELIMITER))
 				.map(Name::new)
-				.collect(Collectors.toList());
+				.collect(Collectors.toList()));
 		} catch (IllegalArgumentException e) {
 			OutputView.printErrorMessage(e.getMessage());
 			return inputCarNames();
