@@ -74,6 +74,7 @@ public class Game {
 		Cars carList = generateCars();
 		int count = getGameCount();
 		System.out.println("\n실행 결과");
+
 		for (int i = 0; i < count; i++) {
 			runGameOneStep(carList);
 		}
