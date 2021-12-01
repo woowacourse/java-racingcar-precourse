@@ -13,7 +13,7 @@ public class GameManager {
     public void run() {
         this.getCarList();
 
-        int trialNum = this.getTrialNum();
+        int trialNum = User.getTrialNumInput();
         this.play(trialNum);
 
         List<String> winners = this.getWinners();
@@ -24,10 +24,6 @@ public class GameManager {
         for (String carName : User.getCarNamesInput()) {
             this.cars.add(new Car(carName));
         }
-    }
-
-    private int getTrialNum() {
-        return User.getTrialNumInput();
     }
 
     private void play(int trialNum) {
