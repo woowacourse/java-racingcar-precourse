@@ -18,6 +18,7 @@
 - camp.nextstep.edu.missionutils에서 제공하는 Console API를 활용한다.
 - **예외**가 발생하면 IllegalArgumentException을 발생시킨다.
 - **[예외]** 자동차의 이름은 5자를 넘어서는 안된다.
+- **[예외]** 공백일 경우
 
 <br>
 
