@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Car;
@@ -44,5 +45,12 @@ public class RacingGame {
 
 	private ProceedResult convertToProceedResult(Car c) {
 		return ProceedResult.of(c.getName(), c.getPosition());
+	}
+
+	public List<String> getWinners() {
+		List<Car> sortedCar = cars.stream()
+			.sorted((a, b) -> Integer.compare(b.getPosition(), a.getPosition()))
+			.collect(Collectors.toList());
+		return Arrays.asList(sortedCar.get(0).getName());
 	}
 }

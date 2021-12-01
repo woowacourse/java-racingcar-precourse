@@ -2,6 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -43,6 +44,7 @@ public class RacingGameTest {
 	}
 
 	@Test
+	@DisplayName("중간 결과 반환")
 	void return_proceed_result() {
 		when(Randoms.pickNumberInRange(0, 9))
 			.thenReturn(MOVE_NUMBER).thenReturn(STOP_NUMBER).thenReturn(STOP_NUMBER)
@@ -56,5 +58,21 @@ public class RacingGameTest {
 			ProceedResult.of("pobi", 2), ProceedResult.of("woni", 1), ProceedResult.of("jun", 0));
 		assertThat(racingGame.proceed()).containsExactlyInAnyOrder(
 			ProceedResult.of("pobi", 3), ProceedResult.of("woni", 1), ProceedResult.of("jun", 1));
+	}
+
+	@Test
+	@DisplayName("단독 우승자 반환")
+	void return_single_winners() {
+		when(Randoms.pickNumberInRange(0, 9))
+			.thenReturn(MOVE_NUMBER).thenReturn(STOP_NUMBER).thenReturn(STOP_NUMBER)
+			.thenReturn(MOVE_NUMBER).thenReturn(MOVE_NUMBER).thenReturn(STOP_NUMBER)
+			.thenReturn(MOVE_NUMBER).thenReturn(STOP_NUMBER).thenReturn(MOVE_NUMBER);
+		RacingGame racingGame = RacingGame.of(RacingInfo.of(3, Arrays.asList("pobi", "woni", "jun")));
+
+		while (!racingGame.isFinished()) {
+			racingGame.proceed();
+		}
+
+		assertThat(racingGame.getWinners()).containsExactlyInAnyOrder("pobi");
 	}
 }
