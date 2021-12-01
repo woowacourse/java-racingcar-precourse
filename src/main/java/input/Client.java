@@ -1,6 +1,4 @@
-package view;
-
-import utils.Validation;
+package input;
 
 import java.util.List;
 import java.util.stream.Collectors;

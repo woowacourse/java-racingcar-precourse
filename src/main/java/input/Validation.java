@@ -1,4 +1,4 @@
-package utils;
+package input;
 
 public class Validation {
     public void carValidation(String cars){
