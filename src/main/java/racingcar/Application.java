@@ -2,12 +2,22 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.stream.Stream;
 
 public class Application {
     public static void main(String[] args) {
         String[] arrayCar = inputToArray();
         Car[] arrayCarObject = arrayCarObj(arrayCar);
+        int Count = CountingGame();
+        
+
+
+    }
+
+    private static int CountingGame() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String str = Console.readLine();
+        int Counting = Integer.parseInt(str);
+        return Counting;
     }
 
 
