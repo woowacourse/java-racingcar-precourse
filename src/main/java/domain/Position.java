@@ -19,7 +19,7 @@ public class Position {
 		return new Position(this.position + MOVE_DISTANCE);
 	}
 
-	public int getPosition() {
+	public int toInt() {
 		return this.position;
 	}
 
