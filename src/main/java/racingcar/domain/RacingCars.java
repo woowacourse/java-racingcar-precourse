@@ -1,12 +1,12 @@
 package racingcar.domain;
 
 import static racingcar.constant.GameConstants.*;
+import static racingcar.util.CarNameValidator.*;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import racingcar.util.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -20,7 +20,7 @@ public class RacingCars {
 	public List<Car> makeCars() {
 		List<String> carNames = getCarNames();
 		return carNames.stream()
-			.map(name -> new Car(name))
+			.map(Car::new)
 			.collect(Collectors.toList());
 	}
 
@@ -29,7 +29,7 @@ public class RacingCars {
 		do {
 			OutputView.printAskingCarNames();
 			inputCarNames = toList(InputView.getInput());
-		} while (!InputValidator.isValidCarName(inputCarNames));
+		} while (!isValidCarName(inputCarNames));
 		return inputCarNames;
 	}
 

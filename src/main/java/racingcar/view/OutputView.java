@@ -8,6 +8,10 @@ public class OutputView {
 	}
 
 	public static void printAskingCarNames() {
-		System.out.println(String.format(ASK_CAR_NAMES, CAR_NAME_DELIMITER));
+		System.out.println(ASK_CAR_NAMES_MESSAGE);
+	}
+
+	public static void printAskingAttemptNumber() {
+		System.out.println(ASK_ATTEMPT_NUMBER_MESSAGE);
 	}
 }

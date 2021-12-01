@@ -6,7 +6,7 @@ import java.util.List;
 
 import racingcar.view.OutputView;
 
-public class InputValidator {
+public class CarNameValidator {
 	public static boolean isValidCarName(List<String> inputCarNames) {
 		try {
 			validateSize(inputCarNames);
