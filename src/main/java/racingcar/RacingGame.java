@@ -10,6 +10,7 @@ public class RacingGame {
 
 	private final String startMessage = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준로 구분)";
 	private final String tryMessage = "시도할 회수는 몇회인가요?";
+	private final String validateMessage = "숫자만 입력이 가능합니다.";
 	private List<Car> participantList = new LinkedList<>();
 	private int rounds = 0;
 
@@ -26,7 +27,7 @@ public class RacingGame {
 	private void setGame() {
 		String participants = readLine();
 		String round = readLine();
-
+		validateNumber(round);
 		updateGameInformation(participants, Integer.parseInt(round));
 	}
 
@@ -36,5 +37,12 @@ public class RacingGame {
 			participantList.add(new Car(participant.nextToken()));
 		}
 		this.rounds = round;
+	}
+
+	private void validateNumber(String number) {
+		boolean isNumeric = number.matches("[+-]?\\d*(\\.\\d+)?");
+		if (!isNumeric) {
+			throw new IllegalArgumentException(validateMessage);
+		}
 	}
 }
