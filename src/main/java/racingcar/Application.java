@@ -8,8 +8,9 @@ public class Application {
     public static void main(String[] args) {
         // TODO 구현 진행
         String[] everyCarName = InputView.enterEveryCarName();
-        int tryCntAboutCarMoving = InputView.enterTryCnt();
         Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
+        int tryCntAboutCarMoving = InputView.enterTryCnt();
+
     }
 
     private static void validateCarName(String eachCarName) {
