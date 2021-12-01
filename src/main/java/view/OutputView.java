@@ -1,5 +1,7 @@
 package view;
 
+import java.util.List;
+
 import domain.CarDto;
 
 public class OutputView {
@@ -29,6 +31,14 @@ public class OutputView {
 		for (int i = 0; i < position; i++) {
 			System.out.print(PROGRESS_BAR);
 		}
+
+		System.out.println();
+	}
+
+	public static void printCars(List<CarDto> carDtos) {
+		carDtos.forEach(
+			OutputView::printCar
+		);
 		System.out.println();
 	}
 }
