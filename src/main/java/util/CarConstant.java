@@ -9,6 +9,8 @@ public class CarConstant {
 
     public final static String ERROR_PREFIX = "[ERROR]";
     public final static String NAME_LENGTH_ERROR_MESSAGE = "이름은 다섯자 이하여야 한다.";
+    public final static String NAME_NOT_BLANK = "이름을 입력해주세요.";
+    public final static String NAME_DUPLICATE = "중복된 이름이 입력됐습니다.";
     public final static String TRY_NUMBER_NOT_NUMBER_MESSAGE = "시도 횟수는 숫자여야 한다.";
     public final static String NUMBER_OUT_OF_RANGE_MESSAGE = "시도 횟수는 0보다 커야 한다.";
 

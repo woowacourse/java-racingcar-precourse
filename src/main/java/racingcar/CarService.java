@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.validator.NameValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CarService {
 
     public int saveCars(String input){
         String[] tempCars = input.split(DELIMITER);
-        CarValidator.isNameLowerThanFive(tempCars);
+        NameValidator.isRightName(tempCars);
         return carRepository.saveAll(createCarList(tempCars));
     }
 

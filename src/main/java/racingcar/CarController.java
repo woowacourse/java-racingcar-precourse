@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.NumberValidator;
 
 import static racingcar.CarView.*;
 import static util.CarConstant.*;
@@ -33,7 +34,7 @@ public class CarController {
         printMessage(REQUEST_NUMBER_TO_TRY);
         String inputNumber = Console.readLine();
         try {
-            CarValidator.isRightTryNumber(inputNumber);
+            NumberValidator.isRightTryNumber(inputNumber);
         }catch (IllegalArgumentException e){
             printMessage(e.getMessage());
             return insertNumberOfTry();
