@@ -38,6 +38,8 @@ jun : -----
 
 ## 기능 목록
 
+- #### 프로그래밍 구조 설계 ✅
+
 - #### 사용자에게 자동차 입력 받기
 
   - ###### 입력 받는 화면 출력
@@ -73,6 +75,7 @@ jun : -----
   
 
 - #### 우승자 선정
+
   - ###### 결과 반영 후 우승자 선정
 
   - ###### 우승자 출력
@@ -82,37 +85,21 @@ jun : -----
 ## 주요 요구사항
 
 1. **기능 요구사항, 프로그래밍 요구사항, 과제 진행 요구사항**을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 **기능 목록**을 만들고, **기능 단위로 커밋** 하는 방식으로 진행한다.
-
 2. **Git의 커밋 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위**로 추가한다.
-
    - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-
 3. 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-
    - https://naver.github.io/hackday-conventions-java
-
 4. JDK에서 기본 제공하는 Random, Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms`, `Console` API를 활용해 구현해야 한다.
-
    - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
    - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-
 5. 프로그램 구현을 완료했을 때 `src/test/java` 디렉터리의 `ApplicationTest`에 있는 모든 테스트 케이스가 성공해야 한다.
-
 6. 터미널에서 `java -version`을 실행해 자바 8인지 확인한다.
-
 7. 터미널에서 `./gradlew clean test` 명령을 실행했을 때 모든 테스트가 통과하는지 확인한다.
-
 8. 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
-
    - 함수(또는 메소드)가 한 가지 일만 잘 하도록 구현한다.
-
 - else 예약어를 쓰지 않는다.
    - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
    - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
-   
-10. 
-
-    
 
 > *코드리뷰 후 추가내용*
 >
