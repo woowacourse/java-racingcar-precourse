@@ -8,11 +8,13 @@ public class Application {
 
     static List<Car> carList = new ArrayList<>();
     static int tryTimes;
+    static List<String> winnerNames = new ArrayList<>();
 
     public static void main(String[] args) {
         CreateCars();
         SetTryTimes();
         PlayGames();
+        AnnounceWinners();
     }
 
     static void CreateCars() {
@@ -29,11 +31,12 @@ public class Application {
     }
 
     static String[] GetCarNames() {
-        String carNamesInput = readLine();
+        String carNamesInput;
         String[] carNames;
 
         while (true) {
             try {
+                carNamesInput = readLine();
                 carNames = ParseCarNamesInput(carNamesInput);
                 return carNames;
             } catch (IllegalArgumentException e) {
@@ -63,11 +66,12 @@ public class Application {
     }
 
     static int GetTryTimes() {
-        String tryTimesInput = readLine();
+        String tryTimesInput;
         int tryTimesInt;
 
         while (true) {
             try {
+                tryTimesInput = readLine();
                 tryTimesInt = InputStringToInt(tryTimesInput);
                 return tryTimesInt;
             } catch (IllegalArgumentException e) {
@@ -90,21 +94,52 @@ public class Application {
     static void PlayGames() {
         PrintGameMessage(GAME_PLAY_START);
 
-        for(int i=0;i<tryTimes;++i){
+        for (int i = 0; i < tryTimes; ++i) {
             PlayOneTurn();
         }
     }
 
-    static void PlayOneTurn(){
-        for(Car c:carList){
-            c.PlayMovingThisCar();
+    static void PlayOneTurn() {
+        for (Car c : carList) {
+            c.PlayMoving();
         }
         System.out.println("\n");
     }
 
+    static void AnnounceWinners() {
+        SelectWinners();
+        PrintWinners();
+    }
+
+    static void SelectWinners() {
+        int maxPosition = 0;
+
+        for (Car c : carList) {
+            int thisPosition = c.getPosition();
+            if (maxPosition < thisPosition) {
+                maxPosition = thisPosition;
+                winnerNames.clear();
+                winnerNames.add(c.getName());
+                continue;
+            }
+            if (maxPosition == thisPosition) {
+                winnerNames.add(c.getName());
+            }
+        }
+    }
+
+    static void PrintWinners() {
+        int numberOfWinners = winnerNames.size();
+
+        System.out.print("최종 우승자 : " + winnerNames.get(0));
+        for (int i = 1; i < numberOfWinners; ++i) {
+            System.out.print(", " + winnerNames.get(i));
+        }
+    }
+
     static int GAME_CREATE_CARS = 1;
     static int GAME_SET_TRY_TIMES = 2;
-    static int GAME_PLAY_START=3;
+    static int GAME_PLAY_START = 3;
 
     static void PrintGameMessage(int gameType) {
         if (gameType == GAME_CREATE_CARS) {
@@ -115,7 +150,7 @@ public class Application {
             System.out.println("시도할 회수는 몇회인가요?");
             return;
         }
-        if(gameType == GAME_PLAY_START){
+        if (gameType == GAME_PLAY_START) {
             System.out.println("\n실행 결과");
         }
     }

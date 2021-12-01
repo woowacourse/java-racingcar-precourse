@@ -10,7 +10,7 @@ public class Car {
         this.name = name;
     }
 
-    public void PlayMovingThisCar() {
+    public void PlayMoving() {
         TryMoveForward();
         PrintResult();
     }
@@ -31,5 +31,13 @@ public class Car {
             System.out.print("-");
         }
         System.out.print("\n");
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getPosition(){
+        return position;
     }
 }
