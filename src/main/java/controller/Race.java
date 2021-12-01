@@ -16,6 +16,7 @@ public class Race {
 	public void startGame() {
 		Names names = InputView.inputCarNames();
 		Cars cars = Cars.from(names);
+
 		MoveCount moveCount = InputView.inputMoveCount();
 
 		startRace(cars, moveCount);
@@ -29,7 +30,6 @@ public class Race {
 			moveCars(cars);
 			printCars(cars);
 		}
-
 	}
 
 	public void moveCars(Cars cars) {
