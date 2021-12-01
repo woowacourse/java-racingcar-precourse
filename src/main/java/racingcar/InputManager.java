@@ -24,8 +24,8 @@ public class InputManager {
 	}
 
 	public void isValidCars(String[] carsList) throws IllegalArgumentException {
-		for (int i = 0; i < carsList.length; i++) {
-			if (carsList[i].length() > 5) {
+		for (String car : carsList) {
+			if (car.length() > 5) {
 				throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
 			}
 		}
@@ -42,8 +42,8 @@ public class InputManager {
 		if (number.length() == 0) {
 			throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
 		}
-		for (int i = 0; i < number.length(); i++) {
-			if (!Character.isDigit((number.charAt(i)))) {
+		for (int index = 0; index < number.length(); index++) {
+			if (!Character.isDigit((number.charAt(index)))) {
 				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
 			}
 		}
