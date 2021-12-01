@@ -8,12 +8,11 @@ public class Application {
     public static void main(String[] args) {
         // TODO 구현 진행
         String[] everyCarName = InputView.enterEveryCarName();
+        int tryCntAboutCarMoving = InputView.enterTryCnt();
         Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
-
     }
 
     private static void validateCarName(String eachCarName) {
-        System.out.println(eachCarName);
         if (eachCarName.length() > 5) {
             throw new IllegalArgumentException("차 이름이 5글자가 넘어감.");
         }
