@@ -37,4 +37,19 @@ public class CarTest {
 		car.move();
 		assertThat(car.getPosition()).isEqualTo(2);
 	}
+
+	@Test
+	@DisplayName("정지")
+	void stop() {
+	    when(Randoms.pickNumberInRange(0, 9))
+		    .thenReturn(3)
+		    .thenReturn(2);
+		Car car = new Car("pobi");
+
+		car.move();
+		assertThat(car.getPosition()).isEqualTo(0);
+
+		car.move();
+		assertThat(car.getPosition()).isEqualTo(0);
+	}
 }
