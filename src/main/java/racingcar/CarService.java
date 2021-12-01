@@ -17,10 +17,10 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    public void saveCars(String input){
+    public int saveCars(String input){
         String[] tempCars = input.split(DELIMITER);
         CarValidator.isNameLowerThanFive(tempCars);
-        carRepository.saveAll(createCarList(tempCars));
+        return carRepository.saveAll(createCarList(tempCars));
     }
 
     private List<Car> createCarList(String[] tempCars) {

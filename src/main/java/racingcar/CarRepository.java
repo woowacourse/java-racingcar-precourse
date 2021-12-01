@@ -16,10 +16,11 @@ public class CarRepository {
         return instance;
     }
 
-    public void saveAll(List<Car> cars){
+    public int saveAll(List<Car> cars){
         for (Car car : cars) {
             carList.add(car);
         }
+        return carList.size();
     }
 
     public List<Car> findAll(){
