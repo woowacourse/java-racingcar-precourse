@@ -13,6 +13,7 @@ public class GameController {
 		Cars cars = new Cars(carNames.generateCar());
 		Attempts attempts = new Attempts();
 		inputAttempts(attempts);
+		moveCars(cars);
 	}
 
 	private void inputCarName(CarNames carNames) {
@@ -33,5 +34,9 @@ public class GameController {
 			ErrorView.show(illegalArgumentException.getMessage());
 			inputAttempts(attempts);
 		}
+	}
+
+	private void moveCars(Cars cars) {
+		cars.move();
 	}
 }
