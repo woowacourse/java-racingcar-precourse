@@ -11,6 +11,14 @@ public class Car {
 		this.name = name;
 	}
 
+	public Name getName() {
+		return this.name;
+	}
+
+	public Position getPosition() {
+		return this.position;
+	}
+
 	public void moveForward() {
 		if (willMove()) {
 			this.position = this.position.increase();
