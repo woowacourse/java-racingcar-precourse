@@ -22,7 +22,7 @@ public class MoveCount {
 		}
 	}
 
-	public int getMoveCount() {
+	public int toInt() {
 		return this.moveCount;
 	}
 
