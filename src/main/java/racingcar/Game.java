@@ -11,7 +11,7 @@ import config.Message;
 public class Game {
 	private static Message message = new Message();
 	private static ErrorMessage errorMessage = new ErrorMessage();
-	private static ArrayList<Car> cars = new ArrayList<>();
+	private static ArrayList<Car> cars;
 	private static int repeatNumber;
 
 	public void play() {
@@ -21,14 +21,18 @@ public class Game {
 		getWinner();
 	}
 
+	//TODO: inputCars() 랑 inputRepeatNumber() 한 메서드로 합치기
 	private void inputCars() {
+		cars= new ArrayList<>();
 		System.out.println(message.getENTER_CARS_NAME());
 		String inputStr = Console.readLine();
 
 		try {
-			checkInputCarsName(inputStr.split(","));
+			checkNull(inputStr);
+			checkInputCarsNameLen(inputStr.split(","));
+
 		} catch (IllegalArgumentException e) {
-			System.out.println(errorMessage.getCAR_NAME_LENGTH_ERROR());
+			System.out.println("[ERROR] "+e.getMessage());
 			inputCars();
 		}
 	}
@@ -36,11 +40,13 @@ public class Game {
 	private void inputRepeatNumber() {
 		System.out.println(message.getASK_REPEAT_NUM());
 		String inputStr = Console.readLine();
+
 		try {
+			checkNull(inputStr);
 			checkInputRepeatNumber(inputStr);
 
 		} catch (IllegalArgumentException e) {
-			System.out.println(errorMessage.getNOT_CORRECT_REPEAT_NUM_ERROR());
+			System.out.println("[ERROR] "+e.getMessage());
 			inputRepeatNumber();
 		}
 	}
@@ -89,7 +95,7 @@ public class Game {
 		int idx = checkNumberOfWinner();
 		for (int i = 0; i < idx; i++) {
 			System.out.print(cars.get(i).getName());
-			checkAddComma(i);
+			checkAddComma(i,idx);
 		}
 	}
 
@@ -106,29 +112,38 @@ public class Game {
 		return winnerNum;
 	}
 
-	private void checkAddComma(int idx) {
-		if (idx < idx - 1) {
+	private void checkAddComma(int idx, int len) {
+		if (idx < len - 1) {
 			System.out.print(", ");
 		}
 	}
 
 	//TODO: validation Class 로 빼기
-	private void checkInputCarsName(String[] carsStr) throws IllegalArgumentException {
+	private void checkInputCarsNameLen(String[] carsStr) {
 		for (String car : carsStr) {
 			if (car.length() > 5) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException(errorMessage.getCAR_NAME_LENGTH_ERROR());
 			}
 			cars.add(new Car(car));
 		}
 	}
 
 	//TODO: validation Class 로 빼기
-	private void checkInputRepeatNumber(String inputStr) throws IllegalArgumentException {
+	private void checkNull(String inputStr) {
+		if (inputStr.length() == 0) {
+			throw new IllegalArgumentException(errorMessage.getNULL_ERROR());
+		}
+	}
+
+	//TODO: validation Class 로 빼기
+	private void checkInputRepeatNumber(String inputStr)  {
 		for (char c : inputStr.toCharArray()) {
 			if (!Character.isDigit(c)) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException(errorMessage.getNOT_CORRECT_REPEAT_NUM_ERROR());
 			}
 		}
 		repeatNumber = Integer.parseInt(inputStr);
 	}
+
+	// TODO: 음의 정수 일 때 error 추가
 }
