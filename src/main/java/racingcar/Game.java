@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
     private String input;
+    public String[] carNames;
 
     public Game() {
 
@@ -27,7 +28,6 @@ public class Game {
         try {
             boolean checking = true;
 
-
         } catch (IllegalArgumentException) {
 
         }
@@ -35,6 +35,18 @@ public class Game {
         return checking;
     }
 
+    private boolean rightInput() {
+        carNames = input.split(",");
+        if (carNames.length == 1) {
+            return true;
+        }
+        for (int i=0;i<carNames.length; i++) {
+            if (carNames[i].length() > 5) {
+                return false;
+            }
+        }
+        return true;
+    }
     
 
 
