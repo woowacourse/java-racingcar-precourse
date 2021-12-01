@@ -5,22 +5,31 @@ import camp.nextstep.edu.missionutils.Console;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class RacingSystem {
     private static final String INPUT_CAR_SENTENCE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_CNT_SENTENCE = "시도할 회수는 몇회인가요?";
     private static final String SEPARATOR = ",";
+    private static final String NUMBER_REGAX = "^[0-9]*$";
     private static final int MAX_CNT = 5;
 
     private List<Car> cars = new ArrayList<>();
     private Winners winners = new Winners();
+    private int cnt = 0;
 
     public RacingSystem() {
     }
 
     public void inputCarName() {
         String input = write(INPUT_CAR_SENTENCE);
-        checkValid(input);
+        checkValidName(input);
+        // TODO exception 발생 시 다시 입력 받기
+    }
+
+    public void inputTryCnt() {
+        String input = write(INPUT_CNT_SENTENCE);
+        checkNumber(input);
         // TODO exception 발생 시 다시 입력 받기
     }
 
@@ -29,7 +38,22 @@ public class RacingSystem {
         return Console.readLine();
     }
 
-    public void checkValid(String input) {
+    public void checkNumber(String input) {
+        if (!isNumber(input) || !isUnderMax(input)) {
+            throw new IllegalArgumentException();
+        }
+        this.cnt = Integer.parseInt(input);
+    }
+
+    private boolean isNumber(String str) {
+        return Pattern.matches(NUMBER_REGAX, str);
+    }
+
+    private boolean isUnderMax(String str) {
+        return Long.parseLong(str) <= Integer.MAX_VALUE;
+    }
+
+    public void checkValidName(String input) {
         String[] nameArray = input.split(SEPARATOR, -1);
         for (String name : nameArray) {
             if (isInvalidName(name)) {
