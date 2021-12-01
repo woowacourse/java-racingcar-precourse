@@ -9,7 +9,6 @@ public class GameController {
 	public void run() {
 		Game game = new Game();
 		CarNames carNames = new CarNames();
-		InputView.startMessage();
 		inputCarName(carNames);
 		Cars cars = new Cars(carNames.generateCar());
 		Attempts attempts = new Attempts();
@@ -17,6 +16,7 @@ public class GameController {
 	}
 
 	private void inputCarName(CarNames carNames) {
+		InputView.startMessage();
 		try {
 			carNames.input();
 		} catch (IllegalArgumentException illegalArgumentException) {
@@ -26,6 +26,7 @@ public class GameController {
 	}
 
 	private void inputAttempts(Attempts attempts) {
+		InputView.attemptsMessage();
 		try {
 			attempts.input();
 		} catch (IllegalArgumentException illegalArgumentException) {
