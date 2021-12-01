@@ -10,6 +10,24 @@ public class Game {
 
     public static void play(){
         setGame();
+        System.out.println("실행 결과");
+        for(int i=1; i<=trialNumber; i++){
+            startRound();
+        }
+    }
+    private static void startRound(){
+        for(Car car : cars){
+            tryMove(car);
+        }
+    }
+    private static void tryMove(Car car){
+        if(canMove()){
+            car.goForward();
+        }
+    }
+    private static boolean canMove(){
+        //TODO: 랜덤 기능 추가
+        return true;
     }
     private static void setGame(){
         setCars();
