@@ -22,5 +22,4 @@ public class CarTest {
 		testCar.forward();
 		assertThat(testPosition + 1 == testCar.getPosition()).isTrue();
 	}
-
 }
