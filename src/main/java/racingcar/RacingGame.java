@@ -23,7 +23,6 @@ public class RacingGame {
 	private int rounds = 0;
 
 	public void startGame() {
-		System.out.println(START_MESSAGE);
 		try {
 			setGame();
 		} catch (IllegalArgumentException error) {
@@ -34,7 +33,9 @@ public class RacingGame {
 	}
 
 	private void setGame() {
+		System.out.println(START_MESSAGE);
 		String participants = readLine();
+		System.out.println(TRY_MESSAGE);
 		String round = readLine();
 		validateNumber(round);
 		updateGameInformation(participants, Integer.parseInt(round));
