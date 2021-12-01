@@ -5,8 +5,6 @@ import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
-	private static final String RESULT_MESSAGE = "실행 결과";
-
 	private Car[] cars;
 	private int turn;
 
@@ -16,13 +14,13 @@ public class RacingGame {
 			.map(Car::new)
 			.toArray(Car[]::new);
 		turn = Request.turnInput();
-		System.out.println(RESULT_MESSAGE);
 		startRace();
 	}
 
 	private void startRace() {
 		for (int i = 0; i < turn; i++) {
 			moveCarsRandomly();
+			Printer.printProgress(cars);
 		}
 	}
 
