@@ -2,8 +2,8 @@ package racingcar;
 
 public class Car {
 
-	private static final String namingErrorMessage = "길이는 5글자 이내로 입력해야 합니다.";
-	private static final int lengthLimit = 5;
+	private static final String NAMING_ERROR_MESSAGE = "길이는 5글자 이내로 입력해야 합니다.";
+	private static final int LENGTH_LIMIT = 5;
 
 	private final String name;
 	private int position = 0;
@@ -22,8 +22,8 @@ public class Car {
 	}
 
 	private void validateName(String name) {
-		if (name.length() > lengthLimit) {
-			throw new IllegalArgumentException(namingErrorMessage);
+		if (name.length() > LENGTH_LIMIT) {
+			throw new IllegalArgumentException(NAMING_ERROR_MESSAGE);
 		}
 	}
 
