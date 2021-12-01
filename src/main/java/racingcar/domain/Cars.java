@@ -15,4 +15,8 @@ public class Cars {
     private void transferCarsType(List<String> cars) {
         this.cars = cars.stream().map(car -> new Car(car)).collect(Collectors.toList());
     }
+
+    public void move() {
+        cars.forEach(car -> car.move());
+    }
 }

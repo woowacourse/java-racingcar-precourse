@@ -13,7 +13,9 @@ public class RacingGameController {
     }
 
     public void run() {
-
+        while (!this.tryNumber.finish()) {
+            this.cars.move();
+        }
     }
 
     private void prepareTryNumber() {
