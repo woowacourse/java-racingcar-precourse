@@ -1,8 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.Collections;
+
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
