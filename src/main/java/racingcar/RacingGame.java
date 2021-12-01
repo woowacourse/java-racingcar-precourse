@@ -1,5 +1,7 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.Console.*;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -13,13 +15,26 @@ public class RacingGame {
 
 	public void startGame() {
 		System.out.println(startMessage);
+		try {
+			setGame();
+		} catch (IllegalArgumentException error) {
+			startGame();
+		}
+
 	}
 
-	private void updateGameInformation(String participants, int rounds) {
+	private void setGame() {
+		String participants = readLine();
+		String round = readLine();
+
+		updateGameInformation(participants, Integer.parseInt(round));
+	}
+
+	private void updateGameInformation(String participants, int round) {
 		StringTokenizer participant = new StringTokenizer(participants, ",");
 		while (participant.hasMoreTokens()) {
 			participantList.add(new Car(participant.nextToken()));
 		}
-		this.rounds = rounds;
+		this.rounds = round;
 	}
 }
