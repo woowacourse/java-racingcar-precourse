@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import static util.CarConstant.*;
 
 public class CarService {
+
+    private final static int MAX_DEFAULT = 0;
     private final CarRepository carRepository;
 
     public CarService(CarRepository carRepository){
@@ -43,7 +45,7 @@ public class CarService {
 
     private boolean checkMoveForward() {
         int randomNumber = Randoms.pickNumberInRange(MIN, MAX);
-        if(randomNumber >= 4){
+        if(randomNumber >= NUMBER_MOVE_FORWARD){
             return true;
         }
         return false;
@@ -63,7 +65,7 @@ public class CarService {
     }
 
     private int findMaxPosition(List<Car> findCars) {
-        int max = 0;
+        int max = MAX_DEFAULT;
         for (Car findCar : findCars) {
             if(findCar.getPosition() > max){
                 max = findCar.getPosition();
