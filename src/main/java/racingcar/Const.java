@@ -10,4 +10,7 @@ public class Const {
 	public static final String ERROR_INPUT_ROUND_MESSAGE = ERROR_MESSAGE + " 시도 횟수는 숫자여야 합니다.";
 
 	public static final int MAX_NAME_COUNT = 5;
+	public static final int MIN_RANDOM_VALUE = 0;
+	public static final int MAX_RANDOM_VALUE = 9;
+	public static final int FORWARD_STANDARD = 4;
 }

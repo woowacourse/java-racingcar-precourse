@@ -5,11 +5,18 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
 	public static void play() {
 		List<Car> cars = readCars();
 		int round = readRound();
+
+		Race race = new Race(cars, round);
+
+		race.start();
+
+
 	}
 
 	private static List<Car> readCars() {
@@ -46,4 +53,5 @@ public class Game {
 	private static int validateRound(String userInput) throws IllegalArgumentException {
 		return Integer.parseInt(userInput);
 	}
+
 }
