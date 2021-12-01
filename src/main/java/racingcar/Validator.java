@@ -4,9 +4,11 @@ public class Validator {
 
     private static final String ERROR = "[ERROR] ";
 
-    public static void validateCarName(String carName) {
-        validateCarNameLength(carName);
-        validateCarNameFormat(carName);
+    public static void validateCarNames(String[] carNames) {
+        for (String carName : carNames) {
+            validateCarNameLength(carName);
+            validateCarNameFormat(carName);
+        }
     }
 
     private static void validateCarNameLength(String carName) {

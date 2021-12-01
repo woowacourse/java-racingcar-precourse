@@ -1,7 +1,5 @@
 package racingcar;
 
-import static racingcar.Validator.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,21 +23,8 @@ public class GameManager {
     }
 
     private void getCarList() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
-        boolean isValid = false;
-        while (!isValid) {
-            try {
-                String[] carNames = Console.readLine().split(",");
-
-                for (String carName : carNames) {
-                    validateCarName(carName);
-                    this.cars.add(new Car(carName));
-                }
-                isValid = true;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
+        for (String carName : User.getCarNamesInput()) {
+            this.cars.add(new Car(carName));
         }
     }
 
