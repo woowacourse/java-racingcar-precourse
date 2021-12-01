@@ -18,6 +18,8 @@ public class RacingGameController {
             this.cars.move();
             tryNumber.minus();
         }
+        OutputView.printCurrentCarsPosition(cars.cars());
+        OutputView.printWinner(cars.cars());
     }
 
     private void prepareTryNumber() {
