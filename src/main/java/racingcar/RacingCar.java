@@ -1,12 +1,9 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-import racingcar.car.Car;
 import racingcar.car.CarRepository;
 import racingcar.car.CarRepositoryService;
 import racingcar.view.CarListView;
+import racingcar.view.ProcessView;
 import racingcar.view.View;
 
 public class RacingCar {
@@ -18,10 +15,10 @@ public class RacingCar {
 		view = new CarListView();
 		carRepository = new CarRepository();
 
-		printCarList();
+		printCarListView();
 	}
 
-	private void printCarList() {
+	private void printCarListView() {
 		view.printView();
 
 		getUserCarList();
@@ -37,9 +34,25 @@ public class RacingCar {
 	private void saveCars(String userCarList) {
 		try {
 			carRepositoryService.checkException(userCarList);
+
+
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			printCarList();
+			getUserCarList();
 		}
+		printProcessView();
+	}
+
+	private void printProcessView() {
+		view = new ProcessView();
+		view.printView();
+
+		getUserProcessInput();
+	}
+
+	private void getUserProcessInput() {
+		String userProcess = view.getUserInput();
+
+
 	}
 }
