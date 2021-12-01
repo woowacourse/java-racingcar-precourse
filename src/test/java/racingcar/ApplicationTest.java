@@ -37,6 +37,46 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 공백에_대한_예외_처리() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi,  ");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
+    }
+
+    @Test
+    void 공백에_대한_예외_처리_2() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi     ");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
+    }
+
+    @Test
+    void 실행_횟수에_대한_예외_처리_음수() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi","-1");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
+    }
+
+    @Test
+    void 실행_횟수에_대한_예외_처리_문자() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi","백번");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
