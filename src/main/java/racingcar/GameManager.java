@@ -14,8 +14,8 @@ public class GameManager {
 	}
 
 	public void startGame() {
-		inputManager.scanCars();
-		inputManager.scanNumber();
+		inputManager.scanCarsList();
+		inputManager.scanNumberOfMove();
 		cars = new Car[inputManager.carsList.length];
 		for (int i = 0; i < cars.length; i++) {
 			cars[i] = new Car(inputManager.carsList[i]);
@@ -24,9 +24,6 @@ public class GameManager {
 			playRound();
 		}
 		printWinner();
-		// for (int i = 0; i < cars.length; i++) {
-		// 	System.out.println(cars[i].getName() + " " + cars[i].getPosition());
-		// }
 	}
 
 	public void playRound() {

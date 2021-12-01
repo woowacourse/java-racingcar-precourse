@@ -9,18 +9,32 @@ public class InputManager {
 	public int numberOfMove;
 
 	public void scanCarsList() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String carsInput = Console.readLine();
-		isValidCars(carsInput);
-		carsList = carsInput.split(",");
-		isValidCars(carsList);
+		while (carsScan) {
+			try {
+				System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+				String carsInput = Console.readLine();
+				isValidCars(carsInput);
+				carsList = carsInput.split(",");
+				isValidCars(carsList);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				numberScan = false;
+			}
+		}
 	}
 
 	public void scanNumberOfMove() {
-		System.out.println("시도할 횟수는 몇회인가요?");
-		String numberOfMove = Console.readLine();
-		isValidNumber(numberOfMove);
-		this.numberOfMove = toInt(numberOfMove);
+		while (numberScan) {
+			try {
+				System.out.println("시도할 횟수는 몇회인가요?");
+				String numberOfMove = Console.readLine();
+				isValidNumber(numberOfMove);
+				this.numberOfMove = toInt(numberOfMove);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
 	}
 
 	public void isValidCars(String[] carsList) throws IllegalArgumentException {
@@ -36,6 +50,7 @@ public class InputManager {
 		if (carsInput.length() == 0) {
 			throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
 		}
+		carsScan = false;
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
@@ -52,25 +67,5 @@ public class InputManager {
 
 	public int toInt(String number) {
 		return Integer.parseInt(number);
-	}
-
-	public void scanCars() {
-		while (carsScan) {
-			try {
-				scanCarsList();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-	}
-
-	public void scanNumber() {
-		while (numberScan) {
-			try {
-				scanNumberOfMove();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
 	}
 }
