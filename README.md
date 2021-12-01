@@ -14,5 +14,33 @@
 
    - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우
 
+<br>
+
 ## GameHandler
+
+1. 자동차들을 생성해야 함 → `createCars()`
+
+   1. 처음에 자동차 이름을 받아야 함 → `getCarsName()` 
+
+      1. 각 자동차의 이름 확인하는 method 필요. → `checkValidName()`
+
+         → 글자수 1~5인지 판단해줘야 함 → `validLength(String name)`
+
+   2. 잘못된 입력이면 다시 받도록 해야 함 (1-1, 1-2 는 `try-catch` 로 구현하기)
+
+2. 몇번의 이동을 할지 정해야 함.
+
+   1. 사용자의 입력을 받아야 함.
+      1. 사용자의 입력이 `int type` 이 아니면 `IllegalArugmentException`
+
+3. 이동횟수만큼 자동차들이 `go` 하게 만든다.
+
+4. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners(Car[] cars)`
+
+<br>
+
+## Constant
+
+1. `MIN_CONDITION` : Random 숫자 범위의 최솟값.(==0)
+2. `MAX_CONDITION` : Random 숫자 범위의 최댓값.(==9)
 
