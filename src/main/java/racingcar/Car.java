@@ -15,6 +15,10 @@ public class Car {
 		return position;
 	}
 
+	public String name() {
+		return name;
+	}
+
 	public void go() {
 		int condition = Randoms.pickNumberInRange(Constant.MIN_CONDITION, Constant.MAX_CONDITION);
 
