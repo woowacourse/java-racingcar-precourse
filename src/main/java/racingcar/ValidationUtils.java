@@ -13,7 +13,7 @@ public class ValidationUtils {
 	public static boolean validNumber(String input) {
 		try {
 			Integer.parseInt(input);
-		} catch (IllegalArgumentException e) {
+		} catch (NumberFormatException e) {
 			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
 			return false;
 		}
