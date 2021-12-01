@@ -1,15 +1,14 @@
 package racingcar.reader;
 
 import java.util.List;
-import racingcar.ConsoleDisplay;
 
 public class RacingInfoReader {
 	private final Reader<List<String>> carNameReader;
 	private final Reader<Integer> turnValueReader;
 
-	public RacingInfoReader(ConsoleDisplay consoleDisplay) {
-		this.carNameReader = new CarNameReader(consoleDisplay);
-		this.turnValueReader = new TurnValueReader(consoleDisplay);
+	public RacingInfoReader(Reader<List<String>> carNameReader, Reader<Integer> turnValueReader) {
+		this.carNameReader = carNameReader;
+		this.turnValueReader = turnValueReader;
 	}
 
 	public RacingInfo read() {

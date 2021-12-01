@@ -34,7 +34,8 @@ public class RacingInfoReaderTest {
 	void input_value_in_order() {
 		when(Console.readLine()).thenReturn("pobi,woni,jun").thenReturn("5");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-		RacingInfoReader reader = new RacingInfoReader(consoleDisplay);
+		RacingInfoReader reader =
+			new RacingInfoReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
 
 		reader.read();
 
@@ -48,7 +49,8 @@ public class RacingInfoReaderTest {
 	void print_error_message_when_input_invalid_value() {
 		when(Console.readLine()).thenReturn("123456").thenReturn("pobi,woni,jun").thenReturn("number").thenReturn("6");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-		RacingInfoReader reader = new RacingInfoReader(consoleDisplay);
+		RacingInfoReader reader =
+			new RacingInfoReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
 
 		reader.read();
 
@@ -62,10 +64,12 @@ public class RacingInfoReaderTest {
 	}
 
 	@Test
+	@DisplayName("읽은 값을 이용해 RacingInfo 생성")
 	void create_proper_racing_info() {
 		when(Console.readLine()).thenReturn("pobi,woni,jun").thenReturn("5");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-		RacingInfoReader reader = new RacingInfoReader(consoleDisplay);
+		RacingInfoReader reader =
+			new RacingInfoReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
 
 		RacingInfo info = reader.read();
 
