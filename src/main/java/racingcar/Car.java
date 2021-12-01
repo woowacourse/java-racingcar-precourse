@@ -10,20 +10,24 @@ public class Car {
         this.name = name;
     }
 
-    public int getPosition(){
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
         return position;
     }
 
-    public void goForward(){
+    public void goForward() {
         position++;
     }
 
-    public String showPosition(){
-        char[] positionBars=new char[position];
-        Arrays.fill(positionBars,'-');
-        String currentPosition=new String(positionBars);
+    public String showPosition() {
+        char[] positionBars = new char[position];
+        Arrays.fill(positionBars, '-');
+        String currentPosition = new String(positionBars);
 
-        return name+" : "+currentPosition;
+        return name + " : " + currentPosition;
     }
     // 추가 기능 구현
 }
