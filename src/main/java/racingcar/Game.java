@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -26,8 +27,7 @@ public class Game {
         }
     }
     private static boolean canMove(){
-        //TODO: 랜덤 기능 추가
-        return true;
+        return (Randoms.pickNumberInRange(0,9)>=4);
     }
     private static void setGame(){
         setCars();
