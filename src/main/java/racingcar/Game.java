@@ -18,7 +18,7 @@ public class Game {
 		List<Car> result;
 
 		String userInput = Console.readLine();
-		List<String> names = Arrays.asList(userInput.split(","));
+		List<String> names = Arrays.asList(userInput.split(Const.NAME_SEPARATOR));
 
 		try {
 			result = Car.generateCars(names);
