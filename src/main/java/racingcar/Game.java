@@ -100,18 +100,27 @@ public class Game {
 
     private static boolean isValidateInput(String input) {
         cars.clear();
-        try {
-          parseStringToList(input);
-          for(Car car : cars){
-              if(car.getName().length()>5){
-                  throw new IllegalArgumentException();
-              }
-          }
-        } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 자동차의 이름은 5자 이하여야 한다.");
+        parseStringToList(input);
+        int flag=1;
+        for (Car car : cars) {
+            flag*=isValidateName(car.getName());
+        }
+        if(flag==0){
             return false;
         }
         return true;
+    }
+
+    private static int isValidateName(String name) {
+        try {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 자동차의 이름은 5자 이하여야 한다.");
+            return 0;
+        }
+        return 1;
     }
 
     private static void parseStringToList(String input) {
