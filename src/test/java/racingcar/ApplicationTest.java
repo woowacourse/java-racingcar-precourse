@@ -35,26 +35,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 입력_숫자_예외_처리() {
-        assertSimpleTest(
-                () -> {
-                    runException("java,jigi", "0");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
-    }
-
-    @Test
-    void 입력_숫자_예외_처리_문자_입력_경우() {
-        assertSimpleTest(
-                () -> {
-                    runException("java,jigi", "r");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
