@@ -12,14 +12,25 @@ public class GameController {
 		InputView.startMessage();
 		inputCarName(carNames);
 		Cars cars = new Cars(carNames.generateCar());
+		Attempts attempts = new Attempts();
+		inputAttempts(attempts);
 	}
 
-	public void inputCarName(CarNames carNames) {
+	private void inputCarName(CarNames carNames) {
 		try {
 			carNames.input();
 		} catch (IllegalArgumentException illegalArgumentException) {
 			ErrorView.show(illegalArgumentException.getMessage());
 			inputCarName(carNames);
+		}
+	}
+
+	private void inputAttempts(Attempts attempts) {
+		try {
+			attempts.input();
+		} catch (IllegalArgumentException illegalArgumentException) {
+			ErrorView.show(illegalArgumentException.getMessage());
+			inputAttempts(attempts);
 		}
 	}
 }
