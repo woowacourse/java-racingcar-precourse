@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class MyTest {
 	@Test
@@ -226,5 +228,16 @@ public class MyTest {
 		}
 		assertThat(exceptionCatched)
 			.isEqualTo(false);
+	}
+
+	@Test
+	public void 대쉬반복() {
+		assertThat(OutputView.dashRepeat(5))
+			.isEqualTo("-----");
+	}
+
+	@Test
+	public void 승리자출력() {
+		OutputView.printWinner(new String[]{"a","b"});
 	}
 }

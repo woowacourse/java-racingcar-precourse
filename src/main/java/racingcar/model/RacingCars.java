@@ -14,26 +14,20 @@ public class RacingCars {
 		}
 	}
 
-	public void roundGo() {
+	public ArrayList<Car> getRoundResult() {
 		for (Car car : cars) {
 			car.go();
 		}
-	}
-
-	public HashMap<String, Integer> getRoundResult() {
-		HashMap<String, Integer> roundResult = new HashMap<>();
-		for (Car car : cars) {
-			roundResult.put(car.getName(), car.getPosition());
-		}
-		return roundResult;
+		return cars;
 	}
 
 	public String[] getWinners() {
 		int maxPosition = findMax(getPositions());
-		return (String[])cars
+		return cars
 			.stream()
-			.map(car -> car.getPosition() == maxPosition)
-			.toArray();
+			.filter(car -> car.getPosition() == maxPosition)
+			.map(Car::getName)
+			.toArray(String[]::new);
 	}
 
 	public ArrayList<Integer> getPositions() {
