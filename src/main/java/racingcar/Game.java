@@ -8,13 +8,12 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
 	public static void play() {
-		System.out.println(Const.CAR_INPUT_MESSAGE);
-
 		List<Car> cars = readCars();
 		System.out.println(cars);
 	}
 
 	private static List<Car> readCars() {
+		System.out.println(Const.CAR_INPUT_MESSAGE);
 		List<Car> result;
 
 		String userInput = Console.readLine();
