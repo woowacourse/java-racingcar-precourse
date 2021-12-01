@@ -5,7 +5,7 @@ public class CarConstant {
     public final static int MAX = 9;
     public final static int LIMIT_SIZE_OF_NAME = 5;
     public final static int NUMBER_MOVE_FORWARD = 4;
-    public final static int MIN_INPUT = 0;
+    public final static int ZERO = 0;
 
     public final static String ERROR_PREFIX = "[ERROR]";
     public final static String NAME_LENGTH_ERROR_MESSAGE = "이름은 다섯자 이하여야 한다.";
@@ -17,9 +17,10 @@ public class CarConstant {
     public final static String EXECUTION_RESULT = "실행 결과";
     public final static String FINAL_WINNER = "최종 우승자";
 
-    public final static String DELIMITER = ", ";
+    public final static String DELIMITER = ",";
     public final static String SEPARATOR = " : ";
     public final static String MARK = "-";
+    public final static String SPACE = " ";
 
 
 }
