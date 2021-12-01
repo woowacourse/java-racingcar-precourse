@@ -1,26 +1,27 @@
 package racingcar;
 
 import java.util.*;
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
 
-    static List<Car> carList = new ArrayList<Car>();
+    static List<Car> carList = new ArrayList<>();
+    static int tryTimes;
 
     public static void main(String[] args) {
         CreateCars();
-
+        SetTryTimes();
     }
 
-    static void CreateCars(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] carNames=GetCarNames();
+    static void CreateCars() {
+        PrintGameMessage(GAME_CREATE_CARS);
+        String[] carNames = GetCarNames();
         AddCarsToCarList(carNames);
     }
 
-    static void AddCarsToCarList(String[] carNames){
-        for(String s:carNames){
+    static void AddCarsToCarList(String[] carNames) {
+        for (String s : carNames) {
             Car c = new Car(s);
             carList.add(c);
         }
@@ -28,25 +29,26 @@ public class Application {
 
     static String[] GetCarNames() {
         String carNamesInput = readLine();
-        String carNames[];
+        String[] carNames;
 
-        while(true){
-            try{
-                carNames=ParseCarNamesInput(carNamesInput);
+        while (true) {
+            try {
+                carNames = ParseCarNamesInput(carNamesInput);
                 return carNames;
-            } catch(IllegalArgumentException e){
-                PrintErrorMessage(NameInputError);
+            } catch (IllegalArgumentException e) {
+                PrintErrorMessage(NAME_INPUT_ERROR);
             }
         }
     }
 
-    final static String parser="/";
+    final static String parser = "/";
 
-    static String[] ParseCarNamesInput(String carNamesInput){
+    static String[] ParseCarNamesInput(String carNamesInput) {
         String[] carNames = carNamesInput.split(parser);
-        for(String s:carNames){
-            if(s.length()>5){
-                PrintErrorMessage(NameInputError);
+
+        for (String s : carNames) {
+            if (s.length() > 5) {
+                PrintErrorMessage(NAME_INPUT_ERROR);
                 throw new IllegalArgumentException();
             }
         }
@@ -54,15 +56,59 @@ public class Application {
         return carNames;
     }
 
-    static int NameInputError=1;
-    static int TimeInputError=2;
+    static void SetTryTimes() {
+        PrintGameMessage(GAME_SET_TRY_TIMES);
+        tryTimes = GetTryTimes();
+    }
 
-    static void PrintErrorMessage(int ErrorType){
-        if(ErrorType==NameInputError){
-            System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
+    static int GetTryTimes() {
+        String tryTimesInput = readLine();
+        int tryTimesInt;
+
+        while (true) {
+            try {
+                tryTimesInt = InputStringToInt(tryTimesInput);
+                return tryTimesInt;
+            } catch (IllegalArgumentException e) {
+                PrintErrorMessage(TIME_INPUT_ERROR);
+            }
         }
-        if(ErrorType==TimeInputError){
-            System.out.println("[ERROR] 사고 횟수는 숫자여야 합니다.");
+    }
+
+    static int InputStringToInt(String inputString) {
+        int inputInt;
+
+        try {
+            inputInt = Integer.parseInt(inputString);
+            return inputInt;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    static int GAME_CREATE_CARS = 1;
+    static int GAME_SET_TRY_TIMES = 2;
+
+    static void PrintGameMessage(int gameType) {
+        if (gameType == GAME_CREATE_CARS) {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            return;
+        }
+        if (gameType == GAME_SET_TRY_TIMES) {
+            System.out.println("시도할 회수는 몇회인가요?");
+        }
+    }
+
+    static int NAME_INPUT_ERROR = 1;
+    static int TIME_INPUT_ERROR = 2;
+
+    static void PrintErrorMessage(int errorType) {
+        if (errorType == NAME_INPUT_ERROR) {
+            System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
+            return;
+        }
+        if (errorType == TIME_INPUT_ERROR) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
         }
     }
 }
