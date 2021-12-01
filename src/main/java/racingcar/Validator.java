@@ -19,11 +19,15 @@ public class Validator {
     }
 
     public static void validateTrialNum(String input) {
+        int trialNum;
+
         try {
-            Integer.parseInt(input);
+            trialNum = Integer.parseInt(input);
         } catch (Exception e) {
             throw new IllegalArgumentException(ERROR + "시도 횟수는 숫자여야 한다.");
         }
+
+        validateTrialNumRange(trialNum);
     }
 
     private static void validateCarNameLength(String carName) {
@@ -48,6 +52,12 @@ public class Validator {
 
         if (carNameList.size() > carNameSet.size()) {
             throw new IllegalArgumentException(ERROR + "같은 자동차명을 중복 사용해서는 안 된다.");
+        }
+    }
+
+    private static void validateTrialNumRange(int trialNum) {
+        if (trialNum < 1) {
+            throw new IllegalArgumentException(ERROR + "시도 횟수는 1회 이상이어야 한다.");
         }
     }
 }
