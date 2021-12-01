@@ -18,13 +18,18 @@ public class Race {
 		Cars cars = Cars.from(names);
 		MoveCount moveCount = InputView.inputMoveCount();
 
+		startRace(cars, moveCount);
+
+		printWinners(cars);
+	}
+
+	private void startRace(Cars cars, MoveCount moveCount) {
 		OutputView.printResultMessage();
 		for (int i = 0; i < moveCount.toInt(); i++) {
 			moveCars(cars);
 			printCars(cars);
 		}
 
-		printWinners(cars);
 	}
 
 	public void moveCars(Cars cars) {
