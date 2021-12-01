@@ -92,8 +92,26 @@ public class Game {
 
     private static void setCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-        parseStringToList(input);
+        String input;
+        do {
+            input = Console.readLine();
+        } while (!isValidateInput(input));
+    }
+
+    private static boolean isValidateInput(String input) {
+        cars.clear();
+        try {
+          parseStringToList(input);
+          for(Car car : cars){
+              if(car.getName().length()>5){
+                  throw new IllegalArgumentException();
+              }
+          }
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 자동차의 이름은 5자 이하여야 한다.");
+            return false;
+        }
+        return true;
     }
 
     private static void parseStringToList(String input) {
