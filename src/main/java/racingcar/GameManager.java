@@ -42,9 +42,9 @@ public class GameManager {
 
 	public void printResult() {
 		System.out.println("실행결과");
-		for (int i = 0 ; i < cars.length; i++) {
-			System.out.print(cars[i].getName() + " : " );
-			for (int j=0;j<cars[i].getPosition();j++){
+		for (int i = 0; i < cars.length; i++) {
+			System.out.print(cars[i].getName() + " : ");
+			for (int j = 0; j < cars[i].getPosition(); j++) {
 				System.out.print("-");
 			}
 			System.out.println();
