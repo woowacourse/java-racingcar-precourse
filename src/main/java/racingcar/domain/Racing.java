@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 import racingcar.Car;
 import racingcar.util.RandomNumberGenerator;
@@ -9,6 +10,7 @@ import racingcar.util.RandomNumberGenerator;
 public class Racing {
 	private final int PIVOT = 4;
 	private final String RESULT_START_MESSAGE = "실행 결과";
+	private final String RESULT_WINNER_MESSAGE = "최종 우승자 : %s";
 
 	private RandomNumberGenerator randomNumberGenerator;
 	private ArrayList<Car> cars;
@@ -24,6 +26,7 @@ public class Racing {
 		for (int round = 0; round < moveNum; ++round) {
 			moveAndPrintCurrentPosition();
 		}
+		System.out.printf(RESULT_WINNER_MESSAGE,findWinner());
 	}
 
 	private ArrayList<Car> createCarList(List<String> names){
@@ -42,6 +45,17 @@ public class Racing {
 			car.printCurrentPosition();
 		}
 		System.out.println();
+	}
+
+	private String findWinner(){
+		int winnerPosition = cars.stream().mapToInt(car -> car.currentPosition()).max().getAsInt();
+		ArrayList<String> winners = new ArrayList<>();
+		for(Car car : cars){
+			if(car.isWinner(winnerPosition)){
+				winners.add(car.getName());
+			}
+		}
+		return String.join(",",winners);
 	}
 
 

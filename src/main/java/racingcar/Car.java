@@ -8,12 +8,24 @@ public class Car {
 		this.name = name;
 	}
 
+	public int currentPosition(){
+		return position;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 	public void moveAhead(){
 		++position;
 	}
 
 	public void printCurrentPosition(){
 		System.out.printf("%s : %s\n",name,visualizePosition());
+	}
+
+	public boolean isWinner(int maxPosition){
+		return position == maxPosition;
 	}
 
 	private String visualizePosition(){
