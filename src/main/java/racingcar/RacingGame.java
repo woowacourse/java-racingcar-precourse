@@ -9,15 +9,15 @@ import java.util.StringTokenizer;
 
 public class RacingGame {
 
-	private final String START_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준로 구분)";
-	private final String TRY_MESSAGE = "시도할 회수는 몇회인가요?";
-	private final String VALIDATE_MESSAGE = "숫자만 입력이 가능합니다.";
-	private final String GAME_RESULT_MESSAGE = "실행 결과";
-	private final String CAR_SHAPE = "-";
+	private static final String START_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준로 구분)";
+	private static final String TRY_MESSAGE = "시도할 회수는 몇회인가요?";
+	private static final String VALIDATE_MESSAGE = "숫자만 입력이 가능합니다.";
+	private static final String GAME_RESULT_MESSAGE = "실행 결과";
+	private static final String CAR_SHAPE = "-";
 
-	private final int START_INCLUSIVE = 0;
-	private final int END_INCLUSIVE = 9;
-	private final int STANDARD_OF_MOVEMENT = 4;
+	private static final int START_INCLUSIVE = 0;
+	private static final int END_INCLUSIVE = 9;
+	private static final int STANDARD_OF_MOVEMENT = 4;
 
 	private List<Car> participantList = new LinkedList<>();
 	private int rounds = 0;
@@ -29,7 +29,9 @@ public class RacingGame {
 			startGame();
 		}
 		System.out.println(GAME_RESULT_MESSAGE);
-		playRacingGame();
+		for (int i = 0; i < rounds; i++) {
+			playRacingGame();
+		}
 	}
 
 	private void setGame() {
@@ -37,6 +39,7 @@ public class RacingGame {
 		String participants = readLine();
 		System.out.println(TRY_MESSAGE);
 		String round = readLine();
+		System.out.println();
 		validateNumber(round);
 		updateGameInformation(participants, Integer.parseInt(round));
 	}
@@ -61,7 +64,6 @@ public class RacingGame {
 		int distance = pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
 		if (distance >= STANDARD_OF_MOVEMENT) {
 			car.moveCar(distance);
-			printCarLocation(car);
 		}
 	}
 
