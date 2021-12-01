@@ -2,7 +2,7 @@ package racingcar;
 
 public class Car {
 
-	private static final String NAMING_ERROR_MESSAGE = "길이는 5글자 이내로 입력해야 합니다.";
+	private static final String NAMING_ERROR_MESSAGE = "[ERROR] 길이는 5글자 이내로 입력해야 합니다.";
 	private static final int LENGTH_LIMIT = 5;
 
 	private final String name;
