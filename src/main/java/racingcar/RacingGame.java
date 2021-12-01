@@ -22,10 +22,14 @@ public class RacingGame {
 
 	private void startRace() {
 		for (int i = 0; i < turn; i++) {
-			for (Car car : cars) {
-				if (Randoms.pickNumberInRange(0, 9) >= 4) {
-					car.moveForward();
-				}
+			moveCars();
+		}
+	}
+
+	private void moveCars() {
+		for (Car car : cars) {
+			if (Randoms.pickNumberInRange(0, 9) >= 4) {
+				car.moveForward();
 			}
 		}
 	}
