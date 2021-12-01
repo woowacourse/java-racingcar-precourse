@@ -3,7 +3,6 @@ package racingcar.model;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.Car;
 import racingcar.reader.RacingInfo;
 import static java.util.stream.Collectors.toList;
 
