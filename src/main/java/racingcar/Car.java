@@ -9,6 +9,7 @@ public class Car {
 	private int position = 0;
 
 	public Car(String name) {
+		validateName(name);
 		this.name = name;
 	}
 
@@ -16,10 +17,14 @@ public class Car {
 		return this.name;
 	}
 
+	public int getLocation() {
+		return this.position;
+	}
+
 	private void validateName(String name) {
 		if (name.length() > lengthLimit) {
 			throw new IllegalArgumentException(namingErrorMessage);
 		}
 	}
-	// 추가 기능 구현
+
 }
