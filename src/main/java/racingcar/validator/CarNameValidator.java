@@ -8,6 +8,10 @@ import java.util.Set;
 
 public class CarNameValidator {
 	public static void checkCarNameInput(String carNameInput) {
+		if (carNameInput.isEmpty()) {
+			throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR);
+		}
+
 		for (int idx = 1; idx < carNameInput.length(); idx++) {
 			if (carNameInput.charAt(idx) == ',' && carNameInput.charAt(idx - 1) == ',') {
 				throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR);
