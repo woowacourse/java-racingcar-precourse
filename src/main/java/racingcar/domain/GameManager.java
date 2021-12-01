@@ -13,8 +13,8 @@ public class GameManager {
 
     public void run() {
         this.getCarList();
-        int trialNum = User.getTrialNumInput();
-        this.play(trialNum);
+        int totalRounds = User.getTotalRoundsInput();
+        this.play(totalRounds);
         this.printWinners();
     }
 
@@ -24,17 +24,17 @@ public class GameManager {
         }
     }
 
-    private void play(int trialNum) {
+    private void play(int totalRounds) {
         System.out.println("실행 결과");
 
-        for (int i = 0; i < trialNum; i++) {
-            this.playOnce();
+        for (int i = 0; i < totalRounds; i++) {
+            this.playRound();
         }
     }
 
-    private void playOnce() {
+    private void playRound() {
         for (Car car : cars) {
-            car.play();
+            car.playRound();
         }
         System.out.println();
     }

@@ -17,7 +17,7 @@ public class Car {
         this.name = name;
     }
 
-    public void play() {
+    public void playRound() {
         if (Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE) >= PASS_VALUE) {
             this.move();
         }

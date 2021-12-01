@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.utils.Validator.validateCarNames;
-import static racingcar.utils.Validator.validateTrialNum;
+import static racingcar.utils.Validator.validateTotalRoundNum;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -21,13 +21,13 @@ public class User {
         }
     }
 
-    public static int getTrialNumInput() {
+    public static int getTotalRoundsInput() {
         System.out.println("시도할 회수는 몇회인가요?");
 
         while (true) {
             try {
                 String input = Console.readLine();
-                validateTrialNum(input);
+                validateTotalRoundNum(input);
                 return Integer.parseInt(input);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

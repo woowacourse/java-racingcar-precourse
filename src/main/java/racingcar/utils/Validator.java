@@ -21,7 +21,7 @@ public class Validator {
         }
     }
 
-    public static void validateTrialNum(String input) {
+    public static void validateTotalRoundNum(String input) {
         int trialNum;
 
         try {
@@ -30,7 +30,7 @@ public class Validator {
             throw new IllegalArgumentException(ERROR + "시도 횟수는 숫자여야 한다.");
         }
 
-        validateTrialNumRange(trialNum);
+        validateTotalRoundNumRange(trialNum);
     }
 
     private static void validateCarNameLength(String carName) {
@@ -58,7 +58,7 @@ public class Validator {
         }
     }
 
-    private static void validateTrialNumRange(int trialNum) {
+    private static void validateTotalRoundNumRange(int trialNum) {
         if (trialNum < TRIAL_NUMBER_MIN_VALUE) {
             throw new IllegalArgumentException(ERROR + "시도 횟수는 1회 이상이어야 한다.");
         }
