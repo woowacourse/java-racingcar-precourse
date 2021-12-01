@@ -7,5 +7,6 @@ public class OutputView {
 
     public static void printCurrentCarsPosition(List<Car> cars) {
         cars.forEach(car -> System.out.println(car.position()));
+        System.out.println();
     }
 }
