@@ -1,5 +1,6 @@
 package racingcar.view;
 
-public interface InputView {
+public interface View {
+	void printView();
 	String getUserInput();
 }

@@ -1,17 +1,24 @@
 package racingcar;
 
-import racingcar.view.InputView;
-import racingcar.view.StartView;
+import racingcar.view.View;
+import racingcar.view.CarListView;
 
 public class RacingCar {
-	InputView view;
+	View view;
 
 	public void racingCar() {
 		getUserCarList();
 	}
 
+
+
 	private void getUserCarList() {
-		view = new StartView();
+		view = new CarListView();
 		String userCarList = view.getUserInput();
 	}
+
+	private void printView() {
+		view.printView();
+	}
+
 }
