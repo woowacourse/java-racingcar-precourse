@@ -10,10 +10,10 @@ public class NumberValidator {
     }
 
     private static void isNumber(String input){
-        for(int i = 0 ; i < input.length(); i++){
-            if (!Character.isDigit(input.charAt(i))){
-                throw new IllegalArgumentException(ERROR_PREFIX + " " + TRY_NUMBER_NOT_NUMBER_MESSAGE);
-            }
+        try {
+            Integer.parseInt(input);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException(ERROR_PREFIX + " " + TRY_NUMBER_NOT_NUMBER_MESSAGE);
         }
     }
 
