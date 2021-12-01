@@ -26,7 +26,23 @@ public class RacingGame {
 		return currentTurnValue >= maxTurnValue;
 	}
 
-	public void proceed() {
+	public List<ProceedResult> proceed() {
 		currentTurnValue++;
+		moveCars();
+		return convertToProceedResultList();
+	}
+
+	private void moveCars() {
+		cars.forEach(Car::move);
+	}
+
+	private List<ProceedResult> convertToProceedResultList() {
+		return cars.stream()
+			.map(this::convertToProceedResult)
+			.collect(toList());
+	}
+
+	private ProceedResult convertToProceedResult(Car c) {
+		return ProceedResult.of(c.getName(), c.getPosition());
 	}
 }
