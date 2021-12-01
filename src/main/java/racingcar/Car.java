@@ -15,5 +15,9 @@ public class Car {
     public int getPosition(){
         return position;
     }
+
+    public void goForward(){
+        position++;
+    }
     // 추가 기능 구현
 }
