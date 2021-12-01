@@ -52,7 +52,17 @@ public class Game {
         return;
     }
 
-
+    private boolean checkTimes() {
+        boolean checking = true;
+        try {
+            Exception e = new Exception();
+            rightInputTimes();
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            checking = false;
+        }
+        return checking;
+    }
 
     private void rightInputTimes() throws IllegalArgumentException {
         char temp;
