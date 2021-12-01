@@ -1,8 +1,9 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import static racingcar.Validator.validateCarNames;
+import static racingcar.Validator.validateTrialNum;
+
+import camp.nextstep.edu.missionutils.Console;
 
 public class User {
 
@@ -14,6 +15,20 @@ public class User {
                 String[] carNames = Console.readLine().split(",");
                 validateCarNames(carNames);
                 return carNames;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public static int getTrialNumInput() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        while (true) {
+            try {
+                String input = Console.readLine();
+                validateTrialNum(input);
+                return Integer.parseInt(input);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }

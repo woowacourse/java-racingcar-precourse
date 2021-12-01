@@ -18,6 +18,14 @@ public class Validator {
         }
     }
 
+    public static void validateTrialNum(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ERROR + "시도 횟수는 숫자여야 한다.");
+        }
+    }
+
     private static void validateCarNameLength(String carName) {
         if (carName.length() == 0) {
             throw new IllegalArgumentException(ERROR + "자동차명은 최소 1글자여야 한다.");
