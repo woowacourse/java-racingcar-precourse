@@ -12,4 +12,6 @@ public class RacingCarConstant {
 	public static final String CAR_NAME_WRONG_LENGTH_ERROR = "[ERROR] 자동차 이름의 길이는 1~5자여야 한다";
 	public static final String CAR_NAME_EMPTY_ERROR = "[ERROR] 자동차 이름에 빈 이름을 넣어서는 안된다";
 	public static final String CAR_NAME_WRONG_END_ERROR = "[ERROR] 자동차 이름의 입력이 ,로 끝나서는 안된다";
+	public static final String GAME_COUNT_NOT_DIGIT_ERROR = "[ERROR] 시도 횟수는 숫자여야 한다";
+	public static final String GAME_COUNT_UPPER_ZERO_ERROR = "[ERROR] 시도 횟수는 0이상의 숫자여야 한다";
 }
