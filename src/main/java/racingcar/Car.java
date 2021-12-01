@@ -20,6 +20,14 @@ public class Car {
         this.printPosition();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     private void printPosition() {
         String curPosition = String.join("", Collections.nCopies(position, "-"));
         System.out.println(name + " : " + curPosition);
