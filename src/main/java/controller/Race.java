@@ -7,6 +7,8 @@ import domain.CarDto;
 import domain.Cars;
 import domain.MoveCount;
 import domain.Names;
+import domain.Winners;
+import domain.WinnersDto;
 import view.InputView;
 import view.OutputView;
 
@@ -21,6 +23,8 @@ public class Race {
 			moveCars(cars);
 			printCars(cars);
 		}
+
+		printWinners(cars);
 	}
 
 	public void moveCars(Cars cars) {
@@ -33,6 +37,11 @@ public class Race {
 			.collect(Collectors.toList());
 
 		OutputView.printCars(carDtos);
+	}
+
+	public void printWinners(Cars cars) {
+		Winners winners = cars.getWinners();
+		OutputView.printWinners(WinnersDto.from(winners));
 	}
 
 }

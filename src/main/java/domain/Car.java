@@ -19,6 +19,10 @@ public class Car {
 		return this.position;
 	}
 
+	public boolean isSamePosition(Position position) {
+		return this.position.toInt() == position.toInt();
+	}
+
 	public void moveForward() {
 		if (willMove()) {
 			this.position = this.position.increase();

@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,5 +25,23 @@ public class Cars {
 
 	public void moveAll() {
 		cars.forEach(Car::moveForward);
+	}
+
+	public Winners getWinners() {
+		Position maxPosition = getMaxPosition();
+		Winners winnerNames = new Winners(this.cars.stream()
+			.filter(car -> car.isSamePosition(maxPosition))
+			.collect(Collectors.toList())
+		);
+
+		return winnerNames;
+	}
+
+	private Position getMaxPosition() {
+		List<Position> positions = this.cars.stream()
+			.map(Car::getPosition)
+			.collect(Collectors.toList());
+
+		return Collections.max(positions);
 	}
 }

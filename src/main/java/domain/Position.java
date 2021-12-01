@@ -2,7 +2,7 @@ package domain;
 
 import java.util.Objects;
 
-public class Position {
+public class Position implements Comparable<Position> {
 	private static final int MOVE_DISTANCE = 1;
 
 	private final int position;
@@ -21,6 +21,14 @@ public class Position {
 
 	public int toInt() {
 		return this.position;
+	}
+
+	@Override
+	public int compareTo(Position otherPosition) {
+		if (this == otherPosition) {
+			return 0;
+		}
+		return this.position - otherPosition.toInt();
 	}
 
 	@Override
