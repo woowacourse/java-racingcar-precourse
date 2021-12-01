@@ -6,4 +6,11 @@ public class Car {
 
     public Car(String name) { this.name = name; }
 
+    public void move() {
+        position++;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
