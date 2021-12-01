@@ -8,4 +8,8 @@ public enum SystemMessage {
     SystemMessage(String message) {
         this.message = message;
     }
+
+    public String print() {
+        return message;
+    }
 }
