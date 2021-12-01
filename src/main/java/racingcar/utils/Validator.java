@@ -8,6 +8,9 @@ import java.util.Set;
 public class Validator {
 
     private static final String ERROR = "[ERROR] ";
+    private static final int TRIAL_NUMBER_MIN_VALUE = 1;
+    private static final int CAR_NAME_MIN_LENGTH = 1;
+    private static final int CAR_NAME_MAX_LENGTH = 5;
 
     public static void validateCarNames(String[] carNames) {
         validateUniqueCarNames(carNames);
@@ -31,11 +34,11 @@ public class Validator {
     }
 
     private static void validateCarNameLength(String carName) {
-        if (carName.length() == 0) {
+        if (carName.length() < CAR_NAME_MIN_LENGTH) {
             throw new IllegalArgumentException(ERROR + "자동차명은 최소 1글자여야 한다.");
         }
 
-        if (carName.length() >= 6) {
+        if (carName.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(ERROR + "자동차명은 최대 5글자여야 한다.");
         }
     }
@@ -56,7 +59,7 @@ public class Validator {
     }
 
     private static void validateTrialNumRange(int trialNum) {
-        if (trialNum < 1) {
+        if (trialNum < TRIAL_NUMBER_MIN_VALUE) {
             throw new IllegalArgumentException(ERROR + "시도 횟수는 1회 이상이어야 한다.");
         }
     }
