@@ -15,4 +15,19 @@ public class GameConstants {
 			return value;
 		}
 	}
+
+	public enum CarStringConversion {
+		INFIX(" : "),
+		GAUGE("-");
+
+		private final String string;
+
+		CarStringConversion(String string) {
+			this.string = string;
+		}
+
+		public String getString() {
+			return string;
+		}
+	}
 }
