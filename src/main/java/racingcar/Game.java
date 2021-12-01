@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class Game {
     private String input;
     public String[] carNames;
+    public int times;
 
     public Game() {
 
@@ -21,7 +22,11 @@ public class Game {
             Input();
             checking = checkCars();
         }
-
+        checking = false;
+        while (!checking) {
+            Input();
+            checking = checkTimes();
+        }
 
     }
 
@@ -37,9 +42,7 @@ public class Game {
         return checking;
     }
 
-
-
-    private void rightInput() throws IllegalArgumentException{
+    private void rightInput() throws IllegalArgumentException {
         carNames = input.split(",");
         for (int i=0;i<carNames.length; i++) {
             if (carNames[i].length() > 5) {
@@ -48,7 +51,22 @@ public class Game {
         }
         return;
     }
-    
+
+
+
+    private void rightInputTimes() throws IllegalArgumentException {
+        char temp;
+        for (int i=0; i < input.length(); i++) {
+            temp = input.charAt(i);
+            if (Character.isDigit(temp) == false) {
+                throw new IllegalArgumentException();
+            }
+        }
+        times = Integer.parseInt(input);
+        if (times < 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 
 
 }
