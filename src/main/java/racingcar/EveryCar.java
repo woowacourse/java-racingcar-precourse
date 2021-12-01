@@ -29,11 +29,10 @@ public class EveryCar {
 		Car[] cars = this.cars.stream()
 			.filter(eachCar -> eachCar.showMovingDistance() == winnerMovingDistance)
 			.toArray(Car[]::new);
-		// winningCars.forEach(eachCar -> System.out.println(eachCar)); //TODO : 이녀석을 양식에 맞게 출력해주면 됨.
 		String result = "최종 우승자 : ";
 		for (Car car : cars) {
 			result += car;
-			if (!car.equals(cars[cars.length-1])) {
+			if (car != cars[cars.length-1]) {
 				result += ", ";
 			}
 		}

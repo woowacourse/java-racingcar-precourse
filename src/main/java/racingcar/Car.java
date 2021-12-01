@@ -27,7 +27,7 @@ public class Car {
     }
 
     private boolean canMoveCar() {
-        return Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM) > VALUE_MOVING_CAR;
+        return Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM) >= VALUE_MOVING_CAR;
     }
 
     @Override

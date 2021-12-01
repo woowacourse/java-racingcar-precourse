@@ -7,19 +7,19 @@ import java.util.Collections;
 import racingcar.view.InputView;
 
 public class RacingGame {
-	private ArrayList<Car> cars = new ArrayList<>(); // TODO: 1급 콜렉션으로 만들기
+	private ArrayList<Car> cars = new ArrayList<>();
 	private EveryCar everyCar;
+
 	public void startGame() {
 		String[] everyCarName = InputView.enterEveryCarName();
 		Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
 		makeEveryCarInstance(everyCarName);
 		everyCar = new EveryCar(cars);
 		int tryCntAboutCarMoving = InputView.enterTryCnt();
-		System.out.println("실행 결과");
+		System.out.println("\n실행 결과");
 		for (int i = 0; i < tryCntAboutCarMoving; i++) {
 			everyCar.moveEveryCarThisTiming();
 		}
-		//everyCar의 eachCar. eachCar의 position이 가장 큰게 뭘까? 그리고 그 큰 값과 동일한 애들 전부 가져와서 이름을 보여주기.
 		everyCar.showThisGameWinner();
 	}
 
