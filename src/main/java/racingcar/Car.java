@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 public class Car {
 	private static final int FORWARD_THRESHOLD_NUMBER = 4;
 	private final String name;
@@ -23,5 +26,18 @@ public class Car {
 
 	public void forward() {
 		this.position++;
+	}
+
+	public String getScoreString() {
+		String unit = "-";
+		Optional<String> result1 = Optional.empty();
+		for (int count = 0; count <= this.position; count++) {
+			result1 = Stream.generate(() -> unit).limit(count).reduce((a, b) -> a + b);
+		}
+		String finalResult = "";
+		if (result1.isPresent()) {
+			finalResult = result1.get();
+		}
+		return finalResult;
 	}
 }
