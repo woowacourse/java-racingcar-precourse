@@ -1,5 +1,9 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Car {
 	private static final int FORWARD_THRESHOLD_NUMBER = 4;
 	private final String name;
@@ -11,6 +15,14 @@ public class Car {
 
 	public static boolean isForward(int randNo) {
 		return randNo >= FORWARD_THRESHOLD_NUMBER;
+	}
+
+	public static List generateCars(String cars) {
+		String[] str = cars.split(",");
+		List<String> newList;
+		newList = Arrays.asList(str);
+
+		return newList;
 	}
 
 	public int getPosition() {
