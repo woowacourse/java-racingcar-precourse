@@ -1,15 +1,14 @@
 package racingcar;
 
-public class TurnValueReader {
+public class TurnValueReader extends Reader<Integer>{
 	public static final String INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
-	private final ConsoleDisplay consoleDisplay;
 
 	public TurnValueReader(ConsoleDisplay consoleDisplay) {
-		this.consoleDisplay = consoleDisplay;
+		super(consoleDisplay, INPUT_MESSAGE);
 	}
 
-	public int read() {
-		consoleDisplay.info(INPUT_MESSAGE);
+	@Override
+	protected Integer handleInputValue(String input) {
 		return 0;
 	}
 }
