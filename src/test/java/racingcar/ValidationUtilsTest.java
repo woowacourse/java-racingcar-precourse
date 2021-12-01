@@ -18,7 +18,7 @@ public class ValidationUtilsTest {
 	@Test
 	@DisplayName("숫자인지 체크")
 	void isNumber_test() {
-		assertThat(ValidationUtils.isNumber("a1")).isFalse();
-		assertThat(ValidationUtils.isNumber("a")).isFalse();
+		assertThat(ValidationUtils.validNumber("a1")).isFalse();
+		assertThat(ValidationUtils.validNumber("a")).isFalse();
 	}
 }
