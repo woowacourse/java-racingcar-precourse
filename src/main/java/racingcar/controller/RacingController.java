@@ -8,16 +8,14 @@ import racingcar.domain.Racing;
 
 public class RacingController {
 	private Player player;
-	private Racing racing;
 
-	public RacingController(Player player, Racing racing) {
+	public RacingController(Player player) {
 		this.player = player;
-		this.racing = racing;
 	}
 
-	public void startRacing() {
-		List<String> cars = player.enterCarsName();
-		int moveNum = player.enterMoveNum();
+	public void start() {
+		Racing racing = new Racing(player.enterCarsName(), player.enterMoveNum());
+		racing.startRacing();
 
 
 	}
