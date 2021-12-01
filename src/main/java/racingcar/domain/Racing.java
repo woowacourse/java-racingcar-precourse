@@ -8,6 +8,7 @@ import racingcar.util.RandomNumberGenerator;
 
 public class Racing {
 	private final int PIVOT = 4;
+	private final String RESULT_START_MESSAGE = "실행 결과";
 
 	private RandomNumberGenerator randomNumberGenerator;
 	private ArrayList<Car> cars;
@@ -19,8 +20,9 @@ public class Racing {
 	}
 
 	public void startRacing(){
-		for (int i = 0; i < moveNum; ++i) {
-			move();
+		System.out.println(RESULT_START_MESSAGE);
+		for (int round = 0; round < moveNum; ++round) {
+			moveAndPrintCurrentPosition();
 		}
 	}
 
@@ -32,12 +34,15 @@ public class Racing {
 		return cars;
 	}
 
-	private void move(){
+	private void moveAndPrintCurrentPosition(){
 		for(Car car : cars){
 			if(randomNumberGenerator.generateRandomNumber() >= PIVOT){
 				car.moveAhead();
 			}
+			car.printCurrentPosition();
 		}
+		System.out.println();
 	}
+
 
 }
