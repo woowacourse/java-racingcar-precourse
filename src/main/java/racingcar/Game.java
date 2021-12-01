@@ -29,4 +29,18 @@ public class Game {
 		carList = new Cars(userInput);
 		return carList;
 	}
+
+	public static void runGameByCar(Car drivingCar) {
+		int randomNo = new GenerateRandomNo().randomNo;
+		if (Car.isForward(randomNo)) {
+			drivingCar.forward();
+		}
+	}
+
+	public static void runGameOneStep() {
+		Cars carList = generateCars();
+		for (Car car : carList.cars) {
+			runGameByCar(car);
+		}
+	}
 }
