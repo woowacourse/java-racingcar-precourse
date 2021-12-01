@@ -26,11 +26,8 @@ public class RacingGame {
 	private int rounds = 0;
 
 	public void startGame() {
-		try {
-			setGame();
-		} catch (IllegalArgumentException error) {
-			startGame();
-		}
+		enterPlayer();
+		enterRound();
 		System.out.println(GAME_RESULT_MESSAGE);
 		for (int i = 0; i < rounds; i++) {
 			playRacingGame();
@@ -38,22 +35,34 @@ public class RacingGame {
 		printGameResult();
 	}
 
-	private void setGame() {
-		System.out.println(START_MESSAGE);
-		String participants = readLine();
-		System.out.println(TRY_MESSAGE);
-		String round = readLine();
-		System.out.println();
-		validateNumber(round);
-		updateGameInformation(participants, Integer.parseInt(round));
+	private void enterPlayer() {
+		try {
+			System.out.println(START_MESSAGE);
+			String participants = readLine();
+			updateGameInformation(participants);
+		} catch (IllegalArgumentException error) {
+			System.out.println(error.getMessage());
+			enterPlayer();
+		}
 	}
 
-	private void updateGameInformation(String participants, int round) {
+	private void enterRound() {
+		try {
+			System.out.println(TRY_MESSAGE);
+			String round = readLine();
+			validateNumber(round);
+			this.rounds = Integer.parseInt(round);
+		} catch (IllegalArgumentException error) {
+			enterRound();
+		}
+		System.out.println();
+	}
+
+	private void updateGameInformation(String participants) {
 		StringTokenizer participant = new StringTokenizer(participants, ",");
 		while (participant.hasMoreTokens()) {
 			participantList.add(new Car(participant.nextToken()));
 		}
-		this.rounds = round;
 	}
 
 	private void playRacingGame() {
