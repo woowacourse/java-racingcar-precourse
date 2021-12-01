@@ -25,6 +25,32 @@
   - 중복된 자동차 이름을 입력한 경우
 - [ ] 시도 횟수가 음이 아닌 정수가 아닌 경우
 
+<br>
+
+### 프로그램 구조도
+
+```
+baseball
+  - controller
+    - GameController
+
+  - model
+    - Car
+    - RandomNumber
+    
+  - utils
+    - InputUtils
+    
+  - view
+    - InputView
+    - OutputView
+
+  - Application
+  
+```
+
+<br>
+
 ### 미션 설명
 <details>
 <summary>접기 / 펼치기 버튼</summary>
