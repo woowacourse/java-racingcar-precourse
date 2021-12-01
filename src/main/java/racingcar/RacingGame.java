@@ -14,7 +14,10 @@ public class RacingGame {
     public void startGame(){
         String[] carNamesArray =  player.startGame();
         for (String carName : carNamesArray) {
-            System.out.println(carName);
+            System.out.print(carName + " ");
+        }
+        while(player.remainCoin()){
+            System.out.println("hi");
         }
     }
 }
