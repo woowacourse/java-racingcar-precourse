@@ -11,6 +11,7 @@ public class InputManager {
 	public void scanCarsList() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String carsInput = Console.readLine();
+		isValidCars(carsInput);
 		carsList = carsInput.split(",");
 		isValidCars(carsList);
 	}
@@ -29,6 +30,12 @@ public class InputManager {
 			}
 		}
 		carsScan = false;
+	}
+
+	public void isValidCars(String carsInput) throws IllegalArgumentException {
+		if (carsInput.length() == 0) {
+			throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
+		}
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
