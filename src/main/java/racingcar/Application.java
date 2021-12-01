@@ -51,10 +51,6 @@ public class Application {
         String[] carNames = carNamesInput.split(parser);
 
         for (String s : carNames) {
-            System.out.println(s + '-');
-        }
-
-        for (String s : carNames) {
             if (s.length() > 5) {
                 throw new IllegalArgumentException();
             }

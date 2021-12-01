@@ -15,29 +15,30 @@ public class Car {
         PrintResult();
     }
 
-    final public static int MIN_NUMBER=0;
-    final public static int MAX_NUMBER=9;
+    final public static int MIN_NUMBER = 0;
+    final public static int MAX_NUMBER = 9;
+    final public static int TARGET_NUMBER = 4;
 
-    public void TryMoveForward(){
-        int randomNumber=pickNumberInRange(MIN_NUMBER,MAX_NUMBER);
-        if(randomNumber>=4){
+    public void TryMoveForward() {
+        int randomNumber = pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+        if (randomNumber >= TARGET_NUMBER) {
             position++;
         }
     }
 
-    public void PrintResult(){
-        System.out.print(name+" : ");
-        for(int i=0;i<position;++i){
+    public void PrintResult() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; ++i) {
             System.out.print("-");
         }
         System.out.print("\n");
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 }
