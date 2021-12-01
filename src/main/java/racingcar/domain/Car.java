@@ -15,7 +15,7 @@ public class Car {
 	}
 
 	public void moveByNumber(int randomNumber) {
-		if (randomNumber >= moveCriterionInclusive.getValue())
+		if (randomNumber >= MOVE_CRITERION_INCLUSIVE.getValue())
 			this.position += 1;
 	}
 }

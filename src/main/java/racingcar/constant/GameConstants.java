@@ -3,7 +3,7 @@ package racingcar.constant;
 public class GameConstants {
 
 	public enum Car {
-		moveCriterionInclusive(4);
+		MOVE_CRITERION_INCLUSIVE(4);
 
 		private final int value;
 
