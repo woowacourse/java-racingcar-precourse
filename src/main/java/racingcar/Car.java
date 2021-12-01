@@ -29,9 +29,9 @@ public class Car {
     }
 
     public void printPosition() {
-        String outputText = name + Const.CAR_PRINT_SEPARATOR;
+        StringBuilder outputText = new StringBuilder(name + Const.CAR_PRINT_SEPARATOR);
         for (int i = 0; i < position; i++) {
-            outputText += Const.CAR_POSITION_MARKER;
+            outputText.append(Const.CAR_POSITION_MARKER);
         }
         System.out.println(outputText);
     }
