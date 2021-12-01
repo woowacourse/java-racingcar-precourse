@@ -15,7 +15,7 @@ public class Car {
 
     public void play() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
-            this.run();
+            this.move();
         }
         this.printPosition();
     }
@@ -33,7 +33,7 @@ public class Car {
         System.out.println(name + " : " + curPosition);
     }
 
-    private void run() {
+    private void move() {
         this.position++;
     }
 }

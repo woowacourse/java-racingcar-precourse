@@ -20,7 +20,6 @@ public class GameManager {
 
         List<String> winners = this.getWinners();
         printWinners(winners);
-
     }
 
     private void getCarList() {
@@ -42,12 +41,12 @@ public class GameManager {
         System.out.println("실행 결과");
 
         for (int i = 0; i < trialNum; i++) {
-            this.playTrial();
+            this.playOnce();
             System.out.println();
         }
     }
 
-    private void playTrial() {
+    private void playOnce() {
         for (Car car : cars) {
             car.play();
         }
@@ -71,8 +70,6 @@ public class GameManager {
 
         return winners;
     }
-
-
 
     private void printWinners(List<String> winners) {
         if (winners.size() == 1) {
