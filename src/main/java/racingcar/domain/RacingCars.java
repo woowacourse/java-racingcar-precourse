@@ -17,6 +17,16 @@ public class RacingCars {
 		racingCars = makeCars();
 	}
 
+	public String getExcutionForEachOrderMessage() {
+		StringBuilder result = new StringBuilder();
+		racingCars.forEach(car -> result.append(car.getNameAndPostionMessage()));
+		return result.toString();
+	}
+
+	public void move() {
+		racingCars.forEach(Car::movePosition);
+	}
+
 	public List<Car> makeCars() {
 		List<String> carNames = getCarNames();
 		return carNames.stream()
@@ -24,7 +34,7 @@ public class RacingCars {
 			.collect(Collectors.toList());
 	}
 
-	public static List<String> getCarNames() {
+	private static List<String> getCarNames() {
 		List<String> inputCarNames;
 		do {
 			OutputView.printAskingCarNames();

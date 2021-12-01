@@ -6,18 +6,25 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class AttemptNumber {
-	private int number;
+	private int attemptNumber;
+	private static int numberOfRuns = 0;
 
 	public AttemptNumber() {
-		number = setNumber();
+		attemptNumber = setNumber();
+	}
+
+	public boolean isAttemptRemained() {
+		boolean result = (attemptNumber != numberOfRuns);
+		numberOfRuns++;
+		return result;
 	}
 
 	private int setNumber() {
-		String number;
+		String attemptNumber;
 		do {
 			OutputView.printAskingAttemptNumber();
-			number = InputView.getInput();
-		} while (!isValidAttemptNumber(number));
-		return Integer.parseInt(number);
+			attemptNumber = InputView.getInput();
+		} while (!isValidAttemptNumber(attemptNumber));
+		return Integer.parseInt(attemptNumber);
 	}
 }
