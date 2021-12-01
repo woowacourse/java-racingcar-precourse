@@ -29,4 +29,17 @@ public class Car {
     private boolean canMoveCar() {
         return Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM) > VALUE_MOVING_CAR;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public String showMovingMark() {
+        String movingMark = "";
+        for (int i = 0; i < position; i++) {
+            movingMark += "-";
+        }
+        return movingMark;
+    }
 }
