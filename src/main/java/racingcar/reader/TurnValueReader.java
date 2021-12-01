@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.reader;
+
+import racingcar.ConsoleDisplay;
 
 public class TurnValueReader extends Reader<Integer>{
 	public static final String INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
