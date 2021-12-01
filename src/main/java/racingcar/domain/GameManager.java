@@ -13,12 +13,8 @@ public class GameManager {
 
     public void run() {
         this.getCarList();
-
-        int trialNum = User.getTrialNumInput();
-        this.play(trialNum);
-
-        List<String> winners = this.getWinners();
-        printWinners(winners);
+        this.play();
+        this.printWinners();
     }
 
     private void getCarList() {
@@ -27,12 +23,12 @@ public class GameManager {
         }
     }
 
-    private void play(int trialNum) {
+    private void play() {
         System.out.println("실행 결과");
+        int trialNum = User.getTrialNumInput();
 
         for (int i = 0; i < trialNum; i++) {
             this.playOnce();
-            System.out.println();
         }
     }
 
@@ -40,6 +36,18 @@ public class GameManager {
         for (Car car : cars) {
             car.play();
         }
+        System.out.println();
+    }
+
+    private void printWinners() {
+        List<String> winners = this.getWinners();
+
+        if (winners.size() == 1) {
+            System.out.println("최종 우승자 : " + winners.get(0));
+            return;
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
     private List<String> getWinners() {
@@ -65,14 +73,5 @@ public class GameManager {
         }
 
         return maxPosition;
-    }
-
-    private void printWinners(List<String> winners) {
-        if (winners.size() == 1) {
-            System.out.println("최종 우승자 : " + winners.get(0));
-            return;
-        }
-
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
