@@ -20,7 +20,8 @@ public class Car {
     }
 
     private void printPosition() {
-        System.out.println(name + " : " + Collections.nCopies(position, "-"));
+        String curPosition = String.join("", Collections.nCopies(position, "-"));
+        System.out.println(name + " : " + curPosition);
     }
 
     private void run() {
