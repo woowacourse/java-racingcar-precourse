@@ -14,15 +14,15 @@ public class User {
     public int setAttemptCounts() {
         System.out.println(COUNTS_MESSAGE);
         String inputCountsByClient = Console.readLine();
-        int counts;
+        int attemptCounts;
         try {
             AttemptCountValidator.checkException(inputCountsByClient);
-            counts = Integer.parseInt(inputCountsByClient);
+            attemptCounts = Integer.parseInt(inputCountsByClient);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            counts = setAttemptCounts();
+            attemptCounts = setAttemptCounts();
         }
-        return counts;
+        return attemptCounts;
     }
 
     public List<String> setCarNames() {
