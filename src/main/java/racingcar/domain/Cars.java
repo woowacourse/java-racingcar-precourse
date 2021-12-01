@@ -19,4 +19,8 @@ public class Cars {
     public void move() {
         cars.forEach(car -> car.move());
     }
+
+    public List<Car> cars() {
+        return cars;
+    }
 }

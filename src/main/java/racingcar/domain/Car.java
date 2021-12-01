@@ -23,4 +23,8 @@ public class Car {
             position++;
         }
     }
+
+    public int position() {
+        return position;
+    }
 }
