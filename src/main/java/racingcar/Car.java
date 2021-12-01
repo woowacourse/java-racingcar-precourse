@@ -4,9 +4,16 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    public Car(String name) throws IllegalArgumentException {
+        validCarName(name);
         this.name = name;
     }
 
-    // 추가 기능 구현
+    private void validCarName(String name) throws IllegalArgumentException {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("[ERROR]: 자동차의 이름은 5글자 이하로 지정하여야 합니다.");
+        }
+    }
+
+
 }

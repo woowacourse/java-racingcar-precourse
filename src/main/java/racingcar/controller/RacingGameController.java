@@ -7,6 +7,15 @@ public class RacingGameController {
 
 
     public static void run() {
-        Cars cars = new Cars(InputView.requirePlayersName());
+        prepareCars();
+
+    }
+
+    private static void prepareCars() {
+        try {
+            Cars cars = new Cars(InputView.requirePlayersName());
+        } catch (IllegalArgumentException exception) {
+            prepareCars();
+        }
     }
 }
