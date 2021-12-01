@@ -39,7 +39,7 @@ public class RacingGame {
 		try {
 			System.out.println(START_MESSAGE);
 			String participants = readLine();
-			updateGameInformation(participants);
+			setGame(participants);
 		} catch (IllegalArgumentException error) {
 			System.out.println(error.getMessage());
 			enterPlayer();
@@ -52,13 +52,13 @@ public class RacingGame {
 			String round = readLine();
 			validateNumber(round);
 			this.rounds = Integer.parseInt(round);
+			System.out.println();
 		} catch (IllegalArgumentException error) {
 			enterRound();
 		}
-		System.out.println();
 	}
 
-	private void updateGameInformation(String participants) {
+	private void setGame(String participants) {
 		StringTokenizer participant = new StringTokenizer(participants, ",");
 		while (participant.hasMoreTokens()) {
 			participantList.add(new Car(participant.nextToken()));
@@ -97,13 +97,6 @@ public class RacingGame {
 		}
 		winner = winner.substring(0, winner.length() - WINNER_DISTINGUISH.length());
 		System.out.println(WINNER_MESSAGE + winner);
-	}
-
-	private String isWinner(Car car, int distance) {
-		if (car.getLocation() == distance) {
-			return car.getCarName();
-		}
-		return END_CHECKER;
 	}
 
 	private void validateNumber(String number) {
