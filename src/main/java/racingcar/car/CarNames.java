@@ -10,8 +10,8 @@ public class CarNames {
 	private static final String DELIMITER = ",";
 	private static final String EMPTY = "";
 	private static final String SPACE = " ";
-	private static final Integer MAX_SIZE = 5;
-	private static final Integer NOTHING = 0;
+	private static final int MAX_SIZE = 5;
+	private static final int NOTHING = 0;
 	private static final String ERROR_NOTHING = "자동차는 최소 1개 이상 입력해야 합니다.";
 	private static final String ERROR_EMPTY = "자동차 이름은 공백일 수 없습니다.";
 	private static final String ERROR_LENGTH = "자동차 이름은 5자를 초과할 수 없습니다.";

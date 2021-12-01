@@ -6,7 +6,7 @@ public class Attempts {
 	private static final String ERROR_NOT_INTEGER = "시도 횟수는 숫자여야 합니다.";
 	private static final String ERROR_POSITIVE_NUMBER = "시도 횟수는 양수여야 합니다.";
 
-	private Integer count;
+	private int count;
 
 	public void input() {
 		String count = Console.readLine();
