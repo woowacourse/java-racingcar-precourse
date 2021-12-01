@@ -12,6 +12,7 @@ public class Application {
     public static void main(String[] args) {
         CreateCars();
         SetTryTimes();
+        PlayGames();
     }
 
     static void CreateCars() {
@@ -86,8 +87,24 @@ public class Application {
         }
     }
 
+    static void PlayGames() {
+        PrintGameMessage(GAME_PLAY_START);
+
+        for(int i=0;i<tryTimes;++i){
+            PlayOneTurn();
+        }
+    }
+
+    static void PlayOneTurn(){
+        for(Car c:carList){
+            c.PlayMovingThisCar();
+        }
+        System.out.println("\n");
+    }
+
     static int GAME_CREATE_CARS = 1;
     static int GAME_SET_TRY_TIMES = 2;
+    static int GAME_PLAY_START=3;
 
     static void PrintGameMessage(int gameType) {
         if (gameType == GAME_CREATE_CARS) {
@@ -96,6 +113,10 @@ public class Application {
         }
         if (gameType == GAME_SET_TRY_TIMES) {
             System.out.println("시도할 회수는 몇회인가요?");
+            return;
+        }
+        if(gameType == GAME_PLAY_START){
+            System.out.println("\n실행 결과");
         }
     }
 
