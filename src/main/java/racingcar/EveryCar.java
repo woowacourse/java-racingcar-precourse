@@ -26,7 +26,17 @@ public class EveryCar {
 			.mapToInt(eachCar -> eachCar.showMovingDistance())
 			.max()
 			.orElseThrow(() -> new IllegalArgumentException("자동차의 최댓값이 존재하지 않습니다. 로직이 잘못되었습니다."));
-		Stream<Car> winningCars = cars.stream().filter(eachCar -> eachCar.showMovingDistance() == winnerMovingDistance);
-		winningCars.forEach(eachCar -> System.out.println(eachCar)); //TODO : 이녀석을 양식에 맞게 출력해주면 됨.
+		Car[] cars = this.cars.stream()
+			.filter(eachCar -> eachCar.showMovingDistance() == winnerMovingDistance)
+			.toArray(Car[]::new);
+		// winningCars.forEach(eachCar -> System.out.println(eachCar)); //TODO : 이녀석을 양식에 맞게 출력해주면 됨.
+		String result = "최종 우승자 : ";
+		for (Car car : cars) {
+			result += car;
+			if (!car.equals(cars[cars.length-1])) {
+				result += ", ";
+			}
+		}
+		System.out.println(result);
 	}
 }
