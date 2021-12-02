@@ -52,7 +52,7 @@ public class InputUtils {
                 attempStr = Console.readLine();
                 checkInvalidAttempNum(attempStr);
                 isValid = true;
-            } catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(ERROR_INVALID_ATTEMP);
             }
         }
@@ -60,7 +60,7 @@ public class InputUtils {
     }
 
     private static void checkInvalidAttempNum(String attempStr) {
-        for (int i=INITIAL_VALUE; i<attempStr.length(); i++) {
+        for (int i = INITIAL_VALUE; i < attempStr.length(); i++) {
             if (!Character.isDigit(attempStr.charAt(i))) {
                 throw new IllegalArgumentException(ERROR_INVALID_ATTEMP);
             }
