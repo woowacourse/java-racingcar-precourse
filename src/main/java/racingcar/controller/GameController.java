@@ -1,34 +1,48 @@
 package racingcar.controller;
 
 import racingcar.InputValidator;
+import racingcar.model.Car;
+import racingcar.model.CarRepository;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
+	private int roundNumber;
 
 	public void start() {
 		makeCars();
 		makeRoundNumber();
+		for (int i = 0; i < roundNumber; i++) {
+			playRound();
+		}
+	}
+
+	private void playRound() {
+		CarRepository.moveCars();
 	}
 
 	private void makeCars() {
-		String carNames = getCarNamesInput();
+		String[] carNames = getCarNameArray();
+		CarRepository.clearCars();
+		for (String carName : carNames) {
+			CarRepository.addCar(new Car(carName));
+		}
 	}
 
-	private String getCarNamesInput() {
+	private String[] getCarNameArray() {
 		OutputView.printCarNameRequestMessage();
-		String carNames = InputView.getCarName();
+		String carNames = InputView.getCarNames();
 		try {
 			InputValidator.checkIsValidCarNames(carNames);
 		} catch (Exception exception) {
 			OutputView.printErrorMessage(exception.getMessage());
-			return getCarNamesInput();
+			return getCarNameArray();
 		}
-		return carNames;
+		return carNames.split(",");
 	}
 
 	private void makeRoundNumber() {
-		String roundNumber = getRoundNumberInput();
+		roundNumber = Integer.parseInt(getRoundNumberInput());
 	}
 
 	private String getRoundNumberInput() {
