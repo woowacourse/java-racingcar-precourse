@@ -209,6 +209,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 ---
 
 ## 🐾 구현할 기능 목록
+
 ### 사용자 입력
   + 경주할 자동차 이름
     * 쉼표로 구분해서 읽어오기  
@@ -219,15 +220,18 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
   + 시도할 횟수
     * 숫자인지 확인  
       if !(숫자) : 유효하지 않은 값  
-    => ```IllegalArgumentException``` 발생, 에러 메세지 출력 후 다시 입력 받기
+    => ```IllegalArgumentException``` 발생, 에러 메세지 출력 후 다시 입력 받기  
+    
 ###자동차 정보
   + 주어진 Car 객체 활용해 구현
   + 우승자 반환을 위한 position 저장 필요
     * ```setPosition(int position)``` 메소드 최대한 추가하지 않고 구현  
-      idea1 : 자동차 전진 조건 시 position update?
+      idea1 : 자동차 전진 조건 시 position update?  
+    
 ###자동차 전진 조건
   + 0부터 9사이의 무작위 값 구한 후 무작위 값이 4 이상일 경우 전진
-    * ```pickNumberInRange()``` 활용
+    * ```pickNumberInRange()``` 활용  
+    
 ### 우승자 반환
   + 우승자 이름 출력
     * 각 자동차 position 정보 비교하기  
