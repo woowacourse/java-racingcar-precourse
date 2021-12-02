@@ -13,6 +13,7 @@ public class RacingSystem {
     private static final String SEPARATOR = ",";
     private static final String NUMBER_REGAX = "^[0-9]*$";
     private static final int MAX_CNT = 5;
+    private static final int NEGATIVE_NUMBER = -1;
 
     private List<Car> cars = new ArrayList<>();
     private Winners winners = new Winners();
@@ -23,14 +24,22 @@ public class RacingSystem {
 
     public void inputCarName() {
         String input = write(INPUT_CAR_SENTENCE);
-        checkValidName(input);
-        // TODO exception 발생 시 다시 입력 받기
+        try {
+            checkValidName(input);
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 올바른 자동차 이름을 입력하세요.");
+            inputCarName();
+        }
     }
 
     public void inputTryCnt() {
         String input = write(INPUT_CNT_SENTENCE);
-        checkNumber(input);
-        // TODO exception 발생 시 다시 입력 받기
+        try {
+            checkNumber(input);
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 올바른 숫자를 입력하세요.");
+            inputTryCnt();
+        }
     }
 
     private String write(String sentence) {
@@ -38,7 +47,7 @@ public class RacingSystem {
         return Console.readLine();
     }
 
-    public void checkNumber(String input) {
+    public void checkNumber(String input) throws IllegalArgumentException {
         if (!isNumber(input) || !isUnderMax(input)) {
             throw new IllegalArgumentException();
         }
@@ -54,7 +63,7 @@ public class RacingSystem {
     }
 
     public void checkValidName(String input) {
-        String[] nameArray = input.split(SEPARATOR, -1);
+        String[] nameArray = input.split(SEPARATOR, NEGATIVE_NUMBER);
         for (String name : nameArray) {
             if (isInvalidName(name)) {
                 throw new IllegalArgumentException();
