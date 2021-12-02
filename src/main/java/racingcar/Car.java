@@ -11,6 +11,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        Validator.validateCarName(name);
         this.name = name;
     }
 
