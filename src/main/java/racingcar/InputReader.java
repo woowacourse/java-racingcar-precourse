@@ -15,8 +15,7 @@ public class InputReader {
 			nameList = input.split(",", -1);
 
 			try {
-				isValidCarNameList(nameList);
-				isValid = true;
+				isValid = isValidCarNameList(nameList);
 			} catch (IllegalArgumentException exception) {
 				// TODO: 2021/12/02 메시지 출력 메서드로 추출
 				System.out.println("[ERROR] " + exception.getMessage());

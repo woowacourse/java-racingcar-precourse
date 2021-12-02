@@ -5,13 +5,15 @@ public class Validator {
 	private static final int CAR_NAME_LENGTH_LIMIT = 5;
 	private static final String CAR_NAME_REGEX = "[A-Za-z]+";
 
-	public static void isValidCarNameList(String[] nameList) throws IllegalArgumentException {
+	public static boolean isValidCarNameList(String[] nameList) throws IllegalArgumentException {
 		checkNameListLength(nameList.length);
 
 		for (String name : nameList) {
 			checkNameLength(name.length());
 			checkNameCharacter(name);
 		}
+
+		return true;
 	}
 
 	private static void checkNameListLength(int length) {
