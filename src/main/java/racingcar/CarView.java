@@ -12,11 +12,11 @@ public class CarView {
 
     public static void printImplResult(Car car){
         int position = car.getPosition();
-        StringBuilder sb = new StringBuilder();
+        StringBuilder resultBuilder = new StringBuilder();
         while(position-- > ZERO){
-            sb.append(MARK);
+            resultBuilder.append(MARK);
         }
-        String positionMark = sb.toString();
+        String positionMark = resultBuilder.toString();
         System.out.println(car.getName() + SEPARATOR + positionMark);
     }
 
@@ -30,17 +30,17 @@ public class CarView {
     }
 
     private static String createWinnersName(List<Car> winners) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder winnerBuilder = new StringBuilder();
         for(int i = 0; i < winners.size(); i++){
-            sb.append(winners.get(i).getName());
-            appendDelimiter(winners, sb, i);
+            winnerBuilder.append(winners.get(i).getName());
+            appendDelimiter(winners, winnerBuilder, i);
         }
-        return sb.toString();
+        return winnerBuilder.toString();
     }
 
-    private static void appendDelimiter(List<Car> winners, StringBuilder sb, int i) {
+    private static void appendDelimiter(List<Car> winners, StringBuilder winnerBuilder, int i) {
         if(i != winners.size()-1){
-            sb.append(DELIMITER + SPACE);
+            winnerBuilder.append(DELIMITER + SPACE);
         }
     }
 
