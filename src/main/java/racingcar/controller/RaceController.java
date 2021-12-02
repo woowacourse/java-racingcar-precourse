@@ -26,6 +26,7 @@ public class RaceController {
 		int moveCount = getProperMoveCount();
 		startRace(cars, moveCount);
 		ArrayList<String> winners = findWinners(cars);
+		showWinners(winners);
 	}
 
 	private ArrayList<String> getProperNames() {
@@ -89,5 +90,7 @@ public class RaceController {
 		return maxPosition;
 	}
 
-
+	private void showWinners(ArrayList<String> winners) {
+		outputView.printWinners(winners);
+	}
 }
