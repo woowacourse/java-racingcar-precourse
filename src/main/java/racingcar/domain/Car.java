@@ -6,12 +6,12 @@ import static racingcar.constant.GameConstants.CarStringConversion.*;
 import java.util.stream.IntStream;
 
 public class Car {
-    private final String name;
-    private int position = 0;
+	private final String name;
+	private int position = 0;
 
-    public Car(String name) {
-        this.name = name;
-    }
+	public Car(String name) {
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;

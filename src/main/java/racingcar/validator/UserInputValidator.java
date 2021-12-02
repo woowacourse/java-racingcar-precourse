@@ -13,8 +13,8 @@ public class UserInputValidator {
 		throw new IllegalArgumentException(LENGTH_ERROR_HINT.getString());
 	}
 
-	public static void validateUserInputNameListLength(List<String> userInputNameList){
-		if(userInputNameList.isEmpty())
+	public static void validateUserInputNameListLength(List<String> userInputNameList) {
+		if (userInputNameList.isEmpty())
 			throw new IllegalArgumentException(LENGTH_ERROR_HINT.getString());
 	}
 

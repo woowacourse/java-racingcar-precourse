@@ -52,7 +52,7 @@ public class Game {
 		return gameResultStringBuilder.toString();
 	}
 
-	private String removeLastDelimiterFromWinner(StringBuilder resultString){
+	private String removeLastDelimiterFromWinner(StringBuilder resultString) {
 		return resultString.substring(0, resultString.length() - GAME_WINNER_DELIMITER.getString().length());
 	}
 
@@ -66,7 +66,8 @@ public class Game {
 		stringBuilder.append(GAME_RESULT_HINT.getString());
 		stringBuilder.append(getGameResultString());
 		stringBuilder.append(GAME_WINNER_HINT.getString());
-		winnerCandidateList.forEach(winner -> stringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString()));
+		winnerCandidateList.forEach(
+			winner -> stringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString()));
 		return removeLastDelimiterFromWinner(stringBuilder);
 	}
 }
