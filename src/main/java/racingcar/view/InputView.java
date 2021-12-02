@@ -6,9 +6,14 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class InputView {
+	public static final String CAR_NAME_OVER_STANDARD_ERROR_MESSAGE = "차의 이름은 %d자 이하만 가능하다.";
+	public static final String CAR_NAME_NOT_NULL_ERROR_MESSAGE = "차의 이름에 null 값이 들어갔다.";
+	public static final int CAR_NAME_LETTERS_STANDARD = 5;
 	public static final String INPUT_EVERY_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	public static final String INPUT_TRY_CAR_MOVING_CNT = "시도할 회수는 몇회인가요?";
 	public static final String CAR_SPLIT_REGEX = ",";
+	public static final String NUMBER_REGEX = "-?\\d+";
+	public static final String SHOW_ERROR_MESSAGE = "[ERROR] %s";
 
 	public static String[] enterEveryCarName() {
 		while (true) {
@@ -18,17 +23,17 @@ public class InputView {
 				Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
 				return everyCarName;
 			} catch (IllegalArgumentException e){
-				System.out.println("[ERROR] " + e.getMessage());
+				System.out.println(String.format(SHOW_ERROR_MESSAGE,e.getMessage()));
 			}
 		}
 	}
 
 	private static void validateCarName(String eachCarName) {
-		if (eachCarName.length() > 5) {
-			throw new IllegalArgumentException("차 이름이 5글자가 넘어감.");
+		if (eachCarName.length() > CAR_NAME_LETTERS_STANDARD) {
+			throw new IllegalArgumentException(String.format(CAR_NAME_OVER_STANDARD_ERROR_MESSAGE,CAR_NAME_LETTERS_STANDARD));
 		}
 		if (eachCarName.isEmpty()) {
-			throw new IllegalArgumentException("차 이름 중 null값 있음");
+			throw new IllegalArgumentException(CAR_NAME_NOT_NULL_ERROR_MESSAGE);
 		}
 	}
 
@@ -39,7 +44,7 @@ public class InputView {
 				String tryCntString = Console.readLine();
 				return validateTryCnt(tryCntString);
 			} catch (IllegalArgumentException e) {
-				System.out.println("[ERROR] " + e.getMessage());
+				System.out.println(String.format(SHOW_ERROR_MESSAGE,e.getMessage()));
 			}
 		}
 	}
@@ -54,13 +59,13 @@ public class InputView {
 
 	private static void validateTryCntIsPositive(int tryCnt) {
 		if (tryCnt < 0) {
-			throw new IllegalArgumentException("음수만큼 자동차를 이동시킬 수 없다.");
+			throw new IllegalArgumentException("시도 횟수는 음수가 될 수 없다.");
 		}
 	}
 
 	private static void validateTryCntIsNumber(String tryCntString) {
-		if (!tryCntString.matches("-?\\d+")) {
-			throw new IllegalArgumentException("숫자가 아닌 값을 입력.");
+		if (!tryCntString.matches(NUMBER_REGEX)) {
+			throw new IllegalArgumentException("시도 횟수는 숫자여야 한다.");
 		}
 	}
 }
