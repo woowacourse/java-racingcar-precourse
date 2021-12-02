@@ -40,7 +40,7 @@ public class UserInputValidatorTest {
 	}
 
 	@ParameterizedTest(name = "유저_이동횟수_입력_[{arguments}]_범위_오류")
-	@ValueSource(strings = {"-1","0"})
+	@ValueSource(strings = {"-1", "0"})
 	void 유저_이동횟수_입력_범위_오류(String userInputIterationNumber) {
 		// given, when, then
 		Assertions.assertThatThrownBy(
@@ -49,10 +49,10 @@ public class UserInputValidatorTest {
 	}
 
 	@ParameterizedTest(name = "유저_이동횟수_입력_[{arguments}]_범위_정상")
-	@ValueSource(strings = {"1","987654321"})
+	@ValueSource(strings = {"1", "987654321"})
 	void 유저_이동횟수_입력_범위_정상(String userInputIterationNumber) {
 		// given, when, then
 		Assertions.assertThatNoException().isThrownBy(
-				() -> UserInputValidator.validateUserInputIterationNumberRange(userInputIterationNumber));
+			() -> UserInputValidator.validateUserInputIterationNumberRange(userInputIterationNumber));
 	}
 }
