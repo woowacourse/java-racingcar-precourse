@@ -7,8 +7,6 @@ public class TryCountReceiver {
 
 	private static final String INPUT_TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
-	TryCountValidator tryCountValidator = new TryCountValidator();
-
 	public Integer receive() {
 		String tryCountString = null;
 
@@ -17,6 +15,7 @@ public class TryCountReceiver {
 			System.out.println(INPUT_TRY_COUNT_MESSAGE);
 			tryCountString = Console.readLine();
 
+			TryCountValidator tryCountValidator = new TryCountValidator();
 			errorSwitch = tryCountValidator.validate(tryCountString);
 		}
 
