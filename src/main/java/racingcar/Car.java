@@ -10,7 +10,12 @@ public class Car {
 		this.name = name;
 	}
 
-	public void GoOrStay() {
+	public void move() {
+		GoOrStay();
+		printResult();
+	}
+
+	private void GoOrStay() {
 		int randomNum = Randoms.pickNumberInRange(0, 9);
 
 		if (randomNum >= 4) {
@@ -18,14 +23,14 @@ public class Car {
 		}
 	}
 
-	public void printResult() {
+	private void printResult() {
 		System.out.print(name + " : ");
 		for (int i = 0; i < position; i++) {
 			System.out.print("-");
 		}
 		System.out.println();
 	}
-	
+
 	public int getPosition() {
 		return this.position;
 	}
