@@ -9,7 +9,6 @@ import java.util.StringTokenizer;
 public class UserInput {
 
     private static final String DELIMITER = ",";
-    private static final int START_POSITION = 0;
 
     public String inputCarNames() {
         return Console.readLine();
@@ -20,7 +19,7 @@ public class UserInput {
         final List<Car> carNames = new ArrayList<>();
 
         while (stringTokenizer.hasMoreTokens()) {
-            carNames.add(new Car(stringTokenizer.nextToken(), START_POSITION));
+            carNames.add(new Car(stringTokenizer.nextToken()));
         }
 
         return carNames;

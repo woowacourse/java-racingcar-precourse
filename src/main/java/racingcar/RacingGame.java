@@ -20,9 +20,9 @@ public class RacingGame {
     }
 
     private void progressGame() {
-        List<Car> carNames = makeParticipantsListRacingGame();
+        List<Car> cars = makeParticipantsListRacingGame();
+        System.out.println("경주차 개수: " + cars.size());
         int attempt = determineAttemptNumber();
-
     }
 
     private int determineAttemptNumber() {
