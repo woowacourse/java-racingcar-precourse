@@ -16,11 +16,10 @@ public class RacingGameController {
 
     public void run() {
         while (!this.tryNumber.finish()) {
-            OutputView.printCurrentCarsPosition(cars.cars());
             this.cars.move();
             tryNumber.minus();
+            OutputView.printCurrentCarsPosition(cars.cars());
         }
-        OutputView.printCurrentCarsPosition(cars.cars());
         OutputView.printWinner(cars.cars());
     }
 
