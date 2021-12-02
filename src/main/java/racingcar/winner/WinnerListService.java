@@ -29,12 +29,14 @@ public class WinnerListService {
 		winnerList.setWinnerPosition(winnerPosition);
 	}
 
+	//모든 차에 대해서 우승여부 확인
 	private void checkIsWinnerCar(WinnerList winnerList) {
 		for (Car car : carRepository.getCars()) {
 			addWinnerCar(car, winnerList);
 		}
 	}
 
+	//우승 자동차 목록에 추가
 	private void addWinnerCar(Car car, WinnerList winnerList) {
 		int carPosition = car.getPosition();
 		int winnerPosition = winnerList.getWinnerPosition();

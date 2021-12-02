@@ -18,6 +18,7 @@ public class RacingCar {
 	CarRepository carRepository;
 	CarRepositoryService carRepositoryService;
 
+	//초기 설정 및 자동차 입력받는 화면 출력
 	public void racingCar() {
 		view = new CarListView();
 		carRepository = new CarRepository();
@@ -50,6 +51,7 @@ public class RacingCar {
 		printProcessView();
 	}
 
+	//실행 횟수 입력화면 출력
 	private void printProcessView() {
 		view = new ProcessView();
 		printViews();
@@ -70,6 +72,7 @@ public class RacingCar {
 		}
 	}
 
+	//횟수 만큼 경주 시작
 	private void accelerateCar(String userProcess) {
 		view = new ResultView(carRepository);
 		int process = Integer.parseInt(userProcess);
@@ -80,6 +83,7 @@ public class RacingCar {
 		setWinner();
 	}
 
+	//자동차 전진 혹은 정지
 	private void moveCar() {
 		for (Car car : carRepository.getCars()) {
 			CarService.accelerate(car);

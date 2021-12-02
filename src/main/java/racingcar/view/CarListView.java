@@ -12,8 +12,7 @@ public class CarListView implements View {
 
 	@Override
 	public String getUserInput() {
-		String userInput = Console.readLine();
-		return userInput;
+		return Console.readLine();
 	}
 
 }

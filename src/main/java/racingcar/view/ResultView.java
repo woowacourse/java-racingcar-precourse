@@ -33,6 +33,7 @@ public class ResultView implements View {
 		System.out.println(INIT_MESSAGE);
 	}
 
+	//자동차의 position에 따라 결과 메세지 출력
 	private void printResult(Car car) {
 		String carName = car.getName();
 		int carPosition = car.getPosition();
