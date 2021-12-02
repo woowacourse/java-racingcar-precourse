@@ -1,10 +1,11 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CarRepository {
-    private final List<Car> carList = new ArrayList<>();
+    private final List<Car> carList = Collections.synchronizedList(new ArrayList<>());
     private final static int DEFAULT_VALUE = 0;
 
     private CarRepository(){}
