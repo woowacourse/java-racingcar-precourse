@@ -2,7 +2,7 @@ package racingcar.handler;
 
 import static racingcar.utils.Constant.*;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 
 public class PrintHandler {
 	public static void printInputNameMsg() {

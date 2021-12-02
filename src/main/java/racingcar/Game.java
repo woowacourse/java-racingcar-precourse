@@ -1,18 +1,12 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import racingcar.domain.CarList;
 import racingcar.handler.InputHandler;
 import racingcar.handler.PrintHandler;
 
 public class Game {
-	private final List<Car> carList;
+	private CarList carList;
 	private int runNumber;
-
-	public Game() {
-		this.carList = new ArrayList<>();
-	}
 
 	public void run() {
 		inputName();
@@ -27,18 +21,15 @@ public class Game {
 		PrintHandler.printInputNameMsg();
 		try {
 			String[] names = InputHandler.getNameInput();
-			createCar(names);
+			createCarList(names);
 		} catch (IllegalArgumentException e) {
 			PrintHandler.printErrorMsg(e);
 			inputName();
 		}
 	}
 
-	private void createCar(String[] names) {
-		for (String name : names) {
-			Car car = new Car(name.trim());
-			carList.add(car);
-		}
+	private void createCarList(String[] names) {
+		carList = new CarList(names);
 	}
 
 	private void inputRunNumber() {
@@ -51,7 +42,7 @@ public class Game {
 	}
 
 	private void playOnce() {
-		carList.forEach(Car::playOnce);
+		carList.playOnce();
 		PrintHandler.printBlank();
 	}
 }
