@@ -17,7 +17,7 @@ public class TryCountValidator {
 
 			return false;
 		} catch (IllegalArgumentException illegalArgumentException) {
-			System.out.println(DIGIT_VALUE_ERROR_MESSAGE);
+			System.out.println(errorMessage);
 
 			return true;
 		}
