@@ -19,7 +19,7 @@ public class Car {
 
     public void move() {
         int i = Randoms.pickNumberInRange(1, 9);
-        if (i > 4) {
+        if (i >= 4) {
             position++;
         }
     }
