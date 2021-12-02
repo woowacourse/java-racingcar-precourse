@@ -8,13 +8,13 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class RacingGameView {
-	private RacingGameView racingGameView = new RacingGameView();
+class RacingGameView {
+	private static RacingGameView racingGameView = new RacingGameView();
 
 	private RacingGameView() {
 	}
 
-	public RacingGameView getRacingGameView() {
+	public static RacingGameView getRacingGameView() {
 		return racingGameView;
 	}
 
@@ -23,7 +23,7 @@ public class RacingGameView {
 		do {
 			System.out.println(CAR_NAME_INPUT_MESSAGE);
 			carNamesList = new ArrayList<>(Arrays.asList(Console.readLine().split(",")));
-		} while (checkLongNameException(carNamesList));
+		} while (!checkLongNameException(carNamesList));
 		return carNamesList;
 	}
 
