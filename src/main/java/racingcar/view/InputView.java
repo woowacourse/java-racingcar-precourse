@@ -30,6 +30,13 @@ public class InputView {
 		validateLengthOfCarName(carNames);
 	}
 
+	private static void validateDuplicateCarNames(String[] carNames) {
+		HashSet<String> tempSet = new HashSet<>(Arrays.asList(carNames));
+		if(tempSet.size() != carNames.length) {
+			throw new IllegalArgumentException(ERROR_MESSAGE + "중복된 자동차 이름이 있습니다.");
+		}
+	}
+
 	private static void validateIsEmpty(String input) {
 		if (input.isEmpty()) {
 			throw new IllegalArgumentException();
