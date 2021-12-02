@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,6 +33,19 @@ class ApplicationTest extends NsTest {
                 assertThat(output()).contains(ERROR_MESSAGE);
             }
         );
+    }
+
+    @Test
+    public void pickNumberInRange_테스트() throws Exception {
+        //given
+        int num1 = 0;
+        int num2 = 9;
+
+        //when
+        int result = pickNumberInRange(num1, num2);
+
+        //then
+        assertThat(result).isGreaterThanOrEqualTo(num1).isLessThanOrEqualTo(num2);
     }
 
     @Override
