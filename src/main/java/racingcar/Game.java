@@ -63,6 +63,17 @@ public class Game {
 	}
 
 	public int setGameTurnWithoutException() {
+
+		while (true) {
+			try {
+				String strGameTurn = Console.readLine();
+				int intGameTurn = Integer.parseInt(strGameTurn);
+				return intGameTurn;
+			} catch (IllegalArgumentException e) {
+				System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+			}
+		}
+		
 	}
 
 	public void printWinner() {
