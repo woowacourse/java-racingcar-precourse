@@ -10,15 +10,15 @@ import camp.nextstep.edu.missionutils.Console;
 public class CarListMaker {
 	ArrayList<Car> carList = new ArrayList<>();
 
-	ArrayList<Car> getCarList(){
+	ArrayList<Car> getCarList() {
 		return this.carList;
 	}
 
-	CarListMaker(){
+	CarListMaker() {
 		makeList();
 	}
 
-	private void makeList(){
+	private void makeList() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		boolean passed = false;
 		while (!passed) {
@@ -27,7 +27,7 @@ public class CarListMaker {
 		}
 	}
 
-	private boolean isValidList(String chunkOfCarNames){
+	private boolean isValidList(String chunkOfCarNames) {
 		try {
 			carList = getCarList(chunkOfCarNames);
 		} catch (IllegalArgumentException error) {
@@ -47,32 +47,32 @@ public class CarListMaker {
 		return carList;
 	}
 
-	private ArrayList<String> splitStrToListByComma(String str){
+	private ArrayList<String> splitStrToListByComma(String str) {
 		String[] arr = str.split(",");
-		List<String> myList =  Stream.of(arr).collect(Collectors.toList());
+		List<String> myList = Stream.of(arr).collect(Collectors.toList());
 		return (new ArrayList<String>(myList));
 	}
 }
 
-class NameStringMaker{
+class NameStringMaker {
 	private String chunkOfCarNames;
 
-	String getNameString(){
+	String getNameString() {
 		return chunkOfCarNames;
 	}
 
-	NameStringMaker(){
+	NameStringMaker() {
 		input();
 	}
 
-	private String input(){
+	private String input() {
 		do {
 			this.chunkOfCarNames = Console.readLine();
 		} while (!isValidInput(chunkOfCarNames));
 		return chunkOfCarNames;
 	}
 
-	private boolean isValidInput(String input){
+	private boolean isValidInput(String input) {
 		try {
 			return InputValidator.isStrContainOnlyAlphabetOrComma(input);
 		} catch (Exception error) {

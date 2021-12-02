@@ -3,11 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RepeatNumMaker {
-	RepeatNumMaker(){
+	RepeatNumMaker() {
 		makeNum();
 	}
 
-	private void makeNum(){
+	private void makeNum() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String input = Console.readLine();
 		new InputValidator().isIntegerGTE1(input);
@@ -16,7 +16,7 @@ public class RepeatNumMaker {
 
 	private int repeatNum = 0;
 
-	int getRepeatNum(){
+	int getRepeatNum() {
 		return this.repeatNum;
 	}
 }
