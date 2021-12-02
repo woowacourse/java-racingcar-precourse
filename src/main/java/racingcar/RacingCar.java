@@ -23,7 +23,7 @@ public class RacingCar {
 	}
 
 	private void printCarListView() {
-		view.printView();
+		printViews();
 
 		getUserCarList();
 	}
@@ -49,7 +49,7 @@ public class RacingCar {
 
 	private void printProcessView() {
 		view = new ProcessView();
-		view.printView();
+		printViews();
 
 		getUserProcessInput();
 	}
@@ -84,6 +84,10 @@ public class RacingCar {
 	}
 
 	private void printResultView() {
+		printViews();
+	}
+
+	private void printViews() {
 		view.printView();
 	}
 }
