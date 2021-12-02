@@ -1,12 +1,8 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import racingcar.view.InputView;
 
 public class RacingGame {
-	private ArrayList<Car> cars = new ArrayList<>();
 	private EveryCar everyCar;
 
 	public void startGame() {
@@ -19,8 +15,4 @@ public class RacingGame {
 		}
 		everyCar.showThisGameWinner();
 	}
-
-
-
-
 }
