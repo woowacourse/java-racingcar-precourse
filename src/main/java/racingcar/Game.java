@@ -32,6 +32,12 @@ public class Game {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String carNames = Console.readLine();
 		Vector<String> seperatedCarNames = separateCarNames(carNames);
+
+		for (int i = 0; i < seperatedCarNames.size(); i++) {
+			Car car = new Car(seperatedCarNames.get(i));
+			cars.add(car);
+		}
+
 	}
 
 	public Vector<String> separateCarNames(String carNames) {
