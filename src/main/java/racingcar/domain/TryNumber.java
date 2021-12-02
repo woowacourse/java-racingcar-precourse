@@ -1,8 +1,9 @@
 package racingcar.domain;
 
-import org.mockito.internal.util.StringUtil;
-
 public class TryNumber {
+
+    private static final String VALID_LENGTH_EXCEPTION_MESSAGE = "시도 회수는 양의 정수이어야 합니다.";
+    private static final Integer MINIMUM_TRY_NUMBER = 0;
     private Integer no;
 
     public TryNumber(String tryNumber) {
@@ -19,18 +20,18 @@ public class TryNumber {
         try {
             Integer.parseInt(tryNumber);
         } catch (Exception exception) {
-            throw new IllegalArgumentException("시도 회수는 양의 정수이어야 합니다. 입력 받은 수 : " + tryNumber);
+            throw new IllegalArgumentException(VALID_LENGTH_EXCEPTION_MESSAGE);
         }
     }
 
     private void validRange(Integer tryNumber) {
-        if (tryNumber <= 0) {
-            throw new IllegalArgumentException("시도 회수는 양의 정수이어야 합니다.");
+        if (tryNumber <= MINIMUM_TRY_NUMBER) {
+            throw new IllegalArgumentException(VALID_LENGTH_EXCEPTION_MESSAGE);
         }
     }
 
     public boolean finish() {
-        return this.no == 0;
+        return this.no == MINIMUM_TRY_NUMBER;
     }
 
     public void minus() {

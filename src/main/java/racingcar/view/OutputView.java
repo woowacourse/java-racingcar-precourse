@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class OutputView {
+    private static final String FINAL_WINNER = "최종 우승자";
+    private static final String POSITION = "-";
 
     public static void printCurrentCarsPosition(List<Car> cars) {
         cars.forEach(OutputView::printEachCarPosition);
@@ -14,21 +16,21 @@ public class OutputView {
     private static void printEachCarPosition(Car car) {
         String position = "";
         for (int i = 0; i < car.position(); i++) {
-            position += "-";
+            position += POSITION;
         }
-        System.out.println(car.name() + " : " + position);
+        System.out.printf("%s : %s%n", car.name(), position);
     }
 
     public static void printWinner(List<Car> cars) {
         int max = findMaxPosition(cars);
         String winners = findWinners(cars, max);
-        System.out.println("최종 우승자 : " + winners);
+        System.out.printf("%s : %s%n", FINAL_WINNER + winners);
     }
 
     private static String findWinners(List<Car> cars, int max) {
         return cars.stream()
             .map(car -> findWinners(max, car))
-            .filter(s -> !s.equals(""))
+            .filter(s -> !s.isEmpty())
             .collect(Collectors.joining(","));
     }
 
