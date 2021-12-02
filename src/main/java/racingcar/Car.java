@@ -12,8 +12,13 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public void moveCarForward() {
         position += 1;
     }
+
     // 추가 기능 구현
 }

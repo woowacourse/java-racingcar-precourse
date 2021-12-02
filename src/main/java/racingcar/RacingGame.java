@@ -27,7 +27,11 @@ public class RacingGame {
 
     private void startGame() {
         moveAllCar();
-        //printResult();
+        printResult();
+    }
+
+    private void printResult() {
+        System.out.println(result.toString());
     }
 
     private void moveAllCar() {
