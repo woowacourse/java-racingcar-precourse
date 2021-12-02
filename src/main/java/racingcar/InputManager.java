@@ -3,53 +3,50 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
-	public boolean carsScan = true;
-	public boolean numberScan = true;
 	public String[] carsList;
 	public int numberOfMove;
 
 	public void scanCarsList() {
+		boolean carsScan = true;
+		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		while (carsScan) {
 			try {
-				System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 				String carsInput = Console.readLine();
 				isValidCars(carsInput);
-				carsList = carsInput.split(",");
-				isValidCars(carsList);
-			} catch (Exception e) {
+				carsScan = false;
+			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
-				numberScan = false;
 			}
 		}
 	}
 
 	public void scanNumberOfMove() {
+		boolean numberScan = true;
+		System.out.println("시도할 횟수는 몇회인가요?");
 		while (numberScan) {
 			try {
-				System.out.println("시도할 횟수는 몇회인가요?");
 				String numberOfMove = Console.readLine();
 				isValidNumber(numberOfMove);
 				this.numberOfMove = toInt(numberOfMove);
-			} catch (Exception e) {
+				numberScan = false;
+			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
 		}
 	}
 
-	public void isValidCars(String[] carsList) throws IllegalArgumentException {
+	public void isValidCars(String carsInput) throws IllegalArgumentException {
+		String[] carsList;
+		if (carsInput.length() == 0) {
+			throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
+		}
+		carsList = carsInput.split(",");
 		for (String car : carsList) {
 			if (car.length() > 5) {
 				throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
 			}
 		}
-		carsScan = false;
-	}
-
-	public void isValidCars(String carsInput) throws IllegalArgumentException {
-		if (carsInput.length() == 0) {
-			throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
-		}
-		carsScan = false;
+		this.carsList = carsList;
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
@@ -61,7 +58,6 @@ public class InputManager {
 				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
 			}
 		}
-		numberScan = false;
 	}
 
 	public int toInt(String number) {
