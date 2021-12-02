@@ -103,6 +103,16 @@ public class Game {
 	}
 
 	public int getWinnerPosition() {
+		int winnerPosition = 0;
 
+		for (int i = 0; i < cars.size(); i++) {
+
+			if (winnerPosition < cars.get(i).getPosition()) {
+				winnerPosition = cars.get(i).getPosition();
+			}
+
+		}
+
+		return winnerPosition;
 	}
 }
