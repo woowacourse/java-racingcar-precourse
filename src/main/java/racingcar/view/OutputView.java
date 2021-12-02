@@ -7,7 +7,6 @@ import racingcar.domain.Car;
 public class OutputView {
 
     public static void printCurrentCarsPosition(List<Car> cars) {
-//        cars.forEach(car -> System.out.println(car.position()));
         cars.forEach(OutputView::printEachCarPosition);
         System.out.println();
     }
@@ -17,8 +16,7 @@ public class OutputView {
         for (int i = 0; i < car.position(); i++) {
             position += "-";
         }
-        System.out.println(car.position());
-        System.out.println(car.name() + ": " + position);
+        System.out.println(car.name() + " : " + position);
     }
 
     public static void printWinner(List<Car> cars) {
