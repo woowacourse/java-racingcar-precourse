@@ -19,17 +19,6 @@ public class Car {
 		return position;
 	}
 
-	public StringBuilder getNameAndPostionMessage() {
-		StringBuilder result = new StringBuilder();
-		result.append(name);
-		result.append(COLON);
-		for (int i = 0; i < position; i++) {
-			result.append(ONE_STEP);
-		}
-		result.append("\n");
-		return result;
-	}
-
 	public void movePosition() {
 		int randomNumber = pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
 		if (isRandomNumberSatisfiedCondition(randomNumber)) {
@@ -39,5 +28,16 @@ public class Car {
 
 	private boolean isRandomNumberSatisfiedCondition(int randomNumber) {
 		return randomNumber >= MIN_VALUE_OF_SATISFIED_CONDITION;
+	}
+
+	public StringBuilder getNameAndPostionMessage() {
+		StringBuilder result = new StringBuilder();
+		result.append(name);
+		result.append(COLON);
+		for (int i = 0; i < position; i++) {
+			result.append(ONE_STEP);
+		}
+		result.append("\n");
+		return result;
 	}
 }

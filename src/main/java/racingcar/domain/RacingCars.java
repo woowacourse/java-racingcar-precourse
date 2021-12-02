@@ -17,28 +17,6 @@ public class RacingCars {
 		racingCars = makeCars();
 	}
 
-	public List<String> getWinner() {
-		int maxPosition = racingCars.stream()
-			.mapToInt(Car::getPosition)
-			.max()
-			.orElse(0);
-
-		return racingCars.stream()
-			.filter(car -> car.getPosition() == maxPosition)
-			.map(Car::getName)
-			.collect(Collectors.toList());
-	}
-
-	public String getExcutionForEachOrderMessage() {
-		StringBuilder result = new StringBuilder();
-		racingCars.forEach(car -> result.append(car.getNameAndPostionMessage()));
-		return result.toString();
-	}
-
-	public void move() {
-		racingCars.forEach(Car::movePosition);
-	}
-
 	public List<Car> makeCars() {
 		List<String> carNames = getCarNames();
 		return carNames.stream()
@@ -57,5 +35,27 @@ public class RacingCars {
 
 	private static List<String> toList(String carNames) {
 		return Arrays.asList(carNames.split(DELIMITER));
+	}
+
+	public void move() {
+		racingCars.forEach(Car::movePosition);
+	}
+
+	public String getExcutionForEachOrderMessage() {
+		StringBuilder result = new StringBuilder();
+		racingCars.forEach(car -> result.append(car.getNameAndPostionMessage()));
+		return result.toString();
+	}
+
+	public List<String> getWinner() {
+		int maxPosition = racingCars.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.orElse(0);
+
+		return racingCars.stream()
+			.filter(car -> car.getPosition() == maxPosition)
+			.map(Car::getName)
+			.collect(Collectors.toList());
 	}
 }

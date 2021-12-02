@@ -10,21 +10,21 @@ public class AttemptNumber {
 	private static int numberOfRuns = 0;
 
 	public AttemptNumber() {
-		attemptNumber = setNumber();
+		attemptNumber = setAttemptNumber();
 	}
 
-	public boolean isAttemptRemained() {
-		boolean result = (attemptNumber != numberOfRuns);
-		numberOfRuns++;
-		return result;
-	}
-
-	private int setNumber() {
+	private int setAttemptNumber() {
 		String attemptNumber;
 		do {
 			OutputView.printAskingAttemptNumber();
 			attemptNumber = InputView.getInput();
 		} while (!isValidAttemptNumber(attemptNumber));
 		return Integer.parseInt(attemptNumber);
+	}
+
+	public boolean isAttemptRemained() {
+		boolean result = (attemptNumber != numberOfRuns);
+		numberOfRuns++;
+		return result;
 	}
 }
