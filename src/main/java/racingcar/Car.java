@@ -28,6 +28,16 @@ public class Car {
         }
     }
 
+    public String getCarStatus() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(" : ");
+
+        for(int i=0;i<position;i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
+
     private boolean isBiggerThanStandard(int num) {
         return STANDARD_NUMBER <= num;
     }

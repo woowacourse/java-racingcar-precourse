@@ -54,8 +54,10 @@ public class RacingSystem {
             for (Car car : cars) {
                 int random = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
                 car.go(random);
+                System.out.println(car.getCarStatus());
                 getWinner(car.getName(), car.getPosition());
             }
+            System.out.println();
         }
     }
 
