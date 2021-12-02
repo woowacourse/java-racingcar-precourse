@@ -2,54 +2,37 @@ package racingcar;
 
 import java.util.HashSet;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class InputValidator {
 	String carName;
-	HashSet<String> carNameSet;
+	HashSet<String> carNameSet = new HashSet<>();
 
-	String checkCarListInput(String carName) {
-		boolean condition1 = false;
-		boolean condition2 = false;
-		boolean condition3 = false;
-
-		while (!(condition1 && condition2 && condition3)){
-			try {
-				condition1 = isValidLength();
-				condition2 = containsNoBlank();
-				condition3 = hasNoDuplication();
-			} catch (IllegalArgumentException e){
-				System.out.println(e.getMessage());
-				carName = Console.readLine();
-			}
-		}
-
-		return carName;
+	boolean checkCarListInput(String carName) {
+		this.carName = carName;
+		return isValidLength() && containsNoBlank() && hasNoDuplication();
 	}
 
 	boolean isValidLength(){
 		int len = carName.length();
-		if (0< len && len <= 5){
-			return true;
+		if (len == 0 || len > 5 ){
+			throw new IllegalArgumentException(ErrorMessageText.NOT_ALLOWED_LENGTH_RANGE);
 		}
-		throw new IllegalArgumentException(ErrorMessageText.NOT_ALLOWED_LENGTH_RANGE);
+		return true;
 	}
 
 	boolean containsNoBlank(){
 		if (carName.contains(" ")){
-			return true;
+			throw new IllegalArgumentException(ErrorMessageText.BLANK_NOT_ALLOWED);
 		}
-		throw new IllegalArgumentException(ErrorMessageText.BLANK_NOT_ALLOWED);
+		return true;
 	}
 
 	boolean hasNoDuplication(){
-		if (!carNameSet.contains(carName)){
-			carNameSet.add(carName);
-			return true;
+		if (carNameSet.contains(carName)) {
+			throw new IllegalArgumentException(ErrorMessageText.DUPLICATION_NOT_ALLOWED);
 		}
-		throw new IllegalArgumentException(ErrorMessageText.DUPLICATION_NOT_ALLOWED);
+		carNameSet.add(carName);
+		return true;
 	}
-
 }
 
 class ErrorMessageText{
