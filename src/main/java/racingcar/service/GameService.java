@@ -13,25 +13,40 @@ public class GameService {
 	private static final int FORWARD_CONDITION = 4;
 	private Game game;
 
-	public GameService(int trial, List<String> carNames) {
-		this.game = new Game(trial, getCars(carNames));
+	public GameService(int trial, List<Car> cars) {
+		this.game = new Game(trial, cars);
 	}
 
-	private List<Car> getCars(List<String> carNames) {
-		List<Car> carList = new ArrayList<>();
-		for (int i = 0; i < carNames.size(); i++) {
-			carList.add(new Car(carNames.get(i)));
+	public List<Car> play() {
+		while (!game.checkReachTrialNumToTrial()) {
+			moveForwardByRandomNumber();
+			game.increaseTrialNum();
 		}
-		return carList;
+		return getWinners();
 	}
 
-	public void play() {
+	private List<Car> getWinners() {
+		int max = -1;
+		List<Car> winners = new ArrayList<>();
+		for (Car car : game.getCars()) {
+			if (max == car.getPosition()) {
+				winners.add(car);
+			}
+			if (max < car.getPosition()) {
+				max = car.getPosition();
+				winners = new ArrayList<>();
+				winners.add(car);
+			}
+		}
+		return winners;
+	}
+
+	private void moveForwardByRandomNumber() {
 		for (Car car : game.getCars()) {
 			if (FORWARD_CONDITION <= getRandomNumber()) {
 				car.moveForward(1);
 			}
 		}
-		game.increaseTrialNum();
 	}
 
 	private int getRandomNumber() {

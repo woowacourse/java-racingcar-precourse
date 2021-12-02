@@ -11,4 +11,12 @@ public class Car {
 	public void moveForward(int distance) {
 		position += distance;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
 }

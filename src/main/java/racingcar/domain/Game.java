@@ -20,4 +20,8 @@ public class Game {
 	public void increaseTrialNum() {
 		this.trialNum += 1;
 	}
+
+	public boolean checkReachTrialNumToTrial() {
+		return this.trial == this.trialNum;
+	}
 }
