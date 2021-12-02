@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class RacingGame {
+    private Result result;
     private int moves;
     ArrayList<Car> carArrayList = new ArrayList<>();
 
@@ -16,11 +17,17 @@ public class RacingGame {
 
     private void initGame() {
         processCarName(inputCarNames());
+        createResult();
         inputMoves();
+    }
+
+    private void createResult() {
+        result = new Result(carArrayList);
     }
 
     private void startGame() {
         moveAllCar();
+        //printResult();
     }
 
     private void moveAllCar() {
