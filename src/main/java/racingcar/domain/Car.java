@@ -12,8 +12,19 @@ public class Car {
     }
 
     private void validCarName(String name) throws IllegalArgumentException {
+        emptyNullCheck(name);
+        validLength(name);
+    }
+
+    private void emptyNullCheck(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("[ERROR]: 자동차의 이름은 1글자 이상 5글자 이하로 지정하여야 합니다.");
+        }
+    }
+
+    private void validLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("[ERROR]: 자동차의 이름은 5글자 이하로 지정하여야 합니다.");
+            throw new IllegalArgumentException("[ERROR]: 자동차의 이름은 1글자 이상 5글자 이하로 지정하여야 합니다.");
         }
     }
 
