@@ -12,4 +12,10 @@ public final class Constant {
 	public static final String ERROR_MESSAGE = "[ERROR] ";
 	public static final String ERROR_MESSAGE_CAR_NAME = ERROR_MESSAGE + "자동차 이름은 5자리 이하여야 하며, 쉼표(,) 기준으로 구분해야 한다.";
 	public static final String ERROR_MESSAGE_ATTEMPT_NUMBER = ERROR_MESSAGE + "시도 횟수는 숫자여야 한다.";
+
+	public static final int RANDOM_NUMBER_MIN_VALUE = 0;
+	public static final int RANDOM_NUMBER_MAX_VALUE = 9;
+
+	public static final int MOVE_MIN_VALUE = 4;
+	public static final String MOVE_MARK = "-";
 }

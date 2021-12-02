@@ -1,18 +1,21 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
 import racingcar.domain.Car;
 import racingcar.type.GameState;
 import racingcar.util.Constant;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
 	private static GameState gameState;
 	private String[] carNameArray;
-	private List<Car> cars;
+	private final List<Car> cars = new ArrayList<>();
 	private int attemptNumber;
 
 	public void init() {
@@ -23,6 +26,7 @@ public class GameController {
 		inputInitialValue();
 		init();
 		generateCar();
+		startRace();
 	}
 
 	private void inputInitialValue() {
@@ -66,9 +70,18 @@ public class GameController {
 	}
 
 	private void generateCar() {
-		for(String name : carNameArray) {
+		for (String name : carNameArray) {
 			Car car = new Car(name);
 			cars.add(car);
+		}
+	}
+
+	private void startRace() {
+		for (int i = 0; i < attemptNumber; i++) {
+			cars.stream()
+				.peek(car -> car.move(RandomNumberGenerator.generate()))
+				.forEach(OutputView::printMoveResult);
+			System.out.println();
 		}
 	}
 }
