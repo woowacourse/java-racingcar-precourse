@@ -23,6 +23,7 @@ public class RacingCarGame {
 			System.out.println();
 		}
 		playLastTurn();
+		announceWinner();
 	}
 
 	private void prepareCarList() {
@@ -73,6 +74,16 @@ public class RacingCarGame {
 				winnerList.add(car);
 			}
 		}
+	}
+
+	private void announceWinner() {
+		StringBuilder winnerNames = new StringBuilder();
+		for (Car car : winnerList) {
+			winnerNames.append(car.getName());
+			winnerNames.append(", ");
+		}
+		winnerNames.deleteCharAt(winnerNames.lastIndexOf(", "));
+		System.out.printf("최종 우승자 : %s", winnerNames);
 	}
 
 	private void setCarList(String[] carNames) throws IllegalArgumentException {

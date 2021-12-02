@@ -25,6 +25,10 @@ public class Car {
 		System.out.printf("%s : %s%n", name, strPosition);
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
 	public int getPosition() {
 		return this.position;
 	}
