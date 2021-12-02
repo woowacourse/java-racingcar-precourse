@@ -23,13 +23,13 @@
     - 메서드
         - `moveOrStop(int randomNumber)`: randomNumber의 값이 4이상의 값이 나오면 전진한다. (position 값 +1 증가) 값이 3이하의 값이 나오면 움직이지 않는다.
         - `getRandomNumber()`: RandomNumberBox 객체로 부터 0~9중 무작위의 수를 randomNumber에 입력받는다.
+        - `sortingByPosition(List<Car> list)`:  ComparatorByPosition 클래스 참조받아 입력받은 carList를 정렬한다.
+    - 내부 클래스
+        - ComparatorByPosition: Car객체의 position을 기준으로 내림차순을 해준다.
 - Judge
     - 메서드
         - `judge(List<Car> list)`: 모든 Car 객체 중에서 가장 높은 postion 값을 가진 객체를 출력한다.
             - 만약, 가장 높은 postion을 가진 객체가 여러 개일 경우 모두 반환한다.
-        - `sortingByPosition(List<Car> list)`:  ComparatorByPosition 클래스 참조받아 입력받은 carList를 정렬한다.
-    - 내부 클래스
-        - ComparatorByPosition: Car객체의 position을 기준으로 내림차순을 해준다.
 - RandomNumberBox
     - 0~9중 무작위의 수를 생성한다.
 - Error

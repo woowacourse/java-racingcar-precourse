@@ -27,11 +27,12 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi,javaji"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
-        );
+         assertSimpleTest(
+             () -> {
+                 runException("pobi,javaji");
+                 assertThat(output()).contains(ERROR_MESSAGE);
+            }
+         );
     }
 
     @Override
