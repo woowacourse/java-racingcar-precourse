@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 
@@ -22,5 +23,9 @@ public class GameService {
 			carList.add(new Car(carNames.get(i)));
 		}
 		return carList;
+	}
+
+	private int getRandomNumber() {
+		return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
 	}
 }
