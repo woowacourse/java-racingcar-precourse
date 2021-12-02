@@ -34,7 +34,6 @@ public class InputManager {
 				System.out.println(e.getMessage());
 			}
 		}
-
 	}
 
 	public void isValidCars(String[] carsList) throws IllegalArgumentException {
