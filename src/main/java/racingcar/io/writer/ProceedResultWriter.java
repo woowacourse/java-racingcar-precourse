@@ -1,9 +1,9 @@
-package racingcar.writer;
+package racingcar.io.writer;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import racingcar.ConsoleDisplay;
+import racingcar.io.ConsoleDisplay;
 import racingcar.model.ProceedResult;
 
 public class ProceedResultWriter {

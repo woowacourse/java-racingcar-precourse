@@ -1,8 +1,8 @@
-package racingcar.writer;
+package racingcar.io.writer;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.ConsoleDisplay;
+import racingcar.io.ConsoleDisplay;
 
 public class WinnerWriter {
 	private ConsoleDisplay consoleDisplay;

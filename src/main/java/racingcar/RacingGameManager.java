@@ -4,8 +4,8 @@ import java.util.List;
 import racingcar.model.ProceedResult;
 import racingcar.model.RacingGame;
 import racingcar.model.RacingInfo;
-import racingcar.reader.RacingInfoReader;
-import racingcar.writer.RacingWriter;
+import racingcar.io.reader.RacingInfoReader;
+import racingcar.io.writer.RacingWriter;
 
 public class RacingGameManager {
 	private final RacingInfoReader reader;

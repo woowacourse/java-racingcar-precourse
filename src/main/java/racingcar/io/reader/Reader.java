@@ -1,7 +1,7 @@
-package racingcar.reader;
+package racingcar.io.reader;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.ConsoleDisplay;
+import racingcar.io.ConsoleDisplay;
 
 public abstract class Reader<T> {
 	private final ConsoleDisplay consoleDisplay;

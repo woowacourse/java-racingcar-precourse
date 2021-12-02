@@ -1,4 +1,4 @@
-package racingcar.reader;
+package racingcar.io.reader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -10,8 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import racingcar.ConsoleDisplay;
-import racingcar.reader.CarNameReader;
+import racingcar.io.ConsoleDisplay;
 
 public class CarNameReaderTest {
 	MockedStatic<Console> consoleMockedStatic;

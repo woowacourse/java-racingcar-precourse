@@ -1,11 +1,12 @@
 package racingcar;
 
-import racingcar.reader.CarNameReader;
-import racingcar.reader.RacingInfoReader;
-import racingcar.reader.TurnValueReader;
-import racingcar.writer.ProceedResultWriter;
-import racingcar.writer.RacingWriter;
-import racingcar.writer.WinnerWriter;
+import racingcar.io.ConsoleDisplay;
+import racingcar.io.reader.CarNameReader;
+import racingcar.io.reader.RacingInfoReader;
+import racingcar.io.reader.TurnValueReader;
+import racingcar.io.writer.ProceedResultWriter;
+import racingcar.io.writer.RacingWriter;
+import racingcar.io.writer.WinnerWriter;
 
 public class Application {
 	public static void main(String[] args) {
