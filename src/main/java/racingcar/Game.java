@@ -20,7 +20,25 @@ public class Game {
                 car.go();
             }
 
+            printCurrentState(carList);
         }
     }
 
+    public void printCurrentState(List<Car> carList) {
+        String result = "";
+        for (Car car : carList) {
+            result += car.getName() + " : " + convertInt2Hyphen(car.getPosition()) + "\n";
+        }
+        System.out.println(result);
+    }
+
+    private String convertInt2Hyphen(int goCount) {
+        String result = "";
+
+        for (int i = 0 ; i < goCount ; i++) {
+            result += "-";
+        }
+
+        return result;
+    }
 }
