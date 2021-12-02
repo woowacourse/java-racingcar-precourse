@@ -21,8 +21,9 @@ public class Input {
 
 	public static String[] inputCarNames() {
 		System.out.println(CAR_NAMES_INPUT_MESSAGE);
-		flag = true;
+
 		while (true) {
+			flag = true;
 			carNames = readLine().split(",");
 			isValidCarNames();
 			if (flag) {
@@ -49,8 +50,9 @@ public class Input {
 
 	public static int inputCoinNumber() {
 		System.out.println(COIN_INPUT_MESSAGE);
-		flag = true;
+
 		while (true) {
+			flag = true;
 			input = readLine();
 			isValidNumberFormat();
 			if (flag) {
@@ -72,6 +74,17 @@ public class Input {
 		}
 	}
 
+	private static void isValidNumberFormat() {
+		try {
+			if (!NUMBER.matcher(input).matches()) {
+				flag = false;
+				throw new NumberFormatNotValidException();
+			}
+		} catch (IllegalArgumentException ex) {
+
+		}
+	}
+
 	private static void isNameLengthMoreOverThanLimit(String name) {
 		if (name.length() > NAME_LENGTH_LIMIT) {
 			flag = false;
@@ -79,10 +92,5 @@ public class Input {
 		}
 	}
 
-	private static void isValidNumberFormat() {
-		if (!NUMBER.matcher(input).matches()) {
-			flag = false;
-			throw new NumberFormatNotValidException();
-		}
-	}
+
 }
