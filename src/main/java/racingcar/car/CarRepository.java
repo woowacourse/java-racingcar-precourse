@@ -1,7 +1,10 @@
 package racingcar.car;
 
+import racingcar.car.dto.CarDto;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarRepository {
 
@@ -25,5 +28,11 @@ public class CarRepository {
 
     public void moveForward(int index) {
         cars.get(index).moveForward();
+    }
+
+    public List<CarDto> getCars() {
+        return cars.stream()
+                .map(Car::getCarDto)
+                .collect(Collectors.toList());
     }
 }
