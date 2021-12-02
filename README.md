@@ -14,13 +14,13 @@
 
    - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우
 
-4. (수정) `GameHandler` 가 자동차의 이름을 알 수 있게 하기 위해서 `name()` method 필요.
+4.  `GameHandler` 가 자동차의 이름을 알 수 있게 하기 위해서 `name()` method 필요.
 
 <br>
 
 ## GameHandler
 
-1. (수정) 글자 수 최소, 최대 상수 필요  (`Constant` 객체에 추가할 예정)
+1. 글자 수 최소, 최대 상수 필요  (`Constant` 객체에 추가할 예정)
    1.  `MIN_NAME_LENGTH`(==1)
    2.  `MAX_NAME_LENGTH` (==5)
    3. `IMPROPER_CHARACTER`(=='`,`')
@@ -41,6 +41,8 @@
 5. 이동횟수만큼 자동차들이 `go` 하게 만든다.
 6. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult(List<Car> cars)`
 7. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners(List<Car> cars)`
+   1. (수정) 현재 위치가 가장 먼 자동차의 위치를 찾는 함수
+   2. (수정) 가장 먼 위치를 기준으로 같은 값을 가진 자동차가 있으면 우승자에 추가 후 출력형태로 만드는 함수
 8. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
    1. `createCars()` → 알맞은 자동차 생성
    2. `getStages()` → 얼마나 이동할 것인지
