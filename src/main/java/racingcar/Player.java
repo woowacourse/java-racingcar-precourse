@@ -21,7 +21,7 @@ public class Player {
                 this.validateCarNamesDuplicate();
                 break;
             } catch (IllegalArgumentException exception) {
-                System.out.println(exception);
+                System.out.println(ERROR + exception.getMessage());
             }
         }
         while (true) {
@@ -31,7 +31,7 @@ public class Player {
                 this.validateMoreThanOne();
                 break;
             }catch (IllegalArgumentException exception){
-                System.out.println(exception);
+                System.out.println(ERROR + exception.getMessage());
             }
         }
         return carNamesArray;
@@ -59,28 +59,28 @@ public class Player {
             carNameSet.add(carName);
         }
         if (carNameSet.size() != carNamesArray.length) {
-            throw new IllegalArgumentException(ERROR + " : 중복된 자동차 이름을 입력하였습니다.");
+            throw new IllegalArgumentException(" 중복된 자동차 이름을 입력하였습니다.");
         }
     }
 
     private void validateCarNamesLength() {
         for (String carName : carNamesArray) {
             if (carName.length() >= CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException(ERROR + " : 자동차 이름은 최대 5자까지 입력 가능합니다.");
+                throw new IllegalArgumentException(" 자동차 이름은 최대 5자까지 입력 가능합니다.");
             }
         }
     }
 
     private void validateMoreThanOne(){
         if(gameCoin <= 0){
-            throw new IllegalArgumentException(ERROR + " : 1 이상의 정수만 입력 가능합니다.");
+            throw new IllegalArgumentException(" 1 이상의 정수만 입력 가능합니다.");
         }
     }
 
     private void validateOnlyInteger(String coin){
         for(String digit : coin.split("")){
             if(digit.charAt(0) < '0' || digit.charAt(0)  > '9'){
-                throw new IllegalArgumentException(ERROR + "숫자만 입력이 가능합니다.");
+                throw new IllegalArgumentException(" 숫자만 입력이 가능합니다.");
             }
         }
         gameCoin = Integer.parseInt(coin);
