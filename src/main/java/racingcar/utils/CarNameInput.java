@@ -12,7 +12,7 @@ import racingcar.Car;
 public class CarNameInput {
 	private static final int NAME_LIMIT_LENGTH = 5;
 
-	public void getCar() {
+	public List<Car> getCar() {
 		String readCars = Console.readLine();
 		String[] carArray = readCars.split(",");
 
@@ -28,6 +28,9 @@ public class CarNameInput {
 			throw new IllegalArgumentException("[ERROR] 자동차에 중복된 이름이 포함되면 안된다.");
 		}
 
+		return Arrays.stream(carArray)
+			.map(name -> new Car(name))
+			.collect(Collectors.toList());
 	}
 
 	private boolean isEmptyName(String[] carArray) {
