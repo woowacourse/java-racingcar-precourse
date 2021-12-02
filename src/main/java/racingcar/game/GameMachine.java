@@ -5,17 +5,19 @@ import java.util.List;
 import racingcar.car.Cars;
 import racingcar.car.MovingPolicy;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameMachine {
     private static final int ZERO_INDEX = 0;
-    private static final String END_MESSAGE = "최종 우승자 : ";
 
     private final MovingPolicy movingPolicy;
     private final InputView inputView;
+    private final OutputView outputView;
 
-    public GameMachine(MovingPolicy movingPolicy, InputView inputView) {
+    public GameMachine(MovingPolicy movingPolicy, InputView inputView, OutputView outputView) {
         this.movingPolicy = movingPolicy;
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void run() {
@@ -27,10 +29,9 @@ public class GameMachine {
 
         while (tryCount-- > ZERO_INDEX) {
             cars.move();
-            System.out.println(cars.getExecutionResult());
-            System.out.println();
+            outputView.printExecutionResult(cars.getExecutionResult());
         }
 
-        System.out.println(END_MESSAGE + cars.getWinnersNames());
+        outputView.printWinnerNames(cars.getWinnersNames());
     }
 }
