@@ -1,20 +1,18 @@
-package racingcar;
+package racingcar.utils;
 
 import static camp.nextstep.edu.missionutils.Console.*;
-import static racingcar.RandomNumberBox.*;
+import static racingcar.utils.RandomNumberBox.*;
+import static racingcar.utils.Validator.*;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.regex.Pattern;
 
-import racingcar.exception.CarNameNotValidException;
-import racingcar.exception.NumberFormatNotValidException;
+import racingcar.domain.Car;
 
 public class Input {
 	private static final String CAR_NAMES_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String COIN_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
-	private static final Pattern NUMBER = Pattern.compile("[0-9]+");
-	private static final int NAME_LENGTH_LIMIT = 5;
+
 	private static String[] carNames;
 	private static String input;
 	private static boolean flag;
@@ -25,7 +23,7 @@ public class Input {
 		while (true) {
 			flag = true;
 			carNames = readLine().split(",");
-			isValidCarNames();
+			flag = validateCarNames(carNames, flag);
 			if (flag) {
 				break;
 			}
@@ -54,7 +52,7 @@ public class Input {
 		while (true) {
 			flag = true;
 			input = readLine();
-			isValidNumberFormat();
+			flag = validateNumberFormat(input, flag);
 			if (flag) {
 				break;
 			}
@@ -62,35 +60,5 @@ public class Input {
 
 		return Integer.parseInt(input);
 	}
-
-	private static void isValidCarNames() {
-		try {
-			for (int i = 0; i < carNames.length; i++) {
-				String name = carNames[i];
-				isNameLengthMoreOverThanLimit(name);
-			}
-		} catch (IllegalArgumentException ex) {
-
-		}
-	}
-
-	private static void isValidNumberFormat() {
-		try {
-			if (!NUMBER.matcher(input).matches()) {
-				flag = false;
-				throw new NumberFormatNotValidException();
-			}
-		} catch (IllegalArgumentException ex) {
-
-		}
-	}
-
-	private static void isNameLengthMoreOverThanLimit(String name) {
-		if (name.length() > NAME_LENGTH_LIMIT) {
-			flag = false;
-			throw new CarNameNotValidException();
-		}
-	}
-
 
 }

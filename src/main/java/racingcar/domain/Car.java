@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain;
+
+import static racingcar.utils.Validator.*;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,7 +25,7 @@ public class Car {
 	}
 
 	public void moveOrStop(int randomNumber) {
-		if (randomNumber >= 4) {
+		if (isCarMoveCondition(randomNumber)) {
 			position++;
 		}
 	}
