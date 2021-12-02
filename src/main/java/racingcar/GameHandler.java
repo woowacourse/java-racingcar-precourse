@@ -43,15 +43,14 @@ public class GameHandler {
 
 	private List<Car> findWinnerCars() {
 		List<Car> winners = new ArrayList<>();
-		List<Car> carList = new ArrayList<>(cars);
 
-		carList.sort(Comparator.comparingInt(Car::currentPosition));
-		int max = carList.get(carList.size() - 1).currentPosition();
-		for (int i = carList.size() - 1; i >= 0; i--) {
-			if (carList.get(i).currentPosition() < max) {
+		cars.sort(Comparator.comparingInt(Car::currentPosition));
+		int max = cars.get(cars.size() - 1).currentPosition();
+		for (int i = cars.size() - 1; i >= 0; i--) {
+			if (cars.get(i).currentPosition() < max) {
 				break;
 			}
-			winners.add(carList.get(i));
+			winners.add(cars.get(i));
 		}
 
 		return winners;

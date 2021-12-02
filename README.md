@@ -39,8 +39,8 @@
    1. 사용자의 입력을 받아야 함. → `getUserInputStages()`
       1. 사용자의 입력이 `int type` 이 아니면 `IllegalArugmentException`
 5. 이동횟수만큼 자동차들이 `go` 하게 만든다.
-6. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult(List<Car> cars)`
-7. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners(List<Car> cars)`
+6. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult()`
+7. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners()`
    1. 현재 위치가 가장 먼 자동차의 위치를 찾는 함수
    2. 가장 먼 위치를 기준으로 같은 값을 가진 자동차가 있으면 우승자에 추가 후 출력형태로 만드는 함수
 8. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
