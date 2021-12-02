@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.*;
+import static racingcar.RandomNumberBox.*;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -38,6 +39,12 @@ public class Input {
 		Arrays.stream(carNames).forEach(name -> cars[idx.getAndIncrement()] = new Car(name));
 
 		return cars;
+	}
+
+	public static void inputRandomNumberToCar(Car[] cars) {
+		for (Car car : cars) {
+			car.moveOrStop(getRandomNumber());
+		}
 	}
 
 	public static int inputCoinNumber() {

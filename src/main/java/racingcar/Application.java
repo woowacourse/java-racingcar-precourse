@@ -2,7 +2,6 @@ package racingcar;
 
 import static racingcar.Input.*;
 import static racingcar.Output.*;
-import static racingcar.RandomNumberBox.*;
 
 public class Application {
 	public static void main(String[] args) {
@@ -12,12 +11,12 @@ public class Application {
 
 		int coin = inputCoinNumber();
 		while (coin-- > 0) {
-			for (Car car : cars) {
-				car.moveOrStop(getRandomNumber());
-			}
+			inputRandomNumberToCar(cars);
 			outputCarPosition(cars);
 		}
 		outputRaceResult(cars);
 	}
+
+
 }
 
