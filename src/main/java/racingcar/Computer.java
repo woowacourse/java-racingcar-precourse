@@ -15,4 +15,9 @@ public class Computer {
 		String carNames = Console.readLine();
 		return carNames.split(",");
 	}
+
+	public static String askHowManyTimes() throws IllegalArgumentException {
+		System.out.println("시도할 회수는 몇회인가요?");
+		return Console.readLine();
+	}
 }

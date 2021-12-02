@@ -11,15 +11,32 @@ import java.util.ArrayList;
  */
 public class RacingCarGame {
 	private ArrayList<Car> carList = new ArrayList<>();
+	private int numberOfTimes;
 
 	public void start() {
+		prepareCarList();
+		prepareNumberOfTimes();
+	}
+
+	private void prepareCarList() {
 		boolean validated;
 		do {
 			try {
 				setCarList(Computer.askCarNames());
 				validated = true;
 			} catch (IllegalArgumentException e) {
-				System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
+				validated = false;
+			}
+		} while (!validated);
+	}
+
+	private void prepareNumberOfTimes() {
+		boolean validated;
+		do {
+			try {
+				setNumberOfTimes(Computer.askHowManyTimes());
+				validated = true;
+			} catch (IllegalArgumentException e) {
 				validated = false;
 			}
 		} while (!validated);
@@ -33,10 +50,25 @@ public class RacingCarGame {
 		}
 	}
 
+	private void setNumberOfTimes(String strNumberOfTimes) throws IllegalArgumentException {
+		try {
+			numberOfTimes = Integer.parseInt(strNumberOfTimes);
+			if (numberOfTimes > 0) {
+				return;
+			}
+			System.out.println("[ERROR] 시도 회수는 1 이상이어야 합니다.");
+			throw new IllegalArgumentException("시도 회수는 1 이상이어야 한다");
+		} catch (NumberFormatException e) {
+			System.out.println("[ERROR] 시도 회수는 숫자여야 합니다.");
+			throw new IllegalArgumentException("시도 회수는 숫자여야 한다");
+		}
+	}
+
 	private void validateCarName(String carName) throws IllegalArgumentException {
 		if (carName.length() <= 5) {
 			return;
 		}
+		System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
 		throw new IllegalArgumentException("자동차 이름은 5자 이하여야 한다");
 	}
 }
