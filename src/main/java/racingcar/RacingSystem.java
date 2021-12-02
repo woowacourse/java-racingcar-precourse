@@ -12,7 +12,7 @@ public class RacingSystem {
     private static final String INPUT_CNT_SENTENCE = "시도할 회수는 몇회인가요?";
     private static final String SEPARATOR = ",";
     private static final String NUMBER_REGAX = "^[0-9]*$";
-    private static final int MAX_CNT = 5;
+    private static final int MAX_LENGTH = 5;
     private static final int NEGATIVE_NUMBER = -1;
 
     private List<Car> cars = new ArrayList<>();
@@ -42,24 +42,11 @@ public class RacingSystem {
         }
     }
 
-    private String write(String sentence) {
-        System.out.println(sentence);
-        return Console.readLine();
-    }
-
     public void checkNumber(String input) throws IllegalArgumentException {
         if (!isNumber(input) || !isUnderMax(input)) {
             throw new IllegalArgumentException();
         }
         this.cnt = Integer.parseInt(input);
-    }
-
-    private boolean isNumber(String str) {
-        return Pattern.matches(NUMBER_REGAX, str);
-    }
-
-    private boolean isUnderMax(String str) {
-        return Long.parseLong(str) <= Integer.MAX_VALUE;
     }
 
     public void checkValidName(String input) {
@@ -70,6 +57,19 @@ public class RacingSystem {
             }
             cars.add(new Car(name));
         }
+    }
+
+    private String write(String sentence) {
+        System.out.println(sentence);
+        return Console.readLine();
+    }
+
+    private boolean isNumber(String str) {
+        return Pattern.matches(NUMBER_REGAX, str);
+    }
+
+    private boolean isUnderMax(String str) {
+        return Long.parseLong(str) <= Integer.MAX_VALUE;
     }
 
     private boolean isInvalidName(String name) {
@@ -88,7 +88,7 @@ public class RacingSystem {
     }
 
     private boolean isOverMaxCnt(String name) {
-        return name.length() > MAX_CNT;
+        return name.length() > MAX_LENGTH;
     }
 
     private boolean isEmptyString(String name) {
