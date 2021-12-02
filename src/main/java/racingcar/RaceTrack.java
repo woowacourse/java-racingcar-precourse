@@ -6,7 +6,7 @@ public class RaceTrack {
 
 	private static final String RACING_RESULT_MESSAGE = "실행 결과";
 
-	public void start(ArrayList<String> nameList, Integer tryCount) {
+	public ArrayList<Car> start(ArrayList<String> nameList, Integer tryCount) {
 		System.out.println(RACING_RESULT_MESSAGE);
 
 		// Car 객체 인스턴스 생성 & List 로 저장
@@ -16,6 +16,8 @@ public class RaceTrack {
 			driveAllCars(carList);
 			showAllPositions(nameList, carList);
 		}
+
+		return carList;
 	}
 
 	private ArrayList<Car> makeCarList(ArrayList<String> nameList) {

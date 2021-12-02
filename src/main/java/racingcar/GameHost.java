@@ -19,6 +19,6 @@ public class GameHost {
 		Integer tryCount = tryCountReceiver.receive();
 
 		// 레이싱 실행
-		raceTrack.start(nameList, tryCount);
+		ArrayList<Car> carList = raceTrack.start(nameList, tryCount);
 	}
 }
