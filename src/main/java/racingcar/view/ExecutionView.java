@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class ProcessView implements View {
+public class ExecutionView implements View {
 	private String PROCESS_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 
 	@Override

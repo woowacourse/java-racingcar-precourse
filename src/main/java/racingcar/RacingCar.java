@@ -4,9 +4,9 @@ import racingcar.car.Car;
 import racingcar.car.CarRepository;
 import racingcar.car.CarRepositoryService;
 import racingcar.car.CarService;
-import racingcar.exceptions.ProcessException;
+import racingcar.exceptions.ExecutionException;
 import racingcar.view.CarListView;
-import racingcar.view.ProcessView;
+import racingcar.view.ExecutionView;
 import racingcar.view.ResultView;
 import racingcar.view.View;
 import racingcar.view.WinnerView;
@@ -48,43 +48,43 @@ public class RacingCar {
 			return;
 		}
 
-		printProcessView();
+		printExecutionView();
 	}
 
 	//실행 횟수 입력화면 출력
-	private void printProcessView() {
-		view = new ProcessView();
+	private void printExecutionView() {
+		view = new ExecutionView();
 		printViews();
 
-		getUserProcessInput();
+		getUserExecutionTime();
 	}
 
-	private void getUserProcessInput() {
-		String userProcess = view.getUserInput();
+	private void getUserExecutionTime() {
+		String userExecutionTime = view.getUserInput();
 		try {
-			ProcessException.processException(userProcess);
+			ExecutionException.executionException(userExecutionTime);
 
-			accelerateCar(userProcess);
+			executeRace(userExecutionTime);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			getUserProcessInput();
+			getUserExecutionTime();
 			return;
 		}
 	}
 
 	//횟수 만큼 경주 시작
-	private void accelerateCar(String userProcess) {
+	private void executeRace(String userProcess) {
 		view = new ResultView(carRepository);
-		int process = Integer.parseInt(userProcess);
-		for (int i = 0; i < process; i++) {
-			moveCar();
+		int executionTime = Integer.parseInt(userProcess);
+		for (int i = 0; i < executionTime; i++) {
+			accelerateCar();
 		}
 
 		setWinner();
 	}
 
 	//자동차 전진 혹은 정지
-	private void moveCar() {
+	private void accelerateCar() {
 		for (Car car : carRepository.getCars()) {
 			CarService.accelerate(car);
 		}
