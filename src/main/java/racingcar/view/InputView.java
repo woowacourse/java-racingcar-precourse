@@ -10,7 +10,18 @@ public class InputView {
 
 	public static String[] enterEveryCarName() {
 		System.out.println(INPUT_EVERY_CAR_NAME_MESSAGE);
-		return Console.readLine().split(CAR_SPLIT_REGEX);
+		boolean isRepeat = true;
+		while (isRepeat) {
+			try{
+				isRepeat = false;
+				String[] everyCarName = Console.readLine().split(CAR_SPLIT_REGEX);
+				return everyCarName;
+			} catch (IllegalArgumentException e){
+				isRepeat = true;
+				System.out.println("[ERROR] " + e.getMessage());
+			}
+		}
+		throw new IllegalStateException("모든 차가 입력되지 않았는데, 로직이 끝남.");
 	}
 
 	public static int enterTryCnt() {

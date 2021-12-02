@@ -21,7 +21,6 @@ public class EveryCar {
 	}
 
 	public void showThisGameWinner() {
-		// cars.stream().forEach(eachCar -> eachCar.showMovingDistance());
 		int winnerMovingDistance = cars.stream()
 			.mapToInt(eachCar -> eachCar.showMovingDistance())
 			.max()
