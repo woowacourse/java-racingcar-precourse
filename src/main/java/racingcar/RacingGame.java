@@ -11,16 +11,12 @@ public class RacingGame {
     private static final int MAX = 9;
     private static final int POINT = 4;
     private static final ArrayList<String> winnerList = new ArrayList<>();
-    private final Player player;
-
-    public RacingGame() {
-        this.player = new Player();
-    }
+    private static final Player player = new Player();
 
     public void startGame() {
         String[] carNamesArray = player.startGame();
         this.createCarList(carNamesArray);
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         while (player.remainCoin()) {
             this.playOneGame();
         }
