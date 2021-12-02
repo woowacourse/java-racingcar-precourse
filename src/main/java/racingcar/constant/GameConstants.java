@@ -80,7 +80,7 @@ public class GameConstants {
 	}
 
 	public enum UserInputException {
-		LENGTH_ERROR_HINT("시도 횟수는 숫자여야 한다."),
+		LENGTH_ERROR_HINT("이름은 최소 1글자 최대 5글자이다."),
 		NOT_A_INTEGER_ERROR_HINT("시도 횟수는 숫자여야 한다.");
 
 		private static final String EXCEPTION_PREFIX = "";
