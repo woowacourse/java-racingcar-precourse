@@ -63,13 +63,14 @@ public class GameController {
 
 	public void validateCarName(String carData) {
 		carNameArray = carData.split(Constant.CAR_NAME_SEPARATOR);
-		boolean isCorrectLength = Stream.of(carNameArray)
-			.allMatch(InputValidator::checkCarNameLength);
-		handleInputError(isCorrectLength, Constant.ERROR_MESSAGE_CAR_NAME);
+		boolean isValid = Stream.of(carNameArray)
+			.allMatch(name -> InputValidator.isNotEmpty(name) && InputValidator.checkCarNameLength(name));
+		handleInputError(isValid, Constant.ERROR_MESSAGE_CAR_NAME);
 	}
 
 	public void validateAttemptNumber(String attemptNumber) {
-		boolean isNumber = InputValidator.checkAttemptIsNumber(attemptNumber);
+		boolean isNumber =
+			InputValidator.isNotEmpty(attemptNumber) && InputValidator.checkAttemptIsNumber(attemptNumber);
 		handleInputError(isNumber, Constant.ERROR_MESSAGE_ATTEMPT_NUMBER);
 	}
 

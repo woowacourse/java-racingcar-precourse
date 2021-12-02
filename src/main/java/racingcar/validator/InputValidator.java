@@ -5,6 +5,10 @@ import java.util.stream.Stream;
 import racingcar.util.Constant;
 
 public class InputValidator {
+	public static boolean isNotEmpty(String input) {
+		return !input.trim().equals("");
+	}
+
 	public static boolean checkCarNameLength(String carName) {
 		return carName.length() >= Constant.CAR_NAME_MIN_SIZE
 			&& carName.length() <= Constant.CAR_NAME_MAX_SIZE;
