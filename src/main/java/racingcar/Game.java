@@ -47,13 +47,13 @@ public class Game {
 		for (int i = 0; i < carNames.length(); i++) {
 
 			if (carNames.charAt(i) == ',') {
-				seperatedCarNames.add(carNames.substring(newCarNameStartIdx, i - 1));
+				seperatedCarNames.add(carNames.substring(newCarNameStartIdx, i));
 				newCarNameStartIdx = i + 1;
 			}
 
 		}
 
-		seperatedCarNames.add(carNames.substring(newCarNameStartIdx, carNames.length() - 1));
+		seperatedCarNames.add(carNames.substring(newCarNameStartIdx, carNames.length()));
 		return seperatedCarNames;
 	}
 
