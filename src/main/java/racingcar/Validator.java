@@ -4,35 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
+
     public static boolean isValidateInput(String input) {
-        List<Car> templist = parseStringToList(new ArrayList<>(), input);
-        int flag = 1;
-        for (Car car : templist) {
-            flag *= isValidateName(car.getName());
+        List<Car> inputCars = GameUtil.parseStringToList(new ArrayList<>(), input);
+        int isValid = CONSTANT.TRUE;
+        for (Car car : inputCars) {
+            isValid *= isValidateName(car.getName());
         }
-        return (flag == 1);
+        return (isValid == CONSTANT.TRUE);
     }
 
     private static int isValidateName(String name) {
         try {
-            if (name.length() > 5) {
+            if (name.length() > CONSTANT.MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 자동차의 이름은 5자 이하여야 한다.");
-            return 0;
+            System.out.println(SystemMessage.NAME_ERROR_MESSAGE);
+            return CONSTANT.FALSE;
         }
-        return 1;
+        return CONSTANT.TRUE;
     }
-
-    public static List<Car> parseStringToList(List<Car> list, String input) {
-        String[] carNames = input.split(",");
-        for (String carName : carNames) {
-            list.add(new Car(carName));
-        }
-        return list;
-    }
-
 
     public static boolean isValidateNumber(String input) {
         try {
@@ -40,7 +32,7 @@ public class Validator {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            System.out.println(SystemMessage.NUMBER_ERROR_MESSAGE);
             return false;
         }
         return true;

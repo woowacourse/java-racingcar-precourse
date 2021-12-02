@@ -1,11 +1,10 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Board {
-    private static List<String> winners = new ArrayList<>();
+    private static List<Car> winners = new ArrayList<>();
 
     public static void showStatus(List<Car> cars) {
         for (Car car : cars) {
@@ -28,19 +27,19 @@ public class Board {
 
     private static void isWinner(int maxPosition, Car car) {
         if (car.getPosition() == maxPosition) {
-            winners.add(car.getName());
+            winners.add(car);
         }
     }
 
     private static void printResult() {
-        String Result = "최종 우승자 : ";
-        for (String name : winners) {
-            Result += (name + ", ");
+        String Result = SystemMessage.WINNER_MESSAGE;
+        for (Car car : winners) {
+            Result += (car.getName() + SystemMessage.SEPARATOR);
         }
-        System.out.print(removeCommaAtEnd(Result));
+        System.out.print(removeSEPARATORAtEnd(Result));
     }
 
-    private static String removeCommaAtEnd(String targetString) {
+    private static String removeSEPARATORAtEnd(String targetString) {
         return targetString.substring(0, targetString.length() - 2);
     }
 }
