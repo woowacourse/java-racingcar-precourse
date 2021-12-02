@@ -6,6 +6,7 @@ public class Car {
 	private static final int RANDOM_MIN_NUM = 0;
 	private static final int RANDOM_MAX_NUM = 9;
 	private static final int STANDARD_TO_GO = 4;
+
 	private final String name;
 	private int position = 0;
 
