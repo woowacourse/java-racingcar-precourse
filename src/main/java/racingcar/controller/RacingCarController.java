@@ -59,8 +59,10 @@ public class RacingCarController {
 	}
 
 	private void moveCars() {
+		OutputView.printExecutionMessage();
 		for (int cnt = 0; cnt < gameCount; cnt++) {
 			racingCar.moveRacingCars();
+			OutputView.printCarPosition(racingCar.getRacingCars());
 		}
 	}
 }

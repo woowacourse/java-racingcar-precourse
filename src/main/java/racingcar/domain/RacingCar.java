@@ -10,8 +10,12 @@ public class RacingCar {
 	}
 
 	public void moveRacingCars() {
-		for (Car car: racingCars) {
+		for (Car car : racingCars) {
 			car.moveCar();
 		}
+	}
+
+	public List<Car> getRacingCars() {
+		return racingCars;
 	}
 }

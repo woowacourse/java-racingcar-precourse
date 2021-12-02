@@ -7,6 +7,8 @@ public class RacingCarConstant {
 	public static final String FINAL_WINNER_MESSAGE = "최중 우승자 : ";
 
 	public static final String DELIMITER = ",";
+	public static final String COLON = " : ";
+	public static final String PROGRESS_BAR = "-";
 
 	public static final int CAR_MOVE_LOWER_BOUND = 0;
 	public static final int CAR_MOVE_UPPER_BOUND = 9;

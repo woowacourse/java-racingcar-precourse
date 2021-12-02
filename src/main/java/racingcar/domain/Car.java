@@ -19,4 +19,12 @@ public class Car {
 			position += CAR_MOVE;
 		}
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Integer getPosition(){
+		return position;
+	}
 }
