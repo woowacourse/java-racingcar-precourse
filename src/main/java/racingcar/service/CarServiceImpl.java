@@ -11,4 +11,9 @@ public class CarServiceImpl implements CarService {
 	public void join(String name) {
 		memoryCarRepository.save(new Car(name));
 	}
+
+	@Override
+	public void findCar(int carId) {
+		memoryCarRepository.findById(carId);
+	}
 }

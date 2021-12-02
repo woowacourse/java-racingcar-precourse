@@ -12,4 +12,9 @@ public class MemoryCarRepository implements CarRepository {
 	public void save(Car car) {
 		cars.put(cars.size(), car);
 	}
+
+	@Override
+	public Car findById(int carId) {
+		return cars.get(carId);
+	}
 }
