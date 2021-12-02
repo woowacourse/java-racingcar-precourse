@@ -15,6 +15,9 @@ public class NameValidator {
     }
 
     private static void isInputBlank(String[] cars){
+        if(cars.length == ZERO){
+            throw new IllegalArgumentException(ERROR_PREFIX + SPACE + NAME_NOT_BLANK);
+        }
         for(int i = 0 ; i < cars.length; i++){
             isCarNameBlank(cars[i]);
         }
