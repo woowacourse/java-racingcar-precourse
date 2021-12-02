@@ -8,7 +8,7 @@ public class InputManager {
 
 	public void scanCarsList() {
 		boolean carsScan = true;
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+		System.out.println(Constant.CAR_NAME_INPUT);
 		while (carsScan) {
 			try {
 				String carsInput = Console.readLine();
@@ -22,7 +22,7 @@ public class InputManager {
 
 	public void scanNumberOfMove() {
 		boolean numberScan = true;
-		System.out.println("시도할 횟수는 몇회인가요?");
+		System.out.println(Constant.TRY_NUMBER);
 		while (numberScan) {
 			try {
 				String numberOfMove = Console.readLine();
@@ -36,26 +36,24 @@ public class InputManager {
 	}
 
 	public void isValidCars(String carsInput) throws IllegalArgumentException {
-		String[] carsList;
 		if (carsInput.length() == 0) {
-			throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
+			throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
 		}
 		carsList = carsInput.split(",");
 		for (String car : carsList) {
-			if (car.length() > 5) {
-				throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자리 이하로 정해주세요.");
+			if (car.length() > Constant.MAXIMUM_NAME_LENGTH) {
+				throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
 			}
 		}
-		this.carsList = carsList;
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
 		if (number.length() == 0) {
-			throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
+			throw new IllegalArgumentException(Constant.TRY_NUMBER_ERROR);
 		}
 		for (int index = 0; index < number.length(); index++) {
 			if (!Character.isDigit((number.charAt(index)))) {
-				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
+				throw new IllegalArgumentException(Constant.TRY_NUMBER_ERROR);
 			}
 		}
 	}

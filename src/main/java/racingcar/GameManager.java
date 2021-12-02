@@ -41,8 +41,8 @@ public class GameManager {
 	}
 
 	public int calculateMove() {
-		int randomNumber = Randoms.pickNumberInRange(0, 9);
-		if (randomNumber >= 4) {
+		int randomNumber = Randoms.pickNumberInRange(Constant.MINIMUM_RANDOM_NUMBER, Constant.MAXIMUM_RANDOM_NUMBER);
+		if (randomNumber >= Constant.MOVE_NUMBER) {
 			return 1;
 		}
 		return 0;
