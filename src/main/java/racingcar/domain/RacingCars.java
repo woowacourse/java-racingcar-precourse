@@ -17,6 +17,18 @@ public class RacingCars {
 		racingCars = makeCars();
 	}
 
+	public List<String> getWinner() {
+		int maxPosition = racingCars.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.orElse(0);
+
+		return racingCars.stream()
+			.filter(car -> car.getPosition() == maxPosition)
+			.map(Car::getName)
+			.collect(Collectors.toList());
+	}
+
 	public String getExcutionForEachOrderMessage() {
 		StringBuilder result = new StringBuilder();
 		racingCars.forEach(car -> result.append(car.getNameAndPostionMessage()));
@@ -44,6 +56,6 @@ public class RacingCars {
 	}
 
 	private static List<String> toList(String carNames) {
-		return Arrays.asList(carNames.split(CAR_NAME_DELIMITER));
+		return Arrays.asList(carNames.split(DELIMITER));
 	}
 }

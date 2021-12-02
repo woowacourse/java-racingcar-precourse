@@ -11,10 +11,18 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
 	public StringBuilder getNameAndPostionMessage() {
 		StringBuilder result = new StringBuilder();
 		result.append(name);
-		result.append(" : ");
+		result.append(COLON);
 		for (int i = 0; i < position; i++) {
 			result.append(ONE_STEP);
 		}

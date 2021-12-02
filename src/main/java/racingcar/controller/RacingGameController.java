@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import static racingcar.view.OutputView.*;
-
 import racingcar.domain.AttemptNumber;
 import racingcar.domain.RacingCars;
 import racingcar.view.OutputView;
@@ -16,8 +14,9 @@ public class RacingGameController {
 	}
 
 	public void startGame() {
-		printExcutionResulttMessage();
+		OutputView.printExcutionResultMessage();
 		playGame();
+		printWinner();
 	}
 
 	private void playGame() {
@@ -30,5 +29,9 @@ public class RacingGameController {
 	private void printExcutionForEachOrder() {
 		String excutionForEachOrderMessage = racingCars.getExcutionForEachOrderMessage();
 		OutputView.printExcutionForEachOrderMessage(excutionForEachOrderMessage);
+	}
+
+	private void printWinner() {
+		OutputView.printWinner(racingCars.getWinner());
 	}
 }
