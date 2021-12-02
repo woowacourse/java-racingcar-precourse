@@ -28,11 +28,6 @@ public class Car {
         return Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM) >= VALUE_MOVING_CAR;
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
-
     public String getName() {
         return name;
     }
