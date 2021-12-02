@@ -16,6 +16,7 @@ public class Game {
 	public void run() {
 		inputCarNames();
 		inputAttemptNumber();
+		startRace(carNames, attemptNumber);
 	}
 
 	private void inputCarNames() {
@@ -48,5 +49,10 @@ public class Game {
 				System.out.println(e.getMessage());
 			}
 		}
+	}
+
+	private void startRace(List<String> carNames, int attemptNumber) {
+		Race race = new Race(carNames, attemptNumber);
+		race.start();
 	}
 }
