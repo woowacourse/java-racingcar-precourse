@@ -10,10 +10,23 @@ public class RacingCarController {
 		// 자동차 입력
 		boolean inputSwitch = false;
 
+		// do {
+		// 	try {
+		// 		inputSwitch = false;
+		// 		String[] names = enterCarName();
+		// 	} catch (IllegalArgumentException e) {
+		// 		printErrorMessage(e);
+		// 		inputSwitch = true;
+		// 	}
+		// } while (inputSwitch);
+
 		do {
 			try {
 				inputSwitch = false;
-				String[] names = enterCarName();
+				OutputView.printEnterStageNum();
+				String input = InputView.readLine();
+				int stageNum = Converter.toInt(input);
+				Validator.validateStageNum(stageNum);
 			} catch (IllegalArgumentException e) {
 				printErrorMessage(e);
 				inputSwitch = true;
@@ -28,8 +41,8 @@ public class RacingCarController {
 
 	private String[] enterCarName() {
 		OutputView.printEnterCarNames();
-		String nameStr = InputView.readLine();
-		String[] names = Converter.toStringArray(nameStr);
+		String input = InputView.readLine();
+		String[] names = Converter.toStringArray(input);
 		Validator.validateCarNames(names);
 
 		return names;
