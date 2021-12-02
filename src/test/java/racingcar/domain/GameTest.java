@@ -77,4 +77,11 @@ public class GameTest {
 		Assertions.assertThat(game.toString()).contains(GAME_RESULT_HINT.getString());
 		Assertions.assertThat(game.toString()).contains(expectedWinnerString);
 	}
+
+	@Test
+	void 게임_결과_문자열_변환_2회() {
+		// given, when, then
+		게임_결과_문자열_변환();
+		게임_결과_문자열_변환();
+	}
 }
