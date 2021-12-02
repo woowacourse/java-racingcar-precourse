@@ -4,14 +4,14 @@ import java.util.List;
 import racingcar.model.ProceedResult;
 import racingcar.model.RacingGame;
 import racingcar.model.RacingInfo;
-import racingcar.io.reader.RacingInfoReader;
+import racingcar.io.reader.RacingReader;
 import racingcar.io.writer.RacingWriter;
 
 public class RacingGameManager {
-	private final RacingInfoReader reader;
+	private final RacingReader reader;
 	private final RacingWriter writer;
 
-	public RacingGameManager(RacingInfoReader reader, RacingWriter writer) {
+	public RacingGameManager(RacingReader reader, RacingWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
 	}

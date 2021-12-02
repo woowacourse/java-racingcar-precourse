@@ -13,7 +13,7 @@ import racingcar.model.RacingInfo;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class RacingInfoReaderTest {
+public class RacingReaderTest {
 	MockedStatic<Console> consoleMockedStatic;
 
 	@BeforeEach
@@ -31,8 +31,8 @@ public class RacingInfoReaderTest {
 	void input_value_in_order() {
 		when(Console.readLine()).thenReturn("pobi,woni,jun").thenReturn("5");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-		RacingInfoReader reader =
-			new RacingInfoReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
+		RacingReader reader =
+			new RacingReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
 
 		reader.read();
 
@@ -46,8 +46,8 @@ public class RacingInfoReaderTest {
 	void print_error_message_when_input_invalid_value() {
 		when(Console.readLine()).thenReturn("123456").thenReturn("pobi,woni,jun").thenReturn("number").thenReturn("6");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-		RacingInfoReader reader =
-			new RacingInfoReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
+		RacingReader reader =
+			new RacingReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
 
 		reader.read();
 
@@ -65,8 +65,8 @@ public class RacingInfoReaderTest {
 	void create_proper_racing_info() {
 		when(Console.readLine()).thenReturn("pobi,woni,jun").thenReturn("5");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-		RacingInfoReader reader =
-			new RacingInfoReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
+		RacingReader reader =
+			new RacingReader(new CarNameReader(consoleDisplay), new TurnValueReader(consoleDisplay));
 
 		RacingInfo info = reader.read();
 

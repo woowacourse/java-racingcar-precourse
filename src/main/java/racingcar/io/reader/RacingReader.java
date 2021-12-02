@@ -3,11 +3,11 @@ package racingcar.io.reader;
 import java.util.List;
 import racingcar.model.RacingInfo;
 
-public class RacingInfoReader {
+public class RacingReader {
 	private final Reader<List<String>> carNameReader;
 	private final Reader<Integer> turnValueReader;
 
-	public RacingInfoReader(Reader<List<String>> carNameReader, Reader<Integer> turnValueReader) {
+	public RacingReader(Reader<List<String>> carNameReader, Reader<Integer> turnValueReader) {
 		this.carNameReader = carNameReader;
 		this.turnValueReader = turnValueReader;
 	}
