@@ -21,8 +21,18 @@ public class RacingGame {
         StringTokenizer st = new StringTokenizer(carNames, ",");
 
         while(st.hasMoreTokens()) {
-            //validateName(st.nextToken());
+            validateName(st.nextToken());
         }
+    }
+
+    private void validateName(String carName) {
+        if(isValid(carName)) {
+            carArrayList.add(new Car(carName));
+        }
+    }
+
+    private boolean isValid(String carName) {
+        return carName.length() <= 5;
     }
 
     private String inputCarNames() {
