@@ -7,6 +7,7 @@ import racingcar.car.CarService;
 import racingcar.exceptions.ProcessException;
 import racingcar.view.CarListView;
 import racingcar.view.ProcessView;
+import racingcar.view.ResultView;
 import racingcar.view.View;
 
 public class RacingCar {
@@ -67,6 +68,8 @@ public class RacingCar {
 	}
 
 	private void accelerateCar(String userProcess) {
+		view = new ResultView(carRepository);
+
 		int process = Integer.parseInt(userProcess);
 		for (int i = 0; i < process; i++) {
 			moveCar();
@@ -81,6 +84,6 @@ public class RacingCar {
 	}
 
 	private void printResultView() {
-
+		view.printView();
 	}
 }
