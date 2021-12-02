@@ -8,9 +8,9 @@ import java.util.Set;
 public class Validator {
 
     private static final String ERROR = "[ERROR] ";
-    private static final int TRIAL_NUMBER_MIN_VALUE = 1;
     private static final int CAR_NAME_MIN_LENGTH = 1;
     private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final int TRIAL_NUMBER_MIN_VALUE = 1;
 
     public static void validateCarNames(String[] carNames) {
         validateUniqueCarNames(carNames);
@@ -22,15 +22,8 @@ public class Validator {
     }
 
     public static void validateTotalRoundNum(String input) {
-        int trialNum;
-
-        try {
-            trialNum = Integer.parseInt(input);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(ERROR + "시도 횟수는 숫자여야 한다.");
-        }
-
-        validateTotalRoundNumRange(trialNum);
+        int trialNum = validateTotalRoundType(input);
+        validateTotalRoundRange(trialNum);
     }
 
     private static void validateCarNameLength(String carName) {
@@ -58,7 +51,15 @@ public class Validator {
         }
     }
 
-    private static void validateTotalRoundNumRange(int trialNum) {
+    private static int validateTotalRoundType(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ERROR + "시도 횟수는 숫자여야 한다.");
+        }
+    }
+
+    private static void validateTotalRoundRange(int trialNum) {
         if (trialNum < TRIAL_NUMBER_MIN_VALUE) {
             throw new IllegalArgumentException(ERROR + "시도 횟수는 1회 이상이어야 한다.");
         }
