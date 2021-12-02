@@ -17,6 +17,13 @@ public class Car {
         if (randomNum >= FORWARD_STANDARD) {
             this.position++;
         }
-        System.out.println(name +", "+position);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }

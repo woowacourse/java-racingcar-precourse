@@ -18,9 +18,10 @@ public class Game {
             for (Car car : carList) {
                 car.moveForward();
             }
-
             attemp--;
-            System.out.println();
+            PrintUtils.printByAttemp(carList);
         }
+
+        PrintUtils.printFinalResult(carList);
     }
 }
