@@ -29,7 +29,7 @@ public class Car {
 		for (int i = 0; i < position; i++) {
 			System.out.print("-");
 		}
-		
+
 		System.out.println();
 	}
 
@@ -37,5 +37,8 @@ public class Car {
 		return this.position;
 	}
 
+	public String getName() {
+		return this.name;
+	}
 	// 추가 기능 구현
 }
