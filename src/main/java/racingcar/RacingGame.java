@@ -46,7 +46,7 @@ public class RacingGame {
 		try {
 			System.out.println(START_MESSAGE);
 			String participants = readLine();
-			setPlayer(participants);
+			setPlayers(participants);
 		} catch (IllegalArgumentException error) {
 			System.out.println(error.getMessage());
 			enterPlayer();
@@ -64,7 +64,7 @@ public class RacingGame {
 		}
 	}
 
-	private void setPlayer(String participants) {
+	private void setPlayers(String participants) {
 		StringTokenizer participant = new StringTokenizer(participants, NAME_DISTINGUISH);
 		while (participant.hasMoreTokens()) {
 			participantList.add(new Car(participant.nextToken()));
