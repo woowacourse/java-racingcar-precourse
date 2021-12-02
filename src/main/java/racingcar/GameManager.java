@@ -59,11 +59,11 @@ public class GameManager {
 		System.out.println();
 	}
 
-	public int printWinner() {
+	public void printWinner() {
 		System.out.print("최종 우승자 : ");
 		if (winner.size() == 1) {
 			System.out.print(winner.get(0));
-			return 0;
+			return;
 		}
 		for (int i = 0; i < winner.size(); i++) {
 			System.out.print(winner.get(i));
@@ -72,7 +72,6 @@ public class GameManager {
 			}
 		}
 		System.out.println();
-		return 0;
 	}
 
 	public void calculateWinner() {
