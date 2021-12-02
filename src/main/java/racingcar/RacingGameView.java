@@ -9,6 +9,14 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGameView {
+	private RacingGameView racingGameView = new RacingGameView();
+
+	private RacingGameView() {
+	}
+
+	public RacingGameView getRacingGameView() {
+		return racingGameView;
+	}
 
 	public List<String> getCarNames() {
 		List<String> carNamesList;
