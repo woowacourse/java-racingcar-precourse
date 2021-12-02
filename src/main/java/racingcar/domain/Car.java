@@ -1,8 +1,8 @@
 package racingcar.domain;
 
-import java.util.Collections;
-
 import static racingcar.utils.RandomNumber.checkPassOrFail;
+
+import java.util.Collections;
 
 public class Car {
 
