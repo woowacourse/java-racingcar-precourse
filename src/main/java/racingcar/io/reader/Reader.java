@@ -19,7 +19,7 @@ public abstract class Reader<T> {
 		String input = Console.readLine();
 
 		if (!isValid(input)) {
-			consoleDisplay.info(errorMessage);
+			consoleDisplay.error(errorMessage);
 			throw new IllegalArgumentException(errorMessage);
 		}
 

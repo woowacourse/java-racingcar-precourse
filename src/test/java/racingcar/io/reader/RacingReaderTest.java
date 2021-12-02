@@ -53,10 +53,10 @@ public class RacingReaderTest {
 
 		InOrder inOrder = Mockito.inOrder(consoleDisplay);
 		inOrder.verify(consoleDisplay).info(CarNameReader.INPUT_MESSAGE);
-		inOrder.verify(consoleDisplay).info(CarNameReader.ERROR_MESSAGE);
+		inOrder.verify(consoleDisplay).error(CarNameReader.ERROR_MESSAGE);
 		inOrder.verify(consoleDisplay).info(CarNameReader.INPUT_MESSAGE);
 		inOrder.verify(consoleDisplay).info(TurnValueReader.INPUT_MESSAGE);
-		inOrder.verify(consoleDisplay).info(TurnValueReader.ERROR_MESSAGE);
+		inOrder.verify(consoleDisplay).error(TurnValueReader.ERROR_MESSAGE);
 		inOrder.verify(consoleDisplay).info(TurnValueReader.INPUT_MESSAGE);
 	}
 
