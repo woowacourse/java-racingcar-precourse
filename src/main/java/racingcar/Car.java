@@ -3,6 +3,7 @@ package racingcar;
 import static racingcar.utils.Constant.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.handler.PrintHandler;
 
 public class Car {
 	private final String name;
@@ -15,12 +16,17 @@ public class Car {
 	// 추가 기능 구현
 	public void playOnce() {
 		move();
+		print();
 	}
 
-	public void move() {
+	private void move() {
 		if (checkMove(generateRandomNumber())) {
 			position++;
 		}
+	}
+
+	private void print() {
+		PrintHandler.printCar(this);
 	}
 
 	private int generateRandomNumber() {
