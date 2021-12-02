@@ -20,15 +20,15 @@ public class InputView {
 
 	public static String[] enterEveryCarName() {
 		while (true) {
-			try{
+			try {
 				System.out.println(INPUT_EVERY_CAR_NAME_MESSAGE);
 				String inputValue = Console.readLine();
 				hasNoCarNameAtLast(inputValue);
 				String[] everyCarName = inputValue.split(CAR_SPLIT_REGEX);
 				Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
 				return everyCarName;
-			} catch (IllegalArgumentException e){
-				System.out.println(String.format(SHOW_ERROR_MESSAGE,e.getMessage()));
+			} catch (IllegalArgumentException e) {
+				System.out.println(String.format(SHOW_ERROR_MESSAGE, e.getMessage()));
 			}
 		}
 	}
@@ -41,7 +41,8 @@ public class InputView {
 
 	private static void validateCarName(String eachCarName) {
 		if (eachCarName.length() > CAR_NAME_LETTERS_STANDARD) {
-			throw new IllegalArgumentException(String.format(CAR_NAME_OVER_STANDARD_ERROR_MESSAGE,CAR_NAME_LETTERS_STANDARD));
+			throw new IllegalArgumentException(
+				String.format(CAR_NAME_OVER_STANDARD_ERROR_MESSAGE, CAR_NAME_LETTERS_STANDARD));
 		}
 		if (eachCarName.isEmpty()) {
 			throw new IllegalArgumentException(CAR_NAME_NOT_NULL_ERROR_MESSAGE);
