@@ -62,4 +62,19 @@ class CarTest {
         // then
         assertThat(car.getPosition()).isEqualTo(0);
     }
+
+    @DisplayName("name과 position을 활용하여 상태 메시지를 생성한다.")
+    @Test
+    void getStateMessage_nameAndPosition_create() {
+        // given
+        MovingPolicy movingPolicy = () -> true;
+        Car car = new Car("pobi", movingPolicy);
+
+        // when
+        car.move();
+        car.move();
+
+        // then
+        assertThat(car.getStateMessage()).isEqualTo("pobi : --");
+    }
 }
