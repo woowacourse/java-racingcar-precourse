@@ -58,6 +58,11 @@ public class Game {
 	}
 
 	public void setGameTurn() {
+		System.out.println("시도할 회수는 몇회인가요?");
+		gameTurn = setGameTurnWithoutException();
+	}
+
+	public int setGameTurnWithoutException() {
 	}
 
 	public void printWinner() {
