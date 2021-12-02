@@ -38,7 +38,7 @@ public class Validator {
 		}
 	}
 
-	public static boolean isValidNumber(String number) {
+	public static boolean isValidNumber(String number) throws IllegalArgumentException {
 		for (int i = 0; i < number.length(); i++) {
 			checkCharacterIsDigit(number.charAt(i));
 		}

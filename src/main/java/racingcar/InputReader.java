@@ -25,4 +25,20 @@ public class InputReader {
 		return nameList;
 	}
 
+	public static int returnNumberOfRepetitions() {
+		String input = "";
+
+		boolean isValid = false;
+		while (!isValid) {
+			input = Console.readLine();
+			try {
+				isValid = isValidNumber(input);
+			} catch (IllegalArgumentException exception) {
+				printError(exception);
+			}
+		}
+
+		return Integer.parseInt(input);
+	}
+
 }
