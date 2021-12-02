@@ -20,4 +20,10 @@ public class Car {
         }
         System.out.println();
     }
+    public int ReturnStatus() {
+        return position;
+    }
+    public String ReturnName() {
+        return name;
+    }
 }

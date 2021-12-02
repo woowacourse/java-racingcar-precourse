@@ -24,15 +24,22 @@ public class Application {
 
     private static void GameSet(Car[] arrayCarObject) {
         System.out.print("최종 우승자 : ");
-        String winners = FindWinner(arrayCarObject);
-        System.out.println(winners);
+        int winnerPosition = FindWinnerPosition(arrayCarObject);
+        for (int i = 0; i < arrayCarObject.length; i++) {
+            if (winnerPosition == arrayCarObject[i].ReturnStatus()) {
+                System.out.print(arrayCarObject[i].ReturnName());
+            }
+        }
     }
 
-    private static String FindWinner(Car[] arrayCarObject) {
-        // TO DO : 한 명씩 확인해서 우승자를 찾고, 문자열로 반환할 매소드
-        String winners = "";
-
-        return "winners";
+    private static int FindWinnerPosition(Car[] arrayCarObject) {
+        int position = 0;
+        for (int i = 0; i < arrayCarObject.length; i++) {
+            if (position < arrayCarObject[i].ReturnStatus()) {
+                position = arrayCarObject[i].ReturnStatus();
+            }
+        }
+        return position;
     }
 
     private static void PrintCarPosition(Car car) {
