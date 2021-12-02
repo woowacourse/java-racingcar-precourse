@@ -20,7 +20,6 @@ public class InputUtils {
                 carList = getCarList();
                 isValid = true;
             } catch (IllegalArgumentException e) {
-                System.out.println(ERROR_CAR_NAME_LENGTH);
             }
         }
         return carList;
@@ -28,19 +27,53 @@ public class InputUtils {
 
     private static List<Car> getCarList() {
         List<Car> carList = new ArrayList<>();
-        String[] carArr = Console.readLine().split(CAR_NAME_SEPARATOR);
+        String input = Console.readLine();
+        checkCarNameSentence(input);
+        String[] carArr = input.split(CAR_NAME_SEPARATOR);
 
         for (String carName : carArr) {
-            checkCarNameLength(carName);
+            checkCarNameWord(carName);
             carList.add(new Car(carName));
         }
-
         return carList;
+    }
+
+    private static void checkCarNameSentence(String input) {
+        checkEmptyInput(input);
+        checkInvalidCarNameInput(input);
+    }
+
+    private static void checkEmptyInput(String input) {
+        if (input.isEmpty()) {
+            System.out.println(ERROR_EMPTY_INPUT);
+            throw new IllegalArgumentException(ERROR_EMPTY_INPUT);
+        }
+    }
+
+    private static void checkInvalidCarNameInput(String input) {
+        if ((input.charAt(input.length() - 1) == CAR_NAME_SEPARATOR.charAt(0))
+                || input.contains(",,") || input.charAt(0) == CAR_NAME_SEPARATOR.charAt(0)) {
+            System.out.println(ERROR_CAR_NAME_INPUT_ETC);
+            throw new IllegalArgumentException(ERROR_CAR_NAME_INPUT_ETC);
+        }
+    }
+
+    private static void checkCarNameWord(String carName) {
+        checkCarNameLength(carName);
+        checkCarNameFrontBlank(carName);
     }
 
     private static void checkCarNameLength(String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
+            System.out.println(ERROR_CAR_NAME_LENGTH);
             throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH);
+        }
+    }
+
+    private static void checkCarNameFrontBlank(String carName) {
+        if (carName.charAt(0) == ' ') {
+            System.out.println(ERROR_CAR_NAME_FRONT_BLANK);
+            throw new IllegalArgumentException(ERROR_CAR_NAME_FRONT_BLANK);
         }
     }
 
