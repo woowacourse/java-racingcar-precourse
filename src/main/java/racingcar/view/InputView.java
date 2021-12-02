@@ -40,7 +40,7 @@ public class InputView {
 
 	private static void validateIsEmpty(String input) {
 		if (input.isEmpty()) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("입력 글자는 최소 1글자 이상입니다.");
 		}
 	}
 
