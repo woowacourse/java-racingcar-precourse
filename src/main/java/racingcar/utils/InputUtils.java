@@ -2,8 +2,8 @@ package racingcar.utils;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.view.OutputView;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class InputUtils {
 
@@ -17,10 +17,14 @@ public class InputUtils {
 		try {
 			ExceptionUtils.validateCarNames(carNames);
 		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-			OutputView.askCarNames();
-			carNames = getCarNames(InputView.writeCarNames());
+			OutputView.printError(e);
+			carNames = requestCarNames();
 		}
 		return carNames;
+	}
+
+	public static List<String> requestCarNames() {
+		OutputView.askCarNames();
+		return getCarNames(InputView.writeCarNames());
 	}
 }
