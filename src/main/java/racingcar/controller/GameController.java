@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-
 import racingcar.InputValidator;
 import racingcar.model.Car;
 import racingcar.model.CarRepository;
@@ -14,16 +12,16 @@ public class GameController {
 	public void start() {
 		makeCars();
 		makeRoundNumber();
-		OutputView.printPlayResultMessage();
-
-		for (int i = 0; i < roundNumber; i++) {
-			playRound();
-		}
+		playRound();
+		showGameResult();
 	}
 
 	private void playRound() {
-		CarRepository.moveCars();
-		printPlayResult();
+		OutputView.printPlayResultMessage();
+		for (int i = 0; i < roundNumber; i++) {
+			CarRepository.moveCars();
+			printPlayResult();
+		}
 	}
 
 	private void makeCars() {
@@ -69,4 +67,7 @@ public class GameController {
 		OutputView.printEmptyLine();
 	}
 
+	private void showGameResult() {
+		OutputView.printWinners(CarRepository.getWinnerNames());
+	}
 }

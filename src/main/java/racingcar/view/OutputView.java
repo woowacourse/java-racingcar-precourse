@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.ArrayList;
+
 import racingcar.model.Car;
 
 public class OutputView {
@@ -37,5 +39,9 @@ public class OutputView {
 
 	public static void printEmptyLine() {
 		System.out.println();
+	}
+
+	public static void printWinners(ArrayList<String> winners) {
+		System.out.print("최종 우승자 : " + String.join(", ", winners));
 	}
 }
