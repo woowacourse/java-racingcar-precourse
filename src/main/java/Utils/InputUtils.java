@@ -9,7 +9,6 @@ import java.util.List;
 import static constant.Constant.*;
 
 public class InputUtils {
-
     public static List<Car> returnCarList() {
         List<Car> carList = new ArrayList<>();
         boolean isValid = false;
@@ -101,5 +100,4 @@ public class InputUtils {
             }
         }
     }
-
 }

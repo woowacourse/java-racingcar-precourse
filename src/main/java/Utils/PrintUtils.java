@@ -48,5 +48,4 @@ public class PrintUtils {
         }
         return rankMap.get(maxPosition);
     }
-
 }
