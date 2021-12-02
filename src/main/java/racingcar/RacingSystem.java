@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -14,12 +15,18 @@ public class RacingSystem {
     private static final String NUMBER_REGAX = "^[0-9]*$";
     private static final int MAX_LENGTH = 5;
     private static final int NEGATIVE_NUMBER = -1;
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 9;
 
     private List<Car> cars = new ArrayList<>();
     private Winners winners = new Winners();
     private int cnt = 0;
 
     public RacingSystem() {
+    }
+
+    public Winners getWinners() {
+        return winners;
     }
 
     public void inputCarName() {
@@ -39,6 +46,22 @@ public class RacingSystem {
         } catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 올바른 숫자를 입력하세요.");
             inputTryCnt();
+        }
+    }
+
+    public void racingStart() {
+        while (winners.getWinnersCnt() == 0) {
+            for (Car car : cars) {
+                int random = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+                car.go(random);
+                getWinner(car.getName(), car.getPosition());
+            }
+        }
+    }
+
+    private void getWinner(String name, int position) {
+        if (position == cnt) {
+            winners.addWinner(name);
         }
     }
 
