@@ -12,6 +12,7 @@ public class Application {
         PlayGame(arrayCarObject,count);
         GameSet(arrayCarObject);
     }
+
     private static void PlayGame(Car[] arrayCarObject, int count) {
         System.out.println("실행결과");
         for (int i = 0; i < count; i++) {
@@ -31,7 +32,6 @@ public class Application {
             if (!flag && position == winnerPosition) {
                 System.out.print(", ");
             }
-
             if (winnerPosition == position) {
                 System.out.print(arrayCarObject[i].ReturnName());
                 flag = false;
@@ -84,8 +84,29 @@ public class Application {
     private static String[] inputToArray() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String inputCarName = Console.readLine();
-        String[] arrayCar = inputCarName.split(",");
-        return arrayCar;
+        try {
+            String[] arrayCar = inputCarName.split(",");
+            if (CheckFiveChar(arrayCar)) {
+                return arrayCar;
+            }
+            return inputToArray();
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 이름을 입력해주세요!");
+            return inputToArray();
+        }
+    }
+
+    private static boolean CheckFiveChar(String[] arrayCar) {
+        boolean flag = true;
+        for (int i = 0; i < arrayCar.length; i++) {
+            if (arrayCar[i].length() > 5){
+                flag =  false;
+            }
+        }
+        if (flag) {
+            return true;
+        }
+        throw new IllegalArgumentException("[ERROR] : 자동차 이름이 5글자를 넘어요!");
     }
 
     private static Car[] arrayCarObj(String[] arrayCar) {
