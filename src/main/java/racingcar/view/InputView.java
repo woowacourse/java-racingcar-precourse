@@ -17,8 +17,11 @@ public class InputView {
 
 		List<String> userInputNameList = Arrays.asList(
 			Console.readLine().split(USER_NAME_INPUT_DELIMITER.getString()));
+		UserInputValidator.validateUserInputNameListLength(userInputNameList);
 		userInputNameList.forEach(UserInputValidator::validateUserInputNameLength);
-		return userInputNameList.stream().map(Car::new).collect(Collectors.toList());
+		return userInputNameList.stream()
+			.map(Car::new)
+			.collect(Collectors.toList());
 	}
 
 	public static int inputIterationNumber() throws IllegalArgumentException {
