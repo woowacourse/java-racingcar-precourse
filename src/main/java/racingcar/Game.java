@@ -73,9 +73,20 @@ public class Game {
 				System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
 			}
 		}
-		
+
 	}
 
 	public void printWinner() {
+		Vector<String> winnerNames = getWinnerNames();
+		System.out.print("최종 우승자 : ");
+
+		for (int i = 0; i < winnerNames.size() - 1; i++) {
+			System.out.print(winnerNames.get(i) + ", ");
+		}
+
+		System.out.println(winnerNames.get(winnerNames.size() - 1));
+	}
+
+	public Vector<String> getWinnerNames() {
 	}
 }
