@@ -51,8 +51,7 @@ public class CarNamesValidator {
 	private void throwCarNamesDuplicateException(String carName) {
 		if (carNamesSet.contains(carName)) {
 			throw new IllegalArgumentException(CAR_NAMES_DUPLICATE_ERROR_MESSAGE);
-		} else {
-			carNamesSet.add(carName);
 		}
+		carNamesSet.add(carName);
 	}
 }
