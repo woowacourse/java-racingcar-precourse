@@ -26,10 +26,20 @@ public class Game {
 		List<String> names = Arrays.asList(userInput.split(Const.NAME_SEPARATOR));
 
 		try {
-			result = Car.generateCars(names);
+			result = generateCars(names);
 		} catch (IllegalArgumentException e) {
 			System.out.println(Const.ERROR_INPUT_CAR_NAME_MESSAGE);
 			return readCars();
+		}
+
+		return result;
+	}
+
+	private static List<Car> generateCars(List<String> names) {
+		List<Car> result = new ArrayList<>();
+
+		for (String name : names) {
+			result.add(new Car(Validator.validateName(name)));
 		}
 
 		return result;

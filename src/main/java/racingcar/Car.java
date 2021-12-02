@@ -35,14 +35,4 @@ public class Car {
         }
         System.out.println(outputText);
     }
-
-    public static List<Car> generateCars(List<String> names) {
-        List<Car> result = new ArrayList<>();
-
-        for (String name : names) {
-            result.add(new Car(Validator.validateName(name)));
-        }
-
-        return result;
-    }
 }
