@@ -20,7 +20,7 @@ public class InputValidator {
 
 	private boolean isValidLength(){
 		int len = carName.length();
-		if (len < 0 && len <= 5){
+		if (0 < len && len <= 5){
 			return true;
 		}
 		throw new IllegalArgumentException(ErrorMessageText.NOT_ALLOWED_LENGTH_RANGE);
