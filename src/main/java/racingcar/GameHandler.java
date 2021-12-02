@@ -22,17 +22,14 @@ public class GameHandler {
 	}
 
 	private void showWinners() {
-		cars.sort(Comparator.comparingInt(Car::currentPosition));
-		List<Car> winnerCars = new ArrayList<>();
-		int max = cars.get(cars.size() - 1).currentPosition();
-		for (int i = cars.size() - 1; i >= 0; i--) {
-			if (cars.get(i).currentPosition() < max) {
-				break;
-			}
-			winnerCars.add(cars.get(i));
-		}
+		List<Car> winnerCars = findWinnerCars();
 
 		System.out.print("최종 우승자 : ");
+		StringBuilder winners = getWinners(winnerCars);
+		System.out.println(winners);
+	}
+
+	private StringBuilder getWinners(List<Car> winnerCars) {
 		StringBuilder winners = new StringBuilder();
 		for (int i = 0; i < winnerCars.size(); i++) {
 			winners.append(winnerCars.get(i).name());
@@ -40,7 +37,23 @@ public class GameHandler {
 				winners.append(", ");
 			}
 		}
-		System.out.println(winners);
+		return winners;
+	}
+
+	private List<Car> findWinnerCars() {
+		List<Car> winners = new ArrayList<>();
+		List<Car> carList = new ArrayList<>(cars);
+
+		carList.sort(Comparator.comparingInt(Car::currentPosition));
+		int max = carList.get(carList.size() - 1).currentPosition();
+		for (int i = carList.size() - 1; i >= 0; i--) {
+			if (carList.get(i).currentPosition() < max) {
+				break;
+			}
+			winners.add(carList.get(i));
+		}
+
+		return winners;
 	}
 
 	private void executeStage() {
@@ -128,21 +141,21 @@ public class GameHandler {
 	}
 
 	private boolean checkValidNames(String userInput) {
-		if (isLastCharImproper(userInput)) {
-			return false;
-		}
-
 		String[] names = userInput.split(Constant.SPLIT_STRING);
 		for (String name : names) {
-			if (isInValidNameLength(name)) {
+			if (isInvalidNameLength(name)) {
 				return false;
 			}
+		}
+
+		if (isLastCharImproper(userInput)) {
+			return false;
 		}
 
 		return true;
 	}
 
-	private boolean isInValidNameLength(String name) {
+	private boolean isInvalidNameLength(String name) {
 		return !(Constant.MIN_NAME_LENGTH <= name.length() && name.length() <= Constant.MAX_NAME_LENGTH);
 	}
 
