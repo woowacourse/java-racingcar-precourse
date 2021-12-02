@@ -11,20 +11,16 @@ public class InputView {
 	public static final String CAR_SPLIT_REGEX = ",";
 
 	public static String[] enterEveryCarName() {
-		boolean isRepeat = true;
-		while (isRepeat) {
+		while (true) {
 			try{
-				isRepeat = false;
 				System.out.println(INPUT_EVERY_CAR_NAME_MESSAGE);
-				String[] everyCarName = Console.readLine().split(CAR_SPLIT_REGEX);
+				String[] everyCarName = Console.readLine().split(CAR_SPLIT_REGEX); // TODO 에러 : ~~,,, 이런식으로 입력되면 ,,, 뒤에 처리 안됨. 오류가 떠야 하는데 ~~만 객체처리하고 정상로직.
 				Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
 				return everyCarName;
 			} catch (IllegalArgumentException e){
-				isRepeat = true;
 				System.out.println("[ERROR] " + e.getMessage());
 			}
 		}
-		throw new IllegalStateException("모든 차가 입력되지 않았는데, 로직이 끝남.");
 	}
 
 	private static void validateCarName(String eachCarName) {
