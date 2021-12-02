@@ -21,6 +21,9 @@ public class TryCountReceiver {
 			try {
 				tryCountValidator.validate(tryCountString);
 				errorSwitch = false;
+
+				// 공백 라인 출력
+				System.out.println();
 			} catch (IllegalArgumentException illegalArgumentException) {
 				System.out.println(TRY_COUNT_ERROR_MESSAGE);
 				errorSwitch = true;
