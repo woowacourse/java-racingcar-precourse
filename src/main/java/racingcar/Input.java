@@ -13,4 +13,9 @@ public class Input {
         return input;
     }
 
+    public static String getNumberOfAttempts() throws IOException {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = bufferedReader.readLine();
+        return input;
+    }
 }
