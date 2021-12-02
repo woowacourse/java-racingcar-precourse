@@ -3,7 +3,8 @@ package racingcar;
 public class Constant {
 	public static int NAME_MAX_LENGTH = 5;
 	public static int PROCEED_CRITERIA = 4;
-
+	public static String CAR_NAME_PARSER = ",";
+	public static String CAR_NAMES_INPUT_ALARM_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(" + CAR_NAME_PARSER + ") 기준으로 구분)";
 	// 에러문
 	public static String NAME_MAX_LENGTH_EXCEED_ERROR_MESSAGE = "[ERROR] 자동차 이름은 5자 이하만 가능하다.";
 }
