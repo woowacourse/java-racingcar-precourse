@@ -10,10 +10,11 @@ import java.util.stream.IntStream;
 
 public class Race {
 
-	private List<Car> cars = new ArrayList<>();
-	private int attemptNumber;
+	private final List<Car> cars;
+	private final int attemptNumber;
 
 	public Race(List<String> carNames, int attemptNumber) {
+		cars = new ArrayList<>();
 		toCar(carNames);
 		this.attemptNumber = attemptNumber;
 	}
