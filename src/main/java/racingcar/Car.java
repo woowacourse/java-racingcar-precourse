@@ -15,4 +15,10 @@ public class Car {
 			throw new IllegalArgumentException(Constant.NAME_MAX_LENGTH_EXCEED_ERROR_MESSAGE);
 		}
 	}
+
+	public void proceed(int randomValue) {
+		if (randomValue >= Constant.PROCEED_CRITERIA) {
+			position++;
+		}
+	}
 }
