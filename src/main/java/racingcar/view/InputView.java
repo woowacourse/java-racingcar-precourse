@@ -20,4 +20,13 @@ public class InputView {
 		userInputNameList.forEach(UserInputValidator::validateUserInputNameLength);
 		return userInputNameList.stream().map(Car::new).collect(Collectors.toList());
 	}
+
+	public static int inputIterationNumber() throws IllegalArgumentException {
+		System.out.println(ITERATION_NUMBER_INPUT_HINT.getString());
+
+		String userInputIterationNumber = Console.readLine();
+		UserInputValidator.validateUserInputIterationNumberInteger(userInputIterationNumber);
+		UserInputValidator.validateUserInputIterationNumberRange(userInputIterationNumber);
+		return Integer.parseInt(userInputIterationNumber);
+	}
 }
