@@ -9,7 +9,6 @@ public class RaceTrack {
 	public ArrayList<Car> start(ArrayList<String> nameList, Integer tryCount) {
 		System.out.println(RACING_RESULT_MESSAGE);
 
-		// Car 객체 인스턴스 생성 & List 로 저장
 		ArrayList<Car> carList = makeCarList(nameList);
 
 		for (int i = 0; i < tryCount; i++) {
