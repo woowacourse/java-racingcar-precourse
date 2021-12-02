@@ -13,6 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CarServiceTest {
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+    private static final int MOVED = 1;
+    private static final int STAY = 0;
+    private static final int SAVED = 3;
 
     CarRepository carRepository = CarRepository.getInstance();
     CarService carService = new CarService(carRepository);
@@ -20,10 +25,10 @@ class CarServiceTest {
     @DisplayName("자동차 저장_성공")
     @Test
     void save_cars_true() {
-        carService.saveCars("jae, hun, choi");
+        carService.saveCars("jae,hun,choi");
         List<Car> findCars = carService.findAllCars();
 
-        assertThat(findCars.size()).isEqualTo(3);
+        assertThat(findCars.size()).isEqualTo(SAVED);
     }
 
     @DisplayName("자동차 저장 길이초과_실패")
@@ -52,14 +57,14 @@ class CarServiceTest {
     void update_car_position() {
         carService.saveCars("jae,hun,choi");
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
-            mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(3, 4, 5);
+            mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(STOP, MOVING_FORWARD, MOVING_FORWARD);
             carService.updateCarPosition();
         }
         List<Car> findCars = carService.findAllCars();
 
-        assertThat(findCars.get(0).getPosition()).isEqualTo(0);
-        assertThat(findCars.get(1).getPosition()).isEqualTo(1);
-        assertThat(findCars.get(2).getPosition()).isEqualTo(1);
+        assertThat(findCars.get(0).getPosition()).isEqualTo(STAY);
+        assertThat(findCars.get(1).getPosition()).isEqualTo(MOVED);
+        assertThat(findCars.get(2).getPosition()).isEqualTo(MOVED);
     }
 
     @DisplayName("승자 확인")
@@ -67,7 +72,7 @@ class CarServiceTest {
     void find_winners() {
         carService.saveCars("jae,hun,choi");
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
-            mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(3, 4, 5);
+            mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(STOP, MOVING_FORWARD, MOVING_FORWARD);
             carService.updateCarPosition();
         }
 
