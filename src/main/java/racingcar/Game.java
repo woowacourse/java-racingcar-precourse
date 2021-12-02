@@ -18,9 +18,11 @@ public class Game {
 		setGameTurn();
 
 		for (int i = 0; i < gameTurn; i++) {
+
 			for (int j = 0; j < cars.size(); j++) {
 				cars.get(j).move();
 			}
+
 		}
 
 		printWinner();
@@ -29,10 +31,24 @@ public class Game {
 	public void setCars() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String carNames = Console.readLine();
-		separateCarNames(carNames);
+		Vector<String> seperatedCarNames = separateCarNames(carNames);
 	}
 
-	public void separateCarNames(String carNames) {
+	public Vector<String> separateCarNames(String carNames) {
+		Vector<String> seperatedCarNames = new Vector<String>();
+		int newCarNameStartIdx = 0;
+
+		for (int i = 0; i < carNames.length(); i++) {
+
+			if (carNames.charAt(i) == ',') {
+				seperatedCarNames.add(carNames.substring(newCarNameStartIdx, i - 1));
+				newCarNameStartIdx = i + 1;
+			}
+
+		}
+
+		seperatedCarNames.add(carNames.substring(newCarNameStartIdx, carNames.length() - 1));
+		return seperatedCarNames;
 	}
 
 	public void setGameTurn() {
