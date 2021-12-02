@@ -21,14 +21,38 @@ public class RacingGame {
 
     private void playGame() {
         List<Car> cars = makeParticipantsListRacingGame();
+
         int rounds = determineRoundNumber();
+        gameDisplay.printEmptyLine();
+        gameDisplay.printExecutionResultMessage();
 
         for (int i = 0; i < rounds; i++) {
             playEachRound(cars);
             gameDisplay.printEmptyLine();
         }
 
-        // 우승자를 선택하는 로직 구현.
+        List<String> winners = makeWinnerList(cars);
+        gameDisplay.printWinnerList(winners);
+    }
+
+    private List<String> makeWinnerList(final List<Car> cars) {
+        final int topSpeed = findTopSpeed(cars);
+        final List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (topSpeed == car.getPosition()) {
+                winners.add(car.getCarName());
+            }
+        }
+
+        return winners;
+    }
+
+    private int findTopSpeed(final List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
     }
 
     private void playEachRound(List<Car> cars) {
