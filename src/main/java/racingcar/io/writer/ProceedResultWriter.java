@@ -17,7 +17,7 @@ public class ProceedResultWriter {
 		for (ProceedResult result : proceedResults) {
 			write(result);
 		}
-		consoleDisplay.info("");
+		writeBlankLine();
 	}
 
 	private void write(ProceedResult result) {
@@ -26,5 +26,9 @@ public class ProceedResultWriter {
 
 	private String progressBar(int position) {
 		return IntStream.range(0, position).mapToObj(i -> "-").collect(Collectors.joining());
+	}
+
+	private void writeBlankLine() {
+		consoleDisplay.info("");
 	}
 }
