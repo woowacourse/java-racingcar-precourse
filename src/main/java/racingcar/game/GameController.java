@@ -15,6 +15,8 @@ public class GameController {
 		Attempts attempts = new Attempts();
 		inputAttempts(attempts);
 		moveCars(cars, attempts);
+		Winners winners = new Winners(cars);
+		OutputView.showWinner(winners.getWinners());
 	}
 
 	private void inputCarName(CarNames carNames) {

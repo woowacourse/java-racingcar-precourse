@@ -20,4 +20,8 @@ public class OutputView {
 	private static void showSpaceBetweenMessage() {
 		System.out.println();
 	}
+
+	public static void showWinner(String winner) {
+		System.out.println(winner);
+	}
 }

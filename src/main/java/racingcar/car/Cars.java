@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+	private static final int ZERO = 0;
+
 	private List<Car> carList;
 	private CarMovement carMovement;
 
@@ -21,5 +23,28 @@ public class Cars {
 			moveResult.add(car.positionToString());
 		}
 		return moveResult;
+	}
+
+	public List<String> findFrontCars() {
+		List<String> frontCarsName = new ArrayList<>();
+		int maxDistance = getMaxDistance();
+		for (Car each : carList) {
+			insertCarName(frontCarsName, each, maxDistance);
+		}
+		return frontCarsName;
+	}
+
+	private int getMaxDistance() {
+		int maxDistance = ZERO;
+		for (Car each : carList) {
+			maxDistance = Math.max(maxDistance, each.getPosition());
+		}
+		return maxDistance;
+	}
+
+	private void insertCarName(List<String> frontCarsName, Car car, int maxDistance) {
+		if (car.getPosition() == maxDistance) {
+			frontCarsName.add(car.getName());
+		}
 	}
 }
