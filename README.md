@@ -1,4 +1,5 @@
 # 미션 - 자동차 경주 게임
+**[2주차 고민과 경험](https://github.com/jayjaehunchoi/woowafreecourse_study/tree/main/2%EC%A3%BC%EC%B0%A8)**
 ## ✍️ 구현할 기능
 ### ✅ Car
 #### package java.racingcar
