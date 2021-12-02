@@ -9,7 +9,7 @@ public class InputView {
 	private static final int MAX_CAR_NAME_LENGTH = 5;
 	private static final String ERROR_MESSAGE = "[ERROR] ";
 	private static final String INPUT_CAR_NAMES_TITLE_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-	private static final String INPUT_CAR_MOVING_NUMBER_TITLE_MESSAGE= "시도할 회수는 몇회인가요?";
+	private static final String INPUT_CAR_MOVING_NUMBER_TITLE_MESSAGE = "시도할 회수는 몇회인가요?";
 	private static final String DELIMITER_CAR_NAME = ",";
 
 	public static String[] inputCarNames() {
@@ -28,11 +28,12 @@ public class InputView {
 		validateIsEmpty(input);
 		String[] carNames = input.split(DELIMITER_CAR_NAME);
 		validateLengthOfCarName(carNames);
+		validateDuplicateCarNames(carNames);
 	}
 
 	private static void validateDuplicateCarNames(String[] carNames) {
 		HashSet<String> tempSet = new HashSet<>(Arrays.asList(carNames));
-		if(tempSet.size() != carNames.length) {
+		if (tempSet.size() != carNames.length) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + "중복된 자동차 이름이 있습니다.");
 		}
 	}
