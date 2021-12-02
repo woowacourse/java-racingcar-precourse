@@ -23,4 +23,10 @@ public class Game {
 		}
 		return carNames;
 	}
+
+	public int castingGameRound(String stringGameRound){
+		int gameRound = Integer.parseInt(stringGameRound);
+		return gameRound;
+	}
+
 }
