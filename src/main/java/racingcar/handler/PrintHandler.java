@@ -1,8 +1,8 @@
-package racingcar.utils;
+package racingcar.handler;
 
 import static racingcar.utils.Constant.*;
 
-public class Printer {
+public class PrintHandler {
 	public static void printInputNameMsg() {
 		System.out.println(INPUT_NAME_MSG);
 	}

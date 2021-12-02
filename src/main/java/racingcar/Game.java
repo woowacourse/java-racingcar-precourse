@@ -1,12 +1,10 @@
 package racingcar;
 
-import static racingcar.utils.Constant.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Console;
-import racingcar.utils.Printer;
+import racingcar.handler.InputHandler;
+import racingcar.handler.PrintHandler;
 
 public class Game {
 	private final List<Car> carList;
@@ -19,24 +17,15 @@ public class Game {
 		try {
 			inputName();
 		} catch (IllegalArgumentException e) {
-			Printer.printErrorMsg(e);
+			PrintHandler.printErrorMsg(e);
 			inputName();
 		}
 	}
 
 	private void inputName() {
-		Printer.printInputNameMsg();
-		String[] names = Console.readLine().split(",");
-		validateNameLength(names);
+		PrintHandler.printInputNameMsg();
+		String[] names = InputHandler.getNameInput();
 		createCar(names);
-	}
-
-	private void validateNameLength(String[] names) {
-		for (String name : names) {
-			if (name.trim().length() > NAME_LENGTH_LIMIT) {
-				throw new IllegalArgumentException(ERROR_LENGTH_MSG);
-			}
-		}
 	}
 
 	private void createCar(String[] names) {

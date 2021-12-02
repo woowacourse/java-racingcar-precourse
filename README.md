@@ -19,7 +19,11 @@
 - Car
   - 자동차 클래스
   - 이름, 위치를 필드로 가짐
-- Print
+- InputHandler
+  - 입력을 담당할 클래스
+- Validator
+  - 입력의 유효성을 체크하는 클래스
+- PrintHandler
   - 출력을 담당할 클래스
 - Constant
   - 프로그램에 사용되는 상수들을 저장하는 클래스
