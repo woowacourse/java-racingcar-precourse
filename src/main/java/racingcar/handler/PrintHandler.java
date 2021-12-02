@@ -10,4 +10,8 @@ public class PrintHandler {
 	public static void printErrorMsg(Exception exception) {
 		System.out.println(exception.getMessage());
 	}
+
+	public static void printInputNumberMsg() {
+		System.out.println(INPUT_NUMBER_MSG);
+	}
 }

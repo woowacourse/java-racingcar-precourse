@@ -9,4 +9,8 @@ public class InputHandler {
 		Validator.validateNameInput(name);
 		return name;
 	}
+
+	public static int getNumberInput() {
+		return Validator.validateNumberInput(Console.readLine().trim());
+	}
 }

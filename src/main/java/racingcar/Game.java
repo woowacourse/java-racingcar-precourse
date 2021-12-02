@@ -8,24 +8,26 @@ import racingcar.handler.PrintHandler;
 
 public class Game {
 	private final List<Car> carList;
+	private int runNumber;
 
 	public Game() {
 		this.carList = new ArrayList<>();
 	}
 
 	public void run() {
-		try {
-			inputName();
-		} catch (IllegalArgumentException e) {
-			PrintHandler.printErrorMsg(e);
-			inputName();
-		}
+		inputName();
+		inputRunNumber();
 	}
 
 	private void inputName() {
 		PrintHandler.printInputNameMsg();
-		String[] names = InputHandler.getNameInput();
-		createCar(names);
+		try {
+			String[] names = InputHandler.getNameInput();
+			createCar(names);
+		} catch (IllegalArgumentException e) {
+			PrintHandler.printErrorMsg(e);
+			inputName();
+		}
 	}
 
 	private void createCar(String[] names) {
@@ -35,7 +37,20 @@ public class Game {
 		}
 	}
 
+	private void inputRunNumber() {
+		PrintHandler.printInputNumberMsg();
+		try {
+			this.runNumber = InputHandler.getNumberInput();
+		} catch (IllegalArgumentException e) {
+			inputRunNumber();
+		}
+	}
+
 	public List<Car> getCarList() {
 		return carList;
+	}
+
+	public int getRunNumber() {
+		return runNumber;
 	}
 }

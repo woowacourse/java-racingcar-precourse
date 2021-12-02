@@ -13,8 +13,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import racingcar.utils.Constant;
-
 class GameTest {
 
 	Game game;
@@ -25,20 +23,6 @@ class GameTest {
 		game = new Game();
 		out = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
-	}
-
-	@Test
-	void 게임_실행() {
-		// given
-		String input = "test";
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-
-		// when
-		game.run();
-
-		// then
-		assertThat(Constant.INPUT_NAME_MSG).isEqualTo(out.toString().trim());
 	}
 
 	@Test
@@ -57,5 +41,22 @@ class GameTest {
 		// then
 		List<Car> carList = game.getCarList();
 		assertThat(carList.size()).isEqualTo(2);
+	}
+
+	@Test
+	void 숫자_입력() throws Exception {
+		Method inputRunNumber = Game.class.getDeclaredMethod("inputRunNumber");
+		inputRunNumber.setAccessible(true);
+
+		// given
+		int input = 5;
+		InputStream in = new ByteArrayInputStream(Integer.toString(input).getBytes());
+		System.setIn(in);
+
+		// when
+		inputRunNumber.invoke(game);
+
+		// then
+		assertThat(game.getRunNumber()).isEqualTo(input);
 	}
 }

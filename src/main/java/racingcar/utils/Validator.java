@@ -10,4 +10,12 @@ public class Validator {
 			}
 		}
 	}
+
+	public static int validateNumberInput(String input) {
+		try {
+			return Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException(ERROR_NUMBER_MSG);
+		}
+	}
 }

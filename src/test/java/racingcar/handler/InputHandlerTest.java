@@ -51,7 +51,7 @@ class InputHandlerTest {
 	}
 
 	@Test
-	void 정상_동작() {
+	void 이름_정상_동작() {
 		// given
 		String input = "Kim,Lee";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -64,5 +64,32 @@ class InputHandlerTest {
 		assertThat(names.length).isEqualTo(2);
 		assertThat(names[0]).isEqualTo("Kim");
 		assertThat(names[1]).isEqualTo("Lee");
+	}
+
+	@Test
+	void 숫자에_문자_입력() {
+		// given
+		String input = "alphabet";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+
+		// when, then
+		assertThatThrownBy(InputHandler::getNumberInput)
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining(ERROR);
+	}
+
+	@Test
+	void 숫자_정상_입력() {
+		// given
+		String input = "5";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+
+		// when
+		int number = InputHandler.getNumberInput();
+
+		// then
+		assertThat(number).isEqualTo(Integer.parseInt(input));
 	}
 }
