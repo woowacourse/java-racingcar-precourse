@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 	private static final int MAX_CAR_NAME_LENGTH = 5;
-	private static final String ERROR_MESSAGE = "[ERROR]";
+	private static final String ERROR_MESSAGE = "[ERROR] ";
 
 	public static String[] inputCarNames() {
 		try {
@@ -23,5 +23,10 @@ public class InputView {
 				throw new IllegalArgumentException(ERROR_MESSAGE + "입력한 이름이 5글자를 초과합니다.");
 			}
 		}
+	}
+
+	public static int inputNumberOfCarMoving() {
+		String numberOfCarMoving = Console.readLine();
+		return Integer.parseInt(numberOfCarMoving);
 	}
 }
