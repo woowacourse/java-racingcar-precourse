@@ -29,7 +29,7 @@ public class Game {
 
 		try {
 			checkNull(inputStr);
-			checkInputCarsNameLen(inputStr.split(","));
+			checkCarsNameLength(inputStr.split(","));
 
 		} catch (IllegalArgumentException e) {
 			System.out.println("[ERROR] "+e.getMessage());
@@ -43,7 +43,7 @@ public class Game {
 
 		try {
 			checkNull(inputStr);
-			checkInputRepeatNumber(inputStr);
+			checkInputIsPositiveNumber(inputStr);
 
 		} catch (IllegalArgumentException e) {
 			System.out.println("[ERROR] "+e.getMessage());
@@ -119,7 +119,7 @@ public class Game {
 	}
 
 	//TODO: validation Class 로 빼기
-	private void checkInputCarsNameLen(String[] carsStr) {
+	private void checkCarsNameLength(String[] carsStr) {
 		for (String car : carsStr) {
 			if (car.length() > 5) {
 				throw new IllegalArgumentException(errorMessage.getCAR_NAME_LENGTH_ERROR());
@@ -136,14 +136,12 @@ public class Game {
 	}
 
 	//TODO: validation Class 로 빼기
-	private void checkInputRepeatNumber(String inputStr)  {
+	private void checkInputIsPositiveNumber(String inputStr)  {
 		for (char c : inputStr.toCharArray()) {
-			if (!Character.isDigit(c)) {
+			if (!Character.isDigit(c) || c-'0'<0) {
 				throw new IllegalArgumentException(errorMessage.getNOT_CORRECT_REPEAT_NUM_ERROR());
 			}
 		}
 		repeatNumber = Integer.parseInt(inputStr);
 	}
-
-	// TODO: 음의 정수 일 때 error 추가
 }
