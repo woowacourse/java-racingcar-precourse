@@ -31,5 +31,6 @@ public class OutputView {
 		for (int i = 1; i < carList.size(); i++) {
 			stringBuilder.append(", ").append(carList.get(i).getName());
 		}
+		System.out.println(stringBuilder);
 	}
 }
