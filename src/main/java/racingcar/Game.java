@@ -28,7 +28,7 @@ public class Game {
 		printWinner();
 	}
 
-	public void setCars() {
+	private void setCars() {
 		boolean reset = true;
 
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -46,7 +46,7 @@ public class Game {
 
 	}
 
-	public boolean makeCarsCompletely(Vector<String> seperatedCarNames) {
+	private boolean makeCarsCompletely(Vector<String> seperatedCarNames) {
 
 		for (int i = 0; i < seperatedCarNames.size(); i++) {
 
@@ -61,7 +61,7 @@ public class Game {
 		return true;
 	}
 
-	public boolean carNameException(String carName) {
+	private boolean carNameException(String carName) {
 
 		try {
 
@@ -77,7 +77,7 @@ public class Game {
 		return true;
 	}
 
-	public Vector<String> separateCarNames(String carNames) {
+	private Vector<String> separateCarNames(String carNames) {
 		Vector<String> seperatedCarNames = new Vector<String>();
 		int newCarNameStartIdx = 0;
 
@@ -94,12 +94,12 @@ public class Game {
 		return seperatedCarNames;
 	}
 
-	public void setGameTurn() {
+	private void setGameTurn() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		gameTurn = setGameTurnWithoutException();
 	}
 
-	public int setGameTurnWithoutException() {
+	private int setGameTurnWithoutException() {
 
 		while (true) {
 			try {
@@ -113,9 +113,9 @@ public class Game {
 
 	}
 
-	public void printWinner() {
+	private void printWinner() {
 		Vector<String> winnerNames = getWinnerNames();
-		
+
 		System.out.print("최종 우승자 : ");
 
 		for (int i = 0; i < winnerNames.size() - 1; i++) {
@@ -125,7 +125,7 @@ public class Game {
 		System.out.println(winnerNames.get(winnerNames.size() - 1));
 	}
 
-	public Vector<String> getWinnerNames() {
+	private Vector<String> getWinnerNames() {
 		Vector<String> winnerNames = new Vector<String>();
 		int winnerPosition = getWinnerPosition();
 
@@ -140,7 +140,7 @@ public class Game {
 		return winnerNames;
 	}
 
-	public int getWinnerPosition() {
+	private int getWinnerPosition() {
 		int winnerPosition = 0;
 
 		for (int i = 0; i < cars.size(); i++) {
