@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.domain;
 
 public class TryNumber {
     private Integer no;
