@@ -20,12 +20,20 @@ public class InputView {
 		while (true) {
 			try{
 				System.out.println(INPUT_EVERY_CAR_NAME_MESSAGE);
-				String[] everyCarName = Console.readLine().split(CAR_SPLIT_REGEX); // TODO 에러 : ~~,,, 이런식으로 입력되면 ,,, 뒤에 처리 안됨. 오류가 떠야 하는데 ~~만 객체처리하고 정상로직.
+				String inputValue = Console.readLine();
+				hasNoCarNameAtLast(inputValue);
+				String[] everyCarName = inputValue.split(CAR_SPLIT_REGEX);
 				Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
 				return everyCarName;
 			} catch (IllegalArgumentException e){
 				System.out.println(String.format(SHOW_ERROR_MESSAGE,e.getMessage()));
 			}
+		}
+	}
+
+	private static void hasNoCarNameAtLast(String inputValue) {
+		if (inputValue.endsWith(CAR_SPLIT_REGEX)) {
+			throw new IllegalArgumentException(CAR_NAME_NOT_NULL_ERROR_MESSAGE);
 		}
 	}
 
