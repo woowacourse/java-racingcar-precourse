@@ -17,4 +17,24 @@ public class View {
         
         return Console.readLine();
     }
+    
+    public String showRaceMessage(String [] cars, int [] positions) {
+        String result = "실행 결과\n";
+        
+        for(int i = 0; i < cars.length; i++) {
+            result += showPosition(cars[i], positions[i]) + "\n";
+        }
+        
+        return result;
+    }
+    
+    private String showPosition(String car, int position) {
+        String result = car + " : ";
+        
+        while(position-- > 0) {
+            result += "-";
+        }
+        
+        return result;
+    }
 }
