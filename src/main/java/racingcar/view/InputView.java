@@ -18,37 +18,46 @@ public class InputView {
 		return Console.readLine();
 	}
 
-	public static int inputToInt(String roundNum) throws IllegalArgumentException {
-		try {
-			if (!isInt(roundNum)) {
-				throw new IllegalArgumentException("[ERROR] 1글자 이상의 정수 형식으로 입력해야 한다.");
-			}
-			return Integer.parseInt(roundNum);
-		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-			return inputToInt(InputView.roundInput());
-		}
+	public static int getRoundCount() {
+		int roundCount;
+		do {
+			roundCount = inputToInt(roundInput());
+		} while (roundCount == -1);
+		return roundCount;
 	}
 
-	public static String[] inputToStringArray(String carsString) throws IllegalArgumentException {
-		try {
-			if (!isNameOrRest(carsString) || carsString.isEmpty() || carsString.charAt(carsString.length()-1) == ',') {
-				throw new IllegalArgumentException("[ERROR] 1글자 이상의 이름을 입력해야 한다.");
-			}
-			String[] carsStringArray = carsString.split(",");
-			if (!isNotDuplicate(carsStringArray)) {
-				throw new IllegalArgumentException("[ERROR] 중복되는 이름이 없어야 한다.");
-			}
-			for (String carString : carsStringArray) {
-				if (carString.isEmpty() || carString.length() > NAME_SIZE) {
-					throw new IllegalArgumentException("[ERROR] 이름 형식에 맞게 써야 한다.");
-				}
-			}
-			return carsStringArray;
-		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-			return inputToStringArray(InputView.carInput());
+	public static String[] getNames() {
+		String[] names;
+		do {
+			names = inputToStringArray(carInput());
+		} while (names.length == 0);
+		return names;
+	}
+
+	public static int inputToInt(String roundNum) {
+		if (isInt(roundNum)) {
+			return Integer.parseInt(roundNum);
 		}
+		System.out.println("[ERROR] 1글자 이상의 정수 형식으로 입력해야 한다.");
+		return -1;
+	}
+
+	public static String[] inputToStringArray(String carsString) {
+		String[] carStringArray = carsString.split(",");
+		if (isRightName(carsString) && isNotDuplicate(carStringArray) && isRightNameSize(carStringArray)) {
+			return carStringArray;
+		}
+		System.out.println("[ERROR] 잘못된 값이 입력되었습니다.");
+		return new String[0];
+	}
+
+	public static boolean isRightNameSize(String[] strings) {
+		return Arrays.stream(strings)
+			.allMatch(s -> !s.isEmpty() && s.length() <= NAME_SIZE);
+	}
+
+	public static boolean isRightName(String str) {
+		return isNameOrRest(str) && !str.isEmpty() && str.charAt(str.length() - 1) != ',';
 	}
 
 	public static boolean isNotDuplicate(String[] strings) {

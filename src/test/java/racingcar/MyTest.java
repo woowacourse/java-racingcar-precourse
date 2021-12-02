@@ -240,4 +240,12 @@ public class MyTest {
 	public void 승리자출력() {
 		OutputView.printWinner(new String[]{"a","b"});
 	}
+
+	@Test
+	public void 이름길이확인() {
+		String[] strings = {"abc","abcde",""};
+		assertThat(InputView.isRightNameSize(strings))
+			.isEqualTo(false);
+	}
+
 }

@@ -2,13 +2,11 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 import racingcar.model.RacingCars;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
-
 	public void start(String[] names, int roundCount) {
 		RacingCars racingCars = new RacingCars(new ArrayList<>(Arrays.asList(names)));
 

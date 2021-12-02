@@ -15,8 +15,8 @@ public class OutputView {
 	}
 
 	public static void printWinner(String[] winners) {
-		String joinWiners = String.join(", ", winners);
-		System.out.printf("최종 우승자 : %s%n", joinWiners);
+		String joinWinners = String.join(", ", winners);
+		System.out.printf("최종 우승자 : %s%n", joinWinners);
 	}
 
 	public static String dashRepeat(int num) {
