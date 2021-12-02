@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class GameManager {
 	public InputManager inputManager;
 	public Car[] cars;
-	ArrayList<String> winner = new ArrayList<>();
+	public ArrayList<String> winner = new ArrayList<>();
 
 	public GameManager(InputManager inputManager) {
 		this.inputManager = inputManager;
