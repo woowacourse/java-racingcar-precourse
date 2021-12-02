@@ -1,13 +1,15 @@
 package racingcar.controller;
 
-import racingcar.view.InputView;
+import static racingcar.view.InputView.*;
 
 
 public class RacingGame {
 
 	public void run() {
-		InputView.printCarInputMessage();
-		InputView.inputCarName();
+		printCarInputMessage();
+		inputCarName();
+		printAttemptInputMessage();
+		inputAttemptNumber();
 	}
 
 }
