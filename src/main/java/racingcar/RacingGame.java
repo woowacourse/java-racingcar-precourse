@@ -11,11 +11,19 @@ public class RacingGame {
 
     public void run() {
         initGame();
+        startGame();
     }
 
     private void initGame() {
         processCarName(inputCarNames());
         inputMoves();
+    }
+
+    private void startGame() {
+    }
+
+    private boolean canCarMove() {
+        return RandomNumberGenerator.getRandomNumber() >= 4;
     }
 
     private String inputCarNames() {
