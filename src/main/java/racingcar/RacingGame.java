@@ -16,11 +16,11 @@ public class RacingGame {
 	private static final String WINNER_MESSAGE = "최종 우승자 : ";
 	private static final String CAR_SHAPE = "-";
 	private static final String WINNER_DISTINGUISH = ", ";
-	private static final String END_CHECKER = ":";
 
 	private static final int START_INCLUSIVE = 0;
 	private static final int END_INCLUSIVE = 9;
 	private static final int STANDARD_OF_MOVEMENT = 4;
+	private static final int MOVING_DISTANCE = 1;
 
 	private List<Car> participantList = new LinkedList<>();
 	private int rounds = 0;
@@ -74,9 +74,8 @@ public class RacingGame {
 	}
 
 	private void moveCar(Car car) {
-		int distance = pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-		if (distance >= STANDARD_OF_MOVEMENT) {
-			car.moveCar(distance);
+		if (pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= STANDARD_OF_MOVEMENT) {
+			car.moveCar(MOVING_DISTANCE);
 		}
 	}
 
