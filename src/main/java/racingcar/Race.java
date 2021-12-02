@@ -24,4 +24,16 @@ public class Race {
         String userInput = getUserInput();
         moveCount = Integer.parseInt(userInput);
     }
+
+    public void run() {
+        getCarByName();
+        getMoveCount();
+        while (moveCount > 0) {
+            for (Car car : cars) {
+                car.move();
+                car.printPosition();
+            }
+            moveCount--;
+        }
+    }
 }

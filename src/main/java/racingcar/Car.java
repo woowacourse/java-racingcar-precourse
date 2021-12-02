@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static racingcar.Constant.MOVE_MARK;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -17,5 +19,15 @@ public class Car {
         if (randomNumber >= 4) {
             position++;
         }
+    }
+
+    public void printPosition() {
+        StringBuilder executeResult = new StringBuilder();
+        executeResult.append(name);
+        executeResult.append(" : ");
+        for (int i = 0; i < position; i++) {
+            executeResult.append(MOVE_MARK);
+        }
+        System.out.println(executeResult.toString());
     }
 }
