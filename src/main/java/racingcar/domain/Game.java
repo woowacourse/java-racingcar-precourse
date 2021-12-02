@@ -12,13 +12,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
 	private List<Car> carList;
-	private List<Car> winnerList;
+	private List<Car> winnerCandidateList;
 	private StringBuilder gameResultStringBuilder;
 	private int farthestPosition;
 
 	public Game(List<Car> carList) {
 		this.carList = carList;
-		this.winnerList = new ArrayList<>();
+		this.winnerCandidateList = new ArrayList<>();
 		this.gameResultStringBuilder = new StringBuilder();
 		this.farthestPosition = 0;
 	}
@@ -27,8 +27,8 @@ public class Game {
 		return carList;
 	}
 
-	public List<Car> getWinnerList() {
-		return winnerList;
+	public List<Car> getWinnerCandidateList() {
+		return winnerCandidateList;
 	}
 
 	public void runSingle() {
@@ -39,17 +39,21 @@ public class Game {
 			gameResultStringBuilder.append(car).append(GAME_RESULT_POSTFIX.getString());
 		});
 		gameResultStringBuilder.append(GAME_RESULT_POSTFIX.getString());
-		this.winnerList = getWinnerCandidateList();
+		saveWinnerCandidateList();
 	}
 
-	private List<Car> getWinnerCandidateList() {
-		return carList.stream()
+	private void saveWinnerCandidateList() {
+		this.winnerCandidateList = carList.stream()
 			.filter(car -> farthestPosition == car.getPosition())
 			.collect(Collectors.toList());
 	}
 
 	private String getGameResultString() {
 		return gameResultStringBuilder.toString();
+	}
+
+	private String removeLastDelimiterFromWinner(StringBuilder resultString){
+		return resultString.substring(0, resultString.length() - GAME_WINNER_DELIMITER.getString().length());
 	}
 
 	public void runMultiple(int iterationNumber) {
@@ -62,7 +66,7 @@ public class Game {
 		stringBuilder.append(GAME_RESULT_HINT.getString());
 		stringBuilder.append(getGameResultString());
 		stringBuilder.append(GAME_WINNER_HINT.getString());
-		winnerList.forEach(winner -> stringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString()));
-		return stringBuilder.substring(0, stringBuilder.length() - GAME_WINNER_DELIMITER.getString().length());
+		winnerCandidateList.forEach(winner -> stringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString()));
+		return removeLastDelimiterFromWinner(stringBuilder);
 	}
 }

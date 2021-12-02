@@ -39,7 +39,7 @@ public class GameTest {
 		Assertions.assertThat(game.getCarList()
 				.stream()
 				.filter(car -> car.getPosition() == finalFarthestPosition)
-				.anyMatch(winnerCandidate -> game.getWinnerList().contains(winnerCandidate)))
+				.anyMatch(winnerCandidate -> game.getWinnerCandidateList().contains(winnerCandidate)))
 			.isTrue();
 	}
 
@@ -57,7 +57,7 @@ public class GameTest {
 		Assertions.assertThat(game.getCarList()
 				.stream()
 				.filter(car -> car.getPosition() == finalFarthestPosition)
-				.anyMatch(winnerCandidate -> game.getWinnerList().contains(winnerCandidate)))
+				.anyMatch(winnerCandidate -> game.getWinnerCandidateList().contains(winnerCandidate)))
 			.isTrue();
 	}
 
@@ -66,7 +66,7 @@ public class GameTest {
 		// given, when
 		game.runMultiple(5);
 		StringBuilder expectedWinnerStringBuilder = new StringBuilder();
-		game.getWinnerList().forEach(winner -> {
+		game.getWinnerCandidateList().forEach(winner -> {
 			expectedWinnerStringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString());
 		});
 		String expectedWinnerString = expectedWinnerStringBuilder.substring(0,
