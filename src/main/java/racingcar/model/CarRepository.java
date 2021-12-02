@@ -33,4 +33,21 @@ public class CarRepository {
 		}
 	}
 
+	public static ArrayList<String> getWinnerNames() {
+		int maxPosition = 0;
+		for (Car car : cars) {
+			int position = car.getPosition();
+			if (position > maxPosition) {
+				maxPosition = position;
+			}
+		}
+		ArrayList<String> winnerNames = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getPosition() == maxPosition) {
+				winnerNames.add(car.getName());
+			}
+		}
+		return winnerNames;
+	}
+
 }
