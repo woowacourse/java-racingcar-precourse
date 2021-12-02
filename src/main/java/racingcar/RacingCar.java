@@ -9,11 +9,15 @@ import racingcar.view.CarListView;
 import racingcar.view.ProcessView;
 import racingcar.view.ResultView;
 import racingcar.view.View;
+import racingcar.winner.WinnerList;
+import racingcar.winner.WinnerService;
 
 public class RacingCar {
 	View view;
 	CarRepository carRepository;
 	CarRepositoryService carRepositoryService;
+
+
 
 	public void racingCar() {
 		view = new CarListView();
@@ -69,11 +73,12 @@ public class RacingCar {
 
 	private void accelerateCar(String userProcess) {
 		view = new ResultView(carRepository);
-
 		int process = Integer.parseInt(userProcess);
 		for (int i = 0; i < process; i++) {
 			moveCar();
 		}
+
+		setWinner();
 	}
 
 	private void moveCar() {
@@ -86,6 +91,17 @@ public class RacingCar {
 	private void printResultView() {
 		printViews();
 	}
+
+	private void setWinner() {
+		WinnerList winnerList = new WinnerService(carRepository).setWinner();
+
+		printWinnerView(winnerList);
+	}
+
+	private void printWinnerView(WinnerList winnerList) {
+	}
+
+
 
 	private void printViews() {
 		view.printView();
