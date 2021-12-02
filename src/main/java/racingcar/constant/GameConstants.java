@@ -63,4 +63,33 @@ public class GameConstants {
 		}
 	}
 
+	public enum UserInput {
+		NAME_MINIMUM_LENGTH(1),
+		NAME_MAXIMUM_LENGTH(5);
+
+		private final int value;
+
+		UserInput(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+	}
+
+	public enum UserInputException {
+		LENGTH_ERROR_HINT("시도 횟수는 숫자여야 한다.");
+
+		private static final String EXCEPTION_PREFIX = "";
+		private final String string;
+
+		UserInputException(String string) {
+			this.string = string;
+		}
+
+		public String getString() {
+			return EXCEPTION_PREFIX + string;
+		}
+	}
 }
