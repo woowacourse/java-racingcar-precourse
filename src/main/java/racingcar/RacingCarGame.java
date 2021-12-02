@@ -10,6 +10,8 @@ import java.util.ArrayList;
  * @since 1.0
  */
 public class RacingCarGame {
+	private static final int MAX_CAR_NAME_LENGTH = 5;
+
 	private final ArrayList<Car> carList = new ArrayList<>();
 	private final ArrayList<Car> winnerList = new ArrayList<>();
 	private int numberOfTimes;
@@ -109,7 +111,7 @@ public class RacingCarGame {
 	}
 
 	private void validateCarName(String carName) throws IllegalArgumentException {
-		if (carName.length() <= 5) {
+		if (carName.length() <= MAX_CAR_NAME_LENGTH) {
 			return;
 		}
 		System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
