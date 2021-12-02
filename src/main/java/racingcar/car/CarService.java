@@ -8,7 +8,7 @@ public class CarService {
 
 	public static void accelerate(Car car) {
 		int enginePower = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-		if (enginePower > 4) {
+		if (enginePower >= 4) {
 			car.addPosition();
 		}
 	}
