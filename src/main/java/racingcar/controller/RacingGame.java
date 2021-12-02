@@ -6,7 +6,7 @@ import static racingcar.view.InputView.*;
 public class RacingGame {
 
 	public void run() {
-		printCarInputMessage();
+		printCarNameInputMessage();
 		inputCarName();
 		printAttemptInputMessage();
 		inputAttemptNumber();
