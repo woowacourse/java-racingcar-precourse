@@ -26,7 +26,14 @@ public class Game {
 
 	public int castingGameRound(String stringGameRound){
 		int gameRound = Integer.parseInt(stringGameRound);
+		validateGameRound(gameRound);
 		return gameRound;
+	}
+
+	public void validateGameRound(int gameRound) {
+		if (gameRound < Constant.MINIMUM_GAME_ROUND) {
+			throw new IllegalArgumentException();
+		}
 	}
 
 }
