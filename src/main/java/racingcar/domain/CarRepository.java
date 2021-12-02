@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class CarRepository {
+	private static final int FIRST_INDEX_OF_WINNER_CAR = 0;
 	List<Car> carList = new ArrayList<>();
 
 	public void createCars(String[] names) {
@@ -26,14 +27,10 @@ public class CarRepository {
 	public List<Car> getWinnerCars() {
 		Collections.sort(carList);
 		List<Car> winnerCars = new ArrayList<>();
-		if (carList.isEmpty()) {
-			return winnerCars;
-		}
-		Car winnerCar = carList.get(0);
-		winnerCars.add(winnerCar);
-		for (int i = 1; i < carList.size(); i++) {
-			if (winnerCar.getPosition() <= carList.get(i).getPosition()) {
-				winnerCars.add(carList.get(i));
+		Car winnerCar = carList.get(FIRST_INDEX_OF_WINNER_CAR);
+		for (Car car : carList) {
+			if (winnerCar.getPosition() == car.getPosition()) {
+				winnerCars.add(car);
 			}
 		}
 		return winnerCars;
