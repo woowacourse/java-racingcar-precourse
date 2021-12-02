@@ -40,7 +40,7 @@ public class Game {
 		String userInput = Console.readLine();
 		int result;
 		try {
-			result = validateRound(userInput);
+			result = Validator.validateRound(userInput);
 		} catch (IllegalArgumentException e) {
 			System.out.println(Const.ERROR_INPUT_ROUND_MESSAGE);
 			return readRound();
@@ -48,9 +48,4 @@ public class Game {
 
 		return result;
 	}
-
-	private static int validateRound(String userInput) throws IllegalArgumentException {
-		return Integer.parseInt(userInput);
-	}
-
 }

@@ -40,15 +40,10 @@ public class Car {
         List<Car> result = new ArrayList<>();
 
         for (String name : names) {
-            validateName(name);
+            Validator.validateName(name);
             result.add(new Car(name));
         }
 
         return result;
-    }
-
-    private static void validateName(String name) {
-        if(name.length() > Const.MAX_NAME_COUNT)
-            throw new IllegalArgumentException();
     }
 }
