@@ -1,14 +1,13 @@
 package racingcar;
 
-import racingcar.domain.RacingCarController;
-import racingcar.view.InputView;
+import racingcar.controller.GameController;
 
 public class Application {
 	public static void main(String[] args) {
-		String[] names = InputView.getNames();
-		int roundCount = InputView.getRoundCount();
-
-		RacingCarController game = new RacingCarController();
-		game.start(names, roundCount);
+		GameController game = new GameController();
+		game.setRacingCars();
+		game.setRoundNum();
+		game.play();
+		game.showWinner();
 	}
 }
