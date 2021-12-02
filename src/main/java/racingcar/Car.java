@@ -40,8 +40,7 @@ public class Car {
         List<Car> result = new ArrayList<>();
 
         for (String name : names) {
-            Validator.validateName(name);
-            result.add(new Car(name));
+            result.add(new Car(Validator.validateName(name)));
         }
 
         return result;
