@@ -33,9 +33,15 @@ public class InputView {
 	}
 
 	public static int enterTryCnt() {
-		System.out.println(INPUT_TRY_CAR_MOVING_CNT);
-		String tryCntString = Console.readLine();
-		return validateTryCnt(tryCntString);
+		while (true) {
+			try {
+				System.out.println(INPUT_TRY_CAR_MOVING_CNT);
+				String tryCntString = Console.readLine();
+				return validateTryCnt(tryCntString);
+			} catch (IllegalArgumentException e) {
+				System.out.println("[ERROR] " + e.getMessage());
+			}
+		}
 	}
 
 	private static Integer validateTryCnt(String tryCntString) {
