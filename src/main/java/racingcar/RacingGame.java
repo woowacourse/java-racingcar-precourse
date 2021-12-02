@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.StringTokenizer;
 
+import static racingcar.constant.Constraint.*;
+import static racingcar.constant.Message.*;
+
 public class RacingGame {
     private Result result;
     private int moves;
@@ -19,7 +22,7 @@ public class RacingGame {
     }
 
     private void printWinner() {
-        System.out.println("최종 우승자 : " + checkWinner());
+        System.out.println(OUTPUT_WINNER_MESSAGE + checkWinner());
     }
 
     private String checkWinner() {
@@ -40,8 +43,8 @@ public class RacingGame {
     }
 
     private void appendIfNotFirst(StringBuilder stringBuilder) {
-        if(stringBuilder.length() != 0) {
-            stringBuilder.append(", ");
+        if(stringBuilder.length() != NONE) {
+            stringBuilder.append(WINNER_MORE_THAN_ONE_MESSAGE);
         }
     }
 
@@ -58,11 +61,11 @@ public class RacingGame {
     }
 
     private void printMessageForNumberOfMoves() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_PLAY_ROUND_MESSAGE);
     }
 
     private void printMessageForCarNames() {
-        System.out.println("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 
     private void createResult() {
@@ -93,7 +96,7 @@ public class RacingGame {
     }
 
     private boolean canCarMove() {
-        return RandomNumberGenerator.getRandomNumber() >= 4;
+        return RandomNumberGenerator.getRandomNumber() >= MOVING_FORWARD;
     }
 
     private String inputCarNames() {
@@ -110,7 +113,7 @@ public class RacingGame {
 
     private void isValidInput(String input) {
         if(!input.matches("^[a-zA-Z]+(,[a-zA-Z]+)+$")) {
-            throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다. 이름,이름,이름 형식으로 다시 입력해주세요.");
+            throw new IllegalArgumentException(ERROR_MESSAGE + INVALID_INPUT_MESSAGE + RETRY_MESSAGE);
         }
     }
 
@@ -129,7 +132,7 @@ public class RacingGame {
 
     private void validateNumber(String input) {
         if(!input.matches("^[1-9][0-9]*$")) {
-            throw new IllegalArgumentException("[ERROR] 숫자로만 제한됩니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException(ERROR_MESSAGE + LIMITED_TO_NUMBER_ONLY_MESSAGE + RETRY_MESSAGE);
         }
 
         moves = Integer.parseInt(input);
@@ -140,7 +143,7 @@ public class RacingGame {
 
         do {
             try {
-                StringTokenizer st = new StringTokenizer(inputCarNames(), ",");
+                StringTokenizer st = new StringTokenizer(inputCarNames(), DELIM);
                 validateCarName(st);
                 isValid = true;
             } catch(IllegalArgumentException e) {
@@ -169,17 +172,17 @@ public class RacingGame {
 
     private void validateDuplicateName(String nextToken) {
         if (carNameLinkedHashSet.contains(nextToken)) {
-            throw new IllegalArgumentException("[ERROR] 중복된 자동차 이름이 있습니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException(ERROR_MESSAGE + DUPLICATE_CAR_NAME_MESSAGE + RETRY_MESSAGE);
         }
     }
 
     private void validateNameLength(String carName) {
         if(isValidLength(carName)) {
-            throw new IllegalArgumentException("[ERROR] 각 자동차 이름은 5 글자 이하로 제한됩니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException(ERROR_MESSAGE + CAR_NAME_LENGTH_TOO_LONG_MESSAGE + RETRY_MESSAGE);
         }
     }
 
     private boolean isValidLength(String carName) {
-        return carName.length() > 5;
+        return carName.length() > MAX_CAR_NAME_LENGTH;
     }
 }
