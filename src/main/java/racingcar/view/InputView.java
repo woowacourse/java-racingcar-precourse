@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.Arrays;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -9,12 +11,13 @@ public class InputView {
 	public static final String CAR_SPLIT_REGEX = ",";
 
 	public static String[] enterEveryCarName() {
-		System.out.println(INPUT_EVERY_CAR_NAME_MESSAGE);
 		boolean isRepeat = true;
 		while (isRepeat) {
 			try{
 				isRepeat = false;
+				System.out.println(INPUT_EVERY_CAR_NAME_MESSAGE);
 				String[] everyCarName = Console.readLine().split(CAR_SPLIT_REGEX);
+				Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));
 				return everyCarName;
 			} catch (IllegalArgumentException e){
 				isRepeat = true;
@@ -22,6 +25,15 @@ public class InputView {
 			}
 		}
 		throw new IllegalStateException("모든 차가 입력되지 않았는데, 로직이 끝남.");
+	}
+
+	private static void validateCarName(String eachCarName) {
+		if (eachCarName.length() > 5) {
+			throw new IllegalArgumentException("차 이름이 5글자가 넘어감.");
+		}
+		if (eachCarName.isEmpty()) {
+			throw new IllegalArgumentException("차 이름 중 null값 있음");
+		}
 	}
 
 	public static int enterTryCnt() {
@@ -50,3 +62,5 @@ public class InputView {
 		}
 	}
 }
+
+
