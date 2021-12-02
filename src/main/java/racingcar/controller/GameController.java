@@ -15,5 +15,6 @@ public class GameController {
 		List<String> carNames = InputView.writeCarNames();
 		Cars cars = CarUtils.makeCars(carNames);
 		cars.showCars();
+		System.out.println(InputView.writeNumberOfAttempts());
 	}
 }

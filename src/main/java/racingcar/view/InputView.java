@@ -24,4 +24,12 @@ public class InputView {
 		}
 		return carNames;
 	}
+
+	public static int writeNumberOfAttempts() {
+		OutputView.askNumberOfAttempts();
+		String inputNumber = Console.readLine();
+		int numberOfAttempts = Integer.parseInt(inputNumber);
+		OutputView.printNewLine();
+		return numberOfAttempts;
+	}
 }
