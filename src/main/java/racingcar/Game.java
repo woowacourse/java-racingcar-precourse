@@ -16,7 +16,12 @@ public class Game {
 	}
 
 	public void run() {
-		inputName();
+		try {
+			inputName();
+		} catch (IllegalArgumentException e) {
+			Printer.printErrorMsg(e);
+			inputName();
+		}
 	}
 
 	private void inputName() {
