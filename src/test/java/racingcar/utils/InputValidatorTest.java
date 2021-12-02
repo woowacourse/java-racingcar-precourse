@@ -38,4 +38,13 @@ class InputValidatorTest {
 		boolean isDuplicateName = inputValidator.validateNames(names);
 		assertEquals(isDuplicateName, true);
 	}
+
+	@Test
+	void 공백_이름이_있는_경우() {
+		names.add(" ");
+		names.add("  ");
+		names.add("pobi");
+		boolean isEmptyName = inputValidator.validateNames(names);
+		assertEquals(isEmptyName, true);
+	}
 }
