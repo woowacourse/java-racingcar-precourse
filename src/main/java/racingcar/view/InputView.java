@@ -22,7 +22,7 @@ public class InputView {
 		StringTokenizer stringTokenizer = new StringTokenizer(inputValues, DELIMITER);
 		ArrayList<String> arrayList = new ArrayList<>();
 		while (stringTokenizer.hasMoreTokens()) {
-			arrayList.add(stringTokenizer.nextToken());
+			arrayList.add(stringTokenizer.nextToken().trim());
 		}
 		return arrayList;
 	}
