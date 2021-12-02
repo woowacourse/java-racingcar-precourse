@@ -1,7 +1,10 @@
 package racingcar.race;
 
 import racingcar.car.CarService;
+import racingcar.car.dto.CarDto;
 import utils.InputValidator;
+
+import java.util.List;
 
 public class RaceController {
 
@@ -30,5 +33,19 @@ public class RaceController {
             return false;
         }
         return true;
+    }
+
+    private void showRaceResult() {
+        List<CarDto> carDtos = carService.getCars();
+        for(CarDto carDto : carDtos)  {
+            System.out.println(carDto.getState());
+        }
+        System.out.println();
+    }
+
+    public void showRaceWinner() {
+        List<String> winners = carService.getWinner();
+        String result = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + result);
     }
 }

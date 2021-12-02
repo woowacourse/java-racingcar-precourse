@@ -58,4 +58,8 @@ public class CarService {
         carDtoList.sort((a, b) -> b.getPosition() - a.getPosition());
         return carDtoList;
     }
+
+    public List<CarDto> getCars() {
+        return carRepository.getCars();
+    }
 }

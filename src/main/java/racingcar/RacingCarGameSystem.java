@@ -14,6 +14,8 @@ public class RacingCarGameSystem {
 
     public void play() {
         inputCarName();
+        //TODO: 시도 횟수 만큼 경주 진행
+        raceController.showRaceWinner();
     }
 
     private void inputCarName() {
