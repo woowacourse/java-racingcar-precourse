@@ -11,8 +11,8 @@ public class InputView {
         return SC.nextLine();
     }
 
-    public static Integer requireTryNumber() {
+    public static String requireTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return SC.nextInt();
+        return SC.nextLine();
     }
 }

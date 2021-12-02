@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Objects;
 
 public class Car {
     private final String name;
@@ -17,7 +18,7 @@ public class Car {
     }
 
     private void emptyNullCheck(String name) {
-        if (name == null || name.isEmpty()) {
+        if (Objects.isNull(name) || name.isEmpty()) {
             throw new IllegalArgumentException("[ERROR]: 자동차의 이름은 1글자 이상 5글자 이하로 지정하여야 합니다.");
         }
     }
