@@ -6,6 +6,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
+
     private Cars cars;
     private TryNumber tryNumber;
 

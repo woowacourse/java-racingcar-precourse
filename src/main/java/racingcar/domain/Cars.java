@@ -6,10 +6,12 @@ import java.util.stream.Collectors;
 
 public class Cars {
 
+    private static String CARS_NAME_DELIMITER = ",";
+
     private List<Car> cars;
 
     public Cars(String cars) {
-        transferCarsType(Arrays.asList(cars.split(",")));
+        transferCarsType(Arrays.asList(cars.split(CARS_NAME_DELIMITER)));
     }
 
     private void transferCarsType(List<String> cars) {

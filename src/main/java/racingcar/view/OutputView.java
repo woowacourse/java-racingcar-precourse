@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class OutputView {
+
     private static final String FINAL_WINNER = "최종 우승자";
     private static final String POSITION = "-";
 
@@ -24,7 +25,7 @@ public class OutputView {
     public static void printWinner(List<Car> cars) {
         int max = findMaxPosition(cars);
         String winners = findWinners(cars, max);
-        System.out.printf("%s : %s%n", FINAL_WINNER + winners);
+        System.out.printf("%s : %s%n", FINAL_WINNER, winners);
     }
 
     private static String findWinners(List<Car> cars, int max) {
