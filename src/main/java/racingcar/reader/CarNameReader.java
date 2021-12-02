@@ -17,7 +17,7 @@ public class CarNameReader extends Reader<List<String>>{
 
 	@Override
 	protected boolean isValid(String input) {
-		return Stream.of(input.split(DELIMITER)).anyMatch(name -> isLessThanBoundaryLength(name));
+		return Stream.of(input.split(DELIMITER)).allMatch(name -> isLessThanBoundaryLength(name));
 	}
 
 	@Override
