@@ -9,10 +9,10 @@ public class RandomNumber {
     private static final int PASS_VALUE = 4;
 
     public static boolean checkPassOrFail() {
-        return generateRandomNumber(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE) >= PASS_VALUE;
+        return getRandomNumber() >= PASS_VALUE;
     }
 
-    private static int generateRandomNumber(int start, int end) {
-        return Randoms.pickNumberInRange(start, end);
+    private static int getRandomNumber() {
+        return Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
     }
 }
