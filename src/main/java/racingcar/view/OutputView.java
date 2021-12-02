@@ -14,7 +14,7 @@ public class OutputView {
     public static void printWinner(List<Car> cars) {
         int max = findMaxPosition(cars);
         String winners = findWinners(cars, max);
-        System.out.println(winners);
+        System.out.println("최종 우승자 : " + winners);
     }
 
     private static String findWinners(List<Car> cars, int max) {
