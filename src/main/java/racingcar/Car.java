@@ -15,6 +15,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     public void go() {
         if (Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= 4) {
             position++;
