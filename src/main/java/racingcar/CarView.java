@@ -33,12 +33,12 @@ public class CarView {
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < winners.size(); i++){
             sb.append(winners.get(i).getName());
-            appendDelimeter(winners, sb, i);
+            appendDelimiter(winners, sb, i);
         }
         return sb.toString();
     }
 
-    private static void appendDelimeter(List<Car> winners, StringBuilder sb, int i) {
+    private static void appendDelimiter(List<Car> winners, StringBuilder sb, int i) {
         if(i != winners.size()-1){
             sb.append(DELIMITER + SPACE);
         }

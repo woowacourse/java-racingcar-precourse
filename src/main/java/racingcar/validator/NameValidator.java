@@ -32,7 +32,7 @@ public class NameValidator {
 
     private static void isNameLowerThanFive(String[] cars){
         for(int i = 0 ; i < cars.length; i++){
-            if(cars[i].length() > 5){
+            if(cars[i].length() > LIMIT_SIZE_OF_NAME){
                 throw new IllegalArgumentException(ERROR_PREFIX + SPACE + NAME_LENGTH_ERROR_MESSAGE);
             }
         }

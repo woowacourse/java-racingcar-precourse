@@ -7,13 +7,12 @@ public class CarRepository {
     private final List<Car> carList = new ArrayList<>();
     private final static int DEFAULT_VALUE = 0;
 
-    private final static CarRepository instance = new CarRepository();
+    private CarRepository(){}
 
-    private CarRepository(){
-    }
+    private final static CarRepository INSTANCE = new CarRepository();
 
     public static CarRepository getInstance(){
-        return instance;
+        return INSTANCE;
     }
 
     public int saveAll(List<Car> cars){
