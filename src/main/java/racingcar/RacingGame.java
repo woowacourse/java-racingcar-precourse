@@ -10,24 +10,25 @@ import java.util.StringTokenizer;
 public class RacingGame {
 
 	private static final String START_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준로 구분)";
+	private static final String NAME_DISTINGUISH = ",";
 	private static final String TRY_MESSAGE = "시도할 회수는 몇회인가요?";
 	private static final String VALIDATE_MESSAGE = "[ERROR] 숫자만 입력이 가능합니다.";
 	private static final String GAME_RESULT_MESSAGE = "실행 결과";
 	private static final String WINNER_MESSAGE = "최종 우승자 : ";
 	private static final String CAR_SHAPE = "-";
 	private static final String WINNER_DISTINGUISH = ", ";
+	private static final String REGEX_EXPRESSION_OF_NUMBER = "[+-]?\\d*(\\.\\d+)?";
 
 	private static final int START_INCLUSIVE = 0;
 	private static final int END_INCLUSIVE = 9;
 	private static final int STANDARD_OF_MOVEMENT = 4;
 	private static final int MOVING_DISTANCE = 1;
 
-	private List<Car> participantList = new LinkedList<>();
+	private final List<Car> participantList = new LinkedList<>();
 	private int rounds = 0;
 
 	public void startGame() {
-		enterPlayer();
-		enterRound();
+		initialize();
 		System.out.println(GAME_RESULT_MESSAGE);
 		for (int i = 0; i < rounds; i++) {
 			playRacingGame();
@@ -35,11 +36,17 @@ public class RacingGame {
 		printGameResult();
 	}
 
+	private void initialize() {
+		enterPlayer();
+		enterRound();
+		System.out.println();
+	}
+
 	private void enterPlayer() {
 		try {
 			System.out.println(START_MESSAGE);
 			String participants = readLine();
-			setGame(participants);
+			setPlayer(participants);
 		} catch (IllegalArgumentException error) {
 			System.out.println(error.getMessage());
 			enterPlayer();
@@ -51,18 +58,21 @@ public class RacingGame {
 			System.out.println(TRY_MESSAGE);
 			String round = readLine();
 			validateNumber(round);
-			this.rounds = Integer.parseInt(round);
-			System.out.println();
+			setRounds(round);
 		} catch (IllegalArgumentException error) {
 			enterRound();
 		}
 	}
 
-	private void setGame(String participants) {
-		StringTokenizer participant = new StringTokenizer(participants, ",");
+	private void setPlayer(String participants) {
+		StringTokenizer participant = new StringTokenizer(participants, NAME_DISTINGUISH);
 		while (participant.hasMoreTokens()) {
 			participantList.add(new Car(participant.nextToken()));
 		}
+	}
+
+	private void setRounds(String round) {
+		this.rounds = Integer.parseInt(round);
 	}
 
 	private void playRacingGame() {
@@ -99,7 +109,7 @@ public class RacingGame {
 	}
 
 	private void validateNumber(String number) {
-		boolean isNumeric = number.matches("[+-]?\\d*(\\.\\d+)?");
+		boolean isNumeric = number.matches(REGEX_EXPRESSION_OF_NUMBER);
 		if (!isNumeric) {
 			throw new IllegalArgumentException(VALIDATE_MESSAGE);
 		}
