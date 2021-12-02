@@ -1,7 +1,8 @@
 package racingcar.io.writer;
 
+import static java.util.stream.Collectors.joining;
+
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.io.ConsoleDisplay;
 
 public class WinnerWriter {
@@ -13,7 +14,10 @@ public class WinnerWriter {
 	}
 
 	public void write(List<String> winners) {
-		String result = winners.stream().collect(Collectors.joining(", "));
-		consoleDisplay.info(WINNER_MESSAGE_PREFIX + result);
+		consoleDisplay.info(WINNER_MESSAGE_PREFIX + joiningWithComma(winners));
+	}
+
+	private String joiningWithComma(List<String> winners) {
+		return winners.stream().collect(joining(", "));
 	}
 }
