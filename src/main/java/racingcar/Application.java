@@ -25,9 +25,19 @@ public class Application {
     private static int CountingGame() {
         System.out.println("시도할 회수는 몇회인가요?");
         String str = Console.readLine();
-        int Counting = Integer.parseInt(str);
-        return Counting;
+        try {
+            int counting = Integer.parseInt(str);
+            if (counting <= 0) {
+                System.out.println("0보다 큰 자연수를 입력해주세요");
+                return CountingGame();
+            }
+            return counting;
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            return CountingGame();
+        }
     }
+
 
     private static String[] inputToArray() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
