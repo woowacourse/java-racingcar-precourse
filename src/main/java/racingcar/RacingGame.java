@@ -9,6 +9,7 @@ public class RacingGame {
 	static final String ERROR_PREFIX = "[ERROR] ";
 	static final String CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	static final String ATTEMPT_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
+	static final String RESULT_TITLE = "실행 결과";
 
 	static final String EMPTY_CAR_NAME_ERROR = "빈값이 존재합니다.";
 	static final String CAR_NAME_LENGTH_ERROR = "자동차의 이름은 " + CAR_NAME_LIMIT + "자 이하로 제한되어 있습니다.";
@@ -22,6 +23,8 @@ public class RacingGame {
 	public void play() {
 		setCars();
 		setAttempt();
+
+		start();
 	}
 
 
@@ -126,4 +129,18 @@ public class RacingGame {
 		return "";
 	}
 
+
+
+	void start() {
+		System.out.println(RESULT_TITLE);
+
+		for (int i = 0; i < this.attempt; i++) {
+			for (int j = 0; j < this.cars.length; j++) {
+				Car car = this.cars[j];
+				car.move();
+				car.showPosition();
+			}
+			System.out.println();
+		}
+	}
 }
