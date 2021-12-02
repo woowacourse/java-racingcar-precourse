@@ -45,4 +45,22 @@ public class GameConstants {
 			return value;
 		}
 	}
+
+	public enum GameStringConversion {
+		GAME_RESULT_HINT("실행 결과\n"),
+		GAME_RESULT_POSTFIX("\n"),
+		GAME_WINNER_HINT("최종 우승자 : "),
+		GAME_WINNER_DELIMITER(", ");
+
+		private final String string;
+
+		GameStringConversion(String string) {
+			this.string = string;
+		}
+
+		public String getString() {
+			return string;
+		}
+	}
+
 }

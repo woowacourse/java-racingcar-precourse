@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.GameConstants.GameStringConversion.*;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -57,5 +59,22 @@ public class GameTest {
 				.filter(car -> car.getPosition() == finalFarthestPosition)
 				.anyMatch(winnerCandidate -> game.getWinnerList().contains(winnerCandidate)))
 			.isTrue();
+	}
+
+	@Test
+	void 게임_결과_문자열_변환() {
+		// given, when
+		game.runMultiple(5);
+		StringBuilder expectedWinnerStringBuilder = new StringBuilder();
+		game.getWinnerList().forEach(winner -> {
+			expectedWinnerStringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString());
+		});
+		String expectedWinnerString = expectedWinnerStringBuilder.substring(0,
+			expectedWinnerStringBuilder.length() - GAME_WINNER_DELIMITER.getString().length());
+
+		//then
+		carList.forEach(car -> Assertions.assertThat(game.toString()).contains(car.toString()));
+		Assertions.assertThat(game.toString()).contains(GAME_RESULT_HINT.getString());
+		Assertions.assertThat(game.toString()).contains(expectedWinnerString);
 	}
 }
