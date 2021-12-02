@@ -20,12 +20,18 @@ public class RacingGame {
     }
 
     private void startGame() {
-        moveCar();
+        moveAllCar();
     }
 
-    private void moveCar() {
+    private void moveAllCar() {
+        for(Car car : carArrayList) {
+            moveCar(car);
+        }
+    }
+
+    private void moveCar(Car car) {
         if(canCarMove()) {
-            carArrayList.get(0).moveCarForward();
+            car.moveCarForward();
         }
     }
 
