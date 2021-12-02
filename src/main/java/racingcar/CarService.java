@@ -19,10 +19,10 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    public int saveCars(String input){
+    public void saveCars(String input){
         String[] tempCars = input.split(DELIMITER);
         NameValidator.isRightName(tempCars);
-        return carRepository.saveAll(createCarList(tempCars));
+        carRepository.saveAll(createCarList(tempCars));
     }
 
     private List<Car> createCarList(String[] tempCars) {

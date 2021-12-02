@@ -20,13 +20,13 @@ public class CarController {
         printFinalWinner(carService.findWinners());
     }
 
-    private int saveCars(){
+    private void saveCars(){
         printMessage(REQUEST_NAME);
         try {
-            return carService.saveCars(Console.readLine());
+            carService.saveCars(Console.readLine());
         }catch (IllegalArgumentException e){
             printMessage(e.getMessage());
-            return saveCars();
+            saveCars();
         }
     }
 
