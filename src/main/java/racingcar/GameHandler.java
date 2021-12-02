@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.constants.Constant;
+import racingcar.constants.Message;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,7 +15,7 @@ public class GameHandler {
 	public void run() {
 		createCars();
 		getStages();
-		System.out.println("실행 결과");
+		System.out.println(Message.EXECUTE_RESULT);
 		while (stages-- > 0) {
 			executeStage();
 		}
@@ -24,7 +25,7 @@ public class GameHandler {
 	private void showWinners() {
 		List<Car> winnerCars = findWinnerCars();
 
-		System.out.print("최종 우승자 : ");
+		System.out.print(Message.WINNERS);
 		StringBuilder winners = getWinners(winnerCars);
 		System.out.println(winners);
 	}
@@ -79,7 +80,7 @@ public class GameHandler {
 	}
 
 	private void getStages() {
-		System.out.println("시도할 회수는 몇회인가요?");
+		System.out.println(Message.ASK_STAGES);
 
 		while (true) {
 			if (getUserInputStage()) {
@@ -97,7 +98,7 @@ public class GameHandler {
 			this.stages = Integer.parseInt(input);
 			return true;
 		} catch (IllegalArgumentException e) {
-			System.out.println("[ERROR] 시도할 횟수는 숫자여야 합니다");
+			System.out.println(Message.ERROR_INVALID_STAGE_VALUE);
 		}
 		return false;
 	}
@@ -107,7 +108,7 @@ public class GameHandler {
 	}
 
 	private void createCars() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+		System.out.println(Message.START);
 
 		String[] names = getCarsName();
 		for (String name : names) {
@@ -123,7 +124,7 @@ public class GameHandler {
 				names = getUserInputNames();
 				break;
 			} catch (IllegalArgumentException e) {
-				System.out.println("[ERROR] 자동차의 이름은 1~5글자 입니다");
+				System.out.println(Message.ERROR_INVALID_NAME_FORMAT);
 			}
 		}
 
