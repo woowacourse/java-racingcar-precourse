@@ -29,15 +29,40 @@ public class Game {
 	}
 
 	public void setCars() {
+		boolean exception = true;
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String carNames = Console.readLine();
-		Vector<String> seperatedCarNames = separateCarNames(carNames);
 
-		for (int i = 0; i < seperatedCarNames.size(); i++) {
-			Car car = new Car(seperatedCarNames.get(i));
-			cars.add(car);
+		while (exception) {
+			exception = false;
+			cars.clear();
+			String carNames = Console.readLine();
+			Vector<String> seperatedCarNames = separateCarNames(carNames);
+
+			for (int i = 0; i < seperatedCarNames.size(); i++) {
+
+				if (!carNameException(seperatedCarNames.get(i))) {
+					exception = true;
+				}
+
+				Car car = new Car(seperatedCarNames.get(i));
+				cars.add(car);
+			}
+
+		}
+	}
+
+	public boolean carNameException(String carName) {
+
+		try {
+			if (carName.length() > 5) {
+				throw new IllegalArgumentException();
+			}
+		} catch (IllegalArgumentException e) {
+			System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+			return false;
 		}
 
+		return true;
 	}
 
 	public Vector<String> separateCarNames(String carNames) {
