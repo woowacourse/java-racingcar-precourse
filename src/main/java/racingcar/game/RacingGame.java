@@ -1,7 +1,6 @@
 package racingcar.game;
 
 import racingcar.domain.Car;
-import racingcar.util.UserInputUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,15 +21,8 @@ public class RacingGame {
         for (int i = 0; i < count; i++) {
             progressGame(carList);
         }
-    }
 
-    private void progressGame(List<Car> carList) {
-        for (Car car : carList) {
-            car.progress();
-            car.printProgress();
-        }
-
-        System.out.println();
+        printWinners(carList);
     }
 
     private List<Car> getCarList() {
@@ -43,5 +35,48 @@ public class RacingGame {
         }
 
         return cars;
+    }
+
+    private void progressGame(List<Car> carList) {
+        for (Car car : carList) {
+            car.progress();
+            car.printProgress();
+        }
+
+        System.out.println();
+    }
+
+    private void printWinners(List<Car> carList) {
+        List<String> winners = getWinnerNames(carList);
+
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
+    }
+
+    private List<String> getWinnerNames(List<Car> carList) {
+        List<String> winners = new ArrayList<>();
+
+        int maxPosition = getMaxPosition(carList);
+
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
+
+    private int getMaxPosition(List<Car> carList) {
+        int maxPosition = 0;
+
+        for (Car car : carList) {
+            int position = car.getPosition();
+
+            if (position >= maxPosition) {
+                maxPosition = position;
+            }
+        }
+
+        return maxPosition;
     }
 }
