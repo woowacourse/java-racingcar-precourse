@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import racingcar.model.Car;
 
@@ -20,10 +19,10 @@ public class OutputView {
 	}
 
 	public static String dashRepeat(int num) {
-		String dashs = "";
+		StringBuilder dashes = new StringBuilder();
 		for (int i = 0; i < num; i++) {
-			dashs += "-";
+			dashes.append("-");
 		}
-		return dashs;
+		return dashes.toString();
 	}
 }
