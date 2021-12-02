@@ -40,8 +40,8 @@ public class CarView {
         return winnerBuilder.toString();
     }
 
-    private static void appendDelimiter(List<Car> winners, StringBuilder winnerBuilder, int i) {
-        if(i != winners.size()-1){
+    private static void appendDelimiter(List<Car> winners, StringBuilder winnerBuilder, int index) {
+        if(index != winners.size()-1){
             winnerBuilder.append(DELIMITER + SPACE);
         }
     }
