@@ -10,4 +10,5 @@ public class Constant {
 	public static final String INPUT_NUMBER_MSG = "시도할 횟수는 몇회인가요?";
 	public static final String ERROR_NUMBER_MSG = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	public static final String RESULT_MSG = "실행 결과";
+	public static final String WINNER_MSG = "최종 우승자 : ";
 }

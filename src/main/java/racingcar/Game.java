@@ -15,6 +15,7 @@ public class Game {
 		for (int i = 0; i < runNumber; i++) {
 			playOnce();
 		}
+		carList.getWinner();
 	}
 
 	private void inputName() {
