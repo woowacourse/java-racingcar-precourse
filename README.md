@@ -185,3 +185,15 @@ public class Car {
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+
+<br>
+
+---
+
+## 구현해야할 기능 목록
+
+- [] 새로운 자동차를 등록하는 기능
+- [] 등록된 자동차 정보를 조회하는 기능
+- [] 자동차를 이동하는 기능
+- [] 우승한 자동차를 조회하는 기능
+- [] 잘못된 값을 입력받을 경우 `IllegalArgumentException`를 발생시키고, 에러 메시지를 출력하는 기능
