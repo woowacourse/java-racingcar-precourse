@@ -7,7 +7,7 @@ import racingcar.winner.WinnerList;
 
 public class WinnerView implements View {
 	private final String PREFIX_MESSAGE = "최종 우승자 : ";
-	WinnerList winnerList;
+	private final WinnerList winnerList;
 
 	public WinnerView(WinnerList winnerList) {
 		this.winnerList = winnerList;

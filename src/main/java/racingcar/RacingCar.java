@@ -18,8 +18,6 @@ public class RacingCar {
 	CarRepository carRepository;
 	CarRepositoryService carRepositoryService;
 
-
-
 	public void racingCar() {
 		view = new CarListView();
 		carRepository = new CarRepository();

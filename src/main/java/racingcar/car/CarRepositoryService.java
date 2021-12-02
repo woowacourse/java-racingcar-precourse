@@ -3,7 +3,6 @@ package racingcar.car;
 import racingcar.exceptions.CarListException;
 
 public class CarRepositoryService {
-
 	CarRepository carRepository;
 
 	public CarRepositoryService(CarRepository carRepository) {
@@ -17,7 +16,7 @@ public class CarRepositoryService {
 		saveCar(carArray);
 	}
 
-	public void saveCar(String[] carArray){
+	public void saveCar(String[] carArray) {
 		for (String carName : carArray) {
 			Car car = createCarByName(carName.trim());
 			carRepository.addCars(car);
