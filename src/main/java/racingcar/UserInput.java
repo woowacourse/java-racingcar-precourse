@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
 
 public class UserInput {
 
-    public static final String DELIMITER = ",";
-    public static final int START_POSITION = 0;
+    private static final String DELIMITER = ",";
+    private static final int START_POSITION = 0;
 
     public String inputCarNames() {
         return Console.readLine();
@@ -24,6 +24,10 @@ public class UserInput {
         }
 
         return carNames;
+    }
+
+    public String inputAttemptCount() {
+        return Console.readLine();
     }
 
 }

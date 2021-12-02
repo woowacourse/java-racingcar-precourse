@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
@@ -19,22 +20,43 @@ public class RacingGame {
     }
 
     private void progressGame() {
-        makeListOfRacingCars();
+        List<Car> carNames = makeParticipantsListRacingGame();
+        int attempt = determineAttemptNumber();
+
     }
 
-    private void makeListOfRacingCars() {
+    private int determineAttemptNumber() {
+        int attemptNumber = 0;
+
         try {
-            gameDisplay.printInputCarNameMessage();
+            gameDisplay.printInputTryCountMessage();
+            String inputAttemptCount = userInput.inputAttemptCount();
+            validator.validateAttemptCount(inputAttemptCount);
 
-            String inputCarNames = userInput.inputCarNames();
-            List<Car> splitCarNames = userInput.splitInputCarNames(inputCarNames);
-
-            validator.validateRuleOfCarNamesLength(splitCarNames);
-            validator.validateRuleOfCarCount(splitCarNames);
+            attemptNumber = Integer.parseInt(inputAttemptCount);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
-            makeListOfRacingCars();
+            determineAttemptNumber();
         }
+
+        return attemptNumber;
+    }
+
+    private List<Car> makeParticipantsListRacingGame() {
+        List<Car> carNames = new ArrayList<>();
+
+        try {
+            gameDisplay.printInputCarNameMessage();
+            String inputCarNames = userInput.inputCarNames();
+            carNames = userInput.splitInputCarNames(inputCarNames);
+
+            validator.validateCar(carNames);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            makeParticipantsListRacingGame();
+        }
+
+        return carNames;
     }
 
 }
