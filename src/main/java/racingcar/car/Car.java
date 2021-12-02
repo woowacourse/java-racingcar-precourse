@@ -29,4 +29,8 @@ public class Car {
             position++;
         }
     }
+
+    protected int getPosition() {
+        return position;
+    }
 }
