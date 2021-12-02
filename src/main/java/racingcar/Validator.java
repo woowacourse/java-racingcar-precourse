@@ -11,4 +11,12 @@ public class Validator {
         }
     }
 
+    public static void validateCountInputFormat(String inputCount) {
+
+        for (int i = 0 ; i < inputCount.length() ; i++) {
+            if (!Character.isDigit(inputCount.charAt(i))) {
+                throw new IllegalArgumentException(ERROR_PREFIX + "[ERROR] 시도 횟수는 숫자여야 한다.");
+            }
+        }
+    }
 }

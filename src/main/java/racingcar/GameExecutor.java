@@ -24,4 +24,14 @@ public class GameExecutor {
 
         return carList;
     }
+
+    public int getCount() {
+        String inputCount;
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        inputCount = Console.readLine().trim();
+        Validator.validateCountInputFormat(inputCount);
+
+        return Integer.parseInt(inputCount);
+    }
 }
