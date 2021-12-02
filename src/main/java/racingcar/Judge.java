@@ -1,32 +1,32 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Judge {
 
-	private static final String WINNER_MESSAGE = "최종 우승자 : ";
+	private static final String WINNER_MESSAGE_PREFIX = "최종 우승자 : ";
 
-	public void announceWinner(ArrayList<String> nameList, ArrayList<Car> carList) {
+	public void announceWinner(ArrayList<Car> carList) {
 		int max = carList.stream()
-			.map(x -> x.showPosition().length())
-			.mapToInt(x -> Integer.valueOf(x))
+			.map(car -> car.showPosition().length())
+			.mapToInt(length -> Integer.valueOf(length))
 			.max()
 			.getAsInt();
 
-		ArrayList<String> winnerList = makeWinnerList(nameList, carList, max);
+		ArrayList<String> winnerList = makeWinnerList(carList, max);
 
-		System.out.println(makeWinnerMessage(winnerList));
+		String winnerMessage = makeWinnerMessage(winnerList);
+		System.out.println(winnerMessage);
 	}
 
-	private ArrayList<String> makeWinnerList(ArrayList<String> nameList, ArrayList<Car> carList, int max) {
+	private ArrayList<String> makeWinnerList(ArrayList<Car> carList, int max) {
 		ArrayList<String> winnerList = new ArrayList<>();
 
 		for (int i = 0; i < carList.size(); i++) {
 			Car car = carList.get(i);
 
 			if (car.showPosition().length() == max) {
-				winnerList.add(nameList.get(i));
+				winnerList.add(car.getName());
 			}
 		}
 
@@ -35,8 +35,7 @@ public class Judge {
 
 	private String makeWinnerMessage(ArrayList<String> winnerList) {
 		StringBuilder stringBuilder = new StringBuilder();
-
-		stringBuilder.append(WINNER_MESSAGE);
+		stringBuilder.append(WINNER_MESSAGE_PREFIX);
 		stringBuilder.append(winnerList.get(0));
 
 		// 공동 우승일 경우

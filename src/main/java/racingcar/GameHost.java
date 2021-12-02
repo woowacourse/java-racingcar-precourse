@@ -22,6 +22,6 @@ public class GameHost {
 
 		// 최종 우승자 발표
 		Judge judge = new Judge();
-		judge.announceWinner(nameList, carList);
+		judge.announceWinner(carList);
 	}
 }
