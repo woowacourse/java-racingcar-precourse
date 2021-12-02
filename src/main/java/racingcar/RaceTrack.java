@@ -13,7 +13,10 @@ public class RaceTrack {
 
 		for (int i = 0; i < tryCount; i++) {
 			driveAllCars(carList);
-			showAllPositions(nameList, carList);
+
+			showAllPositions(carList);
+			// 공백 라인 출력
+			System.out.println();
 		}
 
 		return carList;
@@ -35,15 +38,11 @@ public class RaceTrack {
 		}
 	}
 
-	private void showAllPositions(ArrayList<String> nameList, ArrayList<Car> carList) {
+	private void showAllPositions(ArrayList<Car> carList) {
 		for (int i = 0; i < carList.size(); i++) {
-			String name = nameList.get(i);
 			Car car = carList.get(i);
 
-			System.out.println(name + " : " + car.showPosition());
+			System.out.println(car.getName() + " : " + car.showPosition());
 		}
-
-		// 공백 라인 출력
-		System.out.println();
 	}
 }
