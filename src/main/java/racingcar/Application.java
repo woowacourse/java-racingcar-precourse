@@ -8,10 +8,16 @@ public class Application {
     public static void main(String[] args) {
         String[] arrayCar = inputToArray();
         Car[] arrayCarObject = arrayCarObj(arrayCar);
-        int Count = CountingGame();
+        int count = CountingGame();
+        PlayGame(arrayCarObject,count);
         boolean randomGoStop = GoOrStop();
     }
-
+    private static void PlayGame(Car[] arrayCar, int count) {
+        System.out.println("실행결과");
+        for (int i = 0; i < count; i++) {
+            // TO DO : 1명씩 GoOrStop 매소드를 사용해서 전진한다
+        }
+    }
     private static boolean GoOrStop() {
         int randomNum = Randoms.pickNumberInRange(0,9);
         if (randomNum >= 4) {
