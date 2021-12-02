@@ -18,4 +18,7 @@ public class CarRepository {
 		}
 	}
 
+	public List<Car> getCarList() {
+		return carList;
+	}
 }
