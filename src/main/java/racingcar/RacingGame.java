@@ -15,6 +15,33 @@ public class RacingGame {
         startGame();
     }
 
+    private String checkWinner() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(Car car : carArrayList) {
+            appendIfWinner(stringBuilder, car);
+        }
+
+        return stringBuilder.toString();
+    }
+
+    private void appendIfWinner(StringBuilder stringBuilder, Car car) {
+        if(isWinner(car)) {
+            appendIfNotFirst(stringBuilder);
+            stringBuilder.append(car.getName());
+        }
+    }
+
+    private void appendIfNotFirst(StringBuilder stringBuilder) {
+        if(stringBuilder.length() != 0) {
+            stringBuilder.append(", ");
+        }
+    }
+
+    private boolean isWinner(Car car) {
+        return car.getPosition() == result.getMax();
+    }
+
     private void initGame() {
         processCarName(inputCarNames());
         createResult();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Result {
     private final ArrayList<Car> cars;
+    private int max = 0;
 
     public Result(ArrayList<Car> cars) {
         this.cars = cars;
@@ -14,10 +15,21 @@ public class Result {
         StringBuilder stringBuilder = new StringBuilder();
 
         for(Car car : cars) {
+            updateMax(car.getPosition());
             stringBuilder.append(car.getName()).append(" : ").append(makeDash(car.getPosition())).append("\n");
         }
 
         return stringBuilder.toString();
+    }
+
+    private void updateMax(int pos) {
+        if(max < pos) {
+            max = pos;
+        }
+    }
+
+    public int getMax() {
+        return max;
     }
 
     private String makeDash(int count) {
