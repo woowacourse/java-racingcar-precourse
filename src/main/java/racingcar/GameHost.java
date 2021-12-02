@@ -17,8 +17,8 @@ public class GameHost {
 		Integer tryCount = tryCountReceiver.receive();
 
 		// 레이싱 실행
-		RaceTrack raceTrack = new RaceTrack();
-		ArrayList<Car> carList = raceTrack.start(nameList, tryCount);
+		Racing racing = new Racing();
+		ArrayList<Car> carList = racing.start(nameList, tryCount);
 
 		// 최종 우승자 발표
 		Judge judge = new Judge();

@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 
-public class RaceTrack {
+public class Racing {
 
 	private static final String RACING_RESULT_MESSAGE = "실행 결과";
 
