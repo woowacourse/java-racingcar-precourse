@@ -35,6 +35,8 @@ public class Game {
 				cars.get(j).move();
 			}
 
+			System.out.println();
+
 		}
 
 		printWinner();
