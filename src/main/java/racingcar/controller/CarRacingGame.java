@@ -1,7 +1,9 @@
 package racingcar.controller;
 
+
+import racingcar.domain.Car;
+import racingcar.domain.CarList;
 import racingcar.domain.Cars;
-import racingcar.domain.TryNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -11,11 +13,13 @@ public class CarRacingGame {
 
         setCarsName(cars);
         setTryNumber(cars);
+
+        printCarsPosition(cars);
     }
 
     public void setCarsName(Cars cars) {
         try {
-            cars.addCar(InputView.printSetCarsNameMessage());
+            cars.addCars(InputView.printSetCarsNameMessage());
         } catch (IllegalArgumentException e) {
             OutputView.printErrorMessage(e);
             setCarsName(cars);
@@ -29,5 +33,21 @@ public class CarRacingGame {
             OutputView.printErrorMessage(e);
             setTryNumber(cars);
         }
+    }
+
+    public void printCarsPosition(Cars cars) {
+        for (int i = 0; cars.getTryNumber() > i; i++) {
+            printCarsPosition(cars);
+        }
+    }
+
+    public void printCarPosition(Cars cars) {
+        for (Car car : cars.getCarList()) {
+            car.SelectMoveOrStop();
+            OutputView.printCarName(car.getName());
+            OutputView.printCarPosition(car.getPosition());
+            OutputView.printSpace();
+        }
+        OutputView.printSpace();
     }
 }

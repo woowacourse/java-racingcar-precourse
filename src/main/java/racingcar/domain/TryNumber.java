@@ -5,6 +5,10 @@ import racingcar.constant.ErrorMessage;
 public class TryNumber {
     private String tryNumber;
 
+    public String getTryNumber() {
+        return tryNumber;
+    }
+
     public void setTryNumber(String tryNumber) throws IllegalArgumentException {
         tryNumberValidation(tryNumber);
         this.tryNumber = tryNumber;

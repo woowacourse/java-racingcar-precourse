@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
-    List<Car> carList = new ArrayList<Car>();
+    private List<Car> carList = new ArrayList<Car>();
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 
     public void add(String carName) throws IllegalArgumentException {
         carNameValidation(carName);
@@ -26,7 +30,7 @@ public class CarList {
     }
 
     public static void isNull(String carName) throws IllegalArgumentException {
-        if (carName.isEmpty()){
+        if (carName.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_NULL_ERROR.print());
         }
     }
