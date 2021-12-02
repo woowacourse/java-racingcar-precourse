@@ -34,7 +34,12 @@ public class GameController {
 	private String getRoundNumberInput() {
 		OutputView.printRoundNumberRequestMessage();
 		String roundNumber = InputView.getRoundNumber();
-
+		try {
+			InputValidator.checkIsValidRoundNumber(roundNumber);
+		} catch (Exception exception) {
+			OutputView.printErrorMessage(exception.getMessage());
+			return getRoundNumberInput();
+		}
 		return roundNumber;
 	}
 }
