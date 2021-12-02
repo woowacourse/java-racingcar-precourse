@@ -13,6 +13,11 @@ public class RacingGame {
     public void run() {
         initGame();
         startGame();
+        printWinner();
+    }
+
+    private void printWinner() {
+        System.out.println("최종 우승자 : " + checkWinner());
     }
 
     private String checkWinner() {
