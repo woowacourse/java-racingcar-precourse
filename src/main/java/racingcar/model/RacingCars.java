@@ -1,9 +1,8 @@
 package racingcar.model;
 
+import static racingcar.model.Util.findMax;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
 
 public class RacingCars {
 	private final ArrayList<Car> cars = new ArrayList<>();
@@ -22,10 +21,10 @@ public class RacingCars {
 	}
 
 	public String[] getWinners() {
-		int maxPosition = findMax(getPositions());
+		int winPosition = findMax(getPositions());
 		return cars
 			.stream()
-			.filter(car -> car.getPosition() == maxPosition)
+			.filter(car -> car.isWinner(winPosition))
 			.map(Car::getName)
 			.toArray(String[]::new);
 	}
@@ -36,9 +35,5 @@ public class RacingCars {
 			positions.add(car.getPosition());
 		}
 		return positions;
-	}
-
-	public static int findMax(ArrayList<Integer> positions) {
-		return Collections.max(positions);
 	}
 }

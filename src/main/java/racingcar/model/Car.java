@@ -10,10 +10,8 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
 	public void go() {
-		int num = Randoms.pickNumberInRange(0, 9);
-		if (num >= 4) {
+		if (getRandomNum() >= Constants.GO_NUM) {
 			position++;
 		}
 	}
@@ -22,7 +20,15 @@ public class Car {
 		return position;
 	}
 
+	public boolean isWinner(int winDistance) {
+		return position == winDistance;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	private int getRandomNum() {
+		return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
 	}
 }
