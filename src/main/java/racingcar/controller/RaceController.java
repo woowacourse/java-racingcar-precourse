@@ -25,6 +25,7 @@ public class RaceController {
 		Car[] cars = enrollCars(names);
 		int moveCount = getProperMoveCount();
 		startRace(cars, moveCount);
+		ArrayList<String> winners = findWinners(cars);
 	}
 
 	private ArrayList<String> getProperNames() {
@@ -68,4 +69,25 @@ public class RaceController {
 		}
 		System.out.println();
 	}
+
+	private ArrayList<String> findWinners(Car[] cars) {
+		int maxPosition = getMaxPosition(cars);
+		ArrayList<String> winners = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getPosition() == maxPosition) {
+				winners.add(car.getName());
+			}
+		}
+		return winners;
+	}
+
+	private int getMaxPosition(Car[] cars) {
+		int maxPosition = 0;
+		for (Car car : cars) {
+			maxPosition = Math.max(maxPosition, car.getPosition());
+		}
+		return maxPosition;
+	}
+
+
 }
