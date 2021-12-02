@@ -34,6 +34,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름에_대한_예외_처리_구분자만_입력() {
+        assertSimpleTest(
+            () -> {
+                runException(",");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
