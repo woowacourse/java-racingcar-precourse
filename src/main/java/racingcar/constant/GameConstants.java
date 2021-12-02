@@ -30,4 +30,19 @@ public class GameConstants {
 			return string;
 		}
 	}
+
+	public enum Game {
+		RANDOM_NUMBER_FROM_INCLUSIVE(0),
+		RANDOM_NUMBER_TO_INCLUSIVE(9);
+
+		private final int value;
+
+		Game(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+	}
 }

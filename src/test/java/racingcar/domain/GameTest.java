@@ -22,4 +22,22 @@ public class GameTest {
 		// given, when, then
 		Assertions.assertThat(game.getCarList().containsAll(carList)).isTrue();
 	}
+
+	@Test
+	void 게임_한판_진행() {
+		// given, when
+		game.runSingle();
+		List<Car> list = game.getCarList();
+		int farthestPosition = 0;
+		for (Car car : list)
+			farthestPosition = Math.max(farthestPosition, car.getPosition());
+		final int finalFarthestPosition = farthestPosition;
+
+		//then
+		Assertions.assertThat(game.getCarList()
+				.stream()
+				.filter(car -> car.getPosition() == finalFarthestPosition)
+				.anyMatch(winnerCandidate -> game.getWinnerList().contains(winnerCandidate)))
+			.isTrue();
+	}
 }
