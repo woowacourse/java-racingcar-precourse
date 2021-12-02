@@ -11,4 +11,8 @@ public class OutputView {
 	public static void askCarNames() {
 		System.out.println(ASK_CAR_NAMES + CAR_NAMES_CONDITION);
 	}
+
+	public static void printError(IllegalArgumentException e) {
+		System.out.println(e.getMessage());
+	}
 }
