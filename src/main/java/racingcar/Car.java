@@ -6,6 +6,7 @@ public class Car {
 
 	public Car(String name) {
 		validateNameLength(name);
+		validateBlankName(name);
 		this.name = name;
 	}
 
@@ -13,6 +14,12 @@ public class Car {
 	public void validateNameLength(String name) {
 		if (name.length() > Constant.NAME_MAX_LENGTH) {
 			throw new IllegalArgumentException(Constant.NAME_MAX_LENGTH_EXCEED_ERROR_MESSAGE);
+		}
+	}
+
+	public void validateBlankName(String name){
+		if (name.isEmpty()) {
+			throw new IllegalArgumentException(Constant.NAME_MINIMUN_LENGTH_UNDER_ERROR_MESSAGE);
 		}
 	}
 
