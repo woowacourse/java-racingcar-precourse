@@ -21,16 +21,16 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPosition() {
-        return position;
+        return this.position;
     }
 
     private void printPosition() {
-        String curPosition = String.join("", Collections.nCopies(position, "-"));
-        System.out.println(name + " : " + curPosition);
+        String curPosition = String.join("", Collections.nCopies(this.position, "-"));
+        System.out.println(this.name + " : " + curPosition);
     }
 
     private void move() {
