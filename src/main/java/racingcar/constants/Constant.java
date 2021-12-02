@@ -10,4 +10,7 @@ public class Constant {
 	public static final int MAX_NAME_LENGTH = 5;
 	public static final int IMPROPER_CHARACTER = ',';
 	public static final String SPLIT_STRING = ",";
+
+	private Constant() {
+	}
 }
