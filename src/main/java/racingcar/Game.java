@@ -5,6 +5,7 @@ import java.util.Vector;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
+	private static final int LIMIT_CAR_NAME_SIZE = 5;
 	private Vector<Car> cars;
 	private int gameTurn;
 
@@ -65,12 +66,12 @@ public class Game {
 
 		try {
 
-			if (carName.length() > 5) {
+			if (carName.length() > LIMIT_CAR_NAME_SIZE) {
 				throw new IllegalArgumentException();
 			}
 
 		} catch (IllegalArgumentException e) {
-			System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+			System.out.println("[ERROR] 자동차 이름은 " + LIMIT_CAR_NAME_SIZE + "자 이하만 가능하다.");
 			return false;
 		}
 
