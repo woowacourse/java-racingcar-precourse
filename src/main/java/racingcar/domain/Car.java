@@ -24,7 +24,11 @@ public class Car {
 		return name;
 	}
 
-	public Integer getPosition(){
+	public Integer getPosition() {
 		return position;
+	}
+
+	public boolean isWinner(Integer maxDistance) {
+		return position == maxDistance;
 	}
 }

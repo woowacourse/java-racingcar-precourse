@@ -26,4 +26,15 @@ public class OutputView {
 		}
 		System.out.println();
 	}
+
+	public static void printWinner(List<String> winnerNames) {
+		StringBuilder resultMessage = new StringBuilder();
+		resultMessage.append(FINAL_WINNER_MESSAGE);
+		for (int idx = 0; idx < winnerNames.size() - 1; idx++) {
+			resultMessage.append(winnerNames.get(idx));
+			resultMessage.append(COMMA);
+		}
+		resultMessage.append(winnerNames.get(winnerNames.size() - 1));
+		System.out.println(resultMessage);
+	}
 }
