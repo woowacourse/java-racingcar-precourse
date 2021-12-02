@@ -10,6 +10,8 @@ import racingcar.view.InputView;
 public class GameController {
 	private String[] cars;
 	private static GameState gameState;
+	private String[] carNameArray;
+	private int attemptNumber;
 
 	public void init() {
 		gameState = GameState.PLAY;
@@ -26,15 +28,18 @@ public class GameController {
 			validateCarName(InputView.inputCar());
 		} while (gameState == GameState.INPUT_ERROR);
 
+		String attempt;
 		do {
 			init();
-			validateAttemptNumber(InputView.inputAttemptNumber());
+			attempt = InputView.inputAttemptNumber();
+			validateAttemptNumber(attempt);
 		} while (gameState == GameState.INPUT_ERROR);
+		attemptNumber = Integer.parseInt(attempt);
 	}
 
-	private void handleInputError(boolean isCorrectLength, String errorMessage) {
+	private void handleInputError(boolean isCorrect, String errorMessage) {
 		try {
-			if (!isCorrectLength) {
+			if (!isCorrect) {
 				throw new IllegalArgumentException();
 			}
 		} catch (IllegalArgumentException exception) {
@@ -46,8 +51,8 @@ public class GameController {
 	}
 
 	public void validateCarName(String carData) {
-		cars = carData.split(Constant.CAR_NAME_SEPARATOR);
-		boolean isCorrectLength = Stream.of(cars)
+		carNameArray = carData.split(Constant.CAR_NAME_SEPARATOR);
+		boolean isCorrectLength = Stream.of(carNameArray)
 			.allMatch(InputValidator::checkCarNameLength);
 		handleInputError(isCorrectLength, Constant.ERROR_MESSAGE_CAR_NAME);
 	}
