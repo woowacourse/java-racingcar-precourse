@@ -1,13 +1,24 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 class RacingGameController {
-	private RacingGameView racingGameView;
+	private final RacingGameView racingGameView;
+	private List<Car> carList;
 
 	public RacingGameController() {
 		racingGameView = RacingGameView.getRacingGameView();
+		carList = new ArrayList<>();
 	}
 
 	public void startGame() {
-		racingGameView.getCarNames();
+		carList =
+			racingGameView.getCarNames()
+				.stream()
+				.map(Car::new)
+				.collect(Collectors.toList());
+
 	}
 }
