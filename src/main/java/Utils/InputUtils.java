@@ -84,10 +84,10 @@ public class InputUtils {
             try {
                 System.out.println(ATTEMP_INPUT_MESSAGE);
                 attempStr = Console.readLine();
+                checkEmptyInput(attempStr);
                 checkInvalidAttempNum(attempStr);
                 isValid = true;
             } catch (IllegalArgumentException e) {
-                System.out.println(ERROR_INVALID_ATTEMP);
             }
         }
         return Integer.parseInt(attempStr);
@@ -96,6 +96,7 @@ public class InputUtils {
     private static void checkInvalidAttempNum(String attempStr) {
         for (int i = INITIAL_VALUE; i < attempStr.length(); i++) {
             if (!Character.isDigit(attempStr.charAt(i))) {
+                System.out.println(ERROR_INVALID_ATTEMP);
                 throw new IllegalArgumentException(ERROR_INVALID_ATTEMP);
             }
         }
