@@ -61,6 +61,7 @@
 4. `MAX_NAME_LENGTH` : 이름의 글자 수 최댓값.(==5)
 5. `IMPROPER_CHARACTER`(=='`,`')
 6. `SPLIT_STRING`(=="`,`")
+7. `MOVING_FORWARD`: 4. 차가 움직일 수 있는 조건의 최솟값
 
 <br>
 
