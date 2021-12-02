@@ -10,6 +10,6 @@ public class AttemptCountValidator {
     }
 
     public static boolean checkNaturalNumber(String counts) {
-        return counts.matches("^[0-9]+$");
+        return counts.matches("^[1-9][0-9]*$");
     }
 }
