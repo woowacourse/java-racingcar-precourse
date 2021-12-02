@@ -38,4 +38,18 @@ public class Validator {
 		}
 	}
 
+	public static boolean isValidNumber(String number) {
+		for (int i = 0; i < number.length(); i++) {
+			checkCharacterIsDigit(number.charAt(i));
+		}
+
+		return true;
+	}
+
+	private static void checkCharacterIsDigit(char character) {
+		if (!Character.isDigit(character)) {
+			throw new IllegalArgumentException("시도 횟수는 숫자만 허용됩니다.");
+		}
+	}
+
 }
