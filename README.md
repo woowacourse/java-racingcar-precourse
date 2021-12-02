@@ -64,3 +64,12 @@
 
 <br>
 
+## Message
+
+1. `START` : "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"
+2. `ERROR_INVALID_NAME_FORMAT` : "[ERROR] 자동차의 이름은 1~5글자 입니다"
+3. `ASK_STAGES` : "시도할 회수는 몇회인가요?"
+4. `ERROR_INVALID_STAGE_VALUE` : "[ERROR] 시도할 횟수는 숫자여야 합니다"
+5. `EXECUTE_RESULT` : "실행 결과"
+6. `WINNERS` : "최종 우승자 : "
+
