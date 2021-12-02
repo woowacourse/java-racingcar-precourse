@@ -8,5 +8,8 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void moveForward() {
+        this.position += 1;
+        System.out.println("name : " + this.name + " , position : " + position);
+    }
 }
