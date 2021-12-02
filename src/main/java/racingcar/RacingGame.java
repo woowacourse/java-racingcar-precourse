@@ -16,30 +16,49 @@ public class RacingGame {
     }
 
     public void startGame() {
-        progressGame();
+        playGame();
     }
 
-    private void progressGame() {
+    private void playGame() {
         List<Car> cars = makeParticipantsListRacingGame();
-        System.out.println("경주차 개수: " + cars.size());
-        int attempt = determineAttemptNumber();
-    }
+        int rounds = determineRoundNumber();
 
-    private int determineAttemptNumber() {
-        int attemptNumber = 0;
-
-        try {
-            gameDisplay.printInputTryCountMessage();
-            String inputAttemptCount = userInput.inputAttemptCount();
-            validator.validateAttemptCount(inputAttemptCount);
-
-            attemptNumber = Integer.parseInt(inputAttemptCount);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            determineAttemptNumber();
+        for (int i = 0; i < rounds; i++) {
+            playEachRound(cars);
+            gameDisplay.printEmptyLine();
         }
 
-        return attemptNumber;
+        // 우승자를 선택하는 로직 구현.
+    }
+
+    private void playEachRound(List<Car> cars) {
+        for (Car car : cars) {
+            int randomNumberToMove = car.inputMoveForwardNumber();
+
+            if (car.decideMoveCar(randomNumberToMove)) {
+                car.moveForward();
+                car.addSpeed();
+            }
+
+            gameDisplay.printEachRoundResult(car);
+        }
+    }
+
+    private int determineRoundNumber() {
+        int totalRoundNumber = 0;
+
+        try {
+            gameDisplay.printInputRoundMessage();
+            String totalRound = userInput.inputRound();
+            validator.validateAttemptCount(totalRound);
+
+            totalRoundNumber = Integer.parseInt(totalRound);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            determineRoundNumber();
+        }
+
+        return totalRoundNumber;
     }
 
     private List<Car> makeParticipantsListRacingGame() {

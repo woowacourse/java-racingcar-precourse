@@ -25,7 +25,7 @@ public class UserInput {
         return carNames;
     }
 
-    public String inputAttemptCount() {
+    public String inputRound() {
         return Console.readLine();
     }
 
