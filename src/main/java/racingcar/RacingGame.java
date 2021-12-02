@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGame {
 	private EveryCar everyCar;
@@ -12,7 +13,7 @@ public class RacingGame {
 	}
 
 	private void playGame() {
-		System.out.println("\n실행 결과");
+		OutputView.showSentenceBeforeResult();
 		for (int i = 0; i < tryCntAboutCarMoving; i++) {
 			everyCar.moveEveryCarThisTiming();
 		}

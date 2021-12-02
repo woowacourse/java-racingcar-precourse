@@ -33,11 +33,4 @@ public class Car {
         return name;
     }
 
-    public String showMovingMark() {
-        String movingMark = "";
-        for (int i = 0; i < position; i++) {
-            movingMark += "-";
-        }
-        return movingMark;
-    }
 }
