@@ -41,15 +41,15 @@
 5. 이동횟수만큼 자동차들이 `go` 하게 만든다.
 6. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult(List<Car> cars)`
 7. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners(List<Car> cars)`
-   1. (수정) 현재 위치가 가장 먼 자동차의 위치를 찾는 함수
-   2. (수정) 가장 먼 위치를 기준으로 같은 값을 가진 자동차가 있으면 우승자에 추가 후 출력형태로 만드는 함수
+   1. 현재 위치가 가장 먼 자동차의 위치를 찾는 함수
+   2. 가장 먼 위치를 기준으로 같은 값을 가진 자동차가 있으면 우승자에 추가 후 출력형태로 만드는 함수
 8. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
    1. `createCars()` → 알맞은 자동차 생성
    2. `getStages()` → 얼마나 이동할 것인지
    3. `excuteStage()` → 이동횟수 만큼 아래의 프로세스를 실행 
       1. 각 자동차들 모두 `go`.
-      2. 각 자동차들 현재 위치 출력. → `showEachStageResult(List<Car> cars)`
-   4. 우승자 출력 →  `showWinners(List<Car> cars)`
+      2. 각 자동차들 현재 위치 출력. → `showEachStageResult()`
+   4. 우승자 출력 →  `showWinners()`
 
 <br>
 
