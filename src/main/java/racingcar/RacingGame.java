@@ -26,8 +26,10 @@ public class RacingGame {
     }
 
     private void startGame() {
-        moveAllCar();
-        printResult();
+        for(int i = 0; i < moves; i++) {
+            moveAllCar();
+            printResult();
+        }
     }
 
     private void printResult() {
