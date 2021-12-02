@@ -21,5 +21,4 @@ public class WinnersDto {
 	public List<String> getWinnerNames() {
 		return this.winnerNames;
 	}
-
 }

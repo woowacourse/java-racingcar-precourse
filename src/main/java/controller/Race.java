@@ -48,5 +48,4 @@ public class Race {
 		Winners winners = cars.getWinners();
 		OutputView.printWinners(WinnersDto.from(winners));
 	}
-
 }

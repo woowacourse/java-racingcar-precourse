@@ -12,5 +12,4 @@ public class Winners {
 	public List<Car> getWinners() {
 		return this.winners;
 	}
-
 }

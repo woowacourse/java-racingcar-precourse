@@ -3,7 +3,6 @@ package domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-
 	private final Name name;
 	private Position position = new Position();
 
