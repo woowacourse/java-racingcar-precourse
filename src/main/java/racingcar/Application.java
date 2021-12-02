@@ -1,7 +1,12 @@
 package racingcar;
 
+import racingcar.car.RandomMovingPolicy;
+import racingcar.game.GameMachine;
+import racingcar.view.InputView;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
+        GameMachine gameMachine = new GameMachine(new RandomMovingPolicy(), new InputView());
+        gameMachine.run();
     }
 }
