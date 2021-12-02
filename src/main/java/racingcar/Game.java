@@ -29,26 +29,34 @@ public class Game {
 	}
 
 	public void setCars() {
-		boolean exception = true;
+		boolean reset = true;
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-		while (exception) {
-			exception = false;
+		while (reset) {
+			reset = false;
 			cars.clear();
 			String carNames = Console.readLine();
 			Vector<String> seperatedCarNames = separateCarNames(carNames);
 
-			for (int i = 0; i < seperatedCarNames.size(); i++) {
+			if (!makeCarsCompletely(seperatedCarNames)) {
+				reset = true;
+			}
+		}
+	}
 
-				if (!carNameException(seperatedCarNames.get(i))) {
-					exception = true;
-				}
+	public boolean makeCarsCompletely(Vector<String> seperatedCarNames) {
 
-				Car car = new Car(seperatedCarNames.get(i));
-				cars.add(car);
+		for (int i = 0; i < seperatedCarNames.size(); i++) {
+
+			if (!carNameException(seperatedCarNames.get(i))) {
+				return false;
 			}
 
+			Car car = new Car(seperatedCarNames.get(i));
+			cars.add(car);
 		}
+
+		return true;
 	}
 
 	public boolean carNameException(String carName) {
