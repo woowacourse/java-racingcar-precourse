@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.car;
 
 public class Car {
     private final String name;
@@ -8,5 +8,7 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void moveForward() {
+        this.position += CarService.GO_FORWARD_DISTANCE;
+    }
 }
