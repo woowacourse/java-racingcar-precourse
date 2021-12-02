@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -13,9 +14,10 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
-	private static GameState gameState;
-	private String[] carNameArray;
 	private final List<Car> cars = new ArrayList<>();
+	private final List<Car> winners = new ArrayList<>();
+	private GameState gameState;
+	private String[] carNameArray;
 	private int attemptNumber;
 
 	public void init() {
@@ -27,6 +29,8 @@ public class GameController {
 		init();
 		generateCar();
 		startRace();
+		findWinner();
+		OutputView.printWinners(winners);
 	}
 
 	private void inputInitialValue() {
@@ -82,6 +86,17 @@ public class GameController {
 				.peek(car -> car.move(RandomNumberGenerator.generate()))
 				.forEach(OutputView::printMoveResult);
 			System.out.println();
+		}
+	}
+
+	private void findWinner() {
+		cars.sort(Collections.reverseOrder());
+		int maxPosition = cars.get(0).getPosition();
+		for (Car car : cars) {
+			if (maxPosition > car.getPosition()) {
+				return;
+			}
+			winners.add(car);
 		}
 	}
 }

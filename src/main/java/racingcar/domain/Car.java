@@ -1,8 +1,8 @@
 package racingcar.domain;
 
-public class Car {
 import racingcar.util.Constant;
 
+public class Car implements Comparable<Car> {
 	private final String name;
 	private int position = 0;
 
@@ -27,9 +27,16 @@ import racingcar.util.Constant;
 	}
 
 	public void move(int randomNumber) {
-		System.out.println(randomNumber);
 		if (randomNumber >= Constant.MOVE_MIN_VALUE) {
 			position++;
 		}
+	}
+
+	@Override
+	public int compareTo(Car o) {
+		if (position >= o.position) {
+			return 1;
+		}
+		return -1;
 	}
 }
