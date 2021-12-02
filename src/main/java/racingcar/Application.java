@@ -25,9 +25,16 @@ public class Application {
     private static void GameSet(Car[] arrayCarObject) {
         System.out.print("최종 우승자 : ");
         int winnerPosition = FindWinnerPosition(arrayCarObject);
+        boolean flag = true;
         for (int i = 0; i < arrayCarObject.length; i++) {
-            if (winnerPosition == arrayCarObject[i].ReturnStatus()) {
+            int position = arrayCarObject[i].ReturnStatus();
+            if (!flag && position == winnerPosition) {
+                System.out.print(", ");
+            }
+
+            if (winnerPosition == position) {
                 System.out.print(arrayCarObject[i].ReturnName());
+                flag = false;
             }
         }
     }
