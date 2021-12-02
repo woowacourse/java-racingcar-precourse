@@ -27,6 +27,21 @@ public class InputView {
 
 	public static int inputNumberOfCarMoving() {
 		String numberOfCarMoving = Console.readLine();
-		return Integer.parseInt(numberOfCarMoving);
+		try {
+			validateIsIntegerNumberOfCarMoving(numberOfCarMoving);
+			return Integer.parseInt(numberOfCarMoving);
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
+			return inputNumberOfCarMoving();
+		}
+	}
+
+	private static void validateIsIntegerNumberOfCarMoving(String numberOfCarMoving) {
+		for (int i = 0; i < numberOfCarMoving.length(); i++) {
+			int number = Character.getNumericValue(numberOfCarMoving.charAt(i));
+			if (number < 0 || number > 9) {
+				throw new IllegalArgumentException(ERROR_MESSAGE + "시도 횟수는 숫자여야 한다.");
+			}
+		}
 	}
 }
