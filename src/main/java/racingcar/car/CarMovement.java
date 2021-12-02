@@ -19,6 +19,5 @@ public class CarMovement {
 
 	private void generateRandomNumber() {
 		randomNumber = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
-		System.out.println(randomNumber);
 	}
 }
