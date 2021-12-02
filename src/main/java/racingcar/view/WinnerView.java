@@ -1,4 +1,32 @@
 package racingcar.view;
 
-public class WinnerView {
+import java.util.stream.Collectors;
+
+import racingcar.car.Car;
+import racingcar.winner.WinnerList;
+
+public class WinnerView implements View {
+	private final String PREFIX_MESSAGE = "최종 우승자 : ";
+	WinnerList winnerList;
+
+	public WinnerView(WinnerList winnerList) {
+		this.winnerList = winnerList;
+	}
+
+	@Override
+	public void printView() {
+		String winnerString =
+			winnerList.getWinnerCarList().stream()
+			.map(Car::getName)
+			.collect(Collectors.joining(", "));
+
+		System.out.print(PREFIX_MESSAGE);
+		System.out.println(winnerString);
+	}
+
+	@Override
+	public String getUserInput() {
+		return null;
+	}
+
 }

@@ -9,8 +9,9 @@ import racingcar.view.CarListView;
 import racingcar.view.ProcessView;
 import racingcar.view.ResultView;
 import racingcar.view.View;
+import racingcar.view.WinnerView;
 import racingcar.winner.WinnerList;
-import racingcar.winner.WinnerService;
+import racingcar.winner.WinnerListService;
 
 public class RacingCar {
 	View view;
@@ -93,15 +94,15 @@ public class RacingCar {
 	}
 
 	private void setWinner() {
-		WinnerList winnerList = new WinnerService(carRepository).setWinner();
+		WinnerList winnerList = new WinnerListService(carRepository).setWinner();
 
 		printWinnerView(winnerList);
 	}
 
 	private void printWinnerView(WinnerList winnerList) {
+		view = new WinnerView(winnerList);
+		printViews();
 	}
-
-
 
 	private void printViews() {
 		view.printView();

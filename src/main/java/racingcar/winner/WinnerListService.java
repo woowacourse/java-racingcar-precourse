@@ -6,10 +6,10 @@ import java.util.Collections;
 import racingcar.car.Car;
 import racingcar.car.CarRepository;
 
-public class WinnerService {
+public class WinnerListService {
 	CarRepository carRepository;
 
-	public WinnerService(CarRepository carRepository) {
+	public WinnerListService(CarRepository carRepository) {
 		this.carRepository = carRepository;
 	}
 
