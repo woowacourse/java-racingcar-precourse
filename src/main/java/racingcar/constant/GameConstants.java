@@ -65,7 +65,8 @@ public class GameConstants {
 
 	public enum UserInput {
 		NAME_MINIMUM_LENGTH(1),
-		NAME_MAXIMUM_LENGTH(5);
+		NAME_MAXIMUM_LENGTH(5),
+		ITERATION_NUMBER_MINIMUM(1);
 
 		private final int value;
 
@@ -79,7 +80,8 @@ public class GameConstants {
 	}
 
 	public enum UserInputException {
-		LENGTH_ERROR_HINT("시도 횟수는 숫자여야 한다.");
+		LENGTH_ERROR_HINT("시도 횟수는 숫자여야 한다."),
+		NOT_A_INTEGER_ERROR_HINT("시도 횟수는 숫자여야 한다.");
 
 		private static final String EXCEPTION_PREFIX = "";
 		private final String string;
