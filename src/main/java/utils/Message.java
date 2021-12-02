@@ -6,6 +6,7 @@ public class Message {
 	public static final String ATTEMPT_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
 
 	public static final String EXECUTION_RESULT_MESSAGE = "\n실행 결과";
+	public static final String FINAL_WIN_MESSAGE = "최종 우승자 : ";
 
 	public static final int NUMBER_MIN_VALUE = 0;
 	public static final int NUMBER_MAX_VALUE = 9;
