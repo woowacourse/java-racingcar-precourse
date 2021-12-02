@@ -2,7 +2,6 @@ package racingcar.controller;
 
 
 import racingcar.domain.Car;
-import racingcar.domain.CarList;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,7 +13,8 @@ public class CarRacingGame {
         setCarsName(cars);
         setTryNumber(cars);
 
-        printCarsPosition(cars);
+        printAllTry(cars);
+        printWinner(cars);
     }
 
     public void setCarsName(Cars cars) {
@@ -35,13 +35,13 @@ public class CarRacingGame {
         }
     }
 
-    public void printCarsPosition(Cars cars) {
+    public void printAllTry(Cars cars) {
         for (int i = 0; cars.getTryNumber() > i; i++) {
             printCarsPosition(cars);
         }
     }
 
-    public void printCarPosition(Cars cars) {
+    public void printCarsPosition(Cars cars) {
         for (Car car : cars.getCarList()) {
             car.SelectMoveOrStop();
             OutputView.printCarName(car.getName());
@@ -49,5 +49,13 @@ public class CarRacingGame {
             OutputView.printSpace();
         }
         OutputView.printSpace();
+    }
+
+    public void printWinner(Cars cars){
+        OutputView.printWinner(getWinner(cars));
+    }
+
+    public String getWinner(Cars cars){
+        return cars.getWinner(cars.getCarsPosition());
     }
 }
