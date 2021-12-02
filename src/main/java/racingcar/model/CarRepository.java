@@ -17,6 +17,10 @@ public class CarRepository {
 		cars.add(car);
 	}
 
+	public static ArrayList<Car> getCars() {
+		return cars;
+	}
+
 	public static void moveCars() {
 		for (Car car : cars) {
 			int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
