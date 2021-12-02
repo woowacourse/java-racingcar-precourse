@@ -39,6 +39,7 @@ public class RacingCar {
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			getUserCarList();
+			return;
 		}
 
 		printProcessView();
@@ -60,6 +61,8 @@ public class RacingCar {
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			getUserProcessInput();
+			return;
 		}
+
 	}
 }
