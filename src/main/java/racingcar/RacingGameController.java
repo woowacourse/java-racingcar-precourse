@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 class RacingGameController {
 	private final RacingGameView racingGameView;
 	private List<Car> carList;
+	private int repetitionNumber;
 
 	public RacingGameController() {
 		racingGameView = RacingGameView.getRacingGameView();
@@ -19,6 +20,6 @@ class RacingGameController {
 				.stream()
 				.map(Car::new)
 				.collect(Collectors.toList());
-
+		repetitionNumber = racingGameView.getRepetitionNumber();
 	}
 }

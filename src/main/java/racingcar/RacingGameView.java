@@ -27,10 +27,31 @@ class RacingGameView {
 		return carNamesList;
 	}
 
+	public int getRepetitionNumber() {
+		String repetitionNumber;
+		do {
+			System.out.println(REPETITION_NUMBER_MESSAGE);
+			repetitionNumber = Console.readLine();
+		} while (!checkNotNaturalNumberException(repetitionNumber));
+		return Integer.parseInt(repetitionNumber);
+	}
+
 	private boolean checkLongNameException(List<String> carNamesList) {
 		try {
 			if (carNamesList.stream().anyMatch(carName -> carName.length() > MAXIMUM_NAME_LENGTH)) {
 				System.out.println(CAR_NAME_INPUT_ERROR_MESSAGE);
+				throw new IllegalArgumentException();
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
+	private boolean checkNotNaturalNumberException(String repetitionNumber) {
+		try {
+			if (repetitionNumber.chars().anyMatch(number -> !Character.isDigit(number))) {
+				System.out.println(REPETITION_NUMBER_ERROR_MESSAGE);
 				throw new IllegalArgumentException();
 			}
 		} catch (Exception e) {
