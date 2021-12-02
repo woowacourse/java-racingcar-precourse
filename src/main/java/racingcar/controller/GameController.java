@@ -16,27 +16,44 @@ public class GameController {
 	}
 
 	public void play() {
+		inputInitialValue();
+		init();
+	}
+
+	private void inputInitialValue() {
 		do {
 			init();
 			validateCarName(InputView.inputCar());
-			if (gameState == GameState.INPUT_ERROR) {
-				continue;
-			}
-		} while (gameState == GameState.PLAY);
+		} while (gameState == GameState.INPUT_ERROR);
 
+		do {
+			init();
+			validateAttemptNumber(InputView.inputAttemptNumber());
+		} while (gameState == GameState.INPUT_ERROR);
+	}
+
+	private void handleInputError(boolean isCorrectLength, String errorMessage) {
+		try {
+			if (!isCorrectLength) {
+				throw new IllegalArgumentException();
+			}
+		} catch (IllegalArgumentException exception) {
+			System.out.println(errorMessage);
+			gameState = GameState.INPUT_ERROR;
+			return;
+		}
+		init();
 	}
 
 	public void validateCarName(String carData) {
 		cars = carData.split(Constant.CAR_NAME_SEPARATOR);
 		boolean isCorrectLength = Stream.of(cars)
-			.allMatch(name -> InputValidator.checkCarNameLength(name));
+			.allMatch(InputValidator::checkCarNameLength);
+		handleInputError(isCorrectLength, Constant.ERROR_MESSAGE_CAR_NAME);
+	}
 
-		try {
-			if (!isCorrectLength) {
-				throw new IllegalArgumentException(Constant.ERROR_MESSAGE_CAR_NAME);
-			}
-		} catch (IllegalArgumentException exception) {
-			gameState = GameState.INPUT_ERROR;
-		}
+	public void validateAttemptNumber(String attemptNumber) {
+		boolean isNumber = InputValidator.checkAttemptIsNumber(attemptNumber);
+		handleInputError(isNumber, Constant.ERROR_MESSAGE_ATTEMPT_NUMBER);
 	}
 }
