@@ -3,6 +3,8 @@ package racingcar.utils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import racingcar.view.OutputView;
+import racingcar.view.InputView;
 
 public class InputUtils {
 
@@ -17,17 +19,23 @@ public class InputUtils {
 	private InputUtils() {
 	}
 
-	public static List<String> getCarNames (String inputCarNames) {
+	public static List<String> getCarNames(String inputCarNames) {
 		List<String> carNames = Arrays.asList(inputCarNames.split(CAR_NAME_DELIMITER));
-		validateCarNames(carNames);
-		return Arrays.asList(inputCarNames.split(CAR_NAME_DELIMITER));
+		try {
+			validateCarNames(carNames);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			OutputView.askCarNames();
+			carNames = getCarNames(InputView.writeCarNames());
+		}
+		return carNames;
 	}
 
 	public static void validateCarNames(List<String> carNames) {
 		if (!checkDuplicatedCarName(carNames)) {
 			throw new IllegalArgumentException(ERROR_HEADER + DUPLICATE_ERROR_MESSAGE);
 		}
-		for (String carName: carNames) {
+		for (String carName : carNames) {
 			if (!checkCarNameLength(carName)) {
 				throw new IllegalArgumentException(ERROR_HEADER + LENGTH_ERROR_MESSAGE);
 			}
@@ -38,7 +46,8 @@ public class InputUtils {
 	}
 
 	public static boolean checkCarNameLength(String carName) {
-		return carName.length() > CAR_NAME_MINIMUM_LENGTH && carName.length() <= CAR_NAME_MAXIMUM_LENGTH;
+		return carName.length() > CAR_NAME_MINIMUM_LENGTH
+			&& carName.length() <= CAR_NAME_MAXIMUM_LENGTH;
 	}
 
 	public static boolean checkDuplicatedCarName(List<String> carNames) {
