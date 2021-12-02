@@ -22,7 +22,7 @@ public class Car {
 	public void go() {
 		int condition = Randoms.pickNumberInRange(Constant.MIN_CONDITION, Constant.MAX_CONDITION);
 
-		if (condition >= 4) {
+		if (condition >= Constant.MOVING_FORWARD) {
 			position++;
 		}
 	}
