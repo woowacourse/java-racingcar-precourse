@@ -15,6 +15,7 @@ public class InputUtils {
 
         while (!isValid) {
             try {
+                System.out.println(CAR_NAME_INPUT_MESSAGE);
                 carList = getCarList();
                 isValid = true;
             } catch (IllegalArgumentException e) {
@@ -47,6 +48,7 @@ public class InputUtils {
         String attempStr = null;
         while (!isValid) {
             try {
+                System.out.println(ATTEMP_INPUT_MESSAGE);
                 attempStr = Console.readLine();
                 checkInvalidAttempNum(attempStr);
                 isValid = true;

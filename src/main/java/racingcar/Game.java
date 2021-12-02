@@ -4,24 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    List<Car> carList = new ArrayList<>();
+    private static List<Car> carList;
 
-    public void initialize() {
-        // 자동차 이름 입력 받는 함수 호출
-
-        // 시도할 회수 입력 받는 함수 호출
-        int attemp = 0;
+    public static void initialize() {
+        carList = InputUtils.returnCarList();
+        int attemp = InputUtils.getAttempNum();
 
         start(attemp);
     }
 
-    private void start(int attemp) {
+    private static void start(int attemp) {
         while (attemp > 0) {
             for (Car car : carList) {
-                // 자동차별로 전진하는 함수 호출
+                car.moveForward();
             }
 
             attemp--;
+            System.out.println();
         }
     }
 }
