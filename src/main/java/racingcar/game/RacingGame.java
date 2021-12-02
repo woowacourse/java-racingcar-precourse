@@ -9,6 +9,15 @@ import static racingcar.util.UserInputUtil.*;
 
 public class RacingGame {
 
+    private void progressGame(List<Car> carList) {
+        for (Car car : carList) {
+            car.progress();
+            car.printProgress();
+        }
+
+        System.out.println();
+    }
+
     private List<Car> getCarList() {
         String[] carNames = getCarNames();
 
