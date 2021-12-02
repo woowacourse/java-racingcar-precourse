@@ -88,5 +88,21 @@ public class Game {
 	}
 
 	public Vector<String> getWinnerNames() {
+		Vector<String> winnerNames = new Vector<String>();
+		int winnerPosition = getWinnerPosition();
+
+		for (int i = 0; i < cars.size(); i++) {
+
+			if (cars.get(i).getPosition() == winnerPosition) {
+				winnerNames.add(cars.get(i).getName());
+			}
+
+		}
+
+		return winnerNames;
+	}
+
+	public int getWinnerPosition() {
+
 	}
 }
