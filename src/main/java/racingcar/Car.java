@@ -9,6 +9,7 @@ public class Car {
 
 	private final String name;
 	private int position = 0;
+	private StringBuilder stringBuilder = new StringBuilder();
 
 	public Car(String name) {
 		this.name = name;
@@ -26,5 +27,18 @@ public class Car {
 			return true;
 		}
 		return false;
+	}
+
+	public void printStatus() {
+		System.out.println(buildStatusString());
+	}
+
+	private String buildStatusString() {
+		stringBuilder.setLength(0);
+		stringBuilder.append(name).append(' ').append(':').append(' ');
+		for (int i = 0; i < position; i++) {
+			stringBuilder.append('-');
+		}
+		return stringBuilder.toString();
 	}
 }
