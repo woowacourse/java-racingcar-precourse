@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Result {
     private final ArrayList<Car> cars;

@@ -3,12 +3,14 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.StringTokenizer;
 
 public class RacingGame {
     private Result result;
     private int moves;
-    ArrayList<Car> carArrayList = new ArrayList<>();
+    ArrayList<Car> carList = new ArrayList<>();
+    LinkedHashSet<String> carNameLinkedHashSet = new LinkedHashSet<>();
 
     public void run() {
         initGame();
@@ -23,7 +25,7 @@ public class RacingGame {
     private String checkWinner() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for(Car car : carArrayList) {
+        for(Car car : carList) {
             appendIfWinner(stringBuilder, car);
         }
 
@@ -49,22 +51,22 @@ public class RacingGame {
 
     private void initGame() {
         printMessageForCarNames();
-        processCarName(inputCarNames());
+        processCarName();
         createResult();
         printMessageForNumberOfMoves();
         inputMoves();
     }
 
     private void printMessageForNumberOfMoves() {
-        System.out.println("- 시도할 회수");
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
     private void printMessageForCarNames() {
-        System.out.println("- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
     }
 
     private void createResult() {
-        result = new Result(carArrayList);
+        result = new Result(carList);
     }
 
     private void startGame() {
@@ -79,7 +81,7 @@ public class RacingGame {
     }
 
     private void moveAllCar() {
-        for(Car car : carArrayList) {
+        for(Car car : carList) {
             moveCar(car);
         }
     }
@@ -95,30 +97,89 @@ public class RacingGame {
     }
 
     private String inputCarNames() {
-        return Console.readLine();
+        while(true) {
+            try {
+                String input = Console.readLine();
+                isValidInput(input);
+                return input;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private void isValidInput(String input) {
+        if(!input.matches("^[a-zA-Z]+(,[a-zA-Z]+)+$")) {
+            throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다. 이름,이름,이름 형식으로 다시 입력해주세요.");
+        }
     }
 
     private void inputMoves() {
-        moves = Integer.parseInt(Console.readLine());
+        boolean flag = false;
+
+        do {
+            try {
+                validateNumber(Console.readLine());
+                flag = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }while(!flag);
     }
 
-    private void processCarName(String carNames) {
-        StringTokenizer st = new StringTokenizer(carNames, ",");
+    private void validateNumber(String input) {
+        if(!input.matches("^[1-9][0-9]*$")) {
+            throw new IllegalArgumentException("[ERROR] 숫자로만 제한됩니다. 다시 입력해주세요.");
+        }
 
-        while(st.hasMoreTokens()) {
-            validateName(st.nextToken()); //try catch?
+        moves = Integer.parseInt(input);
+    }
+
+    private void processCarName() {
+        boolean isValid = false;
+
+        do {
+            try {
+                StringTokenizer st = new StringTokenizer(inputCarNames(), ",");
+                validateCarName(st);
+                isValid = true;
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                carNameLinkedHashSet.clear();
+            }
+        } while(!isValid);
+
+        createCars();
+    }
+
+    private void createCars() {
+        for(String carName : carNameLinkedHashSet) {
+            carList.add(new Car(carName));
         }
     }
 
-    private void validateName(String carName) {
-        if(isValid(carName)) {
-            throw new IllegalArgumentException();
+    private void validateCarName(StringTokenizer stringTokenizer) throws IllegalArgumentException {
+        while(stringTokenizer.hasMoreTokens()) {
+            String nextToken = stringTokenizer.nextToken();
+            validateNameLength(nextToken);
+            validateDuplicateName(nextToken);
+            carNameLinkedHashSet.add(nextToken);
         }
-
-        carArrayList.add(new Car(carName));
     }
 
-    private boolean isValid(String carName) {
+    private void validateDuplicateName(String nextToken) {
+        if (carNameLinkedHashSet.contains(nextToken)) {
+            throw new IllegalArgumentException("[ERROR] 중복된 자동차 이름이 있습니다. 다시 입력해주세요.");
+        }
+    }
+
+    private void validateNameLength(String carName) {
+        if(isValidLength(carName)) {
+            throw new IllegalArgumentException("[ERROR] 각 자동차 이름은 5 글자 이하로 제한됩니다. 다시 입력해주세요.");
+        }
+    }
+
+    private boolean isValidLength(String carName) {
         return carName.length() > 5;
     }
 }
