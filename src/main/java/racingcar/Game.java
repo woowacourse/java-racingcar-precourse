@@ -9,9 +9,9 @@ import racingcar.exception.ErrorMessage;
 import racingcar.exception.ErrorResponse;
 import racingcar.message.Message;
 import racingcar.domain.Car;
+import racingcar.message.MessageResponse;
 
 public class Game {
-	private static Message message = new Message();
 	private static ArrayList<Car> cars;
 	private static int repeatNumber;
 
@@ -25,7 +25,7 @@ public class Game {
 	//TODO: inputCars() 랑 inputRepeatNumber() 한 메서드로 합치기
 	private void inputCars() {
 		cars= new ArrayList<>();
-		System.out.println(message.getENTER_CARS_NAME());
+		MessageResponse.of(Message.ENTER_CARS_NAME.getMessage());
 		String inputStr = Console.readLine();
 
 		try {
@@ -39,7 +39,7 @@ public class Game {
 	}
 
 	private void inputRepeatNumber() {
-		System.out.println(message.getASK_REPEAT_NUM());
+		MessageResponse.of(Message.ASK_REPEAT_NUM.getMessage());
 		String inputStr = Console.readLine();
 
 		try {
@@ -54,7 +54,7 @@ public class Game {
 
 	// 결과 알려주기
 	private void getResult() {
-		System.out.println(message.getPRINT_RESULT());
+		MessageResponse.of(Message.PRINT_RESULT.getMessage());
 		for (int i = 0; i < repeatNumber; i++) {
 			decideMoveOrStop();
 			checkSorting(i);
@@ -92,7 +92,7 @@ public class Game {
 
 	// 최종 우승자 알려주기
 	private void getWinner() {
-		System.out.print(message.getENTER_WINNER());
+		MessageResponse.of(Message.ENTER_WINNER.getMessage());
 		int idx = checkNumberOfWinner();
 		for (int i = 0; i < idx; i++) {
 			System.out.print(cars.get(i).getName());
