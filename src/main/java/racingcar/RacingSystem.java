@@ -59,10 +59,8 @@ public class RacingSystem {
         }
     }
 
-    private void getWinner(String name, int position) {
-        if (position == cnt) {
-            winners.addWinner(name);
-        }
+    public void printWinners() {
+        System.out.println("최종 우승자 : " + winners.toString());
     }
 
     public void checkNumber(String input) throws IllegalArgumentException {
@@ -79,6 +77,12 @@ public class RacingSystem {
                 throw new IllegalArgumentException();
             }
             cars.add(new Car(name));
+        }
+    }
+
+    private void getWinner(String name, int position) {
+        if (position == cnt) {
+            winners.addWinner(name);
         }
     }
 
