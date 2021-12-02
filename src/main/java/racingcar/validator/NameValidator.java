@@ -39,7 +39,7 @@ public class NameValidator {
 	}
 
 	private void keepNotOnlyBlank(String name) throws IllegalArgumentException {
-		if (name.trim().length() == 0) {
+		if (name.length() >= NAME_LENGTH_MIN && name.trim().length() == 0) {
 			errorMessage = NOT_ONLY_BLANK_ERROR_MESSAGE;
 
 			throw new IllegalArgumentException();
