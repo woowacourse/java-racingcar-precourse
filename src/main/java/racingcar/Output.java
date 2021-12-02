@@ -15,15 +15,19 @@ public class Output {
 	}
 
 	public static void outputRaceResult(Car[] cars) {
-		List<Car> carList = Lists.list(cars);
-		sortingByPosition(carList);
 
 		StringBuilder sb = new StringBuilder();
 		System.out.println(RESULT_MESSAGE);
 
-		getCarPositionPerRace(carList, sb);
-
+		printWinnerList(cars, sb);
 		System.out.println(WINNER_MESSAGE + trimResult(sb));
+	}
+
+	private static void printWinnerList(Car[] cars, StringBuilder sb) {
+		List<String> ouputList = Judge.judging(cars);
+		for(String name : ouputList){
+			sb.append(name+", ");
+		}
 	}
 
 	private static void printCarStatus(Car[] cars) {
@@ -34,14 +38,7 @@ public class Output {
 		System.out.println(sb.toString());
 	}
 
-	private static void getCarPositionPerRace(List<Car> carList, StringBuilder sb) {
-		int max = carList.get(0).getPosition();
-		for (Car car : carList) {
-			if (max == car.getPosition()) {
-				sb.append(car.getName() + ", ");
-			}
-		}
-	}
+
 
 	private static String trimResult(StringBuilder sb) {
 		String result = sb.toString();
