@@ -28,7 +28,7 @@ public class Car {
         String result = "";
 
         for (int i = 0; i < this.position; i++) {
-            result.concat("-");
+            result = result.concat("-");
         }
 
         System.out.println(this.name + " : " + result);
