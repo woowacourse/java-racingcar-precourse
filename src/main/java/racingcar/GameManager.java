@@ -10,32 +10,33 @@ public class GameManager {
 	public Car[] cars;
 	public ArrayList<String> winner = new ArrayList<>();
 
-	public GameManager(InputManager inputManager) {
+	public GameManager() {
+		InputManager inputManager = new InputManager();
 		this.inputManager = inputManager;
 	}
 
 	public void startGame() {
 		inputManager.scanCarsList();
 		inputManager.scanNumberOfMove();
-		saveCars();
+		saveCarsList();
 		System.out.println("\n실행결과");
-		for (int i = 0; i < inputManager.numberOfMove; i++) {
+		for (int i = 0; i < inputManager.getNumberOfMove(); i++) {
 			playRound();
 		}
 		calculateWinner();
 		printWinner();
 	}
 
-	public void saveCars() {
-		cars = new Car[inputManager.carsList.length];
+	public void saveCarsList() {
+		cars = new Car[inputManager.getCarsList().length];
 		for (int i = 0; i < cars.length; i++) {
 			cars[i] = new Car(inputManager.carsList[i]);
 		}
 	}
 
 	public void playRound() {
-		for (int i = 0; i < cars.length; i++) {
-			cars[i].addPosition(calculateMove());
+		for (Car car : cars) {
+			car.addPosition(calculateMove());
 		}
 		printResult();
 	}
@@ -49,9 +50,9 @@ public class GameManager {
 	}
 
 	public void printResult() {
-		for (int i = 0; i < cars.length; i++) {
-			System.out.print(cars[i].getName() + " : ");
-			for (int j = 0; j < cars[i].getPosition(); j++) {
+		for (Car car : cars) {
+			System.out.print(car.getName() + " : ");
+			for (int i = 0; i < car.getPosition(); i++) {
 				System.out.print("-");
 			}
 			System.out.println();
@@ -75,20 +76,20 @@ public class GameManager {
 	}
 
 	public void calculateWinner() {
-		int[] position = getWinnerPosition();
-		for (int i = 0; i < position.length; i++) {
-			if (cars[i].getPosition() == position[cars.length - 1]) {
-				winner.add(cars[i].getName());
+		int[] positionList = getWinnerPosition();
+		for (Car car : cars) {
+			if (car.getPosition() == positionList[cars.length - 1]) {
+				winner.add(car.getName());
 			}
 		}
 	}
 
 	public int[] getWinnerPosition() {
-		int[] position = new int[cars.length];
-		for (int i = 0; i < position.length; i++) {
-			position[i] = cars[i].getPosition();
+		int[] positionList = new int[cars.length];
+		for (int i = 0; i < positionList.length; i++) {
+			positionList[i] = cars[i].getPosition();
 		}
-		Arrays.sort(position);
-		return position;
+		Arrays.sort(positionList);
+		return positionList;
 	}
 }

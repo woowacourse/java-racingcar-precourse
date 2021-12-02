@@ -6,6 +6,14 @@ public class InputManager {
 	public String[] carsList;
 	public int numberOfMove;
 
+	public String[] getCarsList() {
+		return carsList;
+	}
+
+	public int getNumberOfMove() {
+		return numberOfMove;
+	}
+
 	public void scanCarsList() {
 		boolean carsScan = true;
 		System.out.println(Constant.CAR_NAME_INPUT);
@@ -58,7 +66,7 @@ public class InputManager {
 		}
 	}
 
-	public int toInt(String number) {
+	public static int toInt(String number) {
 		return Integer.parseInt(number);
 	}
 }
