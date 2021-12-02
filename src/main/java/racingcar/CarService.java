@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.validator.NameValidator;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,9 +34,7 @@ public class CarService {
 
     public void updateCarPosition(){
         List<Car> cars = carRepository.findAll();
-        for (Car car : cars) {
-            moveForward(car);
-        }
+        cars.forEach(car -> moveForward(car));
     }
 
     private void moveForward(Car car) {
@@ -68,9 +67,7 @@ public class CarService {
     private int findMaxPosition(List<Car> findCars) {
         int max = MAX_DEFAULT;
         for (Car findCar : findCars) {
-            if(findCar.getPosition() > max){
-                max = findCar.getPosition();
-            }
+            max = Math.max(findCar.getPosition(), max);
         }
         return max;
     }
