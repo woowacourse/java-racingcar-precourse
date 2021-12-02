@@ -8,6 +8,11 @@ public class RacingCarConstant {
 
 	public static final String DELIMITER = ",";
 
+	public static final int CAR_MOVE_LOWER_BOUND = 0;
+	public static final int CAR_MOVE_UPPER_BOUND = 9;
+	public static final int CAR_MOVE_CHECK_NUM = 4;
+	public static final int CAR_MOVE = 1;
+
 	public static final String CAR_NAME_DUPLICATE_ERROR = "[ERROR] 자동차 이름은 중복되어서는 안된다";
 	public static final String CAR_NAME_WRONG_LENGTH_ERROR = "[ERROR] 자동차 이름의 길이는 1~5자여야 한다";
 	public static final String CAR_NAME_EMPTY_ERROR = "[ERROR] 자동차 이름에 빈 이름을 넣어서는 안된다";

@@ -20,6 +20,7 @@ public class RacingCarController {
 	public void start() {
 		getInputCars();
 		getInputGameCount();
+		moveCars();
 	}
 
 	private void getInputCars() {
@@ -54,6 +55,12 @@ public class RacingCarController {
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e.getMessage());
 			getInputGameCount();
+		}
+	}
+
+	private void moveCars() {
+		for (int cnt = 0; cnt < gameCount; cnt++) {
+			racingCar.moveRacingCars();
 		}
 	}
 }
