@@ -3,8 +3,13 @@ package racingcar.util;
 import racingcar.constant.RacingCarConst;
 
 public class Validator {
+	public static void validateCarNames(String[] carNames) {
+		for (String carName : carNames) {
+			validateCarName(carName);
+		}
+	}
 
-	public static void validateCarName(String carName) {
+	private static void validateCarName(String carName) {
 		if (isEmptyString(carName)) {
 			throw new IllegalArgumentException("[ERROR] 자동차 이름은 빈 문자열 혹은 공백이면 안된다.");
 		}

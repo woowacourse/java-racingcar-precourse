@@ -8,22 +8,30 @@ import racingcar.view.OutputView;
 public class RacingCarController {
 	public void run() {
 		// 자동차 입력
-		boolean sw = false;
+		boolean inputSwitch = false;
+
 		do {
 			try {
-				sw = false;
-				OutputView.printEnterCarNames();
-				String nameStr = InputView.readLine();
-				String[] names = Converter.toStringArray(nameStr);
-				for (String name : names) {
-					Validator.validateCarName(name);
-				}
+				inputSwitch = false;
+				String[] names = enterCarName();
 			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-				sw = true;
+				printErrorMessage(e);
+				inputSwitch = true;
 			}
+		} while (inputSwitch);
 
-		} while (sw);
+	}
 
+	private void printErrorMessage(IllegalArgumentException e) {
+		System.out.println(e.getMessage());
+	}
+
+	private String[] enterCarName() {
+		OutputView.printEnterCarNames();
+		String nameStr = InputView.readLine();
+		String[] names = Converter.toStringArray(nameStr);
+		Validator.validateCarNames(names);
+
+		return names;
 	}
 }
