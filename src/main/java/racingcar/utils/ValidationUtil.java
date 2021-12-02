@@ -11,10 +11,10 @@ public class ValidationUtil {
     public static final int MAX_LENGTH = 5;
     public static final String DELIMITER = ",";
     public static final String ERROR_STRING = "[ERROR]";
-    public static final String EMPTY_MENTION = ERROR_STRING + " 이름을 입력해주세요.";
-    public static final String OVER_LENGTH_MENTION = ERROR_STRING + " 이름은 " + MAX_LENGTH + "글자까지만 입력가능합니다.";
-    public static final String START_COMMA_MENTION = ERROR_STRING + " 입력값은 쉼표(,)로 시작할 수 없습니다.";
-    public static final String DUPLICATE_MENTION = ERROR_STRING + " 이름은 중복될 수 없습니다.";
+    public static final String ERROR_EMPTY_MENTION = ERROR_STRING + " 이름을 입력해주세요.";
+    public static final String ERROR_OVER_LENGTH_MENTION = ERROR_STRING + " 이름은 " + MAX_LENGTH + "글자까지만 입력가능합니다.";
+    public static final String ERROR_START_COMMA_MENTION = ERROR_STRING + " 입력값은 쉼표(,)로 시작할 수 없습니다.";
+    public static final String ERROR_DUPLICATE_MENTION = ERROR_STRING + " 이름은 중복될 수 없습니다.";
 
     public static void checkName(String value) {
         checkNull(value);
@@ -29,9 +29,9 @@ public class ValidationUtil {
         checkDuplicate(value);
     }
 
-    private static void checkDuplicate(String value) {
+    static void checkDuplicate(String value) {
         if (hasDuplicate(value.trim())) {
-            throw new IllegalArgumentException(DUPLICATE_MENTION);
+            throw new IllegalArgumentException(ERROR_DUPLICATE_MENTION);
         }
     }
 
@@ -40,15 +40,15 @@ public class ValidationUtil {
         return names.stream().distinct().count() != names.size();
     }
 
-    private static void checkNull(String value) {
+    static void checkNull(String value) {
         if (isNull(value)) {
-            throw new IllegalArgumentException(EMPTY_MENTION);
+            throw new IllegalArgumentException(ERROR_EMPTY_MENTION);
         }
     }
 
-    private static void checkCommaInFirst(String value) {
+    static void checkCommaInFirst(String value) {
         if (isCommaInFirst(value.trim())) {
-            throw new IllegalArgumentException(START_COMMA_MENTION);
+            throw new IllegalArgumentException(ERROR_START_COMMA_MENTION);
         }
     }
 
@@ -58,7 +58,7 @@ public class ValidationUtil {
 
     public static void checkEmpty(String value) {
         if (isEmpty(value.trim())) {
-            throw new IllegalArgumentException(EMPTY_MENTION);
+            throw new IllegalArgumentException(ERROR_EMPTY_MENTION);
         }
     }
 
@@ -70,9 +70,9 @@ public class ValidationUtil {
         return EMPTY_STRING.equals(value);
     }
 
-    private static void checkLength(String value) {
+    static void checkLength(String value) {
         if (isOverLength(value.trim())) {
-            throw new IllegalArgumentException(OVER_LENGTH_MENTION);
+            throw new IllegalArgumentException(ERROR_OVER_LENGTH_MENTION);
         }
     }
 
