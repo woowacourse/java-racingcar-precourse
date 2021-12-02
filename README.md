@@ -15,23 +15,24 @@
 --------
 ## 구현 후 정리
 <br>
-### 클래스 및 퍼블릭 인터페이스
-- Application : 어플리케이션 실행 <br>
+클래스 및 퍼블릭 인터페이스
+
+- Application : 어플리케이션 실행 
 - RacingController : Player에게서 Car의 이름과, move 횟수를 입력 받고 경기 시작
   - void start() : 결기 시작 <br>
 - Player : 사용자의 입력을 받고 validation 후 반환하는 역할
   - List<String> enterCarsName() : 자동차 이름 List를 반환
-  - int enterMoveNum() : move 횟수를 반환 <br>
+  - int enterMoveNum() : move 횟수를 반환 
 - InputView : 사용자의 입력
-  - String getInput()<br>
+  - String getInput()
 - Validator : util 클래스 입력으 validation 후 invalid하면 IllegalArgumentException 던짐
   - void isLengthOverFive(String input) : 이름이 5글자를 초과할 때 에러
   - void isNullInput(String input) : 이름이 비었으면 에러
-  - void isNumber(String input) : 입력값이 숫자 아니면 에러 <br>
+  - void isNumber(String input) : 입력값이 숫자 아니면 에러 
 - Racing : 경기를 관장하는 클래스
-  - void startRacing() : 주어진 횟수만큼 결기 <br>
+  - void startRacing() : 주어진 횟수만큼 결기 
 - RandomNumberGenerator : 난수생성기
-  - int generateRandomNumber() : 난수 생성 <br>
+  - int generateRandomNumber() : 난수 생성 
 - Car : 차의 이름, 위치를 포함하고 있는 객체 클래스
   - int currentPosition() : 현재 위치 반환
   - String getName() : 이름 반환
