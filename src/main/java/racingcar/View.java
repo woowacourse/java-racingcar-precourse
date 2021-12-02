@@ -32,6 +32,19 @@ public class View {
         return "[ERROR] 시도 횟수는 숫자여야 한다.";
     }
     
+    public String showGoalMessage(String [] winners) {
+        String result = "최종 우승자 : ";
+        
+        for(int i = 0; i < winners.length; i++) {
+            result += winners[i];
+            if(i < winners.length-1) {
+                result += ", ";
+            }
+        }
+        
+        return result;
+    }
+    
     private String showPosition(String car, int position) {
         String result = car + " : ";
         
