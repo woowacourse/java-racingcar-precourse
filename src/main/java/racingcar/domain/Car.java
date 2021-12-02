@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.domain;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
 

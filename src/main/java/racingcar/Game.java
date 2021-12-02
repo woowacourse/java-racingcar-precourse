@@ -5,12 +5,13 @@ import java.util.Collections;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import config.ErrorMessage;
-import config.Message;
+import racingcar.exception.ErrorMessage;
+import racingcar.exception.ErrorResponse;
+import racingcar.message.Message;
+import racingcar.domain.Car;
 
 public class Game {
 	private static Message message = new Message();
-	private static ErrorMessage errorMessage = new ErrorMessage();
 	private static ArrayList<Car> cars;
 	private static int repeatNumber;
 
@@ -32,7 +33,7 @@ public class Game {
 			checkCarsNameLength(inputStr.split(","));
 
 		} catch (IllegalArgumentException e) {
-			System.out.println("[ERROR] "+e.getMessage());
+			ErrorResponse.of(e.getMessage());
 			inputCars();
 		}
 	}
@@ -46,7 +47,7 @@ public class Game {
 			checkInputIsPositiveNumber(inputStr);
 
 		} catch (IllegalArgumentException e) {
-			System.out.println("[ERROR] "+e.getMessage());
+			ErrorResponse.of(e.getMessage());
 			inputRepeatNumber();
 		}
 	}
@@ -122,7 +123,7 @@ public class Game {
 	private void checkCarsNameLength(String[] carsStr) {
 		for (String car : carsStr) {
 			if (car.length() > 5) {
-				throw new IllegalArgumentException(errorMessage.getCAR_NAME_LENGTH_ERROR());
+				throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getErrorMessage());
 			}
 			cars.add(new Car(car));
 		}
@@ -131,15 +132,15 @@ public class Game {
 	//TODO: validation Class 로 빼기
 	private void checkNull(String inputStr) {
 		if (inputStr.length() == 0) {
-			throw new IllegalArgumentException(errorMessage.getNULL_ERROR());
+			throw new IllegalArgumentException(ErrorMessage.NULL_ERROR.getErrorMessage());
 		}
 	}
 
 	//TODO: validation Class 로 빼기
-	private void checkInputIsPositiveNumber(String inputStr)  {
+	private void checkInputIsPositiveNumber(String inputStr) {
 		for (char c : inputStr.toCharArray()) {
-			if (!Character.isDigit(c) || c-'0'<0) {
-				throw new IllegalArgumentException(errorMessage.getNOT_CORRECT_REPEAT_NUM_ERROR());
+			if (!Character.isDigit(c) || c - '0' < 0) {
+				throw new IllegalArgumentException(ErrorMessage.NOT_CORRECT_REPEAT_NUM_ERROR.getErrorMessage());
 			}
 		}
 		repeatNumber = Integer.parseInt(inputStr);
