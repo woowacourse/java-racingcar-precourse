@@ -7,6 +7,15 @@ import racingcar.view.OutputView;
 public class CarRaceGame {
     public void start() {
         Cars cars = new Cars();
-        cars.addCar(InputView.printGetCarsNameMessage());
+        getCarsName(cars);
+    }
+
+    public void getCarsName(Cars cars){
+        try{
+            cars.addCar(InputView.printGetCarsNameMessage());
+        }catch (IllegalArgumentException e){
+            OutputView.printErrorMessage(e);
+            getCarsName(cars);
+        }
     }
 }
