@@ -12,7 +12,7 @@ public class WinnerWriterTest {
 	@DisplayName("단독 우승자 출력")
 	void write_single_winner() {
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-	    WinnerWriter winnerWriter = new WinnerWriter(consoleDisplay);
+		WinnerWriter winnerWriter = new WinnerWriter(consoleDisplay);
 
 		winnerWriter.write(Arrays.asList("pobi"));
 

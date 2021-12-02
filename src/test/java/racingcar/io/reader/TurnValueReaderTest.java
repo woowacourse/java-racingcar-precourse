@@ -29,7 +29,7 @@ public class TurnValueReaderTest {
 	void print_message_before_input() {
 		when(Console.readLine()).thenReturn("0");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-	    TurnValueReader turnValueReader = new TurnValueReader(consoleDisplay);
+		TurnValueReader turnValueReader = new TurnValueReader(consoleDisplay);
 
 		turnValueReader.read();
 

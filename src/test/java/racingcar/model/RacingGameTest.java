@@ -1,15 +1,19 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.when;
+
 import java.util.Arrays;
+
+import camp.nextstep.edu.missionutils.Randoms;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.when;
+
 
 public class RacingGameTest {
 	static final int MOVE_NUMBER = 5;

@@ -2,7 +2,7 @@ package racingcar.io.reader;
 
 import racingcar.io.ConsoleDisplay;
 
-public class TurnValueReader extends Reader<Integer>{
+public class TurnValueReader extends Reader<Integer> {
 	public static final String INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 	public static final String ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
 

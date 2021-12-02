@@ -14,7 +14,7 @@ public class ProceedResultWriter {
 	}
 
 	public void write(List<ProceedResult> proceedResults) {
-		for(ProceedResult result : proceedResults) {
+		for (ProceedResult result : proceedResults) {
 			write(result);
 		}
 		consoleDisplay.info("");

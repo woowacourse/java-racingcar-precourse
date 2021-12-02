@@ -42,7 +42,7 @@ public class CarNameReaderTest {
 	void split_car_name_by_comma() {
 		when(Console.readLine()).thenReturn("pobi,jun,woni");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-	    CarNameReader carNameReader = new CarNameReader(consoleDisplay);
+		CarNameReader carNameReader = new CarNameReader(consoleDisplay);
 
 		List<String> names = carNameReader.read();
 
@@ -52,7 +52,7 @@ public class CarNameReaderTest {
 	@Test
 	@DisplayName("자동차 이름은 5글자 이하")
 	void invalid_car_name() {
-	    when(Console.readLine()).thenReturn("fiveCar");
+		when(Console.readLine()).thenReturn("fiveCar");
 		ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
 		CarNameReader carNameReader = new CarNameReader(consoleDisplay);
 

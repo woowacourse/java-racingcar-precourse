@@ -3,7 +3,9 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
+
 import camp.nextstep.edu.missionutils.Randoms;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -41,9 +43,9 @@ public class CarTest {
 	@Test
 	@DisplayName("정지")
 	void stop() {
-	    when(Randoms.pickNumberInRange(0, 9))
-		    .thenReturn(3)
-		    .thenReturn(2);
+		when(Randoms.pickNumberInRange(0, 9))
+			.thenReturn(3)
+			.thenReturn(2);
 		Car car = new Car("pobi");
 
 		car.move();
