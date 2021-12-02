@@ -16,7 +16,7 @@ class CarTest {
     }
 
     @Test
-    void 글자길이가_5가_넘어가면_예외출력() {
+    void 자동차_이름에_대한_예외_출력테스트() {
         assertThatThrownBy(() -> {
             cars.addCar("pobi,minjaea");
         })
