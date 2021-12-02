@@ -25,6 +25,15 @@ public class GameService {
 		return carList;
 	}
 
+	public void play() {
+		for (Car car : game.getCars()) {
+			if (FORWARD_CONDITION <= getRandomNumber()) {
+				car.moveForward(1);
+			}
+		}
+		game.increaseTrialNum();
+	}
+
 	private int getRandomNumber() {
 		return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
 	}

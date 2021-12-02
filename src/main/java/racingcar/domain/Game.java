@@ -11,4 +11,13 @@ public class Game {
 		this.trial = trial;
 		this.cars = cars;
 	}
+
+	public List<Car> getCars() {
+		return cars;
+
+	}
+
+	public void increaseTrialNum() {
+		this.trialNum += 1;
+	}
 }
