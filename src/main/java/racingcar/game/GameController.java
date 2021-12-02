@@ -14,7 +14,7 @@ public class GameController {
 		Cars cars = new Cars(carNames.generateCar());
 		Attempts attempts = new Attempts();
 		inputAttempts(attempts);
-		moveCars(cars);
+		moveCars(cars, attempts);
 	}
 
 	private void inputCarName(CarNames carNames) {
@@ -37,8 +37,11 @@ public class GameController {
 		}
 	}
 
-	private void moveCars(Cars cars) {
+	private void moveCars(Cars cars, Attempts attempts) {
 		OutputView.resultMessage();
-		OutputView.moveResultMessage(cars.move());
+		do {
+			OutputView.moveResultMessage(cars.move());
+			attempts.decrease();
+		} while (attempts.isLeft());
 	}
 }
