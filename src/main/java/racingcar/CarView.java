@@ -6,6 +6,8 @@ import static util.CarConstant.*;
 
 public class CarView {
 
+    public static int SINGLE = 1;
+
     public static void printMessage(String message) {
         System.out.println(message);
     }
@@ -22,7 +24,7 @@ public class CarView {
 
     public static void printFinalWinner(List<Car> winners){
         System.out.print(FINAL_WINNER + SEPARATOR);
-        if(winners.size() > 1){
+        if(winners.size() > SINGLE){
             System.out.println(createWinnersName(winners));
             return ;
         }
