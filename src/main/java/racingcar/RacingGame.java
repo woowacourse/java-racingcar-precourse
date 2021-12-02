@@ -98,14 +98,18 @@ public class RacingGame {
 	}
 
 	private void printGameResult() {
-		participantList.sort((car1, car2) -> car2.getLocation() - car1.getLocation());
-		int winnerDistance = participantList.get(0).getLocation();
-		String winner = "";
+		int winnerDistance = getWinnerScore();
+		StringBuilder winner = new StringBuilder();
 		for (int i = 0; participantList.get(i).getLocation() == winnerDistance; i++) {
-			winner += participantList.get(i).getCarName() + WINNER_DISTINGUISH;
+			winner.append(participantList.get(i).getCarName()).append(WINNER_DISTINGUISH);
 		}
-		winner = winner.substring(0, winner.length() - WINNER_DISTINGUISH.length());
+		winner = new StringBuilder(winner.substring(0, winner.length() - WINNER_DISTINGUISH.length()));
 		System.out.println(WINNER_MESSAGE + winner);
+	}
+
+	private int getWinnerScore() {
+		participantList.sort((car1, car2) -> car2.getLocation() - car1.getLocation());
+		return participantList.get(0).getLocation();
 	}
 
 	private void validateNumber(String number) {
