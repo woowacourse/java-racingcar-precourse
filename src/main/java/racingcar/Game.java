@@ -1,14 +1,22 @@
 package racingcar;
 
+import java.util.ArrayList;
+
+import racingcar.utils.RandomGenerator;
+
 public class Game {
-	User user = new User();
-
 	public void play(){
-		String [] carNameInput = user.carNameInput();
+		User user = new User();
+		RandomGenerator randomGenerator = new RandomGenerator();
+		ArrayList<Car> carArrayList = new ArrayList<Car>();
 
-		// carNameInput 테스트
-		// for(int i = 0; i < 3; i++) {
-		// 	System.out.println(carNameInput[i]);
-		// }
+		String [] driverNames = user.driverNameInput();
+		int gameCount = user.gameCountInput();
+
+
+		//카 객체 생성
+		for (int i = 0; i < driverNames.length; i++) {
+			carArrayList.add(new Car(driverNames[i]));
+		}
 	}
 }
