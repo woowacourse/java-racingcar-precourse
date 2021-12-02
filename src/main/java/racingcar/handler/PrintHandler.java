@@ -17,6 +17,14 @@ public class PrintHandler {
 		System.out.println(INPUT_NUMBER_MSG);
 	}
 
+	public static void printResultMsg() {
+		System.out.println(RESULT_MSG);
+	}
+
+	public static void printBlank() {
+		System.out.println();
+	}
+
 	public static void printCar(Car car) {
 		StringBuilder sb = new StringBuilder(car.getName() + " : ");
 		for (int i = 0; i < car.getPosition(); i++) {

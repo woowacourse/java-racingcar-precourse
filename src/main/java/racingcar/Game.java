@@ -17,6 +17,7 @@ public class Game {
 	public void run() {
 		inputName();
 		inputRunNumber();
+		PrintHandler.printResultMsg();
 		for (int i = 0; i < runNumber; i++) {
 			playOnce();
 		}
@@ -51,5 +52,6 @@ public class Game {
 
 	private void playOnce() {
 		carList.forEach(Car::playOnce);
+		PrintHandler.printBlank();
 	}
 }
