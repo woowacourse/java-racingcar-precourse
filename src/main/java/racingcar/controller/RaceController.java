@@ -24,7 +24,7 @@ public class RaceController {
 		ArrayList<String> names = getProperNames();
 		Car[] cars = enrollCars(names);
 		int moveCount = getProperMoveCount();
-
+		startRace(cars, moveCount);
 	}
 
 	private ArrayList<String> getProperNames() {
@@ -51,5 +51,21 @@ public class RaceController {
 		return moveCount;
 	}
 
+	private void startRace(Car[] cars, int moveCount) {
+		outputView.printExecutionResult();
+		for (int i = 0; i < moveCount; i++) {
+			startEachRace(cars);
+		}
+	}
 
+	private void startEachRace(Car[] cars) {
+		for (Car car : cars) {
+			int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
+			if (randomNumber >= MOVE_CONDITION) {
+				car.moveForward();
+			}
+			outputView.displayPosition(car);
+		}
+		System.out.println();
+	}
 }
