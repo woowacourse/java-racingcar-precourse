@@ -17,7 +17,7 @@
 - [ ] 사용자가 입력한 시도할 횟수 validate
   - [ ] 숫자인가?
 
-=> `IllegalArgumentException` 발생 후 해당 입력부터 다시 받는다.
+=> `IllegalArgumentException` 발생시키고 ERROR 메시지를 띄운 후 해당 입력부터 다시 받는다.
 
 <br>
 
