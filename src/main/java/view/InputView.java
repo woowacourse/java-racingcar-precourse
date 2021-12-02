@@ -1,4 +1,4 @@
-package input;
+package view;
 
 
 import domain.CarList;
@@ -8,7 +8,7 @@ import utils.Validation;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 
-public class Client {
+public class InputView {
     private static Validation validation = new Validation();
 
     public static CarList getCarList() {

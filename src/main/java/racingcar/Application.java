@@ -2,7 +2,7 @@ package racingcar;
 
 import domain.CarList;
 import domain.Turn;
-import input.Client;
+import view.InputView;
 
 public class Application {
     public static void main(String[] args) {
@@ -11,8 +11,8 @@ public class Application {
     }
 
     public static Game set(){
-        CarList carList = Client.getCarList();
-        Turn turns = Client.getTimes();
+        CarList carList = InputView.getCarList();
+        Turn turns = InputView.getTimes();
 
         Game game = new Game(carList,turns);
         return game;
