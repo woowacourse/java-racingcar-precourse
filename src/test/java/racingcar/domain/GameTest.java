@@ -40,4 +40,22 @@ public class GameTest {
 				.anyMatch(winnerCandidate -> game.getWinnerList().contains(winnerCandidate)))
 			.isTrue();
 	}
+
+	@Test
+	void 게임_여러판_진행() {
+		// given, when
+		game.runMultiple(5);
+		List<Car> list = game.getCarList();
+		int farthestPosition = 0;
+		for (Car car : list)
+			farthestPosition = Math.max(farthestPosition, car.getPosition());
+		final int finalFarthestPosition = farthestPosition;
+
+		//then
+		Assertions.assertThat(game.getCarList()
+				.stream()
+				.filter(car -> car.getPosition() == finalFarthestPosition)
+				.anyMatch(winnerCandidate -> game.getWinnerList().contains(winnerCandidate)))
+			.isTrue();
+	}
 }

@@ -5,6 +5,7 @@ import static racingcar.constant.GameConstants.Game.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -40,5 +41,9 @@ public class Game {
 		return carList.stream()
 			.filter(car -> farthestPosition == car.getPosition())
 			.collect(Collectors.toList());
+	}
+
+	public void runMultiple(int iterationNumber) {
+		IntStream.range(0, iterationNumber).forEach(i -> runSingle());
 	}
 }
