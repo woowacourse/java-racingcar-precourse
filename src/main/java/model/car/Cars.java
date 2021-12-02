@@ -3,6 +3,8 @@ package model.car;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import model.movement.RandomMovement;
+
 public class Cars {
     private final List<Car> values;
 
@@ -17,5 +19,9 @@ public class Cars {
         if (carNames.size() != carNames.stream().distinct().count()) {
             throw new IllegalArgumentException("이름들 간에 중복이 있습니다.");
         }
+    }
+
+    public void race(final RandomMovement randomMovement) {
+        values.forEach(car -> car.move(randomMovement.canMove()));
     }
 }
