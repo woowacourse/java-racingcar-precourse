@@ -11,11 +11,11 @@ public class Car {
 	}
 
 	public void move() {
-		GoOrStay();
+		goOrStay();
 		printResult();
 	}
 
-	private void GoOrStay() {
+	private void goOrStay() {
 		int randomNum = Randoms.pickNumberInRange(0, 9);
 
 		if (randomNum >= 4) {
