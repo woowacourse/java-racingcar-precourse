@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.ArrayList;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 /**
  * 자동차 경주 게임의 처리 흐름을 제어하는 Class
  *
@@ -16,6 +18,15 @@ public class RacingCarGame {
 	public void start() {
 		prepareCarList();
 		prepareNumberOfTimes();
+		play();
+	}
+
+	private void play() {
+		for (Car car : carList) {
+			if(Randoms.pickNumberInRange(0,9) >= 4) {
+				car.move();
+			}
+		}
 	}
 
 	private void prepareCarList() {
