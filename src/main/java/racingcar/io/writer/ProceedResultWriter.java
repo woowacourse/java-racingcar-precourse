@@ -7,6 +7,8 @@ import racingcar.io.ConsoleDisplay;
 import racingcar.model.ProceedResult;
 
 public class ProceedResultWriter {
+	private static final String PROGRESS_BAR = "-";
+	private static final String DELIMITER = " : ";
 	private final ConsoleDisplay consoleDisplay;
 
 	public ProceedResultWriter(ConsoleDisplay consoleDisplay) {
@@ -21,11 +23,11 @@ public class ProceedResultWriter {
 	}
 
 	private void write(ProceedResult result) {
-		consoleDisplay.info(result.getName() + " : " + progressBar(result.getPosition()));
+		consoleDisplay.info(result.getName() + DELIMITER + progressBar(result.getPosition()));
 	}
 
 	private String progressBar(int position) {
-		return IntStream.range(0, position).mapToObj(i -> "-").collect(Collectors.joining());
+		return IntStream.range(0, position).mapToObj(i -> PROGRESS_BAR).collect(Collectors.joining());
 	}
 
 	private void writeBlankLine() {
