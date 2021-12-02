@@ -31,6 +31,7 @@ public class Application {
     private static String FindWinner(Car[] arrayCarObject) {
         // TO DO : 한 명씩 확인해서 우승자를 찾고, 문자열로 반환할 매소드
         String winners = "";
+
         return "winners";
     }
 
@@ -58,6 +59,7 @@ public class Application {
                 System.out.println("0보다 큰 자연수를 입력해주세요");
                 return CountingGame();
             }
+            System.out.println();
             return counting;
         } catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
