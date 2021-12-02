@@ -12,5 +12,8 @@ public class Car {
         return name;
     }
 
+    public void moveCarForward() {
+        position += 1;
+    }
     // 추가 기능 구현
 }

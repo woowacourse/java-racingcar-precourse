@@ -20,6 +20,13 @@ public class RacingGame {
     }
 
     private void startGame() {
+        moveCar();
+    }
+
+    private void moveCar() {
+        if(canCarMove()) {
+            carArrayList.get(0).moveCarForward();
+        }
     }
 
     private boolean canCarMove() {
