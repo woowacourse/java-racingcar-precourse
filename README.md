@@ -187,23 +187,20 @@ public class Car {
 
 ## 기능 구현 목록
 
-- Game class를 추가한다
-
-
 - **[ Car ]**
-    - checkToGo() : 랜덤 숫자를 뽑아 4이상인지 확인하고 position값 갱신
-    - printResult() : 실행결과 출력
-    - getPosition() : position값을 반환
+    - 랜덤 숫자를 뽑아 4이상인지 확인하고 position값 갱신
+    - 실행결과 출력
+    - position값을 반환
 
 
-- **[ Game ]**
-    - playGame() : 입력값들을 받고 게임을 진행
-    - makeCar() : 문자열을 입력받아 Car객체들을 생성
-    - checkWinner() : 우승자를 판단
+- **[게임 진행]**
+    - 입력값들을 받고 게임을 진행
+    - 문자열을 입력받아 Car객체들을 생성
+    - 우승자를 판단
 
 
-- **[Application]**
-    - Game객체를 생성하여 게임 시작
+- **[예외처리]**
+    - 횟수 입력시 숫자가 아닐 경우
 
 <br>
 
