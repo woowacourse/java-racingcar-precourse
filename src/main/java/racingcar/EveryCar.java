@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 public class EveryCar {
 	private final ArrayList<Car> cars;

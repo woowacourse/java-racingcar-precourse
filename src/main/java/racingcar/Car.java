@@ -7,8 +7,6 @@ public class Car {
     public static int MAX_RANDOM = 9;
     public static int VALUE_MOVING_CAR = 4;
 
-
-
     private final String name;
     private int position = 0;
 

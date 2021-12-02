@@ -3,7 +3,6 @@ package racingcar.view;
 import java.util.Arrays;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class InputView {
 	public static final String CAR_NAME_OVER_STANDARD_ERROR_MESSAGE = "차의 이름은 %d자 이하만 가능하다.";
