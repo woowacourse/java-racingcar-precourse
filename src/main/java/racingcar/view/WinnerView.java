@@ -15,11 +15,7 @@ public class WinnerView implements View {
 
 	@Override
 	public void printView() {
-		String winnerString =
-			winnerList.getWinnerCarList().stream()
-			.map(Car::getName)
-			.collect(Collectors.joining(", "));
-
+		String winnerString = getWinnerMessage();
 		System.out.print(PREFIX_MESSAGE);
 		System.out.println(winnerString);
 	}
@@ -29,4 +25,11 @@ public class WinnerView implements View {
 		return null;
 	}
 
+	private String getWinnerMessage() {
+		String winnerString =
+			winnerList.getWinnerCarList().stream()
+				.map(Car::getName)
+				.collect(Collectors.joining(", "));
+		return winnerString;
+	}
 }
