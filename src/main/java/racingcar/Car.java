@@ -20,4 +20,13 @@ public class Car {
 			position++;
 		}
 	}
+
+	public String showPosition() {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < position; i++) {
+			stringBuilder.append("-");
+		}
+
+		return stringBuilder.toString();
+	}
 }
