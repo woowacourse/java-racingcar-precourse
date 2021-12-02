@@ -7,36 +7,47 @@ import racingcar.view.OutputView;
 
 public class RacingCarController {
 	public void run() {
-		// 자동차 입력
-		boolean inputSwitch = false;
+		String[] carNames = getCarNames();
+		int stageNum = getStageNum();
+	}
 
-		// do {
-		// 	try {
-		// 		inputSwitch = false;
-		// 		String[] names = enterCarName();
-		// 	} catch (IllegalArgumentException e) {
-		// 		printErrorMessage(e);
-		// 		inputSwitch = true;
-		// 	}
-		// } while (inputSwitch);
-
+	private int getStageNum() {
+		int stageNum = -1;
 		do {
 			try {
-				inputSwitch = false;
-				OutputView.printEnterStageNum();
-				String input = InputView.readLine();
-				int stageNum = Converter.toInt(input);
-				Validator.validateStageNum(stageNum);
+				stageNum = enterStageNum();
 			} catch (IllegalArgumentException e) {
 				printErrorMessage(e);
-				inputSwitch = true;
 			}
-		} while (inputSwitch);
+		} while (stageNum == -1);
 
+		return stageNum;
+	}
+
+	private String[] getCarNames() {
+		String[] names = null;
+		do {
+			try {
+				names = enterCarName();
+			} catch (IllegalArgumentException e) {
+				printErrorMessage(e);
+			}
+		} while (names == null);
+
+		return names;
 	}
 
 	private void printErrorMessage(IllegalArgumentException e) {
 		System.out.println(e.getMessage());
+	}
+
+	private int enterStageNum() {
+		OutputView.printEnterStageNum();
+		String input = InputView.readLine();
+		int stageNum = Converter.toInt(input);
+		Validator.validateStageNum(stageNum);
+
+		return stageNum;
 	}
 
 	private String[] enterCarName() {
