@@ -15,7 +15,7 @@ public class InputUtils {
 	public static List<String> getCarNames(String inputCarNames) {
 		List<String> carNames = Arrays.asList(inputCarNames.split(CAR_NAME_DELIMITER));
 		try {
-			ExceptionUtils.validateCarNames(carNames);
+			ExceptionUtils.validateCarNames(inputCarNames, carNames);
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e);
 			carNames = requestCarNames();

@@ -8,6 +8,7 @@ public class ExceptionUtils {
 	private static final int CAR_NAME_MINIMUM_LENGTH = 0;
 	private static final int CAR_NAME_MAXIMUM_LENGTH = 5;
 	private static final String ERROR_HEADER = "[ERROR] ";
+	private static final String COMMA = ",";
 	private static final String LENGTH_ERROR_MESSAGE = "잘못된 차량의 길이가 입력되었습니다.";
 	private static final String DUPLICATE_ERROR_MESSAGE = "중복된 차량의 이름이 입력되었습니다.";
 	private static final String SPACE_ERROR_MESSAGE = "공백이 입력되었습니다.";
@@ -15,9 +16,12 @@ public class ExceptionUtils {
 	private ExceptionUtils() {
 	}
 
-	public static void validateCarNames(List<String> carNames) {
+	public static void validateCarNames(String inputCarNames, List<String> carNames) {
 		if (!checkDuplicatedCarName(carNames)) {
 			throw new IllegalArgumentException(ERROR_HEADER + DUPLICATE_ERROR_MESSAGE);
+		}
+		if (!checkCarNameNull(inputCarNames, carNames)) {
+			throw new IllegalArgumentException(ERROR_HEADER + LENGTH_ERROR_MESSAGE);
 		}
 		for (String carName : carNames) {
 			if (!checkCarNameLength(carName)) {
@@ -36,6 +40,10 @@ public class ExceptionUtils {
 
 	public static boolean checkDuplicatedCarName(List<String> carNames) {
 		return carNames.stream().distinct().count() == carNames.size();
+	}
+
+	public static boolean checkCarNameNull(String inputCarNames, List<String> carNames) {
+		return !carNames.isEmpty() && !inputCarNames.endsWith(COMMA);
 	}
 
 	public static boolean checkCarNameContainsSpace(String carName) {
