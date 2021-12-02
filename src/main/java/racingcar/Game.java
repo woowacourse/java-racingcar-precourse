@@ -38,6 +38,7 @@ public class Game {
 		try {
 			this.runNumber = InputHandler.getNumberInput();
 		} catch (IllegalArgumentException e) {
+			PrintHandler.printErrorMsg(e);
 			inputRunNumber();
 		}
 	}
