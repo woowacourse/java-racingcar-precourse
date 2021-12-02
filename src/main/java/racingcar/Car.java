@@ -21,6 +21,7 @@ public class Car {
 		if (randomNum >= 4) {
 			position++;
 		}
+		
 	}
 
 	private void printResult() {

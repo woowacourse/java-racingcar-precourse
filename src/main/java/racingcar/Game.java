@@ -30,6 +30,7 @@ public class Game {
 
 	public void setCars() {
 		boolean reset = true;
+
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
 		while (reset) {
@@ -42,6 +43,7 @@ public class Game {
 				reset = true;
 			}
 		}
+
 	}
 
 	public boolean makeCarsCompletely(Vector<String> seperatedCarNames) {
@@ -62,9 +64,11 @@ public class Game {
 	public boolean carNameException(String carName) {
 
 		try {
+
 			if (carName.length() > 5) {
 				throw new IllegalArgumentException();
 			}
+
 		} catch (IllegalArgumentException e) {
 			System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
 			return false;
@@ -111,6 +115,7 @@ public class Game {
 
 	public void printWinner() {
 		Vector<String> winnerNames = getWinnerNames();
+		
 		System.out.print("최종 우승자 : ");
 
 		for (int i = 0; i < winnerNames.size() - 1; i++) {
