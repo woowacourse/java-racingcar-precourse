@@ -16,6 +16,16 @@ public class Car {
         }
     }
 
+    public void printProgress() {
+        String result = "";
+
+        for (int i = 0; i < this.position; i++) {
+            result.concat("-");
+        }
+
+        System.out.println(this.name + " : " + result);
+    }
+
     private void move() {
         this.position ++;
     }
