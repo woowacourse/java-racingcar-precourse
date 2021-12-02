@@ -17,6 +17,9 @@ public class Game {
 	public void run() {
 		inputName();
 		inputRunNumber();
+		for (int i = 0; i < runNumber; i++) {
+			playOnce();
+		}
 	}
 
 	private void inputName() {
@@ -46,11 +49,7 @@ public class Game {
 		}
 	}
 
-	public List<Car> getCarList() {
-		return carList;
-	}
-
-	public int getRunNumber() {
-		return runNumber;
+	private void playOnce() {
+		carList.forEach(Car::playOnce);
 	}
 }
