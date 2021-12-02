@@ -8,6 +8,7 @@ public class GameController {
 
 	public void start() {
 		makeCars();
+		makeRoundNumber();
 	}
 
 	private void makeCars() {
@@ -24,5 +25,16 @@ public class GameController {
 			return getCarNamesInput();
 		}
 		return carNames;
+	}
+
+	private void makeRoundNumber() {
+		String roundNumber = getRoundNumberInput();
+	}
+
+	private String getRoundNumberInput() {
+		OutputView.printRoundNumberRequestMessage();
+		String roundNumber = InputView.getRoundNumber();
+
+		return roundNumber;
 	}
 }
