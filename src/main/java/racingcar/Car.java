@@ -13,6 +13,10 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
 	public void drive() {
 		int randomNumber = randomNumberGenerator.generate();
 
