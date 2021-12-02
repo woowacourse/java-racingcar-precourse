@@ -17,7 +17,7 @@ public class Validator {
 			}
 		}
 
-		if (!validateDuplication(carNames)) {
+		if (validateDuplication(carNames)) {
 			throw new IllegalArgumentException(NAME_DUPLICATION_MESSAGE);
 		}
 	}
@@ -39,13 +39,13 @@ public class Validator {
 	}
 
 	private static boolean validateLength(String carName) {
-		return carName.length() <= 5;
+		return carName.length() <= CAR_NAME_MAX_LENGTH;
 	}
 
 	private static boolean validateDuplication(String[] carNames) {
 		long count = Arrays.stream(carNames).distinct().count();
 
-		return carNames.length == count;
+		return carNames.length != count;
 	}
 
 	private static boolean validatePositiveNumber(int number) {
