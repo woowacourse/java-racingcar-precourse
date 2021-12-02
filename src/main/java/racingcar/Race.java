@@ -14,7 +14,6 @@ public class Race {
 
 	Race (ArrayList<Car> carList, int repeatNum){
 		this.carList = carList;
-
 		for (int i = 0; i < repeatNum; i++){
 			playRound();
 		}
@@ -41,16 +40,13 @@ public class Race {
 	void printCarPosition(Car car){
 		String currPosition = PositionToStr(car.getPosition());
 		String carName = car.getName();
-
 		System.out.printf("%s : %s", carName, currPosition);
 		System.out.println();
 	}
 
 	String PositionToStr(int position){
 		StringBuilder raceLine = new StringBuilder();
-
 		IntStream.range(0, position).forEach(s -> raceLine.append("-"));
-
 		return raceLine.toString();
 	}
 }

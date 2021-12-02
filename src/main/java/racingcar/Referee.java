@@ -24,11 +24,9 @@ public class Referee {
 
 	void pickWinner(Car car){
 		int position = car.getPosition();
-
 		if (maxPosition < position){
 			maxPosition = position;
 			initWinnerList(car);
-
 		} else if (maxPosition == position){
 			winnerNameList.add(car.getName());
 		}
@@ -46,5 +44,4 @@ public class Referee {
 		String winnerList = String.join(", ", winnerNameList);
 		System.out.printf("최종 우승자 : %s", winnerList);
 	}
-
 }

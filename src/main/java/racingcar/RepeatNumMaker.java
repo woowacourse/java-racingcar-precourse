@@ -9,11 +9,8 @@ public class RepeatNumMaker {
 
 	private void makeNum(){
 		System.out.println("시도할 회수는 몇회인가요?");
-
 		String input = Console.readLine();
-
 		// 검사 : 1.숫자인지 2. 정수인지 3.1보다 큰지
-
 		repeatNum = Integer.parseInt(input);
 	}
 
