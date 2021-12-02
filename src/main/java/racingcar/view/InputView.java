@@ -11,20 +11,17 @@ public class InputView {
 	public static final String DELIMITER = ",";
 	private InputValidator inputValidator = new InputValidator();
 
-	public ArrayList<String> enterNames() {
-		boolean needProperNames = true;
-		ArrayList<String> names = new ArrayList<>();
-
+	public String enterNames() {
 		System.out.println(REQUEST_INPUT_NAMES);
-		while (needProperNames) {
-			String inputValues = Console.readLine();
-			names = convertToArrayList(inputValues);
-			needProperNames = inputValidator.validateNames(names);
-		}
-		return names;
+		String inputValues = Console.readLine();
+		return inputValues;
 	}
 
-	private ArrayList<String> convertToArrayList(String inputValues) {
+	public boolean validateNames(ArrayList<String> names) {
+		return inputValidator.validateNames(names);
+	}
+
+	public ArrayList<String> convertToArrayList(String inputValues) {
 		StringTokenizer stringTokenizer = new StringTokenizer(inputValues, DELIMITER);
 		ArrayList<String> arrayList = new ArrayList<>();
 		while (stringTokenizer.hasMoreTokens()) {

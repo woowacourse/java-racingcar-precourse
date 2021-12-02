@@ -13,7 +13,7 @@ public class RaceController {
 	}
 
 	public void start() {
-		ArrayList<String> names = inputView.enterNames();
+		ArrayList<String> names = getProperNames();
 		Car[] cars = enrollCars(names);
 	}
 
@@ -23,5 +23,16 @@ public class RaceController {
 			cars[i] = new Car(names.get(i));
 		}
 		return cars;
+	}
+
+	private ArrayList<String> getProperNames() {
+		ArrayList<String> names = new ArrayList<>();
+		boolean needProperNames = true;
+		while (needProperNames) {
+			String inputValues = inputView.enterNames();
+			names = inputView.convertToArrayList(inputValues);
+			needProperNames = inputView.validateNames(names);
+		}
+		return names;
 	}
 }
