@@ -10,6 +10,12 @@ public class Validator {
 		}
 	}
 
+	public static void isNullInput(String input) {
+		if (input.equals("")) {
+			throw new IllegalArgumentException(ErrorMessage.INPUT_NULL_NAME);
+		}
+	}
+
 	public static void isNumber(String input) {
 		for (char num : input.toCharArray()) {
 			if (!Character.isDigit(num)) {

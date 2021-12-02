@@ -20,20 +20,20 @@ public class Racing {
 		this.moveNum = moveNum;
 	}
 
-	public void startRacing() {
-		System.out.println(RESULT_START_MESSAGE);
-		for (int round = 0; round < moveNum; ++round) {
-			moveAndPrintCurrentPosition();
-		}
-		System.out.printf(RESULT_WINNER_MESSAGE, findWinner());
-	}
-
 	private ArrayList<Car> createCarList(List<String> names) {
 		cars = new ArrayList<>();
 		for (String name : names) {
 			cars.add(new Car(name));
 		}
 		return cars;
+	}
+
+	public void startRacing() {
+		System.out.println(RESULT_START_MESSAGE);
+		for (int round = 0; round < moveNum; ++round) {
+			moveAndPrintCurrentPosition();
+		}
+		System.out.printf(RESULT_WINNER_MESSAGE, findWinner());
 	}
 
 	private void moveAndPrintCurrentPosition() {

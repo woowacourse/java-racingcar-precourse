@@ -13,8 +13,8 @@ public class Player {
 
 	public List<String> enterCarsName() {
 		String cars = "";
+		System.out.println(ENTER_CARS_MESSAGE);
 		do {
-			System.out.println(ENTER_CARS_MESSAGE);
 			try {
 				cars = isValidateName(InputView.getInput());
 			} catch (IllegalArgumentException e) {
@@ -22,6 +22,18 @@ public class Player {
 			}
 		} while (cars.equals(""));
 		return makeInputToList(cars);
+	}
+
+	private String isValidateName(String input) throws IllegalArgumentException {
+		String[] names = input.trim().split(",");
+		for (String name : names) {
+			Validator.isLengthOverFive(name);
+		}
+		return input;
+	}
+
+	private List<String> makeInputToList(String input) {
+		return Arrays.asList(input.trim().split(","));
 	}
 
 	public int enterMoveNum() {
@@ -35,18 +47,6 @@ public class Player {
 			}
 		} while (moveNum == ZERO);
 		return moveNum;
-	}
-
-	private String isValidateName(String input) throws IllegalArgumentException {
-		String[] names = input.trim().split(",");
-		for (String name : names) {
-			Validator.isLengthOverFive(name);
-		}
-		return input;
-	}
-
-	private List<String> makeInputToList(String input) {
-		return Arrays.asList(input.trim().split(","));
 	}
 
 	private int isValidateNumber(String input) {
