@@ -4,13 +4,14 @@ import static util.Constants.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGameView {
 
-	public ArrayList<String> getCarNames() {
-		ArrayList<String> carNamesList;
+	public List<String> getCarNames() {
+		List<String> carNamesList;
 		do {
 			System.out.println(CAR_NAME_INPUT_MESSAGE);
 			carNamesList = new ArrayList<>(Arrays.asList(Console.readLine().split(",")));
@@ -18,7 +19,7 @@ public class RacingGameView {
 		return carNamesList;
 	}
 
-	private boolean checkLongNameException(ArrayList<String> carNamesList) {
+	private boolean checkLongNameException(List<String> carNamesList) {
 		try {
 			if (carNamesList.stream().anyMatch(carName -> carName.length() > MAXIMUM_NAME_LENGTH)) {
 				System.out.println(CAR_NAME_INPUT_ERROR_MESSAGE);
