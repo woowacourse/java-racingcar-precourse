@@ -109,12 +109,12 @@ public class GameConstants {
 		}
 	}
 
-	public enum Delimiter {
+	public enum UserInputDelimiter {
 		USER_NAME_INPUT_DELIMITER(",");
 
 		private final String string;
 
-		Delimiter(String string) {
+		UserInputDelimiter(String string) {
 			this.string = string;
 		}
 

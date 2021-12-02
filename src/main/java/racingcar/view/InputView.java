@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static racingcar.constant.GameConstants.Delimiter.*;
+import static racingcar.constant.GameConstants.UserInputDelimiter.*;
 import static racingcar.constant.GameConstants.UserInputHint.*;
 
 import java.util.Arrays;
