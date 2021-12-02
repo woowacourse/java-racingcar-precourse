@@ -2,8 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 /**
  * 자동차 경주 게임의 처리 흐름을 제어하는 Class
  *
@@ -13,25 +11,18 @@ import camp.nextstep.edu.missionutils.Randoms;
  */
 public class RacingCarGame {
 	private final ArrayList<Car> carList = new ArrayList<>();
+	private final ArrayList<Car> winnerList = new ArrayList<>();
 	private int numberOfTimes;
 
 	public void start() {
 		prepareCarList();
 		prepareNumberOfTimes();
 		System.out.printf("%n실행 결과%n");
-		for (int i = 0; i < numberOfTimes; i++) {
+		for (int i = 0; i < (numberOfTimes - 1); i++) {
 			play();
 			System.out.println();
 		}
-	}
-
-	private void play() {
-		for (Car car : carList) {
-			if(Randoms.pickNumberInRange(0,9) >= 4) {
-				car.move();
-			}
-			car.printPosition();
-		}
+		playLastTurn();
 	}
 
 	private void prepareCarList() {
@@ -56,6 +47,32 @@ public class RacingCarGame {
 				validated = false;
 			}
 		} while (!validated);
+	}
+
+	private void play() {
+		for (Car car : carList) {
+			car.tryToMove();
+			car.printPosition();
+		}
+	}
+
+	/**
+	 * 턴을 진행함과 동시에 최대 position 값과 우승자를 구하는 method
+	 */
+	private void playLastTurn() {
+		int maxPosition = 0;
+		for (Car car : carList) {
+			car.tryToMove();
+			car.printPosition();
+			int position = car.getPosition();
+			if (position > maxPosition) {
+				maxPosition = position;
+				winnerList.clear();
+			}
+			if (position == maxPosition) {
+				winnerList.add(car);
+			}
+		}
 	}
 
 	private void setCarList(String[] carNames) throws IllegalArgumentException {
