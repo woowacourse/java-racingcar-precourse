@@ -31,6 +31,7 @@ public class GameController {
 		startRace();
 		findWinner();
 		OutputView.printWinners(winners);
+		exit();
 	}
 
 	private void inputInitialValue() {
@@ -99,5 +100,9 @@ public class GameController {
 			}
 			winners.add(car);
 		}
+	}
+
+	private void exit() {
+		gameState = GameState.EXIT;
 	}
 }
