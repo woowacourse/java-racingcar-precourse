@@ -1,4 +1,6 @@
-package racingcar;
+package Utils;
+
+import racingcar.Car;
 
 import java.util.ArrayList;
 import java.util.HashMap;

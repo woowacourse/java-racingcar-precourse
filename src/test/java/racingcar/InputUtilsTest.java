@@ -1,12 +1,12 @@
 package racingcar;
 
+import Utils.InputUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
 
 import static constant.Constant.ERROR_CAR_NAME_LENGTH;
 import static constant.Constant.ERROR_INVALID_ATTEMP;
