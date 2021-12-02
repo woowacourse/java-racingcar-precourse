@@ -18,6 +18,7 @@ public class RacingGame {
     public void startGame() {
         String[] carNamesArray = player.startGame();
         this.createCarList(carNamesArray);
+        System.out.println("실행 결과");
         while (player.remainCoin()) {
             this.playOneGame();
         }
@@ -34,7 +35,9 @@ public class RacingGame {
             if (this.makeRandomNumber()) {
                 car.moveForward();
             }
+            car.printStatus();
         }
+        System.out.println();
     }
 
     private boolean makeRandomNumber() {
