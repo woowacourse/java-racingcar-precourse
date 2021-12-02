@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -8,5 +11,11 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
+    }
 }
