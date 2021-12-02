@@ -4,6 +4,7 @@ import racingcar.car.CarNames;
 import racingcar.car.Cars;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
 	public void run() {
@@ -37,6 +38,7 @@ public class GameController {
 	}
 
 	private void moveCars(Cars cars) {
-		cars.move();
+		OutputView.resultMessage();
+		OutputView.moveResultMessage(cars.move());
 	}
 }
