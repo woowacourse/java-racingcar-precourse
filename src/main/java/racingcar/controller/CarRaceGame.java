@@ -8,6 +8,8 @@ public class CarRaceGame {
     public void start() {
         Cars cars = new Cars();
         getCarsName(cars);
+
+        InputView.printGetTryNumberMessage();
     }
 
     public void getCarsName(Cars cars){
