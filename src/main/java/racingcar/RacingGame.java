@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class RacingGame {
-    private int carNum;
+    private int moves;
     ArrayList<Car> carArrayList = new ArrayList<>();
 
     public void run() {
@@ -15,27 +15,34 @@ public class RacingGame {
 
     private void initGame() {
         processCarName(inputCarNames());
+        inputMoves();
+    }
+
+    private String inputCarNames() {
+        return Console.readLine();
+    }
+
+    private void inputMoves() {
+        moves = Integer.parseInt(Console.readLine());
     }
 
     private void processCarName(String carNames) {
         StringTokenizer st = new StringTokenizer(carNames, ",");
 
         while(st.hasMoreTokens()) {
-            validateName(st.nextToken());
+            validateName(st.nextToken()); //try catch?
         }
     }
 
     private void validateName(String carName) {
         if(isValid(carName)) {
-            carArrayList.add(new Car(carName));
+            throw new IllegalArgumentException();
         }
+
+        carArrayList.add(new Car(carName));
     }
 
     private boolean isValid(String carName) {
-        return carName.length() <= 5;
-    }
-
-    private String inputCarNames() {
-        return Console.readLine();
+        return carName.length() > 5;
     }
 }
