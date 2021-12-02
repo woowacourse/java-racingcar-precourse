@@ -10,6 +10,7 @@ public class Application {
         Car[] arrayCarObject = arrayCarObj(arrayCar);
         int count = CountingGame();
         PlayGame(arrayCarObject,count);
+        GameSet(arrayCarObject);
     }
     private static void PlayGame(Car[] arrayCarObject, int count) {
         System.out.println("실행결과");
@@ -20,10 +21,24 @@ public class Application {
             System.out.println();
         }
     }
+
+    private static void GameSet(Car[] arrayCarObject) {
+        System.out.print("최종 우승자 : ");
+        String winners = FindWinner(arrayCarObject);
+        System.out.println(winners);
+    }
+
+    private static String FindWinner(Car[] arrayCarObject) {
+        // TO DO : 한 명씩 확인해서 우승자를 찾고, 문자열로 반환할 매소드
+        String winners = "";
+        return "winners";
+    }
+
     private static void PrintCarPosition(Car car) {
         car.Move(GoOrStop());
         car.PrintStatus();
     }
+
     private static boolean GoOrStop() {
         int randomNum = Randoms.pickNumberInRange(0,9);
         if (randomNum >= 4) {
@@ -49,7 +64,6 @@ public class Application {
             return CountingGame();
         }
     }
-
 
     private static String[] inputToArray() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
