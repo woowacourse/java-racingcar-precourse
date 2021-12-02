@@ -10,5 +10,6 @@ public class Game {
 		carRepository.createCars(InputView.inputCarNames());
 		carRepository.attemptCarsMoving();
 		OutputView.printCarsStatus(carRepository.getCarList());
+		OutputView.printFinalCarWinners(carRepository.getWinnerCars());
 	}
 }
