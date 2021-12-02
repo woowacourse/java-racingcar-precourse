@@ -1,5 +1,36 @@
 # 미션 - 자동차 경주 게임
 
+## 👩🏻‍💻 구현할 기능 목록 
+
+### Car
+- 랜덤 값 생성 (makeRandomForAdvance)
+- 랜덤 값이 4 이상인지 확인(전진인지 아닌지) (predicateAdvance)
+- position 증가
+- 최종 우승자 return (returnWinner)
+
+### User
+- 차 이름 입력
+  - 입력 글자 수가 5 초과일 경우 IllegalArgumentException
+    - 다시 입력 받기
+- 총 시도할 횟수 입력
+  - 숫자가 아닌 경우 IllegalArgumentException
+    - 다시 입력 받기
+  - 0이 들어온 경우 IllegalArgumentException
+    - 다시 입력 받기
+
+### Game
+- n개의 car 객체 생성
+- 시도 횟수 입력받아 저장
+- 경주 진행
+- 경주 결과 출력
+
+### Application (main)
+차례대로 경기 진행
+
+
+<br>
+
+
 ## 🔍 진행방식
 
 - 미션은 **기능 요구사항, 프로그래밍 요구사항, 과제 진행 요구사항** 세 가지로 구성되어 있다.
