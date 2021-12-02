@@ -24,7 +24,7 @@ public class Car {
 
     public String showPosition() {
         char[] positionBars = new char[position];
-        Arrays.fill(positionBars, CONSTANT.POSITION_BAR);
+        Arrays.fill(positionBars, Constant.POSITION_BAR);
         String currentPosition = new String(positionBars);
 
         return name + SystemMessage.COLON + currentPosition;

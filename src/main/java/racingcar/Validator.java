@@ -1,5 +1,7 @@
 package racingcar;
 
+import com.sun.org.apache.bcel.internal.Const;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,23 +9,23 @@ public class Validator {
 
     public static boolean isValidateInput(String input) {
         List<Car> inputCars = GameUtil.parseStringToList(new ArrayList<>(), input);
-        int isValid = CONSTANT.TRUE;
+        int isValid = Constant.TRUE;
         for (Car car : inputCars) {
             isValid *= isValidateName(car.getName());
         }
-        return (isValid == CONSTANT.TRUE);
+        return (isValid == Constant.TRUE);
     }
 
     private static int isValidateName(String name) {
         try {
-            if (name.length() > CONSTANT.MAX_NAME_LENGTH) {
+            if (name.length() > Constant.MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
             System.out.println(SystemMessage.NAME_ERROR_MESSAGE);
-            return CONSTANT.FALSE;
+            return Constant.FALSE;
         }
-        return CONSTANT.TRUE;
+        return Constant.TRUE;
     }
 
     public static boolean isValidateNumber(String input) {

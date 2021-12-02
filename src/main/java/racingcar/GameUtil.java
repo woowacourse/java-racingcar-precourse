@@ -23,11 +23,11 @@ public class GameUtil {
     }
 
     private static boolean canMove() {
-        return (Randoms.pickNumberInRange(CONSTANT.START_NUMBER, CONSTANT.END_NUMBER) >= CONSTANT.PIVOT);
+        return (Randoms.pickNumberInRange(Constant.START_NUMBER, Constant.END_NUMBER) >= Constant.PIVOT);
     }
 
     public static List<Car> parseStringToList(List<Car> cars, String input) {
-        String[] carNames = input.split(CONSTANT.COMMA);
+        String[] carNames = input.split(Constant.COMMA);
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
