@@ -12,6 +12,7 @@ public class OutputView {
 		for (Car car : carList) {
 			System.out.println(car.getName() + " : " + getStringOfCarPosition(car.getPosition()));
 		}
+		System.out.println();
 	}
 
 	private static String getStringOfCarPosition(int carPosition) {
