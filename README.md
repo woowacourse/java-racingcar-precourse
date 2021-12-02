@@ -211,6 +211,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 * 출력
   * 각 차수별 실행 결과를 출력한다. 전진은 - (대시) 로 표현한다.
   * 우승자 출력
+    * 여러명일 경우 쉼표로 구분하여 출력한다.
   * 예외 상황시 ERROR 로 시작되는 문구 출력한다.
   
 
@@ -221,3 +222,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
   * 매 판마다 각 자동차마다 전진하는지 cnt 를 증가시킨다.
   * 사용자로부터 입력받은 시도 횟수가 끝나면 게임을 종료시킨다.
   
+**제한 사항**
+* 메소드 길이 <= 15 라인 
+* 메소드가 한 가지 일만 하도록 구현
+* else, switch-case 불가능 
