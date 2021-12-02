@@ -9,7 +9,15 @@ public class Car {
     }
 
     public void Move(boolean goStop) {
-        this.position++;
+        if (goStop) {
+            position++;
+        }
     }
-
+    public void PrintStatus() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }

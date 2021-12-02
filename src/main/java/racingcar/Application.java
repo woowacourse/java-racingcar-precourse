@@ -17,10 +17,12 @@ public class Application {
             for (int j = 0; j < arrayCarObject.length; j++) {
                 PrintCarPosition(arrayCarObject[j]);
             }
+            System.out.println();
         }
     }
     private static void PrintCarPosition(Car car) {
         car.Move(GoOrStop());
+        car.PrintStatus();
     }
     private static boolean GoOrStop() {
         int randomNum = Randoms.pickNumberInRange(0,9);
