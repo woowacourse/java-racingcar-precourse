@@ -31,4 +31,12 @@ public class ProceedResult {
 	public int hashCode() {
 		return Objects.hash(name, position);
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
 }
