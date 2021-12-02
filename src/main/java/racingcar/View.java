@@ -28,6 +28,10 @@ public class View {
         return result;
     }
     
+    public String showErrorMessage() {
+        return "[ERROR] 시도 횟수는 숫자여야 한다.";
+    }
+    
     private String showPosition(String car, int position) {
         String result = car + " : ";
         
