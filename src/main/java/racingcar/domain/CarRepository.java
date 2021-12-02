@@ -12,5 +12,10 @@ public class CarRepository {
 		}
 	}
 
+	public void attemptCarsMoving() {
+		for (Car car: carList) {
+			car.attemptMoving();
+		}
+	}
 
 }
