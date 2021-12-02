@@ -1,7 +1,14 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 version = '1.0.0'
+sourceCompatibility = 1.8
 
 repositories {
     maven { url 'https://jitpack.io' }
@@ -10,12 +17,6 @@ repositories {
 
 dependencies {
     implementation('com.github.woowacourse-projects:mission-utils:1.0.0')
-}
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(8)
-    }
 }
 
 test {
