@@ -12,13 +12,17 @@ import camp.nextstep.edu.missionutils.Randoms;
  * @since 1.0
  */
 public class RacingCarGame {
-	private ArrayList<Car> carList = new ArrayList<>();
+	private final ArrayList<Car> carList = new ArrayList<>();
 	private int numberOfTimes;
 
 	public void start() {
 		prepareCarList();
 		prepareNumberOfTimes();
-		play();
+		System.out.printf("%n실행 결과%n");
+		for (int i = 0; i < numberOfTimes; i++) {
+			play();
+			System.out.println();
+		}
 	}
 
 	private void play() {
@@ -26,6 +30,7 @@ public class RacingCarGame {
 			if(Randoms.pickNumberInRange(0,9) >= 4) {
 				car.move();
 			}
+			car.printPosition();
 		}
 	}
 

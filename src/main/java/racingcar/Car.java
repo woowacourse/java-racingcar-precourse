@@ -12,4 +12,14 @@ public class Car {
 	public void move() {
 		position++;
 	}
+
+	public void printPosition() {
+		StringBuilder message = new StringBuilder();
+		message.append(name);
+		message.append(" : ");
+		for (int i = 0; i < position; i++) {
+			message.append("-");
+		}
+		System.out.println(message);
+	}
 }
