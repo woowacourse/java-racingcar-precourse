@@ -20,13 +20,12 @@ public class GameController {
 		OutputView.printPlayResultMessage();
 		for (int i = 0; i < roundNumber; i++) {
 			CarRepository.moveCars();
-			printPlayResult();
+			showPlayResult();
 		}
 	}
 
 	private void makeCars() {
 		String[] carNames = getCarNameArray();
-		CarRepository.clearCars();
 		for (String carName : carNames) {
 			CarRepository.addCar(new Car(carName));
 		}
@@ -60,7 +59,7 @@ public class GameController {
 		return roundNumber;
 	}
 
-	private void printPlayResult() {
+	private void showPlayResult() {
 		for (Car car : CarRepository.getCars()) {
 			OutputView.printCarInfo(car);
 		}

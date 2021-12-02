@@ -9,10 +9,6 @@ public class CarRepository {
 	static final int MAX_RANDOM_NUMBER = 9;
 	private static final ArrayList<Car> cars = new ArrayList<>();
 
-	public static void clearCars() {
-		cars.clear();
-	}
-
 	public static void addCar(Car car) {
 		cars.add(car);
 	}
