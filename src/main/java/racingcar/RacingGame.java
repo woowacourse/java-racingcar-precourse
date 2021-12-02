@@ -11,8 +11,7 @@ public class RacingGame {
 
 	public void startGame() {
 		String[] everyCarName = InputView.enterEveryCarName();
-		makeEveryCarInstance(everyCarName);
-		everyCar = new EveryCar(cars);
+		everyCar = new EveryCar(everyCarName);
 		int tryCntAboutCarMoving = InputView.enterTryCnt();
 		System.out.println("\n실행 결과");
 		for (int i = 0; i < tryCntAboutCarMoving; i++) {
@@ -21,9 +20,7 @@ public class RacingGame {
 		everyCar.showThisGameWinner();
 	}
 
-	private void makeEveryCarInstance(String[] everyCarName) {
-		Arrays.stream(everyCarName).forEach(eachCarName -> cars.add(new Car(eachCarName)));
-	}
+
 
 
 }

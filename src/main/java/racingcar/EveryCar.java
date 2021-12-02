@@ -1,12 +1,17 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class EveryCar {
-	private final ArrayList<Car> cars;
+	private final ArrayList<Car> cars = new ArrayList<>();
 
-	public EveryCar(ArrayList<Car> cars) {
-		this.cars = cars;
+	public EveryCar(String[] carsName) {
+		makeEveryCarInstance(carsName);
+	}
+
+	private void makeEveryCarInstance(String[] everyCarName) {
+		Arrays.stream(everyCarName).forEach(eachCarName -> cars.add(new Car(eachCarName)));
 	}
 
 	public void moveEveryCarThisTiming() {
