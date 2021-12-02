@@ -33,4 +33,7 @@ public class Car {
         return name;
     }
 
+    public String getName() {
+        return name;
+    }
 }

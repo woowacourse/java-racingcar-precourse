@@ -21,7 +21,7 @@ public class EveryCar {
 		ArrayList<CarDTO> carsDTO = new ArrayList<>();
 		cars.stream().forEach(eachCar -> {
 			eachCar.move();
-			carsDTO.add(new CarDTO(eachCar.toString(), eachCar.showMovingDistance()));
+			carsDTO.add(new CarDTO(eachCar.getName(), eachCar.showMovingDistance()));
 		});
 		OutputView.showResultThisTiming(carsDTO);
 	}
