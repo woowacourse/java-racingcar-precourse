@@ -10,13 +10,17 @@ public class Application {
         Car[] arrayCarObject = arrayCarObj(arrayCar);
         int count = CountingGame();
         PlayGame(arrayCarObject,count);
-        boolean randomGoStop = GoOrStop();
     }
-    private static void PlayGame(Car[] arrayCar, int count) {
+    private static void PlayGame(Car[] arrayCarObject, int count) {
         System.out.println("실행결과");
         for (int i = 0; i < count; i++) {
-            // TO DO : 1명씩 GoOrStop 매소드를 사용해서 전진한다
+            for (int j = 0; j < arrayCarObject.length; j++) {
+                PrintCarPosition(arrayCarObject[j]);
+            }
         }
+    }
+    private static void PrintCarPosition(Car car) {
+        car.Move(GoOrStop());
     }
     private static boolean GoOrStop() {
         int randomNum = Randoms.pickNumberInRange(0,9);

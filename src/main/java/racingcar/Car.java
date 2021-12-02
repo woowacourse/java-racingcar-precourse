@@ -8,5 +8,8 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void Move(boolean goStop) {
+        this.position++;
+    }
+
 }
