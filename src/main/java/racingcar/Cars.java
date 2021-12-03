@@ -6,18 +6,18 @@ import java.util.Collections;
 import java.util.List;
 
 public class Cars {
-	private List<Car> cars;
+	private final List<Car> cars;
 
 	public Cars(List<Car> cars) {
 		this.cars = cars;
 	}
 
-	public static Cars createCarsWithNames(List<String> names) {
-		List<Car> cars = toCarsListFrom(names);
+	public static Cars createCarsByNames(List<String> names) {
+		List<Car> cars = toCarListBy(names);
 		return new Cars(cars);
 	}
 
-	private static List<Car> toCarsListFrom(List<String> names) {
+	private static List<Car> toCarListBy(List<String> names) {
 		return names.stream()
 			.map(Car::new)
 			.collect(toList());
@@ -29,7 +29,7 @@ public class Cars {
 
 	public List<Car> getRacingWinners() {
 		int winnerPosition = getWinnerPosition();
-		List<Car> winners = getCarsPositionExactly(winnerPosition);
+		List<Car> winners = getCarsPositionExactlySame(winnerPosition);
 		return Collections.unmodifiableList(winners);
 	}
 
@@ -40,7 +40,7 @@ public class Cars {
 			.getAsInt();
 	}
 
-	private List<Car> getCarsPositionExactly(int winnerPosition) {
+	private List<Car> getCarsPositionExactlySame(int winnerPosition) {
 		return cars.stream()
 			.filter(car -> car.isSamePosition(winnerPosition))
 			.collect(toList());

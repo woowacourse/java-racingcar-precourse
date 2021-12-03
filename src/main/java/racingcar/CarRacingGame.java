@@ -15,7 +15,7 @@ public class CarRacingGame {
 	private Cars createCars() {
 		try {
 			List<String> carNames = InputView.readCarNames();
-			return Cars.createCarsWithNames(carNames);
+			return Cars.createCarsByNames(carNames);
 		} catch (IllegalArgumentException e) {
 			OutputView.printErrorMessage(e.getMessage());
 			return createCars();
