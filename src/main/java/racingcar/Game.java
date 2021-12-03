@@ -5,6 +5,8 @@ import utils.PrintUtils;
 
 import java.util.List;
 
+import static constant.Constant.RESULT_MESSAGE;
+
 public class Game {
     private static List<Car> carList;
 
@@ -16,6 +18,7 @@ public class Game {
     }
 
     private static void start(int attemp) {
+        System.out.println(RESULT_MESSAGE);
         while (attemp > 0) {
             for (Car car : carList) {
                 car.moveForward();
