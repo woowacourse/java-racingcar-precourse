@@ -13,14 +13,14 @@ public class RacingCarGame {
 
     public void play() {
         userInput.inputNames();
-        this.cars = makeCarList(userInput.getNames());
+        makeCarList(userInput.getNames());
     }
 
-    public List<Car> makeCarList(List<String> names){
+    private void makeCarList(List<String> names){
         List<Car> cars = new ArrayList<>();
         for(String name : names){
             cars.add(new Car(name));
         }
-        return cars;
+        this.cars = cars;
     }
 }
