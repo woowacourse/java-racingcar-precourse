@@ -1,6 +1,9 @@
 # 미션 - 자동차 경주 게임
+
 ## 🌝 기능 구현 목록
+
 ### 게임 진행
+
 - [x] 자동차 리스트 삽입
     - 이름 리스트로 삽입
 - [x] 전체 자동차 게임 진행
@@ -10,27 +13,37 @@
     - [x] 최장 거리 기록해놓기
 - [x] 게임 현황 문자열 반환
 - [x] 게임 진행 루프
-  - [x] 입력 중 오류 발생 시 재시도
+    - [x] 입력 중 오류 발생 시 재시도
+
 ### 유틸리티
+
 - [x] 0~9 사이의 무작위 값 추출
+
 ### 입력
+
 - [x] 이름 리스트 입력
     - [x] 입력된 이름을 구분자에 의해 리스트로 반환
 - [x] 게임 횟수 입력
+
 ### 출력
+
 - [x] 게임 결과 출력
-### 검증
+
+### 검증 (예외처리)
+
 - [x] 유저가 입력한 이름이 1자 이상 5자 이하인지
 - [x] 유저가 입력한 이름의 갯수가 1 이상인지
+    - `,` 만 입력하면 자동차가 입력되지 않음.
 - [x] 유저가 입력한 이동 횟수
-    - [x] 문자가 아님
-    - [x] 1 이상의 자연수
+    - [x] 문자가 아닌지
+    - [x] 1 이상의 자연수인지
         - [x] 소수를 넣는 테스트
+
 ### 자동차
+
 - [x] 자동차 포지션 문자열로 반환
 - [x] 값에 의해 전진
     - 4 이상이면 전진
-
 
 ## 🔍 진행방식
 
@@ -40,7 +53,8 @@
 ## ✉️ 미션 제출 방법
 
 - 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-    - GitHub을 활용한 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고해 제출한다.
+    - GitHub을 활용한 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고해
+      제출한다.
 - GitHub에 미션을 제출한 후 [우아한테크코스 지원 플랫폼](https://apply.techcourse.co.kr) 에 접속하여 프리코스 과제를 제출한다.
     - 자세한 방법은 [링크](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 를 참고한다.
     - **Pull Request만 보내고, 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
@@ -48,7 +62,8 @@
 ## ✔️ 과제 제출 전 체크리스트 - 0점 방지
 
 - 터미널에서 `java -version`을 실행해 자바 8인지 확인한다. 또는 Eclipse, IntelliJ IDEA와 같은 IDE의 자바 8로 실행하는지 확인한다.
-- 터미널에서 맥 또는 리눅스 사용자의 경우 `./gradlew clean test`, 윈도우 사용자의 경우 `gradlew.bat clean test` 명령을 실행했을 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
+- 터미널에서 맥 또는 리눅스 사용자의 경우 `./gradlew clean test`, 윈도우 사용자의 경우 `gradlew.bat clean test` 명령을 실행했을 때 모든 테스트가 아래와 같이 통과하는지
+  확인한다.
 
 ```
 BUILD SUCCESSFUL in 0s
@@ -207,7 +222,8 @@ public class Car {
 - 미션은 [java-racingcar-precourse](https://github.com/woowacourse/java-racingcar-precourse) 저장소를 Fork/Clone해 시작한다.
 - **기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리**해 추가한다.
 - **Git의 커밋 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위**로 추가한다.
-    - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
+    - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를
+      남긴다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고한다.
 
 <br>
