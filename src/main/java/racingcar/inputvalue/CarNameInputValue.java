@@ -26,7 +26,7 @@ public class CarNameInputValue extends InputValue<String[]> {
 
     private boolean validateEachString(String[] input) {
         for (String string : input) {
-            if (string.isEmpty() || string.contains(" ")) {
+            if (string.isEmpty()) {
                 return true;
             }
         }

@@ -6,10 +6,17 @@ import racingcar.inputvalue.InputValue;
 import racingcar.inputvalue.RoundNumberInputValue;
 
 public class RacingController {
+    private final RacingGame racingGame;
 
-    public String[] inputCarNames() {
+    public RacingController(RacingGame racingGame) {
+        this.racingGame = racingGame;
+    }
+
+    public String[] createCars() {
         InputValue<String[]> carNameInput = new CarNameInputValue(Console.readLine());
-        return carNameInput.toRaceElement();
+        String[] carNameStrings = carNameInput.toRaceElement();
+        racingGame.createCars(carNameStrings);
+        return carNameStrings;
     }
 
     public int inputRoundNumber() {
