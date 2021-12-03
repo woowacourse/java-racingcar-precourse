@@ -3,16 +3,56 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Arrays;
+
 public class Application {
     public static void main(String[] args) {
         // TODO 구현 진행
-        String carName;                         // 입력받을 차 이름
-        String numOfTry;                        // 입력받을 경기 시도 횟수
+        String[] nameOfCars;
+        int numOfTry;
 
-        System.out.print("경주할 자동차 이름을 입력하세요.");
-        System.out.println("(이름은 쉼표(,) 기준으로 구분)");
-        carName = Console.readLine();
-        System.out.println("시도할 횟수는 몇회인가요?");
-        numOfTry = Console.readLine();
+        while(true){
+            try {
+                System.out.print("경주할 자동차 이름을 입력하세요.");
+                System.out.println("(이름은 쉼표(,) 기준으로 구분)");
+                nameOfCars = carNameValidation(Console.readLine());
+                break;
+            } catch (IllegalArgumentException illegalArgumentException) {
+                System.out.println("[ERROR] 차 이름은 5글자 이하여야 한다.");
+            }
+        }
+
+        while(true){
+            try {
+                System.out.println("시도할 횟수는 몇회인가요?");
+                numOfTry = numOfTryValidation(Console.readLine());
+                break;
+            } catch (IllegalArgumentException illegalArgumentException) {
+                System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            }
+        }
+
+    }
+
+    public static String[] carNameValidation(String inputValue) throws IllegalArgumentException{
+
+        String[] nameOfCarArray = inputValue.split(",");
+
+        for(String s: nameOfCarArray){
+            if(s.length() > 5){
+                throw new IllegalArgumentException();
+            }
+        }
+        return nameOfCarArray;
+    }
+
+    public static int numOfTryValidation(String inputValue) throws IllegalArgumentException{
+        int result;
+        try {
+            result = Integer.parseInt(inputValue);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+        return result;
     }
 }
