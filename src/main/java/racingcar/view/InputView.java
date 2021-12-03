@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import static racingcar.error.ErrorMessage.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,13 +36,13 @@ public class InputView {
         try {
             Integer.parseInt(inputTryCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NUMBER_FORMAT_NOT_VALID.getMessage());
         }
     }
 
     private void validateNegativeNumber(int parseTryCount) {
         if (parseTryCount < ZERO_NUMBER) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NEGATIVE_NUMBER_NOT_VALID.getMessage());
         }
     }
 }
