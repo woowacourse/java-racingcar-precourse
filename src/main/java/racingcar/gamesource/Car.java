@@ -1,6 +1,7 @@
 package racingcar.gamesource;
 
 import racingcar.constants.ConstMessage;
+import racingcar.constants.ConstValue;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -21,9 +22,9 @@ public class Car {
     }
 
     public void drive(){
-        int randomNumber = Randoms.pickNumberInRange(0,9);
+        int randomNumber = Randoms.pickNumberInRange(ConstValue.RAMDOM_NUMBER_BEGIN,ConstValue.RAMDOM_NUMBER_END);
 
-        if(randomNumber >=4){
+        if(randomNumber >= ConstValue.DRIVE_POSSIBLE_BOUND){
             ++position;
         }
 
