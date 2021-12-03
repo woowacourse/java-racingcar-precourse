@@ -1,66 +1,63 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.CarDto;
+import racingcar.domain.Game;
+import racingcar.repository.CarRepository;
 import racingcar.service.GameService;
 import racingcar.util.Parser;
+import racingcar.util.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-	private GameService gameService;
+	private GameService gameService = new GameService();
 	private Parser parser = new Parser();
 	private OutputView outputView = new OutputView();
+	private Validator validator = new Validator();
+	private CarRepository carRepository = new CarRepository();
 
 	public void run() {
-		List<Car> cars = setGame();
-		List<Car> winners = gameService.play();
-		printGameResult(cars, winners);
+		List<String> carNames = parser.parseCarNames(getCarNamesByUserInput());
+		saveCars(carNames);
+		List<Car> cars = carRepository.findAll();
+		int trial = parser.parseNumberOfTrial(getTrialByUserInput());
+		Long gameId = gameService.save(new Game(cars, trial));
+		List<CarDto> carDtos = gameService.play(gameId);
+		outputView.printResults(carDtos);
 	}
 
-	private void printGameResult(List<Car> cars, List<Car> winners) {
-		outputView.printResults(cars);
-		outputView.printWinners(winners);
+	private void saveCars(List<String> carNames) {
+		for (String carName : carNames) {
+			Car car = new Car(carName);
+			carRepository.save(car);
+		}
 	}
 
-	private List<Car> setGame() {
-		List<Car> cars = getCarsByUserInput();
-		int trial = getTrialByUserInput();
-		gameService = new GameService(trial, cars);
-		return cars;
-	}
-
-	private int getTrialByUserInput() {
+	private String getTrialByUserInput() {
 		InputView.requestNumberOfTrialMessage();
+		String input = Console.readLine();
 		try {
-			int trial = parser.parseNumberOfTrial(Console.readLine());
-			return trial;
+			validator.checkNumberOfTrialInput(input);
+			return input;
 		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
+			outputView.printException(e.getMessage());
 			return getTrialByUserInput();
 		}
 	}
 
-	private List<Car> getCarsByUserInput() {
+	private String getCarNamesByUserInput() {
 		InputView.requestCarNamesMessage();
+		String input = Console.readLine();
 		try {
-			List<String> carNames = parser.parseCarNames(Console.readLine());
-			List<Car> cars = getCars(carNames);
-			return cars;
+			validator.checkCarNamesInput(input);
+			return input;
 		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-			return getCarsByUserInput();
+			outputView.printException(e.getMessage());
+			return getCarNamesByUserInput();
 		}
-	}
-
-	private List<Car> getCars(List<String> carNames) {
-		List<Car> carList = new ArrayList<>();
-		for (int i = 0; i < carNames.size(); i++) {
-			carList.add(new Car(carNames.get(i)));
-		}
-		return carList;
 	}
 }

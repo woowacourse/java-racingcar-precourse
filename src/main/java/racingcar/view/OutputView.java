@@ -2,30 +2,45 @@ package racingcar.view;
 
 import java.util.List;
 
-import racingcar.domain.Car;
+import racingcar.domain.CarDto;
 
 public class OutputView {
 
-	public void printResults(List<Car> cars) {
-		for (Car car : cars) {
-			System.out.print(car.getName() + " : ");
-			for (int i = 0; i < car.getPosition(); i++) {
+	public void printResults(List<CarDto> carDtos) {
+		printScore(carDtos);
+		printWinners(carDtos);
+	}
+
+	private void printScore(List<CarDto> carDtos) {
+		for (CarDto carDto : carDtos) {
+			System.out.print(carDto.getName() + " : ");
+			for (int i = 0; i < carDto.getPosition(); i++) {
 				System.out.print("-");
 			}
 			System.out.println();
 		}
 	}
 
-	public void printWinners(List<Car> winners) {
-		System.out.print("최종 우승자: ");
-		System.out.print(winners.get(0).getName());
-		if (winners.size() == 1) {
-			System.out.println();
-			return;
-		}
-		for (int i = 1; i < winners.size(); i++) {
-			System.out.print(", " + winners.get(i).getName());
+	private void printWinners(List<CarDto> carDtos) {
+		System.out.print("최종 우승자 : ");
+		boolean checkPrintMark = false;
+		for (int i = 0; i < carDtos.size(); i++) {
+			if (carDtos.get(i).getWin()) {
+				printMark(checkPrintMark);
+				System.out.print(carDtos.get(i).getName());
+				checkPrintMark = true;
+			}
 		}
 		System.out.println();
+	}
+
+	private void printMark(boolean checkPrintMark) {
+		if (checkPrintMark) {
+			System.out.print(", ");
+		}
+	}
+
+	public void printException(String message) {
+		System.out.println(message);
 	}
 }

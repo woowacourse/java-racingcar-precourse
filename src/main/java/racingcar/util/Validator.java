@@ -1,13 +1,12 @@
 package racingcar.util;
 
-import java.util.List;
-
 public class Validator {
 	private static final int CAR_NAME_RESTRICTIONS_MIN = 1;
 	private static final int CAR_NAME_RESTRICTIONS_MAX = 5;
+	private Parser parser = new Parser();
 
-	public void checkCarNamesInput(List<String> carNames) throws IllegalArgumentException {
-		for (String carName : carNames) {
+	public void checkCarNamesInput(String input) throws IllegalArgumentException {
+		for (String carName : parser.parseCarNames(input)) {
 			if (CAR_NAME_RESTRICTIONS_MAX < carName.length()) {
 				throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 한다.");
 			}

@@ -5,16 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Parser {
-	private Validator validator = new Validator();
 
-	public List<String> parseCarNames(String input) throws IllegalArgumentException {
-		ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
-		validator.checkCarNamesInput(carNames);
-		return carNames;
+	public List<String> parseCarNames(String input) {
+		return new ArrayList<>(Arrays.asList(input.split(",")));
 	}
 
-	public int parseNumberOfTrial(String input) throws IllegalArgumentException {
-		validator.checkNumberOfTrialInput(input);
+	public int parseNumberOfTrial(String input) {
 		return Integer.parseInt(input);
 	}
 }
