@@ -23,4 +23,10 @@ public class Game {
 		numberOfRepetitions = returnNumberOfRepetitions();
 	}
 
+	private void proceedTurn() {
+		for (Car car : cars) {
+			car.moveOrStay();
+		}
+	}
+
 }
