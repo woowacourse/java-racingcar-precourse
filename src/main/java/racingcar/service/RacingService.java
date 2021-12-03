@@ -43,7 +43,6 @@ public class RacingService {
 			Car car = carList.get(i);
 			stringBuilder.append(car.getName() + " : " + car.showPosition() + "\n");
 		}
-		stringBuilder.append("\n");
 
 		racingLog.add(stringBuilder.toString());
 	}
