@@ -7,7 +7,7 @@ import racingcar.service.CarService;
 import racingcar.service.CarServiceImpl;
 
 public class Application {
-	private static List<Car> winningCars;
+	private static String[] cars;
 
 	private static CarService carService = new CarServiceImpl();
 
@@ -20,8 +20,14 @@ public class Application {
 
 	public static void inputCars() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String[] cars = Console.readLine().split(",");
-
+		try {
+			cars = Console.readLine().split(",");
+			for (String carName : cars) {
+				isLengthLessThanOrEqualFive(carName);
+			}
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+		}
 		for (String carName : cars) {
 			carService.join(carName);
 		}
@@ -51,4 +57,9 @@ public class Application {
 		System.out.println(winningCars.get(winningCarsCnt - 1).getName());
 	}
 
+	public static void isLengthLessThanOrEqualFive(String name) {
+		if (name.length() > 5) {
+			throw new IllegalArgumentException("[ERROR] 자동차의 이름은 5자 이하여야 한다.");
+		}
+	}
 }
