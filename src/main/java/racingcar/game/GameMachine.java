@@ -21,17 +21,35 @@ public class GameMachine {
     }
 
     public void run() {
-        List<String> names = inputView.getNames();
-        int tryCount = inputView.getTryCount();
+        Cars cars = getCars();
+        int tryCount = getTryCount();
         System.out.println();
 
-        Cars cars = new Cars(names, movingPolicy);
+        repeat(cars, tryCount);
+    }
 
+    private Cars getCars() {
+        List<String> names = inputView.getNames();
+        try {
+            return new Cars(names, movingPolicy);
+        } catch (IllegalArgumentException e) {
+            return getCars();
+        }
+    }
+
+    private int getTryCount() {
+        try {
+            return inputView.getTryCount();
+        } catch (IllegalArgumentException e) {
+            return getTryCount();
+        }
+    }
+
+    private void repeat(Cars cars, int tryCount) {
         while (tryCount-- > ZERO_INDEX) {
             cars.move();
             outputView.printExecutionResult(cars.getExecutionResult());
         }
-
         outputView.printWinnerNames(cars.getWinnersNames());
     }
 }
