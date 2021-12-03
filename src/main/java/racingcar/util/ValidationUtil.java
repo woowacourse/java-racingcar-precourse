@@ -17,7 +17,7 @@ public class ValidationUtil {
 	public static void isValidateLength(String value) {
 		if (MINIMUM_CAR_NAME_LENGTH > value.length() || value.length() > MAXIMUM_CAR_NAME_LENGTH) {
 			throw new IllegalArgumentException(
-				MINIMUM_CAR_NAME_LENGTH + "이상" + MAXIMUM_CAR_NAME_LENGTH + "이하 길이의 자동차명이 아닙니다.");
+				MINIMUM_CAR_NAME_LENGTH + " 이상 " + MAXIMUM_CAR_NAME_LENGTH + " 이하 길이의 자동차명이 아닙니다.");
 		}
 	}
 
