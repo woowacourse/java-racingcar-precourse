@@ -15,4 +15,13 @@ public class Game {
 
         return cars;
     }
+
+    public void runCarRacingOneRound(List<Car> cars) {
+        for (Car car : cars) {
+            car.predicateAdvance();
+            System.out.print(car.getName() + " : ");
+            showEachCarPosition(car.getPosition());
+        }
+    }
+
 }
