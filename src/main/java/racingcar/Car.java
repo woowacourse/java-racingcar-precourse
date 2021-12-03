@@ -10,6 +10,12 @@ public class Car {
 		this.name = name;
 	}
 
+	public void moveForward() {
+		if (isMoveSuccess()) {
+			position++;
+		}
+	}
+
 	public boolean isMoveSuccess() {
 		return Randoms.pickNumberInRange(GameData.START_NUMBER, GameData.END_NUMBER) >= GameData.CRITERIA_NUMBER;
 	}
