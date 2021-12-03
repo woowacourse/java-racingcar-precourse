@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Cars {
 
-    private static String CARS_NAME_DELIMITER = ",";
+    private static final String CARS_NAME_DELIMITER = ",";
 
     private List<Car> cars;
 
