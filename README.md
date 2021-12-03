@@ -23,8 +23,8 @@
 
 ### 게임 결과 출력
 
-- 최종 우승자를 출력한다.
-- 최종 우승자가 한 명 이상인 경우 ", "를 기준으로 구분하여 출력한다.
+- 최종 우승자를 출력한다. ✅
+- 최종 우승자가 한 명 이상인 경우 ", "를 기준으로 구분하여 출력한다. ✅
 
 ---
 
@@ -55,6 +55,8 @@
     * 랜덤값 생성하여 전진여부 반환
 - private void printExecutionResult() ✅
     * 실행결과 출력
+- private void printFinalWinner() ✅
+    * 최종 우승자 출력
 
 ### UserInput
 
@@ -130,6 +132,10 @@
     * 실행 결과 출력을 위한 규격
 - public static final String LETTERS_FOR_POSITION ✅
     * 전진 횟수 출력을 위한 규격
+- public static final String FINAL_WINNER ✅
+    * 최종 우승자 출력시작 메시지
+- public static final String STANDARD_FOR_FINAL_WINNER ✅
+    * 최종 우승자 출력을 위한 규격
 - public static final String ERROR ✅
     * 에러메시지 시작
 - public static final String ERROR_NO_NAMES ✅
