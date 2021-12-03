@@ -20,6 +20,7 @@ public class RacingGame {
 		for (int i = 0; i < attemptNumber; i++) {
 			System.out.println(i + "번째 시도");
 			makeCarMove(carName);
+			printCarMovementStatus(carName);
 		}
 	}
 
@@ -35,7 +36,7 @@ public class RacingGame {
 		for (Car car : carName) {
 			if (createRandomNumberForCarMovement()) {
 				car.moveForward();
-				System.out.println(car.getName()+": " + car.getPosition() + "이동");
+				// System.out.println(car.getName()+": " + car.getPosition() + "이동");
 			}
 		}
 	}
