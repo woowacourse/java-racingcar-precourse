@@ -76,4 +76,24 @@ public class ValidTest {
                 .isThrownBy(() -> Validation.hasDuplicatedName(DUPLICATED.getContent()))
                 .withMessageStartingWith("[ERROR]");
     }
+
+    @Test
+    void 시도횟수_숫자_입력() {
+        assertThatNoException()
+                .isThrownBy(() -> Validation.isNumber("3"));
+    }
+
+    @Test
+    void 시도횟수_숫자_외_다른_문자_예외() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> Validation.isNumber("a"))
+                .withMessageStartingWith("[ERROR]");
+    }
+
+    @Test
+    void 시도횟수_0_입력_예외() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> Validation.firstIsZero("0"))
+                .withMessageStartingWith("[ERROR]");
+    }
 }
