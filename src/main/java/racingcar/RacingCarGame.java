@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 
+import racingcar.domain.Car;
 import racingcar.receiver.NameReceiver;
 import racingcar.receiver.TryCountReceiver;
 import racingcar.service.JudgeService;
