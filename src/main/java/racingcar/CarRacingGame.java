@@ -1,11 +1,18 @@
 package racingcar;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class CarRacingGame {
+	private Cars cars;
 
-	public void start() {
-		List<String> carNames = InputView.readCarNames();
+	public void play() {
+		cars = createCars();
+	}
+
+	private Cars createCars() {
+		try {
+			return new Cars(InputView.readCarNames());
+		} catch (IllegalArgumentException e) {
+			OutputView.printErrorMessage(e.getMessage());
+			return createCars();
+		}
 	}
 }
