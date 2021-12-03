@@ -1,7 +1,7 @@
 package racingcar;
 
 public class AttemptCountValidator {
-    static final String COUNTS_NUMERIC_ERROR_MESSAGE = "[ERROR] 시도 횟수는 자연수여야 한다.";
+    private static final String COUNTS_NUMERIC_ERROR_MESSAGE = "[ERROR] 시도 횟수는 자연수여야 한다.";
 
     public static void checkException(String counts) {
         if (!checkNaturalNumber(counts)) {

@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
-    static final String GAME_RESULT_MESSAGE = "실행 결과";
-    static final String GAME_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String GAME_RESULT_MESSAGE = "실행 결과";
+    private static final String GAME_WINNER_MESSAGE = "최종 우승자 : ";
 
     private final User user;
     private final List<Car> cars;

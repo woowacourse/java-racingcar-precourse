@@ -3,9 +3,9 @@ package racingcar;
 import java.util.List;
 
 public class CarNameValidator {
-    static final int NAME_SIZE = 5;
-    static final String NAME_SIZE_ERROR_MESSAGE = "[ERROR] 이름은 1자 이상 5자 이하여야 한다.";
-    static final String DUPLICATE_ERROR_MESSAGE = "[ERROR] 이름은 중복될 수 없다.";
+    private static final int NAME_SIZE = 5;
+    private static final String NAME_SIZE_ERROR_MESSAGE = "[ERROR] 이름은 1자 이상 5자 이하여야 한다.";
+    private static final String DUPLICATE_ERROR_MESSAGE = "[ERROR] 이름은 중복될 수 없다.";
 
     public static void checkException(List<String> carNameList) {
         if (!checkCarNameLength(carNameList)) {
