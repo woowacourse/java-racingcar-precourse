@@ -45,4 +45,11 @@ public class Cars {
 			.filter(car -> car.isSamePosition(winnerPosition))
 			.collect(toList());
 	}
+
+	public void moveOrStop() {
+		for (Car car : cars) {
+			int carPower = CarPower.getRandomPower();
+			car.moveOrStop(carPower);
+		}
+	}
 }

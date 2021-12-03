@@ -18,6 +18,4 @@ IlegalArgumentException 발생
    (자동차 이름) : ---
 7. 우승자를 출력하는 기능  
 최종 우승자 : (우승자 1), (우승자 2)
-
-validateNames
-tokenizing, 공백 삭제, 길이 확인
+8. 게임 실행 기능

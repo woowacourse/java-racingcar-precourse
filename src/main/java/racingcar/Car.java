@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Car {
-	private static final int CAN_GO_NUM = 4;
+	private static final int CAN_MOVE_POWER_MIN = 4;
 
 	private final String name;
 	private int position = 0;
@@ -16,8 +16,8 @@ public class Car {
 		this.position = position;
 	}
 
-	public void moveOrStop(int randomNum) {
-		if (canMove(randomNum)) {
+	public void moveOrStop(int carPower) {
+		if (canMove(carPower)) {
 			move();
 		}
 	}
@@ -26,8 +26,8 @@ public class Car {
 		position++;
 	}
 
-	private boolean canMove(int randomNum) {
-		return randomNum >= CAN_GO_NUM;
+	private boolean canMove(int carPower) {
+		return carPower >= CAN_MOVE_POWER_MIN;
 	}
 
 	protected boolean isMoved() {
