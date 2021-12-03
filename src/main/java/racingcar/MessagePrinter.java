@@ -20,17 +20,17 @@ public class MessagePrinter {
 	}
 
 	public static void printStartMessage() {
-		System.out.println(START_MESSAGE);
+		System.out.println("\n" + START_MESSAGE);
 	}
 
-	public static void printExecutionResult(Car[] cars) {
+	public static void printTurnResult(Car[] cars) {
 		StringBuilder resultMessage = new StringBuilder();
 
 		for (Car car : cars) {
 			resultMessage.append(createPositionMessage(car));
+			resultMessage.append("\n");
 		}
 
-		resultMessage.append("\n");
 		System.out.println(resultMessage);
 	}
 
