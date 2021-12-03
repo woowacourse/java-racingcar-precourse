@@ -8,6 +8,8 @@ public class Car implements Comparable<Car> {
 	private static final int CONDITION_FOR_MOVE = 4;
 	private static final int MIX_RANDOM_NUMBER = 0;
 	private static final int MAX_RANDOM_NUMBER = 9;
+	private static final String CAR_POSITION_BY_FORMATTER = "-";
+	private static final String CAR_STATUS_DELIMITER = " : ";
 
 	public Car(String name) {
 		this.name = name;
@@ -29,6 +31,10 @@ public class Car implements Comparable<Car> {
 
 	public boolean isSamePosition(Car car) {
 		return this.position == car.getPosition();
+	}
+
+	public String getStatusByFormatter() {
+		return name + CAR_STATUS_DELIMITER + CAR_POSITION_BY_FORMATTER;
 	}
 
 	@Override

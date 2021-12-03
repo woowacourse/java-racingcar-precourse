@@ -12,7 +12,7 @@ public class Game {
 		int numberOfCarMoving = inputNumberOfCarMoving();
 		for (int i = 0; i < numberOfCarMoving; i++) {
 			carRepository.attemptCarsMoving();
-			printCarsStatus(carRepository.getCarList());
+			printCarsStatus(carRepository);
 		}
 		printFinalCarWinners(carRepository);
 	}

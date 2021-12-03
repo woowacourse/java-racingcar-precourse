@@ -42,4 +42,10 @@ public class CarRepository {
 			.map(Car::getName)
 			.collect(Collectors.toList());
 	}
+
+	public List<String> getCarsStatusByFormatter() {
+		return carList.stream()
+			.map(Car::getStatusByFormatter)
+			.collect(Collectors.toList());
+	}
 }
