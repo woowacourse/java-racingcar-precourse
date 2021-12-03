@@ -19,6 +19,13 @@ public class CarRacingGame {
 	}
 
 	private int readTryCount() {
-		return InputView.readTryCount();
+		try {
+			int tryCount = InputView.readTryCount();
+			TryCountValidator.validate(tryCount);
+			return tryCount;
+		} catch (IllegalArgumentException e) {
+			OutputView.printErrorMessage(e.getMessage());
+			return readTryCount();
+		}
 	}
 }
