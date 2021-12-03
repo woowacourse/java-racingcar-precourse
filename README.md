@@ -12,8 +12,8 @@
 
 ### 시도할 횟수 입력
 
-- 0 이상의 정수만 입력 가능하다.
-- 잘못된 값을 입력할 경우 IllegalArgumentException 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
+- 0 이상의 정수만 입력 가능하다. ✅
+- 잘못된 값을 입력할 경우 IllegalArgumentException 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다. ✅
 
 ### 게임 진행
 
@@ -44,7 +44,7 @@
     * userInput 초기화
 - public void play() ✅
     * 게임 진행
-- private void getInput()
+- private void getInput() ✅
     * 사용자 입력 받기
 - private void makeCarList(List<String> names) ✅
     * 이름들 입력받아 자동차 객체 리스트 만들기
@@ -53,7 +53,7 @@
 
 - private List<String> names ✅
     * 경주할 자동차의 이름 목록
-- private int attempt
+- private int attempt ✅
 
 - public void inputNames() ✅
     * 경주할 자동차의 이름 입력받기
@@ -65,7 +65,7 @@
     * names 저장
 - public List<String> getNames() ✅
     * names 반환
-- private void setAttempt(String input)
+- private void setAttempt(String input) ✅
     * 시도 횟수 저장
 
 ### Car
@@ -85,11 +85,11 @@
     * 1개 이상의 이름을 입력했는지 확인
 - private static boolean isValidLength(String[] input) ✅
     * 5글자 이하의 이름을 입력했는지 확인
-- public static void isValidAttempt(String input)
+- public static void isValidAttempt(String input) ✅
     * 자동차 경주게임을 위한 시도횟수를 입력했는지 확인
-- private static boolean isInteger(String input)
+- private static boolean isInteger(String input) ✅
     * 정수인지 확인
-- private static boolean isAttemptMoreThanZero(String input)
+- private static boolean isAttemptMoreThanZero(String input) ✅
     * 정수 1 이상인지 확인
 
 ### Constant
@@ -98,7 +98,7 @@
     * 자동차 게임 진행을 위한 최소 자동차 개수
 - public static final int MAXIMUM_LENGTH_OF_NAMES ✅
     * 자동차 이름의 최대길이
-- public static final int MINIMUM_NUMBER_OF_ATTEMPT
+- public static final int MINIMUM_NUMBER_OF_ATTEMPT ✅
     * 시도 횟수의 최솟값
 - public static final String PLEASE_INPUT_NAMES ✅
     * 자동차 이름 입력 요청
@@ -110,7 +110,7 @@
     * 1개 미만의 이름을 입력하여 에러 발생
 - public static final String ERROR_MORE_THAN_FIVE_CHARACTERS ✅
     * 5글자를 초과하는 이름을 입력하여 에러 발생
-- public static final String ERROR_ATTEMPT_MUST_BE_A_NUMBER
+- public static final String ERROR_ATTEMPT_MUST_BE_A_NUMBER ✅
     * 숫자가 아닌 시도횟수를 입력하여 에러 발생
-- public static final String ERROR_ATTEMPT_MUST_BE_MORE_THAN_ZERO
+- public static final String ERROR_ATTEMPT_MUST_BE_MORE_THAN_ZERO ✅
     * 1 미만의 시도횟수를 입력하여 에러발생
