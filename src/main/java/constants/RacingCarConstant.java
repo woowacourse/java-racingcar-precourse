@@ -24,4 +24,5 @@ public class RacingCarConstant {
 	public static final String CAR_NAME_WRONG_END_ERROR = "자동차 이름의 입력이 ,로 끝나서는 안된다";
 	public static final String GAME_COUNT_NOT_DIGIT_ERROR = "시도 횟수는 숫자여야 한다";
 	public static final String GAME_COUNT_UPPER_ZERO_ERROR = "시도 횟수는 0이상의 숫자여야 한다";
+	public static final String GAME_COUNT_EMPTY_ERROR = "시도 횟수에 빈 입력을 넣어서는 안된다";
 }
