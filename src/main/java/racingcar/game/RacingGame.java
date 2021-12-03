@@ -9,12 +9,14 @@ import racingcar.utils.GameTimesInput;
 public class RacingGame {
 	private CarNameInput carNameInput;
 	private GameTimesInput gameTimesInput;
+	private RacingGameReferee racingGameReferee;
 	private List<Car> cars;
 	private int numOfIteration;
 
 	public RacingGame() {
 		carNameInput = new CarNameInput();
 		gameTimesInput = new GameTimesInput();
+		racingGameReferee = new RacingGameReferee();
 	}
 
 	public void init() {
@@ -22,7 +24,10 @@ public class RacingGame {
 		numOfIteration = gameTimesInput.getGameTimes();
 	}
 
-	public void gameStart(){
-
+	public void gameStart() {
+		for (int gameCount = 0; gameCount < numOfIteration; gameCount++) {
+			racingGameReferee.race(cars);
+		}
 	}
+
 }
