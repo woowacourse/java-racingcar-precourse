@@ -21,10 +21,6 @@ public class CarRepository {
 		}
 	}
 
-	public List<Car> getCarList() {
-		return carList;
-	}
-
 	private List<Car> getWinnerCars() {
 		Collections.sort(carList);
 		List<Car> winnerCars = new ArrayList<>();

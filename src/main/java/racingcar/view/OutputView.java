@@ -8,8 +8,7 @@ public class OutputView {
 	private static final String FINAL_WINNER_TITLE_MESSAGE = "최종 우승자 : ";
 
 	public static void printCarsStatus(CarRepository carRepository) {
-		List<String> carsStatusByFormatter = carRepository.getCarsStatusByFormatter();
-		for (String carStatusByFormatter: carsStatusByFormatter) {
+		for (String carStatusByFormatter: carRepository.getCarsStatusByFormatter()) {
 			System.out.println(carStatusByFormatter);
 		}
 		System.out.println();
