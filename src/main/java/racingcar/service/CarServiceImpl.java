@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import racingcar.Car;
@@ -31,5 +33,19 @@ public class CarServiceImpl implements CarService {
 			}
 			System.out.println();
 		}
+	}
+
+	@Override
+	public List<Car> findWinningCars() {
+		Map<Integer, Car> cars = memoryCarRepository.findAll();
+		int maxPosition = memoryCarRepository.findMaxPosition();
+		List<Car> winningCars = new ArrayList<>();
+		for (int carId : cars.keySet()) {
+			Car car = findCar(carId);
+			if (car.getPosition() == maxPosition) {
+				winningCars.add(car);
+			}
+		}
+		return winningCars;
 	}
 }

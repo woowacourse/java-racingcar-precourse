@@ -22,4 +22,13 @@ public class MemoryCarRepository implements CarRepository {
 	public Map<Integer, Car> findAll() {
 		return cars;
 	}
+
+	@Override
+	public int findMaxPosition() {
+		int maxPosition = 0;
+		for (int carId : cars.keySet()) {
+			maxPosition = Math.max(findById(carId).getPosition(), maxPosition);
+		}
+		return maxPosition;
+	}
 }
