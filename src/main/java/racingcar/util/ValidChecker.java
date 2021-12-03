@@ -18,6 +18,26 @@ public class ValidChecker {
 		}
 	}
 
+	public static void isValidStringForNumber(String string) {
+		char[] charArray = string.toCharArray();
+		for (char digit : charArray) {
+			isValidCharacterForNumber(digit);
+		}
+		isNumberPositive(Integer.parseInt(string));
+	}
+
+	private static void isValidCharacterForNumber(char digit) {
+		if (digit > MAX_CHAR_FOR_NUMBER || digit < MIN_CHAR_FOR_NUMBER) {
+			throwIllegalArgumentException(ERROR_CHAR_IS_NOT_NUMBER);
+		}
+	}
+
+	private static void isNumberPositive(int number) {
+		if (number < MIN_DRIVE_COUNT) {
+			throwIllegalArgumentException(ERROR_DRIVE_COUNT_INVALID);
+		}
+	}
+
 	private static void throwIllegalArgumentException(String exceptionCase) {
 		System.out.println(exceptionCase);
 		throw new IllegalArgumentException(exceptionCase);
