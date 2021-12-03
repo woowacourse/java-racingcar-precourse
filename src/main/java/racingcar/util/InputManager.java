@@ -30,17 +30,14 @@ public class InputManager {
 
 	private static void checkCarName(String[] strings) {
 		checkStringLength(strings);
-		checkCarExist(strings);
+		ValidChecker.carExist(strings);
+		ValidChecker.isDistinctCarName(strings);
 	}
 
 	private static void checkStringLength(String[] strings) {
 		for (String string : strings) {
 			ValidChecker.isValidCarNameLength(string);
 		}
-	}
-
-	private static void checkCarExist(String[] strings) {
-		ValidChecker.carExist(strings);
 	}
 
 	private static void checkDriveCount(String string) {

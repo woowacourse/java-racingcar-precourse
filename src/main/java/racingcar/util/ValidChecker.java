@@ -2,6 +2,8 @@ package racingcar.util;
 
 import static racingcar.util.Constants.*;
 
+import java.util.Arrays;
+
 public class ValidChecker {
 
 	public static void isValidCarNameLength(String carName) {
@@ -15,6 +17,13 @@ public class ValidChecker {
 	public static void carExist(String[] cars) {
 		if (cars.length < MIN_CAR_COUNT) {
 			throwIllegalArgumentException(ERROR_CAR_COUNT_EMPTY);
+		}
+	}
+
+	public static void isDistinctCarName(String[] carNames) {
+		long distinctCarCount = Arrays.stream(carNames).distinct().count();
+		if (carNames.length != distinctCarCount) {
+			throwIllegalArgumentException(ERROR_SAME_CAR_NAME);
 		}
 	}
 
