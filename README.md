@@ -54,6 +54,7 @@
 - private List<String> names ✅
     * 경주할 자동차의 이름 목록
 - private int attempt ✅
+    * 시도 횟수
 
 - public void inputNames() ✅
     * 경주할 자동차의 이름 입력받기
