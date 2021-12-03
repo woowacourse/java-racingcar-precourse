@@ -1,5 +1,7 @@
 package racingcar.gamesource;
 
+import racingcar.constants.ConstMessage;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -35,6 +37,6 @@ public class Car {
             positionToHyphens.append('-');
         }
 
-        return this.name + " : " + positionToHyphens;
+        return this.name + ConstMessage.NAME_POSITION_DELIMITER + positionToHyphens;
     }
 }

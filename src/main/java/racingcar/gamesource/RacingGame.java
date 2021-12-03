@@ -3,8 +3,10 @@ package racingcar.gamesource;
 import java.util.ArrayList;
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.InputCheck;
+import racingcar.constants.ConstMessage;
+
+import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
     private List<Car> racingCars = new ArrayList<>();
@@ -12,11 +14,11 @@ public class RacingGame {
     public void playStart(){
         gameInit();
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(ConstMessage.ROUND_NUMBER_INPUT_REQUEST);
         String input = Console.readLine();
         int roundNum = Integer.parseInt(input);
 
-        System.out.println("실행 결과\n");
+        System.out.println(ConstMessage.PLAY_RESULT_MESSAGE);
 
         while((roundNum--) != 0){
             playNextRound();
@@ -27,7 +29,7 @@ public class RacingGame {
     }
 
     private void gameInit(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(ConstMessage.NAMES_INPUT_REQUEST);
 
         String input = Console.readLine();
         List<String> names = InputCheck.parseNames(input);
@@ -61,13 +63,13 @@ public class RacingGame {
 
         for(int i=0; i<winners.size()-1 ; ++i){
             winnersName.append(winners.get(i).getName());
-            winnersName.append(", ");
+            winnersName.append(ConstMessage.NAME_AND_NAME_DELIMITER);
         }
 
         String lastWinnerName = winners.get(winners.size()-1).getName();
         winnersName.append(lastWinnerName);
 
-        System.out.println("최종 우승자 : " + winnersName);
+        System.out.println(ConstMessage.FINAL_WINNER_MESSAGE + winnersName);
     }
 
     private List<Car> getWinners(){
