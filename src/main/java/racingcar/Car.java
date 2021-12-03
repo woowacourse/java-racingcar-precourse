@@ -30,4 +30,8 @@ public class Car {
         }
         System.out.println(executeResult.toString());
     }
+
+    public int getPosition() {
+        return position;
+    }
 }

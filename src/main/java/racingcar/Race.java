@@ -6,7 +6,11 @@ import java.util.ArrayList;
 
 public class Race {
     private static ArrayList<Car> cars = new ArrayList<>();
+    private static ArrayList<Car> winnerCars = new ArrayList<>();
     private static int moveCount;
+    public static int maxDistance;
+
+
     public static String getUserInput() {
         return Console.readLine();
     }
@@ -34,6 +38,20 @@ public class Race {
                 car.printPosition();
             }
             moveCount--;
+        }
+    }
+
+    public void calculateMaxDistance() {
+        for (Car car : cars) {
+            maxDistance = Math.max(maxDistance, car.getPosition());
+        }
+    }
+
+    public void decideWinner() {
+        for (Car car : cars) {
+            if (car.getPosition() == maxDistance) {
+                winnerCars.add(car);
+            }
         }
     }
 }
