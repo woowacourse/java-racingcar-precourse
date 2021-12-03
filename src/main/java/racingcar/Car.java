@@ -8,6 +8,7 @@ public class Car {
         this.name = name;
     }
 
+    // 추가 기능 구현
     public static Car from(String pobi) {
         return new Car("pobi");
     }
@@ -16,5 +17,11 @@ public class Car {
         return name;
     }
 
-    // 추가 기능 구현
+    public int getPosition() {
+        return position;
+    }
+
+    public void move() {
+        position++;
+    }
 }
