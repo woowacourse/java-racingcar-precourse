@@ -43,12 +43,20 @@ public class Validator {
 			checkCharacterIsDigit(number.charAt(i));
 		}
 
+		checkNumberIsNotZero(number);
+
 		return true;
 	}
 
 	private static void checkCharacterIsDigit(char character) {
 		if (!Character.isDigit(character)) {
 			throw new IllegalArgumentException("시도 횟수는 숫자만 허용됩니다.");
+		}
+	}
+
+	private static void checkNumberIsNotZero(String number) {
+		if (Integer.parseInt(number) == 0) {
+			throw new IllegalArgumentException("시도 횟수는 1 이상입니다.");
 		}
 	}
 
