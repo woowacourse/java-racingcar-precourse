@@ -12,6 +12,8 @@ public class Constant {
     public static final String EXECUTION_RESULT = "실행결과";
     public static final String STANDARD_FOR_EXECUTION_RESULT = " : ";
     public static final String LETTERS_FOR_POSITION = "-";
+    public static final String FINAL_WINNER = "최종 우승자 : ";
+    public static final String STANDARD_FOR_FINAL_WINNER = ", ";
     public static final String ERROR = "[ERROR] ";
     public static final String ERROR_NO_NAMES = ERROR + "1개 이상의 이름을 입력해야 한다.";
     public static final String ERROR_MORE_THAN_FIVE_CHARACTERS = ERROR + "5글자 이하의 이름을 입력해야 한다.";

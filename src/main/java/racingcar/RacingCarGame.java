@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -20,6 +21,7 @@ public class RacingCarGame {
             play();
             printExecutionResult();
         }
+        printFinalWinner();
     }
 
     private void getInput() {
@@ -58,6 +60,24 @@ public class RacingCarGame {
             execution_result.append(car.printPosition());
         }
         System.out.println(execution_result);
+    }
+
+    private void printFinalWinner() {
+        Collections.sort(cars);
+        Car winner = cars.get(0);
+
+        StringBuilder finalWinner = new StringBuilder(Constant.FINAL_WINNER);
+        finalWinner.append(winner.getName());
+
+        int index = 1;
+        while (index < cars.size() && cars.get(index).compareTo(winner) == 0) {
+            finalWinner.append(Constant.STANDARD_FOR_FINAL_WINNER);
+            finalWinner.append(cars.get(index).getName());
+            index++;
+        }
+
+        System.out.println(finalWinner);
+
     }
 
 }
