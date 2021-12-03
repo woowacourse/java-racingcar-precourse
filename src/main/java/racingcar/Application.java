@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class Application {
     static int NUMBER_OF_CAR = 0;
+    static int START_POSITION = -1;
     public static void main(String[] args) {
         // TODO 구현 진행
         String[] nameOfCars;
@@ -42,12 +43,14 @@ public class Application {
         }
 
         System.out.println("실행결과");
-        // 랜덤 변수를 만들고 회차 마다 car 객체 수 만큼 반복하여 4 ~ 9 사이면 전진한다.
+
         for(int i = 0; i < numOfTry; i++){
             moveOrStop(car);
             printRacingResult(car);
             System.out.println();
         }
+
+        printRacingWinner(findRacingWinner(car));
 
 
     }
@@ -91,5 +94,31 @@ public class Application {
             }
             System.out.println();
         }
+    }
+
+    public static void printRacingWinner(ArrayList<String> nameOfWinner){
+        System.out.print("최종 우승자 : ");
+        for(int i = 0; i < nameOfWinner.size(); i++){
+            System.out.print(nameOfWinner.get(i));
+            if(i != nameOfWinner.size()-1){
+                System.out.print(", ");
+            }
+        }
+    }
+
+    public static ArrayList<String> findRacingWinner(ArrayList<Car> cars){
+        int winnerPosition = START_POSITION;
+        ArrayList<String> nameOfWinner = new ArrayList<>();
+        for(Car c: cars){
+            if(c.getPosition() > winnerPosition){
+                winnerPosition = c.getPosition();
+            }
+        }
+        for(Car c: cars){
+            if(c.getPosition() == winnerPosition){
+                nameOfWinner.add(c.getName());
+            }
+        }
+        return nameOfWinner;
     }
 }
