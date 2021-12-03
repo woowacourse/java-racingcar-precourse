@@ -16,8 +16,8 @@ public class RacingGameController {
     }
 
         public void run() {
-            while (!this.tryNumber.finish()) {
-                this.cars.move();
+            while (!tryNumber.finish()) {
+                cars.move();
                 tryNumber.minus();
                 OutputView.printCurrentCarsPosition(cars.cars());
             }
@@ -26,17 +26,16 @@ public class RacingGameController {
 
     private void prepareTryNumber() {
         try {
-            this.tryNumber = new TryNumber(InputView.requireTryNumber());
+            tryNumber = new TryNumber(InputView.requireTryNumber());
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
             prepareTryNumber();
         }
-
     }
 
     private void prepareCars() {
         try {
-            this.cars = new Cars(InputView.requirePlayersName());
+            cars = new Cars(InputView.requirePlayersName());
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
             prepareCars();
