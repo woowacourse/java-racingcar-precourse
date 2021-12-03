@@ -7,28 +7,33 @@ public class InputValidation {
 	public static final long ZERO = 0;
 	public static final long CAR_NUM_MIN = 1;
 	public static final long CAR_NUM_MAX = 1000;
+	public static final String ERROR_CAR_NAME_LENGTH = "[ERROR] 자동차 이름은 5자 이하만 가능합니다.";
+	public static final String ERROR_CAR_NUMBER = "[ERROR] 자동차 개수는 1개 이상 1,000개 이하만 가능합니다.";
+	public static final String ERROR_LAST_CHARACTER_REGEX = "[ERROR] 입력한 자동차 이름은 쉼표로 끝날 수 없습니다.";
 
 	public static void checkCarNameValidation(String input, String splitRegex) {
 		long carNameLengthValidation = Arrays.stream(input.split(splitRegex))
 			.filter(carName -> carName.length() > 5 || carName.length() < 1)
 			.count();
 		long carNumberValidation = Arrays.stream(input.split(splitRegex)).count();
+		boolean lastCharacterRegex = input.endsWith(splitRegex);
 
-		if (checkCarNameConditions(carNameLengthValidation, carNumberValidation)) {
-			throw new IllegalArgumentException();
-		}
+		checkCarNameConditions(carNameLengthValidation, carNumberValidation, lastCharacterRegex);
 	}
 
-	public static boolean checkCarNameConditions(long carNameLengthValidation, long carNumberValidation) {
-		if (carNameLengthValidation == ZERO) {
-			return false;
+	public static void checkCarNameConditions(long carNameLengthValidation, long carNumberValidation,
+		boolean lastCharacterRegex) {
+		if (carNameLengthValidation != ZERO) {
+			throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH);
 		}
 		if (carNumberValidation < CAR_NUM_MIN) {
-			return false;
+			throw new IllegalArgumentException(ERROR_CAR_NUMBER);
 		}
 		if (carNumberValidation > CAR_NUM_MAX) {
-			return false;
+			throw new IllegalArgumentException(ERROR_CAR_NUMBER);
 		}
-		return true;
+		if (lastCharacterRegex) {
+			throw new IllegalArgumentException(ERROR_LAST_CHARACTER_REGEX);
+		}
 	}
 }

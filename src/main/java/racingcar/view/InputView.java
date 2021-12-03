@@ -25,6 +25,7 @@ public class InputView {
 				.collect(Collectors.toList())
 			);
 		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
 			return inputCarsName(splitRegex);
 		}
 	}
