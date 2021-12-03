@@ -7,6 +7,7 @@ import racingcar.service.CarService;
 import racingcar.service.CarServiceImpl;
 
 public class Application {
+	private static int racingCnt;
 	private static String[] cars;
 
 	private static CarService carService = new CarServiceImpl();
@@ -35,7 +36,13 @@ public class Application {
 
 	public static void racing() {
 		System.out.println("시도할 회수는 몇회인가요?");
-		int racingCnt = Integer.parseInt(Console.readLine());
+		try {
+			String inputNumber = Console.readLine();
+			isNumber(inputNumber);
+			racingCnt = Integer.parseInt(inputNumber);
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+		}
 		System.out.println();
 		System.out.println("실행 결과");
 		for (int i = 0; i < racingCnt; i++) {
@@ -60,6 +67,15 @@ public class Application {
 	public static void isLengthLessThanOrEqualFive(String name) {
 		if (name.length() > 5) {
 			throw new IllegalArgumentException("[ERROR] 자동차의 이름은 5자 이하여야 한다.");
+		}
+	}
+
+	public static void isNumber(String number) {
+		for (int i = 0; i < number.length(); i++) {
+			char ch = number.charAt(i);
+			if (!Character.isDigit(ch)) {
+				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+			}
 		}
 	}
 }
