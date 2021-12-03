@@ -59,8 +59,10 @@ constants
   - 필드로 가진 모든 Car 객체들의 drive()를 실행
 - printAllPosition() 함수 구현
   - 필드로 가진 모든 Car 객체들을 toString()으로 출력
-- String getWinners()
-  - 위치를 비교해 우승자들을 문자열 형태로 반환 
+- List<Car> getWinnersName()
+  - 위치를 비교해 우승자들의 Car객체를 반환
+- printWinners() 함수 구현
+  - 단독 혹은 공동 우승자를 출력
 - playStart() 재구성
   - 구현된 함수들로 게임 실행 구현
   - 모든 횟수 종료 후 우승자 출력
@@ -85,6 +87,9 @@ constants
 ### 7. RacingGame.playStart()
 
 - InputCheck class의 함수를 사용해 입력 확인
+
+### 8. Application 구현
+ **최종적으로 Application 구현**
 
 <br>
 
