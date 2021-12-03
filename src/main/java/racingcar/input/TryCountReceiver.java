@@ -15,8 +15,7 @@ public class TryCountReceiver {
 			System.out.println(INPUT_TRY_COUNT_MESSAGE);
 			tryCountString = Console.readLine();
 
-			TryCountValidator tryCountValidator = new TryCountValidator();
-			errorSwitch = tryCountValidator.validate(tryCountString);
+			errorSwitch = new TryCountValidator().validate(tryCountString);
 		}
 
 		return Integer.parseInt(tryCountString);

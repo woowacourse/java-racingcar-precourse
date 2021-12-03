@@ -15,8 +15,7 @@ public class Judge {
 
 		ArrayList<String> winnerList = makeWinnerList(carList, max);
 
-		String winnerMessage = makeWinnerMessage(winnerList);
-		System.out.println(winnerMessage);
+		System.out.println(makeWinnerMessage(winnerList));
 	}
 
 	private ArrayList<String> makeWinnerList(ArrayList<Car> carList, int max) {

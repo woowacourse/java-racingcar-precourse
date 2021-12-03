@@ -19,8 +19,7 @@ public class NameReceiver {
 
 			nameList = makeNameList(nameString);
 
-			NameValidator nameValidator = new NameValidator();
-			errorSwitch = nameValidator.validate(nameList);
+			errorSwitch = new NameValidator().validate(nameList);
 		}
 
 		return nameList;
