@@ -18,6 +18,10 @@ public class Car {
 		}
 	}
 
+	public boolean isSamePosition(int value) {
+		return this.position == value;
+	}
+
 	public int getPosition() {
 		return position;
 	}
