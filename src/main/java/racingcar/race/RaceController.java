@@ -35,6 +35,13 @@ public class RaceController {
         return true;
     }
 
+    public void race(int numberOfRaces) {
+        for(int i = 0; i < numberOfRaces; ++i) {
+            carService.moveForward();
+            showRaceResult();
+        }
+    }
+
     private void showRaceResult() {
         List<CarDto> carDtos = carService.getCars();
         for(CarDto carDto : carDtos)  {
