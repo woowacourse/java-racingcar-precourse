@@ -15,16 +15,10 @@ public class Car {
         return Randoms.pickNumberInRange(0,9);
     }
 
-    public boolean predicateAdvance() {
+    public void predicateAdvance() {
         if (this.makeRandomForAdvance() >= STANDARD) {
-            return true;
-        }
-        return false;
-    }
-
-    public void setPosition() {
-        if (this.predicateAdvance()) {
             this.position++;
         }
     }
+
 }
