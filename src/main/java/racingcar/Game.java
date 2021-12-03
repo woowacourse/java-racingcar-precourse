@@ -28,7 +28,7 @@ public class Game {
 		try {
 			result = generateCars(names);
 		} catch (IllegalArgumentException e) {
-			System.out.println(Const.ERROR_INPUT_CAR_NAME_MESSAGE);
+			System.out.println(e.getMessage());
 			return readCars();
 		}
 
