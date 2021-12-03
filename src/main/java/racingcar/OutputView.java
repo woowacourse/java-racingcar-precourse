@@ -4,7 +4,7 @@ import java.util.List;
 
 public class OutputView {
 	private static final StringBuilder STRING_BUILDER = new StringBuilder();
-	private static final String GAME_RESULT_MESSAGE = "실행 결과";
+	private static final String GAME_RESULT_MESSAGE = "\n실행 결과";
 	private static final String CAR_STATUS_MESSAGE = "%s : %s\n";
 	private static final String WINNER_MESSAGE = "최종 우승자 : %s\n";
 	private static final String WINNER_SEPARATE_SIGN = ", ";
@@ -17,8 +17,11 @@ public class OutputView {
 		System.out.println(errorMessage);
 	}
 
-	public static void printCars(List<Car> cars) {
+	public static void printResultMessage() {
 		System.out.println(GAME_RESULT_MESSAGE);
+	}
+
+	public static void printCars(List<Car> cars) {
 		for (Car car : cars) {
 			printCar(car);
 		}
