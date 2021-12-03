@@ -59,7 +59,9 @@ constants
   - 필드로 가진 모든 Car 객체들의 drive()를 실행
 - printAllPosition() 함수 구현
   - 필드로 가진 모든 Car 객체들을 toString()으로 출력
-- List<Car> getWinnersName()
+- getMaxPosition()
+  - 필드의 Car객체 중 가장 위치가 높은 값을 반환
+- List<Car> getWinners()
   - 위치를 비교해 우승자들의 Car객체를 반환
 - printWinners() 함수 구현
   - 단독 혹은 공동 우승자를 출력
