@@ -1,14 +1,10 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car {
 
     private static final String CARS_NAME_EXCEPTION_MESSAGE = "[ERROR]: 자동차의 이름은 1글자 이상 5글자 이하로 지정하여야 합니다.";
-    private static final Integer MINIMUM_RANDOM_NUMBER = 1;
-    private static final Integer MAXIMUM_RANDOM_NUMBER = 9;
-    private static final Integer MOVING_THRETHOLD = 4;
     private static final Integer NAME_LENGTH_THRETHOLD = 5;
 
     private final String name;
@@ -36,9 +32,8 @@ public class Car {
         }
     }
 
-    public void move() {
-        int i = Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
-        if (i >= MOVING_THRETHOLD) {
+    public void move(MoveStrategy moveStrategy) {
+        if (moveStrategy.move()) {
             position++;
         }
     }
