@@ -7,6 +7,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 	private static final int MAX_CAR_NAME_LENGTH = 5;
+	private static final int MIN_SINGLE_NUMBER = 0;
+	private static final int MAX_SINGLE_NUMBER = 9;
 	private static final String ERROR_MESSAGE = "[ERROR] ";
 	private static final String INPUT_CAR_NAMES_TITLE_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String INPUT_CAR_MOVING_NUMBER_TITLE_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -67,7 +69,7 @@ public class InputView {
 	private static void validateIsIntegerNumberOfCarMoving(String numberOfCarMoving) {
 		for (int i = 0; i < numberOfCarMoving.length(); i++) {
 			int number = Character.getNumericValue(numberOfCarMoving.charAt(i));
-			if (number < 0 || number > 9) {
+			if (number < MIN_SINGLE_NUMBER || number > MAX_SINGLE_NUMBER) {
 				throw new IllegalArgumentException(ERROR_MESSAGE + "시도 횟수는 숫자여야 한다.");
 			}
 		}

@@ -21,18 +21,6 @@ public class CarRepository {
 		}
 	}
 
-	private List<Car> getWinnerCars() {
-		Collections.sort(carList);
-		List<Car> winnerCars = new ArrayList<>();
-		Car winnerCar = carList.get(FIRST_INDEX_OF_WINNER_CAR);
-		for (Car car : carList) {
-			if (winnerCar.isSamePosition(car)) {
-				winnerCars.add(car);
-			}
-		}
-		return winnerCars;
-	}
-
 	public List<String> getWinnerCarsName() {
 		return getWinnerCars().stream()
 			.map(Car::getName)
@@ -43,5 +31,17 @@ public class CarRepository {
 		return carList.stream()
 			.map(Car::getStatusByFormatter)
 			.collect(Collectors.toList());
+	}
+
+	private List<Car> getWinnerCars() {
+		Collections.sort(carList);
+		List<Car> winnerCars = new ArrayList<>();
+		Car winnerCar = carList.get(FIRST_INDEX_OF_WINNER_CAR);
+		for (Car car : carList) {
+			if (winnerCar.isSamePosition(car)) {
+				winnerCars.add(car);
+			}
+		}
+		return winnerCars;
 	}
 }
