@@ -12,14 +12,14 @@ import static racingcar.constant.Constraint.*;
 import static racingcar.constant.Message.*;
 
 public class RacingGame {
-    private Result result;
     private int rounds;
-    ArrayList<Car> carList = new ArrayList<>();
+    private Result result;
+    private final ArrayList<Car> carList = new ArrayList<>();
 
     public void run() {
         initGame();
         startGame();
-        printWinner();
+        endGame();
     }
 
     private void initGame() {
@@ -28,6 +28,18 @@ public class RacingGame {
         createResult();
         printInputRoundsMessage();
         inputRounds();
+    }
+
+    private void startGame() {
+        for(int i = 0; i < rounds; i++) {
+            moveAllCar();
+            printResult();
+        }
+    }
+
+    private void endGame() {
+        Winner winner = new Winner(carList);
+        System.out.println(winner.toString());
     }
 
     private void processCarNames() {
@@ -72,37 +84,6 @@ public class RacingGame {
         }
     }
 
-    private void printWinner() {
-        System.out.println(OUTPUT_WINNER_MESSAGE + checkWinner());
-    }
-
-    private String checkWinner() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for(Car car : carList) {
-            appendIfRaceWinner(stringBuilder, car);
-        }
-
-        return stringBuilder.toString();
-    }
-
-    private void appendIfRaceWinner(StringBuilder stringBuilder, Car car) {
-        if(isWinner(car)) {
-            appendIfNotFirstWinner(stringBuilder);
-            stringBuilder.append(car.getName());
-        }
-    }
-
-    private void appendIfNotFirstWinner(StringBuilder stringBuilder) {
-        if(stringBuilder.length() != NONE) {
-            stringBuilder.append(WINNER_MORE_THAN_ONE_MESSAGE);
-        }
-    }
-
-    private boolean isWinner(Car car) {
-        return car.getPosition() == result.getMax();
-    }
-
     private void printInputRoundsMessage() {
         System.out.println(INPUT_PLAY_ROUND_MESSAGE);
     }
@@ -113,13 +94,6 @@ public class RacingGame {
 
     private void createResult() {
         result = new Result(carList);
-    }
-
-    private void startGame() {
-        for(int i = 0; i < rounds; i++) {
-            moveAllCar();
-            printResult();
-        }
     }
 
     private void printResult() {
@@ -140,5 +114,9 @@ public class RacingGame {
 
     private boolean canCarMove() {
         return RandomNumberGenerator.getRandomNumber() >= MOVING_FORWARD;
+    }
+
+    public ArrayList<Car> getCarList() {
+        return carList;
     }
 }

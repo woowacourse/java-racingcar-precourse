@@ -1,11 +1,10 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class Result {
+    private static int max;
     private final ArrayList<Car> cars;
-    private int max = 0;
 
     public Result(ArrayList<Car> cars) {
         this.cars = cars;
@@ -29,7 +28,7 @@ public class Result {
         }
     }
 
-    public int getMax() {
+    public static int getMax() {
         return max;
     }
 
