@@ -14,24 +14,24 @@ public class TryNumber {
         this.tryNumber = tryNumber;
     }
 
-    public void tryNumberValidation(String tryNumber) {
+    private void tryNumberValidation(String tryNumber) {
         isDigitString(tryNumber);
         isBlank(tryNumber);
     }
 
-    public void isDigitString(String tryNumber) throws IllegalArgumentException {
+    private void isDigitString(String tryNumber) throws IllegalArgumentException {
         for (int i = 0; i < tryNumber.length(); i++) {
             isDigitChar(tryNumber.charAt(i));
         }
     }
 
-    public void isDigitChar(char tryNum) throws IllegalArgumentException {
+    private void isDigitChar(char tryNum) throws IllegalArgumentException {
         if (!Character.isDigit(tryNum)) {
             throw new IllegalArgumentException(ErrorMessage.TRY_NUM_NOT_DIGIT_ERROR.print());
         }
     }
 
-    public static void isBlank(String tryNumber) throws IllegalArgumentException {
+    private static void isBlank(String tryNumber) throws IllegalArgumentException {
         if (tryNumber.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.TRY_NUM_NULL_ERROR.print());
         }

@@ -26,12 +26,12 @@ public class Car {
         }
     }
 
-    public int generateRandomNumber() {
+    private int generateRandomNumber() {
         return Randoms.pickNumberInRange(Constant.RANDOM_NUMBER_MIN_SIZE.value(),
                 Constant.RANDOM_NUMBER_MAX_SIZE.value());
     }
 
-    public void Move() {
+    private void Move() {
         this.position++;
     }
 }

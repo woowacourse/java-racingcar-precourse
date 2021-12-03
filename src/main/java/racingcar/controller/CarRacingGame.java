@@ -17,7 +17,7 @@ public class CarRacingGame {
         printWinner(cars);
     }
 
-    public void setCarsName(Cars cars) {
+    private void setCarsName(Cars cars) {
         try {
             cars.addCars(InputView.printSetCarsNameMessage());
         } catch (IllegalArgumentException e) {
@@ -26,7 +26,7 @@ public class CarRacingGame {
         }
     }
 
-    public void setTryNumber(Cars cars) {
+    private void setTryNumber(Cars cars) {
         try {
             cars.setTryNumber(InputView.printSetTryNumberMessage());
         } catch (IllegalArgumentException e) {
@@ -35,13 +35,13 @@ public class CarRacingGame {
         }
     }
 
-    public void printAllTry(Cars cars) {
+    private void printAllTry(Cars cars) {
         for (int i = 0; cars.getTryNumber() > i; i++) {
             printCarsPosition(cars);
         }
     }
 
-    public void printCarsPosition(Cars cars) {
+    private void printCarsPosition(Cars cars) {
         for (Car car : cars.getCarList()) {
             car.SelectMoveOrStop();
             OutputView.printCarName(car.getName());
@@ -51,11 +51,11 @@ public class CarRacingGame {
         OutputView.printSpace();
     }
 
-    public void printWinner(Cars cars) {
+    private void printWinner(Cars cars) {
         OutputView.printWinner(getWinner(cars));
     }
 
-    public String getWinner(Cars cars) {
+    private String getWinner(Cars cars) {
         return cars.getWinner(cars.getCarsPosition());
     }
 }
