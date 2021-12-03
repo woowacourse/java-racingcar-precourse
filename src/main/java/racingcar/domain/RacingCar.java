@@ -1,15 +1,16 @@
 package racingcar.domain;
 
-public class Car {
+import racingcar.util.Validator;
 
-	private static final String NAMING_ERROR_MESSAGE = "[ERROR] 길이는 5글자 이내로 입력해야 합니다.";
-	private static final int LENGTH_LIMIT = 5;
+public class RacingCar {
+
+	static Validator validator = new Validator();
 
 	private final String name;
 	private int position = 0;
 
-	public Car(String name) {
-		validateName(name);
+	public RacingCar(String name) {
+		validator.validateName(name);
 		this.name = name;
 	}
 
@@ -19,12 +20,6 @@ public class Car {
 
 	public int getLocation() {
 		return this.position;
-	}
-
-	private void validateName(String name) {
-		if (name.length() > LENGTH_LIMIT) {
-			throw new IllegalArgumentException(NAMING_ERROR_MESSAGE);
-		}
 	}
 
 	public void moveCar(int distance) {
