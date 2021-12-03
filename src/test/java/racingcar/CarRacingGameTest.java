@@ -19,4 +19,11 @@ class CarRacingGameTest {
 		assert game.isNamesInputException(namesDistinctFalse) == true;
 	}
 
+	@Test
+	void isRoundNumberInputException() {
+		assert game.isRoundNumberInputException("2") == false;
+		assert game.isRoundNumberInputException("0") == true;
+		assert game.isRoundNumberInputException("two") == true;
+	}
+
 }

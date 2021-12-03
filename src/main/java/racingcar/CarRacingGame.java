@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class CarRacingGame {
 	private InputValidator inputValidator = new InputValidator();
+	private int roundNumber;
 
 	public void createCars() {
 		String[] carNames = inputNames();
@@ -25,6 +26,22 @@ public class CarRacingGame {
 	public boolean isNamesInputException(String[] names) {
 		return inputValidator.isNamesLessThanSix(names) == false
 			|| inputValidator.isNamesDistinct(names) == false;
+	}
+
+	public void inputRoundNumber() {
+		while (true) {
+			System.out.println("시도할 회수는 몇회인가요?");
+			String roundNumber = Console.readLine();
+			if (isRoundNumberInputException(roundNumber) == false) {
+				this.roundNumber = Integer.parseInt(roundNumber);
+				return;
+			}
+		}
+	}
+
+	public boolean isRoundNumberInputException(String roundNumber) {
+		return inputValidator.isNumber(roundNumber) == false
+			|| inputValidator.isNumberMoreThanMin(roundNumber) == false;
 	}
 
 }
