@@ -7,10 +7,10 @@ import racingcar.view.OutputView;
 
 public class Application {
 	public static void main(String[] args) {
-		String inputCarsName = InputView.getInputCarsName();
-		int round = InputView.getInputRound();
-		RacingGame racingGame = RacingGame.createRacingGame(inputCarsName, round);
-
+		RacingGame racingGame = RacingGame.createRacingGame(
+			InputView.getInputCarsName(),
+			InputView.getInputRound()
+		);
 		int roundCount = 0;
 		OutputView.printRacingRecordHeadLine();
 		while (racingGame.isContinue(roundCount++)) {
