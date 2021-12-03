@@ -11,6 +11,7 @@ public class InputView {
     private static final String INPUT_TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String SPLIT_REGEX = ",";
     private static final int SPLIT_LIMIT = -1;
+    private static final int ZERO_NUMBER = 0;
 
     public List<String> getNames() {
         System.out.println(INPUT_NAMES_MESSAGE);
@@ -23,13 +24,22 @@ public class InputView {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
         String inputTryCount = Console.readLine();
         validateNumberFormat(inputTryCount);
-        return Integer.parseInt(inputTryCount);
+
+        int tryCount = Integer.parseInt(inputTryCount);
+        validateNegativeNumber(tryCount);
+        return tryCount;
     }
 
     private void validateNumberFormat(String inputTryCount) {
         try {
             Integer.parseInt(inputTryCount);
         } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateNegativeNumber(int parseTryCount) {
+        if (parseTryCount < ZERO_NUMBER) {
             throw new IllegalArgumentException();
         }
     }
