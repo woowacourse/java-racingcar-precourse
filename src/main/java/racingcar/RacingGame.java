@@ -9,7 +9,7 @@ import camp.nextstep.edu.missionutils.Console;
  * <h1>실제 레이싱 게임 로직</h1>
  *
  * @author yunki kim
- * @version 1.0
+ * @version 1.1
  * @since 2021-12-01(V1.0)
  */
 
@@ -68,18 +68,22 @@ public class RacingGame {
 
 	/** 레이싱 게임의 정보를 유저로부터 입력받는다 */
 	private void inputRacingInformation() {
-		try {
-			inputRacingCarName();
-		} catch(IllegalArgumentException error) {
-			System.out.println(error.getMessage());
-			inputRacingCarName();
+		while(true) {
+			try {
+				inputRacingCarName();
+				break;
+			} catch(IllegalArgumentException error) {
+				System.out.println(error.getMessage());
+			}
 		}
 
-		try {
-			inputRacingTurns();
-		} catch(IllegalArgumentException error) {
-			System.out.println(error.getMessage());
-			inputRacingTurns();
+		while(true) {
+			try {
+				inputRacingTurns();
+				break;
+			} catch(IllegalArgumentException error) {
+				System.out.println(error.getMessage());
+			}
 		}
 	}
 

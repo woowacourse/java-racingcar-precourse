@@ -203,3 +203,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - 의미가 명확하지 않은 메서드와 멤버 변수 이름 수정
     - Read-only여야 하는 변수를 final로 선언
     - 사용자가 유효하지 않은 데이터 입력에 대한 에러메시지에서 중복되는 부분 static 변수로 변경
+    - 사용자가 유효하지 않은 데이터를 입력했을때 에러를 띄우고 다시 입력받는 기능이 한번만 동작되는 문제 해결
