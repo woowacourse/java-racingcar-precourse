@@ -198,6 +198,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
         - 이름이 중복된 경우 Exception 발생
     - 시도 회수
         - 숫자가 아닐 경우 Exception 발생
+- 자동차 생성시키기
 - 자동차 이동시키기
     - 무작위로 수 생성
     - 생성된 수를 토대로 자동차 이동
