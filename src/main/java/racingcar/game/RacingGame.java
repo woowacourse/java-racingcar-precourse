@@ -38,7 +38,8 @@ public class RacingGame {
 	}
 
 	public void awards() {
-		List<Car> gameResult = racingGameReferee.getGameResult(cars);
+		List<Car> gameWinners = racingGameReferee.getGameResult(cars);
+		printResult.printWinner(gameWinners);
 	}
 
 }
