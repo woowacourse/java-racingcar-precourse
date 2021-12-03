@@ -19,9 +19,9 @@ public class RacingGameController {
             while (!tryNumber.finish()) {
                 cars.move();
                 tryNumber.minus();
-                OutputView.printCurrentCarsPosition(cars.cars());
+                OutputView.printCurrentCarsPosition(cars.carsDto());
             }
-            OutputView.printWinner(cars.cars());
+            OutputView.printWinner(cars.carsDto());
         }
 
     private void prepareTryNumber() {

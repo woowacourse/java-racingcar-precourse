@@ -27,4 +27,10 @@ public class Cars {
     public List<Car> cars() {
         return cars;
     }
+
+    public List<CarDto> carsDto() {
+        return cars.stream()
+            .map(car -> CarDto.form(car))
+            .collect(Collectors.toList());
+    }
 }
