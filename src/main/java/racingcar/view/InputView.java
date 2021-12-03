@@ -1,9 +1,9 @@
 package racingcar.view;
 
 import static racingcar.util.SymbolicConstantUtil.*;
+import static racingcar.util.ValidationUtil.*;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.ValidationUtil;
 
 public class InputView {
 	private static final String REQUEST_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -25,11 +25,11 @@ public class InputView {
 	private static void validateInputCarsName(String inputCarsName) {
 		String[] carsName = inputCarsName.split(COMMA);
 		for (String carName : carsName) {
-			ValidationUtil.isValidateBlank(carName);
-			ValidationUtil.isValidateNotInput(carName);
-			ValidationUtil.isValidateLength(carName);
+			isValidateBlank(carName);
+			isValidateNotInput(carName);
+			isValidateLength(carName);
 		}
-		ValidationUtil.isValidateDuplicated(carsName);
+		isValidateDuplicated(carsName);
 	}
 
 	public static int getInputRound() {
@@ -45,9 +45,9 @@ public class InputView {
 	}
 
 	private static void validateInputRound(String inputRound) {
-		ValidationUtil.isValidateNumber(inputRound);
-		ValidationUtil.isValidateMinimumOne(inputRound);
-		ValidationUtil.isValidateNotInput(inputRound);
+		isValidateNumber(inputRound);
+		isValidateMinimumOne(inputRound);
+		isValidateNotInput(inputRound);
 	}
 
 	private static void printRequestCarsName() {
