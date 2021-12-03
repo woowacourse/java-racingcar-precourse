@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import racingcar.receiver.NameReceiver;
 import racingcar.receiver.TryCountReceiver;
 
-public class GameHost {
+public class RacingCarGame {
 
 	public void run() {
 		// 자동차 이름 입력
