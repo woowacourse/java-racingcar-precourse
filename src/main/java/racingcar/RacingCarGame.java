@@ -12,6 +12,10 @@ public class RacingCarGame {
     }
 
     public void play() {
+        getInput();
+    }
+
+    private void getInput(){
         userInput.inputNames();
         makeCarList(userInput.getNames());
     }
