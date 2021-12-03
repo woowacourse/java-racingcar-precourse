@@ -2,7 +2,7 @@ package racingcar.race;
 
 import racingcar.car.CarService;
 import racingcar.car.dto.CarDto;
-import utils.InputValidator;
+import utils.CarNameValidator;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class RaceController {
     public boolean isSatisfyAllCarName(String[] carNames) {
         try{
             for (String name : carNames) {
-                InputValidator.lengthInRange(name);
+                CarNameValidator.validateLengthInRange(name);
                 carService.createCar(name);
             }
         }catch(IllegalArgumentException e) {

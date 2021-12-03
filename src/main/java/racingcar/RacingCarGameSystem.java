@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.race.RaceController;
-import utils.InputValidator;
+import utils.InputNumberValidator;
 
 public class RacingCarGameSystem {
 
@@ -34,7 +34,7 @@ public class RacingCarGameSystem {
         while(true) {
             System.out.println(NUMBER_OF_RACES_MESSAGE);
             String input = Console.readLine();
-            if(InputValidator.isSatisfyNumberOfRaces(input)) {
+            if(InputNumberValidator.isSatisfyNumberOfRaces(input)) {
                 return Integer.parseInt(input);
             }
         }
