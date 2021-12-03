@@ -60,7 +60,6 @@ public class Game {
             return false;
         }
         try {
-            Exception e = new Exception();
             checkPositive();
         } catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 시도 횟수는 양수여야 한다.");
@@ -76,6 +75,9 @@ public class Game {
             if (Character.isDigit(temp) == false) {
                 throw new IllegalArgumentException();
             }
+        }
+        if (input.equals("")) {
+            throw new IllegalArgumentException();
         }
     }
 
