@@ -1,6 +1,6 @@
 package racingcar;
 
-public enum ExceptionMessage {
+public enum Messages {
     COMMA_LOCATION_ERROR_MESSAGE("[ERROR] 쉼표는 이름 사이에 존재해야합니다."),
     NAME_AMOUNT_ERROR_MESSAGE("[ERROR] 자동차 이름은 2개 이상이어야 합니다."),
     NAME_DIGIT_ERROR_MESSAGE("[ERROR] 자동차 이름의 글자수는 5자 이하여야 합니다."),
@@ -10,7 +10,7 @@ public enum ExceptionMessage {
 
     private String message;
 
-    ExceptionMessage(String message) {
+    Messages(String message) {
         this.message = message;
     }
 
