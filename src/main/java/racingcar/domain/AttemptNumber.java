@@ -6,7 +6,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class AttemptNumber {
-	private int attemptNumber;
+	private final int attemptNumber;
 	private static int numberOfRuns = 0;
 
 	public AttemptNumber() {

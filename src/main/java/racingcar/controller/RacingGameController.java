@@ -5,8 +5,8 @@ import racingcar.domain.RacingCars;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
-	private RacingCars racingCars;
-	private AttemptNumber attemptNumber;
+	private final RacingCars racingCars;
+	private final AttemptNumber attemptNumber;
 
 	public RacingGameController() {
 		racingCars = new RacingCars();
