@@ -7,16 +7,17 @@ import java.util.List;
 
 import org.assertj.core.util.Lists;
 
-public class Judge {
+public enum Judge {
+	JUDGE_INSTANCE;
 
-	public static List<String> judging(Car[] cars) {
+	public List<String> judging(Car[] cars) {
 		List<Car> carList = Lists.list(cars);
 		sortingByPosition(carList);
 
 		return getRaceWinnerList(carList);
 	}
 
-	private static List<String> getRaceWinnerList(List<Car> carList) {
+	private List<String> getRaceWinnerList(List<Car> carList) {
 		int max = carList.get(0).getPosition();
 
 		List<String> winnerList = new ArrayList<>();

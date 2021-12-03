@@ -31,7 +31,7 @@ public class Validator {
 		return flag;
 	}
 
-	public static boolean isCarMoveCondition(int randomNumber) {
+	public static boolean validateCarMoveCondition(int randomNumber) {
 		if (randomNumber >= CAR_MOVE_CONDITION_MIN_VALUE) {
 			return true;
 		}

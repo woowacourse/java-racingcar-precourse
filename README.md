@@ -19,7 +19,7 @@
 - Judge
     - 메서드
         - `judging(Car[] cars)`: Car 데이터를 인자로 받아 sortingByPosition()을 통해 정렬해준다.
-        _ `getRaceWinnerList(List<Car> carList)`: 정렬된 Car데이터 중 가장 높은 postion을 가진 객체를 List에 담아 반환한다.
+        - `getRaceWinnerList(List<Car> carList)`: 정렬된 Car데이터 중 가장 높은 postion을 가진 객체를 List에 담아 반환한다.
             - 만약, 가장 높은 postion을 가진 객체가 여러 개일 경우 모두 반환한다.
         
 

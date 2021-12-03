@@ -12,10 +12,15 @@ import racingcar.domain.Car;
 public class Input {
 	private static final String CAR_NAMES_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String COIN_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
+	private static RandomNumberBox randomNumberBox;
 
 	private static String[] carNames;
 	private static String input;
 	private static boolean flag;
+
+	static{
+		randomNumberBox = RANDOM_NUMBER_BOX_INSTANCE;
+	}
 
 	public static String[] inputCarNames() {
 		System.out.println(CAR_NAMES_INPUT_MESSAGE);
@@ -33,7 +38,7 @@ public class Input {
 
 	public static Car[] inputCarNameToCarObj(String[] carNames) {
 		Car[] cars = new Car[carNames.length];
-
+		System.out.println(carNames.length);
 		AtomicInteger idx = new AtomicInteger();
 		Arrays.stream(carNames).forEach(name -> cars[idx.getAndIncrement()] = new Car(name));
 
@@ -42,7 +47,7 @@ public class Input {
 
 	public static void inputRandomNumberToCar(Car[] cars) {
 		for (Car car : cars) {
-			car.moveOrStop(getRandomNumber());
+			car.moveOrStop(randomNumberBox.getRandomNumber());
 		}
 	}
 

@@ -1,6 +1,8 @@
 package racingcar.utils;
 
 
+import static racingcar.domain.Judge.*;
+
 import java.util.List;
 
 import racingcar.domain.Car;
@@ -9,6 +11,11 @@ import racingcar.domain.Judge;
 public class Output {
 	private static final String RESULT_MESSAGE = "실행 결과";
 	private static final String WINNER_MESSAGE = "최종 우승자 : ";
+	private static Judge judge;
+
+	static {
+		judge = JUDGE_INSTANCE;
+	}
 
 	public static void outputCarPosition(Car[] cars) {
 		printCarStatus(cars);
@@ -22,7 +29,7 @@ public class Output {
 	private static void printWinnerList(Car[] cars) {
 		StringBuilder sb = new StringBuilder();
 
-		List<String> ouputList = Judge.judging(cars);
+		List<String> ouputList = judge.judging(cars);
 		for (String name : ouputList) {
 			sb.append(name + ", ");
 		}

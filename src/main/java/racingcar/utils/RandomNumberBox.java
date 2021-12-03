@@ -2,11 +2,13 @@ package racingcar.utils;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
-public class RandomNumberBox {
-	private static final int MIN = 0;
-	private static final int MAX = 9;
+public enum RandomNumberBox {
+	RANDOM_NUMBER_BOX_INSTANCE;
+	private static final int RANDOM_NUMBER_MIN = 0;
+	private static final int RANDOM_NUMBER_MAX = 9;
 
-	public static int getRandomNumber() {
-		return pickNumberInRange(MIN, MAX);
+	public int getRandomNumber(){
+		return pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
 	}
+
 }

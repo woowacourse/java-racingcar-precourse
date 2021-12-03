@@ -25,7 +25,7 @@ public class Car {
 	}
 
 	public void moveOrStop(int randomNumber) {
-		if (isCarMoveCondition(randomNumber)) {
+		if (validateCarMoveCondition(randomNumber)) {
 			position++;
 		}
 	}
