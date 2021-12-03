@@ -1,20 +1,19 @@
 package racingcar;
 
 import static racingcar.view.InputView.*;
+import static racingcar.view.OutputView.*;
 
 import racingcar.domain.CarRepository;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class Game {
 	public void run() {
 		CarRepository carRepository = new CarRepository();
-		carRepository.createCars(InputView.inputCarNames());
+		carRepository.createCars(inputCarNames());
 		int numberOfCarMoving =  inputNumberOfCarMoving();
 		for (int i = 0; i < numberOfCarMoving; i++) {
 			carRepository.attemptCarsMoving();
-			OutputView.printCarsStatus(carRepository.getCarList());
+			printCarsStatus(carRepository.getCarList());
 		}
-		OutputView.printFinalCarWinners(carRepository.getWinnerCars());
+		printFinalCarWinners(carRepository.getWinnerCars());
 	}
 }
