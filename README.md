@@ -9,7 +9,7 @@
 - 자동차의 이름들은 쉼표를 기준으로 구분한다. ✅
 - 각 이름은 5글자 이하만 가능하다. ✅
 - 공백을 포함하거나 공백만을 가지는 이름은 허용하지 않는다. ✅
-- 중복된 이름은 허용하지 않는다.
+- 중복된 이름은 허용하지 않는다. ✅
 - 잘못된 값을 입력할 경우 IllegalArgumentException 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다. ✅
 
 ### 시도할 횟수 입력
@@ -89,6 +89,8 @@
     * 공백을 포함하는 이름인지 확인
 - private static boolean isValidLength(String[] input)
     * 각 이름이 5글자 이하인지 확인
+- private static boolean isDuplicated(String[] input)
+    * 중복되는 이름이 있는지 확인
 
 #### AttemptValidationService
 
