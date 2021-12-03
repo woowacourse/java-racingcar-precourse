@@ -3,6 +3,7 @@ package model.car.vo;
 import java.util.Objects;
 
 public class CarName {
+    private static final int MAX_LENGTH_OF_NAME = 5;
     private final String value;
 
     public CarName(final String value) {
@@ -11,7 +12,7 @@ public class CarName {
     }
 
     private void validate(final String value) {
-        if (value.length() > 5) {
+        if (value.length() > MAX_LENGTH_OF_NAME) {
             throw new IllegalArgumentException("이름은 5 글자를 초과할 수 없습니다.");
         }
     }
