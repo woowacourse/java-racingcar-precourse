@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.domain.RacingGame;
+import racingcar.domain.RacingRecord;
 import racingcar.view.InputView;
 
 public class Application {
@@ -11,7 +12,7 @@ public class Application {
 
 		int roundCount = 0;
 		while (racingGame.isContinue(roundCount)) {
-			racingGame.race();
+			RacingRecord racingRecord = racingGame.race();
 		}
 	}
 }

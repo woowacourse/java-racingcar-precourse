@@ -28,4 +28,8 @@ public class Cars {
 	public void driveAll(RandomNumberGeneratePolicy randomNumberGeneratePolicy) {
 		cars.forEach(car -> car.drive(randomNumberGeneratePolicy.generateNumber()));
 	}
+
+	public List<Car> getDriveRecord() {
+		return cars;
+	}
 }
