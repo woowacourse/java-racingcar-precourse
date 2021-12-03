@@ -1,6 +1,8 @@
 package racingcar;
 
 public interface IUser {
-    public String getCarName();
-    public int getRepeatNumber();
+    public String inputCarName();
+    public int inputRepeatNumber();
+    public void informInputCar();
+    public void informInputCount();
 }
