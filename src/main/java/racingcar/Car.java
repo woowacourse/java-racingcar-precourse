@@ -21,4 +21,10 @@ public class Car {
         }
         return false;
     }
+
+    public void setPosition() {
+        if (this.predicateAdvance()) {
+            this.position++;
+        }
+    }
 }
