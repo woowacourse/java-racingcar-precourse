@@ -16,8 +16,8 @@ public class User {
         times = Integer.parseInt(Console.readLine());
     }
 
-    public void toNameArray(String names) {
-        nameArray = names.split(",");
+    public void toNameArray() {
+        nameArray = this.names.split(",");
     }
 
     public String[] getCarName() {
