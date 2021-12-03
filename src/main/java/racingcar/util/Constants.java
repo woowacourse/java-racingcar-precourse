@@ -16,4 +16,7 @@ public class Constants {
 	public static final String ERROR_CHAR_IS_NOT_NUMBER = ERROR + " 숫자를 입력해야 합니다.";
 	public static final String ERROR_DRIVE_COUNT_INVALID = ERROR + " 운행 횟수는 1 이상이어야 합니다.";
 	public static final String ERROR_SAME_CAR_NAME = ERROR + " 중복되는 자동차 이름이 있으면 안됩니다.";
+
+	public static final String MESSAGE_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+	public static final String MESSAGE_INPUT_DRIVE_COUNT = "시도할 회수는 몇회인가요?";
 }

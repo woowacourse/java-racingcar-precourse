@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
 	public static String[] readCarName() {
+		System.out.println(MESSAGE_INPUT_CAR_NAMES);
 		String[] carNames;
 		try {
 			carNames = Console.readLine().split(COMMA);
@@ -17,6 +18,7 @@ public class InputManager {
 	}
 
 	public static int readDriveCount() {
+		System.out.println(MESSAGE_INPUT_DRIVE_COUNT);
 		int driveCount;
 		try {
 			String readLine = Console.readLine();
