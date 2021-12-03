@@ -17,6 +17,8 @@
     - 다시 입력 받기
   - 0이 들어온 경우 IllegalArgumentException
     - 다시 입력 받기
+- 차 이름 반환
+- 총 시도할 횟수 반환
 
 ### Game
 - n개의 car 객체 생성
