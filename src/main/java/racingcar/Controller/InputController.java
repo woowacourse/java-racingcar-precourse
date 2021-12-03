@@ -16,7 +16,7 @@ public class InputController {
 
     private void getName() {
         try {
-            String[] names = InputView.inputName().replaceAll(" ", "").split(",");
+            String[] names = InputView.inputName().split(",");
             NameValidationService.isValidNames(names);
             input.setNames(names);
         } catch (IllegalArgumentException e) {

@@ -16,6 +16,7 @@ public class Constant {
     public static final String STANDARD_FOR_FINAL_WINNER = ", ";
     public static final String ERROR = "[ERROR] ";
     public static final String ERROR_NO_NAMES = ERROR + "1개 이상의 이름을 입력해야 한다.";
+    public static final String ERROR_NO_SPACE = ERROR + "이름에 공백은 허용되지 않는다.";
     public static final String ERROR_MORE_THAN_FIVE_CHARACTERS = ERROR + "5글자 이하의 이름을 입력해야 한다.";
     public static final String ERROR_ATTEMPT_MUST_BE_A_NUMBER = ERROR + "시도 횟수는 숫자여야 한다.";
     public static final String ERROR_ATTEMPT_MUST_BE_MORE_THAN_ZERO = ERROR + "1 이상의 숫자를 입력해야 한다.";
