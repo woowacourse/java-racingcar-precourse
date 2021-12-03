@@ -1,5 +1,7 @@
 package racingcar.car;
 
+import static racingcar.error.ErrorMessage.*;
+
 public class Car {
     private static final int DEFAULT_POSITION = 0;
     private static final char NAME_BLANK = ' ';
@@ -26,7 +28,7 @@ public class Car {
 
     private void validateEmpty(String name) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CAR_NAME_NOT_VALID.getMessage());
         }
     }
 
@@ -36,12 +38,12 @@ public class Car {
                 return;
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(CAR_NAME_NOT_VALID.getMessage());
     }
 
     private void validateLength(String name) {
         if (name.length() > NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CAR_NAME_NOT_VALID.getMessage());
         }
     }
     
