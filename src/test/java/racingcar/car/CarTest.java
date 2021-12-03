@@ -35,6 +35,19 @@ class CarTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("이름이 공백이거나 비어있는 경우 예외를 던진다.")
+    @ParameterizedTest
+    @ValueSource(strings = {" ", "    ", ""})
+    void constructor_NameThenEmptyOrBlank_ExceptionThrown(String name) {
+        // given
+        MovingPolicy randomMovingPolicy = new RandomMovingPolicy();
+
+        // when & then
+        assertThatThrownBy(() -> {
+            new Car(name, randomMovingPolicy);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
     @DisplayName("movingPolicy의 isMoving이 true이면 position이 1 증가한다.")
     @Test
     void move_isMovingThenTrue_increasePosition() {
