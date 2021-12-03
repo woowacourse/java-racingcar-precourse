@@ -11,8 +11,10 @@ public class Game {
 	public void play() {
 		List<Car> cars = constructCar(parsingCarNames(InputView.inputCarNames()));
 		int gameRound = castingGameRound(InputView.inputGameRound());
+		OutputView.showGameResultMessage();
 		for (int i = 0; i < gameRound; i++) {
 			playRound(cars);
+			OutputView.showGameRoundResult(showCarsPosition(cars));
 		}
 	}
 
@@ -41,6 +43,23 @@ public class Game {
 		if (gameRound < Constant.MINIMUM_GAME_ROUND) {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	public String makeCarProgressSign(int position) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < position; i++) {
+			stringBuilder.append(Constant.CAR_PROGRESS_SIGN);
+		}
+		return stringBuilder.toString();
+	}
+
+	public LinkedHashMap<Car, String> showCarsPosition(List<Car> cars) {
+		LinkedHashMap<Car, String> roundResult = new LinkedHashMap<>();
+		for (Car car : cars) {
+			String carPosition = makeCarProgressSign(car.getPosition());
+			roundResult.put(car, carPosition);
+		}
+		return roundResult;
 	}
 
 	public void playRound(List<Car> cars) {
