@@ -1,5 +1,7 @@
 package racingcar.racinggame;
 
+import java.util.ArrayList;
+
 import racingcar.Car;
 import racingcar.user.Input;
 import racingcar.user.Output;
@@ -7,11 +9,13 @@ import racingcar.user.Output;
 public class Game {
 	private final Input input;
 	private final Output output;
+	private final ArrayList<String> champion;
 	private int highScore;
 
 	public Game() {
 		input = new Input();
 		output = new Output();
+		champion = new ArrayList<>();
 	}
 
 	public void start() {
@@ -22,6 +26,7 @@ public class Game {
 		output.printRoundResult(round, cars);
 
 		getHighScore(cars);
+		getChampion(cars);
 	}
 
 	private Car[] createCars(String[] carNames) {
@@ -41,6 +46,18 @@ public class Game {
 	private void isHighScore(Car car) {
 		if (car.getPosition() > highScore) {
 			highScore = car.getPosition();
+		}
+	}
+
+	private void getChampion(Car[] cars) {
+		for (Car car : cars) {
+			isChampion(car);
+		}
+	}
+
+	private void isChampion(Car car) {
+		if (car.getPosition() == highScore) {
+			champion.add(car.getName());
 		}
 	}
 }
