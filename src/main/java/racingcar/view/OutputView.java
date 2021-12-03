@@ -8,6 +8,7 @@ public class OutputView {
 
     private static final String FINAL_WINNER = "최종 우승자";
     private static final String POSITION = "-";
+    private static final String NOT_WINNER = "";
 
     public static void printCurrentCarsPosition(List<CarDto> cars) {
         cars.forEach(OutputView::printEachCarPosition);
@@ -31,7 +32,7 @@ public class OutputView {
     private static String findWinners(List<CarDto> cars, int max) {
         return cars.stream()
             .map(car -> findWinners(max, car))
-            .filter(carName -> !carName.isEmpty())
+            .filter(carName -> !carName.equals(NOT_WINNER))
             .collect(Collectors.joining(","));
     }
 
@@ -43,7 +44,7 @@ public class OutputView {
         if (car.position() == max) {
             return car.name();
         }
-        return "";
+        return NOT_WINNER;
     }
 
     public static void printErrorMessage(String errorMessage) {
