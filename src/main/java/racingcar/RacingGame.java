@@ -37,8 +37,7 @@ public class RacingGame {
     }
 
     private void endGame() {
-        Winner winner = new Winner(carList);
-        System.out.println(winner.toString());
+        System.out.println(new Winner(carList).toString());
     }
 
     private void processCarNames() {
