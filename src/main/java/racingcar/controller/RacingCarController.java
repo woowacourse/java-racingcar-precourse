@@ -16,9 +16,11 @@ import racingcar.view.OutputView;
 public class RacingCarController {
 	private RacingCar racingCar;
 	private Integer gameCount;
+	private String[] carNames;
 
 	public void start() {
 		getInputCars();
+		makeRacingCars(carNames);
 		getInputGameCount();
 		moveCars();
 		confirmWinner();
@@ -31,17 +33,17 @@ public class RacingCarController {
 			CarNameValidator.checkCarNameInput(carNameInput);
 			String[] tmpCarNames = carNameInput.split(DELIMITER);
 			CarNameValidator.checkCarNames(tmpCarNames);
-			makeCars(tmpCarNames);
+			carNames = tmpCarNames;
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e.getMessage());
 			getInputCars();
 		}
 	}
 
-	private void makeCars(String[] tmpCarNames) {
+	private void makeRacingCars(String[] carNames) {
 		List<Car> tmpRacingCar = new ArrayList<>();
-		for (String tmpCarName : tmpCarNames) {
-			Car tmpCar = new Car(tmpCarName);
+		for (String carName : carNames) {
+			Car tmpCar = new Car(carName);
 			tmpRacingCar.add(tmpCar);
 		}
 		racingCar = new RacingCar(tmpRacingCar);
