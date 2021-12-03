@@ -12,8 +12,11 @@ public class GameTimesInput {
 	}
 
 	public int getGameTimes(){
-		String times = Console.readLine();
-		gameTimesValidator.validateTimes(times);
+		String times;
+		do {
+			System.out.println("시도할 회수는 몇회인가요?");
+			times = Console.readLine();
+		}while (gameTimesValidator.isInvalidTimes(times));
 		return Integer.parseInt(times);
 	}
 }

@@ -4,17 +4,23 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class GameTimesValidator {
-	public void validateTimes(String times) {
+	public boolean isInvalidTimes(String times) {
 		String[] timesArray = times.split("");
-		if(isEmptyString(timesArray)){
-			throw new IllegalArgumentException("[ERROR] 시도 횟수는 빈 문자열이면 안된다.");
+		try {
+			if (isEmptyString(timesArray)) {
+				throw new IllegalArgumentException("[ERROR] 시도 횟수는 빈 문자열이면 안된다.");
+			}
+			if (isContainNotNumber(timesArray)) {
+				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+			}
+			if (isZeroTimes(times)) {
+				throw new IllegalArgumentException("[ERROR] 시도 횟수는 1 이상이어야 한다.");
+			}
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			return true;
 		}
-		if(isContainNotNumber(timesArray)){
-			throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
-		}
-		if (isZeroTimes(times)) {
-			throw new IllegalArgumentException("[ERROR] 시도 횟수는 1 이상이어야 한다.");
-		}
+		return false;
 	}
 
 

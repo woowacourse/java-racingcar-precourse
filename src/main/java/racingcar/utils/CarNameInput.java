@@ -16,10 +16,12 @@ public class CarNameInput {
 	}
 
 	public List<Car> getCar() {
-		String readCars = Console.readLine();
-		String[] carArray = readCars.split(",");
-
-		carNameValidator.validateName(carArray);
+		String[] carArray;
+		do {
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+			String readCars = Console.readLine();
+			carArray = readCars.split(",");
+		}while(carNameValidator.isInvalidName(carArray));
 
 		return Arrays.stream(carArray)
 			.map(name -> new Car(name))
