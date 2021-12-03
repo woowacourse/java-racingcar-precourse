@@ -1,7 +1,12 @@
 package racingcar;
 
+import racingcar.domain.RacingGame;
+import racingcar.view.InputView;
+
 public class Application {
 	public static void main(String[] args) {
-		// TODO 구현 진행
+		String inputCarsName = InputView.getInputCarsName();
+		int round = InputView.getInputRound();
+		RacingGame racingGame = RacingGame.createRacingGame(inputCarsName, round);
 	}
 }
