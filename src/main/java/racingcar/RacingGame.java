@@ -98,7 +98,7 @@ public class RacingGame {
 
 	/** 다음 턴을 시작한다 */
 	private void startNextTurn() {
-		cars.forEach(Car::forward);
+		cars.forEach(Car::goForward);
 		printThisTurnResult();
 	}
 

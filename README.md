@@ -199,3 +199,5 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     "[ERROR] {차량이름}은 5자 이하여야 합니다"라는 문구를 출력한 후 해당 이름들을 다시 입력받는다.
     - 만약 사용자가 입력한 레이싱 게임 턴 수 중 숫자가 아닌 다른 문자가 포함되 있을 경우 IllegalArgumentException을 발생시킨다.
     그 후 "[ERROR] 시도 횟수는 숫자여야 한다."라는 문구를 출력한 후 시도 횟수를 다시 입력받는다.    
+- 리팩토링(branch: refactoring)
+    - 의미가 명확하지 않은 메서드와 멤버 변수 이름 수정

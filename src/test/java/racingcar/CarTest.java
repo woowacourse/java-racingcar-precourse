@@ -24,7 +24,7 @@ class CarTest {
 	@DisplayName("Car 클래스 인스턴스가 제대로 전진되었는지 확인")
 	@RepeatedTest(value = 10, name = "{displayName}, {currentRepetition}/{totalRepetitions}")
 	void forWardCar() {
-		carForwardTest.forward();
+		carForwardTest.goForward();
 
 		final int currentPosition = carForwardTest.getPosition();
 		final int carCurrentPosition = 0;

@@ -11,7 +11,7 @@ package racingcar;
 public class Car {
 
 	/** 자동차 전진 여부를 결정한다. 난수가 이 값보다 크면 전진한다 */
-	public static final Integer SHOULD_FORWARD_CAR = 3;
+	public static final Integer SHOULD_GO_FORWARD = 3;
 
 	/** 자동차 이름 */
     private final String name;
@@ -50,9 +50,9 @@ public class Car {
 	 * 자동차가 앞으로 전진할지 여부를 판단한다
 	 * 전진할 조건이 되면 앞으로 전진한다
 	 */
-	public void forward() {
+	public void goForward() {
 		final RandomNumber randomNumber = new RandomNumber();
-		if(randomNumber.getRandomNumber() <= SHOULD_FORWARD_CAR) {
+		if(randomNumber.getRandomNumber() <= SHOULD_GO_FORWARD) {
 			return;
 		}
 		this.position++;
