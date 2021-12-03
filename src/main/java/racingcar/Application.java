@@ -11,9 +11,15 @@ public class Application {
     }
 
     public static Game set(){
-        CarList carList = InputView.getCarList();
-        Turn turns = InputView.getTimes();
-
+        CarList carList = new CarList();
+        Turn turns = new Turn(0);
+        try {
+            carList = InputView.getCarList();
+            turns = InputView.getTimes();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            set();
+        }
         Game game = new Game(carList,turns);
         return game;
     }

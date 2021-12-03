@@ -20,7 +20,7 @@ public class Car {
 
     public void goOrStop(){
         int num = RandomGenerate.pickNum();
-        if(num > 4){
+        if(num > 3){
             position++;
         }
     }
