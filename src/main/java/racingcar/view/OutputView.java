@@ -10,6 +10,12 @@ import racingcar.domain.RacingResult;
 
 public class OutputView {
 	private static final String RESPONSE_RACE_WINNERS = "최종 우승자 : ";
+	private static final String RESPONSE_RACE_RECORD = "실행 결과";
+
+	public static void printRacingRecordHeadLine() {
+		System.out.println();
+		System.out.println(RESPONSE_RACE_RECORD);
+	}
 
 	public static void printRacingRecord(RacingRecord racingRecord) {
 		for (Car car : racingRecord.getRacingRecord()) {

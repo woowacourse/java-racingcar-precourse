@@ -12,6 +12,7 @@ public class Application {
 		RacingGame racingGame = RacingGame.createRacingGame(inputCarsName, round);
 
 		int roundCount = 0;
+		OutputView.printRacingRecordHeadLine();
 		while (racingGame.isContinue(roundCount++)) {
 			RacingRecord racingRecord = racingGame.race();
 			OutputView.printRacingRecord(racingRecord);
