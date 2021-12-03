@@ -2,8 +2,8 @@ package racingcar;
 
 import java.util.ArrayList;
 
-import racingcar.input.NameReceiver;
-import racingcar.input.TryCountReceiver;
+import racingcar.receiver.NameReceiver;
+import racingcar.receiver.TryCountReceiver;
 
 public class GameHost {
 

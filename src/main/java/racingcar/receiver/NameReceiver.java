@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.receiver;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.receiver;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.TryCountValidator;
