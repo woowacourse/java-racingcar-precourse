@@ -34,10 +34,22 @@ public class Game {
         int frontPosition = 0;
 
         for (Car car : cars) {
-            if(car.getPosition() > frontPosition) {
+            if (car.getPosition() > frontPosition) {
                 frontPosition = car.getPosition();
             }
         }
         return frontPosition;
+    }
+
+    public List<String> getWinner(List<Car> cars, int frontPosition) {
+        List<String> winnersName = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getPosition() == frontPosition) {
+                winnersName.add(car.getName());
+            }
+        }
+
+        return winnersName;
     }
 }
