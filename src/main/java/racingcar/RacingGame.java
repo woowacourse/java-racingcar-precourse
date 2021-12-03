@@ -53,7 +53,6 @@ public class RacingGame {
 				break;
 			}
 		}
-
 		return inputs;
 	}
 
@@ -119,11 +118,9 @@ public class RacingGame {
 		if (checkInputEmpty(str)) {
 			return ERROR_PREFIX + EMPTY_ATTEMPT_ERROR;
 		}
-
 		if (!checkInputNumber(str)) {
 			return ERROR_PREFIX + ATTEMPT_ONLY_NUMBER_ERROR;
 		}
-
 		if (checkInputNegativeNumber(str)) {
 			return ERROR_PREFIX + ATTEMPT_NEGATIVE_NUMBER_ERROR;
 		}
@@ -161,11 +158,9 @@ public class RacingGame {
 				maxPosition = nowPosition;
 				winners = "";
 			}
-
 			if (nowPosition != maxPosition) {
 				continue;
 			}
-
 			if (!winners.equals("")) {
 				winners += SPLIT_WITH_SPACE;
 			}
