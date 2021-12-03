@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
 
@@ -13,5 +15,11 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
 
         user.enterTimes();
+
+        Game game = new Game();
+
+        List<Car> cars = game.makeCarObject(user.getCarName());
+
+        
     }
 }
