@@ -15,14 +15,14 @@ public class RacingGameController {
         prepareTryNumber();
     }
 
-    public void run() {
-        while (!this.tryNumber.finish()) {
-            this.cars.move();
-            tryNumber.minus();
-            OutputView.printCurrentCarsPosition(cars.cars());
+        public void run() {
+            while (!this.tryNumber.finish()) {
+                this.cars.move();
+                tryNumber.minus();
+                OutputView.printCurrentCarsPosition(cars.cars());
+            }
+            OutputView.printWinner(cars.cars());
         }
-        OutputView.printWinner(cars.cars());
-    }
 
     private void prepareTryNumber() {
         try {
