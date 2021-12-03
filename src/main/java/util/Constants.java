@@ -6,4 +6,6 @@ public class Constants {
 	public static final int MAXIMUM_NAME_LENGTH = 5;
 	public static final String REPETITION_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
 	public static final String REPETITION_NUMBER_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
+	public static final String MOVEMENT_RESULT_START_SENTENCE = "실행 결과";
+	public static final String MOVING_GAUGE = "-";
 }

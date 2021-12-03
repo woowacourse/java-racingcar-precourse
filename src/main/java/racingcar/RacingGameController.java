@@ -21,5 +21,10 @@ class RacingGameController {
 				.map(Car::new)
 				.collect(Collectors.toList());
 		repetitionNumber = racingGameView.getRepetitionNumber();
+		racingGameView.printMovementStart();
+		for (int i = 0; i < repetitionNumber; i++) {
+			carList.forEach(Car::tryMoving);
+			racingGameView.printMovement(carList);
+		}
 	}
 }

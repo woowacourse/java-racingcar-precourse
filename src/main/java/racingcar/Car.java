@@ -1,5 +1,7 @@
 package racingcar;
 
+import static util.Constants.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -24,7 +26,7 @@ public class Car {
 	public String getDashedPosition() {
 		String dashedPosition = "";
 		for (int i = 0; i < position; i++) {
-			dashedPosition += '-';
+			dashedPosition += MOVING_GAUGE;
 		}
 		return dashedPosition;
 	}

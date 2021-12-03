@@ -36,6 +36,17 @@ class RacingGameView {
 		return Integer.parseInt(repetitionNumber);
 	}
 
+	public void printMovementStart() {
+		System.out.println(MOVEMENT_RESULT_START_SENTENCE);
+	}
+
+	public void printMovement(List<Car> carList) {
+		for (Car car : carList) {
+			System.out.println(car.getName() + " : " + car.getDashedPosition());
+		}
+		System.out.println();
+	}
+
 	private boolean checkLongNameException(List<String> carNamesList) {
 		try {
 			if (carNamesList.stream().anyMatch(carName -> carName.length() > MAXIMUM_NAME_LENGTH)) {
