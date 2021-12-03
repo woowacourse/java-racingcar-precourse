@@ -6,6 +6,13 @@ public class Output {
 	private static final String DISTANCE = "-";
 	private static final String COLON = " : ";
 
+	private void moveCars(Car[] cars) {
+		for (Car car : cars) {
+			car.move();
+			printResult(car);
+		}
+	}
+
 	private void printResult(Car car) {
 		System.out.print(car.getName() + COLON);
 		printDistance(car.getPosition());
