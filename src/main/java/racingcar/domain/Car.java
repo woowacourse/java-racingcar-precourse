@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 public class Car {
-
 	public static final int MINIMUM_CAR_NAME_LENGTH = 1;
 	public static final int MAXIMUM_CAR_NAME_LENGTH = 5;
 	private static final int MINIMUM_DRIVE_CONDITION = 4;
@@ -17,5 +16,13 @@ public class Car {
 		if (MINIMUM_DRIVE_CONDITION <= value) {
 			this.position++;
 		}
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public String getName() {
+		return name;
 	}
 }
