@@ -51,11 +51,11 @@ public class CarRacingGame {
         OutputView.printSpace();
     }
 
-    public void printWinner(Cars cars){
+    public void printWinner(Cars cars) {
         OutputView.printWinner(getWinner(cars));
     }
 
-    public String getWinner(Cars cars){
+    public String getWinner(Cars cars) {
         return cars.getWinner(cars.getCarsPosition());
     }
 }

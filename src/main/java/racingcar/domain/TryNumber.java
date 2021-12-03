@@ -16,7 +16,7 @@ public class TryNumber {
 
     public void tryNumberValidation(String tryNumber) {
         isDigitString(tryNumber);
-        isNull(tryNumber);
+        isBlank(tryNumber);
     }
 
     public void isDigitString(String tryNumber) throws IllegalArgumentException {
@@ -31,7 +31,7 @@ public class TryNumber {
         }
     }
 
-    public static void isNull(String tryNumber) throws IllegalArgumentException {
+    public static void isBlank(String tryNumber) throws IllegalArgumentException {
         if (tryNumber.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.TRY_NUM_NULL_ERROR.print());
         }

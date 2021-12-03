@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void SelectMoveOrStop() {
-        if (generateRandomNumber() > 3){
+        if (generateRandomNumber() > 3) {
             Move();
         }
     }
@@ -31,7 +31,7 @@ public class Car {
                 Constant.RANDOM_NUMBER_MAX_SIZE.value());
     }
 
-    public void Move(){
+    public void Move() {
         this.position++;
     }
 }
