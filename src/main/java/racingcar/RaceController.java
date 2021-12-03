@@ -29,14 +29,8 @@ public class RaceController {
 	}
 
 	private ArrayList<String> getProperNames() {
-		ArrayList<String> names = new ArrayList<>();
-		boolean needProperNames = true;
-		while (needProperNames) {
-			String inputValues = inputView.enterNames();
-			names = inputView.convertToArrayList(inputValues);
-			needProperNames = inputView.validateNames(names);
-		}
-		return names;
+		ArrayList<String> properNames = inputView.getProperNameList();
+		return properNames;
 	}
 
 	private Car[] enrollCars(ArrayList<String> names) {

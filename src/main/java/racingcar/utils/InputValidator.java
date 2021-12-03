@@ -3,8 +3,6 @@ package racingcar.utils;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class InputValidator {
 	public static final int NAME_LENGTH_LIMIT = 5;
 
@@ -15,18 +13,11 @@ public class InputValidator {
 	public static final String ERROR_NOT_INTEGER = "[ERROR] 이동횟수는 숫자여야 합니다.";
 	public static final String ERROR_ZERO_OR_NEGATIVE = "[ERROR] 이동횟수는 양수인 정수여야 합니다.";
 
-	public boolean validateNames(ArrayList<String> names) {
-		try {
-			System.out.println(names);
-			isOnlyName(names);
-			isLongName(names);
-			isDuplicateName(names);
-			isEmptyName(names);
-			return false;
-		} catch (IllegalArgumentException exception) {
-			System.out.println(exception.getMessage());
-			return true;
-		}
+	public void validateNames(ArrayList<String> names) {
+		isOnlyName(names);
+		isLongName(names);
+		isDuplicateName(names);
+		isEmptyName(names);
 	}
 
 	private void isOnlyName(ArrayList<String> names) {

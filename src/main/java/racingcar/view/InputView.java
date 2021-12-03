@@ -12,6 +12,19 @@ public class InputView {
 	public static final String DELIMITER = ",";
 	private InputValidator inputValidator = new InputValidator();
 
+	public ArrayList<String> getProperNameList() {
+		ArrayList<String> nameList = new ArrayList<>();
+		try {
+			String inputValues = enterNames();
+			nameList = convertToArrayList(inputValues);
+			inputValidator.validateNames(nameList);
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			getProperNameList();
+		}
+		return nameList;
+	}
+
 	public String enterNames() {
 		System.out.println(REQUEST_INPUT_NAMES);
 		String inputValues = Console.readLine();
@@ -25,10 +38,6 @@ public class InputView {
 			arrayList.add(stringTokenizer.nextToken().trim());
 		}
 		return arrayList;
-	}
-
-	public boolean validateNames(ArrayList<String> names) {
-		return inputValidator.validateNames(names);
 	}
 
 	public int enterMovesWithValidation() {
