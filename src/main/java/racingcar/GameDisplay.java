@@ -1,18 +1,18 @@
 package racingcar;
 
-import java.util.List;
-
 public class GameDisplay {
 
-    public static final String EXECUTION_RESULT = "실행결과";
-    public static final String NAME_SEPARATOR = ",";
+    private static final String EXECUTION_RESULT_MESSAGE = "실행결과";
+    private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String COLON = " : ";
 
-    public void printInputCarNameMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    public void printInputNameMessage() {
+        System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 
     public void printInputRoundMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_ROUND_MESSAGE);
     }
 
     public void printEmptyLine() {
@@ -20,26 +20,19 @@ public class GameDisplay {
     }
 
     public void printExecutionResultMessage() {
-        System.out.println(EXECUTION_RESULT);
+        System.out.println(EXECUTION_RESULT_MESSAGE);
     }
 
     public void printEachRoundResult(Car car) {
-        System.out.println(car.getCarName() + " : " + car.getSpeed());
+        System.out.println(car.getCarName() + COLON + car.getSpeed());
     }
 
-    public void printWinnerList(List<String> winners) {
-        final StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("최종 우승자 : ");
+    public void printWinner(String makeWinnerPrintFormat) {
+        System.out.println(makeWinnerPrintFormat);
+    }
 
-        for (int i = 0; i < winners.size(); i++) {
-            stringBuilder.append(winners.get(i));
-
-            if (i != winners.size() - 1) {
-                stringBuilder.append(NAME_SEPARATOR);
-            }
-        }
-
-        System.out.println(stringBuilder);
+    public void printErrorMessage(IllegalArgumentException illegalArgumentException) {
+        System.out.println(illegalArgumentException.getMessage());
     }
 
 }

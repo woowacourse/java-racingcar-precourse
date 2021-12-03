@@ -24,6 +24,10 @@ public class Car {
         return position;
     }
 
+    public String getSpeed() {
+        return speed;
+    }
+
     public void moveForward() {
         position++;
     }
@@ -34,10 +38,6 @@ public class Car {
 
     public boolean decideMoveCar(final int randomNumberToMove) {
         return randomNumberToMove > 3;
-    }
-
-    public String getSpeed() {
-        return speed;
     }
 
     public void addSpeed() {

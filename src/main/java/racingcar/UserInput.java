@@ -8,14 +8,14 @@ import java.util.StringTokenizer;
 
 public class UserInput {
 
-    private static final String DELIMITER = ",";
+    private static final String NAME_SEPARATOR = ",";
 
-    public String inputCarNames() {
+    public String inputNames() {
         return Console.readLine();
     }
 
-    public List<Car> splitInputCarNames(final String inputCarNames) {
-        final StringTokenizer stringTokenizer = new StringTokenizer(inputCarNames, DELIMITER);
+    public List<Car> splitInputNames(final String inputCarNames) {
+        final StringTokenizer stringTokenizer = new StringTokenizer(inputCarNames, NAME_SEPARATOR);
         final List<Car> carNames = new ArrayList<>();
 
         while (stringTokenizer.hasMoreTokens()) {

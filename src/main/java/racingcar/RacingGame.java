@@ -9,6 +9,10 @@ public class RacingGame {
     private final Validator validator;
     private final GameDisplay gameDisplay;
 
+    private static final String SPACE = " ";
+    private static final String PRINT_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String NAME_SEPARATOR = ",";
+
     public RacingGame(UserInput userInput, Validator validator, GameDisplay gameDisplay) {
         this.userInput = userInput;
         this.validator = validator;
@@ -16,28 +20,52 @@ public class RacingGame {
     }
 
     public void startGame() {
-        playGame();
+        playRacingGame();
     }
 
-    private void playGame() {
-        List<Car> cars = makeParticipantsListRacingGame();
+    private void playRacingGame() {
+        List<Car> cars = makeParticipantsList();
+        int rounds = Integer.parseInt(determineGameRound());
 
-        int rounds = determineRoundNumber();
         gameDisplay.printEmptyLine();
         gameDisplay.printExecutionResultMessage();
 
+        playAllRound(cars, rounds);
+        announceWinner(cars);
+    }
+
+    private void announceWinner(List<Car> cars) {
+        List<String> winners = makeWinnerList(cars);
+        String makeWinnerPrintFormat = makeWinnerPrintFormat(winners);
+
+        gameDisplay.printWinner(makeWinnerPrintFormat);
+    }
+
+    private void playAllRound(List<Car> cars, int rounds) {
         for (int i = 0; i < rounds; i++) {
             playEachRound(cars);
             gameDisplay.printEmptyLine();
         }
+    }
 
-        List<String> winners = makeWinnerList(cars);
-        gameDisplay.printWinnerList(winners);
+    private String makeWinnerPrintFormat(List<String> winners) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(PRINT_WINNER_MESSAGE);
+
+        for (int i = 0; i < winners.size(); i++) {
+            stringBuilder.append(winners.get(i));
+
+            if (i != winners.size() - 1) {
+                stringBuilder.append(NAME_SEPARATOR).append(SPACE);
+            }
+        }
+
+        return stringBuilder.toString();
     }
 
     private List<String> makeWinnerList(final List<Car> cars) {
-        final int topSpeed = findTopSpeed(cars);
         final List<String> winners = new ArrayList<>();
+        final int topSpeed = findTopSpeed(cars);
 
         for (Car car : cars) {
             if (topSpeed == car.getPosition()) {
@@ -68,38 +96,33 @@ public class RacingGame {
         }
     }
 
-    private int determineRoundNumber() {
-        int totalRoundNumber = 0;
+    private String determineGameRound() {
+        gameDisplay.printInputRoundMessage();
+        String totalRound = userInput.inputRound();
 
         try {
-            gameDisplay.printInputRoundMessage();
-            String totalRound = userInput.inputRound();
             validator.validateAttemptCount(totalRound);
-
-            totalRoundNumber = Integer.parseInt(totalRound);
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            determineRoundNumber();
+            gameDisplay.printErrorMessage(e);
+            determineGameRound();
         }
 
-        return totalRoundNumber;
+        return totalRound;
     }
 
-    private List<Car> makeParticipantsListRacingGame() {
-        List<Car> carNames = new ArrayList<>();
+    private List<Car> makeParticipantsList() {
+        gameDisplay.printInputNameMessage();
+        String inputNames = userInput.inputNames();
+        List<Car> participantNames = userInput.splitInputNames(inputNames);
 
         try {
-            gameDisplay.printInputCarNameMessage();
-            String inputCarNames = userInput.inputCarNames();
-            carNames = userInput.splitInputCarNames(inputCarNames);
-
-            validator.validateCar(carNames);
+            validator.validateCar(participantNames);
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            makeParticipantsListRacingGame();
+            gameDisplay.printErrorMessage(e);
+            makeParticipantsList();
         }
 
-        return carNames;
+        return participantNames;
     }
 
 }

@@ -11,11 +11,11 @@ public class Validator {
     private static final String ERROR_MESSAGE_TRY_COUNT = "[ERROR] 게임 시도 횟수는 1~9 범위의 숫자만 가능합니다.";
 
     public void validateCar(List<Car> carNames) {
-        validateCarNamesLength(carNames);
+        validateCarNames(carNames);
         validateCarCount(carNames);
     }
 
-    public void validateCarNamesLength(List<Car> splitCarNames) {
+    public void validateCarNames(List<Car> splitCarNames) {
         for (Car splitCarName : splitCarNames) {
             if (!checkCarNames(splitCarName)) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_CAR_NAME);
