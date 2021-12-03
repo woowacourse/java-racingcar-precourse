@@ -20,8 +20,10 @@ public class RacingCarGame {
 		View.printBlankLineView();
 
 		// 레이싱 실행
-		View.printRacingView();
-		ArrayList<Car> carList = new Racing().start(nameList, tryCount);
+		View.printRacingStartView();
+		Racing racing = new Racing();
+		ArrayList<Car> carList = racing.start(nameList, tryCount);
+		View.printRacingLogView(racing.getRacingLog());
 
 		// 최종 우승자 발표
 		ArrayList<String> winnerList = new Judge().makeWinnerList(carList);

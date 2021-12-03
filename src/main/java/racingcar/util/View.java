@@ -17,8 +17,12 @@ public class View {
 		System.out.println(INPUT_TRY_COUNT_MESSAGE);
 	}
 
-	public static void printRacingView() {
+	public static void printRacingStartView() {
 		System.out.println(RACING_RESULT_MESSAGE);
+	}
+
+	public static void printRacingLogView(ArrayList<String> racingLog) {
+		System.out.println(racingLog);
 	}
 
 	public static void printWinnerView(ArrayList<String> winnerList) {
