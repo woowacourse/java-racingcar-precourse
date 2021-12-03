@@ -3,9 +3,8 @@ package racingcar.util;
 import java.util.LinkedHashSet;
 import java.util.StringTokenizer;
 
-import static racingcar.constant.Constraint.MAX_CAR_NAME_LENGTH;
+import static racingcar.constant.Constraint.*;
 import static racingcar.constant.Message.*;
-import static racingcar.constant.Message.RETRY_MESSAGE;
 
 public class Validator {
     public static LinkedHashSet<String> carNameLinkedHashSet = new LinkedHashSet<>();

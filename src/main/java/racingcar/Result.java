@@ -13,7 +13,6 @@ public class Result {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-
         for (Car car : cars) {
             updateMax(car.getPosition());
             stringBuilder.append(car.getName()).append(" : ").append(makeDash(car.getPosition())).append("\n");
@@ -34,7 +33,6 @@ public class Result {
 
     private String makeDash(int count) {
         StringBuilder stringBuilder = new StringBuilder();
-
         for (int i = 0; i < count; i++) {
             stringBuilder.append("-");
         }

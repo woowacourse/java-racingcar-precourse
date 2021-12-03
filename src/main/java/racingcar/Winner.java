@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import static racingcar.constant.Constraint.NONE;
 import static racingcar.constant.Message.OUTPUT_WINNER_MESSAGE;
-import static racingcar.constant.Message.WINNER_MORE_THAN_ONE_MESSAGE;
+import static racingcar.constant.Message.MORE_THAN_ONE_WINNER_MESSAGE;
 
 public class Winner {
     private final ArrayList<Car> cars;
@@ -20,7 +20,6 @@ public class Winner {
 
     public String decideWinner() {
         StringBuilder stringBuilder = new StringBuilder();
-
         for (Car car : cars) {
             appendIfRaceWinner(stringBuilder, car);
         }
@@ -37,7 +36,7 @@ public class Winner {
 
     private void appendIfNotFirstWinner(StringBuilder stringBuilder) {
         if (stringBuilder.length() != NONE) {
-            stringBuilder.append(WINNER_MORE_THAN_ONE_MESSAGE);
+            stringBuilder.append(MORE_THAN_ONE_WINNER_MESSAGE);
         }
     }
 
