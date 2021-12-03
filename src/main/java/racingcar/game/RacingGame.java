@@ -10,11 +10,9 @@ import static racingcar.util.UserInputUtil.*;
 public class RacingGame {
 
     public void startGame() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<Car> carList = getCarList();
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        int count = getAttemptNumber();
+        int count = getAttemptNumberInput();
 
         System.out.println("실행 결과");
 
@@ -26,7 +24,7 @@ public class RacingGame {
     }
 
     private List<Car> getCarList() {
-        String[] carNames = getCarNames();
+        String[] carNames = getCarNameInput();
 
         List<Car> cars = new ArrayList<>();
 
@@ -35,6 +33,34 @@ public class RacingGame {
         }
 
         return cars;
+    }
+
+    private String[] getCarNameInput() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+        while (true) {
+            try {
+                String[] carNames = getCarNames();
+
+                return carNames;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private int getAttemptNumberInput() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        while (true) {
+            try {
+                int count = getAttemptNumber();
+
+                return count;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     private void progressGame(List<Car> carList) {
