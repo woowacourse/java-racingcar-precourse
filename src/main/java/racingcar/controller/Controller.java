@@ -35,8 +35,13 @@ public class Controller {
 
 	private int getTrialByUserInput() {
 		InputView.requestNumberOfTrialMessage();
-		int trial = parser.parseNumberOfTrial(Console.readLine());
-		return trial;
+		try {
+			int trial = parser.parseNumberOfTrial(Console.readLine());
+			return trial;
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return getTrialByUserInput();
+		}
 	}
 
 	private List<Car> getCarsByUserInput() {

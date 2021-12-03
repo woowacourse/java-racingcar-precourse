@@ -13,7 +13,8 @@ public class Parser {
 		return carNames;
 	}
 
-	public int parseNumberOfTrial(String input) {
+	public int parseNumberOfTrial(String input) throws IllegalArgumentException {
+		validator.checkNumberOfTrialInput(input);
 		return Integer.parseInt(input);
 	}
 }
