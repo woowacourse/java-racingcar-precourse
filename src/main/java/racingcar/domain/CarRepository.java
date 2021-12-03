@@ -29,7 +29,7 @@ public class CarRepository {
 		List<Car> winnerCars = new ArrayList<>();
 		Car winnerCar = carList.get(FIRST_INDEX_OF_WINNER_CAR);
 		for (Car car : carList) {
-			if (winnerCar.getPosition() == car.getPosition()) {
+			if (winnerCar.isSamePosition(car)) {
 				winnerCars.add(car);
 			}
 		}
