@@ -5,7 +5,6 @@ import static racingcar.util.Constants.*;
 import java.util.Arrays;
 
 public class ValidChecker {
-
 	public static void isValidCarNameLength(String carName) {
 		if (carName.length() > MAX_CAR_NAME_LENGTH) {
 			throwIllegalArgumentException(ERROR_CAR_NAME_LENGTH_OVER);
