@@ -3,17 +3,17 @@ package racingcar.util;
 import camp.nextstep.edu.missionutils.Console;
 
 import static racingcar.util.VerificationUtil.checkCarName;
-import static racingcar.util.VerificationUtil.validatePositiveNumber;
+import static racingcar.util.VerificationUtil.validateAttemptNumber;
 
 public class UserInputUtil {
 
     private UserInputUtil() {
     }
 
-    public static int getIntNum() {
+    public static int getAttemptNumber() {
         String input = Console.readLine();
 
-        validatePositiveNumber(input);
+        validateAttemptNumber(input);
 
         int number = Integer.parseInt(input);
 

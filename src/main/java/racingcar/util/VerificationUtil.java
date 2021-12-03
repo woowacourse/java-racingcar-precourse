@@ -5,16 +5,10 @@ public class VerificationUtil {
     private VerificationUtil() {
     }
 
-    public static void validatePositiveNumber(String input) {
-        try {
-            int number = Integer.parseInt(input);
+    public static void validateAttemptNumber(String input) {
+        int validatedNumber = getValidatedNumber(input);
 
-            if (number <= 0) {
-                throw new IllegalArgumentException("[ERROR] 양수를 입력해주세요.");
-            }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자를 입력해주세요.");
-        }
+        validatePositiveNumber(validatedNumber);
     }
 
     public static void checkCarName(String carName) {
@@ -39,6 +33,22 @@ public class VerificationUtil {
     private static void validateSpace(String carName) {
         if (carName.contains(" ")) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름에 공백이 있으면 안됩니다.");
+        }
+    }
+
+    private static int getValidatedNumber(String input) {
+        try {
+            int number = Integer.parseInt(input);
+
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자를 입력해주세요.");
+        }
+    }
+
+    private static void validatePositiveNumber(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("[ERROR] 양수를 입력해주세요.");
         }
     }
 }
