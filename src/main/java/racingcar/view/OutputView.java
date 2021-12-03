@@ -8,7 +8,7 @@ import racingcar.domain.Car;
 
 public class OutputView {
 	public static void printError(String message) {
-		System.out.println(message);
+		System.out.println(ERROR_PREFIX + message);
 	}
 
 	public static void printExecutionMessage() {

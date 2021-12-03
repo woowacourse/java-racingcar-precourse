@@ -17,10 +17,11 @@ public class RacingCarConstant {
 	public static final int CAR_MOVE_CHECK_NUM = 4;
 	public static final int CAR_MOVE = 1;
 
-	public static final String CAR_NAME_DUPLICATE_ERROR = "[ERROR] 자동차 이름은 중복되어서는 안된다";
-	public static final String CAR_NAME_WRONG_LENGTH_ERROR = "[ERROR] 자동차 이름의 길이는 1~5자여야 한다";
-	public static final String CAR_NAME_EMPTY_ERROR = "[ERROR] 자동차 이름에 빈 이름을 넣어서는 안된다";
-	public static final String CAR_NAME_WRONG_END_ERROR = "[ERROR] 자동차 이름의 입력이 ,로 끝나서는 안된다";
-	public static final String GAME_COUNT_NOT_DIGIT_ERROR = "[ERROR] 시도 횟수는 숫자여야 한다";
-	public static final String GAME_COUNT_UPPER_ZERO_ERROR = "[ERROR] 시도 횟수는 0이상의 숫자여야 한다";
+	public static final String ERROR_PREFIX = "[ERROR] ";
+	public static final String CAR_NAME_DUPLICATE_ERROR = "자동차 이름은 중복되어서는 안된다";
+	public static final String CAR_NAME_WRONG_LENGTH_ERROR = "자동차 이름의 길이는 1~5자여야 한다";
+	public static final String CAR_NAME_EMPTY_ERROR = "자동차 이름에 빈 이름을 넣어서는 안된다";
+	public static final String CAR_NAME_WRONG_END_ERROR = "자동차 이름의 입력이 ,로 끝나서는 안된다";
+	public static final String GAME_COUNT_NOT_DIGIT_ERROR = "시도 횟수는 숫자여야 한다";
+	public static final String GAME_COUNT_UPPER_ZERO_ERROR = "시도 횟수는 0이상의 숫자여야 한다";
 }
