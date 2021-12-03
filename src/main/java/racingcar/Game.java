@@ -17,7 +17,11 @@ public class Game {
     }
 
     public void start(){
-
+        for(int i = 0; i < turns; i++) {
+            for (Car car : cars) {
+                car.goOrStop();
+            }
+        }
     }
 
 }
