@@ -23,10 +23,18 @@ public class RaceStarter {
     private void play(){
         for(int i = 0 ; i < tryNumber ; i++ ){
             increaseCarsPosition();
-
+            printExecutionResult();
         }
     }
-
+    private void printExecutionResult(){
+        carList.forEach(car -> {
+            System.out.print(car.getName()+" : ");
+            int position = car.getPosition();
+            for (int i = 0 ; i < position; i++){
+                System.out.print("-");
+            }
+        });
+    }
     private void increaseCarsPosition(){
         carList.forEach(car -> {
             int random = Randoms.pickNumberInRange(0,9);
