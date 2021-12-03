@@ -9,15 +9,18 @@ public class Validation {
 	private static final String BLANK_NAME_ERROR = "자동차 이름은 빈칸일 수 없습니다.";
 	private static final String DUPLICATE_NAME_ERROR = "자동차 이름은 중복될 수 없습니다.";
 	private static final String LONG_NAME_ERROR = "자동차 이름은 5자 이하여야 합니다.";
+	private static final String SHORT_NAME_ERROR = "자동차 이름은 1자 이상이어야 합니다.";
 
 	private static final int MIN_NUMBER_OF_CARS = 1;
 	private static final int MAX_CAR_NAME_LENGTH = 5;
+	private static final int MIN_CAR_NAME_LENGTH = 1;
 
 	public void isValid(String[] carNames) {
 		isEmpty(carNames);
 		isUnique(carNames);
 		for (String carName : carNames) {
 			tooLong(carName);
+			tooShort(carName);
 		}
 	}
 
@@ -38,6 +41,12 @@ public class Validation {
 	private void tooLong(String carName) {
 		if (carName.length() > MAX_CAR_NAME_LENGTH) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + LONG_NAME_ERROR);
+		}
+	}
+
+	private void tooShort(String carName) {
+		if (carName.length() < MIN_CAR_NAME_LENGTH) {
+			throw new IllegalArgumentException(ERROR_MESSAGE + SHORT_NAME_ERROR);
 		}
 	}
 }
