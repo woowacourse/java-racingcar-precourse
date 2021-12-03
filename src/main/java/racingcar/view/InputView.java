@@ -21,6 +21,15 @@ public class InputView {
     public int getTryCount() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
         String inputTryCount = Console.readLine();
+        validateNumberFormat(inputTryCount);
         return Integer.parseInt(inputTryCount);
+    }
+
+    private void validateNumberFormat(String inputTryCount) {
+        try {
+            Integer.parseInt(inputTryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
