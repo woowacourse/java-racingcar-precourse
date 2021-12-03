@@ -2,6 +2,7 @@ package racingcar.car;
 
 public class Car {
     private static final int DEFAULT_POSITION = 0;
+    private static final char NAME_BLANK = ' ';
     private static final int NAME_MAX_LENGTH = 5;
     private static final String NAME_MESSAGE_FORMAT = "%s : ";
     private static final int ZERO_INDEX = 0;
@@ -18,7 +19,24 @@ public class Car {
     }
 
     private void validateName(String name) {
+        validateEmpty(name);
+        validateBlank(name);
         validateLength(name);
+    }
+
+    private void validateEmpty(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateBlank(String name) {
+        for (char c : name.toCharArray()) {
+            if (c != NAME_BLANK) {
+                return;
+            }
+        }
+        throw new IllegalArgumentException();
     }
 
     private void validateLength(String name) {
