@@ -14,4 +14,8 @@ public class User {
     public void enterTimes() {
         times = Integer.parseInt(Console.readLine());
     }
+
+    public String getCarName() {
+        return this.names;
+    }
 }
