@@ -8,7 +8,7 @@ public class Validation {
     }
 
     private static boolean isMoreThanZero(String[] input) {
-        if (input.length < 1) {
+        if (input.length < Constant.MINIMUM_NUMBER_OF_CARS_FOR_GAME) {
             System.out.println(Constant.ERROR_NO_NAMES);
             return false;
         }
@@ -17,7 +17,7 @@ public class Validation {
 
     private static boolean isValidLength(String[] input) {
         for (String i : input) {
-            if (i.length() > 5) {
+            if (i.length() > Constant.MAXIMUM_LENGTH_OF_NAMES) {
                 System.out.println(Constant.ERROR_MORE_THAN_FIVE_CHARACTERS);
                 return false;
             }
