@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarRepository {
 	private static final int FIRST_INDEX_OF_WINNER_CAR = 0;
@@ -24,7 +25,7 @@ public class CarRepository {
 		return carList;
 	}
 
-	public List<Car> getWinnerCars() {
+	private List<Car> getWinnerCars() {
 		Collections.sort(carList);
 		List<Car> winnerCars = new ArrayList<>();
 		Car winnerCar = carList.get(FIRST_INDEX_OF_WINNER_CAR);
@@ -34,5 +35,11 @@ public class CarRepository {
 			}
 		}
 		return winnerCars;
+	}
+
+	public List<String> getWinnerCarsName() {
+		return getWinnerCars().stream()
+			.map(Car::getName)
+			.collect(Collectors.toList());
 	}
 }

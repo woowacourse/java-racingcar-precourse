@@ -9,11 +9,11 @@ public class Game {
 	public void run() {
 		CarRepository carRepository = new CarRepository();
 		carRepository.createCars(inputCarNames());
-		int numberOfCarMoving =  inputNumberOfCarMoving();
+		int numberOfCarMoving = inputNumberOfCarMoving();
 		for (int i = 0; i < numberOfCarMoving; i++) {
 			carRepository.attemptCarsMoving();
 			printCarsStatus(carRepository.getCarList());
 		}
-		printFinalCarWinners(carRepository.getWinnerCars());
+		printFinalCarWinners(carRepository);
 	}
 }

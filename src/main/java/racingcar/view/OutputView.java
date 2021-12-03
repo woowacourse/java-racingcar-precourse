@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.List;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarRepository;
 
 public class OutputView {
 	private static final String STRING_CAR_POSITION = "-";
@@ -23,15 +24,7 @@ public class OutputView {
 		return stringBuilder.toString();
 	}
 
-	public static void printFinalCarWinners(List<Car> carList) {
-		if (carList.isEmpty()) {
-			return;
-		}
-		StringBuilder stringBuilder = new StringBuilder(FINAL_WINNER_TITLE_MESSAGE);
-		stringBuilder.append(carList.get(0).getName());
-		for (int i = 1; i < carList.size(); i++) {
-			stringBuilder.append(", ").append(carList.get(i).getName());
-		}
-		System.out.println(stringBuilder);
+	public static void printFinalCarWinners(CarRepository carRepository) {
+		System.out.println(FINAL_WINNER_TITLE_MESSAGE + String.join(", ", carRepository.getWinnerCarsName()));
 	}
 }
