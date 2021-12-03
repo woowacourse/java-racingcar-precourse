@@ -195,6 +195,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - 입력 안내 메세지 출력
     - 자동차 이름
         - 5자 초과인 경우 Exception 발생
+        - 이름이 중복된 경우 Exception 발생
     - 시도 회수
         - 숫자가 아닐 경우 Exception 발생
 - 자동차 이동시키기
