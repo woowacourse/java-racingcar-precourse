@@ -19,8 +19,10 @@ public class RacingController {
         return carNameStrings;
     }
 
-    public int inputRoundNumber() {
+    public int createRoundNumber() {
         InputValue<Integer> roundNumberInput = new RoundNumberInputValue(Console.readLine());
-        return roundNumberInput.toRaceElement();
+        int roundNumber = roundNumberInput.toRaceElement();
+        racingGame.createRoundNumber(roundNumber);
+        return roundNumber;
     }
 }

@@ -44,17 +44,31 @@ class RacingControllerTest {
     }
 
     @Test
-    void 회차_수를_정수로_입력() {
+    void 회차를_정수로_입력() {
         String input = "1";
         setInput(input);
-        assertThat(racingController.inputRoundNumber()).isEqualTo(1);
+        assertThat(racingController.createRoundNumber()).isEqualTo(1);
     }
 
     @Test
-    void 회차_수가_정수가_아닐_경우_예외_발생() {
+    void 회차가_숫자가_아닐_경우_예외_발생() {
         String input = "!";
         setInput(input);
-        assertThatThrownBy(racingController::inputRoundNumber).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(racingController::createRoundNumber).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 회차가_정수가_아닐_경우_예외_발생() {
+        String input = "300000000000000";
+        setInput(input);
+        assertThatThrownBy(racingController::createRoundNumber).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 회차가_1보다_작을경우_입력() {
+        String input = "0";
+        setInput(input);
+        assertThatThrownBy(racingController::createRoundNumber).isInstanceOf(IllegalArgumentException.class);
     }
 
     private void setInput(String input) {
