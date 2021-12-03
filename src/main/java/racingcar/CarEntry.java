@@ -22,6 +22,11 @@ public class CarEntry {
         stream.forEach(Car::progressOrStop);
     }
 
+    public void printCurCarsPosition() {
+        Stream<Car> stream = carList.stream();
+        stream.forEach(Car::printCurrentPosition);
+    }
+
     private String[] getCarNameArray(String carNames) {
         String[] carNameArray = carNames.split(",");
         for (int i = 0; i < nOfCars; i++) {
