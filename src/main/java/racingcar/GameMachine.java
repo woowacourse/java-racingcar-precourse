@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameMachine {
 
@@ -17,6 +18,11 @@ public class GameMachine {
 	public void racingGame() {
 		lineUp();
 		this.round = inputRound();
+		System.out.println("실행 결과");
+		while (round > 0) {
+			raceStart();
+			round--;
+		}
 	}
 
 	public void lineUp() {
@@ -34,5 +40,13 @@ public class GameMachine {
 		String userInput = Console.readLine();
 		//숫자인지, 1보다 큰지 유효성 검사 추가 예정
 		return Integer.parseInt(userInput);
+	}
+
+	public void raceStart() {
+		for (Car car : cars) {
+			car.move();
+			car.statusReport();
+		}
+		System.out.println("\n");
 	}
 }
