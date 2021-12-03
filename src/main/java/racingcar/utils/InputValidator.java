@@ -17,6 +17,7 @@ public class InputValidator {
 
 	public boolean validateNames(ArrayList<String> names) {
 		try {
+			System.out.println(names);
 			isOnlyName(names);
 			isLongName(names);
 			isDuplicateName(names);
@@ -53,6 +54,9 @@ public class InputValidator {
 	}
 
 	private void isEmptyName(ArrayList<String> names) {
+		if (names.isEmpty()) {
+			throw new IllegalArgumentException(ERROR_EMPTY_NAME);
+		}
 		for (String name : names) {
 			if (name.trim().isEmpty()) {
 				throw new IllegalArgumentException(ERROR_EMPTY_NAME);
