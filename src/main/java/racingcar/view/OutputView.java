@@ -28,13 +28,8 @@ public class OutputView {
 		System.out.println(PLAY_RESULT_MESSAGE);
 	}
 
-	public static void printCarInfo(Car car) {
-		System.out.print(car.getName() + " : ");
-		int position = car.getPosition();
-		for (int i = 0; i < position; i++) {
-			System.out.print("-");
-		}
-		printEmptyLine();
+	public static void printCarInfo(String carInfo) {
+		System.out.println(carInfo);
 	}
 
 	public static void printEmptyLine() {

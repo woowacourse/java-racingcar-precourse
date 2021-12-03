@@ -23,4 +23,13 @@ public class Car {
 	public void stop() {
 
 	}
+
+	@Override
+	public String toString() {
+		String positionLine = "";
+		for (int i = 0; i < position; i++) {
+			positionLine += "-";
+		}
+		return name + " : " + positionLine;
+	}
 }

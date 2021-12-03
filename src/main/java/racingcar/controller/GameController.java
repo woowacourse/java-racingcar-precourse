@@ -61,7 +61,7 @@ public class GameController {
 
 	private void showPlayResult() {
 		for (Car car : CarRepository.getCars()) {
-			OutputView.printCarInfo(car);
+			OutputView.printCarInfo(car.toString());
 		}
 		OutputView.printEmptyLine();
 	}
