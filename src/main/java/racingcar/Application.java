@@ -45,6 +45,8 @@ public class Application {
         // 랜덤 변수를 만들고 회차 마다 car 객체 수 만큼 반복하여 4 ~ 9 사이면 전진한다.
         for(int i = 0; i < numOfTry; i++){
             moveOrStop(car);
+            printRacingResult(car);
+            System.out.println();
         }
 
 
@@ -77,6 +79,17 @@ public class Application {
             if(Randoms.pickNumberInRange(0, 9) >= 4){
                 c.moveForward();
             }
+        }
+    }
+
+    public static void printRacingResult(ArrayList<Car> cars){
+        for(Car c: cars){
+            System.out.print(c.getName());
+            System.out.print(" : ");
+            for(int i = 0; i < c.getPosition(); i++){
+                System.out.print("-");
+            }
+            System.out.println();
         }
     }
 }
