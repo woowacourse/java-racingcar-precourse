@@ -8,6 +8,7 @@ public class Validator {
 
     private static final int MINIMUM_NAME_AMOUNT = 2;
     private static final int MAXIMUM_NAME_DIGIT = 5;
+    private static final String NUMBER_PATTERN = "\"[0-9]+\"";
 
 
     public void validateCarName(String carNames) {
@@ -22,6 +23,23 @@ public class Validator {
             System.out.println(exception.getMessage());
         }
 
+    }
+
+    public void validateRoundNumber(String roundNumber) {
+        try {
+            checkContainBlank(roundNumber);
+            checkNumberFormat(roundNumber);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private void checkNumberFormat(String roundNumber) {
+        if (!roundNumber.matches(NUMBER_PATTERN)) {
+            throw new IllegalArgumentException(
+                    ExceptionMessage.ROUND_INPUT_ERROR_MESSAGE.getMessage()
+            );
+        }
     }
 
     private void checkStartOrEndWithComma(String carNames) {
