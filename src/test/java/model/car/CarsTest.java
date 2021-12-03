@@ -32,7 +32,7 @@ class CarsTest {
     @Test
     @DisplayName("자동차들을 전진시키고 결과를 반환한다.")
     void race_getRacingResult() {
-        List<Car> carsAfterRacing = cars.getRacingResult();
+        List<Car> carsAfterRacing = cars.getAttemptResult();
         assertAll(
                 () -> assertThat(carsAfterRacing.get(0).getName()).isEqualTo("Chris"),
                 () -> assertThat(carsAfterRacing.get(1).getName()).isEqualTo("Henry"),
