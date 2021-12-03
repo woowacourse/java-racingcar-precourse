@@ -45,5 +45,4 @@ public class Validator {
 
         return Integer.parseInt(input);
     }
-
 }

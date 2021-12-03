@@ -104,6 +104,7 @@ public class RacingGame {
     private void printExecutionMessage() {
         System.out.println(EXECUTION_RESULT_MESSAGE);
     }
+
     private void printResult() {
         System.out.println(result.toString());
     }
