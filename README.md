@@ -1,10 +1,14 @@
 # 미션 - 자동차 경주 게임
 
 ## 💻 구현 기능 목록
-- Game(Main)
-    - Input, Output
+- 추가 기능 구현 사항 
+    - 한 게임에 같은 이름을 가진 Car는 참여가 불가능하다.
+            
+#### Application
+- GameLauncher
+    - 각 Input, Output 의존 객체 주입을 받는다.
     - 주어진 횟수(Input) 동안 n대의 자동차(Car)를 플레이한다.
-
+    
 #### Domain
 - Car
     - 변수
@@ -12,38 +16,40 @@
         - int `position`: 해당하는 Car 객체에 대한 위치 정보를 int형으로 저장한다.
     - 메서드
         - `moveOrStop(int randomNumber)`: randomNumber의 값이 4이상의 값이 나오면 전진한다. (position 값 +1 증가) 값이 3이하의 값이 나오면 움직이지 않는다.
-        - `getRandomNumber()`: RandomNumberBox 객체로 부터 0~9중 무작위의 수를 randomNumber에 입력받는다.
         - `sortingByPosition(List<Car> list)`:  ComparatorByPosition 클래스 참조받아 입력받은 carList를 정렬한다.
+        - `get{$name}` : 해당 변수 값 반환 
     - 내부 클래스
-        - ComparatorByPosition: Car객체의 position을 기준으로 내림차순을 해준다.
+        - `ComparatorByPosition`: Comparator 구현체. Car객체의 position을 기준으로 내림차순을 해준다.
 - Judge
     - 메서드
-        - `judging(Car[] cars)`: Car 데이터를 인자로 받아 sortingByPosition()을 통해 정렬해준다.
-        - `getRaceWinnerList(List<Car> carList)`: 정렬된 Car데이터 중 가장 높은 postion을 가진 객체를 List에 담아 반환한다.
+        - `judging(Car[] cars)`: Car 데이터를 인자로 받아 getRaceWinnerList()메서드를 사용하여 승자 목록을 반환한다.
+        - `getRaceWinnerList(List<Car> carList)`: sortingByPosition()로 정렬된 Car데이터 중 가장 높은 postion을 가진 객체를 List에 담아 반환한다.
             - 만약, 가장 높은 postion을 가진 객체가 여러 개일 경우 모두 반환한다.
         
 
 #### Utils
 - Input
-    - 게임에 참여할 Car 이름을 입력받는다.
+    - `inputCarNames`: 게임에 참여할 Car 이름을 입력받는다.
         - Validator를 통해 잘못된 값일 경우 Error를 통해 예외처리한 후 재입력을 받는다. 
-    - 입력받은 Car 이름을 구분자(',')로 구분받아 각 이름을 가진 Car 객체를 생성한다.    
-    - 시도할 횟수 입력받는다.
+    - `inputCarNameToCarObj`: 입력받은 Car 이름을 구분자(',')로 구분받아 각 이름을 가진 Car 객체를 생성한다.
+    -  `inputRandomNumberToCar`: RandomNumberBox로 부터 랜덤 값을 입력받아 모든 Car객체에 입력해준다. 
+    - `inputCoinNumber`: 시도할 횟수 입력받는다.
         - Validator를 통해 잘못된 값일 경우 Error를 통해 예외처리한 후 재입력을 받는다.
 - Output
-    - 각 횟수마다 모든 Car 객체의 name과 position에 따른 '-'의 갯수를 출력한다.
-    - 횟수가 종료되면 Judge로 부터 결과를 받아 우승자 출력한다. (자동차 이름은 쉼표(,)를 기준으로 구분하여 출력)
+    - `outputCarPosition`: 각 횟수마다 모든 Car 객체의 name과 position에 따른 '-'의 갯수를 출력한다.
+    - `outputRaceResult`: 횟수가 종료되면 Judge로 부터 결과를 받아 우승자 출력한다. (자동차 이름은 쉼표(,)를 기준으로 구분하여 출력)
 - RandomNumberBox
-    - 0~9중 무작위의 수를 생성한다.
+    - `getRandomNumber`: 0~9중 무작위의 수를 생성한다.
 - Validator
-    - CarName의 길이가 5자를 초과했는지 여부를 반환한다. 
-    - 게임 횟수의 입력이 NumberFormat(0~9)인지 여부를 반환한다.
-    - Car가 입력받은 randomNumber가 4이상인지 아닌지에 대한 여부를 반환한다. 
+    - `validateCarNames`: CarName의 길이가 5자를 초과했는지 여부를 반환한다. 
+    - `validateNumberFormat`: 게임 횟수의 입력이 NumberFormat(0~9)인지 여부를 반환한다.
+    - `validateCarMoveCondition`: Car가 입력받은 randomNumber가 4이상인지 아닌지에 대한 여부를 반환한다. 
 
 
 #### Exception
-- Car 이름이 5자 이상 초과될 경우, IllegalArgumentException: "[ERROR]  이름은 5자 이하만 가능하다."
-- 시도횟수가 숫자가 아닌 경우, IllegalArgumentException: "[ERROR] 시도 횟수는 숫자여야 한다."
+- `CarNameNotValidException`: Car 이름이 5자 이상 초과될 경우, IllegalArgumentException: "[ERROR]  이름은 5자 이하만 가능하다."
+- `NumberFormatNotValidException`: 시도횟수가 숫자가 아닌 경우, IllegalArgumentException: "[ERROR] 시도 횟수는 숫자여야 한다."
+- `CarNameAlreadyExistedException`: 같은 게임에 중복된 Car 이름이 있을 경우, IllegalArgumentException "[ERROR] 중복된 이름은 사용할 수 없다." 
 
 --- 
     
