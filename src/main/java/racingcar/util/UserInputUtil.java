@@ -2,6 +2,9 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import static racingcar.util.VerificationUtil.checkCarName;
+import static racingcar.util.VerificationUtil.validatePositiveNumber;
+
 public class UserInputUtil {
 
     private UserInputUtil() {
@@ -10,7 +13,9 @@ public class UserInputUtil {
     public static int getIntNum() {
         String input = Console.readLine();
 
-        int number = toInteger(input);
+        validatePositiveNumber(input);
+
+        int number = Integer.parseInt(input);
 
         return number;
     }
@@ -25,19 +30,5 @@ public class UserInputUtil {
         }
 
         return carNames;
-    }
-
-    private static void checkCarName(String input) {
-        if(input.length() > 5) {
-            throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 합니다.");
-        }
-    }
-
-    private static int toInteger(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자를 입력해주세요.");
-        }
     }
 }
