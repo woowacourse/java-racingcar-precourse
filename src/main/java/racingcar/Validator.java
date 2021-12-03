@@ -5,6 +5,13 @@ import java.util.HashSet;
 public class Validator {
     private static final int CAR_NAME_LENGTH = 6;
     private static final int MIN_COIN = 1;
+    private static final String NULL_VALUE = "";
+
+    public void validateInputNull(String inputValue) {
+        if (inputValue.equals(NULL_VALUE)) {
+            throw new IllegalArgumentException(" 공백은 입력할 수 없습니다.");
+        }
+    }
 
     public void validateCarNamesDuplicate(String[] carNamesArray) {
         HashSet<String> carNameSet = new HashSet<>();

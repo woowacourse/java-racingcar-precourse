@@ -11,6 +11,7 @@ public class Player {
     private static final Validator validator = new Validator();
     private static int gameCoin;
     private static String carNames;
+    private static String coin;
     private static String[] carNamesArray;
 
     public String[] startGame() {
@@ -27,6 +28,8 @@ public class Player {
         while (true) {
             this.inputCarNames();
             try {
+                validator.validateInputNull(carNames);
+                carNamesArray = carNames.split(",");
                 validator.validateCarNamesLength(carNamesArray);
                 validator.validateCarNamesDuplicate(carNamesArray);
                 break;
@@ -38,8 +41,9 @@ public class Player {
 
     private void validateInsertCoin() {
         while (true) {
-            String coin = this.insertCoin();
+            this.insertCoin();
             try {
+                validator.validateInputNull(coin);
                 gameCoin = validator.validateOnlyInteger(coin);
                 validator.validateMoreThanOne(gameCoin);
                 break;
@@ -52,12 +56,10 @@ public class Player {
     private void inputCarNames() {
         System.out.println(INPUT_CAR_MESSAGE);
         carNames = Console.readLine();
-        carNamesArray = carNames.split(",");
     }
 
-    private String insertCoin() {
+    private void insertCoin() {
         System.out.println(INSERT_COIN_MESSAGE);
-        String coin = Console.readLine();
-        return coin;
+        coin = Console.readLine();
     }
 }
