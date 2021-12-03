@@ -11,6 +11,12 @@ public class GameBoy {
     public static final int MIN_NUMBER = 0;
     public static final int MAX_NUMBER = 9;
 
+    public static final String NEW_LINE = System.lineSeparator();
+    public static final String RESULT_PREFIX = NEW_LINE + "실행 결과" + NEW_LINE;
+    public static final String WINNER_PREFIX = "최종 우승자 : ";
+    public static final String SPACE_STRING = " ";
+    public static final String COMMA = ",";
+
     private final Track track;
     private EngineRepository engineRepository;
 
@@ -28,8 +34,10 @@ public class GameBoy {
 
     public String showResult() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(RESULT_PREFIX);
         stringBuilder.append(track.getGameRecord());
-        stringBuilder.append(track.getWinner());
+        stringBuilder.append(WINNER_PREFIX);
+        stringBuilder.append(track.getWinner().replaceAll(SPACE_STRING, COMMA + SPACE_STRING));
         return stringBuilder.toString();
     }
 
