@@ -9,4 +9,17 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public String getName() {
+        return name;
+    }
+
+    public void move(){
+        position += 1;
+    }
+
+    public void moveOrStop(int randomNumber, int threshold) {
+        if (randomNumber >= threshold) {
+            this.move();
+        }
+    }
 }
