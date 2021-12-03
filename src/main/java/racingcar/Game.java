@@ -21,6 +21,7 @@ public class Game {
             car.predicateAdvance();
             System.out.print(car.getName() + " : ");
             showEachCarPosition(car.getPosition());
+            System.out.println();
         }
     }
 
