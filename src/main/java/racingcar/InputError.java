@@ -3,11 +3,23 @@ package racingcar;
 import java.io.IOException;
 
 public class InputError {
-    public static boolean carName() throws IOException {
-        if (InputView.getCarName().length() > 5) {
-            throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하로 지정하여 주세요.");
 
-            return InputView.getCarName();
+    private final int MIN_CAR_LIST = 1;
+    private final int MAX_NAME_LENGTH = 5;
+    private final String NULL = "";
+    private final String SPACE = " ";
+    private final String SEPARATOR = ",";
+
+    public boolean isValidCar(String userInput) {
+        String[] carList = userInput.split(SEPARATOR);
+        return isValidListLength(carList) && isValidNameLength(carList) && hasNotContainSpace(carList) && streamDuplicateCheck(carList);
         }
+
+    private boolean isValidListLength(String[] carList) {
+        for (String carName : carList) {
+            if (carName.length() > MAX_NAME_LENGTH) {
+
+            }
     }
+}
 }
