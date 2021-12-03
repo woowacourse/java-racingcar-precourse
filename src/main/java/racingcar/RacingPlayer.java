@@ -24,7 +24,7 @@ public class RacingPlayer {
 	}
 
 	private void setDriveCount() {
-		driveCount = InputManager.readDriveCount();
-		this.driveCount = driveCount;
+		int inputDriveCount = InputManager.readDriveCount();
+		this.driveCount = inputDriveCount;
 	}
 }
