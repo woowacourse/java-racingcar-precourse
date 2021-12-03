@@ -1,13 +1,12 @@
 package racingcar.game;
 
-import racingcar.car.CarNames;
-import racingcar.car.Cars;
+import racingcar.car.CarFactory;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class GameController {
-	private Cars cars;
+public class RacingGameController {
+	private RacingGame racingGame;
 	private Attempts attempts;
 
 	public void run() {
@@ -18,24 +17,24 @@ public class GameController {
 	}
 
 	private void createCars() {
-		InputView.carNamesMessage();
-		CarNames carNames = new CarNames();
-		inputCarName(carNames);
-		cars = new Cars(carNames.generateCar());
+		InputView.showCarNamesMessage();
+		CarFactory carFactory = new CarFactory();
+		requestCarNames(carFactory);
+		racingGame = new RacingGame(carFactory.generateCars());
 	}
 
-	private void inputCarName(CarNames carNames) {
+	private void requestCarNames(CarFactory carFactory) {
 		try {
-			carNames.input();
+			carFactory.inputNames();
 		} catch (IllegalArgumentException illegalArgumentException) {
 			ErrorView.show(illegalArgumentException.getMessage());
-			inputCarName(carNames);
+			requestCarNames(carFactory);
 		}
 	}
 
 	private void requestAttempts() {
 		attempts = new Attempts();
-		InputView.attemptsMessage();
+		InputView.showAttemptsMessage();
 		inputAttempts(attempts);
 	}
 
@@ -51,13 +50,13 @@ public class GameController {
 	private void startRacing() {
 		OutputView.showResultMessage();
 		do {
-			OutputView.showMoveResult(cars.race());
+			OutputView.showMoveResult(racingGame.race());
 			attempts.decrease();
 		} while (attempts.isLeft());
 	}
 
 	private void announceWinners() {
-		Winners winners = new Winners(cars);
+		Winners winners = new Winners(racingGame);
 		OutputView.showWinners(winners.getWinners());
 	}
 }

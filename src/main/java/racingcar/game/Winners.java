@@ -2,19 +2,17 @@ package racingcar.game;
 
 import java.util.List;
 
-import racingcar.car.Cars;
-
 public class Winners {
 	private static final String WINNER_FORMAT = "최종 우승자 : ";
 	private static final String DELIMITER = ", ";
-	private Cars cars;
+	private RacingGame racingGame;
 
-	Winners(Cars cars) {
-		this.cars = cars;
+	Winners(RacingGame racingGame) {
+		this.racingGame = racingGame;
 	}
 
 	public String getWinners() {
-		List<String> winnerCarsName = cars.findFrontCars();
+		List<String> winnerCarsName = racingGame.findFrontCars();
 		return WINNER_FORMAT + String.join(DELIMITER, winnerCarsName);
 	}
 }

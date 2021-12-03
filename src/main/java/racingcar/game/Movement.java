@@ -1,8 +1,8 @@
-package racingcar.car;
+package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class CarMovement {
+public class Movement {
 	private static final int MIN_RANGE = 0;
 	private static final int MAX_RANGE = 9;
 	private static final int FORWARD_STANDARD = 4;

@@ -1,30 +1,32 @@
-package racingcar.car;
+package racingcar.game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cars {
+import racingcar.car.Car;
+
+public class RacingGame {
 	private static final int ZERO = 0;
 
 	private List<Car> carList;
-	private CarMovement carMovement;
+	private Movement movement;
 
-	public Cars(List<Car> carList) {
+	public RacingGame(List<Car> carList) {
 		this.carList = carList;
-		this.carMovement = new CarMovement();
+		this.movement = new Movement();
 	}
 
 	public List<String> race() {
 		List<String> racingResult = new ArrayList<>();
 		for (Car each : carList) {
-			move(each);
+			moveCar(each);
 			addResult(racingResult, each);
 		}
 		return racingResult;
 	}
 
-	private void move(Car car) {
-		if (carMovement.isMovableForward()) {
+	private void moveCar(Car car) {
+		if (movement.isMovableForward()) {
 			car.moveForward();
 		}
 	}

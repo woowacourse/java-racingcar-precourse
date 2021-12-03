@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class CarNames {
+public class CarFactory {
 	private static final String DELIMITER = ",";
 	private static final String EMPTY = "";
 	private static final String SPACE = " ";
@@ -18,15 +18,15 @@ public class CarNames {
 	private static final String ERROR_CONTAIN_SPACE = "자동차 이름은 공백을 포함할 수 없습니다.";
 	private static final String ERROR_DUPLICATE = "자동차 이름은 중복될 수 없습니다.";
 
-	private List<String> names;
+	private List<String> carNames;
 
-	public void input() {
-		String input = Console.readLine();
-		names = Arrays.asList(input.split(DELIMITER));
-		validate();
+	public void inputNames() {
+		String carNames = Console.readLine();
+		this.carNames = Arrays.asList(carNames.split(DELIMITER));
+		validateNames();
 	}
 
-	private void validate() {
+	private void validateNames() {
 		validateNothing();
 		validateEmpty();
 		validateContainSpace();
@@ -35,36 +35,36 @@ public class CarNames {
 	}
 
 	private void validateNothing() {
-		if (names.size() == NOTHING) {
+		if (carNames.size() == NOTHING) {
 			throw new IllegalArgumentException(ERROR_NOTHING);
 		}
 	}
 
 	private void validateEmpty() {
-		if (names.contains(EMPTY)) {
+		if (carNames.contains(EMPTY)) {
 			throw new IllegalArgumentException(ERROR_EMPTY);
 		}
 	}
 
 	private void validateContainSpace() {
-		if (names.stream().anyMatch(name -> name.contains(SPACE))) {
+		if (carNames.stream().anyMatch(carNames -> carNames.contains(SPACE))) {
 			throw new IllegalArgumentException(ERROR_CONTAIN_SPACE);
 		}
 	}
 
 	private void validateLength() {
-		if (names.stream().anyMatch(name -> name.length() > MAX_SIZE)) {
+		if (carNames.stream().anyMatch(carNames -> carNames.length() > MAX_SIZE)) {
 			throw new IllegalArgumentException(ERROR_LENGTH);
 		}
 	}
 
 	private void validateDuplicate() {
-		if (names.size() != names.stream().distinct().count()) {
+		if (carNames.size() != carNames.stream().distinct().count()) {
 			throw new IllegalArgumentException(ERROR_DUPLICATE);
 		}
 	}
 
-	public List<Car> generateCar() {
-		return names.stream().map(Car::new).collect(Collectors.toList());
+	public List<Car> generateCars() {
+		return carNames.stream().map(Car::new).collect(Collectors.toList());
 	}
 }
