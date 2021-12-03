@@ -18,7 +18,13 @@ public class User implements IUser{
 
     @Override
     public int inputRepeatNumber() {
-        return 0;
+        while (true) {
+            String input = Console.readLine();
+            if (validateNumber(input) && validateRange(input)) {
+                return Integer.parseInt(input);
+            }
+            informInputAgain();
+        }
     }
 
     @Override
@@ -47,4 +53,21 @@ public class User implements IUser{
     private void informInputAgain() {
         System.out.println("[ERROR] 잘못된 값입니다. 올바른 값을 입력해주세요.");
     }
+
+    private boolean validateNumber(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateRange(String input) {
+        if (Integer.parseInt(input) < 0) {
+            return false;
+        }
+        return true;
+    }
+
 }
