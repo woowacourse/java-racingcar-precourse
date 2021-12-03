@@ -148,17 +148,11 @@ public class RacingGame {
 	}
 
 	String getWinners() {
-		int maxPosition = 0;
-		int nowPosition;
+		int maxPosition = getMaxPosition(this.cars);
 
 		String winners = "";
 		for (int i = 0; i < this.cars.length; i++) {
-			nowPosition = this.cars[i].getPosition();
-			if (nowPosition > maxPosition) {
-				maxPosition = nowPosition;
-				winners = "";
-			}
-			if (nowPosition != maxPosition) {
+			if (this.cars[i].getPosition() < maxPosition) {
 				continue;
 			}
 			if (!winners.equals("")) {
@@ -166,7 +160,18 @@ public class RacingGame {
 			}
 			winners += this.cars[i].getName();
 		}
-
 		return winners;
+	}
+
+	int getMaxPosition(Car[] cars) {
+		int maxPosition = 0;
+
+		for (int i = 0; i < cars.length; i++) {
+			if (cars[i].getPosition() > maxPosition) {
+				maxPosition = cars[i].getPosition();
+			}
+		}
+
+		return maxPosition;
 	}
 }
