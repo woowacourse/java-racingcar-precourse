@@ -18,13 +18,13 @@ public class CarEntry {
     }
 
     public void letCarsMove() {
-        Stream<Car> stream = carList.stream();
-        stream.forEach(Car::progressOrStop);
+        Stream<Car> carStream = carList.stream();
+        carStream.forEach(Car::progressOrStop);
     }
 
     public void printCurCarsPosition() {
-        Stream<Car> stream = carList.stream();
-        stream.forEach(Car::printCurrentPosition);
+        Stream<Car> carStream = carList.stream();
+        carStream.forEach(Car::printCurrentPosition);
     }
 
     private String[] getCarNameArray(String carNames) {
