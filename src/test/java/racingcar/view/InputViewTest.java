@@ -79,4 +79,18 @@ class InputViewTest {
             inputView.getTryCount();
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("시도할 회수가 음수이면 예외를 던진다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "-2", "-3", "-4", "-5"})
+    void getTryCount_InputTryCountThenNegativeNumber_ExceptionThrown(String inputTryCount) {
+        // given
+        System.setIn(generateStream(inputTryCount));
+        InputView inputView = generateInputView();
+
+        // when & then
+        assertThatThrownBy(() -> {
+            inputView.getTryCount();
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
