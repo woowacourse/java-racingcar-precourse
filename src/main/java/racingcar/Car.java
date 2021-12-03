@@ -8,5 +8,13 @@ public class Car {
         this.name = name;
     }
 
+    public static Car from(String pobi) {
+        return new Car("pobi");
+    }
+
+    public String getName() {
+        return name;
+    }
+
     // 추가 기능 구현
 }
