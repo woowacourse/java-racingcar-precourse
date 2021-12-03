@@ -33,7 +33,7 @@ public class Cars {
     }
 
     public String getGameRecord() {
-        return cars.stream().map(Car::getRecord).reduce((a, b) -> a + NEW_LINE + b).toString();
+        return cars.stream().map(Car::getRecord).reduce((a, b) -> a + NEW_LINE + b).get();
     }
 
     public void move(Engines engines) {
