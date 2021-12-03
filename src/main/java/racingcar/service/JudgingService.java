@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import racingcar.domain.Car;
 
-public class JudgeService {
+public class JudgingService {
 
-	public ArrayList<String> makeWinnerList(ArrayList<Car> carList) {
+	public ArrayList<String> judge(ArrayList<Car> carList) {
 		ArrayList<String> winnerList = new ArrayList<>();
 
 		int max = carList.stream()

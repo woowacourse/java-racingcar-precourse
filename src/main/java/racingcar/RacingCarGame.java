@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import racingcar.receiver.NameReceiver;
 import racingcar.receiver.TryCountReceiver;
 import racingcar.repository.CarRepository;
-import racingcar.service.JudgeService;
+import racingcar.service.JudgingService;
 import racingcar.service.RacingService;
 
 public class RacingCarGame {
@@ -61,7 +61,7 @@ public class RacingCarGame {
 	}
 
 	private void announceWinner() {
-		winnerList = new JudgeService().makeWinnerList(CarRepository.getCarList());
+		winnerList = new JudgingService().judge(CarRepository.getCarList());
 
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(WINNER_MESSAGE_PREFIX);
