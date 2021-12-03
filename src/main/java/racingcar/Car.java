@@ -15,8 +15,8 @@ public class Car {
         return Randoms.pickNumberInRange(0,9);
     }
 
-    public boolean predicateAdvance(int randomNumber) {
-        if (randomNumber >= STANDARD) {
+    public boolean predicateAdvance() {
+        if (this.makeRandomForAdvance() >= STANDARD) {
             return true;
         }
         return false;
