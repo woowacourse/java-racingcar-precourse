@@ -2,8 +2,7 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import static racingcar.util.VerificationUtil.checkCarName;
-import static racingcar.util.VerificationUtil.validateAttemptNumber;
+import static racingcar.util.VerificationUtil.*;
 
 public class UserInputUtil {
 
@@ -28,6 +27,8 @@ public class UserInputUtil {
         for (int i = 0; i < carNames.length; i++) {
             checkCarName(carNames[i]);
         }
+
+        validateDuplication(carNames);
 
         return carNames;
     }

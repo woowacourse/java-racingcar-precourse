@@ -1,5 +1,8 @@
 package racingcar.util;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class VerificationUtil {
 
     private VerificationUtil() {
@@ -9,6 +12,14 @@ public class VerificationUtil {
         int validatedNumber = getValidatedNumber(input);
 
         validatePositiveNumber(validatedNumber);
+    }
+
+    public static void validateDuplication(String[] carNames) {
+        HashSet<String> hashStrings = new HashSet<>(Arrays.asList(carNames));
+
+        if (hashStrings.size() < carNames.length) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름이 중복되면 안됩니다.");
+        }
     }
 
     public static void checkCarName(String carName) {
