@@ -48,14 +48,17 @@ public class RacingCars {
 	}
 
 	public List<String> getWinner() {
-		int maxPosition = racingCars.stream()
+		int maxPosition = getMaxPosition();
+		return racingCars.stream()
+			.filter(car -> car.isInPosition(maxPosition))
+			.map(Car::getName)
+			.collect(Collectors.toList());
+	}
+
+	public int getMaxPosition() {
+		return racingCars.stream()
 			.mapToInt(Car::getPosition)
 			.max()
 			.orElse(0);
-
-		return racingCars.stream()
-			.filter(car -> car.getPosition() == maxPosition)
-			.map(Car::getName)
-			.collect(Collectors.toList());
 	}
 }

@@ -40,4 +40,8 @@ public class Car {
 		result.append("\n");
 		return result;
 	}
+
+	public boolean isInPosition(int position) {
+		return this.position == position;
+	}
 }
