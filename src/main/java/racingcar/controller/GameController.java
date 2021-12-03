@@ -14,7 +14,13 @@ public class GameController {
 	public static void startGame() {
 		List<String> carNames = InputView.writeCarNames();
 		Cars cars = CarUtils.makeCars(carNames);
-		cars.showCars();
-		System.out.println(InputView.writeNumberOfAttempts());
+		int numberOfAttempts = InputView.writeNumberOfAttempts();
+		racing(cars, numberOfAttempts);
+	}
+
+	public static void racing(Cars cars, int numberOfAttempts) {
+		for (int i = 0; i < numberOfAttempts; i++) {
+			cars.showCarsNumber();
+		}
 	}
 }
