@@ -9,6 +9,7 @@ public class Car {
 
 	private static final int MINIMUM_RANDOM_RANGE = 0;
 	private static final int MAXIMUM_RANDOM_RANGE = 9;
+	private static final int MOVE_CONDITION_NUMBER = 4;
 
 	public Car(String name) {
 		this.name = name;
@@ -16,8 +17,18 @@ public class Car {
 
 	// 추가 기능 구현
 	public int makeRandomNumber() {
-		int randomNumber = Randoms.pickNumberInRange(MINIMUM_RANDOM_RANGE, MAXIMUM_RANDOM_RANGE);
-		System.out.println(randomNumber);
-		return randomNumber;
+		return Randoms.pickNumberInRange(MINIMUM_RANDOM_RANGE, MAXIMUM_RANDOM_RANGE);
+	}
+
+	public boolean checkMoveForward() {
+		int randomNumber = makeRandomNumber();
+		return randomNumber >= MOVE_CONDITION_NUMBER;
+	}
+
+	public int currentPosition() {
+		if (checkMoveForward()) {
+			position++;
+		}
+		return position;
 	}
 }
