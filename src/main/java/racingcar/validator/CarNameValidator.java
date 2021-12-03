@@ -13,11 +13,12 @@ public class CarNameValidator {
 		}
 
 		for (int idx = 1; idx < carNameInput.length(); idx++) {
-			if (carNameInput.charAt(idx) == ',' && carNameInput.charAt(idx - 1) == ',') {
+			if (carNameInput.charAt(idx) == DELIMITER_CHARACTER
+				&& carNameInput.charAt(idx - 1) == DELIMITER_CHARACTER) {
 				throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR);
 			}
 		}
-		if (carNameInput.charAt(carNameInput.length() - 1) == ',') {
+		if (carNameInput.charAt(carNameInput.length() - 1) == DELIMITER_CHARACTER) {
 			throw new IllegalArgumentException(CAR_NAME_WRONG_END_ERROR);
 		}
 	}
