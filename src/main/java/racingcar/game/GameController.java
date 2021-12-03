@@ -8,24 +8,24 @@ import racingcar.view.OutputView;
 
 public class GameController {
 	private Cars cars;
+	private Attempts attempts;
 
 	public void run() {
 		createCars();
-		Attempts attempts = new Attempts();
-		inputAttempts(attempts);
-		moveCars(cars, attempts);
+		requestAttempts();
+		startRacing();
 		Winners winners = new Winners(cars);
 		OutputView.showWinner(winners.getWinners());
 	}
 
 	private void createCars() {
+		InputView.carNamesMessage();
 		CarNames carNames = new CarNames();
 		inputCarName(carNames);
 		cars = new Cars(carNames.generateCar());
 	}
 
 	private void inputCarName(CarNames carNames) {
-		InputView.startMessage();
 		try {
 			carNames.input();
 		} catch (IllegalArgumentException illegalArgumentException) {
@@ -34,8 +34,13 @@ public class GameController {
 		}
 	}
 
-	private void inputAttempts(Attempts attempts) {
+	private void requestAttempts() {
+		attempts = new Attempts();
 		InputView.attemptsMessage();
+		inputAttempts(attempts);
+	}
+
+	private void inputAttempts(Attempts attempts) {
 		try {
 			attempts.input();
 		} catch (IllegalArgumentException illegalArgumentException) {
@@ -44,10 +49,10 @@ public class GameController {
 		}
 	}
 
-	private void moveCars(Cars cars, Attempts attempts) {
-		OutputView.resultMessage();
+	private void startRacing() {
+		OutputView.showResultMessage();
 		do {
-			OutputView.moveResultMessage(cars.move());
+			OutputView.showMoveResult(cars.race());
 			attempts.decrease();
 		} while (attempts.isLeft());
 	}

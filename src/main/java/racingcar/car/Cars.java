@@ -14,15 +14,23 @@ public class Cars {
 		this.carMovement = new CarMovement();
 	}
 
-	public List<String> move() {
-		List<String> moveResult = new ArrayList<>();
-		for (Car car : carList) {
-			if (carMovement.isMoveForward()) {
-				car.moveForward();
-			}
-			moveResult.add(car.positionToString());
+	public List<String> race() {
+		List<String> racingResult = new ArrayList<>();
+		for (Car each : carList) {
+			move(each);
+			addResult(racingResult, each);
 		}
-		return moveResult;
+		return racingResult;
+	}
+
+	private void move(Car car) {
+		if (carMovement.isMovableForward()) {
+			car.moveForward();
+		}
+	}
+
+	private void addResult(List<String> racingResult, Car car) {
+		racingResult.add(car.positionToString());
 	}
 
 	public List<String> findFrontCars() {

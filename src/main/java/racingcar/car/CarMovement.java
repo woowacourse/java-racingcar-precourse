@@ -9,7 +9,7 @@ public class CarMovement {
 
 	private int randomNumber;
 
-	public boolean isMoveForward() {
+	public boolean isMovableForward() {
 		generateRandomNumber();
 		if (randomNumber >= FORWARD_STANDARD) {
 			return true;
