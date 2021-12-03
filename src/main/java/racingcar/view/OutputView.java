@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.ArrayList;
+
 import racingcar.domain.Car;
 
 public class OutputView {
@@ -26,5 +28,14 @@ public class OutputView {
 			}
 			System.out.println();
 		}
+	}
+
+	public static void printRacingWinner(ArrayList<Car> winnerList) {
+		System.out.print(Message.WINNER_RESULT.getMessage());
+		ArrayList<String> resultWinnerNames = new ArrayList<>();
+		for (Car car: winnerList) {
+			resultWinnerNames.add(car.getName());
+		}
+		System.out.print(String.join(", ", resultWinnerNames));
 	}
 }

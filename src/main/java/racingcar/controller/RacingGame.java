@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.domain.Judge.*;
 import static racingcar.view.InputView.*;
 import static racingcar.view.OutputView.*;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.domain.RandomNumber;
+import racingcar.view.OutputView;
 
 public class RacingGame {
 
@@ -18,10 +20,11 @@ public class RacingGame {
 		int attemptNumber = inputAttemptNumber();
 		printExecutionResult();
 		for (int i = 0; i < attemptNumber; i++) {
-			System.out.println(i + "번째 시도");
 			makeCarMove(carName);
 			printCarMovementStatus(carName);
+			System.out.println();
 		}
+		OutputView.printRacingWinner(getRacingWinner(carName));
 	}
 
 	public static Car[] createCarInstance(List<String> carNameList) {
@@ -36,7 +39,6 @@ public class RacingGame {
 		for (Car car : carName) {
 			if (createRandomNumberForCarMovement()) {
 				car.moveForward();
-				// System.out.println(car.getName()+": " + car.getPosition() + "이동");
 			}
 		}
 	}
