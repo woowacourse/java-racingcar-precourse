@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
 	private final String name;
 	private int position = 0;
@@ -11,14 +9,14 @@ public class Car {
 	}
 
 	// 추가 기능 구현
-	public void move() {
-		if (canMove()) {
+	public void move(int randomNum) {
+		if (canMove(randomNum)) {
 			position++;
 		}
 	}
 
-	private boolean canMove() {
-		return Randoms.pickNumberInRange(1, 10) >= 4;
+	private boolean canMove(int randomNum) {
+		return randomNum >= 4;
 	}
 
 	protected boolean isMoved() {
