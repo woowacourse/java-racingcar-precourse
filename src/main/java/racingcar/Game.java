@@ -1,11 +1,16 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Game implements IGame{
+    private Cars cars = new Cars();
+
     @Override
     public String startGame(String[] names, int count) {
-        Randoms.pickNumberInRange(0, 9);
+        cars.createCar(names);
+
+        for (int i = 0; i < count; i++) {
+            cars.moveCar();
+        }
+
         return null;
     }
 }
