@@ -28,8 +28,13 @@ public class InputView {
 	public static int writeNumberOfAttempts() {
 		OutputView.askNumberOfAttempts();
 		String inputNumber = Console.readLine();
-		int numberOfAttempts = Integer.parseInt(inputNumber);
-		OutputView.printNewLine();
+		int numberOfAttempts;
+		try {
+			numberOfAttempts = ExceptionUtils.validateNumberOfAttempts(inputNumber);
+		} catch (IllegalArgumentException e) {
+			OutputView.printError(e);
+			numberOfAttempts = writeNumberOfAttempts();
+		}
 		return numberOfAttempts;
 	}
 }
