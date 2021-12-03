@@ -1,5 +1,9 @@
 package racingcar;
 
+import static racingcar.util.Constants.*;
+
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -9,4 +13,24 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void drive() {
+        tryDrive();
+        printPosition();
+    }
+
+    private void tryDrive() {
+        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        if (randomNumber >= 4) {
+            position++;
+        }
+    }
+
+    private void printPosition() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(name).append(MESSAGE_SEMICOLON_WITH_SPACE);
+        for (int i = 0 ; i < position ; i++) {
+            stringBuilder.append(MESSAGE_POSITION);
+        }
+    }
+
 }

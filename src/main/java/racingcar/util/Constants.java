@@ -7,6 +7,8 @@ public class Constants {
 	public static final int MIN_CAR_NAME_LENGTH = 1;
 	public static final int MIN_CAR_COUNT = 1;
 	public static final int MIN_DRIVE_COUNT = 1;
+	public static final int MAX_RANDOM_NUMBER = 9;
+	public static final int MIN_RANDOM_NUMBER = 0;
 	public static final String COMMA = ",";
 
 	public static final String ERROR = "[ERROR]";
@@ -19,4 +21,6 @@ public class Constants {
 
 	public static final String MESSAGE_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	public static final String MESSAGE_INPUT_DRIVE_COUNT = "시도할 회수는 몇회인가요?";
+	public static final String MESSAGE_SEMICOLON_WITH_SPACE = " : ";
+	public static final String MESSAGE_POSITION = "-";
 }
