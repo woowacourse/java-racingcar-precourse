@@ -7,16 +7,21 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
+	private Cars cars;
+
 	public void run() {
-		Game game = new Game();
-		CarNames carNames = new CarNames();
-		inputCarName(carNames);
-		Cars cars = new Cars(carNames.generateCar());
+		createCars();
 		Attempts attempts = new Attempts();
 		inputAttempts(attempts);
 		moveCars(cars, attempts);
 		Winners winners = new Winners(cars);
 		OutputView.showWinner(winners.getWinners());
+	}
+
+	private void createCars() {
+		CarNames carNames = new CarNames();
+		inputCarName(carNames);
+		cars = new Cars(carNames.generateCar());
 	}
 
 	private void inputCarName(CarNames carNames) {

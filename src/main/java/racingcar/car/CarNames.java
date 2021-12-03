@@ -65,6 +65,6 @@ public class CarNames {
 	}
 
 	public List<Car> generateCar() {
-		return names.stream().map(name -> new Car(name)).collect(Collectors.toList());
+		return names.stream().map(Car::new).collect(Collectors.toList());
 	}
 }
