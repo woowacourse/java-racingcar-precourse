@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 class RacingControllerTest {
-
     private final InputStream standardIn = System.in;
     private final RacingController racingController = new RacingController();
 
@@ -34,6 +33,20 @@ class RacingControllerTest {
         String input = " ";
         setInput(input);
         assertThatThrownBy(racingController::inputCarNames).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 회차_수를_정수로_입력() {
+        String input = "1";
+        setInput(input);
+        assertThat(racingController.inputRoundNumber()).isEqualTo(1);
+    }
+
+    @Test
+    void 회차_수가_정수가_아닐_경우_예외_발생() {
+        String input = "!";
+        setInput(input);
+        assertThatThrownBy(racingController::inputRoundNumber).isInstanceOf(IllegalArgumentException.class);
     }
 
     private void setInput(String input) {
