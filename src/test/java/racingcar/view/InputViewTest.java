@@ -49,4 +49,18 @@ class InputViewTest {
         // then
         assertThat(tryCount).isEqualTo(Integer.parseInt(inputTryCount));
     }
+
+    @DisplayName("시도할 회수가 숫자가 아니면 예외를 던진다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "1a", " "})
+    void getTryCount_InputTryCountThenNotNumberFormat_ExceptionThrown(String inputTryCount) {
+        // given
+        System.setIn(generateStream(inputTryCount));
+        InputView inputView = generateInputView();
+
+        // when & then
+        assertThatThrownBy(() -> {
+            inputView.getTryCount();
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
