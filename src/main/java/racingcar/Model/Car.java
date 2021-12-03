@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.Model;
+
+import racingcar.Constant;
 
 public class Car implements Comparable<Car> {
     private final String name;
@@ -6,6 +8,10 @@ public class Car implements Comparable<Car> {
 
     public Car(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void move() {
@@ -29,7 +35,5 @@ public class Car implements Comparable<Car> {
         return c.position - this.position;
     }
 
-    public String getName(){
-        return this.name;
-    }
 }
+
