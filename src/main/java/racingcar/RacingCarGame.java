@@ -2,9 +2,9 @@ package racingcar;
 
 import java.util.ArrayList;
 
-import racingcar.domain.Car;
 import racingcar.receiver.NameReceiver;
 import racingcar.receiver.TryCountReceiver;
+import racingcar.repository.CarRepository;
 import racingcar.service.JudgeService;
 import racingcar.service.RacingService;
 
@@ -17,7 +17,6 @@ public class RacingCarGame {
 
 	private ArrayList<String> nameList;
 	private Integer tryCount;
-	private ArrayList<Car> carList;
 	private ArrayList<String> winnerList;
 
 	public void run() {
@@ -53,7 +52,7 @@ public class RacingCarGame {
 
 		RacingService racingService = new RacingService();
 
-		carList = racingService.start(nameList, tryCount);
+		racingService.race(nameList, tryCount);
 
 		ArrayList<String> racingLog = racingService.getRacingLog();
 		for (String str : racingLog) {
@@ -62,7 +61,7 @@ public class RacingCarGame {
 	}
 
 	private void announceWinner() {
-		winnerList = new JudgeService().makeWinnerList(carList);
+		winnerList = new JudgeService().makeWinnerList(CarRepository.getCarList());
 
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(WINNER_MESSAGE_PREFIX);

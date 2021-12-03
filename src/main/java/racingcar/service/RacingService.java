@@ -13,15 +13,13 @@ public class RacingService {
 		return this.racingLog;
 	}
 
-	public ArrayList<Car> start(ArrayList<String> nameList, Integer tryCount) {
+	public void race(ArrayList<String> nameList, Integer tryCount) {
 		enrollCars(nameList);
 
 		for (int i = 0; i < tryCount; i++) {
 			driveAllCars(CarRepository.getCarList());
 			writeLog(CarRepository.getCarList());
 		}
-
-		return CarRepository.getCarList();
 	}
 
 	private void enrollCars(ArrayList<String> nameList) {
