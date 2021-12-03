@@ -202,3 +202,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 - 리팩토링(branch: refactoring)
     - 의미가 명확하지 않은 메서드와 멤버 변수 이름 수정
     - Read-only여야 하는 변수를 final로 선언
+    - 사용자가 유효하지 않은 데이터 입력에 대한 에러메시지에서 중복되는 부분 static 변수로 변경

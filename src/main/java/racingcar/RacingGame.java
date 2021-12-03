@@ -18,6 +18,9 @@ public class RacingGame {
 	/** 사용자가 입력 가능한 차량이름의 최대 길이 */
 	public static final Integer CAR_NAME_MAX_LENGTH = 5;
 
+	/** 사용자가 유효하지 않은 데이터를 입력했을때 출력하는 에러메시지의 접두사 */
+	public static final String ERROR_MESSAGE_PREFIX = "[ERROR] ";
+
 	/** 레이싱 경주에 사용할 자동차 리스트 */
 	private final ArrayList<Car> cars;
 
@@ -41,7 +44,8 @@ public class RacingGame {
 		final String[] carNames = Console.readLine().split(",");
 		for(final String carName : carNames) {
 			if(carName.length() > CAR_NAME_MAX_LENGTH) {
-				final String errorMessage = "[ERROR] " + carName + "은 5자 이하여야 합니다";
+				final String errorMessage = ERROR_MESSAGE_PREFIX + carName
+					+ "은 5자 이하여야 합니다";
 				cars.clear();
 				throw new IllegalArgumentException(errorMessage);
 			}
@@ -55,7 +59,7 @@ public class RacingGame {
 		final String numberPattern = "^[0-9]*$";
 		final String tempTerns = Console.readLine();
 		if(!Pattern.matches(numberPattern, tempTerns)) {
-			final String errorMessage = "[ERROR] 시도 횟수는 숫자여야 한다.";
+			final String errorMessage = ERROR_MESSAGE_PREFIX + "시도 횟수는 숫자여야 한다.";
 			throw new IllegalArgumentException(errorMessage);
 		}
 		turns = Integer.parseInt(tempTerns);
