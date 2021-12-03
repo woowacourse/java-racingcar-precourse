@@ -24,4 +24,8 @@ public class Cars {
     public void race(final RandomMovement randomMovement) {
         values.forEach(car -> car.move(randomMovement.canMove()));
     }
+
+    public List<Car> getRacingResult() {
+        return values;
+    }
 }
