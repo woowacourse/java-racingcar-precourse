@@ -13,6 +13,13 @@ public class Car implements ICar {
     @Override
     public void pickRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {}
+        if (randomNumber >= 4) {
+            incrementPosition();
+        }
     }
+
+    private void incrementPosition() {
+        this.position ++;
+    }
+
 }
