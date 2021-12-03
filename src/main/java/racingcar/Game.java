@@ -2,11 +2,18 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
 	public void play() {
-		constructCar(parsingCarNames(InputView.inputCarNames()));
+		List<Car> cars = constructCar(parsingCarNames(InputView.inputCarNames()));
+		int gameRound = castingGameRound(InputView.inputGameRound());
+		for (int i = 0; i < gameRound; i++) {
+			playRound(cars);
+		}
 	}
 
 	public List<String> parsingCarNames(String noParsingCarNames) {
@@ -15,7 +22,7 @@ public class Game {
 		return carNames;
 	}
 
-	public List<Car> constructCar(List<String> stringCarNames){
+	public List<Car> constructCar(List<String> stringCarNames) {
 		List<Car> carNames = new ArrayList<>();
 		for (String stringCarName : stringCarNames) {
 			Car car = new Car(stringCarName.trim());
@@ -24,7 +31,7 @@ public class Game {
 		return carNames;
 	}
 
-	public int castingGameRound(String stringGameRound){
+	public int castingGameRound(String stringGameRound) {
 		int gameRound = Integer.parseInt(stringGameRound);
 		validateGameRound(gameRound);
 		return gameRound;
@@ -36,4 +43,10 @@ public class Game {
 		}
 	}
 
+	public void playRound(List<Car> cars) {
+		for (Car car : cars) {
+			int random = Randoms.pickNumberInRange(Constant.MINIMUM_RANDOM_VALUE, Constant.MAX_RANDOM_VALUE);
+			car.proceed(random);
+		}
+	}
 }

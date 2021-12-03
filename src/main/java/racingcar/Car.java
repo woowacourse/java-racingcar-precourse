@@ -10,6 +10,14 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
 	// 추가 기능 구현
 	public void validateNameLength(String name) {
 		if (name.length() > Constant.NAME_MAX_LENGTH) {
