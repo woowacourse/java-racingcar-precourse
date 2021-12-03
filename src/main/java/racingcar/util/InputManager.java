@@ -8,8 +8,7 @@ public class InputManager {
 	public static String[] readCarName() {
 		String[] carNames;
 		try {
-			String stringLine = Console.readLine();
-			carNames = stringLine.split(COMMA);
+			carNames = Console.readLine().split(COMMA);
 			checkCarName(carNames);
 		} catch (IllegalArgumentException exception) {
 			carNames = readCarName();
