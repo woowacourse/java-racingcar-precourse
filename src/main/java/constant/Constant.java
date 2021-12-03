@@ -7,6 +7,7 @@ public class Constant {
     public static final String ERROR_CAR_NAME_LENGTH = "[ERROR] 자동차 이름은 5자 이하여야 합니다.";
     public static final String ERROR_CAR_NAME_INPUT_ETC = "[ERROR] 옳바르지 않은 입력타입입니다. \"pobi,woni,jun\"와 같은 타입으로 입력해주세요.";
     public static final String ERROR_CAR_NAME_FRONT_BLANK = "[ERROR] 차 이름 앞에 공백이 있습니다. \"pobi,woni,jun\"와 같은 타입으로 입력해주세요.";
+    public static final String ERROR_CAR_NAME_DUPLICATE = "[ERROR] 중복된 차 이름이 있습니다.";
     public static final String ERROR_EMPTY_INPUT = "[ERROR] 입력값이 없습니다.";
     public static final String ERROR_INVALID_ATTEMP = "[ERROR] 시도 횟수는 숫자여야 한다.";
 

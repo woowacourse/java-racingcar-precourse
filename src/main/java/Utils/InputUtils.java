@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.Car;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static constant.Constant.*;
@@ -26,13 +27,15 @@ public class InputUtils {
 
     private static List<Car> getCarList() {
         List<Car> carList = new ArrayList<>();
+        HashSet<String> carSet = new HashSet<>();
         String input = Console.readLine();
         checkCarNameSentence(input);
         String[] carArr = input.split(CAR_NAME_SEPARATOR);
 
         for (String carName : carArr) {
-            checkCarNameWord(carName);
+            checkCarNameWord(carName, carSet);
             carList.add(new Car(carName));
+            carSet.add(carName);
         }
         return carList;
     }
@@ -57,9 +60,10 @@ public class InputUtils {
         }
     }
 
-    private static void checkCarNameWord(String carName) {
+    private static void checkCarNameWord(String carName, HashSet<String> carSet) {
         checkCarNameLength(carName);
         checkCarNameFrontBlank(carName);
+        checkCarNameDuplicate(carName, carSet);
     }
 
     private static void checkCarNameLength(String carName) {
@@ -73,6 +77,13 @@ public class InputUtils {
         if (carName.charAt(0) == ' ') {
             System.out.println(ERROR_CAR_NAME_FRONT_BLANK);
             throw new IllegalArgumentException(ERROR_CAR_NAME_FRONT_BLANK);
+        }
+    }
+
+    private static void checkCarNameDuplicate(String carName, HashSet<String> carSet) {
+        if (carSet.contains(carName)) {
+            System.out.println(ERROR_CAR_NAME_DUPLICATE);
+            throw new IllegalArgumentException(ERROR_CAR_NAME_DUPLICATE);
         }
     }
 
