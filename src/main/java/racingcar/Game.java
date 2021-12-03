@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -16,6 +17,9 @@ public class Game {
 			playRound(cars);
 			OutputView.showGameRoundResult(showCarsPosition(cars));
 		}
+		Referee referee = new Referee();
+		Collections.sort(cars, new Referee());
+		OutputView.showWinner(referee.selectWinners(cars));
 	}
 
 	public List<String> parsingCarNames(String noParsingCarNames) {
