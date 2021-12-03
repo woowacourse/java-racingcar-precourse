@@ -17,13 +17,24 @@ public class VerificationUtil {
         }
     }
 
-    public static void checkCarName(String input) {
-        validateLength(input);
+    public static void checkCarName(String carName) {
+        validateCarName(carName);
     }
 
-    private static void validateLength(String input) {
-        if(input.length() > 5) {
+    private static void validateCarName(String carName) {
+        validateLength(carName);
+        validateSpace(carName);
+    }
+
+    private static void validateLength(String carName) {
+        if (carName.length() > 5) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 합니다.");
+        }
+    }
+
+    private static void validateSpace(String carName) {
+        if (carName.contains(" ")) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름에 공백이 있으면 안됩니다.");
         }
     }
 }
