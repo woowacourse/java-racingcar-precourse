@@ -7,24 +7,33 @@ public class Track {
     public static final int START_INDEX = 0;
 
     private final Cars cars;
-    private String gameRecord = "";
+    private final Recorder recorder;
 
-    public Track(String value) {
-        this.cars = Cars.createByNames(value);
+    private Track(String carsName) {
+        this.cars = Cars.createByNames(carsName);
+        this.recorder = new Recorder();
+    }
+
+    public static Track createByCarsName(String carsName) {
+        return new Track(carsName);
     }
 
     public String getGameRecord() {
-        return this.gameRecord;
+        return recorder.getRecord();
     }
 
     public void play(EngineRepository engineRepository) {
         IntStream.range(START_INDEX, engineRepository.size()).forEach(index -> {
             cars.move(engineRepository.get(index));
-            gameRecord += cars.getGameRecord() + NEW_LINE + NEW_LINE;
+            recorder.record(cars.getGameRecord() + NEW_LINE);
         });
     }
 
     public int getCarsCount() {
         return cars.getCarsCount();
+    }
+
+    public String getWinner() {
+        return cars.getWinner();
     }
 }

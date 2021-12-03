@@ -2,31 +2,39 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarsTest {
-    @DisplayName("Cars 생성 시 빈값, 5자리를 넘는 입력값에 대한 예외발생 테스트")
-    @ParameterizedTest
-    @ValueSource(strings = {"", "123456", "123456789"})
-    void carsFromInvalidValue(String name) {
-        assertThatThrownBy(() -> Cars.createByNames(name)
-        ).isInstanceOf(IllegalArgumentException.class);
+    public static final String NEW_LINE = System.lineSeparator();
+
+    Cars cars;
+
+    @BeforeEach
+    void setUp() {
+        this.cars = Cars.createByNames("1,2,3");
     }
 
-    @DisplayName("Cars 생성 시 입력값이 null일 경우 예외발생 테스트")
+    @DisplayName("경기 결과를 문자열로 반환 테스트")
     @Test
-    void carsFromNull() {
-        assertThatThrownBy(() -> Cars.createByNames(null)
-        ).isInstanceOf(IllegalArgumentException.class);
+    void getGameRecord() {
+        cars.move(new Engines("000"));
+        assertThat(cars.getGameRecord()).isEqualTo("1 : " + NEW_LINE + "2 : " + NEW_LINE + "3 : ");
+        cars.move(new Engines("444"));
+        assertThat(cars.getGameRecord()).isEqualTo("1 : -" + NEW_LINE + "2 : -" + NEW_LINE + "3 : -");
+        cars.move(new Engines("349"));
+        assertThat(cars.getGameRecord()).isEqualTo("1 : -" + NEW_LINE + "2 : --" + NEW_LINE + "3 : --");
     }
 
-    @DisplayName("Cars 생성 시 유효한 입력값인 경우 통과 테스트")
-    @ParameterizedTest
-    @ValueSource(strings = {"1", "12345", "12345,1", "12345,12345"})
-    void carsFromValidValue(String name) {
-       Cars.createByNames(name);
+    @DisplayName("우승자 문자열로 반환 테스트")
+    @Test
+    void getWinner() {
+        cars.move(new Engines("012"));
+        assertThat(cars.getWinner()).isEqualTo("1 2 3");
+        cars.move(new Engines("049"));
+        assertThat(cars.getWinner()).isEqualTo("2 3");
+        cars.move(new Engines("034"));
+        assertThat(cars.getWinner()).isEqualTo("3");
     }
 }
