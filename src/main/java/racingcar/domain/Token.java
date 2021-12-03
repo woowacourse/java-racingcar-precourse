@@ -30,7 +30,7 @@ public class Token {
     }
 
     private void checkLessThanThreshold(String value) {
-        if(isLessThanThreshold(value)){
+        if (isLessThanThreshold(value)) {
             throw new IllegalArgumentException(ERROR_LESS_THAN_THRESHOLD_MENTION);
         }
     }
@@ -73,5 +73,4 @@ public class Token {
         count--;
         return count > ITERATION_MODIFIER;
     }
-
 }

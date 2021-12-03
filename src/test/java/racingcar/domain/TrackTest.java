@@ -24,7 +24,6 @@ public class TrackTest {
         track.play(new EngineRepository(Arrays.asList("034")));
         assertThat(track.getGameRecord())
             .isEqualTo("1 : " + NEW_LINE + "2 : " + NEW_LINE + "3 : -" + NEW_LINE + NEW_LINE);
-
     }
 
     @DisplayName("2라운드 경기내용 문자열 반환 테스트")
