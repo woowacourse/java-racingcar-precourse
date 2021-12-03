@@ -9,6 +9,10 @@ public class Constants {
 	public static final int MIN_DRIVE_COUNT = 1;
 	public static final int MAX_RANDOM_NUMBER = 9;
 	public static final int MIN_RANDOM_NUMBER = 0;
+	public static final int WINNER_INDEX = 0;
+	public static final int COMPARE_WINNER_RESULT = 0;
+	public static final int DELETE_STRING_COMMA = 2;
+	public static final int DELETE_STRING_END = 1;
 	public static final String COMMA = ",";
 
 	public static final String ERROR = "[ERROR]";
