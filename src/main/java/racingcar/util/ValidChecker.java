@@ -12,8 +12,16 @@ public class ValidChecker {
 		}
 	}
 
+	public static void carExist(String[] cars) {
+		if (cars.length < MIN_CAR_COUNT) {
+			throwIllegalArgumentException(ERROR_CAR_COUNT_EMPTY);
+		}
+	}
+
 	private static void throwIllegalArgumentException(String exceptionCase) {
 		System.out.println(exceptionCase);
 		throw new IllegalArgumentException(exceptionCase);
 	}
+
+
 }
