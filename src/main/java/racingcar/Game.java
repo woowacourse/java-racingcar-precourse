@@ -1,6 +1,9 @@
 package racingcar;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Game {
 
@@ -22,6 +25,7 @@ public class Game {
 
             printCurrentState(carList);
         }
+        printWinners(carList);
     }
 
     public void printCurrentState(List<Car> carList) {
@@ -40,5 +44,27 @@ public class Game {
         }
 
         return result;
+    }
+
+    public List<Car> getWinners(List<Car> carList) {
+        int maximum = carList.stream()
+                .max(Comparator.comparing(Car::getPosition))
+                .orElseThrow(NoSuchElementException::new)
+                .getPosition();
+
+        List<Car> winnerList = carList.stream()
+                .filter(car -> car.getPosition() == maximum)
+                .collect(Collectors.toList());
+
+        return winnerList;
+    }
+
+    public void printWinners(List<Car> carList) {
+        List<Car> winnerList = getWinners(carList);
+        String prefix = "최종 우승자 : ";
+        List<String> winnerNameList = winnerList.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        System.out.println(prefix + String.join(", ",  winnerNameList));
     }
 }
