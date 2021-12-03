@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.ArrayList;
 
+import static racingcar.constant.Constraint.*;
+
 public class Result {
     private static int max;
     private final ArrayList<Car> cars;
@@ -15,7 +17,7 @@ public class Result {
         StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars) {
             updateMax(car.getPosition());
-            stringBuilder.append(car.getName()).append(" : ").append(makeDash(car.getPosition())).append("\n");
+            stringBuilder.append(car.getName()).append(COLON).append(makeDash(car.getPosition())).append(LINE_FEED);
         }
 
         return stringBuilder.toString();
@@ -34,7 +36,7 @@ public class Result {
     private String makeDash(int count) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            stringBuilder.append("-");
+            stringBuilder.append(DASH);
         }
 
         return stringBuilder.toString();

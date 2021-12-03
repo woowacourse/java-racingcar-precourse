@@ -10,7 +10,7 @@ public class Validator {
     public static LinkedHashSet<String> carNameLinkedHashSet = new LinkedHashSet<>();
 
     public static void isValidInput(String input) {
-        if (!input.matches("^[a-zA-Z]+(,[a-zA-Z]+)+$")) {
+        if (!input.matches(ALLOWED_CAR_NAME_INPUT_FORMAT)) {
             throw new IllegalArgumentException(ERROR_MESSAGE + INVALID_INPUT_MESSAGE + RETRY_MESSAGE);
         }
     }
@@ -39,7 +39,7 @@ public class Validator {
     }
 
     public static Integer validateNumber(String input) {
-        if (!input.matches("^[1-9][0-9]*$")) {
+        if (!input.matches(ALLOWED_ROUND_NUMBER_INPUT_FORMAT)) {
             throw new IllegalArgumentException(ERROR_MESSAGE + LIMITED_TO_NUMBER_ONLY_MESSAGE + RETRY_MESSAGE);
         }
 
