@@ -14,11 +14,11 @@ public class CarTest {
 	@Test
 	void move() {
 		Car move = new Car("move");
-		move.move(4);
+		move.moveOrStop(4);
 		assertTrue(move.isMoved());
 
 		Car noMove = new Car("noMov");
-		noMove.move(3);
+		noMove.moveOrStop(3);
 		assertFalse(noMove.isMoved());
 	}
 

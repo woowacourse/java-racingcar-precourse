@@ -2,9 +2,11 @@ package racingcar;
 
 public class CarRacingGame {
 	private Cars cars;
+	private int tryCount;
 
 	public void play() {
 		cars = createCars();
+		tryCount = readTryCount();
 	}
 
 	private Cars createCars() {
@@ -14,5 +16,9 @@ public class CarRacingGame {
 			OutputView.printErrorMessage(e.getMessage());
 			return createCars();
 		}
+	}
+
+	private int readTryCount() {
+		return InputView.readTryCount();
 	}
 }

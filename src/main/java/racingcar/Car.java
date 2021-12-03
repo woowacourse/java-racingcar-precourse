@@ -1,6 +1,8 @@
 package racingcar;
 
 public class Car {
+	private static final int CAN_GO_NUM = 4;
+
 	private final String name;
 	private int position = 0;
 
@@ -10,14 +12,18 @@ public class Car {
 	}
 
 	// 추가 기능 구현
-	public void move(int randomNum) {
+	public void moveOrStop(int randomNum) {
 		if (canMove(randomNum)) {
-			position++;
+			move();
 		}
 	}
 
+	private void move() {
+		position++;
+	}
+
 	private boolean canMove(int randomNum) {
-		return randomNum >= 4;
+		return randomNum >= CAN_GO_NUM;
 	}
 
 	protected boolean isMoved() {
