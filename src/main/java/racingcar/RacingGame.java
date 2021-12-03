@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.RandomNumberGenerator;
 import racingcar.util.Validator;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class RacingGame {
 
     public void run() {
         initGame();
-        startGame();
+        playGame();
         endGame();
     }
 
@@ -30,7 +29,7 @@ public class RacingGame {
         inputRounds();
     }
 
-    private void startGame() {
+    private void playGame() {
         for(int i = 0; i < rounds; i++) {
             moveAllCar();
             printResult();
@@ -84,6 +83,16 @@ public class RacingGame {
         }
     }
 
+    private void createResult() {
+        result = new Result(carList);
+    }
+
+    private void moveAllCar() {
+        for(Car car : carList) {
+            car.moveOrStopCar();
+        }
+    }
+
     private void printInputRoundsMessage() {
         System.out.println(INPUT_PLAY_ROUND_MESSAGE);
     }
@@ -92,31 +101,7 @@ public class RacingGame {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 
-    private void createResult() {
-        result = new Result(carList);
-    }
-
     private void printResult() {
         System.out.println(result.toString());
-    }
-
-    private void moveAllCar() {
-        for(Car car : carList) {
-            moveCar(car);
-        }
-    }
-
-    private void moveCar(Car car) {
-        if(canCarMove()) {
-            car.moveCarForward();
-        }
-    }
-
-    private boolean canCarMove() {
-        return RandomNumberGenerator.getRandomNumber() >= MOVING_FORWARD;
-    }
-
-    public ArrayList<Car> getCarList() {
-        return carList;
     }
 }

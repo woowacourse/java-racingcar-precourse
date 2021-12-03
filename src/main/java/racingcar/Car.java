@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.util.RandomNumberGenerator;
+
 import static racingcar.constant.Constraint.*;
 
 public class Car {
@@ -18,7 +20,13 @@ public class Car {
         return position;
     }
 
-    public void moveCarForward() {
-        position += MOVE_FORWARD_ONCE;
+    public void moveOrStopCar() {
+        if(canCarMoveForward()) {
+            position += MOVE_FORWARD_ONCE;
+        }
+    }
+
+    private boolean canCarMoveForward() {
+        return RandomNumberGenerator.getRandomNumber() >= MOVING_FORWARD;
     }
 }
