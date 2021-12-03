@@ -29,15 +29,15 @@
    1. 자동차들에 대한 정보 필요 → `private List<Car> cars`
    2. 얼마나 이동할 것인지에 대한 정보 저장 필요 → `private int stages`
 3. 자동차들을 생성해야 함 → `createCars()`
-   1. 처음에 자동차 이름을 받아야 함 → `getCarsName()` 
-      1. 사용자의 입력을 받는 method → `getUserInputNames()`
-         1. 각 자동차의 이름 확인하는 method 필요. → `checkValidName()`
-            1. 글자수 1~5인지 판단해줘야 함 → `isInValidNameLength(String name)`
-            2. 맨 뒤에 `,` 가 쓰였는지 확인해줘야 함. → `isLastCharImproper(String userInput)`
-   2. 잘못된 입력이면 다시 받도록 해야 함 (1-1, 1-2 는 `try-catch` 로 구현하기)
+   1. ~~처음에 자동차 이름을 받아야 함 → `getCarsName()`~~
+      1. ~~사용자의 입력을 받는 method → `getUserInputNames()`~~
+         1. ~~각 자동차의 이름 확인하는 method 필요. → `checkValidName()`~~
+            1. ~~글자수 1~5인지 판단해줘야 함 → `isInValidNameLength(String name)`~~
+            2. ~~맨 뒤에 `,` 가 쓰였는지 확인해줘야 함. → `isLastCharImproper(String userInput)`~~
+   2. ~~잘못된 입력이면 다시 받도록 해야 함 (1-1, 1-2 는 `try-catch` 로 구현하기)~~
 4. 몇번의 이동을 할지 정해야 함. → `getStages()`
-   1. 사용자의 입력을 받아야 함. → `getUserInputStages()`
-      1. 사용자의 입력이 `int type` 이 아니면 `IllegalArugmentException`
+   1. ~~사용자의 입력을 받아야 함. → `getUserInputStages()`~~
+      1. ~~사용자의 입력이 `int type` 이 아니면 `IllegalArugmentException`~~
 5. 이동횟수만큼 자동차들이 `go` 하게 만든다.
 6. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult()`
 7. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners()`
@@ -46,10 +46,34 @@
 8. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
    1. `createCars()` → 알맞은 자동차 생성
    2. `getStages()` → 얼마나 이동할 것인지
-   3. `excuteStage()` → 이동횟수 만큼 아래의 프로세스를 실행 
+   3. `executeStage()` → 이동횟수 만큼 아래의 프로세스를 실행 
       1. 각 자동차들 모두 `go`.
       2. 각 자동차들 현재 위치 출력. → `showEachStageResult()`
    4. 우승자 출력 →  `showWinners()`
+
+<br>
+
+## UserService
+
+`GameHandler` 가 맡는 책임이 너무 많다고 판단. 일부분을 따로 Class로 분리시키기로 함.
+
+1. GameHandler 하는 일
+
+2. 1. 사용자 입력 받는 일
+   2. 적절한 입력인지 검사하는 일
+   3. 경주에 참여할 자동차 생성하는 일
+   4. 자동차들을 이동횟수만큼 움직이는 일
+   5. 각 stage마다 실행결과를 출력해주는 일
+   6. 우승자를 선별하고 출력하는 일
+
+1-1, 1-2 부분을 따로 분리시켜 `UserService` 라는 class 로 만들 것이다.
+
+### 생성할 기능 목록
+
+1. 사용자 입력 받는 기능
+   1. 자동차 이름 입력 받기
+   2. 이동 횟수 입력 받기
+2. 적절한 입력인지 검사하는 기능
 
 <br>
 
