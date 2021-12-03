@@ -18,4 +18,8 @@ public class User {
     public String getCarName() {
         return this.names;
     }
+
+    public int getTimes() {
+        return this.times;
+    }
 }
