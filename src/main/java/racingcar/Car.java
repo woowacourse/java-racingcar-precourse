@@ -13,17 +13,16 @@ public class Car {
 
 	public void playTurn(){
 		RandomGenerator randomGenerator = new RandomGenerator();
-
-		if ( randomGenerator.getRandomNum() >= Constant.MOVE_VALUE){
+		if (randomGenerator.getRandomNum() >= Constant.MOVE_VALUE) {
 			this.position++;
 		}
-		this.printPosition();
 	}
 
 	public void printPosition(){
-		System.out.println(this.driverName + " : ");
+		System.out.print(this.driverName + " : ");
 		for(int i = 0; i < position; i++) {
-			System.out.println("-");
+			System.out.print("-");
 		}
+		System.out.println();
 	}
 }
