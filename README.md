@@ -81,9 +81,9 @@
 
 ### Constant
 
-- public static final int MINIMUM_NUMBER_OF_CARS_FOR_GAME
+- public static final int MINIMUM_NUMBER_OF_CARS_FOR_GAME ✅
     * 자동차 게임 진행을 위한 최소 자동차 개수
-- public static final int MAXIMUM_LENGTH_OF_NAMES
+- public static final int MAXIMUM_LENGTH_OF_NAMES ✅
     * 자동차 이름의 최대길이
 - public static final String PLEASE_INPUT_NAMES ✅
     * 자동차 이름 입력 요청
