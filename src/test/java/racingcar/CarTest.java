@@ -15,11 +15,11 @@ public class CarTest {
 	void move() {
 		Car move = new Car("move");
 		move.moveOrStop(4);
-		assertTrue(move.isMoved());
+		assertEquals(new Car("move", 1), move);
 
 		Car noMove = new Car("noMov");
 		noMove.moveOrStop(3);
-		assertFalse(noMove.isMoved());
+		assertEquals(new Car("noMov", 0), noMove);
 	}
 
 	@DisplayName("자동차의 이름이 5자가 넘지 않는지 테스트")

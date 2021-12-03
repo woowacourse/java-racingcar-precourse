@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CarRacingGame {
 	private Cars cars;
-	private int tryCount;
+	private TryCount tryCount;
 
 	public void powerOn() {
 		cars = createCars();
@@ -22,7 +22,7 @@ public class CarRacingGame {
 	}
 
 	private boolean canPlay() {
-		return tryCount > 0;
+		return tryCount.canTry();
 	}
 
 	private void play() {
@@ -32,7 +32,7 @@ public class CarRacingGame {
 	}
 
 	private void useOneTry() {
-		tryCount--;
+		tryCount.use();
 	}
 
 	private void printWinners() {
@@ -54,7 +54,7 @@ public class CarRacingGame {
 		return Cars.createCarsByNames(carNames);
 	}
 
-	private int readTryCount() {
+	private TryCount readTryCount() {
 		try {
 			return getTryCountByInputNum();
 		} catch (IllegalArgumentException e) {
@@ -63,9 +63,8 @@ public class CarRacingGame {
 		}
 	}
 
-	private int getTryCountByInputNum() {
+	private TryCount getTryCountByInputNum() {
 		int tryCount = InputView.readTryCount();
-		TryCountValidator.validate(tryCount);
-		return tryCount;
+		return new TryCount(tryCount);
 	}
 }

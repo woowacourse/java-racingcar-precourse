@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Objects;
+
 public class Car {
 	private static final int CAN_MOVE_POWER_MIN = 4;
 
@@ -30,10 +32,11 @@ public class Car {
 		return carPower >= CAN_MOVE_POWER_MIN;
 	}
 
-	protected boolean isMoved() {
-		return position != 0;
+	public boolean isSamePosition(int position) {
+		return this.position == position;
 	}
 
+	//view에서 사용하기 위한 getter들
 	public int getPosition() {
 		return position;
 	}
@@ -42,7 +45,17 @@ public class Car {
 		return name;
 	}
 
-	public boolean isSamePosition(int position) {
-		return this.position == position;
+	@Override
+	public boolean equals(Object o) {
+		if (o == null || !o.getClass().equals(Car.class)) {
+			return false;
+		}
+		Car other = (Car)o;
+		return name.equals(other.name) && position == other.position;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, position);
 	}
 }
