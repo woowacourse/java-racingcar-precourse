@@ -2,30 +2,28 @@ package racingcar;
 
 import java.util.ArrayList;
 
+import racingcar.repository.CarRepository;
+
 public class Racing {
 
 	public ArrayList<Car> start(ArrayList<String> nameList, Integer tryCount) {
-		ArrayList<Car> carList = makeCarList(nameList);
+		enrollCars(nameList);
 
 		for (int i = 0; i < tryCount; i++) {
-			driveAllCars(carList);
+			driveAllCars(CarRepository.getCarList());
 
-			showAllPositions(carList);
+			showAllPositions(CarRepository.getCarList());
 			// 공백 라인 출력
 			System.out.println();
 		}
 
-		return carList;
+		return CarRepository.getCarList();
 	}
 
-	private ArrayList<Car> makeCarList(ArrayList<String> nameList) {
-		ArrayList<Car> carList = new ArrayList<>();
-
+	private void enrollCars(ArrayList<String> nameList) {
 		for (String name : nameList) {
-			carList.add(new Car(name));
+			CarRepository.addCar(name);
 		}
-
-		return carList;
 	}
 
 	private void driveAllCars(ArrayList<Car> carList) {
