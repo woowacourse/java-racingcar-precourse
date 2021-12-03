@@ -12,11 +12,13 @@ public class Validation {
 	private static final String SHORT_NAME_ERROR = "자동차 이름은 1자 이상이어야 합니다.";
 	private static final String CONTAINS_BLANK_ERROR = "자동차 이름에 공백이 포함될 수 없습니다.";
 	private static final String NOT_DIGIT_ERROR = "라운드 횟수는 정수여야 합니다.";
+	private static final String NOT_POSITIVE_ERROR = "라운드 횟수는 1 이상이어야 합니다.";
 
 	private static final int MIN_NUMBER_OF_CARS = 1;
 	private static final int MAX_CAR_NAME_LENGTH = 5;
 	private static final int MIN_CAR_NAME_LENGTH = 1;
 	private static final String BLANK = " ";
+	private static final int MIN_NUMBER_OF_ROUNDS = 1;
 
 	public void isValid(String[] carNames) {
 		isEmpty(carNames);
@@ -32,6 +34,7 @@ public class Validation {
 		for (int i = 0; i < round.length(); i++) {
 			notDigit(round, i);
 		}
+		lessThanOne(round);
 	}
 
 	private void isEmpty(String[] carNames) {
@@ -69,6 +72,12 @@ public class Validation {
 	private void notDigit(String round, int i) {
 		if (!Character.isDigit(round.charAt(i))) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + NOT_DIGIT_ERROR);
+		}
+	}
+
+	private void lessThanOne(String round) {
+		if (Integer.parseInt(round) < MIN_NUMBER_OF_ROUNDS) {
+			throw new IllegalArgumentException(ERROR_MESSAGE + NOT_POSITIVE_ERROR);
 		}
 	}
 }
