@@ -6,9 +6,11 @@ import racingcar.Car;
 
 public class OutputView {
 	private static final String EXECUTION_RESULT = "실행결과";
-	public static final String DELIMITER = " : ";
 	public static final String FINAL_WINNERS = "최종 우승자 : ";
+
+	public static final String DELIMITER = " : ";
 	public static final String COMMA = ", ";
+	public static final String DASH = "-";
 
 	public void printExecutionResult() {
 		System.out.println(EXECUTION_RESULT);
@@ -18,7 +20,7 @@ public class OutputView {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(car.getName()).append(DELIMITER);
 		for (int i = 0; i < car.getPosition(); i++) {
-			stringBuilder.append("-");
+			stringBuilder.append(DASH);
 		}
 		System.out.println(stringBuilder);
 	}
