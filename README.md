@@ -122,14 +122,15 @@ jun : -----
     - 자동차 이름이 여러 개인 경우 ','로 분리한다
     - 이름이 5자 초과이면 `IllegalArgumentException` 발생
   - 이동 횟수(시도 횟수)를 입력 받는다
-  - 사용자 입력이 잘못된 경우
-    - `IllegalArgumentException` 발생시키고 "[ERROR]"로 시작하는 메시지 출력
+    - 음수이면 `IllegalArgumentException` 발생
+  - `IllegalArgumentException` 발생 한 경우
+    - "[ERROR]"로 시작하는 메시지 출력
 
 - 출력
   - 매 진행마다 진행 상황을 출력한다.
     - 이 때 진행 상황은 '-'로 출력한다.
     - 진행 상황고 함께 경주할 자동차의 이름을 함께 출력한다.
-  - 우승자를 출력한다
+  - 게임이 다 진행된 이후(시도 횟수 만큼) 우승자를 출력한다
     - 여러 명이면 ','로 분리한다
   - 사용자 입력이 잘못된 경우
     - `IllegalArgumentException` 이후 입력을 다시 받는다.

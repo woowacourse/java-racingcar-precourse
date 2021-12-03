@@ -10,7 +10,7 @@ public class RandomUtil {
     public static boolean checkMoveOrWait() {
         int randomNumber = getRandomNumber();
 
-        if(randomNumber >= 4) {
+        if (randomNumber >= 4) {
             return true;
         }
 
