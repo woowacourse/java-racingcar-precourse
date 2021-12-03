@@ -47,4 +47,10 @@ class InputValidatorTest {
 		boolean isEmptyName = inputValidator.validateNames(names);
 		assertEquals(isEmptyName, true);
 	}
+
+	@Test
+	void 이름이_없을_경우() {
+		boolean isEmpty = inputValidator.validateNames(names);
+		assertEquals(isEmpty, true);
+	}
 }
