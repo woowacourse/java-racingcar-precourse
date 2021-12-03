@@ -39,4 +39,13 @@ public class Game {
 		}
 	}
 
+	private int getWinnerPosition() {
+		int winnerPosition = -1;
+		for (Car car : cars) {
+			winnerPosition = Math.max(winnerPosition, car.getPosition());
+		}
+
+		return winnerPosition;
+	}
+
 }
