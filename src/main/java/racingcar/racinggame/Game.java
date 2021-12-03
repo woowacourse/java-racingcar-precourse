@@ -27,6 +27,7 @@ public class Game {
 
 		getHighScore(cars);
 		getChampion(cars);
+		output.printChampionList(champion);
 	}
 
 	private Car[] createCars(String[] carNames) {
