@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 
 public class CarFactory {
 
-    public static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int MIN_CAR_NAME_LENGTH = 1;
 
     public static List<Car> manufactureByUserInput() {
         String[] carNames = getCarNamesFromUser();
@@ -42,6 +43,9 @@ public class CarFactory {
     private static void assertName(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름의 크기는 " + MAX_CAR_NAME_LENGTH + "를 초과할 수 없습니다. 현재 자동차 이름 = " + name);
+        }
+        if (name.length() < MIN_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름의 크기는 " + MIN_CAR_NAME_LENGTH + "자 이상이어야 합니다.");
         }
     }
 }
