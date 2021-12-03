@@ -41,9 +41,14 @@ public class Controller {
 
 	private List<Car> getCarsByUserInput() {
 		InputView.requestCarNamesMessage();
-		List<String> carNames = parser.parseCarNames(Console.readLine());
-		List<Car> cars = getCars(carNames);
-		return cars;
+		try {
+			List<String> carNames = parser.parseCarNames(Console.readLine());
+			List<Car> cars = getCars(carNames);
+			return cars;
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return getCarsByUserInput();
+		}
 	}
 
 	private List<Car> getCars(List<String> carNames) {
