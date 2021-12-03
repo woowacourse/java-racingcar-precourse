@@ -14,8 +14,7 @@ public class GameController {
 		createCars();
 		requestAttempts();
 		startRacing();
-		Winners winners = new Winners(cars);
-		OutputView.showWinner(winners.getWinners());
+		announceWinners();
 	}
 
 	private void createCars() {
@@ -55,5 +54,10 @@ public class GameController {
 			OutputView.showMoveResult(cars.race());
 			attempts.decrease();
 		} while (attempts.isLeft());
+	}
+
+	private void announceWinners() {
+		Winners winners = new Winners(cars);
+		OutputView.showWinners(winners.getWinners());
 	}
 }
