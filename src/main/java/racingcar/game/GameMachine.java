@@ -33,6 +33,7 @@ public class GameMachine {
         try {
             return new Cars(names, movingPolicy);
         } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e.getMessage());
             return getCars();
         }
     }
@@ -41,6 +42,7 @@ public class GameMachine {
         try {
             return inputView.getTryCount();
         } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e.getMessage());
             return getTryCount();
         }
     }

@@ -37,7 +37,7 @@
 
 ### 5. 출력
 * [x] 결과값 출력에 대한 전반적인 책임을 가진다.
-* [ ] `IllegalArgumentException`이 발생할 경우 `"[ERROR]"로 시작하는 에러 메시지 출력`을 진행한다.
+* [x] `IllegalArgumentException`이 발생할 경우 `"[ERROR]"로 시작하는 에러 메시지 출력`을 진행한다.
 
 ---
 
