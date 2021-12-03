@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class OutputView {
-	
+
 	public void printResults(List<Car> cars) {
 		for (Car car : cars) {
 			System.out.print(car.getName() + " : ");
@@ -17,7 +17,7 @@ public class OutputView {
 	}
 
 	public void printWinners(List<Car> winners) {
-		System.out.print("최종우승자 : ");
+		System.out.print("최종 우승자 : ");
 		System.out.print(winners.get(0).getName());
 		if (winners.size() == 1) {
 			System.out.println();
