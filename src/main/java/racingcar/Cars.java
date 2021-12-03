@@ -11,4 +11,10 @@ public class Cars {
 			cars.add(car);
 		}
 	}
+
+	public void move() {
+		for (int i = 0; i < cars.size(); i++) {
+			cars.get(i).move();
+		}
+	}
 }
