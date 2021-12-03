@@ -13,17 +13,21 @@ public class Cars {
 	}
 
 	public static Cars createCarsWithNames(List<String> names) {
-		List<Car> cars = toCars(names);
+		List<Car> cars = toCarsListFrom(names);
 		return new Cars(cars);
 	}
 
-	private static List<Car> toCars(List<String> names) {
+	private static List<Car> toCarsListFrom(List<String> names) {
 		return names.stream()
 			.map(Car::new)
 			.collect(toList());
 	}
 
-	public List<Car> getWinners() {
+	public List<Car> getCars() {
+		return Collections.unmodifiableList(cars);
+	}
+
+	public List<Car> getRacingWinners() {
 		int winnerPosition = getWinnerPosition();
 		List<Car> winners = getCarsPositionExactly(winnerPosition);
 		return Collections.unmodifiableList(winners);

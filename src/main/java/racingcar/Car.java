@@ -38,6 +38,10 @@ public class Car {
 		return position;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public boolean isSamePosition(int position) {
 		return this.position == position;
 	}

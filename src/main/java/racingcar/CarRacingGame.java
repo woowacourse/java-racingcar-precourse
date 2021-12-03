@@ -6,9 +6,10 @@ public class CarRacingGame {
 	private Cars cars;
 	private int tryCount;
 
-	public void play() {
+	public void powerOn() {
 		cars = createCars();
 		tryCount = readTryCount();
+
 	}
 
 	private Cars createCars() {

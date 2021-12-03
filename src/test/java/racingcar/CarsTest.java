@@ -18,7 +18,7 @@ public class CarsTest {
 	@MethodSource("winnersTestSource")
 	void winners(List<Car> carList, int winnerCount) {
 		Cars cars = new Cars(carList);
-		assertEquals(winnerCount, cars.getWinners().size());
+		assertEquals(winnerCount, cars.getRacingWinners().size());
 	}
 
 	private static Stream<Arguments> winnersTestSource() {
