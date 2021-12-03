@@ -10,11 +10,7 @@ public class GameController {
 
 	private static final int MINIMUM_ATTEMPT_NUMBER = 0;
 
-	public static void controlGame() {
-		startGame();
-	}
-
-	public static void startGame() {
+	public static void playGame() {
 		List<String> carNames = InputView.writeCarNames();
 		Cars cars = CarUtils.makeCars(carNames);
 		int numberOfAttempts = InputView.writeNumberOfAttempts();
