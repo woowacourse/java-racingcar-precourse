@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -15,24 +15,23 @@ class ApplicationTest extends NsTest {
     private static final String ERROR_MESSAGE = "[ERROR]";
 
     @Test
-    void ì „ì§„_ì •ì§€() {
+    void ÀüÁø_Á¤Áö() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "ìµœì¢… ìš°ìŠ¹ìž : pobi");
+                assertThat(output()).contains("pobi : -", "woni : ", "ÃÖÁ¾ ¿ì½ÂÀÚ : pobi");
             },
             MOVING_FORWARD, STOP
         );
     }
 
-    @Test
-    void ì´ë¦„ì—_ëŒ€í•œ_ì˜ˆì™¸_ì²˜ë¦¬() {
-        assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi,javaji"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
-        );
-    }
+    @Test void ÀÌ¸§¿¡_´ëÇÑ_¿¹¿Ü_Ã³¸®() {
+    	assertSimpleTest( () -> {
+    		runException("pobi,javaji");
+    		assertThat(output()).contains(ERROR_MESSAGE); 
+    		} 
+    	); 
+	}
 
     @Override
     public void runMain() {
