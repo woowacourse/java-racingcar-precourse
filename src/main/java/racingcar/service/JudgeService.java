@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.ArrayList;
 
-public class Judge {
+import racingcar.Car;
+
+public class JudgeService {
 
 	public ArrayList<String> makeWinnerList(ArrayList<Car> carList) {
 		ArrayList<String> winnerList = new ArrayList<>();

@@ -1,10 +1,11 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.ArrayList;
 
+import racingcar.Car;
 import racingcar.repository.CarRepository;
 
-public class Racing {
+public class RacingService {
 
 	private ArrayList<String> racingLog = new ArrayList<>();
 
