@@ -39,6 +39,9 @@ public class Race {
             }
             moveCount--;
         }
+        calculateMaxDistance();
+        decideWinner();
+        printWinner();
     }
 
     public void calculateMaxDistance() {
@@ -54,4 +57,14 @@ public class Race {
             }
         }
     }
+
+    public void printWinner() {
+        int winnerCount = winnerCars.size();
+        String[] winnerCarNames = new String[winnerCount];
+        for (int i = 0; i < winnerCount; i++) {
+            winnerCarNames[i] = winnerCars.get(i).getName();
+        }
+        System.out.println("최종 우승자 : " + String.join(",", winnerCarNames));
+    }
+
 }
