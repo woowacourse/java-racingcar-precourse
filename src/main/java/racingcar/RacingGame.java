@@ -4,12 +4,14 @@ import static camp.nextstep.edu.missionutils.Console.*;
 
 public class RacingGame {
 	static final String SPLIT = ",";
+	static final String SPLIT_WITH_SPACE = ", ";
 	static final int CAR_NAME_LIMIT = 5;
 
 	static final String ERROR_PREFIX = "[ERROR] ";
 	static final String CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	static final String ATTEMPT_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
 	static final String RESULT_TITLE = "실행 결과";
+	static final String RESULT = "최종 우승자 : ";
 
 	static final String EMPTY_CAR_NAME_ERROR = "빈값이 존재합니다.";
 	static final String CAR_NAME_LENGTH_ERROR = "자동차의 이름은 " + CAR_NAME_LIMIT + "자 이하로 제한되어 있습니다.";
@@ -25,6 +27,7 @@ public class RacingGame {
 		setAttempt();
 
 		start();
+		showWinner();
 	}
 
 
@@ -92,7 +95,6 @@ public class RacingGame {
 	}
 
 
-
 	void setAttempt() {
 		this.attempt = Integer.parseInt(getAttempt());
 	}
@@ -130,7 +132,6 @@ public class RacingGame {
 	}
 
 
-
 	void start() {
 		System.out.println(RESULT_TITLE);
 
@@ -142,5 +143,35 @@ public class RacingGame {
 			}
 			System.out.println();
 		}
+	}
+
+
+	void showWinner() {
+		System.out.println(RESULT + getWinners());
+	}
+
+	String getWinners() {
+		int maxPosition = 0;
+		int nowPosition;
+
+		String winners = "";
+		for (int i = 0; i < this.cars.length; i++) {
+			nowPosition = this.cars[i].getPosition();
+			if (nowPosition > maxPosition) {
+				maxPosition = nowPosition;
+				winners = "";
+			}
+
+			if (nowPosition != maxPosition) {
+				continue;
+			}
+
+			if (!winners.equals("")) {
+				winners += SPLIT_WITH_SPACE;
+			}
+			winners += this.cars[i].getName();
+		}
+
+		return winners;
 	}
 }
