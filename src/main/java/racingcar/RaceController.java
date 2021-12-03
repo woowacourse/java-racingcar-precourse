@@ -42,7 +42,7 @@ public class RaceController {
 	}
 
 	private int getProperMoveCount() {
-		int moveCount = inputView.enterMovesWithValidation();
+		int moveCount = inputView.getProperMoveCount();
 		return moveCount;
 	}
 

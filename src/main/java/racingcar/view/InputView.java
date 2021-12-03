@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.utils.InputValidator;
+import racingcar.utils.MoveCountValidator;
+import racingcar.utils.NameValidator;
 
 public class InputView {
 	public static final String REQUEST_INPUT_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	public static final String REQUEST_INPUT_MOVE = "시도할 회수는 몇회인가요?";
 	public static final String DELIMITER = ",";
-	private InputValidator inputValidator = new InputValidator();
+
+	private NameValidator inputValidator = new NameValidator();
+	private MoveCountValidator moveCountValidator = new MoveCountValidator();
 
 	public ArrayList<String> getProperNameList() {
 		ArrayList<String> nameList = new ArrayList<>();
 		try {
-			String inputValues = enterNames();
+			System.out.println(REQUEST_INPUT_NAMES);
+			String inputValues = enterInput();
 			nameList = convertToArrayList(inputValues);
 			inputValidator.validateNames(nameList);
 		} catch (IllegalArgumentException exception) {
@@ -25,8 +29,21 @@ public class InputView {
 		return nameList;
 	}
 
-	public String enterNames() {
-		System.out.println(REQUEST_INPUT_NAMES);
+	public int getProperMoveCount() {
+		int moveCount = 0;
+		try {
+			System.out.println(REQUEST_INPUT_MOVE);
+			String inputValues = enterInput();
+			moveCountValidator.validateMove(inputValues);
+			moveCount = Integer.parseInt(inputValues);
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			getProperMoveCount();
+		}
+		return moveCount;
+	}
+
+	public String enterInput() {
 		String inputValues = Console.readLine();
 		return inputValues;
 	}
@@ -38,19 +55,6 @@ public class InputView {
 			arrayList.add(stringTokenizer.nextToken().trim());
 		}
 		return arrayList;
-	}
-
-	public int enterMovesWithValidation() {
-		boolean needProperMove = true;
-		String inputValue = "";
-		System.out.println(REQUEST_INPUT_MOVE);
-		while (needProperMove) {
-			inputValue = Console.readLine();
-			needProperMove = inputValidator.validateMove(inputValue);
-		}
-		int move = Integer.parseInt(inputValue);
-		return move;
-
 	}
 
 }
