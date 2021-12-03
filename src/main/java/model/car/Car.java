@@ -18,6 +18,10 @@ public class Car {
         }
     }
 
+    public boolean hasHigherPositionThan(final Car another) {
+        return this.position >= another.position;
+    }
+
     public String getName() {
         return name.value();
     }
