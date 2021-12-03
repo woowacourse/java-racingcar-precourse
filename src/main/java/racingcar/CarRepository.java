@@ -10,10 +10,12 @@ public class CarRepository {
 
     private CarRepository(){}
 
-    private final static CarRepository INSTANCE = new CarRepository();
-
     public static CarRepository getInstance(){
-        return INSTANCE;
+        return LazyHolder.INSTANCE;
+    }
+
+    private static class LazyHolder{
+        private final static CarRepository INSTANCE = new CarRepository();
     }
 
     public void saveAll(List<Car> cars){
