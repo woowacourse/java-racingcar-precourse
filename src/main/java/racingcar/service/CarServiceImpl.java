@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import java.util.Map;
+
 import racingcar.Car;
 import racingcar.repository.MemoryCarRepository;
 
@@ -13,7 +15,21 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public void findCar(int carId) {
-		memoryCarRepository.findById(carId);
+	public Car findCar(int carId) {
+		return memoryCarRepository.findById(carId);
+	}
+
+	@Override
+	public void moveAllCars() {
+		Map<Integer, Car> cars = memoryCarRepository.findAll();
+		for (int carId : cars.keySet()) {
+			String carName = findCar(carId).getName();
+			int carPosition = findCar(carId).move();
+			System.out.print(carName + " : ");
+			for (int i = 0; i < carPosition; i++) {
+				System.out.print("-");
+			}
+			System.out.println();
+		}
 	}
 }

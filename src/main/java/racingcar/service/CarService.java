@@ -4,5 +4,6 @@ import racingcar.Car;
 
 public interface CarService {
 	public void join(String name);
-	public void findCar(int CarId);
+	public Car findCar(int CarId);
+	public void moveAllCars();
 }
