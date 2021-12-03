@@ -1,8 +1,10 @@
 package racingcar;
 
+import static racingcar.constant.Constraint.*;
+
 public class Car {
     private final String name;
-    private int position = 0;
+    private int position = NONE;
 
     public Car(String name) {
         this.name = name;
@@ -17,8 +19,6 @@ public class Car {
     }
 
     public void moveCarForward() {
-        position += 1;
+        position += MOVE_FORWARD_ONCE;
     }
-
-    // 추가 기능 구현
 }
