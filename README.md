@@ -40,12 +40,10 @@ baseball
   - model
     - Car
     - Cars
-    - RandomNumber
     
   - utils
     - CarUtils
     - ExceptionUtils
-    - InputUtils
     
   - view
     - InputView
