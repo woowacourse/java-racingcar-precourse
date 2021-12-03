@@ -10,7 +10,7 @@ class CarTest {
 	@Test
 	void 자동차_전진() {
 		// given
-		Car car = Car.createCar("hello");
+		Car car = Car.create("hello");
 		assertThat(car.getPosition()).isEqualTo(0);
 
 		// when
@@ -22,9 +22,9 @@ class CarTest {
 
 	@Test
 	void 자동차_이름_예외_검증() {
-		assertThrows(IllegalArgumentException.class, () -> Car.createCar(""));
-		assertThrows(IllegalArgumentException.class, () -> Car.createCar("starbucks"));
-		assertThrows(IllegalArgumentException.class, () -> Car.createCar("!@#$"));
-		assertThrows(IllegalArgumentException.class, () -> Car.createCar("a b"));
+		assertThrows(IllegalArgumentException.class, () -> Car.create(""));
+		assertThrows(IllegalArgumentException.class, () -> Car.create("starbucks"));
+		assertThrows(IllegalArgumentException.class, () -> Car.create("!@#$"));
+		assertThrows(IllegalArgumentException.class, () -> Car.create("a b"));
 	}
 }

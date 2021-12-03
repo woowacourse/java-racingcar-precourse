@@ -40,12 +40,16 @@ public class Car {
 		}
 	}
 
-	public static Car createCar(String name) {
+	public static Car create(String name) {
 		validateName(name);
 		return new Car(name);
 	}
 
 	public int getPosition() {
 		return position;
+	}
+
+	public String getName() {
+		return name;
 	}
 }
