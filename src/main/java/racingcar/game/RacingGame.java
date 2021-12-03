@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.List;
 
 import racingcar.Car;
+import racingcar.messages.PrintResult;
 import racingcar.utils.CarNameInput;
 import racingcar.utils.GameTimesInput;
 
@@ -10,6 +11,7 @@ public class RacingGame {
 	private CarNameInput carNameInput;
 	private GameTimesInput gameTimesInput;
 	private RacingGameReferee racingGameReferee;
+	private PrintResult printResult;
 	private List<Car> cars;
 	private int numOfIteration;
 
@@ -17,6 +19,7 @@ public class RacingGame {
 		carNameInput = new CarNameInput();
 		gameTimesInput = new GameTimesInput();
 		racingGameReferee = new RacingGameReferee();
+		printResult = new PrintResult();
 	}
 
 	public void init() {
@@ -25,8 +28,12 @@ public class RacingGame {
 	}
 
 	public void gameStart() {
+		System.out.println("실행 결과");
 		for (int gameCount = 0; gameCount < numOfIteration; gameCount++) {
 			racingGameReferee.race(cars);
+			cars.stream()
+				.forEach(car -> printResult.printGameResult(car));
+			System.out.println();
 		}
 	}
 
