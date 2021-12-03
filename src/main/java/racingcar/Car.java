@@ -11,7 +11,11 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
+	protected Car(String name, int position) {
+		this(name);
+		this.position = position;
+	}
+
 	public void moveOrStop(int randomNum) {
 		if (canMove(randomNum)) {
 			move();
@@ -28,5 +32,13 @@ public class Car {
 
 	protected boolean isMoved() {
 		return position != 0;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public boolean isSamePosition(int position) {
+		return this.position == position;
 	}
 }

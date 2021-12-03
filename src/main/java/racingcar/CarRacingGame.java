@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class CarRacingGame {
 	private Cars cars;
 	private int tryCount;
@@ -11,7 +13,8 @@ public class CarRacingGame {
 
 	private Cars createCars() {
 		try {
-			return new Cars(InputView.readCarNames());
+			List<String> carNames = InputView.readCarNames();
+			return Cars.createCarsWithNames(carNames);
 		} catch (IllegalArgumentException e) {
 			OutputView.printErrorMessage(e.getMessage());
 			return createCars();
