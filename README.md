@@ -17,9 +17,9 @@
 
 ### 게임 진행
 
-- 사용자가 입력한 시도 횟수만큼 반복한다.
-- 0에서 9사이의 무작위 값을 생성하여 4 이상일 경우 전진한다.
-- 각 차수마다 실행 결과를 출력한다. 전진 횟수는 "-"를 이용하여 표시한다.
+- 사용자가 입력한 시도 횟수만큼 반복한다. ✅
+- 0에서 9사이의 무작위 값을 생성하여 4 이상일 경우 전진한다. ✅
+- 각 차수마다 실행 결과를 출력한다. 전진 횟수는 "-"를 이용하여 표시한다. ✅
 
 ### 게임 결과 출력
 
@@ -39,15 +39,22 @@
 
 - private List<Car> cars ✅
 - private UserInput userInput ✅
+
 - public RacingCarGame() ✅
     * 생성자
     * userInput 초기화
-- public void play() ✅
-    * 게임 진행
+- public void start() ✅
+    * 게임 시작
 - private void getInput() ✅
     * 사용자 입력 받기
 - private void makeCarList(List<String> names) ✅
     * 이름들 입력받아 자동차 객체 리스트 만들기
+- private void play() ✅
+    * 게임 진행
+- private boolean MoveOrNot() ✅
+    * 랜덤값 생성하여 전진여부 반환
+- private void printExecutionResult() ✅
+    * 실행결과 출력
 
 ### UserInput
 
@@ -68,6 +75,8 @@
     * names 반환
 - private void setAttempt(String input) ✅
     * 시도 횟수 저장
+- public int getAttempt() ✅
+    * 시도 횟수 반환
 
 ### Car
 
@@ -77,6 +86,10 @@
     * 전진 횟수
 - public Car(String name) ✅
     * 생성자
+- public void move() ✅
+    * 전진
+- public String printPosition() ✅
+    * 현재 전진된 횟수를 사전에 지정된 규격에 맞게 반환
 
 ### Validation
 
@@ -101,10 +114,22 @@
     * 자동차 이름의 최대길이
 - public static final int MINIMUM_NUMBER_OF_ATTEMPT ✅
     * 시도 횟수의 최솟값
+- public static final int MAXIMUM_NUMBER_OF_RANDOM ✅
+    * 랜덤 값의 최댓값
+- public static final int MINIMUM_NUMBER_OF_RANDOM ✅
+    * 랜덤 값의 최솟값
+- public static final int NUMBER_FOR_MOVE = 4 ✅
+    * 전진 여부의 기준이 될 숫자
 - public static final String PLEASE_INPUT_NAMES ✅
     * 자동차 이름 입력 요청
 - public static final String PLEASE_INPUT_ATTEMPT ✅
     * 시도 횟수 입력요청
+- public static final String EXECUTION_RESULT ✅
+    * 실행결과 출력시작 메시지
+- public static final String STANDARD_FOR_EXECUTION_RESULT ✅
+    * 실행 결과 출력을 위한 규격
+- public static final String LETTERS_FOR_POSITION ✅
+    * 전진 횟수 출력을 위한 규격
 - public static final String ERROR ✅
     * 에러메시지 시작
 - public static final String ERROR_NO_NAMES ✅
