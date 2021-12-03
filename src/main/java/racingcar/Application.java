@@ -37,7 +37,7 @@ public class Application {
 
         // 입력받은 자동차의 수 만큼 car 객체 생성하고 car.name (생성자) 초기화
         for(String s: nameOfCars){
-            car.set(NUMBER_OF_CAR, new Car(s));
+            car.add(NUMBER_OF_CAR, new Car(s));
             NUMBER_OF_CAR++;
         }
 
