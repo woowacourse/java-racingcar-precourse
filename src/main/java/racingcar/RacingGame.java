@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.RandomNumberGenerator;
+import racingcar.util.Validator;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -11,14 +13,63 @@ import static racingcar.constant.Message.*;
 
 public class RacingGame {
     private Result result;
-    private int moves;
+    private int rounds;
     ArrayList<Car> carList = new ArrayList<>();
-    LinkedHashSet<String> carNameLinkedHashSet = new LinkedHashSet<>();
 
     public void run() {
         initGame();
         startGame();
         printWinner();
+    }
+
+    private void initGame() {
+        printInputCarNamesMessage();
+        processCarNames();
+        createResult();
+        printInputRoundsMessage();
+        inputRounds();
+    }
+
+    private void processCarNames() {
+        while(true) {
+            try {
+                StringTokenizer st = new StringTokenizer(inputCarNames(), DELIM);
+                createCars(Validator.validateCarName(st));
+                break;
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                Validator.carNameLinkedHashSet.clear();
+            }
+        }
+    }
+
+    private String inputCarNames() {
+        while(true) {
+            try {
+                String input = Console.readLine();
+                Validator.isValidInput(input);
+                return input;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private void createCars(LinkedHashSet<String> carNamesLinkedHashSet) {
+        for(String carName : carNamesLinkedHashSet) {
+            carList.add(new Car(carName));
+        }
+    }
+
+    private void inputRounds() {
+        while(true) {
+            try {
+                rounds = Validator.validateNumber(Console.readLine());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     private void printWinner() {
@@ -29,20 +80,20 @@ public class RacingGame {
         StringBuilder stringBuilder = new StringBuilder();
 
         for(Car car : carList) {
-            appendIfWinner(stringBuilder, car);
+            appendIfRaceWinner(stringBuilder, car);
         }
 
         return stringBuilder.toString();
     }
 
-    private void appendIfWinner(StringBuilder stringBuilder, Car car) {
+    private void appendIfRaceWinner(StringBuilder stringBuilder, Car car) {
         if(isWinner(car)) {
-            appendIfNotFirst(stringBuilder);
+            appendIfNotFirstWinner(stringBuilder);
             stringBuilder.append(car.getName());
         }
     }
 
-    private void appendIfNotFirst(StringBuilder stringBuilder) {
+    private void appendIfNotFirstWinner(StringBuilder stringBuilder) {
         if(stringBuilder.length() != NONE) {
             stringBuilder.append(WINNER_MORE_THAN_ONE_MESSAGE);
         }
@@ -52,19 +103,11 @@ public class RacingGame {
         return car.getPosition() == result.getMax();
     }
 
-    private void initGame() {
-        printMessageForCarNames();
-        processCarName();
-        createResult();
-        printMessageForNumberOfMoves();
-        inputMoves();
-    }
-
-    private void printMessageForNumberOfMoves() {
+    private void printInputRoundsMessage() {
         System.out.println(INPUT_PLAY_ROUND_MESSAGE);
     }
 
-    private void printMessageForCarNames() {
+    private void printInputCarNamesMessage() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 
@@ -73,7 +116,7 @@ public class RacingGame {
     }
 
     private void startGame() {
-        for(int i = 0; i < moves; i++) {
+        for(int i = 0; i < rounds; i++) {
             moveAllCar();
             printResult();
         }
@@ -97,92 +140,5 @@ public class RacingGame {
 
     private boolean canCarMove() {
         return RandomNumberGenerator.getRandomNumber() >= MOVING_FORWARD;
-    }
-
-    private String inputCarNames() {
-        while(true) {
-            try {
-                String input = Console.readLine();
-                isValidInput(input);
-                return input;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
-
-    private void isValidInput(String input) {
-        if(!input.matches("^[a-zA-Z]+(,[a-zA-Z]+)+$")) {
-            throw new IllegalArgumentException(ERROR_MESSAGE + INVALID_INPUT_MESSAGE + RETRY_MESSAGE);
-        }
-    }
-
-    private void inputMoves() {
-        boolean flag = false;
-
-        do {
-            try {
-                validateNumber(Console.readLine());
-                flag = true;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }while(!flag);
-    }
-
-    private void validateNumber(String input) {
-        if(!input.matches("^[1-9][0-9]*$")) {
-            throw new IllegalArgumentException(ERROR_MESSAGE + LIMITED_TO_NUMBER_ONLY_MESSAGE + RETRY_MESSAGE);
-        }
-
-        moves = Integer.parseInt(input);
-    }
-
-    private void processCarName() {
-        boolean isValid = false;
-
-        do {
-            try {
-                StringTokenizer st = new StringTokenizer(inputCarNames(), DELIM);
-                validateCarName(st);
-                isValid = true;
-            } catch(IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                carNameLinkedHashSet.clear();
-            }
-        } while(!isValid);
-
-        createCars();
-    }
-
-    private void createCars() {
-        for(String carName : carNameLinkedHashSet) {
-            carList.add(new Car(carName));
-        }
-    }
-
-    private void validateCarName(StringTokenizer stringTokenizer) throws IllegalArgumentException {
-        while(stringTokenizer.hasMoreTokens()) {
-            String nextToken = stringTokenizer.nextToken();
-            validateNameLength(nextToken);
-            validateDuplicateName(nextToken);
-            carNameLinkedHashSet.add(nextToken);
-        }
-    }
-
-    private void validateDuplicateName(String nextToken) {
-        if (carNameLinkedHashSet.contains(nextToken)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE + DUPLICATE_CAR_NAME_MESSAGE + RETRY_MESSAGE);
-        }
-    }
-
-    private void validateNameLength(String carName) {
-        if(isValidLength(carName)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE + CAR_NAME_LENGTH_TOO_LONG_MESSAGE + RETRY_MESSAGE);
-        }
-    }
-
-    private boolean isValidLength(String carName) {
-        return carName.length() > MAX_CAR_NAME_LENGTH;
     }
 }
