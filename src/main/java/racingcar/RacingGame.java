@@ -38,8 +38,8 @@ public class RacingGame {
 	/** 자동차 이름을 유저로부터 입력받는다 */
 	private void inputRacingCarName() throws IllegalArgumentException {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String[] carNames = Console.readLine().split(",");
-		for(String carName : carNames) {
+		final String[] carNames = Console.readLine().split(",");
+		for(final String carName : carNames) {
 			if(carName.length() > CAR_NAME_MAX_LENGTH) {
 				final String errorMessage = "[ERROR] " + carName + "은 5자 이하여야 합니다";
 				cars.clear();
@@ -104,11 +104,11 @@ public class RacingGame {
 
 	/** 우승자를 찾아 출력한다 */
 	private void printWinnerList() {
-		String[] winners = cars.stream()
+		final String[] winners = cars.stream()
 			.filter(car -> car.getPosition() == farthestPosition)
 			.map(Car::getName)
 			.toArray(String[]::new);
-		String winnerList = String.join(", ", winners);
+		final String winnerList = String.join(", ", winners);
 
 		System.out.print("최종 우승자 : " + winnerList);
 	}
