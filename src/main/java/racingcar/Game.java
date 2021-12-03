@@ -23,6 +23,16 @@ public class Game {
 		numberOfRepetitions = returnNumberOfRepetitions();
 	}
 
+	public void play() {
+		printStartMessage();
+
+		int turnCount = 0;
+		while (turnCount++ < numberOfRepetitions) {
+			proceedTurn();
+			printTurnResult(cars);
+		}
+	}
+
 	private void proceedTurn() {
 		for (Car car : cars) {
 			car.moveOrStay();
