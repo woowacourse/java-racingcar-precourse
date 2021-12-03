@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 class RacingGameController {
 	private final RacingGameView racingGameView;
 	private List<Car> carList;
+	private List<String> winners;
 	private int repetitionNumber;
 
 	public RacingGameController() {
@@ -26,5 +27,18 @@ class RacingGameController {
 			carList.forEach(Car::tryMoving);
 			racingGameView.printMovement(carList);
 		}
+		winners = getWinners();
+	}
+
+	private List<String> getWinners() {
+		int maxPosition = carList.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.orElse(0);
+
+		return carList.stream()
+			.filter(car -> car.getPosition() == maxPosition)
+			.map(Car::getName)
+			.collect(Collectors.toList());
 	}
 }
