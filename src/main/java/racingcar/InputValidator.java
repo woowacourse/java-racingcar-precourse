@@ -10,17 +10,20 @@ public class InputValidator {
     public InputValidator(){
 
     }
-    public void validateCarName(String inputCarNames){
+    public List<String> validateCarName(String inputCarNames){
         List<String> carNames = splitAndTrim(inputCarNames);
         if(checkCarNameLength(carNames) == false) throw new IllegalArgumentException();
+        return carNames;
     }
-    public void validateTryNumber(String inputTryNumber){
+    public int validateTryNumber(String inputTryNumber){
+        int number = -1;
         try {
-            int number = Integer.parseInt(inputTryNumber);
+            number = Integer.parseInt(inputTryNumber);
             if( number < 0 ) throw new IllegalArgumentException();
         }catch (Exception e){
             throw new IllegalArgumentException();
         }
+        return number;
     }
     private List<String> splitAndTrim(String inputCarNames){
         String carNames[] = inputCarNames.split(",");
