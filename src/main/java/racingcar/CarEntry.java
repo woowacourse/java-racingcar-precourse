@@ -16,7 +16,12 @@ public class CarEntry {
             carList.add(i, new Car(carNameArray[i]));
         }
     }
-    
+
+    public void letCarsMove() {
+        Stream<Car> stream = carList.stream();
+        stream.forEach(Car::progressOrStop);
+    }
+
     private String[] getCarNameArray(String carNames) {
         String[] carNameArray = carNames.split(",");
         for (int i = 0; i < nOfCars; i++) {
