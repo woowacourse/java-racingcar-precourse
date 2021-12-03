@@ -3,13 +3,16 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Application {
+    static int NUMBER_OF_CAR = 0;
     public static void main(String[] args) {
         // TODO 구현 진행
         String[] nameOfCars;
         int numOfTry;
+        ArrayList<Car> car = new ArrayList<>();
 
         while(true){
             try {
@@ -31,6 +34,13 @@ public class Application {
                 System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
             }
         }
+
+        // 입력받은 자동차의 수 만큼 car 객체 생성하고 car.name (생성자) 초기화
+        for(String s: nameOfCars){
+            car.set(NUMBER_OF_CAR, new Car(s));
+            NUMBER_OF_CAR++;
+        }
+
 
     }
 
