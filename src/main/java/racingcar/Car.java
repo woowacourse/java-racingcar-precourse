@@ -3,22 +3,30 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Car {
-    private final String name;
-    private int position = 0;
-
     static final int START_RANDOM = 0;
     static final int END_RANDOM = 9;
     static final int BOUNDARY_RANDOM = 4;
     static final String MOVE_HISTORY = "-";
 
+    private final String name;
+    private int position = 0;
+
     public Car(String name) {
         this.name = name;
+    }
+
+    String getName() {
+        return this.name;
+    }
+
+    int getPosition() {
+        return this.position;
     }
 
     void move() {
         int random = pickNumberInRange(START_RANDOM, END_RANDOM + 1);
 
-        if (random > BOUNDARY_RANDOM) {
+        if (random >= BOUNDARY_RANDOM) {
             this.position++;
         }
     }
