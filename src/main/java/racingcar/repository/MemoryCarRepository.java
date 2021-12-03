@@ -17,4 +17,9 @@ public class MemoryCarRepository implements CarRepository {
 	public Car findById(int carId) {
 		return cars.get(carId);
 	}
+
+	@Override
+	public Map<Integer, Car> findAll() {
+		return cars;
+	}
 }
