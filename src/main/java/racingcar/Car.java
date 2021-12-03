@@ -1,6 +1,10 @@
 package racingcar;
 
+import static racingcar.Utility.*;
+
 public class Car {
+
+	public static final int MOVING_CRITERIA = 4;
 	private final String name;
 	private int position = 0;
 
@@ -8,5 +12,11 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
+	public void moveOrStay() {
+		int randomNumber = createRandomNumber();
+		if (randomNumber >= MOVING_CRITERIA) {
+			this.position++;
+		}
+	}
+
 }
