@@ -11,6 +11,7 @@ public class Validation {
 	private static final String LONG_NAME_ERROR = "자동차 이름은 5자 이하여야 합니다.";
 	private static final String SHORT_NAME_ERROR = "자동차 이름은 1자 이상이어야 합니다.";
 	private static final String CONTAINS_BLANK_ERROR = "자동차 이름에 공백이 포함될 수 없습니다.";
+	private static final String NOT_DIGIT_ERROR = "라운드 횟수는 정수여야 합니다.";
 
 	private static final int MIN_NUMBER_OF_CARS = 1;
 	private static final int MAX_CAR_NAME_LENGTH = 5;
@@ -24,6 +25,12 @@ public class Validation {
 			tooLong(carName);
 			tooShort(carName);
 			hasBlank(carName);
+		}
+	}
+
+	public void isValid(String round) {
+		for (int i = 0; i < round.length(); i++) {
+			notDigit(round, i);
 		}
 	}
 
@@ -56,6 +63,12 @@ public class Validation {
 	private void hasBlank(String carName) {
 		if (carName.contains(BLANK)) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + CONTAINS_BLANK_ERROR);
+		}
+	}
+
+	private void notDigit(String round, int i) {
+		if (!Character.isDigit(round.charAt(i))) {
+			throw new IllegalArgumentException(ERROR_MESSAGE + NOT_DIGIT_ERROR);
 		}
 	}
 }
