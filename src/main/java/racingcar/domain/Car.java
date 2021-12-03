@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.Randoms.*;
 import static racingcar.constant.GameConstants.*;
+import static racingcar.constant.GameMessage.*;
 
 public class Car {
 	private final String name;

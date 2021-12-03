@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import static racingcar.constant.GameConstants.*;
+import static racingcar.constant.GameErrorMessage.*;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.constant.GameConstants.*;
+import static racingcar.constant.GameMessage.*;
 import static racingcar.util.CarNameValidator.*;
 
 import java.util.Arrays;

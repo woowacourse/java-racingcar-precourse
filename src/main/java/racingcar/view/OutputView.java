@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static racingcar.constant.GameConstants.*;
+import static racingcar.constant.GameMessage.*;
 
 import java.util.List;
 
