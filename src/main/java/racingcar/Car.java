@@ -4,11 +4,11 @@ import racingcar.utils.RandomGenerator;
 import racingcar.utils.Constant;
 
 public class Car {
-	private final String driverName;
+	private final String carName;
 	private int position = 0;
 
-	public Car(String driverName) {
-		this.driverName = driverName;
+	public Car(String carName) {
+		this.carName = carName;
 	}
 
 	public void playTurn(){
@@ -19,10 +19,17 @@ public class Car {
 	}
 
 	public void printPosition(){
-		System.out.print(this.driverName + " : ");
+		System.out.print(this.carName + " : ");
 		for(int i = 0; i < position; i++) {
 			System.out.print("-");
 		}
 		System.out.println();
+	}
+
+	public String getCarName(){
+		return this.carName;
+	}
+	public int getPosition(){
+		return this.position;
 	}
 }
