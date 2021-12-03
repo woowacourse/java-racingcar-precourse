@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class CarName {
+
     private static final String CARS_NAME_EXCEPTION_MESSAGE = "[ERROR]: 자동차의 이름은 1글자 이상 5글자 이하로 지정하여야 합니다.";
     private static final Integer NAME_LENGTH_THRETHOLD = 5;
 

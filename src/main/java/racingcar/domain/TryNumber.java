@@ -4,6 +4,7 @@ public class TryNumber {
 
     private static final String VALID_LENGTH_EXCEPTION_MESSAGE = "시도 회수는 양의 정수이어야 합니다.";
     private static final Integer MINIMUM_TRY_NUMBER = 0;
+
     private Integer no;
 
     public TryNumber(String tryNumber) {
