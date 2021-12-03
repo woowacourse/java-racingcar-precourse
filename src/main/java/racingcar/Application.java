@@ -20,6 +20,10 @@ public class Application {
 
         List<Car> cars = game.makeCarObject(user.getCarName());
 
+        for (int i = 0; i < user.getTimes(); i++) {
+            game.runCarRacingOneRound(cars);
+            System.out.println();
+        }
         
     }
 }
