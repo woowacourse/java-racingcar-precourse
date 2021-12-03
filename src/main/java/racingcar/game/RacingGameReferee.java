@@ -1,6 +1,8 @@
 package racingcar.game;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.Car;
 import racingcar.utils.RandomNumbers;
@@ -11,5 +13,16 @@ public class RacingGameReferee {
 	public void race(List<Car> cars) {
 		cars.stream()
 			.forEach(car -> car.moveOrStop(RandomNumbers.getRandomNumber(), THRESHOLD));
+	}
+
+	public List<Car> getGameResult(List<Car> cars) {
+		Integer winCount = cars.stream()
+			.map(Car::getPosition)
+			.max(Integer::compare)
+			.get();
+
+		return cars.stream()
+			.filter(car -> car.getPosition() == winCount)
+			.collect(Collectors.toList());
 	}
 }
