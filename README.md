@@ -200,3 +200,5 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 - [] 잘못된 값을 입력받을 경우 `IllegalArgumentException`를 발생시키고, 에러 메시지를 출력하는 기능
   - [] 자동차의 이름이 5자를 초과하는 경우
   - [] 시도 횟수로 숫자가 아닌 값을 입력받는 경우
+  - [] 시도 횟수로 음수 값을 입력받는 경우
+  - [] 중복된 자동차 이름을 입력받는 경우
