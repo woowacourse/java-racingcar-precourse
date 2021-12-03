@@ -26,4 +26,21 @@ public class RacingGame {
         //추가 구현 예정
     }
 
+    private void playNextRound(){
+
+        for(Car car: cars){
+            car.drive();
+        }
+
+    }
+
+    private void printAllPosition(){
+
+        for(Car car: cars){
+            System.out.println(car.toString());
+        }
+
+        System.out.print('\n');
+    }
+
 }
