@@ -30,6 +30,7 @@ public class Player {
             try {
                 validator.validateInputNull(carNames);
                 carNamesArray = carNames.split(",");
+                validator.validateNullCarName(carNamesArray);
                 validator.validateCarNamesLength(carNamesArray);
                 validator.validateCarNamesDuplicate(carNamesArray);
                 break;

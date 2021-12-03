@@ -6,6 +6,7 @@ public class Validator {
     private static final int CAR_NAME_LENGTH = 6;
     private static final int MIN_COIN = 1;
     private static final String NULL_VALUE = "";
+    private static final String SPACE_VALUE = " ";
 
     public void validateInputNull(String inputValue) {
         if (inputValue.equals(NULL_VALUE)) {
@@ -27,6 +28,15 @@ public class Validator {
         for (String carName : carNamesArray) {
             if (carName.length() >= CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException(" 자동차 이름은 최대 5자까지 입력 가능합니다.");
+            }
+        }
+    }
+
+    public void validateNullCarName(String[] carNamesArray) {
+        for (String carName : carNamesArray) {
+            carName = carName.replaceAll(SPACE_VALUE, NULL_VALUE);
+            if (carName.equals(NULL_VALUE)) {
+                throw new IllegalArgumentException(" 자동차 이름으로 공백을 입력할 수 없습니다.");
             }
         }
     }
