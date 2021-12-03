@@ -10,7 +10,7 @@ public class Cars {
 		this.cars = cars;
 	}
 
-	public void showCarsNumber() {
-		cars.forEach(Car::makeRandomNumber);
+	public void showCarsPosition() {
+		cars.forEach(Car::printCarPosition);
 	}
 }

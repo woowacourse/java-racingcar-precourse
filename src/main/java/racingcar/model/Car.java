@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.OutputView;
 
 public class Car {
 
@@ -30,5 +31,11 @@ public class Car {
 			position++;
 		}
 		return position;
+	}
+
+	public void printCarPosition() {
+		position = currentPosition();
+		OutputView.printCarNameAndColon(name);
+		OutputView.printPosition(position);
 	}
 }

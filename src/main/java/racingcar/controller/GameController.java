@@ -4,8 +4,11 @@ import java.util.List;
 import racingcar.model.Cars;
 import racingcar.utils.CarUtils;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
+
+	private static final int MINIMUM_ATTEMPT_NUMBER = 0;
 
 	public static void controlGame() {
 		startGame();
@@ -19,8 +22,10 @@ public class GameController {
 	}
 
 	public static void racing(Cars cars, int numberOfAttempts) {
-		for (int i = 0; i < numberOfAttempts; i++) {
-			cars.showCarsNumber();
+		OutputView.printExecutionResult();
+		for (int i = MINIMUM_ATTEMPT_NUMBER; i < numberOfAttempts; i++) {
+			cars.showCarsPosition();
+			OutputView.printNewLine();
 		}
 	}
 }
