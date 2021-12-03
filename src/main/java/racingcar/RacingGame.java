@@ -30,6 +30,7 @@ public class RacingGame {
     }
 
     private void playGame() {
+        printExecutionMessage();
         for (int i = 0; i < rounds; i++) {
             moveAllCar();
             printResult();
@@ -100,6 +101,9 @@ public class RacingGame {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 
+    private void printExecutionMessage() {
+        System.out.println(EXECUTION_RESULT_MESSAGE);
+    }
     private void printResult() {
         System.out.println(result.toString());
     }
