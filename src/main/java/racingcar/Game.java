@@ -13,6 +13,6 @@ public class Game {
             cars.add(car);
         }
 
-        return cars
+        return cars;
     }
 }
