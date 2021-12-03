@@ -21,4 +21,13 @@ public class Car {
             position++;
         }
     }
+
+    public void printCurrentPosition() {
+        System.out.print(name);
+        System.out.print(" : ");
+        for (int i = 0; i < position; i++){
+            System.out.print("-");
+        }
+        System.out.print("\n");
+    }
 }
