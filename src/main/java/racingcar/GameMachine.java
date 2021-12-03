@@ -17,12 +17,8 @@ public class GameMachine {
 
 	public void racingGame() {
 		lineUp();
-		this.round = inputRound();
-		System.out.println("실행 결과");
-		while (round > 0) {
-			raceStart();
-			round--;
-		}
+		inputRound();
+		raceStart(this.round);
 	}
 
 	public void lineUp() {
@@ -35,18 +31,22 @@ public class GameMachine {
 		}
 	}
 
-	public int inputRound() {
+	public void inputRound() {
 		System.out.println("시도할 횟수는 몇회인가요?");
 		String userInput = Console.readLine();
 		//숫자인지, 1보다 큰지 유효성 검사 추가 예정
-		return Integer.parseInt(userInput);
+		this.round = Integer.parseInt(userInput);
 	}
 
-	public void raceStart() {
-		for (Car car : cars) {
-			car.move();
-			car.statusReport();
+	public void raceStart(int round) {
+		System.out.println("실행 결과");
+		while (round > 0) {
+			for (Car car : cars) {
+				car.move();
+				car.statusReport();
+			}
+			System.out.println();
+			round--;
 		}
-		System.out.println("\n");
 	}
 }
