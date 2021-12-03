@@ -2,8 +2,8 @@ package racingcar.validator;
 
 public class TryCountValidator {
 
-	private static final String DIGIT_VALUE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 단 하나의 올바른 숫자만 허용합니다.";
-	private static final String EXCEPT_ZERO_ERROR_MESSAGE = "[ERROR] 시도 횟수는 자연수만 가능합니다.";
+	private static final String DIGIT_VALUE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 단 하나의 자연수만 허용합니다.";
+	private static final String EXCEPT_ZERO_ERROR_MESSAGE = "[ERROR] 시도 횟수는 0이 될 수 없습니다.";
 
 	private String errorMessage = null;
 
@@ -34,7 +34,7 @@ public class TryCountValidator {
 
 	private void keepDigitExceptZero(String tryCountString) throws IllegalArgumentException {
 		int number = Integer.parseInt(tryCountString);
-		if (number <= 0) {
+		if (number == 0) {
 			errorMessage = EXCEPT_ZERO_ERROR_MESSAGE;
 
 			throw new IllegalArgumentException();
