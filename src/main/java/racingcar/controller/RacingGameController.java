@@ -22,13 +22,13 @@ public class RacingGameController {
 	private void playGame() {
 		while (attemptNumber.isAttemptRemained()) {
 			racingCars.move();
-			printExcutionForEachOrder();
+			printExecutionForEachOrder();
 		}
 	}
 
-	private void printExcutionForEachOrder() {
-		String excutionForEachOrderMessage = racingCars.getExcutionForEachOrderMessage();
-		OutputView.printExcutionForEachOrderMessage(excutionForEachOrderMessage);
+	private void printExecutionForEachOrder() {
+		String executionForEachOrderMessage = racingCars.getExecutionForEachOrderMessage();
+		OutputView.printExecutionForEachOrderMessage(executionForEachOrderMessage);
 	}
 
 	private void printWinner() {

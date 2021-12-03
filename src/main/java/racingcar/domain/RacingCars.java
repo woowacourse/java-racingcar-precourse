@@ -41,7 +41,7 @@ public class RacingCars {
 		racingCars.forEach(Car::movePosition);
 	}
 
-	public String getExcutionForEachOrderMessage() {
+	public String getExecutionForEachOrderMessage() {
 		StringBuilder result = new StringBuilder();
 		racingCars.forEach(car -> result.append(car.getNameAndPostionMessage()));
 		return result.toString();

@@ -21,7 +21,7 @@ public class OutputView {
 		System.out.println(EXCUTION_RESULT_MESSAGE);
 	}
 
-	public static void printExcutionForEachOrderMessage(String excutionForEachOrderMessage) {
+	public static void printExecutionForEachOrderMessage(String excutionForEachOrderMessage) {
 		System.out.println(excutionForEachOrderMessage);
 	}
 
