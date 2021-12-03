@@ -36,4 +36,18 @@ public class ValidationUtil {
 			throw new IllegalArgumentException("입력된 자동차명에 중복된 이름이 있습니다.");
 		}
 	}
+
+	public static void isValidateNumber(String value) {
+		try {
+			Integer.parseInt(value);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("입력된 이동 횟수가 숫자가 아닙니다.");
+		}
+	}
+
+	public static void isValidateMinimumOne(String value) {
+		if (Integer.parseInt(value) <= ZERO_NUM) {
+			throw new IllegalArgumentException("1 이상의 값을 입력하지 않았습니다.");
+		}
+	}
 }
