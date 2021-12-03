@@ -47,4 +47,8 @@ public class UserInput {
         this.attempt = Integer.parseInt(input);
     }
 
+    public int getAttempt() {
+        return this.attempt;
+    }
+
 }
