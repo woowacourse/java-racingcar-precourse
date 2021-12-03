@@ -27,6 +27,10 @@ public class VerificationUtil {
     }
 
     private static void validateLength(String carName) {
+        if (carName.length() < 1) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름은 1글자 이상이어야 합니다.");
+        }
+
         if (carName.length() > 5) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 합니다.");
         }
