@@ -2,12 +2,15 @@ package racingcar.racinggame;
 
 import racingcar.Car;
 import racingcar.user.Input;
+import racingcar.user.Output;
 
 public class Game {
 	private final Input input;
+	private final Output output;
 
 	public Game() {
 		input = new Input();
+		output = new Output();
 	}
 
 	public void start() {
@@ -15,6 +18,7 @@ public class Game {
 		Car[] cars = createCars(carNames);
 
 		String round = input.inputRound();
+		output.printRoundResult(round, cars);
 	}
 
 	private Car[] createCars(String[] carNames) {
