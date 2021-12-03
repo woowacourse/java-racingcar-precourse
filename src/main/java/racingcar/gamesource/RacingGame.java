@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.InputCheck;
 
 public class RacingGame {
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<>();
 
     private void gameInit(){
         String input = Console.readLine();
@@ -19,7 +19,7 @@ public class RacingGame {
 
     }
 
-    void palyStart(){
+    public void playStart(){
         gameInit();
         int roundNum =0;
 
