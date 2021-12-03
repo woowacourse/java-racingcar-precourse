@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class Car {
+	private final int STANDARD_OF_MOVE = 4;
 	private final String name;
 	private int position = 0;
 
@@ -16,12 +17,18 @@ public class Car {
 		return name;
 	}
 
-	public void go() {
-		position++;
+	public void move(int number) {
+		if (number >= STANDARD_OF_MOVE) {
+			position++;
+		}
 	}
 
-	public void stop() {
+	public boolean isMoreAdvancedPosition(int maxPosition) {
+		return maxPosition < position;
+	}
 
+	public boolean isMaxPosition(int maxPosition) {
+		return maxPosition == position;
 	}
 
 	@Override

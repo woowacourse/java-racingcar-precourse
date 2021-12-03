@@ -20,26 +20,20 @@ public class CarRepository {
 	public static void moveCars() {
 		for (Car car : cars) {
 			int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-			if (randomNumber < 4) {
-				car.stop();
-			}
-			if (randomNumber >= 4) {
-				car.go();
-			}
+			car.move(randomNumber);
 		}
 	}
 
 	public static ArrayList<String> getWinnerNames() {
 		int maxPosition = 0;
 		for (Car car : cars) {
-			int position = car.getPosition();
-			if (position > maxPosition) {
-				maxPosition = position;
+			if (car.isMoreAdvancedPosition(maxPosition)) {
+				maxPosition = car.getPosition();
 			}
 		}
 		ArrayList<String> winnerNames = new ArrayList<>();
 		for (Car car : cars) {
-			if (car.getPosition() == maxPosition) {
+			if (car.isMaxPosition(maxPosition)) {
 				winnerNames.add(car.getName());
 			}
 		}
