@@ -11,13 +11,13 @@ public class Validator {
     public static LinkedHashSet<String> carNameLinkedHashSet = new LinkedHashSet<>();
 
     public static void isValidInput(String input) {
-        if(!input.matches("^[a-zA-Z]+(,[a-zA-Z]+)+$")) {
+        if (!input.matches("^[a-zA-Z]+(,[a-zA-Z]+)+$")) {
             throw new IllegalArgumentException(ERROR_MESSAGE + INVALID_INPUT_MESSAGE + RETRY_MESSAGE);
         }
     }
 
     public static LinkedHashSet<String> validateCarName(StringTokenizer stringTokenizer) throws IllegalArgumentException {
-        while(stringTokenizer.hasMoreTokens()) {
+        while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             validateNameLength(nextToken);
             validateDuplicateName(nextToken);
@@ -28,7 +28,7 @@ public class Validator {
     }
 
     private static void validateNameLength(String carName) {
-        if(carName.length() > MAX_CAR_NAME_LENGTH) {
+        if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_MESSAGE + CAR_NAME_LENGTH_TOO_LONG_MESSAGE + RETRY_MESSAGE);
         }
     }
@@ -40,7 +40,7 @@ public class Validator {
     }
 
     public static Integer validateNumber(String input) {
-        if(!input.matches("^[1-9][0-9]*$")) {
+        if (!input.matches("^[1-9][0-9]*$")) {
             throw new IllegalArgumentException(ERROR_MESSAGE + LIMITED_TO_NUMBER_ONLY_MESSAGE + RETRY_MESSAGE);
         }
 

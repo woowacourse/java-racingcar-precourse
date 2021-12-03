@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void moveOrStopCar() {
-        if(canCarMoveForward()) {
+        if (canCarMoveForward()) {
             position += MOVE_FORWARD_ONCE;
         }
     }

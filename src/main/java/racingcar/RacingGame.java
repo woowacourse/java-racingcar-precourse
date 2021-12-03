@@ -30,7 +30,7 @@ public class RacingGame {
     }
 
     private void playGame() {
-        for(int i = 0; i < rounds; i++) {
+        for (int i = 0; i < rounds; i++) {
             moveAllCar();
             printResult();
         }
@@ -42,12 +42,12 @@ public class RacingGame {
     }
 
     private void processCarNames() {
-        while(true) {
+        while (true) {
             try {
                 StringTokenizer st = new StringTokenizer(inputCarNames(), DELIM);
                 createCars(Validator.validateCarName(st));
                 break;
-            } catch(IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
                 Validator.carNameLinkedHashSet.clear();
             }
@@ -55,7 +55,7 @@ public class RacingGame {
     }
 
     private String inputCarNames() {
-        while(true) {
+        while (true) {
             try {
                 String input = Console.readLine();
                 Validator.isValidInput(input);
@@ -67,13 +67,13 @@ public class RacingGame {
     }
 
     private void createCars(LinkedHashSet<String> carNamesLinkedHashSet) {
-        for(String carName : carNamesLinkedHashSet) {
+        for (String carName : carNamesLinkedHashSet) {
             carList.add(new Car(carName));
         }
     }
 
     private void inputRounds() {
-        while(true) {
+        while (true) {
             try {
                 rounds = Validator.validateNumber(Console.readLine());
                 break;
@@ -88,7 +88,7 @@ public class RacingGame {
     }
 
     private void moveAllCar() {
-        for(Car car : carList) {
+        for (Car car : carList) {
             car.moveOrStopCar();
         }
     }

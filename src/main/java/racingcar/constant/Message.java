@@ -14,4 +14,3 @@ public class Message {
     public static final String LIMITED_TO_NUMBER_ONLY_MESSAGE = "숫자로만 제한됩니다.";
     public static final String INVALID_INPUT_MESSAGE = "잘못된 입력입니다. 이름,이름,이름 형식으로";
 }
-

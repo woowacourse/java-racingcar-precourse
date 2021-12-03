@@ -14,7 +14,7 @@ public class Result {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for(Car car : cars) {
+        for (Car car : cars) {
             updateMax(car.getPosition());
             stringBuilder.append(car.getName()).append(" : ").append(makeDash(car.getPosition())).append("\n");
         }
@@ -23,7 +23,7 @@ public class Result {
     }
 
     private void updateMax(int pos) {
-        if(max < pos) {
+        if (max < pos) {
             max = pos;
         }
     }
@@ -35,7 +35,7 @@ public class Result {
     private String makeDash(int count) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for(int i = 0; i < count; i++) {
+        for (int i = 0; i < count; i++) {
             stringBuilder.append("-");
         }
 

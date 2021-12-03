@@ -21,7 +21,7 @@ public class Winner {
     public String decideWinner() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for(Car car : cars) {
+        for (Car car : cars) {
             appendIfRaceWinner(stringBuilder, car);
         }
 
@@ -29,14 +29,14 @@ public class Winner {
     }
 
     private void appendIfRaceWinner(StringBuilder stringBuilder, Car car) {
-        if(isWinner(car)) {
+        if (isWinner(car)) {
             appendIfNotFirstWinner(stringBuilder);
             stringBuilder.append(car.getName());
         }
     }
 
     private void appendIfNotFirstWinner(StringBuilder stringBuilder) {
-        if(stringBuilder.length() != NONE) {
+        if (stringBuilder.length() != NONE) {
             stringBuilder.append(WINNER_MORE_THAN_ONE_MESSAGE);
         }
     }
