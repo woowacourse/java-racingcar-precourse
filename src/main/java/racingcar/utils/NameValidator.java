@@ -3,15 +3,13 @@ package racingcar.utils;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class InputValidator {
+public class NameValidator {
 	public static final int NAME_LENGTH_LIMIT = 5;
 
 	public static final String ERROR_ONLY_NAME = "[ERROR] 이름을 2개 이상 입력해주세요.";
 	public static final String ERROR_LONG_NAME = "[ERROR] 이름을 5자 이하로 등록해주세요";
 	public static final String ERROR_DUPLICATE_NAME = "[ERROR] 중복된 이름이 있습니다.";
 	public static final String ERROR_EMPTY_NAME = "[ERROR] 빈 이름이 있습니다";
-	public static final String ERROR_NOT_INTEGER = "[ERROR] 이동횟수는 숫자여야 합니다.";
-	public static final String ERROR_ZERO_OR_NEGATIVE = "[ERROR] 이동횟수는 양수인 정수여야 합니다.";
 
 	public void validateNames(ArrayList<String> names) {
 		isOnlyName(names);
@@ -54,30 +52,6 @@ public class InputValidator {
 			}
 		}
 	}
-
-	public boolean validateMove(String inputValue) {
-		try {
-			isInteger(inputValue);
-			isPositive(inputValue);
-			return false;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return true;
-		}
-	}
-
-	private void isInteger(String inputValue) {
-		for (int i = 0; i < inputValue.length(); i++) {
-			if (!Character.isDigit(inputValue.charAt(i))) {
-				throw new IllegalArgumentException(ERROR_NOT_INTEGER);
-			}
-		}
-	}
-
-	private void isPositive(String inputValue) {
-		int value = Integer.parseInt(inputValue);
-		if (value <= 0) {
-			throw new IllegalArgumentException(ERROR_ZERO_OR_NEGATIVE);
-		}
-	}
 }
+
+
