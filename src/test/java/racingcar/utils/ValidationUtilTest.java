@@ -9,7 +9,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class ValidationUtilTest {
-
     @DisplayName("null값 예외발생 테스트")
     @Test
     void checkNull() {
