@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class RaceStarter {
@@ -25,12 +24,10 @@ public class RaceStarter {
         int maxValue = findMaxPosition();
         System.out.print("최종 우승자 : ");
         List<String> winners = new ArrayList<>();
-        carList.stream().filter(car -> car.getPosition() == maxValue).forEach(car -> {
-            winners.add(car.getName());
-        });
+        carList.stream().filter(car -> car.getPosition() == maxValue).forEach(car -> winners.add(car.getName()));
         int winnerNumber  = winners.size();
         for(int i = 0 ; i < winnerNumber; i++){
-            System.out.print(carList.get(i).getName());
+            System.out.print(winners.get(i));
             if(i != winnerNumber -1) System.out.print(", ");
         }
     }
@@ -57,9 +54,9 @@ public class RaceStarter {
             for (int i = 0 ; i < position; i++){
                 System.out.print("-");
             }
-            System.out.println("");
+            System.out.println();
         });
-        System.out.println("");
+        System.out.println();
     }
     private void increaseCarsPosition(){
         carList.forEach(car -> {
