@@ -20,8 +20,8 @@ public class User {
         nameArray = names.split(",");
     }
 
-    public String getCarName() {
-        return this.names;
+    public String[] getCarName() {
+        return this.nameArray;
     }
 
     public int getTimes() {
