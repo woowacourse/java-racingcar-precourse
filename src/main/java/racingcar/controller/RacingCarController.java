@@ -21,7 +21,7 @@ public class RacingCarController {
 		getInputCars();
 		getInputGameCount();
 		moveCars();
-		getWinner();
+		confirmWinner();
 	}
 
 	private void getInputCars() {
@@ -67,7 +67,7 @@ public class RacingCarController {
 		}
 	}
 
-	private void getWinner() {
+	private void confirmWinner() {
 		int maxDistance = racingCar.getMaxDistance();
 		OutputView.printWinner(racingCar.getWinnerNames(maxDistance));
 	}
