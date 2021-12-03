@@ -21,6 +21,7 @@ public class OutputView {
 		for (Car car : racingRecord.getRacingRecord()) {
 			System.out.println(car.getName() + COLON + printDash(car.getPosition()));
 		}
+		System.out.println();
 	}
 
 	public static void printRacingWinners(RacingResult racingResult) {
