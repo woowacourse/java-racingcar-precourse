@@ -27,11 +27,10 @@ public class InputValidator {
     }
     private List<String> splitAndTrim(String inputCarNames){
         String carNames[] = inputCarNames.split(",");
-        for (int i = 0; i < carNames.length ; i++ ){
+        for (int i = 0; i < carNames.length ; i++ ) {
             String carName = carNames[i];
             carNames[i] = carName.trim();
         }
-        System.out.println("carNames.toString() = " + carNames.toString());
         return Arrays.asList(carNames);
     }
     private boolean checkCarNameLength(List<String> carNames){
