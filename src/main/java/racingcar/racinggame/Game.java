@@ -7,6 +7,7 @@ import racingcar.user.Output;
 public class Game {
 	private final Input input;
 	private final Output output;
+	private int highScore;
 
 	public Game() {
 		input = new Input();
@@ -19,6 +20,8 @@ public class Game {
 
 		String round = input.inputRound();
 		output.printRoundResult(round, cars);
+
+		getHighScore(cars);
 	}
 
 	private Car[] createCars(String[] carNames) {
@@ -27,5 +30,17 @@ public class Game {
 			cars[i] = new Car(carNames[i]);
 		}
 		return cars;
+	}
+
+	private void getHighScore(Car[] cars) {
+		for (Car car : cars) {
+			isHighScore(car);
+		}
+	}
+
+	private void isHighScore(Car car) {
+		if (car.getPosition() > highScore) {
+			highScore = car.getPosition();
+		}
 	}
 }
