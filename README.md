@@ -44,7 +44,7 @@
     * userInput 초기화
 - public void play() ✅
     * 게임 진행
-- public List<Car> makeCarList(List<String> names) ✅
+- private void makeCarList(List<String> names) ✅
     * 이름들 입력받아 자동차 객체 리스트 만들기
 
 ### UserInput
