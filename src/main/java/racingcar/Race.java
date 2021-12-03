@@ -16,19 +16,35 @@ public class Race {
     }
 
     public static void getCarByName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String userInput = getUserInput();
-        String[] carNames = userInput.split(",");
-        for (String carName : carNames) {
-            Car car = new Car(carName);
-            cars.add(car);
+        try {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String userInput = getUserInput();
+            String[] carNames = userInput.split(",");
+            for (String carName : carNames) {
+                if (carName.length() > 5) {
+                    throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+                }
+                Car car = new Car(carName);
+                cars.add(car);
+            }
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+            getCarByName();
         }
     }
 
     public static void getMoveCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String userInput = getUserInput();
-        moveCount = Integer.parseInt(userInput);
+        try {
+            System.out.println("시도할 회수는 몇회인가요?");
+            String userInput = getUserInput();
+            if(!userInput.chars().allMatch(Character::isDigit)){
+                throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+            }
+            moveCount = Integer.parseInt(userInput);
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+            getMoveCount();
+        }
     }
 
     public void run() {
