@@ -4,17 +4,17 @@ import racingcar.util.RandomNumberGeneratePolicy;
 
 public class RacingGame {
 	private final Cars cars;
-	private final int round;
+	private final Round round;
 	private final RandomNumberGeneratePolicy randomNumberGeneratePolicy;
 
-	public RacingGame(Cars cars, int round, RandomNumberGeneratePolicy randomNumberGeneratePolicy) {
+	public RacingGame(Cars cars, Round round, RandomNumberGeneratePolicy randomNumberGeneratePolicy) {
 		this.cars = cars;
 		this.round = round;
 		this.randomNumberGeneratePolicy = randomNumberGeneratePolicy;
 	}
 
 	public RacingGame(String carsName, int round, RandomNumberGeneratePolicy randomNumberGeneratePolicy) {
-		this(Cars.fromString(carsName), round, randomNumberGeneratePolicy);
+		this(Cars.fromString(carsName), Round.fromInt(round), randomNumberGeneratePolicy);
 	}
 
 	public static RacingGame createRacingGame(String carsName, int round) {
@@ -26,11 +26,8 @@ public class RacingGame {
 		return new RacingRecord(cars.getDriveRecord());
 	}
 
-	public boolean isContinue(int roundCount) {
-		if (roundCount == round) {
-			return false;
-		}
-		return true;
+	public boolean isContinue() {
+		return round.hasNext();
 	}
 
 	public RacingResult getRacingResult() {
