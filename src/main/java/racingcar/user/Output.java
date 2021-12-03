@@ -10,7 +10,7 @@ public class Output {
 	private static final String SEPARATOR = ", ";
 	private static final String ROUND_RESULT_MESSAGE = "실행 결과";
 	private static final String CHAMPION_MESSAGE = "최종 우승자 : ";
-	private static final int SINGLE_CHAMPION = 1;
+	private static final int SINGLE_CHAMPION = 0;
 
 	public void printRoundResult(String round, Car[] cars) {
 		System.out.println();
