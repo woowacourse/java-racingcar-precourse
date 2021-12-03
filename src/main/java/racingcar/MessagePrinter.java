@@ -23,6 +23,17 @@ public class MessagePrinter {
 		System.out.println(START_MESSAGE);
 	}
 
+	public static void printExecutionResult(Car[] cars) {
+		StringBuilder resultMessage = new StringBuilder();
+
+		for (Car car : cars) {
+			resultMessage.append(createPositionMessage(car));
+		}
+
+		resultMessage.append("\n");
+		System.out.println(resultMessage);
+	}
+
 	private static String createPositionMessage(Car car) {
 		StringBuilder positionMessage = new StringBuilder();
 
