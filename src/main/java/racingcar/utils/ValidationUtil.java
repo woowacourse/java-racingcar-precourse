@@ -16,7 +16,8 @@ public class ValidationUtil {
     public static final String ERROR_EMPTY_MENTION = ERROR_STRING + " 이름을 입력해주세요.";
     public static final String ERROR_OVER_LENGTH_MENTION = ERROR_STRING + " 이름은 " + MAX_LENGTH + "글자까지만 입력가능합니다.";
     public static final String ERROR_START_COMMA_MENTION = ERROR_STRING + " 입력값은 쉼표(,)로 시작할 수 없습니다.";
-    public static final String ERROR_NAME_COUNT_MENTION = ERROR_STRING + " " + NAME_THRESHOLD_COUNT + " 이상의 이름을 입력하세요.";
+    public static final String ERROR_NAME_COUNT_MENTION = ERROR_STRING + " "
+        + NAME_THRESHOLD_COUNT + "개 이상의 이름을 입력하세요.";
     public static final String ERROR_DUPLICATE_MENTION = ERROR_STRING + " 이름은 중복될 수 없습니다.";
 
     public static void checkName(String value) {
@@ -34,7 +35,7 @@ public class ValidationUtil {
     }
 
     static void checkNameCount(String value) {
-        if(isLessThanThresholdCount(value)) {
+        if (isLessThanThresholdCount(value)) {
             throw new IllegalArgumentException(ERROR_NAME_COUNT_MENTION);
         }
     }
