@@ -29,4 +29,15 @@ public class Game {
             System.out.print("-");
         }
     }
+
+    public int getFrontPosition(List<Car> cars) {
+        int frontPosition = 0;
+
+        for (Car car : cars) {
+            if(car.getPosition() > frontPosition) {
+                frontPosition = car.getPosition();
+            }
+        }
+        return frontPosition;
+    }
 }
