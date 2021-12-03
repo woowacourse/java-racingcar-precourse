@@ -24,4 +24,9 @@ public class Game {
         }
     }
 
+    private void showEachCarPosition(int position) {
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+    }
 }
