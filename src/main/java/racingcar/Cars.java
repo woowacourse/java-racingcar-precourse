@@ -17,4 +17,10 @@ public class Cars {
 			cars.get(i).move();
 		}
 	}
+
+	public void printAll() {
+		for (int i = 0; i < cars.size(); i++) {
+			cars.get(i).print();
+		}
+	}
 }
