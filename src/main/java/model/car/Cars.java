@@ -28,4 +28,16 @@ public class Cars {
     public List<Car> getRacingResult() {
         return values;
     }
+
+    public List<Car> getWinners() {
+        return values.stream()
+                .filter(this::hasHighestPosition)
+                .collect(Collectors.toList());
+    }
+
+    private boolean hasHighestPosition(final Car car) {
+        return values.stream()
+                .filter(another -> !another.getName().equals(car.getName()))
+                .allMatch(car::hasHigherPositionThan);
+    }
 }

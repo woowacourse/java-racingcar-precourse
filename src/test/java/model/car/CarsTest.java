@@ -39,6 +39,20 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("위치 값이 가장 큰 자동차(들)을 반환한다.")
+    void getWinners() {
+        List<String> carNames = Arrays.asList("Chris", "Henry", "Paul");
+        Cars cars = new Cars(carNames);
+        cars.race(randomMovement);
+        List<Car> winners = cars.getWinners();
+        assertAll(
+                () -> assertThat(winners.size()).isEqualTo(2),
+                () -> assertThat(winners.get(0).getName()).isEqualTo("Chris"),
+                () -> assertThat(winners.get(1).getName()).isEqualTo("Paul")
+        );
+    }
+
+    @Test
     @DisplayName("자동차들의 이름들 간에 중복이 있으면 예외를 발생시킨다.")
     void evokeExceptionByOverlappedNames() {
         List<String> overlappedNames = Arrays.asList("Chris", "Chris", "Henry");
