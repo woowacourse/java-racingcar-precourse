@@ -32,6 +32,11 @@
 
 ## 클래스 명세
 
+### **Application**
+
+- public static void main(String[] args)
+    * MainController 선언 및 호출하여 게임 시작
+
 ### **Controller**
 
 #### MainController
