@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import static camp.nextstep.edu.missionutils.Console.*;
 import static camp.nextstep.edu.missionutils.Randoms.*;
 import static racingcar.constant.GameConstants.*;
 
@@ -8,63 +7,31 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class GameParticipant {
+import racingcar.view.OutputView;
+
+public class RacingGame {
 
 	private final List<RacingCar> participantList = new LinkedList<>();
-	private int rounds = 0;
 
-	public void startGame() {
-		initialize();
-		System.out.println(GAME_RESULT_MESSAGE);
-		for (int i = 0; i < rounds; i++) {
-			playRacingGame();
-		}
-		printGameResult();
-	}
-
-	private void initialize() {
-		enterPlayer();
-		enterRound();
-		System.out.println();
-	}
-
-	private void enterPlayer() {
-		try {
-			System.out.println(START_MESSAGE);
-			String participants = readLine();
-			setPlayers(participants);
-		} catch (IllegalArgumentException error) {
-			System.out.println(error.getMessage());
-			enterPlayer();
-		}
-	}
-
-	private void enterRound() {
-		try {
-			System.out.println(TRY_MESSAGE);
-			String round = readLine();
-			validateNumber(round);
-			setRounds(round);
-		} catch (IllegalArgumentException error) {
-			enterRound();
-		}
-	}
-
-	private void setPlayers(String participants) {
+	public void addParticipants(String participants) {
 		StringTokenizer participant = new StringTokenizer(participants, NAME_DISTINGUISH);
 		while (participant.hasMoreTokens()) {
 			participantList.add(new RacingCar(participant.nextToken()));
 		}
 	}
 
-	private void setRounds(String round) {
-		this.rounds = Integer.parseInt(round);
+	public void run(int rounds) {
+		if (rounds == 0) {
+			return;
+		}
+		playGame();
+		run(rounds - 1);
 	}
 
-	private void playRacingGame() {
+	private void playGame() {
 		for (RacingCar racingCar : participantList) {
 			moveCar(racingCar);
-			printCarLocation(racingCar);
+			OutputView.printCarLocation(racingCar);
 		}
 		System.out.println();
 	}
@@ -75,22 +42,14 @@ public class GameParticipant {
 		}
 	}
 
-	private void printCarLocation(RacingCar racingCar) {
-		System.out.print(racingCar.getCarName() + " : ");
-		for (int i = 0; i < racingCar.getLocation(); i++) {
-			System.out.print(CAR_SHAPE);
-		}
-		System.out.println();
-	}
-
-	private void printGameResult() {
+	public void getResult() {
 		int winnerDistance = getWinnerScore();
 		StringBuilder winner = new StringBuilder();
 		for (int i = 0; participantList.get(i).getLocation() == winnerDistance; i++) {
 			winner.append(participantList.get(i).getCarName()).append(WINNER_DISTINGUISH);
 		}
 		winner = new StringBuilder(winner.substring(0, winner.length() - WINNER_DISTINGUISH.length()));
-		System.out.println(WINNER_MESSAGE + winner);
+		OutputView.printWinner(winner);
 	}
 
 	private int getWinnerScore() {
@@ -98,13 +57,4 @@ public class GameParticipant {
 		return participantList.get(0).getLocation();
 	}
 
-	private void validateNumber(String number) {
-		boolean isNumeric = number.matches(REGEX_EXPRESSION_OF_NUMBER);
-		if (!isNumeric) {
-			throw new IllegalArgumentException(VALIDATE_MESSAGE);
-		}
-	}
-
-	public void addParcitipantCar(String input) {
-	}
 }
