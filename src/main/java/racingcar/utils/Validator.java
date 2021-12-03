@@ -1,12 +1,16 @@
 package racingcar.utils;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Pattern;
 
+import racingcar.exception.CarNameAlreadyExistedException;
 import racingcar.exception.CarNameNotValidException;
 import racingcar.exception.NumberFormatNotValidException;
 
 public class Validator {
 	private static final Pattern NUMBER = Pattern.compile("[0-9]+");
+	private static final Set<String> CAR_NAME_SET = new HashSet<>();
 	private static final int NAME_LENGTH_LIMIT = 5;
 	private static final int CAR_MOVE_CONDITION_MIN_VALUE = 4;
 
@@ -15,6 +19,7 @@ public class Validator {
 			for (int i = 0; i < carNames.length; i++) {
 				String name = carNames[i];
 				isNameLengthMoreOverThanLimit(name);
+				isCarNameAlreadyExisted(name);
 			}
 		} catch (IllegalArgumentException ex) {
 			flag = false;
@@ -38,6 +43,12 @@ public class Validator {
 		return false;
 	}
 
+	private static void isCarNameAlreadyExisted(String name) {
+		if (!CAR_NAME_SET.add(name)) {
+			throw new CarNameAlreadyExistedException();
+		}
+	}
+
 	private static void isNumberFormat(String input) {
 		if (!NUMBER.matcher(input).matches()) {
 			throw new NumberFormatNotValidException();
@@ -49,5 +60,4 @@ public class Validator {
 			throw new CarNameNotValidException();
 		}
 	}
-
 }
