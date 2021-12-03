@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import racingcar.receiver.NameReceiver;
 import racingcar.receiver.TryCountReceiver;
+import racingcar.util.View;
 
 public class RacingCarGame {
 

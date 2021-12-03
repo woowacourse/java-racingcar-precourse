@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.util.RandomNumberGenerator;
+
 public class Car {
 
 	private static final int DRIVE_THRESHOLD_NUMBER = 4;
