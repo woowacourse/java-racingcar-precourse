@@ -1,53 +1,53 @@
 package racingcar;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Console.*;
 
 public class Application {
-
     static List<Car> carList = new ArrayList<>();
     static int tryTimes;
     static List<String> winnerNames = new ArrayList<>();
 
     public static void main(String[] args) {
-        CreateCars();
-        SetTryTimes();
-        PlayGames();
-        AnnounceWinners();
+        createCars();
+        setTryTimes();
+        playGames();
+        announceWinners();
     }
 
-    static void CreateCars() {
-        PrintGameMessage(GAME_CREATE_CARS);
-        String[] carNames = GetCarNames();
-        AddCarsToCarList(carNames);
+    static void createCars() {
+        printGameMessage(GAME_CREATE_CARS);
+        String[] carNames = getCarNames();
+        addCarsToCarList(carNames);
     }
 
-    static void AddCarsToCarList(String[] carNames) {
+    static void addCarsToCarList(String[] carNames) {
         for (String s : carNames) {
             Car c = new Car(s);
             carList.add(c);
         }
     }
 
-    static String[] GetCarNames() {
+    static String[] getCarNames() {
         String carNamesInput;
         String[] carNames;
 
         while (true) {
             try {
                 carNamesInput = readLine();
-                carNames = ParseCarNamesInput(carNamesInput);
+                carNames = parseCarNamesInput(carNamesInput);
                 return carNames;
             } catch (IllegalArgumentException e) {
-                PrintErrorMessage(NAME_INPUT_ERROR);
+                printErrorMessage(NAME_INPUT_ERROR);
             }
         }
     }
 
     final static String parser = ",";
 
-    static String[] ParseCarNamesInput(String carNamesInput) {
+    static String[] parseCarNamesInput(String carNamesInput) {
         String[] carNames = carNamesInput.split(parser);
 
         for (String s : carNames) {
@@ -59,27 +59,27 @@ public class Application {
         return carNames;
     }
 
-    static void SetTryTimes() {
-        PrintGameMessage(GAME_SET_TRY_TIMES);
-        tryTimes = GetTryTimes();
+    static void setTryTimes() {
+        printGameMessage(GAME_SET_TRY_TIMES);
+        tryTimes = getTryTimes();
     }
 
-    static int GetTryTimes() {
+    static int getTryTimes() {
         String tryTimesInput;
         int tryTimesInt;
 
         while (true) {
             try {
                 tryTimesInput = readLine();
-                tryTimesInt = InputStringToInt(tryTimesInput);
+                tryTimesInt = makeStringToInt(tryTimesInput);
                 return tryTimesInt;
             } catch (IllegalArgumentException e) {
-                PrintErrorMessage(TIME_INPUT_ERROR);
+                printErrorMessage(TIME_INPUT_ERROR);
             }
         }
     }
 
-    static int InputStringToInt(String inputString) {
+    static int makeStringToInt(String inputString) {
         int inputInt;
 
         try {
@@ -90,27 +90,27 @@ public class Application {
         }
     }
 
-    static void PlayGames() {
-        PrintGameMessage(GAME_PLAY_START);
+    static void playGames() {
+        printGameMessage(GAME_PLAY_START);
 
         for (int i = 0; i < tryTimes; ++i) {
-            PlayOneTurn();
+            playOneTurn();
         }
     }
 
-    static void PlayOneTurn() {
+    static void playOneTurn() {
         for (Car c : carList) {
-            c.PlayMoving();
+            c.playMoving();
         }
         System.out.println();
     }
 
-    static void AnnounceWinners() {
-        SelectWinners();
-        PrintWinners();
+    static void announceWinners() {
+        selectWinners();
+        printWinners();
     }
 
-    static void SelectWinners() {
+    static void selectWinners() {
         int maxPosition = 0;
 
         for (Car c : carList) {
@@ -127,7 +127,7 @@ public class Application {
         }
     }
 
-    static void PrintWinners() {
+    static void printWinners() {
         int numberOfWinners = winnerNames.size();
 
         System.out.print("최종 우승자 : " + winnerNames.get(0));
@@ -140,7 +140,7 @@ public class Application {
     static int GAME_SET_TRY_TIMES = 2;
     static int GAME_PLAY_START = 3;
 
-    static void PrintGameMessage(int gameType) {
+    static void printGameMessage(int gameType) {
         if (gameType == GAME_CREATE_CARS) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             return;
@@ -157,7 +157,7 @@ public class Application {
     static int NAME_INPUT_ERROR = 1;
     static int TIME_INPUT_ERROR = 2;
 
-    static void PrintErrorMessage(int errorType) {
+    static void printErrorMessage(int errorType) {
         if (errorType == NAME_INPUT_ERROR) {
             System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
             return;

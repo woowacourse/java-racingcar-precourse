@@ -1,6 +1,6 @@
 package racingcar;
 
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static camp.nextstep.edu.missionutils.Randoms.*;
 
 public class Car {
     private final String name;
@@ -10,23 +10,23 @@ public class Car {
         this.name = name;
     }
 
-    public void PlayMoving() {
-        TryMoveForward();
-        PrintResult();
+    public void playMoving() {
+        tryMoveForward();
+        printResult();
     }
 
     final public static int MIN_NUMBER = 0;
     final public static int MAX_NUMBER = 9;
     final public static int TARGET_NUMBER = 4;
 
-    public void TryMoveForward() {
+    public void tryMoveForward() {
         int randomNumber = pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         if (randomNumber >= TARGET_NUMBER) {
             position++;
         }
     }
 
-    public void PrintResult() {
+    public void printResult() {
         System.out.print(name + " : ");
         for (int i = 0; i < position; ++i) {
             System.out.print("-");
