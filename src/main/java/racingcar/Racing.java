@@ -4,11 +4,7 @@ import java.util.ArrayList;
 
 public class Racing {
 
-	private static final String RACING_RESULT_MESSAGE = "실행 결과";
-
 	public ArrayList<Car> start(ArrayList<String> nameList, Integer tryCount) {
-		System.out.println(RACING_RESULT_MESSAGE);
-
 		ArrayList<Car> carList = makeCarList(nameList);
 
 		for (int i = 0; i < tryCount; i++) {
