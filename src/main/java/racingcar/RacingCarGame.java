@@ -15,14 +15,15 @@ public class RacingCarGame {
         getInput();
     }
 
-    private void getInput(){
+    private void getInput() {
         userInput.inputNames();
         makeCarList(userInput.getNames());
+        userInput.inputAttempt();
     }
 
-    private void makeCarList(List<String> names){
+    private void makeCarList(List<String> names) {
         List<Car> cars = new ArrayList<>();
-        for(String name : names){
+        for (String name : names) {
             cars.add(new Car(name));
         }
         this.cars = cars;

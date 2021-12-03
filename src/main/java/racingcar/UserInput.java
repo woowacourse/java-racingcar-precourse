@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class UserInput {
     private List<String> names;
+    private int attempt;
 
     public void inputNames() {
         try {
@@ -16,6 +17,17 @@ public class UserInput {
             setNames(input);
         } catch (IllegalArgumentException e) {
             inputNames();
+        }
+    }
+
+    public void inputAttempt() {
+        try {
+            System.out.println(Constant.PLEASE_INPUT_ATTEMPT);
+            String input = Console.readLine();
+            Validation.isValidAttempt(input);
+            setAttempt(input);
+        } catch (IllegalArgumentException e) {
+            inputAttempt();
         }
     }
 
@@ -30,4 +42,9 @@ public class UserInput {
     public List<String> getNames() {
         return this.names;
     }
+
+    private void setAttempt(String input) {
+        this.attempt = Integer.parseInt(input);
+    }
+
 }
