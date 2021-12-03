@@ -1,8 +1,8 @@
-package racingcar;
+package utils;
 
-import Utils.InputUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Car;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.InvocationTargetException;

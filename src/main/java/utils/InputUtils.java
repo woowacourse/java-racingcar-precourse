@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Car;

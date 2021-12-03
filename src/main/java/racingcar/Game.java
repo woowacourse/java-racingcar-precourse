@@ -1,7 +1,7 @@
 package racingcar;
 
-import Utils.InputUtils;
-import Utils.PrintUtils;
+import utils.InputUtils;
+import utils.PrintUtils;
 
 import java.util.List;
 
