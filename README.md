@@ -58,7 +58,7 @@
 
 - public void inputNames() ✅
     * 경주할 자동차의 이름 입력받기
-- public void inputAttempt()
+- public void inputAttempt() ✅
     * 시도 횟수 입력 받기
 - private String[] readNames() ✅
     * 이름 입력 읽기
@@ -103,7 +103,7 @@
     * 시도 횟수의 최솟값
 - public static final String PLEASE_INPUT_NAMES ✅
     * 자동차 이름 입력 요청
-- public static final String PLEASE_INPUT_ATTEMPT
+- public static final String PLEASE_INPUT_ATTEMPT ✅
     * 시도 횟수 입력요청
 - public static final String ERROR ✅
     * 에러메시지 시작
