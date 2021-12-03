@@ -1,9 +1,12 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class MessagePrinter {
 
 	public static final String ASK_FOR_REPETITIONS = "시도할 회수는 몇회인가요?";
 	public static final String START_MESSAGE = "실행 결과";
+	public static final String WINNER_MESSAGE = "최종 우승자 : ";
 	private static final String ASK_FOR_CAR_NAME_LIST = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String POSITION_INDICATOR = "-";
 
@@ -44,6 +47,11 @@ public class MessagePrinter {
 		}
 
 		return positionMessage.toString();
+	}
+
+	public static void printWinners(ArrayList<String> winners) {
+		String winnerList = String.join(", ", winners);
+		System.out.println(WINNER_MESSAGE + winnerList);
 	}
 
 }
