@@ -12,9 +12,6 @@ public class TryCountValidator {
 			keepDigitValue(tryCountString);
 			keepDigitExceptZero(tryCountString);
 
-			// 공백 라인 출력
-			System.out.println();
-
 			return false;
 		} catch (IllegalArgumentException illegalArgumentException) {
 			System.out.println(errorMessage);
