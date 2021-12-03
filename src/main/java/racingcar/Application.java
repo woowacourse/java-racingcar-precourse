@@ -24,6 +24,12 @@ public class Application {
             game.runCarRacingOneRound(cars);
             System.out.println();
         }
-        
+
+        int frontPosition = game.getFrontPosition(cars);
+
+        List<String> winner = game.getWinner(cars, frontPosition);
+
+        System.out.print("최종 우승자 : " + String.join(", ", winner));
+
     }
 }
