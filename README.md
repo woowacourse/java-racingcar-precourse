@@ -3,6 +3,8 @@
 ---
 
 ## 🔍 프로젝트를 하며 고민했던 부분 
+- [객체 지향적인 설계는 어떻게 할까?](https://github.com/her0807/java-racingcar-precourse/wiki/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5%EC%A0%81%EC%9D%B8-%EC%84%A4%EA%B3%84%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EA%B9%8C%3F)
+- [객체 지향적인 자동차 경주 설계](https://github.com/her0807/java-racingcar-precourse/wiki/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5%EC%A0%81%EC%9D%B8-%EC%9E%90%EB%8F%99%EC%B0%A8-%EA%B2%BD%EC%A3%BC-%EA%B2%8C%EC%9E%84-%EC%84%A4%EA%B3%84)
 
 
 ## 🚀 구현할 기능 목록
