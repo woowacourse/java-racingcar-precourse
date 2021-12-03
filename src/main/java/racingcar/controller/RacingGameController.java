@@ -28,7 +28,7 @@ public class RacingGameController {
         try {
             tryNumber = new TryNumber(InputView.requireTryNumber());
         } catch (IllegalArgumentException exception) {
-            System.out.println(exception.getMessage());
+            OutputView.printErrorMessage(exception.getMessage());
             prepareTryNumber();
         }
     }
@@ -37,7 +37,7 @@ public class RacingGameController {
         try {
             cars = new Cars(InputView.requirePlayersName());
         } catch (IllegalArgumentException exception) {
-            System.out.println(exception.getMessage());
+            OutputView.printErrorMessage(exception.getMessage());
             prepareCars();
         }
     }
