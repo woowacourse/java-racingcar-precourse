@@ -20,8 +20,12 @@ public class CarNameValidator {
 
 	private static void validateSize(List<String> inputCarNames) {
 		if (inputCarNames.stream()
-			.anyMatch(name -> name.length() > MAXIMUM_NAME_LENGTH)) {
+			.anyMatch(CarNameValidator::isOversizeName)) {
 			throw new IllegalArgumentException(NUMBER_LENGTH_ERROR_MESSAGE);
 		}
+	}
+
+	private static boolean isOversizeName(String name) {
+		return name.length() > MAXIMUM_NAME_LENGTH;
 	}
 }
