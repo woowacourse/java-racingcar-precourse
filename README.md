@@ -169,3 +169,46 @@
     * 각 차수별 실행결과 출력
 - public static void printFinalWinner(List<Car> cars)
     * 최종 우승자 출력
+
+### **Constant**
+
+- public static final int MINIMUM_NUMBER_OF_CARS_FOR_GAME
+    * 자동차 경주 게임을 진행할 최소한의 자동차 개수
+- public static final int MAXIMUM_LENGTH_OF_NAMES
+    * 이름의 최대 길이
+- public static final int MINIMUM_NUMBER_OF_ATTEMPT
+    * 시도 횟수의 최솟값
+- public static final int MAXIMUM_NUMBER_OF_RANDOM
+    * 랜덤값의 최댓값
+- public static final int MINIMUM_NUMBER_OF_RANDOM
+    * 랜덤값의 최솟값
+- public static final int NUMBER_FOR_MOVE
+    * 전진여부를 결정하는 값
+- public static final String PLEASE_INPUT_NAMES
+    * 이름 입력 요청
+- public static final String PLEASE_INPUT_ATTEMPT
+    * 시도 횟수 입력 요청
+- public static final String EXECUTION_RESULT
+    * 실행결과 출력 시작
+- public static final String STANDARD_FOR_EXECUTION_RESULT
+    * 실행결과 출력을 위한 기준
+- public static final String LETTERS_FOR_POSITION
+    * 전진 횟수를 출력하는 문자
+- public static final String FINAL_WINNER
+    * 최종우승자 출력 시작
+- public static final String STANDARD_FOR_FINAL_WINNER
+    * 최종 우승자가 2명 이상일 경우를 위한 출력 기준
+- public static final String ERROR
+    * 에러 문구 시작
+- public static final String ERROR_NO_NAMES
+    * 1개 미만의 이름을 입력한 경우
+- public static final String ERROR_NO_SPACE
+    * 공백을 포함한 이름을 입력한 경우
+- public static final String ERROR_MORE_THAN_FIVE_CHARACTERS
+    * 5글자를 초과하는 이름을 입력한 경우
+- public static final String ERROR_NO_DUPLICATED_NAMES
+    * 중복된 이름을 입력한 경우
+- public static final String ERROR_ATTEMPT_MUST_BE_A_NUMBER
+    * 숫자가 아닌 시도횟수를 입력한 경우
+- public static final String ERROR_ATTEMPT_MUST_BE_MORE_THAN_ZERO
+    * 1 이상이 아닌 숫자를 입력한 경우
