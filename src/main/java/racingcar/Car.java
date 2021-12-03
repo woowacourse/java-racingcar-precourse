@@ -8,5 +8,19 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public String getName() {
+        return name;
+    }
+
+    public void isNameOutOfRange(String carName) throws IllegalArgumentException {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void isNameNull(String carName) throws IllegalArgumentException {
+        if (carName.length() == 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
