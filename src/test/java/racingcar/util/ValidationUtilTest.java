@@ -40,4 +40,20 @@ class ValidationUtilTest {
 			ValidationUtil.isValidateDuplicated(inputArr);
 		});
 	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"1a", "a1", "o"})
+	void 시도횟수의_입력값이_숫자_형태가_아닌경우_예외_처리(String value) {
+		assertThrows(IllegalArgumentException.class, () -> {
+			ValidationUtil.isValidateNumber(value);
+		});
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"0"})
+	void 시도횟수의_입력값이_최솟값_1이_아닌경우_예외_처리(String value) {
+		assertThrows(IllegalArgumentException.class, () -> {
+			ValidationUtil.isValidateMinimumOne(value);
+		});
+	}
 }
