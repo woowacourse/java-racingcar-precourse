@@ -3,10 +3,10 @@
 ## 👩🏻‍💻 구현할 기능 목록 
 
 ### Car
-- 랜덤 값 생성 (makeRandomForAdvance)
-- 랜덤 값이 4 이상인지 확인(전진인지 아닌지) (predicateAdvance)
-- position 증가
-- 최종 우승자 return (returnWinner)
+- 랜덤 값 생성 
+- position 변경
+- 차 이름 반환
+- 차 position 반 
 
 ### User
 - 차 이름 입력
@@ -23,9 +23,9 @@
 
 ### Game
 - n개의 car 객체 생성
-- 시도 횟수 입력받아 저장
-- 경주 진행
-- 경주 결과 출력
+- 경주 진행 (한 라운드)
+- 가장 앞에 있는 차의 Position 구하기
+- 우승자 이름 반환
 
 ### Application (main)
 차례대로 경기 진행
