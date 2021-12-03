@@ -10,7 +10,7 @@ public class Car {
 		this.name = name;
 	}
 
-	private void drive(int value) {
+	public void drive(int value) {
 		if (MINIMUM_DRIVE_CONDITION <= value) {
 			this.position++;
 		}
