@@ -2,16 +2,16 @@ package racingcar;
 
 public class Validator {
 	public static String validateName(String name) {
-		if(isHighLength(name))
+		if (isHighLength(name))
 			throw new IllegalArgumentException(Const.ERROR_INPUT_CAR_NAME_LENGTH);
 
-		if(isEmptyOrBlank(name))
+		if (isEmptyOrBlank(name))
 			throw new IllegalArgumentException(Const.ERROR_INPUT_CAR_NAME_EMPTY_OR_BLANK);
 
 		return name;
 	}
 
-	public static int validateRound(String numStr){
+	public static int validateRound(String numStr) {
 		int number;
 		try {
 			number = Integer.parseInt(numStr);
@@ -19,7 +19,7 @@ public class Validator {
 			throw new IllegalArgumentException(Const.ERROR_INPUT_ROUND_IS_NOT_NUMERIC);
 		}
 
-		if(!isPositiveNumber(number))
+		if (!isPositiveNumber(number))
 			throw new IllegalArgumentException(Const.ERROR_INPUT_ROUND_IS_NOT_POSITIVE_NUMBER);
 
 		return number;

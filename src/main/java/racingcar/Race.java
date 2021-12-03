@@ -4,8 +4,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Race {
 	private List<Car> cars;
 	private int round;
