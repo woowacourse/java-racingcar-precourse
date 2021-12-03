@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import model.movement.RandomMovement;
@@ -20,13 +21,17 @@ class CarsTest {
             return movement[movementIndex++];
         }
     };
+    private final List<String> carNames = Arrays.asList("Chris", "Henry", "Paul");
+    private final Cars cars = new Cars(carNames);
+
+    @BeforeEach
+    void setUp() {
+        cars.race(randomMovement);
+    }
 
     @Test
     @DisplayName("자동차들을 전진시키고 결과를 반환한다.")
     void race_getRacingResult() {
-        List<String> carNames = Arrays.asList("Chris", "Henry", "Paul");
-        Cars cars = new Cars(carNames);
-        cars.race(randomMovement);
         List<Car> carsAfterRacing = cars.getRacingResult();
         assertAll(
                 () -> assertThat(carsAfterRacing.get(0).getName()).isEqualTo("Chris"),
@@ -41,9 +46,6 @@ class CarsTest {
     @Test
     @DisplayName("위치 값이 가장 큰 자동차(들)을 반환한다.")
     void getWinners() {
-        List<String> carNames = Arrays.asList("Chris", "Henry", "Paul");
-        Cars cars = new Cars(carNames);
-        cars.race(randomMovement);
         List<Car> winners = cars.getWinners();
         assertAll(
                 () -> assertThat(winners.size()).isEqualTo(2),
