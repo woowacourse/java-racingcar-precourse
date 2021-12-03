@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.ArrayList;
 
-import racingcar.domain.Car;
+import racingcar.Car;
 
 public class OutputView {
 	private static final String EXECUTION_RESULT = "실행결과";
