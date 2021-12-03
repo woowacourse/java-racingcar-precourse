@@ -11,8 +11,18 @@ public class Validator {
 		return name;
 	}
 
-	public static int validateRound(String numStr) throws IllegalArgumentException {
-		return Integer.parseInt(numStr);
+	public static int validateRound(String numStr){
+		int number;
+		try {
+			number = Integer.parseInt(numStr);
+		} catch (Exception e) {
+			throw new IllegalArgumentException(Const.ERROR_INPUT_ROUND_IS_NOT_NUMERIC);
+		}
+
+		if(!isPositiveNumber(number))
+			throw new IllegalArgumentException(Const.ERROR_INPUT_ROUND_IS_NOT_POSITIVE_NUMBER);
+
+		return number;
 	}
 
 	private static boolean isHighLength(String name) {
@@ -21,5 +31,9 @@ public class Validator {
 
 	private static boolean isEmptyOrBlank(String name) {
 		return name.isEmpty() || name.trim().isEmpty();
+	}
+
+	private static boolean isPositiveNumber(int number) {
+		return number > 0;
 	}
 }

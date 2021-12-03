@@ -52,7 +52,7 @@ public class Game {
 		try {
 			result = Validator.validateRound(userInput);
 		} catch (IllegalArgumentException e) {
-			System.out.println(Const.ERROR_INPUT_ROUND_MESSAGE);
+			System.out.println(e.getMessage());
 			return readRound();
 		}
 

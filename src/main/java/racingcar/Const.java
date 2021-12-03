@@ -8,7 +8,8 @@ public class Const {
 	public static final String ERROR_INPUT_CAR_NAME_EMPTY_OR_BLANK = ERROR_MESSAGE + " 자동차 이름은 빈 문자열이거나 공백만 있을 수 없습니다.";
 	public static final String NAME_SEPARATOR = ",";
 	public static final String ROUND_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
-	public static final String ERROR_INPUT_ROUND_MESSAGE = ERROR_MESSAGE + " 시도 횟수는 숫자여야 합니다.";
+	public static final String ERROR_INPUT_ROUND_IS_NOT_NUMERIC = ERROR_MESSAGE + " 시도 횟수는 숫자여야 합니다.";
+	public static final String ERROR_INPUT_ROUND_IS_NOT_POSITIVE_NUMBER = ERROR_MESSAGE + " 양수를 입력해야 합니다.";
 	public static final String RACE_RESULT_MESSAGE = "실행 결과";
 	public static final String CAR_PRINT_SEPARATOR = " : ";
 	public static final String CAR_POSITION_MARKER = "-";
