@@ -38,7 +38,7 @@ public class Input {
 
 	public static Car[] inputCarNameToCarObj(String[] carNames) {
 		Car[] cars = new Car[carNames.length];
-		System.out.println(carNames.length);
+
 		AtomicInteger idx = new AtomicInteger();
 		Arrays.stream(carNames).forEach(name -> cars[idx.getAndIncrement()] = new Car(name));
 

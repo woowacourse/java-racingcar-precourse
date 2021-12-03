@@ -3,8 +3,6 @@ package racingcar.utils;
 
 import static racingcar.domain.Judge.*;
 
-import java.util.List;
-
 import racingcar.domain.Car;
 import racingcar.domain.Judge;
 
@@ -29,8 +27,7 @@ public class Output {
 	private static void printWinnerList(Car[] cars) {
 		StringBuilder sb = new StringBuilder();
 
-		List<String> ouputList = judge.judging(cars);
-		for (String name : ouputList) {
+		for (String name : judge.judging(cars)) {
 			sb.append(name + ", ");
 		}
 
@@ -48,8 +45,7 @@ public class Output {
 
 	private static String trimWinnerResultString(StringBuilder sb) {
 		String result = sb.toString();
-		result = result.substring(0, result.length() - 2);
-		return result;
+		return result.substring(0, result.length() - 2);
 	}
 
 }
