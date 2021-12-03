@@ -46,7 +46,7 @@ public class CarList {
 	}
 
 	private static void isEmptyInput(List<String> carNames) {
-		if(carNames.size()==1 && carNames.get(0).isEmpty()){
+		if (carNames.size() == 1 && carNames.get(0).isEmpty()) {
 			throw new IllegalArgumentException("자동차 이름을 하나 이상 입력해야 합니다.");
 		}
 	}
