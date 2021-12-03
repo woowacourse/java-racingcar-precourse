@@ -3,21 +3,21 @@ package racingcar.domain;
 public class Car {
 
     private final CarName carName;
-    private int position = 0;
+    private final CarPosition carPosition;
 
     public Car(String name) throws IllegalArgumentException {
-
         this.carName = new CarName(name);
+        this.carPosition = new CarPosition();
     }
 
     public void move(MoveStrategy moveStrategy) {
         if (moveStrategy.move()) {
-            position++;
+            carPosition.moveForward();
         }
     }
 
     public int position() {
-        return position;
+        return carPosition.position();
     }
 
     public String name() {
