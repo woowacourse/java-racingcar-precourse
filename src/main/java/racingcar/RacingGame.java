@@ -22,7 +22,7 @@ public class RacingGame {
 	private final ArrayList<Car> cars;
 
 	/** 레이싱 턴 갯수 */
-	private int terns;
+	private int turns;
 
 	/** 레이싱 게임에서 가장 많은 거리를 간 차량의 위치 */
 	private int farthestPosition;
@@ -31,7 +31,7 @@ public class RacingGame {
 	public RacingGame() {
 		super();
 		this.cars = new ArrayList<>();
-		this.terns = 0;
+		this.turns = 0;
 		this.farthestPosition = 0;
 	}
 
@@ -50,7 +50,7 @@ public class RacingGame {
 	}
 
 	/** 레이싱 게임 횟수를 유저로부터 입려받는다 */
-	private void inputRacingTerns() throws IllegalArgumentException {
+	private void inputRacingTurns() throws IllegalArgumentException {
 		System.out.println("시도할 회수는 몇회인가요?");
 		final String numberPattern = "^[0-9]*$";
 		final String tempTerns = Console.readLine();
@@ -58,11 +58,12 @@ public class RacingGame {
 			final String errorMessage = "[ERROR] 시도 횟수는 숫자여야 한다.";
 			throw new IllegalArgumentException(errorMessage);
 		}
-		terns = Integer.parseInt(tempTerns);
+		turns = Integer.parseInt(tempTerns);
+		System.out.print("\n");
 	}
 
 	/** 레이싱 게임의 정보를 유저로부터 입력받는다 */
-	private void inputRacingInformation() throws IllegalArgumentException{
+	private void inputRacingInformation() {
 		try {
 			inputRacingCarName();
 		} catch(IllegalArgumentException error) {
@@ -71,16 +72,15 @@ public class RacingGame {
 		}
 
 		try {
-			inputRacingTerns();
+			inputRacingTurns();
 		} catch(IllegalArgumentException error) {
 			System.out.println(error.getMessage());
-			inputRacingTerns();
+			inputRacingTurns();
 		}
 	}
 
 	/** 이번 턴의 진행 결과를 출력한다 */
 	private void printThisTurnResult() {
-		System.out.print("\n");
 		cars.forEach(car -> {
 			int carPosition = car.getPosition();
 			final String carName = car.getName();
@@ -93,6 +93,7 @@ public class RacingGame {
 			}
 			System.out.print("\n");
 		});
+		System.out.print("\n");
 	}
 
 	/** 다음 턴을 시작한다 */
@@ -109,14 +110,14 @@ public class RacingGame {
 			.toArray(String[]::new);
 		String winnerList = String.join(", ", winners);
 
-		System.out.println("최종 우승자 : " + winnerList);
+		System.out.print("최종 우승자 : " + winnerList);
 	}
 
 	/** 이 메서드를 호출하면 레이싱 게임을 시작한다 */
 	public void startGame() {
 		inputRacingInformation();
 		System.out.println("실행 결과");
-		while(terns-- > 0) {
+		while(turns-- > 0) {
 			startNextTurn();
 		}
 		printWinnerList();
