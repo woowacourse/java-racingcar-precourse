@@ -20,4 +20,16 @@ public class RacingGame {
 	public static RacingGame createRacingGame(String carsName, int round) {
 		return new RacingGame(carsName, round, new RandomNumberGeneratePolicy());
 	}
+
+	public void race() {
+		cars.driveAll(randomNumberGeneratePolicy);
+	}
+
+	public boolean isContinue(int roundCount) {
+		if (roundCount == round) {
+			return false;
+		}
+
+		return true;
+	}
 }

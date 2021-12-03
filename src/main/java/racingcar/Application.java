@@ -8,5 +8,10 @@ public class Application {
 		String inputCarsName = InputView.getInputCarsName();
 		int round = InputView.getInputRound();
 		RacingGame racingGame = RacingGame.createRacingGame(inputCarsName, round);
+
+		int roundCount = 0;
+		while (racingGame.isContinue(roundCount)) {
+			racingGame.race();
+		}
 	}
 }
