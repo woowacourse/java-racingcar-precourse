@@ -33,7 +33,7 @@ public class Cars {
     }
 
     public String getGameRecord() {
-        return cars.stream().map(Car::getRecord).reduce((a, b) -> a + NEW_LINE + b).get();
+        return cars.stream().map(Car::getRecord).reduce((a, b) -> a + NEW_LINE + b).toString();
     }
 
     public void move(Engines engines) {
@@ -51,7 +51,7 @@ public class Cars {
     public String getWinner() {
         int maxPosition = getMaxPosition();
         StringBuilder stringBuilder = new StringBuilder();
-        cars.stream().filter(car -> car.isMaxPosition(maxPosition))
+        cars.stream().filter(car -> car.isSamePosition(maxPosition))
             .forEach(car -> stringBuilder.append(car + SPACE_STRING));
         return stringBuilder.toString().trim();
     }
