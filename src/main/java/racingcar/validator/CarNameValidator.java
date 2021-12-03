@@ -8,16 +8,27 @@ import java.util.Set;
 
 public class CarNameValidator {
 	public static void checkCarNameInput(String carNameInput) {
+		isEmptyInput(carNameInput);
+		isDoubleDelimiter(carNameInput);
+		isLastDelimiter(carNameInput);
+	}
+
+	private static void isEmptyInput(String carNameInput) {
 		if (carNameInput.isEmpty()) {
 			throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR);
 		}
+	}
 
+	private static void isDoubleDelimiter(String carNameInput) {
 		for (int idx = 1; idx < carNameInput.length(); idx++) {
 			if (carNameInput.charAt(idx) == DELIMITER_CHARACTER
 				&& carNameInput.charAt(idx - 1) == DELIMITER_CHARACTER) {
 				throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR);
 			}
 		}
+	}
+
+	private static void isLastDelimiter(String carNameInput) {
 		if (carNameInput.charAt(carNameInput.length() - 1) == DELIMITER_CHARACTER) {
 			throw new IllegalArgumentException(CAR_NAME_WRONG_END_ERROR);
 		}
