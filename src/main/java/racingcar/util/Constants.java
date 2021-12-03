@@ -23,4 +23,6 @@ public class Constants {
 	public static final String MESSAGE_INPUT_DRIVE_COUNT = "시도할 회수는 몇회인가요?";
 	public static final String MESSAGE_SEMICOLON_WITH_SPACE = " : ";
 	public static final String MESSAGE_POSITION = "-";
+	public static final String MESSAGE_PRINT_WINNERS = "최종 우승자 : ";
+	public static final String MESSAGE_COMMA_WITH_SPACE = ", ";
 }

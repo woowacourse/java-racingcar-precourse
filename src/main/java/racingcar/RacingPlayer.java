@@ -1,13 +1,16 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.util.InputManager;
 
 public class RacingPlayer {
 	private List<Car> participantCars = new ArrayList<>();
 	private int driveCount;
+	private RacingReferee referee = new RacingReferee();
 
 	RacingPlayer() {
 		setParticipantCars();
@@ -31,10 +34,15 @@ public class RacingPlayer {
 		for (int i = 0; i < driveCount; i++) {
 			driveEveryCar();
 		}
+		finishRacing();
 	}
 
 	private void driveEveryCar() {
 		participantCars.stream().forEach(car -> car.drive());
 		System.out.println();
+	}
+
+	private void finishRacing() {
+		referee.showWinners(participantCars);
 	}
 }

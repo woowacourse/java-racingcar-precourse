@@ -51,6 +51,4 @@ public class ValidChecker {
 		System.out.println(exceptionCase);
 		throw new IllegalArgumentException(exceptionCase);
 	}
-
-
 }
