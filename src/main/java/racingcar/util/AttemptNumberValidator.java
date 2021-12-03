@@ -2,8 +2,6 @@ package racingcar.util;
 
 import static racingcar.constant.GameConstants.*;
 
-import java.util.regex.Pattern;
-
 import racingcar.view.OutputView;
 
 public class AttemptNumberValidator {
@@ -18,7 +16,7 @@ public class AttemptNumberValidator {
 	}
 
 	private static void validateNuber(String number) {
-		if (!Pattern.matches(ATTEMPT_NUMBER_REGEX, number)) {
+		if (!number.matches(ATTEMPT_NUMBER_REGEX)) {
 			throw new IllegalArgumentException(ATTEMPT_NUMBER_REGEX_ERROR_MESSAGE);
 		}
 		try {
