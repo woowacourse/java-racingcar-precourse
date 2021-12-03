@@ -16,5 +16,6 @@ public class Application {
 			RacingRecord racingRecord = racingGame.race();
 			OutputView.printRacingRecord(racingRecord);
 		}
+		OutputView.printRacingWinners(racingGame.getRacingResult());
 	}
 }

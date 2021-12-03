@@ -30,7 +30,10 @@ public class RacingGame {
 		if (roundCount == round) {
 			return false;
 		}
-
 		return true;
+	}
+
+	public RacingResult getRacingResult() {
+		return new RacingResult(cars.getWinners());
 	}
 }
