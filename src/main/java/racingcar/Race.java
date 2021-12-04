@@ -6,14 +6,18 @@ import java.util.stream.IntStream;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Race {
-	private ArrayList<Car> carList;
+	private final ArrayList<Car> carList;
 
-	public ArrayList<Car> getCarList() {
+	Race(ArrayList<Car> carList) {
+		this.carList = carList;
+	}
+
+	public ArrayList<Car> getResult(int repeatNum) {
+		run(repeatNum);
 		return this.carList;
 	}
 
-	Race(ArrayList<Car> carList, int repeatNum) {
-		this.carList = carList;
+	private void run(int repeatNum) {
 		for (int i = 0; i < repeatNum; i++) {
 			playRound();
 		}
@@ -38,15 +42,16 @@ public class Race {
 	}
 
 	private void printCarPosition(Car car) {
-		String currPosition = positionToStr(car.getPosition());
+		String currPosition = getDashByNumber(car.getPosition());
 		String carName = car.getName();
 		System.out.printf("%s : %s", carName, currPosition);
 		System.out.println();
 	}
 
-	private String positionToStr(int position) {
-		StringBuilder raceLine = new StringBuilder();
-		IntStream.range(0, position).forEach(s -> raceLine.append("-"));
-		return raceLine.toString();
+	private String getDashByNumber(int position) {
+		StringBuilder currPosition = new StringBuilder();
+		IntStream.range(0, position)
+			.forEach(s -> currPosition.append("-"));
+		return currPosition.toString();
 	}
 }
