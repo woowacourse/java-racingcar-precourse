@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Application {
@@ -10,8 +11,10 @@ public class Application {
 
         CarRacingGame carRacingGame = new CarRacingGame();
 
-        CarRacingGame.readyGame();
-        CarRacingGame.playGame();
-        CarRacingGame.endGame();
+        try {
+            carRacingGame.startGame();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

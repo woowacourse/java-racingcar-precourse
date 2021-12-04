@@ -16,20 +16,34 @@ public class InputErrorCheck {
     private static final String SPACE = " ";
     private static final String SEPARATOR = ",";
 
-    public boolean isValidCar(String userInput) {
+    public static boolean isValidCar(String userInput) {
         String[] carList = userInput.split(SEPARATOR);
         return isValidListLength(carList) && isValidNameLength(carList) && hasNotContainSpace(carList) && checkDuplicate(carList);
     }
 
-    private boolean checkDuplicate(String[] carList) {
-        if (Arrays.stream(carList).anyMatch(car -> car.equals(car))) {
+    public static boolean isValidNum(String userInput) {
+        try {
+            int parseNum = Integer.parseInt(userInput);
+            if (parseNum <= 0) {
+                OutputView.printError(ATTEMPT_ZERO_ERROR);
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            OutputView.printError(ATTEMPT_NUMBER_ERROR);
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean checkDuplicate(String[] carList) {
+        if (Arrays.stream(carList).distinct().count() != carList.length) {
             OutputView.printError(DUPLICATED_NAME_ERROR);
             return false;
         }
         return true;
     }
 
-    private boolean isValidListLength(String[] carList) {
+    private static boolean isValidListLength(String[] carList) {
         if (carList.length <= MIN_CAR_LIST) {
             OutputView.printError(LIST_LENGTH_ERROR);
             return false;
@@ -37,7 +51,7 @@ public class InputErrorCheck {
         return true;
     }
 
-    private boolean hasNotContainSpace(String[] carList) {
+    private static boolean hasNotContainSpace(String[] carList) {
         for (String carName : carList) {
             if (carName.equals(NULL) || carName.contains(SPACE)) {
                 OutputView.printError(NAME_NULL_ERROR);
@@ -47,7 +61,7 @@ public class InputErrorCheck {
         return true;
     }
 
-    private boolean isValidNameLength(String[] carList) {
+    private static boolean isValidNameLength(String[] carList) {
         for (String carName : carList) {
             if (carName.length() > MAX_NAME_LENGTH) {
                 OutputView.printError(NAME_LENGTH_ERROR);

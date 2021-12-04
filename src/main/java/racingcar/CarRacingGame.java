@@ -1,30 +1,55 @@
 package racingcar;
 
-
 import java.io.IOException;
+import java.util.List;
 
 public class CarRacingGame {
-    private static String carNameInput;
-    private static String numOfAttemptsInput;
+    private final String RESTART_GAME_MESSAGE = "[ERROR] 잘못된 입력입니다.";
 
-    public static void readyGame() {
-        try {
-            carNameInput = InputView.getCarName();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            numOfAttemptsInput = InputView.getNumberOfAttempts();
-        } catch (IOException e) {
-            e.printStackTrace();
+    private static final List<Car> carList = Car.carList;
+
+    public void startGame() throws IOException {
+        String[] cars = askCarName();
+        int numberOfAttempts = askNumberOfAttempts();
+        makeCarList(cars);
+        printDistance(carList, numberOfAttempts);
+        Car.getWinner();
+    }
+
+    public static void printDistance(List<Car> carList, int trialNum) {
+        OutputView.printGameResult();
+        for (int i = 0; i < trialNum; i++) {
+            for (Car car : carList) {
+                Car.canMove(car);
+                OutputView.printPlayerAndPosition(car);
+            }
+            System.out.println();
         }
     }
 
-    public static void playGame() {
-
+    private static void makeCarList(String[] cars) {
+        for (String name : cars) {
+            Car car = new Car(name, 0);
+            car.addCarList(car);
+        }
     }
 
-    public static void endGame() {
+    private String[] askCarName() throws IOException {
+        String inputCars = InputView.getCarNameList();
+        boolean result = InputErrorCheck.isValidCar(inputCars);
+        if (!result) {
+            throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
+        }
+        String SEPARATOR = ",";
+        return inputCars.split(SEPARATOR);
+    }
 
+    private int askNumberOfAttempts() throws IOException {
+        String inputNumberOfAttempts = InputView.getNumberOfAttempts();
+        boolean result = InputErrorCheck.isValidNum(inputNumberOfAttempts);
+        if (!result) {
+            throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
+        }
+        return Integer.parseInt(inputNumberOfAttempts);
     }
 }
