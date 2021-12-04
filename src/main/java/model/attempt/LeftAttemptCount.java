@@ -19,4 +19,12 @@ public class LeftAttemptCount {
     private boolean isNotPositiveNumber(final String value) {
         return Integer.parseInt(value) < MIN_ATTEMPT_VALUE;
     }
+
+    public boolean isNotZero() {
+        return value != 0;
+    }
+
+    public void decrease() {
+        value--;
+    }
 }
