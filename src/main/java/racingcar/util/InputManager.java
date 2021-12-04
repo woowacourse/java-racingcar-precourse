@@ -2,38 +2,38 @@ package racingcar.util;
 
 import static racingcar.util.Constants.*;
 
+import java.util.Arrays;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
 	public static String[] readCarName() {
 		System.out.println(MESSAGE_INPUT_CAR_NAMES);
 		String[] carNames;
-		try {
+		do {
 			carNames = Console.readLine().split(COMMA);
-			checkCarName(carNames);
-		} catch (IllegalArgumentException exception) {
-			carNames = readCarName();
-		}
+		} while (!checkCarName(carNames));
 		return carNames;
 	}
 
 	public static int readDriveCount() {
 		System.out.println(MESSAGE_INPUT_DRIVE_COUNT);
-		int driveCount;
-		try {
-			String readLine = Console.readLine();
-			checkDriveCount(readLine);
-			driveCount = Integer.parseInt(readLine);
-		} catch (IllegalArgumentException exception) {
-			driveCount = readDriveCount();
-		}
-		return driveCount;
+		String readLine;
+		do {
+			readLine = Console.readLine();
+		} while (!checkDriveCount(readLine));
+		return Integer.parseInt(readLine);
 	}
 
-	private static void checkCarName(String[] strings) {
-		checkStringLength(strings);
-		ValidChecker.carExist(strings);
-		ValidChecker.isDistinctCarName(strings);
+	private static boolean checkCarName(String[] strings) {
+		try {
+			checkStringLength(strings);
+			ValidChecker.carExist(strings);
+			ValidChecker.isDistinctCarName(strings);
+			return true;
+		} catch (IllegalArgumentException exception) {
+			return false;
+		}
 	}
 
 	private static void checkStringLength(String[] strings) {
@@ -42,8 +42,13 @@ public class InputManager {
 		}
 	}
 
-	private static void checkDriveCount(String string) {
-		checkStringIsNumber(string);
+	private static boolean checkDriveCount(String string) {
+		try {
+			checkStringIsNumber(string);
+			return true;
+		} catch (IllegalArgumentException exception) {
+			return false;
+		}
 	}
 
 	private static void checkStringIsNumber(String string) {
