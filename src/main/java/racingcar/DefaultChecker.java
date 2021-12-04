@@ -1,6 +1,6 @@
 package racingcar;
 
-public class GameRule implements RaceGame.InputChecker {
+public class DefaultChecker implements RaceGame.InputChecker {
     public void checkCarName(String input) {
         if (input.length() > GameData.MAX_CAR_NAME_LENGTH) {
             throwIllegalArgumentException();
