@@ -13,6 +13,19 @@ public class GameController {
         this.model = model;
     }
     
+    public void playGame() {
+        setParticipants();
+        setGoal();
+        System.out.println(view.RESULT_MESSAGE);
+          
+        while(!model.hasWinner(participants, goal)) {
+           model.setPositions(participants);
+           view.showRaceMessage(participants);
+        }
+        
+        view.showWinnerMessage(model.getWinner(participants, goal));
+    }
+    
     private void setParticipants() {
         String input = view.nameOfCars();
         
