@@ -49,7 +49,15 @@ public class Car {
         OutputView.printWinner(getWinnerList());
     }
 
-
+    private static List<String> getWinnerList() {
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.position == maxPosition) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
+    }
 
     private static int getMaxPosition() {
         for (Car car : carList) {
