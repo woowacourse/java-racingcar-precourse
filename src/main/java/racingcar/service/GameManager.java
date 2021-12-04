@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ public class GameManager {
     private final NumberPicker numberPicker;
 
     private Map<String, Car> carMap = new LinkedHashMap<>();
+    private int winnerPosition = 0;
 
     public GameManager(NumberPicker numberPicker) {
         this.numberPicker = numberPicker;
@@ -28,11 +30,24 @@ public class GameManager {
             if (RunnableCondition.isRunnable(numberPicker.pickOne())) {
                 car.forward();
             }
+            if (car.isFatherThan(winnerPosition)) {
+                winnerPosition++;
+            }
         });
     }
 
     public List<String> getStatuses() {
         return carMap.values().stream().map(Car::toString).collect(Collectors.toList());
+    }
+
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        carMap.forEach((name, car) -> {
+            if (car.isSamePosition(winnerPosition)) {
+                winners.add(name);
+            }
+        });
+        return winners;
     }
 
 }

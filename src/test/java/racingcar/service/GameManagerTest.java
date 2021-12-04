@@ -51,4 +51,25 @@ public class GameManagerTest {
         }
     }
 
+    @Test
+    void 우승자결정_작동확인() {
+        List<String> answers = Arrays.asList("고양이", "호랑이");
+
+        List<String> names = Arrays.asList("개미", "고양이", "호랑이");
+        int[] numberPicks = new int[] {3,4,5, 6,7,8, 1,5,9};
+        int executionCount = 3;
+
+        customNumberPicker.initNumber(numberPicks);
+        gameManager.registerNames(names);
+        for (int i = 0; i < executionCount; i++) {
+            gameManager.playRound();
+        }
+
+        List<String> winners = gameManager.getWinners();
+        assertThat(winners.size()).isEqualTo(answers.size());
+        for (int i = 0; i< answers.size(); i++) {
+            assertThat(winners.get(i)).isEqualTo(answers.get(i));
+        }
+    }
+
 }

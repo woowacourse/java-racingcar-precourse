@@ -15,6 +15,14 @@ public class Car {
         this.position++;
     }
 
+    public boolean isFatherThan(int position) {
+        return (this.position > position);
+    }
+
+    public boolean isSamePosition(int position) {
+        return (this.position == position);
+    }
+
     @Override
     public String toString() {
         return Delimiter.concatWithColon(name, Delimiter.repeatUnderBar(position));
