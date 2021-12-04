@@ -2,9 +2,7 @@ package racingcar;
 
 import java.util.Objects;
 
-public class Car implements Comparable<Car>{
-	private static final int CAN_MOVE_POWER_MIN = 4;
-
+public class Car implements Comparable<Car> {
 	private final String name;
 	private int position = 0;
 
@@ -19,18 +17,14 @@ public class Car implements Comparable<Car>{
 		this.position = position;
 	}
 
-	public void moveOrStop(int carPower) {
-		if (canMove(carPower)) {
+	public void moveOrStop(CarPower carPower) {
+		if (carPower.canMove()) {
 			move();
 		}
 	}
 
 	private void move() {
 		position++;
-	}
-
-	private boolean canMove(int carPower) {
-		return carPower >= CAN_MOVE_POWER_MIN;
 	}
 
 	public boolean isSamePosition(Car car) {
