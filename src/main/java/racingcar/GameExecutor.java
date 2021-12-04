@@ -25,7 +25,7 @@ public class GameExecutor {
         List<Car> carList = new ArrayList<>();
 
         for (String name : carNameList) {
-            carList.add(new Car(name));
+            carList.add(new Car(name.trim()));
         }
 
         return carList;
