@@ -82,7 +82,18 @@ public class Game {
 
 		return winners;
 	}
-	
+
+	private void printWinner() {
+		List<Car> winners = findWinner();
+		System.out.print("최종 우승자 : ");
+		winners.get(0).printName();
+
+		for (int i = 1; i < winners.size(); i++) {
+			System.out.print(", ");
+			winners.get(i).printName();
+		}
+	}
+
 	public void start() {
 		System.out.println("실행 결과");
 
@@ -94,5 +105,6 @@ public class Game {
 			System.out.println();
 		}
 
+		printWinner();
 	}
 }
