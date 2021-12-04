@@ -202,6 +202,7 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
         - 이름이 중복된 경우 Exception 발생
     - 시도 회수
         - 숫자가 아닐 경우 Exception 발생
+- 자동차 생성시키기
 - 우승자 결정하기
     - 우승자가 여러 명일 경우는 모두 우승자로 처리
 - 게임 시작하기
@@ -210,7 +211,6 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 
 #### Car 클래스
 
-- 자동차 생성시키기
 - 자동차 이동시키기
     - 무작위로 숫자(0~9) 뽑기
         - 4미만인 경우 false 반환
