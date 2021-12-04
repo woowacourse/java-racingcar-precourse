@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 class RacingGameController {
 	private final RacingGameView racingGameView;
 	private List<Car> carList;
-	private List<String> winners;
-	private int repetitionNumber;
 
 	public RacingGameController() {
 		racingGameView = RacingGameView.getRacingGameView();
@@ -16,6 +14,7 @@ class RacingGameController {
 	}
 
 	public void startGame() {
+		int repetitionNumber;
 		takeCarList();
 		repetitionNumber = racingGameView.getRepetitionNumber();
 		racingGameView.printMovementStart();
@@ -23,8 +22,7 @@ class RacingGameController {
 			carList.forEach(Car::tryMoving);
 			racingGameView.printMovement(carList);
 		}
-		winners = getWinners();
-		racingGameView.printWinners(winners);
+		racingGameView.printWinners(getWinners());
 	}
 
 	private void takeCarList() {
