@@ -29,11 +29,11 @@ public class RacingCarGame {
         validateCarName(cars);
     }
 
-    public void validateCarName(ArrayList<Car> carNames) {
+    public void validateCarName(ArrayList<Car> cars) {
         try {
-            for (Car carName : carNames) {
-                carName.isNameNull(carName.getName());
-                carName.isNameOutOfRange(carName.getName());
+            for (Car car : cars) {
+                car.isNameNull(car.getName());
+                car.isNameOutOfRange(car.getName());
             }
         } catch (IllegalArgumentException e) {
             System.out.println(INPUT_CAR_NAME_ERROR_MESSAGE);
