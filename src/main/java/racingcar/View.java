@@ -1,8 +1,13 @@
 package racingcar;
 
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class View {
+    public static final String ERROR_MESSAGE_CAR = "[ERROR] 입력이 형식에 맞지 않습니다.";
+    public static final String ERROR_MESSAGE_ATTEMPT = "[ERROR] 시도 횟수는 숫자여야 한다.";
+    public static final String RESULT_MESSAGE = "실행 결과";
     
     public View () {}
     
@@ -12,41 +17,38 @@ public class View {
         return Console.readLine();
     }
     
-    public String numOfAttempts() {
+    public String getGoal() {
         System.out.println("시도할 회수는 몇회인가요?");
         
         return Console.readLine();
     }
     
-    public String showRaceMessage(String [] cars, int [] positions) {
-        String result = "실행 결과\n";
+    public void showRaceMessage(Car [] participants) {
+        String result = "";
         
-        for(int i = 0; i < cars.length; i++) {
-            result += showPosition(cars[i], positions[i]) + "\n";
+        for(int i = 0; i < participants.length; i++) {
+            result += showPosition(participants[i]) + "\n";
         }
         
-        return result;
+        System.out.println(result);
     }
     
-    public String showErrorMessage() {
-        return "[ERROR] 시도 횟수는 숫자여야 한다.";
-    }
-    
-    public String showGoalMessage(String [] winners) {
+    public void showWinnerMessage(List <Car> winners) {
         String result = "최종 우승자 : ";
         
-        for(int i = 0; i < winners.length; i++) {
-            result += winners[i];
-            if(i < winners.length-1) {
+        for(int i = 0; i < winners.size(); i++) {
+            result += winners.get(i).getName();
+            if(i < winners.size()-1) {
                 result += ", ";
             }
         }
         
-        return result;
+        System.out.println(result);
     }
     
-    private String showPosition(String car, int position) {
-        String result = car + " : ";
+    private String showPosition(Car participant) {
+        String result = participant.getName() + " : ";
+        int position = participant.getPosition();
         
         while(position-- > 0) {
             result += "-";

@@ -20,7 +20,7 @@ public class Model {
         return true;
     }
     
-    public boolean checkValidationForAttempt(String input) {
+    public boolean checkValidationForGoal(String input) {
         if(input.matches(NUM_REGEX)) {
             return true;
         }
