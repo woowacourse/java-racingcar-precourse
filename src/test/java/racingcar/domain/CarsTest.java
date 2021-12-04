@@ -16,6 +16,7 @@ class CarsTest {
 	private static final String participant1 = "kia";
 	private static final String participant2 = "Hyundai";
 	private static int participantSize;
+
 	@BeforeEach
 	void init() {
 		this.cars = new Cars();
