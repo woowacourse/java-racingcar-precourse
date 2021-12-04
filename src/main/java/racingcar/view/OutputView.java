@@ -6,7 +6,10 @@ import racingcar.model.Car;
 
 public class OutputView {
 	private static final String RESULT_MESSAGE = "\n실행 결과";
+	private static final String COLON = " : ";
+	private static final String DASH = "-";
 	private static final String WINNER_MESSAGE = "최종 우승자 : ";
+	private static final String COMMA = ", ";
 
 	public void printResultMessage() {
 		System.out.println(RESULT_MESSAGE);
@@ -16,16 +19,16 @@ public class OutputView {
 		for (Car car : cars) {
 			System.out.println(createResultString(car));
 		}
-		System.out.println("");
+		System.out.println();
 	}
 
 	private String createResultString(Car car) {
 		StringBuilder stringBuilder = new StringBuilder();
 
 		stringBuilder.append(car.getCarName());
-		stringBuilder.append(" : ");
+		stringBuilder.append(COLON);
 		for (int i = 0; i < car.getPosition(); i++) {
-			stringBuilder.append("-");
+			stringBuilder.append(DASH);
 		}
 
 		return stringBuilder.toString();
@@ -36,15 +39,6 @@ public class OutputView {
 	}
 
 	private String createWinnersString(String[] winners) {
-		StringBuilder stringBuilder = new StringBuilder();
-
-		stringBuilder.append(WINNER_MESSAGE);
-
-		for (int i = 0; i < winners.length - 1; i++) {
-			stringBuilder.append(winners[i]).append(", ");
-		}
-		stringBuilder.append(winners[winners.length - 1]);
-
-		return stringBuilder.toString();
+		return WINNER_MESSAGE + String.join(COMMA, winners);
 	}
 }
