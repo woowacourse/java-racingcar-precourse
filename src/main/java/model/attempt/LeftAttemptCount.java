@@ -1,11 +1,11 @@
 package model.attempt;
 
-public class AttemptCount {
+public class LeftAttemptCount {
     private static final String INTEGER_REGEX = "^[0-9]*$";
     private static final int MIN_ATTEMPT_VALUE = 1;
     private int value;
 
-    public AttemptCount(final String value) {
+    public LeftAttemptCount(final String value) {
         if (isNotInteger(value) || isNotPositiveNumber(value)) {
             throw new IllegalArgumentException("이동 횟수는 0 이상의 정수여야 합니다.");
         }
