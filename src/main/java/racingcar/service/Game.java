@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import static racingcar.util.Constant.*;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +35,7 @@ public class Game {
 	}
 
 	private void repeatGame(int moveCount) {
+		System.out.println(GAME_RESULT);
 		for (int current = 0; current < moveCount; current++) {
 			proceedGame();
 			printParticipant();
@@ -51,5 +54,6 @@ public class Game {
 			participant) {
 			System.out.println(car.toString());
 		}
+		System.out.println("");
 	}
 }
