@@ -2,11 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
+import static racingcar.Application.carList;
 
 public class Race {
 
-    public static void doOneIterationRace(ArrayList<Car> carList) {
+    public static void doOneIterationRace() {
         int rand;
 
         for (int i = 0; i < carList.size(); i++) {
@@ -15,11 +15,11 @@ public class Race {
                 carList.get(i).goForward();
             }
         }
-        printOneIterationResult(carList);
+        printOneIterationResult();
         System.out.printf("\n");
     }
 
-    public static void determineWinner(ArrayList<Car> carList) {
+    public static void determineWinner() {
         // 1 pass : position 중에 최댓값 구하기
         int maxVal = -1;
         for (int i = 0; i < carList.size(); i++) {
@@ -30,10 +30,10 @@ public class Race {
 
         // 2 pass : position 최댓값을 갖는 Car 객체를 출력
         System.out.printf("최종 우승자 : ");
-        printWinners(carList, maxVal);
+        printWinners(maxVal);
     }
 
-    public static void printOneIterationResult(ArrayList<Car> carList) {
+    public static void printOneIterationResult() {
         for (int i = 0; i < carList.size(); i++) {
             printCarPosition(carList.get(i));
         }
@@ -47,7 +47,7 @@ public class Race {
         System.out.printf("\n");
     }
 
-    public static void printWinners(ArrayList<Car> carList, int maxVal) {
+    public static void printWinners(int maxVal) {
         // 1st 우승자
         int idx = 0;
         for (idx = 0; idx < carList.size(); idx++) {

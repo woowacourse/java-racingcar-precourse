@@ -4,14 +4,16 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 
+import static racingcar.Application.carList;
+import static racingcar.Application.numberOfTry;
+
 public class Reader {
-    static FastReader scan = new FastReader();
 
     public static ArrayList<Car> inputCarName() {
         String inputText = Console.readLine();
         String[] carNames = inputText.split(",");
 
-        ArrayList<Car> carList = new ArrayList<>();
+        carList = new ArrayList<>();
         for (int i = 0; i < carNames.length; i++) {
             // TODO --> validation 실행 //
 
@@ -20,12 +22,11 @@ public class Reader {
         return carList;
     }
 
-    public static int inputNumberOfTry() {
+    public static void inputNumberOfTry() {
         String inputText = Console.readLine();
 
         // TODO --> validation 실행 //
 
-        int numberOfTry = Integer.parseInt(inputText);
-        return numberOfTry;
+        numberOfTry = Integer.parseInt(inputText);
     }
 }
