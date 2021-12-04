@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Condition;
 
 public class RacingCarGame {
@@ -16,6 +17,10 @@ public class RacingCarGame {
     public void start() {
         inputCarName();
         int times = inputTimes();
+
+        for (int t = 0; t < times; t++) {
+            progress(cars);
+        }
     }
 
     public void inputCarName() {
@@ -68,6 +73,11 @@ public class RacingCarGame {
         if (Integer.parseInt(timesInput) < Condition.MINIMUM_CAR_MOVE_TIMES) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void progress(ArrayList<Car> cars) {
+        cars.stream()
+                .forEach(car -> car.forward(Randoms.pickNumberInRange(0, 9)));
     }
 }
 

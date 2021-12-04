@@ -25,4 +25,10 @@ public class Car {
             throw new IllegalArgumentException();
         }
     }
+
+    public void forward(int randomNumber) {
+        if (randomNumber >= Condition.MINIMUM_NUMBER_FOR_FORWARD) {
+            position ++;
+        }
+    }
 }
