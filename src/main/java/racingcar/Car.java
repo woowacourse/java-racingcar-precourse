@@ -10,24 +10,27 @@ public class Car {
 		this.name = name;
 	}
 
-	public void printCarPosition() {
+	public void printCarPosition() { // printPosition
 		String name = String.format("%s : ", this.name);
 		String distance = new String(new char[position]).replace("\0", "-");
 
 		System.out.println(name + distance);
 	}
 
-	private boolean flipCoin() {
+	private int getMovement() {
 		int result = Randoms.pickNumberInRange(0, 9);
-		return result >= 4;
-	}
-
-	public void move() {
-		if (flipCoin()) {
-			this.position += 1;
+		if (result >= 4) {
+			return 1;
 		}
 
+		return 0;
+	}
+
+	public int move() {
+		int movement = getMovement();
+		this.position += movement;
 		printCarPosition();
+		return movement;
 	}
 
 }
