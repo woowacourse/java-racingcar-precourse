@@ -31,8 +31,10 @@ public class NameValidationService {
 
     private static boolean isValidLength(String[] input) {
         for (String i : input) {
-            if (i.length() > Constant.MAXIMUM_LENGTH_OF_NAMES) {
-                System.out.println(Constant.ERROR_MORE_THAN_FIVE_CHARACTERS);
+            int len = i.length();
+            System.out.println("name :"+i+'.');
+            if (len < Constant.MINIMUM_LENGTH_OF_NAMES || len > Constant.MAXIMUM_LENGTH_OF_NAMES) {
+                System.out.println(Constant.ERROR_WRONG_LENGTH_OF_NAME);
                 return false;
             }
         }

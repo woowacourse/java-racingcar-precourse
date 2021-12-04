@@ -2,6 +2,7 @@ package racingcar;
 
 public class Constant {
     public static final int MINIMUM_NUMBER_OF_CARS_FOR_GAME = 1;
+    public static final int MINIMUM_LENGTH_OF_NAMES = 1;
     public static final int MAXIMUM_LENGTH_OF_NAMES = 5;
     public static final int MINIMUM_NUMBER_OF_ATTEMPT = 1;
     public static final int MAXIMUM_NUMBER_OF_RANDOM = 9;
@@ -17,7 +18,7 @@ public class Constant {
     public static final String ERROR = "[ERROR] ";
     public static final String ERROR_NO_NAMES = ERROR + "1개 이상의 이름을 입력해야 한다.";
     public static final String ERROR_NO_SPACE = ERROR + "이름에 공백은 허용되지 않는다.";
-    public static final String ERROR_MORE_THAN_FIVE_CHARACTERS = ERROR + "5글자 이하의 이름을 입력해야 한다.";
+    public static final String ERROR_WRONG_LENGTH_OF_NAME = ERROR + MINIMUM_LENGTH_OF_NAMES + "글자 이상, " + MAXIMUM_LENGTH_OF_NAMES + "글자 이하의 이름을 입력해야 한다.";
     public static final String ERROR_NO_DUPLICATED_NAMES = ERROR + "중복된 이름은 허용되지 않는다.";
     public static final String ERROR_ATTEMPT_MUST_BE_A_NUMBER = ERROR + "시도 횟수는 숫자여야 한다.";
     public static final String ERROR_ATTEMPT_MUST_BE_MORE_THAN_ZERO = ERROR + "1 이상의 숫자를 입력해야 한다.";
