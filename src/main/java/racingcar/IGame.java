@@ -1,5 +1,5 @@
 package racingcar;
 
 public interface IGame {
-    public String startGame(String[] names, int count);
+    public void startGame(String[] names, int count);
 }
