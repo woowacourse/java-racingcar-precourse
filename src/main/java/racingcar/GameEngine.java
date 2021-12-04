@@ -23,6 +23,9 @@ public class GameEngine {
 			moveCars(carList);
 			System.out.println(getGameStatus(carList));
 		}
+		judgement.judgeRanking(carList);
+		List<Car> winnerList = judgement.judgeWinner(carList);
+		System.out.println(GameData.WINNER_MESSAGE + generateWinnerInformation(winnerList));
 	}
 
 	public List<String> readCarNames() {
@@ -63,6 +66,17 @@ public class GameEngine {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (Car car : carList) {
 			stringBuilder.append(generateCarInformation(car));
+		}
+		return stringBuilder.toString();
+	}
+
+	public String generateWinnerInformation(List<Car> winnerList) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for(Car car:winnerList) {
+			if(stringBuilder.length() != 0) {
+				stringBuilder.append(", ");
+			}
+			stringBuilder.append(car.getName());
 		}
 		return stringBuilder.toString();
 	}
