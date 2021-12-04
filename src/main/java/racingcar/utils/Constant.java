@@ -11,4 +11,6 @@ public class Constant {
 	public static final String LESS_MORE_NAME_ERROR = "[ERROR] : 모든 이름은 1~5자리 문자여야 합니다.";
 	public static final String CONTAIN_SAME_NAME_ERROR = "[ERROR] : 모든 이름은 중복을 허용하지 않습니다.";
 	public static final String WHITE_SPACE_NAME_ERROR = "[ERROR] : 공백으로만 이루어진 이름은 허용하지 않습니다.";
+	public static final String NON_NUMERIC_GAME_COUNT_ERROR = "[ERROR] : 게임 횟수는 숫자 입력만 허용합니다.";
+	public static final String ZERO_GAME_COUNT_ERROR = "[ERROR] : '0'은 입력횟수로 허용하지 않습니다.";
 }
