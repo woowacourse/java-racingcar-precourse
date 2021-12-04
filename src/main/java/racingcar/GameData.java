@@ -12,5 +12,6 @@ public class GameData {
 	public static final String TRY_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 	public static final String INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	public static final String CARNAME_LIMIT_ERROR_MESSAGE = "[ERROR] 자동차 이름은 %d 이하여야 한다.";
+	public static final String RESULT_MESSAGE = "\n실행결과";
 
 }

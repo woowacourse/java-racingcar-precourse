@@ -14,7 +14,9 @@ public class GameEngine {
 	public void start() {
 		System.out.println(GameData.CARNAME_INPUT_MESSAGE);
 		List<Car> carList = generateCars(readCarNames());
+		System.out.println(GameData.TRY_INPUT_MESSAGE);
 		int count = readCount();
+		System.out.println(GameData.RESULT_MESSAGE);
 	}
 
 	public List<String> readCarNames() {
@@ -55,7 +57,6 @@ public class GameEngine {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (Car car : carList) {
 			stringBuilder.append(generateCarInformation(car));
-			stringBuilder.append("\n");
 		}
 		return stringBuilder.toString();
 	}
