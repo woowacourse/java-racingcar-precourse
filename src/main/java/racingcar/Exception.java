@@ -3,6 +3,13 @@ package racingcar;
 import java.util.*;
 
 public class Exception {
+
+    public static void isNothingInput(String inputName) {
+        if (inputName == "") {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void isEmptyName(String[] allCarName) {
         for (String name : allCarName) {
             if (name.contains(" ")) {
