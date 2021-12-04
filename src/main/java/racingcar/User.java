@@ -39,4 +39,8 @@ public class User {
 			}
 		}
 	}
+
+	public int sizeOfNames() {
+		return names.length;
+	}
 }
