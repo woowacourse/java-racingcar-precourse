@@ -10,6 +10,10 @@ public class Judgement {
 		Collections.sort(carList, new CarComparator());
 	}
 
+	public boolean checkGameEnd(int count) {
+		return count == 0;
+	}
+
 	private class CarComparator implements Comparator<Car> {
 		@Override
 		public int compare(Car o1, Car o2) {

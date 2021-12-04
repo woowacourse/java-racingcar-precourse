@@ -6,9 +6,11 @@ import java.util.List;
 public class GameEngine {
 
 	InputHandler inputHandler;
+	Judgement judgement;
 
 	public GameEngine() {
 		inputHandler = new InputHandler();
+		judgement = new Judgement();
 	}
 
 	public void start() {
@@ -17,6 +19,10 @@ public class GameEngine {
 		System.out.println(GameData.TRY_INPUT_MESSAGE);
 		int count = readCount();
 		System.out.println(GameData.RESULT_MESSAGE);
+		while(!judgement.checkGameEnd(count--)) {
+			moveCars(carList);
+			System.out.println(getGameStatus(carList));
+		}
 	}
 
 	public List<String> readCarNames() {
