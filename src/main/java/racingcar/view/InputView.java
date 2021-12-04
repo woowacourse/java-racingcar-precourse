@@ -3,13 +3,10 @@ package racingcar.view;
 import racingcar.util.Constants;
 
 public class InputView {
-	public static void getCarNames(String input) {
-		String[] carNames = splitString(input);
-		checkNameLength(carNames);
-	}
-
-	private static String[] splitString(String input) {
-		return input.split(",");
+	public static String[] splitString(String input) {
+		String[] result = input.split(",");
+		isValidLength(result);
+		return result;
 	}
 
 	private static void isValidLength(String[] carNames) {
@@ -20,24 +17,16 @@ public class InputView {
 		}
 	}
 
-	private static void checkNameLength(String[] carNames) {
-		try {
-			isValidLength(carNames);
-		} catch (IllegalArgumentException e) {
-			System.out.println(Constants.CAR_NAME_LENGTH_ERROR);
-		}
-	}
-
-	public static int getAttemptsNum(String input) {
+	public static int parseInt(String input) {
 		isInteger(input);
 		return Integer.parseInt(input);
 	}
 
-	public static void isInteger(String input) {
+	private static void isInteger(String input) {
 		try {
 			Integer.parseInt(input);
-		} catch (IllegalArgumentException e) {
-			System.out.println(Constants.ATTEMPTS_NUMBER_TYPE_ERROR);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException();
 		}
 	}
 }
