@@ -33,7 +33,7 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
             if (isBlank(carName)) {
                 throw new IllegalArgumentException(CAR_NAME_MIN_LENGTH_ERROR_MESSAGE);
             }
-            if (validateNameRange(carName)) {
+            if (!validateNameRange(carName)) {
                 throw new IllegalArgumentException(CAR_NAME_MAX_LENGTH_ERROR_MESSAGE);
             }
         }
