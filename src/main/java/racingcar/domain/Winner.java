@@ -3,8 +3,10 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import racingcar.dto.WinnerDto;
+
 public class Winner {
-	public static List<String> decision(Cars cars) {
+	public static WinnerDto decision(Cars cars) {
 
 		List<String> winnerList = new ArrayList<>();
 		Car winner = cars.getCarWithMaxPosition();
@@ -15,7 +17,8 @@ public class Winner {
 				winnerList.add(candidateCar.getName());
 			}
 		}
-		return winnerList;
+
+		return new WinnerDto(winnerList);
 	}
 
 }

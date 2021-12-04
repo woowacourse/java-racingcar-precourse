@@ -24,7 +24,6 @@ public class Cars {
 
 	public Car getCarWithMaxPosition() {
 		Comparator<Car> carComparatorByPosition = Comparator.comparingInt(Car::getPosition);
-
 		return cars.stream().max(carComparatorByPosition).orElseThrow(IllegalArgumentException::new);
 	}
 

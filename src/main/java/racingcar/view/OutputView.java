@@ -4,6 +4,7 @@ import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.dto.WinnerDto;
 
 public class OutputView {
 	private static final String TRIAL_RESULT = "실행 결과";
@@ -33,9 +34,9 @@ public class OutputView {
 		return sb.toString();
 	}
 
-	public static void printWinner(List<String> winnerList) {
+	public static void printWinner(WinnerDto winners) {
 		System.out.print(WINNER_ANNOUNCEMENT);
-		String winner = String.join(", ", winnerList);
+		String winner = String.join(", ", winners.getNames());
 
 		System.out.println(winner);
 	}
