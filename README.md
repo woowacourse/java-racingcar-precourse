@@ -200,8 +200,10 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
         - 숫자가 아닐 경우 Exception 발생
 - 자동차 생성시키기
 - 자동차 이동시키기
-    - 무작위로 수 생성
-    - 생성된 수를 토대로 자동차 이동
-    - 각 시도 회수 마다 결과값 메세지 출력
+    - 무작위로 숫자(0~9) 뽑기
+        - 4미만인 경우 false 반환
+        - 4이상인 경우 true 반환
+    - 무작위로 숫자를 뽑은 뒤 반환되는 boolean 값이 true이면 자동차 이동
+    - 숫자 뽑기를 시도할때 마다 결과값 메세지 출력
 - 우승자 결정
     - 우승자가 여러 명일 경우는 모두 우승자로 처리
