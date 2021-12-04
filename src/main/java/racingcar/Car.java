@@ -48,8 +48,13 @@ public class Car {
 
 	}
 
-	public int getPosition() {
-		return this.position;
+	public int judgeWhoIsGoingAhead(int winnerPosition) {
+
+		if (this.position > winnerPosition) {
+			return this.position;
+		}
+
+		return winnerPosition;
 	}
 	// 추가 기능 구현
 }

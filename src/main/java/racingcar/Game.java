@@ -156,9 +156,7 @@ public class Game {
 
 		for (int i = 0; i < cars.size(); i++) {
 
-			if (winnerPosition < cars.get(i).getPosition()) {
-				winnerPosition = cars.get(i).getPosition();
-			}
+			winnerPosition = cars.get(i).judgeWhoIsGoingAhead(winnerPosition);
 
 		}
 
