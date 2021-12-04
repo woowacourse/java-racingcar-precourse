@@ -13,7 +13,7 @@ public class Car {
 	}
 
 	private boolean isGoing(int value) {
-		return value >= 4;
+		return value >= MOVING_FORWARD;
 	}
 
 	public void move() {
