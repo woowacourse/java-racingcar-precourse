@@ -11,12 +11,12 @@ public class Winner {
 		this.cars = cars;
 	}
 
-	public String[] getWinners() {
-		decideWinners();
+	public String[] get() {
+		decide();
 		return winners;
 	}
 
-	private void decideWinners() {
+	private void decide() {
 		setMaxPosition();
 		winners = cars.stream()
 			.filter(car -> car.getPosition() == maxPosition)
