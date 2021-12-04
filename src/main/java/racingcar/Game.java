@@ -10,16 +10,17 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
 	public void play() {
-		List<Car> cars = constructCar(parsingCarNames(InputView.inputCarNames()));
+		Cars cars = new Cars(constructCar(parsingCarNames(InputView.inputCarNames())));
+		Referee referee = new Referee();
+		List<Car> carList = cars.getCars();
 		int gameRound = castingGameRound(InputView.inputGameRound());
 		OutputView.showGameResultMessage();
 		for (int i = 0; i < gameRound; i++) {
-			playRound(cars);
-			OutputView.showGameRoundResult(showCarsPosition(cars));
+			cars.playRound();
+			OutputView.showGameRoundResult(cars.showCarsPosition());
 		}
-		Referee referee = new Referee();
-		Collections.sort(cars, new Referee());
-		OutputView.showWinner(referee.selectWinners(cars));
+		Collections.sort(carList, new Referee());
+		OutputView.showWinner(referee.selectWinners(carList));
 	}
 
 	public List<String> parsingCarNames(String noParsingCarNames) {
@@ -46,30 +47,6 @@ public class Game {
 	public void validateGameRound(int gameRound) {
 		if (gameRound < Constant.MINIMUM_GAME_ROUND) {
 			throw new IllegalArgumentException();
-		}
-	}
-
-	public String makeCarProgressSign(int position) {
-		StringBuilder stringBuilder = new StringBuilder();
-		for (int i = 0; i < position; i++) {
-			stringBuilder.append(Constant.CAR_PROGRESS_SIGN);
-		}
-		return stringBuilder.toString();
-	}
-
-	public LinkedHashMap<Car, String> showCarsPosition(List<Car> cars) {
-		LinkedHashMap<Car, String> roundResult = new LinkedHashMap<>();
-		for (Car car : cars) {
-			String carPosition = makeCarProgressSign(car.getPosition());
-			roundResult.put(car, carPosition);
-		}
-		return roundResult;
-	}
-
-	public void playRound(List<Car> cars) {
-		for (Car car : cars) {
-			int random = Randoms.pickNumberInRange(Constant.MINIMUM_RANDOM_VALUE, Constant.MAX_RANDOM_VALUE);
-			car.proceed(random);
 		}
 	}
 }

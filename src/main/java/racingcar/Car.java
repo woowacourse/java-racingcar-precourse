@@ -36,4 +36,12 @@ public class Car {
 			position++;
 		}
 	}
+
+	public String makeCarProgressSign(int position) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < position; i++) {
+			stringBuilder.append(Constant.CAR_PROGRESS_SIGN);
+		}
+		return stringBuilder.toString();
+	}
 }
