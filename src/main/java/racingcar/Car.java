@@ -1,5 +1,12 @@
 package racingcar;
 
+/**
+ * Car 객체
+ * 요구) private 변수에 set 메서드를 쓰지 말것.
+ *
+ * @author 장준영
+ */
+
 public class Car {
     private final String name;
     private int position = 0;

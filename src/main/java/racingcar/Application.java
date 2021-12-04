@@ -1,107 +1,33 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Application {
     static int NUMBER_OF_CAR = 0;
     static int START_POSITION = -1;
+    static int MOVE_CONDITION = 4;
+
     public static void main(String[] args) {
-        // TODO 구현 진행
         String[] nameOfCars;
         int numOfTry;
-        ArrayList<Car> car = new ArrayList<>();
+        ArrayList<Car> cars = new ArrayList<>();
+        Validation validation = new Validation();
+        Print print = new Print();
+        Input input = new Input();
 
-        while(true){
-            try {
-                System.out.print("경주할 자동차 이름을 입력하세요.");
-                System.out.println("(이름은 쉼표(,) 기준으로 구분)");
-                nameOfCars = carNameValidation(Console.readLine());
-                break;
-            } catch (IllegalArgumentException illegalArgumentException) {
-                System.out.println("[ERROR] 차 이름은 5글자 이하여야 한다.");
-            }
-        }
-
-        while(true){
-            try {
-                System.out.println("시도할 횟수는 몇회인가요?");
-                numOfTry = numOfTryValidation(Console.readLine());
-                break;
-            } catch (IllegalArgumentException illegalArgumentException) {
-                System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-            }
-        }
-
-        // 입력받은 자동차의 수 만큼 car 객체 생성하고 car.name (생성자) 초기화
-        for(String s: nameOfCars){
-            car.add(NUMBER_OF_CAR, new Car(s));
-            NUMBER_OF_CAR++;
-        }
-
-        System.out.println("실행결과");
-
-        for(int i = 0; i < numOfTry; i++){
-            moveOrStop(car);
-            printRacingResult(car);
-            System.out.println();
-        }
-
-        printRacingWinner(findRacingWinner(car));
-
-
-    }
-
-    public static String[] carNameValidation(String inputValue) throws IllegalArgumentException{
-
-        String[] nameOfCarArray = inputValue.split(",");
-
-        for(String s: nameOfCarArray){
-            if(s.length() > 5){
-                throw new IllegalArgumentException();
-            }
-        }
-        return nameOfCarArray;
-    }
-
-    public static int numOfTryValidation(String inputValue) throws IllegalArgumentException{
-        int result;
-        try {
-            result = Integer.parseInt(inputValue);
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
-        return result;
+        nameOfCars = input.inputNameOfCars(validation);
+        numOfTry = input.inputNumberOfTry(validation);
+        createCars(nameOfCars, cars);
+        racingResult(numOfTry, cars, print);
+        print.printRacingWinner(findRacingWinner(cars));
     }
 
     public static void moveOrStop(ArrayList<Car> cars){
         for(Car c: cars){
-            if(Randoms.pickNumberInRange(0, 9) >= 4){
+            if(Randoms.pickNumberInRange(0, 9) >= MOVE_CONDITION){
                 c.moveForward();
-            }
-        }
-    }
-
-    public static void printRacingResult(ArrayList<Car> cars){
-        for(Car c: cars){
-            System.out.print(c.getName());
-            System.out.print(" : ");
-            for(int i = 0; i < c.getPosition(); i++){
-                System.out.print("-");
-            }
-            System.out.println();
-        }
-    }
-
-    public static void printRacingWinner(ArrayList<String> nameOfWinner){
-        System.out.print("최종 우승자 : ");
-        for(int i = 0; i < nameOfWinner.size(); i++){
-            System.out.print(nameOfWinner.get(i));
-            if(i != nameOfWinner.size()-1){
-                System.out.print(", ");
             }
         }
     }
@@ -120,5 +46,22 @@ public class Application {
             }
         }
         return nameOfWinner;
+    }
+
+    public static void createCars(String[] nameOfCars, ArrayList<Car> car){
+        // 입력받은 자동차의 수 만큼 car 객체 생성하고 car.name (생성자) 초기화
+        for(String name: nameOfCars){
+            car.add(NUMBER_OF_CAR, new Car(name));
+            NUMBER_OF_CAR++;
+        }
+    }
+
+    public static void racingResult(int numOfTry, ArrayList<Car> cars, Print print){
+        System.out.println("실행결과");
+        for(int i = 0; i < numOfTry; i++){
+            moveOrStop(cars);
+            print.printRacingResult(cars);
+            System.out.println();
+        }
     }
 }
