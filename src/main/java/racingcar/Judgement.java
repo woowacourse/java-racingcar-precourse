@@ -14,13 +14,13 @@ public class Judgement {
 	public List<Car> judgeWinner(List<Car> carList) {
 		List<Car> results = new ArrayList<Car>();
 		int max = carList.get(0).getPosition();
-		for(Car car:carList) {
-			if(car.getPosition() != max) {
+		for (Car car : carList) {
+			if (car.getPosition() != max) {
 				break;
 			}
 			results.add(car);
 		}
-		return  results;
+		return results;
 	}
 
 	public boolean checkGameEnd(int count) {

@@ -19,7 +19,7 @@ public class GameEngine {
 		System.out.println(GameData.TRY_INPUT_MESSAGE);
 		int count = readCount();
 		System.out.println(GameData.RESULT_MESSAGE);
-		while(!judgement.checkGameEnd(count--)) {
+		while (!judgement.checkGameEnd(count--)) {
 			moveCars(carList);
 			System.out.println(getGameStatus(carList));
 		}
@@ -72,8 +72,8 @@ public class GameEngine {
 
 	public String generateWinnerInformation(List<Car> winnerList) {
 		StringBuilder stringBuilder = new StringBuilder();
-		for(Car car:winnerList) {
-			if(stringBuilder.length() != 0) {
+		for (Car car : winnerList) {
+			if (stringBuilder.length() != 0) {
 				stringBuilder.append(", ");
 			}
 			stringBuilder.append(car.getName());
