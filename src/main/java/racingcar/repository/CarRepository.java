@@ -9,7 +9,7 @@ import racingcar.domain.Car;
 
 public class CarRepository {
 	private Long id = 0L;
-	private Map<Long, Car> cars = new HashMap<>();
+	private final Map<Long, Car> cars = new HashMap<>();
 
 	public Long save(Car car) {
 		cars.put(id, car);

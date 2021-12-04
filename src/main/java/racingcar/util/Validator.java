@@ -3,7 +3,7 @@ package racingcar.util;
 public class Validator {
 	private static final int CAR_NAME_RESTRICTIONS_MIN = 1;
 	private static final int CAR_NAME_RESTRICTIONS_MAX = 5;
-	private Parser parser = new Parser();
+	private final Parser parser = new Parser();
 
 	public void checkCarNamesInput(String input) throws IllegalArgumentException {
 		for (String carName : parser.parseCarNames(input)) {

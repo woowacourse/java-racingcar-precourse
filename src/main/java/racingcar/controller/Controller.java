@@ -14,11 +14,11 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-	private GameService gameService = new GameService();
-	private Parser parser = new Parser();
-	private OutputView outputView = new OutputView();
-	private Validator validator = new Validator();
-	private CarRepository carRepository = new CarRepository();
+	private final GameService gameService = new GameService();
+	private final Parser parser = new Parser();
+	private final OutputView outputView = new OutputView();
+	private final Validator validator = new Validator();
+	private final CarRepository carRepository = new CarRepository();
 
 	public void run() {
 		List<String> carNames = parser.parseCarNames(getCarNamesByUserInput());
