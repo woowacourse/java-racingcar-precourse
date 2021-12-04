@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car>{
 	private static final int CAN_MOVE_POWER_MIN = 4;
 
 	private final String name;
@@ -13,6 +13,7 @@ public class Car {
 		this.name = name;
 	}
 
+	//편리한 테스팅을 위한 protected 생성자
 	protected Car(String name, int position) {
 		this(name);
 		this.position = position;
@@ -32,8 +33,8 @@ public class Car {
 		return carPower >= CAN_MOVE_POWER_MIN;
 	}
 
-	public boolean isSamePosition(int position) {
-		return this.position == position;
+	public boolean isSamePosition(Car car) {
+		return position == car.position;
 	}
 
 	//view에서 사용하기 위한 getter들
@@ -43,6 +44,11 @@ public class Car {
 
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public int compareTo(Car other) {
+		return position - other.position;
 	}
 
 	@Override

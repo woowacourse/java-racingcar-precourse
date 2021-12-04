@@ -13,11 +13,11 @@ public class Cars {
 	}
 
 	public static Cars createCarsByNames(List<String> names) {
-		List<Car> cars = toCarListBy(names);
+		List<Car> cars = toCarListByNames(names);
 		return new Cars(cars);
 	}
 
-	private static List<Car> toCarListBy(List<String> names) {
+	private static List<Car> toCarListByNames(List<String> names) {
 		return names.stream()
 			.map(Car::new)
 			.collect(toList());
@@ -28,21 +28,20 @@ public class Cars {
 	}
 
 	public List<Car> getRacingWinners() {
-		int winnerPosition = getWinnerPosition();
-		List<Car> winners = getCarsPositionExactlySame(winnerPosition);
+		Car winner = getAnyWinner();
+		List<Car> winners = getCarsPositionExactlySame(winner);
 		return Collections.unmodifiableList(winners);
 	}
 
-	private int getWinnerPosition() {
+	private Car getAnyWinner() {
 		return cars.stream()
-			.mapToInt(Car::getPosition)
-			.max()
-			.getAsInt();
+			.max(Car::compareTo)
+			.orElseThrow(() -> new IllegalArgumentException("차가 존재하지 않습니다."));
 	}
 
-	private List<Car> getCarsPositionExactlySame(int winnerPosition) {
+	private List<Car> getCarsPositionExactlySame(Car winner) {
 		return cars.stream()
-			.filter(car -> car.isSamePosition(winnerPosition))
+			.filter(winner::isSamePosition)
 			.collect(toList());
 	}
 
