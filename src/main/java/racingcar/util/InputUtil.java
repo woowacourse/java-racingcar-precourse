@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.util;
 
 import static java.util.stream.Collectors.*;
 
@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.view.OutputView;
 
 public class InputUtil {
 	private static final String LIST_SPLIT_DELIMITER = ",";

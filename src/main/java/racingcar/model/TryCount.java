@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static java.lang.String.*;
 

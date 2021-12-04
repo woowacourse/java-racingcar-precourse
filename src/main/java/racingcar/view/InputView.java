@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
+
+import racingcar.util.InputUtil;
 
 public class InputView {
 	private static final String NAMES_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";

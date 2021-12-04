@@ -1,6 +1,12 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.List;
+
+import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+import racingcar.model.TryCount;
 
 public class CarRacingGame {
 	private Cars cars;

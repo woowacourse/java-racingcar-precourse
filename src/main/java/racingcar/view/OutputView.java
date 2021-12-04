@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
+
+import racingcar.model.Car;
 
 public class OutputView {
 	private static final StringBuilder STRING_BUILDER = new StringBuilder();
