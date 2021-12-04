@@ -9,9 +9,14 @@ import racingcar.strategy.RandomMoveStrategy;
 
 public class Car {
 
+    private static final int START_POSITION = 0;
+    private static final int NAME_MAX_LENGTH = 5;
+    private static final int NAME_MIN_LENGTH = 1;
+    private static final String BLANK_NAME = " ";
+
     private final String name;
     private final MoveStrategy moveStrategy;
-    private int position = 0;
+    private int position = START_POSITION;
 
     public Car(String name, MoveStrategy moveStrategy) {
         checkNameNull(name);
@@ -26,7 +31,7 @@ public class Car {
     }
 
     private static void checkNameLength(String name) {
-        if (name.length() > 5 || name.length() == 0) {
+        if (name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH) {
             throw new CarNameLengthException();
         }
     }
@@ -38,7 +43,7 @@ public class Car {
     }
 
     private static void checkNameBlank(String name) {
-        if (name.contains(" ")) {
+        if (name.contains(BLANK_NAME)) {
             throw new CarNameBlankException();
         }
     }
