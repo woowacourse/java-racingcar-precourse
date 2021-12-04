@@ -5,15 +5,16 @@ public class Car {
 	private int position = 0;
 
 	public Car(String name) {
-		if (isValidLength(name)) {
-			this.name = name;
-		}
-		throw new IllegalArgumentException();
+		isValidLength(name);
+		this.name = name;
 	}
 
 	boolean isValidLength(String name) {
 		int len = name.length();
-		return 0 < len && len <= 5;
+		if (0 < len && len <= 5) {
+			return true;
+		}
+		throw new IllegalArgumentException("길이 제한!");
 	}
 
 	// 추가 기능 구현
