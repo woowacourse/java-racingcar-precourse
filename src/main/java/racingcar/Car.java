@@ -40,9 +40,9 @@ public class Car {
 		System.out.println();
 	}
 
-	public void insertNameIfIAmWinner(int winningPostion, Vector<String> winnerNames) {
+	public void insertNameIfIAmWinner(int winningPosition, Vector<String> winnerNames) {
 
-		if (this.position == winningPostion) {
+		if (this.position == winningPosition) {
 			winnerNames.add(this.name);
 		}
 
