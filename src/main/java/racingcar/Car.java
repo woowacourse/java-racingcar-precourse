@@ -3,6 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final int LOWER_BOUND = 0;
+    private static final int UPPER_BOUND = 9;
+    private static final int THRESHOLD = 4;
+
     private final String name;
     private int position = 0;
 
@@ -25,6 +29,6 @@ public class Car {
     }
 
     private boolean canMove() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return Randoms.pickNumberInRange(LOWER_BOUND, UPPER_BOUND) >= THRESHOLD;
     }
 }
