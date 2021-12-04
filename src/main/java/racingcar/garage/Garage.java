@@ -2,6 +2,7 @@ package racingcar.garage;
 
 import racingcar.Car;
 import racingcar.RacingResult;
+import racingcar.round.Round;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -41,5 +42,17 @@ public class Garage {
                 .collect(Collectors.toCollection(LinkedList::new));
 
         return RacingResult.from(winners);
+    }
+
+    public void playAll() {
+        for(Car car : carList) {
+            playEach(car);
+        }
+    }
+
+    private void playEach(Car car) {
+        if(Round.canMove(Round.draw())) {
+            car.move();
+        }
     }
 }
