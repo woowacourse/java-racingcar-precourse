@@ -7,16 +7,17 @@ import java.util.List;
 
 public class Game {
 	public void play() {
-		Cars cars = new Cars(constructCar(parsingCarNames(InputView.inputCarNames())));
-		Referee referee = new Referee(cars);
-		int gameRound = castingGameRound(InputView.inputGameRound());
+		Cars cars = getCarsWithErrorHandling();
+		Referee referee = new Referee();
+		int gameRound = getGameRoundWithErrorHandling();
+
 		OutputView.showGameResultMessage();
 		for (int i = 0; i < gameRound; i++) {
 			cars.playRound();
 			OutputView.showGameRoundResult(cars.showCarsPosition());
 		}
-		Collections.sort(cars.getCars(), new Referee(cars));
-		OutputView.showWinner(referee.selectWinners());
+		Collections.sort(cars.getCars(), new Referee());
+		OutputView.showWinner(referee.selectWinners(cars));
 	}
 
 	public List<String> parsingCarNames(String noParsingCarNames) {
@@ -37,6 +38,32 @@ public class Game {
 	public int castingGameRound(String stringGameRound) {
 		int gameRound = Integer.parseInt(stringGameRound);
 		Validator.validateGameRound(gameRound);
+		return gameRound;
+	}
+
+	private Cars getCarsWithErrorHandling() {
+		Cars cars;
+		while (true) {
+			try {
+				cars = new Cars(constructCar(parsingCarNames(InputView.inputCarNames())));
+				break;
+			} catch (IllegalArgumentException exception) {
+				System.out.println(exception.getMessage());
+			}
+		}
+		return cars;
+	}
+
+	private int getGameRoundWithErrorHandling() {
+		int gameRound;
+		while (true) {
+			try {
+				gameRound = castingGameRound(InputView.inputGameRound());
+				break;
+			} catch (IllegalArgumentException exception) {
+				System.out.println(exception.getMessage());
+			}
+		}
 		return gameRound;
 	}
 }
