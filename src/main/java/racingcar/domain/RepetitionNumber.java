@@ -12,7 +12,7 @@ public class RepetitionNumber {
         this.repetitionNumber = validator.convertStringToInt(repetitionNumber);
     }
 
-    public int getRepetitionNumber() {
-        return repetitionNumber;
+    public boolean isSameNumber(int targetNum) {
+        return targetNum == repetitionNumber;
     }
 }
