@@ -24,7 +24,7 @@ public class RacingCarGame {
         outputView.showWinnerCarName(cars);
     }
 
-    public void inputCarName() {
+    private void inputCarName() {
         System.out.println(Input.CAR_NAME_MESSAGE);
         String input = Console.readLine();
         String[] carNames = input.split(",");
@@ -35,7 +35,7 @@ public class RacingCarGame {
         validateCarName(cars);
     }
 
-    public void validateCarName(ArrayList<Car> cars) {
+    private void validateCarName(ArrayList<Car> cars) {
         try {
             for (Car car : cars) {
                 car.isNameNull(car.getName());
@@ -47,7 +47,7 @@ public class RacingCarGame {
         }
     }
 
-    public int inputTimes() {
+    private int inputTimes() {
         while (true) {
             System.out.println(Input.TIMES_MESSAGE);
             String timesInput = Console.readLine();
@@ -60,7 +60,7 @@ public class RacingCarGame {
         }
     }
 
-    public void validateTimes(String timesInput) throws IllegalArgumentException {
+    private void validateTimes(String timesInput) throws IllegalArgumentException {
         for (int i = 0; i < timesInput.length(); i++) {
             if (!Character.isDigit(timesInput.charAt(i))) {
                 throw new IllegalArgumentException();
@@ -76,7 +76,7 @@ public class RacingCarGame {
         }
     }
 
-    public void progress(ArrayList<Car> cars) {
+    private void progress(ArrayList<Car> cars) {
         cars.stream()
                 .forEach(car -> car.forward(Randoms.pickNumberInRange(0, 9)));
     }
