@@ -1,8 +1,5 @@
 package racingcar;
 
-import java.io.IOException;
-import java.util.Arrays;
-
 public class InputError {
     private final String LIST_LENGTH_ERROR = "두 대 이상의 자동차 이름을 입력하세요.";
     private final String NAME_LENGTH_ERROR = "자동차 이름은 5글자 이하로 입력하세요.";

@@ -15,12 +15,12 @@ public class OutputView {
     }
 
     public static void printPlayer(String carName) {
-        System.out.printf(carName + COLON);
+        System.out.print(carName + COLON);
     }
 
     public static void printPosition(int distance) {
         for (int i = 0; i < distance; i++) {
-            System.out.printf(DISTANCE);
+            System.out.print(DISTANCE);
         }
         System.out.println();
     }
