@@ -14,25 +14,19 @@ public class PlayerInput {
 	private static final String ERROR_MESSAGE_NOT_INT = "[ERROR] 시도 회수는 숫자만 입력 가능.";
 
 	public List<String> getCarNames() {
-		String input = getCarNamesInput();
+		String input = getInputByMessage(INPUT_MESSAGE_CAR_NAMES);
 		List<String> carNames = convertInputToCarNamesList(input);
 		return carNames;
 	}
 
 	public int getMoveTrialCount() {
-		String input = getMoveTrialCountInput();
+		String input = getInputByMessage(INPUT_MESSAGE_MOVE_TRIAL_COUNT);
 		int count = convertInputToCount(input);
 		return count;
 	}
 
-	private String getCarNamesInput() {
-		System.out.println(INPUT_MESSAGE_CAR_NAMES);
-		String input = Console.readLine();
-		return input;
-	}
-
-	private String getMoveTrialCountInput() {
-		System.out.println(INPUT_MESSAGE_MOVE_TRIAL_COUNT);
+	private String getInputByMessage(String message) {
+		System.out.println(message);
 		String input = Console.readLine();
 		return input;
 	}
