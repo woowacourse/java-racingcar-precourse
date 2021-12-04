@@ -11,7 +11,7 @@ public class Car {
 	}
 
 	public void printName() {
-		System.out.println(name);
+		System.out.print(name);
 	}
 
 	public void printCarPosition() { // printPosition
