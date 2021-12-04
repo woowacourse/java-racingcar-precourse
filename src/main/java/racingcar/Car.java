@@ -20,7 +20,6 @@ public class Car {
 	public void move() {
 		if (canMove()) {
 			position += 1;
-			System.out.println(name);
 		}
 	}
 
