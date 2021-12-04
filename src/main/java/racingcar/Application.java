@@ -21,7 +21,6 @@ public class Application {
 		System.out.println();
 		System.out.println("실행 결과");
 		racing();
-		System.out.println();
 		System.out.print("최종 우승자 : ");
 		printResult();
 	}
