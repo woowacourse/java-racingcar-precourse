@@ -34,8 +34,9 @@ public class Application {
 			String[] inputNames = Console.readLine().split(",");
 			carNames = new ArrayList<>();
 			for (String carName : inputNames) {
-				isLengthLessThanOrEqualFive(carName);
 				carNames.add(carName);
+				isLengthLessThanOrEqualFive(carName);
+				isDuplicateName(carName);
 			}
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
@@ -92,6 +93,12 @@ public class Application {
 			}
 		} catch (NumberFormatException exception) {
 			throw new IllegalArgumentException("[ERROR] 시도 횟수는 음이 아닌 숫자여야 한다.");
+		}
+	}
+
+	public static void isDuplicateName(String name) {
+		if (carNames.indexOf(name) != carNames.lastIndexOf(name)) {
+			throw new IllegalArgumentException("[ERROR] 자동차의 이름은 중복되지 않아야 한다.");
 		}
 	}
 }
