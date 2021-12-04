@@ -1,6 +1,9 @@
 package racingcar.domain;
 
+import racingcar.exception.CarNameLengthException;
+
 public class Car {
+
     private final String name;
     private int position = 0;
 
@@ -11,7 +14,7 @@ public class Car {
 
     private static void checkNameLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("[ERROR] Car의 이름은 5자 이하만 입력되어야 합니다.");
+            throw new CarNameLengthException();
         }
     }
 }
