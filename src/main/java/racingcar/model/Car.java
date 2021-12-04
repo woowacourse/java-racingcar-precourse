@@ -3,11 +3,11 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-	private final String name;
+	private final String NAME;
 	private int position = 0;
 
 	public Car(String name) {
-		this.name = name;
+		this.NAME = name;
 	}
 
 	public void go() {
@@ -25,7 +25,7 @@ public class Car {
 	}
 
 	public String getName() {
-		return name;
+		return NAME;
 	}
 
 	private int getRandomNum() {

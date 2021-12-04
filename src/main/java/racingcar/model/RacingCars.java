@@ -5,24 +5,24 @@ import static racingcar.model.Util.findMax;
 import java.util.ArrayList;
 
 public class RacingCars {
-	private final ArrayList<Car> cars = new ArrayList<>();
+	private final ArrayList<Car> CARS = new ArrayList<>();
 
 	public RacingCars(ArrayList<String> cars) {
 		for (String car : cars) {
-			this.cars.add(new Car(car));
+			CARS.add(new Car(car));
 		}
 	}
 
 	public ArrayList<Car> getRoundResult() {
-		for (Car car : cars) {
+		for (Car car : CARS) {
 			car.go();
 		}
-		return cars;
+		return CARS;
 	}
 
 	public String[] getWinners() {
 		int winPosition = findMax(getPositions());
-		return cars
+		return CARS
 			.stream()
 			.filter(car -> car.isWinner(winPosition))
 			.map(Car::getName)
@@ -31,7 +31,7 @@ public class RacingCars {
 
 	public ArrayList<Integer> getPositions() {
 		ArrayList<Integer> positions = new ArrayList<>();
-		for (Car car : cars) {
+		for (Car car : CARS) {
 			positions.add(car.getPosition());
 		}
 		return positions;

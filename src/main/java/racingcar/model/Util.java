@@ -6,8 +6,8 @@ import java.util.Collections;
 
 public class Util {
 
-	public static int findMax(ArrayList<Integer> positions) {
-		return Collections.max(positions);
+	public static int findMax(ArrayList<Integer> integers) {
+		return Collections.max(integers);
 	}
 
 	public static ArrayList<String> toNameArray(String carsString) {

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class CarNameValidation {
-	private final String namesString;
-	private final ArrayList<String> names;
+	private final String NAMES_STRING;
+	private final ArrayList<String> NAMES;
 
 	public CarNameValidation(String namesString) {
-		this.namesString = namesString;
-		this.names = Util.toNameArray(namesString);
+		this.NAMES_STRING = namesString;
+		this.NAMES = Util.toNameArray(namesString);
 	}
 
 	public void validate() {
@@ -19,7 +19,7 @@ public class CarNameValidation {
 	}
 
 	public void isRightNameSize() {
-		if (names.stream()
+		if (NAMES.stream()
 			.allMatch(name -> !name.isEmpty() && name.length() <= Constants.NAME_SIZE)) {
 			return;
 		}
@@ -27,14 +27,14 @@ public class CarNameValidation {
 	}
 
 	public void isRightNameString() {
-		if (isNameOrRest() && !namesString.isEmpty() && namesString.charAt(namesString.length() - 1) != ',') {
+		if (isNameOrRest() && !NAMES_STRING.isEmpty() && NAMES_STRING.charAt(NAMES_STRING.length() - 1) != ',') {
 			return;
 		}
 		throw new IllegalArgumentException(Constants.CAR_NAME_WRONG_ERROR);
 	}
 
 	public void isNotDuplicate() {
-		if (names.size() == names.stream().distinct().count()) {
+		if (NAMES.size() == NAMES.stream().distinct().count()) {
 			return;
 		}
 		throw new IllegalArgumentException(Constants.CAR_NAME_DUPLICATE_ERROR);
@@ -42,6 +42,6 @@ public class CarNameValidation {
 
 	public boolean isNameOrRest() {
 		String pattern = "^[가-힣\\w][가-힣\\w,]*$"; //한글, 영어, 숫자, 쉼표만 됨
-		return Pattern.matches(pattern, namesString);
+		return Pattern.matches(pattern, NAMES_STRING);
 	}
 }

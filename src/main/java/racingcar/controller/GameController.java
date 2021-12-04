@@ -22,7 +22,7 @@ public class GameController {
 			ArrayList<String> names = Util.toNameArray(namesString);
 			racingCars = new RacingCars(names);
 		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 			setRacingCars();
 		}
 	}
@@ -33,7 +33,7 @@ public class GameController {
 			new RoundCountValidation(roundNumString).validate();
 			this.roundNum = Integer.parseInt(roundNumString);
 		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 			setRoundNum();
 		}
 	}
