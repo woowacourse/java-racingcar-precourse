@@ -17,6 +17,6 @@ class CarTest {
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
             .isThrownBy(() -> new Car(name))
-            .withMessageMatching("Car의 이름은 5자 이하만 입력되어야 합니다.");
+            .withMessage("[ERROR] Car의 이름은 5자 이하만 입력되어야 합니다.");
     }
 }

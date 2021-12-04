@@ -11,7 +11,7 @@ public class Car {
 
     private static void checkNameLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("Car의 이름은 5자 이하만 입력되어야 합니다.");
+            throw new IllegalArgumentException("[ERROR] Car의 이름은 5자 이하만 입력되어야 합니다.");
         }
     }
 }
