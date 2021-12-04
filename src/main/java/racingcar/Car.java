@@ -30,6 +30,13 @@ public class Car {
         return false;
     }
 
+    public int run(int randomNumber) {
+        if (randomNumber >= MIN_NUMBER_TO_CAR_TO_GO) {
+            position++;
+        }
+        return position;
+    }
+
     // 아직 테스트를 위해서만 사용되었다. 본코드에서 사용되지 않으면 삭제되어야 한다다
    public String getName() {
         return name;
@@ -48,4 +55,5 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name);
     }
+
 }

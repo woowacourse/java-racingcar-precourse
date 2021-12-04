@@ -1,8 +1,10 @@
 package racingcar;
 
-import static racingcar.StringConstants.MIN_VALUE_OF_ROUND_NUMBER;
+import static racingcar.StringConstants.*;
 
 import java.util.List;
+
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
     public int numberOfRounds;
@@ -26,6 +28,18 @@ public class RacingGame {
         return number;
     }
 
+    public void start() {
+        for (int roundNumber = 1; roundNumber <= numberOfRounds; roundNumber++) {
+            playEachRound();
+        }
+    }
+
+    private void playEachRound() {
+        for (Car car : findSavedCars()) {
+            car.run(generateRandomNumber());
+        }
+    }
+
     private void validateRoundNumber(int number) {
         if (number < MIN_VALUE_OF_ROUND_NUMBER) {
             throw new IllegalArgumentException();
@@ -34,6 +48,10 @@ public class RacingGame {
 
     private List<Car> findSavedCars() {
         return carRepository.findAllCarsInOrder();
+    }
+
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_VALUE_OF_RANDOM_NUMBER, MAX_VALUE_OF_RANDOM_NUMBER);
     }
 }
 
