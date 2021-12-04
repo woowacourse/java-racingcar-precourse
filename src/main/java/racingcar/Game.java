@@ -17,12 +17,8 @@ public class Game {
 
 	public Game() {
 		List<String> carNames = getCarNamesFromUser();
-		if (!validateCarNames(carNames)) {
-			throw new IllegalArgumentException();
-		}
-
-		this.participants = carNames.stream().map(Car::new).collect(Collectors.toList());
 		this.numberOfTrials = getNumberOfTrials();
+		this.participants = carNames.stream().map(Car::new).collect(Collectors.toList());
 		this.scoreBoard = new int[this.participants.size()];
 	}
 
@@ -30,43 +26,52 @@ public class Game {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String inputOfCarNames = Console.readLine();
 		String[] names = inputOfCarNames.split(",");
-		return Arrays.asList(names);
+		List<String> namesInList = Arrays.asList(names);
+
+		try {
+			validateCarNames(namesInList);
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			return getCarNamesFromUser();
+		}
+
+		return namesInList;
 	}
 
 	private int getNumberOfTrials() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String inputOfNumberOfTrials = Console.readLine();
-		if (!validateNumberOfTrials(inputOfNumberOfTrials)) {
-			throw new IllegalArgumentException();
+
+		try {
+			validateNumberOfTrials(inputOfNumberOfTrials);
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			return getNumberOfTrials();
 		}
 
 		return Integer.parseInt(inputOfNumberOfTrials);
 	}
 
-	private boolean validateCarNames(List<String> names) {
+	private void validateCarNames(List<String> names) throws IllegalArgumentException {
 		Set<String> setOfNames = new HashSet<>(names);
 		if (names.size() != setOfNames.size()) {
-			return false;
+			throw new IllegalArgumentException("[Error] 중복된 이름이 있으면 안된다.\n");
 		}
 
 		for (String name : setOfNames) {
 			if (name.length() > 5) {
-				return false;
+				throw new IllegalArgumentException("[ERROR] 이름은 5자 이하이여야 한다.\n");
 			}
 		}
-
-		return true;
 	}
 
-	private boolean validateNumberOfTrials(String input) {
+	private void validateNumberOfTrials(String input) throws IllegalArgumentException {
 		for (int i = 0; i < input.length(); i++) {
 			int number = input.charAt(i) - '0';
 			if (number < 0 || number > 9) {
-				return false;
+				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.\n");
 			}
 		}
-
-		return true;
 	}
 
 	private List<Car> findWinner() {
