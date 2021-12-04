@@ -14,7 +14,7 @@ public class Input {
 		validation = new Validation();
 	}
 
-	public String[] inputCarNames() {
+	public String[] carNames() {
 		while (true) {
 			System.out.println(CAR_NAME_INPUT_MESSAGE);
 			try {
@@ -27,7 +27,7 @@ public class Input {
 		}
 	}
 
-	public String inputRound() {
+	public String round() {
 		while (true) {
 			System.out.println(ROUND_INPUT_MESSAGE);
 			try {
