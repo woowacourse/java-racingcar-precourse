@@ -34,7 +34,11 @@ public class Car implements Comparable<Car> {
 	}
 
 	public String getStatusByFormatter() {
-		return name + CAR_STATUS_DELIMITER + CAR_POSITION_BY_FORMATTER;
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < this.position; i++) {
+			stringBuilder.append(CAR_POSITION_BY_FORMATTER);
+		}
+		return name + CAR_STATUS_DELIMITER + stringBuilder;
 	}
 
 	@Override
