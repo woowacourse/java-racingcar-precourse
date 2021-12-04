@@ -34,18 +34,18 @@ public class InputValidator {
 		return true;
 	}
 
-	public boolean isIntegerGTE1(String str) {
-		return isInteger(str) && isGreaterThan1(str);
+	public boolean isIntAndGTE1(String str) {
+		return isInt(str) && isGreaterThanEquals1(str);
 	}
 
-	private boolean isInteger(String str) {
+	private boolean isInt(String str) {
 		if (str.matches("[0-9]+")) {
 			return true;
 		}
 		throw new IllegalArgumentException(ErrorMessage.INTEGER_ONLY_ALLOWED.get());
 	}
 
-	private boolean isGreaterThan1(String str) {
+	private boolean isGreaterThanEquals1(String str) {
 		int num = Integer.parseInt(str);
 		if (1 <= num) {
 			return true;

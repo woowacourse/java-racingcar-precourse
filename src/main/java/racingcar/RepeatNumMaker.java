@@ -10,7 +10,7 @@ public class RepeatNumMaker {
 	private void makeNum() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String input = Console.readLine();
-		new InputValidator().isIntegerGTE1(input);
+		new InputValidator().isIntAndGTE1(input);
 		repeatNum = Integer.parseInt(input);
 	}
 

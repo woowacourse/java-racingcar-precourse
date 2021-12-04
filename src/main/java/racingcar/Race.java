@@ -38,13 +38,13 @@ public class Race {
 	}
 
 	private void printCarPosition(Car car) {
-		String currPosition = PositionToStr(car.getPosition());
+		String currPosition = positionToStr(car.getPosition());
 		String carName = car.getName();
 		System.out.printf("%s : %s", carName, currPosition);
 		System.out.println();
 	}
 
-	private String PositionToStr(int position) {
+	private String positionToStr(int position) {
 		StringBuilder raceLine = new StringBuilder();
 		IntStream.range(0, position).forEach(s -> raceLine.append("-"));
 		return raceLine.toString();
