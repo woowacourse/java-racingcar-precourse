@@ -11,12 +11,10 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import racingcar.Game;
 import racingcar.domain.Car;
-import racingcar.domain.CarList;
+import racingcar.domain.Cars;
 
 class GameTest {
-
 	Game game;
 
 	@BeforeEach
@@ -29,11 +27,11 @@ class GameTest {
 		Method inputName = Game.class.getDeclaredMethod("inputName");
 		inputName.setAccessible(true);
 
-		Field carListField = Game.class.getDeclaredField("carList");
+		Field carListField = Game.class.getDeclaredField("cars");
 		carListField.setAccessible(true);
 
-		Field listField = CarList.class.getDeclaredField("list");
-		listField.setAccessible(true);
+		Field carsField = Cars.class.getDeclaredField("cars");
+		carsField.setAccessible(true);
 
 		// given
 		String input = "test1, test2";
@@ -44,8 +42,8 @@ class GameTest {
 		inputName.invoke(game);
 
 		// then
-		CarList carList = (CarList)carListField.get(game);
-		List<Car> list = (List<Car>)listField.get(carList);
+		Cars cars = (Cars)carListField.get(game);
+		List<Car> list = (List<Car>)carsField.get(cars);
 		assertThat(list.size()).isEqualTo(2);
 	}
 

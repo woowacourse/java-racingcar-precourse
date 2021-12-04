@@ -1,11 +1,12 @@
 package racingcar;
 
-import racingcar.domain.CarList;
+import racingcar.domain.Cars;
 import racingcar.handler.InputHandler;
 import racingcar.handler.PrintHandler;
+import racingcar.utils.Validator;
 
 public class Game {
-	private CarList carList;
+	private Cars cars;
 	private int runNumber;
 
 	public void run() {
@@ -15,36 +16,53 @@ public class Game {
 		for (int i = 0; i < runNumber; i++) {
 			playOnce();
 		}
-		carList.getWinner();
+		cars.getWinner();
 	}
 
 	private void inputName() {
 		PrintHandler.printInputNameMsg();
-		try {
-			String[] names = InputHandler.getNameInput();
-			createCarList(names);
-		} catch (IllegalArgumentException e) {
-			PrintHandler.printErrorMsg(e);
-			inputName();
-		}
+		String[] names;
+		do {
+			names = InputHandler.getNameInput();
+		} while (!validateNames(names));
+		createCars(names);
 	}
 
-	private void createCarList(String[] names) {
-		carList = new CarList(names);
+	private void createCars(String[] names) {
+		cars = new Cars(names);
 	}
 
 	private void inputRunNumber() {
 		PrintHandler.printInputNumberMsg();
+		String input;
+		do {
+			input = InputHandler.getNumberInput();
+		} while (!validateRunNumber(input));
+		runNumber = Integer.parseInt(input);
+	}
+
+	private boolean validateNames(String[] names) {
 		try {
-			this.runNumber = InputHandler.getNumberInput();
+			Validator.validateNameInput(names);
+			return true;
 		} catch (IllegalArgumentException e) {
 			PrintHandler.printErrorMsg(e);
-			inputRunNumber();
+			return false;
+		}
+	}
+
+	private boolean validateRunNumber(String input) {
+		try {
+			Validator.validateNumberInput(input);
+			return true;
+		} catch (IllegalArgumentException e) {
+			PrintHandler.printErrorMsg(e);
+			return false;
 		}
 	}
 
 	private void playOnce() {
-		carList.playOnce();
+		cars.playOnce();
 		PrintHandler.printBlank();
 	}
 }
