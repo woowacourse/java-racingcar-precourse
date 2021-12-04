@@ -31,12 +31,11 @@ public class GarageTest {
         carSet.addAll(Arrays.asList(pobi, woni, jun));
         Garage garage = Garage.from(carSet);
 
-        assertThat(garage.hasCar(pobi)).isTrue();
-        assertThat(garage.hasCar(woni)).isTrue();
-        assertThat(garage.hasCar(jun)).isTrue();
+        assertThat(garage.containsCar(pobi)).isTrue();
+        assertThat(garage.containsCar(woni)).isTrue();
+        assertThat(garage.containsCar(jun)).isTrue();
 
-        Car woowa = Car.from("woowa");
-        assertThat(garage.hasCar(woowa)).isFalse();
+        assertThat(garage.containsCar(Car.from("woowa"))).isFalse();
     }
 
 }

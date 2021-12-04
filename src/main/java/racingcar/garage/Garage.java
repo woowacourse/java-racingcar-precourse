@@ -15,7 +15,7 @@ public class Garage {
         return new Garage(carSet);
     }
 
-    public boolean hasCar(Car car) {
+    public boolean containsCar(Car car) {
         return carSet.contains(car);
     }
 }
