@@ -8,14 +8,15 @@ import racingcar.service.CarServiceImpl;
 
 public class Application {
 	private static int racingCnt;
-	private static String[] cars;
+	private static String[] carNames;
 
 	private static CarService carService = new CarServiceImpl();
 
 	public static void main(String[] args) {
 		// TODO 구현 진행
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		inputCars();
+		inputCarNames();
+		joinCars();
 		System.out.println("시도할 회수는 몇회인가요?");
 		inputRacingCnt();
 		System.out.println();
@@ -25,16 +26,20 @@ public class Application {
 		printResult();
 	}
 
-	public static void inputCars() {
+	public static void inputCarNames() {
 		try {
-			cars = Console.readLine().split(",");
-			for (String carName : cars) {
+			carNames = Console.readLine().split(",");
+			for (String carName : carNames) {
 				isLengthLessThanOrEqualFive(carName);
 			}
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
+			inputCarNames();
 		}
-		for (String carName : cars) {
+	}
+
+	public static void joinCars() {
+		for (String carName : carNames) {
 			carService.join(carName);
 		}
 	}
@@ -45,6 +50,7 @@ public class Application {
 			isZeroOrPositiveNumber(inputNumber);
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
+			inputRacingCnt();
 		}
 	}
 
