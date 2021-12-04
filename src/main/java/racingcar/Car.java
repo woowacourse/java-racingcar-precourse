@@ -20,4 +20,25 @@ public class Car {
 	void moveNext() {
 		position++;
 	}
+
+	void printPosition() {
+		System.out.printf("%s : %s", name, new DashAsPosition().getDash());
+		System.out.println();
+	}
+
+	private StringBuilder dash;
+
+	class DashAsPosition {
+		private StringBuilder dash;
+
+		DashAsPosition() {
+			for (int i = 0; i < position; i++) {
+				dash.append("-");
+			}
+		}
+
+		public StringBuilder getDash() {
+			return dash;
+		}
+	}
 }
