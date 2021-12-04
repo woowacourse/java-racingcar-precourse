@@ -13,17 +13,18 @@ public class Car {
 	}
 
 	private boolean isGoing(int value) {
-		if (value >= 4) {
-			return true;
-		}
-		return false;
+		return value >= 4;
 	}
 
 	public void move() {
 		int random = Util.getRandomNumber(RANDOM_START, RANDOM_END);
 		if (isGoing(random)) {
-			position++;
+			movePosition();
 		}
+	}
+
+	private void movePosition() {
+		position++;
 	}
 
 	public String repeatWord(String word, int count) {
