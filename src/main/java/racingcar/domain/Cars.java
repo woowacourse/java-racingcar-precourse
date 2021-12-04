@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import racingcar.util.RandomNumberGeneratePolicy;
+import racingcar.util.NumberGeneratePolicy;
 
 public class Cars {
 	private final List<Car> cars;
@@ -26,7 +26,7 @@ public class Cars {
 		return new Cars(carsName.split(COMMA));
 	}
 
-	public void driveAll(RandomNumberGeneratePolicy randomNumberGeneratePolicy) {
+	public void driveAll(NumberGeneratePolicy randomNumberGeneratePolicy) {
 		cars.forEach(car -> car.drive(randomNumberGeneratePolicy.generateNumber()));
 	}
 
