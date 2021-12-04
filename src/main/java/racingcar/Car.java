@@ -51,4 +51,12 @@ public class Car {
 				.mapToObj(i -> POSITION)
 				.collect(Collectors.joining())).toString();
 	}
+
+	public int getPosition() {
+		return this.position;
+	}
+
+	public String getName() {
+		return this.name;
+	}
 }
