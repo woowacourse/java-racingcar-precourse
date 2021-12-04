@@ -7,11 +7,14 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
-    public int numberOfRounds;
     private final CarRepository carRepository;
+    private final RacingResultBoard racingResultBoard;
 
-    public RacingGame(CarRepository carRepository) {
+    private int numberOfRounds;
+
+    public RacingGame(CarRepository carRepository, RacingResultBoard racingResultBoard) {
         this.carRepository = carRepository;
+        this.racingResultBoard = racingResultBoard;
     }
 
     public List<Car> createCars(String[] names) {
@@ -19,7 +22,11 @@ public class RacingGame {
             Car car = Car.create(name);
             carRepository.saveInOrder(car);
         }
-        return findSavedCars();
+        return findCars();
+    }
+
+    public void setUpBoard() {
+        racingResultBoard.writeCarNames(carRepository.findAllCarsInOrder());
     }
 
     public int createNumberOfRounds(int number) {
@@ -30,14 +37,14 @@ public class RacingGame {
 
     public void start() {
         for (int roundNumber = 1; roundNumber <= numberOfRounds; roundNumber++) {
-            playEachRound();
+            startEachRound();
+            updateRacingResultBoard();
+            showGameResult();
         }
     }
 
-    private void playEachRound() {
-        for (Car car : findSavedCars()) {
-            car.run(generateRandomNumber());
-        }
+    public void showGameResult() {
+        racingResultBoard.showBoard();
     }
 
     private void validateRoundNumber(int number) {
@@ -46,12 +53,22 @@ public class RacingGame {
         }
     }
 
-    private List<Car> findSavedCars() {
+    private List<Car> findCars() {
         return carRepository.findAllCarsInOrder();
     }
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_VALUE_OF_RANDOM_NUMBER, MAX_VALUE_OF_RANDOM_NUMBER);
+    }
+
+    private void startEachRound() {
+        for (Car car : findCars()) {
+            car.run(generateRandomNumber());
+        }
+    }
+
+    private void updateRacingResultBoard() {
+        racingResultBoard.updateBoard(findCars());
     }
 }
 

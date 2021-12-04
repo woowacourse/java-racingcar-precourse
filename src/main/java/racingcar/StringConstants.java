@@ -12,4 +12,6 @@ public class StringConstants {
 
     public static final int MIN_VALUE_OF_RANDOM_NUMBER = 1;
     public static final int MAX_VALUE_OF_RANDOM_NUMBER = 9;
+
+    public static final int START_NUMBER_OF_ORDER = 0;
 }

@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Car {
     private final String name;
     private int position = INITIAL_POSITION;
+    private boolean movedForward = false;
 
     private Car(String name) {
         this.name = name;
@@ -33,7 +34,10 @@ public class Car {
     public int run(int randomNumber) {
         if (randomNumber >= MIN_NUMBER_TO_CAR_TO_GO) {
             position++;
+            movedForward = true;
+            return position;
         }
+        movedForward = false;
         return position;
     }
 
@@ -56,4 +60,7 @@ public class Car {
         return Objects.hash(name);
     }
 
+    public boolean hasMovedForward() {
+        return movedForward;
+    }
 }
