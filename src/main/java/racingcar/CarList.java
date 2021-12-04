@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -24,14 +23,14 @@ public class CarList {
 		boolean passed = false;
 		while (!passed) {
 			initAttributes();
-			passed = tryMakingCarListWithoutException();
+			passed = tryToMakeCarList();
 		}
 	}
 
-	private boolean tryMakingCarListWithoutException() {
+	private boolean tryToMakeCarList() {
 		try {
-			Stream<String> carNameStream = new StreamMaker().getCarName();
-			new CarListOperator().makeListWithStream(carNameStream);
+			Stream<String> carNames = new StreamMaker().getCarNames();
+			new CarListOperator().initCarListWithStream(carNames);
 			return true;
 		} catch (IllegalArgumentException error) {
 			System.out.println(error.getMessage());
@@ -43,8 +42,8 @@ public class CarList {
 	class CarListOperator {
 		private String carName;
 
-		public void makeListWithStream(Stream<String> carNameStream) {
-			carNameStream.forEach(this::add);
+		public void initCarListWithStream(Stream<String> carNames) {
+			carNames.forEach(this::add);
 		}
 
 		public void add(String name) {
@@ -68,21 +67,20 @@ public class CarList {
 
 // 문자열을 입력받아서, 스트림으로 구분해서 반환한다.
 class StreamMaker {
-	private String strChunk;
+	private String inputStr;
+
+	Stream<String> getCarNames() {
+		return Stream.of(inputStr.split(","));
+	}
 
 	StreamMaker() {
-		inputStrChunk();
+		inputStrOfCarNames();
 	}
 
-	Stream<String> getCarName() {
-		return Stream.of(strChunk.split(","));
-	}
-
-	private void inputStrChunk() {
-		strChunk = Console.readLine();
-		String pattern = "[a-zA-Z0-9,]+";
-
-		if (!Pattern.matches(pattern, strChunk)) {
+	private void inputStrOfCarNames() {
+		inputStr = Console.readLine();
+		
+		if (!inputStr.matches("[a-zA-Z0-9,]+")) {
 			throw new IllegalArgumentException("[ERROR] " + "자동차이름(영문/숫자), 쉼표만 입력 가능");
 		}
 	}
