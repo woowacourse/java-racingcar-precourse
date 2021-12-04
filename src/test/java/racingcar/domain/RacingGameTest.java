@@ -1,13 +1,16 @@
 package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.util.SymbolicConstantUtil.*;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import racingcar.util.NumberGeneratePolicy;
 
 class RacingGameTest {
+	private static final int MOVING_FORWARD = 5;
 	private NumberGeneratePolicy numberGeneratePolicy;
 
 	@BeforeEach
@@ -15,39 +18,43 @@ class RacingGameTest {
 		numberGeneratePolicy = new NumberGeneratePolicy() {
 			@Override
 			public int generateNumber() {
-				return 5;
+				return MOVING_FORWARD;
 			}
 		};
 	}
 
-	@Test
-	void 자동차_경주_게임_기록_테스트() {
+	@ParameterizedTest
+	@ValueSource(strings = "hoon,ji")
+	void 자동차_경주_게임_기록_테스트(String value) {
 		// given
-		RacingGame racingGame = new RacingGame("test1,test2", 1, numberGeneratePolicy);
+		RacingGame racingGame = new RacingGame(value, 1, numberGeneratePolicy);
 
 		// when
 		RacingRecord racingRecord = racingGame.race();
 
 		// then
-		assertEquals(racingRecord.getRacingRecord().get(0).getPosition(), 1);
-		assertEquals(racingRecord.getRacingRecord().get(0).getName(), "test1");
-		assertEquals(racingRecord.getRacingRecord().get(1).getPosition(), 1);
-		assertEquals(racingRecord.getRacingRecord().get(1).getName(), "test2");
+		String[] carsName = value.split(COMMA);
+		for (int index = 0; index < carsName.length; index++) {
+			assertEquals(racingRecord.getRacingRecord().get(index).getPosition(), 1);
+			assertEquals(racingRecord.getRacingRecord().get(index).getName(), carsName[index]);
+		}
 	}
 
-	@Test
-	void 자동차_경주_게임_결과_테스트() {
+	@ParameterizedTest
+	@ValueSource(strings = "hoon,ji")
+	void 자동차_경주_게임_결과_테스트(String value) {
 		// given
-		RacingGame racingGame = new RacingGame("test1,test2", 1, numberGeneratePolicy);
+		RacingGame racingGame = new RacingGame(value, 1, numberGeneratePolicy);
 		racingGame.race();
 
 		// when
 		RacingResult racingResult = racingGame.getRacingResult();
 
 		// then
-		assertEquals(racingResult.getWinners().get(0).getPosition(), 1);
-		assertEquals(racingResult.getWinners().get(0).getName(), "test1");
-		assertEquals(racingResult.getWinners().get(1).getPosition(), 1);
-		assertEquals(racingResult.getWinners().get(1).getName(), "test2");
+		String[] carsName = value.split(COMMA);
+		for (int index = 0; index < carsName.length; index++) {
+			assertEquals(racingResult.getWinners().get(index).getPosition(), 1);
+			assertEquals(racingResult.getWinners().get(index).getName(), carsName[index]);
+		}
 	}
 }
