@@ -8,15 +8,15 @@ public class Car {
         this.name = name;
     }
 
-    public void goForward(){
+    public void goForward() {
         position++;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 }

@@ -30,7 +30,7 @@ public class CarsTest {
 
     @DisplayName("저장된 Cars 값을 가져온다")
     @Test
-    void getAll(){
+    void getAll() {
         List<Car> findCars = cars.getAllCars();
 
         SoftAssertions.assertSoftly(soft -> {

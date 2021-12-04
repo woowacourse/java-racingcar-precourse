@@ -9,22 +9,23 @@ import static util.CarConstant.*;
 public class CarController {
 
     private final Cars cars;
-    public CarController(Cars cars){
+
+    public CarController(Cars cars) {
         this.cars = cars;
     }
 
-    public void play(){
+    public void play() {
         saveCars();
         int numberOfTry = insertNumberOfTry();
         movePosition(numberOfTry);
         printFinalWinner(cars.getWinners());
     }
 
-    private void saveCars(){
+    private void saveCars() {
         printMessage(REQUEST_NAME);
         try {
             cars.saveCars(Console.readLine());
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             printMessage(e.getMessage());
             saveCars();
         }
@@ -35,7 +36,7 @@ public class CarController {
         String inputNumber = Console.readLine();
         try {
             NumberValidator.isRightTryNumber(inputNumber);
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             printMessage(e.getMessage());
             return insertNumberOfTry();
         }
@@ -45,7 +46,7 @@ public class CarController {
 
     private void movePosition(int numberOfTry) {
         printMessage(EXECUTION_RESULT);
-        while (numberOfTry-- > ZERO){
+        while (numberOfTry-- > ZERO) {
             cars.updateCarPosition();
             cars.getAllCars()
                     .forEach(car -> printImplResult(car));

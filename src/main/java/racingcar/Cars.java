@@ -15,13 +15,14 @@ import static util.CarConstant.NUMBER_MOVE_FORWARD;
 public class Cars {
     private final List<Car> carList = Collections.synchronizedList(new ArrayList<>());
 
-    private Cars(){}
+    private Cars() {
+    }
 
-    public static Cars getInstance(){
+    public static Cars getInstance() {
         return LazyHolder.INSTANCE;
     }
 
-    private static class LazyHolder{
+    private static class LazyHolder {
         private final static Cars INSTANCE = new Cars();
     }
 
@@ -30,16 +31,16 @@ public class Cars {
                 carList.add(new Car(name)));
     }
 
-    public void updateCarPosition(){
+    public void updateCarPosition() {
         carList.forEach(car ->
                 moveForward(car, Randoms.pickNumberInRange(MIN, MAX)));
     }
 
-    public List<Car> getAllCars(){
+    public List<Car> getAllCars() {
         return carList;
     }
 
-    public List<Car> getWinners(){
+    public List<Car> getWinners() {
         int maxPosition = findMaxPosition();
 
         return carList.stream()
@@ -47,9 +48,9 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public void removeAll(){
+    public void removeAll() {
         int size = carList.size();
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             carList.remove(ZERO);
         }
     }
@@ -63,13 +64,13 @@ public class Cars {
     }
 
     private void moveForward(Car car, int randomNumber) {
-        if(checkMoveForward(randomNumber)){
+        if (checkMoveForward(randomNumber)) {
             car.goForward();
         }
     }
 
     private boolean checkMoveForward(int randomNumber) {
-        if(randomNumber >= NUMBER_MOVE_FORWARD){
+        if (randomNumber >= NUMBER_MOVE_FORWARD) {
             return true;
         }
         return false;
