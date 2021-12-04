@@ -5,7 +5,6 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
-import racingcar.domain.CarDto;
 import racingcar.domain.Game;
 import racingcar.repository.GameRepository;
 
@@ -16,33 +15,30 @@ public class GameService {
 	private static final int MIN_VALUE = -1;
 	private final GameRepository gameRepository = new GameRepository();
 
-	public List<CarDto> play(Long id) {
-		Game game = gameRepository.findById(id);
-		while (!game.checkReachTrialNumToTrial()) {
-			moveForwardByRandomNumber(game);
-			game.increaseTrialNum();
-		}
-		return getDto(game.getCars());
+	public void play(Game game) {
+		moveForwardByRandomNumber(game);
+		game.increaseTrialNum();
 	}
 
-	private List<CarDto> getDto(List<Car> cars) {
+	public List<String> getWinners(Long gameId) {
+		Game game = gameRepository.findById(gameId);
+		List<Car> cars = game.getCars();
 		int maxPosition = getMaxPosition(cars);
-		List<CarDto> carDtos = new ArrayList<>();
+		List<String> carNames = new ArrayList<>();
 		for (Car car : cars) {
-			CarDto carDto = new CarDto();
-			setCarDto(car, carDto);
 			if (car.getPosition() == maxPosition) {
-				carDto.setWin(true);
+				carNames.add(car.getName());
 			}
-			carDtos.add(carDto);
 		}
-		return carDtos;
+		return carNames;
 	}
 
-	private void setCarDto(Car car, CarDto carDto) {
-		carDto.setName(car.getName());
-		carDto.setPosition(car.getPosition());
-		carDto.setWin(false);
+	public Boolean isEnd(Game game) {
+		return gameRepository.isEnd(game);
+	}
+
+	public Long save(Game game) {
+		return gameRepository.save(game);
 	}
 
 	private int getMaxPosition(List<Car> cars) {
@@ -53,10 +49,6 @@ public class GameService {
 			}
 		}
 		return max;
-	}
-
-	public Long save(Game game) {
-		return gameRepository.save(game);
 	}
 
 	private void moveForwardByRandomNumber(Game game) {

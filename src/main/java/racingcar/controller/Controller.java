@@ -4,7 +4,6 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
-import racingcar.domain.CarDto;
 import racingcar.domain.Game;
 import racingcar.repository.CarRepository;
 import racingcar.service.GameService;
@@ -16,18 +15,28 @@ import racingcar.view.OutputView;
 public class Controller {
 	private final GameService gameService = new GameService();
 	private final Parser parser = new Parser();
-	private final OutputView outputView = new OutputView();
 	private final Validator validator = new Validator();
 	private final CarRepository carRepository = new CarRepository();
 
 	public void run() {
 		List<String> carNames = parser.parseCarNames(getCarNamesByUserInput());
 		saveCars(carNames);
-		List<Car> cars = carRepository.findAll();
-		int trial = parser.parseNumberOfTrial(getTrialByUserInput());
-		Long gameId = gameService.save(new Game(cars, trial));
-		List<CarDto> carDtos = gameService.play(gameId);
-		outputView.printResults(carDtos);
+		Game game = new Game(getCarList(), getNumberOfTrial());
+		Long gameId = gameService.save(game);
+		OutputView.printHead();
+		while (!gameService.isEnd(game)) {
+			gameService.play(game);
+			OutputView.printScore(game.getCars());
+		}
+		OutputView.printWinners(gameService.getWinners(gameId));
+	}
+
+	private int getNumberOfTrial() {
+		return parser.parseNumberOfTrial(getTrialByUserInput());
+	}
+
+	private List<Car> getCarList() {
+		return carRepository.findAll();
 	}
 
 	private void saveCars(List<String> carNames) {
@@ -44,7 +53,7 @@ public class Controller {
 			validator.checkNumberOfTrialInput(input);
 			return input;
 		} catch (IllegalArgumentException e) {
-			outputView.printException(e.getMessage());
+			OutputView.printException(e.getMessage());
 			return getTrialByUserInput();
 		}
 	}
@@ -56,7 +65,7 @@ public class Controller {
 			validator.checkCarNamesInput(input);
 			return input;
 		} catch (IllegalArgumentException e) {
-			outputView.printException(e.getMessage());
+			OutputView.printException(e.getMessage());
 			return getCarNamesByUserInput();
 		}
 	}

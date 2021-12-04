@@ -20,7 +20,7 @@ public class Game {
 		this.trialNum += 1;
 	}
 
-	public boolean checkReachTrialNumToTrial() {
+	public Boolean checkReachTrialNumToTrial() {
 		return this.trial == this.trialNum;
 	}
 }

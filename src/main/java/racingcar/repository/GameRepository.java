@@ -18,6 +18,10 @@ public class GameRepository {
 		return returnId;
 	}
 
+	public Boolean isEnd(Game game) {
+		return game.checkReachTrialNumToTrial();
+	}
+
 	public Game findById(Long id) {
 		return games.get(id);
 	}
