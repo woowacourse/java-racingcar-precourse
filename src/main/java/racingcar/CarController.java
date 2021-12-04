@@ -8,22 +8,22 @@ import static util.CarConstant.*;
 
 public class CarController {
 
-    private final CarService carService;
-    public CarController(CarService carService){
-        this.carService = carService;
+    private final Cars cars;
+    public CarController(Cars cars){
+        this.cars = cars;
     }
 
     public void play(){
         saveCars();
         int numberOfTry = insertNumberOfTry();
         movePosition(numberOfTry);
-        printFinalWinner(carService.findWinners());
+        printFinalWinner(cars.getWinners());
     }
 
     private void saveCars(){
         printMessage(REQUEST_NAME);
         try {
-            carService.saveCars(Console.readLine());
+            cars.saveCars(Console.readLine());
         }catch (IllegalArgumentException e){
             printMessage(e.getMessage());
             saveCars();
@@ -46,8 +46,8 @@ public class CarController {
     private void movePosition(int numberOfTry) {
         printMessage(EXECUTION_RESULT);
         while (numberOfTry-- > ZERO){
-            carService.updateCarPosition();
-            carService.findAllCars()
+            cars.updateCarPosition();
+            cars.getAllCars()
                     .forEach(car -> printImplResult(car));
             breakLine();
         }
