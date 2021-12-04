@@ -6,6 +6,8 @@ import racingcar.util.Assertions;
 public class Car {
     private static final int NAME_LENGTH = 5;
 
+    private static final int MOVING_FORWARD = 4;
+
     private final String name;
     private int position = 0;
 
@@ -29,5 +31,11 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public void move(int movePoint) {
+        if (movePoint >= MOVING_FORWARD) {
+            this.position++;
+        }
     }
 }

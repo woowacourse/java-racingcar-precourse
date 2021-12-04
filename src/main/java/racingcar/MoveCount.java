@@ -18,4 +18,8 @@ public class MoveCount {
 	public static Optional<MoveCount> Empty() {
 		return Optional.empty();
 	}
+
+	public int getCount() {
+		return this.count;
+	}
 }

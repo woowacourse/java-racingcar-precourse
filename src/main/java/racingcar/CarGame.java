@@ -10,6 +10,12 @@ public class CarGame implements Runnable {
 	private static final String GUIDE_MOVE_COUNT = "시도할 회수는 몇회인가요?";
 	private static final String COMMA = ",";
 
+	private final CarGameRunner carGameRunner;
+
+	public CarGame(CarGameRunner carGameRunner) {
+		this.carGameRunner = carGameRunner;
+	}
+
 	@Override
 	public void run() {
 		while (true) {
@@ -28,7 +34,7 @@ public class CarGame implements Runnable {
 			}
 		}
 
-
+		carGameRunner.startRace(Cars.getCars(), moveCount.getCount());
 	}
 
 	private void generateCars() {

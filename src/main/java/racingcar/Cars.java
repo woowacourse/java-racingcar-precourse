@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.util.Assertions;
 
@@ -16,5 +17,9 @@ public class Cars {
 
 	public static boolean isReady() {
 		return !cars.isEmpty();
+	}
+
+	public static List<Car> getCars() {
+		return Collections.unmodifiableList(cars);
 	}
 }
