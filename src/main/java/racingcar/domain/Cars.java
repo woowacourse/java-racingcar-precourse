@@ -50,8 +50,8 @@ public class Cars {
         return String.join(", ", winnerList);
     }
 
-    private void isCarListNull() throws IllegalArgumentException{
-        if (this.carList.getCarList().isEmpty()){
+    private void isCarListNull() throws IllegalArgumentException {
+        if (this.carList.getCarList().isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_NULL_ERROR.print());
         }
     }
