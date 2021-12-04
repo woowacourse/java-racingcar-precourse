@@ -9,4 +9,24 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public void goForward() {
+        this.position += 1;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
+    }
 }
