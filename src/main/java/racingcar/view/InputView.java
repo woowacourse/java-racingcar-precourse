@@ -5,9 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import racingcar.exception.CountNotNumberMessageException;
+import racingcar.exception.CountTooSmallMessageException;
 import racingcar.exception.NameDuplicateMessageException;
 import racingcar.exception.NameEmptyMessageException;
 import racingcar.exception.NameTooLongMessageException;
+import racingcar.resource.rule.CountRange;
 import racingcar.resource.rule.Delimiter;
 import racingcar.resource.rule.NameLength;
 import racingcar.view.input.Reader;
@@ -55,6 +58,29 @@ public class InputView {
     private void validateNameTooLong(List<String> names) {
         if (names.stream().anyMatch(NameLength::isTooLong)) {
             throw new NameTooLongMessageException();
+        }
+    }
+
+    public int getExecutionCount() {
+        String inputString = reader.readLine();
+        int executionCount = convertStringToInt(inputString);
+
+        validateExecutionCountIsBiggerThanStandard(executionCount);
+
+        return executionCount;
+    }
+
+    private int convertStringToInt(String inputString) {
+        try {
+            return Integer.parseInt(inputString);
+        } catch (NumberFormatException ex) {
+            throw new CountNotNumberMessageException();
+        }
+    }
+
+    private void validateExecutionCountIsBiggerThanStandard(int executionCount) {
+        if (CountRange.isTooSmall(executionCount)) {
+            throw new CountTooSmallMessageException();
         }
     }
 
