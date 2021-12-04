@@ -16,7 +16,8 @@ public class Game {
         for (int i = firstRound; i <= roundNumber; i++) {
             startRound();
         }
-        Board.showResult(cars);
+        List<Car> winners=Referee.decideWinner(cars);
+        Board.showResult(winners);
     }
 
     private static void setGame() {
@@ -39,7 +40,7 @@ public class Game {
         do {
             input = Console.readLine();
         } while (!Validator.isValidateNumber(input));
-        roundNumber = Integer.parseInt(input);
+        roundNumber = StringParser.parseStringToNumber(input);Integer.parseInt(input);
     }
 
     private static void startRound() {

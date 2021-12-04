@@ -12,4 +12,8 @@ public class StringParser {
         }
         return cars;
     }
+
+    public static int parseStringToNumber(String input) {
+        return Integer.parseInt(input);
+    }
 }
