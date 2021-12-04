@@ -36,6 +36,16 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    public void 이름_없음에_대한_예외_처리() throws Exception {
+        assertSimpleTest(
+                () -> {
+                    runException("pobi,,java,tco");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
+        );
+    }
+
+    @Test
     public void 이름_공백_예외_처리() throws Exception {
         assertSimpleTest(
                 () -> {
