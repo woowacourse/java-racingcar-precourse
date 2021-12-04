@@ -1,21 +1,29 @@
 package racingcar;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
-public class RacingCarGame  implements Game{
+import camp.nextstep.edu.missionutils.Console;
+public class RacingCarGame  implements Game {
     ArrayList<Car> racingCars;
     int numberOfTrial;
+
+    final int MAXIMUM_LENGTH = 5;
 
     @Override
     public void play() {
 
     }
 
-    private void getRacingCarsNameFromUser() {
-
+    private String getRacingCarsNameFromUser() {
+        return Console.readLine();
     }
 
-    private void seperatedByMark(char c) {
+    private StringTokenizer splitByMark(String neededToSplit, String delimiter) {
+        return new StringTokenizer(neededToSplit, delimiter);
+    }
 
+    private boolean checkMoreThanMaximumLength(String neededToCheck) {
+        return neededToCheck.length() <= MAXIMUM_LENGTH;
     }
 
     private void createRacingCarEntity(String carName) {
