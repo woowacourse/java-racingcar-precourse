@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -26,5 +27,22 @@ public class RacingService {
 
 	private int getRandomValue() {
 		return Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
+	}
+
+	public void showRaceProgress() {
+		List<Car> cars = carRepository.findAll();
+
+		for (Car car : cars) {
+			System.out.print(car.getName() + " : ");
+			printProgressLine(car.getPosition());
+		}
+		System.out.println();
+	}
+
+	private void printProgressLine(int position) {
+		for (int i = 1; i <= position; i++) {
+			System.out.print("-");
+		}
+		System.out.println();
 	}
 }
