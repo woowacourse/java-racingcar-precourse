@@ -1,20 +1,20 @@
-package racingcar.racinggame;
+package racingcar.controller;
 
 import java.util.ArrayList;
 
-import racingcar.Car;
-import racingcar.user.Input;
-import racingcar.user.Output;
+import racingcar.model.Car;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
-public class Game {
-	private final Input input;
-	private final Output output;
+public class GameController {
+	private final InputView input;
+	private final OutputView output;
 	private final ArrayList<String> champion;
 	private int highScore;
 
-	public Game() {
-		input = new Input();
-		output = new Output();
+	public GameController() {
+		input = new InputView();
+		output = new OutputView();
 		champion = new ArrayList<>();
 	}
 

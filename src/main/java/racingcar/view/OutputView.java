@@ -1,10 +1,10 @@
-package racingcar.user;
+package racingcar.view;
 
 import java.util.ArrayList;
 
-import racingcar.Car;
+import racingcar.model.Car;
 
-public class Output {
+public class OutputView {
 	private static final String COLON = " : ";
 	private static final String DISTANCE = "-";
 	private static final String SEPARATOR = ", ";
