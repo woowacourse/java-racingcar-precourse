@@ -13,4 +13,8 @@ public class Cars {
 		Assertions.throwExceptionIsTrue(cars.contains(car), ErrorInfo.OVERLAP);
 		cars.add(car);
 	}
+
+	public static boolean isReady() {
+		return !cars.isEmpty();
+	}
 }
