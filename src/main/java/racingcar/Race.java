@@ -56,7 +56,7 @@ public class Race {
                 break;
             }
         }
-        // 인덱스 이어서 2nd 우승자부터 다시 출력
+        // 위의 인덱스 이어받으면서, 2nd 우승자부터 다시 출력
         for (int i = ++idx; i < carList.size(); i++) {
             if (carList.get(i).getPosition() == maxVal) {
                 System.out.printf(", %s", carList.get(i).getName());
