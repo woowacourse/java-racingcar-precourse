@@ -15,8 +15,20 @@ public class User {
 			Validation.verifyCar(cars);
 		} catch (IllegalArgumentException illegalArgumentException) {
 			System.out.println(ERROR_PREFIX + illegalArgumentException.getMessage());
-			replyCars();
+			return replyCars();
 		}
 		return cars;
+	}
+
+	public int replyMoveCount() {
+		System.out.println(REPLY_MOVE);
+		String moveCount = Console.readLine();
+		try {
+			Validation.verifyMove(moveCount);
+		} catch (IllegalArgumentException illegalArgumentException) {
+			System.out.println(ERROR_PREFIX + illegalArgumentException.getMessage());
+			return replyMoveCount();
+		}
+		return Integer.parseInt(moveCount);
 	}
 }
