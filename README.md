@@ -20,3 +20,26 @@
 -자동차 이름이 5자를 초과하는 경우
 
 -시도 횟수가 숫자가 아닌 경우
+
+
+## 파일 목록
+
+### main.java.racingcar
+
+Application.java: 어플리케이션 실행 (main method 위치)
+
+Board.java: 게임 진행 상태 및 최종 결과 출력
+
+Car.java: 
+
+Game.java: 숫자야구 게임 진행
+
+GameUtil.java: 
+
+Validator.java: 플레이어의 입력이 유효한지 검증
+
+SystemMessage.java: 콘솔창에 출력되는 메시지를 모아놓은 클래스
+
+### test.java.racingcar
+
+ApplicationTest.java: 어플리케이션 테스트

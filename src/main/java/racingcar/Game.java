@@ -6,13 +6,14 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Game {
+    private static final int firstRound = 1;
     private static List<Car> cars = new ArrayList<>();
-    private static int trialNumber;
+    private static int roundNumber;
 
     public static void play() {
         setGame();
         System.out.println(SystemMessage.RESULT_MESSAGE);
-        for (int i = 1; i <= trialNumber; i++) {
+        for (int i = firstRound; i <= roundNumber; i++) {
             startRound();
         }
         Board.showResult(cars);
@@ -20,7 +21,7 @@ public class Game {
 
     private static void setGame() {
         setCars();
-        trialNumber = setTrialNumber();
+        setRoundNumber();
     }
 
     private static void setCars() {
@@ -29,21 +30,21 @@ public class Game {
         do {
             input = Console.readLine();
         } while (!Validator.isValidateInput(input));
-        cars = GameUtil.parseStringToList(new ArrayList<>(), input);
+        cars = StringParser.parseStringToList(new ArrayList<>(), input);
     }
 
-    private static int setTrialNumber() {
+    private static void setRoundNumber() {
         System.out.println(SystemMessage.ASK_NUMBER_MESSAGE);
         String input;
         do {
             input = Console.readLine();
         } while (!Validator.isValidateNumber(input));
-        return Integer.parseInt(input);
+        roundNumber = Integer.parseInt(input);
     }
 
     private static void startRound() {
         for (Car car : cars) {
-            GameUtil.tryMove(car);
+            Referee.tryMove(car);
         }
         Board.showStatus(cars);
     }

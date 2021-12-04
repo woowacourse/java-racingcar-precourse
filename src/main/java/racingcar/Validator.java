@@ -9,7 +9,7 @@ public class Validator {
     private static final int FALSE = 0;
 
     public static boolean isValidateInput(String input) {
-        List<Car> inputCars = GameUtil.parseStringToList(new ArrayList<>(), input);
+        List<Car> inputCars = StringParser.parseStringToList(new ArrayList<>(), input);
         int isValid = TRUE;
         for (Car car : inputCars) {
             isValid *= isValidateName(car.getName());

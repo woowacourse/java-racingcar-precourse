@@ -19,7 +19,7 @@ public class Board {
     }
 
     private static void decideWinner(List<Car> cars) {
-        int maxPosition = GameUtil.findMax(cars);
+        int maxPosition = Referee.findMax(cars);
         for (Car car : cars) {
             isWinner(maxPosition, car);
         }
