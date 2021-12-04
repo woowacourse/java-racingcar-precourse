@@ -8,6 +8,7 @@ import java.util.List;
 public class Racing {
 
     private List<Car> lineup;
+    List<String> winners;
 
     public Racing() {
         this.lineup = new ArrayList<>();
@@ -23,6 +24,7 @@ public class Racing {
 
         System.out.println("실행 결과");
         race(repeatTimes);
+        callWinner();
     }
 
     private void enroll(String[] waitingCarNames) {
@@ -87,5 +89,36 @@ public class Racing {
             System.out.println();
             round++;
         }
+    }
+
+    private void callWinner() {
+        winners = new ArrayList<>();
+        findWinner();
+        StringBuilder stringBuilder = new StringBuilder("최종 우승자 : ");
+        for (String leader : winners) {
+            stringBuilder.append(leader).append(",");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        System.out.println(stringBuilder);
+    }
+
+    private void findWinner() {
+        int leaderPosition = -1;
+        for (Car participantCar : lineup) {
+            int position = participantCar.getPosition();
+            String name = participantCar.getName();
+            leaderPosition = calculatePosition(leaderPosition, position, name);
+        }
+    }
+
+    private int calculatePosition(int leaderPosition, int position, String name) {
+        if (leaderPosition < position) {
+            leaderPosition = position;
+            winners.clear();
+            winners.add(name);
+        } else if (leaderPosition == position) {
+            winners.add(name);
+        }
+        return leaderPosition;
     }
 }
