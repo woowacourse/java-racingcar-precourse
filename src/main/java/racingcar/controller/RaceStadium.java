@@ -1,7 +1,13 @@
 package racingcar.controller;
 
-public class RaceStadium {
-	public void start() {
+import racingcar.domain.Cars;
+import racingcar.view.InputView;
 
+public class RaceStadium {
+	private final Cars cars = new Cars();
+
+	private int trial;
+	public void start() {
+		cars.join(InputView.getInputRaceCar());
 	}
 }
