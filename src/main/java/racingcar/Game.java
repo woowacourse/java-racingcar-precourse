@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Game {
 
-    public static final String WINNER_PREFIX = "시도할 회수는 몇회인가요?";
+    public static final String WINNER_PREFIX = "최종 우승자 : ";
 
     GameExecutor gameExecutor = new GameExecutor();
 
