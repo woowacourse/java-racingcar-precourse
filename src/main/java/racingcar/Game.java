@@ -10,6 +10,7 @@ public class Game {
 		CarRepository carRepository = new CarRepository();
 		carRepository.createCars(inputCarNames());
 		int numberOfCarMoving = inputNumberOfCarMoving();
+		printBlankLine();
 		for (int i = 0; i < numberOfCarMoving; i++) {
 			carRepository.attemptCarsMoving();
 			printCarsStatus(carRepository);

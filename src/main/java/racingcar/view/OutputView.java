@@ -9,10 +9,14 @@ public class OutputView {
 		for (String carStatusByFormatter: carRepository.getCarsStatusByFormatter()) {
 			System.out.println(carStatusByFormatter);
 		}
-		System.out.println();
+		printBlankLine();
 	}
 
 	public static void printFinalCarWinners(CarRepository carRepository) {
 		System.out.println(FINAL_WINNER_TITLE_MESSAGE + String.join(", ", carRepository.getWinnerCarsName()));
+	}
+
+	public static void printBlankLine() {
+		System.out.println();
 	}
 }
