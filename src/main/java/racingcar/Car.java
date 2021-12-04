@@ -19,6 +19,10 @@ public class Car {
         return position;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void progressOrStop() {
         int randNum = Randoms.pickNumberInRange(RANDOM_RANGE_MIN, RANDOM_RANGE_MAX);
         if (randNum >= 4) {
