@@ -13,6 +13,8 @@ public class Game {
 
 	public static final String COLON = " : ";
 	public static final String HYPHEN = "-";
+	public static final String COMMA_SPACE = ", ";
+	public static final int INDEX_ZERO = 0;
 
 	public static void start(String[] nameList, int trials) {
 		Car[] carList = NamingProcess.StringToArray(nameList);
@@ -73,9 +75,9 @@ public class Game {
 
 	private static String makeResultMessage(List<String> nameList) {
 		StringBuilder builder = new StringBuilder(FINAL_WINNER);
-		builder.append(nameList.get(0));
+		builder.append(nameList.get(INDEX_ZERO));
 		for (int i = 1; i < nameList.size(); i++) {
-			builder.append(", ").append(nameList.get(i));
+			builder.append(COMMA_SPACE).append(nameList.get(i));
 		}
 		return builder.toString();
 	}

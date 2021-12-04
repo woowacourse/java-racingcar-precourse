@@ -4,8 +4,10 @@ import racingcar.domain.Car;
 
 public class NamingProcess {
 
+	public static final String COMMA = ",";
+
 	public static String[] parseString(String inputString) {
-		return inputString.split(",");
+		return inputString.split(COMMA);
 	}
 
 	public static Car[] StringToArray(String[] nameList) {
