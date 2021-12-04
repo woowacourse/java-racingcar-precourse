@@ -34,11 +34,10 @@ public class Cars {
 	}
 
 	private void printWinner(List<Car> winnerList) {
-		if (winnerList.size() == 1) {
-			PrintHandler.printWinner(winnerList.get(0));
-			return;
-		}
-		PrintHandler.printWinners(winnerList);
+		String winnerNames = winnerList.stream()
+			.map(Car::getName)
+			.collect(Collectors.joining(", "));
+		PrintHandler.printWinners(winnerNames);
 	}
 
 	private int calculateWinnerPosition() {

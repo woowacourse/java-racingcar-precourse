@@ -38,16 +38,7 @@ public class PrintHandler {
 		System.out.println(sb);
 	}
 
-	public static void printWinner(Car winner) {
-		System.out.println(WINNER_MSG + winner.getName());
-	}
-
-	public static void printWinners(List<Car> winners) {
-		StringBuilder sb = new StringBuilder(WINNER_MSG);
-		winners.forEach(car -> {
-			sb.append(car.getName()).append(", ");
-		});
-		String result = sb.toString().trim();
-		System.out.println(result.substring(0, sb.length() - 2));
+	public static void printWinners(String winnerNames) {
+		System.out.println(WINNER_MSG + winnerNames);
 	}
 }

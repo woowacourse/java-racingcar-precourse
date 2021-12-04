@@ -25,20 +25,20 @@ class CarsTest {
 
 	@Test
 	void 우승자_1명() throws Exception {
-		Field listField = Cars.class.getDeclaredField("list");
-		listField.setAccessible(true);
-		List<Car> list = (List<Car>)listField.get(cars);
+		Field carsFiled = Cars.class.getDeclaredField("cars");
+		carsFiled.setAccessible(true);
+		List<Car> cars = (List<Car>)carsFiled.get(this.cars);
 		Field positionField = Car.class.getDeclaredField("position");
 		positionField.setAccessible(true);
 
 		// given
-		Car car1 = list.get(0);
-		Car car2 = list.get(1);
+		Car car1 = cars.get(0);
+		Car car2 = cars.get(1);
 		positionField.set(car1, 3);
 		positionField.set(car2, 2);
 
 		// when
-		cars.getWinner();
+		this.cars.getWinner();
 
 		// then
 		assertThat(out.toString().trim()).isEqualTo("최종 우승자 : " + car1.getName());
@@ -46,20 +46,20 @@ class CarsTest {
 
 	@Test
 	void 공동우승() throws Exception {
-		Field listField = Cars.class.getDeclaredField("list");
-		listField.setAccessible(true);
-		List<Car> list = (List<Car>)listField.get(cars);
+		Field carsField = Cars.class.getDeclaredField("cars");
+		carsField.setAccessible(true);
+		List<Car> cars = (List<Car>)carsField.get(this.cars);
 		Field positionField = Car.class.getDeclaredField("position");
 		positionField.setAccessible(true);
 
 		// given
-		Car car1 = list.get(0);
-		Car car2 = list.get(1);
+		Car car1 = cars.get(0);
+		Car car2 = cars.get(1);
 		positionField.set(car1, 2);
 		positionField.set(car2, 2);
 
 		// when
-		cars.getWinner();
+		this.cars.getWinner();
 
 		// then
 		assertThat(out.toString().trim()).isEqualTo("최종 우승자 : " + car1.getName() + ", " + car2.getName());
