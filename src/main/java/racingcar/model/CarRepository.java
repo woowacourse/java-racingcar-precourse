@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -24,20 +26,19 @@ public class CarRepository {
 		}
 	}
 
-	public static ArrayList<String> getWinnerNames() {
-		int maxPosition = 0;
-		for (Car car : cars) {
-			if (car.isMoreAdvancedPosition(maxPosition)) {
-				maxPosition = car.getPosition();
-			}
-		}
-		ArrayList<String> winnerNames = new ArrayList<>();
-		for (Car car : cars) {
-			if (car.isMaxPosition(maxPosition)) {
-				winnerNames.add(car.getName());
-			}
-		}
-		return winnerNames;
+	public static int getMaxPositionOfCars() {
+		return cars.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.getAsInt();
+	}
+
+	public static List<String> getWinnerNames() {
+		int maxPosition = getMaxPositionOfCars();
+		return cars.stream()
+			.filter(car -> car.isMaxPosition(maxPosition))
+			.map(Car::getName)
+			.collect(Collectors.toList());
 	}
 
 }

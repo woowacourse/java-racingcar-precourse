@@ -23,10 +23,6 @@ public class Car {
 		}
 	}
 
-	public boolean isMoreAdvancedPosition(int maxPosition) {
-		return maxPosition < position;
-	}
-
 	public boolean isMaxPosition(int maxPosition) {
 		return maxPosition == position;
 	}
