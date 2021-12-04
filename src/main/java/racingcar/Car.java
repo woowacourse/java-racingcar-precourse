@@ -11,7 +11,7 @@ public class Car {
     // 추가 기능 구현
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPosition() {
@@ -25,8 +25,8 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
+                "name='" + this.name + '\'' +
+                ", position=" + this.position +
                 '}';
     }
 }
