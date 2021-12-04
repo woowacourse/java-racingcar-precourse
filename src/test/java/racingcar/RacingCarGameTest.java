@@ -18,4 +18,17 @@ class RacingCarGameTest {
         assertThrows(IllegalArgumentException.class, () -> cars.get(0).isNameOutOfRange(cars.get(0).getName()));
         assertThrows(IllegalArgumentException.class, () -> cars.get(1).isNameNull(cars.get(1).getName()));
     }
+
+    @Test
+    public void 자동차_전진_시도_횟수() {
+        RacingCarGame racingCarGame = new RacingCarGame();
+
+        assertThrows(IllegalArgumentException.class, () -> racingCarGame.validateTimes(""));
+        assertThrows(IllegalArgumentException.class, () -> racingCarGame.validateTimes("0"));
+        assertThrows(IllegalArgumentException.class, () -> racingCarGame.validateTimes("d"));
+
+        assertDoesNotThrow(() -> racingCarGame.validateTimes("10"));
+        assertDoesNotThrow(() -> racingCarGame.validateTimes("1"));
+        assertDoesNotThrow(() -> racingCarGame.validateTimes("999"));
+    }
 }

@@ -8,10 +8,14 @@ import camp.nextstep.edu.missionutils.Console;
 public class RacingCarGame {
     public static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String INPUT_CAR_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 1자 이상, 5자 이하로 작성해야 합니다.";
+    public static final String INPUT_TIMES_MESSAGE = "시도할 회수는 몇회인가요?";
+    public static final String INPUT_TIMES_ERROR_MESSAGE = "[ERROR] 시도 횟수는 1 이상의 숫자여야 합니다.";
+    public static final int ZERO = 0;
     public ArrayList<Car> cars;
 
     public void start() {
         inputCarName();
+        int times = inputTimes();
     }
 
     public void inputCarName() {
@@ -34,6 +38,35 @@ public class RacingCarGame {
         } catch (IllegalArgumentException e) {
             System.out.println(INPUT_CAR_NAME_ERROR_MESSAGE);
             inputCarName();
+        }
+    }
+
+    public int inputTimes() {
+        while (true) {
+            System.out.println(INPUT_TIMES_MESSAGE);
+            String timesInput = Console.readLine();
+            try {
+                validateTimes(timesInput);
+                return Integer.parseInt(timesInput);
+            } catch (IllegalArgumentException e) {
+                System.out.println(INPUT_TIMES_ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void validateTimes(String timesInput) throws IllegalArgumentException {
+        for (int i = 0; i < timesInput.length(); i++) {
+            if (!Character.isDigit(timesInput.charAt(i))) {
+                throw new IllegalArgumentException();
+            }
+        }
+
+        if (timesInput.length() == ZERO) {
+            throw new IllegalArgumentException();
+        }
+
+        if (Integer.parseInt(timesInput) == ZERO) {
+            throw new IllegalArgumentException();
         }
     }
 }
