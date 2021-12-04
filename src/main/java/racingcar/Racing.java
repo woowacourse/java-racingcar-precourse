@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Racing {
@@ -19,6 +20,9 @@ public class Racing {
 
         System.out.println("시도할 회수는 몇회인가요?");
         Integer repeatTimes = getRepeatTimes();
+
+        System.out.println("실행 결과");
+        race(repeatTimes);
     }
 
     private void enroll(String[] waitingCarNames) {
@@ -67,6 +71,21 @@ public class Racing {
     private void validateRepeatTimes(Integer repeatTimes) {
         if (repeatTimes <= 0) {
             throw new IllegalArgumentException("[ERROR] 1 이상의 수를 입력해야 합니다");
+        }
+    }
+
+    private void race(Integer repeatTimes) {
+        int round = 0;
+        while (round < repeatTimes) {
+            for (Car car : lineup) {
+                car.goOrStop();
+            }
+            for (Car car : lineup) {
+                int position = car.getPosition();
+                System.out.println(car.getName() + " : " + String.join("", Collections.nCopies(position, "-")));
+            }
+            System.out.println();
+            round++;
         }
     }
 }
