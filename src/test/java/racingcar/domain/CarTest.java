@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -17,5 +18,17 @@ class CarTest {
         assertThatExceptionOfType(IllegalArgumentException.class)
             .isThrownBy(() -> new Car(input))
             .withMessage("[ERROR] Car의 이름은 1자 이상 5자 이하만 입력되어야 합니다.");
+    }
+
+    @Test
+    @DisplayName("이름은 null이 들어올 경우 Exception이 발생해야 한다.")
+    void createExeptionByNullNameTest() {
+        // given
+        String input = null;
+
+        // when & then
+        assertThatExceptionOfType(IllegalArgumentException.class)
+            .isThrownBy(() -> new Car(input))
+            .withMessage("[ERROR] Car의 이름은 null이 들어올 수 없습니다.");
     }
 }
