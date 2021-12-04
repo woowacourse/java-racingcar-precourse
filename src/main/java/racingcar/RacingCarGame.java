@@ -35,8 +35,8 @@ public class RacingCarGame  implements Game {
         racingCars.add(car);
     }
 
-    private int getNumberOfTrialFromUser() {
-        return Integer.parseInt(Console.readLine());
+    private String getNumberOfTrialFromUser() {
+        return Console.readLine();
     }
 
     private boolean checkValidTrialNumber(String trial) {
