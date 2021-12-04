@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import com.sun.deploy.net.MessageHeader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +9,10 @@ public class Car {
     private static final int MIN_NUM = 0;
     private static final int MAX_NUM = 9;
     private static final int CAN_MOVE_NUM = 4;
+
     private final String name;
     private int position = 0;
+    public static int maxPosition = 0;
     public static List<Car> carList = new ArrayList<>();
 
     public Car(String name, int position) {
@@ -40,6 +41,23 @@ public class Car {
         if (randomNumber >= CAN_MOVE_NUM) {
             car.move();
         }
+    }
+
+    public static void getWinner() {
+        getMaxPosition();
+        getWinnerList();
+        OutputView.printWinner(getWinnerList());
+    }
+
+
+
+    private static int getMaxPosition() {
+        for (Car car : carList) {
+            if (car.position > maxPosition) {
+                maxPosition = car.position;
+            }
+        }
+        return maxPosition;
     }
 
     // 추가 기능 구현
