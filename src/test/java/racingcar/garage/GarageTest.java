@@ -10,7 +10,8 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GarageTest {
-    private Set<Car> carSet;
+    private final String ROUND_REAULT = "pobi : --\nwoni : \njun : -\n";
+
     private Car pobi;
     private Car woni;
     private Car jun;
@@ -34,4 +35,14 @@ public class GarageTest {
         assertThat(garage.containsCar(Car.from("woowa"))).isFalse();
     }
 
+    @Test
+    void Car_별로_라운드_결과() {
+        Garage garage = Garage.from(Arrays.asList(pobi, woni, jun));
+
+        pobi.move();
+        pobi.move();
+        jun.move();
+
+        assertThat(garage.getRoundResult()).isEqualTo(ROUND_REAULT);
+    }
 }

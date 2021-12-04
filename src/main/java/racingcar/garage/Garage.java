@@ -18,4 +18,13 @@ public class Garage {
     public boolean containsCar(Car car) {
         return carList.contains(car);
     }
+
+    public String getRoundResult() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Car car : carList) {
+            stringBuilder.append(car.whereIsIt() + '\n');
+        }
+
+        return stringBuilder.toString();
+    }
 }
