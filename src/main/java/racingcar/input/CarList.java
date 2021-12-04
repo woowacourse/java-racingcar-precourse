@@ -10,6 +10,11 @@ import racingcar.exception.ErrorMessage;
 
 public class CarList {
 
+	private static final String INPUT_ERROR_MESSAGE_LENGTH = "각 자동차의 이름은 다섯글자 이하여야 합니다.";
+	private static final String INPUT_ERROR_MESSAGE_EMPTY = "자동차 이름을 하나 이상 입력해야 합니다.";
+	private static final String INPUT_ERROR_MESSAGE_DUPLICATE = "자동차 이름이 중복되지 않아야 합니다.";
+	private static final String INPUT_ERROR_MESSAGE_SPACE = "자동차 이름에 공백이 포함되지 않아야 합니다.";
+
 	private static final List<Car> cars = new ArrayList<>();
 	private static List<String> carNames = new ArrayList<>();
 
@@ -48,28 +53,28 @@ public class CarList {
 
 	private static void isEmptyInput(List<String> carNames) {
 		if (carNames.size() == 1 && carNames.get(0).isEmpty()) {
-			throw new IllegalArgumentException("자동차 이름을 하나 이상 입력해야 합니다.");
+			throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_EMPTY);
 		}
 	}
 
 	private static void isLengthSixOrMore(List<String> carNames) {
 		for (String name : carNames) {
 			if (name.length() > 5) {
-				throw new IllegalArgumentException("각 자동차의 이름은 다섯글자 이하여야 한다.");
+				throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_LENGTH);
 			}
 		}
 	}
 
 	private static void isNameDuplicate(List<String> carNames) {
 		if (carNames.size() != carNames.stream().distinct().count()) {
-			throw new IllegalArgumentException("자동차 이름이 중복됩니다. 구별 가능한 이름으로 다시 입력해주세요.");
+			throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_DUPLICATE);
 		}
 	}
 
 	private static void ContainSpaceOnName(List<String> carNames) {
 		for (String name : carNames) {
 			if (name.contains(" ")) {
-				throw new IllegalArgumentException("자동차 이름에 공백이 포함되지 않도록 다시 입력해주세요.");
+				throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_SPACE);
 			}
 		}
 	}
