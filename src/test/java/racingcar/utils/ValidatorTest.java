@@ -28,11 +28,17 @@ class ValidatorTest {
 	}
 
 	@Test
-	void 숫자_예외_검사() {
+	void 숫자_검사() {
 		// given
 		String notNumber = "notNumber";
+		String zero = "0";
+		String rightNumber = "10";
 
 		// when, then
-		assertThrows(IllegalArgumentException.class, () -> validateNumberInput(notNumber));
+		assertAll(
+			() -> assertThrows(IllegalArgumentException.class, () -> validateNumberInput(notNumber)),
+			() -> assertThrows(IllegalArgumentException.class, () -> validateNumberInput(zero)),
+			() -> validateNumberInput(rightNumber)
+		);
 	}
 }
