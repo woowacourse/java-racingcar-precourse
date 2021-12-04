@@ -6,13 +6,10 @@ import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Condition;
+import racingcar.constant.Input;
 import racingcar.view.OutputView;
 
 public class RacingCarGame {
-    private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String INPUT_CAR_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 1자 이상, 5자 이하로 작성해야 합니다.";
-    private static final String INPUT_TIMES_MESSAGE = "시도할 회수는 몇회인가요?";
-    private static final String INPUT_TIMES_ERROR_MESSAGE = "[ERROR] 시도 횟수는 1 이상의 숫자여야 합니다.";
     private ArrayList<Car> cars;
 
     public void start() {
@@ -28,7 +25,7 @@ public class RacingCarGame {
     }
 
     public void inputCarName() {
-        System.out.println(INPUT_CAR_NAME_MESSAGE);
+        System.out.println(Input.CAR_NAME_MESSAGE);
         String input = Console.readLine();
         String[] carNames = input.split(",");
 
@@ -45,20 +42,20 @@ public class RacingCarGame {
                 car.isNameOutOfRange(car.getName());
             }
         } catch (IllegalArgumentException e) {
-            System.out.println(INPUT_CAR_NAME_ERROR_MESSAGE);
+            System.out.println(Input.CAR_NAME_ERROR_MESSAGE);
             inputCarName();
         }
     }
 
     public int inputTimes() {
         while (true) {
-            System.out.println(INPUT_TIMES_MESSAGE);
+            System.out.println(Input.TIMES_MESSAGE);
             String timesInput = Console.readLine();
             try {
                 validateTimes(timesInput);
                 return Integer.parseInt(timesInput);
             } catch (IllegalArgumentException e) {
-                System.out.println(INPUT_TIMES_ERROR_MESSAGE);
+                System.out.println(Input.TIMES_ERROR_MESSAGE);
             }
         }
     }
