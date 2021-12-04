@@ -55,6 +55,6 @@ class OutputViewTest {
 		OutputView.printRacingRecord(racingRecord);
 
 		// then
-		assertThat(output.toString()).contains(DASH);
+		assertThat(output.toString()).contains("hoon : -", "wish : -");
 	}
 }
