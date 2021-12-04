@@ -19,4 +19,12 @@ public class Exception {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void isRightLength(String[] allCarName) {
+        for (String name : allCarName) {
+            if (name.length() < 1 || name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 }
