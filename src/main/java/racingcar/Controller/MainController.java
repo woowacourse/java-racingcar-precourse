@@ -24,6 +24,7 @@ public class MainController {
     }
 
     private void play() {
+        OutputView.printStartExecutionResult();
         for (int i = 0; i < racingCarGame.getInput().getAttempt(); i++) {
             gameController.play(racingCarGame.getCars());
         }

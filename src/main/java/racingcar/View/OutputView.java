@@ -7,6 +7,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class OutputView {
+    public static void printStartExecutionResult() {
+        System.out.println(Constant.EXECUTION_RESULT);
+    }
+
     public static void printExecutionResult(List<Car> cars) {
         StringBuilder execution_result = new StringBuilder();
         for (Car car : cars) {
