@@ -6,6 +6,7 @@ import static racingcar.Messages.DUPLICATED_NAME_ERROR_MESSAGE;
 import static racingcar.Messages.NAME_AMOUNT_ERROR_MESSAGE;
 import static racingcar.Messages.NAME_DIGIT_ERROR_MESSAGE;
 import static racingcar.Messages.ROUND_INPUT_ERROR_MESSAGE;
+import static racingcar.Messages.ROUND_INPUT_ZERO_ERROR_MESSAGE;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,33 +28,33 @@ public class Validator {
     public void validateRoundNumber(String roundNumber) throws IllegalArgumentException {
         checkContainBlank(roundNumber);
         checkNumberFormat(roundNumber);
+        checkNumberZero(roundNumber);
     }
 
     private void checkNumberFormat(String roundNumber) {
         for (int i = 0; i < roundNumber.length(); i++) {
             if (!Character.isDigit(roundNumber.charAt(i))) {
-                throw new IllegalArgumentException(
-                        ROUND_INPUT_ERROR_MESSAGE.getMessage()
-                );
+                throw new IllegalArgumentException(ROUND_INPUT_ERROR_MESSAGE.getMessage());
             }
         }
+    }
 
+    private void checkNumberZero(String roundNumber) {
+        if (Integer.parseInt(roundNumber) == 0) {
+            throw new IllegalArgumentException(ROUND_INPUT_ZERO_ERROR_MESSAGE.getMessage());
+        }
     }
 
     private void checkStartOrEndWithComma(String carNames) {
         if (carNames.startsWith(COMMA) || carNames.endsWith(COMMA)) {
-            throw new IllegalArgumentException(
-                    COMMA_LOCATION_ERROR_MESSAGE.getMessage()
-            );
+            throw new IllegalArgumentException(COMMA_LOCATION_ERROR_MESSAGE.getMessage());
         }
     }
 
     private void checkCarNameAmount(String carNames) {
         int amount = carNames.split(COMMA).length;
         if (amount < MINIMUM_NAME_AMOUNT) {
-            throw new IllegalArgumentException(
-                    NAME_AMOUNT_ERROR_MESSAGE.getMessage()
-            );
+            throw new IllegalArgumentException(NAME_AMOUNT_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -61,9 +62,7 @@ public class Validator {
         String[] names = carNames.split(COMMA);
         for (String name : names) {
             if (name.length() > MAXIMUM_NAME_DIGIT) {
-                throw new IllegalArgumentException(
-                        NAME_DIGIT_ERROR_MESSAGE.getMessage()
-                );
+                throw new IllegalArgumentException(NAME_DIGIT_ERROR_MESSAGE.getMessage());
             }
         }
     }
@@ -72,17 +71,13 @@ public class Validator {
         List<String> names = Arrays.asList(carNames.split(COMMA));
         int removedSize = (int) names.stream().distinct().count();
         if (names.size() != removedSize) {
-            throw new IllegalArgumentException(
-                    DUPLICATED_NAME_ERROR_MESSAGE.getMessage()
-            );
+            throw new IllegalArgumentException(DUPLICATED_NAME_ERROR_MESSAGE.getMessage());
         }
     }
 
     private void checkContainBlank(String carNames) {
         if (carNames.contains(" ")) {
-            throw new IllegalArgumentException(
-                    CONTAINS_BLANK_ERROR_MESSAGE.getMessage()
-            );
+            throw new IllegalArgumentException(CONTAINS_BLANK_ERROR_MESSAGE.getMessage());
         }
     }
 
