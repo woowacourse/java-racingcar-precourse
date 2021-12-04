@@ -10,7 +10,7 @@ public class Car {
 		this.name = name;
 	}
 
-	public boolean canMove() {
+	private boolean canMove() {
 		if (pickNumberInRange(0, 9) >= 4) {
 			return true;
 		}
