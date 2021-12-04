@@ -45,8 +45,7 @@ public class Controller {
 
 	private void saveCars(List<String> carNames) {
 		for (String carName : carNames) {
-			Car car = new Car(carName);
-			carRepository.save(car);
+			carRepository.save(new Car(carName));
 		}
 	}
 
