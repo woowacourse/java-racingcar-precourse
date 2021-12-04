@@ -2,14 +2,16 @@
 
 ### Car
 
-- [ERROR] 자동차의 이름은 5자 이하가 아닐 경우 `IllegalArgumentException`이 발생해야 한다.
+- [ERROR] 자동차의 이름은 1자 이상 5자 이하가 아닐 경우 `IllegalArgumentException`이 발생해야 한다.
+- [ERROR] 자동차의 이름은 공백이 존재할 경우 `IllegalArgumentException`이 발생해야 한다.
+- [ERROR] 자동차 이름은 null이 들어올 경우 `IllegalArgumentException`이 발생해야 한다.
 - 자동차는 무작위로 주어진 수가 일정 기준 이상일 경우 전진할 수 있다.
 - 자동차는 무작위로 주어진 수가 일정 기준 미만일 경우 멈추어있다.
 - [ERROR] 자동차는 무작위로 주어진 수가 원하는 범위의 값이 아닐 경우 `IllegalArgumentException`이 발생해야 한다.
 
 ### Game
 
-- [ERROR\] 게임의 시도할 횟수가 0 미만이거나 숫자가 아닌 경우 `IllegalArgumentException`이 발생해야 한다.
+- [ERROR] 게임의 시도할 횟수가 0 미만이거나 숫자가 아닌 경우 `IllegalArgumentException`이 발생해야 한다.
 - 자동차 경주가 완주된 후 게임 결과에서 우승자를 확인할 수 있다.
 - 게임 우승자가 여러명일 경우 쉼표(,)를 구분자로 반환해야 한다.
 
