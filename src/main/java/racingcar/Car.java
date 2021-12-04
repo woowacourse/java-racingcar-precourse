@@ -9,8 +9,8 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public static Car from(String pobi) {
-        return new Car("pobi");
+    public static Car from(String name) {
+        return new Car(name);
     }
 
     public String getName() {
