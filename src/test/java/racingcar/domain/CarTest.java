@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import org.junit.jupiter.api.DisplayName;
@@ -40,5 +41,31 @@ class CarTest {
         assertThatExceptionOfType(IllegalArgumentException.class)
             .isThrownBy(() -> new Car(input))
             .withMessage("[ERROR] Car의 이름은 공백이 포함될 수 없습니다.");
+    }
+
+    @Test
+    @DisplayName("Car는 4이상의 값이 들어올 경우 한칸 이동한다.")
+    void moveTrueTest() {
+        // given
+        Car car = new Car("pobi");
+
+        // when
+        int result = car.move();
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("Car는 4미만의 값이 들어올 경우 그대로 멈춰있는다.")
+    void moveNothingTest() {
+        // given
+        Car car = new Car("pobi");
+
+        // when
+        int result = car.move();
+
+        // then
+        assertThat(result).isEqualTo(0);
     }
 }
