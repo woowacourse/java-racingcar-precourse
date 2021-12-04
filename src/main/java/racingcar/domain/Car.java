@@ -13,7 +13,7 @@ public class Car {
     }
 
     private static void checkNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > 5 || name.length() == 0) {
             throw new CarNameLengthException();
         }
     }
