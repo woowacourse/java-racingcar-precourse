@@ -18,6 +18,7 @@ public class RaceStadium {
 		trial = InputView.getInputTrial();
 		racing();
 		List<String> winnerNames = Winner.decision(cars);
+		OutputView.printWinner(winnerNames);
 	}
 
 	private void racing() {
@@ -27,7 +28,8 @@ public class RaceStadium {
 			OutputView.printRacingCurrentSituation(cars);
 		}
 	}
-	private void moveTry(){
+
+	private void moveTry() {
 		for (Car participant : cars.getCars()) {
 			participant.moveOrStop();
 		}

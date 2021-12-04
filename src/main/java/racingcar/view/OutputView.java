@@ -9,6 +9,7 @@ public class OutputView {
 	private static final String TRIAL_RESULT = "실행 결과";
 	private static final String CAR_POSITION_PARTITION_FORMAT = " : ";
 	private static final String POSITION_INDICATOR = "-";
+	private static final String WINNER_ANNOUNCEMENT = "최종 우승자 : ";
 
 	public static void printGameStartMessage() {
 		System.out.println(TRIAL_RESULT);
@@ -31,4 +32,12 @@ public class OutputView {
 		}
 		return sb.toString();
 	}
+
+	public static void printWinner(List<String> winnerList) {
+		System.out.print(WINNER_ANNOUNCEMENT);
+		String winner = String.join(", ", winnerList);
+
+		System.out.println(winner);
+	}
+
 }
