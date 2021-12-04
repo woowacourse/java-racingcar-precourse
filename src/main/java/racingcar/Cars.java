@@ -9,6 +9,7 @@ public class Cars {
 	private List<Car> cars;
 
 	public Cars(List<Car> cars) {
+		Validator.validateDuplicateCars(cars);
 		this.cars = cars;
 	}
 

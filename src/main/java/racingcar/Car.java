@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Objects;
+
 public class Car {
 	private final String name;
 	private int position = 0;
@@ -31,5 +33,20 @@ public class Car {
 			stringBuilder.append(Constant.CAR_PROGRESS_SIGN);
 		}
 		return stringBuilder.toString();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null || getClass() != obj.getClass())
+			return false;
+		Car car = (Car)obj;
+		return Objects.equals(name, car.name);
+	}
+
+	@Override
+	public int hashCode() {
+		return 0;
 	}
 }

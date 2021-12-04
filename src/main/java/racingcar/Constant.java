@@ -18,5 +18,5 @@ public class Constant {
 	public static String NAME_MINIMUN_LENGTH_UNDER_ERROR_MESSAGE = "[ERROR] 자동차 이름은 최소 "+ NAME_MIINUM_LENGTH +"글자여야 한다.\n";
 	public static String MINIMUM_GAME_ROUND_UNDER_ERROR_MESSAGE = "[ERROR] 게임 횟수는 최소 " + MINIMUM_GAME_ROUND + "회여야 한다.\n";
 	public static String GAME_ROUND_TYPE_ERROR_MESSAGE = "[ERROR] 게임 횟수는 숫자를 입력해야 한다.\n";
-
+	public static String CAR_NAME_DUPLICATE_ERROR_MESSAGE = "[ERROR] 차 이름은 중복되게 입력해서는 안 된다.\n";
 }
