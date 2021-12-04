@@ -3,8 +3,7 @@ package racingcar;
 import java.util.List;
 
 import racingcar.domain.Car;
-import racingcar.input.CarList;
-import racingcar.input.Trial;
+import racingcar.input.InputController;
 
 public class Application {
 
@@ -14,17 +13,17 @@ public class Application {
 	public static void main(String[] args) {
 		// TODO 구현 진행
 		setInputData();
-		gameStart();
+		playGame();
 	}
 
-	private static void gameStart() {
+	private static void playGame() {
 		System.out.println("실행 결과");
 		while (--trial >= 0) {
-			gameLoop();
+			iteratePerCar();
 		}
 	}
 
-	private static void gameLoop() {
+	private static void iteratePerCar() {
 		for (Car car : cars) {
 			car.moveOrStop();
 			car.printPosition();
@@ -33,17 +32,7 @@ public class Application {
 	}
 
 	private static void setInputData() {
-		cars = getCarNameInput();
-		trial = getTrialInput();
-	}
-
-	private static int getTrialInput() {
-		System.out.println("시도 횟수를 입력하세요.");
-		return Trial.input();
-	}
-
-	private static List<Car> getCarNameInput() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		return CarList.input();
+		cars = InputController.getCarNameInput();
+		trial = InputController.getTrialInput();
 	}
 }

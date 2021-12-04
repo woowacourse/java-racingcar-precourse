@@ -22,11 +22,11 @@ public class Car {
 
 	public void printPosition() {
 
-		StringBuilder stringBuilder = new StringBuilder();
+		StringBuilder road = new StringBuilder();
 		for (int i = 0; i < position; i++) {
-			stringBuilder.append("-");
+			road.append("-");
 		}
-		System.out.println(name + " = " + stringBuilder.toString());
+		System.out.println(name + " = " + road);
 	}
 
 	public void moveOrStop() {
