@@ -24,4 +24,10 @@ public class Cars {
     private Car createCar(String name) {
         return new Car(name);
     }
+
+    public void play(RepetitionNumber distance) {
+        for (Car car : cars) {
+            car.drive(distance.getRepetitionNumber());
+        }
+    }
 }
