@@ -19,4 +19,17 @@ class CarTest {
 		// then
 		assertEquals(car.getPosition(), 1);
 	}
+
+	@ParameterizedTest
+	@ValueSource(ints = {3, 1})
+	void 값이_3이하인_경우_정지기능(int value) {
+		// given
+		Car car = new Car("qwer");
+
+		// when
+		car.drive(value);
+
+		// then
+		assertEquals(car.getPosition(), 0);
+	}
 }
