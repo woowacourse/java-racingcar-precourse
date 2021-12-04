@@ -9,14 +9,17 @@ public class InputException {
 	private static final String CAR_BLANK_INPUT_ERROR = "[ERROR] 자동차 이름에 공백은 사용이 불가능합니다.";
 	private static final String CAR_NAME_SIZE = "[ERROR] 자동차 이름은 1자이상 5자이하만 가능합니다.";
 	private static final String CAR_DUPLICATE_NAME = "[ERROR] 자동차 이름은 중복이 불가능합니다.";
+	private static final String MIN_CAR_RACE_PARTICIPANT = "[ERROR] 자동차경주는 2명이상부터 가능합니다.";
 	private static final int MIN_CAR_NAME_SIZE = 1;
 	private static final int MAX_CAR_NAME_SIZE = 5;
+	private static final int MIN_PARTICIPATE_NUMBER = 2;
 
 	public static String[] isValidCarNames(String inputCarNames) {
 
 		haveLastNameComma(inputCarNames);
 		String[] carNames = inputCarNames.split(",");
-		if (!haveBlankCarName(carNames) && isValidCarNameSize(carNames) && !haveDuplicateName(carNames)) {
+		if (!haveBlankCarName(carNames) && isValidCarNameSize(carNames) && !haveDuplicateName(carNames)
+			&& participantMoreThanOne(carNames)) {
 			return carNames;
 		}
 		throw new IllegalArgumentException();
@@ -54,4 +57,10 @@ public class InputException {
 		return false;
 	}
 
+	private static boolean participantMoreThanOne(String[] cars) {
+		if (cars.length < MIN_PARTICIPATE_NUMBER) {
+			throw new IllegalArgumentException(MIN_CAR_RACE_PARTICIPANT);
+		}
+		return true;
+	}
 }
