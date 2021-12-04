@@ -11,7 +11,8 @@ gamesource
  - RacingGame.java
 
 utils
- - InputCheck.java
+ - NamesInputCheck.java
+ - RoundNumberInputCheck.java
  
 constants
  - ConstMessage.java
@@ -76,21 +77,42 @@ constants
 - ConstValue static final class 구현
 - 코드의 값들을 상수 값으로 변경
 
-### 6. InputCheck class 예외 처리 구현
-**사용자의 입력을 확인하여 예외처리를 한다.**
+### 6. NamesInputCheck class 구현
+**이름 입력을 확인과 예외처리를 한다.**
 
-- checkNamesInput() 함수 구현
-  - 자동차의 이름 입력을 확인
-  - 잘못된 입력은 예외 발생, 에러 메시지
+- void checkNamesLength(List<String> names)
+  - parsing된 이름의 길이를 확인
+  - 특정 길이(5) 초과시 IllegalArgumentException 예외 발생 
+
+- boolean checkIsPossibleNames(List<String> names)
+  - checkNamesLength()을 호출해 예외 처리
+  - 이름의 길이가 모두 5이하일 때만 true 반환
+  
+- List<String> getRightNamesInput()
+  - 입력 확인을 통해 올바른 경우에만 이름 List 반환
+  
 - checkRoundNumberInput() 함수 구현
   - 이동 횟수 입력을 확인
   - 잘못된 입력은 예외 발생, 에러 메시지
 
-### 7. RacingGame.playStart()
+### 7. RoundNumberInputCheck class 구현
+
+- int getRightRoundNumberInput()
+  - 입력 확인을 통해 올바른 숫자인 경우에만 반환
+
+- void StringToInt(String input)
+  - Integer.parseInt()로 변환
+  - NumberFormatException 예외 발생시 처리 후 IllegalArgumentException 발생 시킴
+
+- boolean checkIsPossibleNumber(String input)
+  - 입력이 숫자로 정상적으로 변환 되면 true 반환
+  - 정상 변환이 안된다면 예외 처리
+
+### 8. RacingGame.playStart()
 
 - InputCheck class의 함수를 사용해 입력 확인
 
-### 8. Application 구현
+### 9. Application 구현
  **최종적으로 Application 구현**
 
 <br>
