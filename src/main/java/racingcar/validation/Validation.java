@@ -9,7 +9,29 @@ public class Validation {
     private static final String BY = ",";
     private static final int ZERO = 0;
 
-    public static void isCommaOrAlphabet(String target) {
+    public static String inputCarNames(String input) {
+        isNull(input);
+        isCommaOrAlphabet(input);
+        isProperLength(input);
+        hasDuplicatedName(input);
+
+        return input;
+    }
+
+    public static int inputRoundCount(String input) {
+        isNull(input);
+        isNumber(input);
+        isZero(input);
+
+        return Integer.parseInt(input);
+    }
+
+    private static void isNull(String input) {
+        if(input.isEmpty())
+            throw new IllegalArgumentException(IS_NULL.getDetail());
+    }
+
+    private static void isCommaOrAlphabet(String target) {
         for(char c : target.toCharArray()) {
             validateChar(c);
         }
@@ -20,7 +42,7 @@ public class Validation {
             throw new IllegalArgumentException(NOT_ALLOW_CHAR.getDetail());
     }
 
-    public static void isProperLength(String target) {
+    private static void isProperLength(String target) {
         for(String eachName : target.split(BY)) {
             validateLength(eachName);
         }
@@ -31,7 +53,7 @@ public class Validation {
             throw new IllegalArgumentException(NOT_ALLOW_LENGTH.getDetail());
     }
 
-    public static void hasDuplicatedName(String target) {
+    private static void hasDuplicatedName(String target) {
         Set<String> nameSet = new HashSet<>();
 
         for(String eachName : target.split(BY)) {
@@ -45,7 +67,7 @@ public class Validation {
             throw new IllegalArgumentException(IS_DUPLICATED.getDetail());
     }
 
-    public static void isNumber(String target) {
+    private static void isNumber(String target) {
         for(char each : target.toCharArray()) {
             validateNumber(each);
         }
@@ -56,7 +78,7 @@ public class Validation {
             throw new IllegalArgumentException(FOUND_NOT_NUMBER.getDetail());
     }
 
-    public static void isZero(String target) {
+    private static void isZero(String target) {
         if(Integer.parseInt(target) == ZERO)
             throw new IllegalArgumentException(FOUNR_ZERO_ONLY.getDetail());
     }

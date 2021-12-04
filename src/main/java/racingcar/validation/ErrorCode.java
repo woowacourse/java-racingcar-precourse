@@ -1,6 +1,9 @@
 package racingcar.validation;
 
 public enum ErrorCode {
+    // common
+    IS_NULL("[ERROR] 널 값이 입력되었습니다."),
+
     // for car name input
     NOT_ALLOW_CHAR("[ERROR] 허용하지 않은 문자가 포함된 입력값입니다."),
     NOT_ALLOW_LENGTH("[ERROR] 입력값의 길이가 올바르지 못합니다."),
