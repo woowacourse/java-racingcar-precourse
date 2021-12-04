@@ -19,6 +19,19 @@ public class InputHandler {
 		return results;
 	}
 
+	public int readCount() {
+		String input = Console.readLine();
+		try {
+			return parseCount(input);
+		} catch (NumberFormatException nfe) {
+			throw new IllegalArgumentException(input, nfe);
+		}
+	}
+
+	private int parseCount(String count) {
+		return Integer.parseInt(count);
+	}
+
 	private String[] parseRacingCarNames(String carNames) {
 		return carNames.split(",");
 	}
