@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class InputException {
-	private static final String CAR_LAST_NAME_IS_COMMA = "[ERROR] 마지막 자동차 이름을 입력하지 않았습니다.";
+	private static final String LAST_INPUT_IS_COMMA = "[ERROR] 마지막 자동차 이름을 입력하지 않았습니다.";
 	private static final String CAR_BLANK_INPUT_ERROR = "[ERROR] 자동차 이름에 공백은 사용이 불가능합니다.";
 	private static final String CAR_NAME_SIZE = "[ERROR] 자동차 이름은 1자이상 5자이하만 가능합니다.";
 	private static final String CAR_DUPLICATE_NAME = "[ERROR] 자동차 이름은 중복이 불가능합니다.";
@@ -24,15 +24,14 @@ public class InputException {
 
 	private static void haveLastNameComma(String carNames) {
 		if (',' == carNames.charAt(carNames.length() - 1)) {
-			throw new IllegalArgumentException(CAR_LAST_NAME_IS_COMMA);
+			throw new IllegalArgumentException(LAST_INPUT_IS_COMMA);
 		}
 	}
 
 	private static boolean haveBlankCarName(String[] carNames) {
 		for (String carName : carNames) {
 			if (carName.contains(" ")) {
-				System.out.println(CAR_BLANK_INPUT_ERROR);
-				return true;
+				throw new IllegalArgumentException(CAR_BLANK_INPUT_ERROR);
 			}
 		}
 		return false;
@@ -41,8 +40,7 @@ public class InputException {
 	private static boolean isValidCarNameSize(String[] carNames) {
 		for (String carName : carNames) {
 			if (carName.length() < MIN_CAR_NAME_SIZE || carName.length() > MAX_CAR_NAME_SIZE) {
-				System.out.println(CAR_NAME_SIZE);
-				return false;
+				throw new IllegalArgumentException(CAR_NAME_SIZE);
 			}
 		}
 		return true;
