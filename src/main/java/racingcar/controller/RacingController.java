@@ -8,7 +8,7 @@ public class RacingController {
 	private RacingService racingService = new RacingService();
 	private InputService inputService = new InputService();
 
-	private static final String RESULT = "실행결과";
+	private static final String RESULT = "\n실행결과";
 
 	public void start() {
 		String[] names = inputService.readCarNames();
@@ -16,7 +16,6 @@ public class RacingController {
 
 		int attempt = inputService.readAttemptNumber();
 
-		System.out.println();
 		System.out.println(RESULT);
 
 		for (int i = 0; i < attempt; i++) {

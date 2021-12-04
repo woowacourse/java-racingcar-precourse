@@ -8,6 +8,8 @@ import racingcar.domain.Car;
 
 public class CarRepository {
 
+	private static final int FIRST = 0;
+
 	private static final List<Car> carRepository = new ArrayList<>();
 
 	public void save(Car car) {
@@ -23,6 +25,6 @@ public class CarRepository {
 	}
 
 	public int findFirstCarPosition() {
-		return carRepository.get(0).getPosition();
+		return carRepository.get(FIRST).getPosition();
 	}
 }
