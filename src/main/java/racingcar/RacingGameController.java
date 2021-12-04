@@ -16,11 +16,7 @@ class RacingGameController {
 	}
 
 	public void startGame() {
-		carList =
-			racingGameView.getCarNames()
-				.stream()
-				.map(Car::new)
-				.collect(Collectors.toList());
+		takeCarList();
 		repetitionNumber = racingGameView.getRepetitionNumber();
 		racingGameView.printMovementStart();
 		for (int i = 0; i < repetitionNumber; i++) {
@@ -29,6 +25,14 @@ class RacingGameController {
 		}
 		winners = getWinners();
 		racingGameView.printWinners(winners);
+	}
+
+	private void takeCarList() {
+		carList =
+			racingGameView.getCarNames()
+				.stream()
+				.map(Car::new)
+				.collect(Collectors.toList());
 	}
 
 	private List<String> getWinners() {
