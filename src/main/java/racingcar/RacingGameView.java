@@ -9,7 +9,7 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
 class RacingGameView {
-	private static RacingGameView racingGameView = new RacingGameView();
+	private static final RacingGameView racingGameView = new RacingGameView();
 
 	private RacingGameView() {
 	}
