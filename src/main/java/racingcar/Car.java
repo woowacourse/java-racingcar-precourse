@@ -16,7 +16,7 @@ public class Car {
     }
 
     public void updatePosition() {
-
+        position++;
     }
 
     private String indicatePosition() {
