@@ -8,10 +8,13 @@ import java.util.stream.Collectors;
 
 import model.attempt.LeftAttemptCount;
 import model.car.Cars;
+import model.movement.RandomMovement;
 import view.InputView;
+import view.OutputView;
 
 public class RacingController {
     private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
     private Cars cars;
     private LeftAttemptCount leftAttemptCount;
 
@@ -46,5 +49,19 @@ public class RacingController {
                 inputView.printErrorMessage(exception.getMessage());
             }
         }
+    }
+    public void run() {
+        RandomMovement randomMovement = new RandomMovement();
+        outputView.printOperationResultLetters();
+        while (leftAttemptCount.isNotZero()) {
+            attemptOnce(randomMovement);
+            leftAttemptCount.decrease();
+        }
+        outputView.showWinners(cars.getWinners());
+    }
+
+    public void attemptOnce(final RandomMovement randomMovement) {
+        cars.race(randomMovement);
+        outputView.showAttemptResult(cars.getAttemptResult());
     }
 }
