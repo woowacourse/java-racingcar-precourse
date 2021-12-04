@@ -3,24 +3,20 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
 	public void play() {
 		Cars cars = new Cars(constructCar(parsingCarNames(InputView.inputCarNames())));
-		Referee referee = new Referee();
-		List<Car> carList = cars.getCars();
+		Referee referee = new Referee(cars);
 		int gameRound = castingGameRound(InputView.inputGameRound());
 		OutputView.showGameResultMessage();
 		for (int i = 0; i < gameRound; i++) {
 			cars.playRound();
 			OutputView.showGameRoundResult(cars.showCarsPosition());
 		}
-		Collections.sort(carList, new Referee());
-		OutputView.showWinner(referee.selectWinners(carList));
+		Collections.sort(cars.getCars(), new Referee(cars));
+		OutputView.showWinner(referee.selectWinners());
 	}
 
 	public List<String> parsingCarNames(String noParsingCarNames) {
