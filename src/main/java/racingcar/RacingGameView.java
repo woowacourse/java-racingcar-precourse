@@ -23,7 +23,7 @@ class RacingGameView {
 		do {
 			System.out.println(CAR_NAME_INPUT_MESSAGE);
 			carNamesList = new ArrayList<>(Arrays.asList(Console.readLine().split(",")));
-		} while (!checkLongNameException(carNamesList));
+		} while (checkNameExceptions(carNamesList));
 		return carNamesList;
 	}
 
@@ -51,10 +51,26 @@ class RacingGameView {
 		System.out.println(FINAL_RESULT_MESSAGE + String.join(", ", winners));
 	}
 
+	private boolean checkNameExceptions(List<String> carNamesList) {
+		return !checkLongNameException(carNamesList) || checkBlankNameException(carNamesList);
+	}
+
 	private boolean checkLongNameException(List<String> carNamesList) {
 		try {
 			if (carNamesList.stream().anyMatch(carName -> carName.length() > MAXIMUM_NAME_LENGTH)) {
-				System.out.println(CAR_NAME_INPUT_ERROR_MESSAGE);
+				System.out.println(LONG_CAR_NAME_INPUT_ERROR_MESSAGE);
+				throw new IllegalArgumentException();
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
+	private boolean checkBlankNameException(List<String> carNamesList) {
+		try {
+			if (carNamesList.stream().anyMatch(carName -> carName.length() == 0)) {
+				System.out.println(BLANK_CAR_NAME_INPUT_ERROR_MESSAGE);
 				throw new IllegalArgumentException();
 			}
 		} catch (Exception e) {
