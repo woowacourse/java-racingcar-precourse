@@ -33,17 +33,15 @@ public class RacingService {
 	}
 
 	public void showRaceProgress() {
-		List<Car> cars = carRepository.findAll();
-
-		for (Car car : cars) {
-			System.out.print(car.getName() + " : ");
-			printProgressLine(car.getPosition());
-		}
+		carRepository.findAll()
+			.stream()
+			.forEach(c -> printProgressLine(c));
 		System.out.println();
 	}
 
-	private void printProgressLine(int position) {
-		for (int i = 1; i <= position; i++) {
+	private void printProgressLine(Car car) {
+		System.out.print(car.getName() + " : ");
+		for (int i = 1; i <= car.getPosition(); i++) {
 			System.out.print("-");
 		}
 		System.out.println();
