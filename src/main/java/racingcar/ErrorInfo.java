@@ -1,0 +1,15 @@
+package racingcar;
+
+public enum ErrorInfo {
+	LENGTH("[ERROR] 이름은 5글자를 넘길 수 없습니다.");
+
+	private final String message;
+
+	ErrorInfo(String message) {
+		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+}

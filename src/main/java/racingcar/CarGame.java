@@ -9,8 +9,12 @@ public class CarGame implements Runnable {
 
 	@Override
 	public void run() {
-		Arrays.stream(splitComma(trim(inputCarNames())))
-			.forEach(name -> Cars.addCar(new Car(name)));
+		try {
+			Arrays.stream(splitComma(trim(inputCarNames())))
+				.forEach(name -> Cars.addCar(new Car(name)));
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+		}
 	}
 
 	private String[] splitComma(String carNames) {
