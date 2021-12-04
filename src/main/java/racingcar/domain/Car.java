@@ -43,4 +43,8 @@ public class Car {
 	public String toString() {
 		return name + " : " + repeatWord("-", position);
 	}
+
+	public String getName() {
+		return name;
+	}
 }

@@ -22,12 +22,13 @@ public class Game {
 		setGame();
 		repeatGame(user.replyMoveCount());
 		setWinner();
+		printWinner();
 	}
 
 	private void setWinner() {
 		int winnerPosition = WINNER_MIN;
-		for (Car car:
-			 participant) {
+		for (Car car :
+			participant) {
 			if (car.getPosition() > winnerPosition) {
 				winner = new LinkedList<>();
 				winner.add(car);
@@ -39,7 +40,13 @@ public class Game {
 	}
 
 	private void printWinner() {
-
+		System.out.print(GAME_WINNER);
+		for (int current = 0; current < winner.size(); current++) {
+			System.out.print(winner.get(current).getName());
+			if (current != winner.size() - 1) {
+				System.out.print(", ");
+			}
+		}
 	}
 
 	private void setGame() {
@@ -63,14 +70,14 @@ public class Game {
 	}
 
 	private void proceedGame() {
-		for (Car car:
-			 participant) {
+		for (Car car :
+			participant) {
 			car.move();
 		}
 	}
 
 	private void printParticipant() {
-		for (Car car:
+		for (Car car :
 			participant) {
 			System.out.println(car.toString());
 		}

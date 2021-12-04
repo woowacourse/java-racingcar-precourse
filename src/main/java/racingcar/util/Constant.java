@@ -12,4 +12,5 @@ public class Constant {
 	public static final String ERROR_PREFIX = "[ERROR]";
 
 	public static final String GAME_RESULT = "실행 결과";
+	public static final String GAME_WINNER = "최종 우승자 : ";
 }
