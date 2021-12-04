@@ -13,7 +13,6 @@ public class Trial {
 				String stringInput = Console.readLine();
 				return getValidInput(stringInput);
 			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
 				ErrorMessage.print(e.getMessage());
 			}
 		}
