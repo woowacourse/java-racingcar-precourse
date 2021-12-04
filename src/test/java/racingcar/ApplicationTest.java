@@ -17,21 +17,31 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(
-            () -> {
-                runException("pobi,javaji");
-                assertThat(output()).contains(ERROR_MESSAGE);
-            }
+                () -> {
+                    runException("pobi,javaji");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
+        );
+    }
+
+    @Test
+    public void 이름_공백_예외_처리() throws Exception {
+        assertSimpleTest(
+                () -> {
+                    runException("po bi,tco");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
         );
     }
 
