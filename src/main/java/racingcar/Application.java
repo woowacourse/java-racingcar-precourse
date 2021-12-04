@@ -38,8 +38,7 @@ public class Application {
 		System.out.println("시도할 회수는 몇회인가요?");
 		try {
 			String inputNumber = Console.readLine();
-			isNumber(inputNumber);
-			racingCnt = Integer.parseInt(inputNumber);
+			isZeroOrPositiveNumber(inputNumber);
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
 		}
@@ -70,12 +69,14 @@ public class Application {
 		}
 	}
 
-	public static void isNumber(String number) {
-		for (int i = 0; i < number.length(); i++) {
-			char ch = number.charAt(i);
-			if (!Character.isDigit(ch)) {
-				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+	public static void isZeroOrPositiveNumber(String number) {
+		try {
+			racingCnt = Integer.parseInt(number);
+			if (racingCnt < 0) {
+				throw new NumberFormatException();
 			}
+		} catch (NumberFormatException exception) {
+			throw new IllegalArgumentException("[ERROR] 시도 횟수는 음이 아닌 숫자여야 한다.");
 		}
 	}
 }
