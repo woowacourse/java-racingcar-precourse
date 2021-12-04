@@ -7,7 +7,7 @@
 ### 경주할 자동차의 이름 입력
 
 - 자동차의 이름들은 쉼표를 기준으로 구분한다. ✅
-- 각 이름은 1글자 이상, 5글자 이하만 가능하다.
+- 각 이름은 1글자 이상, 5글자 이하만 가능하다. ✅
 - 공백을 포함하거나 공백만을 가지는 이름은 허용하지 않는다. ✅
 - 중복된 이름은 허용하지 않는다. ✅
 - 잘못된 값을 입력할 경우 IllegalArgumentException 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다. ✅
@@ -183,6 +183,8 @@
 
 - public static final int MINIMUM_NUMBER_OF_CARS_FOR_GAME
     * 자동차 경주 게임을 진행할 최소한의 자동차 개수
+- public static final int MINIMUM_LENGTH_OF_NAMES
+    * 이름의 최소 길이
 - public static final int MAXIMUM_LENGTH_OF_NAMES
     * 이름의 최대 길이
 - public static final int MINIMUM_NUMBER_OF_ATTEMPT
