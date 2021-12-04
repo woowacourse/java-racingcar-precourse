@@ -9,5 +9,6 @@ public class RaceStadium {
 	private int trial;
 	public void start() {
 		cars.join(InputView.getInputRaceCar());
+		trial = InputView.getInputTrial();
 	}
 }

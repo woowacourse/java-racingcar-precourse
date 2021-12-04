@@ -23,8 +23,15 @@ public class InputView {
 
 	}
 
-	public static String getInputTrial() {
-		System.out.println(NUMBER_OF_TRIAL);
-		return Console.readLine();
+	public static int getInputTrial() {
+		while (true) {
+			try {
+				System.out.println(NUMBER_OF_TRIAL);
+				return InputException.isValidInputTrial(Console.readLine());
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
 	}
 }

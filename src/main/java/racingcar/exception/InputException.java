@@ -10,6 +10,8 @@ public class InputException {
 	private static final String CAR_NAME_SIZE = "[ERROR] 자동차 이름은 1자이상 5자이하만 가능합니다.";
 	private static final String CAR_DUPLICATE_NAME = "[ERROR] 자동차 이름은 중복이 불가능합니다.";
 	private static final String MIN_CAR_RACE_PARTICIPANT = "[ERROR] 자동차경주는 2명이상부터 가능합니다.";
+	private static final String TRIAL_INTEGER_ERROR = "[ERROR] 시도 횟수는 숫자여야 합니다.";
+
 	private static final int MIN_CAR_NAME_SIZE = 1;
 	private static final int MAX_CAR_NAME_SIZE = 5;
 	private static final int MIN_PARTICIPATE_NUMBER = 2;
@@ -62,5 +64,20 @@ public class InputException {
 			throw new IllegalArgumentException(MIN_CAR_RACE_PARTICIPANT);
 		}
 		return true;
+	}
+
+	public static int isValidInputTrial(String input) {
+		int trial = validNumber(input);
+		return trial;
+	}
+
+	private static int validNumber(String input) {
+		int trial = 0;
+		try {
+			trial = Integer.parseInt(input);
+			return trial;
+		} catch (NumberFormatException ex) {
+			throw new IllegalArgumentException(TRIAL_INTEGER_ERROR);
+		}
 	}
 }
