@@ -14,11 +14,8 @@ public class Racing {
     private static final String BY = ",";
 
     public static void run() {
-        IOService.ask(ASK_CAR_NAMES);
-        Garage garage = Garage.from(getCarListFromString(IOService.readCarNames()));
-
-        IOService.ask(ASK_ROUND_COUNT);
-        int roundCount = IOService.readRoundCount();
+        Garage garage = getGarage();
+        int roundCount = getRoundCount();
 
         IOService.makeNewLine();
         IOService.ask(SHOW_RESULT);
@@ -26,6 +23,39 @@ public class Racing {
 
         IOService.ask(WINNER);
         IOService.printRacingResult(garage);
+    }
+
+    private static Garage getGarage() {
+        IOService.ask(ASK_CAR_NAMES);
+        String carNames;
+
+        while(true) {
+            try {
+                carNames = IOService.readCarNames();
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
+        }
+
+        return Garage.from(getCarListFromString(carNames));
+    }
+
+    private static int getRoundCount() {
+        IOService.ask(ASK_ROUND_COUNT);
+        int roundCount;
+        while(true) {
+            try {
+                roundCount = IOService.readRoundCount();
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
+        }
+
+        return roundCount;
     }
 
     private static List<Car> getCarListFromString(String carNames) {
