@@ -2,14 +2,12 @@ package racingcar.util;
 
 public class Validation {
 
-	static public boolean verifyCar(String cars) {
-		String[] splitCar = cars.split(",");
+	public static void verifyCar(String[] cars) {
 		for (String car:
-			 splitCar) {
+			cars) {
 			if (car.length() > 5) {
-				return false;
+				throw(new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다."));
 			}
 		}
-		return true;
 	}
 }

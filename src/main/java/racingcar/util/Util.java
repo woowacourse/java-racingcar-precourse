@@ -9,7 +9,7 @@ public class Util {
 		return Randoms.pickNumberInRange(start, end);
 	}
 
-	static public String getUserInput() {
-		return Console.readLine();
+	static public String[] getUserInput() {
+		return Console.readLine().split(",");
 	}
 }
