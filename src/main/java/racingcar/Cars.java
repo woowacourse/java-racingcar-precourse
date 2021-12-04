@@ -15,17 +15,6 @@ import static util.CarConstant.NUMBER_MOVE_FORWARD;
 public class Cars {
     private final List<Car> carList = Collections.synchronizedList(new ArrayList<>());
 
-    private Cars() {
-    }
-
-    public static Cars getInstance() {
-        return LazyHolder.INSTANCE;
-    }
-
-    private static class LazyHolder {
-        private final static Cars INSTANCE = new Cars();
-    }
-
     public void saveCars(String input) {
         validateNames(input).forEach(name ->
                 carList.add(new Car(name)));

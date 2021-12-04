@@ -17,7 +17,7 @@ import static racingcar.TestConstant.MOVED;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CarsTest {
 
-    Cars cars = Cars.getInstance();
+    Cars cars = new Cars();
 
     @BeforeAll
     void setUp() {
