@@ -1,33 +1,33 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import racingcar.domain.Cars;
 import racingcar.domain.RepetitionNumber;
 import racingcar.view.Input;
+import racingcar.view.Output;
 
 public class RacingCarGame {
     private Cars cars;
     private RepetitionNumber repetitionNumber;
-    private List<String> winners;
 
-    public RacingCarGame(){
-        winners = new ArrayList<String>();
+    public RacingCarGame() {
     }
 
-    public void run(){
+    public void run() {
         initialize();
         round();
-
+        Output.printAllRoundResult();
+        Output.printWinners(cars.findWinnerCars());
     }
 
-    private void round(){
-     cars.play(repetitionNumber);
+    private void round() {
+        int roundCount = 0;
+        while (!repetitionNumber.isSameNumber(roundCount++)) {
+            cars.play();
+        }
     }
 
-    private void initialize(){
+    private void initialize() {
         cars = Input.inputCarNames();
-        repetitionNumber =  Input.inputRepetitionNumber();
+        repetitionNumber = Input.inputRepetitionNumber();
     }
 }
