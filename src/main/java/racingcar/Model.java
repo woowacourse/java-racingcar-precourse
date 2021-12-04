@@ -33,5 +33,11 @@ public class Model {
         
         return Arrays.stream(carNames).map(s -> new Car(s)).collect(Collectors.toList());
     }
+    
+    public void setPositions(List<Car> participants) {
+        
+        participants.stream().forEach(c -> c.moveCar());
+        
+    }
 
 }
