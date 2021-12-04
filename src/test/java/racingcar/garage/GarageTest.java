@@ -15,19 +15,19 @@ public class GarageTest {
     private Car pobi;
     private Car woni;
     private Car jun;
+    private Garage garage;
 
     @BeforeEach
     void init() {
         pobi = Car.from("pobi");
         woni = Car.from("woni");
         jun = Car.from("jun");
+        garage = Garage.from(Arrays.asList(pobi, woni, jun));
     }
 
     @Test
     @DisplayName(value = "차 여러대 저장")
     void Car_여러대_저장() {
-        Garage garage = Garage.from(Arrays.asList(pobi, woni, jun));
-
         assertThat(garage.containsCar(pobi)).isTrue();
         assertThat(garage.containsCar(woni)).isTrue();
         assertThat(garage.containsCar(jun)).isTrue();
@@ -37,12 +37,19 @@ public class GarageTest {
 
     @Test
     void Car_별로_라운드_결과() {
-        Garage garage = Garage.from(Arrays.asList(pobi, woni, jun));
+        moving();
+        assertThat(garage.whereAreCars()).isEqualTo(ROUND_REAULT);
+    }
 
+    @Test
+    void 우승자_찾기_pobi() {
+        moving();
+        assertThat(garage.whichWin()).isEqualTo("pobi");
+    }
+
+    private void moving() {
         pobi.move();
         pobi.move();
         jun.move();
-
-        assertThat(garage.getRoundResult()).isEqualTo(ROUND_REAULT);
     }
 }

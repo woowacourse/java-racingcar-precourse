@@ -1,8 +1,13 @@
 package racingcar.garage;
 
 import racingcar.Car;
+import racingcar.RacingResult;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class Garage {
     private final List<Car> carList;
@@ -26,5 +31,15 @@ public class Garage {
         }
 
         return stringBuilder.toString();
+    }
+
+    public String whichWin() {
+        Collections.sort(carList);
+        Car first = carList.get(0);
+
+        Queue<Car> winners = carList.stream().filter(target -> first.isSamePosition(target))
+                .collect(Collectors.toCollection(LinkedList::new));
+
+        return RacingResult.from(winners);
     }
 }

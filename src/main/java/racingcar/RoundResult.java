@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Result {
+public class RoundResult {
     public static String of(String name, int position) {
         return name + " : " + repeat(position);
     }

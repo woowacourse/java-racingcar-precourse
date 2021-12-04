@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private final String name;
     private int position = 0;
 
@@ -18,6 +18,19 @@ public class Car {
     }
 
     public String whereIsIt() {
-        return Result.of(name, position);
+        return RoundResult.of(name, position);
+    }
+
+    public boolean isSamePosition(Car car) {
+        return car.position == this.position;
+    }
+
+    public void writeName(StringBuilder stringBuilder) {
+        stringBuilder.append(name);
+    }
+
+    @Override
+    public int compareTo(Car target) {
+        return target.position - this.position;
     }
 }
