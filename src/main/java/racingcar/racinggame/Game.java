@@ -19,14 +19,14 @@ public class Game {
 	}
 
 	public void start() {
-		String[] carNames = input.inputCarNames();
+		String[] carNames = input.carNames();
 		Car[] cars = createCars(carNames);
 
-		String round = input.inputRound();
+		String round = input.round();
 		output.printRoundResult(round, cars);
 
 		getHighScore(cars);
-		getChampion(cars);
+		getChampionList(cars, highScore);
 		output.printChampionList(champion);
 	}
 
@@ -40,25 +40,13 @@ public class Game {
 
 	private void getHighScore(Car[] cars) {
 		for (Car car : cars) {
-			isHighScore(car);
+			highScore = car.updateHighScore(highScore);
 		}
 	}
 
-	private void isHighScore(Car car) {
-		if (car.getPosition() > highScore) {
-			highScore = car.getPosition();
-		}
-	}
-
-	private void getChampion(Car[] cars) {
+	private void getChampionList(Car[] cars, int highScore) {
 		for (Car car : cars) {
-			isChampion(car);
-		}
-	}
-
-	private void isChampion(Car car) {
-		if (car.getPosition() == highScore) {
-			champion.add(car.getName());
+			car.isChampion(champion, highScore);
 		}
 	}
 }
