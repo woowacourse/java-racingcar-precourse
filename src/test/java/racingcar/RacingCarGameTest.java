@@ -6,10 +6,28 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import racingcar.constant.Condition;
+
 class RacingCarGameTest {
 
+    private void validateTimes(String timesInput) throws IllegalArgumentException {
+        for (int i = 0; i < timesInput.length(); i++) {
+            if (!Character.isDigit(timesInput.charAt(i))) {
+                throw new IllegalArgumentException();
+            }
+        }
+
+        if (timesInput.length() < Condition.MINIMUM_CAR_MOVE_INPUT_LENGTH) {
+            throw new IllegalArgumentException();
+        }
+
+        if (Integer.parseInt(timesInput) < Condition.MINIMUM_CAR_MOVE_TIMES) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     @Test
-    public void 자동차_이름_입력_예외() {
+    void 자동차_이름_입력_예외() {
         String[] carNames = {"Mike Wazowski", ""};
         ArrayList<Car> cars = new ArrayList<>();
         Arrays.stream(carNames)
@@ -20,15 +38,13 @@ class RacingCarGameTest {
     }
 
     @Test
-    public void 자동차_전진_시도_횟수() {
-        RacingCarGame racingCarGame = new RacingCarGame();
+    void 자동차_전진_시도_횟수() {
+        assertThrows(IllegalArgumentException.class, () -> validateTimes(""));
+        assertThrows(IllegalArgumentException.class, () -> validateTimes("0"));
+        assertThrows(IllegalArgumentException.class, () -> validateTimes("d"));
 
-        assertThrows(IllegalArgumentException.class, () -> racingCarGame.validateTimes(""));
-        assertThrows(IllegalArgumentException.class, () -> racingCarGame.validateTimes("0"));
-        assertThrows(IllegalArgumentException.class, () -> racingCarGame.validateTimes("d"));
-
-        assertDoesNotThrow(() -> racingCarGame.validateTimes("10"));
-        assertDoesNotThrow(() -> racingCarGame.validateTimes("1"));
-        assertDoesNotThrow(() -> racingCarGame.validateTimes("999"));
+        assertDoesNotThrow(() -> validateTimes("10"));
+        assertDoesNotThrow(() -> validateTimes("1"));
+        assertDoesNotThrow(() -> validateTimes("999"));
     }
 }
