@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GameManager {
-	public InputManager inputManager;
-	public Car[] cars;
-	public ArrayList<String> winner = new ArrayList<>();
+	private InputManager inputManager;
+	private Car[] cars;
+	private ArrayList<String> winner = new ArrayList<>();
 
 	public GameManager() {
 		this.inputManager = new InputManager();
@@ -16,10 +16,7 @@ public class GameManager {
 		inputManager.scanCarsList();
 		inputManager.scanNumberOfMove();
 		saveCarsList();
-		System.out.println("\n실행결과");
-		for (int i = 0; i < inputManager.getNumberOfMove(); i++) {
-			playRound();
-		}
+		printExecutionResult();
 		calculateWinner();
 		printWinner();
 	}
@@ -31,14 +28,22 @@ public class GameManager {
 		}
 	}
 
+	public void printExecutionResult() {
+		System.out.println();
+		System.out.println("실행결과");
+		for (int i = 0; i < inputManager.getNumberOfMove(); i++) {
+			playRound();
+		}
+	}
+
 	public void playRound() {
 		for (Car car : cars) {
 			car.calculateMove();
 		}
-		printResult();
+		printCarMoveResult();
 	}
 
-	public void printResult() {
+	public void printCarMoveResult() {
 		for (Car car : cars) {
 			System.out.print(car.getName() + " : ");
 			for (int i = 0; i < car.getPosition(); i++) {

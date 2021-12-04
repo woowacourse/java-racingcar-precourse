@@ -3,8 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
-	public String[] carsList;
-	public int numberOfMove;
+	private String[] carsList;
+	private int numberOfMove;
 
 	public String[] getCarsList() {
 		return carsList;
