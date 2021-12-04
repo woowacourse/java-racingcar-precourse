@@ -47,7 +47,7 @@ public class NameValidator {
 			throw new IllegalArgumentException(ERROR_EMPTY_NAME);
 		}
 		for (String name : names) {
-			if (name.trim().isEmpty()) {
+			if (name.isEmpty()) {
 				throw new IllegalArgumentException(ERROR_EMPTY_NAME);
 			}
 		}
