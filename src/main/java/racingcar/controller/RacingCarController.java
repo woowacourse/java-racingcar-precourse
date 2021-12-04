@@ -7,14 +7,14 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
-import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCars;
 import racingcar.validator.CarNameValidator;
 import racingcar.validator.GameCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
-	private RacingCar racingCar;
+	private RacingCars racingCars;
 	private Integer gameCount;
 	private String[] carNames;
 
@@ -46,7 +46,7 @@ public class RacingCarController {
 			Car tmpCar = new Car(carName);
 			tmpRacingCar.add(tmpCar);
 		}
-		racingCar = new RacingCar(tmpRacingCar);
+		racingCars = new RacingCars(tmpRacingCar);
 	}
 
 	private void getInputGameCount() {
@@ -64,8 +64,8 @@ public class RacingCarController {
 	private void moveCars() {
 		OutputView.printExecutionMessage();
 		for (int cnt = 0; cnt < gameCount; cnt++) {
-			racingCar.moveRacingCars();
-			for (Car car : racingCar.getRacingCars()) {
+			racingCars.moveRacingCars();
+			for (Car car : racingCars.getRacingCars()) {
 				OutputView.printCarName(car.getName());
 				OutputView.printCarPosition(car.getPosition());
 			}
@@ -74,7 +74,7 @@ public class RacingCarController {
 	}
 
 	private void confirmWinner() {
-		int maxDistance = racingCar.getMaxDistance();
-		OutputView.printWinner(racingCar.getWinnerNames(maxDistance));
+		int maxDistance = racingCars.getMaxDistance();
+		OutputView.printWinner(racingCars.getWinnerNames(maxDistance));
 	}
 }
