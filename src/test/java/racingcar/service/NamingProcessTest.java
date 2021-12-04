@@ -22,15 +22,6 @@ class NamingProcessTest {
 	}
 
 	@Test
-	void 이름_중복_예외() {
-		// given
-		String input = "pobi, jun, jun";
-
-		// then
-		assertThrows(IllegalArgumentException.class, () -> NamingProcess.parseString(input));
-	}
-
-	@Test
 	void 자동차_이름_리스트반환() {
 		// given
 		String input = "pobi,woni,jun";
