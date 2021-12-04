@@ -9,7 +9,11 @@ public class CarGameRunner {
 
 	public void startRace(final List<Car> cars, final int moveCount) {
 		for (int round = 0; round < moveCount; round++) {
-			cars.forEach(car -> car.move(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER)));
+			cars.forEach(car -> {
+				car.move(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
+				System.out.println(car.toString());
+			});
+			System.out.println();
 		}
 	}
 }
