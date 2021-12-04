@@ -36,7 +36,7 @@ public class Cars {
 	private Car getAnyWinner() {
 		return cars.stream()
 			.max(Car::compareTo)
-			.orElseThrow(() -> new IllegalArgumentException("차가 존재하지 않습니다."));
+			.orElseThrow(() -> new IllegalArgumentException("[ERROR] 차가 존재하지 않습니다."));
 	}
 
 	private List<Car> getCarsPositionExactlySame(Car winner) {
@@ -47,7 +47,7 @@ public class Cars {
 
 	public void moveOrStop() {
 		for (Car car : cars) {
-			int carPower = CarPower.getRandomPower();
+			CarPower carPower = CarPower.createRandomPower();
 			car.moveOrStop(carPower);
 		}
 	}

@@ -9,7 +9,6 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputUtil {
 	private static final String LIST_SPLIT_DELIMITER = ",";
-	private static final String NOT_INT_ERROR = "[ERROR] 반드시 숫자를 입력해야 합니다.";
 
 	private InputUtil() {
 	}
@@ -34,7 +33,7 @@ public class InputUtil {
 		try {
 			return Integer.parseInt(readLine());
 		} catch (NumberFormatException e) {
-			OutputView.printErrorMessage(NOT_INT_ERROR);
+			OutputView.printErrorMessage("[ERROR] 반드시 숫자를 입력해야 합니다.");
 			return readInt();
 		}
 	}
