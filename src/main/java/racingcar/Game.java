@@ -144,9 +144,7 @@ public class Game {
 
 		for (int i = 0; i < cars.size(); i++) {
 
-			if (cars.get(i).getPosition() == winnerPosition) {
-				winnerNames.add(cars.get(i).getName());
-			}
+			cars.get(i).insertNameIfIAmWinner(winnerPosition, winnerNames);
 
 		}
 
