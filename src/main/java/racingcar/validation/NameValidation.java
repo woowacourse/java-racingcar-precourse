@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.validation;
 
 import static racingcar.message.GuideMessage.*;
 
