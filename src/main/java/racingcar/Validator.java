@@ -15,7 +15,7 @@ public class Validator {
 
 	public static void validateGameRound(int gameRound) {
 		if (gameRound < Constant.MINIMUM_GAME_ROUND) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(Constant.MINIMUM_GAME_ROUND_UNDER_ERROR_MESSAGE);
 		}
 	}
 }
