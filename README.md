@@ -20,30 +20,15 @@
 
 ## GameHandler
 
-1. 글자 수 최소, 최대 상수 필요  (`Constant` 객체에 추가할 예정)
-   1.  `MIN_NAME_LENGTH`(==1)
-   2.  `MAX_NAME_LENGTH` (==5)
-   3. `IMPROPER_CHARACTER`(=='`,`')
-   4. `SPLIT_STRING`(=="`,`")
-2. 멤버 변수
-   1. 자동차들에 대한 정보 필요 → `private List<Car> cars`
-   2. 얼마나 이동할 것인지에 대한 정보 저장 필요 → `private int stages`
-3. 자동차들을 생성해야 함 → `createCars()`
-   1. ~~처음에 자동차 이름을 받아야 함 → `getCarsName()`~~
-      1. ~~사용자의 입력을 받는 method → `getUserInputNames()`~~
-         1. ~~각 자동차의 이름 확인하는 method 필요. → `checkValidName()`~~
-            1. ~~글자수 1~5인지 판단해줘야 함 → `isInValidNameLength(String name)`~~
-            2. ~~맨 뒤에 `,` 가 쓰였는지 확인해줘야 함. → `isLastCharImproper(String userInput)`~~
-   2. ~~잘못된 입력이면 다시 받도록 해야 함 (1-1, 1-2 는 `try-catch` 로 구현하기)~~
-4. 몇번의 이동을 할지 정해야 함. → `getStages()`
-   1. ~~사용자의 입력을 받아야 함. → `getUserInputStages()`~~
-      1. ~~사용자의 입력이 `int type` 이 아니면 `IllegalArugmentException`~~
-5. 이동횟수만큼 자동차들이 `go` 하게 만든다.
-6. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult()`
-7. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners()`
+1. 글자 수 최소, 최대 상수 필요  (`Constant` 객체에 추가)
+2. 자동차들을 생성해야 함 → `createCars()`
+3. 몇번의 이동을 할지 정해야 함. → `getStages()`
+4. 이동횟수만큼 자동차들이 `go` 하게 만든다.
+5. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult()`
+6. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners()`
    1. 현재 위치가 가장 먼 자동차의 위치를 찾는 함수
    2. 가장 먼 위치를 기준으로 같은 값을 가진 자동차가 있으면 우승자에 추가 후 출력형태로 만드는 함수
-8. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
+7. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
    1. `createCars()` → 알맞은 자동차 생성
    2. `getStages()` → 얼마나 이동할 것인지
    3. `executeStage()` → 이동횟수 만큼 아래의 프로세스를 실행 
@@ -71,8 +56,8 @@
 ### 생성할 기능 목록
 
 1. 사용자 입력 받는 기능
-   1. 자동차 이름 입력 받기
-   2. 이동 횟수 입력 받기
+   1. 자동차 이름 입력 받기 → `register()` : 자동차 이름을 등록하여 자동차 List return.
+   2. 이동 횟수 입력 받기 → `howManyTimes()` : 이동횟수를 입력받고 적절하면 int type return.
 2. 적절한 입력인지 검사하는 기능
 
 <br>
@@ -85,14 +70,20 @@
 4. `MAX_NAME_LENGTH` : 이름의 글자 수 최댓값.(==5)
 5. `IMPROPER_CHARACTER`(=='`,`')
 6. `SPLIT_STRING`(=="`,`")
-7. `MOVING_FORWARD`: 4. 차가 움직일 수 있는 조건의 최솟값
+7. `MOVING_FORWARD`: ==4. 차가 움직일 수 있는 조건의 최솟값
+8. `MIN_STAGE_NUMBER` : 이동 횟수로 받을 수 있는 값의 최솟값. == 1
+9. `INVALID_STAGE_NUMBER` : 적절하지 않은 이동 횟수. == -1
+10. `EMPTY` : 빈 문자열 표시. == ""
+11. `SPACE` : 띄워쓰기 문자열. == " "
+
+<br>
 
 <br>
 
 ## Message
 
 1. `START` : "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"
-2. `ERROR_INVALID_NAME_FORMAT` : "[ERROR] 자동차의 이름은 1~5글자 입니다"
+2. `ERROR_INVALID_NAME_FORMAT` : "[ERROR] 자동차의 이름은 중복없이 1~5글자 입니다"
 3. `ASK_STAGES` : "시도할 회수는 몇회인가요?"
 4. `ERROR_INVALID_STAGE_VALUE` : "[ERROR] 시도할 횟수는 숫자여야 합니다"
 5. `EXECUTE_RESULT` : "실행 결과"
