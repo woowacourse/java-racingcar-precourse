@@ -4,8 +4,6 @@ import static constants.RacingCarConstant.*;
 
 import java.util.List;
 
-import racingcar.domain.Car;
-
 public class OutputView {
 	public static void printError(String message) {
 		System.out.println(ERROR_PREFIX + message);
@@ -15,15 +13,19 @@ public class OutputView {
 		System.out.println(EXECUTION_RESULT_MESSAGE);
 	}
 
-	public static void printCarPosition(List<Car> racingCars) {
-		for (Car car : racingCars) {
-			StringBuilder carPosition = new StringBuilder();
-			carPosition.append(car.getName()).append(COLON);
-			for (int i = 0; i < car.getPosition(); i++) {
-				carPosition.append(PROGRESS_BAR);
-			}
-			System.out.println(carPosition);
+	public static void printCarName(String carName) {
+		System.out.print(carName + COLON);
+	}
+
+	public static void printCarPosition(Integer position) {
+		StringBuilder carPosition = new StringBuilder();
+		for (int i = 0; i < position; i++) {
+			carPosition.append(PROGRESS_BAR);
 		}
+		System.out.println(carPosition);
+	}
+
+	public static void printNewLine() {
 		System.out.println();
 	}
 

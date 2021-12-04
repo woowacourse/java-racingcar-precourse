@@ -65,7 +65,11 @@ public class RacingCarController {
 		OutputView.printExecutionMessage();
 		for (int cnt = 0; cnt < gameCount; cnt++) {
 			racingCar.moveRacingCars();
-			OutputView.printCarPosition(racingCar.getRacingCars());
+			for (Car car : racingCar.getRacingCars()) {
+				OutputView.printCarName(car.getName());
+				OutputView.printCarPosition(car.getPosition());
+			}
+			OutputView.printNewLine();
 		}
 	}
 
