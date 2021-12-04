@@ -20,7 +20,7 @@ public class RaceController {
 
 	public void start() {
 		List<Car> cars = inputManager.getCars();
-		int number = inputManager.getRuntimeNumber();
+		int number = inputManager.getNumberOfRaces();
 		startRace(cars, number);
 	}
 

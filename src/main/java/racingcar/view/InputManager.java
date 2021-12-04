@@ -33,10 +33,6 @@ public class InputManager {
 		return readLine();
 	}
 
-	private String readLine() {
-		return Console.readLine();
-	}
-
 	private boolean checkGetAgainCarNames(List<String> carNames) {
 		if(validateCarNames(carNames)) {
 			return false;
@@ -47,7 +43,7 @@ public class InputManager {
 
 	private boolean validateCarNames(List<String> carNames) {
 		try {
-			validator.checkCarsNameSize(carNames);
+			validator.checkCarNameSize(carNames);
 		}catch (IllegalArgumentException e) {
 			return false;
 		}
@@ -58,38 +54,42 @@ public class InputManager {
 		System.out.println(ViewConstants.ERROR_CAR_NAMES);
 	}
 
-	public int getRuntimeNumber() {
+	public int getNumberOfRaces() {
 		String numberString;
 		do {
-			numberString = askRuntimeNumber();
-		}while(checkGetAgainRuntimeNumber(numberString));
+			numberString = askNumberOfRaces();
+		}while(checkGetAgainNumberOfRaces(numberString));
 
 		return converter.convertStringToInt(numberString);
 	}
 
-	private String askRuntimeNumber() {
+	private String askNumberOfRaces() {
 		System.out.println(ViewConstants.ASK_RUNTIME_NUMBER);
 		return readLine();
 	}
 
-	private boolean checkGetAgainRuntimeNumber(String numberString) {
-		if(validateRuntimeNumber(numberString)) {
+	private boolean checkGetAgainNumberOfRaces(String numberString) {
+		if(validateNumberOfRaces(numberString)) {
 			return false;
 		}
-		printErrorWithRuntimeNumber();
+		printErrorWithNumberOfRaces();
 		return true;
 	}
 
-	private boolean validateRuntimeNumber(String numberString) {
+	private boolean validateNumberOfRaces(String numberString) {
 		try {
-			validator.checkNumber(numberString);
+			validator.checkNumberOfRaces(numberString);
 		}catch (IllegalArgumentException e) {
 			return false;
 		}
 		return true;
 	}
 
-	private void printErrorWithRuntimeNumber() {
+	private void printErrorWithNumberOfRaces() {
 		System.out.println(ViewConstants.ERROR_RUNTIME_NUMBER);
+	}
+
+	private String readLine() {
+		return Console.readLine();
 	}
 }
