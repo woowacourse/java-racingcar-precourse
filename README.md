@@ -217,3 +217,5 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
         - 4이상인 경우 true 반환
     - 무작위로 숫자를 뽑은 뒤 반환되는 boolean 값이 true이면 자동차 이동
     - 숫자 뽑기를 시도할때 마다 결과값 메세지 출력
+
+- 이름 출력하기
