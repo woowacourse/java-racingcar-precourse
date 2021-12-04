@@ -7,6 +7,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class GameUtil {
+    private static final int START_NUMBER = 0;
+    private static final int END_NUMBER = 9;
+    private static final int PIVOT = 4;
+    private static final String COMMA = ",";
 
     public static int findMax(List<Car> cars) {
         List<Integer> position = new ArrayList<>();
@@ -23,11 +27,11 @@ public class GameUtil {
     }
 
     private static boolean canMove() {
-        return (Randoms.pickNumberInRange(Constant.START_NUMBER, Constant.END_NUMBER) >= Constant.PIVOT);
+        return (Randoms.pickNumberInRange(START_NUMBER, END_NUMBER) >= PIVOT);
     }
 
     public static List<Car> parseStringToList(List<Car> cars, String input) {
-        String[] carNames = input.split(Constant.COMMA);
+        String[] carNames = input.split(COMMA);
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }

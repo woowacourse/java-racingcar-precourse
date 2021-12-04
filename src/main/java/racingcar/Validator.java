@@ -1,31 +1,32 @@
 package racingcar;
 
-import com.sun.org.apache.bcel.internal.Const;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int TRUE = 1;
+    private static final int FALSE = 0;
 
     public static boolean isValidateInput(String input) {
         List<Car> inputCars = GameUtil.parseStringToList(new ArrayList<>(), input);
-        int isValid = Constant.TRUE;
+        int isValid = TRUE;
         for (Car car : inputCars) {
             isValid *= isValidateName(car.getName());
         }
-        return (isValid == Constant.TRUE);
+        return (isValid == TRUE);
     }
 
     private static int isValidateName(String name) {
         try {
-            if (name.length() > Constant.MAX_NAME_LENGTH) {
+            if (name.length() > MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
             System.out.println(SystemMessage.NAME_ERROR_MESSAGE);
-            return Constant.FALSE;
+            return FALSE;
         }
-        return Constant.TRUE;
+        return TRUE;
     }
 
     public static boolean isValidateNumber(String input) {

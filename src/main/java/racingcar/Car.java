@@ -3,6 +3,7 @@ package racingcar;
 import java.util.Arrays;
 
 public class Car {
+    private static final char POSITION_BAR = '-';
     private final String name;
     private int position = 0;
 
@@ -24,7 +25,7 @@ public class Car {
 
     public String showPosition() {
         char[] positionBars = new char[position];
-        Arrays.fill(positionBars, Constant.POSITION_BAR);
+        Arrays.fill(positionBars, POSITION_BAR);
         String currentPosition = new String(positionBars);
 
         return name + SystemMessage.COLON + currentPosition;
