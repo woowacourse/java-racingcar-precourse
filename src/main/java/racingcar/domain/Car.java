@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.Objects;
+import racingcar.exception.CarNameBlankException;
 import racingcar.exception.CarNameLengthException;
 import racingcar.exception.CarNameNullPointException;
 
@@ -11,6 +12,7 @@ public class Car {
 
     public Car(String name) {
         checkNameNull(name);
+        checkNameBlank(name);
         checkNameLength(name);
         this.name = name;
     }
@@ -24,6 +26,12 @@ public class Car {
     private static void checkNameNull(String name) {
         if (Objects.isNull(name)) {
             throw new CarNameNullPointException();
+        }
+    }
+
+    private static void checkNameBlank(String name) {
+        if (name.contains(" ")) {
+            throw new CarNameBlankException();
         }
     }
 }

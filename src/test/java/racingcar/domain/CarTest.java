@@ -31,4 +31,14 @@ class CarTest {
             .isThrownBy(() -> new Car(input))
             .withMessage("[ERROR] Car의 이름은 null이 들어올 수 없습니다.");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {" ", "p ob", "pob "})
+    @DisplayName("이름에 공백이 포함될 경우 Exception이 발생해야 한다.")
+    void createExceptionByBlankNameTest(String input) {
+        // when & then
+        assertThatExceptionOfType(IllegalArgumentException.class)
+            .isThrownBy(() -> new Car(input))
+            .withMessage("[ERROR] Car의 이름은 공백이 포함될 수 없습니다.");
+    }
 }
