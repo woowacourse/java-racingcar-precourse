@@ -4,6 +4,7 @@ import java.util.List;
 
 import racingcar.Car;
 import racingcar.messages.PrintResult;
+import racingcar.messages.ResultMessages;
 import racingcar.utils.CarNameInput;
 import racingcar.utils.GameTimesInput;
 
@@ -28,7 +29,7 @@ public class RacingGame {
 	}
 
 	public void gameStart() {
-		System.out.println("실행 결과");
+		System.out.println(ResultMessages.GAME_RESULT);
 		for (int gameCount = 0; gameCount < numOfIteration; gameCount++) {
 			racingGameReferee.race(cars);
 			cars.stream()

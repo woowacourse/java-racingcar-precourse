@@ -22,6 +22,6 @@ public class PrintResult {
 		List<String> winnerList = gameWinners.stream()
 			.map(Car::getName)
 			.collect(Collectors.toList());
-		System.out.println("최종 우승자 : " + String.join(WINNER_DELIMITER, winnerList));
+		System.out.println(ResultMessages.GAME_WINNER + String.join(WINNER_DELIMITER, winnerList));
 	}
 }

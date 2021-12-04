@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Car;
+import racingcar.messages.InputMessages;
 import racingcar.utils.validator.CarNameValidator;
 
 public class CarNameInput {
@@ -18,7 +19,7 @@ public class CarNameInput {
 	public List<Car> getCar() {
 		String[] carArray;
 		do {
-			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+			System.out.println(InputMessages.NAME_INPUT);
 			String readCars = Console.readLine();
 			carArray = readCars.split(",");
 		}while(carNameValidator.isInvalidName(carArray));

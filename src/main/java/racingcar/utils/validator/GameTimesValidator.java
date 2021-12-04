@@ -3,18 +3,20 @@ package racingcar.utils.validator;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import racingcar.messages.ErrorMessages;
+
 public class GameTimesValidator {
 	public boolean isInvalidTimes(String times) {
 		String[] timesArray = times.split("");
 		try {
 			if (isEmptyString(timesArray)) {
-				throw new IllegalArgumentException("[ERROR] 시도 횟수는 빈 문자열이면 안된다.");
+				throw new IllegalArgumentException(ErrorMessages.ERROR + ErrorMessages.EMPTY_TIMES);
 			}
 			if (isContainNotNumber(timesArray)) {
-				throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+				throw new IllegalArgumentException(ErrorMessages.ERROR + ErrorMessages.NOT_NUMBER);
 			}
 			if (isZeroTimes(times)) {
-				throw new IllegalArgumentException("[ERROR] 시도 횟수는 1 이상이어야 한다.");
+				throw new IllegalArgumentException(ErrorMessages.ERROR + ErrorMessages.ZERO_TIMES);
 			}
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
