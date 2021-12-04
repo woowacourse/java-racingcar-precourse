@@ -1,24 +1,26 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.List;
+
 public class Model {
     private static final String NUM_REGEX = "^[0-9]+$";
     
     public Model() {}
     
-    public boolean checkValidationForCars(String carNames) {
-        String [] cars = carNames.split(",");
+    public boolean checkValidationForCars(String input) {
+        String [] cars = input.split(",");
         
-        for(int i = 0; i < cars.length; i++) {
-            if(cars[i].equals(null) || cars[i].length() > 5) {
-                return false;
-            }
+        if(Arrays.stream(cars).anyMatch(s -> s.equals("") || s.length() > 5)) {
+            return false;
         }
-        
+   
         return true;
     }
     
-    public boolean checkValidationForAttempt(String attempt) {
-        if(attempt.matches(NUM_REGEX)) {
+    public boolean checkValidationForAttempt(String input) {
+        if(input.matches(NUM_REGEX)) {
             return true;
         }
         
