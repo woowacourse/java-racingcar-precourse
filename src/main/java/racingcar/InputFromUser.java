@@ -9,15 +9,15 @@ public class InputFromUser {
         String inputText = scan.nextLine();
         String[] carNames = inputText.split(",");
 
-        ArrayList<Car> carNameList = new ArrayList<>();
+        ArrayList<Car> carList = new ArrayList<>();
         for (int i = 0; i < carNames.length; i++) {
             // --> validation 실행 //
 
-            carNameList.add(new Car(carNames[i]));
+            carList.add(new Car(carNames[i]));
         }
-        System.out.println(carNameList);
+        System.out.println(carList);
 
-        return carNameList;
+        return carList;
     }
 
     public static int inputNumberOfTry() {
