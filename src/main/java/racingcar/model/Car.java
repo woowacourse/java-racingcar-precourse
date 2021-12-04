@@ -17,7 +17,7 @@ public class Car {
 	}
 
 	public void moveForward() {
-		if (RandomNumberPicker.pickRandomNumber() >= MOVE_FORWARD_START_NUMBER) {
+		if (RandomNumberPicker.pick() >= MOVE_FORWARD_START_NUMBER) {
 			position++;
 		}
 	}

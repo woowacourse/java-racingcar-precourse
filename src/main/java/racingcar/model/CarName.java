@@ -16,9 +16,9 @@ public class CarName {
 
 	public String[] getCarNames() {
 		splitInputCarNamesToCarNames();
-		trimCarNames();
+		trim();
 
-		validateCarNames();
+		validate();
 
 		return carNames;
 	}
@@ -27,14 +27,14 @@ public class CarName {
 		carNames = inputCarNames.split(CAR_NAMES_SPLIT_REGEX);
 	}
 
-	private void trimCarNames() {
+	private void trim() {
 		carNames = Arrays.stream(carNames)
 			.map(String::trim)
 			.toArray(String[]::new);
 	}
 
-	private void validateCarNames() {
+	private void validate() {
 		CarNamesValidator carNamesValidator = new CarNamesValidator(carNames);
-		carNamesValidator.validateCarNames();
+		carNamesValidator.validate();
 	}
 }

@@ -17,7 +17,7 @@ public class CarNamesValidator {
 		this.carNames = carNames;
 	}
 
-	public void validateCarNames() {
+	public void validate() {
 		checkCarNameLength();
 		checkCarNamesLength();
 		checkCarNamesDuplicate();

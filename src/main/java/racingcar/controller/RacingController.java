@@ -68,7 +68,7 @@ public class RacingController {
 	private boolean handleGetTryCountException() {
 		try {
 			InputTryCountValidator inputTryCountValidator = new InputTryCountValidator(inputTryCount);
-			inputTryCountValidator.validateInputTryCount();
+			inputTryCountValidator.validate();
 			return true;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

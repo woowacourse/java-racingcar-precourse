@@ -1,9 +1,9 @@
 package racingcar.utils;
 
 public class InputTryCountValidator {
-	private static final String INPUT_TRY_COUNT_PATTERN = "^[0-9]*$";
-	private static final String INPUT_TRY_COUNT_LENGTH_ERROR_MESSAGE = "[ERROR] 시도 회수를 입력해주세요.";
-	private static final String INPUT_TRY_COUNT_PATTERN_ERROR_MESSAGE = "[ERROR] 시도 회수는 숫자만 가능합니다.";
+	private static final String PATTERN = "^[0-9]*$";
+	private static final String LENGTH_ERROR_MESSAGE = "[ERROR] 시도 회수를 입력해주세요.";
+	private static final String PATTERN_ERROR_MESSAGE = "[ERROR] 시도 회수는 숫자만 가능합니다.";
 
 	private final String inputTryCount;
 
@@ -11,20 +11,20 @@ public class InputTryCountValidator {
 		this.inputTryCount = inputTryCount;
 	}
 
-	public void validateInputTryCount() {
-		checkInputTryCountLength();
-		checkInputTryCountPattern();
+	public void validate() {
+		checkLength();
+		checkPattern();
 	}
 
-	private void checkInputTryCountLength() {
+	private void checkLength() {
 		if (inputTryCount.length() < 1) {
-			throw new IllegalArgumentException(INPUT_TRY_COUNT_LENGTH_ERROR_MESSAGE);
+			throw new IllegalArgumentException(LENGTH_ERROR_MESSAGE);
 		}
 	}
 
-	private void checkInputTryCountPattern() {
-		if (!inputTryCount.matches(INPUT_TRY_COUNT_PATTERN)) {
-			throw new IllegalArgumentException(INPUT_TRY_COUNT_PATTERN_ERROR_MESSAGE);
+	private void checkPattern() {
+		if (!inputTryCount.matches(PATTERN)) {
+			throw new IllegalArgumentException(PATTERN_ERROR_MESSAGE);
 		}
 	}
 }
