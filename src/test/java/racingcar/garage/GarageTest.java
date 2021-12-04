@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.Car;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,7 +17,6 @@ public class GarageTest {
 
     @BeforeEach
     void init() {
-        carSet = new HashSet<>();
         pobi = Car.from("pobi");
         woni = Car.from("woni");
         jun = Car.from("jun");
@@ -28,8 +25,7 @@ public class GarageTest {
     @Test
     @DisplayName(value = "차 여러대 저장")
     void Car_여러대_저장() {
-        carSet.addAll(Arrays.asList(pobi, woni, jun));
-        Garage garage = Garage.from(carSet);
+        Garage garage = Garage.from(Arrays.asList(pobi, woni, jun));
 
         assertThat(garage.containsCar(pobi)).isTrue();
         assertThat(garage.containsCar(woni)).isTrue();

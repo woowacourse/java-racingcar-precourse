@@ -2,20 +2,20 @@ package racingcar.garage;
 
 import racingcar.Car;
 
-import java.util.Set;
+import java.util.List;
 
 public class Garage {
-    private final Set<Car> carSet;
+    private final List<Car> carList;
 
-    public Garage(Set<Car> carSet) {
-        this.carSet = carSet;
+    public Garage(List<Car> carList) {
+        this.carList = carList;
     }
 
-    public static Garage from(Set<Car> carSet) {
+    public static Garage from(List<Car> carSet) {
         return new Garage(carSet);
     }
 
     public boolean containsCar(Car car) {
-        return carSet.contains(car);
+        return carList.contains(car);
     }
 }
