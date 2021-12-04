@@ -31,16 +31,14 @@ public class Car {
 	}
 
 	void printPosition() {
-		System.out.printf("%s : %s", name, new DashAsPosition().getDash());
-		System.out.println();
+		System.out.println(name + " : " + new DashAsPosition().getDash());
 	}
-
-	private StringBuilder dash;
 
 	class DashAsPosition {
 		private StringBuilder dash;
 
 		DashAsPosition() {
+			dash = new StringBuilder();
 			for (int i = 0; i < position; i++) {
 				dash.append("-");
 			}
