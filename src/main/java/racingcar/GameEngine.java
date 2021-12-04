@@ -33,7 +33,7 @@ public class GameEngine {
 			try {
 				return inputHandler.readRacingCarNames();
 			} catch (IllegalArgumentException iae) {
-				System.err.println(String.format(GameData.CARNAME_LIMIT_ERROR_MESSAGE, GameData.CARNAME_LIMIT));
+				System.out.println(String.format(GameData.CARNAME_LIMIT_ERROR_MESSAGE, GameData.CARNAME_LIMIT));
 			}
 		}
 	}
@@ -51,7 +51,7 @@ public class GameEngine {
 			try {
 				return inputHandler.readCount();
 			} catch (IllegalArgumentException iae) {
-				System.err.println(GameData.INPUT_ERROR_MESSAGE);
+				System.out.println(GameData.INPUT_ERROR_MESSAGE);
 			}
 		}
 	}
