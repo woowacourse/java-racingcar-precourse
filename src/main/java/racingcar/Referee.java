@@ -11,16 +11,6 @@ public class Referee {
     private static final int END_NUMBER = 9;
     private static final int PIVOT = 4;
 
-
-
-    public static int findMax(List<Car> cars) {
-        List<Integer> position = new ArrayList<>();
-        for (Car car : cars) {
-            position.add(car.getPosition());
-        }
-        return Collections.max(position);
-    }
-
     public static void tryMove(Car car) {
         if (canMove()) {
             car.goForward();
@@ -38,6 +28,14 @@ public class Referee {
             winners=isWinner(winners, maxPosition, car);
         }
         return winners;
+    }
+
+    public static int findMax(List<Car> cars) {
+        List<Integer> position = new ArrayList<>();
+        for (Car car : cars) {
+            position.add(car.getPosition());
+        }
+        return Collections.max(position);
     }
 
     private static List<Car> isWinner(List<Car> winners, int maxPosition, Car car) {

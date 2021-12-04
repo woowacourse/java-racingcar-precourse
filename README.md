@@ -30,11 +30,11 @@ Application.java: 어플리케이션 실행 (main method 위치)
 
 Board.java: 게임 진행 상태 및 최종 결과 출력
 
-Car.java: 
+Car.java: 자동차 객체의 정보 저장
 
 Game.java: 숫자야구 게임 진행
 
-Referee.java: 
+Referee.java: 전진 여부 및 우승자 결정
 
 StringParser.java: 입력받은 문자열 파싱
 
