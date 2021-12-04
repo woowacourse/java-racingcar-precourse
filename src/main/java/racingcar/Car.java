@@ -28,11 +28,11 @@ public class Car {
 	}
 
 	public String getDashedPosition() {
-		String dashedPosition = "";
+		StringBuilder dashedPosition = new StringBuilder();
 		for (int i = 0; i < position; i++) {
-			dashedPosition += MOVING_GAUGE;
+			dashedPosition.append(MOVING_GAUGE);
 		}
-		return dashedPosition;
+		return dashedPosition.toString();
 	}
 
 	private void move() {
