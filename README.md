@@ -115,6 +115,17 @@ constants
 ### 9. Application 구현
  **최종적으로 Application 구현**
 
+---
+
+## 추가 기능 구현
+
+### 동일 이름 입력 확인
+**같은 이름이 입력되면 구분할 수 없기 때문에 예외 처리 한다.**
+
+- NamesInputCheck.checkHaveSameNames() 구현
+  - 동일 이름은 예외를 발생 시키고  예외 메시지를 구분하여 출력
+
+
 <br>
 
 ---
