@@ -5,25 +5,30 @@ import java.util.List;
 import java.util.Map;
 
 import racingcar.Car;
+import racingcar.repository.CarRepository;
 import racingcar.repository.MemoryCarRepository;
 
 public class CarServiceImpl implements CarService {
 
-	private static final MemoryCarRepository memoryCarRepository = new MemoryCarRepository();
+	private final CarRepository carRepository;
+
+	public CarServiceImpl(CarRepository carRepository) {
+		this.carRepository = carRepository;
+	}
 
 	@Override
 	public void join(String name) {
-		memoryCarRepository.save(new Car(name));
+		carRepository.save(new Car(name));
 	}
 
 	@Override
 	public Car findCar(int carId) {
-		return memoryCarRepository.findById(carId);
+		return carRepository.findById(carId);
 	}
 
 	@Override
 	public void moveAllCars() {
-		Map<Integer, Car> cars = memoryCarRepository.findAll();
+		Map<Integer, Car> cars = carRepository.findAll();
 		for (int carId : cars.keySet()) {
 			String carName = findCar(carId).getName();
 			int carPosition = findCar(carId).move();
@@ -38,8 +43,8 @@ public class CarServiceImpl implements CarService {
 
 	@Override
 	public List<Car> findWinningCars() {
-		Map<Integer, Car> cars = memoryCarRepository.findAll();
-		int maxPosition = memoryCarRepository.findMaxPosition();
+		Map<Integer, Car> cars = carRepository.findAll();
+		int maxPosition = carRepository.findMaxPosition();
 		List<Car> winningCars = new ArrayList<>();
 		for (int carId : cars.keySet()) {
 			Car car = findCar(carId);

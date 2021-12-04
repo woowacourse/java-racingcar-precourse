@@ -13,10 +13,12 @@ public class Application {
 	private static int racingCnt;
 	private static List<String> carNames;
 
-	private static CarService carService = new CarServiceImpl();
+	private static CarService carService;
 
 	public static void main(String[] args) {
 		// TODO 구현 진행
+		AppConfig appConfig = new AppConfig();
+		carService = appConfig.carService();
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		inputCarNames();
 		joinCars();
