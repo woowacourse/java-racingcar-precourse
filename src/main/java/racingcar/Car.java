@@ -20,12 +20,16 @@ public class Car {
     }
 
     private String indicatePosition() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int count = 0; count < position; count++) {
+            stringBuilder.append(MARK);
+        }
 
-        return "";
+        return stringBuilder.toString();
     }
 
     @Override
     public String toString() {
-        return "";
+        return name + " : " + indicatePosition();
     }
 }
