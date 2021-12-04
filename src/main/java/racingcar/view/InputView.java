@@ -13,9 +13,12 @@ public class InputView {
 	}
 
 	public static List<String> writeCarNames() {
+		String inputCarNames;
+		List<String> carNames;
+
 		OutputView.askCarNames();
-		String inputCarNames = Console.readLine();
-		List<String> carNames = Arrays.asList(inputCarNames.split(CAR_NAME_DELIMITER));
+		inputCarNames = Console.readLine();
+		carNames = Arrays.asList(inputCarNames.split(CAR_NAME_DELIMITER));
 		try {
 			ExceptionUtils.validateCarNames(inputCarNames, carNames);
 		} catch (IllegalArgumentException e) {
@@ -26,9 +29,11 @@ public class InputView {
 	}
 
 	public static int writeNumberOfAttempts() {
-		OutputView.askNumberOfAttempts();
-		String inputNumber = Console.readLine();
+		String inputNumber;
 		int numberOfAttempts;
+
+		OutputView.askNumberOfAttempts();
+		inputNumber = Console.readLine();
 		try {
 			numberOfAttempts = ExceptionUtils.validateNumberOfAttempts(inputNumber);
 		} catch (IllegalArgumentException e) {

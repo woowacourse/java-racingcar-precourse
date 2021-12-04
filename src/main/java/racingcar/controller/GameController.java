@@ -16,7 +16,9 @@ public class GameController {
 	}
 
 	public static void getFinalWinner(Cars cars) {
-		int firstPosition = cars.getFirstPosition();
+		int firstPosition;
+
+		firstPosition = cars.getFirstPosition();
 		OutputView.printWinner(cars.getWinner(firstPosition));
 	}
 }

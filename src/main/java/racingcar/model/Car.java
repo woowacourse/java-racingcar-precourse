@@ -21,7 +21,9 @@ public class Car {
 	}
 
 	public boolean checkMoveForward() {
-		int randomNumber = makeRandomNumber();
+		int randomNumber;
+
+		randomNumber = makeRandomNumber();
 		return randomNumber >= MOVE_CONDITION_NUMBER;
 	}
 

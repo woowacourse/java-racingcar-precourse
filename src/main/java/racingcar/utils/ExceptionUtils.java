@@ -41,13 +41,15 @@ public class ExceptionUtils {
 	}
 
 	public static int validateNumberOfAttempts(String inputNumber) {
+		int numberOfAttempts;
+
 		if (!checkNumber(inputNumber)) {
 			throw new IllegalArgumentException(ERROR_HEADER + NUMBER_ERROR_MESSAGE);
 		}
 		if (!checkMaxValue(inputNumber)) {
 			throw new IllegalArgumentException(ERROR_HEADER + OVER_RANGE_ERROR_MESSAGE);
 		}
-		int numberOfAttempts = Integer.parseInt(inputNumber);
+		numberOfAttempts = Integer.parseInt(inputNumber);
 		if (!checkPositiveNumber(numberOfAttempts)) {
 			throw new IllegalArgumentException(ERROR_HEADER + NATURAL_NUMBER_ERROR_MESSAGE);
 		}
@@ -76,7 +78,9 @@ public class ExceptionUtils {
 	}
 
 	public static boolean checkMaxValue(String inputNumber) {
-		long longNumber = Long.parseLong(inputNumber);
+		long longNumber;
+
+		longNumber = Long.parseLong(inputNumber);
 		return longNumber <= MAXIMUM_INT_VALUE;
 	}
 
