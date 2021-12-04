@@ -22,10 +22,10 @@ public class Game {
 
 		ArrayList<Car> carsList = new ArrayList<Car>();
 
-		String[] driverNamesInput = user.driverNameInput();
+		String[] carNamesInput = user.carNameInput();
 
-		for (int i = 0; i < driverNamesInput.length; i++) {
-			carsList.add(new Car(driverNamesInput[i]));
+		for (int i = 0; i < carNamesInput.length; i++) {
+			carsList.add(new Car(carNamesInput[i]));
 		}
 		return carsList;
 	}
