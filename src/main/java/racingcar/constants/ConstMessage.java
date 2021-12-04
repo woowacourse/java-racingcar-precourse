@@ -13,6 +13,7 @@ public class ConstMessage {
     public static final String NAME_PARSING_DELIMITER = ",";
 
     //에러 메시지
-    public static final String NAME_INPUT_ERROR = "[ERROR]: 모든 이름은 %d 이하의 문자로 입력해주세요.\n";
+    public static final String NAME_INPUT_ERROR = "[ERROR]: 모든 이름은 " + ConstValue.NAME_LENGTH_LIMIT + " 이하의 문자로 입력해주세요.";
+    public static final String SAME_NAME_ERROR = "[ERROR]: 동일한 이름이 입력됨: ";
     public static final String ROUND_INPUT_ERROR = "[ERROR]: 시도 횟수는 0이상의 정수로 입력해주세요.";
 }

@@ -43,7 +43,7 @@ public class NamesInputCheck {
             checkNamesLength(names);
             checkHaveSameNames(names);
         }catch(IllegalArgumentException exception){
-            System.out.printf(ConstMessage.NAME_INPUT_ERROR, ConstValue.NAME_LENGTH_LIMIT);
+            System.out.println(exception.getMessage());
             isPossibleName = false;
         }
 
@@ -55,7 +55,7 @@ public class NamesInputCheck {
         for(String name : names){
 
             if(name.length() > ConstValue.NAME_LENGTH_LIMIT){
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(ConstMessage.NAME_INPUT_ERROR);
             }
 
         }
@@ -69,7 +69,7 @@ public class NamesInputCheck {
             int fromLast = names.lastIndexOf(name);
 
             if(fromFront != fromLast){
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(ConstMessage.SAME_NAME_ERROR + name);
             }
 
         }
