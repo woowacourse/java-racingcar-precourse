@@ -1,11 +1,8 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.handler.PrintHandler;
 
 public class Car {
-	private static final int RANGE_MIN_VALUE = 0;
-	private static final int RANGE_MAX_VALUE = 9;
 	private static final int MOVE_VALUE = 4;
 
 	private final String name;
@@ -16,23 +13,19 @@ public class Car {
 	}
 
 	// 추가 기능 구현
-	public void playOnce() {
-		move();
+	public void playOnce(int randomNumber) {
+		move(randomNumber);
 		print();
 	}
 
-	private void move() {
-		if (checkMove(generateRandomNumber())) {
+	private void move(int randomNumber) {
+		if (checkMove(randomNumber)) {
 			position++;
 		}
 	}
 
 	private void print() {
 		PrintHandler.printCar(this);
-	}
-
-	private int generateRandomNumber() {
-		return Randoms.pickNumberInRange(RANGE_MIN_VALUE, RANGE_MAX_VALUE);
 	}
 
 	private boolean checkMove(int number) {

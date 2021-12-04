@@ -1,13 +1,18 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Cars;
 import racingcar.handler.InputHandler;
 import racingcar.handler.PrintHandler;
 import racingcar.utils.Validator;
 
 public class Game {
+	private static final int RANGE_MIN_VALUE = 0;
+	private static final int RANGE_MAX_VALUE = 9;
+
 	private Cars cars;
 	private int runNumber;
+	private int carsSize;
 
 	public void run() {
 		inputName();
@@ -30,6 +35,7 @@ public class Game {
 
 	private void createCars(String[] names) {
 		cars = new Cars(names);
+		carsSize = cars.size();
 	}
 
 	private void inputRunNumber() {
@@ -62,7 +68,15 @@ public class Game {
 	}
 
 	private void playOnce() {
-		cars.playOnce();
+		cars.playOnce(generateRandomNumbers());
 		PrintHandler.printBlank();
+	}
+
+	private int[] generateRandomNumbers() {
+		int[] randomNumbers = new int[carsSize];
+		for (int i = 0; i < carsSize; i++) {
+			randomNumbers[i] = Randoms.pickNumberInRange(RANGE_MIN_VALUE, RANGE_MAX_VALUE);
+		}
+		return randomNumbers;
 	}
 }

@@ -8,28 +8,19 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import racingcar.domain.Car;
-
 class CarTest {
-	Car car;
-	OutputStream out;
-
-	@BeforeEach
-	void beforeEach() {
-		car = new Car("name");
-		out = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(out));
-	}
-
 	@Test
 	void 출력_확인() {
 		// given
+		Car car = new Car("name");
+		OutputStream out = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(out));
+		int randomNumber = 4;
 
 		// when
-		car.playOnce();
+		car.playOnce(randomNumber);
 
 		// then
 		String result = out.toString();

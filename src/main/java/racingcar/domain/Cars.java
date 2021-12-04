@@ -15,8 +15,10 @@ public class Cars {
 		createCars(names);
 	}
 
-	public void playOnce() {
-		cars.forEach(Car::playOnce);
+	public void playOnce(int[] randomNumbers) {
+		for (int i = 0; i < cars.size(); i++) {
+			cars.get(i).playOnce(randomNumbers[i]);
+		}
 	}
 
 	public void getWinner() {
@@ -48,5 +50,9 @@ public class Cars {
 			}
 		}
 		return winnerPosition;
+	}
+
+	public int size() {
+		return cars.size();
 	}
 }
