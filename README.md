@@ -198,16 +198,20 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 - 사용자의 입력 받기
     - 입력 안내 메세지 출력
     - 자동차 이름
-        - 5자 초과인 경우 Exception 발생
-        - 이름이 중복된 경우 Exception 발생
-    - 시도 회수
-        - 숫자가 아닐 경우 Exception 발생
+    - 시도 횟수
+    - Exception 발생시 예외 메세지 출력, 함수 재호출
 - 자동차 생성시키기
 - 우승자 결정하기
     - 우승자가 여러 명일 경우는 모두 우승자로 처리
 - 게임 시작하기
-    - 입력받은 시도 회수만큼 자동차 이동시키기
+    - 입력받은 시도 횟수만큼 자동차 이동시키기
     - 우승자 결정 후, 우승자 출력하기
+- 사용자 입력 검증하기
+    - 자동차 이름 검증
+        - 5자 초과인 경우 Exception 발생
+        - 이름이 중복된 경우 Exception 발생
+    - 시도 횟수 검증
+        - 숫자가 아닐 경우 Exception 발생
 
 #### Car 클래스
 
