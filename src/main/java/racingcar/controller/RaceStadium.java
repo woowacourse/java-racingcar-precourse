@@ -16,8 +16,8 @@ public class RaceStadium {
 		cars.join(InputView.getInputRaceCar());
 		trial = InputView.getInputTrial();
 		racing();
-		WinnerDto winnerNames = Winner.decision(cars);
-		OutputView.printWinner(winnerNames);
+		WinnerDto winners = Winner.decision(cars);
+		OutputView.printWinner(winners);
 	}
 
 	private void racing() {

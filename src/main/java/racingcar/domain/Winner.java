@@ -17,7 +17,6 @@ public class Winner {
 				winnerList.add(candidateCar.getName());
 			}
 		}
-
 		return new WinnerDto(winnerList);
 	}
 

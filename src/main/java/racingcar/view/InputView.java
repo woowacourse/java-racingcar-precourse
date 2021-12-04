@@ -18,9 +18,7 @@ public class InputView {
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
-
 		}
-
 	}
 
 	public static int getInputTrial() {
@@ -32,6 +30,5 @@ public class InputView {
 				System.out.println(e.getMessage());
 			}
 		}
-
 	}
 }
