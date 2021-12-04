@@ -5,8 +5,6 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
 public class View {
-    public static final String ERROR_MESSAGE_CAR = "[ERROR] 입력이 형식에 맞지 않습니다.";
-    public static final String ERROR_MESSAGE_GOAL = "[ERROR] 시도 횟수는 숫자여야 한다.";
     public static final String RESULT_MESSAGE = "실행 결과";
     
     public View () {}
@@ -27,7 +25,16 @@ public class View {
         
         participants.stream().forEach(c -> System.out.println(showPosition(c)));
         System.out.println();
-        
+    }
+    
+    public void showErrorMessage(String type) {
+        if(type.equals("Car")) {
+            System.out.println("[ERROR] 입력한 자동차 이름이 형식에 맞지 않습니다.");
+            return;
+        }
+        if(type.equals("Num")) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+        }
     }
     
     public void showWinnerMessage(List<Car> winners) {
