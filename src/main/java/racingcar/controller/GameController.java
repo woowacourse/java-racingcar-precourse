@@ -21,7 +21,12 @@ public class GameController {
 		OutputView.printExecutionResult();
 		for (int i = MINIMUM_ATTEMPT_NUMBER; i < numberOfAttempts; i++) {
 			cars.showCarsPosition();
-			OutputView.printNewLine();
 		}
+		getFinalWinner(cars);
+	}
+
+	public static void getFinalWinner(Cars cars) {
+		int firstPosition = cars.getFirstPosition();
+		OutputView.printWinner(cars.getWinner(firstPosition));
 	}
 }
