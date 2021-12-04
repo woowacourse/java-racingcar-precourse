@@ -2,21 +2,27 @@ package racingcar;
 
 import static racingcar.StringConstants.MIN_VALUE_OF_ROUND_NUMBER;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
+    public int roundNumber;
+    private final CarRepository carRepository;
 
-    public List<Car> createCars(String[] carNameStrings) {
-        List<Car> carNames = new ArrayList<>();
-        for (String carNameString : carNameStrings) {
-            carNames.add(Car.create(carNameString));
+    public RacingGame(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
+    public List<Car> createCars(String[] names) {
+        for (String name : names) {
+            Car car = Car.create(name);
+            carRepository.saveInOrder(car);
         }
-        return carNames;
+        return findSavedCars();
     }
 
     public int createRoundNumber(int input) {
         validateRoundNumber(input);
+        roundNumber = input;
         return input;
     }
 
@@ -25,4 +31,9 @@ public class RacingGame {
             throw new IllegalArgumentException();
         }
     }
+
+    private List<Car> findSavedCars() {
+        return carRepository.findAllCarsInOrder();
+    }
 }
+

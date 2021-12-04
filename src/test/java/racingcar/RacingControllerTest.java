@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 class RacingControllerTest {
     private final InputStream standardIn = System.in;
-    private final RacingController racingController = new RacingController(new RacingGame());
+    private final RacingController racingController = new RacingController(new RacingGame(new CarRepository()));
 
     @Test
     void 자동차_이름을_쉼표를_구분자로_입력받음() {
@@ -40,7 +40,8 @@ class RacingControllerTest {
     void 자동차_이름이_정해진_글자수_아닐시_예외_발생() {
         String longName = "longerThanMaxLength";
         assertThat(longName.length()).isGreaterThan(MAX_LENGTH_OF_CAR_NAME);
-        assertThatThrownBy(() -> Car.create(longName)).isInstanceOf(IllegalArgumentException.class);
+        setInput(longName);
+        assertThatThrownBy(racingController::createCars).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

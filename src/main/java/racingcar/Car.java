@@ -1,13 +1,12 @@
 package racingcar;
 
-import static racingcar.StringConstants.MAX_LENGTH_OF_CAR_NAME;
-import static racingcar.StringConstants.MIN_LENGTH_OF_CAR_NAME;
+import static racingcar.StringConstants.*;
 
 import java.util.Objects;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private int position = INITIAL_POSITION;
 
     private Car(String name) {
         this.name = name;
@@ -31,6 +30,11 @@ public class Car {
         return false;
     }
 
+    // 아직 테스트를 위해서만 사용되었다. 본코드에서 사용되지 않으면 삭제되어야 한다다
+   public String getName() {
+        return name;
+    }
+
     // 본 코드에서 사용되지 않으면 삭제되어야 함
     @Override
     public boolean equals(Object o) {
@@ -39,7 +43,7 @@ public class Car {
         Car car = (Car) o;
         return name.equals(car.name);
     }
-
+    // 본 코드에서 사용되지 않으면 삭제되어야 함
     @Override
     public int hashCode() {
         return Objects.hash(name);
