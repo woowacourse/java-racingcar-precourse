@@ -14,7 +14,7 @@ public class Input {
     public List<String> inputCarNames() {
         List<String> names = new ArrayList<>();
 
-        while(names.isEmpty()){
+        while (names.isEmpty()) {
             try {
                 String carNames = Console.readLine();
                 validator.validateCarName(carNames);
@@ -31,7 +31,7 @@ public class Input {
     public int inputRoundNumber() {
         int round = 0;
 
-        while(round == 0){
+        while (round == 0) {
             try {
                 String roundNumber = Console.readLine();
                 validator.validateRoundNumber(roundNumber);
