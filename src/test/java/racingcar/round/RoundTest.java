@@ -16,18 +16,18 @@ public class RoundTest {
 
     @Test
     void 한_자동차_플레이_전진() {
-        Round.play(car, 4);
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(Round.canMove(4)).isEqualTo(true);
     }
 
     @Test
     void 한_자동차_플레이_정지() {
-        Round.play(car, 3);
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(Round.canMove(3)).isEqualTo(false);
     }
 
     @Test
     void 난수_생성() {
-        assertThat(Round.draw()).isInstanceOf(Integer.class);
+        assertThat(Round.draw())
+                .isGreaterThanOrEqualTo(0)
+                .isLessThanOrEqualTo(9);
     }
 }
