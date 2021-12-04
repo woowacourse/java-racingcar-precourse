@@ -10,6 +10,14 @@ public class Car {
 		this.name = name;
 	}
 
+	public int getPosition() {
+		return position;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 	public void moveForward() {
 		if (isMoveSuccess()) {
 			position++;
