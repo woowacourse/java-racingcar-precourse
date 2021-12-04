@@ -9,4 +9,6 @@ public class Constant {
 	public static final String REPLY_MOVE = "시도할 회수는 몇회인가요?";
 
 	public static final String ERROR_PREFIX = "[ERROR]";
+
+	public static final String GAME_RESULT = "실행 결과";
 }

@@ -17,7 +17,7 @@ public class Game {
 
 	public void start() {
 		setGame();
-		int moveCount = user.replyMoveCount();
+		repeatGame(user.replyMoveCount());
 	}
 
 	public void setGame() {
@@ -35,14 +35,21 @@ public class Game {
 	private void repeatGame(int moveCount) {
 		for (int current = 0; current < moveCount; current++) {
 			proceedGame();
+			printParticipant();
 		}
 	}
 
 	private void proceedGame() {
-
+		for (Car car:
+			 participant) {
+			car.move();
+		}
 	}
 
 	private void printParticipant() {
-
+		for (Car car:
+			participant) {
+			System.out.println(car.toString());
+		}
 	}
 }
