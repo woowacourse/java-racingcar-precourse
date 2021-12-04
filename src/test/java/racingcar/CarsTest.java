@@ -21,6 +21,7 @@ public class CarsTest {
 
     @BeforeAll
     void setUp() {
+        cars.removeAll();
         cars.saveCars("jae,hun,choi");
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
             mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(STOP, MOVING_FORWARD, MOVING_FORWARD);
