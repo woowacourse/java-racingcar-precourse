@@ -12,6 +12,7 @@ public class PlayerInput {
 	private static final String INPUT_MESSAGE_MOVE_TRIAL_COUNT = "시도할 회수는 몇회인가요?";
 	private static final String ERROR_MESSAGE_NAME_SIZE = "[ERROR] 이름은 최대 5자 입력 가능.";
 	private static final String ERROR_MESSAGE_NOT_INT = "[ERROR] 시도 회수는 숫자만 입력 가능.";
+	private static final String ERROR_MESSAGE_BLANK = "[ERROR] 입력이 비었습니다.";
 
 	public List<String> getCarNames() {
 		String input = getInputByMessage(INPUT_MESSAGE_CAR_NAMES);
@@ -32,6 +33,7 @@ public class PlayerInput {
 	}
 
 	private List<String> convertInputToCarNamesList(String input) {
+		validateNotBlank(input);
 		List<String> carNames = new ArrayList<>();
 		StringTokenizer stringTokenizer = new StringTokenizer(input, ",");
 		while (stringTokenizer.hasMoreTokens()) {
@@ -43,6 +45,7 @@ public class PlayerInput {
 	}
 
 	private int convertInputToCount(String input) {
+		validateNotBlank(input);
 		validateInputIsInt(input);
 		return Integer.parseInt(input);
 	}
@@ -58,6 +61,12 @@ public class PlayerInput {
 			if (!Character.isDigit(input.charAt(i))) {
 				throw new IllegalArgumentException(ERROR_MESSAGE_NOT_INT);
 			}
+		}
+	}
+
+	private void validateNotBlank(String input) {
+		if (input.length() == 0) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_BLANK);
 		}
 	}
 }
