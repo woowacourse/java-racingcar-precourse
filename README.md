@@ -36,10 +36,8 @@
 
 - 예외 처리
   - 자동차 이름 입력
-    - 공백 허용 X 👉 `IllegalArgumentException`
+    - 빈칸이 입력되었을 때 👉 `IllegalArgumentException`
     - 5자보다 많은 자동차 이름 입력 👉 `IllegalArgumentException`
-    - 📌 문자 및 숫자는 허용
-    - 📌 쉼표 외의 특수문자 입력 시 👉 `IllegalArgumentException`
     - 📌 중복되는 자동차 이름 입력 시 👉 `IllegalArgumentException`
 
 
