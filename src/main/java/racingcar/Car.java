@@ -3,10 +3,12 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private final String MARK = "-";
+    private final int MOVE_CONDITION = 4;
+
     private final String name;
     private int position = 0;
 
-    private final String MARK = "-";
 
     public Car(String name) {
         this.name = name;
@@ -14,6 +16,10 @@ public class Car {
 
     public int generateRandomValue() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public boolean isPossibleMoveForward(int randomValue) {
+        return randomValue >= MOVE_CONDITION;
     }
 
     public void updatePosition() {
