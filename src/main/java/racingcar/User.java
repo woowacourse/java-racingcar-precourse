@@ -16,6 +16,13 @@ public class User {
 	private String[] names;
 	private int numberOfTimes;
 
+	public void inputNamesUntilCorrect() {
+		inputNames();
+		while (!checkNames()) {
+			inputNames();
+		}
+	}
+
 	public void inputNames() {
 		System.out.println(INPUT_MESSAGE_CARNAMES);
 		String input = Console.readLine();
