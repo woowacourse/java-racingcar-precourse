@@ -28,7 +28,7 @@ public class EveryCar {
 
 	public void showThisGameWinner() {
 		ArrayList<CarDTO> carsDTO = new ArrayList<>();
-		cars.stream().forEach(eachCar -> carsDTO.add(new CarDTO(eachCar.toString(), eachCar.showMovingDistance())));
+		cars.stream().forEach(eachCar -> carsDTO.add(new CarDTO(eachCar.getName(), eachCar.showMovingDistance())));
 		OutputView.showThisGameWinner(carsDTO);
 	}
 }
