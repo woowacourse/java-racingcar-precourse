@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Objects;
 import racingcar.util.Assertions;
 
 public class Car {
@@ -13,4 +14,20 @@ public class Car {
         this.name = name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Car)) {
+            return false;
+        }
+        Car car = (Car)o;
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

@@ -1,7 +1,8 @@
 package racingcar;
 
 public enum ErrorInfo {
-	LENGTH("[ERROR] 이름은 5글자를 넘길 수 없습니다.");
+	LENGTH("[ERROR] 이름은 5글자를 넘길 수 없습니다."),
+ 	OVERLAP("[ERROR] 이름이 중복됩니다.");
 
 	private final String message;
 
