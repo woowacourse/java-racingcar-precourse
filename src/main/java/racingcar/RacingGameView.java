@@ -47,6 +47,10 @@ class RacingGameView {
 		System.out.println();
 	}
 
+	public void printWinners(List<String> winners) {
+		System.out.println(FINAL_RESULT_MESSAGE + String.join(", ", winners));
+	}
+
 	private boolean checkLongNameException(List<String> carNamesList) {
 		try {
 			if (carNamesList.stream().anyMatch(carName -> carName.length() > MAXIMUM_NAME_LENGTH)) {

@@ -28,6 +28,7 @@ class RacingGameController {
 			racingGameView.printMovement(carList);
 		}
 		winners = getWinners();
+		racingGameView.printWinners(winners);
 	}
 
 	private List<String> getWinners() {
