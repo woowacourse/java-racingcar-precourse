@@ -12,7 +12,6 @@ public class Car implements Comparable<Car> {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
 	public void drive() {
 		tryDrive();
 		printPosition();
