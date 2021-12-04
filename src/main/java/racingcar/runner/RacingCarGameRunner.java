@@ -7,7 +7,12 @@ import racingcar.utils.CarGameInputHandler;
 public class RacingCarGameRunner {
 
     public static void run() {
-        RacingCarGame game = new RacingCarGame(getValidNames());
+        RacingCarGame game = newGame();
+        game.runCars();
+    }
+
+    private static RacingCarGame newGame() {
+        return new RacingCarGame(getValidNames(), getValidPlayCount());
     }
 
     private static List<String> getValidNames() {
@@ -19,4 +24,15 @@ public class RacingCarGameRunner {
             }
         }
     }
+
+    private static int getValidPlayCount() {
+        while (true) {
+            try {
+                return CarGameInputHandler.getPlayCount();
+            }catch (IllegalArgumentException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    }
+
 }

@@ -6,11 +6,13 @@ import java.util.stream.Collectors;
 public class RacingCarGame {
 
     final private List<Car> cars;
+    final private Integer playCount;
 
-    public RacingCarGame(List<String> names) {
+    public RacingCarGame(List<String> names, int playCount) {
         this.cars = names.stream()
             .map(Car::new)
             .collect(Collectors.toList());
+        this.playCount = playCount;
     }
 
     public void runCars() {

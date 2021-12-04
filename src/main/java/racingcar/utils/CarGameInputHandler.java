@@ -1,5 +1,6 @@
 package racingcar.utils;
 
+import static racingcar.constants.GameMessages.ERR_INVALID_NUMBER;
 import static racingcar.constants.GameMessages.ERR_INVALID_NAMES;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -19,6 +20,23 @@ public class CarGameInputHandler {
         return names;
     }
 
+    public static int getPlayCount() throws IllegalArgumentException{
+        String number = Console.readLine();
+        if (!isValidPlayCounts(number)) {
+            throw new IllegalArgumentException(ERR_INVALID_NUMBER);
+        }
+        return Integer.parseInt(number);
+    }
+
+    private static boolean isValidPlayCounts(String number) {
+        try {
+            Integer.parseInt(number);
+            return true;
+        }catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     private static boolean isValidNames(List<String> names) {
         return names.stream().allMatch(CarGameInputHandler::isValidName);
     }
@@ -26,5 +44,4 @@ public class CarGameInputHandler {
     private static boolean isValidName(String name) {
         return !name.isEmpty() && name.length() <= NAME_MAX_LENGTH;
     }
-
 }
