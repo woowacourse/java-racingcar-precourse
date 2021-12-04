@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import static racingcar.Application.carList;
 import static racingcar.Application.numberOfTry;
 
-public class Reader {
+public class Generator {
 
     public static ArrayList<Car> inputCarName() {
         String inputText = Console.readLine();
