@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class CarListMaker {
 	ArrayList<Car> carList = new ArrayList<>();
 
@@ -38,9 +36,9 @@ public class CarListMaker {
 	}
 
 	private ArrayList<Car> getCarList(String chunkOfCarNames) throws IllegalArgumentException {
-		InputValidator checker = new InputValidator();
+		InputValidator validator = new InputValidator();
 		for (String carName : splitStrToListByComma(chunkOfCarNames)) {
-			checker.hasValidLengthAndNoDuplication(carName);
+			validator.hasValidLengthAndNoDuplication(carName);
 			carList.add(new Car(carName));
 		}
 		return carList;
@@ -52,29 +50,3 @@ public class CarListMaker {
 	}
 }
 
-class NameStringMaker {
-	private String chunkOfCarNames;
-
-	String getNameString() {
-		return chunkOfCarNames;
-	}
-
-	NameStringMaker() {
-		input();
-	}
-
-	private void input() {
-		do {
-			this.chunkOfCarNames = Console.readLine();
-		} while (!isValidInput(chunkOfCarNames));
-	}
-
-	private boolean isValidInput(String input) {
-		try {
-			return new InputValidator().isStrContainOnlyAlphabetOrComma(input);
-		} catch (Exception error) {
-			System.out.println(error.getMessage());
-			return false;
-		}
-	}
-}
