@@ -24,7 +24,7 @@ public class Game {
 
 	//TODO: inputCars() 랑 inputRepeatNumber() 한 메서드로 합치기
 	private void inputCars() {
-		cars= new ArrayList<>();
+		cars = new ArrayList<>();
 		MessageResponse.of(Message.ENTER_CARS_NAME.getMessage());
 		String inputStr = Console.readLine();
 
