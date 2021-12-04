@@ -31,14 +31,14 @@ public class CarsTest {
 
     @DisplayName("저장된 Cars 값을 가져온다")
     @Test
-    void getAll() {
+    void getAll(){
         List<Car> findCars = cars.getAllCars();
 
         SoftAssertions.assertSoftly(soft -> {
-            assertThat(findCars.size()).isEqualTo(3);
-            assertThat(findCars.get(0).getName()).isEqualTo("jae");
-            assertThat(findCars.get(1).getName()).isEqualTo("hun");
-            assertThat(findCars.get(2).getName()).isEqualTo("choi");
+            soft.assertThat(findCars.size()).isEqualTo(3);
+            soft.assertThat(findCars.get(0).getName()).isEqualTo("jae");
+            soft.assertThat(findCars.get(1).getName()).isEqualTo("hun");
+            soft.assertThat(findCars.get(2).getName()).isEqualTo("choi");
         });
     }
 
@@ -48,9 +48,9 @@ public class CarsTest {
         List<Car> findCars = cars.getAllCars();
 
         SoftAssertions.assertSoftly(soft -> {
-            assertThat(findCars.get(0).getPosition()).isEqualTo(STAY);
-            assertThat(findCars.get(1).getPosition()).isEqualTo(MOVED);
-            assertThat(findCars.get(2).getPosition()).isEqualTo(MOVED);
+            soft.assertThat(findCars.get(0).getPosition()).isEqualTo(STAY);
+            soft.assertThat(findCars.get(1).getPosition()).isEqualTo(MOVED);
+            soft.assertThat(findCars.get(2).getPosition()).isEqualTo(MOVED);
         });
     }
 
@@ -60,9 +60,9 @@ public class CarsTest {
         List<Car> winners = cars.getWinners();
 
         SoftAssertions.assertSoftly(soft -> {
-            assertThat(winners.size()).isEqualTo(2);
-            assertThat(winners.get(0).getName()).isEqualTo("hun");
-            assertThat(winners.get(1).getName()).isEqualTo("choi");
+            soft.assertThat(winners.size()).isEqualTo(2);
+            soft.assertThat(winners.get(0).getName()).isEqualTo("hun");
+            soft.assertThat(winners.get(1).getName()).isEqualTo("choi");
         });
 
     }
