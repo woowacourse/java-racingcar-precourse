@@ -6,5 +6,8 @@ public class Message {
 	public static final String EXECUTE_RESULT = "실행 결과";
 	public static final String WINNERS = "최종 우승자 : ";
 	public static final String ERROR_INVALID_NAME_FORMAT = "[ERROR] 자동차의 이름은 1~5글자 입니다";
-	public static final String ERROR_INVALID_STAGE_VALUE = "[ERROR] 시도할 횟수는 숫자여야 합니다";
+	public static final String ERROR_INVALID_STAGE_VALUE = "[ERROR] 시도할 횟수는 0이 아닌 숫자여야 합니다";
+
+	private Message() {
+	}
 }
