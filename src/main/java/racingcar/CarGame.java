@@ -27,6 +27,8 @@ public class CarGame implements Runnable {
 				break;
 			}
 		}
+
+
 	}
 
 	private void generateCars() {
