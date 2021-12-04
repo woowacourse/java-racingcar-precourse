@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.constants.ConstMessage;
+import racingcar.constants.ConstValue;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -25,13 +26,13 @@ public class NamesInputCheck {
         int parsingBeginIndex=0, parsingEndIndex;
         List<String> names = new ArrayList<>();
 
-        while((parsingEndIndex = input.indexOf(',', parsingBeginIndex)) != -1){
+        while((parsingEndIndex = input.indexOf(ConstMessage.NAME_PARSING_DELIMITER, parsingBeginIndex)) != -1){
             names.add(input.substring(parsingBeginIndex, parsingEndIndex));
             parsingBeginIndex = parsingEndIndex+1;
         }
 
         //마지막 이름 넣어주기
-        names.add(input.substring(parsingBeginIndex, input.length()));
+        names.add(input.substring(parsingBeginIndex));
         return names;
     }
 
@@ -41,7 +42,7 @@ public class NamesInputCheck {
         try{
             checkNamesLength(names);
         }catch(IllegalArgumentException exception){
-            System.out.println("[ERROR]: 모든 이름은 5이하의 문자로 입력해주세요.");
+            System.out.printf(ConstMessage.NAME_INPUT_ERROR, ConstValue.NAME_LENGTH_LIMIT);
             isPossibleName = false;
         }
 
@@ -52,7 +53,7 @@ public class NamesInputCheck {
 
         for(String name : names){
 
-            if(name.length() > 5){
+            if(name.length() > ConstValue.NAME_LENGTH_LIMIT){
                 throw new IllegalArgumentException();
             }
 

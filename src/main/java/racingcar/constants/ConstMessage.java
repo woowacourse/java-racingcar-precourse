@@ -10,4 +10,8 @@ public class ConstMessage {
     public static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
     public static final String NAME_POSITION_DELIMITER = " : ";
     public static final String NAME_AND_NAME_DELIMITER = ", ";
+    public static final String NAME_PARSING_DELIMITER = ",";
+
+    //에러 메시지
+    public static final String NAME_INPUT_ERROR = "[ERROR]: 모든 이름은 %d 이하의 문자로 입력해주세요.\n";
 }
