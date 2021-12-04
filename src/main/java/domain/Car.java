@@ -2,9 +2,12 @@ package domain;
 
 import utils.RandomGenerate;
 
+import java.util.Random;
+
 public class Car {
     private final String name;
     private int position = 0;
+    private RandomGenerate randomGenerate = new RandomGenerate();
 
     public Car(String name) {
         this.name = name;
@@ -19,7 +22,7 @@ public class Car {
     }
 
     public void goOrStop(){
-        int num = RandomGenerate.pickNum();
+        int num = randomGenerate.pickNum();
         if(num > 3){
             position++;
         }
