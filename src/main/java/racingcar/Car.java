@@ -23,6 +23,14 @@ public class Car {
 	}
 
 	public void statusReport() {
-		System.out.println(report.toString());
+		System.out.println(report);
+	}
+
+	public int getPosition() {
+		return this.position;
+	}
+
+	public String getName() {
+		return this.name;
 	}
 }
