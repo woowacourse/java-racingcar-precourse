@@ -49,6 +49,7 @@ public class CarGame implements Runnable {
 			Arrays.stream(splitComma(trim(inputCarNames())))
 				.forEach(name -> Cars.addCar(new Car(name)));
 		} catch (IllegalArgumentException exception) {
+			Cars.clear();
 			System.out.println(exception.getMessage());
 		}
 	}
