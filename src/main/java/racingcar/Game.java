@@ -14,7 +14,6 @@ public class Game {
 		for(int i = 0; i < gameCount; i++) {
 			playTurn(carsList);
 		}
-
 		pickWinner(carsList);
 	}
 
@@ -45,11 +44,11 @@ public class Game {
 	}
 
 	public void pickWinner(ArrayList<Car> carsList){
-		ArrayList<Car> winnerList = new ArrayList<Car>();
+		ArrayList<String> winnerList = new ArrayList<String>();
 		int maxValue = getMaxValue(carsList);
 		for(Car car : carsList){
 			if(car.getPosition() == maxValue){
-				winnerList.add(car);
+				winnerList.add(car.getCarName());
 			}
 		}
 		printWinner(winnerList);
@@ -65,10 +64,9 @@ public class Game {
 		return maxValue;
 	}
 
-	public void printWinner(ArrayList<Car> winnerList){
+	public void printWinner(ArrayList<String> winnerList){
 		System.out.print(Constant.WINNER);
-		for (int i = 0; i < winnerList.size(); i++) {
-			System.out.print(String.join(", ", winnerList.get(i).getCarName()));
-		}
+		System.out.print(String.join(", ", winnerList));
+
 	}
 }
