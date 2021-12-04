@@ -1,7 +1,7 @@
 package racingcar.utils;
 
-import static racingcar.constants.GameMessages.ERR_INVALID_NUMBER;
 import static racingcar.constants.GameMessages.ERR_INVALID_NAMES;
+import static racingcar.constants.GameMessages.ERR_INVALID_NUMBER;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -12,15 +12,16 @@ public class CarGameInputHandler {
     final private static int NAME_MAX_LENGTH = 5;
     final private static String DELIMITER = ",";
 
-    public static List<String> getCarNames() throws IllegalArgumentException{
-        List<String> names = Arrays.asList(Console.readLine().split(DELIMITER));
-        if (!isValidNames(names)) {
+    public static List<String> getCarNames() throws IllegalArgumentException {
+        String input = Console.readLine();
+        List<String> names = Arrays.asList(input.split(DELIMITER));
+        if (!isValidFormat(input) || !isValidNames(names)) {
             throw new IllegalArgumentException(ERR_INVALID_NAMES);
         }
         return names;
     }
 
-    public static int getPlayCount() throws IllegalArgumentException{
+    public static int getPlayCount() throws IllegalArgumentException {
         String number = Console.readLine();
         if (!isValidPlayCounts(number)) {
             throw new IllegalArgumentException(ERR_INVALID_NUMBER);
@@ -32,16 +33,28 @@ public class CarGameInputHandler {
         try {
             Integer.parseInt(number);
             return true;
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
     }
 
     private static boolean isValidNames(List<String> names) {
-        return names.stream().allMatch(CarGameInputHandler::isValidName);
+        return isNonDuplicatedNames(names)
+            && names.stream().allMatch(CarGameInputHandler::isValidName);
     }
 
     private static boolean isValidName(String name) {
         return !name.isEmpty() && name.length() <= NAME_MAX_LENGTH;
     }
+
+    private static boolean isValidFormat(String name) {
+        return name.chars()
+            .mapToObj(c -> String.valueOf(c).equals(DELIMITER))
+            .count() == name.split(DELIMITER).length;
+    }
+
+    private static boolean isNonDuplicatedNames(List<String> names) {
+        return names.size() == names.stream().distinct().count();
+    }
+
 }
