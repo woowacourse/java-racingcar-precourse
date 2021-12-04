@@ -17,7 +17,7 @@ class CarTest {
     void createExceptionByLargeNameLengthTest(String input) {
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
-            .isThrownBy(() -> new Car(input))
+            .isThrownBy(() -> Car.createRandomMoveCar(input))
             .withMessage("[ERROR] Car의 이름은 1자 이상 5자 이하만 입력되어야 합니다.");
     }
 
@@ -29,7 +29,7 @@ class CarTest {
 
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
-            .isThrownBy(() -> new Car(input))
+            .isThrownBy(() -> Car.createRandomMoveCar(input))
             .withMessage("[ERROR] Car의 이름은 null이 들어올 수 없습니다.");
     }
 
@@ -39,7 +39,7 @@ class CarTest {
     void createExceptionByBlankNameTest(String input) {
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
-            .isThrownBy(() -> new Car(input))
+            .isThrownBy(() -> Car.createRandomMoveCar(input))
             .withMessage("[ERROR] Car의 이름은 공백이 포함될 수 없습니다.");
     }
 
@@ -47,7 +47,7 @@ class CarTest {
     @DisplayName("Car는 4이상의 값이 들어올 경우 한칸 이동한다.")
     void moveTrueTest() {
         // given
-        Car car = new Car("pobi");
+        Car car = Car.createRandomMoveCar("pobi");
 
         // when
         int result = car.move();
@@ -60,7 +60,7 @@ class CarTest {
     @DisplayName("Car는 4미만의 값이 들어올 경우 그대로 멈춰있는다.")
     void moveNothingTest() {
         // given
-        Car car = new Car("pobi");
+        Car car = Car.createRandomMoveCar("pobi");
 
         // when
         int result = car.move();
