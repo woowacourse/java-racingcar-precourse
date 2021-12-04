@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import java.util.Optional;
+import racingcar.util.NumberParser;
 
 public class CarGame implements Runnable {
 	private static final String GUIDE_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -16,7 +18,15 @@ public class CarGame implements Runnable {
 				break;
 			}
 		}
-		int count = inputMoveCount();
+
+		MoveCount moveCount;
+		while (true) {
+			Optional<MoveCount> optionalMoveCount = createMoveCount();
+			if (optionalMoveCount.isPresent()) {
+				moveCount = optionalMoveCount.get();
+				break;
+			}
+		}
 	}
 
 	private void generateCars() {
@@ -41,8 +51,13 @@ public class CarGame implements Runnable {
 		return Console.readLine();
 	}
 
-	private int inputMoveCount() {
+	private Optional<MoveCount> createMoveCount() {
 		System.out.println(GUIDE_MOVE_COUNT);
-		return Integer.parseInt(Console.readLine());
+		try {
+			return Optional.of(new MoveCount(NumberParser.parseInt(Console.readLine())));
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			return MoveCount.Empty();
+		}
 	}
 }
