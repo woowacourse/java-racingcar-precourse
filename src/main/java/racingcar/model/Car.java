@@ -26,7 +26,7 @@ public class Car {
 		return randomNumber >= MOVE_CONDITION_NUMBER;
 	}
 
-	public int currentPosition() {
+	public int getCurrentPosition() {
 		if (checkMoveForward()) {
 			position++;
 		}
@@ -34,7 +34,7 @@ public class Car {
 	}
 
 	public void printCarPosition() {
-		position = currentPosition();
+		position = getCurrentPosition();
 		OutputView.printCarNameAndColon(name);
 		OutputView.printPosition(position);
 	}
