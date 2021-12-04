@@ -1,6 +1,9 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.service.CarService;
@@ -8,7 +11,7 @@ import racingcar.service.CarServiceImpl;
 
 public class Application {
 	private static int racingCnt;
-	private static String[] carNames;
+	private static List<String> carNames;
 
 	private static CarService carService = new CarServiceImpl();
 
@@ -28,9 +31,11 @@ public class Application {
 
 	public static void inputCarNames() {
 		try {
-			carNames = Console.readLine().split(",");
-			for (String carName : carNames) {
+			String[] inputNames = Console.readLine().split(",");
+			carNames = new ArrayList<>();
+			for (String carName : inputNames) {
 				isLengthLessThanOrEqualFive(carName);
+				carNames.add(carName);
 			}
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
