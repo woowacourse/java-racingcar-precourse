@@ -18,12 +18,12 @@ public class CarTest {
     @Test
     @DisplayName(value = "입력한 입력을 가진 Car 단일 생성")
     void Car_단일_생성() {
-        assertThat(car.getName()).isEqualTo("pobi");
+        assertThat(car).isInstanceOf(Car.class);
     }
 
     @Test
     void Car_이동() {
         car.move();
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.whereIsIt()).isEqualTo("pobi : -");
     }
 }
