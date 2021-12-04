@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +13,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class Game {
 	private final List<Car> participants;
 	private final int numberOfTrials;
+	private int[] scoreBoard;
 
 	Game() {
 		List<String> carNames = getCarNamesFromUser();
@@ -18,8 +21,9 @@ public class Game {
 			throw new IllegalArgumentException();
 		}
 
-		participants = carNames.stream().map(Car::new).collect(Collectors.toList());
-		numberOfTrials = getNumberOfTrials();
+		this.participants = carNames.stream().map(Car::new).collect(Collectors.toList());
+		this.numberOfTrials = getNumberOfTrials();
+		this.scoreBoard = new int[this.participants.size()];
 	}
 
 	private List<String> getCarNamesFromUser() {
@@ -65,4 +69,30 @@ public class Game {
 		return true;
 	}
 
+	private List<Car> findWinner() {
+		List<Integer> scoreBoard = Arrays.stream(this.scoreBoard).boxed().collect(Collectors.toList());
+		int maxPosition = Collections.max(scoreBoard);
+		List<Car> winners = new ArrayList<>();
+
+		for (int i = 0; i < this.scoreBoard.length; i++) {
+			if (this.scoreBoard[i] == maxPosition) {
+				winners.add(this.participants.get(i));
+			}
+		}
+
+		return winners;
+	}
+	
+	public void start() {
+		System.out.println("실행 결과");
+
+		for (int i = 0; i < this.numberOfTrials; i++) {
+			for (int j = 0; j < this.participants.size(); j++) {
+				scoreBoard[j] += participants.get(j).move();
+			}
+
+			System.out.println();
+		}
+
+	}
 }
