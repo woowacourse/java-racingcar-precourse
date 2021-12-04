@@ -22,14 +22,21 @@ public class OutputView {
         StringBuilder finalWinner = new StringBuilder(Constant.FINAL_WINNER);
         finalWinner.append(winner.getName());
 
-        int index = 1;
-        while (index < cars.size() && cars.get(index).compareTo(winner) == 0) {
-            finalWinner.append(Constant.STANDARD_FOR_FINAL_WINNER);
-            finalWinner.append(cars.get(index).getName());
-            index++;
-        }
+        finalWinner.append(isMoreThanOneWinner(winner, cars.subList(1, cars.size())));
 
         System.out.println(finalWinner);
-
     }
+
+    private static String isMoreThanOneWinner(Car winner, List<Car> cars) {
+        StringBuilder winners = new StringBuilder("");
+        for (Car candidate : cars) {
+            if (candidate.compareTo(winner) != 0) {
+                break;
+            }
+            winners.append(Constant.STANDARD_FOR_FINAL_WINNER);
+            winners.append(candidate.getName());
+        }
+        return winners.toString();
+    }
+
 }
