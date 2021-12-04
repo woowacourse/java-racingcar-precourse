@@ -27,6 +27,14 @@ public class ValidationUtil {
 		}
 	}
 
+	public static void isValidateInputPattern(String value) {
+		for (char alpha : value.toCharArray()) {
+			if (!String.valueOf(alpha).matches(INPUT_PATTERN)) {
+				throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
+			}
+		}
+	}
+
 	public static void isValidateDuplicated(String[] carsName) {
 		Set<String> checkCarsName = new HashSet<>();
 		for (String carName : carsName) {

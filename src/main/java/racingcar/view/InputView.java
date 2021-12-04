@@ -29,6 +29,7 @@ public class InputView {
 			isValidateNotInput(carName);
 			isValidateLength(carName);
 		}
+		isValidateInputPattern(inputCarsName);
 		isValidateDuplicated(carsName);
 	}
 
