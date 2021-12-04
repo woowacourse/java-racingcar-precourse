@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.model.Car;
-import racingcar.model.CarName;
-import racingcar.utils.InputTryCountValidator;
+import racingcar.model.CarNamesBuilder;
+import racingcar.model.Validator;
 import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -13,10 +13,9 @@ import racingcar.view.OutputView;
 public class RacingController {
 	private final InputView inputView;
 	private final OutputView outputView;
-	private String inputCarNames;
+
 	private String[] carNames;
-	private List<Car> carList;
-	private String inputTryCount;
+	private List<Car> cars;
 	private int tryCount;
 
 	public RacingController() {
@@ -24,68 +23,58 @@ public class RacingController {
 		outputView = new OutputView();
 	}
 
-	public void startRacing() {
+	public void readyRacing() {
 		getCarNames();
 		getTryCount();
 		createCars();
-
-		outputView.printResultMessage();
-		for (int i = 0; i < tryCount; i++) {
-			moveCars();
-			outputView.printResult(carList);
-		}
-
-		Winner winner = new Winner(carList);
-		String[] winners = winner.getWinners();
-		outputView.printWinners(winners);
 	}
 
 	private void getCarNames() {
 		do {
-			inputCarNames = inputView.getInputCarNames();
-		} while (!handleGetCarNamesException());
-	}
-
-	private boolean handleGetCarNamesException() {
-		try {
-			CarName carName = new CarName(inputCarNames);
-			carNames = carName.getCarNames();
-			return true;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return false;
-		}
+			final String inputCarNames = inputView.getInputCarNames();
+			carNames = CarNamesBuilder.get(inputCarNames);
+		} while (!Validator.isCarNamesValidated(carNames));
 	}
 
 	private void getTryCount() {
+		String inputTryCount;
 		do {
 			inputTryCount = inputView.getInputTryCount();
-		} while (!handleGetTryCountException());
+		} while (!Validator.isTryCountValidated(inputTryCount));
 
 		tryCount = Integer.parseInt(inputTryCount);
 	}
 
-	private boolean handleGetTryCountException() {
-		try {
-			InputTryCountValidator inputTryCountValidator = new InputTryCountValidator(inputTryCount);
-			inputTryCountValidator.validate();
-			return true;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return false;
+	private void createCars() {
+		cars = new ArrayList<>();
+		for (String carName : carNames) {
+			cars.add(new Car(carName));
 		}
 	}
 
-	private void createCars() {
-		carList = new ArrayList<>();
-		for (String carName : carNames) {
-			carList.add(new Car(carName));
+	public void startRacing() {
+		outputView.printResultMessage();
+		repeatRacing();
+
+		getWinners();
+	}
+
+	private void repeatRacing() {
+		for (int i = 0; i < tryCount; i++) {
+			moveCars();
+			outputView.printResult(cars);
 		}
 	}
 
 	private void moveCars() {
-		for (Car car : carList) {
+		for (Car car : cars) {
 			car.moveForward();
 		}
+	}
+
+	private void getWinners() {
+		final Winner winner = new Winner(cars);
+		String[] winners = winner.get();
+		outputView.printWinners(winners);
 	}
 }
