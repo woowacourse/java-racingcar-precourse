@@ -1,10 +1,11 @@
-package racingcar.domain;
+package racingcar.input;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 import racingcar.exception.ErrorMessage;
 
 public class CarList {

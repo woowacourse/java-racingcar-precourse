@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.domain.Car;
-import racingcar.domain.CarList;
+import racingcar.input.CarList;
 
 public class Application {
 
