@@ -7,7 +7,11 @@ public class CarGame implements Runnable {
 
 	@Override
 	public void run() {
-		String carNames = inputCarNames();
+		String carNames = trim(inputCarNames());
+	}
+
+	private String trim(String inputCarNames) {
+		return inputCarNames.trim();
 	}
 
 	private String inputCarNames() {
