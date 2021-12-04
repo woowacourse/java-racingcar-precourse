@@ -4,6 +4,7 @@ package racingcar;
 import domain.Car;
 import domain.CarList;
 import domain.Turn;
+import view.InputView;
 import view.OutputView;
 
 
@@ -11,9 +12,9 @@ public class Game {
     private CarList cars;
     private int turns;
 
-    public Game(CarList cars, Turn turns){
-        this.cars  = cars;
-        this.turns = turns.getTurns();
+    public Game(){
+        this.cars = setCarList();
+        this.turns = setTurns().getTurns();
     }
 
     public void start(){
@@ -24,5 +25,27 @@ public class Game {
             }
         }
         OutputView.printEnd(cars.decideWinner());
+    }
+
+    private CarList setCarList(){
+        CarList carList = new CarList();
+        try{
+            carList = InputView.getCarList();
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            setCarList();
+        }
+        return carList;
+    }
+
+    private Turn setTurns(){
+        Turn turns = new Turn(0);
+        try {
+            turns = InputView.getTimes();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            setTurns();
+        }
+        return turns;
     }
 }
