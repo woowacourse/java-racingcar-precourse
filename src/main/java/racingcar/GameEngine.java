@@ -44,4 +44,27 @@ public class GameEngine {
 			}
 		}
 	}
+
+	public void moveCars(List<Car> carList) {
+		for (Car car : carList) {
+			car.moveForward();
+		}
+	}
+
+	public String getGameStatus(List<Car> carList) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (Car car : carList) {
+			stringBuilder.append(generateCarInformation(car));
+			stringBuilder.append("\n");
+		}
+		return stringBuilder.toString();
+	}
+
+	private String generateCarInformation(Car car) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < car.getPosition(); i++) {
+			stringBuilder.append("-");
+		}
+		return String.format("%s : %s\n", car.getName(), stringBuilder.toString());
+	}
 }
