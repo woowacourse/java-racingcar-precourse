@@ -11,7 +11,7 @@ public class InputHandler {
 		String[] racingCarNames = parseRacingCarNames(Console.readLine());
 		List<String> results = new ArrayList<String>();
 		for (String racingCarName : racingCarNames) {
-			if (racingCarName.length() > 5) {
+			if (racingCarName.length() > GameData.CARNAME_LIMIT) {
 				throw new IllegalArgumentException(racingCarName);
 			}
 			results.add(racingCarName);
