@@ -29,7 +29,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                         assertThatThrownBy(() -> runException("pobi,javaji"))
                                 .isInstanceOf(IllegalArgumentException.class)
-                                .hasMessageContaining(ERROR_MESSAGE)
+                                .hasMessageContaining(ERROR_MESSAGE));
                 assertSimpleTest(
                         () -> {
                             runException("pobi,javaji");
