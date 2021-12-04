@@ -19,20 +19,13 @@
   * 게임 진행 (현재 결과 값 return)
   * 우승자 확인 (우승 인원 return)
 
-### ✅ CarService
+### ✅ Cars
 #### package java.racingcar
-* service
-  * 저장 (validator에서 5자 이하 검증)
+* 일급 컬렉션
+  * 저장(검증)
   * 게임 진행 (random 값 발생 -> 4이상인지 확인 -> 전진)
   * 게임 진행 (return 모든 저장된 객체)
   * 우승자 확인 (가장 많이 전진한 객체 탐색 -> return 우승 인원)
-
-### ✅ CarRepository
-#### package java.racingcar
-* repository
-  * 저장
-  * 전체 객체 가져오기 (return 저장된 모든 car)
-  * 모두 삭제
 
 ### ✅ NumberValidator
 #### package java.racingcar.validator
