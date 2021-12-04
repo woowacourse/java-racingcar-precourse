@@ -3,20 +3,16 @@ package racingcar.gamesource;
 import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.utils.InputCheck;
 import racingcar.constants.ConstMessage;
-
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.utils.NamesInputCheck;
+import racingcar.utils.RoundNumberInputCheck;
 
 public class RacingGame {
     private List<Car> racingCars = new ArrayList<>();
+    private int roundNum;
 
     public void playStart(){
         gameInit();
-
-        System.out.println(ConstMessage.ROUND_NUMBER_INPUT_REQUEST);
-        String input = Console.readLine();
-        int roundNum = Integer.parseInt(input);
 
         System.out.println(ConstMessage.PLAY_RESULT_MESSAGE);
 
@@ -29,15 +25,13 @@ public class RacingGame {
     }
 
     private void gameInit(){
-        System.out.println(ConstMessage.NAMES_INPUT_REQUEST);
-
-        String input = Console.readLine();
-        List<String> names = InputCheck.parseNames(input);
+        List<String> names = NamesInputCheck.getRightNamesInput();
 
         for(String carName: names){
             racingCars.add(new Car(carName));
         }
 
+        roundNum = RoundNumberInputCheck.getRightRoundNumberInput();
     }
 
     private void playNextRound(){
