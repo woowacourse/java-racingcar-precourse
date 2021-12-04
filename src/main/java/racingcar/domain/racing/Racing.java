@@ -1,8 +1,7 @@
-package racingcar.racing;
+package racingcar.domain.racing;
 
-import racingcar.Car;
-import racingcar.garage.Garage;
-import racingcar.io.FixedString;
+import racingcar.domain.car.Car;
+import racingcar.domain.garage.Garage;
 import racingcar.io.IOService;
 
 import java.util.ArrayList;
@@ -19,6 +18,7 @@ public class Racing {
 
         IOService.makeNewLine();
         IOService.ask(SHOW_RESULT);
+
         doRace(garage, roundCount);
 
         IOService.ask(WINNER);
@@ -29,12 +29,12 @@ public class Racing {
         IOService.ask(ASK_CAR_NAMES);
         String carNames;
 
-        while(true) {
+        while (true) {
             try {
                 carNames = IOService.readCarNames();
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                IOService.printErrorMessage(e.getMessage());
                 continue;
             }
         }
@@ -44,13 +44,15 @@ public class Racing {
 
     private static int getRoundCount() {
         IOService.ask(ASK_ROUND_COUNT);
+
         int roundCount;
-        while(true) {
+
+        while (true) {
             try {
                 roundCount = IOService.readRoundCount();
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                IOService.printErrorMessage(e.getMessage());
                 continue;
             }
         }
@@ -61,7 +63,7 @@ public class Racing {
     private static List<Car> getCarListFromString(String carNames) {
         List<Car> carList = new ArrayList<>();
 
-        for(String eachName : carNames.split(BY)) {
+        for (String eachName : carNames.split(BY)) {
             carList.add(Car.from(eachName));
         }
 
@@ -69,7 +71,7 @@ public class Racing {
     }
 
     private static void doRace(Garage garage, int roundCount) {
-        for(int i = 0; i < roundCount; i++) {
+        for (int i = 0; i < roundCount; i++) {
             garage.playAll();
             IOService.printEachRoundResult(garage);
             IOService.makeNewLine();

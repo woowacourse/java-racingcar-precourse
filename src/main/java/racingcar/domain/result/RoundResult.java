@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.result;
 
 public class RoundResult {
     public static String of(String name, int position) {
@@ -8,10 +8,10 @@ public class RoundResult {
     private static String repeat(int time) {
         String result = "-";
 
-        if(time == 0)
+        if (time == 0)
             return "";
 
-        for(int i = 1; i < time; i++) {
+        for (int i = 1; i < time; i++) {
             result += result;
         }
         return result;

@@ -1,13 +1,12 @@
-package racingcar.garage;
+package racingcar.domain.garage;
 
-import racingcar.Car;
-import racingcar.RacingResult;
-import racingcar.round.Round;
+import racingcar.domain.car.Car;
+import racingcar.domain.result.RacingResult;
+import racingcar.domain.round.Round;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class Garage {
@@ -25,33 +24,33 @@ public class Garage {
         return carList.contains(car);
     }
 
-    public String getRoundResult() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for(Car car : carList) {
-            stringBuilder.append(car.whereIsIt() + '\n');
+    public String whereAreCars() {
+        StringBuilder roundResult = new StringBuilder();
+
+        for (Car car : carList) {
+            roundResult.append(car.whereIsIt() + '\n');
         }
 
-        return stringBuilder.toString();
+        return roundResult.toString();
     }
 
     public String whichWin() {
         Collections.sort(carList);
         Car first = carList.get(0);
 
-        Queue<Car> winners = carList.stream().filter(target -> first.isSamePosition(target))
-                .collect(Collectors.toCollection(LinkedList::new));
-
-        return RacingResult.from(winners);
+        return RacingResult.from(carList.stream()
+                .filter(target -> first.isSamePosition(target))
+                .collect(Collectors.toCollection(LinkedList::new)));
     }
 
     public void playAll() {
-        for(Car car : carList) {
+        for (Car car : carList) {
             playEach(car);
         }
     }
 
     private void playEach(Car car) {
-        if(Round.canMove(Round.draw())) {
+        if (Round.canMove(Round.draw())) {
             car.move();
         }
     }

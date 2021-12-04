@@ -1,8 +1,8 @@
-package racingcar.round;
+package racingcar.domain.round;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
+import racingcar.domain.car.Car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

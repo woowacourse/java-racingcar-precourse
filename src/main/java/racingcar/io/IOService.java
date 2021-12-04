@@ -1,7 +1,7 @@
 package racingcar.io;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.garage.Garage;
+import racingcar.domain.garage.Garage;
 import racingcar.validation.Validation;
 
 import static racingcar.io.FixedString.*;
@@ -29,6 +29,10 @@ public class IOService {
 
     public static void makeNewLine() {
         System.out.println();
+    }
+
+    public static void printErrorMessage(String message) {
+        System.out.println(message);
     }
 
 }

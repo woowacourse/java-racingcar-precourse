@@ -1,9 +1,8 @@
-package racingcar.garage;
+package racingcar.domain.garage;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
+import racingcar.domain.car.Car;
 
 import java.util.Arrays;
 
@@ -26,7 +25,6 @@ public class GarageTest {
     }
 
     @Test
-    @DisplayName(value = "차 여러대 저장")
     void Car_여러대_저장() {
         assertThat(garage.containsCar(pobi)).isTrue();
         assertThat(garage.containsCar(woni)).isTrue();

@@ -17,8 +17,8 @@ public class ValidationTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"pobi,123,jun", "pobi, woni,jun", " pobi,woni,jun",
-                            "pobi,woni,woowahan", ",pobi,jun", "pobi,woni,pobi",
-                            ""})
+            "pobi,woni,woowahan", ",pobi,jun", "pobi,woni,pobi",
+            ""})
     void 자동차_이름_입력_예외(String input) {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> Validation.inputCarNames(input))

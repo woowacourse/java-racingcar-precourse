@@ -1,7 +1,10 @@
-package racingcar;
+package racingcar.domain.car;
 
-public class Car implements Comparable<Car>{
+import racingcar.domain.result.RoundResult;
+
+public class Car implements Comparable<Car> {
     private final String name;
+
     private int position = 0;
 
     public Car(String name) {

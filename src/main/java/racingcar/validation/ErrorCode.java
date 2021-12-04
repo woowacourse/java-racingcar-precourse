@@ -11,14 +11,13 @@ public enum ErrorCode {
 
     // for round time input
     FOUND_NOT_NUMBER("[ERROR] 횟수에 숫자 외 다른 문자가 입력되었습니다."),
-    FOUNR_ZERO_ONLY("[ERROR] 첫번째 숫자는 0이 될 수 없습니다.")
-    ;
+    FOUND_ZERO_ONLY("[ERROR] 첫번째 숫자는 0이 될 수 없습니다.");
+
+    private String detail;
 
     ErrorCode(String detail) {
         this.detail = detail;
     }
-
-    private String detail;
 
     public String getDetail() {
         return detail;
