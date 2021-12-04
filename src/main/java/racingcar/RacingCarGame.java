@@ -38,6 +38,16 @@ public class RacingCarGame  implements Game {
         return Integer.parseInt(Console.readLine());
     }
 
+    private boolean checkValidTrialNumber(String trial) {
+        for (int index = 0; index < trial.length(); index++) {
+            if (!Character.isDigit(trial.charAt(index))) {
+                // TODO: 예러 발생
+                return false;
+            }
+        }
+        return true;
+    }
+
     private void setNumberOfTrial(int trial) {
         numberOfTrial = trial;
     }
