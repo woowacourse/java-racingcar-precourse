@@ -34,9 +34,10 @@ class NamingProcessTest {
 	void 자동차_이름_리스트반환() {
 		// given
 		String input = "pobi,woni,jun";
+		String[] nameList = NamingProcess.parseString(input);
 
 		// when
-		Car[] cars = NamingProcess.StringToArray(input);
+		Car[] cars = NamingProcess.StringToArray(nameList);
 
 		// then
 		assertThat(cars.length).isEqualTo(3);
