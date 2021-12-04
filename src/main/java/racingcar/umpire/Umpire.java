@@ -18,7 +18,6 @@ public class Umpire {
 		int target = findMaxPosition();
 
 		List<Car> winners = findSamePosition(target);
-		
 		return getWinnersNameList(winners);
 	}
 

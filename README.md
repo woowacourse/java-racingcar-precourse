@@ -4,6 +4,11 @@
 
 ### Car
 
+- Name
+- Position
+
+**기능**
+
 - canMove()
     - 0~9의 무작위 값이 4 이상인지 확인한다
 - move()
@@ -13,12 +18,15 @@
 
 ### Umpire
 
+- carList : 경주에 참여하는 차들
+
+**기능**
+
 - getWinner(List<Car> carList)
-    - Car리스트 내림차순으로 정렬 - O(nlogn)
-    - 첫번째 Car의 position과 같은 position 찾기 - O(n)
     - 해당 Car의 이름리스트 반환
-- printWinner(List<String> nameList)
-    - 이름 리스트 쉼표로 구분하여 출력하기
+- findMaxPositions()
+- findSamePosition()
+- getWinnerNameList()
 
 ## Main
 
@@ -26,6 +34,8 @@
     - 주어진 숫자 만큼 게임을 플레이한다
 - printPositions(List<Car> carList)
     - Car객체의 postion과 이름을 받아오고 주어진 형식대로 출력한다
+- printWinner(List<String> nameList)
+    - 이름 리스트 쉼표로 구분하여 출력하기
 
 ## 제한사항
 
