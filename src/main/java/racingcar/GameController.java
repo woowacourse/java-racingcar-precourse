@@ -3,10 +3,12 @@ package racingcar;
 import java.util.List;
 
 public class GameController {
+    private static final String TYPE1 = "Car";
+    private static final String TYPE2 = "Num";
     private View view;
     private Model model;
-    private List <Car> participants;
-    private int goal;
+    protected List <Car> participants;
+    protected int goal;
     
     public GameController(View view, Model model) {
         this.view = view;
@@ -16,8 +18,8 @@ public class GameController {
     public void playGame() {
         setParticipants();
         setGoal();
-        System.out.println(view.RESULT_MESSAGE);
-          
+        System.out.println(View.RESULT_MESSAGE);
+        
         while(!model.hasWinner(participants, goal)) {
            model.setPositions(participants);
            view.showRaceMessage(participants);
@@ -27,27 +29,36 @@ public class GameController {
     }
     
     private void setParticipants() {
-        String input = view.nameOfCars();
-        
-        if(model.checkValidationForCars(input)) {
-            participants = model.getCarNames(input);
-            return;
+        while(true) {
+            String input = view.nameOfCars(); 
+            
+            try {
+                if(!model.checkValidationForCars(input)) {
+                    throw new IllegalArgumentException();
+                }
+                participants = model.getCarNames(input);
+                return;
+            }
+            catch (IllegalArgumentException e) {
+                view.showErrorMessage(TYPE1);
+            }
         }
-        
-        System.out.println(view.ERROR_MESSAGE_CAR);
-        setParticipants();
     }
     
     private void setGoal() {
-        String input = view.getGoal();
-        
-        if(model.checkValidationForGoal(input)) {
-            goal = Integer.parseInt(input);
-            return;
+        while(true) {
+            String input = view.getGoal();
+            
+            try {
+                if(!model.checkValidationForGoal(input)) {
+                    throw new IllegalArgumentException();
+                }
+                goal = Integer.parseInt(input);
+                return;
+            }
+            catch (IllegalArgumentException e) {
+                view.showErrorMessage(TYPE2);
+            }
         }
-        
-        System.out.println(view.ERROR_MESSAGE_GOAL);
-        setGoal();
     }
-    
 }
