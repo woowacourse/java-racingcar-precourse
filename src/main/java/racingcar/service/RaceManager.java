@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constants.Constants;
+import racingcar.constants.RaceConstants;
 import racingcar.domain.Car;
 
 public class RaceManager {
@@ -23,11 +23,11 @@ public class RaceManager {
 	}
 
 	private int randomGenerate() {
-		return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUMBER, Constants.MAX_RANDOM_NUMBER);
+		return Randoms.pickNumberInRange(RaceConstants.MIN_RANDOM_NUMBER, RaceConstants.MAX_RANDOM_NUMBER);
 	}
 
 	private boolean checkMoveForward(int number) {
-		return number >= Constants.MOVE_FORWARD_NUMBER;
+		return number >= RaceConstants.MOVE_FORWARD_NUMBER;
 	}
 
 	public List<String> getWinners(List<Car> cars) {

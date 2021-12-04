@@ -2,13 +2,13 @@ package racingcar.service;
 
 import java.util.List;
 
-import racingcar.constants.Constants;
+import racingcar.constants.RaceConstants;
 
 public class Validator {
 
 	public void checkCarsNameSize(List<String> carNames) throws IllegalArgumentException{
 		for(String carName : carNames) {
-			if(carName.length() > Constants.CAR_NAME_SIZE) {
+			if(carName.length() > RaceConstants.CAR_NAME_SIZE) {
 				throw new IllegalArgumentException();
 			}
 		}

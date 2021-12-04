@@ -1,6 +1,6 @@
 package racingcar.constants;
 
-public class Constants {
+public class RaceConstants {
 	public static final int MOVE_FORWARD_NUMBER = 4;
 	public static final int CAR_NAME_SIZE = 5;
 
