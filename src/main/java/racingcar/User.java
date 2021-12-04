@@ -5,7 +5,7 @@ import racingcar.utils.Constant;
 import racingcar.utils.Validation;
 
 public class User {
-	public static String [] carNameInput(){
+	public static String[] carNameInput() {
 		String[] carNames = new String[3];
 		do {
 			System.out.println(Constant.ASK_CARS_NAME);
@@ -16,16 +16,23 @@ public class User {
 		return carNames;
 	}
 
-	public static int gameCountInput(){
-		System.out.println(Constant.ASK_GAME_COUNT);
-		int gameCount = Integer.parseInt(Console.readLine());
+	public static int gameCountInput() {
+		String stringGameCount = "";
+		int gameCount = 0;
+
+		do {
+			System.out.println(Constant.ASK_GAME_COUNT);
+			stringGameCount = Console.readLine();
+		} while (!checkRightGameCount(stringGameCount));
+
+		gameCount = Integer.parseInt(stringGameCount);
 		System.out.println();
 		return gameCount;
 	}
 
-	public static boolean checkRightNames(String [] carNames){
+	public static boolean checkRightNames(String[] carNames) {
 		boolean isRightNames = true;
-		try{
+		try {
 			Validation.CONTAIN_SAME_NAME_ERROR(carNames);
 			Validation.WHITE_SPACE_NAME_ERROR(carNames);
 			Validation.LESS_MORE_NAME_ERROR(carNames);
@@ -34,5 +41,17 @@ public class User {
 			isRightNames = false;
 		}
 		return isRightNames;
+	}
+
+	public static boolean checkRightGameCount(String stringGameCount) {
+		boolean isRightNumeric = true;
+		try {
+			Validation.NON_NUMERIC_GAME_COUNT_ERROR(stringGameCount);
+			Validation.ZERO_GAME_COUNT_ERROR(stringGameCount);
+		} catch (NumberFormatException e){
+			System.out.println(e.getMessage());
+			isRightNumeric = false;
+		}
+		return isRightNumeric;
 	}
 }

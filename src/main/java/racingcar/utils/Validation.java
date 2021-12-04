@@ -31,4 +31,18 @@ public class Validation {
 			}
 		}
 	}
+
+	public static void NON_NUMERIC_GAME_COUNT_ERROR(String stringGameCount){
+		for(int i = 0; i < stringGameCount.length(); i++){
+			if(stringGameCount.charAt(i) < '0' || '9' < stringGameCount.charAt(i)){
+				throw new NumberFormatException(Constant.NON_NUMERIC_GAME_COUNT_ERROR);
+			}
+		}
+	}
+
+	public static void ZERO_GAME_COUNT_ERROR(String stringGameCount){
+		if (stringGameCount.equals("0")){
+			throw new NumberFormatException(Constant.ZERO_GAME_COUNT_ERROR);
+		}
+	}
 }
