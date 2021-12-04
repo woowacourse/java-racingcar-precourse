@@ -20,8 +20,7 @@ public class GameService {
 		game.increaseTrialNum();
 	}
 
-	public List<String> getWinners(Long gameId) {
-		Game game = gameRepository.findById(gameId);
+	public List<String> getWinners(Game game) {
 		List<Car> cars = game.getCars();
 		int maxPosition = getMaxPosition(cars);
 		List<String> carNames = new ArrayList<>();

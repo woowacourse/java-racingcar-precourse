@@ -22,10 +22,10 @@ public class Controller {
 		List<String> carNames = parser.parseCarNames(getCarNamesByUserInput());
 		saveCars(carNames);
 		Game game = new Game(getCarList(), getNumberOfTrial());
-		Long gameId = gameService.save(game);
+		gameService.save(game);
 		OutputView.printHead();
 		play(game);
-		OutputView.printWinners(gameService.getWinners(gameId));
+		OutputView.printWinners(gameService.getWinners(game));
 	}
 
 	private void play(Game game) {
