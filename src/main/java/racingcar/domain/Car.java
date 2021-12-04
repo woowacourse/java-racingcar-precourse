@@ -35,6 +35,10 @@ public class Car {
 		return output.toString();
 	}
 
+	public int getPosition() {
+		return position;
+	}
+
 	@Override
 	public String toString() {
 		return name + " : " + repeatWord("-", position);

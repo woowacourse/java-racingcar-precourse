@@ -11,6 +11,7 @@ import racingcar.domain.User;
 public class Game {
 
 	List<Car> participant;
+	List<Car> winner;
 	User user;
 
 	public Game(User user) {
@@ -20,9 +21,28 @@ public class Game {
 	public void start() {
 		setGame();
 		repeatGame(user.replyMoveCount());
+		setWinner();
 	}
 
-	public void setGame() {
+	private void setWinner() {
+		int winnerPosition = WINNER_MIN;
+		for (Car car:
+			 participant) {
+			if (car.getPosition() > winnerPosition) {
+				winner = new LinkedList<>();
+				winner.add(car);
+				winnerPosition = car.getPosition();
+			} else if (car.getPosition() == winnerPosition) {
+				winner.add(car);
+			}
+		}
+	}
+
+	private void printWinner() {
+
+	}
+
+	private void setGame() {
 		setParticipant(user.replyCars());
 	}
 
@@ -54,6 +74,6 @@ public class Game {
 			participant) {
 			System.out.println(car.toString());
 		}
-		System.out.println("");
+		System.out.println();
 	}
 }
