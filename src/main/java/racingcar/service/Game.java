@@ -10,7 +10,6 @@ public class Game {
 
 	List<Car> participant;
 	User user;
-	int moveCount;
 
 	public Game(User user) {
 		this.user = user;
@@ -18,15 +17,11 @@ public class Game {
 
 	public void start() {
 		setGame();
+		int moveCount = user.replyMoveCount();
 	}
 
 	public void setGame() {
 		setParticipant(user.replyCars());
-		setMoveCount(user.replyMoveCount());
-	}
-
-	private void setMoveCount(int replyMoveCount) {
-		moveCount = replyMoveCount;
 	}
 
 	private void setParticipant(String[] cars) {
@@ -35,5 +30,19 @@ public class Game {
 			cars) {
 			participant.add(new Car(car));
 		}
+	}
+
+	private void repeatGame(int moveCount) {
+		for (int current = 0; current < moveCount; current++) {
+			proceedGame();
+		}
+	}
+
+	private void proceedGame() {
+
+	}
+
+	private void printParticipant() {
+
 	}
 }
