@@ -1,13 +1,17 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements ICar {
     private final String name;
     private int position = 0;
+    private ArrayList<Integer> trace;
 
     public Car(String name) {
         this.name = name;
+        this.trace = new ArrayList<>();
     }
 
     @Override
@@ -16,18 +20,14 @@ public class Car implements ICar {
         if (randomNumber >= 4) {
             incrementPosition();
         }
-        printPosition();
+        recordPosition();
     }
 
     private void incrementPosition() {
         position ++;
     }
 
-    private void printPosition() {
-        String result = name + " : ";
-        for (int i = 0; i < position; i++) {
-            result += "-";
-        }
-        System.out.println(result);
+    private void recordPosition() {
+        trace.add(position);
     }
 }
