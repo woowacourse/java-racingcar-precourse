@@ -15,6 +15,10 @@ public class Car {
 
     // 추가 기능 구현
 
+    public int getPosition() {
+        return position;
+    }
+
     public void progressOrStop() {
         int randNum = Randoms.pickNumberInRange(RANDOM_RANGE_MIN, RANDOM_RANGE_MAX);
         if (randNum >= 4) {
@@ -25,7 +29,7 @@ public class Car {
     public void printCurrentPosition() {
         System.out.print(name);
         System.out.print(" : ");
-        for (int i = 0; i < position; i++){
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.print("\n");
