@@ -43,7 +43,7 @@ public class InputManager {
 
 	private boolean validateCarNames(List<String> carNames) {
 		try {
-			validator.checkCarNameSize(carNames);
+			validator.checkCarNames(carNames);
 		}catch (IllegalArgumentException e) {
 			return false;
 		}

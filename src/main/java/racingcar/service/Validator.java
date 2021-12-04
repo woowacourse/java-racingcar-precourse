@@ -6,11 +6,22 @@ import racingcar.constants.RaceConstants;
 
 public class Validator {
 
-	public void checkCarNameSize(List<String> carNames) throws IllegalArgumentException{
+	public void checkCarNames(List<String> carNames) throws IllegalArgumentException{
 		for(String carName : carNames) {
-			if(carName.length() > RaceConstants.CAR_NAME_SIZE) {
-				throw new IllegalArgumentException();
-			}
+			checkCarNameSize(carName);
+			checkCarNameNotContainsBlank(carName);
+		}
+	}
+
+	private void checkCarNameSize(String carName) {
+		if(carName.length() > RaceConstants.CAR_NAME_SIZE) {
+			throw new IllegalArgumentException();
+		}
+	}
+
+	private void checkCarNameNotContainsBlank(String carName) {
+		if(carName.contains(RaceConstants.BLANK)) {
+			throw new IllegalArgumentException();
 		}
 	}
 

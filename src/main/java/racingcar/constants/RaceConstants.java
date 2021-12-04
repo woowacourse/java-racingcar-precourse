@@ -5,6 +5,7 @@ public class RaceConstants {
 	public static final int CAR_NAME_SIZE = 5;
 
 	public static final String CUT_OFF_POINT = ",";
+	public static final String BLANK = " ";
 
 	public static final int MIN_RANDOM_NUMBER = 0;
 	public static final int MAX_RANDOM_NUMBER = 9;

@@ -33,7 +33,7 @@ public class Commentator {
 
 	private void checkMoreWinner(int nowIndex, int size) {
 		if(nowIndex != size - 1) {
-			System.out.print(RaceConstants.CUT_OFF_POINT + " ");
+			System.out.print(RaceConstants.CUT_OFF_POINT + RaceConstants.BLANK);
 		}
 	}
 }
