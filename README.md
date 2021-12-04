@@ -174,6 +174,8 @@
     * 각 차수별 실행결과 출력
 - public static void printFinalWinner(List<Car> cars)
     * 최종 우승자 출력
+- private static String isMoreThanOneWinner(Car winner, List<Car> cars)
+    * 우승자가 한명 이상인 경우 출력 형식에 추가
 
 ### **Constant**
 
