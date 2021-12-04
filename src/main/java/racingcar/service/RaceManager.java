@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -8,24 +9,49 @@ import racingcar.domain.Car;
 
 public class RaceManager {
 
-	public void move(List<Car> cars) {
+	public void moveCars(List<Car> cars) {
 		for(Car car : cars) {
-			proceed(car);
+			moveCar(car);
 		}
 	}
 
-	private void proceed(Car car) {
+	private void moveCar(Car car) {
 		int randomNumber = randomGenerate();
-		if(proceed(randomNumber)) {
+		if(checkMoveForward(randomNumber)) {
 			car.increasePosition();
 		}
 	}
 
 	private int randomGenerate() {
-		return Randoms.pickNumberInRange(0, 9);
+		return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUMBER, Constants.MAX_RANDOM_NUMBER);
 	}
 
-	private boolean proceed(int number) {
-		return number >= Constants.MOVE_NUMBER;
+	private boolean checkMoveForward(int number) {
+		return number >= Constants.MOVE_FORWARD_NUMBER;
+	}
+
+	public List<String> getWinners(List<Car> cars) {
+		int maxPosition = getMaxPosition(cars);
+		return checkWhoseWinners(cars, maxPosition);
+	}
+
+	private int getMaxPosition(List<Car> cars) {
+		int maxPosition = 0;
+		for(Car car : cars) {
+			if(car.getPosition() > maxPosition) {
+				maxPosition = car.getPosition();
+			}
+		}
+		return maxPosition;
+	}
+
+	private List<String> checkWhoseWinners(List<Car> cars, int maxPosition) {
+		List<String> winners = new ArrayList<>();
+		for(Car car : cars) {
+			if(car.getPosition() == maxPosition) {
+				winners.add(car.getName());
+			}
+		}
+		return winners;
 	}
 }
