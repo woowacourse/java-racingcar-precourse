@@ -48,6 +48,9 @@ public class InputManager {
 			throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
 		}
 		carsList = carsInput.split(",");
+		if (carsList.length == 0) {
+			throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
+		}
 		for (String car : carsList) {
 			if (car.length() > Constant.MAXIMUM_NAME_LENGTH) {
 				throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
