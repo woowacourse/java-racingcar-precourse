@@ -34,4 +34,11 @@ public class Car {
 		}
 		return false;
 	}
+
+	public boolean isSamePosition(int position) {
+		if (this.position == position) {
+			return true;
+		}
+		return false;
+	}
 }
