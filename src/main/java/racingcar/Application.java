@@ -4,21 +4,21 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.CarFactory;
-
-import java.util.Collections;
+import racingcar.domain.Result;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
         // TODO 구현 진행
-
         List<Car> cars = CarFactory.manufactureByUserInput();
         int trial = getTrial();
+        Result result = race(cars, trial);
+        System.out.println("최종 우승자 : " + result);
+    }
 
+    private static Result race(List<Car> cars, int trial) {
         System.out.println("실행결과");
         for (int i = 0; i < trial; i++) {
-
             for (Car car : cars) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
                 car.attemptMove(randomNumber);
@@ -26,20 +26,7 @@ public class Application {
             }
             System.out.println();
         }
-
-        List<Car> winners = getWinners(cars);
-
-        String result = winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        System.out.println("최종 우승자 : " + result);
-    }
-
-    private static List<Car> getWinners(List<Car> cars) {
-        Car max = Collections.max(cars);
-        return cars.stream()
-                .filter(car -> car.isSamePositionWith(max))
-                .collect(Collectors.toList());
+        return new Result(cars);
     }
 
     private static int getTrial() {
@@ -51,8 +38,6 @@ public class Application {
 
         return Integer.parseInt(trialInput);
     }
-
-
 
     private static boolean isIllegalTrial(String trialInput) {
         try {
