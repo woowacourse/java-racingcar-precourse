@@ -17,4 +17,11 @@ public class Car {
 		return false;
 	}
 
+	public void move() {
+		if (canMove()) {
+			position += 1;
+			System.out.println(name);
+		}
+	}
+
 }
