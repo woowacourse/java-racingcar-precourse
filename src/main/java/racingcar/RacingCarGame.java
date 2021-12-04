@@ -26,8 +26,12 @@ public class RacingCarGame  implements Game {
         return neededToCheck.length() <= MAXIMUM_LENGTH;
     }
 
-    private void createRacingCarEntity(String carName) {
+    private Car createRacingCarEntity(String carName) {
+        return new Car(carName);
+    }
 
+    private void addRacingCarEntity(Car car) {
+        racingCars.add(car);
     }
 
     private void getNumberOfTrialFromUser() {
