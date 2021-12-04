@@ -20,21 +20,29 @@ public class RaceGame {
     }
 
     private void askCarNames() {
-        System.out.println(GameData.MESSAGE_ASK_CAR_NAMES);
-        String[] carNames = readLine().split(",");
+        try {
+            System.out.println(GameData.MESSAGE_ASK_CAR_NAMES);
+            String[] carNames = readLine().split(",");
 
-        for (String carName : carNames) {
-            inputChecker.checkCarName(carName);
-            addNewCar(carName);
+            for (String carName : carNames) {
+                inputChecker.checkCarName(carName);
+                addNewCar(carName);
+            }
+        } catch (IllegalArgumentException exception) {
+            askCarNames();
         }
     }
 
     private void askTryNumber() {
-        System.out.println(GameData.MESSAGE_ASK_TRY_NUMBER);
-        String tryNumber = readLine();
+        try {
+            System.out.println(GameData.MESSAGE_ASK_TRY_NUMBER);
+            String tryNumber = readLine();
 
-        inputChecker.checkTryNumber(tryNumber);
-        this.tryNumber = Integer.parseInt(tryNumber);
+            inputChecker.checkTryNumber(tryNumber);
+            this.tryNumber = Integer.parseInt(tryNumber);
+        } catch (IllegalArgumentException exception) {
+            askTryNumber();
+        }
     }
 
     private void addNewCar(String carName) {
