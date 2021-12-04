@@ -16,13 +16,11 @@ public class Winner {
 	}
 
 	public static void print() {
-		String resultMessage = makeMessage();
-		System.out.println(resultMessage);
+		System.out.println(makeMessage());
 	}
 
 	private static String makeMessage() {
-		StringBuilder builder = new StringBuilder("최종 우승자 : ");
-		builder.append(winners.get(0));
+		StringBuilder builder = new StringBuilder("최종 우승자 : " + winners.get(0));
 		for (int i = 1; i < winners.size(); i++) {
 			builder.append(", ").append(winners.get(i));
 		}

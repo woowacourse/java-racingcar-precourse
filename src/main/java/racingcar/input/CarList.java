@@ -15,13 +15,11 @@ public class CarList {
 	private static final String INPUT_ERROR_MESSAGE_DUPLICATE = "자동차 이름이 중복되지 않아야 합니다.";
 	private static final String INPUT_ERROR_MESSAGE_SPACE = "자동차 이름에 공백이 포함되지 않아야 합니다.";
 
-	private static final List<Car> cars = new ArrayList<>();
 	private static List<String> carNames = new ArrayList<>();
 
 	public static List<Car> input() {
 		getValidCarNamesByUserInput();
-		makeCarList();
-		return cars;
+		return makeCarList();
 	}
 
 	private static void getValidCarNamesByUserInput() {
@@ -29,13 +27,14 @@ public class CarList {
 			String input = Console.readLine();
 			carNames = Arrays.asList(input.split(","));
 		}
-
 	}
 
-	private static void makeCarList() {
+	private static List<Car> makeCarList() {
+		List<Car> cars = new ArrayList<>();
 		for (String name : carNames) {
 			cars.add(new Car(name));
 		}
+		return cars;
 	}
 
 	private static boolean isInvalid(List<String> carNames) {
