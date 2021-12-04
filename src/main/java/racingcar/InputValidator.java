@@ -20,8 +20,8 @@ public class InputValidator {
 	}
 
 	public static void checkIsValidRoundNumber(String roundNumber) {
-		for(int i = 0; i < roundNumber.length(); i++) {
-			if(!Character.isDigit(roundNumber.charAt(i))) {
+		for (int i = 0; i < roundNumber.length(); i++) {
+			if (!Character.isDigit(roundNumber.charAt(i))) {
 				throw new IllegalArgumentException(INVALID_ROUND_NUMBER_MESSAGE);
 			}
 		}
