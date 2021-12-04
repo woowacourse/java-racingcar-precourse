@@ -6,7 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class View {
     public static final String ERROR_MESSAGE_CAR = "[ERROR] 입력이 형식에 맞지 않습니다.";
-    public static final String ERROR_MESSAGE_ATTEMPT = "[ERROR] 시도 횟수는 숫자여야 한다.";
+    public static final String ERROR_MESSAGE_GOAL = "[ERROR] 시도 횟수는 숫자여야 한다.";
     public static final String RESULT_MESSAGE = "실행 결과";
     
     public View () {}
@@ -23,17 +23,14 @@ public class View {
         return Console.readLine();
     }
     
-    public void showRaceMessage(Car [] participants) {
-        String result = "";
+    public void showRaceMessage(List<Car> participants) {
         
-        for(int i = 0; i < participants.length; i++) {
-            result += showPosition(participants[i]) + "\n";
-        }
+        participants.stream().forEach(c -> System.out.println(showPosition(c)));
+        System.out.println();
         
-        System.out.println(result);
     }
     
-    public void showWinnerMessage(List <Car> winners) {
+    public void showWinnerMessage(List<Car> winners) {
         String result = "최종 우승자 : ";
         
         for(int i = 0; i < winners.size(); i++) {
