@@ -7,7 +7,7 @@ public class Validator {
 
     public static void validateCarName(String name) {
         if (name.length() > MAXIMUM_NAME_LENGTH) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "자동차의 이름은 5자 이하여야합니다.");
+            throw new IllegalArgumentException(ERROR_PREFIX + ExceptionMessage.TOO_LONG_CAR_NAME);
         }
     }
 
@@ -15,7 +15,7 @@ public class Validator {
 
         for (int i = 0 ; i < inputCount.length() ; i++) {
             if (!Character.isDigit(inputCount.charAt(i))) {
-                throw new IllegalArgumentException(ERROR_PREFIX + "[ERROR] 시도 횟수는 숫자여야 한다.");
+                throw new IllegalArgumentException(ERROR_PREFIX + ExceptionMessage.COUNT_MUST_BE_INTEGER);
             }
         }
     }
