@@ -6,7 +6,7 @@ public class InputValidator {
 	private String carName;
 	HashSet<String> carNameSet = new HashSet<>();
 
-	static boolean isStrContainOnlyAlphabetOrComma(String str) {
+	public boolean isStrContainOnlyAlphabetOrComma(String str) {
 		if (str.matches("[a-zA-z,]+")) {
 			return true;
 		}

@@ -14,7 +14,7 @@ public class Referee {
 		printWinner();
 	}
 
-	void makeWinnerList() {
+	private void makeWinnerList() {
 		for (Car car : carList) {
 			pickWinner(car);
 		}
@@ -22,7 +22,7 @@ public class Referee {
 
 	int maxPosition = 0;
 
-	void pickWinner(Car car) {
+	private void pickWinner(Car car) {
 		int position = car.getPosition();
 		if (maxPosition < position) {
 			maxPosition = position;
@@ -34,13 +34,13 @@ public class Referee {
 
 	private ArrayList<String> winnerNameList;
 
-	void initWinnerList(Car car) {
+	private void initWinnerList(Car car) {
 		winnerNameList = new ArrayList<String>() {{
 			add(car.getName());
 		}};
 	}
 
-	void printWinner() {
+	private void printWinner() {
 		String winnerList = String.join(", ", winnerNameList);
 		System.out.printf("최종 우승자 : %s", winnerList);
 	}

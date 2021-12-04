@@ -65,16 +65,15 @@ class NameStringMaker {
 		input();
 	}
 
-	private String input() {
+	private void input() {
 		do {
 			this.chunkOfCarNames = Console.readLine();
 		} while (!isValidInput(chunkOfCarNames));
-		return chunkOfCarNames;
 	}
 
 	private boolean isValidInput(String input) {
 		try {
-			return InputValidator.isStrContainOnlyAlphabetOrComma(input);
+			return new InputValidator().isStrContainOnlyAlphabetOrComma(input);
 		} catch (Exception error) {
 			System.out.println(error.getMessage());
 			return false;
