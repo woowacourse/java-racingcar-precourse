@@ -1,12 +1,15 @@
 package racingcar.handler;
 
-import static racingcar.utils.Constant.*;
-
 import java.util.List;
 
 import racingcar.domain.Car;
 
 public class PrintHandler {
+	public static final String INPUT_NAME_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+	public static final String INPUT_NUMBER_MSG = "시도할 횟수는 몇회인가요?";
+	public static final String RESULT_MSG = "실행 결과";
+	public static final String WINNER_MSG = "최종 우승자 : ";
+
 	public static void printInputNameMsg() {
 		System.out.println(INPUT_NAME_MSG);
 	}

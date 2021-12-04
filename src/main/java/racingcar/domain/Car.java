@@ -1,11 +1,13 @@
 package racingcar.domain;
 
-import static racingcar.utils.Constant.*;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.handler.PrintHandler;
 
 public class Car {
+	private static final int RANGE_MIN_VALUE = 0;
+	private static final int RANGE_MAX_VALUE = 9;
+	private static final int MOVE_VALUE = 4;
+
 	private final String name;
 	private int position = 0;
 
@@ -34,7 +36,7 @@ public class Car {
 	}
 
 	private boolean checkMove(int number) {
-		return number >= 4;
+		return number >= MOVE_VALUE;
 	}
 
 	public String getName() {
