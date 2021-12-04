@@ -8,9 +8,8 @@
     - 0~9의 무작위 값이 4 이상인지 확인한다
 - move()
     - canMove() == true이면 한칸 앞으로 움직인다
-    - 차 이름 출력하기
-- tryMove()
-    - 입력받은 만큼 움직일 시도를 한다
+- getPosition()
+- getName()
 
 ### Umpire
 
@@ -20,6 +19,13 @@
     - 해당 Car의 이름리스트 반환
 - printWinner(List<String> nameList)
     - 이름 리스트 쉼표로 구분하여 출력하기
+
+## Main
+
+- playGame()
+    - 주어진 숫자 만큼 게임을 플레이한다
+- printPositions(List<Car> carList)
+    - Car객체의 postion과 이름을 받아오고 주어진 형식대로 출력한다
 
 ## 제한사항
 
