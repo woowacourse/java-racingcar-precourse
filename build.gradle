@@ -17,6 +17,11 @@ java {
         languageVersion = JavaLanguageVersion.of(8)
     }
 }
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 test {
     useJUnitPlatform()
