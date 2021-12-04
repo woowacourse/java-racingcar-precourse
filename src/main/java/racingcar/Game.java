@@ -95,7 +95,7 @@ public class Game {
 	}
 
 	public void start() {
-		System.out.println("실행 결과");
+		System.out.println("\n실행 결과");
 
 		for (int i = 0; i < this.numberOfTrials; i++) {
 			for (int j = 0; j < this.participants.size(); j++) {
