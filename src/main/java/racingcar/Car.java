@@ -23,6 +23,10 @@ public class Car {
         return position;
     }
 
+    public void addCarList(Car car) {
+        carList.add(car);
+    }
+
 
 
     // 추가 기능 구현
