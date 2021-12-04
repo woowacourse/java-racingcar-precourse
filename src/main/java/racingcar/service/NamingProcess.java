@@ -5,8 +5,7 @@ import racingcar.domain.Car;
 public class NamingProcess {
 
 	public static String[] parseString(String inputString) {
-		String[] nameList = inputString.split(",");
-		return nameList;
+		return inputString.split(",");
 	}
 
 	public static Car[] StringToArray(String[] nameList) {

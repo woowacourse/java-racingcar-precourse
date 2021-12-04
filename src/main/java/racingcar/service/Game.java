@@ -5,10 +5,14 @@ import static racingcar.message.GuideMessage.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import racingcar.domain.Car;
 
 public class Game {
+
+	public static final String COLON = " : ";
+	public static final String HYPHEN = "-";
 
 	public static void start(String[] nameList, int trials) {
 		Car[] carList = NamingProcess.StringToArray(nameList);
@@ -25,7 +29,8 @@ public class Game {
 	private static void rollTheDice(Car[] carList) {
 		for (Car car : carList) {
 			StringBuilder builder = new StringBuilder();
-			builder.append(car.getName()).append(" : ");
+			builder.append(car.getName())
+				.append(COLON);
 
 			RandomProcess.moveOrStand(car);
 
@@ -37,7 +42,7 @@ public class Game {
 
 	private static void appendPosition(StringBuilder builder, int position) {
 		for (int i = 0; i < position; i++) {
-			builder.append("-");
+			builder.append(HYPHEN);
 		}
 	}
 
@@ -51,9 +56,9 @@ public class Game {
 
 	private static int getMax(Car[] carList) {
 		return Arrays.stream(carList)
-			.mapToInt(car -> car.getPosition())
+			.mapToInt(Car::getPosition)
 			.max()
-			.getAsInt();
+			.orElseThrow(NoSuchElementException::new);
 	}
 
 	private static List<String> getWinnerList(Car[] carList, int max) {
