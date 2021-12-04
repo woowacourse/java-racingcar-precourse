@@ -1,10 +1,18 @@
 # 미션 - 자동차 경주 게임
 
+자동차 경주 게임을 구현하는 프로젝트 입니다.<br>
+
+## 자동차 경주 게임이란?
+
+- Random Number(0~9)를 생성하고 Random Number가 4이상일 경우 자동차는 한 칸 전진합니다.
+- 사용자에게 ,(슁표)로 구분된 자동차 이름을 입력받고, 시도할 횟수도 입력받은 뒤 게임은 시작됩니다.
+- 시도할 횟수가 지나면 최종 우승자 (여러 자동차일 수 있음)를 출력합니다.
+
 ## 기술스택
 
 - Java 1.8
 
-## 🚀 기능 요구사항
+## 🚀 기능 목록
 
 - 사용자의 입력을 받아 저장해야한다.
     - 자동차 이름을 받아 파싱해 car객체에 저장해야한다.
@@ -21,6 +29,33 @@
     - 우승자가 여러명일 경우 쉼표(,)를 이용하여 구분한다.
 
 ## 사용법
+
+1. 프로젝트 클론
+
+```
+git clone https://github.com/dongho108/java-racingcar-precourse.git
+```
+
+2. '<b>dongho</b>' branch로 이동
+
+```
+git checkout dongho
+```
+
+3. Application Run
+```java
+package racingcar;
+
+import racingcar.controller.Controller;
+
+public class Application {
+	public static void main(String[] args) {
+		Controller controller = new Controller();
+		controller.run();
+	}
+}
+
+```
 
 ⌨️ 입력
 
