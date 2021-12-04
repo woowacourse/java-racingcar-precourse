@@ -10,8 +10,8 @@ import racingcar.exception.ErrorMessage;
 
 public class CarList {
 
-	private static final List<Car> cars = new ArrayList<Car>();
-	private static List<String> carNames = new ArrayList<String>();
+	private static final List<Car> cars = new ArrayList<>();
+	private static List<String> carNames = new ArrayList<>();
 
 	public static List<Car> input() {
 		getValidCarNamesByUserInput();

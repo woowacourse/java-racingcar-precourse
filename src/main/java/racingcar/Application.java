@@ -8,7 +8,7 @@ import racingcar.input.CarList;
 
 public class Application {
 
-	private static List<Car> cars = new ArrayList<Car>();
+	private static List<Car> cars = new ArrayList<>();
 
 	public static void main(String[] args) {
 		// TODO 구현 진행
