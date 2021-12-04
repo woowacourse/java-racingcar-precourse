@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
+	private List<String> carNames = new ArrayList<>();
 	private List<Car> cars = new ArrayList<>();
+	private int moveCount = 0;
 	private PlayerInput playerInput = new PlayerInput();
 
 	public void runGame() {
-		List<String> carNames = playerInput.getCarNames();
+		while (carNames.isEmpty()){
+			setCarNamesFromInput();
+		}
 		makeCars(carNames);
-		int moveCount = playerInput.getMoveTrialCount();
+		while (moveCount == 0){
+			setMoveCountFromInput();
+		}
 		moveCarsAndShowStatus(moveCount);
 	}
 
@@ -29,6 +35,22 @@ public class RacingGame {
 				cars.get(j).printStatus();
 			}
 			System.out.println();
+		}
+	}
+
+	private void setCarNamesFromInput() {
+		try {
+			carNames = playerInput.getCarNames();
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	private void setMoveCountFromInput() {
+		try {
+			moveCount = playerInput.getMoveTrialCount();
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 }
