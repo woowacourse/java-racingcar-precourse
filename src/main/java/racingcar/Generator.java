@@ -9,24 +9,41 @@ import static racingcar.Application.numberOfTry;
 
 public class Generator {
 
-    public static ArrayList<Car> inputCarName() {
-        String inputText = Console.readLine();
-        String[] carNames = inputText.split(",");
+    public static void inputCarName() {
+        while (true){
+            try {
+                String inputText = Console.readLine();
+                String[] carNames = inputText.split(",");
 
-        carList = new ArrayList<>();
-        for (int i = 0; i < carNames.length; i++) {
-            // TODO --> validation 실행 //
-
-            carList.add(new Car(carNames[i]));
+                InputValidator.validateCarNames(carNames);
+                generateCarList(carNames);
+                break;
+            } catch (IllegalArgumentException exception) {
+                System.out.println(exception.getMessage());
+                continue;
+            }
         }
-        return carList;
     }
 
     public static void inputNumberOfTry() {
-        String inputText = Console.readLine();
+        while (true) {
+            try {
+                String inputText = Console.readLine();
 
-        // TODO --> validation 실행 //
+                InputValidator.validateNumberOfTry(inputText);
+                numberOfTry = Integer.parseInt(inputText);
+                break;
+            } catch (IllegalArgumentException exception) {
+                System.out.println(exception.getMessage());
+                continue;
+            }
+        }
+    }
 
-        numberOfTry = Integer.parseInt(inputText);
+    public static void generateCarList(String[] carNames) {
+        carList = new ArrayList<>();
+        for (int i = 0; i < carNames.length; i++) {
+            carList.add(new Car(carNames[i]));
+        }
     }
 }
