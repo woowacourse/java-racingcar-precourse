@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.domain.Car;
@@ -9,10 +8,33 @@ import racingcar.input.Trial;
 
 public class Application {
 
+	private static List<Car> cars;
+	private static int trial;
+
 	public static void main(String[] args) {
 		// TODO 구현 진행
-		List<Car> cars = getCarNameInput();
-		int trial = getTrialInput();
+		setInputData();
+		gameStart();
+	}
+
+	private static void gameStart() {
+		System.out.println("실행 결과");
+		while (--trial >= 0) {
+			gameLoop();
+		}
+	}
+
+	private static void gameLoop() {
+		for (Car car : cars) {
+			car.moveOrStop();
+			car.printPosition();
+		}
+		System.out.println();
+	}
+
+	private static void setInputData() {
+		cars = getCarNameInput();
+		trial = getTrialInput();
 	}
 
 	private static int getTrialInput() {
