@@ -10,4 +10,9 @@ public class InputView {
 		System.out.println(RACING_INFORMATION);
 		return Console.readLine();
 	}
+
+	public static String getInputTrial() {
+		System.out.println(NUMBER_OF_TRIAL);
+		return Console.readLine();
+	}
 }
