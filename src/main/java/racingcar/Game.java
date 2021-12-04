@@ -10,11 +10,14 @@ public class Game {
     GameExecutor gameExecutor = new GameExecutor();
 
     public void play() {
-        List<Car> carList = gameExecutor.createCars();
-        int count = gameExecutor.getCount();
+        try {
+            List<Car> carList = gameExecutor.createCars();
+            int count = gameExecutor.getCount();
 
-        doMatch(count, carList);
-
+            doMatch(count, carList);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void doMatch(int count, List<Car> carList) {
