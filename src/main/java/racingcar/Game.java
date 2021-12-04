@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class Game {
 
+    public static final String WINNER_PREFIX = "시도할 회수는 몇회인가요?";
+
     GameExecutor gameExecutor = new GameExecutor();
 
     public void play() {
@@ -64,11 +66,10 @@ public class Game {
 
     public void printWinners(List<Car> carList) {
         List<Car> winnerList = getWinners(carList);
-        String prefix = "최종 우승자 : ";
 
         List<String> winnerNameList = winnerList.stream()
                                         .map(Car::getName)
                                         .collect(Collectors.toList());
-        System.out.println(prefix + String.join(", ",  winnerNameList));
+        System.out.println(WINNER_PREFIX + String.join(", ",  winnerNameList));
     }
 }
