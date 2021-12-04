@@ -35,6 +35,12 @@ public class ValidationUtil {
 		}
 	}
 
+	public static void isValidateOnlyComma(String value) {
+		if (value.split(COMMA).length == ZERO_NUM) {
+			throw new IllegalArgumentException("콤마 기호만 입력하실 수는 없습니다.");
+		}
+	}
+
 	public static void isValidateDuplicated(String[] carsName) {
 		Set<String> checkCarsName = new HashSet<>();
 		for (String carName : carsName) {
