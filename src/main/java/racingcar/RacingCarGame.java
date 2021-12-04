@@ -24,6 +24,7 @@ public class RacingCarGame {
             progress(cars);
             outputView.showCurrentPosition(cars);
         }
+        outputView.showWinnerCarName(cars);
     }
 
     public void inputCarName() {
