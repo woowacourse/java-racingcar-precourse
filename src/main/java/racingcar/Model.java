@@ -3,7 +3,6 @@ package racingcar;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.List;
-import java.util.LinkedList;
 
 public class Model {
     private static final String NUM_REGEX = "^[0-9]+$";
@@ -11,7 +10,7 @@ public class Model {
     public Model() {}
     
     public boolean checkValidationForCars(String input) {
-        String [] cars = input.split(",");
+        String [] cars = input.split(",",-1);
         
         if(Arrays.stream(cars).anyMatch(s -> s.equals("") || s.length() > 5)) {
             return false;
