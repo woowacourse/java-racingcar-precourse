@@ -44,10 +44,10 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("Car는 4이상의 값이 들어올 경우 한칸 이동한다.")
+    @DisplayName("Car는 움직일 수 있는 경우 한칸 이동한다.")
     void moveTrueTest() {
         // given
-        Car car = Car.createRandomMoveCar("pobi");
+        Car car = new Car("pobi", () -> true);
 
         // when
         int result = car.move();
@@ -57,10 +57,10 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("Car는 4미만의 값이 들어올 경우 그대로 멈춰있는다.")
+    @DisplayName("Car는 움직일 수 없는 경우 그대로 멈춰있는다.")
     void moveNothingTest() {
         // given
-        Car car = Car.createRandomMoveCar("pobi");
+        Car car = new Car("pobi", () -> false);
 
         // when
         int result = car.move();
