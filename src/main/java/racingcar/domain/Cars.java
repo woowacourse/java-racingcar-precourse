@@ -7,21 +7,21 @@ import java.util.stream.Collectors;
 
 import racingcar.handler.PrintHandler;
 
-public class CarList {
-	private final List<Car> list;
+public class Cars {
+	private final List<Car> cars;
 
-	public CarList(String[] names) {
-		list = new ArrayList<>();
+	public Cars(String[] names) {
+		cars = new ArrayList<>();
 		createCars(names);
 	}
 
 	public void playOnce() {
-		list.forEach(Car::playOnce);
+		cars.forEach(Car::playOnce);
 	}
 
 	public void getWinner() {
 		int winnerPosition = calculateWinnerPosition();
-		printWinner(list.stream()
+		printWinner(cars.stream()
 			.filter(car -> car.getPosition() >= winnerPosition)
 			.collect(Collectors.toList()));
 	}
@@ -29,7 +29,7 @@ public class CarList {
 	private void createCars(String[] names) {
 		Arrays.stream(names).forEach(name -> {
 			Car car = new Car(name.trim());
-			list.add(car);
+			cars.add(car);
 		});
 	}
 
@@ -43,7 +43,7 @@ public class CarList {
 
 	private int calculateWinnerPosition() {
 		int winnerPosition = 0;
-		for (Car car : list) {
+		for (Car car : cars) {
 			if (car.getPosition() > winnerPosition) {
 				winnerPosition = car.getPosition();
 			}

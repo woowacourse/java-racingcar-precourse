@@ -1,36 +1,33 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.List;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CarListTest {
-	CarList carList;
+class CarsTest {
+	Cars cars;
 	OutputStream out;
 
 	@BeforeEach
 	void beforeEach() {
 		String[] names = {"Kim", "Park"};
-		carList = new CarList(names);
+		cars = new Cars(names);
 		out = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
 	}
 
 	@Test
 	void 우승자_1명() throws Exception {
-		Field listField = CarList.class.getDeclaredField("list");
+		Field listField = Cars.class.getDeclaredField("list");
 		listField.setAccessible(true);
-		List<Car> list = (List<Car>)listField.get(carList);
+		List<Car> list = (List<Car>)listField.get(cars);
 		Field positionField = Car.class.getDeclaredField("position");
 		positionField.setAccessible(true);
 
@@ -41,7 +38,7 @@ class CarListTest {
 		positionField.set(car2, 2);
 
 		// when
-		carList.getWinner();
+		cars.getWinner();
 
 		// then
 		assertThat(out.toString().trim()).isEqualTo("최종 우승자 : " + car1.getName());
@@ -49,9 +46,9 @@ class CarListTest {
 
 	@Test
 	void 공동우승() throws Exception {
-		Field listField = CarList.class.getDeclaredField("list");
+		Field listField = Cars.class.getDeclaredField("list");
 		listField.setAccessible(true);
-		List<Car> list = (List<Car>)listField.get(carList);
+		List<Car> list = (List<Car>)listField.get(cars);
 		Field positionField = Car.class.getDeclaredField("position");
 		positionField.setAccessible(true);
 
@@ -62,7 +59,7 @@ class CarListTest {
 		positionField.set(car2, 2);
 
 		// when
-		carList.getWinner();
+		cars.getWinner();
 
 		// then
 		assertThat(out.toString().trim()).isEqualTo("최종 우승자 : " + car1.getName() + ", " + car2.getName());
