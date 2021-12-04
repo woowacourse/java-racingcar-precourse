@@ -16,10 +16,18 @@ public class Car implements ICar {
         if (randomNumber >= 4) {
             incrementPosition();
         }
+        printPosition();
     }
 
     private void incrementPosition() {
-        this.position ++;
+        position ++;
     }
 
+    private void printPosition() {
+        String result = name + " : ";
+        for (int i = 0; i < position; i++) {
+            result += "-";
+        }
+        System.out.println(result);
+    }
 }
