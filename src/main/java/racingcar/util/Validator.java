@@ -15,7 +15,7 @@ public class Validator {
 
 	private void checkSpace(String carName) throws IllegalArgumentException {
 		if (carName.contains(SPACE)) {
-			throw new IllegalArgumentException("[ERROR] 자농차 이름안에는 공백이 있어서는 안됩니다.");
+			throw new IllegalArgumentException("[ERROR] 자동차 이름안에는 공백이 있어서는 안됩니다.");
 		}
 	}
 
