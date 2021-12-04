@@ -5,7 +5,6 @@ public enum ExceptionCase {
     // 예외 문자 입력을 위한 예외 케이스
     CONTAIN_NUMBER("pobi,123,jun"),
     CONTAIN_SPACE("pobi, woni,jun"),
-    CONTAIN_DOT("pobi.woni,jun"),
     START_WITH_SPACE(" pobi,woni,jun"),
 
     // 입력값 길이 검증을 위한 예외 케이스

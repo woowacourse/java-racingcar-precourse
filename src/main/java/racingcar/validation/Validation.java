@@ -3,7 +3,12 @@ package racingcar.validation;
 import java.util.HashSet;
 import java.util.Set;
 
+import static racingcar.validation.ErrorCode.*;
+
 public class Validation {
+    private static final String BY = ",";
+    private static final int ZERO = 0;
+
     public static void isCommaOrAlphabet(String target) {
         for(char c : target.toCharArray()) {
             validateChar(c);
@@ -12,24 +17,24 @@ public class Validation {
 
     private static void validateChar(char c) {
         if(c != ',' && !Character.isAlphabetic(c))
-            throw new IllegalArgumentException("[ERROR] 허용하지 않은 문자가 포함된 입력값입니다.");
+            throw new IllegalArgumentException(NOT_ALLOW_CHAR.getDetail());
     }
 
     public static void isProperLength(String target) {
-        for(String eachName : target.split(",")) {
+        for(String eachName : target.split(BY)) {
             validateLength(eachName);
         }
     }
 
     private static void validateLength(String target) {
         if(target.length() < 1 || target.length() > 5)
-            throw new IllegalArgumentException("[ERROR] 입력값의 길이가 올바르지 못합니다.");
+            throw new IllegalArgumentException(NOT_ALLOW_LENGTH.getDetail());
     }
 
     public static void hasDuplicatedName(String target) {
         Set<String> nameSet = new HashSet<>();
 
-        for(String eachName : target.split(",")) {
+        for(String eachName : target.split(BY)) {
             validateDuplication(nameSet, eachName);
             nameSet.add(eachName);
         }
@@ -37,22 +42,22 @@ public class Validation {
 
     private static void validateDuplication(Set<String> nameSet, String name) {
         if(nameSet.contains(name))
-            throw new IllegalArgumentException("[ERROR] 중복된 이름이 존재합니다.");
+            throw new IllegalArgumentException(IS_DUPLICATED.getDetail());
     }
 
-    public static void isNumber(String input) {
-        for(char c : input.toCharArray()) {
-            validateNumber(c);
+    public static void isNumber(String target) {
+        for(char each : target.toCharArray()) {
+            validateNumber(each);
         }
     }
 
-    private static void validateNumber(char c) {
-        if(!Character.isDigit(c))
-            throw new IllegalArgumentException("[ERROR] 횟수에 숫자 외 다른 문자가 입력되었습니다.");
+    private static void validateNumber(char each) {
+        if(!Character.isDigit(each))
+            throw new IllegalArgumentException(FOUND_NOT_NUMBER.getDetail());
     }
 
-    public static void firstIsZero(String input) {
-        if(input.charAt(0) == '0')
-            throw new IllegalArgumentException("[ERROR] 첫번째 숫자는 0이 될 수 없습니다.");
+    public static void isZero(String target) {
+        if(Integer.parseInt(target) == ZERO)
+            throw new IllegalArgumentException(FOUNR_ZERO_ONLY.getDetail());
     }
 }

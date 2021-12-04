@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.validation.ExceptionCase.*;
 
-public class ValidTest {
+public class ValidationTest {
     private final String NORMAL_CASE = "pobi,woni,jun";
 
     @Test
@@ -36,18 +36,10 @@ public class ValidTest {
     }
 
     @Test
-    void 점_입력_예외() {
-        assertThatIllegalArgumentException()
-                .isThrownBy(() -> Validation.isCommaOrAlphabet(CONTAIN_DOT.getContent()))
-                .withMessageStartingWith("[ERROR]");
-    }
-
-    @Test
     void 입력_길이_정상() {
         assertThatNoException()
                 .isThrownBy(() -> Validation.isProperLength(NORMAL_CASE));
     }
-
 
     @Test
     void 입력_길이_초과_예외() {
@@ -55,7 +47,6 @@ public class ValidTest {
                 .isThrownBy(() -> Validation.isProperLength(EXCEED_LENGTH.getContent()))
                 .withMessageStartingWith("[ERROR]");
     }
-
 
     @Test
     void 입력_길이_부족_예외() {
@@ -93,7 +84,7 @@ public class ValidTest {
     @Test
     void 시도횟수_0_입력_예외() {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> Validation.firstIsZero("0"))
+                .isThrownBy(() -> Validation.isZero("0"))
                 .withMessageStartingWith("[ERROR]");
     }
 }
