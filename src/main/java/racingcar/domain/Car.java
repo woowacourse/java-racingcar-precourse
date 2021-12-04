@@ -13,7 +13,7 @@ public class Car {
     private final MoveStrategy moveStrategy;
     private int position = 0;
 
-    private Car(String name, MoveStrategy moveStrategy) {
+    public Car(String name, MoveStrategy moveStrategy) {
         checkNameNull(name);
         checkNameBlank(name);
         checkNameLength(name);
@@ -41,5 +41,12 @@ public class Car {
         if (name.contains(" ")) {
             throw new CarNameBlankException();
         }
+    }
+
+    public int move() {
+        if (moveStrategy.isMoveable()) {
+            position++;
+        }
+        return position;
     }
 }
