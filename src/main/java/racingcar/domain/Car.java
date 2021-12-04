@@ -22,12 +22,20 @@ public class Car {
 	public void move() {
 		int random = Util.getRandomNumber(RANDOM_START, RANDOM_END);
 		if (isGoing(random)) {
-			this.position++;
+			position++;
 		}
+	}
+
+	public String repeatWord(String word, int count) {
+		StringBuilder output = new StringBuilder();
+		for (int current = 0; current < count; current++) {
+			output.append(word);
+		}
+		return output.toString();
 	}
 
 	@Override
 	public String toString() {
-		return "123";
+		return name + " : " + repeatWord("-", position);
 	}
 }
