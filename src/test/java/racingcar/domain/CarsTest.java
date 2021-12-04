@@ -29,4 +29,25 @@ class CarsTest {
 			assertEquals(car.getPosition(), 1);
 		}
 	}
+
+	@ParameterizedTest
+	@ValueSource(strings = "hoon,ji,choi")
+	void 레이싱_게임_최종_라운드_후_우승자_판별(String value) {
+		// given
+		Cars cars = Cars.fromString(value);
+		NumberGeneratePolicy numberGeneratePolicy = new NumberGeneratePolicy() {
+			@Override
+			public int generateNumber() {
+				return 4;
+			}
+		};
+
+		// when
+		cars.driveAll(numberGeneratePolicy);
+
+		// then
+		for (Car winner : cars.getWinners()) {
+			assertEquals(winner.getPosition(), 1);
+		}
+	}
 }
