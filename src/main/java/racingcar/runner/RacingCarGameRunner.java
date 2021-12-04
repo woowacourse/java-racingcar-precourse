@@ -7,13 +7,13 @@ import racingcar.utils.CarGameInputHandler;
 public class RacingCarGameRunner {
 
     public static void run() {
-        RacingCarGame game = newGame();
-        game.runCars();
+        RacingCarGame game = new RacingCarGame(getValidNames());
+        final int moveCount = getValidPlayCount();
+        for (int i = 0; i < moveCount; i++) {
+            game.moveCars();
+        }
     }
 
-    private static RacingCarGame newGame() {
-        return new RacingCarGame(getValidNames(), getValidPlayCount());
-    }
 
     private static List<String> getValidNames() {
         while (true) {

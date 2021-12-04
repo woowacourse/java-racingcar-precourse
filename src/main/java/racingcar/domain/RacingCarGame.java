@@ -6,20 +6,18 @@ import java.util.stream.Collectors;
 public class RacingCarGame {
 
     final private List<Car> cars;
-    final private Integer playCount;
 
-    public RacingCarGame(List<String> names, int playCount) {
+    public RacingCarGame(List<String> names) {
         this.cars = names.stream()
             .map(Car::new)
             .collect(Collectors.toList());
-        this.playCount = playCount;
     }
 
-    public void runCars() {
-        cars.forEach(this::run);
+    public void moveCars() {
+        cars.forEach(this::move);
     }
 
-    private void run(Car car) {
+    private void move(Car car) {
         if (!new MoveTicket().isValidTicket()) {
             car.moveForward();
         }
