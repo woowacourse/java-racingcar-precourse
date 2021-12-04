@@ -170,6 +170,8 @@
 
 #### OutputView
 
+- public static void printStartExecutionResult()
+    * 실행결과 출력 시작 안내
 - public static void printExecutionResult(List<Car> cars)
     * 각 차수별 실행결과 출력
 - public static void printFinalWinner(List<Car> cars)
