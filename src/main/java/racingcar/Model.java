@@ -34,10 +34,20 @@ public class Model {
         return Arrays.stream(carNames).map(s -> new Car(s)).collect(Collectors.toList());
     }
     
-    public void setPositions(List<Car> participants) {
+    public void setPositions(final List<Car> participants) {
         
         participants.stream().forEach(c -> c.moveCar());
-        
     }
+    
+    public boolean hasWinner(final List<Car> participants, final int goal) {
+        
+        return participants.stream().anyMatch(car -> car.getPosition() == goal);
+    }
+    
+    public List <Car> getWinner(List<Car> participants, final int goal) {
+        
+        return participants.stream().filter(car -> car.getPosition() == goal).collect(Collectors.toList());
+    }
+
 
 }
