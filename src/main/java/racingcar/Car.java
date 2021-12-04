@@ -14,6 +14,10 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public void isNameOutOfRange(String carName) throws IllegalArgumentException {
         if (carName.length() > Condition.MAXIMUM_CAR_NAME_INPUT_LENGTH) {
             throw new IllegalArgumentException();

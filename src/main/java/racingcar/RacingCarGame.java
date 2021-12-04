@@ -6,6 +6,7 @@ import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Condition;
+import racingcar.view.OutputView;
 
 public class RacingCarGame {
     private static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -18,8 +19,10 @@ public class RacingCarGame {
         inputCarName();
         int times = inputTimes();
 
+        OutputView outputView = new OutputView();
         for (int t = 0; t < times; t++) {
             progress(cars);
+            outputView.showCurrentPosition(cars);
         }
     }
 
