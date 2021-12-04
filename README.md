@@ -217,11 +217,14 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     * 이름의 길이가 5 이하인지 확인  
       if 6 이상 : 유효하지 않은 값   
     => ```IllegalArgumentException``` 발생, 에러 메세지 출력 후 다시 입력 받기
+    * 공백이나 중복된 이름은 어떻게 처리할지 생각해보기  
   + 시도할 횟수
     * 숫자인지 확인  
       if !(숫자) : 유효하지 않은 값  
     => ```IllegalArgumentException``` 발생, 에러 메세지 출력 후 다시 입력 받기  
-    
+#### 🛠 에러 메세지 출력 후 다시 입력받기
+  + idea1 : while 문 이용하기
+  + idea2 : try-catch 에서 재귀 사용하기
 ### 자동차 정보
   + 주어진 Car 객체 활용해 구현
   + 우승자 반환을 위한 position 저장 필요
