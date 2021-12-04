@@ -15,12 +15,17 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
     private static final String REPETITION_NUMBER_INPUT_RANGE_ERROR_MESSAGE = " 최소 1이상의 값이 입력되어야합니다.";
     private static final String REPETITION_NUMBER_INPUT_TYPE_ERROR_MESSAGE = " 시도 횟수는 숫자여야 한다.";
 
+    public Validator() {
+    }
+
     @Override
     public boolean isAllValid(String[] cars) {
         if (!isCars(cars)) {
+            printMessage(CARS_SIZE_ERROR_MESSAGE);
             throw new IllegalArgumentException(CAR_NAME_MAX_LENGTH_ERROR_MESSAGE);
         }
         if (isDuplication(cars)) {
+            printMessage(CAR_NAME_DUPLICATION_ERROR_MESSAGE);
             throw new IllegalArgumentException(CAR_NAME_DUPLICATION_ERROR_MESSAGE);
         }
         isNameValid(cars);
@@ -31,10 +36,12 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
     public boolean isNameValid(String[] cars) {
         for (String carName : cars) {
             if (isBlank(carName)) {
-                throw new IllegalArgumentException(CAR_NAME_MIN_LENGTH_ERROR_MESSAGE);
+                printMessage(CAR_NAME_MIN_LENGTH_ERROR_MESSAGE);
+                throw new IllegalArgumentException(ERROR + CAR_NAME_MIN_LENGTH_ERROR_MESSAGE);
             }
             if (!validateNameRange(carName)) {
-                throw new IllegalArgumentException(CAR_NAME_MAX_LENGTH_ERROR_MESSAGE);
+                printMessage(CAR_NAME_MAX_LENGTH_ERROR_MESSAGE);
+                throw new IllegalArgumentException(ERROR + CAR_NAME_MAX_LENGTH_ERROR_MESSAGE);
             }
         }
         return true;
@@ -42,39 +49,23 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
 
     @Override
     public boolean isBlank(String name) {
-        if (name.trim().isEmpty()) {
-            printMessage(CAR_NAME_MIN_LENGTH_ERROR_MESSAGE);
-            return true;
-        }
-        return false;
+        return name.trim().isEmpty();
     }
 
     @Override
     public boolean isCars(String[] names) {
-        if (names.length < MIN_SIZE) {
-            printMessage(CARS_SIZE_ERROR_MESSAGE);
-            return false;
-        }
-        return true;
+        return names.length >= MIN_SIZE;
     }
 
     @Override
     public boolean isDuplication(String[] names) {
         Set<String> carNames = new HashSet<>(Arrays.asList(names));
-        if (carNames.size() != names.length) {
-            printMessage(CAR_NAME_DUPLICATION_ERROR_MESSAGE);
-            return true;
-        }
-        return false;
+        return carNames.size() != names.length;
     }
 
     @Override
     public boolean validateNameRange(String name) {
-        if (name.length() > MAX_LENGTH) {
-            printMessage(CAR_NAME_MAX_LENGTH_ERROR_MESSAGE);
-            return false;
-        }
-        return true;
+        return name.length() <= MAX_LENGTH;
     }
 
     @Override
@@ -91,6 +82,7 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
             throw new IllegalArgumentException(REPETITION_NUMBER_INPUT_TYPE_ERROR_MESSAGE);
         }
         if (!validateRange(number)) {
+            printMessage(REPETITION_NUMBER_INPUT_RANGE_ERROR_MESSAGE);
             throw new IllegalArgumentException(REPETITION_NUMBER_INPUT_RANGE_ERROR_MESSAGE);
         }
         return true;
@@ -98,11 +90,7 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
 
     @Override
     public boolean validateRange(int number) {
-        if (number < REPETITION_MIN_RANGE) {
-            printMessage(REPETITION_NUMBER_INPUT_RANGE_ERROR_MESSAGE);
-            return false;
-        }
-        return true;
+        return number >= REPETITION_MIN_RANGE;
     }
 
     @Override

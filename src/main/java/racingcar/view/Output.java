@@ -43,8 +43,8 @@ public class Output {
     }
 
     public static void printWinners(List<String> winners) {
-        println(FINAL_WINNER_RESULT_MESSAGE);
-        println(winners.stream().collect(Collectors.joining(DELIMITER)));
+        println(String.format("%s : %s", FINAL_WINNER_RESULT_MESSAGE,
+            winners.stream().collect(Collectors.joining(DELIMITER))));
     }
 
     public static void println(String message) {

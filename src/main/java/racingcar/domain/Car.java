@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.exception.CarNameValidator;
+import racingcar.domain.exception.Validator;
 
 public class Car implements Comparable<Car> {
     private static final int MIN_RANDOM_VALUE = 0;
