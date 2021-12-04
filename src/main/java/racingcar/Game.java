@@ -6,10 +6,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class Game {
+	private Cars cars;
+	private int gameRound;
+
 	public void play() {
-		Cars cars = getCarsWithErrorHandling();
+		getCarsWithErrorHandling();
+		getGameRoundWithErrorHandling();
 		Referee referee = new Referee();
-		int gameRound = getGameRoundWithErrorHandling();
 
 		OutputView.showGameResultMessage();
 		for (int i = 0; i < gameRound; i++) {
@@ -41,29 +44,24 @@ public class Game {
 		return gameRound;
 	}
 
-	private Cars getCarsWithErrorHandling() {
-		Cars cars;
-		while (true) {
-			try {
-				cars = new Cars(constructCar(parsingCarNames(InputView.inputCarNames())));
-				break;
-			} catch (IllegalArgumentException exception) {
-				System.out.println(exception.getMessage());
-			}
+	private void getCarsWithErrorHandling() {
+		try {
+			cars = new Cars(constructCar(parsingCarNames(InputView.inputCarNames())));
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			getCarsWithErrorHandling();
 		}
-		return cars;
 	}
 
-	private int getGameRoundWithErrorHandling() {
-		int gameRound;
-		while (true) {
-			try {
-				gameRound = castingGameRound(InputView.inputGameRound());
-				break;
-			} catch (IllegalArgumentException exception) {
-				System.out.println(exception.getMessage());
-			}
+	private void getGameRoundWithErrorHandling() {
+		try {
+			gameRound = castingGameRound(InputView.inputGameRound());
+		} catch (NumberFormatException exception) {
+			System.out.println(Constant.GAME_ROUND_TYPE_ERROR_MESSAGE);
+			getGameRoundWithErrorHandling();
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			getGameRoundWithErrorHandling();
 		}
-		return gameRound;
 	}
 }
