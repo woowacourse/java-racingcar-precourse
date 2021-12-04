@@ -3,16 +3,13 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class GameManager {
 	public InputManager inputManager;
 	public Car[] cars;
 	public ArrayList<String> winner = new ArrayList<>();
 
 	public GameManager() {
-		InputManager inputManager = new InputManager();
-		this.inputManager = inputManager;
+		this.inputManager = new InputManager();
 	}
 
 	public void startGame() {
@@ -30,23 +27,15 @@ public class GameManager {
 	public void saveCarsList() {
 		cars = new Car[inputManager.getCarsList().length];
 		for (int i = 0; i < cars.length; i++) {
-			cars[i] = new Car(inputManager.carsList[i]);
+			cars[i] = new Car(inputManager.getCarsList()[i]);
 		}
 	}
 
 	public void playRound() {
 		for (Car car : cars) {
-			car.addPosition(calculateMove());
+			car.calculateMove();
 		}
 		printResult();
-	}
-
-	public int calculateMove() {
-		int randomNumber = Randoms.pickNumberInRange(Constant.MINIMUM_RANDOM_NUMBER, Constant.MAXIMUM_RANDOM_NUMBER);
-		if (randomNumber >= Constant.MOVE_NUMBER) {
-			return 1;
-		}
-		return 0;
 	}
 
 	public void printResult() {
@@ -76,7 +65,7 @@ public class GameManager {
 	}
 
 	public void calculateWinner() {
-		int[] positionList = getWinnerPosition();
+		int[] positionList = calculateWinnerPosition();
 		for (Car car : cars) {
 			if (car.getPosition() == positionList[cars.length - 1]) {
 				winner.add(car.getName());
@@ -84,7 +73,7 @@ public class GameManager {
 		}
 	}
 
-	public int[] getWinnerPosition() {
+	public int[] calculateWinnerPosition() {
 		int[] positionList = new int[cars.length];
 		for (int i = 0; i < positionList.length; i++) {
 			positionList[i] = cars[i].getPosition();
