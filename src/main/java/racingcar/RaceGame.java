@@ -42,8 +42,8 @@ public class RaceGame {
     }
 
     public interface InputChecker {
-        public void checkCarName(String input);
+        void checkCarName(String input);
 
-        public void checkTryNumber(String input);
+        void checkTryNumber(String input);
     }
 }
