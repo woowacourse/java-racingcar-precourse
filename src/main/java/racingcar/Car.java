@@ -14,7 +14,7 @@ public class Car {
 		System.out.print(name);
 	}
 
-	public void printCarPosition() { // printPosition
+	public void printPosition() {
 		String name = String.format("%s : ", this.name);
 		String distance = new String(new char[position]).replace("\0", "-");
 
@@ -33,7 +33,7 @@ public class Car {
 	public int move() {
 		int movement = getMovement();
 		this.position += movement;
-		printCarPosition();
+		printPosition();
 		return movement;
 	}
 

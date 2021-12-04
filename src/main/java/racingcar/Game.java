@@ -13,9 +13,9 @@ import camp.nextstep.edu.missionutils.Console;
 public class Game {
 	private final List<Car> participants;
 	private final int numberOfTrials;
-	private int[] scoreBoard;
+	private final int[] scoreBoard;
 
-	Game() {
+	public Game() {
 		List<String> carNames = getCarNamesFromUser();
 		if (!validateCarNames(carNames)) {
 			throw new IllegalArgumentException();
