@@ -10,6 +10,10 @@ public class Car {
 		this.name = name;
 	}
 
+	public void printName() {
+		System.out.println(name);
+	}
+
 	public void printCarPosition() { // printPosition
 		String name = String.format("%s : ", this.name);
 		String distance = new String(new char[position]).replace("\0", "-");
