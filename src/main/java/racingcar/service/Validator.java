@@ -5,16 +5,17 @@ import java.util.List;
 import racingcar.constants.Constants;
 
 public class Validator {
-	public boolean checkCarsNameSize(List<String> carNames) {
+	public void checkCarsNameSize(List<String> carNames) throws IllegalArgumentException{
 		for(String carName : carNames) {
 			if(carName.length() > Constants.CAR_NAME_SIZE) {
-				return false;
+				throw new IllegalArgumentException();
 			}
 		}
-		return true;
 	}
 
-	public boolean checkNumber(String numberString) {
-		return numberString.chars().allMatch( Character::isDigit );
+	public void checkNumber(String numberString) throws IllegalArgumentException{
+		if(!numberString.chars().allMatch( Character::isDigit )) {
+			throw new IllegalArgumentException();
+		}
 	}
 }

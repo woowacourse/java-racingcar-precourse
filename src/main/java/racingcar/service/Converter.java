@@ -5,11 +5,21 @@ import java.util.Arrays;
 import java.util.List;
 
 import racingcar.constants.Constants;
+import racingcar.domain.Car;
 
 public class Converter {
 	public List<String> convertStringToList(String inputString) {
 		String [] splitedArray = inputString.split(Constants.CUT_OFF_POINT);
 		return Arrays.asList(splitedArray);
+	}
+
+	public List<Car> convertStringListToCarList(List<String> carNames) {
+		List<Car> cars = new ArrayList<>();
+		for(String carName : carNames) {
+			Car car = new Car(carName);
+			cars.add(car);
+		}
+		return cars;
 	}
 
 	public int convertStringToInt(String numberString) {
