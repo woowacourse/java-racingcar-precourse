@@ -6,7 +6,7 @@ public class ConstMessage {
     public static final String ROUND_NUMBER_INPUT_REQUEST = "시도할 회수는 몇회인가요?";
 
     //게임 정보
-    public static final String PLAY_RESULT_MESSAGE = "실행 결과\n";
+    public static final String PLAY_RESULT_MESSAGE = "\n실행 결과";
     public static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
     public static final String NAME_POSITION_DELIMITER = " : ";
     public static final String NAME_AND_NAME_DELIMITER = ", ";
