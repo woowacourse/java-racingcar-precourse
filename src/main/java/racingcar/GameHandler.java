@@ -1,29 +1,37 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.constants.Constant;
 import racingcar.constants.Message;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class GameHandler {
-	private int stages;
-	private List<Car> cars = new ArrayList<>();
+	private final UserService userService = new UserService();
 
 	public void run() {
-		createCars();
-		getStages();
-		System.out.println(Message.EXECUTE_RESULT);
-		while (stages-- > 0) {
-			executeStage();
-		}
-		showWinners();
+		List<Car> cars = createCars();
+		int stages = getStages();
+		executeResult(stages, cars);
+		showWinners(cars);
 	}
 
-	private void showWinners() {
-		List<Car> winnerCars = findWinnerCars();
+	private void executeResult(int stages, List<Car> cars) {
+		System.out.println(Message.EXECUTE_RESULT);
+
+		while (stages-- > 0) {
+			executeStage(cars);
+		}
+	}
+
+	private void executeStage(List<Car> cars) {
+		List<Car> movedCars = moveAllCars(cars);
+		showEachStageResult(movedCars);
+	}
+
+	private void showWinners(List<Car> cars) {
+		List<Car> winnerCars = findWinnerCars(cars);
 
 		System.out.print(Message.WINNERS);
 		StringBuilder winners = getWinners(winnerCars);
@@ -32,134 +40,72 @@ public class GameHandler {
 
 	private StringBuilder getWinners(List<Car> winnerCars) {
 		StringBuilder winners = new StringBuilder();
-		for (int i = 0; i < winnerCars.size(); i++) {
-			winners.append(winnerCars.get(i).name());
-			if (i != winnerCars.size() - 1) {
-				winners.append(", ");
-			}
+		for (int i = 0; i < winnerCars.size() - 1; i++) {
+			winners.append(winnerCars.get(i).name())
+					.append(Constant.SPLIT_STRING)
+					.append(Constant.SPACE);
 		}
+		winners.append(winnerCars.get(winnerCars.size() - 1).name());
 		return winners;
 	}
 
-	private List<Car> findWinnerCars() {
+	private List<Car> findWinnerCars(List<Car> cars) {
 		List<Car> winners = new ArrayList<>();
-
-		cars.sort(Comparator.comparingInt(Car::currentPosition));
-		int max = cars.get(cars.size() - 1).currentPosition();
-		for (int i = cars.size() - 1; i >= 0; i--) {
-			if (cars.get(i).currentPosition() < max) {
-				break;
+		int max = maxCurrentPosition(cars);
+		for (Car car : cars) {
+			if (car.currentPosition() == max) {
+				winners.add(car);
 			}
-			winners.add(cars.get(i));
 		}
 
 		return winners;
 	}
 
-	private void executeStage() {
-		moveAllCars();
-		showEachStageResult();
+	private int maxCurrentPosition(List<Car> cars) {
+		return cars.stream()
+				.mapToInt(Car::currentPosition)
+				.max().orElseThrow(NoSuchElementException::new);
 	}
 
-	private void moveAllCars() {
+	private List<Car> moveAllCars(List<Car> cars) {
 		for (Car car : cars) {
 			car.go();
 		}
+
+		return cars;
 	}
 
-	private void showEachStageResult() {
+	private void showEachStageResult(List<Car> cars) {
 		for (Car car : cars) {
-			System.out.print(car.name() + " : ");
-			for (int i = 0; i < car.currentPosition(); i++) {
-				System.out.print("-");
-			}
-			System.out.println("");
+			showCurrentPosition(car);
 		}
 		System.out.println("");
 	}
 
-	private void getStages() {
+	private void showCurrentPosition(Car car) {
+		System.out.print(car.name() + " : ");
+		for (int i = 0; i < car.currentPosition(); i++) {
+			System.out.print("-");
+		}
+		System.out.println("");
+	}
+
+	private int getStages() {
 		System.out.println(Message.ASK_STAGES);
 
-		while (true) {
-			if (getUserInputStage()) {
-				break;
-			}
-		}
+		return userService.howManyTimes();
 	}
 
-	private boolean getUserInputStage() {
-		try {
-			String input = Console.readLine();
-			if (isNotNumber(input)) {
-				throw new IllegalArgumentException();
-			}
-			this.stages = Integer.parseInt(input);
-			return true;
-		} catch (IllegalArgumentException e) {
-			System.out.println(Message.ERROR_INVALID_STAGE_VALUE);
-		}
-		return false;
-	}
 
-	private boolean isNotNumber(String input) {
-		return !input.chars().allMatch(Character::isDigit);
-	}
-
-	private void createCars() {
+	private List<Car> createCars() {
 		System.out.println(Message.START);
 
-		String[] names = getCarsName();
+		List<Car> carList = new ArrayList<>();
+		String[] names = userService.register();
 		for (String name : names) {
-			cars.add(new Car(name));
-		}
-	}
-
-	private String[] getCarsName() {
-		String[] names;
-
-		while (true) {
-			try {
-				names = getUserInputNames();
-				break;
-			} catch (IllegalArgumentException e) {
-				System.out.println(Message.ERROR_INVALID_NAME_FORMAT);
-			}
+			carList.add(new Car(name));
 		}
 
-		return names;
-	}
-
-	private String[] getUserInputNames() {
-		String userInput = Console.readLine();
-
-		if (checkValidNames(userInput)) {
-			return userInput.split(Constant.SPLIT_STRING);
-		}
-
-		throw new IllegalArgumentException();
-	}
-
-	private boolean checkValidNames(String userInput) {
-		String[] names = userInput.split(Constant.SPLIT_STRING);
-		for (String name : names) {
-			if (isInvalidNameLength(name)) {
-				return false;
-			}
-		}
-
-		if (isLastCharImproper(userInput)) {
-			return false;
-		}
-
-		return true;
-	}
-
-	private boolean isInvalidNameLength(String name) {
-		return !(Constant.MIN_NAME_LENGTH <= name.length() && name.length() <= Constant.MAX_NAME_LENGTH);
-	}
-
-	private boolean isLastCharImproper(String userInput) {
-		return userInput.charAt(userInput.length() - 1) == Constant.IMPROPER_CHARACTER;
+		return carList;
 	}
 }
