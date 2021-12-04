@@ -7,8 +7,8 @@ public class OutputView {
     private static final String COLON = " : ";
     private static final String DISTANCE = "-";
     private static final String ERROR = "[ERROR] ";
-    private static final String WINNER_IS = "최종 우승자: ";
-    private static final String AND = ", ";
+    private static final String WINNER_CAR_NAME_PRINT = "최종 우승자: ";
+    private static final String COMMA = ", ";
 
     public static void printGameResult() {
         System.out.println(GAME_RESULT_MESSAGE);
@@ -30,7 +30,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winnerList) {
-        System.out.println(WINNER_IS + String.join(AND, winnerList));
+        System.out.println(WINNER_CAR_NAME_PRINT + String.join(COMMA, winnerList));
     }
 
     public static void printPlayerAndPosition(Car car) {
