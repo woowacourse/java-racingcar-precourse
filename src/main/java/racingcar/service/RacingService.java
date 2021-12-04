@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -44,5 +45,15 @@ public class RacingService {
 			System.out.print("-");
 		}
 		System.out.println();
+	}
+
+	private List<Car> pickWinners() {
+		carRepository.sortByPosition();
+		int winnerPosition = carRepository.findFirstCarPosition();
+
+		return carRepository.findAll()
+			.stream()
+			.filter(c -> c.getPosition() == winnerPosition)
+			.collect(Collectors.toList());
 	}
 }

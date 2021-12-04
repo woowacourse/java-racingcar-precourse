@@ -1,6 +1,7 @@
 package racingcar.repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import racingcar.domain.Car;
@@ -15,5 +16,13 @@ public class CarRepository {
 
 	public List<Car> findAll() {
 		return carRepository;
+	}
+
+	public void sortByPosition() {
+		Collections.sort(carRepository);
+	}
+
+	public int findFirstCarPosition() {
+		return carRepository.get(0).getPosition();
 	}
 }

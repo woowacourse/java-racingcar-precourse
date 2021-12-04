@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car>{
 
     private static final int MIN_NUMBER_OF_MOVE = 4;
 
@@ -23,5 +23,10 @@ public class Car {
 
     public int getPosition() {
         return this.position;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return car.position - this.position;
     }
 }
