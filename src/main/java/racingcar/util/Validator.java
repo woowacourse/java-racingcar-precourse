@@ -8,10 +8,12 @@ public class Validator {
 	public void checkCarNamesInput(String input) throws IllegalArgumentException {
 		for (String carName : parser.parseCarNames(input)) {
 			if (CAR_NAME_RESTRICTIONS_MAX < carName.length()) {
-				throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 한다.");
+				throw new IllegalArgumentException(
+					"[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MAX + "글자 이하여야 한다.");
 			}
 			if (carName.length() < CAR_NAME_RESTRICTIONS_MIN) {
-				throw new IllegalArgumentException("[ERROR] 자동차 이름은 1글자 이상이어야 한다.");
+				throw new IllegalArgumentException(
+					"[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MIN + "글자 이상이어야 한다.");
 			}
 		}
 	}
