@@ -9,19 +9,14 @@ public class InputService {
 	static final String INPUT_ATTEMPT_MESSAGE = "시도할 회수는 몇회인가요?";
 
 	public String[] readCarNames() {
-		String[] carNames;
-
 		while (true) {
 			try {
 				System.out.println(INPUT_CAR_NAME_MESSAGE);
-				carNames = separateNames();
-				break;
+				return separateNames();
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
 		}
-
-		return carNames;
 	}
 
 	private String[] separateNames() throws IllegalArgumentException{
@@ -35,18 +30,13 @@ public class InputService {
 	}
 
 	public int readAttemptNumber() {
-		int attempt;
-
 		while (true) {
 			try {
 				System.out.println(INPUT_ATTEMPT_MESSAGE);
-				attempt = Verification.ofAttempt(Console.readLine());
-				break;
+				return Verification.ofAttempt(Console.readLine());
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
 		}
-
-		return attempt;
 	}
 }
