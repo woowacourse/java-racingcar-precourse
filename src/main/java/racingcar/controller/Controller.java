@@ -24,11 +24,15 @@ public class Controller {
 		Game game = new Game(getCarList(), getNumberOfTrial());
 		Long gameId = gameService.save(game);
 		OutputView.printHead();
+		play(game);
+		OutputView.printWinners(gameService.getWinners(gameId));
+	}
+
+	private void play(Game game) {
 		while (!gameService.isEnd(game)) {
 			gameService.play(game);
 			OutputView.printScore(game.getCars());
 		}
-		OutputView.printWinners(gameService.getWinners(gameId));
 	}
 
 	private int getNumberOfTrial() {
