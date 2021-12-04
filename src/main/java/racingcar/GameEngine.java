@@ -14,6 +14,7 @@ public class GameEngine {
 	public void start() {
 		System.out.println(GameData.CARNAME_INPUT_MESSAGE);
 		List<Car> carList = generateCars(readCarNames());
+		int count = readCount();
 	}
 
 	public List<String> readCarNames() {
@@ -32,5 +33,15 @@ public class GameEngine {
 			results.add(new Car(carName));
 		}
 		return results;
+	}
+
+	public int readCount() {
+		while (true) {
+			try {
+				return inputHandler.readCount();
+			} catch (IllegalArgumentException iae) {
+				System.err.println(GameData.INPUT_ERROR_MESSAGE);
+			}
+		}
 	}
 }
