@@ -1,9 +1,8 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -47,10 +46,9 @@ public class CarListMaker {
 		return carList;
 	}
 
-	private ArrayList<String> splitStrToListByComma(String str) {
+	private List<String> splitStrToListByComma(String str) {
 		String[] arr = str.split(",");
-		List<String> myList = Stream.of(arr).collect(Collectors.toList());
-		return (new ArrayList<String>(myList));
+		return Arrays.asList(arr);
 	}
 }
 
