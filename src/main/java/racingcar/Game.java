@@ -4,6 +4,8 @@ package racingcar;
 import domain.Car;
 import domain.CarList;
 import domain.Turn;
+import view.OutputView;
+
 
 public class Game {
     private CarList cars;
@@ -18,9 +20,9 @@ public class Game {
         for(int i = 0; i < turns; i++) {
             for (Car car : cars.getCarList()) {
                 car.goOrStop();
+                OutputView.printNow(cars.getCarList());
             }
         }
-        cars.decideWinner();
+        OutputView.printEnd(cars.decideWinner());
     }
-
 }

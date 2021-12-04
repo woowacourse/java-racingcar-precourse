@@ -6,22 +6,22 @@ import java.util.Collections;
 import java.util.List;
 
 public class OutputView {
-    public void printNow(List<Car> cars){
+    public static void printNow(List<Car> cars){
         System.out.println("실행결과");
         for(Car car : cars){
             System.out.println(car.getName() + " : " + changeDistanceTohypen(car.getPosition()));
         }
     }
 
-    public void printEnd(final List<String> winnerList){
+    public static void printEnd(final List<String> winnerList){
         System.out.println("최종 우승자 : " + changeWinnerListToString(winnerList));
     }
 
-    private String changeDistanceTohypen(int distance){
+    private static String changeDistanceTohypen(int distance){
         return String.join("", Collections.nCopies(distance,"-"));
     }
 
-    private String changeWinnerListToString(List<String> winnerList){
+    private static String changeWinnerListToString(List<String> winnerList){
         return String.join(",",winnerList);
     }
 
