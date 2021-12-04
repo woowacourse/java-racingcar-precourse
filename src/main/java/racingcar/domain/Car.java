@@ -1,6 +1,9 @@
 package racingcar.domain;
 
-public class Car implements Comparable<Car> {
+public class Car implements Raceable {
+
+    private static final int MIN_MOVE_CONDITION = 4;
+
     private final String name;
     private int position = 0;
 
@@ -8,33 +11,34 @@ public class Car implements Comparable<Car> {
         this.name = name;
     }
 
-    public boolean attemptMove(int number) {
-        if (isMovable(number)) {
-            position++;
-            return true;
-        }
-        return false;
+    @Override
+    public boolean isMovable(int number) {
+        return number >= MIN_MOVE_CONDITION;
     }
 
-    private boolean isMovable(int number) {
-        return number >= 4;
+    @Override
+    public void moveForward() {
+        position++;
     }
 
+    @Override
+    public <T extends Raceable> boolean isSamePositionWith(T competitor) {
+        return position == competitor.getPosition();
+    }
+
+    @Override
+    public int compareTo(Raceable other) {
+        return position - other.getPosition();
+    }
+
+    @Override
     public int getPosition() {
         return position;
     }
 
+    @Override
     public String getName() {
         return name;
-    }
-
-    public boolean isSamePositionWith(Car other) {
-        return position == other.getPosition();
-    }
-
-    @Override
-    public int compareTo(Car other) {
-        return position - other.position;
     }
 
     @Override
