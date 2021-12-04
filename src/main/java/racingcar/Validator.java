@@ -9,48 +9,39 @@ import static racingcar.Messages.ROUND_INPUT_ERROR_MESSAGE;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Validator {
 
     private static final int MINIMUM_NAME_AMOUNT = 2;
     private static final int MAXIMUM_NAME_DIGIT = 5;
-    private static final String NUMBER_PATTERN = "\"[0-9]+\"";
+    private static final String COMMA = ",";
 
-    public void validateCarName(String carNames) {
-        try {
-            checkStartOrEndWithComma(carNames);
-            checkCarNameAmount(carNames);
-            checkCorrectNameDigit(carNames);
-            checkDuplicateName(carNames);
-            checkContainBlank(carNames);
-
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-        }
-
+    public void validateCarName(String carNames) throws IllegalArgumentException {
+        checkStartOrEndWithComma(carNames);
+        checkCarNameAmount(carNames);
+        checkCorrectNameDigit(carNames);
+        checkDuplicateName(carNames);
+        checkContainBlank(carNames);
     }
 
-    public void validateRoundNumber(String roundNumber) {
-        try {
-            checkContainBlank(roundNumber);
-            checkNumberFormat(roundNumber);
-
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-        }
+    public void validateRoundNumber(String roundNumber) throws IllegalArgumentException {
+        checkContainBlank(roundNumber);
+        checkNumberFormat(roundNumber);
     }
 
     private void checkNumberFormat(String roundNumber) {
-        if (!roundNumber.matches(NUMBER_PATTERN)) {
-            throw new IllegalArgumentException(
-                    ROUND_INPUT_ERROR_MESSAGE.getMessage()
-            );
+        for (int i = 0; i < roundNumber.length(); i++) {
+            if (!Character.isDigit(roundNumber.charAt(i))) {
+                throw new IllegalArgumentException(
+                        ROUND_INPUT_ERROR_MESSAGE.getMessage()
+                );
+            }
         }
+
     }
 
     private void checkStartOrEndWithComma(String carNames) {
-        if (carNames.startsWith(",") || carNames.endsWith(",")) {
+        if (carNames.startsWith(COMMA) || carNames.endsWith(COMMA)) {
             throw new IllegalArgumentException(
                     COMMA_LOCATION_ERROR_MESSAGE.getMessage()
             );
@@ -58,7 +49,7 @@ public class Validator {
     }
 
     private void checkCarNameAmount(String carNames) {
-        int amount = carNames.split(",").length;
+        int amount = carNames.split(COMMA).length;
         if (amount < MINIMUM_NAME_AMOUNT) {
             throw new IllegalArgumentException(
                     NAME_AMOUNT_ERROR_MESSAGE.getMessage()
@@ -67,7 +58,7 @@ public class Validator {
     }
 
     private void checkCorrectNameDigit(String carNames) {
-        List<String> names = Arrays.asList(carNames.split(","));
+        String[] names = carNames.split(COMMA);
         for (String name : names) {
             if (name.length() > MAXIMUM_NAME_DIGIT) {
                 throw new IllegalArgumentException(
@@ -78,8 +69,8 @@ public class Validator {
     }
 
     private void checkDuplicateName(String carNames) {
-        List<String> names = Arrays.asList(carNames.split(","));
-        int removedSize = names.stream().distinct().collect(Collectors.toList()).size();
+        List<String> names = Arrays.asList(carNames.split(COMMA));
+        int removedSize = (int) names.stream().distinct().count();
         if (names.size() != removedSize) {
             throw new IllegalArgumentException(
                     DUPLICATED_NAME_ERROR_MESSAGE.getMessage()
