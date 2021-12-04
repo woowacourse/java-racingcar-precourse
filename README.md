@@ -10,8 +10,11 @@
 
 ### User
 - 차 이름 입력
-  - 입력 글자 수가 5 초과일 경우 IllegalArgumentException
-    - 다시 입력 받기
+  - IllegalArgumentException
+    - 이름에 공백이 존재하는 경우
+    - 이름이 5 초과인 경우
+    - 중복된 이름
+    - 단 1대도 입력되지 않은 경우
 - 총 시도할 횟수 입력
   - 숫자가 아닌 경우 IllegalArgumentException
     - 다시 입력 받기
