@@ -15,6 +15,8 @@ public class RacingService {
 	private static final int MIN_RANDOM_VALUE = 0;
 	private static final int MAX_RANDOM_VALUE = 9;
 
+	private static String FINAL_WINNER = "최종 우승자 : ";
+
 	public void registerCars(String[] carNames) {
 		Stream.of(carNames)
 			.forEach(n -> carRepository.save(new Car(n)));
@@ -45,6 +47,13 @@ public class RacingService {
 			System.out.print("-");
 		}
 		System.out.println();
+	}
+
+	public void showWinnersName() {
+		pickWinners().stream()
+			.forEach(w -> FINAL_WINNER += ", " + w.getName());
+
+		System.out.println(FINAL_WINNER.replaceFirst(", ", ""));
 	}
 
 	private List<Car> pickWinners() {
