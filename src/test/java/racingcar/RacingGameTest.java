@@ -21,6 +21,6 @@ class RacingGameTest {
     @Test
     void 입력값으로_경기_회차를_설정() {
         int input = 10;
-        assertThat(racingGame.createRoundNumber(input)).isEqualTo(input);
+        assertThat(racingGame.createNumberOfRounds(input)).isEqualTo(input);
     }
 }

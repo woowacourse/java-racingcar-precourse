@@ -1,7 +1,7 @@
 package racingcar.inputvalue;
 
-public class RoundNumberInputValue extends InputValue<Integer> {
-    public RoundNumberInputValue(String input) {
+public class NumberOfRoundsInputValue extends InputValue<Integer> {
+    public NumberOfRoundsInputValue(String input) {
         super(input);
     }
 
@@ -18,6 +18,4 @@ public class RoundNumberInputValue extends InputValue<Integer> {
             }
         }
     }
-
-
 }

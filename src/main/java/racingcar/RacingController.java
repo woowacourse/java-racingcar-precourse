@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.inputvalue.CarNameInputValue;
 import racingcar.inputvalue.InputValue;
-import racingcar.inputvalue.RoundNumberInputValue;
+import racingcar.inputvalue.NumberOfRoundsInputValue;
 
 public class RacingController {
     private final RacingGame racingGame;
@@ -19,10 +19,10 @@ public class RacingController {
         return carNameStrings;
     }
 
-    public int createRoundNumber() {
-        InputValue<Integer> roundNumberInput = new RoundNumberInputValue(Console.readLine());
-        int roundNumber = roundNumberInput.toRaceElement();
-        racingGame.createRoundNumber(roundNumber);
-        return roundNumber;
+    public int createNumberOfRounds() {
+        InputValue<Integer> NumberOfRoundsInput = new NumberOfRoundsInputValue(Console.readLine());
+        int numberOfRounds = NumberOfRoundsInput.toRaceElement();
+        racingGame.createNumberOfRounds(numberOfRounds);
+        return numberOfRounds;
     }
 }

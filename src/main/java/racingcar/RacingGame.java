@@ -5,7 +5,7 @@ import static racingcar.StringConstants.MIN_VALUE_OF_ROUND_NUMBER;
 import java.util.List;
 
 public class RacingGame {
-    public int roundNumber;
+    public int numberOfRounds;
     private final CarRepository carRepository;
 
     public RacingGame(CarRepository carRepository) {
@@ -20,10 +20,10 @@ public class RacingGame {
         return findSavedCars();
     }
 
-    public int createRoundNumber(int input) {
-        validateRoundNumber(input);
-        roundNumber = input;
-        return input;
+    public int createNumberOfRounds(int number) {
+        validateRoundNumber(number);
+        numberOfRounds = number;
+        return number;
     }
 
     private void validateRoundNumber(int number) {
