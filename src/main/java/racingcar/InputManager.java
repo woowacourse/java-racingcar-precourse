@@ -56,14 +56,18 @@ public class InputManager {
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
-		if (number.length() == 0) {
+		if (number.length() == 0 || !isNumber(number)) {
 			throw new IllegalArgumentException(Constant.TRY_NUMBER_ERROR);
 		}
-		for (int index = 0; index < number.length(); index++) {
-			if (!Character.isDigit((number.charAt(index)))) {
-				throw new IllegalArgumentException(Constant.TRY_NUMBER_ERROR);
+	}
+
+	public boolean isNumber(String number) {
+		for (int i = 0; i < number.length(); i++) {
+			if (!Character.isDigit((number.charAt(i)))) {
+				return false;
 			}
 		}
+		return true;
 	}
 
 	public static int toInt(String number) {
