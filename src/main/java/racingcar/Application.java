@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 
 import racingcar.domain.Car;
+import racingcar.domain.Winner;
 import racingcar.input.InputController;
 
 public class Application {
@@ -14,6 +15,12 @@ public class Application {
 		// TODO 구현 진행
 		setInputData();
 		playGame();
+		printResult();
+	}
+
+	private static void printResult() {
+		Winner.setAmong(cars);
+		Winner.print();
 	}
 
 	private static void playGame() {
