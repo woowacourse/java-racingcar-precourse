@@ -10,7 +10,7 @@ public class Input {
 
     public static Cars inputCarNames() {
         try {
-            Output.CarNameInputGuideMessage();
+            Output.carNameInputGuideMessage();
             return new Cars(Console.readLine());
         } catch (IllegalArgumentException e) {
             return inputCarNames();
@@ -19,7 +19,7 @@ public class Input {
 
     public static RepetitionNumber inputRepetitionNumber() {
         try {
-            Output.NumberInputGuideMessage();
+            Output.numberInputGuideMessage();
             return new RepetitionNumber(Console.readLine());
         } catch (IllegalArgumentException e) {
             return inputRepetitionNumber();
