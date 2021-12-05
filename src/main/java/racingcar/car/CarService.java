@@ -44,19 +44,27 @@ public class CarService {
     }
 
     public List<String> getWinner() {
-        List<CarDto> carDtos = getDescendingOrderByPosition();
-        int maxPosition = carDtos.get(0).getPosition();
+        try {
+            List<CarDto> carDtos = getDescendingOrderByPosition();
+            int maxPosition = carDtos.get(0).getPosition();
 
-        return carDtos.stream()
-                .filter(carDto -> carDto.isSamePosition(maxPosition))
-                .map(CarDto::getName)
-                .collect(Collectors.toList());
+            return carDtos.stream()
+                    .filter(carDto -> carDto.isSamePosition(maxPosition))
+                    .map(CarDto::getName)
+                    .collect(Collectors.toList());
+        }catch(IndexOutOfBoundsException e) {
+            throw new IndexOutOfBoundsException();
+        }
     }
 
     public List<CarDto> getDescendingOrderByPosition() {
-        List<CarDto> carDtoList = carRepository.getCars();
-        carDtoList.sort((a, b) -> b.getPosition() - a.getPosition());
-        return carDtoList;
+        try {
+            List<CarDto> carDtoList = carRepository.getCars();
+            carDtoList.sort((a, b) -> b.getPosition() - a.getPosition());
+            return carDtoList;
+        }catch(ClassCastException | UnsupportedOperationException | IllegalArgumentException ignored) {
+            throw new RuntimeException();
+        }
     }
 
     public List<CarDto> getCars() {

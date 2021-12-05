@@ -51,8 +51,12 @@ public class RaceController {
     }
 
     public void showRaceWinner() {
-        List<String> winners = carService.getWinner();
-        String result = String.join(", ", winners);
-        System.out.println("최종 우승자 : " + result);
+        try {
+            List<String> winners = carService.getWinner();
+            String result = String.join(", ", winners);
+            System.out.println("최종 우승자 : " + result);
+        }catch(NullPointerException e) {
+            throw new RuntimeException();
+        }
     }
 }
