@@ -24,7 +24,7 @@ class CarsTest {
 
     @Test
     @DisplayName("우승자 명단을 반환할 수 있다.")
-    void getWinnerTest() {
+    void getWinnersTest() {
         // given
         List<String> names = Arrays.asList("pobi", "woni", "jun");
         Cars cars = Cars.createRandomCars(names);
