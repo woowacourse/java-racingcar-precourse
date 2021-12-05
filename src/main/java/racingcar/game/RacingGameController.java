@@ -1,6 +1,5 @@
 package racingcar.game;
 
-import racingcar.car.CarFactory;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -9,27 +8,14 @@ public class RacingGameController {
 	private RacingGame racingGame;
 	private Attempts attempts;
 
+	public RacingGameController(RacingGame racingGame) {
+		this.racingGame = racingGame;
+	}
+
 	public void run() {
-		createCars();
 		requestAttempts();
 		startRacing();
 		announceWinners();
-	}
-
-	private void createCars() {
-		InputView.showCarNamesMessage();
-		CarFactory carFactory = new CarFactory();
-		requestCarNames(carFactory);
-		racingGame = new RacingGame(carFactory.generateCars());
-	}
-
-	private void requestCarNames(CarFactory carFactory) {
-		try {
-			carFactory.inputNames();
-		} catch (IllegalArgumentException illegalArgumentException) {
-			ErrorView.show(illegalArgumentException.getMessage());
-			requestCarNames(carFactory);
-		}
 	}
 
 	private void requestAttempts() {
