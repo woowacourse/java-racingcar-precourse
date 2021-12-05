@@ -39,7 +39,7 @@ public class NameInputView implements InputView {
 				String nowInput = camp.nextstep.edu.missionutils.Console.readLine();
 				ArrayList<String> parsedNowInput = MissionUtils.parseInput(nowInput, NameStringEnums.DELIMITER.getValue());
 				MissionUtils.checkEmptyArray(parsedNowInput);
-				MissionUtils.checkSpecialChar(parsedNowInput, NameStringEnums.MY_REGEX.getValue());
+				MissionUtils.checkRegex(parsedNowInput, NameStringEnums.MY_REGEX.getValue());
 				MissionUtils.checkDuplication(parsedNowInput);
 				MissionUtils.checkLength(parsedNowInput, NameIntEnums.SIZE.getValue());
 				nameInput = nowInput;
