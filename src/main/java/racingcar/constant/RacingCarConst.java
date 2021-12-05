@@ -5,4 +5,6 @@ public class RacingCarConst {
 	public static final String ENTER_STAGE_NUM = "시도할 회수는 몇회인가요?";
 
 	public static final int NAME_MAX_LENGTH = 5;
-}
+	public static final int TOGO_MIN = 4;
+	public static final int RANDOM_MIN = 0;
+	public static final int RANDOM_MAX = 9;

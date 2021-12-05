@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.RacingCarConst;
+
 public class Car {
 	private final String name;
 	private int position = 0;
@@ -8,5 +11,14 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
+	public void go() {
+		if (isGoing()) {
+			position += 1;
+		}
+	}
+
+	private boolean isGoing() {
+		int randomNum = Randoms.pickNumberInRange(RacingCarConst.RANDOM_MIN, RacingCarConst.RANDOM_MAX);
+		return randomNum >= RacingCarConst.TOGO_MIN;
+	}
 }
