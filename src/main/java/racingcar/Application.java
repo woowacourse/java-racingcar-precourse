@@ -19,9 +19,17 @@ public class Application {
             }
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
-
-        user.enterTimes();
+        while (true) {
+            try {
+                System.out.println("시도할 회수는 몇회인가요?");
+                user.enterTimes();
+                RoundTimesException.validateRoundTimes(user.getInputTimes());
+                user.toIntegerTimes();
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         Game game = new Game();
 
