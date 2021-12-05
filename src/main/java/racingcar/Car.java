@@ -24,7 +24,7 @@ public class Car {
         }
     }
 
-    public boolean random() {
+    private boolean random() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             return true;
         }
