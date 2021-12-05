@@ -57,8 +57,7 @@ public class RacingGameController {
 	}
 
 	private void printExecutionForEachOrder() {
-		String executionForEachOrderMessage = racingCars.getExecutionForEachOrderMessage();
-		OutputView.printExecutionForEachOrderMessage(executionForEachOrderMessage);
+		OutputView.printExecutionForEachOrderMessage(racingCars.getExecutionForEachOrderMessage());
 	}
 
 	private void printWinner() {
