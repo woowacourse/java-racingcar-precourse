@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,10 +43,8 @@ public class Cars {
     }
 
     private int calculateMaxPosition() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.position());
-        }
-        return maxPosition;
+        return cars.stream()
+            .max(Comparator.comparingInt(Car::position))
+            .get().position();
     }
 }
