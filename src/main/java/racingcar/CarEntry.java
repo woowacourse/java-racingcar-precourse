@@ -35,7 +35,7 @@ public class CarEntry {
             System.out.print(winnerList.get(i).getName());
             System.out.print(", ");
         }
-        System.out.println(winnerList.get(nOfWinners - 1));
+        System.out.println(winnerList.get(nOfWinners - 1).getName());
     }
 
     private List<Car> getWinners() {
