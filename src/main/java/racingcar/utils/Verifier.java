@@ -16,7 +16,7 @@ public class Verifier {
 		}
 	}
 
-	public static void checkValidName(String[] names) {
+	public static void checkValidNames(String[] names) {
 		Set<String> namesSet = new HashSet<>();
 		for (String name : names) {
 			if (!isValidNameLength(name) || isDuplicated(namesSet, name)) {

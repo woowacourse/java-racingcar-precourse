@@ -17,7 +17,7 @@ public class UserService {
 	private String[] getCarNames() {
 		try {
 			String input = Console.readLine();
-			return getValidName(input);
+			return getValidNames(input);
 		} catch (IllegalArgumentException e) {
 			System.out.println(Message.ERROR_INVALID_NAME_FORMAT);
 			return new String[]{};
