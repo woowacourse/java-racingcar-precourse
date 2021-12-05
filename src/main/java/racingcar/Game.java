@@ -23,6 +23,7 @@ public class Game {
         timesInput();
         createCars();
         gameTimes();
+        checkWinner();
 
 
     }
@@ -132,6 +133,22 @@ public class Game {
             System.out.println("\n");
         }
     }
+
+    private void checkWinner() {
+        ArrayList<Car> winner = new ArrayList<Car>();
+        int max = 0;
+        for(int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getPosition() > max) {
+                winner.clear();
+                max = cars.get(i).getPosition();
+                winner.add(cars.get(i));
+            }
+            if (cars.get(i).getPosition() == max) {
+                winner.add(cars.get(i));
+            }
+        }
+    }
+
 
 
 }
