@@ -1,19 +1,49 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.view.UserInput;
 
+import java.util.List;
+
 public class MainController {
-    UserInput userInput;
+    private UserInput userInput;
+
+    private List<Car> carList;
+    private int tryNum;
 
     public MainController() {
         userInput = new UserInput();
     }
 
-    public void playGame(){
-//        String carNames = userInput.inputCarNames();
-//        UserInputValidation.carNameValidation(carNames);
+    public void playGame() {
+        saveCarList();
+        saveTryNum();
+    }
 
-        String tryNum = userInput.inputTry();
-        UserInputValidation.tryNumValidation(tryNum);
+    private void saveCarList() {
+        while (true) {
+            String carValue = userInput.inputCarNames();
+
+            try {
+                UserInputValidation.carNameValidation(carValue);
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 이름은 1~5자 사이이다.");
+            }
+        }
+    }
+
+    private void saveTryNum(){
+        while (true) {
+            String tryValue = userInput.inputTry();
+
+            try {
+                UserInputValidation.tryNumValidation(tryValue);
+                tryNum = Integer.parseInt(tryValue);
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 시도 횟수는 1이상 숫자여야 한다.");
+            }
+        }
     }
 }
