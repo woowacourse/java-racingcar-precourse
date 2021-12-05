@@ -37,8 +37,8 @@ public class Input {
 
 	private static void checkCarNames(String[] carNames) {
 		for (String carName : carNames) {
-			// validate length
-			// validate isSpace
+			Validation.validateLength(carName, CAR_NAME_LENGTH);
+			Validation.validateEmpty(carName);
 		}
 	}
 
