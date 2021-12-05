@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.stream.Stream;
+
 public class Verification {
 
 	static final String EMPTY_NAME_ERROR = "[ERROR] 이름을 입력해야 한다.";
@@ -12,13 +14,17 @@ public class Verification {
 	static final int MAX_NAME_LENGTH = 5;
 	static final int MIN_ATTEMPT_SIZE = 1;
 
-	public static void ofCarName(String name) {
-		if (name.isEmpty()) {
-			throw new IllegalArgumentException(EMPTY_NAME_ERROR);
-		}
+	public static String[] ofCarNames(String nameInput) {
+		String[] names = nameInput.split(",");
 
-		if (name.length() > MAX_NAME_LENGTH) {
-			throw new IllegalArgumentException(NAME_LENGTH_ERROR);
+		Stream.of(names).forEach(n -> validateName(n));
+
+		return names;
+	}
+
+	private static void validateName(String name) {
+		if (name.isEmpty() || (name.length() > MAX_NAME_LENGTH)) {
+			throw new IllegalArgumentException(EMPTY_NAME_ERROR);
 		}
 	}
 

@@ -12,21 +12,11 @@ public class InputService {
 		while (true) {
 			try {
 				System.out.println(INPUT_CAR_NAME_MESSAGE);
-				return separateNames();
+				return Verification.ofCarNames(Console.readLine());
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
 		}
-	}
-
-	private String[] separateNames() throws IllegalArgumentException{
-		String[] carNames = Console.readLine().split(",");
-
-		for (String carName : carNames) {
-			Verification.ofCarName(carName);
-		}
-
-		return carNames;
 	}
 
 	public int readAttemptNumber() {
