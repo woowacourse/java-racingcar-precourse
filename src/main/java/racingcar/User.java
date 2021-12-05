@@ -1,18 +1,21 @@
 package racingcar;
 
-import java.util.Arrays;
-
 import camp.nextstep.edu.missionutils.Console;
 
 public class User implements IUser{
+    private Validation validation = new Validation();
+
     @Override
     public String[] inputCarName() {
         while (true) {
-            String[] result = parseName(Console.readLine());
-            if (validateLength(result)) {
-                return result;
+            String result = Console.readLine();
+            try {
+                validation.validateName(result);
+                validation.validateLength(result);
+                return parseName(result);
+            } catch (IllegalArgumentException e) {
+                printErrorMessage(e.getMessage());
             }
-            informInputAgain();
         }
     }
 
@@ -20,10 +23,13 @@ public class User implements IUser{
     public int inputRepeatNumber() {
         while (true) {
             String input = Console.readLine();
-            if (validateNumber(input) && validateRange(input)) {
+            try {
+                validation.validateNumber(input);
+                validation.validateRange(input);
                 return Integer.parseInt(input);
+            } catch (IllegalArgumentException e) {
+                printErrorMessage(e.getMessage());
             }
-            informInputAgain();
         }
     }
 
@@ -41,33 +47,7 @@ public class User implements IUser{
         return input.split(",");
     }
 
-    private boolean validateLength(String[] inputList) {
-        long wrongNumberCount = Arrays.stream(inputList)
-                .filter(s -> s.length() > 5).count();
-        if (wrongNumberCount != 0) {
-            return false;
-        }
-        return true;
+    private void printErrorMessage(String message){
+        System.out.println(message);
     }
-
-    private void informInputAgain() {
-        System.out.println("[ERROR] 잘못된 값입니다. 올바른 값을 입력해주세요.");
-    }
-
-    private boolean validateNumber(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
-
-    private boolean validateRange(String input) {
-        if (Integer.parseInt(input) < 0) {
-            return false;
-        }
-        return true;
-    }
-
 }
