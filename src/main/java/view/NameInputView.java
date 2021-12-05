@@ -1,20 +1,11 @@
 package view;
 
-enum CharEnums {
-	KOREAN_START('ㄱ'), KOREAN_END('힣'), ENGLISH_START('A'), ENGLISH_END('z'), NUMBER_START('1'), NUMBER_END('9');
-	private final char value;
+import java.util.ArrayList;
 
-	CharEnums(char value) {
-		this.value = value;
-	}
-
-	public char getValue() {
-		return this.value;
-	}
-}
+import utils.MissionUtils;
 
 enum StringEnums {
-	DELIMITER(",");
+	DELIMITER(","), MY_REGEX("^[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$");
 	private final String value;
 
 	StringEnums(String value) {
@@ -39,5 +30,23 @@ enum IntEnums {
 	}
 }
 
-public class NameInputView {
+public class NameInputView implements InputView {
+
+	public String getInput(String rawInput) {
+		String nameInput = "";
+		while (nameInput.isEmpty()) {
+			try {
+				String nowInput = camp.nextstep.edu.missionutils.Console.readLine();
+				ArrayList<String> parsedNowInput = MissionUtils.parseInput(nowInput, StringEnums.DELIMITER.getValue());
+				MissionUtils.checkEmptyArray(parsedNowInput);
+				MissionUtils.checkSpecialChar(parsedNowInput, StringEnums.MY_REGEX.getValue());
+				MissionUtils.checkDuplication(parsedNowInput);
+				MissionUtils.checkLength(parsedNowInput, IntEnums.SIZE.getValue());
+				nameInput = nowInput;
+			} catch (IllegalArgumentException error) {
+				System.out.print(error.getMessage());
+			}
+		}
+		return nameInput;
+	}
 }
