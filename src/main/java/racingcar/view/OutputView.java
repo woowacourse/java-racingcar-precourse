@@ -12,7 +12,7 @@ public class OutputView {
 		System.out.println(READ_RACING_ROUND_MASSAGE);
 	}
 
-	public static void printErrorMessage(String errorMessage) {
-		System.out.println(errorMessage);
+	public static void printErrorMessage(Exception e) {
+		System.out.println(e.getMessage());
 	}
 }

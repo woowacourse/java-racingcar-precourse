@@ -14,7 +14,7 @@ public class InputView {
 				String[] names = readLine().split(",");
 				return (new CarNames(names)).get();
 			} catch (IllegalArgumentException e) {
-				printErrorMessage(e.getMessage());
+				printErrorMessage(e);
 			}
 		}
 	}
@@ -26,7 +26,7 @@ public class InputView {
 				String racingRound = readLine();
 				return (new RacingRound(racingRound)).get();
 			} catch (IllegalArgumentException e) {
-				printErrorMessage(e.getMessage());
+				printErrorMessage(e);
 			}
 		}
 	}
