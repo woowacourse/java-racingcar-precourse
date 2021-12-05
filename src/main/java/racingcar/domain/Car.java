@@ -10,6 +10,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        validateNameLength(name);
         this.name = name;
     }
 
