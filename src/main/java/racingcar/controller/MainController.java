@@ -1,28 +1,27 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
-import racingcar.view.UserInput;
+import racingcar.view.InputView;
 
 import java.util.List;
 
 public class MainController {
-    private UserInput userInput;
-
     private List<Car> carList;
     private int tryNum;
 
     public MainController() {
-        userInput = new UserInput();
     }
 
     public void playGame() {
         saveCarList();
         saveTryNum();
+        System.out.println("실행 결과");
+        CarController.movePosition(carList);
     }
 
     private void saveCarList() {
         while (true) {
-            String carValue = userInput.inputCarNames();
+            String carValue = InputView.inputCarNames();
 
             try {
                 UserInputValidation.carNameValidation(carValue);
@@ -34,9 +33,9 @@ public class MainController {
         }
     }
 
-    private void saveTryNum(){
+    private void saveTryNum() {
         while (true) {
-            String tryValue = userInput.inputTry();
+            String tryValue = InputView.inputTry();
 
             try {
                 UserInputValidation.tryNumValidation(tryValue);

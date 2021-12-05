@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarController {
-    public static List<Car> saveCarList(String input){
+    public static List<Car> saveCarList(String input) {
         List<Car> carList = new ArrayList<>();
         String[] carNames = input.split(",");
 
@@ -15,5 +15,11 @@ public class CarController {
         }
 
         return carList;
+    }
+
+    public static void movePosition(List<Car> carList) {
+        for (int i = 0; i < carList.size(); i++) {
+            carList.get(i).carMove();
+        }
     }
 }
