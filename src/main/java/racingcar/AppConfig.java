@@ -6,8 +6,8 @@ import racingcar.service.picker.NumberPicker;
 import racingcar.service.picker.RandomNumberPicker;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.view.input.ConsoleReader;
-import racingcar.view.input.Reader;
+import racingcar.view.reader.ConsoleReader;
+import racingcar.view.reader.Reader;
 
 public class AppConfig {
 

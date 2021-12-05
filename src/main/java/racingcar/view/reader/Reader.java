@@ -1,4 +1,4 @@
-package racingcar.view.input;
+package racingcar.view.reader;
 
 public interface Reader {
 

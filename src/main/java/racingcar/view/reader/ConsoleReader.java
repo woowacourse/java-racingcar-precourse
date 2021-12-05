@@ -1,4 +1,4 @@
-package racingcar.view.input;
+package racingcar.view.reader;
 
 import camp.nextstep.edu.missionutils.Console;
 

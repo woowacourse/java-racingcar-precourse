@@ -1,21 +1,15 @@
 package racingcar.view;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import racingcar.exception.CountNotNumberMessageException;
-import racingcar.exception.CountTooSmallMessageException;
-import racingcar.exception.NameDuplicateMessageException;
-import racingcar.exception.NameEmptyMessageException;
-import racingcar.exception.NameTooLongMessageException;
 import racingcar.exception.RacingCarException;
-import racingcar.resource.message.OutputMessage;
-import racingcar.utils.CountRange;
+import racingcar.resource.message.InputMessage;
 import racingcar.utils.Delimiter;
-import racingcar.utils.NameLength;
-import racingcar.view.input.Reader;
+import racingcar.view.reader.Reader;
+import racingcar.view.validator.InputViewValidator;
 
 public class InputView {
 
@@ -28,7 +22,7 @@ public class InputView {
     }
 
     public List<String> getNames() {
-        outputView.printMessage(OutputMessage.INPUT_NAMES_MESSAGE);
+        outputView.printMessage(InputMessage.INPUT_NAMES_MESSAGE);
         return getValidNames();
     }
 
@@ -36,7 +30,7 @@ public class InputView {
         while (true) {
             try {
                 List<String> names = parsingNames();
-                validateNames(names);
+                InputViewValidator.validateNames(names);
                 return names;
             } catch (RacingCarException ex) {
                 outputView.printErrorMessage(ex.getMessage());
@@ -50,32 +44,8 @@ public class InputView {
             .map(String::trim).collect(Collectors.toList());
     }
 
-    private void validateNames(List<String> names) {
-        validateNameIsDuplicated(names);
-        validateNameContainsEmpty(names);
-        validateNameTooLong(names);
-    }
-
-    private void validateNameIsDuplicated(List<String> names) {
-        if (names.stream().anyMatch(name -> Collections.frequency(names, name) > 1)) {
-            throw new NameDuplicateMessageException();
-        }
-    }
-
-    private void validateNameContainsEmpty(List<String> names) {
-        if (names.stream().anyMatch(String::isEmpty)) {
-            throw new NameEmptyMessageException();
-        }
-    }
-
-    private void validateNameTooLong(List<String> names) {
-        if (names.stream().anyMatch(NameLength::isTooLong)) {
-            throw new NameTooLongMessageException();
-        }
-    }
-
     public int getExecutionCount() {
-        outputView.printMessage(OutputMessage.INPUT_EXECUTION_COUNT_MESSAGE);
+        outputView.printMessage(InputMessage.INPUT_EXECUTION_COUNT_MESSAGE);
         return getValidExecutionCount();
     }
 
@@ -83,7 +53,7 @@ public class InputView {
         while (true) {
             try {
                 int executionCount = parsingExecutionCount();
-                validateExecutionCountIsBiggerThanStandard(executionCount);
+                InputViewValidator.validateExecutionCount(executionCount);
                 return executionCount;
             } catch (RacingCarException ex) {
                 outputView.printErrorMessage(ex.getMessage());
@@ -97,12 +67,6 @@ public class InputView {
             return Integer.parseInt(inputString);
         } catch (NumberFormatException ex) {
             throw new CountNotNumberMessageException();
-        }
-    }
-
-    private void validateExecutionCountIsBiggerThanStandard(int executionCount) {
-        if (CountRange.isTooSmall(executionCount)) {
-            throw new CountTooSmallMessageException();
         }
     }
 
