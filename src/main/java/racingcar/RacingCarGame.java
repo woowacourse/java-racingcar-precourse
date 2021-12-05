@@ -12,6 +12,7 @@ public class RacingCarGame {
 	}
 
 	public void Play() {
-		user.inputNamesUntilCorrect();
+		user.askNamesUntilCorrect();
+		user.askNumberOfTimesUntilCorrect();
 	}
 }
