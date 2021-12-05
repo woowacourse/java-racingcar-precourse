@@ -8,7 +8,7 @@ public class ValidationUtils {
 
 	private static final int MAX_LENGTH_CAR_NAME = 5;
 
-	public static boolean validNo(int No) {
+	public static boolean validNoRange(int No) {
 		return No >= NumberRange.MIN_NO.getValue() && No <= NumberRange.MAX_NO.getValue();
 	}
 

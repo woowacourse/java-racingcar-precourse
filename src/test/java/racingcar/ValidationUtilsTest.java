@@ -13,10 +13,10 @@ public class ValidationUtilsTest {
 	@Test
 	@DisplayName("0~9 숫자 테스트")
 	void validNo_test() {
-		assertThat(ValidationUtils.validNo(0)).isTrue();
-		assertThat(ValidationUtils.validNo(9)).isTrue();
-		assertThat(ValidationUtils.validNo(-1)).isFalse();
-		assertThat(ValidationUtils.validNo(10)).isFalse();
+		assertThat(ValidationUtils.validNoRange(0)).isTrue();
+		assertThat(ValidationUtils.validNoRange(9)).isTrue();
+		assertThat(ValidationUtils.validNoRange(-1)).isFalse();
+		assertThat(ValidationUtils.validNoRange(10)).isFalse();
 	}
 
 	@Test

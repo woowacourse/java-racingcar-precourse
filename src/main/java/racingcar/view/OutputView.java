@@ -22,6 +22,7 @@ public class OutputView {
 	public static void printResultMessage() {
 		System.out.println("\n실행 결과");
 	}
+
 	public static String getScoreString(Car drivingCar) {
 		String unit = "-";
 		Optional<String> result1 = Optional.empty();
