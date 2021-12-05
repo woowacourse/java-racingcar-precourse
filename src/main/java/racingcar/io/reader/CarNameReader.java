@@ -3,6 +3,7 @@ package racingcar.io.reader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
+
 import racingcar.io.ConsoleDisplay;
 
 public class CarNameReader extends Reader<List<String>> {

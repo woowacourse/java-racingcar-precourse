@@ -1,9 +1,10 @@
 package racingcar.model;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import static java.util.stream.Collectors.toList;
 
 public class RacingGame {
 	private final int maxTurnValue;

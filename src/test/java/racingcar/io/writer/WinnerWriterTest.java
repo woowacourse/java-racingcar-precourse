@@ -1,11 +1,14 @@
 package racingcar.io.writer;
 
-import java.util.Arrays;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import racingcar.io.ConsoleDisplay;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import racingcar.io.ConsoleDisplay;
 
 public class WinnerWriterTest {
 	@Test

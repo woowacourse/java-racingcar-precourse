@@ -1,6 +1,8 @@
 package racingcar.io.reader;
 
-import camp.nextstep.edu.missionutils.Console;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -8,10 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+
+import camp.nextstep.edu.missionutils.Console;
+
 import racingcar.io.ConsoleDisplay;
 import racingcar.model.RacingInfo;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
 
 public class RacingReaderTest {
 	MockedStatic<Console> consoleMockedStatic;

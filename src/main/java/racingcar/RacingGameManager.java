@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+
 import racingcar.model.ProceedResult;
 import racingcar.model.RacingGame;
 import racingcar.model.RacingInfo;

@@ -1,12 +1,15 @@
 package racingcar.io.writer;
 
-import java.util.Arrays;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import racingcar.io.ConsoleDisplay;
-import racingcar.model.ProceedResult;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import racingcar.io.ConsoleDisplay;
+import racingcar.model.ProceedResult;
 
 public class ProceedResultWriterTest {
 	@Test

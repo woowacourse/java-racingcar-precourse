@@ -3,6 +3,7 @@ package racingcar.io.writer;
 import static java.util.stream.Collectors.joining;
 
 import java.util.List;
+
 import racingcar.io.ConsoleDisplay;
 
 public class WinnerWriter {

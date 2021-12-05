@@ -1,6 +1,7 @@
 package racingcar.io.writer;
 
 import java.util.List;
+
 import racingcar.model.ProceedResult;
 
 public class RacingWriter {

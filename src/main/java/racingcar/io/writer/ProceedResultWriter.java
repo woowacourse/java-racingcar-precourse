@@ -3,6 +3,7 @@ package racingcar.io.writer;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
 import racingcar.io.ConsoleDisplay;
 import racingcar.model.ProceedResult;
 
