@@ -4,15 +4,16 @@ public enum RangeType {
 
 	MAX_NAME_LENGTH(5),
 	MIN_NAME_LENGTH(1),
+	ZERO(0),
 	;
 
-	private final int length;
+	private final int value;
 
-	RangeType(int length) {
-		this.length = length;
+	RangeType(int value) {
+		this.value = value;
 	}
 
-	public int getLength() {
-		return length;
+	public int getValue() {
+		return value;
 	}
 }

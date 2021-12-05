@@ -13,6 +13,7 @@ public class GameController {
 
 	public void run() {
 		Cars cars = inputCars();
+		int gameRound = inputGameRound();
 	}
 
 	private Cars inputCars() {
@@ -30,5 +31,15 @@ public class GameController {
 			.map(Car::new)
 			.collect(Collectors.toList());
 		return new Cars(cars);
+	}
+
+	private int inputGameRound() {
+		try {
+			OutputView.printInputGameRound();
+			return InputView.inputGameRound();
+		} catch (IllegalArgumentException exception) {
+			OutputView.printException(exception);
+			return inputGameRound();
+		}
 	}
 }
