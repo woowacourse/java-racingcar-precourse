@@ -38,7 +38,7 @@ public class RacingCarController {
 			try {
 				stageNum = enterStageNum();
 			} catch (IllegalArgumentException e) {
-				printErrorMessage(e);
+				OutputView.printErrorMessage(e);
 			}
 		} while (stageNum == -1);
 
@@ -51,15 +51,11 @@ public class RacingCarController {
 			try {
 				names = enterCarName();
 			} catch (IllegalArgumentException e) {
-				printErrorMessage(e);
+				OutputView.printErrorMessage(e);
 			}
 		} while (names == null);
 
 		return names;
-	}
-
-	private void printErrorMessage(IllegalArgumentException e) {
-		System.out.println(e.getMessage());
 	}
 
 	private int enterStageNum() {

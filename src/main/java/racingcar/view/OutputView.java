@@ -37,4 +37,8 @@ public class OutputView {
 		String winners = winnerList.toString().replace("[", "").replace("]", "");
 		System.out.print("최종 우승자 : " + winners);
 	}
+
+	public static void printErrorMessage(Exception e) {
+		System.out.println(e.getMessage());
+	}
 }
