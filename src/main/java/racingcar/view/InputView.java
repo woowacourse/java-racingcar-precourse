@@ -28,21 +28,23 @@ public class InputView {
     }
 
     public List<String> getNames() {
-        try {
-            outputView.printMessage(OutputMessage.INPUT_NAMES_MESSAGE);
-            List<String> names = inputNames();
+        outputView.printMessage(OutputMessage.INPUT_NAMES_MESSAGE);
+        return getValidNames();
+    }
 
-            validateNames(names);
-
-            return names;
-
-        } catch (RacingCarException ex) {
-            outputView.printErrorMessage(ex.getMessage());
-            return getNames();
+    private List<String> getValidNames() {
+        while (true) {
+            try {
+                List<String> names = parsingNames();
+                validateNames(names);
+                return names;
+            } catch (RacingCarException ex) {
+                outputView.printErrorMessage(ex.getMessage());
+            }
         }
     }
 
-    private List<String> inputNames() {
+    private List<String> parsingNames() {
         String inputString = reader.readLine();
         return Arrays.stream(Delimiter.splitWithComma(inputString))
             .map(String::trim).collect(Collectors.toList());
@@ -73,20 +75,23 @@ public class InputView {
     }
 
     public int getExecutionCount() {
-        try {
-            outputView.printMessage(OutputMessage.INPUT_EXECUTION_COUNT_MESSAGE);
-            int executionCount = inputExecutionCount();
+        outputView.printMessage(OutputMessage.INPUT_EXECUTION_COUNT_MESSAGE);
+        return getValidExecutionCount();
+    }
 
-            validateExecutionCountIsBiggerThanStandard(executionCount);
-
-            return executionCount;
-
-        } catch (RacingCarException ex) {
-            return getExecutionCount();
+    private int getValidExecutionCount() {
+        while (true) {
+            try {
+                int executionCount = parsingExecutionCount();
+                validateExecutionCountIsBiggerThanStandard(executionCount);
+                return executionCount;
+            } catch (RacingCarException ex) {
+                outputView.printErrorMessage(ex.getMessage());
+            }
         }
     }
 
-    private int inputExecutionCount() {
+    private int parsingExecutionCount() {
         try {
             String inputString = reader.readLine();
             return Integer.parseInt(inputString);
