@@ -7,9 +7,12 @@ public class CarRacingGame {
 	private int roundNumber;
 	private Cars cars;
 
-	public void play() {
+	public CarRacingGame() {
 		createCars();
 		inputRoundNumber();
+	}
+
+	public void play() {
 		System.out.println("실행 결과");
 		for (int i = 0; i < roundNumber; i++) {
 			cars.move();
