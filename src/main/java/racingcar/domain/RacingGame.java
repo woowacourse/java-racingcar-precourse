@@ -4,9 +4,6 @@ import java.util.List;
 
 public class RacingGame {
 
-    private static final String INTEGER_REGEX = "[0-9]+";
-    private static final int ZERO_ROUND = 0;
-
     private final Cars cars;
     private Round round;
 
@@ -22,5 +19,9 @@ public class RacingGame {
 
     public List<Car> cars() {
         return cars.cars();
+    }
+
+    public boolean isFinished() {
+        return round.isFinished();
     }
 }

@@ -1,14 +1,14 @@
 package racingcar.domain;
 
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingGameTest {
 
@@ -19,38 +19,37 @@ class RacingGameTest {
         names = Arrays.asList("pobi", "woni", "jun");
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"t1", "1 2", "-4"})
-    @DisplayName("시도횟수가 숫자가 아닌 경우 exception이 발생해야 한다.")
-    void createExceptionByStringRoundTest(String input) {
-        // when & then
-        assertThatExceptionOfType(IllegalArgumentException.class)
-            .isThrownBy(() -> RacingGame.createRandomCarRacing(names, input))
-            .withMessage("[ERROR] 시도 횟수는 숫자여야 합니다.");
-    }
+    @Nested
+    @DisplayName("현재 round가 종료되었는지 확인할 수 있다.")
+    class RoundIsFinishedTest {
 
-    @Test
-    @DisplayName("시도횟수가 0인 경우 exception이 발생해야 한다.")
-    void createExceptionByZeroRoundTest() {
-        // given
-        String input = "0";
+        @Test
+        void isFinishedTest() {
+            // given
+            Cars cars = Cars.createRandomCars(names);
+            Round round = Round.createByStringRound("1");
+            RacingGame racingGame = new RacingGame(cars, round);
+            racingGame.race();
 
-        // when & then
-        assertThatExceptionOfType(IllegalArgumentException.class)
-            .isThrownBy(() -> RacingGame.createRandomCarRacing(names, input))
-            .withMessage("[ERROR] 시도 횟수는 1 이상이어야 합니다.");
-    }
+            // when
+            boolean result = racingGame.isFinished();
 
-    @Test
-    @DisplayName("시도횟수가 0이하인데 race한 경우 exception이 발생해야 한다.")
-    void raceExceptionByZeroRoundTest() {
-        // given
-        RacingGame racingGame = RacingGame.createRandomCarRacing(names, "1");
-        racingGame.race();
+            // then
+            assertTrue(result);
+        }
 
-        // when & then
-        assertThatExceptionOfType(RuntimeException.class)
-            .isThrownBy(() -> racingGame.race())
-            .withMessage("[ERROR] 시도횟수가 남지 않았을 때는 race 할 수 없습니다.");
+        @Test
+        void isNotFinishedTest() {
+            // given
+            Cars cars = Cars.createRandomCars(names);
+            Round round = Round.createByStringRound("1");
+            RacingGame racingGame = new RacingGame(cars, round);
+
+            // when
+            boolean result = racingGame.isFinished();
+
+            // then
+            assertFalse(result);
+        }
     }
 }
