@@ -1,6 +1,10 @@
 package racingcar;
 
 public class RoundTimesException {
+    public static void validateRoundTimes(String times) {
+        isNumber(times);
+        isPositiveInteger(times);
+    }
 
     public static void isNumber(String times) {
         if (!times.matches("-?\\d+")) {
