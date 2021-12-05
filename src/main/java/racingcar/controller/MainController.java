@@ -16,7 +16,9 @@ public class MainController {
     public void playGame() {
         saveCarList();
         saveTryNum();
+
         System.out.println("실행 결과");
+
         raceStart(carList);
     }
 
