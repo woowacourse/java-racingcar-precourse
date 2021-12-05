@@ -70,16 +70,18 @@ public class User {
 		return names.size();
 	}
 
-	public void inputAndSetNumberOfTimes() {
+	public String inputNumberOfTimes() {
 		System.out.println(INPUT_MESSAGE_NUMBER_OF_TIMES);
 		String input = Console.readLine();
-		setNumberOfTimes(input);
+		return input;
 	}
 
-	private void setNumberOfTimes(String input) {
+	private boolean setNumberOfTimes(String input) {
 		if (checkNumberOfTimes(input)) {
 			this.numberOfTimes = Integer.valueOf(input);
+			return true;
 		}
+		return false;
 	}
 
 	private boolean checkNumberOfTimes(String input) {
