@@ -25,6 +25,6 @@ class RacingGameTest {
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
             .isThrownBy(() -> RacingGame.createRandomCarRacing(names, input))
-            .withMessage("[ERROR] 시도 횟수는 숫자여야 합니다");
+            .withMessage("[ERROR] 시도 횟수는 숫자여야 합니다.");
     }
 }
