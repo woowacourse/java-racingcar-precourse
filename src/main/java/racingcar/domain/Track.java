@@ -6,4 +6,8 @@ public class Track {
 	public Track(Cars cars) {
 		this.cars = cars;
 	}
+
+	public void play() {
+		cars.move();
+	}
 }

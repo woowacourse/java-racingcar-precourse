@@ -1,5 +1,7 @@
 package racingcar.domain;
 
-public class Round {
+import java.util.Map;
 
+public class Round {
+	private Map<Car, Integer> roundResult;
 }

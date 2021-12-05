@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 public class Car {
+	private static final int MOVE_NUM = 1;
+
 	private final String name;
 	private int position = 0;
 
@@ -8,5 +10,9 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
+	public void move() {
+		if (RandomMovementJudgment.checkCarMove()) {
+			this.position = this.position + MOVE_NUM;
+		}
+	}
 }
