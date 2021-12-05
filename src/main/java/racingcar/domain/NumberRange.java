@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public enum NumberRange {
 	MIN_NO(0), MAX_NO(9);
