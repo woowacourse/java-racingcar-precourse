@@ -42,6 +42,9 @@ public class ExceptionUtils {
 	public static int validateNumberOfAttempts(String inputNumber) {
 		int numberOfAttempts;
 
+		if (!checkNumberEmpty(inputNumber)) {
+			throw new IllegalArgumentException(ERROR_HEADER + SPACE_ERROR_MESSAGE);
+		}
 		if (!checkNumber(inputNumber)) {
 			throw new IllegalArgumentException(ERROR_HEADER + NUMBER_ERROR_MESSAGE);
 		}
@@ -70,6 +73,10 @@ public class ExceptionUtils {
 
 	private static boolean checkCarNameContainsSpace(String carName) {
 		return Objects.equals(carName, carName.replace(" ", ""));
+	}
+
+	private static boolean checkNumberEmpty(String inputNumber) {
+		return !inputNumber.isEmpty();
 	}
 
 	private static boolean checkNumber(String inputNumber) {
