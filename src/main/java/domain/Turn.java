@@ -1,4 +1,5 @@
 package domain;
+
 import utils.Validation;
 
 
@@ -6,7 +7,7 @@ public class Turn {
     private int turns;
     private Validation validation = new Validation();
 
-    public Turn(String turns){
+    public Turn(String turns) {
         try {
             validation.timesValidate(turns);
         } catch (IllegalArgumentException e) {
@@ -15,7 +16,7 @@ public class Turn {
         this.turns = Integer.valueOf(turns);
     }
 
-    public int getTurns(){
+    public int getTurns() {
         return this.turns;
     }
 }

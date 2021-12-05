@@ -17,20 +17,20 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "100000");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, MOVING_FORWARD
+                () -> {
+                    run("pobi,woni", "100000");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi,javaji"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
+                assertThatThrownBy(() -> runException("pobi,javaji"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(ERROR_MESSAGE)
         );
     }
 

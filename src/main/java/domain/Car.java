@@ -11,17 +11,17 @@ public class Car implements Comparable<Car> {
         this.name = name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void goOrStop(){
+    public void goOrStop() {
         int num = randomGenerate.pickNum();
-        if(num > 3){
+        if (num > 3) {
             position++;
         }
     }
@@ -31,7 +31,7 @@ public class Car implements Comparable<Car> {
         return this.position - otherCar.position;
     }
 
-    public boolean isSamePosition(Car otherCar){
+    public boolean isSamePosition(Car otherCar) {
         return this.position == otherCar.position;
     }
 }

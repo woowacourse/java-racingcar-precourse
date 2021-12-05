@@ -10,26 +10,26 @@ public class CarList {
     private List<Car> carList;
     private Validation validation = new Validation();
 
-    public CarList(String inputCarList){
-        try{
+    public CarList(String inputCarList) {
+        try {
             validation.carValidate(inputCarList);
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 
         String[] carNameList = inputCarList.split(",");
         carList = new ArrayList<>();
 
-        for(String carName:carNameList){
+        for (String carName : carNameList) {
             carList.add(new Car(carName));
         }
     }
 
-    public List<Car> getCarList(){
+    public List<Car> getCarList() {
         return this.carList;
     }
 
-    public List<String> decideWinner(){
+    public List<String> decideWinner() {
         Car maxCar = carList.stream()
                 .max(Car::compareTo)
                 .orElseThrow(() -> new IllegalArgumentException());
