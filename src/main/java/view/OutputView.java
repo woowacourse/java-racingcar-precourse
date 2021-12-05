@@ -1,5 +1,8 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class OutputView {
 
 	public void noticeNameInput() {
@@ -8,5 +11,16 @@ public class OutputView {
 
 	public void noticeTurnInput() {
 		System.out.print("시도할 회수는 몇회인가요?\n");
+	}
+
+	public void viewAfterOneTurn(ArrayList<String> nameInput, ArrayList<Integer> carPositions) {
+		for (int index = 0; index < nameInput.size(); index++) {
+			System.out.print(nameInput.get(index) + " : ");
+			for (int nowPosition = 0; nowPosition < carPositions.get(index); nowPosition++) {
+				System.out.print("-");
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n");
 	}
 }
