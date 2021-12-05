@@ -132,7 +132,7 @@ woowa : ------
   - `Car` : 자동차
   - `CarDto` : 자동차에 대한 정보를 View 레이어로 전달하기 위해 사용되는 DTO (Data Transfer Object)
   - `Cars` : 경주하는 여러대의 Car 를 담고있는 일급 컬렉션
-  - `MoveCount` : 사용자로부터 입력받은 시도 횟수를 담고 있는 객체
+  - `TryCount` : 사용자로부터 입력받은 시도 횟수를 담고 있는 객체
   - `Name` : 사용자로부터 입력받은 자동차의 이름을 담고 있는 VO
   - `Names` : 입력받은 모든 Name 을 담고있는 일급 컬렉션
   - `Position` : 자동차의 위치 정보를 담고있는 VO
