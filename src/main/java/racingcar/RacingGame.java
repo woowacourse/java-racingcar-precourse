@@ -7,6 +7,9 @@ public class RacingGame {
 	private static final String ERROR_MESSAGE_CHECK_STRING_IS_NUMBER = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	private static final String ERROR_MESSAGE_CHECK_NAME_RULE = "[ERROR] 자동차 이름의 길이는 1이상 5이하를 만족해야 한다.";
 	private static final int NAME_LENGTH_LIMIT = 5;
+	private static final int RANDOM_NUMBER_MINIMUM = 0;
+	private static final int RANDOM_NUMBER_MAXIMUM = 9;
+	private static final int MINIMUM_CONDITION_MOVE_FORWARD = 4;
 
 	private int totalTryNum;
 	private Car[] cars;
@@ -95,6 +98,19 @@ public class RacingGame {
 	}
 
 	private int makeRandomOneDigitNum() {
-		return camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
+		return camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(RANDOM_NUMBER_MINIMUM, RANDOM_NUMBER_MAXIMUM);
+	}
+
+	private int convertRandomNumToForwardStep(int randomNum) {
+		if (randomNum > MINIMUM_CONDITION_MOVE_FORWARD) {
+			return 1;
+		}
+		return 0;
+	}
+
+	private void moveCars() {
+		for (int i = 0; i < cars.length; ++i) {
+			cars[i].moveCar(convertRandomNumToForwardStep(makeRandomOneDigitNum()));
+		}
 	}
 }
