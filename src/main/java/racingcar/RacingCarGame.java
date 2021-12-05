@@ -99,11 +99,7 @@ public class RacingCarGame {
 	private void setNumberOfTimes(String strNumberOfTimes) throws IllegalArgumentException {
 		try {
 			numberOfTimes = Integer.parseInt(strNumberOfTimes);
-			if (numberOfTimes > 0) {
-				return;
-			}
-			System.out.println("[ERROR] 시도 회수는 1 이상이어야 합니다.");
-			throw new IllegalArgumentException("시도 회수는 1 이상이어야 한다");
+			validateNumberOfTimes();
 		} catch (NumberFormatException e) {
 			System.out.println("[ERROR] 시도 회수는 숫자여야 합니다.");
 			throw new IllegalArgumentException("시도 회수는 숫자여야 한다");
@@ -116,5 +112,13 @@ public class RacingCarGame {
 		}
 		System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
 		throw new IllegalArgumentException("자동차 이름은 5자 이하여야 한다");
+	}
+
+	private void validateNumberOfTimes() throws IllegalArgumentException {
+		if (numberOfTimes > 0) {
+			return;
+		}
+		System.out.println("[ERROR] 시도 회수는 1 이상이어야 합니다.");
+		throw new IllegalArgumentException("시도 회수는 1 이상이어야 한다");
 	}
 }
