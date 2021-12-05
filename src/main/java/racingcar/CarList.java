@@ -63,6 +63,38 @@ public class CarList {
 			carList.add(new Car(carName));
 		}
 	}
+
+	public void printWinner() {
+		new Winner();
+	}
+
+	class Winner {
+		int maxPosition = 0;
+		ArrayList<String> winnerList = new ArrayList<>();
+
+		Winner() {
+			pick();
+			print();
+		}
+
+		void pick() {
+			for (Car c : carList) {
+				if (c.getPosition() < maxPosition) {
+					continue;
+				} else if (maxPosition < c.getPosition()) {
+					winnerList = new ArrayList<>();
+				}
+				winnerList.add(c.getName());
+			}
+		}
+
+		void print() {
+			String winners = String.join(", ", winnerList);
+			System.out.printf("최종 우승자 : %s", winners);
+		}
+
+	}
+
 }
 
 // 문자열을 입력받아서, 스트림으로 구분해서 반환한다.
@@ -79,7 +111,7 @@ class StreamMaker {
 
 	private void inputStrOfCarNames() {
 		inputStr = Console.readLine();
-		
+
 		if (!inputStr.matches("[a-zA-Z0-9,]+")) {
 			throw new IllegalArgumentException("[ERROR] " + "자동차이름(영문/숫자), 쉼표만 입력 가능");
 		}
