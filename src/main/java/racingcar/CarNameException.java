@@ -10,7 +10,7 @@ public class CarNameException {
     }
 
     public static void isNothingInput(String inputName) {
-        if (inputName == "") {
+        if (inputName == null) {
             throw new IllegalArgumentException("[ERROR] 이름이 입력되지 않았습니다.");
         }
     }
