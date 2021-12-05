@@ -61,7 +61,7 @@ public class RacingController {
         outputView.showWinners(cars.getWinners());
     }
 
-    public void attemptOnce(final Movement randomMovement) {
+    private void attemptOnce(final Movement randomMovement) {
         cars.race(randomMovement);
         outputView.showAttemptResult(cars.getAttemptResult());
     }
