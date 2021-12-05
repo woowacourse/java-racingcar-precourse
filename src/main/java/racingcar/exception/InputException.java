@@ -11,7 +11,7 @@ public class InputException {
 	private static final String CAR_DUPLICATE_NAME = "[ERROR] 자동차 이름은 중복이 불가능합니다.";
 	private static final String MIN_CAR_RACE_PARTICIPANT = "[ERROR] 자동차경주는 2명이상부터 가능합니다.";
 	private static final String TRIAL_INTEGER_ERROR = "[ERROR] 시도 횟수는 숫자여야 합니다.";
-	private static final String TRIAL_IS_POSITIVENUMBER = "[ERROR] 시도 횟수는 1이상의 양수여야 합니다.";
+	private static final String TRIAL_IS_POSITIVE_NUMBER = "[ERROR] 시도 횟수는 1이상의 양수여야 합니다.";
 	private static final int MIN_CAR_NAME_SIZE = 1;
 	private static final int MAX_CAR_NAME_SIZE = 5;
 	private static final int MIN_PARTICIPATE_NUMBER = 2;
@@ -78,8 +78,7 @@ public class InputException {
 	private static int validNumber(String input) {
 
 		try {
-			int trial = Integer.parseInt(input);
-			return trial;
+			return Integer.parseInt(input);
 		} catch (NumberFormatException ex) {
 			throw new IllegalArgumentException(TRIAL_INTEGER_ERROR);
 		}
@@ -87,7 +86,7 @@ public class InputException {
 
 	private static boolean isNaturalNumber(int trial) {
 		if (trial < MIN_TRIAL_NUMBER) {
-			throw new IllegalArgumentException(TRIAL_IS_POSITIVENUMBER);
+			throw new IllegalArgumentException(TRIAL_IS_POSITIVE_NUMBER);
 		}
 		return true;
 	}
