@@ -12,7 +12,6 @@ public class ConsoleInputStrategy implements InputStrategy {
 	@Override
 	public Cars getCars() {
 		String carNamesInput = Console.readLine();
-		validateCarNames(carNamesInput);
 		String[] names = carNamesInput.split(",");
 		List<Car> cars = new LinkedList<>();
 		Arrays.stream(names).forEach(name -> {

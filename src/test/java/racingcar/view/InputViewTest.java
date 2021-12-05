@@ -16,24 +16,6 @@ class InputViewTest {
 	}
 
 	@Test
-	void 자동차이름_입력받기_예외_이름_2개() {
-		InputStrategy inputStrategy = new FixedInputStrategy("ab,cd", "5");
-		InputView inputView = new InputView(inputStrategy);
-		assertThatThrownBy(() -> inputView.getCarsAndTryNumber())
-			.isInstanceOf(IllegalArgumentException.class)
-			.hasMessage(InputStrategy.ERROR_INPUT_CAR_NAMES);
-	}
-
-	@Test
-	void 자동차이름_입력받기_예외_이름_4개() {
-		InputStrategy inputStrategy = new FixedInputStrategy("ab,cd,de,ef", "5");
-		InputView inputView = new InputView(inputStrategy);
-		assertThatThrownBy(() -> inputView.getCarsAndTryNumber())
-			.isInstanceOf(IllegalArgumentException.class)
-			.hasMessage(InputStrategy.ERROR_INPUT_CAR_NAMES);
-	}
-
-	@Test
 	void 자동차이름_입력받기_예외_이름_5글자_초과() {
 		// 어느 한 입력이 5글자를 초과한 경우
 		InputStrategy inputStrategy = new FixedInputStrategy("ab,cd,abcdef", "5");

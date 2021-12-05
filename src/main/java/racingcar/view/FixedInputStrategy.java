@@ -19,7 +19,6 @@ public class FixedInputStrategy implements InputStrategy {
 
 	@Override
 	public Cars getCars() {
-		validateCarNames(carNamesInput);
 		String[] names = carNamesInput.split(",");
 		List<Car> cars = new LinkedList<>();
 		Arrays.stream(names)
