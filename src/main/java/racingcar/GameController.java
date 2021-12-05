@@ -41,13 +41,13 @@ public class GameController {
     
     private void setParticipants() {
         while(true) {
-            String str = input.nameOfCars(); 
+            String str = input.setCarNames(); 
             
             try {
                 if(!inputValidation.checkValidationForCars(str)) {
                     throw new IllegalArgumentException();
                 }
-                participants = equipments.setCarNames(str);
+                participants = equipments.toList(str);
                 return;
             }
             catch (IllegalArgumentException e) {
@@ -58,7 +58,7 @@ public class GameController {
     
     private void setGoal() {
         while(true) {
-            String num = input.getGoal();
+            String num = input.setGoal();
             
             try {
                 if(!inputValidation.checkValidationForGoal(num)) {

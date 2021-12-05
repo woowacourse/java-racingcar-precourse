@@ -9,7 +9,7 @@ public class GameEquipments {
     
     public GameEquipments() {}
     
-    public List<Car> setCarNames(String input) {
+    public List<Car> toList(String input) {
         String [] carNames = input.split(",");
         
         return Arrays.stream(carNames).map(s -> new Car(s)).collect(Collectors.toList());
