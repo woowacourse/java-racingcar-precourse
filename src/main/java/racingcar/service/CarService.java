@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.service;
 
 import static racingcar.constant.GameConstants.*;
 import static racingcar.constant.GameErrorMessage.*;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import racingcar.view.OutputView;
 
-public class CarNameValidator {
+public class CarService {
 	public static boolean isValidCarName(List<String> inputCarNames) {
 		try {
 			validateSize(inputCarNames);
@@ -20,7 +20,7 @@ public class CarNameValidator {
 
 	private static void validateSize(List<String> inputCarNames) {
 		if (inputCarNames.stream()
-			.anyMatch(CarNameValidator::isOversizeName)) {
+			.anyMatch(CarService::isOversizeName)) {
 			throw new IllegalArgumentException(NUMBER_LENGTH_ERROR_MESSAGE);
 		}
 	}

@@ -31,7 +31,7 @@ public class Car {
 		return randomNumber >= MIN_VALUE_OF_SATISFIED_CONDITION;
 	}
 
-	public StringBuilder getNameAndPostionMessage() {
+	public StringBuilder getNameAndPositionMessage() {
 		StringBuilder result = new StringBuilder();
 		result.append(name);
 		result.append(COLON);

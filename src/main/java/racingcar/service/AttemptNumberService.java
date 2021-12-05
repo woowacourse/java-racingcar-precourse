@@ -1,14 +1,14 @@
-package racingcar.util;
+package racingcar.service;
 
 import static racingcar.constant.GameConstants.*;
 import static racingcar.constant.GameErrorMessage.*;
 
 import racingcar.view.OutputView;
 
-public class AttemptNumberValidator {
+public class AttemptNumberService {
 	public static boolean isValidAttemptNumber(String number) {
 		try {
-			validateNuber(number);
+			validateNumber(number);
 		} catch (IllegalArgumentException exception) {
 			OutputView.printErrorMessage(exception.getMessage());
 			return false;
@@ -16,7 +16,7 @@ public class AttemptNumberValidator {
 		return true;
 	}
 
-	private static void validateNuber(String number) {
+	private static void validateNumber(String number) {
 		if (!number.matches(ATTEMPT_NUMBER_REGEX)) {
 			throw new IllegalArgumentException(ATTEMPT_NUMBER_REGEX_ERROR_MESSAGE);
 		}

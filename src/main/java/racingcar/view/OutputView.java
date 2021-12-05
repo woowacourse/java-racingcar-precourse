@@ -17,12 +17,12 @@ public class OutputView {
 		System.out.println(ASK_ATTEMPT_NUMBER_MESSAGE);
 	}
 
-	public static void printExcutionResultMessage() {
-		System.out.println(EXCUTION_RESULT_MESSAGE);
+	public static void printExecutionResultMessage() {
+		System.out.println(EXECUTION_RESULT_MESSAGE);
 	}
 
-	public static void printExecutionForEachOrderMessage(String excutionForEachOrderMessage) {
-		System.out.println(excutionForEachOrderMessage);
+	public static void printExecutionForEachOrderMessage(String executionForEachOrderMessage) {
+		System.out.println(executionForEachOrderMessage);
 	}
 
 	public static void printWinner(List<String> winner) {
