@@ -8,6 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+
 public class CarsTest {
 	@Test
 	@DisplayName("문자열 입력 받아 cars List로 저장")
@@ -22,6 +25,6 @@ public class CarsTest {
 		testList.add("def");
 		testList.add("ghi");
 		Cars generatedCars = new Cars(testList);
-		assertThat(generatedCars.cars.get(0).getName()).isEqualTo(testCars.get(0).getName());
+		assertThat(generatedCars.getCars().get(0).getName()).isEqualTo(testCars.get(0).getName());
 	}
 }

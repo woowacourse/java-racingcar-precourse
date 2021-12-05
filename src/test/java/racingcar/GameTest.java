@@ -3,11 +3,12 @@ package racingcar;
 import static org.assertj.core.api.AssertionsForClassTypes.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import racingcar.view.InputView;
 
 public class GameTest {
 	@Test
@@ -19,6 +20,6 @@ public class GameTest {
 		testList.add("def");
 		testList.add("ghi");
 		testList.add("jkl");
-		assertThat(Game.strToList(str)).isEqualTo(testList);
+		assertThat(InputView.strToList(str)).isEqualTo(testList);
 	}
 }

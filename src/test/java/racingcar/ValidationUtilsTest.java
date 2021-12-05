@@ -34,4 +34,11 @@ public class ValidationUtilsTest {
 		testList = Arrays.asList(testStr);
 		assertThat(ValidationUtils.validCarList(testList)).isFalse();
 	}
+
+	@Test
+	@DisplayName("차 이름이 5글자가 넘지 않는지 테스트")
+	void validCarNameTest() {
+		String testCarName = "sojukang";
+		assertThat(ValidationUtils.validCarName(testCarName)).isFalse();
+	}
 }

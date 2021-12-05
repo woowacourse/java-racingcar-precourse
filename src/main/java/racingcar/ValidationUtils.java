@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.List;
 
+import racingcar.domain.NumberRange;
+
 public class ValidationUtils {
 
 	private static final int MAX_LENGTH_CAR_NAME = 5;

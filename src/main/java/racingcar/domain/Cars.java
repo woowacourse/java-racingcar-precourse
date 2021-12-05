@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-	protected final List<Car> cars;
+	private final List<Car> cars;
 
 	public Cars(List<String> cars) {
 		this.cars = mapCar(cars);
@@ -34,5 +34,9 @@ public class Cars {
 			}
 		}
 		return winnerList;
+	}
+
+	public List<Car> getCars() {
+		return this.cars;
 	}
 }
