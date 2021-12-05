@@ -10,13 +10,11 @@ public class InputView {
 	private static final int MIN_SINGLE_NUMBER = 0;
 	private static final int MAX_SINGLE_NUMBER = 9;
 	private static final String ERROR_MESSAGE = "[ERROR] ";
-	private static final String INPUT_CAR_NAMES_TITLE_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-	private static final String INPUT_CAR_MOVING_NUMBER_TITLE_MESSAGE = "시도할 회수는 몇회인가요?";
 	private static final String DELIMITER_CAR_NAME = ",";
 
 	public static String[] inputCarNames() {
 		try {
-			System.out.println(INPUT_CAR_NAMES_TITLE_MESSAGE);
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			String input = Console.readLine();
 			validateCarNames(input);
 			return input.split(DELIMITER_CAR_NAME);
@@ -56,7 +54,7 @@ public class InputView {
 
 	public static int inputNumberOfCarMoving() {
 		try {
-			System.out.println(INPUT_CAR_MOVING_NUMBER_TITLE_MESSAGE);
+			System.out.println("시도할 회수는 몇회인가요?");
 			String numberOfCarMoving = Console.readLine();
 			validateIsIntegerNumberOfCarMoving(numberOfCarMoving);
 			return Integer.parseInt(numberOfCarMoving);
