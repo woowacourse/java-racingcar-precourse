@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -51,5 +52,19 @@ class RacingGameTest {
             // then
             assertFalse(result);
         }
+    }
+
+    @Test
+    @DisplayName("종료되지 않은 게임의 우승자를 반환할 경우 exception이 발생해야 한다.")
+    void winnersExceptionByNotEndGameTest() {
+        // given
+        Cars cars = Cars.createRandomCars(names);
+        Round round = Round.createByStringRound("1");
+        RacingGame racingGame = new RacingGame(cars, round);
+
+        // when & then
+        assertThatExceptionOfType(RuntimeException.class)
+            .isThrownBy(() -> racingGame.winners())
+            .withMessage("[ERROR] 종료되지 않은 게임의 우승자는 반환할 수 없습니다.");
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.exception.RacingGameCannotGetWinnersException;
 
 public class RacingGame {
 
@@ -23,5 +24,16 @@ public class RacingGame {
 
     public boolean isFinished() {
         return round.isFinished();
+    }
+
+    public List<String> winners() {
+        checkCanGetWinners();
+        return cars.getWinners();
+    }
+
+    private void checkCanGetWinners() {
+        if (!isFinished()) {
+            throw new RacingGameCannotGetWinnersException();
+        }
     }
 }
