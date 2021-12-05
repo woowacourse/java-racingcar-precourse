@@ -3,6 +3,8 @@ package racingcar;
 import java.util.stream.Collectors;
 
 public class OutputView {
+	private static final String ERROR = "[ERROR]";
+
 	public void printResult(Cars cars, int numberOfAttempts) {
 		System.out.println("실행 결과");
 		for (int i = 0; i < numberOfAttempts; i++) {
@@ -13,6 +15,10 @@ public class OutputView {
 
 	public void printWinners(Cars cars) {
 		System.out.println("최종 우승자 : " + getWinnersToString(cars));
+	}
+
+	public void printErrorMessage(Exception e) {
+		System.out.println(ERROR + " " + e.getMessage());
 	}
 
 	private String getWinnersToString(Cars cars) {
