@@ -35,9 +35,18 @@ public class ValidationServiceTest {
 
 	@DisplayName("자동차의 이름 중복시 예외 처리 작업을 수행")
 	@Test
-	void checkDuplicatedCarName() {
+	void checkDuplicatedCarName(){
 		assertThrows(IllegalArgumentException.class, ()->{
 			ValidationService.checkDuplicatedCarName(new String[] {"John", "Eddy", "Eddy"});
+		});
+	}
+
+	@DisplayName("경주할 자동차들이 이동을 시도할 횟수의 예외 처리 작업을 수행")
+	@ParameterizedTest
+	@ValueSource(strings = {"", "-1", "0", "1000000000000000"})
+	void checkTryNumber(String tryNumber) {
+		assertThrows(IllegalArgumentException.class, () -> {
+			ValidationService.checkTryNumberIsValid(tryNumber);
 		});
 	}
 }
