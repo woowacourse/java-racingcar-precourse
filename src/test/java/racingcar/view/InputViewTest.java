@@ -14,6 +14,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import racingcar.domain.trycount.TryCount;
+
 class InputViewTest {
 
     private static InputStream generateStream(String input) {
@@ -54,16 +56,16 @@ class InputViewTest {
     @DisplayName("시도할 회수를 입력하면 검증을 거쳐 시도 회수를 반환한다.")
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "3", "4", "5"})
-    void getTryCount_inputTryCount_intReturn(String inputTryCount) {
+    void getTryCount_inputTryCount_TryCountReturn(String inputTryCount) {
         // given
         System.setIn(generateStream(inputTryCount));
         InputView inputView = generateInputView();
 
         // when
-        int tryCount = inputView.getTryCount();
+        TryCount tryCount = inputView.getTryCount();
 
         // then
-        assertThat(tryCount).isEqualTo(Integer.parseInt(inputTryCount));
+        assertThat(tryCount).isInstanceOf(TryCount.class);
     }
 
     @DisplayName("시도할 회수가 숫자가 아니면 예외를 던진다.")
