@@ -9,7 +9,7 @@ import camp.nextstep.edu.missionutils.Console;
  * <h1>실제 레이싱 게임 로직</h1>
  *
  * @author yunki kim
- * @version 1.4
+ * @version 2.0
  * @since 2021-12-01(V1.0)
  */
 
@@ -19,20 +19,14 @@ public class RacingGame {
 
 	private static final String NUMBER_PATTERN = "^[0-9]*$";
 
-	private final ArrayList<Car> cars;
-
-	private int turns;
-
-	private int farthestPosition;
+	private final Race race;
 
 	public RacingGame() {
-		this(new ArrayList<>());
+		this(new Race(new ArrayList<>()));
 	}
 
-	public RacingGame(ArrayList<Car> cars) {
-		this.cars = cars;
-		this.turns = 0;
-		this.farthestPosition = 0;
+	public RacingGame(Race race) {
+		this.race = race;
 	}
 
 	private void inputRacingCarName() throws IllegalArgumentException {
@@ -41,10 +35,11 @@ public class RacingGame {
 		for (final String carName : carNames) {
 			if (carName.length() > CAR_NAME_MAX_LENGTH) {
 				final String errorMessage = RacingGameMessage.getCarNameErrorMessage(carName);
-				cars.clear();
+				race.removeCarList();
 				throw new IllegalArgumentException(errorMessage);
 			}
-			cars.add(new Car(carName, new RandomGenerator()));
+			final Car newCar = new Car(carName, new RandomGenerator());
+			race.addCar(newCar);
 		}
 	}
 
@@ -55,7 +50,7 @@ public class RacingGame {
 			final String errorMessage = RacingGameMessage.INVALID_TURNS;
 			throw new IllegalArgumentException(errorMessage);
 		}
-		turns = Integer.parseInt(playerInputtedTurns);
+		race.setTurns(Integer.parseInt(playerInputtedTurns));
 		System.out.print("\n");
 	}
 
@@ -79,40 +74,9 @@ public class RacingGame {
 		}
 	}
 
-	private void printThisTurnResult() {
-		cars.forEach(car -> {
-			int carPosition = car.getPosition();
-			final String carName = car.getName();
-
-			farthestPosition = Math.max(farthestPosition, carPosition);
-
-			RacingGameMessage.printCarPosition(carPosition, carName);
-		});
-		System.out.print("\n");
-	}
-
-	private void startNextTurn() {
-		cars.forEach(Car::goForward);
-		printThisTurnResult();
-	}
-
-	private void printWinnerList() {
-		final String[] winners = cars.stream()
-			.filter(car -> car.getPosition() == farthestPosition)
-			.map(Car::getName)
-			.toArray(String[]::new);
-		final String winnerList = String.join(", ", winners);
-
-		System.out.print(RacingGameMessage
-			.getWinnerListMessage(winnerList));
-	}
-
-	public void startGame() {
+	public void startRacingGame() {
 		inputRacingInformation();
-		System.out.println(RacingGameMessage.GAME_RESULT);
-		while (turns-- > 0) {
-			startNextTurn();
-		}
-		printWinnerList();
+		race.startRace();
 	}
+
 }

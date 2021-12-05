@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Application {
     public static void main(String[] args) {
         // TODO 구현 진행
-		RacingGame racingGame = new RacingGame(new ArrayList<>());
-		racingGame.startGame();
+		Race race = new Race(new ArrayList<>());
+		RacingGame racingGame = new RacingGame(race);
+		racingGame.startRacingGame();
     }
 }
