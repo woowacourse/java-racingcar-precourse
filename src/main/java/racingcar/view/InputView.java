@@ -21,7 +21,13 @@ public class InputView {
 
 	public static int readRacingRound() {
 		printReadRacingRoundMessage();
-		String racingRound = readLine();
-		return (new RacingRound(racingRound)).get();
+		while (true) {
+			try {
+				String racingRound = readLine();
+				return (new RacingRound(racingRound)).get();
+			} catch (IllegalArgumentException e) {
+				printErrorMessage(e.getMessage());
+			}
+		}
 	}
 }
