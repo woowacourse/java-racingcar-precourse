@@ -12,7 +12,7 @@ public class RacingGamePlayer {
 
 	public static List<Car> cars = new ArrayList<>();
 
-	public List<String> playRacingGame(String[] names, int count) {
+	public void playRacingGame(String[] names, int count) {
 		generateCar(names);
 		OutputView.displayResultMsg();
 
@@ -20,8 +20,6 @@ public class RacingGamePlayer {
 			playOneRound();
 			count--;
 		}
-
-		return judgeWinner();
 	}
 
 	private void generateCar(String[] names) {
@@ -49,7 +47,7 @@ public class RacingGamePlayer {
 		OutputView.displayOneRoundResult();
 	}
 
-	private List<String> judgeWinner() {
+	public List<String> judgeWinner() {
 		List<String> winnerNames = new ArrayList<>();
 
 		for (Car car : cars) {
