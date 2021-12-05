@@ -17,6 +17,7 @@ public class RaceGame {
     public void startGame() {
         askCarNames();
         askTryNumber();
+        startRace();
     }
 
     private void askCarNames() {
@@ -50,6 +51,21 @@ public class RaceGame {
         for (String carName : carNames) {
             raceCarList.add(new Car(carName));
         }
+    }
+
+    private void startRace() {
+        System.out.println(GameData.MESSAGE_GAME_RESULT);
+        for (int i = 0; i < tryNumber; i++) {
+            tryRace();
+        }
+    }
+
+    private void tryRace() {
+        for (Car raceCar : raceCarList) {
+            raceCar.tryMove();
+            raceCar.printStatus();
+        }
+        System.out.println();
     }
 
     public interface InputChecker {
