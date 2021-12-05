@@ -4,11 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import racingcar.domain.Car;
 import racingcar.controller.dto.GameRoundResultDto;
 import racingcar.controller.dto.GameTotalResultDto;
-import racingcar.utils.RunnableCondition;
+import racingcar.domain.Car;
 import racingcar.service.picker.NumberPicker;
+import racingcar.utils.RunnableCondition;
 
 public class GameService {
 
@@ -23,16 +23,35 @@ public class GameService {
     }
 
     public GameTotalResultDto getGameTotalResult() {
-        return this.gameTotalResult;
+        return gameTotalResult;
     }
 
     public void playGame(List<String> names, int executionCount) {
         initGameManager(names);
         for (int i = 0; i < executionCount; i++) {
             playRound();
-            updateGameRoundStatuses();
+            updateGameRoundResult();
         }
         updateGameWinners();
+    }
+
+    private void initGameManager(List<String> names) {
+        resetNames(names);
+        resetGameTotalResultDto();
+        resetWinnerPosition();
+    }
+
+    private void resetNames(List<String> names) {
+        carMap = new LinkedHashMap<>();
+        names.forEach(name -> carMap.put(name, new Car(name)));
+    }
+
+    private void resetGameTotalResultDto() {
+        gameTotalResult = new GameTotalResultDto();
+    }
+
+    private void resetWinnerPosition() {
+        winnerPosition = 0;
     }
 
     private void playRound() {
@@ -46,11 +65,10 @@ public class GameService {
         });
     }
 
-
-    private void updateGameRoundStatuses() {
-        GameRoundResultDto roundStatusesDto = new GameRoundResultDto();
-        carMap.forEach((name, car) -> roundStatusesDto.appendStatus(car.toString()));
-        gameTotalResult.appendRoundResult(roundStatusesDto);
+    private void updateGameRoundResult() {
+        GameRoundResultDto roundResultDto = new GameRoundResultDto();
+        carMap.forEach((name, car) -> roundResultDto.appendCarStatus(car.toString()));
+        gameTotalResult.appendRoundResult(roundResultDto);
     }
 
     private void updateGameWinners() {
@@ -59,26 +77,6 @@ public class GameService {
                 gameTotalResult.appendWinner(name);
             }
         });
-    }
-
-
-    private void initGameManager(List<String> names) {
-        this.resetNames(names);
-        this.resetGameTotalResultDto();
-        this.resetWinnerPosition();
-    }
-
-    private void resetNames(List<String> names) {
-        carMap = new LinkedHashMap<>();
-        names.forEach(name -> carMap.put(name, new Car(name)));
-    }
-
-    private void resetGameTotalResultDto() {
-        this.gameTotalResult = new GameTotalResultDto();
-    }
-
-    private void resetWinnerPosition() {
-        this.winnerPosition = 0;
     }
 
 }

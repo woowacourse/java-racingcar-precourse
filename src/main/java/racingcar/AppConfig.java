@@ -24,7 +24,6 @@ public class AppConfig {
 		this.reader = new ConsoleReader();
 		this.outputView = new OutputView();
 		this.inputView = new InputView(reader, outputView);
-
 		this.numberPicker = new RandomNumberPicker();
 		this.gameService = new GameService(numberPicker);
 		this.gameController = new GameController(gameService, inputView, outputView);

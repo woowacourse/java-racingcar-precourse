@@ -9,7 +9,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-
 import racingcar.Application;
 import racingcar.resource.message.ErrorMessage;
 

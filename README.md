@@ -50,7 +50,8 @@
 - [x] 클래스 사용 목적 별로 패키지 분리 및 이동
 - [x] DI 관리를 위한 AppConfig 클래스 생성
 - [x] InputView 유효성 검사 메소드 추출. 별도의 클래스 생성
-- [ ] 클래스 및 메소드가 의도에 맞게 명명되었는지 확인
+- [x] 클래스 및 메소드가 의도에 맞게 명명되었는지 확인
+- [x] [자바 코드 컨벤션](https://naver.github.io/hackday-conventions-java) 체크
 
 <br>
 

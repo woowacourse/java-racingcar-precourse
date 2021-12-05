@@ -5,13 +5,14 @@ import java.util.List;
 
 public class GameRoundResultDto {
 
-    private final List<String> statuses = new ArrayList<>();
+    private final List<String> carStatuses = new ArrayList<>();
 
-    public void appendStatus(String status) {
-        statuses.add(status);
+    public void appendCarStatus(String carStatus) {
+        carStatuses.add(carStatus);
     }
 
-    public List<String> getStatuses() {
-        return this.statuses;
+    public List<String> getCarStatuses() {
+        return carStatuses;
     }
+
 }

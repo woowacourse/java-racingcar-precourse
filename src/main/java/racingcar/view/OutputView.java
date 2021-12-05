@@ -29,7 +29,7 @@ public class OutputView {
     }
 
     private void printGameRoundResult(GameRoundResultDto gameRoundResult) {
-        gameRoundResult.getStatuses().forEach(System.out::println);
+        gameRoundResult.getCarStatuses().forEach(System.out::println);
         printBlankNewLine();
     }
 
