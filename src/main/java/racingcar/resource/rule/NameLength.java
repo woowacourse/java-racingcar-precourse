@@ -10,8 +10,12 @@ public enum NameLength {
         this.number = number;
     }
 
+    public static int getMaximum() {
+        return MAXIMUM.number;
+    }
+
     public static boolean isTooLong(String name) {
-        return (name.length() > MAXIMUM.number);
+        return (name.length() > getMaximum());
     }
 
 }

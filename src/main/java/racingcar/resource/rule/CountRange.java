@@ -10,8 +10,12 @@ public enum CountRange {
         this.number = number;
     }
 
+    public static int getMinimum() {
+        return MINIMUM.number;
+    }
+
     public static boolean isTooSmall(int count) {
-        return (count < MINIMUM.number);
+        return (count < getMinimum());
     }
 
 }
