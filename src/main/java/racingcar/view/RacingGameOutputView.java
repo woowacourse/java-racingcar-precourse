@@ -4,8 +4,6 @@ import static racingcar.constants.HostMessages.*;
 
 import java.util.List;
 
-import racingcar.domain.Car;
-
 public class RacingGameOutputView {
 	private static final RacingGameOutputView racingGameOutputView = new RacingGameOutputView();
 
@@ -20,9 +18,9 @@ public class RacingGameOutputView {
 		System.out.println(MOVEMENT_RESULT_START_SENTENCE);
 	}
 
-	public void printMovement(List<Car> carList) {
-		for (Car car : carList) {
-			System.out.println(car.getName() + " : " + car.getDashedPosition());
+	public void printMovement(List<String> visualizedPositions, List<String> carNames) {
+		for (int i = 0; i < carNames.size(); i++) {
+			System.out.println(carNames.get(i) + " : " + visualizedPositions.get(i));
 		}
 		System.out.println();
 	}

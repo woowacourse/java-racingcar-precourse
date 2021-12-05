@@ -1,21 +1,21 @@
 package racingcar.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import racingcar.domain.Car;
+import racingcar.model.CarModel;
 import racingcar.view.RacingGameInputView;
 import racingcar.view.RacingGameOutputView;
 
 public class RacingGameController {
 	private final RacingGameInputView racingGameInputView;
 	private final RacingGameOutputView racingGameOutputView;
-	private List<Car> carList;
+	private final CarModel carModel;
 	private int repetitionNumber;
 
 	public RacingGameController() {
 		racingGameInputView = RacingGameInputView.getRacingGameInputView();
 		racingGameOutputView = RacingGameOutputView.getRacingGameOutputView();
+		carModel = CarModel.getCarModel();
 	}
 
 	public void startGame() {
@@ -23,10 +23,12 @@ public class RacingGameController {
 		takeRepetitionNumber();
 		racingGameOutputView.printMovementStart();
 		for (int i = 0; i < repetitionNumber; i++) {
-			carList.forEach(Car::tryMoving);
-			racingGameOutputView.printMovement(carList);
+			carModel.moveAllCars();
+			List<String> visualizedPositions = carModel.getVisualizedPositions();
+			List<String> carNames = carModel.getCarNames();
+			racingGameOutputView.printMovement(visualizedPositions, carNames);
 		}
-		racingGameOutputView.printWinners(getWinners());
+		racingGameOutputView.printWinners(carModel.getWinners());
 	}
 
 	private void takeRepetitionNumber() {
@@ -34,22 +36,7 @@ public class RacingGameController {
 	}
 
 	private void takeCarList() {
-		carList =
-			racingGameInputView.getCarNames()
-				.stream()
-				.map(Car::new)
-				.collect(Collectors.toList());
-	}
-
-	private List<String> getWinners() {
-		int maxPosition = carList.stream()
-			.mapToInt(Car::getPosition)
-			.max()
-			.orElse(0);
-
-		return carList.stream()
-			.filter(car -> car.getPosition() == maxPosition)
-			.map(Car::getName)
-			.collect(Collectors.toList());
+		List<String> carNames = racingGameInputView.getCarNames();
+		carModel.createCars(carNames);
 	}
 }

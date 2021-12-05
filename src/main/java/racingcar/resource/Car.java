@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.resource;
 
 import static racingcar.constants.GameConstants.*;
 
@@ -21,21 +21,7 @@ public class Car {
 		return position;
 	}
 
-	public void tryMoving() {
-		if (Randoms.pickNumberInRange(0, 9) >= 4) {
-			move();
-		}
-	}
-
-	public String getDashedPosition() {
-		StringBuilder dashedPosition = new StringBuilder();
-		for (int i = 0; i < position; i++) {
-			dashedPosition.append(MOVING_GAUGE);
-		}
-		return dashedPosition.toString();
-	}
-
-	private void move() {
+	public void move() {
 		position += 1;
 	}
 }
