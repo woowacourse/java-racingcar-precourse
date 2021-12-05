@@ -37,11 +37,12 @@
   - 경주에 필요한 기본 세팅(사용자에게 입력받아옴)
   - 경주를 진행시킴
 - 아는 것
-  - race
+  - 경주(`race`)
 - 하는 것
   - 차 이름별로 경주차 생성해서 Race 만들기(`getCarByName()`)
   - 몇 회 진행할건지 입력받기(`getMoveCount()`)
   - 횟수 별로 경주 진행시키기(`run()`)
+  - 차이름들로 경주차들 생성하고 반환하기(`createCarList(String[] carNames)`)
   
 ### Race
 - 책임
