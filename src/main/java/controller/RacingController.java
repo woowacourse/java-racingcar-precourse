@@ -10,12 +10,14 @@ import model.attempt.LeftAttemptCount;
 import model.car.Cars;
 import model.movement.Movement;
 import model.movement.RandomMovement;
+import view.InputDisplayable;
 import view.InputView;
+import view.OutputDisplayable;
 import view.OutputView;
 
 public class RacingController {
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
+    private final InputDisplayable inputDisplayable = new InputView();
+    private final OutputDisplayable outputDisplayable = new OutputView();
     private Cars cars;
     private LeftAttemptCount leftAttemptCount;
 
@@ -27,13 +29,13 @@ public class RacingController {
     private void createCars() {
         boolean isWrongNames = true;
         while (isWrongNames) {
-            inputView.alertInputNames();
+            inputDisplayable.alertInputNames();
             List<String> carNames = Arrays.stream(readLine().split(",")).collect(Collectors.toList());
             try {
                 cars = new Cars(carNames);
                 isWrongNames = false;
             } catch (Exception exception) {
-                inputView.printErrorMessage(exception.getMessage());
+                inputDisplayable.printErrorMessage(exception.getMessage());
             }
         }
     }
@@ -41,29 +43,29 @@ public class RacingController {
     private void createLeftAttemptCount() {
         boolean isWrongCount = true;
         while (isWrongCount) {
-            inputView.alertInputCountOfAttempt();
+            inputDisplayable.alertInputCountOfAttempt();
             String attemptCountInput = readLine();
             try {
                 leftAttemptCount = new LeftAttemptCount(attemptCountInput);
                 isWrongCount = false;
             } catch (Exception exception) {
-                inputView.printErrorMessage(exception.getMessage());
+                inputDisplayable.printErrorMessage(exception.getMessage());
             }
         }
     }
 
     public void run() {
         Movement randomMovement = new RandomMovement();
-        outputView.printOperationResultLetters();
+        outputDisplayable.printOperationResultLetters();
         while (leftAttemptCount.isNotZero()) {
             attemptOnce(randomMovement);
             leftAttemptCount.decrease();
         }
-        outputView.showWinners(cars.getWinners());
+        outputDisplayable.showWinners(cars.getWinners());
     }
 
     private void attemptOnce(final Movement randomMovement) {
         cars.race(randomMovement);
-        outputView.showAttemptResult(cars.getAttemptResult());
+        outputDisplayable.showAttemptResult(cars.getAttemptResult());
     }
 }
