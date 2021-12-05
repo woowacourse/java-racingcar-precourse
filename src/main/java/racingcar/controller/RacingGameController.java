@@ -1,24 +1,23 @@
 package racingcar.controller;
 
+import static racingcar.constant.GameErrorMessage.*;
 import static racingcar.constant.GameMessage.*;
 
 import java.util.Arrays;
 import java.util.List;
 
-import racingcar.domain.AttemptNumber;
 import racingcar.domain.RacingCars;
-import racingcar.service.AttemptNumberService;
 import racingcar.service.CarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
 	private final RacingCars racingCars;
-	private final AttemptNumber attemptNumber;
+	private final int attemptNumber;
 
 	public RacingGameController() {
 		racingCars = new RacingCars(getCarNames());
-		attemptNumber = new AttemptNumber(getAttemptNumber());
+		attemptNumber = getAttemptNumber();
 	}
 
 	private static List<String> getCarNames() {
@@ -35,12 +34,13 @@ public class RacingGameController {
 	}
 
 	private int getAttemptNumber() {
-		String attemptNumber;
-		do {
+		try {
 			OutputView.printAskingAttemptNumber();
-			attemptNumber = InputView.getInput();
-		} while (!AttemptNumberService.isValidAttemptNumber(attemptNumber));
-		return Integer.parseInt(attemptNumber);
+			return Integer.parseInt(InputView.getInput());
+		} catch (IllegalArgumentException exception) {
+			OutputView.printErrorMessage(ATTEMPT_NUMBER_RANGE_ERROR_MESSAGE);
+			return getAttemptNumber();
+		}
 	}
 
 	public void startGame() {
@@ -50,7 +50,7 @@ public class RacingGameController {
 	}
 
 	private void playGame() {
-		while (attemptNumber.isAttemptRemained()) {
+		for (int i = 0; i < attemptNumber; i++) {
 			racingCars.move();
 			printExecutionForEachOrder();
 		}
