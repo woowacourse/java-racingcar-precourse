@@ -29,12 +29,16 @@ public class GameService {
 		cars.setRepeatNum(Integer.parseInt(inputStr));
 	}
 
-	public void postResult() {
+	public String postResult() {
+		sb = new StringBuilder();
+		sb.append('\n');
 		for (int i = 0; i < cars.getRepeatNum(); i++) {
 			decideMoveOrStop();
 			checkSorting(i);
-			System.out.println();
+			sb.append(System.lineSeparator());
 		}
+
+		return sb.toString();
 	}
 
 	public String postWinner() {
@@ -69,11 +73,11 @@ public class GameService {
 
 	private void printResult(int carIdx) {
 		Car car = cars.getCarArrayList().get(carIdx);
-		System.out.print(car.getName() + " : ");
+		sb.append(car.getName() + " : ");
 		for (int i = 0; i < car.getPosition(); i++) {
-			System.out.print("-");
+			sb.append("-");
 		}
-		System.out.println();
+		sb.append(System.lineSeparator());
 	}
 
 	private void checkSorting(int idx) {

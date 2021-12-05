@@ -1,16 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.controller.GameController;
-import racingcar.exception.ErrorMessage;
-import racingcar.exception.ErrorResponse;
-import racingcar.message.Message;
-import racingcar.domain.Car;
-import racingcar.message.MessageResponse;
 
 public class Game {
 	// private static ArrayList<Car> cars;

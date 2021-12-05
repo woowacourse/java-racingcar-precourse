@@ -1,4 +1,4 @@
-package racingcar.exception;
+package racingcar.exception.dto;
 
 public class ErrorResponse {
 

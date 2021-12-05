@@ -1,6 +1,6 @@
 package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.exception.ErrorResponse;
+import racingcar.exception.dto.ErrorResponse;
 import racingcar.message.Message;
 import racingcar.message.MessageResponse;
 import racingcar.service.GameService;
@@ -36,11 +36,10 @@ public class GameController {
 	}
 
 	public void postResult() {
-		MessageResponse.of(Message.PRINT_RESULT.getMessage());
-		gameService.postResult();
+		MessageResponse.of(System.lineSeparator()+Message.PRINT_RESULT.getMessage()+gameService.postResult());
 	}
 
 	public void postWinner() {
-		MessageResponse.of(Message.ENTER_WINNER.getMessage()+gameService.postWinner());
+		MessageResponse.NonLineOf(Message.ENTER_WINNER.getMessage()+gameService.postWinner());
 	}
 }
