@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OutputController {
+    private static final String FINAL_WINNER = "최종 우승자 : ";
+    private static final String GAP_MASSAGE = ", ";
+
     public static void finalWinner(List<Car> carList) {
         int maxPosition = findMaxPosition(carList);
         String[] winnerArray = getWinnerList(carList, maxPosition);
@@ -35,7 +38,7 @@ public class OutputController {
     }
 
     private static void printWinner(String[] winnerArray) {
-        String join = String.join(", ", winnerArray);
-        System.out.println("최종 우승자 : " + join);
+        String join = String.join(GAP_MASSAGE, winnerArray);
+        System.out.println(FINAL_WINNER + join);
     }
 }

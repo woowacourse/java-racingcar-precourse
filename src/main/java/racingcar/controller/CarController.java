@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarController {
+    private static final String BASE_SPLIT = ",";
+
     public static List<Car> saveCarList(String input) {
         List<Car> carList = new ArrayList<>();
-        String[] carNames = input.split(",");
+        String[] carNames = input.split(BASE_SPLIT);
 
         for (String carName : carNames) {
             carList.add(new Car(carName));

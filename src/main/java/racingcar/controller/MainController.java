@@ -7,6 +7,8 @@ import racingcar.view.Output;
 import java.util.List;
 
 public class MainController {
+    private static final String PRINT_RESULT = "실행 결과";
+
     private List<Car> carList;
     private int tryNum;
 
@@ -16,8 +18,6 @@ public class MainController {
     public void playGame() {
         saveCarList();
         saveTryNum();
-
-        System.out.println("실행 결과");
 
         raceStart(carList);
         OutputController.finalWinner(carList);
@@ -52,6 +52,8 @@ public class MainController {
     }
 
     private void raceStart(List<Car> carList) {
+        System.out.println(PRINT_RESULT);
+
         for (int i=0; i<tryNum; i++) {
             CarController.movePosition(carList);
             Output.racePrint(carList);
