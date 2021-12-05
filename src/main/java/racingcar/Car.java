@@ -16,6 +16,7 @@ public class Car {
 	private int position = 0;
 
 	public Car(String name) {
+		Assertions.throwExceptionIsTrue(name.isEmpty(), NOT_BLANK);
 		Assertions.throwExceptionIsTrue(name.length() > NAME_LENGTH, INVALID_LENGTH);
 		this.name = name;
 	}
