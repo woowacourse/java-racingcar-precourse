@@ -7,18 +7,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 
-public class RacingGameView {
-	private static final RacingGameView racingGameView = new RacingGameView();
+public class RacingGameInputView {
+	private static final RacingGameInputView racingGameInputView = new RacingGameInputView();
 	private final InputValidator inputValidator;
 
-	private RacingGameView() {
+	private RacingGameInputView() {
 		inputValidator = InputValidator.getInputValidator();
 	}
 
-	public static RacingGameView getRacingGameView() {
-		return racingGameView;
+	public static RacingGameInputView getRacingGameInputView() {
+		return racingGameInputView;
 	}
 
 	public List<String> getCarNames() {
@@ -37,20 +36,5 @@ public class RacingGameView {
 			repetitionNumber = Console.readLine();
 		} while (!inputValidator.checkRepetitionNumberExceptions(repetitionNumber));
 		return Integer.parseInt(repetitionNumber);
-	}
-
-	public void printMovementStart() {
-		System.out.println(MOVEMENT_RESULT_START_SENTENCE);
-	}
-
-	public void printMovement(List<Car> carList) {
-		for (Car car : carList) {
-			System.out.println(car.getName() + " : " + car.getDashedPosition());
-		}
-		System.out.println();
-	}
-
-	public void printWinners(List<String> winners) {
-		System.out.println(FINAL_RESULT_MESSAGE + String.join(", ", winners));
 	}
 }

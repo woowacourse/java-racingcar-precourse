@@ -4,31 +4,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import racingcar.domain.Car;
-import racingcar.view.RacingGameView;
+import racingcar.view.RacingGameInputView;
+import racingcar.view.RacingGameOutputView;
 
 public class RacingGameController {
-	private final RacingGameView racingGameView;
+	private final RacingGameInputView racingGameInputView;
+	private final RacingGameOutputView racingGameOutputView;
 	private List<Car> carList;
 
 	public RacingGameController() {
-		racingGameView = RacingGameView.getRacingGameView();
+		racingGameInputView = RacingGameInputView.getRacingGameInputView();
+		racingGameOutputView = RacingGameOutputView.getRacingGameOutputView();
 	}
 
 	public void startGame() {
 		int repetitionNumber;
 		takeCarList();
-		repetitionNumber = racingGameView.getRepetitionNumber();
-		racingGameView.printMovementStart();
+		repetitionNumber = racingGameInputView.getRepetitionNumber();
+		racingGameOutputView.printMovementStart();
 		for (int i = 0; i < repetitionNumber; i++) {
 			carList.forEach(Car::tryMoving);
-			racingGameView.printMovement(carList);
+			racingGameOutputView.printMovement(carList);
 		}
-		racingGameView.printWinners(getWinners());
+		racingGameOutputView.printWinners(getWinners());
 	}
 
 	private void takeCarList() {
 		carList =
-			racingGameView.getCarNames()
+			racingGameInputView.getCarNames()
 				.stream()
 				.map(Car::new)
 				.collect(Collectors.toList());
