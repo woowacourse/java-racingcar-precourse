@@ -12,16 +12,15 @@ import org.junit.jupiter.api.Test;
 class CarsTest {
 
 	private Cars cars;
-	private String[] input;
+	private String input;
 	private static final String participant1 = "kia";
-	private static final String participant2 = "Hyundai";
-	private static int participantSize;
+	private static final String participant2 = "giron";
+	private static int participantSize = 2;
 
 	@BeforeEach
 	void init() {
 		this.cars = new Cars();
-		this.input = new String[] {participant1, participant2};
-		participantSize = input.length;
+		this.input = participant1 + "," + participant2;
 	}
 
 	@Test
