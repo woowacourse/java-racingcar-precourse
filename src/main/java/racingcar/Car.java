@@ -31,7 +31,7 @@ public class Car {
 	}
 
 	private boolean movable() {
-		return Randoms.pickNumberInRange(MOVABLE_RANGE_MIN, MOVABLE_RANGE_MAX) > MOVABLE_MIN;
+		return Randoms.pickNumberInRange(MOVABLE_RANGE_MIN, MOVABLE_RANGE_MAX) >= MOVABLE_MIN;
 	}
 
 	@Override
