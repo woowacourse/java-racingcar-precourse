@@ -215,3 +215,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - 불필요하게 넓은 접근 권한을 가진 상수의 접근제어자 변경
     - 레이싱 게임을 실행하는 인스턴스를 만드는 클래스 역할에 따라 두개로 분리
     - 잘못된 주석 수정
+    - javadoc 생성
