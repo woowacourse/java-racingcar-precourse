@@ -24,4 +24,14 @@ public class NumberList {
 			this.numberList.add(new Number());
 		}
 	}
+
+	public ArrayList<Integer> getOverThresholdIndexes() {
+		ArrayList<Integer> overThresholdIndexes = new ArrayList<>();
+		for (int index = 0; index < this.numberList.size(); index++) {
+			if (this.numberList.get(index).overThisValue(NumberListIntEnums.THRESHOLD.getValue())) {
+				overThresholdIndexes.add(index);
+			}
+		}
+		return overThresholdIndexes;
+	}
 }
