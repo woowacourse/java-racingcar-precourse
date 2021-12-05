@@ -7,7 +7,6 @@ import java.util.Objects;
 public class Car {
     private final String name;
     private int position = INITIAL_POSITION;
-    private boolean movedForward = false;
 
     private Car(String name) {
         this.name = name;
@@ -34,16 +33,17 @@ public class Car {
     public int run(int randomNumber) {
         if (randomNumber >= MIN_NUMBER_TO_CAR_TO_GO) {
             position++;
-            movedForward = true;
             return position;
         }
-        movedForward = false;
         return position;
     }
 
-    // 아직 테스트를 위해서만 사용되었다. 본코드에서 사용되지 않으면 삭제되어야 한다다
-   public String getName() {
+    public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     // 본 코드에서 사용되지 않으면 삭제되어야 함
@@ -54,13 +54,10 @@ public class Car {
         Car car = (Car) o;
         return name.equals(car.name);
     }
+
     // 본 코드에서 사용되지 않으면 삭제되어야 함
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    public boolean hasMovedForward() {
-        return movedForward;
     }
 }

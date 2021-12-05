@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 class RacingControllerTest {
     private final InputStream standardIn = System.in;
-    private final RacingController racingController = new RacingController(new RacingGame(new CarRepository(), new RacingResultBoard()));
+    private final RacingController racingController = new RacingController(new RacingGame(new CarRepository()));
 
     @Test
     void 자동차_이름을_쉼표를_구분자로_입력받음() {

@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class RacingGameTest {
-    private final RacingGame racingGame = new RacingGame(new CarRepository(), new RacingResultBoard());
+    private final RacingGame racingGame = new RacingGame(new CarRepository());
 
     @Test
     void 입력된_배열에_저장된_순서가_repository의_저장_순서가_된다() {

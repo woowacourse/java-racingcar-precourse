@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.StringConstants.*;
+import static racingcar.StringConstants.MARK_FOR_DISTANCE_RECORD;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,15 +14,17 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class RacingResultBoardTest {
+class RacingResultsViewTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
     private final String car1Name = "car1";
     private final String car2Name = "car2";
     private final List<Car> cars = new ArrayList<>();
-    private RacingResultBoard racingResultBoard;
 
-    RacingResultBoardTest() {
+    private RacingResultsView racingResultsView;
+
+    RacingResultsViewTest () {
         createCars();
     }
 
@@ -32,18 +35,17 @@ class RacingResultBoardTest {
 
     @BeforeEach
     void setUp() {
-        racingResultBoard = new RacingResultBoard();
         System.setOut(new PrintStream(outputStreamCaptor));
-        racingResultBoard.writeCarNames(cars);
+        racingResultsView = new RacingResultsView(cars);
     }
 
     @Test
     void 전달된_차_리스트와_같은_순서로_board_생성() {
-        racingResultBoard.showBoard();
+        racingResultsView.print();
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedInitialResult().toString());
     }
 
-    StringBuilder createExceptedInitialResult() {
+    private StringBuilder createExceptedInitialResult() {
         String ELIMINATED_TRAILING_SPACES_MARK_FOR_DISTANCE_RECORD = " :";
         StringBuilder expectedResult = new StringBuilder();
         expectedResult.append(car1Name);
@@ -61,13 +63,11 @@ class RacingResultBoardTest {
             car.run(MIN_NUMBER_TO_CAR_TO_GO);
             carsAfterRacing.add(car);
         }
-        racingResultBoard.updateBoard(carsAfterRacing);
-        racingResultBoard.showBoard();
-
+        racingResultsView.print();
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedAfterDrivingResult().toString());
     }
 
-    StringBuilder createExceptedAfterDrivingResult() {
+    private StringBuilder createExceptedAfterDrivingResult() {
         StringBuilder expectedResult = new StringBuilder();
         expectedResult.append(car1Name);
         expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD);

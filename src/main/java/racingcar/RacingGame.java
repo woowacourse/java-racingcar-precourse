@@ -8,13 +8,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
     private final CarRepository carRepository;
-    private final RacingResultBoard racingResultBoard;
-
     private int numberOfRounds;
 
-    public RacingGame(CarRepository carRepository, RacingResultBoard racingResultBoard) {
+    public RacingGame(CarRepository carRepository) {
         this.carRepository = carRepository;
-        this.racingResultBoard = racingResultBoard;
     }
 
     public List<Car> createCars(String[] names) {
@@ -23,10 +20,6 @@ public class RacingGame {
             carRepository.saveInOrder(car);
         }
         return findCars();
-    }
-
-    public void setUpBoard() {
-        racingResultBoard.writeCarNames(carRepository.findAllCarsInOrder());
     }
 
     public int createNumberOfRounds(int number) {
@@ -38,13 +31,13 @@ public class RacingGame {
     public void start() {
         for (int roundNumber = 1; roundNumber <= numberOfRounds; roundNumber++) {
             startEachRound();
-            updateRacingResultBoard();
             showGameResult();
         }
     }
 
-    public void showGameResult() {
-        racingResultBoard.showBoard();
+    private void showGameResult() {
+        RacingResultsView racingResultsView = new RacingResultsView(findCars());
+        racingResultsView.print();
     }
 
     private void validateRoundNumber(int number) {
@@ -65,10 +58,6 @@ public class RacingGame {
         for (Car car : findCars()) {
             car.run(generateRandomNumber());
         }
-    }
-
-    private void updateRacingResultBoard() {
-        racingResultBoard.updateBoard(findCars());
     }
 }
 
