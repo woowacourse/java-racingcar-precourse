@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.utils.OutputFormatter;
 
 public class RacingCarGame {
 
@@ -23,4 +24,10 @@ public class RacingCarGame {
         }
     }
 
+    public String getGameStatus() {
+        List<String> statusList = this.cars.stream()
+            .map(Car::getCarStatus)
+            .collect(Collectors.toList());
+        return OutputFormatter.converseGameStatus(statusList);
+    }
 }

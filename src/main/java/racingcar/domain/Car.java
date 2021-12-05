@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.OutputFormatter;
+
 public class Car {
 
     private final String name;
@@ -11,5 +13,9 @@ public class Car {
 
     public void moveForward() {
         this.position++;
+    }
+
+    public String getCarStatus() {
+        return OutputFormatter.converseCarStatus(position, name);
     }
 }
