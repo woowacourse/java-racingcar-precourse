@@ -11,5 +11,4 @@ public class CarRacingGame {
 	public boolean checkOneMoreRoundPossible() {
 		return (nowRoundNum++ < movesNumber);
 	}
-	
 }

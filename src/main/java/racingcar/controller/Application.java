@@ -4,6 +4,7 @@ import racingcar.domain.CarRacingGame;
 import racingcar.domain.Rounds;
 import racingcar.domain.Track;
 import racingcar.view.InputView;
+import racingcar.view.ResultView;
 
 public class Application {
 
@@ -18,5 +19,8 @@ public class Application {
 			track.play();
 			rounds.add(track.makeRoundResult());
 		}
+
+		ResultView.printResultsByRound(rounds);
+		ResultView.printWinners(rounds);
 	}
 }
