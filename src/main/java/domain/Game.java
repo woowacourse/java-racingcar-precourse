@@ -1,12 +1,6 @@
-package racingcar;
+package domain;
 
-
-import domain.Car;
-import domain.CarList;
-import domain.Turn;
 import view.InputView;
-import view.OutputView;
-
 
 public class Game {
     private CarList cars;
@@ -15,16 +9,6 @@ public class Game {
     public Game() {
         setCarList();
         setTurns();
-    }
-
-    public void start() {
-        for (int i = 0; i < turns; i++) {
-            for (Car car : cars.getCarList()) {
-                car.goOrStop();
-                OutputView.printNow(cars.getCarList());
-            }
-        }
-        OutputView.printEnd(cars.decideWinner());
     }
 
     private void setCarList() {
@@ -45,5 +29,13 @@ public class Game {
             System.out.println(e.getMessage());
             setTurns();
         }
+    }
+
+    public int getTurns() {
+        return this.turns;
+    }
+
+    public CarList getCars() {
+        return this.cars;
     }
 }
