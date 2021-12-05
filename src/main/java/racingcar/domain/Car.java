@@ -15,4 +15,12 @@ public class Car {
 			this.position = this.position + MOVE_NUM;
 		}
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
 }

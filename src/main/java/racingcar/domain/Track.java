@@ -10,4 +10,8 @@ public class Track {
 	public void play() {
 		cars.move();
 	}
+
+	public Round makeRoundResult() {
+		return new Round(cars);
+	}
 }
