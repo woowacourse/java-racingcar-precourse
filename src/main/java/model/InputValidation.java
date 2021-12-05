@@ -7,22 +7,18 @@ public class InputValidation {
     
     public InputValidation() {}
     
-    public boolean checkValidationForCars(String input) {
+    public void checkValidationForCars(String input) {
         String [] cars = input.split(",",-1);
         
         if(Arrays.stream(cars).anyMatch(s -> s.equals("") || s.length() > 5)) {
-            return false;
+            throw new IllegalArgumentException();
         }
-   
-        return true;
     }
     
-    public boolean checkValidationForGoal(String input) {
-        if(input.matches(NUM_REGEX)) {
-            return true;
+    public void checkValidationForGoal(String input) {
+        if(!input.matches(NUM_REGEX)) {
+            throw new IllegalArgumentException();
         }
-        
-        return false;
     }
 
 }

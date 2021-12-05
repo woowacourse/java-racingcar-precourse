@@ -40,36 +40,30 @@ public class GameController {
     }
     
     private void saveParticipants() {
-        String str = input.setCarNames(); 
+        while(true) {
+            String str = input.setCarNames(); 
             
-        try {
-            
-            if(!inputValidation.checkValidationForCars(str)) {
-                throw new IllegalArgumentException();
+            try {
+                inputValidation.checkValidationForCars(str);
+                participants = equipments.toList(str);
+                return;
+            } catch (IllegalArgumentException e) {
+                output.showErrorMessage(TYPE1);
             }
-                
-            participants = equipments.toList(str);
-            return;
-        } catch (IllegalArgumentException e) {
-            output.showErrorMessage(TYPE1);
-            saveParticipants();
         }
     }
     
     private void saveGoal() {
-        String num = input.setGoal();
-            
-        try {
-            
-            if(!inputValidation.checkValidationForGoal(num)) {
-                throw new IllegalArgumentException();
+        while(true) {
+            String num = input.setGoal();
+          
+            try {
+                inputValidation.checkValidationForGoal(num);
+                goal = Integer.parseInt(num);
+                return;
+            } catch (IllegalArgumentException e) {
+                output.showErrorMessage(TYPE2);
             }
-            
-            goal = Integer.parseInt(num);
-            return;
-        } catch (IllegalArgumentException e) {
-            output.showErrorMessage(TYPE2);
-            saveGoal();
         }
     }
 }
