@@ -4,6 +4,7 @@ package racingcar;
 import domain.Car;
 import domain.CarList;
 import domain.Turn;
+import utils.Validation;
 import view.InputView;
 import view.OutputView;
 
@@ -11,6 +12,7 @@ import view.OutputView;
 public class Game {
     private CarList cars;
     private int turns;
+    private Validation validation = new Validation();
 
     public Game(){
         this.cars = setCarList();
@@ -28,20 +30,28 @@ public class Game {
     }
 
     private CarList setCarList(){
-        CarList carList = new CarList();
+        CarList carList = null;
         try{
-            carList = InputView.getCarList();
+            String inputCars = InputView.getCarList();
+            validation.carValidate(inputCars);
+            carList = new CarList(inputCars.split(","));
+
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
             setCarList();
         }
+
         return carList;
     }
 
     private Turn setTurns(){
-        Turn turns = new Turn(0);
+        Turn turns = null;
         try {
-            turns = InputView.getTimes();
+            String inputTimes = InputView.getTimes();
+            validation.timesValidate(inputTimes);
+
+            turns = new Turn(Integer.valueOf(inputTimes));
+
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             setTurns();
