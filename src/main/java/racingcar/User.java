@@ -9,20 +9,24 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class User {
 
-	private int MAX_NAME_LENGTH = 5;
-	private int MIN_NAME_LENGTH = 1;
+	private final int MAX_NAME_LENGTH = 5;
+	private final int MIN_NAME_LENGTH = 1;
 
-	private String DELIMITER = ",";
-	private String INPUT_MESSAGE_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(" + DELIMITER + ") 기준으로 구분)";
-	private String INPUT_MESSAGE_NUMBER_OF_TIMES = "시도할 회수는 몇회인가요?";
-	private String ERROR = "[ERROR]";
-	private String ERROR_MESSAGE_NAME_LENGTH =
+	private final String DELIMITER = ",";
+	private final String INPUT_MESSAGE_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(" + DELIMITER + ") 기준으로 구분)";
+	private final String INPUT_MESSAGE_NUMBER_OF_TIMES = "시도할 회수는 몇회인가요?";
+	private final String ERROR = "[ERROR]";
+	private final String ERROR_MESSAGE_NAME_LENGTH =
 		ERROR + "자동차 이름은 " + MIN_NAME_LENGTH + "자 이상 " + MAX_NAME_LENGTH + "자 이하만 가능합니다.";
-	private String ERROR_MESSAGE_NAME_DUPLICATION = ERROR + "자동차 이름은 중복될 수 없습니다.";
-	private String ERROR_MESSAGE_INPUT_IS_NOT_NUBMER = ERROR + "숫자를 입력해주세요.";
+	private final String ERROR_MESSAGE_NAME_DUPLICATION = ERROR + "자동차 이름은 중복될 수 없습니다.";
+	private final String ERROR_MESSAGE_INPUT_IS_NOT_NUBMER = ERROR + "숫자를 입력해주세요.";
 
 	private List<String> names;
 	private int numberOfTimes;
+
+	public List<String> getNames() {
+		return names;
+	}
 
 	public void setNamesByInputUntilCorrect() {
 		String input = inputNames();
@@ -75,8 +79,8 @@ public class User {
 		}
 	}
 
-	public int sizeOfNames() {
-		return names.size();
+	public int getNumberOfTimes() {
+		return numberOfTimes;
 	}
 
 	public void setNumberOfTimesByInputUntilCorrect() {
