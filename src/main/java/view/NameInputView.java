@@ -32,7 +32,7 @@ enum NameIntEnums {
 
 public class NameInputView implements InputView {
 
-	public String getInput(String rawInput) {
+	public String getInput() {
 		String nameInput = "";
 		while (nameInput.isEmpty()) {
 			try {
