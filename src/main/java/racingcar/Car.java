@@ -46,4 +46,16 @@ public class Car {
 		}
 		return stringBuffer.toString();
 	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public boolean isSamePosition(int maxPosition) {
+		return position == maxPosition;
+	}
+
+	public String getName() {
+		return name;
+	}
 }
