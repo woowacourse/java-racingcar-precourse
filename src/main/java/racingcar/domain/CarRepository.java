@@ -1,12 +1,10 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarRepository {
-	private static final int FIRST_INDEX_OF_WINNER_CAR = 0;
 	List<Car> carList = new ArrayList<>();
 
 	public void createCars(String[] names) {
@@ -34,14 +32,20 @@ public class CarRepository {
 	}
 
 	private List<Car> getWinnerCars() {
-		Collections.sort(carList);
+		List<Car> ascendingSortedCars = getAscendingSortedCars();
 		List<Car> winnerCars = new ArrayList<>();
-		Car winnerCar = carList.get(FIRST_INDEX_OF_WINNER_CAR);
-		for (Car car : carList) {
+		Car winnerCar = ascendingSortedCars.get(0);
+		for (Car car : ascendingSortedCars) {
 			if (winnerCar.isSamePosition(car)) {
 				winnerCars.add(car);
 			}
 		}
 		return winnerCars;
+	}
+
+	private List<Car> getAscendingSortedCars() {
+		return carList.stream()
+			.sorted()
+			.collect(Collectors.toList());
 	}
 }
