@@ -8,7 +8,7 @@ public class InputView {
 		return Console.readLine();
 	}
 
-	public int enterNumberOfAttempts() {
+	public String enterNumberOfAttempts() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String numberOfAttempts = Console.readLine();
 
@@ -16,10 +16,10 @@ public class InputView {
 			isAttemptsNotInteger(numberOfAttempts);
 		} catch (IllegalArgumentException e) {
 			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-			enterNumberOfAttempts();
+			numberOfAttempts = enterNumberOfAttempts();
 		}
 
-		return Integer.parseInt(numberOfAttempts);
+		return numberOfAttempts;
 	}
 
 	protected void isAttemptsNotInteger(String numberOfAttempts) {
