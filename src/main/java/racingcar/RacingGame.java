@@ -1,9 +1,13 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class RacingGame {
+	private static final int ONLY_ONE_WINNER = 1;
+
 	private List<String> carNames = new ArrayList<>();
 	private List<Car> cars = new ArrayList<>();
 	private int moveCount = 0;
@@ -54,9 +58,9 @@ public class RacingGame {
 		}
 	}
 
-	private List<String> findWinners() {
+	private Queue<String> findWinners() {
 		int winnerPosition = getWinnerPositionFromCars();
-		List<String> winnersName = new ArrayList<>();
+		Queue<String> winnersName = new LinkedList<>();
 		for (Car car : cars) {
 			if (car.getPosition() == winnerPosition) {
 				winnersName.add(car.getName());
