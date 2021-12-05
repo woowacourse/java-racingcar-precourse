@@ -23,30 +23,11 @@ public class CarRacingGame {
 	}
 
 	private void start() {
-		OutputView.printResultMessage();
+		printResultMessage();
 		while (canPlay()) {
 			play();
 		}
 		printWinners();
-	}
-
-	private boolean canPlay() {
-		return tryCount.canTry();
-	}
-
-	private void play() {
-		useOneTry();
-		cars.moveOrStop();
-		OutputView.printCars(cars.getCars());
-	}
-
-	private void useOneTry() {
-		tryCount.use();
-	}
-
-	private void printWinners() {
-		List<Car> winners = cars.getRacingWinners();
-		OutputView.printRacingWinners(winners);
 	}
 
 	private Cars createCars() {
@@ -75,5 +56,36 @@ public class CarRacingGame {
 	private TryCount getTryCountByInputNum() {
 		int tryCount = InputView.readTryCount();
 		return new TryCount(tryCount);
+	}
+
+	private void printResultMessage() {
+		OutputView.printResultMessage();
+	}
+
+	private boolean canPlay() {
+		return tryCount.canTry();
+	}
+
+	private void play() {
+		useOneTry();
+		moveRandomCars();
+		printCurrentRoundCars();
+	}
+
+	private void useOneTry() {
+		tryCount.use();
+	}
+
+	private void moveRandomCars() {
+		cars.moveOrStop();
+	}
+
+	private void printCurrentRoundCars() {
+		OutputView.printCars(cars.getCars());
+	}
+
+	private void printWinners() {
+		List<Car> winners = cars.getRacingWinners();
+		OutputView.printRacingWinners(winners);
 	}
 }
