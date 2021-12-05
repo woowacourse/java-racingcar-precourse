@@ -13,5 +13,18 @@ enum CharEnums {
 	}
 }
 
+enum StringEnums {
+	DELIMITER(",");
+	private final String value;
+
+	StringEnums(String value) {
+		this.value = value;
+	}
+
+	public String getValue() {
+		return this.value;
+	}
+}
+
 public class NameInputView {
 }
