@@ -21,13 +21,12 @@ public class CarList {
     }
 
     public List<String> decideWinner(){
-        final int max = carList.stream()
-                .mapToInt(car->car.getPosition())
-                .max()
-                .getAsInt();
+        Car maxCar = carList.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException());
 
         List<String> winnerList = carList.stream()
-                .filter(car -> car.getPosition() == max)
+                .filter(maxCar::isSamePosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
 

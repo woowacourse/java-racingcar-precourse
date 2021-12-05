@@ -2,9 +2,10 @@ package domain;
 
 import utils.RandomGenerate;
 
+import java.util.Comparator;
 import java.util.Random;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
     private RandomGenerate randomGenerate = new RandomGenerate();
@@ -26,5 +27,14 @@ public class Car {
         if(num > 3){
             position++;
         }
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        return this.position - otherCar.position;
+    }
+
+    public boolean isSamePosition(Car otherCar){
+        return this.position == otherCar.position;
     }
 }
