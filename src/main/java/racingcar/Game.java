@@ -8,6 +8,7 @@ public class Game {
     public String[] carNames;
     public int times;
     public boolean checking;
+    private int errorCode;
     ArrayList<Car> cars = new ArrayList<Car>();
     ArrayList winner = new ArrayList<>();
 
@@ -52,16 +53,30 @@ public class Game {
             Exception e = new Exception();
             rightInput();
         } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+            showError();
             checking = false;
         }
         return checking;
     }
 
+    private void showError() {
+        if (errorCode == 0) {
+            System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+        }
+        if (errorCode == 1) {
+            System.out.println("[ERROR] 공백은 불가능하다.");
+        }
+    }
+
     private void rightInput() throws IllegalArgumentException {
         carNames = input.split(",");
         for (int i=0;i<carNames.length; i++) {
-            if (carNames[i].length() > 5 || carNames[i].length() == 0) {
+            if (carNames[i].length() > 5) {
+                errorCode = 0;
+                throw new IllegalArgumentException();
+            }
+            if (carNames[i].length() == 0) {
+                errorCode = 1;
                 throw new IllegalArgumentException();
             }
         }
