@@ -12,4 +12,20 @@ public class RacingCars {
 	public void go() {
 		cars.forEach(Car::go);
 	}
+
+	public String[] getNames() {
+		String[] names = new String[cars.size()];
+		for (int i = 0; i < cars.size(); i++) {
+			names[i] = cars.get(i).getName();
+		}
+		return names;
+	}
+
+	public int[] getPositions() {
+		int[] positions = new int[cars.size()];
+		for (int i = 0; i < cars.size(); i++) {
+			positions[i] = cars.get(i).getPosition();
+		}
+		return positions;
+	}
 }

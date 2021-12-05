@@ -17,6 +17,14 @@ public class Car {
 		}
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
 	private boolean isGoing() {
 		int randomNum = Randoms.pickNumberInRange(RacingCarConst.RANDOM_MIN, RacingCarConst.RANDOM_MAX);
 		return randomNum >= RacingCarConst.TOGO_MIN;
