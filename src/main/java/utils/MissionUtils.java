@@ -18,7 +18,7 @@ public class MissionUtils {
 		return parsedName;
 	}
 
-	public static void checkSpecialChar(ArrayList<String> input, String regexCondition) throws IllegalArgumentException {
+	public static void checkRegex(ArrayList<String> input, String regexCondition) throws IllegalArgumentException {
 		for (String inputToken : input) {
 			if (!inputToken.matches(regexCondition)) {
 				throw new IllegalArgumentException(specialCharMessage);
