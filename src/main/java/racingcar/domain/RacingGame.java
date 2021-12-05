@@ -35,4 +35,8 @@ public class RacingGame {
             throw new RacingGameZeroRoundException();
         }
     }
+
+    public List<Car> cars() {
+        return cars.cars();
+    }
 }

@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -28,6 +30,10 @@ public class Cars {
         if (nameSet.size() != names.size()) {
             throw new CarNameDuplicateException();
         }
+    }
+
+    public List<Car> cars() {
+        return Collections.unmodifiableList(new ArrayList<>(cars));
     }
 
     public List<String> getWinners() {
