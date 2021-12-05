@@ -8,6 +8,13 @@
 - 자동차는 무작위로 주어진 수가 일정 기준 이상일 경우 전진할 수 있다.
 - 자동차는 무작위로 주어진 수가 일정 기준 미만일 경우 멈추어있다.
 - [ERROR] 자동차는 무작위로 주어진 수가 원하는 범위의 값이 아닐 경우 `IllegalArgumentException`이 발생해야 한다.
+- 현재 position을 반환할 수 있다.
+
+### Cars
+
+- [ERROR] 이름이 중복된 자동차가 들어올 경우 `IllegalArgumentException`이 발생해야 한다.
+- 이름을 가지고 랜덤 Car List를 생성할 수 있다.
+- 현재 position이 가장 큰 Car List를 반환할 수 있다.
 
 ### Game
 
