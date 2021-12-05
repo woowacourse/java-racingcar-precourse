@@ -7,9 +7,11 @@ import java.util.Objects;
 import camp.nextstep.edu.missionutils.Console;
 
 public class PlayTime {
+	public static final String ASK_PLAYTIME = "시도할 회수는 몇회인가요?";
 	private Integer round = 0;
 
 	public void getInput() {
+		System.out.println(ASK_PLAYTIME);
 		String input = readLine();
 		validInput(input);
 		round = Integer.parseInt(input);
@@ -51,5 +53,9 @@ public class PlayTime {
 	@Override
 	public int hashCode() {
 		return Objects.hash(round);
+	}
+
+	public void increase() {
+		round += 1;
 	}
 }
