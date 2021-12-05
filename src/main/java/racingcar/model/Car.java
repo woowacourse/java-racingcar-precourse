@@ -16,18 +16,18 @@ public class Car {
 	}
 
 	// 추가 기능 구현
-	public int makeRandomNumber() {
+	private int makeRandomNumber() {
 		return Randoms.pickNumberInRange(MINIMUM_RANDOM_RANGE, MAXIMUM_RANDOM_RANGE);
 	}
 
-	public boolean checkMoveForward() {
+	private boolean checkMoveForward() {
 		int randomNumber;
 
 		randomNumber = makeRandomNumber();
 		return randomNumber >= MOVE_CONDITION_NUMBER;
 	}
 
-	public void movePosition() {
+	private void movePosition() {
 		if (checkMoveForward()) {
 			position++;
 		}

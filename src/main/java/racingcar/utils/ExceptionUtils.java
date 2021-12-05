@@ -19,7 +19,6 @@ public class ExceptionUtils {
 	private static final String NATURAL_NUMBER_ERROR_MESSAGE = "시도 횟수는 자연수만 가능합니다.";
 	private static final String OVER_RANGE_ERROR_MESSAGE = "최대 허용하는 정수값을 초과했습니다.";
 
-
 	private ExceptionUtils() {
 	}
 
@@ -56,35 +55,35 @@ public class ExceptionUtils {
 		return numberOfAttempts;
 	}
 
-	public static boolean checkCarNameLength(String carName) {
+	private static boolean checkCarNameLength(String carName) {
 		return carName.length() > CAR_NAME_MINIMUM_LENGTH
 			&& carName.length() <= CAR_NAME_MAXIMUM_LENGTH;
 	}
 
-	public static boolean checkDuplicatedCarName(List<String> carNames) {
+	private static boolean checkDuplicatedCarName(List<String> carNames) {
 		return carNames.stream().distinct().count() == carNames.size();
 	}
 
-	public static boolean checkCarNameNull(String inputCarNames, List<String> carNames) {
+	private static boolean checkCarNameNull(String inputCarNames, List<String> carNames) {
 		return !carNames.isEmpty() && !inputCarNames.endsWith(COMMA);
 	}
 
-	public static boolean checkCarNameContainsSpace(String carName) {
+	private static boolean checkCarNameContainsSpace(String carName) {
 		return Objects.equals(carName, carName.replace(" ", ""));
 	}
 
-	public static boolean checkNumber(String inputNumber) {
+	private static boolean checkNumber(String inputNumber) {
 		return inputNumber.matches(REGULAR_EXPRESSION_ONLY_NUMBER);
 	}
 
-	public static boolean checkMaxValue(String inputNumber) {
+	private static boolean checkMaxValue(String inputNumber) {
 		long longNumber;
 
 		longNumber = Long.parseLong(inputNumber);
 		return longNumber <= MAXIMUM_INT_VALUE;
 	}
 
-	public static boolean checkPositiveNumber(int numberOfAttempts) {
+	private static boolean checkPositiveNumber(int numberOfAttempts) {
 		return numberOfAttempts >= MINIMUM_NATURAL_NUMBER;
 	}
 }
