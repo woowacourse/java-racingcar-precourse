@@ -5,22 +5,23 @@ import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.OutputView;
 
-public class CarService {
+public class Cars {
 	public static final int MIN_RANDOM = 0;
 	public static final int MAX_RANDOM = 9;
 	public static final int MOVE_CONDITION = 4;
 
+	private Car[] cars;
 	private OutputView outputView = new OutputView();
 
-	public Car[] enrollCars(ArrayList<String> names) {
-		Car[] cars = new Car[names.size()];
+	public void enrollCars(ArrayList<String> names) {
+		Car[] enrolledCars = new Car[names.size()];
 		for (int i = 0; i < names.size(); i++) {
-			cars[i] = new Car(names.get(i));
+			enrolledCars[i] = new Car(names.get(i));
 		}
-		return cars;
+		this.cars = enrolledCars;
 	}
 
-	public void startEachRace(Car[] cars) {
+	public void startEachRace() {
 		for (Car car : cars) {
 			int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
 			if (randomNumber >= MOVE_CONDITION) {
@@ -31,7 +32,7 @@ public class CarService {
 		System.out.println();
 	}
 
-	public ArrayList<String> findWinners(Car[] cars) {
+	public ArrayList<String> findWinners() {
 		int maxPosition = getMaxPosition(cars);
 		ArrayList<String> winners = new ArrayList<>();
 		for (Car car : cars) {

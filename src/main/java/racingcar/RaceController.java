@@ -8,20 +8,20 @@ import racingcar.view.OutputView;
 public class RaceController {
 	private InputView inputView;
 	private OutputView outputView;
-	private CarService carService;
+	private Cars cars;
 
 	public RaceController() {
 		inputView = new InputView();
 		outputView = new OutputView();
-		carService = new CarService();
+		cars = new Cars();
 	}
 
 	public void start() {
 		ArrayList<String> names = getProperNames();
-		Car[] cars = carService.enrollCars(names);
+		cars.enrollCars(names);
 		int moveCount = getProperMoveCount();
 		startRace(cars, moveCount);
-		ArrayList<String> winners = carService.findWinners(cars);
+		ArrayList<String> winners = cars.findWinners();
 		showWinners(winners);
 	}
 
@@ -35,10 +35,10 @@ public class RaceController {
 		return moveCount;
 	}
 
-	private void startRace(Car[] cars, int moveCount) {
+	private void startRace(Cars cars, int moveCount) {
 		outputView.printExecutionResult();
 		for (int i = 0; i < moveCount; i++) {
-			carService.startEachRace(cars);
+			cars.startEachRace();
 		}
 	}
 
