@@ -1,4 +1,4 @@
-package view;
+package view.input;
 
 public class InputView implements InputDisplayable {
     private static final String ERROR_SYMBOL = "[ERROR] ";

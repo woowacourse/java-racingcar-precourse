@@ -10,10 +10,10 @@ import model.attempt.LeftAttemptCount;
 import model.car.Cars;
 import model.movement.Movement;
 import model.movement.RandomMovement;
-import view.InputDisplayable;
-import view.InputView;
-import view.OutputDisplayable;
-import view.OutputView;
+import view.input.InputDisplayable;
+import view.input.InputView;
+import view.output.OutputDisplayable;
+import view.output.OutputView;
 
 public class RacingController {
     private final InputDisplayable inputDisplayable = new InputView();

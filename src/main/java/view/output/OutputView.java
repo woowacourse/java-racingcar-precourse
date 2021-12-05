@@ -1,4 +1,4 @@
-package view;
+package view.output;
 
 import static util.StringRepeater.repeat;
 
