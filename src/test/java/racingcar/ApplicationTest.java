@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -72,6 +73,26 @@ class ApplicationTest extends NsTest {
             car.tryMove();
         }
         return car;
+    }
+
+    @Test
+    void 자동차_비교기능_테스트() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                Car fastCar = new Car("fast");
+                Car slowCar = new Car("slow");
+
+                fastCar.tryMove();  //fast:1, slow:0
+                assertThat(fastCar.compareTo(slowCar)).isGreaterThan(0);
+
+                slowCar.tryMove();  //fast:1, slow:1
+                assertThat(fastCar.compareTo(slowCar)).isEqualTo(0);
+
+                slowCar.tryMove();  //fast:1, slow:2
+                assertThat(fastCar.compareTo(slowCar)).isLessThan(0);
+            },
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
     }
 
     @Override
