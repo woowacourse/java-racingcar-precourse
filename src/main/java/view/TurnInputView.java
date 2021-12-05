@@ -33,14 +33,18 @@ enum TurnIntEnums {
 
 public class TurnInputView implements InputView{
 
+	public void checkConditions(String nowInput) throws IllegalArgumentException {
+		ArrayList<String> nowInputArray = new ArrayList<>(Arrays.asList(nowInput));
+		MissionUtils.checkRegex(nowInputArray, TurnStringEnums.TURN_REGEX.getValue());
+		MissionUtils.checkOverSomeInt(nowInput, TurnIntEnums.TURN_MIN.getValue());
+	}
+
 	public String getInput() {
 		String turnInput = "";
 		while (turnInput.isEmpty()) {
 			try {
 				String nowInput = camp.nextstep.edu.missionutils.Console.readLine();
-				ArrayList<String> nowInputArray = new ArrayList<>(Arrays.asList(nowInput));
-				MissionUtils.checkRegex(nowInputArray, TurnStringEnums.TURN_REGEX.getValue());
-				MissionUtils.checkOverSomeInt(nowInput, TurnIntEnums.TURN_MIN.getValue());
+				checkConditions(nowInput);
 				turnInput = nowInput;
 			} catch (IllegalArgumentException error) {
 				System.out.print(error.getMessage());
