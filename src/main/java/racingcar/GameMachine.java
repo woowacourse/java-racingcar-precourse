@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameMachine {
-	private int round;
+	public static final int ZERO = 0;
 
-	private List<Car> cars;
+	private int round;
+	private final List<Car> cars;
 
 	public GameMachine() {
 		this.cars = new ArrayList<>();
@@ -46,7 +46,7 @@ public class GameMachine {
 
 	public void raceStart(int round) {
 		System.out.println("실행 결과");
-		while (round > 0) {
+		while (round > ZERO) {
 			for (Car car : this.cars) {
 				car.move();
 				car.statusReport();
@@ -57,23 +57,18 @@ public class GameMachine {
 	}
 
 	public void awards() {
-		List<Car> winners = new ArrayList<>();
+		List<String> winners = new ArrayList<>();
 		int maxPosition = findMaxPosition();
-		StringBuffer winnerMSG = new StringBuffer("최종 우승자 : ");
 		for (Car car : this.cars) {
 			if (car.getPosition() == maxPosition) {
-				winners.add(car);
+				winners.add(car.getName());
 			}
 		}
-		for (Car car : winners) {
-			winnerMSG.append(car.getName());
-			winnerMSG.append(", ");
-		}
-		System.out.println(winnerMSG.substring(0, winnerMSG.length() - 2));
+		System.out.println("최종 우승자 : " + String.join(", ", winners));
 	}
 
 	public int findMaxPosition() {
-		int maxPosition = 0;
+		int maxPosition = ZERO;
 		for (Car car : this.cars) {
 			if (car.getPosition() > maxPosition) {
 				maxPosition = car.getPosition();
