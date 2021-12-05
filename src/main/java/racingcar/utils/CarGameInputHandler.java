@@ -11,6 +11,7 @@ public class CarGameInputHandler {
 
     final private static int NAME_MAX_LENGTH = 5;
     final private static String DELIMITER = ",";
+    private static final char DELIMITER_CHAR = ',';
 
     public static List<String> getCarNames() throws IllegalArgumentException {
         String input = Console.readLine();
@@ -49,7 +50,7 @@ public class CarGameInputHandler {
 
     private static boolean isValidFormat(String name) {
         return name.chars()
-            .filter(c -> String.valueOf(c).equals(DELIMITER))
+            .filter(c -> c == DELIMITER_CHAR)
             .count() + 1 == name.split(DELIMITER).length;
     }
 
