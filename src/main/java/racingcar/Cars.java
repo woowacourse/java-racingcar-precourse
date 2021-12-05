@@ -1,10 +1,7 @@
 package racingcar;
 
-import java.util.ArrayList;
-
 public class Cars implements ICars {
     private Car[] carArray;
-    private String match = "[^\uAC00-\uD7A30-9a-zA-Z]";
 
     @Override
     public void createCar(String[] names){
@@ -40,6 +37,7 @@ public class Cars implements ICars {
         for (int i = 0; i < carArray.length; i++) {
             System.out.println(carArray[i].getTrace().get(count));
         }
+        System.out.println();
     }
 
     private int getMaxPosition() {
