@@ -20,9 +20,11 @@ public class Cars {
 
 	public void printPosition() {
 		cars.forEach(car -> car.printPosition());
+		System.out.println();
 	}
 
-	public boolean isEndGame() {
-		return false;
+	public boolean isEndGame(int tryNumber) {
+		return cars.stream()
+			.anyMatch(car -> car.isEndGame(tryNumber));
 	}
 }

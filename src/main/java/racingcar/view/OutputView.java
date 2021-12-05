@@ -11,10 +11,11 @@ public class OutputView {
 
 	public static void printResult(ViewDto viewDto) {
 		Cars cars = viewDto.getCars();
-		while (!cars.isEndGame()) {
-			cars.printPosition();
+		int tryNumber = viewDto.getTryNumber();
+		while (!cars.isEndGame(tryNumber)) {
 			cars.move();
-		}
+			cars.printPosition();
+		};
 
 	}
 }

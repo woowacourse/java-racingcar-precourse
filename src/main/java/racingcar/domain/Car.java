@@ -43,8 +43,10 @@ public class Car {
         for (int i = 0; i < position; i++) {
             stringBuffer.append(MOVING_LINE);
         }
-        stringBuffer.append(System.lineSeparator());
         System.out.println(stringBuffer);
     }
 
+    public boolean isEndGame(int tryNumber) {
+        return position >= tryNumber;
+    }
 }
