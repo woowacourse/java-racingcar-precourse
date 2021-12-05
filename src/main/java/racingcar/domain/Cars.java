@@ -8,13 +8,22 @@ import racingcar.type.RangeType;
 
 public class Cars {
 
-	private final String INVALID_CAR_NAME_LENGTH = "자동차 이름의 길이가 잘못되었습니다. 1 ~ 5 글자로 입력해주세요.";
-	private final String DUPLICATE_CAR_NAME = "중복된 자동차 이름이 존재합니다.";
+	private final String INVALID_CAR_NAME_LENGTH = "[ERROR] 자동차 이름의 길이가 잘못되었습니다. 1 ~ 5 글자로 입력해주세요.";
+	private final String DUPLICATE_CAR_NAME = "[ERROR] 중복된 자동차 이름이 존재합니다.";
 	private final List<Car> cars;
+	private int winnerPosition = 0;
 
 	public Cars(List<Car> cars) {
 		validateLengthAndDuplicate(cars);
 		this.cars = cars;
+	}
+
+	public List<Car> getCars() {
+		return cars;
+	}
+
+	public int getWinnerPosition() {
+		return winnerPosition;
 	}
 
 	private void validateLengthAndDuplicate(List<Car> cars) {
@@ -47,4 +56,7 @@ public class Cars {
 		return true;
 	}
 
+	public void updateWinnerPosition(int position) {
+		winnerPosition = Math.max(winnerPosition, position);
+	}
 }
