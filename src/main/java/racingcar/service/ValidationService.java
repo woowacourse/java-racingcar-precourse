@@ -17,8 +17,8 @@ public class ValidationService {
 		}
 	}
 
-	public static boolean isEmpty(String names) {
-		return names.isEmpty();
+	public static boolean isEmpty(String target) {
+		return target.isEmpty();
 	}
 
 	private static boolean isEqualToDelimiter(String target, String delimiter) {
