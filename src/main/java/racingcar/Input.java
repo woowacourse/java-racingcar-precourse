@@ -12,7 +12,7 @@ public class Input {
 		while(true){
 			carNames = Console.readLine().split(", +");
 			try {
-				// checkCarNames(carNames);
+				checkCarNames(carNames);
 				break;
 			} catch (IllegalArgumentException exception){ }
 		}
@@ -27,5 +27,12 @@ public class Input {
 		// validate isNumber
 
 		return Integer.parseInt(number);
+	}
+
+	private static void checkCarNames(String[] carNames) {
+		for (String carName : carNames) {
+			// validate length
+			// validate isSpace
+		}
 	}
 }
