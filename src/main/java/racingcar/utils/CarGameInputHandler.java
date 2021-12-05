@@ -49,8 +49,8 @@ public class CarGameInputHandler {
 
     private static boolean isValidFormat(String name) {
         return name.chars()
-            .mapToObj(c -> String.valueOf(c).equals(DELIMITER))
-            .count() == name.split(DELIMITER).length;
+            .filter(c -> String.valueOf(c).equals(DELIMITER))
+            .count() + 1 == name.split(DELIMITER).length;
     }
 
     private static boolean isNonDuplicatedNames(List<String> names) {

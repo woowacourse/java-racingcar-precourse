@@ -1,10 +1,12 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.Scanner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,6 +28,15 @@ public class NameValidationTest {
             IllegalArgumentException.class,
             CarGameInputHandler::getCarNames
         );
+    }
+
+    @DisplayName("정상적인 입력을 테스트한다.")
+    @Test
+    void checkNormalInput() {
+        System.setIn(new ByteArrayInputStream("test\n".getBytes()));
+        List<String> list = CarGameInputHandler.getCarNames();
+        assertThat(list.size()).isEqualTo(1);
+        assertThat(list.get(0)).isEqualTo("test");
     }
 
     @Test
