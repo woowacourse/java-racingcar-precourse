@@ -18,5 +18,8 @@ public class StringConstants {
     public static final String DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD = " : ";
     public static final String MARK_FOR_DISTANCE_RECORD = "-";
 
+    public static final String PREFIX_OF_WINNER_NOTICE = "최종 우승자 : ";
+    public static final String DELIMITER_BETWEEN_WINNERS = ", ";
+
     public static final String NEW_LINE = System.lineSeparator();
 }

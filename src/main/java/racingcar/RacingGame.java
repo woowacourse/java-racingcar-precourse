@@ -35,13 +35,13 @@ public class RacingGame {
         }
     }
 
+    public List<Car> determineWinners() {
+        return carRepository.findTopByOrderByPosition();
+    }
+
     private void showGameResult() {
         RacingResultsView racingResultsView = new RacingResultsView(findCars());
         racingResultsView.print();
-    }
-
-    private void determineWinners() {
-        List<Car> topByOrderByPosition = carRepository.findTopByOrderByPosition();
     }
 
     private void validateRoundNumber(int number) {
@@ -63,7 +63,5 @@ public class RacingGame {
             car.run(generateRandomNumber());
         }
     }
-
-   
 }
 

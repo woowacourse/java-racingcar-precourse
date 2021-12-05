@@ -1,5 +1,11 @@
 package racingcar;
 
+import static racingcar.StringConstants.DELIMITER_BETWEEN_WINNERS;
+import static racingcar.StringConstants.PREFIX_OF_WINNER_NOTICE;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.inputvalue.CarNameInputValue;
 import racingcar.inputvalue.InputValue;
@@ -24,5 +30,11 @@ public class RacingController {
         int numberOfRounds = NumberOfRoundsInput.toRaceElement();
         racingGame.createNumberOfRounds(numberOfRounds);
         return numberOfRounds;
+    }
+
+    public void showWinners() {
+        List<Car> winners = racingGame.determineWinners();
+        RacingWinnersView racingWinnersView = new RacingWinnersView(winners);
+        racingWinnersView.print();
     }
 }
