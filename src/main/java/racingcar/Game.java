@@ -6,6 +6,7 @@ public class Game {
     private String input;
     public String[] carNames;
     public int times;
+    public boolean checking;
 
     public Game() {
 
@@ -16,19 +17,28 @@ public class Game {
     }
 
     public void gameStart() {
+        carInput();
+        timesInput();
+
+
+    }
+
+    public void carInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        boolean checking = false;
+        checking = false;
         while (!checking) {
             Input();
             checking = checkCars();
         }
+    }
+
+    public void timesInput() {
         System.out.println("시도할 회수는 몇회인가요?");
         checking = false;
         while (!checking) {
             Input();
             checking = checkTimes();
         }
-
     }
 
     private boolean checkCars() {
