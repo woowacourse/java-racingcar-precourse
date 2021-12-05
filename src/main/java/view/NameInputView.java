@@ -32,16 +32,20 @@ enum NameIntEnums {
 
 public class NameInputView implements InputView {
 
+	public void checkConditions(String nowInput) throws IllegalArgumentException {
+		ArrayList<String> parsedNowInput = MissionUtils.parseInput(nowInput, NameStringEnums.DELIMITER.getValue());
+		MissionUtils.checkEmptyArray(parsedNowInput);
+		MissionUtils.checkRegex(parsedNowInput, NameStringEnums.MY_REGEX.getValue());
+		MissionUtils.checkDuplication(parsedNowInput);
+		MissionUtils.checkLength(parsedNowInput, NameIntEnums.SIZE.getValue());
+	}
+
 	public String getInput() {
 		String nameInput = "";
 		while (nameInput.isEmpty()) {
 			try {
 				String nowInput = camp.nextstep.edu.missionutils.Console.readLine();
-				ArrayList<String> parsedNowInput = MissionUtils.parseInput(nowInput, NameStringEnums.DELIMITER.getValue());
-				MissionUtils.checkEmptyArray(parsedNowInput);
-				MissionUtils.checkRegex(parsedNowInput, NameStringEnums.MY_REGEX.getValue());
-				MissionUtils.checkDuplication(parsedNowInput);
-				MissionUtils.checkLength(parsedNowInput, NameIntEnums.SIZE.getValue());
+				checkConditions(nowInput);
 				nameInput = nowInput;
 			} catch (IllegalArgumentException error) {
 				System.out.print(error.getMessage());
