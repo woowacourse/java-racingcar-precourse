@@ -21,6 +21,7 @@ public class RacingCarGame {
 		user.askNumberOfTimesUntilCorrect();
 		makeCarList();
 		printResult();
+		printWinner();
 	}
 
 	private void makeCarList() {
@@ -48,7 +49,9 @@ public class RacingCarGame {
 		for (int i = 1; i < carList.size(); i++) {
 			if (winner.draw(carList.get(i))) {
 				winnerNames += ", " + carList.get(i).getName();
+				continue;
 			}
+			break;
 		}
 		System.out.println(WINNER_MESSAGE + winnerNames);
 	}
