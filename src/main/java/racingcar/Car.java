@@ -27,12 +27,16 @@ public class Car {
 		position += convertRandomNumToForwardStep(makeRandomOneDigitNum());
 	}
 
-	protected String getCurrentPosition() {
+	protected String getCurrentPositionVisualization() {
 		StringBuilder currentPosition = new StringBuilder();
 		for (int i = 0; i < position; ++i) {
 			currentPosition.append("-");
 		}
 		return currentPosition.toString();
+	}
+
+	protected int getPosition() {
+		return position;
 	}
 
 	protected String getName() {

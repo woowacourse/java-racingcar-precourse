@@ -1,11 +1,16 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class RacingGame {
 
 	private static final String QUESTION_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String QUESTION_TRY_NUM = "시도할 회수는 몇회인가요?";
 	private static final String ERROR_MESSAGE_CHECK_STRING_IS_NUMBER = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	private static final String ERROR_MESSAGE_CHECK_NAME_RULE = "[ERROR] 자동차 이름의 길이는 1이상 5이하를 만족해야 한다.";
+	private static final String WINNER_OUTPUT_MESSAGE = "최종 우승자";
+	private static final String COMMA_SPACE = ", ";
+	private static final String SPACE_COLON_SPACE = " : ";
 	private static final int NAME_LENGTH_LIMIT = 5;
 
 	private int totalTryNum;
@@ -102,12 +107,48 @@ public class RacingGame {
 
 	private void printCurrentPositions() {
 		for (int i = 0; i < cars.length; ++i) {
-			System.out.printf("%s : %s\n", cars[i].getName(), cars[i].getCurrentPosition());
+			System.out.printf("%s%s%s\n", cars[i].getName(), SPACE_COLON_SPACE,
+				cars[i].getCurrentPositionVisualization());
 		}
 	}
 
 	private void playOneCycle() {
 		moveAllCars();
 		printCurrentPositions();
+	}
+
+	private int getBestScore() {
+		int bestScore = 0;
+		for (int i = 0; i < cars.length; ++i) {
+			if (cars[i].getPosition() > bestScore) {
+				bestScore = cars[i].getPosition();
+			}
+		}
+		return bestScore;
+	}
+
+	private ArrayList<Integer> getWinnersIndex() {
+		int bestScore = getBestScore();
+		ArrayList<Integer> winnersIndex = new ArrayList<>();
+		for (int i = 0; i < cars.length; ++i) {
+			if (bestScore == cars[i].getPosition()) {
+				winnersIndex.add(i);
+			}
+		}
+		return winnersIndex;
+	}
+
+	private String getWinnersName(ArrayList<Integer> winnersIndex) {
+		StringBuilder winnersName = new StringBuilder();
+		winnersName.append(cars[winnersIndex.get(0)].getName());
+		for (int i = 1; i < winnersIndex.size(); ++i) {
+			winnersName.append(COMMA_SPACE + cars[winnersIndex.get(i)].getName());
+		}
+		return winnersName.toString();
+	}
+
+	private void printWinners() {
+		ArrayList<Integer> winnersIndex = getWinnersIndex();
+		System.out.printf("%s%s%s%n", WINNER_OUTPUT_MESSAGE, SPACE_COLON_SPACE, getWinnersName(winnersIndex));
 	}
 }
