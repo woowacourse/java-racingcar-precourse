@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static util.Constants.*;
+import static racingcar.constants.HostMessages.*;
 
 import java.util.List;
 

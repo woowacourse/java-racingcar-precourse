@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static util.Constants.*;
+import static racingcar.constants.GameConstants.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
