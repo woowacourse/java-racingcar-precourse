@@ -14,6 +14,7 @@ import view.input.InputDisplayable;
 import view.input.InputView;
 import view.output.OutputDisplayable;
 import view.output.OutputView;
+import dto.AttemptResult;
 
 public class RacingController {
     private final InputDisplayable inputDisplayable = new InputView();
@@ -66,6 +67,9 @@ public class RacingController {
 
     private void attemptOnce(final Movement randomMovement) {
         cars.race(randomMovement);
-        outputDisplayable.showAttemptResult(cars.getAttemptResult());
+        List<AttemptResult> result = cars.getAttemptResult().stream()
+                .map(AttemptResult::new)
+                .collect(Collectors.toList());
+        outputDisplayable.showAttemptResult(result);
     }
 }

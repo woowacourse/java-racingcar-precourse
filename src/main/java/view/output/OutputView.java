@@ -2,6 +2,7 @@ package view.output;
 
 import static util.StringRepeater.repeat;
 
+import dto.AttemptResult;
 import model.car.Car;
 
 import java.util.List;
@@ -19,12 +20,12 @@ public class OutputView implements OutputDisplayable {
     }
 
     @Override
-    public void showAttemptResult(final List<Car> cars) {
+    public void showAttemptResult(final List<AttemptResult> results) {
         StringBuilder output = new StringBuilder();
-        cars.forEach(car -> output
-                .append(car.getName())
+        results.forEach(result -> output
+                .append(result.getName())
                 .append(COLON_DELIMITER)
-                .append(repeat(POSITION_SYMBOL, car.getPosition()))
+                .append(repeat(POSITION_SYMBOL, result.getPosition()))
                 .append(NEW_LINE)
         );
         System.out.println(output);
