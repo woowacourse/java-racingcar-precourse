@@ -1,6 +1,6 @@
 package racingcar.util;
 
-import racingcar.ErrorInfo;
+import static racingcar.error.ErrorMessage.*;
 
 public class NumberParser {
 
@@ -10,6 +10,6 @@ public class NumberParser {
 		if (string.chars().allMatch(Character::isDigit)) {
 			return Integer.parseInt(string);
 		}
-		throw new IllegalArgumentException(ErrorInfo.NUMBER.getMessage());
+		throw new IllegalArgumentException(NOT_NUMBER.getMessage());
 	}
 }

@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.util.Assertions;
+import static racingcar.error.ErrorMessage.*;
 
 public class Car {
 	private static final int NAME_LENGTH = 5;
@@ -15,8 +16,22 @@ public class Car {
 	private int position = 0;
 
 	public Car(String name) {
-		Assertions.throwExceptionIsTrue(name.length() > NAME_LENGTH, ErrorInfo.LENGTH);
+		Assertions.throwExceptionIsTrue(name.length() > NAME_LENGTH, INVALID_LENGTH);
 		this.name = name;
+	}
+
+	public void move(int movePoint) {
+		if (movePoint >= MOVING_FORWARD) {
+			this.position++;
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public int getPosition() {
+		return this.position;
 	}
 
 	@Override
@@ -36,12 +51,6 @@ public class Car {
 		return Objects.hash(name);
 	}
 
-	public void move(int movePoint) {
-		if (movePoint >= MOVING_FORWARD) {
-			this.position++;
-		}
-	}
-
 	@Override
 	public String toString() {
 		return new StringBuilder()
@@ -50,13 +59,5 @@ public class Car {
 			.append(IntStream.range(0, this.position)
 				.mapToObj(i -> POSITION)
 				.collect(Collectors.joining())).toString();
-	}
-
-	public int getPosition() {
-		return this.position;
-	}
-
-	public String getName() {
-		return this.name;
 	}
 }

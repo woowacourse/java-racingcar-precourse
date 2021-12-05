@@ -1,5 +1,6 @@
 package racingcar;
 
+import static racingcar.error.ErrorMessage.*;
 import java.util.Optional;
 import racingcar.util.Assertions;
 
@@ -10,8 +11,8 @@ public class MoveCount {
 	private final int count;
 
 	public MoveCount(int count) {
-		Assertions.throwExceptionIsTrue(count > MAX_COUNT, ErrorInfo.MAX);
-		Assertions.throwExceptionIsTrue(count <= MIN_COUNT, ErrorInfo.MIN);
+		Assertions.throwExceptionIsTrue(count > MAX_COUNT, OVER_MAX);
+		Assertions.throwExceptionIsTrue(count <= MIN_COUNT, UNDER_MIN);
 		this.count = count;
 	}
 

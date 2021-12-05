@@ -1,79 +1,50 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
-import java.util.Optional;
-import racingcar.util.NumberParser;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 
-public class CarGame implements Runnable {
-	private static final String GUIDE_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-	private static final String GUIDE_MOVE_COUNT = "시도할 회수는 몇회인가요?";
-	private static final String COMMA = ",";
+public class CarGame implements Runnable, CarGameRunner {
 	private static final String WINNER = "최종 우승자 : ";
 	private static final String WINNER_COMMA = ", ";
 
+	private static final int MIN_NUMBER = 0;
+	private static final int MAX_NUMBER = 9;
 
-	private final CarGameRunner carGameRunner;
+	private final CarInitializer carInitializer;
+	private final MovementGenerator movementGenerator;
 
-	public CarGame(CarGameRunner carGameRunner) {
-		this.carGameRunner = carGameRunner;
+	public CarGame(CarInitializer carInitializer, MovementGenerator movementGenerator) {
+		this.carInitializer = carInitializer;
+		this.movementGenerator = movementGenerator;
 	}
 
 	@Override
 	public void run() {
-		while (true) {
-			generateCars();
-			if (Cars.isReady()) {
-				break;
-			}
-		}
+		carInitializer.registerCars();
+		startRace(CarRepository.getCars(), movementGenerator.createMoveCount().getCount());
+		printWinner();
+	}
 
-		MoveCount moveCount;
-		while (true) {
-			Optional<MoveCount> optionalMoveCount = createMoveCount();
-			if (optionalMoveCount.isPresent()) {
-				moveCount = optionalMoveCount.get();
-				break;
-			}
+	@Override
+	public void startRace(List<Car> cars, int moveCount) {
+		for (int round = 0; round < moveCount; round++) {
+			race(cars);
 		}
+	}
 
-		carGameRunner.startRace(Cars.getCars(), moveCount.getCount());
+	private void race(List<Car> cars) {
+		cars.forEach(car -> {
+			car.move(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
+			System.out.println(car.toString());
+		});
+		System.out.println();
+	}
+
+	@Override
+	public void printWinner() {
 		System.out.println(new StringBuilder()
 			.append(WINNER)
-			.append(String.join(WINNER_COMMA, Cars.getWinners()))
+			.append(String.join(WINNER_COMMA, CarRepository.getWinners()))
 			.toString());
-
-	}
-	private void generateCars() {
-		try {
-			Arrays.stream(splitComma(trim(inputCarNames())))
-				.forEach(name -> Cars.addCar(new Car(name)));
-		} catch (IllegalArgumentException exception) {
-			Cars.clear();
-			System.out.println(exception.getMessage());
-		}
-	}
-
-	private String[] splitComma(String carNames) {
-		return carNames.split(COMMA);
-	}
-
-	private String trim(String inputCarNames) {
-		return inputCarNames.trim();
-	}
-
-	private String inputCarNames() {
-		System.out.println(GUIDE_INPUT_CAR_NAME);
-		return Console.readLine();
-	}
-
-	private Optional<MoveCount> createMoveCount() {
-		System.out.println(GUIDE_MOVE_COUNT);
-		try {
-			return Optional.of(new MoveCount(NumberParser.parseInt(Console.readLine())));
-		} catch (IllegalArgumentException exception) {
-			System.out.println(exception.getMessage());
-			return MoveCount.Empty();
-		}
 	}
 }

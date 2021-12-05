@@ -1,18 +1,20 @@
 package racingcar;
 
+import static racingcar.error.ErrorMessage.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.Assertions;
 
-public class Cars {
+public class CarRepository {
 	private static final List<Car> cars = new ArrayList<>();
+	private static final int FIRST_POSITION = 0;
 
-	private Cars() {}
+	private CarRepository() {}
 
 	public static void addCar(Car car) {
-		Assertions.throwExceptionIsTrue(cars.contains(car), ErrorInfo.OVERLAP);
+		Assertions.throwExceptionIsTrue(cars.contains(car), OVERLAP);
 		cars.add(car);
 	}
 
@@ -25,7 +27,7 @@ public class Cars {
 	}
 
 	public static List<String> getWinners() {
-		int maxPosition = 0;
+		int maxPosition = FIRST_POSITION;
 		for (Car car : cars) {
 			maxPosition = Math.max(car.getPosition(), maxPosition);
 		}

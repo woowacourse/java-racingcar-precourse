@@ -1,13 +1,13 @@
 package racingcar.util;
 
-import racingcar.ErrorInfo;
+import racingcar.error.ErrorMessage;
 
 public class Assertions {
 	private Assertions() {}
 
-	public static void throwExceptionIsTrue(boolean condition, ErrorInfo errorInfo) {
+	public static void throwExceptionIsTrue(boolean condition, ErrorMessage errorMessage) {
 		if (condition) {
-			throw new IllegalArgumentException(errorInfo.getMessage());
+			throw new IllegalArgumentException(errorMessage.getMessage());
 		}
 	}
 }
