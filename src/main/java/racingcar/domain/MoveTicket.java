@@ -10,11 +10,15 @@ public class MoveTicket {
 
     private final Integer ticketValue;
 
-    public MoveTicket() {
+    public static boolean checkTicket() {
+        return new MoveTicket().isValidTicket();
+    }
+
+    private MoveTicket() {
         this.ticketValue = Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
     }
 
-    public boolean isValidTicket() {
+    private boolean isValidTicket() {
         return this.ticketValue >= THRESHOLD;
     }
 }
