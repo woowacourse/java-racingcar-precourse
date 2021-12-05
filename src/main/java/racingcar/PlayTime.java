@@ -4,17 +4,20 @@ import static camp.nextstep.edu.missionutils.Console.*;
 
 import java.util.Objects;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class PlayTime {
-	public static final String ASK_PLAYTIME = "시도할 회수는 몇회인가요?";
+
+	public static final String PLAY_TIME_NOT_NUMBER_EXCEPTION = "[ERROR] 시도 횟수는 숫자여야 한다.";
+	public static final String PLAY_TIME_NON_POSITIVE_EXCEPTION = "[ERROR] 시도 횟수는 양수이어야 한다.";
 	private Integer round = 0;
 
 	public void getInput() {
-		System.out.println(ASK_PLAYTIME);
-		String input = readLine();
-		validInput(input);
-		round = Integer.parseInt(input);
+		try {
+			String input = readLine();
+			validInput(input);
+			round = Integer.parseInt(input);
+		} catch (IllegalArgumentException e) {
+			getInput();
+		}
 	}
 
 	private void validInput(String input) {
@@ -26,13 +29,15 @@ public class PlayTime {
 		try {
 			Integer.parseInt(input);
 		} catch (Exception e) {
-			throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+			System.out.println(PLAY_TIME_NOT_NUMBER_EXCEPTION);
+			throw new IllegalArgumentException();
 		}
 	}
 
 	private void validPositive(String input) {
 		if (Integer.parseInt(input) <= 0) {
-			throw new IllegalArgumentException("[ERROR] 시도 횟수는 양수이어야 한다.");
+			System.out.println(PLAY_TIME_NON_POSITIVE_EXCEPTION);
+			throw new IllegalArgumentException();
 		}
 	}
 

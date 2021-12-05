@@ -20,7 +20,8 @@ public class Car {
 
 	private void validName(String name) {
 		if (name.length() < CAR_NAME_MIN_LENGTH || name.length() > CAR_NAME_MAX_LENGTH) {
-			throw new IllegalArgumentException("[ERROR] 자동차 이름은 1자 이상 5자 이하여야 한다.");
+			System.out.println("[ERROR] 자동차 이름은 1자 이상 5자 이하여야 한다.");
+			throw new IllegalArgumentException();
 		}
 	}
 
@@ -36,7 +37,7 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return name + ": " + getRoad();
+		return name + " : " + getRoad();
 	}
 
 	private String getRoad() {
