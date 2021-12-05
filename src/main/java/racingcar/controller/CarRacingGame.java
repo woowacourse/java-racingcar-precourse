@@ -10,4 +10,5 @@ public class CarRacingGame {
 		InputView.inputCarsName(SPLIT_REGEX);
 		InputView.inputMovesNumber();
 	}
+
 }
