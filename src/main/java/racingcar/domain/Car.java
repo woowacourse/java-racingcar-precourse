@@ -10,10 +10,6 @@ public class Car implements Comparable<Car> {
 		this.name = name;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public int getPosition() {
 		return position;
 	}
@@ -38,5 +34,10 @@ public class Car implements Comparable<Car> {
 			return 1;
 		}
 		return -1;
+	}
+
+	@Override
+	public String toString() {
+		return name;
 	}
 }
