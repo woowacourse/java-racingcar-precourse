@@ -1,8 +1,6 @@
 package domain;
-
-import racingcar.Game;
 import utils.Validation;
-import view.InputView;
+
 
 public class Turn {
     private int turns;

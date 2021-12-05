@@ -2,9 +2,6 @@ package domain;
 
 import utils.RandomGenerate;
 
-import java.util.Comparator;
-import java.util.Random;
-
 public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;

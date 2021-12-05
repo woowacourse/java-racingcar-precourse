@@ -1,11 +1,5 @@
 package view;
 
-
-import domain.CarList;
-import domain.Turn;
-import utils.Message;
-import utils.Validation;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 

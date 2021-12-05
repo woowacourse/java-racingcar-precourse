@@ -4,7 +4,6 @@ package racingcar;
 import domain.Car;
 import domain.CarList;
 import domain.Turn;
-import utils.Validation;
 import view.InputView;
 import view.OutputView;
 
@@ -12,7 +11,6 @@ import view.OutputView;
 public class Game {
     private CarList cars;
     private int turns;
-    private Validation validation = new Validation();
 
     public Game(){
         setCarList();
