@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import static racingcar.Constant.MOVE_MARK;
+import static racingcar.util.Constant.*;
 
 public class Car {
     private final String name;
@@ -15,8 +15,8 @@ public class Car {
     // 추가 기능 구현
 
     public void move() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        int randomNumber = Randoms.pickNumberInRange(0, RANDOM_MAXIMUM_NUMBER);
+        if (randomNumber >= FORWARD_STANDARD_NUMBER) {
             position++;
         }
     }

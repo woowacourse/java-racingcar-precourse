@@ -1,11 +1,12 @@
 package racingcar.domain;
 
-import racingcar.Car;
-import racingcar.Race;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
 
 import java.util.ArrayList;
+
+import static racingcar.util.Constant.CAR_NAME_LENGTH_ERROR_MESSAGE;
+import static racingcar.util.Constant.NOT_DIGIT_ERROR_MESSAGE;
 
 public class Game {
     private Race race;
@@ -28,7 +29,7 @@ public class Game {
         ArrayList<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             if (carName.length() > 5) {
-                throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하만 가능하다.");
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
             }
             Car car = new Car(carName);
             cars.add(car);
@@ -41,7 +42,7 @@ public class Game {
             OutputView.printInputNumberGuideMessage();
             String userInput = InputView.getUserInput();
             if(!userInput.chars().allMatch(Character::isDigit)){
-                throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+                throw new IllegalArgumentException(NOT_DIGIT_ERROR_MESSAGE);
             }
             race.setMoveCount(Integer.parseInt(userInput));
         } catch (IllegalArgumentException exception) {
