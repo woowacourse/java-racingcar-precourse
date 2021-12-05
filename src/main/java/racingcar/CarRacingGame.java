@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class CarRacingGame {
-    private final String RESTART_GAME_MESSAGE = "[ERROR] 잘못된 입력입니다.";
 
     private static final List<Car> carList = Car.carList;
+    private boolean result;
 
     public void startGame() throws IOException {
         String[] cars = askCarName();
@@ -36,11 +36,9 @@ public class CarRacingGame {
 
     private String[] askCarName() throws IOException {
         String inputCars = InputView.getCarNameList();
-        boolean result = InputErrorCheck.isValidCar(inputCars);
+        result = InputErrorCheck.isValidCar(inputCars);
         try {
-            if (!result) {
-                throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
-            }
+            throwErrorMessage();
         } catch (Exception e) {
             askCarName();
             throw e;
@@ -51,15 +49,20 @@ public class CarRacingGame {
 
     private int askNumberOfAttempts() throws IOException {
         String inputNumberOfAttempts = InputView.getNumberOfAttempts();
-        boolean result = InputErrorCheck.isValidNum(inputNumberOfAttempts);
+        result = InputErrorCheck.isValidNum(inputNumberOfAttempts);
         try {
-            if (!result) {
-                throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
-            }
+            throwErrorMessage();
         } catch (Exception e) {
             askNumberOfAttempts();
             throw e;
         }
         return Integer.parseInt(inputNumberOfAttempts);
+    }
+
+    private void throwErrorMessage() {
+        if (!result) {
+            String RESTART_GAME_MESSAGE = "[ERROR] 잘못된 입력입니다.";
+            throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
+        }
     }
 }
