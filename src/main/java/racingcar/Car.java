@@ -28,4 +28,14 @@ public class Car {
     public void setReady() {
         position = 0;
     }
+
+    public void printStatus() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(name);
+        stringBuilder.append(" : ");
+        for (int i = 0; i < position; i++) {
+            stringBuilder.append("-");
+        }
+        System.out.println(stringBuilder);
+    }
 }
