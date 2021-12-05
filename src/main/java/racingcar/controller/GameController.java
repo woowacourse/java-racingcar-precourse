@@ -25,22 +25,22 @@ public class GameController {
 	}
 
 	private void makeCars() {
-		String[] carNames = getCarNameArray();
+		String[] carNames = getCarNamesInput();
 		for (String carName : carNames) {
 			CarRepository.addCar(new Car(carName));
 		}
 	}
 
-	private String[] getCarNameArray() {
+	private String[] getCarNamesInput() {
 		OutputView.printCarNameRequestMessage();
-		String carNames = InputView.getCarNames();
+		String[] carNames = InputView.getCarNames().split(",");
 		try {
 			InputValidator.checkIsValidCarNames(carNames);
 		} catch (Exception exception) {
 			OutputView.printErrorMessage(exception.getMessage());
-			return getCarNameArray();
+			return getCarNamesInput();
 		}
-		return carNames.split(",");
+		return carNames;
 	}
 
 	private void makeRoundNumber() {
