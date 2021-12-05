@@ -24,4 +24,8 @@ public class Car {
     private int pickRandomNumber() {
         return pickNumberInRange(0, 9);
     }
+
+    public void setReady() {
+        position = 0;
+    }
 }
