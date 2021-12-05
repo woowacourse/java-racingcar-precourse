@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import camp.nextstep.edu.missionutils.Console;
 
 /**
- * <h1>실제 레이싱 게임 로직</h1>
+ * <h1>레이싱 게임에 필요한 정보를 입력받고 레이싱 게임을 실행시킨다</h1>
  *
  * @author yunki kim
  * @version 2.0

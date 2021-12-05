@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author yunki kim
  * @version 1.0
- * @since 2021-12-05
+ * @since 2021-12-05(V1.0)
  */
 
 public class Race {
