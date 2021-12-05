@@ -32,6 +32,7 @@ public class GameService {
 	public String postResult() {
 		result = new StringBuilder();
 		result.append(System.lineSeparator());
+
 		for (int i = 0; i < cars.getRepeatNum(); i++) {
 			decideMoveOrStop();
 			checkSorting(i);
@@ -44,10 +45,12 @@ public class GameService {
 	public String postWinner() {
 		result = new StringBuilder();
 		int idx = checkNumberOfWinner();
+
 		for (int i = 0; i < idx; i++) {
 			result.append(cars.getCarArrayList().get(i).getName());
 			checkAddComma(i, idx);
 		}
+
 		return result.toString();
 	}
 

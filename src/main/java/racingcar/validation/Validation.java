@@ -16,9 +16,13 @@ public class Validation {
 		}
 	}
 
+	//TODO: 자동차 이름 중 중복이 있을 경우
+
+	//TODO: 자동차 이름이 한개일 경우
+
 	public static void checkInputIsPositiveNumber(String inputStr) {
 		for (char c : inputStr.toCharArray()) {
-			if (!Character.isDigit(c) || c - '0' < 0) {
+			if (!Character.isDigit(c) || c - '0' <= 0) {
 				throw new IllegalArgumentException(ErrorMessage.NOT_CORRECT_REPEAT_NUM_ERROR.getErrorMessage());
 			}
 		}
