@@ -1,5 +1,9 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+
+import racingcar.domain.Car;
+import racingcar.domain.RacingCars;
 import racingcar.util.Converter;
 import racingcar.util.Validator;
 import racingcar.view.InputView;
@@ -9,6 +13,16 @@ public class RacingCarController {
 	public void run() {
 		String[] carNames = getCarNames();
 		int stageNum = getStageNum();
+		RacingCars racingCars = makeRacingCars(carNames);
+	}
+
+	private RacingCars makeRacingCars(String[] carNames) {
+		ArrayList<Car> cars = new ArrayList<>();
+		for (String name : carNames) {
+			cars.add(new Car(name));
+		}
+
+		return new RacingCars(cars);
 	}
 
 	private int getStageNum() {
