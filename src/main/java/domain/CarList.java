@@ -29,18 +29,4 @@ public class CarList {
         return this.carList;
     }
 
-    public List<String> decideWinner() {
-        Car maxCar = carList.stream()
-                .max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException());
-
-        List<String> winnerList = carList.stream()
-                .filter(maxCar::isSamePosition)
-                .map(Car::getName)
-                .collect(Collectors.toList());
-
-        return winnerList;
-
-    }
-
 }
