@@ -29,14 +29,14 @@ public class OutputView {
 
     public void showWinnerCarName(ArrayList<Car> cars) {
         List<Car> collect = cars.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
-        int max = collect.get(0).getPosition();
+        int winnerMoveNumber = collect.get(0).getPosition();
 
         for (Car car : cars) {
-            if (car.getPosition() == max && !firstWinner) {
+            if (car.getPosition() == winnerMoveNumber && !firstWinner) {
                 System.out.print(Output.RESULT_COMMA_FORMAT + car.getName());
             }
 
-            if (car.getPosition() == max && firstWinner) {
+            if (car.getPosition() == winnerMoveNumber && firstWinner) {
                 System.out.print(Output.FINAL_WINNER + Output.RESULT_COLON_FORMAT + car.getName());
                 firstWinner = false;
             }
