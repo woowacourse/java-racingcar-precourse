@@ -9,7 +9,7 @@ import camp.nextstep.edu.missionutils.Console;
  * <h1>실제 레이싱 게임 로직</h1>
  *
  * @author yunki kim
- * @version 1.2
+ * @version 1.3
  * @since 2021-12-01(V1.0)
  */
 
@@ -30,10 +30,23 @@ public class RacingGame {
 	/** 레이싱 게임에서 가장 많은 거리를 간 차량의 위치 */
 	private int farthestPosition;
 
-	/** RacingGame 생성자 */
+	/**
+	 * RacingGame 생성자
+	 *
+	 * RacingGame 인스턴스 생성시 Car의 ArrayList를 인자로 넘기지 않았으면
+	 * 생성해 인자로 넘긴다
+	 */
 	public RacingGame() {
-		super();
-		this.cars = new ArrayList<>();
+		this(new ArrayList<>());
+	}
+
+	/**
+	 * RacingGame 생성자
+	 *
+	 * @param cars 자동차 리스트
+	 */
+	public RacingGame(ArrayList<Car> cars) {
+		this.cars = cars;
 		this.turns = 0;
 		this.farthestPosition = 0;
 	}
