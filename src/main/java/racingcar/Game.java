@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public class Game {
 
-	private final Car[] cars;
-	private final int numberOfCars;
-	private final int numberOfRepetitions;
+	private Car[] cars;
+	private int numberOfCars;
+	private int numberOfRepetitions;
 
-	public Game() {
+	public void init() {
 		askCarNameList();
 		String[] nameList = returnCarNameList();
 		numberOfCars = nameList.length;
