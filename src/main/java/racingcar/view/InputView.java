@@ -15,28 +15,26 @@ public class InputView {
 	}
 
 	public String[] carNames() {
-		while (true) {
-			System.out.println(CAR_NAME_INPUT_MESSAGE);
-			try {
-				String[] carNames = Console.readLine().split(COMMA);
-				validation.isValid(carNames);
-				return carNames;
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-			}
+		System.out.println(CAR_NAME_INPUT_MESSAGE);
+		try {
+			String[] carNames = Console.readLine().split(COMMA);
+			validation.isValid(carNames);
+			return carNames;
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return carNames();
 		}
 	}
 
 	public String round() {
-		while (true) {
-			System.out.println(ROUND_INPUT_MESSAGE);
-			try {
-				String round = Console.readLine();
-				validation.isValid(round);
-				return round;
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-			}
+		System.out.println(ROUND_INPUT_MESSAGE);
+		try {
+			String round = Console.readLine();
+			validation.isValid(round);
+			return round;
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return round();
 		}
 	}
 }
