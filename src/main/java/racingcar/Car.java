@@ -10,17 +10,18 @@ public class Car {
         this.name = name;
     }
 
-    public String getCarName() {
+    public static Car[] getCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
-        return carNames;
+        return splitCars(carNames);
     }
 
-    private void splitCars(String carNames) {
+    private static Car[] splitCars(String carNames) {
         String[] cars = carNames.split(",");
         Car[] car = new Car[cars.length];
         for (int i = 0; i < cars.length; i++) {
             car[i] = new Car(cars[i]);
         }
+        return car;
     }
 }
