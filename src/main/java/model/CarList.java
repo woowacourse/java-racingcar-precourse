@@ -34,4 +34,15 @@ public class CarList {
 		}
 		return allPosition;
 	}
+
+	public ArrayList<String> getWinnerName() {
+		int maxPosition = this.getMaxPosition();
+		ArrayList<String> winnerName = new ArrayList<>();
+		for (Car eachCar : this.carList) {
+			if (eachCar.isWinner(maxPosition)) {
+				winnerName.add(eachCar.getCarName());
+			}
+		}
+		return winnerName;
+	}
 }
