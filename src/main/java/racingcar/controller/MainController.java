@@ -26,9 +26,10 @@ public class MainController {
 
             try {
                 UserInputValidation.carNameValidation(carValue);
+                carList = CarController.saveCarList(carValue);
                 return;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] 이름은 1~5자 사이이다.");
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -42,7 +43,7 @@ public class MainController {
                 tryNum = Integer.parseInt(tryValue);
                 return;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] 시도 횟수는 1이상 숫자여야 한다.");
+                System.out.println(e.getMessage());
             }
         }
     }
