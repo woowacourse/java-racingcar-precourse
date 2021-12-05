@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Cars {
 	private final List<Car> cars = new ArrayList<>();
 
@@ -14,6 +16,12 @@ public class Cars {
 
 	public Cars(String names) {
 		addCarsToList(names);
+	}
+
+	public void controlByRandomNumber() {
+		for (Car car : cars) {
+			car.controlByNumber(Randoms.pickNumberInRange(0, 9));
+		}
 	}
 
 	private String[] divideNamesByComma(String names) {
