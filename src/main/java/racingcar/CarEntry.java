@@ -32,7 +32,7 @@ public class CarEntry {
         System.out.print("최종 우승자 : ");
         int nOfWinners = winnerList.size();
         for (int i = 0; i < nOfWinners - 1; i++) {
-            System.out.print(winnerList.get(i));
+            System.out.print(winnerList.get(i).getName());
             System.out.print(", ");
         }
         System.out.println(winnerList.get(nOfWinners - 1));
