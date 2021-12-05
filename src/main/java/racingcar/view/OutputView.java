@@ -49,4 +49,8 @@ public class OutputView {
 	public static void printStartRace() {
 		print(NEWLINE + GAME_RESULT_MESSAGE);
 	}
+
+	public static void printRaceResult(String winner) {
+		print(WINNER + COLON + winner);
+	}
 }
