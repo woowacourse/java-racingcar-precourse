@@ -7,4 +7,24 @@ public class InputView {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		return Console.readLine();
 	}
+
+	public int enterNumberOfAttempts() {
+		System.out.println("시도할 회수는 몇회인가요?");
+		String numberOfAttempts = Console.readLine();
+
+		try {
+			isAttemptsNotInteger(numberOfAttempts);
+		} catch (IllegalArgumentException e) {
+			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+			enterNumberOfAttempts();
+		}
+
+		return Integer.parseInt(numberOfAttempts);
+	}
+
+	protected void isAttemptsNotInteger(String numberOfAttempts) {
+		if (!numberOfAttempts.chars().allMatch(Character::isDigit)) {
+			throw new IllegalArgumentException();
+		}
+	}
 }
