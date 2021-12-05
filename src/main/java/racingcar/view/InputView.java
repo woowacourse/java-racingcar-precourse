@@ -8,14 +8,8 @@ public class InputView {
 	private static final String NUMBER_OF_TRIAL = "시도할 회수는 몇회인가요?";
 
 	public static String getInputRaceCar() {
-		while (true) {
-			try {
-				System.out.println(RACING_INFORMATION);
-				return Console.readLine();
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-			}
-		}
+		System.out.println(RACING_INFORMATION);
+		return Console.readLine();
 	}
 
 	public static int getInputTrial() {
