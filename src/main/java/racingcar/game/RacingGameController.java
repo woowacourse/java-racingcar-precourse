@@ -12,11 +12,11 @@ public class RacingGameController {
 		this.attempts = attempts;
 	}
 
-	public void run() {
+	public void play() {
 		startRacing();
 		announceWinners();
 	}
-	
+
 	private void startRacing() {
 		OutputView.showResultMessage();
 		do {

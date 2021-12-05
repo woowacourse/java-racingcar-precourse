@@ -11,6 +11,6 @@ public class Application {
 		AttemptsController attemptsController = new AttemptsController();
 		RacingGameController racingGameController = new RacingGameController(carController.createCars(),
 			attemptsController.selectAttempts());
-		racingGameController.run();
+		racingGameController.play();
 	}
 }

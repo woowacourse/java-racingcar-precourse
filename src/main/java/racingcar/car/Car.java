@@ -16,7 +16,7 @@ public class Car {
 		position++;
 	}
 
-	public String positionToString() {
+	public String getMoveResult() {
 		StringBuilder stringBuilder = new StringBuilder(name + SPACE + COLON + SPACE);
 		for (int i = 0; i < this.position; i++) {
 			stringBuilder.append(MOVEMENT);

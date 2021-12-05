@@ -30,7 +30,7 @@ public class RacingGame {
 	}
 
 	private void addResult(List<String> racingResult, Car car) {
-		racingResult.add(car.positionToString());
+		racingResult.add(car.getMoveResult());
 	}
 
 	public String getWinners() {
