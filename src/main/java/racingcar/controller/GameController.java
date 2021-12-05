@@ -1,4 +1,5 @@
 package racingcar.controller;
+
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.exception.dto.ErrorResponse;
 import racingcar.message.Message;
@@ -18,7 +19,7 @@ public class GameController {
 
 		try {
 			gameService.inputCars(Console.readLine());
-		} catch (IllegalArgumentException e){
+		} catch (IllegalArgumentException e) {
 			ErrorResponse.of(e.getMessage());
 			inputCars();
 		}
@@ -36,10 +37,10 @@ public class GameController {
 	}
 
 	public void postResult() {
-		MessageResponse.of(System.lineSeparator()+Message.PRINT_RESULT.getMessage()+gameService.postResult());
+		MessageResponse.of(System.lineSeparator() + Message.PRINT_RESULT.getMessage() + gameService.postResult());
 	}
 
 	public void postWinner() {
-		MessageResponse.of(Message.ENTER_WINNER.getMessage()+gameService.postWinner());
+		MessageResponse.of(Message.ENTER_WINNER.getMessage() + gameService.postWinner());
 	}
 }

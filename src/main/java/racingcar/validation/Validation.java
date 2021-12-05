@@ -1,6 +1,5 @@
 package racingcar.validation;
 
-import racingcar.domain.Car;
 import racingcar.exception.ErrorMessage;
 
 public class Validation {

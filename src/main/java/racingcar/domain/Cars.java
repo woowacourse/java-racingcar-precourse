@@ -12,7 +12,7 @@ public class Cars {
 		this.repeatNum = 0;
 	}
 
-	public void addCarInList(String car){
+	public void addCarInList(String car) {
 		carArrayList.add(new Car(car));
 	}
 

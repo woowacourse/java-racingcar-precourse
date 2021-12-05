@@ -46,7 +46,7 @@ public class GameService {
 		int idx = checkNumberOfWinner();
 		for (int i = 0; i < idx; i++) {
 			result.append(cars.getCarArrayList().get(i).getName());
-			checkAddComma(i,idx);
+			checkAddComma(i, idx);
 		}
 		return result.toString();
 	}
@@ -81,7 +81,7 @@ public class GameService {
 	}
 
 	private void checkLineSeparate(int num) {
-		if (num != cars.getRepeatNum()-1) {
+		if (num != cars.getRepeatNum() - 1) {
 			result.append(System.lineSeparator());
 		}
 	}
