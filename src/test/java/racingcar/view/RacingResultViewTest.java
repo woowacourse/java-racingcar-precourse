@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.utils.StringConstants.MIN_NUMBER_TO_CAR_TO_GO;

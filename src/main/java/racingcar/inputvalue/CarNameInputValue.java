@@ -14,7 +14,7 @@ public class CarNameInputValue extends InputValue<String[]> {
         return input;
     }
 
-    void validate(String[] input) {
+    private void validate(String[] input) {
         if (Arrays.isNullOrEmpty(input)) {
             throw new IllegalArgumentException();
         }

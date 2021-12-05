@@ -8,6 +8,7 @@ public class StringConstants {
 
     public static final int INITIAL_POSITION = 0;
     public static final int MIN_NUMBER_TO_CAR_TO_GO = 4;
+    public static final int NUMBER_TO_ADD_WHEN_CAR_GO = 1;
     public static final int MIN_VALUE_OF_RANDOM_NUMBER = 1;
     public static final int MAX_VALUE_OF_RANDOM_NUMBER = 9;
 
@@ -18,6 +19,8 @@ public class StringConstants {
     public static final String MARK_FOR_DISTANCE_RECORD = "-";
     public static final String PREFIX_OF_WINNER_NOTICE = "최종 우승자 : ";
     public static final String DELIMITER_BETWEEN_WINNERS = ", ";
+
+    public static final String SPACE = " ";
 
     public static final String NEW_LINE = System.lineSeparator();
 

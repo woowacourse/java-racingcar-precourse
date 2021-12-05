@@ -18,7 +18,7 @@ public class Car {
     }
 
     private static void validate(String name) {
-        if (!isRightLength(name.length()) || name.contains(" ")) {
+        if (!isRightLength(name.length()) || name.contains(SPACE)) {
             throw new IllegalArgumentException();
         }
     }

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static racingcar.utils.StringConstants.*;
 import static racingcar.utils.StringConstants.MARK_FOR_DISTANCE_RECORD;
