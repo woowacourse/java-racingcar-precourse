@@ -17,8 +17,7 @@ public class MainController {
         saveCarList();
         saveTryNum();
         System.out.println("실행 결과");
-        CarController.movePosition(carList);
-        OutputView.racePrint(carList);
+        raceStart(carList);
     }
 
     private void saveCarList() {
@@ -46,6 +45,13 @@ public class MainController {
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
+        }
+    }
+
+    private void raceStart(List<Car> carList) {
+        for (int i=0; i<tryNum; i++) {
+            CarController.movePosition(carList);
+            OutputView.racePrint(carList);
         }
     }
 }
