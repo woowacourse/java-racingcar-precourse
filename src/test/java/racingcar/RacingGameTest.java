@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import racingcar.car.Car;
+import racingcar.car.CarRepository;
+
 class RacingGameTest {
     private final RacingGame racingGame = new RacingGame(new CarRepository());
 

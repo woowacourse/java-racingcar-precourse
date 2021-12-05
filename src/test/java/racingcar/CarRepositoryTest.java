@@ -1,13 +1,16 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.StringConstants.MIN_NUMBER_TO_CAR_TO_GO;
+import static racingcar.utils.StringConstants.MIN_NUMBER_TO_CAR_TO_GO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import racingcar.car.Car;
+import racingcar.car.CarRepository;
 
 class CarRepositoryTest {
     private final List<Car> initialCarsToSave = new ArrayList<>();

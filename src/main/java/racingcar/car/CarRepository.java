@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.car;
 
-import static racingcar.StringConstants.INITIAL_POSITION;
+import static racingcar.utils.StringConstants.INITIAL_POSITION;
 
 import java.util.ArrayList;
 import java.util.List;

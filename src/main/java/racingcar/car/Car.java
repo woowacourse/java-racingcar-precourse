@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.car;
 
-import static racingcar.StringConstants.*;
+import static racingcar.utils.StringConstants.*;
 
 import java.util.Objects;
 

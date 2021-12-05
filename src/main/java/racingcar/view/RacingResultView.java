@@ -1,9 +1,11 @@
-package racingcar;
+package racingcar.view;
 
-import static racingcar.StringConstants.DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD;
-import static racingcar.StringConstants.MARK_FOR_DISTANCE_RECORD;
+import static racingcar.utils.StringConstants.DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD;
+import static racingcar.utils.StringConstants.MARK_FOR_DISTANCE_RECORD;
 
 import java.util.stream.IntStream;
+
+import racingcar.car.Car;
 
 public class RacingResultView {
     private final Car car;

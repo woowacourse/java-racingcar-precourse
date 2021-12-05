@@ -1,10 +1,13 @@
 package racingcar;
 
-import static racingcar.StringConstants.*;
+import static racingcar.utils.StringConstants.*;
 
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.car.Car;
+import racingcar.car.CarRepository;
+import racingcar.view.RacingResultsView;
 
 public class RacingGame {
     private final CarRepository carRepository;
@@ -14,10 +17,9 @@ public class RacingGame {
         this.carRepository = carRepository;
     }
 
-    public List<Car> createCars(String[] names) {
-        for (String name : names) {
-            Car car = Car.create(name);
-            carRepository.saveInOrder(car);
+    public List<Car> createCars(String[] carNames) {
+        for (String carName : carNames) {
+            carRepository.saveInOrder(Car.create(carName));
         }
         return findCars();
     }

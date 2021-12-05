@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+import racingcar.car.Car;
+
 class CarTest {
     private final Car car = Car.create("car");
 

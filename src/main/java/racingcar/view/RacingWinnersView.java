@@ -1,10 +1,12 @@
-package racingcar;
+package racingcar.view;
 
-import static racingcar.StringConstants.DELIMITER_BETWEEN_WINNERS;
-import static racingcar.StringConstants.PREFIX_OF_WINNER_NOTICE;
+import static racingcar.utils.StringConstants.DELIMITER_BETWEEN_WINNERS;
+import static racingcar.utils.StringConstants.PREFIX_OF_WINNER_NOTICE;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import racingcar.car.Car;
 
 public class RacingWinnersView {
     private final List<Car> winners;

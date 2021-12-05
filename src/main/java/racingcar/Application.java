@@ -1,7 +1,13 @@
 package racingcar;
 
+import racingcar.car.CarRepository;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
+        setUp().start();
+    }
+
+    private static RacingGameController setUp() {
+        return new RacingGameController(new RacingGame(new CarRepository()));
     }
 }

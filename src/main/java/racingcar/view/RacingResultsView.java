@@ -1,9 +1,9 @@
-package racingcar;
-
-import static racingcar.StringConstants.NEW_LINE;
+package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import racingcar.car.Car;
 
 public class RacingResultsView {
     private final List<Car> cars;

@@ -1,8 +1,7 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static racingcar.StringConstants.*;
-import static racingcar.StringConstants.MARK_FOR_DISTANCE_RECORD;
+import static racingcar.utils.StringConstants.*;
+import static racingcar.utils.StringConstants.MARK_FOR_DISTANCE_RECORD;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,6 +12,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import racingcar.car.Car;
+import racingcar.view.RacingResultsView;
 
 class RacingResultsViewTest {
     private final PrintStream standardOut = System.out;
