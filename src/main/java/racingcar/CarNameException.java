@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.*;
 
-public class Exception {
+public class CarNameException {
 
     public static void isNothingInput(String inputName) {
         if (inputName == "") {
