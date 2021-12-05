@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarRepository {
+	private static final int FIRST_INDEX_OF_LIST = 0;
 	List<Car> carList = new ArrayList<>();
 
 	public void createCars(String[] names) {
@@ -34,7 +35,7 @@ public class CarRepository {
 	private List<Car> getWinnerCars() {
 		List<Car> ascendingSortedCars = getAscendingSortedCars();
 		List<Car> winnerCars = new ArrayList<>();
-		Car winnerCar = ascendingSortedCars.get(0);
+		Car winnerCar = ascendingSortedCars.get(FIRST_INDEX_OF_LIST);
 		for (Car car : ascendingSortedCars) {
 			if (winnerCar.isSamePosition(car)) {
 				winnerCars.add(car);
