@@ -5,7 +5,8 @@ import static camp.nextstep.edu.missionutils.Randoms.*;
 public class Car {
     private final String name;
     private final int CONDITION_TO_MOVE = 4;
-    private int position = 0;
+    private final int READY_POSITION = 0;
+    private int position = READY_POSITION;
 
     public Car(String name) {
         this.name = name;
@@ -26,7 +27,7 @@ public class Car {
     }
 
     public void setReady() {
-        position = 0;
+        position = READY_POSITION;
     }
 
     public void printStatus() {
