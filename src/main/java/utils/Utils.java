@@ -9,7 +9,8 @@ public class Utils {
 	private static final String specialCharMessage = "[ERROR] 자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.\n";
 	private static final String lengthMessage = "[ERROR] 자동차의 이름의 글자수는 5를 초과할 수 없습니다.\n";
 	private static final String duplicationMessage = "[ERROR] 자동차의 이름은 중복을 허용하지 않습니다.\n";
-	private static final String someIntMessage = "[ERROR] 전체 게임 횟수는 양수여야 합니다.\n";
+	private static final String someIntMessage = "[ERROR] 전체 게임 횟수는 1자리 이상의 양수여야 합니다.\n";
+	private static final String blankParsedInputMessage = "[ERROR] 자동차는 1대 이상이어야 합니다.\n";
 
 	public static ArrayList<String> parseInput(String input, String delimiter) {
 		ArrayList<String> parsedName = new ArrayList<>();
@@ -42,8 +43,14 @@ public class Utils {
 	}
 
 	public static void checkOverSomeInt(String inputToken, int someInt) throws IllegalArgumentException {
-		if (Integer.valueOf(inputToken) <= someInt) {
+		if (Integer.valueOf(inputToken) <= someInt || inputToken.isEmpty()) {
 			throw new IllegalArgumentException(someIntMessage);
+		}
+	}
+
+	public static void checkEmptyArray(ArrayList<String> parsedInput) throws IllegalArgumentException {
+		if (parsedInput.isEmpty()) {
+			throw new IllegalArgumentException(blankParsedInputMessage);
 		}
 	}
 }
