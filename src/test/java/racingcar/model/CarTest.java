@@ -8,9 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
-import racingcar.model.Car;
-import racingcar.model.CarPower;
-
 public class CarTest {
 
 	@DisplayName("자동차가 잘 움직이는지 테스트")
@@ -35,6 +32,7 @@ public class CarTest {
 		);
 	}
 
+	@DisplayName("null이나 empty string이 입력되었을 시 에러 테스트")
 	@ParameterizedTest
 	@NullAndEmptySource
 	void checkEmpty(String carName) {

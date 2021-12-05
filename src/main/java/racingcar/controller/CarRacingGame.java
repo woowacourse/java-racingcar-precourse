@@ -4,19 +4,22 @@ import java.util.List;
 
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.model.TryCount;
 
 public class CarRacingGame {
 	private Cars cars;
 	private TryCount tryCount;
 
 	public void powerOn() {
+		init();
+		start();
+	}
+
+	private void init() {
 		cars = createCars();
 		tryCount = readTryCount();
-
-		start();
 	}
 
 	private void start() {

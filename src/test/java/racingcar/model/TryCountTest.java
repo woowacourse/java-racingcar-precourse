@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racingcar.model.TryCount;
-
 public class TryCountTest {
 
 	@DisplayName("1보다 작은 수를 입력할 경우 에러")

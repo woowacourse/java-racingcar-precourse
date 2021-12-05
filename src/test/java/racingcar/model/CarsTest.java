@@ -11,9 +11,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import racingcar.model.Car;
-import racingcar.model.Cars;
-
 public class CarsTest {
 
 	@DisplayName("우승자 구하기")
