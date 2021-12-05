@@ -17,7 +17,7 @@ public class Game {
 		if (Car.isForward(randomNo)) {
 			drivingCar.forward();
 		}
-		System.out.println(drivingCar.getName() + " : " + drivingCar.getScoreString());
+		OutputView.printScoreOfCar(drivingCar);
 	}
 
 	public static void runGameOneStep(Cars carList) {
