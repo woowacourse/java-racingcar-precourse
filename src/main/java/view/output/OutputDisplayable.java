@@ -1,7 +1,7 @@
 package view.output;
 
 import dto.AttemptResult;
-import model.car.Car;
+import dto.Winners;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ public interface OutputDisplayable {
 
     void showAttemptResult(final List<AttemptResult> cars);
 
-    void showWinners(final List<Car> winners);
+    void showWinners(final Winners winners);
 }

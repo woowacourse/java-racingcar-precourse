@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import model.attempt.LeftAttemptCount;
+import model.car.Car;
 import model.car.Cars;
 import model.movement.Movement;
 import model.movement.RandomMovement;
@@ -15,6 +16,7 @@ import view.input.InputView;
 import view.output.OutputDisplayable;
 import view.output.OutputView;
 import dto.AttemptResult;
+import dto.Winners;
 
 public class RacingController {
     private final InputDisplayable inputDisplayable = new InputView();
@@ -62,7 +64,13 @@ public class RacingController {
             attemptOnce(randomMovement);
             leftAttemptCount.decrease();
         }
-        outputDisplayable.showWinners(cars.getWinners());
+        showWinners();
+    }
+
+    private void showWinners() {
+        List<Car> winnerCars = cars.getWinners();
+        Winners winners = new Winners(winnerCars);
+        outputDisplayable.showWinners(winners);
     }
 
     private void attemptOnce(final Movement randomMovement) {
