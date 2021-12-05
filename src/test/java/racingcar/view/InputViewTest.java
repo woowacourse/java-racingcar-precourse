@@ -78,6 +78,17 @@ public class InputViewTest extends CustomNsTest {
 		assertThat(output()).contains(ERROR_MESSAGE);
 	}
 
+	@DisplayName("시도 횟수 입력 재입력 테스트")
+	@Test
+	public void readRacingRoundReloadTest() {
+		command(INVALID_FORMAT_ROUND, CORRECT_RACING_ROUND);
+		try {
+			int input = InputView.readRacingRound();
+			assertEquals(input, Integer.parseInt(CORRECT_RACING_ROUND));
+		} catch (NoSuchElementException ignored) {
+		}
+	}
+
 	@DisplayName("시도 횟수 입력 테스트")
 	@Test
 	public void readRacingRoundTest() {
