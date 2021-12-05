@@ -3,9 +3,11 @@ package racingcar;
 public class InputValidator {
 	private static final int CAR_MINIMUM_NUMBER = 2;
 	private static final int CAR_NAME_MAX_LENGTH = 5;
+	private static final int MIN_ROUND_NUMBER = 1;
 	private static final String INVALID_CAR_NUMBER_MESSAGE = "자동차는 2대 이상이어야 합니다.";
 	private static final String INVALID_CAR_NAME_MESSAGE = "자동차의 이름은 5글자 이하여야 합니다.";
-	private static final String INVALID_ROUND_NUMBER_MESSAGE = "시도 횟수는 숫자여야 합니다.";
+	private static final String INVALID_ROUND_NUMBER_BY_TYPE_MESSAGE = "시도 횟수는 숫자여야 합니다.";
+	private static final String INVALID_ROUND_NUMBER_BY_RANGE = "시도 횟수는 1회 이상이어야 합니다.";
 
 	public static void checkIsValidCarNames(String[] carNames) {
 		if (carNames.length < CAR_MINIMUM_NUMBER) {
@@ -21,7 +23,11 @@ public class InputValidator {
 	public static void checkIsValidRoundNumber(String roundNumber) {
 		for (int i = 0; i < roundNumber.length(); i++) {
 			if (!Character.isDigit(roundNumber.charAt(i))) {
-				throw new IllegalArgumentException(INVALID_ROUND_NUMBER_MESSAGE);
+				throw new IllegalArgumentException(INVALID_ROUND_NUMBER_BY_TYPE_MESSAGE);
+			}
+
+			if (Character.getNumericValue(roundNumber.charAt(i)) < MIN_ROUND_NUMBER) {
+				throw new IllegalArgumentException(INVALID_ROUND_NUMBER_BY_RANGE);
 			}
 		}
 	}
