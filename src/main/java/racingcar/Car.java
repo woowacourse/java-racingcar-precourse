@@ -11,7 +11,7 @@ public class Car {
 
 	protected Car(String name, int position) {
 		if (isNameOverMaxLength(name)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("자동차 이름은 5자 이하로 작성해야 한다.");
 		}
 		this.name = name;
 		this.position = position;
