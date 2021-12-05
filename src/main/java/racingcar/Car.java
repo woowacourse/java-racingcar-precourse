@@ -4,13 +4,15 @@ package racingcar;
  * <h1>레이싱 게임에서 사용할 자동차에 정보</h1>
  *
  * @author yunki kim
- * @version 1.0
+ * @version 1.1
  * @since 2021-12-01(V1.0)
  */
 
 public class Car {
 
 	public static final Integer SHOULD_GO_FORWARD = 3;
+
+	private RandomGenerator randomGenerator;
 
     private final String name;
 
@@ -19,6 +21,11 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+
+    public Car(String name, RandomGenerator randomGenerator) {
+    	this.name = name;
+    	this.randomGenerator = randomGenerator;
+	}
 
 	public String getName() {
 		return this.name;
@@ -29,7 +36,6 @@ public class Car {
 	}
 
 	public void goForward() {
-		final RandomGenerator randomGenerator = new RandomGenerator();
 		if (randomGenerator.getRandomNumber() <= SHOULD_GO_FORWARD) {
 			return;
 		}

@@ -44,7 +44,7 @@ public class RacingGame {
 				cars.clear();
 				throw new IllegalArgumentException(errorMessage);
 			}
-			cars.add(new Car(carName));
+			cars.add(new Car(carName, new RandomGenerator()));
 		}
 	}
 

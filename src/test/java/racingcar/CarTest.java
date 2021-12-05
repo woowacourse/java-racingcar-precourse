@@ -10,13 +10,13 @@ import org.junit.jupiter.params.provider.ValueSource;
 @DisplayName("Car 클래스")
 class CarTest {
 
-	private final Car carForwardTest = new Car("car");
+	private final Car carForwardTest = new Car("car", new RandomGenerator());
 
 	@DisplayName("Car 클래스 인스턴스가 제대로 생성이 되었는지 확인")
 	@ParameterizedTest(name = "{index} {displayName} carName={0}")
 	@ValueSource(strings = {"12345", "carName", "testName", "1", "str!"})
 	void makeCarInstance(final String carName) {
-		Car car = new Car(carName);
+		Car car = new Car(carName, new RandomGenerator());
 
 		assertEquals(carName, car.getName());
 	}
