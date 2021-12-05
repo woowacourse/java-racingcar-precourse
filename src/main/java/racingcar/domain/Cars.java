@@ -32,9 +32,13 @@ public class Cars {
     public List<String> getWinner() {
         int maxPosition = calculateMaxPosition();
         return cars.stream()
-            .filter(car -> car.position() == maxPosition)
+            .filter(car -> isWinnerPosition(maxPosition, car))
             .map(Car::name)
             .collect(Collectors.toList());
+    }
+
+    private boolean isWinnerPosition(int maxPosition, Car car) {
+        return car.position() == maxPosition;
     }
 
     private int calculateMaxPosition() {
