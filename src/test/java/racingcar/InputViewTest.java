@@ -8,10 +8,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class InputViewTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"exception", "3.5"})
-	void 시도할_횟수_숫자가_아닌_경우_예외처리(String input) {
+	void 시도할_횟수_숫자가_아닌_경우_TRUE_반환(String input) {
 		InputView inputView = new InputView();
-		assertThatThrownBy(() -> inputView.isAttemptsNotInteger(input))
-			.isInstanceOf(IllegalArgumentException.class);
+		assertThat(inputView.isTimesNotInteger(input)).isTrue();
 	}
-
 }
