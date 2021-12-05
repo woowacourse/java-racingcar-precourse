@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.exception.RacingGameRoundIntegerException;
 
 public class RacingGame {
 
@@ -21,7 +22,7 @@ public class RacingGame {
 
     private static void checkIntegerRound(String round) {
         if (!round.matches(INTEGER_REGEX)) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
+            throw new RacingGameRoundIntegerException();
         }
     }
 }
