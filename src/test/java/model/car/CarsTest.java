@@ -10,12 +10,13 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import model.movement.Movement;
 import model.movement.RandomMovement;
 
 class CarsTest {
     private final boolean[] movement = new boolean[] {true, false, true};
     private int movementIndex = 0;
-    private final RandomMovement randomMovement = new RandomMovement() {
+    private final Movement randomMovement = new RandomMovement() {
         @Override
         public boolean canMove() {
             return movement[movementIndex++];

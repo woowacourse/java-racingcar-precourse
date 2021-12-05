@@ -3,7 +3,7 @@ package model.car;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import model.movement.RandomMovement;
+import model.movement.Movement;
 
 public class Cars {
     private final List<Car> values;
@@ -21,8 +21,8 @@ public class Cars {
         }
     }
 
-    public void race(final RandomMovement randomMovement) {
-        values.forEach(car -> car.move(randomMovement.canMove()));
+    public void race(final Movement movement) {
+        values.forEach(car -> car.move(movement.canMove()));
     }
 
     public List<Car> getAttemptResult() {
