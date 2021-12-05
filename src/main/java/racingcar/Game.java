@@ -139,12 +139,12 @@ public class Game {
     private void checkWinner() {
         int max = 0;
         for(int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getPosition() == max) {
+                winner.add(cars.get(i).getName());
+            }
             if (cars.get(i).getPosition() > max) {
                 winner.clear();
                 max = cars.get(i).getPosition();
-                winner.add(cars.get(i).getName());
-            }
-            if (cars.get(i).getPosition() == max) {
                 winner.add(cars.get(i).getName());
             }
         }
