@@ -30,6 +30,22 @@ public class InputView {
 
 	public int getMoveTimes() {
 		System.out.println("시도할 회수는 몇회인가요?");
-		return Integer.parseInt(Console.readLine());
+		String moveTimes = Console.readLine();
+		try {
+			validateMoveTimes(moveTimes);
+		} catch (Exception exception) {
+			System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
+			getMoveTimes();
+		}
+		return Integer.parseInt(moveTimes);
+	}
+
+	private void validateMoveTimes(String moveTimes) {
+		try {
+			Integer.parseInt(moveTimes);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException();
+		}
+
 	}
 }
