@@ -17,7 +17,7 @@ public class InputValidator {
 	}
 
 	public boolean checkNameExceptions(List<String> carNamesList) {
-		return !checkLongNameException(carNamesList) || checkBlankNameException(carNamesList);
+		return checkLongNameException(carNamesList) && checkBlankNameException(carNamesList);
 	}
 
 	public boolean checkRepetitionNumberExceptions(String repetitionNumber) {

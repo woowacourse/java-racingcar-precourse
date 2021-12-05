@@ -26,7 +26,7 @@ public class RacingGameView {
 		do {
 			System.out.println(CAR_NAME_INPUT_MESSAGE);
 			carNamesList = new ArrayList<>(Arrays.asList(Console.readLine().split(",")));
-		} while (inputValidator.checkNameExceptions(carNamesList));
+		} while (!inputValidator.checkNameExceptions(carNamesList));
 		return carNamesList;
 	}
 
