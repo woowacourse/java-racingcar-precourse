@@ -30,7 +30,7 @@ public class Cars {
         }
     }
 
-    public List<String> getWinner() {
+    public List<String> getWinners() {
         int maxPosition = calculateMaxPosition();
         return cars.stream()
             .filter(car -> isWinnerPosition(maxPosition, car))

@@ -30,7 +30,7 @@ class CarsTest {
         Cars cars = Cars.createRandomCars(names);
 
         // when
-        List<String> result = cars.getWinner();
+        List<String> result = cars.getWinners();
 
         // then
         assertThat(result).isEqualTo(names);
