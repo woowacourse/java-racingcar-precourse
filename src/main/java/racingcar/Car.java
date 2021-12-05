@@ -39,4 +39,12 @@ public class Car {
         }
         System.out.println(stringBuilder);
     }
+
+    public int compareTo(Car car) {
+        return -car.isMovedFarThan(this.position);
+    }
+
+    public int isMovedFarThan(int location) {
+        return Integer.compare(position, location);
+    }
 }
