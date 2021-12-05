@@ -20,6 +20,7 @@ public class MainController {
         System.out.println("실행 결과");
 
         raceStart(carList);
+        OutputController.finalWinner(carList);
     }
 
     private void saveCarList() {
