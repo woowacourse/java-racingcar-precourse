@@ -60,7 +60,7 @@ public class InputView {
 			String numberOfCarMoving = Console.readLine();
 			validateIsIntegerNumberOfCarMoving(numberOfCarMoving);
 			return Integer.parseInt(numberOfCarMoving);
-		} catch (Exception exception) {
+		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
 			return inputNumberOfCarMoving();
 		}
