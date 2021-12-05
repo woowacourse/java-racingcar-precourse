@@ -1,38 +1,47 @@
 package racingcar.runner;
 
 import java.util.List;
+import java.util.function.Supplier;
 import racingcar.domain.RacingCarGame;
 import racingcar.utils.CarGameInputHandler;
+import racingcar.utils.DisplayHandler;
 
 public class RacingCarGameRunner {
 
-    public static void run() {
-        RacingCarGame game = new RacingCarGame(getValidNames());
-        final int moveCount = getValidPlayCount();
-        for (int i = 0; i < moveCount; i++) {
+    final private DisplayHandler displayHandler;
+    final private RacingCarGame game;
+    final private int playCount;
+
+    public RacingCarGameRunner() {
+        this.displayHandler = new DisplayHandler();
+        this.game = new RacingCarGame(getValidNames());
+        this.playCount = getValidPlayCount();
+    }
+
+    public void run() {
+        for (int i = 0; i < playCount; i++) {
             game.moveCars();
+            displayHandler.appendResultBlock(game.getGameStatus());
         }
+        displayHandler.appendWithLineBreak(game.getWinners());
+        displayHandler.displayResult();
     }
 
+    private List<String> getValidNames() {
+        return getValidInput(CarGameInputHandler::getCarNames);
+    }
 
-    private static List<String> getValidNames() {
+    private int getValidPlayCount() {
+        return getValidInput(CarGameInputHandler::getPlayCount);
+    }
+
+    private <T> T getValidInput(Supplier<T> sup) {
         while (true) {
             try {
-                return CarGameInputHandler.getCarNames();
-            }catch (IllegalArgumentException e) {
+                return sup.get();
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
-
-    private static int getValidPlayCount() {
-        while (true) {
-            try {
-                return CarGameInputHandler.getPlayCount();
-            }catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
-
 }

@@ -35,9 +35,9 @@ class RacingCarGameTest {
     }
 
     @Test
-    void winnerTest() {
+    void coWinnerTest() {
         try (MockedStatic<Randoms> randoms = mockStatic(Randoms.class)) {
-            randoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(STOP);
+            randoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(GO);
             RacingCarGame game = new RacingCarGame(Collections.singletonList("car1,car2"));
             game.moveCars();
             assertThat(game.getWinners()).isEqualTo("car1,car2");

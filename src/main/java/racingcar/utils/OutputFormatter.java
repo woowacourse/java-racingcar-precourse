@@ -4,13 +4,14 @@ import java.util.List;
 
 public class OutputFormatter {
 
-    final private static String CAR_STATUS_DELIMITER = " : ";
+    final private static String FIELD_DELIMITER = " : ";
     final private static String CAR_STATUS_BAR = "-";
     final private static String WINNER_DELIMITER = ",";
     final private static String LINE_BREAK = "\n";
+    final private static String WINNER_TAG = "최종 우승자";
 
     public static String converseCarStatus(int position, String name) {
-        return name + CAR_STATUS_DELIMITER + generateStatusBar(position);
+        return name + FIELD_DELIMITER + generateStatusBar(position);
     }
 
     private static String generateStatusBar(int amount) {
@@ -26,6 +27,6 @@ public class OutputFormatter {
     }
 
     public static String convertWinners(List<String> winners) {
-        return String.join(WINNER_DELIMITER, winners);
+        return WINNER_TAG + FIELD_DELIMITER + String.join(WINNER_DELIMITER, winners);
     }
 }
