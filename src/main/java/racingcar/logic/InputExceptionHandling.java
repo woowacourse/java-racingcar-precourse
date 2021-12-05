@@ -9,6 +9,8 @@ public class InputExceptionHandling {
 	private static final String SPACE_ERROR_MSG = "공백은 이름으로 설정할 수 없다.";
 	private static final String SPACE_STRING = "";
 	private static final int MAX_NAME_LENGTH = 5;
+	private static final String GAME_COUNT_ERROR_MSG = "시도 횟수는 숫자여야 한다.";
+	private static final String COUNT_RANGE_ERROR_MSG = "시도 횟수는 1 이상이어야 한다.";
 
 	public String[] validNameInput(String[] names) throws IllegalArgumentException {
 		validCount(names);
@@ -44,6 +46,27 @@ public class InputExceptionHandling {
 			if (name.equals(SPACE_STRING)) {
 				throw new IllegalArgumentException(SPACE_ERROR_MSG);
 			}
+		}
+	}
+
+	public int validCountInput(String count) {
+		int intCount = transferToInt(count);
+		validRange(intCount);
+
+		return intCount;
+	}
+
+	private int transferToInt(String count) throws IllegalArgumentException {
+		try {
+			return Integer.parseInt(count);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException(GAME_COUNT_ERROR_MSG);
+		}
+	}
+
+	private void validRange(int count) throws IllegalArgumentException {
+		if (count <= 0) {
+			throw new IllegalArgumentException(COUNT_RANGE_ERROR_MSG);
 		}
 	}
 }
