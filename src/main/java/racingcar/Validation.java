@@ -14,4 +14,13 @@ public class Validation {
 			throw new IllegalArgumentException();
 		}
 	}
+
+	public static void validateIsInteger(String num) {
+		try {
+			Integer.parseInt(num.trim());
+		} catch (NumberFormatException exception){
+			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+			throw new IllegalArgumentException();
+		}
+	}
 }
