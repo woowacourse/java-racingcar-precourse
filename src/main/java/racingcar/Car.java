@@ -7,6 +7,16 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    public String getName() { return this.name; }
+    public int getPosition() { return this.position; }
+    public void moveForwardCar() { this.position++; }
 
-    // 추가 기능 구현
+    @Override
+    public String toString() {
+        String result = this.name + " : ";
+        for (int i=0; i<this.position; i++) {
+            result += "-";
+        }
+        return result;
+    }
 }
