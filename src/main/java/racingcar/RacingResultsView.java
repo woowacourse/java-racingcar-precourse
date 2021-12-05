@@ -22,7 +22,7 @@ public class RacingResultsView {
     private void writeResults() {
         for (Car car : cars) {
              RacingResultView racingResultView = new RacingResultView(car);
-             racingResultsView.add(racingResultView.writeResult(car));
+             racingResultsView.add(racingResultView.writeResult());
         }
     }
 

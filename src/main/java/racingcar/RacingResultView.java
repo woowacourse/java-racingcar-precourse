@@ -13,7 +13,7 @@ public class RacingResultView {
         this.car = car;
     }
 
-    public StringBuilder writeResult(Car car) {
+    public StringBuilder writeResult() {
         writeCarName();
         writeDelimiter();
         writeDistanceCovered();
