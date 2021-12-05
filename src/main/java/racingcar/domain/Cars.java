@@ -13,6 +13,10 @@ public class Cars {
 	}
 
 	public void racing() {
-		cars.forEach(Car::moveForward);
+		cars.forEach(car -> {
+			car.moveForward();
+			car.printState();
+		});
+		System.out.println();
 	}
 }

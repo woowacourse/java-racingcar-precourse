@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.view.OutputView.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.enums.DomainConditions;
 
@@ -20,5 +22,9 @@ public class Car {
 		if (randomValue >= MOVING_POINT_NUMBER) {
 			position++;
 		}
+	}
+
+	public void printState() {
+		printCarState(name, position);
 	}
 }
