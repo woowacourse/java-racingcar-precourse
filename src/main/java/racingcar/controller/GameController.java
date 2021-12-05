@@ -7,7 +7,11 @@ import racingcar.service.GameService;
 
 public class GameController {
 
-	public GameService gameService;
+	private GameService gameService;
+
+	public GameController() {
+		this.gameService = new GameService();
+	}
 
 	public void inputCars() {
 		MessageResponse.of(Message.ENTER_CARS_NAME.getMessage());
@@ -18,7 +22,6 @@ public class GameController {
 			ErrorResponse.of(e.getMessage());
 			inputCars();
 		}
-
 	}
 
 	public void inputRepeatNumber() {
@@ -38,7 +41,6 @@ public class GameController {
 	}
 
 	public void postWinner() {
-		MessageResponse.of(Message.ENTER_WINNER.getMessage());
-		gameService.postWinner();
+		MessageResponse.of(Message.ENTER_WINNER.getMessage()+gameService.postWinner());
 	}
 }
