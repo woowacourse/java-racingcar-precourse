@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import javax.security.sasl.SaslServer;
-
 public class Cars {
 	private ArrayList<Car> cars = new ArrayList<>();
 
@@ -41,7 +39,7 @@ public class Cars {
 		System.out.println();
 	}
 
-	public int calcTieNumber() {
+	private int calcTieNumber() {
 		int tieNumber = 0;
 		Car firstPlaceCar = cars.get(0);
 		for (int i = 1; i < cars.size(); i++) {

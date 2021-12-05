@@ -34,7 +34,7 @@ public class InputValidator {
 		return true;
 	}
 
-	public void validateNameLengthInRange(String[] names) {
+	private void validateNameLengthInRange(String[] names) {
 		for (int i = 0; i < names.length; i++) {
 			if (names[i].length() > CAR_NAME_MAX_LENGTH || names[i].length() < CAR_NAME_MIN_LENGTH) {
 				throw new IllegalArgumentException(ERROR_MESSAGE + NAME_LENGTH_RANGE_MESSAGE);
@@ -42,7 +42,7 @@ public class InputValidator {
 		}
 	}
 
-	public void validateNamesDistinct(String[] names) {
+	private void validateNamesDistinct(String[] names) {
 		HashSet<String> hashSet = new HashSet<>();
 		for (int i = 0; i < names.length; i++) {
 			hashSet.add(names[i]);
@@ -52,13 +52,13 @@ public class InputValidator {
 		}
 	}
 
-	public void validateNumberInput(String number) {
+	private void validateNumberInput(String number) {
 		if (number.chars().allMatch(Character::isDigit) == false) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + NOT_DIGIT_MESSAGE);
 		}
 	}
 
-	public void validateNumberInRange(String number) {
+	private void validateNumberInRange(String number) {
 		if (Integer.parseInt(number) < MIN_ROUND_NUMBER) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + ROUND_LESS_THAN_MIN_MESSAGE);
 		}
