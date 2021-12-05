@@ -16,6 +16,8 @@ public class InputViewTest extends CustomNsTest {
 	private static final String INVALID_LONG_LENGTH_CAR_NAMES = "ozr,ragwort";
 	private static final String INVALID_EMPTY_LENGTH_CAR_NAMES = "ozr,,wort";
 
+	private static final String CORRECT_RACING_ROUND = "3";
+
 	private static final String ERROR_MESSAGE = "[ERROR]";
 
 	@DisplayName("차의 이름을 받아오는 테스트")
@@ -72,6 +74,19 @@ public class InputViewTest extends CustomNsTest {
 		}
 		assertThat(output()).contains(ERROR_MESSAGE);
 	}
+
+	@DisplayName("시도 횟수 입력 테스트")
+	@Test
+	public void readRacingRoundTest() {
+		command(CORRECT_RACING_ROUND);
+		try {
+			int input = InputView.readRacingRound();
+			assertEquals(input, Integer.parseInt(CORRECT_RACING_ROUND));
+		} catch (NoSuchElementException ignored) {
+		}
+	}
+
+
 
 	@Override
 	protected void runMain() {
