@@ -7,6 +7,7 @@ import racingcar.car.CarService;
 import racingcar.exceptions.ExecutionException;
 import racingcar.view.CarListView;
 import racingcar.view.ExecutionView;
+import racingcar.view.InputView;
 import racingcar.view.ResultView;
 import racingcar.view.View;
 import racingcar.view.WinnerView;
@@ -15,12 +16,14 @@ import racingcar.winner.WinnerListService;
 
 public class RacingCar {
 	View view;
+	InputView inputView;
 	CarRepository carRepository;
 	CarRepositoryService carRepositoryService;
 
 	//초기 설정 및 자동차 입력받는 화면 출력
 	public void racingCar() {
 		view = new CarListView();
+		inputView = new CarListView();
 		carRepository = new CarRepository();
 
 		printCarListView();
@@ -33,7 +36,7 @@ public class RacingCar {
 	}
 
 	private void getUserCarList() {
-		String userCarList = view.getUserInput();
+		String userCarList = inputView.getUserInput();
 		carRepositoryService = new CarRepositoryService(carRepository);
 
 		saveCars(userCarList);
@@ -54,13 +57,14 @@ public class RacingCar {
 	//실행 횟수 입력화면 출력
 	private void printExecutionView() {
 		view = new ExecutionView();
+		inputView = new ExecutionView();
 		printViews();
 
 		getUserExecutionTime();
 	}
 
 	private void getUserExecutionTime() {
-		String userExecutionTime = view.getUserInput();
+		String userExecutionTime = inputView.getUserInput();
 		try {
 			ExecutionException.executionException(userExecutionTime);
 

@@ -20,11 +20,6 @@ public class WinnerView implements View {
 		System.out.println(winnerString);
 	}
 
-	@Override
-	public String getUserInput() {
-		return null;
-	}
-
 	private String getWinnerMessage() {
 		String winnerString =
 			winnerList.getWinnerCarList().stream()

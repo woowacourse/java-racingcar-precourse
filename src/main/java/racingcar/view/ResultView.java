@@ -24,11 +24,6 @@ public class ResultView implements View {
 		System.out.println();
 	}
 
-	@Override
-	public String getUserInput() {
-		return null;
-	}
-
 	private void printInitView() {
 		System.out.println(INIT_MESSAGE);
 	}
