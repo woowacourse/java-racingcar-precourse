@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
-import domain.MoveCount;
+import domain.TryCount;
 import domain.Name;
 import domain.Names;
 
@@ -25,15 +25,15 @@ public class InputView {
 		}
 	}
 
-	public static MoveCount inputMoveCount() {
-		OutputView.printInputMoveCount();
+	public static TryCount inputTryCount() {
+		OutputView.printInputTryCount();
 
 		try {
 			String input = Console.readLine();
-			return MoveCount.from(input);
+			return TryCount.from(input);
 		} catch (IllegalArgumentException e) {
 			OutputView.printErrorMessage(e.getMessage());
-			return inputMoveCount();
+			return inputTryCount();
 		}
 	}
 }

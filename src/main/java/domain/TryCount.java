@@ -1,33 +1,33 @@
 package domain;
 
-public class MoveCount {
+public class TryCount {
 	private static final String NUMBER_FORMAT_ERROR_MESSAGE = "숫자만 입력할 수 있습니다.";
 	private static final String NUMBER_RANGE_ERROR_MESSAGE = "시도 회수는 1 이상으로 입력해야 합니다.";
 
-	private static final int MINIMUM_MOVE_COUNT = 1;
+	private static final int MINIMUM_TRY_COUNT = 1;
 
-	private final int moveCount;
+	private final int tryCount;
 
-	private MoveCount(int moveCount) {
-		validateRange(moveCount);
-		this.moveCount = moveCount;
+	private TryCount(int tryCount) {
+		validateRange(tryCount);
+		this.tryCount = tryCount;
 	}
 
-	public static MoveCount from(String moveCount) {
+	public static TryCount from(String tryCount) {
 		try {
-			int convertedMoveCount = Integer.parseInt(moveCount);
-			return new MoveCount(convertedMoveCount);
+			int convertedTryCount = Integer.parseInt(tryCount);
+			return new TryCount(convertedTryCount);
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException(NUMBER_FORMAT_ERROR_MESSAGE);
 		}
 	}
 
 	public int toInt() {
-		return this.moveCount;
+		return this.tryCount;
 	}
 
-	private void validateRange(int moveCount) {
-		if (moveCount < MINIMUM_MOVE_COUNT) {
+	private void validateRange(int tryCount) {
+		if (tryCount < MINIMUM_TRY_COUNT) {
 			throw new IllegalArgumentException(NUMBER_RANGE_ERROR_MESSAGE);
 		}
 	}

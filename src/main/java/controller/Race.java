@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import domain.CarDto;
 import domain.Cars;
-import domain.MoveCount;
+import domain.TryCount;
 import domain.Names;
 import domain.Winners;
 import domain.WinnersDto;
@@ -17,16 +17,16 @@ public class Race {
 		Names names = InputView.inputCarNames();
 		Cars cars = Cars.from(names);
 
-		MoveCount moveCount = InputView.inputMoveCount();
+		TryCount tryCount = InputView.inputTryCount();
 
-		startRace(cars, moveCount);
+		startRace(cars, tryCount);
 
 		printWinners(cars);
 	}
 
-	private void startRace(Cars cars, MoveCount moveCount) {
+	private void startRace(Cars cars, TryCount tryCount) {
 		OutputView.printResultMessage();
-		for (int i = 0; i < moveCount.toInt(); i++) {
+		for (int i = 0; i < tryCount.toInt(); i++) {
 			moveCars(cars);
 			printCars(cars);
 		}
