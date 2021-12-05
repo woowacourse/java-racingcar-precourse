@@ -14,10 +14,12 @@ public class User {
 
 	private String DELIMITER = ",";
 	private String INPUT_MESSAGE_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(" + DELIMITER + ") 기준으로 구분)";
+	private String INPUT_MESSAGE_NUMBER_OF_TIMES = "시도할 회수는 몇회인가요?";
 	private String ERROR = "[ERROR]";
 	private String ERROR_MESSAGE_NAME_LENGTH =
 		ERROR + "자동차 이름은 " + MIN_NAME_LENGTH + "자 이상 " + MAX_NAME_LENGTH + "자 이하만 가능합니다.";
 	private String ERROR_MESSAGE_NAME_DUPLICATION = ERROR + "자동차 이름은 중복될 수 없습니다.";
+	private String ERROR_MESSAGE_INPUT_IS_NOT_NUBMER = ERROR + "숫자를 입력해주세요.";
 
 	private List<String> names;
 	private int numberOfTimes;
@@ -66,5 +68,35 @@ public class User {
 
 	public int sizeOfNames() {
 		return names.size();
+	}
+
+	public void inputAndSetNumberOfTimes() {
+		System.out.println(INPUT_MESSAGE_NUMBER_OF_TIMES);
+		String input = Console.readLine();
+		setNumberOfTimes(input);
+	}
+
+	private void setNumberOfTimes(String input) {
+		if (checkNumberOfTimes(input)) {
+			this.numberOfTimes = Integer.valueOf(input);
+		}
+	}
+
+	private boolean checkNumberOfTimes(String input) {
+		try {
+			checkInputIsNumber(input);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	private void checkInputIsNumber(String input) {
+		for (int i = 0; i < input.length(); i++) {
+			if (!(input.charAt(i) >= 0 && input.charAt(i) <= 9)) {
+				throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_IS_NOT_NUBMER);
+			}
+		}
 	}
 }
