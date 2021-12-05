@@ -20,7 +20,7 @@ public class RacingCarGameRunner {
             try {
                 return CarGameInputHandler.getCarNames();
             }catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -30,7 +30,7 @@ public class RacingCarGameRunner {
             try {
                 return CarGameInputHandler.getPlayCount();
             }catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
     }
