@@ -1,7 +1,7 @@
 package racingcar.resource.message;
 
-import racingcar.resource.rule.CountRange;
-import racingcar.resource.rule.NameLength;
+import racingcar.utils.CountRange;
+import racingcar.utils.NameLength;
 
 public class ErrorMessage {
 

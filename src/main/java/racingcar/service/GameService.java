@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import racingcar.domain.Car;
-import racingcar.domain.GameRoundResultDto;
-import racingcar.domain.GameTotalResultDto;
-import racingcar.resource.rule.RunnableCondition;
+import racingcar.controller.dto.GameRoundResultDto;
+import racingcar.controller.dto.GameTotalResultDto;
+import racingcar.utils.RunnableCondition;
 import racingcar.service.picker.NumberPicker;
 
 public class GameService {

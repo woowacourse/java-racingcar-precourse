@@ -12,9 +12,9 @@ import racingcar.exception.NameEmptyMessageException;
 import racingcar.exception.NameTooLongMessageException;
 import racingcar.exception.RacingCarException;
 import racingcar.resource.message.OutputMessage;
-import racingcar.resource.rule.CountRange;
-import racingcar.resource.rule.Delimiter;
-import racingcar.resource.rule.NameLength;
+import racingcar.utils.CountRange;
+import racingcar.utils.Delimiter;
+import racingcar.utils.NameLength;
 import racingcar.view.input.Reader;
 
 public class InputView {

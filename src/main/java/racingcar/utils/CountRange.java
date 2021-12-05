@@ -1,4 +1,4 @@
-package racingcar.resource.rule;
+package racingcar.utils;
 
 public enum CountRange {
 

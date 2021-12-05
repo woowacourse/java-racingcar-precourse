@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.resource.rule.Delimiter;
+import racingcar.utils.Delimiter;
 
 public class Car {
 

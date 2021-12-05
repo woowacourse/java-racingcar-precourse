@@ -2,11 +2,11 @@ package racingcar.view;
 
 import java.util.List;
 
-import racingcar.domain.GameRoundResultDto;
-import racingcar.domain.GameTotalResultDto;
+import racingcar.controller.dto.GameRoundResultDto;
+import racingcar.controller.dto.GameTotalResultDto;
 import racingcar.resource.message.ErrorMessage;
 import racingcar.resource.message.OutputMessage;
-import racingcar.resource.rule.Delimiter;
+import racingcar.utils.Delimiter;
 
 public class OutputView {
 
