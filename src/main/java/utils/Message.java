@@ -8,6 +8,7 @@ public class Message {
 	public static final String EXECUTION_RESULT_MESSAGE = "\n실행 결과";
 	public static final String PROGRESS_BAR = "-";
 	public static final String FINAL_WIN_MESSAGE = "최종 우승자 : ";
+	public static final String SEPARATOR = ", ";
 
 	public static final int CAR_NAME_MAX_LENGTH = 5;
 	public static final int NUMBER_MIN_VALUE = 0;

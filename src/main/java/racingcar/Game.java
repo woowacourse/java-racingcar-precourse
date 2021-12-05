@@ -54,6 +54,6 @@ public class Game {
 
 	private void startRace(List<String> carNames, int attemptNumber) {
 		Race race = new Race(carNames, attemptNumber);
-		race.start();
+		race.run();
 	}
 }
