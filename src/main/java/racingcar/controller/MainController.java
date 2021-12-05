@@ -10,6 +10,7 @@ public class MainController {
     }
 
     public void playGame(){
-        System.out.println(userInput.inputCarNames());
+        String carNames = userInput.inputCarNames();
+        UserInputValidation.carNameValidation(carNames);
     }
 }
