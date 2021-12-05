@@ -29,10 +29,7 @@ public class Validation {
     }
 
     public void validateName(String input) {
-        if (input.lastIndexOf(",") == input.length() - 1) {
-            throw new IllegalArgumentException(INPUT_BLANK_ERROR);
-        }
-        for (String s : input.replaceAll(" ", "").split(",")) {
+        for (String s : input.replaceAll(" ", "").split(",", -1)) {
             if (s.equals("")) {
                 throw new IllegalArgumentException(INPUT_BLANK_ERROR);
             }
