@@ -14,22 +14,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumber {
 
-	/** 생성할 난수의 최대 범위 */
 	public static final Integer RANDOM_NUMBER_MAX_RANGE = 9;
 
-	/** 생성할 난수의 최소 범위 */
 	public static final Integer RANDOM_NUMBER_MIN_RANGE = 0;
 
-	/** RandomNumber의 인스턴스를 만드는 기본 생성자 */
 	public RandomNumber() {
 		super();
 	}
 
-	/**
-	 * 난수를 생성해 반환한다
-	 *
-	 * @return Integer 0~9사이의 난수
-	 */
 	public Integer getRandomNumber() {
 		return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN_RANGE, RANDOM_NUMBER_MAX_RANGE);
 	}
