@@ -22,6 +22,8 @@ public class GameSystem {
     }
 
     private void runRaceOnce() {
-        //TODO
+        carEntry.letCarsMove();
+        carEntry.printCurCarsPosition();
+        System.out.print("\n");
     }
 }
