@@ -54,7 +54,7 @@ public class MainController {
     private void raceStart(List<Car> carList) {
         System.out.println(PRINT_RESULT);
 
-        for (int i=0; i<tryNum; i++) {
+        for (int i = 0; i < tryNum; i++) {
             CarController.movePosition(carList);
             Output.racePrint(carList);
         }
