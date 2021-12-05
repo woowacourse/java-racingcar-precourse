@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.stream.Collectors;
+
 public class OutputView {
 	public void printResult(Cars cars, int numberOfAttempts) {
 		System.out.println("실행 결과");
@@ -7,6 +9,16 @@ public class OutputView {
 			cars.controlByRandomNumber();
 			printResultByAttempt(cars);
 		}
+	}
+
+	public void printWinners(Cars cars) {
+		System.out.println("최종 우승자 : " + getWinnersToString(cars));
+	}
+
+	private String getWinnersToString(Cars cars) {
+		return cars.getWinners().stream()
+			.map(Car::getName)
+			.collect(Collectors.joining(", "));
 	}
 
 	private void printResultByAttempt(Cars cars) {
@@ -17,7 +29,7 @@ public class OutputView {
 	}
 
 	private String changePositionToDash(int position) {
-		StringBuffer dash = new StringBuffer();
+		StringBuilder dash = new StringBuilder();
 		for (int i = 0; i < position; i++) {
 			dash.append("-");
 		}

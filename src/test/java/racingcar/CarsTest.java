@@ -25,7 +25,7 @@ public class CarsTest {
 
 		Cars cars = new Cars(carA, carB, carC);
 
-		assertThat(cars.getWinner()).containsExactly(carC);
+		assertThat(cars.getWinners()).containsExactly(carC);
 	}
 
 	@Test
@@ -36,6 +36,6 @@ public class CarsTest {
 
 		Cars cars = new Cars(carA, carB, carC);
 
-		assertThat(cars.getWinner()).containsExactly(carA, carC);
+		assertThat(cars.getWinners()).containsExactly(carA, carC);
 	}
 }
