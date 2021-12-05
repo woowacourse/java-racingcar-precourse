@@ -10,7 +10,7 @@ package racingcar;
 
 public class Car {
 
-	public static final Integer SHOULD_GO_FORWARD = 3;
+	private static final Integer SHOULD_GO_FORWARD = 3;
 
 	private RandomGenerator randomGenerator;
 

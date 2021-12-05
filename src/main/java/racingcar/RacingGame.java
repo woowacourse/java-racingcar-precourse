@@ -15,9 +15,9 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
 
-	public static final Integer CAR_NAME_MAX_LENGTH = 5;
+	private static final Integer CAR_NAME_MAX_LENGTH = 5;
 
-	public static final String NUMBER_PATTERN = "^[0-9]*$";
+	private static final String NUMBER_PATTERN = "^[0-9]*$";
 
 	private final ArrayList<Car> cars;
 

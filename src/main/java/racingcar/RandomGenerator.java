@@ -14,9 +14,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomGenerator {
 
-	public static final Integer RANDOM_NUMBER_MAX_RANGE = 9;
+	private static final Integer RANDOM_NUMBER_MAX_RANGE = 9;
 
-	public static final Integer RANDOM_NUMBER_MIN_RANGE = 0;
+	private static final Integer RANDOM_NUMBER_MIN_RANGE = 0;
 
 	public RandomGenerator() {
 		super();

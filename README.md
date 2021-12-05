@@ -212,3 +212,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - 필요없는 주석 삭제
     - 난수 생성하는 인스턴스를 만드는 클래스 이름 변경
     - 자동차 정보와 관련된 인스턴스 생성시 내부에서 사용하는 난수 생성 인스턴스를 주입하는 방식으로 변경
+    - 불필요하게 넓은 접근 권한을 가진 상수의 접근제어자 변경
