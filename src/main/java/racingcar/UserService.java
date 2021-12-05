@@ -1,11 +1,11 @@
 package racingcar;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.constants.Constant;
 import racingcar.constants.Message;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class UserService {
 	public String[] register() {
@@ -35,27 +35,22 @@ public class UserService {
 		String[] names = input.split(Constant.SPLIT_STRING);
 
 		checkLastIndex(input);
-		checkNameLength(names);
-		checkDuplicate(names);
+		checkValidName(names);
 
 		return names;
 	}
 
-	private void checkDuplicate(String[] names) {
-		Set<String> check = new HashSet<>();
+	private void checkValidName(String[] names) {
+		Set<String> checker = new HashSet<>();
 		for (String name : names) {
-			if (!check.add(name)) {
+			if (!isValidNameLength(name) || !checker.add(name)) {
 				throw new IllegalArgumentException();
 			}
 		}
 	}
 
-	private void checkNameLength(String[] names) {
-		for (String name : names) {
-			if (!(Constant.MIN_NAME_LENGTH <= name.length() && name.length() <= Constant.MAX_NAME_LENGTH)) {
-				throw new IllegalArgumentException();
-			}
-		}
+	private boolean isValidNameLength(String name) {
+		return Constant.MIN_NAME_LENGTH <= name.length() && name.length() <= Constant.MAX_NAME_LENGTH;
 	}
 
 	private void checkLastIndex(String userInput) {
