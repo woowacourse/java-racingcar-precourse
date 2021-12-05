@@ -11,9 +11,12 @@ public class InputValidator {
 	private static final String NAME_NOT_DISTINCT_MESSAGE = "중복된 이름을 입력할 수 없다.";
 	private static final String NOT_DIGIT_MESSAGE = "숫자가 아닌 문자는 입력할 수 없다.";
 	private static final String ROUND_LESS_THAN_MIN_MESSAGE = "1보다 큰 수를 입력해야한다.";
+	private static final String NO_EXIST_NAME_MESSAGE = "이름을 입력해주세요.";
 
 	public boolean isValidNamesInput(String[] names) {
 		try {
+			validateBlankNames(names);
+			validateExistNames(names);
 			validateNameLengthInRange(names);
 			validateNamesDistinct(names);
 		} catch (IllegalArgumentException e) {
@@ -49,6 +52,21 @@ public class InputValidator {
 		}
 		if (hashSet.size() != names.length) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + NAME_NOT_DISTINCT_MESSAGE);
+		}
+	}
+
+	private void validateExistNames(String[] names) {
+		if (names.length == 0) {
+			throw new IllegalArgumentException(ERROR_MESSAGE + NO_EXIST_NAME_MESSAGE);
+		}
+	}
+
+	private void validateBlankNames(String[] names) {
+		for (int i = 0; i < names.length; i++) {
+			String name = names[i].replace(" ", "");
+			if (name.length() == 0) {
+				throw new IllegalArgumentException(ERROR_MESSAGE + NO_EXIST_NAME_MESSAGE);
+			}
 		}
 	}
 
