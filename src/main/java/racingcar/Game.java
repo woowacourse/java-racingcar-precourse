@@ -12,7 +12,7 @@ public class Game {
 		setCars();
 		int tryNumberOfCarMoving = inputTryNumberOfCarMoving();
 		printBlankLine();
-		attemptCarsMovingAndPrintCarsStatus(tryNumberOfCarMoving);
+		playRacing(tryNumberOfCarMoving);
 		printFinalCarWinners(carRepository.getWinnerCarsName());
 	}
 
@@ -20,7 +20,7 @@ public class Game {
 		carRepository.createCars(inputCarNames());
 	}
 
-	private void attemptCarsMovingAndPrintCarsStatus(int tryNumberOfCarMoving) {
+	private void playRacing(int tryNumberOfCarMoving) {
 		System.out.println("실행 결과");
 		for (int i = 0; i < tryNumberOfCarMoving; i++) {
 			carRepository.attemptCarsMoving();

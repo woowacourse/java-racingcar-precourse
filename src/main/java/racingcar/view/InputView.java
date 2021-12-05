@@ -24,7 +24,19 @@ public class InputView {
 		}
 	}
 
-	public static void validateCarNames(String input) {
+	public static int inputTryNumberOfCarMoving() {
+		try {
+			System.out.println("시도할 회수는 몇회인가요?");
+			String numberOfCarMoving = Console.readLine();
+			validateIsIntegerNumberOfCarMoving(numberOfCarMoving);
+			return Integer.parseInt(numberOfCarMoving);
+		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
+			return inputTryNumberOfCarMoving();
+		}
+	}
+
+	private static void validateCarNames(String input) {
 		validateIsEmpty(input);
 		String[] carNames = input.split(DELIMITER_CAR_NAME);
 		validateLengthOfCarName(carNames);
@@ -49,18 +61,6 @@ public class InputView {
 			if (name.length() > MAX_CAR_NAME_LENGTH) {
 				throw new IllegalArgumentException(ERROR_MESSAGE + "입력한 이름이 5글자를 초과합니다.");
 			}
-		}
-	}
-
-	public static int inputNumberOfCarMoving() {
-		try {
-			System.out.println("시도할 회수는 몇회인가요?");
-			String numberOfCarMoving = Console.readLine();
-			validateIsIntegerNumberOfCarMoving(numberOfCarMoving);
-			return Integer.parseInt(numberOfCarMoving);
-		} catch (IllegalArgumentException exception) {
-			System.out.println(exception.getMessage());
-			return inputNumberOfCarMoving();
 		}
 	}
 
