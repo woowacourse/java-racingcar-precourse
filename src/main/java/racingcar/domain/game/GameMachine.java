@@ -1,9 +1,9 @@
-package racingcar.game;
+package racingcar.domain.game;
 
 import java.util.List;
 
-import racingcar.car.Cars;
-import racingcar.car.MovingPolicy;
+import racingcar.domain.car.Cars;
+import racingcar.domain.car.MovingPolicy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

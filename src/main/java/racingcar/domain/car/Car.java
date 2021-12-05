@@ -1,6 +1,6 @@
-package racingcar.car;
+package racingcar.domain.car;
 
-import static racingcar.error.ErrorMessage.*;
+import static racingcar.domain.error.ErrorMessage.*;
 
 public class Car {
     private static final int DEFAULT_POSITION = 0;

@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static racingcar.error.ErrorMessage.*;
+import static racingcar.domain.error.ErrorMessage.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

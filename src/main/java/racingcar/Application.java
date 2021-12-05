@@ -1,7 +1,7 @@
 package racingcar;
 
-import racingcar.car.RandomMovingPolicy;
-import racingcar.game.GameMachine;
+import racingcar.domain.car.RandomMovingPolicy;
+import racingcar.domain.game.GameMachine;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
