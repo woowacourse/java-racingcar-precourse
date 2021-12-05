@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class MainController {
         saveTryNum();
         System.out.println("실행 결과");
         CarController.movePosition(carList);
+        OutputView.racePrint(carList);
     }
 
     private void saveCarList() {

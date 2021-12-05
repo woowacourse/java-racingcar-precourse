@@ -4,17 +4,30 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private int position = 3;
 
     public Car(String name) {
         this.name = name;
     }
 
-    public void carMove(){
+    public void carMove() {
         int randNum = Randoms.pickNumberInRange(0, 9);
 
-        if (randNum >= 4){
+        if (randNum >= 4) {
             this.position += 1;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void showInfo() {
+        String info = getName() + " : ";
+
+        for (int i = 0; i < position; i++) {
+            info += "-";
+        }
+        System.out.println(info);
     }
 }
