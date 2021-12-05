@@ -53,4 +53,35 @@ class CarTest {
                 Arguments.of(lowerPositionCar, true)
         );
     }
+
+    @ParameterizedTest
+    @DisplayName("이름과 위치 값을 기준으로 동등성을 판단한다.")
+    @MethodSource("provideAnotherCarAndExpectedEquality")
+    void equals(final Car anotherCar, final boolean expected) {
+        car.move(true);
+        boolean actual = car.equals(anotherCar);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @DisplayName("이름과 위치 값을 기반으로 해시코드를 반환한다.")
+    @MethodSource("provideAnotherCarAndExpectedEquality")
+    void hashCode(final Car anotherCar, final boolean expected) {
+        car.move(true);
+        int hashCodeOfCar = car.hashCode();
+        int hashCodeOfAnotherCar = anotherCar.hashCode();
+        assertThat(hashCodeOfCar == hashCodeOfAnotherCar).isEqualTo(expected);
+    }
+
+    private static Stream<Arguments> provideAnotherCarAndExpectedEquality() {
+        Car firstCar = new Car("Chris");
+        firstCar.move(true);
+        Car secondCar = new Car("Chris");
+        Car thirdCar = new Car("Henry");
+        return Stream.of(
+                Arguments.of(firstCar, true),
+                Arguments.of(secondCar, false),
+                Arguments.of(thirdCar, false)
+        );
+    }
 }
