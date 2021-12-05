@@ -12,11 +12,11 @@ public class Utils {
         return Randoms.pickNumberInRange(START_RANDOM_NUMBER, END_RANDOM_NUMBER);
     }
 
-    public boolean getMoveForwardOrNot(int score) {
-        if (score >= 4) {
+    public boolean exceedMoveForwardScoreOrNot(int score) {
+        if (score >= MOVE_FORWARD_SCORE) {
             return true;
         }
-        if (score < 4) {
+        if (score < MOVE_FORWARD_SCORE) {
             return false;
         }
         return false;
