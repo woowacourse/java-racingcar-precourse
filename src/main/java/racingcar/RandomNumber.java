@@ -18,7 +18,7 @@ public class RandomNumber {
 	public static final Integer RANDOM_NUMBER_MAX_RANGE = 9;
 
 	/** 생성할 난수의 최소 범위 */
-	public static final Integer RANDOM_NUMBER_MIN_RANGE = 1;
+	public static final Integer RANDOM_NUMBER_MIN_RANGE = 0;
 
 	/** RandomNumber의 인스턴스를 만드는 기본 생성자 */
 	public RandomNumber() {
