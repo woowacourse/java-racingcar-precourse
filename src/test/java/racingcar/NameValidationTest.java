@@ -26,7 +26,7 @@ public class NameValidationTest {
         }
         assertThrows(
             IllegalArgumentException.class,
-            CarGameInputHandler::getCarNames
+            CarGameInputHandler::getValidCarNames
         );
     }
 
@@ -34,7 +34,7 @@ public class NameValidationTest {
     @Test
     void checkNormalInput() {
         System.setIn(new ByteArrayInputStream("test\n".getBytes()));
-        List<String> list = CarGameInputHandler.getCarNames();
+        List<String> list = CarGameInputHandler.getValidCarNames();
         assertThat(list.size()).isEqualTo(1);
         assertThat(list.get(0)).isEqualTo("test");
     }

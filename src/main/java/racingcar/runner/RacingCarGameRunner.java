@@ -1,7 +1,5 @@
 package racingcar.runner;
 
-import java.util.List;
-import java.util.function.Supplier;
 import racingcar.domain.RacingCarGame;
 import racingcar.utils.CarGameInputHandler;
 import racingcar.utils.DisplayHandler;
@@ -14,8 +12,8 @@ public class RacingCarGameRunner {
 
     public RacingCarGameRunner() {
         this.displayHandler = new DisplayHandler();
-        this.game = new RacingCarGame(getValidNames());
-        this.playCount = getValidPlayCount();
+        this.game = new RacingCarGame(CarGameInputHandler.getValidCarNames());
+        this.playCount = CarGameInputHandler.getValidPlayCount();
     }
 
     public void run() {
@@ -27,21 +25,4 @@ public class RacingCarGameRunner {
         displayHandler.displayResult();
     }
 
-    private List<String> getValidNames() {
-        return getValidInput(CarGameInputHandler::getCarNames);
-    }
-
-    private int getValidPlayCount() {
-        return getValidInput(CarGameInputHandler::getPlayCount);
-    }
-
-    private <T> T getValidInput(Supplier<T> sup) {
-        while (true) {
-            try {
-                return sup.get();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
 }

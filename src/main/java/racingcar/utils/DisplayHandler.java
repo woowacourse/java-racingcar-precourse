@@ -1,9 +1,8 @@
 package racingcar.utils;
 
-import static racingcar.constants.GameMessages.OUT_HEADER;
-
 public class DisplayHandler {
 
+    final public static String OUT_HEADER = "실행결과";
     final private static String LINE_BREAK = "\n";
 
     final private StringBuilder buffer;
