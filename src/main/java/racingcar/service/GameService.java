@@ -10,7 +10,7 @@ import racingcar.domain.GameTotalResultDto;
 import racingcar.resource.rule.RunnableCondition;
 import racingcar.service.picker.NumberPicker;
 
-public class GameManager {
+public class GameService {
 
     private final NumberPicker numberPicker;
 
@@ -18,7 +18,7 @@ public class GameManager {
     private Map<String, Car> carMap;
     private int winnerPosition;
 
-    public GameManager(NumberPicker numberPicker) {
+    public GameService(NumberPicker numberPicker) {
         this.numberPicker = numberPicker;
     }
 
@@ -45,6 +45,7 @@ public class GameManager {
             }
         });
     }
+
 
     private void updateGameRoundStatuses() {
         GameRoundResultDto roundStatusesDto = new GameRoundResultDto();
