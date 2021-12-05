@@ -54,4 +54,8 @@ public class Car {
         }
         return position;
     }
+
+    public int position() {
+        return position;
+    }
 }
