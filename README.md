@@ -32,3 +32,8 @@
 
 ### 4-2 최종 우승자 출력
 -GameProgressor 클래스에서 받아오기
+
+## 5. UserInputValidator
+
+### 5-1 Car이름 5자 검증
+### 5-2 시도횟수 숫자 검증
