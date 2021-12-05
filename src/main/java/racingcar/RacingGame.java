@@ -9,7 +9,7 @@ import camp.nextstep.edu.missionutils.Console;
  * <h1>실제 레이싱 게임 로직</h1>
  *
  * @author yunki kim
- * @version 1.3
+ * @version 1.4
  * @since 2021-12-01(V1.0)
  */
 
@@ -18,8 +18,8 @@ public class RacingGame {
 	/** 사용자가 입력 가능한 차량이름의 최대 길이 */
 	public static final Integer CAR_NAME_MAX_LENGTH = 5;
 
-	/** 사용자가 유효하지 않은 데이터를 입력했을때 출력하는 에러메시지의 접두사 */
-	public static final String ERROR_MESSAGE_PREFIX = "[ERROR] ";
+	/** 사용자가 입력한 턴 수 유효여부를 체크하는 정규식 */
+	public static final String NUMBER_PATTERN = "^[0-9]*$";
 
 	/** 레이싱 경주에 사용할 자동차 리스트 */
 	private final ArrayList<Car> cars;
@@ -53,12 +53,11 @@ public class RacingGame {
 
 	/** 자동차 이름을 유저로부터 입력받는다 */
 	private void inputRacingCarName() throws IllegalArgumentException {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+		System.out.println(RacingGameMessage.INPUT_RACING_CAR_NAME);
 		final String[] carNames = Console.readLine().split(",");
 		for (final String carName : carNames) {
 			if (carName.length() > CAR_NAME_MAX_LENGTH) {
-				final String errorMessage = ERROR_MESSAGE_PREFIX + carName
-					+ "은 5자 이하여야 합니다";
+				final String errorMessage = RacingGameMessage.getCarNameErrorMessage(carName);
 				cars.clear();
 				throw new IllegalArgumentException(errorMessage);
 			}
@@ -68,11 +67,10 @@ public class RacingGame {
 
 	/** 레이싱 게임 횟수를 유저로부터 입려받는다 */
 	private void inputRacingTurns() throws IllegalArgumentException {
-		System.out.println("시도할 회수는 몇회인가요?");
-		final String numberPattern = "^[0-9]*$";
+		System.out.println(RacingGameMessage.INPUT_RACING_TURNS);
 		final String playerInputtedTurns = Console.readLine();
-		if (!Pattern.matches(numberPattern, playerInputtedTurns)) {
-			final String errorMessage = ERROR_MESSAGE_PREFIX + "시도 횟수는 숫자여야 한다.";
+		if (!Pattern.matches(NUMBER_PATTERN, playerInputtedTurns)) {
+			final String errorMessage = RacingGameMessage.INVALID_TURNS;
 			throw new IllegalArgumentException(errorMessage);
 		}
 		turns = Integer.parseInt(playerInputtedTurns);
@@ -108,11 +106,7 @@ public class RacingGame {
 
 			farthestPosition = Math.max(farthestPosition, carPosition);
 
-			System.out.print(carName + " : ");
-			while (carPosition-- > 0) {
-				System.out.print("-");
-			}
-			System.out.print("\n");
+			RacingGameMessage.printCarPosition(carPosition, carName);
 		});
 		System.out.print("\n");
 	}
@@ -131,13 +125,14 @@ public class RacingGame {
 			.toArray(String[]::new);
 		final String winnerList = String.join(", ", winners);
 
-		System.out.print("최종 우승자 : " + winnerList);
+		System.out.print(RacingGameMessage
+			.getWinnerListMessage(winnerList));
 	}
 
 	/** 이 메서드를 호출하면 레이싱 게임을 시작한다 */
 	public void startGame() {
 		inputRacingInformation();
-		System.out.println("실행 결과");
+		System.out.println(RacingGameMessage.GAME_RESULT);
 		while (turns-- > 0) {
 			startNextTurn();
 		}
