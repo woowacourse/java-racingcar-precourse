@@ -1,7 +1,6 @@
 package model;
 
 import java.util.List;
-
 import java.util.stream.Collectors;
 
 public class Winner {
@@ -13,7 +12,7 @@ public class Winner {
         return participants.stream().anyMatch(car -> car.getPosition() == goal);
     }
     
-    public List <Car> getWinner(List<Car> participants, final int goal) {
+    public List <Car> getWinner(final List<Car> participants, final int goal) {
         
         return participants.stream().filter(car -> car.getPosition() == goal).collect(Collectors.toList());
     }

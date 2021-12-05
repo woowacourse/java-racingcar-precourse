@@ -20,6 +20,7 @@ public class Output {
             System.out.println("[ERROR] 입력한 자동차 이름이 형식에 맞지 않습니다.");
             return;
         }
+        
         if(type.equals("Num")) {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
         }
@@ -30,6 +31,7 @@ public class Output {
         
         for(int i = 0; i < winners.size(); i++) {
             result += winners.get(i).getName();
+            
             if(i < winners.size()-1) {
                 result += ", ";
             }
