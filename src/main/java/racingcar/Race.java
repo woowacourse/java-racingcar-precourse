@@ -22,21 +22,30 @@ public class Race {
 	}
 
 	public void printWinners() {
-		int maxPosition = Collections.max(cars.stream().map(Car::getPosition)
-			.collect(Collectors.toList()));
+		int maxPosition = getMaxPosition();
 
-		List<Car> winners = cars.stream().filter(car -> car.getPosition() == maxPosition)
-			.collect(Collectors.toList());
+		List<String> winnerNames = getWinnerNames(maxPosition);
 
-		String winnersOutput = Const.WINNER_MESSAGE
-			+ winners.stream().map(Car::getName)
-			.collect(Collectors.joining(", "));
+		String winnersOutputMessage = Const.WINNER_MESSAGE
+			+ String.join(Const.WINNER_SEPARATOR, winnerNames);
 
-		System.out.println(winnersOutput);
+		System.out.println(winnersOutputMessage);
 	}
 
 	private void printRoundResult() {
 		cars.forEach(Car::printPosition);
 		System.out.println();
+	}
+
+	private List<String> getWinnerNames(int maxPosition) {
+		return cars.stream()
+			.filter(car -> car.getPosition() == maxPosition)
+			.map(Car::getName)
+			.collect(Collectors.toList());
+	}
+
+	private int getMaxPosition() {
+		return Collections.max(cars.stream().map(Car::getPosition)
+			.collect(Collectors.toList()));
 	}
 }
