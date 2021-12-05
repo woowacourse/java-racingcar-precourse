@@ -9,11 +9,14 @@ public class InputValidation {
 	public static final int CAR_NAME_LENGTH_MAX = 5;
 	public static final long CAR_NUM_MIN = 1;
 	public static final long CAR_NUM_MAX = 1000;
+	public static final long MOVES_NUM_MIN = 1;
+	public static final long MOVES_NUM_MAX = 1000;
 	public static final String ERROR_CAR_NAME_LENGTH = "[ERROR] 자동차 이름은 1자 이상 5자 이하만 가능합니다.";
 	public static final String ERROR_CAR_NUMBER = "[ERROR] 자동차 개수는 1개 이상 1,000개 이하만 가능합니다.";
 	public static final String ERROR_LAST_CHARACTER_REGEX = "[ERROR] 입력한 자동차 이름은 쉼표로 끝날 수 없습니다.";
+	public static final String ERROR_MOVES_NUMBER = "[ERROR] 이동 횟수는 1 이상 1,000 이하여야 합니다.";
 
-	public static void checkCarNameValidation(String input, String splitRegex) {
+	public static void checkCarName(String input, String splitRegex) {
 		long carNameLengthValidation = Arrays.stream(input.split(splitRegex))
 			.filter(carName -> carName.length() > CAR_NAME_LENGTH_MAX || carName.length() < CAR_NAME_LENGTH_MIN)
 			.count();
@@ -36,6 +39,27 @@ public class InputValidation {
 		}
 		if (lastCharacterRegex) {
 			throw new IllegalArgumentException(ERROR_LAST_CHARACTER_REGEX);
+		}
+	}
+
+	public static void checkMovesNumber(String input) {
+		int inputMovesNumber;
+
+		try {
+			inputMovesNumber = Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException(ERROR_MOVES_NUMBER);
+		}
+
+		checkMovesNumberConditions(inputMovesNumber);
+	}
+
+	public static void checkMovesNumberConditions(int inputMovesNumber) {
+		if (inputMovesNumber < MOVES_NUM_MIN) {
+			throw new IllegalArgumentException(ERROR_MOVES_NUMBER);
+		}
+		if (inputMovesNumber > MOVES_NUM_MAX) {
+			throw new IllegalArgumentException(ERROR_MOVES_NUMBER);
 		}
 	}
 }

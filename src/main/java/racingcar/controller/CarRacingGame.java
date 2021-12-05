@@ -8,5 +8,6 @@ public class CarRacingGame {
 
 	public static void play() {
 		InputView.inputCarsName(SPLIT_REGEX);
+		InputView.inputMovesNumber();
 	}
 }
