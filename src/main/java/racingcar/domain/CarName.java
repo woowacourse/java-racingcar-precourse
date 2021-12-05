@@ -10,7 +10,7 @@ public class CarName {
 		+ "자 이하로 입력해주세요.";
 	private static final String EMPTY_LENGTH_ERROR_MESSAGE = "[ERROR] 빈 자동차 이름이 입력되었습니다.";
 
-	private String name;
+	private final String name;
 
 	public CarName(String name) {
 		validateRange(name);
