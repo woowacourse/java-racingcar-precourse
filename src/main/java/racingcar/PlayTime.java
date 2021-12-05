@@ -38,10 +38,6 @@ public class PlayTime {
 		return this.equals(playTime);
 	}
 
-	public void increase() {
-		this.round += 1;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
