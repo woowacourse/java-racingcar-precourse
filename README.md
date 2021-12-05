@@ -1,187 +1,69 @@
-# 미션 - 자동차 경주 게임
+## 🔥 My Feedback of Mission1
 
-## 🔍 진행방식
+1. MVC 패턴구현
+  1. MVC 패턴 설계단계에서 Controller에게 너무 많은 기능을 위임했다.
+  2. 예를 들면 사용자의 정답을 입력받고 정답의 상태를 출력하는 과정은 Controller 가 아닌 View에게 위임 했었어야 했다.
+  3. 특히 Model에서는 다른 컴포넌트들과는 전혀 상관 없이 개발을 했었어야 했는데, 그게 조금 부족했었던 것 같다.
+2. Magic Number의 사용
+  1. 최대한 많은 상수들을 constant 패키지에 묶어서 사용하려고 했었지만, 리팩토링 하는 과정에서 그냥 native하게 바로 숫자를 넣어버렸다.
+  2. 좀 더 디테일 하게 모든 코드들을 확인하고 리팩토링 할 필요가 있다.
+3. Readme.md의 활용
+  1. 리드미의 활용이 부족했다.
+  2. 물론 미션의 요구사항이 리드미에는 내가 구현할 앱의 기능 요구사항을 작성하라고 적혀 있긴 하지만, 리드미에는 기본적으로 이 앱의 abstraction, getting start, Interface definition등이 있어야 한다. 과제 제출이라는 특수한 상황이기 때문에 리드미가 일반적인 리드미와는 형식이 당연히 다르겠지만, 리드미의 기본적인 Content는 담으려고 노력하자.
+  3. 리드미의 기능 목록을 업데이트 하라 라는 피드백을 받았다. 그렇다. 리드미는 계속 바뀔 수 있고 바뀔 필요가 있다. 물론 초기 설계를 와해시키면서 까지 개발을 진행하고 그거에 맞춰서 리드미를 바꾸는 개발은 지양해야 겠지만, 초기 설계에 갖혀서 개발 중간에 생각나는 아이디어들을 반영하지 말아야 한다는 법은 절대 없다!! 살아있는 문서를 만들기 위해 노력하자.
+4. Git
+  1. commit message를 의미있게 남기자.
+  2. 현재는 pr을 단순히 upstream에 제출 용도로 사용하고 있지만 앞으로는 origin/hoho00를 main branch로 삼아서 pr하는 연습을 해야 겠다.
+  3. 즉, 위의 말을 아래 브랜치로 한다면 현재 내 repo의 main branch는 사용하지 않고, origin/hoho00를 아래 그림의 master로 삼는다. 그리고 release branch 와 dev브랜치를 만들어서 release branch 에서는 bug fix만 일어 날 수 있도록 하고(원래는 QA들에 의해서 발생 하는 pr이다.) develop브랜치를 따로 만들고, feature브랜치들도 따로 만들 것이다. develop branch 는 테스팅 및 구현의 merge, release 브랜치로 갈 준비를 한다.
 
-- 미션은 **기능 요구사항, 프로그래밍 요구사항, 과제 진행 요구사항** 세 가지로 구성되어 있다.
-- 세 개의 요구사항을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/758a08b7-5b76-4c8f-99ae-9ac8ee573f82/Untitled.png)
 
-## ✉️ 미션 제출 방법
+Mission1에서 MVC(Model-View-Controller) Pattern을 이용해서 구현했었다. Mission2에서도 동일하게 MVC Pattern을 적용하여 구현 하려고 한다.
 
-- 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-  - GitHub을 활용한 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고해 제출한다.
-- GitHub에 미션을 제출한 후 [우아한테크코스 지원 플랫폼](https://apply.techcourse.co.kr) 에 접속하여 프리코스 과제를 제출한다.
-  - 자세한 방법은 [링크](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 를 참고한다.
-  - **Pull Request만 보내고, 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
+그리고 pobi가 주신 피드백과 위의 자체 피드백을 수용하여 2주차를 완성시켜보자.
 
-## ✔️ 과제 제출 전 체크리스트 - 0점 방지
+### Conclusion of Feedback
 
-- 터미널에서 `java -version`을 실행해 자바 8인지 확인한다. 또는 Eclipse, IntelliJ IDEA와 같은 IDE의 자바 8로 실행하는지 확인한다.
-- 터미널에서 맥 또는 리눅스 사용자의 경우 `./gradlew clean test`, 윈도우 사용자의 경우 `gradlew.bat clean test` 명령을 실행했을 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
+1. 역지사지
+  1. "아무것도 모르는 타인이 내 코드를 봤을 때 한눈에 이해 할 수 있게 코딩" 해야 한다. 그것이 코딩컨벤션을 지키는 이유이고, 클래스와 매서드의 분리화를 하는 이유이고, 리드미와 깃 커밋메세지를 형식에 맞게 적는 이유이다.
+  2. 하지만, 내가 코딩을 하고 그것을 다시 내가 검수하기란 쉬운 일은 아니다. 왜냐하면, 나의 좁은 시선으로 내 코드를 다시 봐 봤자 내가 짠 코드라서 객관적인 시선에서 비판하기 힘들기 때문이다. 그리고 나는 이 코드를 짠 사람으로서 코드에 대한 이해가 전반적으로 다 되어 있는 사람이기 때문에 코드리뷰에 주관적인 안일함이 섞일 수 밖에 없다.
+  3. 그래서 내가 굳이 내 브랜치로 pr을 보내면서 까지 깃 워크플로우와 리드미를 중요시 하게 여기는 이유는 "남의 시선에서 내 코드를 보기" 위함이다. 내가 master branch의 주인이 되어서 다른 사람들의 pr들을 철저하게 방어하는 심정으로 코드를 보다 보면 좀 더 객관적인 시선에서 코드를 분석할 수 있다. 코딩도 좀 더 객관적인 시선으로 차갑게 할 수 있을 것 같다.
 
-```
-BUILD SUCCESSFUL in 0s
-```
+## 🔥Functional Requirements
 
----
+### 🔥용어 정리
 
-## 🚀 기능 요구사항
+1. 프로그램의 전체 이름은 "자동차 경주 게임" 혹은 "게임" 이라고 정의 한다.
+2. 자동차 경주 게임을 사용 하는 사람을 "사용자" 라고 정의 한다.
+3. 사용자의 standard input을 받는 곳을 "콘솔창" 이라고 정의 한다.
+4. 게임을 실행하는 주체를 "컴퓨터"이라고 정의 한다.
 
-초간단 자동차 경주 게임을 구현한다.
+### 🔥Features (MVC Pattern)
 
-- 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
-- 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
-- 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
-- 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-- 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-- 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
-- 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
-- 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`를 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
-- 아래의 프로그래밍 실행 결과 예시와 동일하게 입력과 출력이 이루어져야 한다.
-
-<br>
-
-## ✍🏻 입출력 요구사항
-
-### ⌨️ 입력
-
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
-
-```
-pobi,woni,jun
-```
-
-- 시도할 회수
-
-```
-5
-```
-
-### 🖥 출력
-
-- 각 차수별 실행 결과
-
-```
-pobi : --
-woni : ----
-jun : ---
-```
-
-- 단독 우승자 안내 문구
-
-```
-최종 우승자 : pobi
-```
-
-- 공동 우승자 안내 문구
-
-```
-최종 우승자 : pobi, jun
-```
-
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
-
-```
-[ERROR] 시도 횟수는 숫자여야 한다.
-```
-
-### 💻 프로그래밍 실행 결과 예시
-
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자 : pobi, jun
-```
-
-<br>
-
-## 🎱 프로그래밍 요구사항
-
-- 프로그램을 실행하는 시작점은 `Application`의 `main()`이다.
-- JDK 8 버전에서 실행 가능해야 한다. **JDK 8에서 정상 동작하지 않을 경우 0점 처리**한다.
-- 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-   - https://naver.github.io/hackday-conventions-java
-- indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-   - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-   - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
-- 3항 연산자를 쓰지 않는다.
-- 함수(또는 메소드)가 한 가지 일만 하도록 최대한 작게 만들어라.
-- 프로그래밍 요구사항에서 별도로 변경 불가 안내가 없는 경우 파일 수정과 패키지 이동을 자유롭게 할 수 있다.
-
-### 추가된 요구사항
-
-- 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
-   - 함수(또는 메소드)가 한 가지 일만 잘 하도록 구현한다.
-- else 예약어를 쓰지 않는다.
-   - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.
-   - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.
-
-### 프로그래밍 요구사항 - Car 객체
-
-- 다음 Car 객체를 활용해 구현해야 한다.
-- Car 기본 생성자를 추가할 수 없다.
-- name, position 변수의 접근 제어자인 private을 변경할 수 없다.
-- 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
-
-```java
-public class Car {
-    private final String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
-    // 추가 기능 구현
-}
-```
-
-### 프로그래밍 요구사항 - Randoms, Console
-
-- JDK에서 기본 제공하는 Random, Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms`, `Console` API를 활용해 구현해야 한다.
-   - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
-   - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-- 프로그램 구현을 완료했을 때 `src/test/java` 디렉터리의 `ApplicationTest`에 있는 모든 테스트 케이스가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
-
-<br>
-
----
-
-## 📈 과제 진행 요구사항
-
-- 미션은 [java-racingcar-precourse](https://github.com/woowacourse/java-racingcar-precourse) 저장소를 Fork/Clone해 시작한다.
-- **기능을 구현하기 전에 java-racingcar-precourse/docs/README.md 파일에 구현할 기능 목록을 정리**해 추가한다.
-- **Git의 커밋 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위**로 추가한다.
-   - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
-- 과제 진행 및 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고한다.
-
-<br>
-
----
-
-## 📝 License
-
-This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+1. View
+  1. 사용자에게 콘솔창을 통해서 경주할 자통차의 이름을 입력 받는다.
+  2. 사용자에게 콘솔창을 통해서 경주를 시도할 회수를 입력 받는다.
+  3. 컴퓨터는 콘솔창을 통해서 각 차수별 실행결과를 요구사항의 형식에 맞춰서 출력한다.
+  4. 컴퓨터는 콘솔창을 통해서 우승자의 안내를 형식에 맞춰서 출력한다.
+    1. 형식은 단독우승자의 형식과 공동우승자의 형식이 있다.
+    2. 우승자의 상태에 따라 다르게 출력한다.
+    3. 주의 할 점은 우승이 단독우승인지 공동우승인지의 판단은 view가 하면 안된다. 컨트롤러에게 위임한다.
+  5. 각 예외상황의 에러문구를 출력한다.
+2. Controller
+  1. n 대의 자동차를 생성 후 배열에 저장한다.
+  2. 자동차의 배열의 각각의 자동차들에게 이름을 부여 한다.
+  3. makeMove : Model에게 움직임을 준다.
+3. Model : 절대 Controller 나 View의 객체를 참조하여서는 안된다!! Model은 Controller에 의해서 사용되어야만 하며, View는 인터페이스화 된 Controller를 사용할 뿐이다.
+  1. GameData : 전체 게임에 사용되는 데이터의 저장 및 관리
+    1. winCountOfCars : car들의 우승 횟수를 Map 형태로 저장 한다. key는 "car의 이름" value는 "우승 횟수"이다.
+    2. finalWinners : 최종우승자들의 배열이다.
+  2. GameDataOfOneCycle : 게임의 1사이클에 사용되는 데이터의 저장 및 관리
+    1. cars : Car의 배열이다.
+    2. isSoloWin : 단독우승인지 아닌지 상태이다.
+    3. winners : 우승자의 배열이다.
+  3. Car
+    1. name
+    2. position
+4. Exceptions
+  1. 사용자가 콘솔창에 입력한 이름이 5자 이상일 때
+  2. 시도 횟수가 숫자가 아닌 다른 값일 때
