@@ -8,7 +8,7 @@ public class Game {
     public String[] carNames;
     public int times;
     public boolean checking;
-    ArrayList cars = new ArrayList();
+    ArrayList<Car> cars = new ArrayList<Car>();
 
     public Game() {
 
@@ -22,6 +22,7 @@ public class Game {
         carInput();
         timesInput();
         createCars();
+        gameTimes();
 
 
     }
@@ -109,12 +110,14 @@ public class Game {
     }
 
     private void gameTimes() {
-        for(int i = 0; i<times; i++) {
+        for(int i = 0; i < times; i++) {
             gameProgress();
         }
     }
 
     private void gameProgress() {
-
+        for(int i = 0; i < cars.size(); i++) {
+            cars.get(i).stopOrGo();
+        }
     }
 }
