@@ -23,27 +23,31 @@
 > 객체 책임 : 아는 것 + 하는 것
 > 
 > 아는 것 : 멤버 변수
+> - 사적인 정보에 관해 아는것
+> - 관련된 객체에 관해 아는것
+> - 자신이 유도하거나 계산할 수 있는 것에 관해 아는것
 > 
 > 하는 것 : 멤버 함수나 매개변수(메세지 전달)
+> - 객체를 생성하거나 계산 수행하는 등의 스스로 하는것
+> - 다른 객체의 행동을 시작시키는 것
+> - 다른 객체의 활동을 제어하고 조절하는 것
+
 ### Race
 - 책임 
-  - 사용자 입력받기
-  - 사용자 안내문구 출력
   - 경주에 참가하는 차 생성
   - 경주 진행하기
-  - 우승자 결정하고 출력하기
+  - 우승자 결정하기
 - 아는 것
   - 경주에 참여하는 자동차들(`cars`)
   - 총 몇회 움직이는지(`moveCount`)
   - 가장 많이 전진한 차 위치(`maxDistance`)
 - 하는 것
-  - 사용자에게 입력받기(`getUserInput()`)
   - 경주에 참여하는 차 이름 입력받고 `cars`생성하기(`getCarByName()`)
   - 몇 회 진행할건지 입력받기(`getMoveCount()`)
   - 전체적인 경주 진행하기(`run()`)
   - 가장 많이 전진한 위치 계산하기(`calculateMaxDistance()`)
   - 우승자 결정하기(`decideWinner()`)
-  - 최종우승자 출력하기(`printWinner()`)
+  - 최종우승자 출력하기(`showWinner()`)
   
   
 ### Car
@@ -57,8 +61,21 @@
   - 랜덤 숫자 4 이상이면 전진(`move()`)
   - 현재 위치 "name : position"으로 보여주기(`printPosition()`) (position 수만큼 '-'로 표현)
   
-
-
+### InputView
+- 책임
+  - 사용자에게 입력받기
+- 하는 것
+  - 사용자 입력받기(`getUserInput()`)
+  
+### OutputView
+- 책임
+  - 사용자에게 출력하기
+- 하는 것
+  - 경주 이름 안내 메세지(`printInputCarGuideMessage()`)
+  - 시도할 횟수 안내 메세지(`printInputNumberGuideMessage()`)
+  - 결과 및 최종 우승자 출력(`printFinalWinnerBy(String[] winnerCarNames)`)
+  - 에러 출력(`printErrorMessage(Exception exception)`)
+  
 ## 🔍 진행방식
 
 - 미션은 **기능 요구사항, 프로그래밍 요구사항, 과제 진행 요구사항** 세 가지로 구성되어 있다.
