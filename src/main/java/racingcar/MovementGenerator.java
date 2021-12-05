@@ -1,5 +1,5 @@
 package racingcar;
 
 public interface MovementGenerator {
-	MoveCount createMoveCount();
+    MoveCount createMoveCount();
 }

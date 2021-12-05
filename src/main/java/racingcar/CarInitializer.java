@@ -1,5 +1,5 @@
 package racingcar;
 
 public interface CarInitializer {
-	void registerCars();
+    void registerCars();
 }
