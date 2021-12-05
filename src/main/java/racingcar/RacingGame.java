@@ -93,4 +93,21 @@ public class RacingGame {
 		totalTryNum = getTryNumInput();
 		makeCarInstance(carNameBucket);
 	}
+
+	private void moveAllCars() {
+		for (int i = 0; i < cars.length; ++i) {
+			cars[i].moveCar();
+		}
+	}
+
+	private void printCurrentPositions() {
+		for (int i = 0; i < cars.length; ++i) {
+			System.out.printf("%s : %s\n", cars[i].getName(), cars[i].getCurrentPosition());
+		}
+	}
+
+	private void playOneCycle() {
+		moveAllCars();
+		printCurrentPositions();
+	}
 }

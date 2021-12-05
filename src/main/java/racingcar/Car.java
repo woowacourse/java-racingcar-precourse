@@ -26,4 +26,16 @@ public class Car {
 	protected void moveCar() {
 		position += convertRandomNumToForwardStep(makeRandomOneDigitNum());
 	}
+
+	protected String getCurrentPosition() {
+		StringBuilder currentPosition = new StringBuilder();
+		for (int i = 0; i < position; ++i) {
+			currentPosition.append("-");
+		}
+		return currentPosition.toString();
+	}
+
+	protected String getName() {
+		return name;
+	}
 }
