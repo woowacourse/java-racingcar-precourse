@@ -17,6 +17,9 @@ public class InputViewTest extends CustomNsTest {
 	private static final String INVALID_EMPTY_LENGTH_CAR_NAMES = "ozr,,wort";
 
 	private static final String CORRECT_RACING_ROUND = "3";
+	private static final String INVALID_FORMAT_ROUND = "ragwort";
+	private static final String INVALID_ZERO_ROUND = "0";
+	private static final String INVALID_NEGATIVE_ROUND = "-1";
 
 	private static final String ERROR_MESSAGE = "[ERROR]";
 
@@ -86,7 +89,38 @@ public class InputViewTest extends CustomNsTest {
 		}
 	}
 
+	@DisplayName("시도 횟수 형식 예외 테스트")
+	@Test
+	public void readRacingRoundFormatExceptionTest() {
+		command(INVALID_FORMAT_ROUND);
+		try {
+			InputView.readRacingRound();
+			assertThat(output()).contains(ERROR_MESSAGE);
+		} catch (NoSuchElementException ignored) {
+		}
+	}
 
+	@DisplayName("시도 횟수 0입력 예외 테스트")
+	@Test
+	public void readRacingRoundZeroExceptionTest() {
+		command(INVALID_ZERO_ROUND);
+		try {
+			InputView.readRacingRound();
+			assertThat(output()).contains(ERROR_MESSAGE);
+		} catch (NoSuchElementException ignored) {
+		}
+	}
+
+	@DisplayName("시도 횟수 음수 입력 예외 테스트")
+	@Test
+	public void readRacingRoundNegativeNumberExceptionTest() {
+		command(INVALID_NEGATIVE_ROUND);
+		try {
+			InputView.readRacingRound();
+			assertThat(output()).contains(ERROR_MESSAGE);
+		} catch (NoSuchElementException ignored) {
+		}
+	}
 
 	@Override
 	protected void runMain() {
