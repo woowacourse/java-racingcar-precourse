@@ -19,7 +19,7 @@ public class CarList {
 	}
 
 	CarList() {
-		System.out.println("자동차 이름 입력하세요!");
+		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		boolean passed = false;
 		while (!passed) {
 			initAttributes();
@@ -49,7 +49,7 @@ public class CarList {
 		public void add(String name) {
 			this.carName = name;
 			if (carNameList.contains(carName)) {
-				throw new IllegalArgumentException("[ERROR] " + "중복 불가!");
+				throw new IllegalArgumentException("[ERROR] 자동차이름은 중복이 불가능 합니다.");
 			}
 			addCarName();
 			addCarList();
@@ -113,7 +113,7 @@ class StreamMaker {
 		inputStr = Console.readLine();
 
 		if (!inputStr.matches("[a-zA-Z0-9,]+")) {
-			throw new IllegalArgumentException("[ERROR] " + "자동차이름(영문/숫자), 쉼표만 입력 가능");
+			throw new IllegalArgumentException("[ERROR] 자동차이름(영문/숫자), 쉼표만 입력 가능합니다.");
 		}
 	}
 }

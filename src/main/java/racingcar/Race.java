@@ -11,7 +11,7 @@ public class Race {
 
 	Race(List carList) {
 		this.carList = carList;
-		System.out.println("반복횟수 입력하세요 !");
+		System.out.println("시도할 회수는 몇회인가요?");
 		repeatNum = new NumberInitiator().getNumber();
 		for (int i = 0; i < repeatNum; i++) {
 			new Round().play();
@@ -68,7 +68,7 @@ public class Race {
 			if (input.matches("^[1-9][0-9]*")) {
 				return true;
 			}
-			throw new IllegalArgumentException("반복횟수는 숫자만 입력해야 합니다.");
+			throw new IllegalArgumentException("[ERROR] 반복횟수는 숫자만 입력해야 합니다.");
 		}
 	}
 }

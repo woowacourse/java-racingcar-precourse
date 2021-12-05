@@ -14,7 +14,7 @@ public class Car {
 		if (0 < len && len <= 5) {
 			return true;
 		}
-		throw new IllegalArgumentException("길이 제한!");
+		throw new IllegalArgumentException("[ERROR] 자동차 이름은 최대 5글자 입니다.");
 	}
 
 	// 추가 기능 구현
