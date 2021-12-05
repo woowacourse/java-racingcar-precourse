@@ -6,4 +6,8 @@ public class OutputView {
 	public static void printReadCarNamesMessage() {
 		System.out.println(READ_CAR_NAMES_MASSAGE);
 	}
+
+	public static void printErrorMessage(String errorMessage) {
+		System.out.println(errorMessage);
+	}
 }

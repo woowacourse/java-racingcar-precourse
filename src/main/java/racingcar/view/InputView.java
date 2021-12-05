@@ -8,7 +8,13 @@ import racingcar.domain.CarNames;
 public class InputView {
 	public static String[] readCarNames() {
 		printReadCarNamesMessage();
-		String[] names = readLine().split(",");
-		return (new CarNames(names)).get();
+		while (true) {
+			try {
+				String[] names = readLine().split(",");
+				return (new CarNames(names)).get();
+			} catch (IllegalArgumentException e) {
+				printErrorMessage(e.getMessage());
+			}
+		}
 	}
 }
