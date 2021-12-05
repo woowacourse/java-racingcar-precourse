@@ -8,6 +8,7 @@ public class Racing {
 
     public void getTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
+        times = Integer.parseInt(Console.readLine());
     }
 
 }
