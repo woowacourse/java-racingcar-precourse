@@ -16,6 +16,6 @@ public class OutputView {
 			cars.move();
 			cars.printPosition();
 		};
-
+		cars.printWinners(tryNumber);
 	}
 }
