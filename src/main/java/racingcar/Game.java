@@ -9,6 +9,7 @@ public class Game {
     public int times;
     public boolean checking;
     ArrayList<Car> cars = new ArrayList<Car>();
+    ArrayList<Car> winner = new ArrayList<Car>();
 
     public Game() {
 
@@ -24,8 +25,7 @@ public class Game {
         createCars();
         gameTimes();
         checkWinner();
-
-
+        showWinner();
     }
 
     public void carInput() {
@@ -135,7 +135,6 @@ public class Game {
     }
 
     private void checkWinner() {
-        ArrayList<Car> winner = new ArrayList<Car>();
         int max = 0;
         for(int i = 0; i < cars.size(); i++) {
             if (cars.get(i).getPosition() > max) {
@@ -146,6 +145,13 @@ public class Game {
             if (cars.get(i).getPosition() == max) {
                 winner.add(cars.get(i));
             }
+        }
+    }
+
+    private void showWinner() {
+        System.out.print("최종 우승자 : "+winner.get(0).getName());
+        for(int i = 1; i < winner.size(); i++) {
+            System.out.print(", "+winner.get(i).getName());
         }
     }
 
