@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 import racingcar.Car;
 import racingcar.logic.RacingGamePlayer;
 
@@ -24,5 +26,16 @@ public class OutputView {
 			System.out.print("-");
 		}
 		System.out.println();
+	}
+
+	public static void displayWinners(List<String> winnerNames) {
+		System.out.print(WINNER_MSG + " : ");
+		for (int i = 0; i < winnerNames.size(); i++) {
+			System.out.print(winnerNames.get(i));
+
+			if (i != winnerNames.size() - 1) {
+				System.out.print(", ");
+			}
+		}
 	}
 }
