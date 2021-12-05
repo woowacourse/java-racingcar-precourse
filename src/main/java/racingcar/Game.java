@@ -1,5 +1,6 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 
 
 public class Game {
@@ -19,6 +20,7 @@ public class Game {
     public void gameStart() {
         carInput();
         timesInput();
+        createCars();
 
 
     }
@@ -99,5 +101,10 @@ public class Game {
         }
     }
 
-
+    private void createCars() {
+        ArrayList cars = new ArrayList();
+        for(int i = 0; i < carNames.length; i++) {
+            cars.add(new Car(carNames[i]));
+        }
+    }
 }
