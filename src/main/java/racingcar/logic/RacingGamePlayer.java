@@ -5,6 +5,7 @@ import java.util.List;
 
 import racingcar.Car;
 import racingcar.utill.RandomNumberGenerator;
+import racingcar.view.OutputView;
 
 public class RacingGamePlayer {
 	private static final int GO_FORWARD_BOUND = 4;
@@ -13,6 +14,7 @@ public class RacingGamePlayer {
 
 	public List<String> playRacingGame(String[] names, int count) {
 		generateCar(names);
+		OutputView.displayResultMsg();
 
 		while (count != 0) {
 			playOneRound();
@@ -29,10 +31,10 @@ public class RacingGamePlayer {
 	}
 
 	private void playOneRound() {
-		for (Car c : cars) {
+		for (Car car : cars) {
 			int randomNum = getRandomNumber();
 			if (randomNum >= GO_FORWARD_BOUND) {
-				c.moveForward();
+				car.moveForward();
 			}
 		}
 
@@ -44,15 +46,15 @@ public class RacingGamePlayer {
 	}
 
 	private void displayRoundResult() {
-
+		OutputView.displayOneRoundResult();
 	}
 
 	private List<String> judgeWinner() {
 		List<String> winnerNames = new ArrayList<>();
 
-		for (Car c : cars) {
-			if (c.isMaxPosition()) {
-				winnerNames.add(c.getName());
+		for (Car car : cars) {
+			if (car.isMaxPosition()) {
+				winnerNames.add(car.getName());
 			}
 		}
 
