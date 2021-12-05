@@ -6,6 +6,7 @@ public enum RangeType {
 	MIN_NAME_LENGTH(1),
 	ZERO(0),
 	MAX_RANDOM_NUMBER(9),
+	MOVABLE_NUMBER(4),
 	;
 
 	private final int value;
