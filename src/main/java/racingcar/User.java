@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -15,6 +17,7 @@ public class User {
 	private String ERROR = "[ERROR]";
 	private String ERROR_MESSAGE_NAME_LENGTH =
 		ERROR + "자동차 이름은 " + MIN_NAME_LENGTH + "자 이상 " + MAX_NAME_LENGTH + "자 이하만 가능합니다.";
+	private String ERROR_MESSAGE_NAME_DUPLICATION = ERROR + "자동차 이름은 중복될 수 없습니다.";
 
 	private List<String> names;
 	private int numberOfTimes;
@@ -35,6 +38,7 @@ public class User {
 	public boolean checkNames() {
 		try {
 			checkNamesLength();
+			checkNamesDuplication();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return false;
@@ -47,6 +51,16 @@ public class User {
 			if (name.length() > MAX_NAME_LENGTH || name.length() < MIN_NAME_LENGTH) {
 				throw new IllegalArgumentException(ERROR_MESSAGE_NAME_LENGTH);
 			}
+		}
+	}
+
+	private void checkNamesDuplication() {
+		Set<String> namesSet = new HashSet<>();
+		for (String name : names) {
+			if (namesSet.contains(name)) {
+				throw new IllegalArgumentException(ERROR_MESSAGE_NAME_DUPLICATION);
+			}
+			namesSet.add(name);
 		}
 	}
 
