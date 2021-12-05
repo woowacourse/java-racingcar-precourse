@@ -39,9 +39,7 @@ public class ExceptionUtils {
 		}
 	}
 
-	public static int validateNumberOfAttempts(String inputNumber) {
-		int numberOfAttempts;
-
+	public static void validateNumberOfAttempts(String inputNumber) {
 		if (!checkNumberEmpty(inputNumber)) {
 			throw new IllegalArgumentException(ERROR_HEADER + SPACE_ERROR_MESSAGE);
 		}
@@ -51,11 +49,9 @@ public class ExceptionUtils {
 		if (!checkMaxValue(inputNumber)) {
 			throw new IllegalArgumentException(ERROR_HEADER + OVER_RANGE_ERROR_MESSAGE);
 		}
-		numberOfAttempts = Integer.parseInt(inputNumber);
-		if (!checkPositiveNumber(numberOfAttempts)) {
+		if (!checkPositiveNumber(Integer.parseInt(inputNumber))) {
 			throw new IllegalArgumentException(ERROR_HEADER + NATURAL_NUMBER_ERROR_MESSAGE);
 		}
-		return numberOfAttempts;
 	}
 
 	private static boolean checkCarNameLength(String carName) {

@@ -35,7 +35,8 @@ public class InputView {
 		OutputView.askNumberOfAttempts();
 		inputNumber = Console.readLine();
 		try {
-			numberOfAttempts = ExceptionUtils.validateNumberOfAttempts(inputNumber);
+			ExceptionUtils.validateNumberOfAttempts(inputNumber);
+			numberOfAttempts = Integer.parseInt(inputNumber);
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e);
 			numberOfAttempts = writeNumberOfAttempts();
