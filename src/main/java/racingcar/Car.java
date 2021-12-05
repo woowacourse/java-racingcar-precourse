@@ -15,4 +15,12 @@ public class Car {
         String carNames = Console.readLine();
         return carNames;
     }
+
+    private void splitCars(String carNames) {
+        String[] cars = carNames.split(",");
+        Car[] car = new Car[cars.length];
+        for (int i = 0; i < cars.length; i++) {
+            car[i] = new Car(cars[i]);
+        }
+    }
 }
