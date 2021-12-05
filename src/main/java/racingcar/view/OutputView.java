@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.constant.Output;
 
 public class OutputView {

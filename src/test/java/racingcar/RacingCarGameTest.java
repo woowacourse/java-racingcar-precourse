@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import racingcar.constant.Condition;
+import racingcar.domain.Car;
 
 class RacingCarGameTest {
 
