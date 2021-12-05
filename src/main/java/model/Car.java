@@ -19,4 +19,8 @@ public class Car {
 	public void forwardCar() {
 		this.position += 1;
 	}
+
+	public boolean isWinner(int maxPosition) {
+		return this.position == maxPosition;
+	}
 }
