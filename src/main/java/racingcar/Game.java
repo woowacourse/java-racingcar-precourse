@@ -67,5 +67,4 @@ public class Game {
                 .max()
                 .orElse(0);
     }
-
 }

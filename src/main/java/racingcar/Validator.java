@@ -80,5 +80,4 @@ public class Validator {
             throw new IllegalArgumentException(CONTAINS_BLANK_ERROR_MESSAGE.getMessage());
         }
     }
-
 }
