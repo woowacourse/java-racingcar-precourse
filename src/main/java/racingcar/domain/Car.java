@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.type.RangeType;
 
 public class Car {
+	
 	private final String name;
 	private int position = 0;
 
