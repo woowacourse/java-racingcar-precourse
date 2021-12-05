@@ -8,16 +8,14 @@ import racingcar.view.ViewDto;
 public class RacingCarController {
 	InputView inputView;
 	OutputView outputView;
-	InputStrategy inputStrategy;
 
-	public RacingCarController(InputView inputView, OutputView outputView, InputStrategy inputStrategy) {
+	public RacingCarController(InputView inputView, OutputView outputView) {
 		this.inputView = inputView;
 		this.outputView = outputView;
-		this.inputStrategy = inputStrategy;
 	}
 
 	public void run() {
-		ViewDto viewDto = InputView.input(inputStrategy);
+		ViewDto viewDto = inputView.input();
 		OutputView.printResult(viewDto);
 	}
 }
