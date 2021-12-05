@@ -6,44 +6,46 @@ public class Input {
 	static final int CAR_NAME_LENGTH = 5;
 
 	public static String[] carName() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String[] carNames;
 
-		while(true){
+		do {
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			carNames = Console.readLine().split(", +");
-			try {
-				checkCarNames(carNames);
-				break;
-			} catch (IllegalArgumentException exception){ }
-		}
+		} while (!checkCarNames(carNames));
 
 		return carNames;
 	}
 
 	public static int tryNumber() {
-		System.out.println("시도할 회수는 몇회인가요?");
 		String number;
 
-		while(true){
+		do {
+			System.out.println("시도할 회수는 몇회인가요?");
 			number = Console.readLine();
-			try {
-				checkTryNumber(number);
-				break;
-			} catch (IllegalArgumentException exception){ }
-		}
+		} while(!checkTryNumber(number));
 
 		return Integer.parseInt(number);
 	}
 
-	private static void checkCarNames(String[] carNames) {
-		for (String carName : carNames) {
-			Validation.validateLength(carName, CAR_NAME_LENGTH);
-			Validation.validateEmpty(carName);
+	private static boolean checkCarNames(String[] carNames) {
+		try {
+			for (String carName : carNames) {
+				Validation.validateLength(carName, CAR_NAME_LENGTH);
+				Validation.validateEmpty(carName);
+			}
+			return true;
+		} catch (IllegalArgumentException exception) {
+			return false;
 		}
 	}
 
-	private static void checkTryNumber(String number) {
-		Validation.validateIsInteger(number);
-		Validation.validateIsPositiveInteger(number);
+	private static boolean checkTryNumber(String number) {
+		try {
+			Validation.validateIsInteger(number);
+			Validation.validateIsPositiveInteger(number);
+			return true;
+		} catch (IllegalArgumentException exception) {
+			return false;
+		}
 	}
 }
