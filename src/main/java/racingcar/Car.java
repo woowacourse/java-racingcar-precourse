@@ -17,6 +17,10 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void goOrStop() {
 		int randomNumber = Randoms.pickNumberInRange(START_NUMBER_OF_RANGE, END_NUMBER_OF_RANGE);
 		if (randomNumber >= START_NUMBER_OF_GO) {
@@ -30,6 +34,13 @@ public class Car {
 			state += "-";
 		}
 		System.out.println(state);
+	}
+
+	public boolean draw(Car other) {
+		if (this.position == other.position) {
+			return true;
+		}
+		return false;
 	}
 
 	public static Comparator<Car> winComparator = new Comparator<Car>() {
