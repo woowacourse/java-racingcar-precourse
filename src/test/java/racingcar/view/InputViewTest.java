@@ -29,6 +29,17 @@ public class InputViewTest extends CustomNsTest {
 		}
 	}
 
+	@DisplayName("예외 처리 후 재입력 테스트")
+	@Test
+	public void readCarNamesReloadTest() {
+		command(INVALID_LONG_LENGTH_CAR_NAMES, CORRECT_CAR_NAMES);
+		String[] testValues = CORRECT_CAR_NAMES.split(",");
+		String[] inputs = InputView.readCarNames();
+		for (int i = 0; i < testValues.length; i++) {
+			assertEquals(inputs[i], testValues[i]);
+		}
+	}
+
 	@DisplayName("자동차 이름 중복 입력 예외 테스트")
 	@Test
 	public void readCarNamesDuplicateExceptionTest() {
