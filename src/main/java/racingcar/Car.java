@@ -21,7 +21,7 @@ public class Car {
         }
     }
 
-    public void printPosition() {
+    public void showPosition() {
         StringBuilder executeResult = new StringBuilder();
         executeResult.append(name);
         executeResult.append(" : ");

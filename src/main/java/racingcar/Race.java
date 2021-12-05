@@ -7,8 +7,8 @@ import racingcar.View.OutputView;
 import java.util.ArrayList;
 
 public class Race {
-    private ArrayList<Car> cars;
-    private ArrayList<Car> winnerCars = new ArrayList<>();
+    private final ArrayList<Car> cars;
+    private final ArrayList<Car> winnerCars = new ArrayList<>();
     private int maxDistance;
     private int moveCount;
 
@@ -16,17 +16,24 @@ public class Race {
         this.cars = cars;
     }
 
+    public void run() {
+        execute();
+        calculateMaxDistance();
+        decideWinner();
+        showWinner();
+    }
+
     public void setMoveCount(int moveCount) {
         this.moveCount = moveCount;
     }
 
-    public void calculateMaxDistance() {
+    private void calculateMaxDistance() {
         for (Car car : cars) {
             maxDistance = Math.max(maxDistance, car.getPosition());
         }
     }
 
-    public void decideWinner() {
+    private void decideWinner() {
         for (Car car : cars) {
             if (car.getPosition() == maxDistance) {
                 winnerCars.add(car);
@@ -34,18 +41,18 @@ public class Race {
         }
     }
 
-    public void execute() {
+    private void execute() {
         while (moveCount > 0) {
             for (Car car : cars) {
                 car.move();
-                car.printPosition();
+                car.showPosition();
             }
             OutputView.printNewLine();
             moveCount--;
         }
     }
 
-    public void showWinner() {
+    private void showWinner() {
         int winnerCount = winnerCars.size();
         String[] winnerCarNames = new String[winnerCount];
         for (int i = 0; i < winnerCount; i++) {
