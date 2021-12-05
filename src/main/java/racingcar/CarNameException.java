@@ -3,6 +3,11 @@ package racingcar;
 import java.util.*;
 
 public class CarNameException {
+    public static void validateCarName(String[] allCarName) {
+        isEmptyName(allCarName);
+        isOverlap(allCarName);
+        isRightLength(allCarName);
+    }
 
     public static void isNothingInput(String inputName) {
         if (inputName == "") {
