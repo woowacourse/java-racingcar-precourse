@@ -93,4 +93,8 @@ public class RacingGame {
 		totalTryNum = getTryNumInput();
 		makeCarInstance(carNameBucket);
 	}
+
+	private int makeRandomOneDigitNum() {
+		return camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
+	}
 }
