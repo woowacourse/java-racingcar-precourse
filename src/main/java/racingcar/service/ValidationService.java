@@ -37,7 +37,7 @@ public class ValidationService {
 		return Stream.of(names).distinct().count() != names.length;
 	}
 
-	public static void checkDuplicatedCarName(String[] carNames){
+	public static void checkDuplicatedCarName(String[] carNames) {
 		if (hasDuplicatedCarName(carNames)) {
 			throw new IllegalArgumentException("중복되는 자동차 이름을 입력할 수 없습니다.");
 		}
@@ -52,6 +52,37 @@ public class ValidationService {
 					MAX_NAME_LENGTH));
 			}
 		}
+	}
+
+	public static void checkTryNumberIsValid(String tryNumber) {
+		if (tryNumber.isEmpty()) {
+			throw new IllegalArgumentException("시도 횟수를 입력하지 않았습니다.");
+		} else if (isNotDigit(tryNumber)) {
+			throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+		}
+		int number = Integer.parseInt(tryNumber);
+		if (isNotPositive(number)) {
+			throw new IllegalArgumentException("시도 횟수는 0 또는 음수가 될 수 없습니다.");
+		} else if (isInvalidRangeNumber(number)) {
+			throw new IllegalArgumentException("시도 횟수가 정수 범위 밖의 입력입니다.");
+		}
+	}
+
+	private static boolean isNotDigit(String number) {
+		try {
+			Integer.parseInt(number);
+		} catch (NumberFormatException e) {
+			return true;
+		}
+		return false;
+	}
+
+	private static boolean isNotPositive(int number) {
+		return number < 1;
+	}
+
+	private static boolean isInvalidRangeNumber(int number) {
+		return Integer.MAX_VALUE < number;
 	}
 }
 
