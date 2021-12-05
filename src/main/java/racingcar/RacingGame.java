@@ -9,9 +9,10 @@ public class RacingGame {
 	private static final int NAME_LENGTH_LIMIT = 5;
 
 	private int totalTryNum;
+	private Car[] cars;
 
 	RacingGame() {
-		getInput();
+		init();
 	}
 
 	private boolean checkNoNameException(String carsName) {
@@ -80,9 +81,16 @@ public class RacingGame {
 		return Integer.parseInt(totalTryNumInput);
 	}
 
-	private void getInput() {
+	private void makeCarInstance(String[] carNameBucket) {
+		cars = new Car[carNameBucket.length];
+		for (int i = 0; i < carNameBucket.length; ++i) {
+			cars[i] = new Car(carNameBucket[i]);
+		}
+	}
+
+	private void init() {
 		String[] carNameBucket = getCarsNameInput();
 		totalTryNum = getTryNumInput();
-
+		makeCarInstance(carNameBucket);
 	}
 }
