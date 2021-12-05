@@ -8,6 +8,7 @@ public class Utils {
 	private static final String specialCharMessage = "[ERROR] 자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.\n";
 	private static final String lengthMessage = "[ERROR] 자동차의 이름의 글자수는 5를 초과할 수 없습니다.\n";
 	private static final String duplicationMessage = "[ERROR] 자동차의 이름은 중복을 허용하지 않습니다.\n";
+	private static final String positiveIntMessage = "[ERROR] 전체 게임 횟수는 양수여야 합니다.\n";
 
 	public static void checkSpecialChar(String inputToken, char start, char end) throws IllegalArgumentException {
 		for (int index = 0; index < inputToken.length(); index++) {
@@ -30,6 +31,12 @@ public class Utils {
 				throw new IllegalArgumentException(duplicationMessage);
 			}
 			nameSet.add(inputToken);
+		}
+	}
+
+	public static void checkOverSomeInt(String inputToken, int someInt) throws IllegalArgumentException {
+		if (Integer.valueOf(inputToken) <= someInt) {
+			throw new IllegalArgumentException();
 		}
 	}
 }
