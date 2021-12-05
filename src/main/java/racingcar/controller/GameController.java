@@ -16,14 +16,12 @@ public class GameController {
 	}
 
 	private Cars inputCars() {
-		while (true) {
-			try {
-				OutputView.printInputCarName();
-				return createCars(InputView.inputCarNames());
-			} catch (IllegalArgumentException exception) {
-				OutputView.printException(exception);
-				return inputCars();
-			}
+		try {
+			OutputView.printInputCarName();
+			return createCars(InputView.inputCarNames());
+		} catch (IllegalArgumentException exception) {
+			OutputView.printException(exception);
+			return inputCars();
 		}
 	}
 
