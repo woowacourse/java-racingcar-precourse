@@ -37,7 +37,7 @@ public class Cars {
 
     private boolean hasHighestPosition(final Car car) {
         return values.stream()
-                .filter(another -> !another.getName().equals(car.getName()))
+                .filter(another -> !car.equals(another))
                 .allMatch(car::hasHigherPositionThan);
     }
 }
