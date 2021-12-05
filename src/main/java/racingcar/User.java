@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class User {
     private String names;
+    private String inputTimes;
     private int times;
     public String[] nameArray;
 
@@ -13,7 +14,11 @@ public class User {
     }
 
     public void enterTimes() {
-        times = Integer.parseInt(Console.readLine());
+        inputTimes = Console.readLine();
+    }
+
+    public void toIntegerTimes() {
+        this.times = Integer.parseInt(this.inputTimes);
     }
 
     public void toNameArray() {
