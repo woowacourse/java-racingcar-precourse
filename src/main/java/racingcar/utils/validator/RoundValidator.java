@@ -1,4 +1,6 @@
-package racingcar.utils;
+package racingcar.utils.validator;
+
+import racingcar.utils.Const;
 
 public class RoundValidator {
 	public static int validate(String numStr) {

@@ -1,4 +1,6 @@
-package racingcar.utils;
+package racingcar.utils.validator;
+
+import racingcar.utils.Const;
 
 public class NameValidator {
 	public static String validate(String name) {
