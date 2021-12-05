@@ -27,7 +27,7 @@ public class Validator {
 	}
 
 	private void checkCarNameContainsBlank(String carName) {
-		if(carName.equals("") || carName.contains(RaceConstants.BLANK)) {
+		if(carName.equals(RaceConstants.EMPTY) || carName.contains(RaceConstants.BLANK)) {
 			throw new IllegalArgumentException();
 		}
 	}
@@ -39,7 +39,7 @@ public class Validator {
 	}
 
 	public void checkNumberOfRacesRange(int numberOfRange) throws IllegalArgumentException {
-		if(numberOfRange <= 0) {
+		if(numberOfRange < RaceConstants.MIN_NUMBER_OF_RACES) {
 			throw new IllegalArgumentException();
 		}
 	}
