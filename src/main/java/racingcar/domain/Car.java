@@ -18,4 +18,12 @@ public class Car {
     public String getCarStatus() {
         return OutputFormatter.converseCarStatus(position, name);
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }

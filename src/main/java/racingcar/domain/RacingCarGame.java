@@ -30,4 +30,20 @@ public class RacingCarGame {
             .collect(Collectors.toList());
         return OutputFormatter.converseGameStatus(statusList);
     }
+
+    public String getWinners() {
+        final int top = getWinnerScore();
+        List<String> winners = this.cars.stream()
+            .filter(car -> car.getPosition() == top)
+            .map(Car::getName)
+            .collect(Collectors.toList());
+        return OutputFormatter.convertWinners(winners);
+    }
+
+    private int getWinnerScore() {
+        return this.cars.stream()
+            .mapToInt(Car::getPosition)
+            .max()
+            .orElseThrow(IllegalArgumentException::new);
+    }
 }

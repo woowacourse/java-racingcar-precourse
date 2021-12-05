@@ -33,4 +33,14 @@ class RacingCarGameTest {
             assertThat(game.getGameStatus()).contains("-");
         }
     }
+
+    @Test
+    void winnerTest() {
+        try (MockedStatic<Randoms> randoms = mockStatic(Randoms.class)) {
+            randoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(STOP);
+            RacingCarGame game = new RacingCarGame(Collections.singletonList("car1,car2"));
+            game.moveCars();
+            assertThat(game.getWinners()).isEqualTo("car1,car2");
+        }
+    }
 }
