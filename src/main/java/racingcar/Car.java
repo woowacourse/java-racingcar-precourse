@@ -7,6 +7,7 @@ public class Car {
 	private static final int FORWARD_THRESHOLD_NUMBER = 4;
 	private final String name;
 	private int position = 0;
+	private CarPosition carPosition = new CarPosition(position);
 
 	public Car(String name) {
 		this.name = name;
@@ -17,7 +18,7 @@ public class Car {
 	}
 
 	public int getPosition() {
-		return this.position;
+		return carPosition.getPosition();
 	}
 
 	public String getName() {
@@ -25,13 +26,13 @@ public class Car {
 	}
 
 	public void forward() {
-		this.position++;
+		carPosition = new CarPosition(carPosition.getPosition() + 1);
 	}
 
 	public String getScoreString() {
 		String unit = "-";
 		Optional<String> result1 = Optional.empty();
-		for (int count = 0; count <= this.position; count++) {
+		for (int count = 0; count <= carPosition.getPosition(); count++) {
 			result1 = Stream.generate(() -> unit).limit(count).reduce((a, b) -> a + b);
 		}
 		String finalResult = "";
