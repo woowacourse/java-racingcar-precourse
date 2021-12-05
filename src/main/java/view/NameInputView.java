@@ -26,5 +26,18 @@ enum StringEnums {
 	}
 }
 
+enum IntEnums {
+	SIZE(5);
+	private final int value;
+
+	IntEnums(int value) {
+		this.value = value;
+	}
+
+	public int getValue() {
+		return this.value;
+	}
+}
+
 public class NameInputView {
 }
