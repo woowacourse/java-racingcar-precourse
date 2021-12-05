@@ -17,4 +17,10 @@ public class InputView {
 			}
 		}
 	}
+
+	public static int readRacingRound() {
+		printReadRacingRoundMessage();
+		String racingRound = readLine();
+		return Integer.parseInt(racingRound);
+	}
 }
