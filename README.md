@@ -16,6 +16,8 @@
 
 4.  `GameHandler` 가 자동차의 이름을 알 수 있게 하기 위해서 `name()` method 필요.
 
+`domain` directory 에서 관리.
+
 <br>
 
 ## GameHandler
@@ -36,6 +38,8 @@
       2. 각 자동차들 현재 위치 출력. → `showEachStageResult()`
    4. 우승자 출력 →  `showWinners()`
 
+`utils` directory 에서 관리.
+
 <br>
 
 ## UserService
@@ -51,7 +55,7 @@
    5. 각 stage마다 실행결과를 출력해주는 일
    6. 우승자를 선별하고 출력하는 일
 
-1-1, 1-2 부분을 따로 분리시켜 `UserService` 라는 class 로 만들 것이다.
+1-1, 1-2 부분을 따로 분리시켜 `UserService` 라는 class 로 만들 것이다. `utils` directory 에서 관리.
 
 ### 생성할 기능 목록
 
@@ -59,6 +63,23 @@
    1. 자동차 이름 입력 받기 → `register()` : 자동차 이름을 등록하여 자동차 List return.
    2. 이동 횟수 입력 받기 → `howManyTimes()` : 이동횟수를 입력받고 적절하면 int type return.
 2. 적절한 입력인지 검사하는 기능
+
+<br>
+
+## Verifier
+
+1주차의 목표는 method의 분리. 이번 2주차의 목표는 Class의 분리이다. 따라서 UserService의 책임 중, '검증하는 기능'을 따로 분리하여 class로 구현할 것이다.
+
+### 생성할 기능 목록
+
+1. 이름이 올바른지 확인
+   1. 글자 수 1~5 글자.
+   2. 중복되면 안됨.
+2. 이동 횟수가 올바른지 확인
+   1. 숫자가 들어와야 함.
+   2. 0이 아닌 양의 정수가 들어와야 함.
+
+`utils` directory 에서 관리.
 
 <br>
 
