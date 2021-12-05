@@ -15,8 +15,8 @@ public class Game {
     private Validation validation = new Validation();
 
     public Game(){
-        this.cars = setCarList();
-        this.turns = setTurns().getTurns();
+        setCarList();
+        setTurns();
     }
 
     public void start(){
@@ -29,33 +29,23 @@ public class Game {
         OutputView.printEnd(cars.decideWinner());
     }
 
-    private CarList setCarList(){
-        CarList carList = null;
+    private void setCarList(){
         try{
             String inputCars = InputView.getCarList();
-            validation.carValidate(inputCars);
-            carList = new CarList(inputCars.split(","));
-
+            this.cars = new CarList(inputCars);
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
             setCarList();
         }
-
-        return carList;
     }
 
-    private Turn setTurns(){
-        Turn turns = null;
+    public void setTurns(){
         try {
-            String inputTimes = InputView.getTurns();
-            validation.timesValidate(inputTimes);
-
-            turns = new Turn(Integer.valueOf(inputTimes));
-
+            String inputTurns = InputView.getTurns();
+            this.turns = new Turn(inputTurns).getTurns();
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             setTurns();
         }
-        return turns;
     }
 }
