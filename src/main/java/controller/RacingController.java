@@ -51,6 +51,7 @@ public class RacingController {
             }
         }
     }
+
     public void run() {
         Movement randomMovement = new RandomMovement();
         outputView.printOperationResultLetters();
