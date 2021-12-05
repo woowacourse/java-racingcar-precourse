@@ -11,9 +11,9 @@ import java.util.stream.IntStream;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
-	private List<Car> carList;
+	private final List<Car> carList;
 	private List<Car> winnerCandidateList;
-	private StringBuilder gameResultStringBuilder;
+	private final StringBuilder gameResultStringBuilder;
 	private int farthestPosition;
 
 	public Game(List<Car> carList) {
