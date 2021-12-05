@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class RacingGame {
-	private static final int ONLY_ONE_WINNER = 1;
-
 	private List<String> carNames = new ArrayList<>();
 	private List<Car> cars = new ArrayList<>();
 	private int moveCount = 0;
@@ -22,6 +20,8 @@ public class RacingGame {
 			setMoveCountFromInput();
 		}
 		moveCarsAndShowStatus(moveCount);
+		Queue<String> winnersName = findWinners();
+		showWinners(winnersName);
 	}
 
 	private void makeCars(List<String> carNames) {
@@ -77,5 +77,13 @@ public class RacingGame {
 			}
 		}
 		return winnerPosition;
+	}
+
+	private void showWinners(Queue<String> winnersName) {
+		System.out.print("최종 우승자 : ");
+		System.out.print(winnersName.poll());
+		while (!winnersName.isEmpty()) {
+			System.out.print(", " + winnersName.poll());
+		}
 	}
 }
