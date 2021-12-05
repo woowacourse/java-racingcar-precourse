@@ -20,4 +20,8 @@ public class Number {
 		this.randomNumber = camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(
 			NumberIntEnums.RANDOM_NUMBER_START.getValue(), NumberIntEnums.RANDOM_NUMBER_END.getValue());
 	}
+
+	public boolean overThisValue(int threshold) {
+		return this.randomNumber > threshold;
+	}
 }
