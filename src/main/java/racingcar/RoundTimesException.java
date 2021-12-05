@@ -7,4 +7,10 @@ public class RoundTimesException {
             throw new IllegalArgumentException("[ERROR] 시도 횟수는 정수여야 합니다.");
         }
     }
+
+    public static void isPositiveInteger(String times) {
+        if (Integer.parseInt(times) <= 0) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 양의 정수여야 합니다.");
+        }
+    }
 }
