@@ -10,4 +10,12 @@ public class ViewDto {
 		this.cars = cars;
 		this.tryNumber = tryNumber;
 	}
+
+	public Cars getCars() {
+		return cars;
+	}
+
+	public int getTryNumber() {
+		return tryNumber;
+	}
 }

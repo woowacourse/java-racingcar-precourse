@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.view.InputStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.view.ViewDto;
@@ -15,7 +14,7 @@ public class RacingCarController {
 	}
 
 	public void run() {
-		ViewDto viewDto = inputView.input();
+		ViewDto viewDto = inputView.getCarsAndTryNumber();
 		OutputView.printResult(viewDto);
 	}
 }

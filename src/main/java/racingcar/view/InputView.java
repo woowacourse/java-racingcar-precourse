@@ -13,7 +13,7 @@ public class InputView {
 		this.inputStrategy = inputStrategy;
 	}
 
-	public ViewDto input() {
+	public ViewDto getCarsAndTryNumber() {
 		System.out.println(INPUT_CAR_NAMES);
 		Cars cars = inputStrategy.getCars();
 		System.out.println(INPUT_TRY_NUMBERS);

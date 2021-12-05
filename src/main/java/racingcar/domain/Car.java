@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class Car {
 
+    public static final String MOVING_LINE = "-";
     public static final int MOVING_THRESHOLD = 4;
     public static final int MAXIMUM_NAME_LENGTH = 5;
     public static final String ERROR_OUT_OF_NAME_LENGTH = "[ERROR] 이름은 5글자 이하여야 합니다.";
@@ -12,6 +13,10 @@ public class Car {
     public Car(String name) {
         validateNameLength(name);
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPosition() {
@@ -30,4 +35,16 @@ public class Car {
             return;
         }
     }
+
+    public void printPosition() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(name);
+        stringBuffer.append(" : ");
+        for (int i = 0; i < position; i++) {
+            stringBuffer.append(MOVING_LINE);
+        }
+        stringBuffer.append(System.lineSeparator());
+        System.out.println(stringBuffer);
+    }
+
 }
