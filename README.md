@@ -8,18 +8,22 @@
 - 자동차는 무작위로 주어진 수가 일정 기준 이상일 경우 전진할 수 있다.
 - 자동차는 무작위로 주어진 수가 일정 기준 미만일 경우 멈추어있다.
 - [ERROR] 자동차는 무작위로 주어진 수가 원하는 범위의 값이 아닐 경우 `IllegalArgumentException`이 발생해야 한다.
-- 현재 position을 반환할 수 있다.
+- 현재 position과 name을 반환할 수 있다.
 
 ### Cars
 
 - [ERROR] 이름이 중복된 자동차가 들어올 경우 `IllegalArgumentException`이 발생해야 한다.
 - 이름을 가지고 랜덤 Car List를 생성할 수 있다.
-- 현재 position이 가장 큰 Car List를 반환할 수 있다.
+- 현재 position이 가장 큰 Car List를 반환할 수 있다. (== winner car)
 
 ### Game
 
 - [ERROR] 게임의 시도할 횟수가 0 미만이거나 숫자가 아닌 경우 `IllegalArgumentException`이 발생해야 한다.
-- 자동차 경주가 완주된 후 게임 결과에서 우승자를 확인할 수 있다.
+- 현재 라운드의 자동차를 반환할 수 있다.
+- 자동차 경주가 완주된 후 게임 결과에서 우승자의 이름 List를 반환할 수 있다.
+
+### ResultView
+
 - 게임 우승자가 여러명일 경우 쉼표(,)를 구분자로 반환해야 한다.
 
 ### 추가 요구사항
