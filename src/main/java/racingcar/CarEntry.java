@@ -13,7 +13,7 @@ public class CarEntry {
         nOfCars = carNameArray.length;
         carList = new ArrayList<Car>(nOfCars);
         for (int i = 0; i < nOfCars; i++) {
-            carList.add(i, new Car(carNameArray[i]));
+            carList.add(new Car(carNameArray[i]));
         }
     }
 
@@ -62,7 +62,7 @@ public class CarEntry {
 
     private String[] getCarNameArray(String carNames) {
         String[] carNameArray = carNames.split(",");
-        for (int i = 0; i < nOfCars; i++) {
+        for (int i = 0; i < carNameArray.length; i++) {
             carNameArray[i] = carNameArray[i].trim();
         }
         return carNameArray;
