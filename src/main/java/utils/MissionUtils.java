@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class Utils {
+public class MissionUtils {
 	private static final String specialCharMessage = "[ERROR] 자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.\n";
 	private static final String lengthMessage = "[ERROR] 자동차의 이름의 글자수는 5를 초과할 수 없습니다.\n";
 	private static final String duplicationMessage = "[ERROR] 자동차의 이름은 중복을 허용하지 않습니다.\n";
@@ -18,9 +18,9 @@ public class Utils {
 		return parsedName;
 	}
 
-	public static void checkSpecialChar(String inputToken, char start, char end) throws IllegalArgumentException {
-		for (int index = 0; index < inputToken.length(); index++) {
-			if (!(start <= inputToken.charAt(index) && inputToken.charAt(index) <= end)) {
+	public static void checkSpecialChar(ArrayList<String> input, String regexCondition) throws IllegalArgumentException {
+		for (String inputToken : input) {
+			if (!inputToken.matches(regexCondition)) {
 				throw new IllegalArgumentException(specialCharMessage);
 			}
 		}
