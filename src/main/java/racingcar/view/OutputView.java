@@ -14,6 +14,22 @@ public class OutputView {
 	private static final String WINNERS_FORM = "최종 우승자 : %s";
 	private static final String WINNERS_JOINING_COMMA = ", ";
 
+	public static String getReadCarNamesMassage() {
+		return READ_CAR_NAMES_MASSAGE;
+	}
+
+	public static String getReadRacingRoundMassage() {
+		return READ_RACING_ROUND_MASSAGE;
+	}
+
+	public static String getStartRoundMassage() {
+		return START_ROUND_MASSAGE;
+	}
+
+	public static String getPositionBar() {
+		return POSITION_BAR;
+	}
+
 	public static void printReadCarNamesMessage() {
 		System.out.println(READ_CAR_NAMES_MASSAGE);
 	}
