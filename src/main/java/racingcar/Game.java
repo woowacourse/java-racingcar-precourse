@@ -1,7 +1,8 @@
 package racingcar;
 
 import static utils.Message.*;
-import static utils.Validator.*;
+import static utils.validator.AttemptNumberValidator.*;
+import static utils.validator.CarNameValidator.*;
 
 import java.util.Arrays;
 import java.util.List;
