@@ -36,6 +36,10 @@ public class Cars {
         return Collections.unmodifiableList(new ArrayList<>(cars));
     }
 
+    public void move() {
+        cars.forEach(Car::move);
+    }
+
     public List<String> getWinners() {
         int maxPosition = calculateMaxPosition();
         return cars.stream()
