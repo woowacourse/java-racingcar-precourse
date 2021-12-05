@@ -25,7 +25,7 @@ public class ConsoleMovementGenerator implements MovementGenerator {
 	private Optional<MoveCount> inputMoveCount() {
 		System.out.println(GUIDE_MOVE_COUNT);
 		try {
-			return Optional.of(new MoveCount(NumberParser.parseInt(Console.readLine())));
+			return Optional.of(new MoveCount(NumberParser.parseInt(Console.readLine().trim())));
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
 			return MoveCount.Empty();
