@@ -7,6 +7,7 @@ public class Game {
     private String input;
     public String[] carNames;
     public int times;
+    char temp;
     public boolean checking;
     private int errorCode;
     ArrayList<Car> cars = new ArrayList<Car>();
@@ -87,27 +88,43 @@ public class Game {
             Exception e = new Exception();
             rightInputTimes();
         } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-            return false;
-        }
-        try {
-            checkPositive();
-        } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] 시도 횟수는 양수여야 한다.");
+            showErrorTimes();
             return false;
         }
         return true;
     }
 
+    private void showErrorTimes() {
+        if (errorCode == 0) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+        }
+        if (errorCode == 1) {
+            System.out.println("[ERROR] 공백은 허용하지 않는다.");
+        }
+        if (errorCode == 2) {
+            System.out.println("[ERROR] 시도 횟수는 양수여야 한다.");
+        }
+    }
+
     private void rightInputTimes() throws IllegalArgumentException {
-        char temp;
+        checkNumber();
+        checkBlank();
+        checkPositive();
+    }
+
+    private void checkNumber() throws IllegalArgumentException {
         for (int i=0; i < input.length(); i++) {
             temp = input.charAt(i);
             if (Character.isDigit(temp) == false) {
+                errorCode = 0;
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    private void checkBlank() throws IllegalArgumentException {
         if (input.equals("")) {
+            errorCode = 1;
             throw new IllegalArgumentException();
         }
     }
@@ -115,6 +132,7 @@ public class Game {
     private void checkPositive() throws IllegalArgumentException {
         times = Integer.parseInt(input);
         if (times < 0) {
+            errorCode = 2;
             throw new IllegalArgumentException();
         }
     }
