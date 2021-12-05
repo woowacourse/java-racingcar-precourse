@@ -53,4 +53,25 @@ public class RacingGame {
 			System.out.println(e.getMessage());
 		}
 	}
+
+	private List<String> findWinners() {
+		int winnerPosition = getWinnerPositionFromCars();
+		List<String> winnersName = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getPosition() == winnerPosition) {
+				winnersName.add(car.getName());
+			}
+		}
+		return winnersName;
+	}
+
+	private int getWinnerPositionFromCars() {
+		int winnerPosition = 0;
+		for (Car car : cars) {
+			if (winnerPosition <= car.getPosition()){
+				winnerPosition = car.getPosition();
+			}
+		}
+		return winnerPosition;
+	}
 }
