@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import utils.MissionUtils;
 
-enum StringEnums {
+enum NameStringEnums {
 	DELIMITER(","), MY_REGEX("^[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$");
 	private final String value;
 
-	StringEnums(String value) {
+	NameStringEnums(String value) {
 		this.value = value;
 	}
 
@@ -17,11 +17,11 @@ enum StringEnums {
 	}
 }
 
-enum IntEnums {
+enum NameIntEnums {
 	SIZE(5);
 	private final int value;
 
-	IntEnums(int value) {
+	NameIntEnums(int value) {
 		this.value = value;
 	}
 
@@ -37,11 +37,11 @@ public class NameInputView implements InputView {
 		while (nameInput.isEmpty()) {
 			try {
 				String nowInput = camp.nextstep.edu.missionutils.Console.readLine();
-				ArrayList<String> parsedNowInput = MissionUtils.parseInput(nowInput, StringEnums.DELIMITER.getValue());
+				ArrayList<String> parsedNowInput = MissionUtils.parseInput(nowInput, NameStringEnums.DELIMITER.getValue());
 				MissionUtils.checkEmptyArray(parsedNowInput);
-				MissionUtils.checkSpecialChar(parsedNowInput, StringEnums.MY_REGEX.getValue());
+				MissionUtils.checkSpecialChar(parsedNowInput, NameStringEnums.MY_REGEX.getValue());
 				MissionUtils.checkDuplication(parsedNowInput);
-				MissionUtils.checkLength(parsedNowInput, IntEnums.SIZE.getValue());
+				MissionUtils.checkLength(parsedNowInput, NameIntEnums.SIZE.getValue());
 				nameInput = nowInput;
 			} catch (IllegalArgumentException error) {
 				System.out.print(error.getMessage());
