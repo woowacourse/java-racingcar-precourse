@@ -19,6 +19,7 @@
 ### Game
 
 - [ERROR] 게임의 시도할 횟수가 0 미만이거나 숫자가 아닌 경우 `IllegalArgumentException`이 발생해야 한다.
+- [ERROR] 게임의 시도할 횟수가 0 이하일 때 race할 경우 `RuntimeException`이 발생해야 한다.
 - 현재 라운드의 자동차를 반환할 수 있다.
 - 자동차 경주가 완주된 후 게임 결과에서 우승자의 이름 List를 반환할 수 있다.
 

@@ -40,4 +40,17 @@ class RacingGameTest {
             .isThrownBy(() -> RacingGame.createRandomCarRacing(names, input))
             .withMessage("[ERROR] 시도 횟수는 1 이상이어야 합니다.");
     }
+
+    @Test
+    @DisplayName("시도횟수가 0이하인데 race한 경우 exception이 발생해야 한다.")
+    void raceExceptionByZeroRoundTest() {
+        // given
+        RacingGame racingGame = RacingGame.createRandomCarRacing(names, "1");
+        racingGame.race();
+
+        // when & then
+        assertThatExceptionOfType(RuntimeException.class)
+            .isThrownBy(() -> racingGame.race())
+            .withMessage("[ERROR] 시도횟수가 남지 않았을 때는 race 할 수 없습니다.");
+    }
 }

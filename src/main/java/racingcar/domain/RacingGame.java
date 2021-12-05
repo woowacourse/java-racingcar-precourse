@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.exception.RacingGameCannotRaceRoundException;
 import racingcar.exception.RacingGameRoundIntegerException;
 import racingcar.exception.RacingGameZeroRoundException;
 
@@ -37,8 +38,15 @@ public class RacingGame {
     }
 
     public void race() {
+        checkCanRaceRound();
         round--;
         cars.move();
+    }
+
+    private void checkCanRaceRound() {
+        if (round <= ZERO_ROUND) {
+            throw new RacingGameCannotRaceRoundException();
+        }
     }
 
     public List<Car> cars() {
