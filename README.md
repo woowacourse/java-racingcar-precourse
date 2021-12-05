@@ -20,6 +20,7 @@
   - Validator 테스트
   - Converter 테스트
 - [ ] 입력받은 자동차 이름으로 `Car 객체`를 생성한다.
+    - `RacingCars` 라는 일급 컬렉션을 사용하여 Car 객체를 담는다.
 - [ ] `Car 객체`의 전진 기능을 구현한다.
   - `Randoms.pickNumberInRage()`를 활용한다.
   - 무작위 값이 4 이상일 경우 전진한다.
