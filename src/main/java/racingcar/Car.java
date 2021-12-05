@@ -9,11 +9,16 @@ public class Car {
 	private final String name;
 	private int position = 0;
 
-	public Car(String name) {
+	protected Car(String name, int position) {
 		if (isNameOverMaxLength(name)) {
 			throw new IllegalArgumentException();
 		}
 		this.name = name;
+		this.position = position;
+	}
+
+	public Car(String name) {
+		this(name, 0);
 	}
 
 	public String getName() {

@@ -3,7 +3,9 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -22,6 +24,19 @@ public class Cars {
 		for (Car car : cars) {
 			car.controlByNumber(Randoms.pickNumberInRange(0, 9));
 		}
+	}
+
+	public List<Car> getWinner() {
+		return cars.stream()
+			.filter(car -> car.getPosition() == getMaxPosition())
+			.collect(Collectors.toList());
+	}
+
+	private int getMaxPosition() {
+		return cars.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.orElseThrow(NoSuchElementException::new);
 	}
 
 	private String[] divideNamesByComma(String names) {
@@ -48,4 +63,5 @@ public class Cars {
 	public int hashCode() {
 		return Objects.hash(cars);
 	}
+
 }
