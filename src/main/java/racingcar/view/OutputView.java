@@ -1,19 +1,19 @@
 package racingcar.view;
 
-import racingcar.domain.CarRepository;
+import java.util.List;
 
 public class OutputView {
 	private static final String FINAL_WINNER_TITLE_MESSAGE = "최종 우승자 : ";
 
-	public static void printCarsStatus(CarRepository carRepository) {
-		for (String carStatusByFormatter: carRepository.getCarsStatusByFormatter()) {
+	public static void printCarsStatus(List<String> carsStatusByFormatter) {
+		for (String carStatusByFormatter : carsStatusByFormatter) {
 			System.out.println(carStatusByFormatter);
 		}
 		printBlankLine();
 	}
 
-	public static void printFinalCarWinners(CarRepository carRepository) {
-		System.out.println(FINAL_WINNER_TITLE_MESSAGE + String.join(", ", carRepository.getWinnerCarsName()));
+	public static void printFinalCarWinners(List<String> winnerCarNames) {
+		System.out.println(FINAL_WINNER_TITLE_MESSAGE + String.join(", ", winnerCarNames));
 	}
 
 	public static void printBlankLine() {

@@ -14,8 +14,8 @@ public class Game {
 		System.out.println("실행 결과");
 		for (int i = 0; i < numberOfCarMoving; i++) {
 			carRepository.attemptCarsMoving();
-			printCarsStatus(carRepository);
+			printCarsStatus(carRepository.getCarsStatusByFormatter());
 		}
-		printFinalCarWinners(carRepository);
+		printFinalCarWinners(carRepository.getWinnerCarsName());
 	}
 }
