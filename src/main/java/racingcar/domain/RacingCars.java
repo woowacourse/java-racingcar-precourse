@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class RacingCars {
 	private final List<Car> cars;
 
@@ -11,7 +9,7 @@ public class RacingCars {
 		this.cars = cars;
 	}
 
-	public void go(){
+	public void go() {
 		cars.forEach(Car::go);
 	}
 }
