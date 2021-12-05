@@ -27,7 +27,7 @@ public class Input {
 		while(true){
 			number = Console.readLine();
 			try {
-				// checkTryNumber(number);
+				checkTryNumber(number);
 				break;
 			} catch (IllegalArgumentException exception){ }
 		}
@@ -40,5 +40,9 @@ public class Input {
 			// validate length
 			// validate isSpace
 		}
+	}
+
+	private static void checkTryNumber(String number) {
+		// validate isNumeric
 	}
 }
