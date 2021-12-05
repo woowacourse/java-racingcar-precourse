@@ -19,11 +19,19 @@ public class CarList {
 		}
 	}
 
-	public int getMaxPostion() {
+	public int getMaxPosition() {
 		int maxPosition = 0;
 		for (Car eachCar : this.carList) {
 			maxPosition = Math.max(maxPosition, eachCar.getCarPosition());
 		}
 		return maxPosition;
+	}
+
+	public ArrayList<Integer> getAllPosition() {
+		ArrayList<Integer> allPosition = new ArrayList<>();
+		for (Car eachCar : this.carList) {
+			allPosition.add(eachCar.getCarPosition());
+		}
+		return allPosition;
 	}
 }
