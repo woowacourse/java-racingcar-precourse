@@ -6,7 +6,7 @@ import static camp.nextstep.edu.missionutils.Console.*;
 
 public class RaceGame {
     private InputChecker inputChecker;
-    private ArrayList<Car> carArrayList;
+    private ArrayList<Car> raceCarList = new ArrayList<>();
 
     private int tryNumber;
 
@@ -26,8 +26,8 @@ public class RaceGame {
 
             for (String carName : carNames) {
                 inputChecker.checkCarName(carName);
-                addNewCar(carName);
             }
+            addNewRaceCars(carNames);
         } catch (IllegalArgumentException exception) {
             askCarNames();
         }
@@ -45,8 +45,11 @@ public class RaceGame {
         }
     }
 
-    private void addNewCar(String carName) {
-        //TODO: 자동차 추가 기능 구현
+    private void addNewRaceCars(String[] carNames) {
+        raceCarList.clear();
+        for (String carName : carNames) {
+            raceCarList.add(new Car(carName));
+        }
     }
 
     public interface InputChecker {
