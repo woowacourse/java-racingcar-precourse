@@ -33,6 +33,7 @@ enum NameIntEnums {
 public class NameInputView implements InputView {
 
 	public void checkConditions(String nowInput) throws IllegalArgumentException {
+		MissionUtils.checkEmptyString(nowInput);
 		ArrayList<String> parsedNowInput = MissionUtils.parseInput(nowInput, NameStringEnums.DELIMITER.getValue());
 		MissionUtils.checkEmptyArray(parsedNowInput);
 		MissionUtils.checkRegex(parsedNowInput, NameStringEnums.MY_REGEX.getValue());
