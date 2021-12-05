@@ -6,8 +6,8 @@ import racingcar.domain.Cars;
 
 public interface InputStrategy {
 
-	String ERROR_INPUT_CAR_NAMES = "입력한 자동차의 값이 올바르지 않습니다.";
-	String ERROR_INPUT_TRY_NUMBER = "입력한 시도 횟수가 올바르지 않습니다.";
+	String ERROR_INPUT_CAR_NAMES = "[ERROR] 입력한 자동차의 이름이 올바르지 않습니다.";
+	String ERROR_INPUT_TRY_NUMBER = "[ERROR] 입력한 시도 횟수가 올바르지 않습니다.";
 
 	Cars getCars();
 

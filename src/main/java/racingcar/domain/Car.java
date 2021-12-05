@@ -3,7 +3,7 @@ package racingcar.domain;
 public class Car {
 
     public static final String MOVING_LINE = "-";
-    public static final int MOVING_THRESHOLD = 4;
+
     public static final int MAXIMUM_NAME_LENGTH = 5;
     public static final String ERROR_OUT_OF_NAME_LENGTH = "[ERROR] 이름은 5글자 이하여야 합니다.";
 
