@@ -1,7 +1,6 @@
 package controller;
 
 import domain.Car;
-import domain.CarList;
 import domain.Game;
 import view.OutputView;
 
@@ -15,14 +14,14 @@ public class GameController {
 
     public void start() {
         int turns = game.getTurns();
-        CarList cars = game.getCars();
+        List<Car> cars = game.getCars();
         for (int i = 0; i < turns; i++) {
-            for (Car car : cars.getCarList()) {
+            for (Car car : cars) {
                 car.goOrStop();
-                OutputView.printNow(cars.getCarList());
+                OutputView.printNow(cars);
             }
         }
-        OutputView.printEnd(decideWinner(cars.getCarList()));
+        OutputView.printEnd(decideWinner(cars));
     }
 
     private List<String> decideWinner(List<Car> carList) {
