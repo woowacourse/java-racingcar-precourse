@@ -8,8 +8,8 @@ public class Utils {
     static final int END_RANDOM_NUMBER = 9;
     static final int MOVE_FORWARD_SCORE = 4;
 
-    public void getRandomNumber() {
-        getMoveForwardOrNot(Randoms.pickNumberInRange(START_RANDOM_NUMBER, END_RANDOM_NUMBER));
+    public int getRandomNumber() {
+        return Randoms.pickNumberInRange(START_RANDOM_NUMBER, END_RANDOM_NUMBER);
     }
 
     public boolean getMoveForwardOrNot(int score) {
