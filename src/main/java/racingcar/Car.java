@@ -29,8 +29,8 @@ public class Car {
 	}
 
 	public void goForward() {
-		final RandomNumber randomNumber = new RandomNumber();
-		if (randomNumber.getRandomNumber() <= SHOULD_GO_FORWARD) {
+		final RandomGenerator randomGenerator = new RandomGenerator();
+		if (randomGenerator.getRandomNumber() <= SHOULD_GO_FORWARD) {
 			return;
 		}
 		this.position++;

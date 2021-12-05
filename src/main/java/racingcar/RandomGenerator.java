@@ -12,13 +12,13 @@ import camp.nextstep.edu.missionutils.Randoms;
  * @since 2021-12-01(V1.0)
  */
 
-public class RandomNumber {
+public class RandomGenerator {
 
 	public static final Integer RANDOM_NUMBER_MAX_RANGE = 9;
 
 	public static final Integer RANDOM_NUMBER_MIN_RANGE = 0;
 
-	public RandomNumber() {
+	public RandomGenerator() {
 		super();
 	}
 
