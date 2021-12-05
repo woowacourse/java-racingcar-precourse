@@ -2,11 +2,11 @@ package racingcar.game;
 
 import java.util.List;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.messages.PrintResult;
 import racingcar.messages.ResultMessages;
-import racingcar.utils.CarNameInput;
-import racingcar.utils.GameTimesInput;
+import racingcar.utils.input.CarNameInput;
+import racingcar.utils.input.GameTimesInput;
 
 public class RacingGame {
 	private CarNameInput carNameInput;

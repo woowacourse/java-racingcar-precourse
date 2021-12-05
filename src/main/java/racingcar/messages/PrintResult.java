@@ -3,7 +3,7 @@ package racingcar.messages;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 
 public class PrintResult {
 	private static final String RESULT_DELIMITER = "-";

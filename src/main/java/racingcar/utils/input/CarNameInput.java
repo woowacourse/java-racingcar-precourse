@@ -1,11 +1,11 @@
-package racingcar.utils;
+package racingcar.utils.input;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.messages.InputMessages;
 import racingcar.utils.validator.CarNameValidator;
 
