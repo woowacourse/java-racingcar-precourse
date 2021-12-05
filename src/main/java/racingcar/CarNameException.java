@@ -9,11 +9,6 @@ public class CarNameException {
         isRightLength(allCarName);
     }
 
-    public static void isNothingInput(String inputName) {
-        if (inputName == null) {
-            throw new IllegalArgumentException("[ERROR] 이름이 입력되지 않았습니다.");
-        }
-    }
 
     public static void isEmptyName(String[] allCarName) {
         for (String name : allCarName) {
