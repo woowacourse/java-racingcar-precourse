@@ -20,23 +20,23 @@ public class OutputView implements OutputDisplayable {
 
     @Override
     public void showAttemptResult(final List<Car> cars) {
-        StringBuilder result = new StringBuilder();
-        cars.forEach(car -> result
+        StringBuilder output = new StringBuilder();
+        cars.forEach(car -> output
                 .append(car.getName())
                 .append(COLON_DELIMITER)
                 .append(repeat(POSITION_SYMBOL, car.getPosition()))
                 .append(NEW_LINE)
         );
-        System.out.println(result);
+        System.out.println(output);
     }
 
     @Override
     public void showWinners(final List<Car> winners) {
-        StringBuilder result = new StringBuilder("최종 우승자");
-        result.append(COLON_DELIMITER);
+        StringBuilder output = new StringBuilder("최종 우승자");
+        output.append(COLON_DELIMITER);
         IntStream.range(0, winners.size())
-                .forEach(index -> result.append(winners.get(index).getName()).append(ENUMERATION_DELIMITER));
-        result.deleteCharAt(result.lastIndexOf(ENUMERATION_DELIMITER));
-        System.out.println(result);
+                .forEach(index -> output.append(winners.get(index).getName()).append(ENUMERATION_DELIMITER));
+        output.deleteCharAt(output.lastIndexOf(ENUMERATION_DELIMITER));
+        System.out.println(output);
     }
 }
