@@ -44,4 +44,8 @@ public class Round {
             throw new RacingGameCannotRaceRoundException();
         }
     }
+
+    public boolean isFinished() {
+        return round == ZERO_ROUND;
+    }
 }
