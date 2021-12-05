@@ -10,6 +10,8 @@ import racingcar.exception.CountTooSmallMessageException;
 import racingcar.exception.NameDuplicateMessageException;
 import racingcar.exception.NameEmptyMessageException;
 import racingcar.exception.NameTooLongMessageException;
+import racingcar.exception.RacingCarException;
+import racingcar.resource.message.OutputMessage;
 import racingcar.resource.rule.CountRange;
 import racingcar.resource.rule.Delimiter;
 import racingcar.resource.rule.NameLength;
@@ -18,21 +20,30 @@ import racingcar.view.input.Reader;
 public class InputView {
 
     private final Reader reader;
+    private final OutputView outputView;
 
-    public InputView(Reader reader) {
+    public InputView(Reader reader, OutputView outputView) {
         this.reader = reader;
+        this.outputView = outputView;
     }
 
     public List<String> getNames() {
-        String inputString = reader.readLine();
-        List<String> names = convertStringToList(inputString);
+        try {
+            outputView.printMessage(OutputMessage.INPUT_NAMES_MESSAGE);
+            List<String> names = inputNames();
 
-        validateNames(names);
+            validateNames(names);
 
-        return names;
+            return names;
+
+        } catch (RacingCarException ex) {
+            outputView.printErrorMessage(ex.getMessage());
+            return getNames();
+        }
     }
 
-    private List<String> convertStringToList(String inputString) {
+    private List<String> inputNames() {
+        String inputString = reader.readLine();
         return Arrays.stream(Delimiter.splitWithComma(inputString))
             .map(String::trim).collect(Collectors.toList());
     }
@@ -62,16 +73,22 @@ public class InputView {
     }
 
     public int getExecutionCount() {
-        String inputString = reader.readLine();
-        int executionCount = convertStringToInt(inputString);
+        try {
+            outputView.printMessage(OutputMessage.INPUT_EXECUTION_COUNT_MESSAGE);
+            int executionCount = inputExecutionCount();
 
-        validateExecutionCountIsBiggerThanStandard(executionCount);
+            validateExecutionCountIsBiggerThanStandard(executionCount);
 
-        return executionCount;
+            return executionCount;
+
+        } catch (RacingCarException ex) {
+            return getExecutionCount();
+        }
     }
 
-    private int convertStringToInt(String inputString) {
+    private int inputExecutionCount() {
         try {
+            String inputString = reader.readLine();
             return Integer.parseInt(inputString);
         } catch (NumberFormatException ex) {
             throw new CountNotNumberMessageException();

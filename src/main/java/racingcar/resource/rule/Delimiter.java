@@ -7,7 +7,7 @@ public enum Delimiter {
     COMMA(","),
     COLON(":"),
     SPACE(" "),
-    UNDER_BAR("_");
+    BAR("-");
 
     private final String value;
 
@@ -31,7 +31,7 @@ public enum Delimiter {
     public static String repeatUnderBar(int count) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            stringBuilder.append(UNDER_BAR.value);
+            stringBuilder.append(BAR.value);
         }
         return stringBuilder.toString();
     }

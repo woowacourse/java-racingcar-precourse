@@ -4,6 +4,7 @@ import java.util.List;
 
 import racingcar.domain.GameRoundResultDto;
 import racingcar.domain.GameTotalResultDto;
+import racingcar.resource.message.ErrorMessage;
 import racingcar.resource.message.OutputMessage;
 import racingcar.resource.rule.Delimiter;
 
@@ -11,6 +12,10 @@ public class OutputView {
 
     public void printMessage(String message) {
         System.out.println(message);
+    }
+
+    public void printErrorMessage(String message) {
+        this.printMessage(ErrorMessage.TAG + message);
     }
 
     public void printGameTotalResult(GameTotalResultDto gameTotalResult) {
