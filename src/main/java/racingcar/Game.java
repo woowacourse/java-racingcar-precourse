@@ -6,16 +6,25 @@ import static racingcar.view.OutputView.*;
 import racingcar.domain.CarRepository;
 
 public class Game {
+	CarRepository carRepository = new CarRepository();
+
 	public void run() {
-		CarRepository carRepository = new CarRepository();
-		carRepository.createCars(inputCarNames());
-		int numberOfCarMoving = inputNumberOfCarMoving();
+		setCars();
+		int tryNumberOfCarMoving = inputTryNumberOfCarMoving();
 		printBlankLine();
+		attemptCarsMovingAndPrintCarsStatus(tryNumberOfCarMoving);
+		printFinalCarWinners(carRepository.getWinnerCarsName());
+	}
+
+	private void setCars() {
+		carRepository.createCars(inputCarNames());
+	}
+
+	private void attemptCarsMovingAndPrintCarsStatus(int tryNumberOfCarMoving) {
 		System.out.println("실행 결과");
-		for (int i = 0; i < numberOfCarMoving; i++) {
+		for (int i = 0; i < tryNumberOfCarMoving; i++) {
 			carRepository.attemptCarsMoving();
 			printCarsStatus(carRepository.getCarsStatusByFormatter());
 		}
-		printFinalCarWinners(carRepository.getWinnerCarsName());
 	}
 }
