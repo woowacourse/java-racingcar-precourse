@@ -56,7 +56,7 @@ public class Game {
     private void rightInput() throws IllegalArgumentException {
         carNames = input.split(",");
         for (int i=0;i<carNames.length; i++) {
-            if (carNames[i].length() > 5) {
+            if (carNames[i].length() > 5 || carNames[i].length() == 0) {
                 throw new IllegalArgumentException();
             }
         }
