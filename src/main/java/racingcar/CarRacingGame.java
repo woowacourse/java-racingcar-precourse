@@ -7,10 +7,23 @@ import camp.nextstep.edu.missionutils.Console;
 public class CarRacingGame {
 	private InputValidator inputValidator = new InputValidator();
 	private int roundNumber;
+	private Cars cars;
+
+	public void play() {
+		createCars();
+		inputRoundNumber();
+		System.out.println("실행 결과");
+		for (int i = 0; i < roundNumber; i++) {
+			cars.move();
+			cars.printAll();
+			System.out.println();
+		}
+		cars.findWinner();
+	}
 
 	public void createCars() {
 		String[] carNames = inputNames();
-		Cars cars = new Cars(carNames);
+		cars = new Cars(carNames);
 	}
 
 	public String[] inputNames() {
