@@ -4,12 +4,11 @@ import java.util.List;
 
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.MovingPolicy;
+import racingcar.domain.trycount.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameMachine {
-    private static final int ZERO_INDEX = 0;
-
     private final MovingPolicy movingPolicy;
     private final InputView inputView;
     private final OutputView outputView;
@@ -22,7 +21,7 @@ public class GameMachine {
 
     public void run() {
         Cars cars = getCars();
-        int tryCount = getTryCount();
+        TryCount tryCount = getTryCount();
         System.out.println();
 
         repeat(cars, tryCount);
@@ -38,7 +37,7 @@ public class GameMachine {
         }
     }
 
-    private int getTryCount() {
+    private TryCount getTryCount() {
         try {
             return inputView.getTryCount();
         } catch (IllegalArgumentException e) {
@@ -47,8 +46,8 @@ public class GameMachine {
         }
     }
 
-    private void repeat(Cars cars, int tryCount) {
-        while (tryCount-- > ZERO_INDEX) {
+    private void repeat(Cars cars, TryCount tryCount) {
+        while (tryCount.hasNextCount()) {
             cars.move();
             outputView.printExecutionResult(cars.getExecutionResult());
         }
