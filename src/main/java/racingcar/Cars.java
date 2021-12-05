@@ -11,6 +11,7 @@ public class Cars {
 	public static final int MOVE_CONDITION = 4;
 
 	private Car[] cars;
+	private int maxPosition;
 	private OutputView outputView = new OutputView();
 
 	public void enrollCars(ArrayList<String> names) {
@@ -33,7 +34,7 @@ public class Cars {
 	}
 
 	public ArrayList<String> findWinners() {
-		int maxPosition = getMaxPosition(cars);
+		findMaxPosition();
 		ArrayList<String> winners = new ArrayList<>();
 		for (Car car : cars) {
 			if (car.getPosition() == maxPosition) {
@@ -43,11 +44,11 @@ public class Cars {
 		return winners;
 	}
 
-	private int getMaxPosition(Car[] cars) {
+	private void findMaxPosition() {
 		int maxPosition = 0;
 		for (Car car : cars) {
 			maxPosition = Math.max(maxPosition, car.getPosition());
 		}
-		return maxPosition;
+		this.maxPosition = maxPosition;
 	}
 }
