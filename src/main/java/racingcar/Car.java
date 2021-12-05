@@ -11,7 +11,9 @@ public class Car {
     }
 
     public void stopOrGo() {
-
+        if (random()) {
+            position++;
+        }
     }
 
     public boolean random() {
