@@ -37,8 +37,14 @@ public class CarRacingGame {
 	}
 
 	public boolean isNamesInputException(String[] names) {
-		return inputValidator.isNamesLessThanSix(names) == false
-			|| inputValidator.isNamesDistinct(names) == false;
+		try {
+			inputValidator.validateNameLengthInRange(names);
+			inputValidator.validateNamesDistinct(names);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e);
+			return true;
+		}
+		return false;
 	}
 
 	public void inputRoundNumber() {
@@ -53,8 +59,14 @@ public class CarRacingGame {
 	}
 
 	public boolean isRoundNumberInputException(String roundNumber) {
-		return inputValidator.isNumber(roundNumber) == false
-			|| inputValidator.isNumberMoreThanMin(roundNumber) == false;
+		try {
+			inputValidator.validateNumberInput(roundNumber);
+			inputValidator.validateNumberInRange(roundNumber);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e);
+			return true;
+		}
+		return false;
 	}
 
 }
