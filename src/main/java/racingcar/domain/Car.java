@@ -17,6 +17,10 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void moveForward() {
 		int randomValue = Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_END_NUMBER);
 		if (randomValue >= MOVING_POINT_NUMBER) {
