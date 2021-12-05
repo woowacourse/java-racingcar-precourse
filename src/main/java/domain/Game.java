@@ -2,8 +2,11 @@ package domain;
 
 import view.InputView;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Game {
-    private CarList cars;
+    private List<Car> cars;
     private int turns;
 
     public Game() {
@@ -14,7 +17,7 @@ public class Game {
     private void setCarList() {
         try {
             String inputCars = InputView.getCarList();
-            this.cars = new CarList(inputCars);
+            this.cars = new CarList(inputCars).getCarList();
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             setCarList();
@@ -35,7 +38,7 @@ public class Game {
         return this.turns;
     }
 
-    public CarList getCars() {
-        return this.cars;
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 }
