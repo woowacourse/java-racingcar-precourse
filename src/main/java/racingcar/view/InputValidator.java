@@ -5,7 +5,6 @@ import static util.Constants.*;
 import java.util.List;
 
 public class InputValidator {
-
 	private static final InputValidator inputValidator = new InputValidator();
 
 	private InputValidator() {

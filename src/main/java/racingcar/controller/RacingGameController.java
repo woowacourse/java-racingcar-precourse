@@ -11,6 +11,7 @@ public class RacingGameController {
 	private final RacingGameInputView racingGameInputView;
 	private final RacingGameOutputView racingGameOutputView;
 	private List<Car> carList;
+	private int repetitionNumber;
 
 	public RacingGameController() {
 		racingGameInputView = RacingGameInputView.getRacingGameInputView();
@@ -18,15 +19,18 @@ public class RacingGameController {
 	}
 
 	public void startGame() {
-		int repetitionNumber;
 		takeCarList();
-		repetitionNumber = racingGameInputView.getRepetitionNumber();
+		takeRepetitionNumber();
 		racingGameOutputView.printMovementStart();
 		for (int i = 0; i < repetitionNumber; i++) {
 			carList.forEach(Car::tryMoving);
 			racingGameOutputView.printMovement(carList);
 		}
 		racingGameOutputView.printWinners(getWinners());
+	}
+
+	private void takeRepetitionNumber() {
+		repetitionNumber = racingGameInputView.getRepetitionNumber();
 	}
 
 	private void takeCarList() {
