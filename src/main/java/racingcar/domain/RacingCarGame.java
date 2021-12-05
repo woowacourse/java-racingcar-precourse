@@ -18,7 +18,7 @@ public class RacingCarGame {
     }
 
     private void move(Car car) {
-        if (!new MoveTicket().isValidTicket()) {
+        if (new MoveTicket().isValidTicket()) {
             car.moveForward();
         }
     }
