@@ -17,7 +17,6 @@ public class StringConstants {
 
     public static final String DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD = " : ";
     public static final String MARK_FOR_DISTANCE_RECORD = "-";
-    public static final int LENGTH_OF_DELIMITER = 3;
 
     public static final String NEW_LINE = System.lineSeparator();
 }
