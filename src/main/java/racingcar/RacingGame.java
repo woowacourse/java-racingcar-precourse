@@ -9,7 +9,7 @@ import camp.nextstep.edu.missionutils.Console;
  * <h1>실제 레이싱 게임 로직</h1>
  *
  * @author yunki kim
- * @version 1.1
+ * @version 1.2
  * @since 2021-12-01(V1.0)
  */
 
@@ -57,12 +57,12 @@ public class RacingGame {
 	private void inputRacingTurns() throws IllegalArgumentException {
 		System.out.println("시도할 회수는 몇회인가요?");
 		final String numberPattern = "^[0-9]*$";
-		final String tempTerns = Console.readLine();
-		if(!Pattern.matches(numberPattern, tempTerns)) {
+		final String playerInputtedTurns = Console.readLine();
+		if(!Pattern.matches(numberPattern, playerInputtedTurns)) {
 			final String errorMessage = ERROR_MESSAGE_PREFIX + "시도 횟수는 숫자여야 한다.";
 			throw new IllegalArgumentException(errorMessage);
 		}
-		turns = Integer.parseInt(tempTerns);
+		turns = Integer.parseInt(playerInputtedTurns);
 		System.out.print("\n");
 	}
 
