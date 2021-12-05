@@ -207,3 +207,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - 실제 레이싱 게임이 구현되 있는 클래스에 생성자 추가
     - 난수 생성 범위 수정
     - 주어진 컨벤션에 맞는 코드를 위해 공백 수정
+    - 난수 생성 테스트 코드 수정

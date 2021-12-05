@@ -12,7 +12,9 @@ class RandomNumberTest {
 	@DisplayName("생성한 난수가 올바른 난수인지 체크")
 	void getRandomNumber() {
 		final RandomNumber randomNumber = new RandomNumber();
+		final Integer currentRandomNumber = randomNumber.getRandomNumber();
 
-		assertTrue(0 <= randomNumber.getRandomNumber() && randomNumber.getRandomNumber() <= 9, "생성된 난수의 값이 0~9사이여야 한다");
+		assertTrue(0 <= currentRandomNumber && currentRandomNumber <= 9,
+			"생성된 난수의 값이 0~9사이여야 한다");
 	}
 }
