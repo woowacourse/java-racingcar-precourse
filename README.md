@@ -206,3 +206,4 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - 사용자가 유효하지 않은 데이터를 입력했을때 에러를 띄우고 다시 입력받는 기능이 한번만 동작되는 문제 해결
     - 실제 레이싱 게임이 구현되 있는 클래스에 생성자 추가
     - 난수 생성 범위 수정
+    - 주어진 컨벤션에 맞는 코드를 위해 공백 수정

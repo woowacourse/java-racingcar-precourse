@@ -55,8 +55,8 @@ public class RacingGame {
 	private void inputRacingCarName() throws IllegalArgumentException {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		final String[] carNames = Console.readLine().split(",");
-		for(final String carName : carNames) {
-			if(carName.length() > CAR_NAME_MAX_LENGTH) {
+		for (final String carName : carNames) {
+			if (carName.length() > CAR_NAME_MAX_LENGTH) {
 				final String errorMessage = ERROR_MESSAGE_PREFIX + carName
 					+ "은 5자 이하여야 합니다";
 				cars.clear();
@@ -71,7 +71,7 @@ public class RacingGame {
 		System.out.println("시도할 회수는 몇회인가요?");
 		final String numberPattern = "^[0-9]*$";
 		final String playerInputtedTurns = Console.readLine();
-		if(!Pattern.matches(numberPattern, playerInputtedTurns)) {
+		if (!Pattern.matches(numberPattern, playerInputtedTurns)) {
 			final String errorMessage = ERROR_MESSAGE_PREFIX + "시도 횟수는 숫자여야 한다.";
 			throw new IllegalArgumentException(errorMessage);
 		}
@@ -81,20 +81,20 @@ public class RacingGame {
 
 	/** 레이싱 게임의 정보를 유저로부터 입력받는다 */
 	private void inputRacingInformation() {
-		while(true) {
+		while (true) {
 			try {
 				inputRacingCarName();
 				break;
-			} catch(IllegalArgumentException error) {
+			} catch (IllegalArgumentException error) {
 				System.out.println(error.getMessage());
 			}
 		}
 
-		while(true) {
+		while (true) {
 			try {
 				inputRacingTurns();
 				break;
-			} catch(IllegalArgumentException error) {
+			} catch (IllegalArgumentException error) {
 				System.out.println(error.getMessage());
 			}
 		}
@@ -109,7 +109,7 @@ public class RacingGame {
 			farthestPosition = Math.max(farthestPosition, carPosition);
 
 			System.out.print(carName + " : ");
-			while(carPosition-- > 0) {
+			while (carPosition-- > 0) {
 				System.out.print("-");
 			}
 			System.out.print("\n");
@@ -138,7 +138,7 @@ public class RacingGame {
 	public void startGame() {
 		inputRacingInformation();
 		System.out.println("실행 결과");
-		while(turns-- > 0) {
+		while (turns-- > 0) {
 			startNextTurn();
 		}
 		printWinnerList();

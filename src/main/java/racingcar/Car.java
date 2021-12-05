@@ -52,7 +52,7 @@ public class Car {
 	 */
 	public void goForward() {
 		final RandomNumber randomNumber = new RandomNumber();
-		if(randomNumber.getRandomNumber() <= SHOULD_GO_FORWARD) {
+		if (randomNumber.getRandomNumber() <= SHOULD_GO_FORWARD) {
 			return;
 		}
 		this.position++;
