@@ -2,7 +2,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.exception.dto.ErrorResponse;
 import racingcar.message.Message;
-import racingcar.message.MessageResponse;
+import racingcar.message.dto.MessageResponse;
 import racingcar.service.GameService;
 
 public class GameController {
@@ -40,6 +40,6 @@ public class GameController {
 	}
 
 	public void postWinner() {
-		MessageResponse.NonLineOf(Message.ENTER_WINNER.getMessage()+gameService.postWinner());
+		MessageResponse.of(Message.ENTER_WINNER.getMessage()+gameService.postWinner());
 	}
 }

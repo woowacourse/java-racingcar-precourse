@@ -10,7 +10,7 @@ import racingcar.validation.Validation;
 public class GameService {
 
 	private Cars cars;
-	private StringBuilder sb;
+	private StringBuilder result;
 
 	private void gameServiceInit() {
 		cars = new Cars();
@@ -30,25 +30,25 @@ public class GameService {
 	}
 
 	public String postResult() {
-		sb = new StringBuilder();
-		sb.append('\n');
+		result = new StringBuilder();
+		result.append(System.lineSeparator());
 		for (int i = 0; i < cars.getRepeatNum(); i++) {
 			decideMoveOrStop();
 			checkSorting(i);
-			sb.append(System.lineSeparator());
+			checkLineSeparate(i);
 		}
 
-		return sb.toString();
+		return result.toString();
 	}
 
 	public String postWinner() {
-		sb = new StringBuilder();
+		result = new StringBuilder();
 		int idx = checkNumberOfWinner();
 		for (int i = 0; i < idx; i++) {
-			sb.append(cars.getCarArrayList().get(i).getName());
+			result.append(cars.getCarArrayList().get(i).getName());
 			checkAddComma(i,idx);
 		}
-		return sb.toString();
+		return result.toString();
 	}
 
 	private void addCars(String inputStr) {
@@ -73,11 +73,17 @@ public class GameService {
 
 	private void printResult(int carIdx) {
 		Car car = cars.getCarArrayList().get(carIdx);
-		sb.append(car.getName() + " : ");
+		result.append(car.getName() + " : ");
 		for (int i = 0; i < car.getPosition(); i++) {
-			sb.append("-");
+			result.append("-");
 		}
-		sb.append(System.lineSeparator());
+		result.append(System.lineSeparator());
+	}
+
+	private void checkLineSeparate(int num) {
+		if (num != cars.getRepeatNum()-1) {
+			result.append(System.lineSeparator());
+		}
 	}
 
 	private void checkSorting(int idx) {
@@ -101,7 +107,7 @@ public class GameService {
 
 	private void checkAddComma(int idx, int len) {
 		if (idx < len - 1) {
-			sb.append(", ");
+			result.append(", ");
 		}
 	}
 }
