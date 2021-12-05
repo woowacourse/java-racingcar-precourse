@@ -2,62 +2,73 @@ package racingcar;
 
 import java.util.List;
 
+import model.*;
+import view.*;
+
 public class GameController {
     private static final String TYPE1 = "Car";
     private static final String TYPE2 = "Num";
-    private View view;
-    private Model model;
+    
+    private GameEquipments equipments;
+    private Input input;
+    private InputValidation inputValidation;
+    private Output output;
+    private Winner winner;
+    
     protected List <Car> participants;
     protected int goal;
     
-    public GameController(View view, Model model) {
-        this.view = view;
-        this.model = model;
+    public GameController() {
+        equipments = new GameEquipments();
+        input = new Input();
+        inputValidation = new InputValidation();
+        output = new Output();
+        winner = new Winner();
     }
     
     public void playGame() {
         setParticipants();
         setGoal();
-        System.out.println(View.RESULT_MESSAGE);
+        System.out.println(Output.RESULT_MESSAGE);
         
-        while(!model.hasWinner(participants, goal)) {
-           model.setPositions(participants);
-           view.showRaceMessage(participants);
+        while(!winner.hasWinner(participants, goal)) {
+           equipments.setPositions(participants);
+           output.showRaceMessage(participants);
         }
         
-        view.showWinnerMessage(model.getWinner(participants, goal));
+        output.showWinnerMessage(winner.getWinner(participants, goal));
     }
     
     private void setParticipants() {
         while(true) {
-            String input = view.nameOfCars(); 
+            String str = input.nameOfCars(); 
             
             try {
-                if(!model.checkValidationForCars(input)) {
+                if(!inputValidation.checkValidationForCars(str)) {
                     throw new IllegalArgumentException();
                 }
-                participants = model.getCarNames(input);
+                participants = equipments.setCarNames(str);
                 return;
             }
             catch (IllegalArgumentException e) {
-                view.showErrorMessage(TYPE1);
+                output.showErrorMessage(TYPE1);
             }
         }
     }
     
     private void setGoal() {
         while(true) {
-            String input = view.getGoal();
+            String num = input.getGoal();
             
             try {
-                if(!model.checkValidationForGoal(input)) {
+                if(!inputValidation.checkValidationForGoal(num)) {
                     throw new IllegalArgumentException();
                 }
-                goal = Integer.parseInt(input);
+                goal = Integer.parseInt(num);
                 return;
             }
             catch (IllegalArgumentException e) {
-                view.showErrorMessage(TYPE2);
+                output.showErrorMessage(TYPE2);
             }
         }
     }
