@@ -21,28 +21,24 @@ public class RacingGame {
         for (String carName : carNames) {
             carRepository.saveInOrder(Car.create(carName));
         }
-        return findCars();
+        return findCarsInOrder();
     }
 
-    public int createNumberOfRounds(int number) {
+    public void createNumberOfRounds(int number) {
         validateRoundNumber(number);
         numberOfRounds = number;
-        return number;
     }
 
-    public void start() {
-        for (int roundNumber = 1; roundNumber <= numberOfRounds; roundNumber++) {
+    public List<Car> start() {
+        for (int roundNumber = MIN_VALUE_OF_ROUND_NUMBER; roundNumber <= numberOfRounds; roundNumber++) {
             startEachRound();
-            showGameResult();
+            printRacingResults();
         }
+        return determineWinners();
     }
 
-    public List<Car> determineWinners() {
-        return carRepository.findTopByOrderByPosition();
-    }
-
-    private void showGameResult() {
-        RacingResultsView racingResultsView = new RacingResultsView(findCars());
+    private void printRacingResults() {
+        RacingResultsView racingResultsView = new RacingResultsView(findCarsInOrder());
         racingResultsView.print();
     }
 
@@ -52,8 +48,8 @@ public class RacingGame {
         }
     }
 
-    private List<Car> findCars() {
-        return carRepository.findAllCarsInOrder();
+    private List<Car> findCarsInOrder() {
+        return carRepository.findAllInOrder();
     }
 
     private int generateRandomNumber() {
@@ -61,9 +57,13 @@ public class RacingGame {
     }
 
     private void startEachRound() {
-        for (Car car : findCars()) {
+        for (Car car : findCarsInOrder()) {
             car.run(generateRandomNumber());
         }
+    }
+
+    private List<Car> determineWinners() {
+        return carRepository.findTopByOrderByPosition();
     }
 }
 

@@ -24,8 +24,7 @@ public class RacingGameController {
         printNumberOfRoundsRequestMessage();
         createNumberOfRounds(inputNumberOfRounds());
         printGameResultNoticePhrase();
-        racingGame.start();
-        printWinners(racingGame.determineWinners());
+        printWinners(racingGame.start());
     }
 
     private void printCarNameRequestMessage() {

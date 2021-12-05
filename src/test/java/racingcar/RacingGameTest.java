@@ -1,6 +1,8 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.utils.StringConstants.MIN_VALUE_OF_ROUND_NUMBER;
 
 import java.util.List;
 
@@ -22,8 +24,9 @@ class RacingGameTest {
     }
 
     @Test
-    void 입력값으로_경기_회차를_설정() {
-        int input = 10;
-        assertThat(racingGame.createNumberOfRounds(input)).isEqualTo(input);
+    void 회차가_1보다_작을경우_예외_발생() {
+        int smallerInput = 0;
+        assertThat(smallerInput).isLessThan(MIN_VALUE_OF_ROUND_NUMBER);
+        assertThatThrownBy(() -> racingGame.createNumberOfRounds(smallerInput)).isInstanceOf(IllegalArgumentException.class);
     }
 }

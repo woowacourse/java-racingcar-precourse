@@ -13,7 +13,7 @@ public class CarRepository {
         return car;
     }
 
-    public List<Car> findAllCarsInOrder() {
+    public List<Car> findAllInOrder() {
         return new ArrayList<>(cars);
     }
 

@@ -37,20 +37,20 @@ class CarRepositoryTest {
 
     @Test
     void 들어온_순으로_순서가_정해지며_해당_순서로_cars_내보내기() {
-        List<Car> savedCars = carRepository.findAllCarsInOrder();
+        List<Car> savedCars = carRepository.findAllInOrder();
         assertThat(savedCars).isEqualTo(initialCarsToSave);
     }
 
     @Test
     void repository에_저장된_list는_변경_불가() {
-        List<Car> result = carRepository.findAllCarsInOrder();
+        List<Car> result = carRepository.findAllInOrder();
         result.add(Car.create("name4"));
-        assertThat(carRepository.findAllCarsInOrder()).isEqualTo(initialCarsToSave);
+        assertThat(carRepository.findAllInOrder()).isEqualTo(initialCarsToSave);
     }
 
     @Test
     void 간_거리가_가장_많은_자동차를_반환() {
-        List<Car> savedCars = carRepository.findAllCarsInOrder();
+        List<Car> savedCars = carRepository.findAllInOrder();
         int carIndexToBeWinner = 1;
         Car carToWin = savedCars.get(carIndexToBeWinner);
         carToWin.run(MIN_NUMBER_TO_CAR_TO_GO);
@@ -63,7 +63,7 @@ class CarRepositoryTest {
 
     @Test
     void 간_거리가_가장_많은_자동차들이_복수라면_해당_차를_모두_반환() {
-        List<Car> savedCars = carRepository.findAllCarsInOrder();
+        List<Car> savedCars = carRepository.findAllInOrder();
         for (Car savedCar : savedCars) {
             savedCar.run(MIN_NUMBER_TO_CAR_TO_GO);
         }
