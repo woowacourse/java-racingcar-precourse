@@ -3,6 +3,12 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final String INFO_BETWEEN_WORD = " : ";
+    private static final String POSITION_WORD = "-";
+    private static final int RANDOM_MIN_RANGE = 0;
+    private static final int RANDOM_MAX_RANGE = 9;
+    private static final int RANDOM_CONDITION = 4;
+
     private final String name;
     private int position = 0;
 
@@ -11,9 +17,9 @@ public class Car {
     }
 
     public void carMove() {
-        int randNum = Randoms.pickNumberInRange(0, 9);
+        int randNum = Randoms.pickNumberInRange(RANDOM_MIN_RANGE, RANDOM_MAX_RANGE);
 
-        if (randNum >= 4) {
+        if (randNum >= RANDOM_CONDITION) {
             this.position += 1;
         }
     }
@@ -27,10 +33,10 @@ public class Car {
     }
 
     public void showInfo() {
-        String info = getName() + " : ";
+        String info = getName() + INFO_BETWEEN_WORD;
 
         for (int i = 0; i < position; i++) {
-            info += "-";
+            info += POSITION_WORD;
         }
         System.out.println(info);
     }
