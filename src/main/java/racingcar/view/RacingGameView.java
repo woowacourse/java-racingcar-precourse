@@ -35,7 +35,7 @@ public class RacingGameView {
 		do {
 			System.out.println(REPETITION_NUMBER_MESSAGE);
 			repetitionNumber = Console.readLine();
-		} while (!inputValidator.checkNotNaturalNumberException(repetitionNumber));
+		} while (!inputValidator.checkRepetitionNumberExceptions(repetitionNumber));
 		return Integer.parseInt(repetitionNumber);
 	}
 
