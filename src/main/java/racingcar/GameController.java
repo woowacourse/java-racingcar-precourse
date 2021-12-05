@@ -15,7 +15,7 @@ public class GameController {
     private Output output;
     private Winner winner;
     
-    protected List <Car> participants;
+    protected List<Car> participants;
     protected int goal;
     
     public GameController() {
@@ -27,8 +27,8 @@ public class GameController {
     }
     
     public void playGame() {
-        setParticipants();
-        setGoal();
+        saveParticipants();
+        saveGoal();
         System.out.println(Output.RESULT_MESSAGE);
         
         while(!winner.hasWinner(participants, goal)) {
@@ -39,37 +39,37 @@ public class GameController {
         output.showWinnerMessage(winner.getWinner(participants, goal));
     }
     
-    private void setParticipants() {
-        while(true) {
-            String str = input.setCarNames(); 
+    private void saveParticipants() {
+        String str = input.setCarNames(); 
             
-            try {
-                if(!inputValidation.checkValidationForCars(str)) {
-                    throw new IllegalArgumentException();
-                }
-                participants = equipments.toList(str);
-                return;
+        try {
+            
+            if(!inputValidation.checkValidationForCars(str)) {
+                throw new IllegalArgumentException();
             }
-            catch (IllegalArgumentException e) {
-                output.showErrorMessage(TYPE1);
-            }
+                
+            participants = equipments.toList(str);
+            return;
+        } catch (IllegalArgumentException e) {
+            output.showErrorMessage(TYPE1);
+            saveParticipants();
         }
     }
     
-    private void setGoal() {
-        while(true) {
-            String num = input.setGoal();
+    private void saveGoal() {
+        String num = input.setGoal();
             
-            try {
-                if(!inputValidation.checkValidationForGoal(num)) {
-                    throw new IllegalArgumentException();
-                }
-                goal = Integer.parseInt(num);
-                return;
+        try {
+            
+            if(!inputValidation.checkValidationForGoal(num)) {
+                throw new IllegalArgumentException();
             }
-            catch (IllegalArgumentException e) {
-                output.showErrorMessage(TYPE2);
-            }
+            
+            goal = Integer.parseInt(num);
+            return;
+        } catch (IllegalArgumentException e) {
+            output.showErrorMessage(TYPE2);
+            saveGoal();
         }
     }
 }
