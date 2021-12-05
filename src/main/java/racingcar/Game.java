@@ -130,8 +130,8 @@ public class Game {
             for(int j = 0; j <cars.get(i).getPosition(); i++) {
                 System.out.print("-");
             }
-            System.out.println("\n");
         }
+        System.out.println("\n");
     }
 
     private void checkWinner() {
