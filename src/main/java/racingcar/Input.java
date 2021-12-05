@@ -22,9 +22,15 @@ public class Input {
 
 	public static int tryNumber() {
 		System.out.println("시도할 회수는 몇회인가요?");
-		String number = Console.readLine();
+		String number;
 
-		// validate isNumber
+		while(true){
+			number = Console.readLine();
+			try {
+				// checkTryNumber(number);
+				break;
+			} catch (IllegalArgumentException exception){ }
+		}
 
 		return Integer.parseInt(number);
 	}
