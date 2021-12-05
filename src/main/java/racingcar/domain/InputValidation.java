@@ -17,7 +17,8 @@ public class InputValidation {
 	public static final String ERROR_MOVES_NUMBER = "[ERROR] 이동 횟수는 1 이상 1,000 이하여야 합니다.";
 
 	public static void checkCarName(String input, String splitRegex) {
-		long carNameLengthValidation = Arrays.stream(input.split(splitRegex))
+		long carNameLengthValidation = Arrays.stream(input
+				.split(splitRegex))
 			.filter(carName -> carName.length() > CAR_NAME_LENGTH_MAX || carName.length() < CAR_NAME_LENGTH_MIN)
 			.count();
 		long carNumberValidation = Arrays.stream(input.split(splitRegex)).count();

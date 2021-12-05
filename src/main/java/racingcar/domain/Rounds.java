@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Rounds {
 	private final List<Round> rounds;
@@ -15,13 +15,11 @@ public class Rounds {
 		rounds.add(round);
 	}
 
-	public List<String> getRoundResult() {
-		return rounds.stream()
-			.map(Round::getRoundResult)
-			.collect(Collectors.toList());
+	public List<Round> getRoundResult() {
+		return Collections.unmodifiableList(this.rounds);
 	}
 
-	public List<String> getWinner() {
+	public List<Result> getWinner() {
 		return rounds.stream()
 			.reduce((first, second) -> second)
 			.get()

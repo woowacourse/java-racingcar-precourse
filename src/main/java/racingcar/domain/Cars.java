@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -12,13 +11,13 @@ public class Cars {
 		this.cars = cars;
 	}
 
-	public void move() {
-		cars.forEach(Car::move);
+	public List<Result> getRoundResult() {
+		return cars.stream()
+			.map(Result::new)
+			.collect(Collectors.toList());
 	}
 
-	public Map<String, Integer> makeRoundResult() {
-		return cars.stream()
-			.collect(Collectors
-				.toMap(Car::getName, Car::getPosition));
+	public void move() {
+		cars.forEach(Car::move);
 	}
 }

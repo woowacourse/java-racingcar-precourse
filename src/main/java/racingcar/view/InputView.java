@@ -14,10 +14,8 @@ public class InputView {
 	private static final String INPUT_MOVES_NUMBER = "시도할 회수는 몇회인가요?";
 
 	public static Cars inputCarsName(String splitRegex) {
-
 		System.out.println(INPUT_CARS_NAME);
 		String input = Console.readLine();
-
 		try {
 			InputValidation.checkCarName(input, splitRegex);
 			return new Cars(Arrays
@@ -34,7 +32,6 @@ public class InputView {
 	public static int inputMovesNumber() {
 		System.out.println(INPUT_MOVES_NUMBER);
 		String input = Console.readLine();
-
 		try {
 			InputValidation.checkMovesNumber(input);
 			return Integer.parseInt(input);
