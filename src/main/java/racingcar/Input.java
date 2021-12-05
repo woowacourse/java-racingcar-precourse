@@ -12,4 +12,13 @@ public class Input {
 
 		return carNames;
 	}
+
+	public static int tryNumber() {
+		System.out.println("시도할 회수는 몇회인가요?");
+		String number = Console.readLine();
+
+		// validate isNumber
+
+		return Integer.parseInt(number);
+	}
 }
