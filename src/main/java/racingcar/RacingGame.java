@@ -20,30 +20,30 @@ public class RacingGame {
     private int maxPosition;
 
     public RacingGame() {
-        this.cars = new ArrayList<>();
-        this.maxPosition = 0;
+        cars = new ArrayList<>();
+        maxPosition = 0;
     }
 
     public void play() {
-        this.createCarObjByName(this.inputCarNames());
-        int numberOfAttempts = this.inputNumberOfAttempts();
+        createCarObjByName(inputCarNames());
+        int numberOfAttempts = inputNumberOfAttempts();
         System.out.println(MSG_PRINT_EXECUTE_RESULT);
         while (numberOfAttempts-- > 0) {
-            for (Car car : this.cars) {
+            for (Car car : cars) {
                 car.moveForward();
-                this.printEachAttempts(car.getName(), car.getPosition());
-                this.updateMaxPosition(car.getPosition());
+                printEachAttempts(car.getName(), car.getPosition());
+                updateMaxPosition(car.getPosition());
             }
             System.out.println();
         }
-        this.printWinner();
+        printWinner();
     }
 
     private void printWinner() {
         StringBuilder sb = new StringBuilder();
         sb.append(MSG_PRINT_WINNER);
-        for (Car car : this.cars) {
-            if (car.getPosition() == this.maxPosition) {
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
                 sb.append(car.getName());
                 sb.append(", ");
             }
@@ -52,7 +52,7 @@ public class RacingGame {
     }
 
     private void updateMaxPosition(int position) {
-        this.maxPosition = Math.max(this.maxPosition, position);
+        this.maxPosition = Math.max(maxPosition, position);
     }
 
     private void printEachAttempts(String name, int position) {
