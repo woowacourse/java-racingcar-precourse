@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.Console.*;
 import static racingcar.view.OutputView.*;
 
 import racingcar.domain.CarNames;
+import racingcar.domain.RacingRound;
 
 public class InputView {
 	public static String[] readCarNames() {
@@ -21,6 +22,6 @@ public class InputView {
 	public static int readRacingRound() {
 		printReadRacingRoundMessage();
 		String racingRound = readLine();
-		return Integer.parseInt(racingRound);
+		return (new RacingRound(racingRound)).get();
 	}
 }
