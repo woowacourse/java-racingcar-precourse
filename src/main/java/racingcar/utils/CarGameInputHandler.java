@@ -10,24 +10,24 @@ public class CarGameInputHandler {
     final private static String DELIMITER = ",";
 
     public static List<String> getValidCarNames() {
-        return getValidInput(CarGameInputHandler::getCarNames);
+        return getValidInput(
+            () -> {
+                String input = Console.readLine();
+                List<String> names = Arrays.asList(input.split(DELIMITER));
+                InputValidator.validateCarNames(input, names);
+                return names;
+            }
+        );
     }
 
     public static int getValidPlayCount() {
-        return getValidInput(CarGameInputHandler::getPlayCount);
-    }
-
-    private static List<String> getCarNames() throws IllegalArgumentException {
-        String input = Console.readLine();
-        List<String> names = Arrays.asList(input.split(DELIMITER));
-        InputValidator.validateCarNames(input, names);
-        return names;
-    }
-
-    private static int getPlayCount() throws IllegalArgumentException {
-        String number = Console.readLine();
-        InputValidator.validatePlayCount(number);
-        return Integer.parseInt(number);
+        return getValidInput(
+            () -> {
+                String number = Console.readLine();
+                InputValidator.validatePlayCount(number);
+                return Integer.parseInt(number);
+            }
+        );
     }
 
     private static <T> T getValidInput(Supplier<T> sup) {

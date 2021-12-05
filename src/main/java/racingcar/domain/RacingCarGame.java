@@ -18,7 +18,6 @@ public class RacingCarGame {
         cars.forEach(this::move);
     }
 
-
     public String getGameStatus() {
         List<String> statusList = this.cars.stream()
             .map(Car::getCarStatus)
