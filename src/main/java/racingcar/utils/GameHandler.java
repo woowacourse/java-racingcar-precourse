@@ -1,9 +1,10 @@
-package racingcar;
+package racingcar.utils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import racingcar.domain.Car;
 import racingcar.constants.Constant;
 import racingcar.constants.Message;
 
