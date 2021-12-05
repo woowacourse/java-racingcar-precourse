@@ -47,7 +47,7 @@ public class Game {
     private Turn setTurns(){
         Turn turns = null;
         try {
-            String inputTimes = InputView.getTimes();
+            String inputTimes = InputView.getTurns();
             validation.timesValidate(inputTimes);
 
             turns = new Turn(Integer.valueOf(inputTimes));
