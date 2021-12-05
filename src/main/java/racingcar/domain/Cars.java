@@ -28,4 +28,20 @@ public class Cars {
             throw new CarNameDuplicateException();
         }
     }
+
+    public List<String> getWinner() {
+        int maxPosition = calculateMaxPosition();
+        return cars.stream()
+            .filter(car -> car.position() == maxPosition)
+            .map(Car::name)
+            .collect(Collectors.toList());
+    }
+
+    private int calculateMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.position());
+        }
+        return maxPosition;
+    }
 }
