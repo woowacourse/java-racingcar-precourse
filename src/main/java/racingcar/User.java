@@ -28,7 +28,7 @@ public class User {
 		return names;
 	}
 
-	public void setNamesByInputUntilCorrect() {
+	public void askNamesUntilCorrect() {
 		String input = inputNames();
 		while (!setNames(input)) {
 			input = inputNames();
@@ -83,7 +83,7 @@ public class User {
 		return numberOfTimes;
 	}
 
-	public void setNumberOfTimesByInputUntilCorrect() {
+	public void askNumberOfTimesUntilCorrect() {
 		String input = inputNumberOfTimes();
 		while (!setNumberOfTimes(input)) {
 			input = inputNumberOfTimes();
