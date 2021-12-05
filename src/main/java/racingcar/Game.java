@@ -113,6 +113,10 @@ public class Game {
     }
 
     private void checkNumber() throws IllegalArgumentException {
+        if (input.charAt(0) == '-') {
+            errorCode = 2;
+            throw new IllegalArgumentException();
+        }
         for (int i=0; i < input.length(); i++) {
             temp = input.charAt(i);
             if (Character.isDigit(temp) == false) {
