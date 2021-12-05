@@ -2,8 +2,11 @@ package racingcar;
 
 import static racingcar.view.InputView.inputCarNames;
 import static racingcar.view.InputView.inputRound;
+import static racingcar.view.OutputView.outputNowRoundResult;
+import static racingcar.view.OutputView.outputResultTitle;
 
 import racingcar.domain.Cars;
+import racingcar.domain.RacingGame;
 import racingcar.domain.Round;
 
 public class Application {
@@ -11,6 +14,13 @@ public class Application {
     public static void main(String[] args) {
         Cars cars = getInputRandomCars();
         Round round = getInputRound();
+        RacingGame racingGame = new RacingGame(cars, round);
+
+        outputResultTitle();
+        while (!racingGame.isFinished()) {
+            racingGame.race();
+            outputNowRoundResult(racingGame.cars());
+        }
     }
 
     private static Cars getInputRandomCars() {
