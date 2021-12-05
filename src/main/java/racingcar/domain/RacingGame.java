@@ -36,6 +36,11 @@ public class RacingGame {
         }
     }
 
+    public void race() {
+        round--;
+        cars.move();
+    }
+
     public List<Car> cars() {
         return cars.cars();
     }
