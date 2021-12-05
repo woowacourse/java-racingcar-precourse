@@ -35,8 +35,47 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_전진_테스트() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                String name = "Test";
+                int tryNumber = 3;
+                Car car = createCarAndTry(name, tryNumber);
+
+                car.printStatus();
+                assertThat(output()).contains(name + " : --");
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 자동차_준비위치로_테스트() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                String name = "Test";
+                int tryNumber = 3;
+                Car car = createCarAndTry(name, tryNumber);
+                car.setReady();
+
+                car.printStatus();
+                assertThat(output()).contains(name + " :");
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    public Car createCarAndTry(String carName, int tryNumber) {
+        Car car = new Car(carName);
+        for (int i = 0; i < tryNumber; i++) {
+            car.tryMove();
+        }
+        return car;
+    }
+
     @Override
     public void runMain() {
-        Application.main(new String[]{});
+        Application.main(new String[] {});
     }
 }
