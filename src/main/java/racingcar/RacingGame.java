@@ -40,6 +40,10 @@ public class RacingGame {
         racingResultsView.print();
     }
 
+    private void determineWinners() {
+        List<Car> topByOrderByPosition = carRepository.findTopByOrderByPosition();
+    }
+
     private void validateRoundNumber(int number) {
         if (number < MIN_VALUE_OF_ROUND_NUMBER) {
             throw new IllegalArgumentException();
@@ -59,5 +63,7 @@ public class RacingGame {
             car.run(generateRandomNumber());
         }
     }
+
+   
 }
 
