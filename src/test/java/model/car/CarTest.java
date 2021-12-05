@@ -2,6 +2,7 @@ package model.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,6 +13,11 @@ import java.util.stream.Stream;
 
 class CarTest {
     private final Car car = new Car("Chris");
+
+    @BeforeEach
+    void setUp() {
+        car.move(true);
+    }
 
     @Test
     @DisplayName("이름을 반환한다.")
@@ -24,7 +30,6 @@ class CarTest {
     @Test
     @DisplayName("자동차를 전진시키고 전진에 따른 위치 값을 반환한다.")
     void move_getPosition() {
-        car.move(true);
         car.move(false);
         int actual = car.getPosition();
         int expected = 1;
@@ -35,7 +40,6 @@ class CarTest {
     @DisplayName("다른 Car 객체를 받아 자신의 위치 값이 더 크면 같으면 true, 작으면 false를 반환한다.")
     @MethodSource("provideAnotherCarAndExpected")
     void hasHigherPositionThan(final Car another, final boolean expected) {
-        car.move(true);
         boolean actual = car.hasHigherPositionThan(another);
         assertThat(actual).isEqualTo(expected);
     }
@@ -58,7 +62,6 @@ class CarTest {
     @DisplayName("이름과 위치 값을 기준으로 동등성을 판단한다.")
     @MethodSource("provideAnotherCarAndExpectedEquality")
     void equals(final Car anotherCar, final boolean expected) {
-        car.move(true);
         boolean actual = car.equals(anotherCar);
         assertThat(actual).isEqualTo(expected);
     }
@@ -67,7 +70,6 @@ class CarTest {
     @DisplayName("이름과 위치 값을 기반으로 해시코드를 반환한다.")
     @MethodSource("provideAnotherCarAndExpectedEquality")
     void hashCode(final Car anotherCar, final boolean expected) {
-        car.move(true);
         int hashCodeOfCar = car.hashCode();
         int hashCodeOfAnotherCar = anotherCar.hashCode();
         assertThat(hashCodeOfCar == hashCodeOfAnotherCar).isEqualTo(expected);
