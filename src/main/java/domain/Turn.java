@@ -9,7 +9,7 @@ public class Turn {
 
     public Turn(String turns) {
         try {
-            validation.timesValidate(turns);
+            validation.turnsValidate(turns);
         } catch (IllegalArgumentException e) {
             throw e;
         }

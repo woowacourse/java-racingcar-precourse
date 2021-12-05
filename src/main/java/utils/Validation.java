@@ -22,11 +22,11 @@ public class Validation {
         carEmptyCheck(carList);
     }
 
-    public void timesValidate(String times) {
+    public void turnsValidate(String times) {
 
-        timeEmptyCheck(times);
-        timeIsNumericCheck(times);
-        timeIsPositiveCheck(times);
+        turnEmptyCheck(times);
+        turnIsNumericCheck(times);
+        turnIsPositiveCheck(times);
 
     }
 
@@ -67,20 +67,20 @@ public class Validation {
 
     }
 
-    private void timeEmptyCheck(String times) {
+    private void turnEmptyCheck(String times) {
         if (times.isEmpty()) {
             throw new IllegalArgumentException(Message.ERROR + Message.TIME_NULL_ERROR);
         }
     }
 
-    private void timeIsNumericCheck(String times) {
+    private void turnIsNumericCheck(String times) {
         boolean isNumeric = times.matches("[+-]?\\d*(\\.\\d+)?");
         if (!isNumeric) {
             throw new IllegalArgumentException(Message.ERROR + Message.TIME_NUMERIC_ERROR);
         }
     }
 
-    private void timeIsPositiveCheck(String times) {
+    private void turnIsPositiveCheck(String times) {
         if (times.startsWith("-") || times.equals("0")) {
             throw new IllegalArgumentException(Message.ERROR + Message.TIME_NEGATIVE_ERROR);
         }
