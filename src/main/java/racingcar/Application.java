@@ -17,12 +17,7 @@ public class Application {
         Round round = getInputRound();
         RacingGame racingGame = new RacingGame(cars, round);
 
-        outputResultTitle();
-        while (!racingGame.isFinished()) {
-            racingGame.race();
-            outputNowRoundResult(racingGame.cars());
-        }
-        outputRacingGameWinners(racingGame.winners());
+        runRacingGame(racingGame);
     }
 
     private static Cars getInputRandomCars() {
@@ -41,5 +36,14 @@ public class Application {
             System.out.println(e.getMessage());
             return getInputRound();
         }
+    }
+
+    private static void runRacingGame(RacingGame racingGame) {
+        outputResultTitle();
+        while (!racingGame.isFinished()) {
+            racingGame.race();
+            outputNowRoundResult(racingGame.cars());
+        }
+        outputRacingGameWinners(racingGame.winners());
     }
 }
