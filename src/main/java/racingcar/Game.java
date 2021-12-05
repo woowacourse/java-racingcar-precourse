@@ -110,8 +110,10 @@ public class Game {
     }
 
     private void gameTimes() {
+        System.out.println("실행 결과");
         for(int i = 0; i < times; i++) {
             gameProgress();
+            printResult();
         }
     }
 
@@ -120,4 +122,16 @@ public class Game {
             cars.get(i).stopOrGo();
         }
     }
+
+    private void printResult() {
+        for(int i = 0; i < cars.size(); i++) {
+            System.out.print(cars.get(i).getName() + " : ");
+            for(int j = 0; j <cars.get(i).getPosition(); i++) {
+                System.out.print("-");
+            }
+            System.out.println("\n");
+        }
+    }
+
+
 }
