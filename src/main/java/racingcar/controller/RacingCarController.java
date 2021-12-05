@@ -1,15 +1,10 @@
 package racingcar.controller;
 
-import static constants.RacingCarConstant.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
-import racingcar.validator.CarNameValidator;
-import racingcar.validator.GameCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -27,17 +22,7 @@ public class RacingCarController {
 	}
 
 	private void getInputCars() {
-		InputView.printCarNameInputMessage();
-		String carNameInput = Console.readLine();
-		try {
-			CarNameValidator.checkCarNameInput(carNameInput);
-			String[] tmpCarNames = carNameInput.split(DELIMITER);
-			CarNameValidator.checkCarNames(tmpCarNames);
-			carNames = tmpCarNames;
-		} catch (IllegalArgumentException e) {
-			OutputView.printError(e.getMessage());
-			getInputCars();
-		}
+		carNames = InputView.inputCarName();
 	}
 
 	private void makeRacingCars(String[] carNames) {
@@ -50,15 +35,7 @@ public class RacingCarController {
 	}
 
 	private void getInputGameCount() {
-		InputView.printCountInputMessage();
-		String tmpGameCount = Console.readLine();
-		try {
-			GameCountValidator.checkGameCount(tmpGameCount);
-			gameCount = Integer.parseInt(tmpGameCount);
-		} catch (IllegalArgumentException e) {
-			OutputView.printError(e.getMessage());
-			getInputGameCount();
-		}
+		gameCount = InputView.inputGameCount();
 	}
 
 	private void moveCars() {
