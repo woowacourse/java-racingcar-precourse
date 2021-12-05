@@ -55,4 +55,10 @@ public class MissionUtils {
 			throw new IllegalArgumentException(blankParsedInputMessage);
 		}
 	}
+
+	public static void checkEmptyString(String input) throws IllegalArgumentException {
+		if (input.isEmpty()) {
+			throw new IllegalArgumentException(blankParsedInputMessage);
+		}
+	}
 }
