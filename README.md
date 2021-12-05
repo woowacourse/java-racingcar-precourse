@@ -26,3 +26,16 @@
 
 
 7. IllegalArgumentException을 발생시킬 때에는 에러 문구가 [ERROR]로 시작하게 한다.
+
+### 리팩토링 목록
+
+1. Racing 에 과중된 업무를 다양한 클래스로 분리
+   - 입력받고 출력하고 유효성 검사 업무를 Staff 클래스로 이전
+      - 출력하는 업무를 Speaker 클래스로 이전
+      - 유효성 검사 업무를 Validator 클래스로 이전
+   
+   -> Staff 는 입력을 받는 역할, 출력과 유효성은 각각 Speaker 와 Validator 에게 요청
+
+   - 우승자를 가려내는 업무를 Judge 클래스로 이전
+
+   -> Racing 은 자동차 등록, 레이스 진행, staff와 judge에게 요청만 하는 역할
