@@ -33,7 +33,7 @@ enum TurnIntEnums {
 
 public class TurnInputView implements InputView{
 
-	public String getInput(String rawInput) {
+	public String getInput() {
 		String turnInput = "";
 		while (turnInput.isEmpty()) {
 			try {
