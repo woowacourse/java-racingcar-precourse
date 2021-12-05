@@ -23,7 +23,7 @@ public class InputManager {
 		do {
 			String inputString = askCarNames();
 			carNames = converter.convertStringToList(inputString);
-		}while(checkGetAgainCarNames(carNames));
+		}while(checkErrorWithCarNames(carNames));
 
 		return converter.convertStringListToCarList(carNames);
 	}
@@ -33,11 +33,10 @@ public class InputManager {
 		return readLine();
 	}
 
-	private boolean checkGetAgainCarNames(List<String> carNames) {
-		if(validateCarNames(carNames)) {
+	private boolean checkErrorWithCarNames(List<String> carNames) {
+		if(validateCarNames(carNames) && validateCarsSize(carNames)) {
 			return false;
 		}
-		printErrorWithCarNames();
 		return true;
 	}
 
@@ -45,20 +44,28 @@ public class InputManager {
 		try {
 			validator.checkCarNames(carNames);
 		}catch (IllegalArgumentException e) {
+			printError(ViewConstants.ERROR_CAR_NAMES);
 			return false;
 		}
 		return true;
 	}
 
-	private void printErrorWithCarNames() {
-		System.out.println(ViewConstants.ERROR_CAR_NAMES);
+	private boolean validateCarsSize(List<String> carNames) {
+		try {
+			validator.checkCarsSize(carNames);
+		}catch (IllegalArgumentException e) {
+			printError(ViewConstants.ERROR_CAR_SIZE);
+			return false;
+		}
+		return true;
 	}
 
 	public int getNumberOfRaces() {
 		String numberString;
 		do {
 			numberString = askNumberOfRaces();
-		}while(checkGetAgainNumberOfRaces(numberString));
+
+		}while(checkErrorWithNumberOfRaces(numberString));
 
 		return converter.convertStringToInt(numberString);
 	}
@@ -68,28 +75,44 @@ public class InputManager {
 		return readLine();
 	}
 
-	private boolean checkGetAgainNumberOfRaces(String numberString) {
-		if(validateNumberOfRaces(numberString)) {
-			return false;
+	private boolean checkErrorWithNumberOfRaces(String numberString) {
+		if(!validateNumberOfRacesDigit(numberString)) {
+			return true;
 		}
-		printErrorWithNumberOfRaces();
-		return true;
+
+		int numberOfRaces = converter.convertStringToInt(numberString);
+		if (!validateNumberOfRacesRange(numberOfRaces)) {
+			return true;
+		}
+
+		return false;
 	}
 
-	private boolean validateNumberOfRaces(String numberString) {
+	private boolean validateNumberOfRacesDigit(String numberString) {
 		try {
-			validator.checkNumberOfRaces(numberString);
-		}catch (IllegalArgumentException e) {
+			validator.checkNumberOfRacesDigit(numberString);
+		} catch (IllegalArgumentException e) {
+			printError(ViewConstants.ERROR_NUMBER_OF_RACES);
 			return false;
 		}
 		return true;
 	}
 
-	private void printErrorWithNumberOfRaces() {
-		System.out.println(ViewConstants.ERROR_RUNTIME_NUMBER);
+	private boolean validateNumberOfRacesRange(int numberOfRaces) {
+		try {
+			validator.checkNumberOfRacesRange(numberOfRaces);
+		} catch (IllegalArgumentException e) {
+			printError(ViewConstants.ERROR_NUMBER_OF_RACES_RANGE);
+			return false;
+		}
+		return true;
 	}
 
 	private String readLine() {
 		return Console.readLine();
+	}
+
+	private void printError(String error) {
+		System.out.println(error);
 	}
 }
