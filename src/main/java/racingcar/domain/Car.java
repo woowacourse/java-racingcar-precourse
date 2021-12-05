@@ -55,6 +55,10 @@ public class Car {
         return position;
     }
 
+    public String name() {
+        return name;
+    }
+
     public int position() {
         return position;
     }
