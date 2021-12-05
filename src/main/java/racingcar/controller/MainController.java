@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.view.Input;
+import racingcar.view.Output;
 
 import java.util.List;
 
@@ -22,10 +22,10 @@ public class MainController {
 
     private void saveCarList() {
         while (true) {
-            String carValue = InputView.inputCarNames();
+            String carValue = Input.inputCarNames();
 
             try {
-                UserInputValidation.carNameValidation(carValue);
+                InputValidation.carNameValidation(carValue);
                 carList = CarController.saveCarList(carValue);
                 return;
             } catch (IllegalArgumentException e) {
@@ -36,10 +36,10 @@ public class MainController {
 
     private void saveTryNum() {
         while (true) {
-            String tryValue = InputView.inputTry();
+            String tryValue = Input.inputTry();
 
             try {
-                UserInputValidation.tryNumValidation(tryValue);
+                InputValidation.tryNumValidation(tryValue);
                 tryNum = Integer.parseInt(tryValue);
                 return;
             } catch (IllegalArgumentException e) {
@@ -51,7 +51,7 @@ public class MainController {
     private void raceStart(List<Car> carList) {
         for (int i=0; i<tryNum; i++) {
             CarController.movePosition(carList);
-            OutputView.racePrint(carList);
+            Output.racePrint(carList);
         }
     }
 }

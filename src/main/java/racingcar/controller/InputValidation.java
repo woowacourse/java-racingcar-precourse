@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.Arrays;
 
-public class UserInputValidation {
+public class InputValidation {
 
     public static void carNameValidation(String input) {
         String[] carList = input.split(",", -1);
