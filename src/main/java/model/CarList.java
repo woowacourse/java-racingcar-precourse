@@ -18,4 +18,12 @@ public class CarList {
 			this.carList.get(index).forwardCar();
 		}
 	}
+
+	public int getMaxPostion() {
+		int maxPosition = 0;
+		for (Car eachCar : this.carList) {
+			maxPosition = Math.max(maxPosition, eachCar.getCarPosition());
+		}
+		return maxPosition;
+	}
 }
