@@ -13,10 +13,14 @@ public class InputValidation {
         if(Arrays.stream(cars).anyMatch(s -> s.equals("") || s.length() > 5)) {
             throw new IllegalArgumentException();
         }
+        
+        if(Arrays.stream(cars).distinct().count() != cars.length) {
+            throw new IllegalArgumentException();
+        }
     }
     
     public void checkValidationForGoal(String input) {
-        if(!input.matches(NUM_REGEX)) {
+        if(!input.matches(NUM_REGEX) || input.equals("0")) {
             throw new IllegalArgumentException();
         }
     }
