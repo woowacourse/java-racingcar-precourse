@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 import racingcar.constant.RacingCarConst;
 import racingcar.domain.RacingCars;
 
@@ -29,5 +31,10 @@ public class OutputView {
 		}
 
 		System.out.println();
+	}
+
+	public static void printWinners(List<String> winnerList) {
+		String winners = winnerList.toString().replace("[", "").replace("]", "");
+		System.out.print("최종 우승자 : " + winners);
 	}
 }

@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCars {
 	private final List<Car> cars;
@@ -27,5 +28,25 @@ public class RacingCars {
 			positions[i] = cars.get(i).getPosition();
 		}
 		return positions;
+	}
+
+	public List<String> getWinners() {
+		int maxStep = searchMaxStep();
+
+		return cars.stream().filter(car -> car.getPosition() == maxStep)
+			.map(Car::getName)
+			.collect(Collectors.toList());
+	}
+
+	private int searchMaxStep() {
+		int[] positions = getPositions();
+		int max = 0;
+
+		for (int position : positions) {
+			if (position > max) {
+				max = position;
+			}
+		}
+		return max;
 	}
 }

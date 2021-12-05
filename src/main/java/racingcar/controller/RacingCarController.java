@@ -14,11 +14,13 @@ public class RacingCarController {
 		String[] carNames = getCarNames();
 		int stageNum = getStageNum();
 		RacingCars racingCars = makeRacingCars(carNames);
+
 		OutputView.printRacingStart();
 		for (int i = 0; i < stageNum; i++) {
 			racingCars.go();
 			OutputView.printResult(racingCars);
 		}
+		OutputView.printWinners(racingCars.getWinners());
 	}
 
 	private RacingCars makeRacingCars(String[] carNames) {
