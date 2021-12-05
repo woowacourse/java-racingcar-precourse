@@ -15,7 +15,7 @@ public class Validator {
 
     private static final int MINIMUM_NAME_AMOUNT = 2;
     private static final int MAXIMUM_NAME_DIGIT = 5;
-    private static final String COMMA = ",";
+    private static final String SEPARATOR = ",";
 
     public void validateCarName(String carNames) throws IllegalArgumentException {
         checkStartOrEndWithComma(carNames);
@@ -46,20 +46,20 @@ public class Validator {
     }
 
     private void checkStartOrEndWithComma(String carNames) {
-        if (carNames.startsWith(COMMA) || carNames.endsWith(COMMA)) {
+        if (carNames.startsWith(SEPARATOR) || carNames.endsWith(SEPARATOR)) {
             throw new IllegalArgumentException(COMMA_LOCATION_ERROR_MESSAGE.getMessage());
         }
     }
 
     private void checkCarNameAmount(String carNames) {
-        int amount = carNames.split(COMMA).length;
+        int amount = carNames.split(SEPARATOR).length;
         if (amount < MINIMUM_NAME_AMOUNT) {
             throw new IllegalArgumentException(NAME_AMOUNT_ERROR_MESSAGE.getMessage());
         }
     }
 
     private void checkCorrectNameDigit(String carNames) {
-        String[] names = carNames.split(COMMA);
+        String[] names = carNames.split(SEPARATOR);
         for (String name : names) {
             if (name.length() > MAXIMUM_NAME_DIGIT) {
                 throw new IllegalArgumentException(NAME_DIGIT_ERROR_MESSAGE.getMessage());
@@ -68,7 +68,7 @@ public class Validator {
     }
 
     private void checkDuplicateName(String carNames) {
-        List<String> names = Arrays.asList(carNames.split(COMMA));
+        List<String> names = Arrays.asList(carNames.split(SEPARATOR));
         int removedSize = (int) names.stream().distinct().count();
         if (names.size() != removedSize) {
             throw new IllegalArgumentException(DUPLICATED_NAME_ERROR_MESSAGE.getMessage());
