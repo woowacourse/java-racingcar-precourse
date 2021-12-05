@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.GameErrorMessage.*;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,17 +25,20 @@ public class RacingCars {
 	}
 
 	public List<String> getWinner() {
-		int maxPosition = getMaxPosition();
-		return racingCars.stream()
-			.filter(car -> car.isInPosition(maxPosition))
-			.map(Car::getName)
-			.collect(Collectors.toList());
+		Car maxPositionCar = getMaxPositionCar();
+		return getSamePositionCars(maxPositionCar);
 	}
 
-	public int getMaxPosition() {
+	private Car getMaxPositionCar() {
 		return racingCars.stream()
-			.mapToInt(Car::getPosition)
-			.max()
-			.orElse(0);
+			.max(Car::compareTo)
+			.orElseThrow(() -> new IllegalArgumentException(CAR_LIST_EMPTY_ERROR));
+	}
+
+	private List<String> getSamePositionCars(Car maxPositionCar) {
+		return racingCars.stream()
+			.filter(maxPositionCar::isSamePosition)
+			.map(Car::getName)
+			.collect(Collectors.toList());
 	}
 }

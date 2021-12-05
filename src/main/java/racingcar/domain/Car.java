@@ -4,7 +4,7 @@ import static camp.nextstep.edu.missionutils.Randoms.*;
 import static racingcar.constant.GameConstants.*;
 import static racingcar.constant.GameMessage.*;
 
-public class Car {
+public class Car implements Comparable<Car> {
 	private final String name;
 	private int position = 0;
 
@@ -14,10 +14,6 @@ public class Car {
 
 	public String getName() {
 		return name;
-	}
-
-	public int getPosition() {
-		return position;
 	}
 
 	public void movePosition() {
@@ -42,7 +38,12 @@ public class Car {
 		return result;
 	}
 
-	public boolean isInPosition(int position) {
-		return this.position == position;
+	@Override
+	public int compareTo(Car other) {
+		return this.position - other.position;
+	}
+
+	public boolean isSamePosition(Car other) {
+		return this.position == other.position;
 	}
 }
