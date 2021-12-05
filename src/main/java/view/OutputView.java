@@ -3,7 +3,7 @@ package view;
 import java.util.ArrayList;
 
 enum OutputStringEnums {
-	DELIMITER(",");
+	DELIMITER(", ");
 	private final String value;
 
 	OutputStringEnums(String value) {
@@ -34,5 +34,9 @@ public class OutputView {
 			System.out.print("\n");
 		}
 		System.out.print("\n");
+	}
+
+	public void viewWinner(ArrayList<String> winnerNames) {
+		System.out.print("최종 우승자 : " + String.join(OutputStringEnums.DELIMITER.getValue(), winnerNames) + "\n");
 	}
 }
