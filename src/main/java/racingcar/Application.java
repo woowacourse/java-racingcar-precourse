@@ -10,7 +10,6 @@ public class Application {
         final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         CarRacingGame carRacingGame = new CarRacingGame();
-
         try {
             carRacingGame.startGame();
         } catch (IOException e) {

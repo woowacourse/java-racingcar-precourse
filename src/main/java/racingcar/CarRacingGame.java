@@ -37,8 +37,13 @@ public class CarRacingGame {
     private String[] askCarName() throws IOException {
         String inputCars = InputView.getCarNameList();
         boolean result = InputErrorCheck.isValidCar(inputCars);
-        if (!result) {
-            throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
+        try {
+            if (!result) {
+                throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
+            }
+        } catch (Exception e) {
+            askCarName();
+            throw e;
         }
         String SEPARATOR = ",";
         return inputCars.split(SEPARATOR);
@@ -47,8 +52,13 @@ public class CarRacingGame {
     private int askNumberOfAttempts() throws IOException {
         String inputNumberOfAttempts = InputView.getNumberOfAttempts();
         boolean result = InputErrorCheck.isValidNum(inputNumberOfAttempts);
-        if (!result) {
-            throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
+        try {
+            if (!result) {
+                throw new IllegalArgumentException(RESTART_GAME_MESSAGE);
+            }
+        } catch (Exception e) {
+            askNumberOfAttempts();
+            throw e;
         }
         return Integer.parseInt(inputNumberOfAttempts);
     }
