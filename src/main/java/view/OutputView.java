@@ -1,7 +1,19 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
+enum OutputStringEnums {
+	DELIMITER(",");
+	private final String value;
+
+	OutputStringEnums(String value) {
+		this.value = value;
+	}
+
+	public String getValue() {
+		return this.value;
+	}
+}
 
 public class OutputView {
 
