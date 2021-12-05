@@ -24,23 +24,32 @@ public class User {
 	private List<String> names;
 	private int numberOfTimes;
 
-	public void inputNamesUntilCorrect() {
-		inputNames();
-		while (!checkNames()) {
-			inputNames();
+	public void setNamesByInputUntilCorrect() {
+		String input = inputNames();
+		while (!setNames(input)) {
+			input = inputNames();
 		}
 	}
 
-	public void inputNames() {
+	private String inputNames() {
 		System.out.println(INPUT_MESSAGE_NAMES);
 		String input = Console.readLine();
-		names = Arrays.asList(input.split(DELIMITER, -1));
+		return input;
 	}
 
-	public boolean checkNames() {
+	private boolean setNames(String input) {
+		List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
+		if (checkNames(inputList)) {
+			this.names = inputList;
+			return true;
+		}
+		return false;
+	}
+
+	private boolean checkNames(List<String> inputList) {
 		try {
-			checkNamesLength();
-			checkNamesDuplication();
+			checkNamesLength(inputList);
+			checkNamesDuplication(inputList);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return false;
@@ -48,17 +57,17 @@ public class User {
 		return true;
 	}
 
-	private void checkNamesLength() {
-		for (String name : names) {
+	private void checkNamesLength(List<String> inputList) {
+		for (String name : inputList) {
 			if (name.length() > MAX_NAME_LENGTH || name.length() < MIN_NAME_LENGTH) {
 				throw new IllegalArgumentException(ERROR_MESSAGE_NAME_LENGTH);
 			}
 		}
 	}
 
-	private void checkNamesDuplication() {
+	private void checkNamesDuplication(List<String> inputList) {
 		Set<String> namesSet = new HashSet<>();
-		for (String name : names) {
+		for (String name : inputList) {
 			if (namesSet.contains(name)) {
 				throw new IllegalArgumentException(ERROR_MESSAGE_NAME_DUPLICATION);
 			}
@@ -70,7 +79,14 @@ public class User {
 		return names.size();
 	}
 
-	public String inputNumberOfTimes() {
+	public void setNumberOfTimesByInputUntilCorrect() {
+		String input = inputNumberOfTimes();
+		while (!setNumberOfTimes(input)) {
+			input = inputNumberOfTimes();
+		}
+	}
+
+	private String inputNumberOfTimes() {
 		System.out.println(INPUT_MESSAGE_NUMBER_OF_TIMES);
 		String input = Console.readLine();
 		return input;
@@ -96,7 +112,7 @@ public class User {
 
 	private void checkInputIsNumber(String input) {
 		for (int i = 0; i < input.length(); i++) {
-			if (!(input.charAt(i) >= 0 && input.charAt(i) <= 9)) {
+			if (!(input.charAt(i) >= '0' && input.charAt(i) <= '9')) {
 				throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_IS_NOT_NUBMER);
 			}
 		}
