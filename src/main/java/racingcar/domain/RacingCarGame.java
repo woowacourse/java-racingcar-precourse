@@ -18,11 +18,6 @@ public class RacingCarGame {
         cars.forEach(this::move);
     }
 
-    private void move(Car car) {
-        if (new MoveTicket().isValidTicket()) {
-            car.moveForward();
-        }
-    }
 
     public String getGameStatus() {
         List<String> statusList = this.cars.stream()
@@ -38,6 +33,12 @@ public class RacingCarGame {
             .map(Car::getName)
             .collect(Collectors.toList());
         return OutputFormatter.convertWinners(winners);
+    }
+
+    private void move(Car car) {
+        if (new MoveTicket().isValidTicket()) {
+            car.moveForward();
+        }
     }
 
     private int getWinnerScore() {

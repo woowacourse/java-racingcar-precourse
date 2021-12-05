@@ -10,8 +10,8 @@ import java.util.List;
 public class CarGameInputHandler {
 
     final private static int NAME_MAX_LENGTH = 5;
+    final private static char DELIMITER_CHAR = ',';
     final private static String DELIMITER = ",";
-    private static final char DELIMITER_CHAR = ',';
 
     public static List<String> getCarNames() throws IllegalArgumentException {
         String input = Console.readLine();
