@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import racingcar.utils.Const;
 
 public class Race {
 	private List<Car> cars;

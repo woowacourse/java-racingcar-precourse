@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils;
 
 public class Const {
 	private static final String ERROR_MESSAGE = "[ERROR]";

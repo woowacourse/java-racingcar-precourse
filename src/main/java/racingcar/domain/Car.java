@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.Const;
 
 public class Car {
 	private final String name;

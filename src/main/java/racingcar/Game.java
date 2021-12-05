@@ -5,6 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.utils.Const;
+import racingcar.domain.Car;
+import racingcar.domain.Race;
+import racingcar.utils.NameValidator;
+import racingcar.utils.RoundValidator;
 
 public class Game {
 	public static void play() {
@@ -38,7 +43,7 @@ public class Game {
 		List<Car> result = new ArrayList<>();
 
 		for (String name : names) {
-			result.add(new Car(Validator.validateName(name)));
+			result.add(new Car(NameValidator.validate(name)));
 		}
 
 		return result;
@@ -49,7 +54,7 @@ public class Game {
 		String userInput = Console.readLine();
 		int result;
 		try {
-			result = Validator.validateRound(userInput);
+			result = RoundValidator.validate(userInput);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			return readRound();
