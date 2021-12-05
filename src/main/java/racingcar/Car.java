@@ -11,6 +11,7 @@ public class Car {
 
 	private static final int MOVING_FORWARD = 4;
 	private static final String POSITION = "-";
+	private static final String SEPARATOR = " : ";
 
 	private final String name;
 	private int position = 0;
@@ -56,9 +57,9 @@ public class Car {
 	public String toString() {
 		return new StringBuilder()
 			.append(this.name)
-			.append(" : ")
+			.append(SEPARATOR)
 			.append(IntStream.range(0, this.position)
-				.mapToObj(i -> POSITION)
+				.mapToObj(position -> POSITION)
 				.collect(Collectors.joining())).toString();
 	}
 }
