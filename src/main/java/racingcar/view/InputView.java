@@ -16,6 +16,7 @@ public class InputView {
     public static List<String> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES);
         return Arrays.stream(Console.readLine().split(","))
+            .map(String::trim)
             .collect(Collectors.toList());
     }
 
