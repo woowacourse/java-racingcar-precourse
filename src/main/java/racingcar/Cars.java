@@ -20,6 +20,10 @@ public class Cars {
 		addCarsToList(names);
 	}
 
+	public List<Car> getCars() {
+		return cars;
+	}
+
 	public void controlByRandomNumber() {
 		for (Car car : cars) {
 			car.controlByNumber(Randoms.pickNumberInRange(0, 9));
@@ -63,5 +67,4 @@ public class Cars {
 	public int hashCode() {
 		return Objects.hash(cars);
 	}
-
 }
