@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Comparator;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -29,4 +31,11 @@ public class Car {
 		}
 		System.out.println(state);
 	}
+
+	public static Comparator<Car> winComparator = new Comparator<Car>() {
+		@Override
+		public int compare(Car car1, Car car2) {
+			return car2.position - car1.position;
+		}
+	};
 }
