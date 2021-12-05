@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static util.Constants.*;
 
@@ -7,8 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 
-class RacingGameView {
+public class RacingGameView {
 	private static final RacingGameView racingGameView = new RacingGameView();
 
 	private RacingGameView() {

@@ -1,9 +1,12 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-class RacingGameController {
+import racingcar.domain.Car;
+import racingcar.view.RacingGameView;
+
+public class RacingGameController {
 	private final RacingGameView racingGameView;
 	private List<Car> carList;
 
