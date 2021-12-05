@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
-
 import camp.nextstep.edu.missionutils.Console;
 
 public class CarRacingGame {
@@ -30,43 +28,21 @@ public class CarRacingGame {
 		while (true) {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			String[] names = Console.readLine().split(",");
-			if (isNamesInputException(names) == false) {
+			if (inputValidator.isValidNamesInput(names)) {
 				return names;
 			}
 		}
-	}
-
-	public boolean isNamesInputException(String[] names) {
-		try {
-			inputValidator.validateNameLengthInRange(names);
-			inputValidator.validateNamesDistinct(names);
-		} catch (IllegalArgumentException e) {
-			System.out.println(e);
-			return true;
-		}
-		return false;
 	}
 
 	public void inputRoundNumber() {
 		while (true) {
 			System.out.println("시도할 회수는 몇회인가요?");
 			String roundNumber = Console.readLine();
-			if (isRoundNumberInputException(roundNumber) == false) {
+			if (inputValidator.isValidNumberInput(roundNumber)) {
 				this.roundNumber = Integer.parseInt(roundNumber);
 				return;
 			}
 		}
-	}
-
-	public boolean isRoundNumberInputException(String roundNumber) {
-		try {
-			inputValidator.validateNumberInput(roundNumber);
-			inputValidator.validateNumberInRange(roundNumber);
-		} catch (IllegalArgumentException e) {
-			System.out.println(e);
-			return true;
-		}
-		return false;
 	}
 
 }

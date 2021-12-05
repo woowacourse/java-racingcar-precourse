@@ -1,29 +1,27 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 class CarRacingGameTest {
-	private CarRacingGame game = new CarRacingGame();
+	private InputValidator inputValidator = new InputValidator();
 
 	@Test
 	void isNameInputException() {
 		String[] namesTrue = {"ab", "abc", "abcde"};
-		assert game.isNamesInputException(namesTrue) == false;
+		assert inputValidator.isValidNamesInput(namesTrue) == true;
 
 		String[] namesLengthFalse = {"ab", "abc", "abcdef"};
-		assert game.isNamesInputException(namesLengthFalse) == true;
+		assert inputValidator.isValidNamesInput(namesLengthFalse) == false;
 
 		String[] namesDistinctFalse = {"ab", "abc", "abc"};
-		assert game.isNamesInputException(namesDistinctFalse) == true;
+		assert inputValidator.isValidNamesInput(namesDistinctFalse) == false;
 	}
 
 	@Test
 	void isRoundNumberInputException() {
-		assert game.isRoundNumberInputException("2") == false;
-		assert game.isRoundNumberInputException("0") == true;
-		assert game.isRoundNumberInputException("two") == true;
+		assert inputValidator.isValidNumberInput("2") == true;
+		assert inputValidator.isValidNumberInput("0") == false;
+		assert inputValidator.isValidNumberInput("two") == false;
 	}
 
 }

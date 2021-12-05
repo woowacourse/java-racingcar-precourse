@@ -12,6 +12,28 @@ public class InputValidator {
 	private static final String NOT_DIGIT_MESSAGE = "숫자가 아닌 문자는 입력할 수 없다.";
 	private static final String ROUND_LESS_THAN_MIN_MESSAGE = "1보다 큰 수를 입력해야한다.";
 
+	public boolean isValidNamesInput(String[] names) {
+		try {
+			validateNameLengthInRange(names);
+			validateNamesDistinct(names);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+
+	public boolean isValidNumberInput(String roundNumber) {
+		try {
+			validateNumberInput(roundNumber);
+			validateNumberInRange(roundNumber);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+
 	public void validateNameLengthInRange(String[] names) {
 		for (int i = 0; i < names.length; i++) {
 			if (names[i].length() > CAR_NAME_MAX_LENGTH || names[i].length() < CAR_NAME_MIN_LENGTH) {
