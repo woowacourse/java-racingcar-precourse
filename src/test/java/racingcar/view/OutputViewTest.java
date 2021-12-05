@@ -35,9 +35,9 @@ class OutputViewTest {
 		game.runMultiple(5);
 
 		StringBuilder expectedWinnerStringBuilder = new StringBuilder();
-		game.getWinnerCandidateList().forEach(winner -> {
-			expectedWinnerStringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString());
-		});
+		game.getWinnerCandidateList()
+			.forEach(winner -> expectedWinnerStringBuilder.append(winner.getName())
+				.append(GAME_WINNER_DELIMITER.getString()));
 		String expectedWinnerString = expectedWinnerStringBuilder.substring(0,
 			expectedWinnerStringBuilder.length() - GAME_WINNER_DELIMITER.getString().length());
 
