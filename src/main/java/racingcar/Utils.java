@@ -8,11 +8,11 @@ public class Utils {
     static final int END_RANDOM_NUMBER = 9;
     static final int MOVE_FORWARD_SCORE = 4;
 
-    public int getRandomNumber() {
+    public static int getRandomNumber() {
         return Randoms.pickNumberInRange(START_RANDOM_NUMBER, END_RANDOM_NUMBER);
     }
 
-    public boolean exceedMoveForwardScoreOrNot(int score) {
+    public static boolean exceedMoveForwardScoreOrNot(int score) {
         if (score >= MOVE_FORWARD_SCORE) {
             return true;
         }

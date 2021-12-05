@@ -24,4 +24,8 @@ public class Car {
         }
         return car;
     }
+
+    public void move() {
+        this.position += 1;
+    }
 }
