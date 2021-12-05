@@ -3,6 +3,7 @@ package racingcar;
 import static racingcar.view.InputView.inputCarNames;
 import static racingcar.view.InputView.inputRound;
 import static racingcar.view.OutputView.outputNowRoundResult;
+import static racingcar.view.OutputView.outputRacingGameWinners;
 import static racingcar.view.OutputView.outputResultTitle;
 
 import racingcar.domain.Cars;
@@ -21,6 +22,7 @@ public class Application {
             racingGame.race();
             outputNowRoundResult(racingGame.cars());
         }
+        outputRacingGameWinners(racingGame.winners());
     }
 
     private static Cars getInputRandomCars() {

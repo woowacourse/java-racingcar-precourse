@@ -12,6 +12,9 @@ public class OutputView {
     private static final String RACE_RESULT_BODY = "%s : %s\n";
     private static final String RACE_RESULT_POSITION = "-";
 
+    private static final String RACE_RESULT_WINNER_TITLE = "최종 우승자 : ";
+    private static final String RACE_RESULT_WINNER_PRINT_DELIMITER = ",";
+
     private OutputView() {
     }
 
@@ -33,5 +36,10 @@ public class OutputView {
         IntStream.range(0, position)
             .forEach(index -> result.append(RACE_RESULT_POSITION));
         return result.toString();
+    }
+
+    public static void outputRacingGameWinners(List<String> winners) {
+        System.out.print(RACE_RESULT_WINNER_TITLE);
+        System.out.println(String.join(RACE_RESULT_WINNER_PRINT_DELIMITER, winners));
     }
 }
