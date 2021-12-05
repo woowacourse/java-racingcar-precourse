@@ -18,5 +18,4 @@ public class UserInputGetter {
 		return userInput;
 	}
 
-	
 }
