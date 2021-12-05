@@ -1,5 +1,6 @@
 package racingcar.car;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.game.RacingGame;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
@@ -19,7 +20,7 @@ public class CarController {
 
 	private void requestCarNames() {
 		try {
-			carFactory.inputNames();
+			carFactory.inputNames(Console.readLine());
 		} catch (IllegalArgumentException illegalArgumentException) {
 			ErrorView.show(illegalArgumentException.getMessage());
 			requestCarNames();

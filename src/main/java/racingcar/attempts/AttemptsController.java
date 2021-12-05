@@ -1,5 +1,6 @@
 package racingcar.attempts;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
 
@@ -18,7 +19,7 @@ public class AttemptsController {
 
 	private void requestAttempts() {
 		try {
-			attempts.input();
+			attempts.input(Console.readLine());
 		} catch (IllegalArgumentException illegalArgumentException) {
 			ErrorView.show(illegalArgumentException.getMessage());
 			requestAttempts();

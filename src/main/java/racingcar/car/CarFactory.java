@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class CarFactory {
 	private static final String DELIMITER = ",";
 	private static final String EMPTY = "";
@@ -20,8 +18,7 @@ public class CarFactory {
 
 	private List<String> carNames;
 
-	public void inputNames() {
-		String carNames = Console.readLine();
+	public void inputNames(String carNames) {
 		this.carNames = Arrays.asList(carNames.split(DELIMITER));
 		validateNames();
 	}
