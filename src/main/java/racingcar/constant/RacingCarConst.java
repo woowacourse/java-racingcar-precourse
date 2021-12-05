@@ -8,3 +8,4 @@ public class RacingCarConst {
 	public static final int TOGO_MIN = 4;
 	public static final int RANDOM_MIN = 0;
 	public static final int RANDOM_MAX = 9;
+}
