@@ -43,6 +43,7 @@ public class Input {
 	}
 
 	private static void checkTryNumber(String number) {
-		// validate isNumeric
+		Validation.validateIsInteger(number);
+		Validation.validateIsPositiveInteger(number);
 	}
 }
