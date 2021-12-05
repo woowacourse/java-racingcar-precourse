@@ -1,5 +1,7 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.Console.*;
+
 import java.util.Objects;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -8,7 +10,7 @@ public class PlayTime {
 	private Integer round = 0;
 
 	public void getInput() {
-		String input = Console.readLine();
+		String input = readLine();
 		validInput(input);
 		round = Integer.parseInt(input);
 	}
