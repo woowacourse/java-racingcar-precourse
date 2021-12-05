@@ -19,12 +19,16 @@ public class Car {
 
 	public ArrayList<String> move() {
 		ArrayList<String> result = new ArrayList<>();
-		if (Randoms.pickNumberInRange(MIN_POWER, MAX_POWER) >= THRESHOLD) {
+		if (canMove()) {
 			position += DISPLACEMENT;
 		}
 		result.add(name);
 		result.add(Integer.toString(position));
 		return result;
+	}
+
+	private boolean canMove() {
+		return Randoms.pickNumberInRange(MIN_POWER, MAX_POWER) >= THRESHOLD;
 	}
 
 	public int updateHighScore(int highScore) {
