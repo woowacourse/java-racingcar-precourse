@@ -86,6 +86,6 @@ public class GameEngine {
 		for (int i = 0; i < car.getPosition(); i++) {
 			stringBuilder.append("-");
 		}
-		return String.format("%s : %s\n", car.getName(), stringBuilder.toString());
+		return String.format(GameData.RESULT_FORMAT, car.getName(), stringBuilder.toString());
 	}
 }
