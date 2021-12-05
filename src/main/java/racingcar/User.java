@@ -25,6 +25,11 @@ public class User {
         nameArray = this.names.split(",");
     }
 
+    public String getStringCarName()
+    {
+        return this.inputTimes;
+    }
+
     public String[] getCarName() {
         return this.nameArray;
     }
