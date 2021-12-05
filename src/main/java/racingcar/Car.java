@@ -9,4 +9,14 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public void goForward(){
+        if(/*GameProgressor.judge4*/){
+            this.position += 1;
+        }
+    }
+
+    public int getPosition(){
+        return this.position;
+    }
 }
