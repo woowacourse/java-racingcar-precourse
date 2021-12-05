@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.View.InputView;
+import racingcar.View.OutputView;
 
 import java.util.ArrayList;
 
@@ -11,14 +13,10 @@ public class Race {
     public static int maxDistance;
 
 
-    public static String getUserInput() {
-        return Console.readLine();
-    }
-
     public static void getCarByName() {
         try {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            String userInput = getUserInput();
+            OutputView.printInputCarGuideMessage();
+            String userInput = InputView.getUserInput();
             String[] carNames = userInput.split(",");
             for (String carName : carNames) {
                 if (carName.length() > 5) {
@@ -28,21 +26,21 @@ public class Race {
                 cars.add(car);
             }
         } catch (IllegalArgumentException exception) {
-            System.out.println(exception.getMessage());
+            OutputView.printErrorMessage(exception);
             getCarByName();
         }
     }
 
     public static void getMoveCount() {
         try {
-            System.out.println("시도할 회수는 몇회인가요?");
-            String userInput = getUserInput();
+            OutputView.printInputNumberGuideMessage();
+            String userInput = InputView.getUserInput();
             if(!userInput.chars().allMatch(Character::isDigit)){
                 throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
             }
             moveCount = Integer.parseInt(userInput);
         } catch (IllegalArgumentException exception) {
-            System.out.println(exception.getMessage());
+            OutputView.printErrorMessage(exception);
             getMoveCount();
         }
     }
@@ -50,19 +48,19 @@ public class Race {
     public void run() {
         getCarByName();
         getMoveCount();
-        System.out.println();
-        System.out.println("실행 결과");
+        OutputView.printNewLine();
+        OutputView.printExcutionResult();
         while (moveCount > 0) {
             for (Car car : cars) {
                 car.move();
                 car.printPosition();
             }
-            System.out.println();
+            OutputView.printNewLine();
             moveCount--;
         }
         calculateMaxDistance();
         decideWinner();
-        printWinner();
+        showWinner();
     }
 
     public void calculateMaxDistance() {
@@ -79,13 +77,13 @@ public class Race {
         }
     }
 
-    public void printWinner() {
+    public void showWinner() {
         int winnerCount = winnerCars.size();
         String[] winnerCarNames = new String[winnerCount];
         for (int i = 0; i < winnerCount; i++) {
             winnerCarNames[i] = winnerCars.get(i).getName();
         }
-        System.out.println("최종 우승자 : " + String.join(", ", winnerCarNames));
+        OutputView.printFinalWinnerBy(winnerCarNames);
     }
 
 }
