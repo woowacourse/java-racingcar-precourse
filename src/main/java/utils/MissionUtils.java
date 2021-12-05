@@ -26,9 +26,11 @@ public class MissionUtils {
 		}
 	}
 
-	public static void checkLength(String inputToken, int size) throws IllegalArgumentException {
-		if (inputToken.length() > size) {
-			throw new IllegalArgumentException(lengthMessage);
+	public static void checkLength(ArrayList<String> input, int size) throws IllegalArgumentException {
+		for (String inputToken : input) {
+			if (inputToken.length() > size) {
+				throw new IllegalArgumentException(lengthMessage);
+			}
 		}
 	}
 
