@@ -2,9 +2,11 @@ package racingcar;
 
 import racingcar.util.RandomNumberGenerator;
 
-import static racingcar.constant.Constraint.*;
-
 public class Car {
+    private static final int MOVE_FORWARD_CONDITION = 4;
+    private static final int MOVE_FORWARD_ONCE = 1;
+    public static final int NONE = 0;
+
     private final String name;
     private int position = NONE;
 
@@ -27,6 +29,6 @@ public class Car {
     }
 
     private boolean canCarMoveForward() {
-        return RandomNumberGenerator.getRandomNumber() >= MOVING_FORWARD;
+        return RandomNumberGenerator.getRandomNumber() >= MOVE_FORWARD_CONDITION;
     }
 }

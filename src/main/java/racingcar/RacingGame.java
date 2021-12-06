@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.StringTokenizer;
 
-import static racingcar.constant.Constraint.*;
-import static racingcar.constant.Message.*;
-
 public class RacingGame {
+    private static final String INPUT_CAR_NAME_MESSAGE = "경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_PLAY_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String EXECUTION_RESULT_MESSAGE = "\n실행 결과";
+    private static final String DELIM = ",";
+
     private int rounds;
     private Result result;
     private final ArrayList<Car> carList = new ArrayList<>();
@@ -58,7 +60,7 @@ public class RacingGame {
         while (true) {
             try {
                 String input = Console.readLine();
-                Validator.isValidInput(input);
+                Validator.validateNamesInput(input);
                 return input;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

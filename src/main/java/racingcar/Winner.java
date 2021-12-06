@@ -2,11 +2,11 @@ package racingcar;
 
 import java.util.ArrayList;
 
-import static racingcar.constant.Constraint.NONE;
-import static racingcar.constant.Message.OUTPUT_WINNER_MESSAGE;
-import static racingcar.constant.Message.MORE_THAN_ONE_WINNER_MESSAGE;
-
 public class Winner {
+    private static final String OUTPUT_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String MORE_THAN_ONE_WINNER = ", ";
+    private static final int NONE = 0;
+
     private final ArrayList<Car> cars;
 
     public Winner(ArrayList<Car> cars) {
@@ -36,7 +36,7 @@ public class Winner {
 
     private void appendIfNotFirstWinner(StringBuilder stringBuilder) {
         if (stringBuilder.length() != NONE) {
-            stringBuilder.append(MORE_THAN_ONE_WINNER_MESSAGE);
+            stringBuilder.append(MORE_THAN_ONE_WINNER);
         }
     }
 

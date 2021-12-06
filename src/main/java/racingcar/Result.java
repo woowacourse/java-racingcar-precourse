@@ -2,9 +2,11 @@ package racingcar;
 
 import java.util.ArrayList;
 
-import static racingcar.constant.Constraint.*;
-
 public class Result {
+    private static final String DASH = "-";
+    private static final String COLON = " : ";
+    private static final String NEW_LINE = "\n";
+
     private static int max;
     private final ArrayList<Car> cars;
 
@@ -17,7 +19,7 @@ public class Result {
         StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars) {
             updateMax(car.getPosition());
-            stringBuilder.append(car.getName()).append(COLON).append(makeDash(car.getPosition())).append(LINE_FEED);
+            stringBuilder.append(car.getName()).append(COLON).append(makeDash(car.getPosition())).append(NEW_LINE);
         }
 
         return stringBuilder.toString();
