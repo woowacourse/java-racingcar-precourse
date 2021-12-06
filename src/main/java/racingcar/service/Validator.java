@@ -16,7 +16,7 @@ public class Validator {
 
 	public void checkNumberOfCars(List<String> carNames) throws IllegalArgumentException {
 		if(carNames == null || carNames.size() == 0) {
-			throw new IllegalArgumentException(ViewConstants.ERROR_CAR_SIZE);
+			throw new IllegalArgumentException(ViewConstants.ERROR_NUMBER_OF_CARS);
 		}
 	}
 

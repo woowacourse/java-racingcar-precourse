@@ -54,7 +54,7 @@ public class InputManager {
 		try {
 			validator.checkNumberOfCars(carNames);
 		}catch (IllegalArgumentException e) {
-			printError(ViewConstants.ERROR_CAR_SIZE);
+			printError(ViewConstants.ERROR_NUMBER_OF_CARS);
 			return false;
 		}
 		return true;
