@@ -15,12 +15,7 @@ class RacingGameTest {
 
 	@BeforeEach
 	void 테스트용_숫자_생성_정책() {
-		numberGeneratePolicy = new NumberGeneratePolicy() {
-			@Override
-			public int generateNumber() {
-				return MOVING_FORWARD;
-			}
-		};
+		numberGeneratePolicy = () -> MOVING_FORWARD;
 	}
 
 	@ParameterizedTest
