@@ -70,7 +70,6 @@ public class Application {
 
     static void playGames() {
         message.printStartPlayGames();
-        //printGameMessage(GAME_PLAY_START);
 
         for (int i = 0; i < tryTimes; ++i) {
             playOneTurn();
