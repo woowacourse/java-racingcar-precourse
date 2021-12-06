@@ -8,8 +8,11 @@ public class Track implements TrackInterface {
 
 	@Override
 	public String makeTrack(List<Car> Cars) {
-		return null;
+		String track = "";
+		for (Car car: Cars) {
+			track += car.getLine();
+			track += "\n";
+		}
+		return track;
 	}
-
-
 }
