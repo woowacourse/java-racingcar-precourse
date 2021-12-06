@@ -32,8 +32,8 @@ public class GameController {
 
 	private static void showRacingCarGameWinner(String[] racingCarGameWinner) {
 		int lastWinnerLocation = racingCarGameWinner.length - 1;
+		Display.showWinnerMessage();
 		for (int index = FIRST_WINNER_LOCATION; index <= lastWinnerLocation; index++) {
-			Display.showWinnerMessage();
 			Display.showWinner(racingCarGameWinner[index]);
 			isLastWinner(lastWinnerLocation, index);
 		}
