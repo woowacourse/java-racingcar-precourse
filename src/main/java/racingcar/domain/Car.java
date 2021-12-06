@@ -11,8 +11,10 @@ public class Car {
         this.name = name;
     }
 
-    public void moveForward() {
-        this.position++;
+    public void moveForward(MoveTicket moveTicket) {
+        if (moveTicket.isValidTicket()) {
+            this.position++;
+        }
     }
 
     public String getCarStatus() {

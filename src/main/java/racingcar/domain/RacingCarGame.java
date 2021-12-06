@@ -15,7 +15,7 @@ public class RacingCarGame {
     }
 
     public void moveCars() {
-        cars.forEach(this::move);
+        cars.forEach(car -> car.moveForward(MoveTicket.publish()));
     }
 
     public String getGameStatus() {
@@ -32,12 +32,6 @@ public class RacingCarGame {
             .map(Car::getName)
             .collect(Collectors.toList());
         return OutputFormatter.convertWinners(winners);
-    }
-
-    private void move(Car car) {
-        if (MoveTicket.checkTicket()) {
-            car.moveForward();
-        }
     }
 
     private int getWinnerScore() {
