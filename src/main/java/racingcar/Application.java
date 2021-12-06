@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 
 import racingcar.domain.Game;
+import racingcar.util.ConversionUtils;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,7 +14,7 @@ public class Application {
 
 	public static void runGame() {
 		List<String> userInputNameList = loopInputNameListUntilValid();
-		Game game = new Game(userInputNameList);
+		Game game = new Game(ConversionUtils.getCarListFromNameList(userInputNameList));
 		game.runMultiple(loopInputIterationNumberUntilValid());
 
 		OutputView.printGameResult(game);

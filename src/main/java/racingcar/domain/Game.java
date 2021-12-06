@@ -1,61 +1,29 @@
 package racingcar.domain;
 
 import static racingcar.constant.GameConstants.Game.*;
-import static racingcar.constant.GameConstants.GameStringConversion.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
 	private final List<Car> carList;
-	private List<Car> winnerCandidateList;
-	private final StringBuilder gameResultStringBuilder;
-	private int farthestPosition;
+	private final GameLog gameLog;
 
-	public Game(List<String> carNameList) {
-		this.carList = getCarListFromNameList(carNameList);
-		this.winnerCandidateList = new ArrayList<>();
-		this.gameResultStringBuilder = new StringBuilder();
-		this.farthestPosition = 0;
+	public Game(List<Car> carList) {
+		this.carList = carList;
+		this.gameLog = new GameLog();
 	}
 
 	public List<Car> getCarList() {
 		return carList;
 	}
 
-	public List<Car> getWinnerCandidateList() {
-		return winnerCandidateList;
-	}
-
-	private List<Car> getCarListFromNameList(List<String> carNameList) {
-		return carNameList.stream()
-			.map(Car::new)
-			.collect(Collectors.toList());
-	}
-
-	private void saveWinnerCandidateList() {
-		this.winnerCandidateList = carList.stream()
-			.filter(car -> farthestPosition == car.getPosition())
-			.collect(Collectors.toList());
-	}
-
-	private String removeLastDelimiterFromWinner(StringBuilder resultString) {
-		return resultString.substring(0, resultString.length() - GAME_WINNER_DELIMITER.getString().length());
-	}
-
 	public void runSingle() {
-		carList.forEach(car -> {
-			car.moveByNumber(Randoms.pickNumberInRange(RANDOM_NUMBER_FROM_INCLUSIVE.getValue(),
-				RANDOM_NUMBER_TO_INCLUSIVE.getValue()));
-			this.farthestPosition = Math.max(farthestPosition, car.getPosition());
-			gameResultStringBuilder.append(car).append(GAME_RESULT_POSTFIX.getString());
-		});
-		gameResultStringBuilder.append(GAME_RESULT_POSTFIX.getString());
-		saveWinnerCandidateList();
+		carList.forEach(car -> car.moveByNumber(Randoms.pickNumberInRange(RANDOM_NUMBER_FROM_INCLUSIVE.getValue(),
+			RANDOM_NUMBER_TO_INCLUSIVE.getValue())));
+		gameLog.add(this);
 	}
 
 	public void runMultiple(int iterationNumber) {
@@ -64,12 +32,6 @@ public class Game {
 
 	@Override
 	public String toString() {
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append(GAME_RESULT_HINT.getString());
-		stringBuilder.append(gameResultStringBuilder.toString());
-		stringBuilder.append(GAME_WINNER_HINT.getString());
-		winnerCandidateList.forEach(
-			winner -> stringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString()));
-		return removeLastDelimiterFromWinner(stringBuilder);
+		return gameLog.get(this);
 	}
 }
