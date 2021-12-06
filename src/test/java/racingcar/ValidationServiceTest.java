@@ -1,13 +1,13 @@
 package racingcar;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.Arrays;
 
 import racingcar.service.ValidationService;
 
@@ -25,8 +25,8 @@ public class ValidationServiceTest {
 
 	@DisplayName("한 자동차의 이름에 대한 예외 처리 작업을 수행")
 	@Test
-	void checkEachCarName(){
-		assertThrows(IllegalArgumentException.class, ()->{
+	void checkEachCarName() {
+		assertThrows(IllegalArgumentException.class, () -> {
 			// [예외처리]  구분된 자동차의 이름이 비어있을 때
 			ValidationService.checkEachCarName(Arrays.asList("Jane", "Karry", ""));
 			// [예외처리]  구분 된 자동차의 이름의 길이가 6 이상일 때
@@ -36,8 +36,8 @@ public class ValidationServiceTest {
 
 	@DisplayName("자동차의 이름 중복시 예외 처리 작업을 수행")
 	@Test
-	void checkDuplicatedCarName(){
-		assertThrows(IllegalArgumentException.class, ()->{
+	void checkDuplicatedCarName() {
+		assertThrows(IllegalArgumentException.class, () -> {
 			ValidationService.checkDuplicatedCarName(Arrays.asList("John", "Eddy", "Eddy"));
 		});
 	}

@@ -1,9 +1,7 @@
 package racingcar.service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 public class ValidationService {
 	private static final int MAX_NAME_LENGTH = 5;
@@ -56,10 +54,12 @@ public class ValidationService {
 	}
 
 	private static boolean isSingleCarName(String carNames, String delimiter) {
+
 		return !carNames.contains(delimiter);
 	}
 
 	private static boolean isInvalidCarNameLength(String name) {
+
 		return MAX_NAME_LENGTH < name.length();
 	}
 
@@ -77,6 +77,7 @@ public class ValidationService {
 	}
 
 	private static boolean isNotPositive(int number) {
+
 		return number < 1;
 	}
 }

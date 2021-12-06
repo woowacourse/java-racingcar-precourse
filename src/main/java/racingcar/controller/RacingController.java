@@ -1,11 +1,9 @@
 package racingcar.controller;
 
-import static racingcar.service.InputService.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.service.InputService;
 import racingcar.service.OutputService;
@@ -38,7 +36,7 @@ public class RacingController {
 		return new Cars(cars);
 	}
 
-	public static void endRacing(Cars cars){
+	public static void endRacing(Cars cars) {
 		List<String> winner = RacingService.getWinner(cars.getCars());
 		OutputService.getWinnerNameList(winner);
 	}
