@@ -1,6 +1,6 @@
 package racingcar.car;
 
-public class Car {
+class Car {
 	private final Name name;
 	private Position position;
 

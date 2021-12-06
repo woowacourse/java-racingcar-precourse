@@ -1,6 +1,6 @@
 package racingcar.car;
 
-public class Name {
+class Name {
 	private final String name;
 
 	@Override

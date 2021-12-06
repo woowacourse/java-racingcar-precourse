@@ -1,6 +1,6 @@
 package racingcar.car;
 
-public class Position {
+class Position {
 	private int position;
 
 	Position() {
@@ -14,5 +14,5 @@ public class Position {
 	public int get() {
 		return position;
 	}
-	
+
 }

@@ -3,13 +3,17 @@ package racingcar.car;
 import java.util.ArrayList;
 
 public class Cars {
-	ArrayList<Car> carList;
+	private ArrayList<Car> carList;
 
-	Cars() {
+	public ArrayList<Car> getList() {
+		return carList;
+	}
+
+	public Cars() {
 		carList = new ArrayList<Car>();
 	}
 
-	void appendCar(String carName) {
+	public void appendCar(String carName) {
 		carList.add(new Car(carName));
 	}
 
