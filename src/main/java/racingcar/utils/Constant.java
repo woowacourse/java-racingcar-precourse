@@ -2,6 +2,12 @@ package racingcar.utils;
 
 public class Constant {
 	public static final int MOVE_VALUE = 4;
+	public static final int CAR_NAME_LENGTH_MIN = 1;
+	public static final int CAR_NAME_LENGTH_MAX = 5;
+	public static final char STRING_GAME_COUNT_MIN = 0;
+	public static final char STRING_GAME_COUNT_MAX = 5;
+	public static final char RANDOM_NUM_MIN = 0;
+	public static final char RANDOM_NUM_MAX = 9;
 
 	public static final String ASK_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	public static final String ASK_GAME_COUNT = "시도할 회수는 몇회인가요?";

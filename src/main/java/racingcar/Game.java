@@ -67,6 +67,5 @@ public class Game {
 	public void printWinner(ArrayList<String> winnerList) {
 		System.out.print(Constant.WINNER);
 		System.out.print(String.join(", ", winnerList));
-
 	}
 }
