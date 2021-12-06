@@ -9,11 +9,7 @@ public class GameController {
 		this.inputView = new InputView();
 	}
 
-	public void run() {
-		inputView.getCarNames();
-		generateCars();
-	}
-
-	public void generateCars() {
+	public void init() {
+		String inputCarNames = inputView.getCarNames();
 	}
 }
