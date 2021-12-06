@@ -3,6 +3,7 @@ package racingcar;
 public class Constant {
 	public static final String CAR_NAME_OVER_STANDARD_ERROR_MESSAGE = "차의 이름은 %d자 이하만 가능하다.";
 	public static final String CAR_NAME_NOT_NULL_ERROR_MESSAGE = "차의 이름에 null 값이 들어갔다.";
+	public static final String SHOW_ERROR_MESSAGE = "[ERROR] %s";
 	public static final String TRY_CNT_IS_NOT_NEGATIVE_MESSAGE = "시도 횟수는 음수가 될 수 없다.";
 	public static final String TRY_CNT_IS_NOT_NUMBER_MESSAGE = "시도 횟수는 숫자여야 한다.";
 
