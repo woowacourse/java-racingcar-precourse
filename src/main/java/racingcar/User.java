@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class User implements IUser{
+    private final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private final String INPUT_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
     private Validation validation = new Validation();
 
     @Override
@@ -20,7 +22,7 @@ public class User implements IUser{
     }
 
     @Override
-    public int inputRepeatNumber() {
+    public int inputRoundNumber() {
         while (true) {
             String input = Console.readLine();
             try {
@@ -35,12 +37,12 @@ public class User implements IUser{
 
     @Override
     public void informInputCar() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 
     @Override
     public void informInputCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_ROUND_MESSAGE);
     }
 
     private String[] parseName(String input){

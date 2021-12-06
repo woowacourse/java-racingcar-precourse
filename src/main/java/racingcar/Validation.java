@@ -5,10 +5,11 @@ public class Validation {
     private final String INPUT_NUMBER_ERROR = "[ERROR] 숫자를 입력해주세요.";
     private final String INPUT_RANGE_ERROR = "[ERROR] 0 이상의 값을 입력해주세요.";
     private final String INPUT_BLANK_ERROR = "[ERROR] 이름에는 공백이 포함될 수 없습니다.";
+    private final int NAME_MAX_LENGTH = 5;
 
     public void validateLength(String inputList) {
         for (String s : inputList.split(",")) {
-            if (s.length() > 5) {
+            if (s.length() > NAME_MAX_LENGTH) {
                 throw new IllegalArgumentException(INPUT_LENGTH_ERROR);
             }
         }
@@ -29,7 +30,8 @@ public class Validation {
     }
 
     public void validateName(String input) {
-        for (String s : input.replaceAll(" ", "").split(",", -1)) {
+        String noSpaces = input.replaceAll(" ", "");
+        for (String s : noSpaces.split(",", -1)) {
             if (s.equals("")) {
                 throw new IllegalArgumentException(INPUT_BLANK_ERROR);
             }
