@@ -58,7 +58,9 @@ public class InputSystem {
     private String getNowCarList(List<Car> cars) {
         StringBuilder sb = new StringBuilder(" (현재 자동차 목록 = ");
         int len = cars.size();
-        sb.append(cars.get(0).getName());
+        if (len > 0) {
+            sb.append(cars.get(0).getName());
+        }
         for (int i = 1; i < len; i++) {
             sb.append(", ").append(cars.get(i).getName());
         }
