@@ -35,20 +35,16 @@ public class Game {
 	}
 
 	private void setCars() {
-		boolean reset = true;
-
 		System.out.println(ASK_TO_GET_CAR_NAME);
 
-		while (reset) {
-			reset = false;
+		while (true) {
 			String carNames = Console.readLine();
 			String[] seperatedCarNames = carNames.split(",");
 			CarNameException carNameException = new CarNameException(seperatedCarNames);
 
-			if (!carNameException.canMakeCarsCompletely()) {
-				reset = true;
-			} else {
+			if (carNameException.canMakeCarsCompletely()) {
 				makeCars(seperatedCarNames);
+				return;
 			}
 
 		}
