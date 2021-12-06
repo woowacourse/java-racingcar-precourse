@@ -10,14 +10,14 @@ public class OutputView {
 	private static final String FORWARD_MARK = "-";
 	private static final int ZERO = 0;
 
-	public void printCarsPositionStatus(List<Car> carList) {
+	public static void printCarsPositionStatus(List<Car> carList) {
 		for (Car car : carList) {
 			System.out.println(car.getName() + " : " + carPositionToString(car));
 		}
 		System.out.println();
 	}
 
-	private String carPositionToString(Car car) {
+	private static String carPositionToString(Car car) {
 		int position = car.getPosition();
 		StringBuilder positionStringBuilder = new StringBuilder();
 		while (position >= ZERO) {
@@ -27,7 +27,7 @@ public class OutputView {
 		return positionStringBuilder.toString();
 	}
 
-	public void printGameWinner(List<Car> carList) {
+	public static void printGameWinner(List<Car> carList) {
 		Set<String> winnerNameSet = searchGameWinners(carList);
 		System.out.println("최종 우승자 : ");
 		System.out.println(winnerNameSet.toString()
@@ -35,7 +35,7 @@ public class OutputView {
 			.replace("]", ""));
 	}
 
-	private Set<String> searchGameWinners(List<Car> carList) {
+	private static Set<String> searchGameWinners(List<Car> carList) {
 		Set<String> winnerNameSet = new HashSet<>();
 		int winnerPosition = 0;
 		for (Car car : carList) {

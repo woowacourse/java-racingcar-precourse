@@ -8,7 +8,7 @@ public class InputView {
 	private InputView() {
 	}
 
-	private String[] getCarNames() {
+	public static String[] getCarNames() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String[] carNames = Console.readLine().split(",");
 		try {
@@ -20,7 +20,7 @@ public class InputView {
 		return carNames;
 	}
 
-	private void validateCarName(String[] carNames) {
+	private static void validateCarName(String[] carNames) {
 		for (String car : carNames) {
 			if (car.length() >= MAX_CAR_NAME_LENGTH) {
 				throw new IllegalArgumentException();
@@ -28,7 +28,7 @@ public class InputView {
 		}
 	}
 
-	public int getMoveTimes() {
+	public static int getMoveTimes() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String moveTimes = Console.readLine();
 		try {
@@ -40,7 +40,7 @@ public class InputView {
 		return Integer.parseInt(moveTimes);
 	}
 
-	private void validateMoveTimes(String moveTimes) {
+	private static void validateMoveTimes(String moveTimes) {
 		try {
 			Integer.parseInt(moveTimes);
 		} catch (NumberFormatException e) {
