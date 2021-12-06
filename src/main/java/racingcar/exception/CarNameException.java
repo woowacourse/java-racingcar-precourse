@@ -18,7 +18,7 @@ public class CarNameException {
 		for (String carName : carNameList) {
 			checkEmptyString(carName);
 			checkEmptyName(carName);
-			checkNameOverlength(carName);
+			checkNameOverLength(carName);
 		}
 		checkCarNumberIsOne(carNameList);
 		checkNameDuplication(carNameList);
@@ -36,7 +36,7 @@ public class CarNameException {
 		}
 	}
 
-	private static void checkNameOverlength(String carName) {
+	private static void checkNameOverLength(String carName) {
 		if (carName.length() > NAME_MAX_LENGTH) {
 			throw new IllegalArgumentException(NAME_LENGTH_OVER_ERROR_MASSAGE);
 		}
