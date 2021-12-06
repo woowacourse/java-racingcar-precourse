@@ -14,12 +14,5 @@ public class Position {
 	public int get() {
 		return position;
 	}
-
-	public boolean isBiggerThan(Position position) {
-		return this.position > position.get();
-	}
 	
-	public boolean equals(Position position) {
-		return this.position == position.get();
-	}
 }
