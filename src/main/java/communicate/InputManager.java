@@ -47,9 +47,16 @@ public class InputManager {
     }
 
     public int provideAttemptNumber() {
-        requestAttemptNumber();
-        String attemptNumber = receiveUserInput();
 
-        return Integer.valueOf(attemptNumber);
+        while (true) {
+            requestAttemptNumber();
+            String attemptNumber = receiveUserInput();
+
+            if (validator.isValidAttemptNumber(attemptNumber)) {
+                return Integer.valueOf(attemptNumber);
+            }
+
+        }
+
     }
 }
