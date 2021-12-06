@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import racingcar.view.InputView;
 
-public class GameTest {
+public class InputViewTest {
 	@Test
 	@DisplayName("문자열 입력 받아 List로 변환")
 	void strToListTest() {

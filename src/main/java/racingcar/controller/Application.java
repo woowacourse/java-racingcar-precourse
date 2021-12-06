@@ -22,8 +22,7 @@ public class Application {
 			printStartMessage();
 			userInput = strToList(generateUserInput());
 		} while (!ValidationUtils.validCarList(userInput));
-		Cars carList;
-		carList = new Cars(userInput);
+		Cars carList = new Cars(userInput);
 
 		return carList;
 	}
@@ -37,7 +36,7 @@ public class Application {
 		return Integer.parseInt(input);
 	}
 
-	public static Cars runGame(Cars carList, int gameCount) {
+	private static Cars runGame(Cars carList, int gameCount) {
 		Game newGame = new Game(carList);
 		OutputView.printResultMessage();
 		for (int i = 0; i < gameCount; i++) {
