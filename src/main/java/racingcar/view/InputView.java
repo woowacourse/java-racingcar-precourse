@@ -31,45 +31,33 @@ public class InputView {
                 hasSameCarName(cars);
                 return cars;
             } catch (IllegalArgumentException e) {
+                validateInput();
             }
         }
     }
 
     private void validateCarName(ArrayList<Car> cars) throws IllegalArgumentException {
-        try {
-            for (Car car : cars) {
-                car.isNameNull(car.getName());
-                car.isNameOutOfRange(car.getName());
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(Input.CAR_NAME_ERROR_MESSAGE);
-            validateInput();
+        for (Car car : cars) {
+            car.isNameNull(car.getName());
+            car.isNameOutOfRange(car.getName());
         }
     }
 
     private void hasSameCarName(ArrayList<Car> cars) throws IllegalArgumentException {
         HashSet<String> carNameSet = new HashSet<>();
-        try {
-            for (Car car : cars) {
-                carNameSet.add(car.getName());
-            }
-            if (cars.size() != carNameSet.size()) {
-                throw new IllegalArgumentException();
-            }
-        } catch (IllegalArgumentException e) {
+        for (Car car : cars) {
+            carNameSet.add(car.getName());
+        }
+        if (cars.size() != carNameSet.size()) {
             System.out.println(Input.OVERLAP_ERROR_MESSAGE);
-            validateInput();
+            throw new IllegalArgumentException();
         }
     }
 
     private void hasOnlyComma(ArrayList<Car> cars) throws IllegalArgumentException {
-        try {
-            if (cars.size() == Condition.HAS_ONLY_COMMA) {
-                throw new IllegalArgumentException();
-            }
-        } catch (IllegalArgumentException e) {
+        if (cars.size() == Condition.HAS_ONLY_COMMA) {
             System.out.println(Input.ONLY_COMMA_ERROR_MESSAGE);
-            validateInput();
+            throw new IllegalArgumentException();
         }
     }
 
