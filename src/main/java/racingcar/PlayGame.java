@@ -31,6 +31,8 @@ public class PlayGame {
             perGame();
             System.out.println();
         }
+        Winner winner = new Winner(cars);
+        System.out.println(winner.result());
     }
 
     // 한번 게임이 실행될 때마다 각 자동차에게 랜덤 수 생성해서 전진/멈춤 유무 판단
