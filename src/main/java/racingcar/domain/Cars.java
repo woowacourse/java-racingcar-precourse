@@ -33,4 +33,11 @@ public class Cars {
 			car.move(generator);
 		});
 	}
+
+	private int getMaxPosition() {
+		return cars.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.orElse(0);
+	}
 }
