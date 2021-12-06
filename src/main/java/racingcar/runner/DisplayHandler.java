@@ -1,8 +1,8 @@
-package racingcar.utils;
+package racingcar.runner;
 
 public class DisplayHandler {
 
-    final public static String OUT_HEADER = "실행결과";
+    final private static String OUT_HEADER = "실행결과";
     final private static String LINE_BREAK = "\n";
 
     final private StringBuilder buffer;

@@ -2,7 +2,6 @@ package racingcar.runner;
 
 import racingcar.domain.RacingCarGame;
 import racingcar.utils.CarGameInputHandler;
-import racingcar.utils.DisplayHandler;
 
 public class RacingCarGameRunner {
 
