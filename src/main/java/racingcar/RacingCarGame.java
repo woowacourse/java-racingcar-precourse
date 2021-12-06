@@ -19,14 +19,18 @@ public class RacingCarGame {
 		List<Car> carList = carNamesToCarList(carNames);
 		OutputView.printGameResultMessage();
 		for (int time = 0; time < moveTimes; time++) {
-			for (Car car : carList) {
-				int randomValue = car.generateRandomValue();
-				car.executeMoveByNumber(randomValue);
-			}
-			OutputView.printCarsPositionStatus(carList);
+			raceRound(carList);
 		}
 		List<Car> winnerList = findGameWinners(carList);
 		OutputView.printGameWinner(winnerList);
+	}
+
+	private void raceRound(List<Car> carList) {
+		for (Car car : carList) {
+			int randomValue = car.generateRandomValue();
+			car.executeMoveByNumber(randomValue);
+		}
+		OutputView.printCarsPositionStatus(carList);
 	}
 
 	private static List<Car> findGameWinners(List<Car> carList) {
