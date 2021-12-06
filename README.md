@@ -34,6 +34,12 @@
 - 책임
     - 게임 결과를 출력한다.
 
+### ErrorView
+
+- 역할 : 에러를 출력한다.
+- 책임
+    - 에러 메시지를 출력한다.
+
 ---
 
 ### GameController
@@ -46,6 +52,7 @@
     - Cars 인스턴스로 게임을 초기화(생성)하라 to racingCarGame
     - 게임을 시작하라 to racingCarGame
     - 게임 결과를 출력하라 to ResultView
+    - 모델에서 발생한 에러를 핸들링
 
 ---
 
