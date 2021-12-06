@@ -13,7 +13,7 @@ public class NumberOfRoundsInputValue extends InputValue<Integer> {
 
     private void validate() {
         for (Character character : inputString.toCharArray()) {
-            if(!Character.isDigit(character)) {
+            if (!Character.isDigit(character)) {
                 throw new IllegalArgumentException();
             }
         }

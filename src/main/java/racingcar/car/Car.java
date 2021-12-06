@@ -18,8 +18,11 @@ public class Car {
     }
 
     private static void validate(String name) {
-        if (!isRightLength(name.length()) || name.contains(SPACE)) {
-            throw new IllegalArgumentException();
+        if(!isRightLength(name.length())) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_TOO_LONG_CAR_NAME_INPUT);
+        }
+        if (name.contains(SPACE)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_CONTAINING_SPACE_CAR_NAME_INPUT);
         }
     }
 

@@ -20,15 +20,28 @@ public class RacingGameController {
 
     public void start() {
         printCarNameRequestMessage();
-        createCars(inputCarNames());
+        createCars();
         printNumberOfRoundsRequestMessage();
-        createNumberOfRounds(inputNumberOfRounds());
+        createNumberOfRounds();
         printGameResultNoticePhrase();
         printWinners(racingGame.start());
     }
 
     private void printCarNameRequestMessage() {
         System.out.println(CAR_NAME_REQUEST_MESSAGE);
+    }
+
+    private void createCars() {
+        boolean isAllCarsCreated = false;
+        while(!isAllCarsCreated) {
+            try {
+                createCars(inputCarNames());
+                isAllCarsCreated = true;
+            } catch(IllegalArgumentException e) {
+                System.out.print(PREFIX_OF_ERROR_MESSAGE);
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     private String[] inputCarNames() {
@@ -42,6 +55,19 @@ public class RacingGameController {
 
     private void printNumberOfRoundsRequestMessage() {
         System.out.println(NUMBER_OF_ROUNDS_REQUEST_MESSAGE);
+    }
+
+    private void createNumberOfRounds() {
+        boolean isNumberOfRoundsCreates = false;
+        while(!isNumberOfRoundsCreates) {
+            try {
+                createNumberOfRounds(inputNumberOfRounds());
+                isNumberOfRoundsCreates = true;
+            } catch (IllegalArgumentException e) {
+                System.out.print(PREFIX_OF_ERROR_MESSAGE);
+                System.out.println(ERROR_MESSAGE_ABOUT_WRONG_NUMBER_OF_ROUNDS_INPUT);
+            }
+        }
     }
 
     private int inputNumberOfRounds() {

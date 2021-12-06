@@ -1,5 +1,7 @@
 package racingcar.inputvalue;
 
+import static racingcar.utils.StringConstants.ERROR_MASSAGE_ABOUT_EMPTY_CAR_NAMES_INPUT;
+
 import org.assertj.core.util.Arrays;
 
 public class CarNameInputValue extends InputValue<String[]> {
@@ -15,12 +17,8 @@ public class CarNameInputValue extends InputValue<String[]> {
     }
 
     private void validate(String[] input) {
-        if (Arrays.isNullOrEmpty(input)) {
-            throw new IllegalArgumentException();
-        }
-
-        if (validateEachString(input)) {
-            throw new IllegalArgumentException();
+        if (Arrays.isNullOrEmpty(input) || validateEachString(input)) {
+            throw new IllegalArgumentException(ERROR_MASSAGE_ABOUT_EMPTY_CAR_NAMES_INPUT);
         }
     }
 
