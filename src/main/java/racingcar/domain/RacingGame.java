@@ -6,7 +6,7 @@ import racingcar.exception.RacingGameCannotGetWinnersException;
 public class RacingGame {
 
     private final Cars cars;
-    private Round round;
+    private final Round round;
 
     public RacingGame(Cars cars, Round round) {
         this.cars = cars;
