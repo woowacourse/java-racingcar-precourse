@@ -88,7 +88,7 @@ public class Game {
 
 		try {
 
-			if (carName.length() > LIMIT_CAR_NAME_SIZE) {
+			if (carName.length() > LIMIT_CAR_NAME_SIZE || carName.length() == 0) {
 				throw new IllegalArgumentException();
 			}
 
