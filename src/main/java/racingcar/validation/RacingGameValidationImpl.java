@@ -7,9 +7,6 @@ public class RacingGameValidationImpl implements InputValidation {
     private static final int LIMITED_LENGTH = 5;
     private static final int ZERO_LENGTH = 0;
     private static final int NOT_FOUND_BLANK = -1;
-    private static final Pattern numericPattern = Pattern.compile("^[1-9]*$");
-    private static final Pattern characterPattern = Pattern.compile("^[a-zA-Z]*$");
-    private static final Pattern hangulPattern = Pattern.compile("^[ㄱ-ㅎ가-힣]*$");
     private static final Pattern hangulAndCharacterAndNumericPattern = Pattern.compile("^[a-zA-Z0-9ㄱ-ㅎ가-힣]*$");
 
     private RacingGameValidationImpl() {}
