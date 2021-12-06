@@ -1,5 +1,6 @@
 package racingcar.utils;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -12,8 +13,9 @@ public class InputValidator {
     final private static char DELIMITER_NAME_CHAR = ',';
     final private static String NUMERIC_REGEX = "[0-9]";
 
-    public static void validateCarNames(String input, List<String> names)
+    public static void validateCarNames(String input)
         throws IllegalArgumentException {
+        List<String> names = Arrays.asList(input.split(String.valueOf(DELIMITER_NAME_CHAR)));
         if (!isValidFormat(input, names)
             || !isValidNames(names)
             || !isNonDuplicatedNames(names)) {

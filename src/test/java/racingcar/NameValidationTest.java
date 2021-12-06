@@ -1,49 +1,35 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.io.ByteArrayInputStream;
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Scanner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.utils.CarGameInputHandler;
+import racingcar.utils.InputValidator;
 
 public class NameValidationTest {
 
     void testThrowException(String name) {
-        final byte[] buf = (name + "\n").getBytes();
-        Field field;
-        try {
-            field = Console.class.getDeclaredField("scanner");
-            field.setAccessible(true);
-            field.set(Scanner.class, new Scanner(new ByteArrayInputStream(buf)));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         assertThrows(
             IllegalArgumentException.class,
-            CarGameInputHandler::getValidCarNames
+            () -> InputValidator.validateCarNames(name)
         );
     }
 
     @DisplayName("정상적인 입력을 테스트한다.")
     @Test
     void checkNormalInput() {
-        System.setIn(new ByteArrayInputStream("test\n".getBytes()));
-        List<String> list = CarGameInputHandler.getValidCarNames();
-        assertThat(list.size()).isEqualTo(1);
-        assertThat(list.get(0)).isEqualTo("test");
+        String name = "test";
+        assertDoesNotThrow(() -> InputValidator.validateCarNames(name));
     }
 
+    @DisplayName("이름 길이를 검증한다.")
     @Test
     void checkLengthViolation() {
         testThrowException("123456");
     }
 
+    @DisplayName("빈 이름을 검증한다.")
     @Test
     void checkEmptyViolation() {
         testThrowException("");

@@ -13,9 +13,8 @@ public class CarGameInputHandler {
         return getValidInput(
             () -> {
                 String input = Console.readLine();
-                List<String> names = Arrays.asList(input.split(DELIMITER_NAME));
-                InputValidator.validateCarNames(input, names);
-                return names;
+                InputValidator.validateCarNames(input);
+                return Arrays.asList(input.split(DELIMITER_NAME));
             }
         );
     }
