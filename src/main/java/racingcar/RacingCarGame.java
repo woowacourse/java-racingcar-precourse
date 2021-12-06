@@ -60,13 +60,7 @@ public class RacingCarGame {
 	}
 
 	private void printWinner() {
-		List<Car> winnerList = Car.pickTheWinner(carList);
-		String winnerNames = winnerList.get(0).getName();
-
-		for (int i = 1; i < winnerList.size(); i++) {
-			winnerNames += DELIMITER + SPACE + winnerList.get(i).getName();
-		}
-
+		String winnerNames = Car.getWinnerNames(carList);
 		System.out.println(WINNER_MESSAGE + COLON + winnerNames);
 	}
 }

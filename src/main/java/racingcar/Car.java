@@ -17,10 +17,6 @@ public class Car {
 		this.name = name;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public void goOrStop() {
 		int randomNumber = Randoms.pickNumberInRange(START_NUMBER_OF_RANGE, END_NUMBER_OF_RANGE);
 
@@ -48,6 +44,17 @@ public class Car {
 		}
 
 		return carList;
+	}
+
+	public static String getWinnerNames(List<Car> carList) {
+		List<Car> winnerList = Car.pickTheWinner(carList);
+		String winnerNames = winnerList.get(0).name;
+
+		for (int i = 1; i < winnerList.size(); i++) {
+			winnerNames += DELIMITER + SPACE + winnerList.get(i).name;
+		}
+
+		return winnerNames;
 	}
 
 	public static List<Car> pickTheWinner(List<Car> carList) {
