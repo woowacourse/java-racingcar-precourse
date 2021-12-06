@@ -30,30 +30,50 @@
 ### RacingCarGame
 : 레이싱 게임을 위한 개체입니다. 프로그램 시작 시, 해당 개체는 자동적으로 생성돼 게임을 시작하게됩니다.
 
-- 지역 변수
-  - `ArrayList<Car> racingCars`: 자동차 개체들의 배열을 저장할 리스트
+- 멤버 변수
+  - `CarList racingCars`: 자동차 개체들의 배열을 저장할 리스트
   - `numberOfTrial`: 시도 횟수
 
 - 메소드
     - `play()` 
+    - `isValidCarNameList(StringTokenizer splitString)`: 예외처리 2-4, 2-5 포함
     - `getRacingCarsNameFromUser()`
-    - `seperatedByMark(char mark)`: 예외처리 2-4, 2-5 포함
-    - `createRacingCarEntity(String carName)`: 생성 및 racingCar 배열에 담기
-    - `getNumberOfTrialFromUser()`: 예외처리 3-2 포함
+    - `splitByMark(String neededToSplit)`
+    - `checkMoreThanMaximumLength(String neededToCheck)`
+    - `createRacingCarEntity(String carName)`
+    - `getNumberOfTrialFromUser()`
+    - `checkValidTrialNumber(String trial)`: 예외처리 3-2 포함
+    - `setNumberOfTrial(int trial)`
 
+### CarList
+: 복수의 레이싱 카를 리스트로 담아 보관하는 일급 컬렉션입니다.
+
+- 멤버 변수
+  - `List<Car> racingCars`: 일급 컬렉션을 구현하기 위한 단일 멤버 변수
+
+- 메소드
+  - `addRacingCarEntity(Car car)`
+  - `sortEntities()`
+  - `printCarPosition()`
+  - `determineWinner()`
 
 ### Car
-: 레이싱 게임에 참여하는 레이싱 카에 대한 개체입니다.
+: 레이싱 게임에 참여하는 레이싱 카에 대한 개체입니다. <br>
+: 정렬을 위해 Comparable 을 구현합니다.
 
-- 지역 변수
+- 멤버 변수
   - `name`: 레이싱 카의 이름
   - `position`: 이동 횟수
 
 - 메소드
   - `generateRamdomValue()`
+  - `isPossibleMoveForward(int randomValue)`
+  - `getPosition()`
+  - `getName()`
   - `updatePosition()`
   - `indicatePosition()`
   - `toString()`
+  - `compareTo(Car o)`
 
 ## ✔️ 예외 처리
 `IllegalArgumentException` <br>
