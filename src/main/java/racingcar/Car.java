@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 	private static final int MIN = 0;
 	private static final int MAX = 9;
-	private static final int FORWARD_CONDITION = 9;
+	private static final int FORWARD_CONDITION = 4;
 
 	private final String name;
 	private int position = 0;
