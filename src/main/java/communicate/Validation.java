@@ -109,6 +109,11 @@ public class Validation {
         checkNameOverlap();
     }
 
+    private void validateAttemptNumber() {
+        checkAttemptOnlyNumber();
+        checkAttemptRange();
+    }
+
     public boolean isValidCarNames(ArrayList<String> carNames) {
 
         try {
@@ -127,6 +132,7 @@ public class Validation {
 
         try {
             this.attemptNumber = attemptNumber;
+            validateAttemptNumber();
         } catch (IllegalArgumentException e) {
             System.out.println(errorMessage + Text.LINE_BREAK);
 
