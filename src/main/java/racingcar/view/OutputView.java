@@ -16,9 +16,9 @@ public class OutputView {
 
 		for (String winner : winnerList) {
 			winnerMessage = winnerMessage.concat(winner);
-			winnerMessage = winnerMessage.concat(",");
+			winnerMessage = winnerMessage.concat(", ");
 		}
-		System.out.print(winnerMessage.substring(0, winnerMessage.length() - 1));
+		System.out.print(winnerMessage.substring(0, winnerMessage.length() - 2));
 	}
 
 	public static void printFinalWinner(Cars carList) {
