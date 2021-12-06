@@ -12,7 +12,7 @@ public class TryNumber {
         this.no = Integer.parseInt(tryNumber);
     }
 
-    private void validTryNumber(String tryNumber) throws IllegalArgumentException {
+    private void validTryNumber(String tryNumber) {
         validInteger(tryNumber);
         validRange(Integer.parseInt(tryNumber));
     }

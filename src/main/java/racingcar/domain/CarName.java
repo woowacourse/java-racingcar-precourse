@@ -14,7 +14,7 @@ public class CarName {
         this.name = name;
     }
 
-    private void validCarName(String name) throws IllegalArgumentException {
+    private void validCarName(String name) {
         emptyNullCheck(name);
         validLength(name);
     }
