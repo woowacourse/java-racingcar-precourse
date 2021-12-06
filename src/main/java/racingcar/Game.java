@@ -41,7 +41,6 @@ public class Game {
 
 		while (reset) {
 			reset = false;
-			cars.clear();
 			String carNames = Console.readLine();
 			String[] seperatedCarNames = carNames.split(",");
 			CarNameException carNameException = new CarNameException(seperatedCarNames);
