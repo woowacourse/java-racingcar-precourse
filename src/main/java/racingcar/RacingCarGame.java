@@ -21,7 +21,7 @@ public class RacingCarGame {
 		for (int time = 0; time < moveTimes; time++) {
 			raceRound(carList);
 		}
-		List<Car> winnerList = findGameWinners(carList);
+		List<String> winnerList = findGameWinners(carList);
 		OutputView.printGameWinner(winnerList);
 	}
 
@@ -33,12 +33,12 @@ public class RacingCarGame {
 		OutputView.printCarsPositionStatus(carList);
 	}
 
-	private static List<Car> findGameWinners(List<Car> carList) {
+	private static List<String> findGameWinners(List<Car> carList) {
 		int winningPosition = findWinningPosition(carList);
-		List<Car> winnerList = new ArrayList<>();
+		List<String> winnerList = new ArrayList<>();
 		for (Car car : carList) {
 			if (car.isWinningPosition(winningPosition)) {
-				winnerList.add(car);
+				winnerList.add(car.getName());
 			}
 		}
 		return winnerList;

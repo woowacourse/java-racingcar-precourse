@@ -1,5 +1,6 @@
 package view;
 
+import java.util.Arrays;
 import java.util.List;
 
 import racingcar.Car;
@@ -25,7 +26,7 @@ public class OutputView {
 		return positionStringBuilder.toString();
 	}
 
-	public static void printGameWinner(List<Car> winnerList) {
+	public static void printGameWinner(List<String> winnerList) {
 		System.out.print("최종 우승자 : ");
 		System.out.println(winnerList.toString()
 			.replace("[", "")
