@@ -7,11 +7,14 @@ public class RacingGameValidationImpl implements InputValidation {
     private static final int LIMITED_LENGTH = 5;
     private static final int ZERO_LENGTH = 0;
     private static final int NOT_FOUND_BLANK = -1;
+    private static final String INPUT_DELIMITER = ",";
     private static final Pattern hangulAndCharacterAndNumericPattern = Pattern.compile("^[a-zA-Z0-9ㄱ-ㅎ가-힣]*$");
 
-    private RacingGameValidationImpl() {}
+    private RacingGameValidationImpl() {
+    }
 
     private static class LazyHolder {
+
         public static final RacingGameValidationImpl INSTANCE = new RacingGameValidationImpl();
     }
 
@@ -21,9 +24,13 @@ public class RacingGameValidationImpl implements InputValidation {
 
     @Override
     public void validCarNames(String inputTheCarNames) {
+        if (isSameEndingCharacterInputDelimiter(inputTheCarNames)) {
+            throw new IllegalArgumentException();
+        }
         String[] carNames = StringToStringArray(inputTheCarNames);
         for (String carName : carNames) {
-            if (isContainsBlanks(carName) || !isLessThan5Length(carName) || isNull(carName) || isContainsSpecialCharacter(carName)) {
+            if (isContainsBlanks(carName) || !isLessThan5Length(carName) || isNull(carName)
+                || isContainsSpecialCharacter(carName)) {
                 throw new IllegalArgumentException();
             }
         }
@@ -43,6 +50,10 @@ public class RacingGameValidationImpl implements InputValidation {
         }
     }
 
+    private boolean isSameEndingCharacterInputDelimiter(String inputCarNames) {
+        return inputCarNames.charAt(inputCarNames.length() - 1) == INPUT_DELIMITER.charAt(0);
+    }
+
     private boolean isLessThan5Length(String carName) {
         return carName.length() <= LIMITED_LENGTH;
     }
@@ -60,6 +71,6 @@ public class RacingGameValidationImpl implements InputValidation {
     }
 
     private String[] StringToStringArray(String inputTheCarNames) {
-        return inputTheCarNames.split(",");
+        return inputTheCarNames.split(INPUT_DELIMITER);
     }
 }
