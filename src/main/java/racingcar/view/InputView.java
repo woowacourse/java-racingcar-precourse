@@ -21,37 +21,24 @@ public class InputView {
 		return Console.readLine();
 	}
 
-	public static int enterTryCnt() {
-		while (true) {
-			try {
-				System.out.println(INPUT_TRY_CAR_MOVING_CNT);
-				String tryCntString = Console.readLine();
-				return validateTryCnt(tryCntString);
-			} catch (IllegalArgumentException e) {
-				System.out.println(String.format(SHOW_ERROR_MESSAGE,e.getMessage()));
-			}
-		}
+	public static String enterTryCnt() {
+		System.out.println(INPUT_TRY_CAR_MOVING_CNT);
+		return Console.readLine();
 	}
 
-	private static Integer validateTryCnt(String tryCntString) {
-		int tryCnt;
-		validateTryCntIsNumber(tryCntString);
-		tryCnt = Integer.parseInt(tryCntString);
-		validateTryCntIsPositive(tryCnt);
-		return tryCnt;
-	}
 
-	private static void validateTryCntIsPositive(int tryCnt) {
-		if (tryCnt < 0) {
-			throw new IllegalArgumentException(TRY_CNT_IS_NOT_NEGATIVE_MESSAGE);
-		}
-	}
+	// public static int enterTryCnt() {
+	// 	while (true) {
+	// 		try {
+	// 			System.out.println(INPUT_TRY_CAR_MOVING_CNT);
+	// 			String tryCntString = Console.readLine();
+	// 			return validateTryCnt(tryCntString);
+	// 		} catch (IllegalArgumentException e) {
+	// 			System.out.println(String.format(SHOW_ERROR_MESSAGE,e.getMessage()));
+	// 		}
+	// 	}
+	// }
 
-	private static void validateTryCntIsNumber(String tryCntString) {
-		if (!tryCntString.matches(NUMBER_REGEX)) {
-			throw new IllegalArgumentException(TRY_CNT_IS_NOT_NUMBER_MESSAGE);
-		}
-	}
 }
 
 

@@ -24,13 +24,22 @@ public class RacingGame {
 
 	private void initializeRace() {
 		participateEveryCar();
-		tryCntAboutCarMoving = InputView.enterTryCnt();
+		determineTryCnt();
+	}
+
+	private void determineTryCnt() {
+		try {
+			tryCntAboutCarMoving = Validator.validateTryCnt(enterTryCnt());
+		} catch (IllegalArgumentException e) {
+			System.out.println(String.format(SHOW_ERROR_MESSAGE, e.getMessage()));
+			determineTryCnt();
+		}
 	}
 
 	private void participateEveryCar() {
 		try {
 			String[] everyCarName = StringUtil.splitUsingComma(InputView.enterEveryCarName());
-			CarNameValidator.validateEveryCarName(everyCarName);
+			Validator.validateEveryCarName(everyCarName);
 			everyCar = new EveryCar(everyCarName);
 		} catch (IllegalArgumentException e) {
 			System.out.println(String.format(SHOW_ERROR_MESSAGE, e.getMessage()));

@@ -4,7 +4,7 @@ import static racingcar.view.InputView.*;
 
 import java.util.Arrays;
 
-public class CarNameValidator {
+public class Validator {
 
 	public static void validateEveryCarName(String[] everyCarName) {
 		Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));	}
@@ -22,6 +22,26 @@ public class CarNameValidator {
 	public static void hasNoCarNameAtLast(String inputValue) {
 		if (inputValue.endsWith(CAR_SPLIT_REGEX)) {
 			throw new IllegalArgumentException(CAR_NAME_NOT_NULL_ERROR_MESSAGE);
+		}
+	}
+
+	public static Integer validateTryCnt(String tryCntString) {
+		int tryCnt;
+		validateTryCntIsNumber(tryCntString);
+		tryCnt = Integer.parseInt(tryCntString);
+		validateTryCntIsPositive(tryCnt);
+		return tryCnt;
+	}
+
+	private static void validateTryCntIsPositive(int tryCnt) {
+		if (tryCnt < 0) {
+			throw new IllegalArgumentException(TRY_CNT_IS_NOT_NEGATIVE_MESSAGE);
+		}
+	}
+
+	private static void validateTryCntIsNumber(String tryCntString) {
+		if (!tryCntString.matches(NUMBER_REGEX)) {
+			throw new IllegalArgumentException(TRY_CNT_IS_NOT_NUMBER_MESSAGE);
 		}
 	}
 }
