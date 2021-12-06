@@ -3,7 +3,7 @@ import java.util.*;
 
 import camp.nextstep.edu.missionutils.Console;
 public class RacingCarGame  implements Game {
-    ArrayList<Car> racingCars;
+    CarList racingCars;
     int numberOfTrial;
 
     final int MAXIMUM_LENGTH = 5;
@@ -12,7 +12,7 @@ public class RacingCarGame  implements Game {
     @Override
     public void play() {
 
-        racingCars = new ArrayList<>();
+        racingCars = new CarList();
         List<String> temporaryRacingCars;
         String trial;
 
@@ -36,7 +36,7 @@ public class RacingCarGame  implements Game {
         // 입력받은 Car의 이름으로 개체 생성 및 리스트에 추가
         for (String carName: temporaryRacingCars) {
             Car car = createRacingCarEntity(carName);
-            addRacingCarEntity(car);
+            racingCars.addRacingCarEntity(car);
         }
 
         // 사용자로부터 시도 횟수 입력 받기
@@ -54,24 +54,17 @@ public class RacingCarGame  implements Game {
 
         // 레이싱 카 전진 후, 전진한 위치 출력
         while (numberOfTrial-- > 0) {
-            for (Car car : racingCars) {
-                if(car.isPossibleMoveForward(car.generateRandomValue())) car.updatePosition();
-                System.out.println(car);
-            }
-
-            System.out.println();
+            racingCars.printCarPosition();
         }
 
         // 최종 우승자 선별
-        Collections.sort(racingCars);
-        int maxValue = racingCars.get(0).getPosition();
 
         StringBuilder stringBuilder = new StringBuilder("최종 우승자 : ");
-        for(Car racingCar: racingCars) {
-            if(racingCar.getPosition() == maxValue) {
-                stringBuilder.append(racingCar.getName());
-                stringBuilder.append(",");
-            }
+        List<Car> results = racingCars.determineWinner();
+
+        for(Car result: results) {
+            stringBuilder.append(result.getName());
+            stringBuilder.append(",");
         }
 
         stringBuilder.setLength(stringBuilder.length()-1);
@@ -105,10 +98,6 @@ public class RacingCarGame  implements Game {
 
     private Car createRacingCarEntity(String carName) {
         return new Car(carName);
-    }
-
-    private void addRacingCarEntity(Car car) {
-        racingCars.add(car);
     }
 
     private String getNumberOfTrialFromUser() {
