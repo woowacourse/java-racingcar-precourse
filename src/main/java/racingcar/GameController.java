@@ -9,9 +9,16 @@ public class GameController {
 
     public void gameStart() {
         InputRole inputRole = new InputRole();
+        OutputRole outputRole = new OutputRole();
         inputRole.inputStart();
         changeInputToCar(inputRole);
-        tryGameOnce();
+
+        outputRole.pirntResultInstruction();
+        for (int i=0; i<inputRole.getTrialNmber(); i++) {
+            tryGameOnce();
+            outputRole.printOneGame(carList);
+        }
+
 
     }
 
