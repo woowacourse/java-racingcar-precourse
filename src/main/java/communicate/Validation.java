@@ -85,7 +85,7 @@ public class Validation {
 
     private void checkAttemptOnlyNumber() {
 
-        if (!attemptNumber.matches(REGEX_ONLY_NUMBER)) {
+        if (!attemptNumber.matches(REGEX_ONLY_NUMBER) || attemptNumber.length() == ZERO) {
             errorMessage = ErrorText.ERROR_ATTEMPT_NOT_NUMBER;
             throwInputException();
         }
