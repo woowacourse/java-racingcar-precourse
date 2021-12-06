@@ -10,25 +10,34 @@ public class CarFactory {
 	private static final String SPACE = " ";
 	private static final int MAX_SIZE = 5;
 	private static final int NOTHING = 0;
+	private static final int LENGTH_TO_INDEX = 1;
+	private static final String ERROR_LAST_WORD_DELIMITER = "자동차 이름 입력이 쉼표(,)로 끝날 수 없습니다.";
 	private static final String ERROR_NOTHING = "자동차는 최소 1개 이상 입력해야 합니다.";
 	private static final String ERROR_EMPTY = "자동차 이름은 공백일 수 없습니다.";
-	private static final String ERROR_LENGTH = "자동차 이름은 5자를 초과할 수 없습니다.";
 	private static final String ERROR_CONTAIN_SPACE = "자동차 이름은 공백을 포함할 수 없습니다.";
+	private static final String ERROR_LENGTH = "자동차 이름은 5자를 초과할 수 없습니다.";
 	private static final String ERROR_DUPLICATE = "자동차 이름은 중복될 수 없습니다.";
 
 	private List<String> carNames;
 
 	public void inputNames(String carNames) {
 		this.carNames = Arrays.asList(carNames.split(DELIMITER));
-		validateNames();
+		validateNames(carNames);
 	}
 
-	private void validateNames() {
+	private void validateNames(String carNames) {
+		validateLastWord(carNames);
 		validateNothing();
 		validateEmpty();
 		validateContainSpace();
 		validateLength();
 		validateDuplicate();
+	}
+
+	private void validateLastWord(String carNames) {
+		if (carNames.substring(carNames.length() - LENGTH_TO_INDEX).equals(DELIMITER)) {
+			throw new IllegalArgumentException(ERROR_LAST_WORD_DELIMITER);
+		}
 	}
 
 	private void validateNothing() {
