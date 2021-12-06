@@ -36,12 +36,13 @@
 
 ## 6. Game
 
-### 6-3 stageProcess
+### 6-1 stageProcess
 -모든 차에 Car.goForward 반복
 -GamePrinter.매 회차 출력 출력 Call
-### 6-4 gameProcess
--UserInputGetter.parseCarName 에서 나온 갯수만큼 Car class 생성
+### 6-2 gameProcess
 -스테이지를 시도횟수만큼 반복 실행
 -스테이지 종료시 우승자 선정 Call
-### 6-5 우승자 선정
+### 6-3 carMaker
+-UserInputGetter.parseCarName 에서 나온 갯수만큼 Car class 생성
+### 6-4 우승자 선정
 -GamePrinter 클래스에 전달
