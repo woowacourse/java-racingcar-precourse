@@ -65,6 +65,33 @@ public class Application {
         }
     }
 
+    public String[] getWinnerList(Car[] carList) {
+        int maxValue = -1;
+        int WinnerCount = 0;
+
+        for (Car car : carList) {
+            if (car.getPosition() == maxValue) {
+                WinnerCount++;
+                continue;
+            }
+
+            if (car.getPosition() > maxValue) {
+                maxValue = car.getPosition();
+                WinnerCount = 1;
+            }
+        }
+
+        String[] winnerList = new String[WinnerCount];
+        int index = 0;
+        for (Car car : carList) {
+            if (car.getPosition() == maxValue) {
+                winnerList[index++] = car.getName();
+            }
+        }
+
+        return winnerList;
+    }
+
     public void run() {
         Car[] carList = getCarList();
         int tryCount = getTryCount();
@@ -74,6 +101,7 @@ public class Application {
             printTotalCar(carList);
         }
 
+        String[] winnerList = getWinnerList(carList);
     }
 
     public static void main(String[] args) {
