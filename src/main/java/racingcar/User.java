@@ -53,5 +53,6 @@ public class User {
 			isRightNumeric = false;
 		}
 		return isRightNumeric;
+
 	}
 }
