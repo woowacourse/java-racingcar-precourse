@@ -26,8 +26,8 @@ public class Cars {
 		return new Cars(carsName.split(COMMA));
 	}
 
-	public void driveAll(NumberGeneratePolicy randomNumberGeneratePolicy) {
-		cars.forEach(car -> car.drive(randomNumberGeneratePolicy.generateNumber()));
+	public void driveAll(NumberGeneratePolicy numberGeneratePolicy) {
+		cars.forEach(car -> car.drive(numberGeneratePolicy.generateNumber()));
 	}
 
 	public List<Car> getWinners() {
