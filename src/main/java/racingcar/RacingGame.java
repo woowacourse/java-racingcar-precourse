@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
 
-    private List<Car> carList;
+    private final List<Car> carList;
 
     private final InputValidator inputValidator;
 
@@ -25,24 +25,18 @@ public class RacingGame {
 
     public void play() {
         System.out.println(INPUT_CAR_NAME_LIST_MESSAGE);
-        String[] carNameList = Console.readLine().split(DELIMITER);
-        inputValidator.validateCarNameListInput(carNameList);
-
-        System.out.println(INPUT_ATTEMPT_MESSAGE);
-        String tryNumber = Console.readLine();
-        inputValidator.validateTryNumber(tryNumber);
-
-        for (String carName : carNameList) {
+        for (String carName : getCarList()) {
             carList.add(new Car(carName));
         }
-
-        startRacing(Integer.parseInt(tryNumber));
+        System.out.println(INPUT_ATTEMPT_MESSAGE);
+        int tryNumber = getTryNumber();
+        startRacing(tryNumber);
 
         List<String> winnerList = findWinnerList();
         showWinnerList(winnerList);
     }
 
-    public void startRacing(int tryNumber) {
+    private void startRacing(int tryNumber) {
         System.out.println(RESULT_MESSAGE);
 
         for (int i = 0; i < tryNumber; i++) {
@@ -54,12 +48,36 @@ public class RacingGame {
         }
     }
 
-    public void showWinnerList(List<String> winnerList) {
+    private String[] getCarList() {
+        while (true) {
+            String[] carNameList = Console.readLine().split(DELIMITER);
+            try {
+                inputValidator.validateCarNameListInput(carNameList);
+                return carNameList;
+            } catch (IllegalArgumentException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
+
+    private int getTryNumber() {
+        while (true) {
+            String tryNumber = Console.readLine();
+            try {
+                inputValidator.validateTryNumber(tryNumber);
+                return Integer.parseInt(tryNumber);
+            } catch (IllegalArgumentException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
+
+    private void showWinnerList(List<String> winnerList) {
         System.out.print("최종 우승자 : ");
         System.out.print(String.join(DELIMITER + " ", winnerList));
     }
 
-    public List<String> findWinnerList() {
+    private List<String> findWinnerList() {
         int maxPosition = carList.stream()
                 .mapToInt(Car::getPosition)
                 .max()
@@ -70,5 +88,4 @@ public class RacingGame {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
-
 }
