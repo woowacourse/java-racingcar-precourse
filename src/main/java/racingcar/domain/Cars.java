@@ -15,16 +15,10 @@ public class Cars {
 		this.cars = cars;
 	}
 
-	public void move() {
-		for (Car car : cars) {
-			car.move();
-		}
-	}
-
 	public List<List<String>> getRoundResult() {
 		List<List<String>> totalResult = new ArrayList<>();
 		for (Car car : cars) {
-			List<String> result = car.getResult();
+			List<String> result = car.move();
 			totalResult.add(result);
 		}
 		return totalResult;
