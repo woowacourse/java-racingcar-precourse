@@ -11,15 +11,23 @@ public class UserInput {
     private static final String CAR_NAME_DELIMITER = ",";
 
     protected static final String[] inputCarName() {
-        System.out.println(RACINGCAR_NAME_INPUT_MESSAGE);
-        String carTotalName = Console.readLine();
-        String[] carNameArray = carTotalName.split(CAR_NAME_DELIMITER);
+        String[] carNameArray;
+        do {
+            System.out.println(RACINGCAR_NAME_INPUT_MESSAGE);
+            String carTotalName = Console.readLine();
+            carNameArray = carTotalName.split(CAR_NAME_DELIMITER);
+        } while (!InputValidator.validateCarName(carNameArray));
+
         return carNameArray;
     }
 
     protected static final int inputNumberOfAttempts() {
-        System.out.println(RACINGCAR_NUMBER_OF_ATTEMPTS_INPUT_MESSAGE);
-        String numberOfAttempts = Console.readLine();
+        String numberOfAttempts;
+        do {
+            System.out.println(RACINGCAR_NUMBER_OF_ATTEMPTS_INPUT_MESSAGE);
+            numberOfAttempts = Console.readLine();
+        } while (!InputValidator.validateNumberOfAttempts(numberOfAttempts));
+
         return Integer.parseInt(numberOfAttempts);
     }
 }
