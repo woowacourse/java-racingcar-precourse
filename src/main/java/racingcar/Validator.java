@@ -7,7 +7,8 @@ import java.util.Arrays;
 public class Validator {
 
 	public static void validateEveryCarName(String[] everyCarName) {
-		Arrays.stream(everyCarName).forEach(eachCarName -> validateCarName(eachCarName));	}
+		Arrays.stream(everyCarName).forEach(Validator::validateCarName);
+	}
 
 	private static void validateCarName(String eachCarName) {
 		if (eachCarName.length() > CAR_NAME_LETTERS_STANDARD) {

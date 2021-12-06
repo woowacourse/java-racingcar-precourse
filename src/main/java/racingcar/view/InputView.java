@@ -25,20 +25,4 @@ public class InputView {
 		System.out.println(INPUT_TRY_CAR_MOVING_CNT);
 		return Console.readLine();
 	}
-
-
-	// public static int enterTryCnt() {
-	// 	while (true) {
-	// 		try {
-	// 			System.out.println(INPUT_TRY_CAR_MOVING_CNT);
-	// 			String tryCntString = Console.readLine();
-	// 			return validateTryCnt(tryCntString);
-	// 		} catch (IllegalArgumentException e) {
-	// 			System.out.println(String.format(SHOW_ERROR_MESSAGE,e.getMessage()));
-	// 		}
-	// 	}
-	// }
-
 }
-
-
