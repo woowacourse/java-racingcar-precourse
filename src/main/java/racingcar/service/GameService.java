@@ -80,6 +80,7 @@ public class GameService {
 	private void printResult(int carIdx) {
 		Car car = cars.getCarList().get(carIdx);
 		result.append(car.getName() + " : ");
+
 		for (int i = 0; i < car.getPosition(); i++) {
 			result.append("-");
 		}

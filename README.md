@@ -76,6 +76,30 @@ jun : -----
 
 <br>
 
+## 📒 패키지 구조
+* main/java/racingcar
+    * controller
+        * GameController.java
+    * domain
+        * Car.java
+        * Cars.java
+    * execption
+        * dto
+            * ErrorResponse.java
+        * ErrorMessage.java
+    * message
+        * dto
+            * ResponseMessage.java
+        Message.java 
+    * service
+        * GameService.java 
+    * validation
+        * Validation.java     
+    * GameClient.java 
+    * Application.java
+  
+
+
 ## ✔️ Commit Conventions
 - [feat]: 기능 추가 관련 커밋
 - [fix]: 버그 수정 관련 커밋
