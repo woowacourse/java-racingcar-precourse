@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Cars;
 import racingcar.view.InputView;
 
 public class GameController {
@@ -11,5 +12,6 @@ public class GameController {
 
 	public void init() {
 		String inputCarNames = inputView.getCarNames();
+		Cars cars = Cars.generateCars(inputCarNames);
 	}
 }
