@@ -23,4 +23,12 @@ public class Car {
 	public void printPosition(){
 		OutputView.printPosition(carName, position);
 	}
+
+	public String getCarName(){
+		return this.carName;
+	}
+
+	public int getPosition(){
+		return this.position;
+	}
 }
