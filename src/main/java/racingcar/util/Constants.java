@@ -29,4 +29,5 @@ public class Constants {
 	public static final String MESSAGE_POSITION = "-";
 	public static final String MESSAGE_PRINT_WINNERS = "최종 우승자 : ";
 	public static final String MESSAGE_COMMA_WITH_SPACE = ", ";
+	public static final String MESSAGE_PRINT_DRIVE_RESULT = "실행 결과";
 }

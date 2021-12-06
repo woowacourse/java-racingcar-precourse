@@ -2,8 +2,6 @@ package racingcar.util;
 
 import static racingcar.util.Constants.*;
 
-import java.util.Arrays;
-
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {

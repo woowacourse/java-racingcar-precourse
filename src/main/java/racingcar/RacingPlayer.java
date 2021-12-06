@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.util.Constants.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class RacingPlayer {
 	}
 
 	public void startRacing() {
-		System.out.println("실행 결과");
+		System.out.println(MESSAGE_PRINT_DRIVE_RESULT);
 		for (int i = 0; i < driveCount; i++) {
 			driveEveryCar();
 		}
