@@ -1,13 +1,14 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
 
-	public User user;
-	public List<Car> cars;
+	public User user = new User();
+	public List<Car> cars = new ArrayList<>();
 
 	public void startGame() {
 		makeCarList();
@@ -26,6 +27,7 @@ public class RacingGame {
 	public void runGame(int playRound) {
 		for (int i = 0; i < playRound; i++) {
 			moveCars();
+			printCurrentResult();
 		}
 	}
 
@@ -50,4 +52,18 @@ public class RacingGame {
 		return true;
 	}
 
+	public void printCurrentResult() {
+		System.out.println();
+		for (Car car : cars) {
+			System.out.print(car.getName() + " : ");
+			printStatus(car.getPosition());
+		}
+	}
+
+	public void printStatus(int num) {
+		for (int i = 0; i < num; i++) {
+			System.out.print("-");
+		}
+		System.out.println();
+	}
 }
