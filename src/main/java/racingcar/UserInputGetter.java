@@ -4,14 +4,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class UserInputGetter {
 
-	public String[] parseCarName(String nameString){
+	public static String[] parseCarName(String nameString){
 
 		String[] names = nameString.split(",");
 
 		return names;
 	}
 
-	public String getUserInput(){
+	public static String getUserInput(){
 
 		String userInput = Console.readLine();
 
