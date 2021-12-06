@@ -21,14 +21,14 @@ public class RacingGame {
 	}
 
 	private void setCarsFromInput() {
-		String[] carInput = Request.carInput();
+		String[] carInput = Console.readCar();
 		cars = Arrays.stream(carInput)
 			.map(Car::new)
 			.toArray(Car[]::new);
 	}
 
 	private void setTurnFromInput() {
-		turn = Request.turnInput();
+		turn = Console.readTurn();
 	}
 
 	private void startRace() {
