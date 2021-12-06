@@ -3,24 +3,28 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
 import racingcar.domain.RepetitionNumber;
+import racingcar.domain.exception.Validator;
 
 public class Input {
-    private Input() {
+    public Validator validator;
+
+    public Input(Validator validator) {
+        this.validator = validator;
     }
 
-    public static Cars inputCarNames() {
+    public Cars inputCarNames() {
         try {
             Output.carNameInputGuideMessage();
-            return new Cars(Console.readLine());
+            return new Cars(Console.readLine(), validator);
         } catch (IllegalArgumentException e) {
             return inputCarNames();
         }
     }
 
-    public static RepetitionNumber inputRepetitionNumber() {
+    public RepetitionNumber inputRepetitionNumber() {
         try {
             Output.numberInputGuideMessage();
-            return new RepetitionNumber(Console.readLine());
+            return new RepetitionNumber(Console.readLine(), validator);
         } catch (IllegalArgumentException e) {
             return inputRepetitionNumber();
         }

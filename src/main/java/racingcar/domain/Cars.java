@@ -6,18 +6,16 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import racingcar.domain.exception.CarNameValidator;
-import racingcar.domain.exception.Validator;
 import racingcar.view.Output;
 
 public class Cars {
     private static final String DELIMITER = ",";
     private List<Car> cars;
 
-    public Cars(String names) {
+    public Cars(String names, CarNameValidator nameValidator) {
         cars = new ArrayList<>();
-        CarNameValidator validator = new Validator();
         String[] nameArr = names.split(DELIMITER);
-        if (validator.isAllValid(nameArr)) {
+        if (nameValidator.isAllValid(nameArr)) {
             for (String name : nameArr) {
                 cars.add(createCar(name));
             }

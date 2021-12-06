@@ -8,6 +8,11 @@ import racingcar.view.Output;
 public class RacingCarGame {
     private Cars cars;
     private RepetitionNumber repetitionNumber;
+    private Input input;
+
+    public RacingCarGame(Input input) {
+        this.input = input;
+    }
 
     public void run() {
         initialize();
@@ -24,7 +29,7 @@ public class RacingCarGame {
     }
 
     private void initialize() {
-        cars = Input.inputCarNames();
-        repetitionNumber = Input.inputRepetitionNumber();
+        cars = input.inputCarNames();
+        repetitionNumber = input.inputRepetitionNumber();
     }
 }
