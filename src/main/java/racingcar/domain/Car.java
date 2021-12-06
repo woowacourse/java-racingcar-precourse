@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.utils.OutputFormatter;
-
 public class Car {
 
     private final String name;
@@ -15,10 +13,6 @@ public class Car {
         if (moveTicket.isValidTicket()) {
             this.position++;
         }
-    }
-
-    public String getCarStatus() {
-        return OutputFormatter.converseCarStatus(position, name);
     }
 
     public String getName() {

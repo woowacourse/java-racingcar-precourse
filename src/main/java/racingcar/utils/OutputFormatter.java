@@ -5,7 +5,7 @@ import java.util.List;
 public class OutputFormatter {
 
     final private static String DELIMITER_FIELD = " : ";
-    final private static String DELIMITER_NAME = ",";
+    final private static String DELIMITER_WINNER = ", ";
     final private static String CAR_STATUS_BAR = "-";
     final private static String EMPTY = "";
     final private static String LINE_BREAK = "\n";
@@ -22,7 +22,7 @@ public class OutputFormatter {
 
     public static String convertWinners(List<String> winners) {
         return String.join(EMPTY,
-            WINNER_TAG, DELIMITER_FIELD, String.join(DELIMITER_NAME, winners));
+            WINNER_TAG, DELIMITER_FIELD, String.join(DELIMITER_WINNER, winners));
     }
 
     private static String generateStatusBar(int amount) {

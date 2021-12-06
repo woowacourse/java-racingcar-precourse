@@ -20,7 +20,8 @@ public class RacingCarGame {
 
     public String getGameStatus() {
         List<String> statusList = this.cars.stream()
-            .map(Car::getCarStatus)
+            .map(c -> OutputFormatter.converseCarStatus(
+                c.getPosition(), c.getName()))
             .collect(Collectors.toList());
         return OutputFormatter.converseGameStatus(statusList);
     }
