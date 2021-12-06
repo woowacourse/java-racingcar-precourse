@@ -13,6 +13,8 @@ public class Checker {
 	public boolean checkNames(String input) {
 		try {
 			checkNamesNumber(input);
+			checkNamesContainSpace(input);
+			checkNamesContainTap(input);
 			checkNamesLength(input);
 			checkNamesDuplication(input);
 		} catch (Exception e) {
@@ -24,10 +26,26 @@ public class Checker {
 
 	private void checkNamesNumber(String input) {
 		try {
-			List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
+			List<String> test = Arrays.asList(input.split(DELIMITER, -1));
 		} catch (Exception e) {
 			throw new IllegalArgumentException(ERROR_MESSAGE_NAMES_NUMBER);
 		}
+	}
+
+	private void checkNamesContainSpace(String input) {
+
+		if (input.contains(SPACE)) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_NAME_CONTAINS_SPACE);
+		}
+
+	}
+
+	private void checkNamesContainTap(String input) {
+
+		if (input.contains(TAP)) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_NAME_CONTAINS_TAP);
+		}
+
 	}
 
 	private void checkNamesLength(String input) {
@@ -81,7 +99,7 @@ public class Checker {
 
 	private void checkInputExceedInteger(String input) {
 		try {
-			Integer.parseInt(input);
+			int test = Integer.parseInt(input);
 		} catch (Exception e) {
 			throw new IllegalArgumentException(ERROR_MESSAGE_EXCEED_INTEGER);
 		}
