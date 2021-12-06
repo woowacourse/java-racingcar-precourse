@@ -23,7 +23,7 @@ public class CarList {
 	}
 
 	private static void getValidCarNamesByUserInput() {
-		while (carNames.isEmpty() || isInvalid(carNames)) {
+		while (carNames.isEmpty() || isInvalid()) {
 			String input = Console.readLine();
 			carNames = Arrays.asList(input.split(","));
 		}
@@ -37,12 +37,12 @@ public class CarList {
 		return cars;
 	}
 
-	private static boolean isInvalid(List<String> carNames) {
+	private static boolean isInvalid() {
 		try {
-			isEmptyInput(carNames);
-			isLengthSixOrMore(carNames);
-			isNameDuplicate(carNames);
-			ContainSpaceOnName(carNames);
+			isEmptyInput();
+			isLengthSixOrMore();
+			isNameDuplicate();
+			ContainSpaceOnName();
 			return false;
 		} catch (IllegalArgumentException e) {
 			ErrorMessage.print(e.getMessage());
@@ -50,13 +50,13 @@ public class CarList {
 		}
 	}
 
-	private static void isEmptyInput(List<String> carNames) {
+	private static void isEmptyInput() {
 		if (carNames.size() == 1 && carNames.get(0).isEmpty()) {
 			throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_EMPTY);
 		}
 	}
 
-	private static void isLengthSixOrMore(List<String> carNames) {
+	private static void isLengthSixOrMore() {
 		for (String name : carNames) {
 			if (name.length() > 5) {
 				throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_LENGTH);
@@ -64,13 +64,13 @@ public class CarList {
 		}
 	}
 
-	private static void isNameDuplicate(List<String> carNames) {
+	private static void isNameDuplicate() {
 		if (carNames.size() != carNames.stream().distinct().count()) {
 			throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_DUPLICATE);
 		}
 	}
 
-	private static void ContainSpaceOnName(List<String> carNames) {
+	private static void ContainSpaceOnName() {
 		for (String name : carNames) {
 			if (name.contains(" ")) {
 				throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_SPACE);

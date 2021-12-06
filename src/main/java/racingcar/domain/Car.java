@@ -3,9 +3,9 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+	private static int maxPosition = 0;
 	private final String name;
 	private int position = 0;
-	private static int maxPosition = 0;
 
 	public Car(String name) {
 		this.name = name;
