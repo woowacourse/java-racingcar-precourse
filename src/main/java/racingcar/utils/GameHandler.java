@@ -2,7 +2,6 @@ package racingcar.utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import racingcar.domain.Car;
 import racingcar.constants.Constant;
@@ -13,15 +12,15 @@ public class GameHandler {
 
 	public void run() {
 		List<Car> cars = createCars();
-		int stages = getStages();
-		executeResult(stages, cars);
+		int times = userService.howManyTimes();
+		executeResult(times, cars);
 		showWinners(cars);
 	}
 
-	private void executeResult(int stages, List<Car> cars) {
+	private void executeResult(int times, List<Car> cars) {
 		System.out.println(Message.EXECUTE_RESULT);
 
-		while (stages-- > 0) {
+		while (times-- > 0) {
 			executeStage(cars);
 		}
 	}
@@ -65,7 +64,7 @@ public class GameHandler {
 	private int maxCurrentPosition(List<Car> cars) {
 		return cars.stream()
 				.mapToInt(Car::currentPosition)
-				.max().orElseThrow(NoSuchElementException::new);
+				.max().orElseThrow(IllegalArgumentException::new);
 	}
 
 	private List<Car> moveAllCars(List<Car> cars) {
@@ -90,13 +89,6 @@ public class GameHandler {
 		}
 		System.out.println("");
 	}
-
-	private int getStages() {
-		System.out.println(Message.ASK_STAGES);
-
-		return userService.howManyTimes();
-	}
-
 
 	private List<Car> createCars() {
 		System.out.println(Message.START);
