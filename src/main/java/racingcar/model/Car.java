@@ -7,12 +7,18 @@ public class Car {
 	private static final int RANDOM_NUMBER_LOWER_BOUND = 1;
 	private static final int RANDOM_NUMBER_UPPER_BOUND = 9;
 	private static final int CAR_MOVE_DECISION_NUMBER = 4;
+	private static final int INITIAL_POSITION = 0;
+	private static final String POSITION_SYMBOL_STRING = "-";
 
 	private final String name;
 	private int position = 0;
 
 	public Car(String name) {
 		this.name = name;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void decideMoveOrStop() {
@@ -28,4 +34,13 @@ public class Car {
 	private void moveCar() {
 		position++;
 	}
+
+	public String convertPositionIntToSymbol() {
+		StringBuilder positionSymbol = new StringBuilder();
+		for (int currentPostion = INITIAL_POSITION; currentPostion < position; currentPostion++) {
+			positionSymbol.append(POSITION_SYMBOL_STRING);
+		}
+		return positionSymbol.toString();
+	}
+
 }

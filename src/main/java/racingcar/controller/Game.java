@@ -7,6 +7,8 @@ import racingcar.view.Output;
 public class Game {
 
 	static final int INITIAL_ROUND_NUMBER = 0;
+	private static final String RESULT_MASSAGE = "실행 결과";
+
 	RacingCars racingCars;
 	Input input = new Input();
 	Output output = new Output();
@@ -19,9 +21,10 @@ public class Game {
 	}
 
 	private void run(int count) {
+		System.out.println(RESULT_MASSAGE);
 		for (int round = INITIAL_ROUND_NUMBER; round < count; round++) {
 			racingCars.moveOrStopCars();
-
+			output.reportThisRoundResult(racingCars);
 		}
 	}
 }
