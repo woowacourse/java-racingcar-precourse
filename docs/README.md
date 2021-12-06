@@ -7,7 +7,7 @@ racingcar
  ┃    └─ Car.java
  ┃	   └─ Randoms_method
  ┃    └─ input.java
- ┃           └─ consoles_method
+ ┃           └─ console_method
  └─ ApplictionTest
 ```
 
