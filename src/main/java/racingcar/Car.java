@@ -37,6 +37,12 @@ public class Car {
         return trace;
     }
 
+    protected int getPosition() {
+        return position;
+    }
 
+    protected String getCarName() {
+        return name;
+    }
 
 }
