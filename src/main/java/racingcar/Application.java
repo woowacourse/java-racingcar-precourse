@@ -10,14 +10,16 @@ public class Application {
     static int tryTimes;
     static List<String> winnerNames = new ArrayList<>();
 
+    static Message message = new Message();
+
     static final String parser = ",";
 
-    static final int GAME_CREATE_CARS = 1;
-    static final int GAME_SET_TRY_TIMES = 2;
-    static final int GAME_PLAY_START = 3;
-
-    static final int NAME_INPUT_ERROR = 1;
-    static final int TIME_INPUT_ERROR = 2;
+//    static final int GAME_CREATE_CARS = 1;
+//    static final int GAME_SET_TRY_TIMES = 2;
+//    static final int GAME_PLAY_START = 3;
+//
+//    static final int NAME_INPUT_ERROR = 1;
+//    static final int TIME_INPUT_ERROR = 2;
 
     public static void main(String[] args) {
         createCars();
@@ -27,7 +29,8 @@ public class Application {
     }
 
     static void createCars() {
-        printGameMessage(GAME_CREATE_CARS);
+        //printGameMessage(GAME_CREATE_CARS);
+        message.printGameCreateCars();
         String[] carNames = getCarNames();
         addCarsToCarList(carNames);
     }
@@ -49,7 +52,8 @@ public class Application {
                 carNames = parseCarNamesInput(carNamesInput);
                 return carNames;
             } catch (IllegalArgumentException e) {
-                printErrorMessage(NAME_INPUT_ERROR);
+                message.printNameInputError();
+//                printErrorMessage(NAME_INPUT_ERROR);
             }
         }
     }
@@ -67,7 +71,8 @@ public class Application {
     }
 
     static void setTryTimes() {
-        printGameMessage(GAME_SET_TRY_TIMES);
+        message.printGameSetTryTimes();
+//        printGameMessage(GAME_SET_TRY_TIMES);
         tryTimes = getTryTimes();
     }
 
@@ -81,7 +86,9 @@ public class Application {
                 tryTimesInt = makeStringToInt(tryTimesInput);
                 return tryTimesInt;
             } catch (IllegalArgumentException e) {
-                printErrorMessage(TIME_INPUT_ERROR);
+                message.printTimeInputError();
+                //printErrorMessage(TIME_INPUT_ERROR);
+
             }
         }
     }
@@ -98,7 +105,8 @@ public class Application {
     }
 
     static void playGames() {
-        printGameMessage(GAME_PLAY_START);
+        message.printStartPlayGames();
+        //printGameMessage(GAME_PLAY_START);
 
         for (int i = 0; i < tryTimes; ++i) {
             playOneTurn();
@@ -143,28 +151,27 @@ public class Application {
         }
     }
 
-
-    static void printGameMessage(int gameType) {
-        if (gameType == GAME_CREATE_CARS) {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            return;
-        }
-        if (gameType == GAME_SET_TRY_TIMES) {
-            System.out.println("시도할 회수는 몇회인가요?");
-            return;
-        }
-        if (gameType == GAME_PLAY_START) {
-            System.out.println("\n실행 결과");
-        }
-    }
-
-    static void printErrorMessage(int errorType) {
-        if (errorType == NAME_INPUT_ERROR) {
-            System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
-            return;
-        }
-        if (errorType == TIME_INPUT_ERROR) {
-            System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
-        }
-    }
+//    static void printGameMessage(int gameType) {
+//        if (gameType == GAME_CREATE_CARS) {
+//            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+//            return;
+//        }
+//        if (gameType == GAME_SET_TRY_TIMES) {
+//            System.out.println("시도할 회수는 몇회인가요?");
+//            return;
+//        }
+//        if (gameType == GAME_PLAY_START) {
+//            System.out.println("\n실행 결과");
+//        }
+//    }
+//
+//    static void printErrorMessage(int errorType) {
+//        if (errorType == NAME_INPUT_ERROR) {
+//            System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
+//            return;
+//        }
+//        if (errorType == TIME_INPUT_ERROR) {
+//            System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
+//        }
+//    }
 }
