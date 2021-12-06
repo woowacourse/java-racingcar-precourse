@@ -11,8 +11,7 @@ public enum Message {
 	ERROR_DUPLICATE_CAR_NAME(ERROR_HEADER.getMessage() + "자동차 이름은 서로 달라야 합니다."),
 	ERROR_CAR_NAME_LIST_SIZE(ERROR_HEADER.getMessage() + "자동차 이름의 개수는 2개 이상이어야 합니다"),
 	ERROR_INPUT_IS_BLANK(ERROR_HEADER.getMessage() + "공백을 입력하셨습니다. 다시 입력해주세요."),
-	WINNER_RESULT("최종 우승자 : "),
-	;
+	WINNER_RESULT("최종 우승자 : ");
 
 	private final String message;
 

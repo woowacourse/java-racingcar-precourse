@@ -68,6 +68,18 @@ public class Validator {
 		}
 	}
 
+	public static boolean checkCarNameLength(String carName) {
+		try {
+			if ((carName.length() <= CAR_NAME_MAX_LENGTH)) {
+				return true;
+			}
+			throw new IllegalArgumentException();
+		} catch (Exception e) {
+			OutputView.printInvalidCarNameLength();
+			return false;
+		}
+	}
+
 	public static boolean checkInputIsBlank(String carName) {
 		try {
 			if (!(carName.isEmpty())) {
@@ -80,17 +92,6 @@ public class Validator {
 		}
 	}
 
-	public static boolean checkCarNameLength(String carName) {
-		try {
-			if ((carName.length() <= CAR_NAME_MAX_LENGTH)) {
-				return true;
-			}
-			throw new IllegalArgumentException();
-		} catch (Exception e) {
-			OutputView.printInvalidCarNameLength();
-			return false;
-		}
-	}
 
 	public static boolean checkAttemptNumberIsDigit(char tempInput) {
 		try {
