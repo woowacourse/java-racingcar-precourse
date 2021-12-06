@@ -11,15 +11,7 @@ public class Application {
     static List<String> winnerNames = new ArrayList<>();
 
     static Message message = new Message();
-
-    static final String parser = ",";
-
-//    static final int GAME_CREATE_CARS = 1;
-//    static final int GAME_SET_TRY_TIMES = 2;
-//    static final int GAME_PLAY_START = 3;
-//
-//    static final int NAME_INPUT_ERROR = 1;
-//    static final int TIME_INPUT_ERROR = 2;
+    static StringManager stringManager = new StringManager();
 
     public static void main(String[] args) {
         createCars();
@@ -29,7 +21,6 @@ public class Application {
     }
 
     static void createCars() {
-        //printGameMessage(GAME_CREATE_CARS);
         message.printGameCreateCars();
         String[] carNames = getCarNames();
         addCarsToCarList(carNames);
@@ -49,30 +40,16 @@ public class Application {
         while (true) {
             try {
                 carNamesInput = readLine();
-                carNames = parseCarNamesInput(carNamesInput);
+                carNames = stringManager.parseCarNamesInput(carNamesInput);
                 return carNames;
             } catch (IllegalArgumentException e) {
                 message.printNameInputError();
-//                printErrorMessage(NAME_INPUT_ERROR);
             }
         }
-    }
-
-    static String[] parseCarNamesInput(String carNamesInput) {
-        String[] carNames = carNamesInput.split(parser);
-
-        for (String s : carNames) {
-            if (s.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
-
-        return carNames;
     }
 
     static void setTryTimes() {
         message.printGameSetTryTimes();
-//        printGameMessage(GAME_SET_TRY_TIMES);
         tryTimes = getTryTimes();
     }
 
@@ -83,24 +60,11 @@ public class Application {
         while (true) {
             try {
                 tryTimesInput = readLine();
-                tryTimesInt = makeStringToInt(tryTimesInput);
+                tryTimesInt = stringManager.toInt(tryTimesInput);
                 return tryTimesInt;
             } catch (IllegalArgumentException e) {
                 message.printTimeInputError();
-                //printErrorMessage(TIME_INPUT_ERROR);
-
             }
-        }
-    }
-
-    static int makeStringToInt(String inputString) {
-        int inputInt;
-
-        try {
-            inputInt = Integer.parseInt(inputString);
-            return inputInt;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
         }
     }
 
@@ -150,28 +114,4 @@ public class Application {
             System.out.print(", " + winnerNames.get(i));
         }
     }
-
-//    static void printGameMessage(int gameType) {
-//        if (gameType == GAME_CREATE_CARS) {
-//            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-//            return;
-//        }
-//        if (gameType == GAME_SET_TRY_TIMES) {
-//            System.out.println("시도할 회수는 몇회인가요?");
-//            return;
-//        }
-//        if (gameType == GAME_PLAY_START) {
-//            System.out.println("\n실행 결과");
-//        }
-//    }
-//
-//    static void printErrorMessage(int errorType) {
-//        if (errorType == NAME_INPUT_ERROR) {
-//            System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
-//            return;
-//        }
-//        if (errorType == TIME_INPUT_ERROR) {
-//            System.out.println("[ERROR] 시도 횟수는 숫자여야 합니다.");
-//        }
-//    }
 }
