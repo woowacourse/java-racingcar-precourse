@@ -86,7 +86,6 @@ public class RacingGame {
         if (names.isEmpty()) {
             throw new IllegalArgumentException();
         }
-        System.out.println(names);
         for (String name : names) {
             if (name.length() > MAX_NAME_LENGTH || name.length() < MIN_NAME_LENGTH) {
                 throw new IllegalArgumentException();
@@ -98,16 +97,20 @@ public class RacingGame {
         while (true) {
             try {
                 System.out.println(MSG_INPUT_ATTEMPTS_NUM);
-                return convertToInteger(Console.readLine());
+                return convertToPositiveInteger(Console.readLine());
             } catch (IllegalArgumentException e) {
                 System.out.println(ERROR_ATTEMPT_NOT_NUMBER);
             }
         }
     }
 
-    private int convertToInteger(String attempts) throws IllegalArgumentException{
+    private int convertToPositiveInteger(String attempts) throws IllegalArgumentException{
         try {
-            return Integer.parseInt(attempts);
+            int converted = Integer.parseInt(attempts);
+            if (converted < 1){
+                throw new IllegalArgumentException();
+            }
+            return converted;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
