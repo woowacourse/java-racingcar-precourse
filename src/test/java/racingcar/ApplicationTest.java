@@ -37,6 +37,46 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 전진_정지_다수_우승자() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun", "3");
+                assertThat(output()).contains("pobi : --", "woni : --", "jun : -",
+                    "최종 우승자 : pobi, woni");
+            },
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+            MOVING_FORWARD, STOP, STOP,
+            STOP, MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 전진_정지_시도없음() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun", "0");
+                assertThat(output()).contains("최종 우승자 : pobi, woni, jun");
+            },
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+            MOVING_FORWARD, STOP, STOP,
+            STOP, MOVING_FORWARD, STOP,
+            STOP, STOP, MOVING_FORWARD,
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 전진_정지_참가자없음() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("", "5");
+                assertThat(output()).contains("최종 우승자 :");
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 자동차_전진_테스트() {
         assertRandomNumberInRangeTest(
             () -> {
