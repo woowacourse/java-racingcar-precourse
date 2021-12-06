@@ -17,8 +17,13 @@ public class Car {
         return this.name;
     }
     public static Car[] getCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNames = Console.readLine();
+        boolean isNameLengthValidate = true;
+        String carNames = "";
+        while (isNameLengthValidate) {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            carNames = Console.readLine();
+            isNameLengthValidate = validateNameLength(carNames);
+        }
         return splitCars(carNames);
     }
 
@@ -44,5 +49,15 @@ public class Car {
 
     public void printCarName() {
         System.out.print(this.name + " : ");
+    }
+
+    private static boolean validateNameLength(String str) {
+        try{
+            Utils.isStringOverLength(str);
+        }catch (Exception e) {
+            System.out.println("[ERROR] 이름은 5자 이하여야합니다.");
+            return true;
+        }
+        return false;
     }
 }

@@ -29,4 +29,13 @@ public class Utils {
         }
         return str;
     }
+
+    public static void isStringOverLength(String str) {
+        String[] cars = str.split(",");
+        for (String car : cars) {
+            if(car.length() > 5){
+                throw new IllegalArgumentException("[ERROR] 이름은 5자 이하여야합니다.");
+            }
+        }
+    }
 }
