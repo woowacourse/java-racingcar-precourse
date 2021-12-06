@@ -1,8 +1,11 @@
-package racingcar;
+package racingcar.domain;
 
 import static racingcar.Constant.*;
 import static racingcar.view.InputView.*;
 
+import racingcar.StringUtil;
+import racingcar.Validator;
+import racingcar.domain.EveryCar;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
