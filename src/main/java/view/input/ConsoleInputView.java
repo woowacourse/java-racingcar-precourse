@@ -1,6 +1,6 @@
 package view.input;
 
-public class InputView implements InputDisplayable {
+public class ConsoleInputView implements InputDisplayable {
     private static final String ERROR_SYMBOL = "[ERROR] ";
 
     @Override

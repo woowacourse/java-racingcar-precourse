@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 import static util.StringRepeater.repeat;
 
-public class OutputView implements OutputDisplayable {
+public class ConsoleOutputView implements OutputDisplayable {
     private static final String ENUMERATION_DELIMITER = ", ";
     private static final String POSITION_SYMBOL = "-";
     private static final String COLON_DELIMITER = " : ";
