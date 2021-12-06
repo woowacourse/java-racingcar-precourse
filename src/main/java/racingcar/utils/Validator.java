@@ -8,20 +8,14 @@ public class Validator {
 	private static final int CAR_NAME_LIST_MIN_SIZE = 2;
 
 	public static boolean isValidCarName(List<String> carNameList) {
-
-		for (String name : carNameList) {
-			try {
+		try {
+			for (String name : carNameList) {
 				checkInputIsBlank(name);
 				checkCarNameLength(name);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				return false;
 			}
-		}
-
-		try {
 			checkCarNameListSize(carNameList);
 			checkDuplicateCarName(carNameList);
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return false;
