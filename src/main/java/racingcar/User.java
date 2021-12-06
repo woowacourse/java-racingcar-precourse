@@ -12,7 +12,7 @@ public class User {
 	private final int MAX_NAME_LENGTH = 5;
 	private final int MIN_NAME_LENGTH = 1;
 
-	private final String DELIMITER = ",";
+	public static final String DELIMITER = ",";
 	private final String INPUT_MESSAGE_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(" + DELIMITER + ") 기준으로 구분)";
 	private final String INPUT_MESSAGE_NUMBER_OF_TIMES = "시도할 회수는 몇회인가요?";
 	private final String ERROR = "[ERROR]";

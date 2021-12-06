@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -38,13 +37,6 @@ public class Car {
 		System.out.println(state);
 	}
 
-	public boolean draw(Car other) {
-		if (this.position == other.position) {
-			return true;
-		}
-		return false;
-	}
-
 	public static List<Car> fromString(List<String> names) {
 		List<Car> carList = new ArrayList<>();
 		for (String name : names) {
@@ -54,10 +46,24 @@ public class Car {
 		return carList;
 	}
 
-	public static Comparator<Car> winComparator = new Comparator<Car>() {
-		@Override
-		public int compare(Car car1, Car car2) {
-			return car2.position - car1.position;
+	public static List<Car> pickTheWinner(List<Car> carList) {
+		List<Car> winnerList = new ArrayList<>();
+		int winnerPosition = Car.maxPosition(carList);
+		for (Car car : carList) {
+			if (car.position == winnerPosition) {
+				winnerList.add(car);
+			}
 		}
-	};
+		return winnerList;
+	}
+
+	private static int maxPosition(List<Car> carList) {
+		int maxPosition = 0;
+		for (Car car : carList) {
+			if (maxPosition < car.position) {
+				maxPosition = car.position;
+			}
+		}
+		return maxPosition;
+	}
 }
