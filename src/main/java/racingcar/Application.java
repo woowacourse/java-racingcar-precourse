@@ -10,6 +10,15 @@ public class Application {
     static int tryTimes;
     static List<String> winnerNames = new ArrayList<>();
 
+    static final String parser = ",";
+
+    static final int GAME_CREATE_CARS = 1;
+    static final int GAME_SET_TRY_TIMES = 2;
+    static final int GAME_PLAY_START = 3;
+
+    static final int NAME_INPUT_ERROR = 1;
+    static final int TIME_INPUT_ERROR = 2;
+
     public static void main(String[] args) {
         createCars();
         setTryTimes();
@@ -44,8 +53,6 @@ public class Application {
             }
         }
     }
-
-    final static String parser = ",";
 
     static String[] parseCarNamesInput(String carNamesInput) {
         String[] carNames = carNamesInput.split(parser);
@@ -136,9 +143,6 @@ public class Application {
         }
     }
 
-    static int GAME_CREATE_CARS = 1;
-    static int GAME_SET_TRY_TIMES = 2;
-    static int GAME_PLAY_START = 3;
 
     static void printGameMessage(int gameType) {
         if (gameType == GAME_CREATE_CARS) {
@@ -153,9 +157,6 @@ public class Application {
             System.out.println("\n실행 결과");
         }
     }
-
-    static int NAME_INPUT_ERROR = 1;
-    static int TIME_INPUT_ERROR = 2;
 
     static void printErrorMessage(int errorType) {
         if (errorType == NAME_INPUT_ERROR) {

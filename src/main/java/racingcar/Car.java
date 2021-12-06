@@ -3,8 +3,12 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Randoms.*;
 
 public class Car {
-    private final String name;
     private int position = 0;
+    private final String name;
+
+    static final int MIN_NUMBER = 0;
+    static final int MAX_NUMBER = 9;
+    static final int TARGET_NUMBER = 4;
 
     public Car(String name) {
         this.name = name;
@@ -14,10 +18,6 @@ public class Car {
         tryMoveForward();
         printResult();
     }
-
-    final public static int MIN_NUMBER = 0;
-    final public static int MAX_NUMBER = 9;
-    final public static int TARGET_NUMBER = 4;
 
     public void tryMoveForward() {
         int randomNumber = pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
