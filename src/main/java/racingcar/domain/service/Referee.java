@@ -18,8 +18,8 @@ public class Referee {
 
 	private String mapCarListToState(List<Car> racers) {
 		return racers.stream()
-				.map(Car::getState)
-				.collect(Collectors.joining(NEW_LINE));
+			.map(Car::getState)
+			.collect(Collectors.joining(NEW_LINE));
 	}
 
 	public String decideWinners(List<Car> racers) {
@@ -34,20 +34,20 @@ public class Referee {
 
 	private String convertCarListToString(List<Car> carList) {
 		return carList.stream()
-				.map(Car::getName)
-				.collect(Collectors.joining(WINNERS_JOINING_DELIMITER));
+			.map(Car::getName)
+			.collect(Collectors.joining(WINNERS_JOINING_DELIMITER));
 	}
 
 	private int judgeBestRecord(List<Car> racers) {
 		return racers.stream()
-				.map(Car::getPosition)
-				.max(Comparator.naturalOrder())
-				.get();
+			.map(Car::getPosition)
+			.max(Comparator.naturalOrder())
+			.get();
 	}
 
 	private List<Car> filterWinners(List<Car> racers, int bestRecord) {
 		return racers.stream()
-				.filter(racer -> racer.isWinner(bestRecord))
-				.collect(Collectors.toList());
+			.filter(racer -> racer.isWinner(bestRecord))
+			.collect(Collectors.toList());
 	}
 }

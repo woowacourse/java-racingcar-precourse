@@ -13,45 +13,45 @@ import racingcar.runner.RacingGame;
 
 public class Application {
 
-    private static final String READ_CARS_STRING_DELIMITER = ",";
+	private static final String READ_CARS_STRING_DELIMITER = ",";
 
-    public static void main(String[] args) {
-        ConsolePrinter printer = new ConsolePrinter();
-        ConsoleReader writer = new ConsoleReader(printer);
-        List<Car> racers = readRacers(writer, printer);
-        Lab lab = readLab(writer, printer);
-        Referee referee = new Referee();
-        RacingGame game = new RacingGame(lab, racers, printer, referee);
-        game.start();
-    }
+	public static void main(String[] args) {
+		ConsolePrinter printer = new ConsolePrinter();
+		ConsoleReader writer = new ConsoleReader(printer);
+		List<Car> racers = readRacers(writer, printer);
+		Lab lab = readLab(writer, printer);
+		Referee referee = new Referee();
+		RacingGame game = new RacingGame(lab, racers, printer, referee);
+		game.start();
+	}
 
-    private static List<Car> readRacers(ConsoleReader reader, ConsolePrinter printer) {
+	private static List<Car> readRacers(ConsoleReader reader, ConsolePrinter printer) {
 
-        try {
-            String racerNames = reader.readRacer();
-            return createNewCars(racerNames);
-        } catch (IllegalArgumentException e) {
-            printer.print(e.getMessage());
-            return readRacers(reader, printer);
-        }
+		try {
+			String racerNames = reader.readRacer();
+			return createNewCars(racerNames);
+		} catch (IllegalArgumentException e) {
+			printer.print(e.getMessage());
+			return readRacers(reader, printer);
+		}
 
-    }
+	}
 
-    private static List<Car> createNewCars(String racerNames) {
-        String[] splitedRacerNames = racerNames.split(READ_CARS_STRING_DELIMITER);
-        return Arrays.stream(splitedRacerNames)
-                .map(Car::new)
-                .collect(Collectors.toList());
-    }
+	private static List<Car> createNewCars(String racerNames) {
+		String[] splitedRacerNames = racerNames.split(READ_CARS_STRING_DELIMITER);
+		return Arrays.stream(splitedRacerNames)
+			.map(Car::new)
+			.collect(Collectors.toList());
+	}
 
-    private static Lab readLab(ConsoleReader reader, ConsolePrinter printer) {
+	private static Lab readLab(ConsoleReader reader, ConsolePrinter printer) {
 
-        try {
-            return new Lab(reader.readTryCount());
-        } catch (IllegalArgumentException e) {
-            printer.print(e.getMessage());
-            return readLab(reader, printer);
-        }
+		try {
+			return new Lab(reader.readTryCount());
+		} catch (IllegalArgumentException e) {
+			printer.print(e.getMessage());
+			return readLab(reader, printer);
+		}
 
-    }
+	}
 }
