@@ -24,4 +24,25 @@ public class Game {
 
         System.out.println("");
     }
+
+    private List<String> getWinnerNames() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(x -> x.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        int max = 0;
+        int currentPosition;
+
+        for (Car car : cars) {
+            currentPosition = car.getPosition();
+
+            if (max < currentPosition) max = currentPosition;
+        }
+
+        return max;
+    }
 }
