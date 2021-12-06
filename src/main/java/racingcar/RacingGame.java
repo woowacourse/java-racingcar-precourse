@@ -5,9 +5,9 @@ import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
-	private static final int MAX_RANGE = 9;
-	private static final int MIN_RANGE = 0;
-	private static final int MIN_RANDOM_NUMBER = 4;
+	private static final int MAX_RANDOM_NUMBER = 9;
+	private static final int MIN_RANDOM_NUMBER = 0;
+	private static final int THRESHOLD = 4;
 
 	private Car[] cars;
 	private int turn;
@@ -45,7 +45,7 @@ public class RacingGame {
 	}
 
 	private void moveCarRandomly(Car car) {
-		if (Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE) >= MIN_RANDOM_NUMBER) {
+		if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= THRESHOLD) {
 			car.moveForward();
 			maxPosition = Math.max(maxPosition, car.getPosition());
 		}
