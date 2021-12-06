@@ -12,6 +12,7 @@ public class RacingGame {
 	private static final String ERROR_MESSAGE_CHECK_NAME_RULE = "[ERROR] 자동차 이름의 길이는 1이상 5이하를 만족해야 한다. "
 		+ "그리고 중복되는 이름이 없어야 한다.\n";
 	private static final String WINNER_OUTPUT_MESSAGE = "최종 우승자";
+	private static final String AFTER_INIT_MESSAGE = "\n실행결과\n";
 	private static final String COMMA_SPACE = ", ";
 	private static final String SPACE_COLON_SPACE = " : ";
 	private static final int NAME_LENGTH_LIMIT = 5;
@@ -106,6 +107,7 @@ public class RacingGame {
 		String[] carNameBucket = getCarsNameInput(player);
 		totalTryNum = getTryNumInput(player);
 		makeCarInstance(carNameBucket);
+		player.sendMessage(AFTER_INIT_MESSAGE);
 	}
 
 	private void moveAllCars() {
@@ -156,9 +158,9 @@ public class RacingGame {
 		return winnersName.toString();
 	}
 
-	private void printWinners() {
+	private void printWinners(Player player) {
 		ArrayList<Integer> winnersIndex = getWinnersIndex();
-		System.out.printf("%s%s%s%n", WINNER_OUTPUT_MESSAGE, SPACE_COLON_SPACE, getWinnersName(winnersIndex));
+		player.sendMessage(WINNER_OUTPUT_MESSAGE + SPACE_COLON_SPACE + getWinnersName(winnersIndex));
 	}
 
 	public void playRacingGame(Player player) {
@@ -166,6 +168,6 @@ public class RacingGame {
 		for (int cycle = 0; cycle < totalTryNum; ++cycle) {
 			playOneCycle(player);
 		}
-		printWinners();
+		printWinners(player);
 	}
 }
