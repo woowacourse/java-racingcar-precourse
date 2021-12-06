@@ -44,12 +44,12 @@ public class Game {
         int max = -1;
         for (int i = 0; i < cars.size(); i++) {
             int position = cars.get(i).getPosition();
+            if (position == max) {
+                winners.add(cars.get(i));
+            }
             if (position > max) {
                 max = position;
                 winners.clear();
-                winners.add(cars.get(i));
-            }
-            if (cars.get(i).getPosition() == max) {
                 winners.add(cars.get(i));
             }
         }
