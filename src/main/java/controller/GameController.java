@@ -24,10 +24,18 @@ public class GameController {
 			showRacingCarNowPositions(racingCarGame.giveRacingCarNames(), racingCarGame.giveRacingCarPositions());
 		}
 
-		System.out.println(racingCarGame.giveWinner());
+		showRacingCarGameWinner(racingCarGame.giveWinner());
 	}
 
 	private static void showRacingCarNowPositions(String[] racingCarNames, int[] racingCarPositions) {
 		Display.showRacingCarNowPositions(racingCarNames, racingCarPositions);
+	}
+
+	private static void showRacingCarGameWinner(String[] racingCarGameWinner) {
+		if (racingCarGameWinner.length == 1) {
+			Display.showSoloWinner(racingCarGameWinner);
+			return;
+		}
+		Display.showJointWinner(racingCarGameWinner);
 	}
 }

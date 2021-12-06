@@ -36,4 +36,21 @@ public class Display {
 		}
 		System.out.println();
 	}
+
+	public static void showSoloWinner(String[] winner) {
+		System.out.println();
+		System.out.print("최종 우승자 : " + winner[0]);
+	}
+
+	public static void showJointWinner(String[] winners) {
+		System.out.println();
+		System.out.print("최종 우승자 : ");
+		for (String winner : winners) {
+			showWinner(winner);
+		}
+	}
+
+	private static void showWinner(String winner) {
+		System.out.print(winner + ", ");
+	}
 }
