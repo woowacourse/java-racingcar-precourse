@@ -43,4 +43,11 @@ public class Car {
             throw new IllegalArgumentException("[ERROR] 자동차의 이름이 비어있습니다.");
         }
     }
+
+    public int getPosition() {
+        return position;
+    }
+    public String getName() {
+        return name;
+    }
 }

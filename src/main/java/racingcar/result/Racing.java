@@ -23,6 +23,14 @@ public class Racing {
 		}
 	}
 
+	public String getPresentCarStatus() {
+		return cars.toString();
+	}
+
+	public String getFinalWinnerName(){
+		return cars.getFinalWinnerName();
+	}
+
 	private void validateEnd() {
 		if(isEnd()){
 			throw new ImpossibleRacingException("[ERROR] 시도 횟수가 소진되어 게임을 진행할 수 없습니다.");

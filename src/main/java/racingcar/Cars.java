@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,21 @@ public class Cars {
 		for (Car car : cars) {
 			car.move();
 		}
+	}
+
+	public String getFinalWinnerName(){
+		int maxPosition = getMaxPosition();
+		return cars.stream()
+			.filter(car -> car.getPosition() == maxPosition)
+			.map(Car::getName)
+			.collect(Collectors.joining(", "));
+	}
+
+	private int getMaxPosition() {
+		return cars.stream()
+			.map(Car::getPosition)
+			.max(Integer::compare)
+			.orElse(-1);
 	}
 
 	private static void validateSize(List<String> names){
