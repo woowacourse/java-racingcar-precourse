@@ -1,7 +1,6 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 import racingcar.view.InputDisplay;
 import racingcar.view.OutputDisplay;
 
@@ -9,19 +8,63 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class User {
-
-    private final InputDisplay inputDisplay;
-    private final OutputDisplay outputDisplay;
+public class RacingGameMain {
 
     private static final String NAME_SEPARATOR = ",";
     private static final String ERROR_MESSAGE_CAR_NAME = "[ERROR] 자동차 이름은 길이 5 이하의 영어 대소문자로 구성되어야 합니다.";
     private static final String REGULAR_CAR_NAME_EXPRESSION = "^[a-zA-Z]{1,5}$";
     private static final String ERROR_MESSAGE_CAR_COUNT = "[ERROR] 자동차는 2대 이상 입력되어야 합니다.";
+    private static final String SPACE = " ";
+    private static final String PRINT_WINNER_MESSAGE = "최종 우승자 : ";
 
-    public User(InputDisplay inputDisplay, OutputDisplay outputDisplay) {
+    private final InputDisplay inputDisplay;
+    private final OutputDisplay outputDisplay;
+
+    public RacingGameMain(InputDisplay inputDisplay, OutputDisplay outputDisplay) {
         this.inputDisplay = inputDisplay;
         this.outputDisplay = outputDisplay;
+    }
+
+
+    private String announceWinner(List<Car> cars) {
+        List<String> winners = makeWinnerList(cars);
+
+        return makeWinnerPrintFormat(winners);
+    }
+
+    private String makeWinnerPrintFormat(List<String> winners) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(PRINT_WINNER_MESSAGE);
+
+        for (int i = 0; i < winners.size(); i++) {
+            stringBuilder.append(winners.get(i));
+
+            if (i != winners.size() - 1) {
+                stringBuilder.append(NAME_SEPARATOR).append(SPACE);
+            }
+        }
+
+        return stringBuilder.toString();
+    }
+
+    private List<String> makeWinnerList(final List<Car> cars) {
+        final List<String> winners = new ArrayList<>();
+        final int topSpeed = findTopSpeed(cars);
+
+        for (Car car : cars) {
+            if (topSpeed == car.getPosition()) {
+                winners.add(car.getCarName());
+            }
+        }
+
+        return winners;
+    }
+
+    private int findTopSpeed(final List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
     }
 
     public List<Car> makeCarNameList() {
