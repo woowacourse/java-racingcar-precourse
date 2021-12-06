@@ -37,18 +37,26 @@ public class RacingGame {
         }
 
         startRacing(Integer.parseInt(tryNumber));
+
+        List<String> winnerList = findWinnerList();
+        showWinnerList(winnerList);
     }
 
     public void startRacing(int tryNumber) {
         System.out.println(RESULT_MESSAGE);
 
         for (int i = 0; i < tryNumber; i++) {
-            for (Car car: carList) {
+            for (Car car : carList) {
                 car.move();
                 car.showPosition();
             }
             System.out.println();
         }
+    }
+
+    public void showWinnerList(List<String> winnerList) {
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(DELIMITER + " ", winnerList));
     }
 
     public List<String> findWinnerList() {
