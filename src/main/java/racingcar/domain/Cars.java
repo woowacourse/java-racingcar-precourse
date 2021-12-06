@@ -12,6 +12,10 @@ public class Cars {
 		this.cars = creatCars(names);
 	}
 
+	public List<Car> getCars() {
+		return cars;
+	}
+
 	public List<Car> creatCars(final String names) {
 		List<Car> carList = new ArrayList<>();
 		String[] carNames = names.split(DELIMETER);
@@ -21,5 +25,12 @@ public class Cars {
 		}
 
 		return carList;
+	}
+
+	public void move() {
+		cars.forEach(car -> {
+			RandomNumberGenerator generator = new RandomNumberGenerator();
+			car.move(generator);
+		});
 	}
 }
