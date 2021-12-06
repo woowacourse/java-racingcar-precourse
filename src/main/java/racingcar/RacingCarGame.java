@@ -19,16 +19,9 @@ public class RacingCarGame {
 	public void Play() {
 		user.askNamesUntilCorrect();
 		user.askNumberOfTimesUntilCorrect();
-		makeCarList();
+		carList = Car.fromString(user.getNames());
 		printResult();
 		printWinner();
-	}
-
-	private void makeCarList() {
-		for (String name : user.getNames()) {
-			Car car = new Car(name);
-			carList.add(car);
-		}
 	}
 
 	private void printResult() {

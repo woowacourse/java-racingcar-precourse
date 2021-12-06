@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -41,6 +43,15 @@ public class Car {
 			return true;
 		}
 		return false;
+	}
+
+	public static List<Car> fromString(List<String> names) {
+		List<Car> carList = new ArrayList<>();
+		for (String name : names) {
+			Car car = new Car(name);
+			carList.add(car);
+		}
+		return carList;
 	}
 
 	public static Comparator<Car> winComparator = new Comparator<Car>() {
