@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -36,6 +35,12 @@ class ApplicationTest extends NsTest {
                             assertThat(output()).contains(ERROR_MESSAGE);
                         }
                 );
+        assertSimpleTest(
+            () -> {
+                runException("pobi,javaji");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
     }
 
     @Override
