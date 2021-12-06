@@ -10,7 +10,7 @@ public class RacingCarGame {
 
     public void start() {
         InputView inputView = new InputView();
-        ArrayList<Car> cars = inputView.inputCarName();
+        ArrayList<Car> cars = inputView.validateInput();
         int times = inputView.inputTimes();
 
         OutputView outputView = new OutputView();

@@ -12,10 +12,15 @@ import racingcar.domain.Car;
 public class InputView {
     private ArrayList<Car> cars;
 
-    public ArrayList<Car> inputCarName() {
+    private String[] inputInit () {
         System.out.println(Input.CAR_NAME_MESSAGE);
         String input = Console.readLine();
         String[] carNames = input.split(",");
+        return carNames;
+    }
+
+    public ArrayList<Car> validateInput() {
+        String[] carNames = inputInit();
         cars = new ArrayList<>();
         Arrays.stream(carNames).forEach(name -> cars.add(new Car(name)));
         while (true) {
@@ -36,7 +41,7 @@ public class InputView {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(Input.CAR_NAME_ERROR_MESSAGE);
-            inputCarName();
+            validateInput();
         }
     }
 
@@ -51,7 +56,7 @@ public class InputView {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(Input.OVERLAP_ERROR_MESSAGE);
-            inputCarName();
+            validateInput();
         }
     }
 
