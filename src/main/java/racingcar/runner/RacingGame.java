@@ -43,6 +43,7 @@ public class RacingGame {
 	}
 
 	private void startRace() {
+		printer.newLine();
 		printer.print(START_RACE_SYSTEM_MESSAGE);
 		final int raceCount = lab.getLabCount();
 		for (int i = 0; i < raceCount; i++) {
