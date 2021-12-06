@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.HashSet;
 import java.util.Vector;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -64,15 +65,8 @@ public class Game {
 
 	}
 
-	private void makeCars(String[] seperatedCarNames) {
-
-		for (int i = 0; i < seperatedCarNames.length; i++) {
-			cars.add(new Car(seperatedCarNames[i]));
-		}
-
-	}
-
 	private boolean canMakeCarsCompletely(String[] seperatedCarNames) {
+		HashSet<String> carNameSet;
 
 		for (int i = 0; i < seperatedCarNames.length; i++) {
 
@@ -99,6 +93,14 @@ public class Game {
 		}
 
 		return true;
+	}
+
+	private void makeCars(String[] seperatedCarNames) {
+
+		for (int i = 0; i < seperatedCarNames.length; i++) {
+			cars.add(new Car(seperatedCarNames[i]));
+		}
+
 	}
 
 	private void setGameTurn() {
