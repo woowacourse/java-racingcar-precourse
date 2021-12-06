@@ -1,8 +1,5 @@
 package racingcar;
 
-import racingcar.utils.RandomGenerator;
-import racingcar.utils.Constant;
-
 public class Car {
 	private final String carName;
 	private int position = 0;
