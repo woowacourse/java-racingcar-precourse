@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class CarList {
 	private final ArrayList<Car> cars = new ArrayList<>();
 
@@ -17,8 +15,7 @@ public class CarList {
 
 	public void moveAll() {
 		for (Car car : this.cars) {
-			if (Randoms.pickNumberInRange(0, 9) >= 4)
-				car.moveForward();
+			car.moveForward();
 		}
 	}
 
