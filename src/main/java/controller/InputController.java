@@ -20,7 +20,13 @@ public class InputController {
 	}
 
 	public static int inputNumberOfCarRaces() {
-		String raceCount = Console.readLine();
-		return Integer.parseInt(raceCount);
+		while (true) {
+			try {
+				String raceCount = Console.readLine();
+				return InputValidator.isValideRaceCount(raceCount);
+			} catch (IllegalArgumentException error) {
+				System.out.println(error.getMessage());
+			}
+		}
 	}
 }

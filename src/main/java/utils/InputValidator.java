@@ -3,8 +3,10 @@ package utils;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class InputValidator {
+	private static final String NUMBER_PATTERN = "^[0-9]*$";
 
 	private InputValidator() {
 	}
@@ -17,6 +19,18 @@ public class InputValidator {
 			return racingCarNames;
 		}
 		throw new IllegalArgumentException();
+	}
+
+	public static int isValideRaceCount(String raceCount) {
+		if (!Pattern.matches(NUMBER_PATTERN, raceCount)) {
+			throw new IllegalArgumentException("입력한 경주횟수가 숫자가 아닙니다.");
+		}
+
+		if (raceCount.startsWith("0")) {
+			throw new IllegalArgumentException("입력한 경주횟수가 0으로 시작합니다.");
+		}
+
+		return Integer.parseInt(raceCount);
 	}
 
 	private static boolean haveBlankInRacingCarNames(String[] racingCarNames) {
