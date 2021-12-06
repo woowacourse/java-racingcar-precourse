@@ -3,8 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 
 public class GameController {
-
-    private ArrayList<Car> carList;
+    private final ArrayList<Car> carList = new ArrayList<>();
 
     public void gameStart() {
         InputRole inputRole = new InputRole();
@@ -15,9 +14,12 @@ public class GameController {
 
     private void changeInputToCar(InputRole inputRole) {
         for (String name : inputRole.getNameList()) {
-            carList.add(new Car(name));
+            this.carList.add(new Car(name));
         }
     }
+
+
+
 
 
 
