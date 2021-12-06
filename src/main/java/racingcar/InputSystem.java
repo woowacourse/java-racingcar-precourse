@@ -18,21 +18,20 @@ public class InputSystem {
     public InputSystem() {
     }
 
-    public List<Car> inputCarName(List<Car> cars) {
+    public void inputCarName(List<Car> cars) {
         String input = write(INPUT_CAR_SENTENCE);
         try {
-            checkValidName(input, cars, ERROR_CAR_SENTENCE);
+            checkValidName(input, cars);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             inputCarName(cars);
         }
-        return cars;
     }
 
     public int inputTryCnt() {
         String input = write(INPUT_CNT_SENTENCE);
         try {
-            checkNumber(input, ERROR_CNT_SENTENCE);
+            checkNumber(input);
             return Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -40,21 +39,31 @@ public class InputSystem {
         }
     }
 
-
-    public void checkNumber(String input, String errorSentence) {
+    public void checkNumber(String input) {
         if (!isNumber(input) || !isUnderMax(input)) {
-            throw new IllegalArgumentException(errorSentence);
+            throw new IllegalArgumentException(ERROR_CNT_SENTENCE);
         }
     }
 
-    public void checkValidName(String input, List<Car> cars, String errorSentence) {
+    public void checkValidName(String input, List<Car> cars) {
         String[] nameArray = input.split(SEPARATOR, NEGATIVE_NUMBER);
         for (String name : nameArray) {
             if (isInvalidName(name, cars)) {
-                throw new IllegalArgumentException(errorSentence);
+                throw new IllegalArgumentException(ERROR_CAR_SENTENCE + getNowCarList(cars));
             }
             cars.add(new Car(name));
         }
+    }
+
+    private String getNowCarList(List<Car> cars) {
+        StringBuilder sb = new StringBuilder(" (현재 자동차 목록 = ");
+        int len = cars.size();
+        sb.append(cars.get(0).getName());
+        for (int i = 1; i < len; i++) {
+            sb.append(", ").append(cars.get(i).getName());
+        }
+        sb.append(")");
+        return sb.toString();
     }
 
     private String write(String sentence) {

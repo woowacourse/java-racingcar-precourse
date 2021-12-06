@@ -22,25 +22,25 @@ class InputSystemTest {
     @Test
     void 자동차_입력_예외_발생() {
         assertThrows(IllegalArgumentException.class,
-                () -> system.checkValidName("A,B,", cars, "[ERROR]")
+                () -> system.checkValidName("A,B,", cars)
         );
     }
 
     @Test
     void 올바른_자동차_입력() {
-        assertDoesNotThrow(() -> system.checkValidName("car1,car2,car3", cars, "[ERROR]"));
+        assertDoesNotThrow(() -> system.checkValidName("car1,car2,car3", cars));
     }
 
     @Test
     void 숫자_입력_예외_발생() {
         assertThrows(IllegalArgumentException.class,
-                () -> system.checkNumber("12A", "[ERROR]")
+                () -> system.checkNumber("12A")
         );
     }
 
     @Test
     void 올바른_숫자_입력() {
         InputSystem system = new InputSystem();
-        assertDoesNotThrow(() -> system.checkNumber("123", "[ERROR]"));
+        assertDoesNotThrow(() -> system.checkNumber("123"));
     }
 }
