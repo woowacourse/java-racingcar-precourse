@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.utils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +12,6 @@ public class Validator {
 	private static final String PATTERN = "^[0-9]*$";
 	private static final String LENGTH_ERROR_MESSAGE = "[ERROR] 시도 회수를 입력해주세요.";
 	private static final String PATTERN_ERROR_MESSAGE = "[ERROR] 시도 회수는 숫자만 가능합니다.";
-
 
 	private static Set<String> carNamesSet;
 

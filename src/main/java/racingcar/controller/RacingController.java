@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.model.Car;
-import racingcar.model.CarNamesBuilder;
-import racingcar.model.Validator;
+import racingcar.utils.CarNamesBuilder;
+import racingcar.utils.Validator;
 import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
