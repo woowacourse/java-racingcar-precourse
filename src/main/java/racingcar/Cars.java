@@ -1,12 +1,13 @@
 package racingcar;
 
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Cars {
-	private List<Car> cars;
+	private final List<Car> cars;
 
 	public Cars(List<Car> cars) {
 		Validator.validateDuplicateCars(cars);
@@ -14,7 +15,7 @@ public class Cars {
 	}
 
 	public List<Car> getCars() {
-		return cars;
+		return Collections.unmodifiableList(cars);
 	}
 
 	public LinkedHashMap<Car, String> showCarsPosition() {
