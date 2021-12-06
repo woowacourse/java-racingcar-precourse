@@ -20,5 +20,4 @@ class CarTest {
 	void 자동차_생성_테스트(String actual) {
 		assertDoesNotThrow(() -> new Car(actual));
 	}
-
 }

@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import racingcar.domain.car.Car;
+import racingcar.domain.service.Referee;
 import racingcar.domain.trycounter.Lab;
 import racingcar.io.ConsolePrinter;
 import racingcar.io.ConsoleReader;
+import racingcar.runner.RacingGame;
 
 public class Application {
 
@@ -18,6 +20,9 @@ public class Application {
         ConsoleReader writer = new ConsoleReader(printer);
         List<Car> racers = readRacers(writer, printer);
         Lab lab = readLab(writer, printer);
+        Referee referee = new Referee();
+        RacingGame game = new RacingGame(lab, racers, printer, referee);
+        game.start();
     }
 
     private static List<Car> readRacers(ConsoleReader reader, ConsolePrinter printer) {

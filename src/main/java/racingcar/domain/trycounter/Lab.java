@@ -5,7 +5,6 @@ public class Lab {
 	private static final String LIMIT_MUST_BE_NUMBER = "[0-9]+";
 
 	private final int limit;
-	private int current = 0;
 
 	public Lab(String input) {
 		validate(input);
@@ -31,4 +30,7 @@ public class Lab {
 		}
 	}
 
+	public int getLabCount() {
+		return limit;
+	}
 }
