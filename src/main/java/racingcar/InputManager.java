@@ -70,10 +70,11 @@ public class InputManager {
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
-		if (number.length() == 0 || !isNumber(number)) {
+		if (number.length() == 0 || !isNumber(number) || number.equals(Constant.TRY_NUMBER_ZERO)) {
 			throw new IllegalArgumentException(Constant.TRY_NUMBER_ERROR);
 		}
 	}
+
 
 	public boolean isNumber(String number) {
 		for (int i = 0; i < number.length(); i++) {
