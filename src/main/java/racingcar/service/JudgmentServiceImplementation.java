@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.domain.Player;
 
 public class JudgmentServiceImplementation implements JudgmentService {

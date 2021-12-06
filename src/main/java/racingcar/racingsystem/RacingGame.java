@@ -1,18 +1,17 @@
 package racingcar.racingsystem;
 
-import java.util.Comparator;
-
+import racingcar.configuration.DependencyInjectionContainer;
+import racingcar.domain.Car;
 import racingcar.domain.Player;
 import racingcar.service.JudgmentService;
-import racingcar.service.JudgmentServiceImplementation;
 import racingcar.validation.InputValidation;
-import racingcar.validation.RacingGameValidationImpl;
 
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
 
     private static final String CAR_NAME_INPUT_CLASSIFICATION_RULE = ",";
+    private static final String WINNER_NAME_OUTPUT_CLASSIFICATION_RULE = ", ";
     private final InputValidation validation;
     private final JudgmentService judgmentService;
 
@@ -21,13 +20,8 @@ public class RacingGame {
     private StringBuilder racingRecord;
 
     public RacingGame() {
-        validation = RacingGameValidationImpl.getInstance();
-        judgmentService = new JudgmentServiceImplementation(new Comparator<Car>() {
-            @Override
-            public int compare(Car o1, Car o2) {
-                return o2.getPosition() - o1.getPosition();
-            }
-        });
+        validation = DependencyInjectionContainer.racingGameInputValidation();
+        judgmentService = DependencyInjectionContainer.judgmentService();
     }
 
     public void start() {
@@ -36,7 +30,7 @@ public class RacingGame {
         Player player = new Player(carNames, numberOfAttempts);
         startRacing(player);
         printConsoleMessage(racingRecord.toString());
-        String winners = String.join(", ", ToStringArray(player));
+        String winners = String.join(WINNER_NAME_OUTPUT_CLASSIFICATION_RULE, ToStringArray(player));
         printConsoleMessage(SystemMessage.JUDGMENT_RESULT_MESSAGE.getMessage() + winners + "\n");
     }
 
@@ -64,7 +58,8 @@ public class RacingGame {
                 validation.validNumberOfAttempts(inputTheNumberOfAttempt);
                 numberOfAttempts = toInteger(inputTheNumberOfAttempt);
             } catch (IllegalArgumentException e) {
-                printConsoleMessage(SystemMessage.ERROR_INPUT_NUMBER_OF_ATTEMPTS_MESSAGE.getMessage());
+                printConsoleMessage(
+                    SystemMessage.ERROR_INPUT_NUMBER_OF_ATTEMPTS_MESSAGE.getMessage());
                 isRetry = true;
             }
         } while (isRetry);

@@ -3,8 +3,6 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.Car;
-
 public class Player {
 
     private final int numberOfAttempts;
