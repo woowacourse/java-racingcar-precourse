@@ -44,5 +44,8 @@ public class User {
                 throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
             }
         }
+        if(Integer.parseInt(num) < 1){
+            throw new IllegalArgumentException("[ERROR] 숫자는 1보다 커야한다.");
+        }
     }
 }

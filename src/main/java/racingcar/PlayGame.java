@@ -6,10 +6,12 @@ public class PlayGame {
     Computer computer;
     User user;
     String[] cars;
+    Integer playNum;
 
     public void Play(){
         initSetting();
         CarName();
+        PlayNum();
     }
 
     //초기 세팅 함수
@@ -24,4 +26,9 @@ public class PlayGame {
         cars = user.InputCarName();
     }
 
+    // 시도 횟수 입력
+    private void PlayNum(){
+        computer.MSGPlayNum();
+        playNum = user.InputPlayNum();
+    }
 }
