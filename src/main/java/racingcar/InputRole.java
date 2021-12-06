@@ -12,15 +12,13 @@ public class InputRole {
     private static final String NAME_LENGTH_ERROR = "입력한 이름들의 길이가 유효하지 않습니다. 1자에서 5자 이내의 이름을 입력해주세요. ";
     private static final String NAME_WHITESPACE_ERROR = "입력에 공백이 들어가면 안됩니다. ";
 
+    private String[] nameList;
+    private int trialNmber;
+
     public void getInputValue() {
         while (true) {
             try {
-                System.out.println(NAME_INPUT_INSTRUCTION);
-                String inputNames = Console.readLine();
-                for(String name: inputNames.split(",")) {
-                    checkNameWhiteSpaceValid(name);
-                    checkNameLengthValid(name);
-                }
+                inputName();
                 return ;
             }
             catch (IllegalArgumentException e){
@@ -28,6 +26,26 @@ public class InputRole {
             }
         }
     }
+
+    public String[] getNameList() {
+        return nameList;
+    }
+
+    public int getTrialNmber() {
+        return trialNmber;
+    }
+
+    private void inputName() {
+        System.out.println(NAME_INPUT_INSTRUCTION);
+        String inputNames = Console.readLine();
+        String[] nameList = inputNames.split(",");
+        for(String name: nameList) {
+            checkNameWhiteSpaceValid(name);
+            checkNameLengthValid(name);
+        }
+        this.nameList = nameList;
+    }
+
 
     private void checkNameLengthValid(String name) {
         if (name.length()<=0 || name.length()>5) {
