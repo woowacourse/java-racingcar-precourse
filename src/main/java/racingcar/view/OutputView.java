@@ -11,7 +11,7 @@ public class OutputView {
 	private static ArrayList<String> stringWinnerNames = new ArrayList<String>();
 
 	public static void printPosition(String carName, int position) {
-		System.out.println(carName + " : ");
+		System.out.print(carName + " : ");
 		for (int i = 0; i < position; i++) {
 			System.out.print("-");
 		}
@@ -20,8 +20,7 @@ public class OutputView {
 
 	public static void printWinner(ArrayList<Car> winnerList){
 		stringWinnerNames = extractNames(winnerList);
-		System.out.println(FINAL_WINNER);
-		System.out.println(String.join(", ", stringWinnerNames));
+		System.out.print(FINAL_WINNER + String.join(", ", stringWinnerNames));
 	}
 
 	public static ArrayList<String> extractNames(ArrayList<Car> winnerList){

@@ -28,6 +28,7 @@ public class InputView {
 	public static int gameCount(){
 		System.out.println(Message.ASK_GAME_COUNT);
 		String stringGameCount = Console.readLine();
+		System.out.println();
 		int gameCount = gameCountParser(stringGameCount);
 		return gameCount;
 	}

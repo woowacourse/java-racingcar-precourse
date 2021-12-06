@@ -17,22 +17,24 @@ public class Game {
 		gameCount = InputView.gameCount();
 		race(carsList, gameCount);
 		pickWinner();
-		//위너 출력
+		printWinner();
 	}
 
-	private void race(ArrayList<Car> carsList, int gameCount) {
-		for (Car car : carsList){
-			playTurn(car, gameCount);
+	public void race(ArrayList<Car> carsList, int gameCount){
+		for(int i = 0; i < gameCount; i++){
+			playTurn(carsList, gameCount);
+			System.out.println();
 		}
 	}
 
-	public void playTurn(Car car, int gameCount){
-		for(int i = 0; i < gameCount; i++){
+	private void playTurn(ArrayList<Car> carsList, int gameCount) {
+		for (Car car : carsList){
 			car.proceedOrPause();
 			car.printPosition();
 		}
-		System.out.println();
 	}
+
+
 
 	public void pickWinner(){
 		maxPosition = getMaxPosition();
