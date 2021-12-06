@@ -20,28 +20,34 @@ public class RoundNumberInputCheck {
         boolean isPossible = true;
 
         try{
-            checkStringToPositiveNumber(input);
+            checkInputToInteger(input);
         }catch (IllegalArgumentException exception){
-            System.out.println(ConstMessage.ROUND_INPUT_ERROR);
+            System.out.println(exception.getMessage() + ConstMessage.CORRECT_ROUND_INPUT_REQUEST);
             isPossible = false;
         }
 
         return isPossible;
     }
 
-    private static void checkStringToPositiveNumber(String input) throws IllegalArgumentException{
-        int roundNumber;
-        
+    private static void checkInputToInteger(String input) throws IllegalArgumentException{
+
         try{
-            roundNumber = Integer.parseInt(input);
+            int roundNumber = Integer.parseInt(input);
+            checkIsPositiveNumber(roundNumber);
         }catch (NumberFormatException exception){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ConstMessage.NOT_INTEGER_INPUT_ERROR);
+        }catch (IllegalArgumentException exception){
+            throw exception;
         }
-        
+
+    }
+
+    private static void checkIsPositiveNumber(int roundNumber) throws IllegalArgumentException{
+
         if(roundNumber < 0){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ConstMessage.NEGATIVE_INPUT_ERROR);
         }
-        
+
     }
 
 }
