@@ -40,8 +40,13 @@ public class InputView {
 
     private List<String> parsingNames() {
         String inputString = reader.readLine();
+        inputString = appendSpaceBeforeSplit(inputString);
         return Arrays.stream(Delimiter.splitWithComma(inputString))
             .map(String::trim).collect(Collectors.toList());
+    }
+
+    private String appendSpaceBeforeSplit(String targetString) {
+        return Delimiter.appendSpaceBehind(targetString);
     }
 
     public int getExecutionCount() {

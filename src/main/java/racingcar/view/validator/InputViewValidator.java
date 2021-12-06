@@ -15,9 +15,15 @@ public class InputViewValidator {
 	private static final InputViewValidator instance = new InputViewValidator();
 
 	public static void validateNames(List<String> names) {
-		instance.validateNameIsDuplicated(names);
 		instance.validateNameContainsEmpty(names);
+		instance.validateNameIsDuplicated(names);
 		instance.validateNameTooLong(names);
+	}
+
+	private void validateNameContainsEmpty(List<String> names) {
+		if (names.stream().anyMatch(String::isEmpty)) {
+			throw new NameEmptyMessageException();
+		}
 	}
 
 	public void validateNameIsDuplicated(List<String> names) {
@@ -28,12 +34,6 @@ public class InputViewValidator {
 
 	private boolean checkNameDuplicated(List<String> names, String name) {
 		return (Collections.frequency(names, name) > 1);
-	}
-
-	private void validateNameContainsEmpty(List<String> names) {
-		if (names.stream().anyMatch(String::isEmpty)) {
-			throw new NameEmptyMessageException();
-		}
 	}
 
 	private void validateNameTooLong(List<String> names) {

@@ -19,6 +19,10 @@ public enum Delimiter {
         return targetString.split(COMMA.value);
     }
 
+    public static String appendSpaceBehind(String targetString) {
+        return targetString + SPACE.value;
+    }
+
     public static String joinWithComma(List<String> strings) {
         return String.join(COMMA.value + SPACE.value, strings);
     }
