@@ -7,24 +7,30 @@ package racingcar;
 
 public class InputHandler {
 
+	OutputHandler outputHandler;
+
+	public InputHandler() {
+		outputHandler = new OutputHandler();
+	}
+
 	public List<String> getValidCarNames() {
-		System.out.println(GameData.CARNAME_INPUT_MESSAGE);
+		outputHandler.printMessage(GameData.CARNAME_INPUT_MESSAGE);
 		while(true) {
 			try {
 				return readRacingCarNames();
 			} catch (IllegalArgumentException iae) {
-				System.out.println(iae.getMessage());
+				outputHandler.printErrorMessage(iae);
 			}
 		}
 	}
 
 	public int getValidTurnCount() {
-		System.out.println(GameData.TRY_INPUT_MESSAGE);
+		outputHandler.printMessage(GameData.TRY_INPUT_MESSAGE);
 		while(true) {
 			try {
 				return readCount();
 			} catch (IllegalArgumentException iae) {
-				System.out.println(iae.getMessage());
+				outputHandler.printErrorMessage(iae);
 			}
 		}
 	}
