@@ -2,7 +2,7 @@ package racingcar;
 
 public class UserInputValidator {
 
-	public boolean checkNameLength(String[] names){
+	public static boolean checkNameLength(String[] names){
 
 		for(String name : names){
 			if(name.length() > 6){
@@ -13,7 +13,7 @@ public class UserInputValidator {
 		return true;
 	}
 
-	public boolean checkInt(String trialTime){
+	public static boolean checkInt(String trialTime){
 
 		for(int i = 0; i < trialTime.length(); i++) {
 			if ((trialTime.charAt(i) < '0') || (trialTime.charAt(i) > '9')){
