@@ -14,10 +14,10 @@ public class Input {
 		System.out.println(CARS_NAME_INPUT_MASSAGE);
 		while (true) {
 			String carsName = readLine();
-			String[] carsNameList = stringToArraysByComma(carsName);
+			String[] carNameList = stringToArraysByComma(carsName);
 			try {
-				checkCarNameException(carsNameList);
-				return carsNameList;
+				checkCarNameException(carNameList);
+				return carNameList;
 			} catch (Exception exception) {
 				System.out.println(exception.getMessage());
 			}
