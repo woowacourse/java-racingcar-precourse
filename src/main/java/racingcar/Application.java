@@ -2,7 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
-    public Car[] getInputCar() {
+    public Car[] getInputCarList() {
         String inputData = Console.readLine();
         String[] carNameList = inputData.split(",");
         Car[] carList = new Car[carNameList.length];
@@ -17,11 +17,11 @@ public class Application {
     }
 
     public Car[] getCarList() {
-        Car[] inputData = null;
+        Car[] carList = null;
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             try {
-                inputData = getInputCar();
+                carList = getInputCarList();
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] 차의 이름은 5자 이내이어야 한다.");
