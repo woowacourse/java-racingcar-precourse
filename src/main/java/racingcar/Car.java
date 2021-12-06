@@ -14,6 +14,7 @@ public class Car {
 
     public void CarPlay(){
         RandomNum();
+        PrintPosition();
     }
 
     private void RandomNum(){
@@ -21,5 +22,13 @@ public class Car {
         if(num >= 4){
             position ++;
         }
+    }
+
+    private void PrintPosition(){
+        System.out.print(name + " : ");
+        for(int i=0; i<position; i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }

@@ -50,6 +50,7 @@ public class PlayGame {
             for(Car car : cars){
                 car.CarPlay();
             }
+            System.out.println();
         }
     }
 
