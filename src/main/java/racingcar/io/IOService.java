@@ -20,11 +20,11 @@ public class IOService {
         System.out.print(garage.whereAreCars());
     }
 
-    public static void printRacingResult(Garage garage) {
-        System.out.println(WINNER.getContent() + garage.whichWin());
+    public static void printRacingResult(String winners) {
+        System.out.println(WINNER.getContent() + winners);
     }
 
-    public static void ask(FixedString fixedString) {
+    public static void print(FixedString fixedString) {
         System.out.println(fixedString.getContent());
     }
 

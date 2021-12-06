@@ -17,16 +17,15 @@ public class Racing {
         int roundCount = getRoundCount();
 
         IOService.makeNewLine();
-        IOService.ask(SHOW_RESULT);
+        IOService.print(SHOW_RESULT);
 
         doRace(garage, roundCount);
 
-        IOService.ask(WINNER);
-        IOService.printRacingResult(garage);
+        IOService.printRacingResult(garage.whichWin());
     }
 
     private static Garage getGarage() {
-        IOService.ask(ASK_CAR_NAMES);
+        IOService.print(ASK_CAR_NAMES);
         String carNames;
 
         while (true) {
@@ -43,7 +42,7 @@ public class Racing {
     }
 
     private static int getRoundCount() {
-        IOService.ask(ASK_ROUND_COUNT);
+        IOService.print(ASK_ROUND_COUNT);
 
         int roundCount;
 
