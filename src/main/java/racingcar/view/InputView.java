@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,12 +16,21 @@ public class InputView {
 	public static List<String> inputCarName() {
 		boolean isValidCarNameList;
 		while (true) {
-			List<String> carNameList = Arrays.asList(Console.readLine().split(","));
-			isValidCarNameList = Validator.checkValid(carNameList);
+			List<String> tempCarNameList = Arrays.asList(Console.readLine().split(","));
+			List<String> carNameList = removeBlankInCarName(tempCarNameList);
+			isValidCarNameList = Validator.isValidCarName(carNameList);
 			if (isValidCarNameList) {
 				return carNameList;
 			}
 		}
+	}
+
+	public static List<String> removeBlankInCarName(List<String> carNameList) {
+		ArrayList<String> blankRemovedCarNameList = new ArrayList<>();
+		for (String name : carNameList) {
+			blankRemovedCarNameList.add(name.trim());
+		}
+		return blankRemovedCarNameList;
 	}
 
 	public static void printAttemptInputMessage() {
@@ -31,7 +41,7 @@ public class InputView {
 		boolean isValidAttemptNumber;
 		while (true) {
 			String tempInput = Console.readLine();
-			isValidAttemptNumber = Validator.checkAttemptNumberValid(tempInput);
+			isValidAttemptNumber = Validator.isValidAttemptNumber(tempInput);
 			if (isValidAttemptNumber) {
 				return Integer.parseInt(tempInput);
 			}
