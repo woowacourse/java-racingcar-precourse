@@ -9,6 +9,16 @@ public class Winner {
 
 	List<String> winner = new ArrayList<>();
 
+	public List<String> findWinner(List<Car> racingCars) {
+		int maxPosition = findMaxPosition(racingCars);
+		for (Car car : racingCars) {
+			if (car.getPosition() == maxPosition) {
+				winner.add(car.getName());
+			}
+		}
+		return winner;
+	}
+
 	private int findMaxPosition(List<Car> racingCars) {
 		int maxPosition = INITIAL_MAX_POSITION;
 		for (Car car : racingCars) {
