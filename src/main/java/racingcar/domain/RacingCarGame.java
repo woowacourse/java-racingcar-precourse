@@ -27,4 +27,18 @@ public class RacingCarGame {
 	private static boolean isNumberGreaterThanOne(String roundNumber) {
 		return roundNumber.matches(NUMBER_GT_ONE_FILTER);
 	}
+
+	public void startGame() {
+		iterateRound();
+	}
+
+	private void iterateRound() {
+		for (int i = 0; i < roundNumber; i++) {
+			startRound();
+		}
+	}
+
+	private void startRound() {
+		cars.moveCars();
+	}
 }

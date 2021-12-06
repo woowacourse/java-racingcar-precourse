@@ -15,13 +15,13 @@ public class Car {
 	}
 
 	public void moveAccordingToRule() {
-		if (isMovable()) {
+		int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+		if (isMovable(randomNumber)) {
 			move();
 		}
 	}
 
-	private boolean isMovable() {
-		int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+	private boolean isMovable(int randomNumber) {
 		return randomNumber >= MOVABLE_THRESHOLD;
 	}
 

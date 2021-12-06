@@ -19,6 +19,8 @@ public class GameController {
 		try {
 			Cars cars = Cars.generateCars(inputCarNames);
 			RacingCarGame racingCarGame = initRacingCarGame(cars);
+
+			racingCarGame.startGame();
 		} catch (IllegalArgumentException e) {
 			ErrorView.printErrorMessage(e.getMessage());
 			init();

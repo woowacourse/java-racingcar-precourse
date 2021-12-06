@@ -69,4 +69,10 @@ public class Cars {
 			throw new IllegalArgumentException(DUPLICATED_NAME_ERROR_MESSAGE);
 		}
 	}
+
+	public void moveCars() {
+		for (Car car : cars) {
+			car.moveAccordingToRule();
+		}
+	}
 }
