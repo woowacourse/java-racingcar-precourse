@@ -15,4 +15,24 @@ public class Car implements CarInterface {
     public void go() {
         position++;
     }
+
+    @Override
+    public String getLine() {
+        String line = makeNamePrompt() + makePositionStatus();
+        return line;
+    }
+
+    private String makeNamePrompt() {
+        String line = "";
+        line += this.name + " : ";
+        return line;
+    }
+
+    private String makePositionStatus() {
+        String positionStatus = "";
+        for (int i = 0; i < position; i++) {
+            positionStatus += "-";
+        }
+        return positionStatus;
+    }
 }
