@@ -27,7 +27,7 @@ public class Application {
                 System.out.println("[ERROR] 차의 이름은 5자 이내이어야 한다.");
             }
         }
-        return inputData;
+        return carList;
     }
 
     public int getInputTryCount() {
@@ -56,6 +56,7 @@ public class Application {
     public void run() {
         Car[] carList = getCarList();
         int tryCount = getTryCount();
+
     }
 
     public static void main(String[] args) {
