@@ -4,20 +4,16 @@
 
 ### 1-1 자동차이름 받기
 -이름 파싱
--5자 검증
 
 ### 1-2 시도횟수 받기
 -숫자만 받기
 
-## 2. GameProgressor
+## 2. GameTools
 
 ### 2-1 무작위값 구하기
 ### 2-2 4이상인지 판단
 -Car 클래스에 전달
-### 2-3 모든 차에 반복
-### 2-4 시도횟수만큼 반복
-### 2-5 우승자 선정
--GamePrinter 클래스에 전달
+
 
 ## 3. Car
 
@@ -31,9 +27,21 @@
 -Car 클래스에서 정보 받아오기
 
 ### 4-2 최종 우승자 출력
--GameProgressor 클래스에서 받아오기
+-GameTools 클래스에서 받아오기
 
 ## 5. UserInputValidator
 
-### 5-1 Car이름 5자 검증
+### 5-1 Car 이름 5자 검증
 ### 5-2 시도횟수 숫자 검증
+
+## 6. Game
+
+### 6-3 스테이지
+-모든 차에 Car.goForward 반복
+-GamePrinter.매 회차 출력 출력 Call
+### 6-4 게임
+-UserInputGetter.parseCarName 에서 나온 갯수만큼 Car class 생성
+-스테이지를 시도횟수만큼 반복 실행
+-스테이지 종료시 우승자 선정 Call
+### 6-5 우승자 선정
+-GamePrinter 클래스에 전달
