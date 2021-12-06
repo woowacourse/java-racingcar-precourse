@@ -9,6 +9,8 @@ import racingcar.car.Car;
 import racingcar.inputvalue.CarNamesInputValue;
 import racingcar.inputvalue.InputValue;
 import racingcar.inputvalue.NumberOfRoundsInputValue;
+import racingcar.gameresult.RacingGameResult;
+import racingcar.view.RacingGameResultView;
 import racingcar.view.RacingWinnersView;
 
 public class RacingGameController {
@@ -23,8 +25,8 @@ public class RacingGameController {
         createCars();
         printNumberOfRoundsRequestMessage();
         createNumberOfRounds();
-        printGameResultNoticePhrase();
-        printWinners(racingGame.start());
+        printGameResult(racingGame.start());
+        printWinners(racingGame.determineWinners());
     }
 
     private void printCarNameRequestMessage() {
@@ -79,9 +81,8 @@ public class RacingGameController {
         racingGame.setNumberOfRounds(numberOfRounds);
     }
 
-    private void printGameResultNoticePhrase() {
-        System.out.println();
-        System.out.println(GAME_RESULT_NOTICE_PHRASE);
+    private void printGameResult(RacingGameResult racingGameResult) {
+        new RacingGameResultView(racingGameResult).print();
     }
 
     private void printWinners(List<Car> winners) {

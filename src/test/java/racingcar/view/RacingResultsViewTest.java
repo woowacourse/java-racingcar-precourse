@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import racingcar.car.Car;
+import racingcar.gameresult.RacingResults;
 
 class RacingResultsViewTest {
     private final PrintStream standardOut = System.out;
@@ -36,11 +37,11 @@ class RacingResultsViewTest {
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
-        racingResultsView = new RacingResultsView(cars);
     }
 
     @Test
     void 전달된_차_리스트와_같은_순서로_board_생성() {
+        racingResultsView = new RacingResultsView(new RacingResults(cars));
         racingResultsView.print();
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedInitialResult().toString());
     }
@@ -63,6 +64,7 @@ class RacingResultsViewTest {
             car.run(MIN_NUMBER_TO_CAR_TO_GO);
             carsAfterRacing.add(car);
         }
+        racingResultsView = new RacingResultsView(new RacingResults(carsAfterRacing));
         racingResultsView.print();
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedAfterDrivingResult().toString());
     }

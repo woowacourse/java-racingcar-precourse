@@ -10,11 +10,13 @@ import java.util.Set;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.car.Car;
 import racingcar.car.CarRepository;
-import racingcar.view.RacingResultsView;
+import racingcar.gameresult.RacingGameResult;
+import racingcar.gameresult.RacingResults;
 
 public class RacingGame {
     private final CarRepository carRepository;
     private int numberOfRounds;
+    private RacingGameResult racingGameResult;
 
     public RacingGame(CarRepository carRepository) {
         this.carRepository = carRepository;
@@ -30,14 +32,19 @@ public class RacingGame {
     public void setNumberOfRounds(int number) {
         validateRoundNumber(number);
         numberOfRounds = number;
+        setRacingGameResult();
     }
 
-    public List<Car> start() {
+    public RacingGameResult start() {
         for (int roundNumber = MIN_VALUE_OF_ROUND_NUMBER; roundNumber <= numberOfRounds; roundNumber++) {
             startEachRound();
-            printRacingResults();
+            recordRacingResults();
         }
-        return determineWinners();
+        return racingGameResult;
+    }
+
+    public List<Car> determineWinners() {
+        return carRepository.findTopByOrderByPosition();
     }
 
     private void checkDuplicateCars(List<Car> cars) {
@@ -65,19 +72,18 @@ public class RacingGame {
         }
     }
 
+    private void setRacingGameResult() {
+        racingGameResult = new RacingGameResult(numberOfRounds);
+    }
+
     private void startEachRound() {
         for (Car car : findCarsInOrder()) {
             car.run(generateRandomNumber());
         }
     }
 
-    private List<Car> determineWinners() {
-        return carRepository.findTopByOrderByPosition();
-    }
-
-    private void printRacingResults() {
-        RacingResultsView racingResultsView = new RacingResultsView(findCarsInOrder());
-        racingResultsView.print();
+    private void recordRacingResults() {
+        racingGameResult.add(new RacingResults(findCarsInOrder()));
     }
 
     private int generateRandomNumber() {

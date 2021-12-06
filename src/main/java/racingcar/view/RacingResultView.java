@@ -2,34 +2,38 @@ package racingcar.view;
 
 import static racingcar.utils.StringUtils.*;
 
-import racingcar.car.Car;
+import racingcar.gameresult.RacingResult;
 
 public class RacingResultView {
-    private final Car car;
-    private final StringBuilder result = new StringBuilder();
+    private final RacingResult racingResult;
+    private final StringBuilder resultToPrint = new StringBuilder();
 
-    public RacingResultView(Car car) {
-        this.car = car;
+    public RacingResultView(RacingResult racingResult) {
+        this.racingResult = racingResult;
+        writeResult();
     }
 
-    public StringBuilder writeResult() {
+    public void print() {
+        System.out.println(resultToPrint.toString());
+    }
+
+    public void writeResult() {
         writeCarName();
         writeDelimiter();
         writeDistanceCovered();
-        return result;
     }
 
     private void writeCarName() {
-        result.append(car.getName());
+        resultToPrint.append(racingResult.getCarName());
     }
 
     private void writeDelimiter() {
-        result.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);
+        resultToPrint.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);
     }
 
     private void writeDistanceCovered() {
-        for (int i = INITIAL_POSITION; i < car.getPosition(); i++) {
-            result.append(MARK_FOR_DISTANCE_COVERED);
+        for (int i = INITIAL_POSITION; i < racingResult.getPosition(); i++) {
+            resultToPrint.append(MARK_FOR_DISTANCE_COVERED);
         }
     }
 }

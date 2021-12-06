@@ -1,37 +1,30 @@
 package racingcar.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.car.Car;
+import racingcar.gameresult.RacingResult;
+import racingcar.gameresult.RacingResults;
 
 public class RacingResultsView {
-    private final List<Car> cars;
-    private List<StringBuilder> racingResultsView = new ArrayList<>();
+    private final RacingResults racingResults;
 
-    public RacingResultsView(List<Car> cars) {
-        this.cars = cars;
+    public RacingResultsView(RacingResults racingResults) {
+        this.racingResults = racingResults;
     }
 
     public void print() {
-        writeResults();
-        writeNewLine();
         printResults();
-    }
-
-    private void writeResults() {
-        for (Car car : cars) {
-             racingResultsView.add(new RacingResultView(car).writeResult());
-        }
-    }
-
-    private void writeNewLine() {
-        racingResultsView.add(new StringBuilder());
+        printNewLine();
     }
 
     private void printResults() {
-        for (StringBuilder result : racingResultsView) {
-            System.out.println(result.toString());
+        List<RacingResult> racingResults = this.racingResults.getRacingResults();
+        for (RacingResult racingResult : racingResults) {
+            new RacingResultView(racingResult).print();
         }
+    }
+
+    private void printNewLine() {
+        System.out.println();
     }
 }
