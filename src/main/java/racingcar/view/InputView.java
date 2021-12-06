@@ -1,16 +1,18 @@
 package racingcar.view;
 
+import static racingcar.utils.Message.*;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.utils.Message;
 import racingcar.utils.Validator;
 
 public class InputView {
 	public static void printCarNameInputMessage() {
-		System.out.println(Message.INPUT_CAR_NAME.getMessage());
+		System.out.println(INPUT_CAR_NAME.getMessage());
 	}
 
 	public static List<String> inputCarName() {
@@ -34,7 +36,7 @@ public class InputView {
 	}
 
 	public static void printAttemptInputMessage() {
-		System.out.println(Message.INPUT_ATTEMPT_NUMBER.getMessage());
+		System.out.println(INPUT_ATTEMPT_NUMBER.getMessage());
 	}
 
 	public static int inputAttemptNumber() {
