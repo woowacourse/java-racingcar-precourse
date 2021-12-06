@@ -1,10 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
     private static final String MSG_PRINT_EXECUTE_RESULT = "실행 결과";
