@@ -9,4 +9,9 @@ public class InputView {
 		System.out.println(INPUT_NAMES_MESSAGE);
 		return Console.readLine();
 	}
+
+	public String inputRound() {
+		System.out.println(INPUT_ROUND_MESSAGE);
+		return Console.readLine();
+	}
 }
