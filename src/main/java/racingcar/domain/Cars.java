@@ -1,27 +1,28 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cars {
 
-	private ArrayList<Car> carArrayList;
+	private List<Car> carList;
 	private int repeatNum;
 
 	public Cars() {
-		this.carArrayList = new ArrayList<>();
+		this.carList = new ArrayList<>();
 		this.repeatNum = 0;
 	}
 
 	public void addCarInList(String car) {
-		carArrayList.add(new Car(car));
+		carList.add(new Car(car));
 	}
 
 	public void setRepeatNum(int repeatNum) {
 		this.repeatNum = repeatNum;
 	}
 
-	public ArrayList<Car> getCarArrayList() {
-		return carArrayList;
+	public List<Car> getCarList() {
+		return carList;
 	}
 
 	public int getRepeatNum() {

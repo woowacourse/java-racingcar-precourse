@@ -1,5 +1,8 @@
 package racingcar.validation;
 
+import java.util.List;
+
+import racingcar.domain.Car;
 import racingcar.exception.ErrorMessage;
 
 public class Validation {
@@ -16,11 +19,17 @@ public class Validation {
 		}
 	}
 
-	//TODO: 자동차 이름 중 중복이 있을 경우
+	public static void checkDistinctCarNames(List<Car> carList) {
+		if (carList.stream().distinct().count() != carList.size()) {
+			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DISTINCT_ERROR.getErrorMessage());
+		}
+	}
 
-
-
-	//TODO: 자동차 이름이 한개일 경우
+	public static void checkCarIsOne(String inputStr) {
+		if (inputStr.split(",").length == 1) {
+			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_ONE_ERROR.getErrorMessage());
+		}
+	}
 
 	public static void checkInputIsPositiveNumber(String inputStr) {
 		for (char c : inputStr.toCharArray()) {
