@@ -3,6 +3,8 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.deploy.util.StringUtils;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
@@ -14,6 +16,7 @@ public class RacingGame {
 		makeCarList();
 		Integer playRound = user.getGameNumber();
 		runGame(playRound);
+		printWinners();
 	}
 
 	public void makeCarList() {
@@ -21,7 +24,6 @@ public class RacingGame {
 		for (String carName : carNames) {
 			cars.add(new Car(carName));
 		}
-
 	}
 
 	public void runGame(int playRound) {
@@ -65,5 +67,32 @@ public class RacingGame {
 			System.out.print("-");
 		}
 		System.out.println();
+	}
+
+	public int findMaxPosition(List<Car> cars) {
+		int maxPosition = 0;
+		for (Car car : cars) {
+			if (maxPosition < car.getPosition()) {
+				maxPosition = car.getPosition();
+			}
+		}
+		return maxPosition;
+
+	}
+
+	public void printWinners() {
+		List<String> winners = findWinners();
+		System.out.println(StringUtils.join(winners, ", "));
+	}
+
+	public List<String> findWinners() {
+		List<String> winners = new ArrayList<>();
+		int maxPosition = findMaxPosition(cars);
+		for (Car car : cars) {
+			if (car.getPosition() == maxPosition) {
+				winners.add(car.getName());
+			}
+		}
+		return winners;
 	}
 }
