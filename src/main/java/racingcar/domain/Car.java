@@ -27,10 +27,15 @@ public class Car implements Comparable<Car> {
 		return randomNumber >= MIN_VALUE_OF_SATISFIED_CONDITION;
 	}
 
-	public StringBuilder getNameAndPositionMessage() {
+	public String toString() {
 		StringBuilder result = new StringBuilder();
 		result.append(name);
 		result.append(COLON);
+		appendStep(result);
+		return result.toString();
+	}
+
+	public StringBuilder appendStep(StringBuilder result) {
 		for (int i = 0; i < position; i++) {
 			result.append(ONE_STEP);
 		}

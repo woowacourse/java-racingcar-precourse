@@ -20,7 +20,7 @@ public class RacingCars {
 
 	public String getExecutionForEachOrderMessage() {
 		StringBuilder result = new StringBuilder();
-		racingCars.forEach(car -> result.append(car.getNameAndPositionMessage()));
+		racingCars.forEach(result::append);
 		return result.toString();
 	}
 
