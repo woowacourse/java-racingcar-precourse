@@ -42,6 +42,7 @@ public class NamesInputCheck {
         try{
             checkNamesLength(names);
             checkHaveSameNames(names);
+            checkHaveEmptyNames(names);
         }catch(IllegalArgumentException exception){
             System.out.println(exception.getMessage());
             isPossibleName = false;
@@ -70,6 +71,18 @@ public class NamesInputCheck {
 
             if(fromFront != fromLast){
                 throw new IllegalArgumentException(ConstMessage.SAME_NAME_ERROR + name);
+            }
+
+        }
+
+    }
+
+    public static void checkHaveEmptyNames(List<String> names) throws IllegalArgumentException{
+
+        for(String name: names){
+
+            if(name.length() == 0){
+                throw new IllegalArgumentException(ConstMessage.EMPTY_NAME_ERROR);
             }
 
         }
