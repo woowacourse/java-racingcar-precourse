@@ -11,6 +11,8 @@ public class Race {
         for (String name : getRacePlayerNames()) {
             cars.add(new Car(name));
         }
+
+        int RaceCount = getRaceCount();
     }
 
     private String[] getRacePlayerNames() {
@@ -18,5 +20,15 @@ public class Race {
         String[] names = input.split(", ");
 
         return names;
+    }
+
+    private int getRaceCount() {
+        String input = Console.readLine();
+
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
