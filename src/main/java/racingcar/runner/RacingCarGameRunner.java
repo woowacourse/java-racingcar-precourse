@@ -1,27 +1,27 @@
 package racingcar.runner;
 
 import racingcar.domain.RacingCarGame;
-import racingcar.utils.CarGameInputHandler;
+import racingcar.utils.UserInput;
 
 public class RacingCarGameRunner {
 
-    private DisplayHandler displayHandler;
+    private ResultPrinter printer;
     private RacingCarGame game;
-    private int playCount;
+    private Integer playCount;
 
     public void run() {
         initGame();
         for (int i = 0; i < playCount; i++) {
             game.moveCars();
-            displayHandler.appendResultBlock(game.getGameStatus());
+            printer.appendResultBlock(game.getGameStatus());
         }
-        displayHandler.appendNewLine(game.getWinners());
-        displayHandler.displayResult();
+        printer.appendNewLine(game.getWinners());
+        printer.printResult();
     }
 
     private void initGame() {
-        this.displayHandler = new DisplayHandler();
-        this.game = new RacingCarGame(CarGameInputHandler.getValidCarNames());
-        this.playCount = CarGameInputHandler.getValidPlayCount();
+        this.printer = new ResultPrinter();
+        this.game = new RacingCarGame(UserInput.getValidCarNames());
+        this.playCount = UserInput.getValidPlayCount();
     }
 }

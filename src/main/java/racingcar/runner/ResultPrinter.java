@@ -1,13 +1,13 @@
 package racingcar.runner;
 
-public class DisplayHandler {
+public class ResultPrinter {
 
     private static final String OUT_HEADER = "실행결과";
     private static final String LINE_BREAK = "\n";
 
     private final StringBuilder buffer;
 
-    public DisplayHandler() {
+    public ResultPrinter() {
         this.buffer = new StringBuilder();
         appendNewLine(OUT_HEADER);
     }
@@ -16,7 +16,7 @@ public class DisplayHandler {
         appendNewLine(line);
     }
 
-    public void displayResult() {
+    public void printResult() {
         System.out.print(buffer);
     }
 

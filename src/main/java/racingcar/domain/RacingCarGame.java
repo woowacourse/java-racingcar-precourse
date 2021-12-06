@@ -27,9 +27,9 @@ public class RacingCarGame {
     }
 
     public String getWinners() {
-        final int top = getWinnerScore();
+        final int leadPosition = getWinnerScore();
         List<String> winners = this.cars.stream()
-            .filter(car -> car.getPosition() == top)
+            .filter(car -> car.getPosition() == leadPosition)
             .map(Car::getName)
             .collect(Collectors.toList());
         return OutputFormatter.convertWinners(winners);

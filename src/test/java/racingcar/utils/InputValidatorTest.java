@@ -1,13 +1,12 @@
-package racingcar;
+package racingcar.utils;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.utils.InputValidator;
 
-public class NameValidationTest {
+public class InputValidatorTest {
 
     void testThrowException(String name) {
         assertThrows(
@@ -55,4 +54,12 @@ public class NameValidationTest {
         testThrowException("name,name,name2");
     }
 
+    @DisplayName("실행 횟수 입력 예외를 테스트한다.")
+    @Test
+    void name() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> InputValidator.validatePlayCount("1o")
+        );
+    }
 }

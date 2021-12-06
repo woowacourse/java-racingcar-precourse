@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class CarGameInputHandler {
+public class UserInput {
 
     private static final String DELIMITER_NAME = ",";
 
@@ -29,10 +29,10 @@ public class CarGameInputHandler {
         );
     }
 
-    private static <T> T getValidInput(Supplier<T> sup) {
+    private static <T> T getValidInput(Supplier<T> supplier) {
         while (true) {
             try {
-                return sup.get();
+                return supplier.get();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
