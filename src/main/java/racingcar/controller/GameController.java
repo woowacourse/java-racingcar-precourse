@@ -18,12 +18,25 @@ public class GameController {
 		String inputCarNames = inputView.getCarNames();
 		try {
 			Cars cars = Cars.generateCars(inputCarNames);
-
-			String roundNumber = inputView.getRoundNumber();
-			RacingCarGame racingCarGame = RacingCarGame.generateGame(roundNumber, cars);
+			RacingCarGame racingCarGame = initRacingCarGame(cars);
 		} catch (IllegalArgumentException e) {
 			ErrorView.printErrorMessage(e.getMessage());
 			init();
 		}
+	}
+
+	public RacingCarGame initRacingCarGame(Cars cars) {
+		RacingCarGame racingCarGame;
+
+		String roundNumber = inputView.getRoundNumber();
+
+		try {
+			racingCarGame = RacingCarGame.generateGame(roundNumber, cars);
+		} catch (IllegalArgumentException e) {
+			ErrorView.printErrorMessage(e.getMessage());
+			racingCarGame = initRacingCarGame(cars);
+		}
+
+		return racingCarGame;
 	}
 }
