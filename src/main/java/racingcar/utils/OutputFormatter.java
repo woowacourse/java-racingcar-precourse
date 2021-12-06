@@ -4,12 +4,12 @@ import java.util.List;
 
 public class OutputFormatter {
 
-    final private static String DELIMITER_FIELD = " : ";
-    final private static String DELIMITER_WINNER = ", ";
-    final private static String CAR_STATUS_BAR = "-";
-    final private static String EMPTY = "";
-    final private static String LINE_BREAK = "\n";
-    final private static String WINNER_TAG = "최종 우승자";
+    private static final String DELIMITER_FIELD = " : ";
+    private static final String DELIMITER_WINNER = ", ";
+    private static final String CAR_STATUS_BAR = "-";
+    private static final String EMPTY = "";
+    private static final String LINE_BREAK = "\n";
+    private static final String WINNER_TAG = "최종 우승자";
 
     public static String converseCarStatus(int position, String name) {
         return String.join(EMPTY,

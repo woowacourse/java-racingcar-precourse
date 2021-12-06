@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 
 public class InputValidator {
 
-    final private static String ERROR_PREFIX = "[ERROR]";
-    final private static String ERR_INVALID_NAMES = ERROR_PREFIX + "잘못된 형식의 입력입니다!";
-    final private static String ERR_INVALID_NUMBER = ERROR_PREFIX + "숫자만 입력해주세요.";
-    final private static int NAME_MAX_LENGTH = 5;
-    final private static char DELIMITER_NAME_CHAR = ',';
-    final private static String NUMERIC_REGEX = "[0-9]";
+    private static final String ERROR_PREFIX = "[ERROR]";
+    private static final String ERR_INVALID_NAMES = ERROR_PREFIX + "잘못된 형식의 입력입니다!";
+    private static final String ERR_INVALID_NUMBER = ERROR_PREFIX + "숫자만 입력해주세요.";
+    private static final int NAME_MAX_LENGTH = 5;
+    private static final char DELIMITER_NAME_CHAR = ',';
+    private static final String NUMERIC_REGEX = "[0-9]";
 
     public static void validateCarNames(String input)
         throws IllegalArgumentException {

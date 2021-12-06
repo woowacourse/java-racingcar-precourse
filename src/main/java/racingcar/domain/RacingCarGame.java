@@ -6,7 +6,7 @@ import racingcar.utils.OutputFormatter;
 
 public class RacingCarGame {
 
-    final private List<Car> cars;
+    private final List<Car> cars;
 
     public RacingCarGame(List<String> names) {
         this.cars = names.stream()

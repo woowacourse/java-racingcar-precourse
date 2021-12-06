@@ -15,7 +15,7 @@ public class RacingCarGameRunner {
             game.moveCars();
             displayHandler.appendResultBlock(game.getGameStatus());
         }
-        displayHandler.appendWithLineBreak(game.getWinners());
+        displayHandler.appendNewLine(game.getWinners());
         displayHandler.displayResult();
     }
 

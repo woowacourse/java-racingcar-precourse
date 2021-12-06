@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 
 public class CarGameInputHandler {
 
-    final private static String DELIMITER_NAME = ",";
+    private static final String DELIMITER_NAME = ",";
 
     public static List<String> getValidCarNames() {
         return getValidInput(
