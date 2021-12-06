@@ -9,6 +9,7 @@ public class Utils {
     private static final int MOVE_FORWARD_SCORE = 4;
     private static final int BEGIN_INDEX = 0;
     private static final int REMOVE_END_INDEX = 2;
+    private static final int MAX_LENGTH = 5;
 
     public static int getRandomNumber() {
         return Randoms.pickNumberInRange(START_RANDOM_NUMBER, END_RANDOM_NUMBER);
@@ -30,10 +31,10 @@ public class Utils {
         return str;
     }
 
-    public static void isStringOverLength(String str) {
-        String[] cars = str.split(",");
-        for (String car : cars) {
-            if(car.length() > 5){
+    public static void isEachStringOverLength(String strLine) {
+        String[] eachString = strLine.split(",");
+        for (String str : eachString) {
+            if(str.length() > MAX_LENGTH){
                 throw new IllegalArgumentException("[ERROR] 이름은 5자 이하여야합니다.");
             }
         }
