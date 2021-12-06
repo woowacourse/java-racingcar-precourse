@@ -1,19 +1,25 @@
 package racingcar;
 
+import racingcar.movement.MovementWay;
+import racingcar.movement.RandomMovement;
+
 public class Car {
     private static final int NAME_MAX_LENGTH = 5;
 
     private final String name;
     private int position = 0;
+    private final MovementWay movementWay;
 
     public Car(String name) {
         validateNameEmpty(name);
         validateNameLength(name);
         this.name = name;
+        this.movementWay = new RandomMovement();
     }
     
-    public void moveForward(){
-        this.position++;
+    public void move(){
+        int distance = movementWay.getMovableDistance();
+        this.position+= distance;
     }
 
     @Override
