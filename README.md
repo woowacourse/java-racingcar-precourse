@@ -2,9 +2,9 @@
 
 ### 1. Car Package
 
-- 이름 (엔티티) [ ]
-- 위치 (엔티티?) [ ]
-- Car         [ ]
+- 이름 (엔티티) [x]
+- 위치 (엔티티?) [x]
+- Car         [x]
 - Cars (List) [ ]
 
 ### 2. User Interface Package

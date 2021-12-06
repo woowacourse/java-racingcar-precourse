@@ -1,12 +1,19 @@
 package racingcar.car;
 
 public class Car {
-	private final String name;
-	private int position = 0;
+	private final Name name;
+	private Position position;
 
 	public Car(String name) {
-		this.name = name;
+		this.name = new Name(name);
+		this.position = new Position();
 	}
 
-	// 추가 기능 구현
+	public String getName() {
+		return name.toString();
+	}
+
+	public int getPosition() {
+		return position.get();
+	}
 }

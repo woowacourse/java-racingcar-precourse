@@ -18,7 +18,7 @@ public class Position {
 	public boolean isBiggerThan(Position position) {
 		return this.position > position.get();
 	}
-
+	
 	public boolean equals(Position position) {
 		return this.position == position.get();
 	}
