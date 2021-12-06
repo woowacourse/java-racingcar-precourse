@@ -27,13 +27,35 @@ public class Application {
                 System.out.println("[ERROR] 차의 이름은 5자 이내이어야 한다.");
             }
         }
-
         return inputData;
     }
 
+    public int getInputTryCount() {
+        String InputData = Console.readLine();
+        try {
+            int tryCount = Integer.parseInt(InputData);
+            return tryCount;
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public int getTryCount() {
+        int tryCount = -1;
+        while (true) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            try {
+                tryCount = getInputTryCount();
+                return tryCount;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 시도 회수는 숫자여야 한다.");
+            }
+        }
+    }
 
     public void run() {
         Car[] carList = getCarList();
+        int tryCount = getTryCount();
     }
 
     public static void main(String[] args) {
