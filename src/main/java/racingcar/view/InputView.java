@@ -68,7 +68,7 @@ public class InputView {
 		for (int i = 0; i < numberOfCarMoving.length(); i++) {
 			int number = Character.getNumericValue(numberOfCarMoving.charAt(i));
 			if (number < MIN_SINGLE_NUMBER || number > MAX_SINGLE_NUMBER) {
-				throw new IllegalArgumentException(ERROR_MESSAGE + "시도 횟수는 숫자여야 한다.");
+				throw new IllegalArgumentException(ERROR_MESSAGE + "시도 횟수는 양수인 숫자여야 한다.");
 			}
 		}
 	}
