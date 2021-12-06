@@ -8,7 +8,9 @@ import java.util.List;
 import racingcar.Car;
 import racingcar.domain.Cars;
 import racingcar.service.InputService;
+import racingcar.service.OutputService;
 import racingcar.service.RacingService;
+import racingcar.view.OutputView;
 
 public class RacingController {
 	private static int tryNumber;
@@ -21,9 +23,11 @@ public class RacingController {
 	}
 
 	public static void startRacing(Cars cars) {
+		OutputView.printRacingResult();
 		for (int i = 0; i < tryNumber; i++) {
 			RacingService.playOneRound(cars.getCars());
 		}
+		endRacing(cars);
 	}
 
 	public static Cars getCarsFromNames(String[] carNames) {
@@ -32,5 +36,10 @@ public class RacingController {
 			cars.add(new Car(name));
 		}
 		return new Cars(cars);
+	}
+
+	public static void endRacing(Cars cars){
+		List<String> winner = RacingService.getWinner(cars.getCars());
+		OutputService.getWinnerNameList(winner);
 	}
 }

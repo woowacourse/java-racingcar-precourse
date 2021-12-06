@@ -2,6 +2,7 @@ package racingcar.view;
 
 public class OutputView {
 	public static final String ERROR_MESSAGE = "[ERROR] %s";
+	public static final String RESULT_MESSAGE = "실행 결과";
 	public static final String WINNER_MESSAGE = "최종 우승자 : %s";
 	public static final String CAR_DISTANCE_MESSAGE =  "%s : %s";
 
@@ -18,7 +19,7 @@ public class OutputView {
 		printfMessage(ERROR_MESSAGE, error);
 	}
 
-	public static void printWinner(StringBuffer winner) {
+	public static void printWinner(String winner) {
 		printfMessage(WINNER_MESSAGE, winner);
 	}
 
@@ -26,6 +27,10 @@ public class OutputView {
 		printfMessage(CAR_DISTANCE_MESSAGE, name, position);
 	}
 
+	public static void printRacingResult(){
+		printNewLine();
+		printfMessage(RESULT_MESSAGE);
+	}
 }
 
 

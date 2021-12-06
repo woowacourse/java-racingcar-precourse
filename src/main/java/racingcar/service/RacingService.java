@@ -31,10 +31,11 @@ public class RacingService {
 		return maxPosition;
 	}
 
-	public static List<Car> getWinner(List<Car> cars){
+	public static List<String> getWinner(List<Car> cars){
 		int maxPosition = getMaxMovedPosition(cars);
 		return cars.stream()
 			.filter((car) -> car.getPosition() == maxPosition)
+			.map(Car::getName)
 			.collect(Collectors.toList());
 	}
 }
