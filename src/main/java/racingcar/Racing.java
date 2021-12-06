@@ -2,10 +2,15 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Optional;
+
 public class Racing {
 
     private Car car [];
     private int times;
+    private String winners;
 
     public Racing() {
         car = Car.getCarName();
@@ -13,6 +18,7 @@ public class Racing {
         for (int i = 0; i < times; i++) {
             doGame();
         }
+        findWinners();
     }
 
     public void getTimes() {
@@ -29,5 +35,16 @@ public class Racing {
             car.printPosition();
         }
         System.out.println();
+    }
+
+    public void findWinners() {
+        Optional<Car> cars = Arrays.stream(car).max(Comparator.comparing(Car::getPosition));
+        int max = cars.get().getPosition();
+        System.out.print("최종 우승자 : ");
+        for (Car car : car) {
+            if (car.getPosition() == max) {
+                winners += (car.getName() + ",");
+            }
+        }
     }
 }
