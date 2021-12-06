@@ -9,4 +9,5 @@ public class Text {
     public static final String SEPARATOR_COMMA = ",";
     public static final String SEPARATOR_COMMA_WITH_SPACE = ", ";
     public static final String COLON = " : ";
+    public static final String LINE_BREAK = "\n";
 }
