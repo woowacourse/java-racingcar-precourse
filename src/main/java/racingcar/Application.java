@@ -7,7 +7,10 @@ public class Application {
 	}
 
 	public void run() {
-		GameEngine gameEngine = new GameEngine();
+		OutputHandler outputHandler = new OutputHandler();
+		InputHandler inputHandler = new InputHandler(outputHandler);
+		Judgement judgement = new Judgement();
+		GameEngine gameEngine = new GameEngine(inputHandler, outputHandler, judgement);
 		gameEngine.start();
 	}
 }

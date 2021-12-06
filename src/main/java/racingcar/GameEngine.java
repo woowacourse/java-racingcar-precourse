@@ -9,10 +9,10 @@ public class GameEngine {
 	OutputHandler outputHandler;
 	Judgement judgement;
 
-	public GameEngine() {
-		inputHandler = new InputHandler();
-		outputHandler = new OutputHandler();
-		judgement = new Judgement();
+	public GameEngine(InputHandler inputHandler, OutputHandler outputHandler, Judgement judgement) {
+		this.inputHandler = inputHandler;
+		this.outputHandler = outputHandler;
+		this.judgement = judgement;
 	}
 
 	public void start() {

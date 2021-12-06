@@ -9,8 +9,8 @@ public class InputHandler {
 
 	OutputHandler outputHandler;
 
-	public InputHandler() {
-		outputHandler = new OutputHandler();
+	public InputHandler(OutputHandler outputHandler) {
+		this.outputHandler = outputHandler;
 	}
 
 	public List<String> getValidCarNames() {
