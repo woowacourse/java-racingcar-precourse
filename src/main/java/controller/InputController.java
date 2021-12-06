@@ -18,4 +18,9 @@ public class InputController {
 			}
 		}
 	}
+
+	public static int inputNumberOfCarRaces() {
+		String raceCount = Console.readLine();
+		return Integer.parseInt(raceCount);
+	}
 }

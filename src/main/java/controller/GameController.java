@@ -12,5 +12,6 @@ public class GameController {
 		Display.pleaseInputRacingCarNames();
 		RacingCarGame racingCarGame = new RacingCarGame(InputController.inputRacingCarNames());
 		Display.pleaseInputNumberOfCarRaces();
+		System.out.println(InputController.inputNumberOfCarRaces());
 	}
 }
