@@ -1,8 +1,11 @@
-package racingcar;
+package racingcar.utils;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import racingcar.domain.Car;
+import racingcar.utils.Constant;
 
 public class Validator {
 	public static void validateNameLength(String name) {

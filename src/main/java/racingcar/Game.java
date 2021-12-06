@@ -4,16 +4,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.Referee;
+import racingcar.utils.Constant;
+import racingcar.utils.Validator;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 public class Game {
 	private Cars cars;
-	private Referee referee;
 	private int gameRound;
 
 	public void play() {
 		getCarsWithErrorHandling();
 		getGameRoundWithErrorHandling();
 		OutputView.showGameResultMessage();
-		referee = new Referee();
+		Referee referee = new Referee();
 		for (int i = 0; i < gameRound; i++) {
 			cars.playRound();
 			OutputView.showGameRoundResult(cars.showCarsPosition());

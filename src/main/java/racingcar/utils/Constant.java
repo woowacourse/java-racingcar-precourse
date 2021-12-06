@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils;
 
 public class Constant {
 	public static int NAME_MAX_LENGTH = 5;

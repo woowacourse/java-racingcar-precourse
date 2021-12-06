@@ -1,6 +1,9 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.Objects;
+
+import racingcar.utils.Constant;
+import racingcar.utils.Validator;
 
 public class Car {
 	private final String name;
@@ -47,6 +50,6 @@ public class Car {
 
 	@Override
 	public int hashCode() {
-		return 0;
+		return Objects.hash(name);
 	}
 }

@@ -1,7 +1,10 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+
+import racingcar.domain.Car;
+import racingcar.utils.Constant;
 
 public class OutputView {
 	public static void showGameResultMessage() {

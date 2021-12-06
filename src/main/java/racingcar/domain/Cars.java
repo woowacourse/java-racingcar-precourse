@@ -1,10 +1,12 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.Constant;
+import racingcar.utils.Validator;
 
 public class Cars {
 	private final List<Car> cars;
