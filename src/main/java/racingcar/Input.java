@@ -40,6 +40,38 @@ public class Input {
 		}
 		return false;
 	}
+
 	
+	
+	public static int tryCount() {
+		int tryNumberInt;
+		String tryNumberString = null;
+		boolean check = false;
+
+		while (!check) { 
+			System.out.println("시도할 회수는 몇회인가요?");
+			tryNumberString = Console.readLine();
+
+			try {
+				check = numberCheck(tryNumberString);
+			} catch (IllegalArgumentException e) {
+				System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+			}
+
+		}
+		tryNumberInt = Integer.parseInt(tryNumberString);
+		return tryNumberInt;
+	}
+	
+	private static boolean numberCheck(String str) throws IllegalArgumentException {
+		boolean isNumber;
+		if (str.chars().allMatch(Character::isDigit)) {
+			isNumber = true;
+			return isNumber;
+		}
+		throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+
+	}
+
 
 }
