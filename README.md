@@ -210,6 +210,8 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
     - 자동차 이름 검증
         - 5자 초과인 경우 Exception 발생
         - 이름이 중복된 경우 Exception 발생
+        - 이름이 'javac' 경우 Exception 발생
+            - 해당 경우 프로그램이 예상과는 다르게 작동함
     - 시도 횟수 검증
         - 숫자가 아닐 경우 Exception 발생
 
