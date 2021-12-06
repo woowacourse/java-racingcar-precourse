@@ -11,8 +11,12 @@ import racingcar.constant.Output;
 public class OutputView {
     private boolean firstWinner = true;
 
-    public void showCurrentPosition(ArrayList<Car> cars) {
+    public void showOutputStartMessage() {
+        divisionLine();
         System.out.println(Output.RESULT_START_MESSAGE);
+    }
+
+    public void showCurrentPosition(ArrayList<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.getName() + Output.RESULT_COLON_FORMAT + showMoveByPosition(car.getPosition()));
         }

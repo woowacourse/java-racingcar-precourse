@@ -14,6 +14,7 @@ public class RacingCarGame {
         int times = inputView.inputTimes();
 
         OutputView outputView = new OutputView();
+        outputView.showOutputStartMessage();
         for (int t = 0; t < times; t++) {
             progress(cars);
             outputView.showCurrentPosition(cars);
