@@ -5,21 +5,14 @@ import java.util.ArrayList;
 public class Application {
 
 	public static void main(String[] args) {
-		//
-
 		String[] carNameArray = Input.carNames();
-
-		// System.out.println(carNameArray.length); ±æÀÌ Ã¼Å©
-
 		int tryNumber = Input.tryCount();
-
 		Car[] carArray = new Car[carNameArray.length];
 
 		for (int i = 0; i < carNameArray.length; i++) {
 			carArray[i] = new Car(carNameArray[i]);
 		}
 
-		// ½ÇÇà°á°ú
 		for (int i = 0; i < tryNumber; i++) {
 			for (int j = 0; j < carArray.length; j++) {
 				int rand = carArray[j].randomNumber();
@@ -29,11 +22,11 @@ public class Application {
 			System.out.println();
 		}
 
-		// ÃÖÁ¾ ¿ì½ÂÀÚ
+		//final winer
 		ArrayList<String> winers = finalWiner(carArray);
-		System.out.print("ÃÖÁ¾ ¿ì½ÂÀÚ :");
+		System.out.print("ìµœì¢… ìš°ìŠ¹ì : ");
 
-		// µÎ¸í ÀÌ»óÀÏ°æ¿ì ÀÛ¼ºÇÊ¿ä
+		//winer is Two more
 		int index = 0;
 		while (true) {
 			System.out.print(winers.get(index));
@@ -43,6 +36,8 @@ public class Application {
 			}
 			System.out.print(", ");
 		}
+		System.out.println();
+
 
 	}
 
@@ -63,7 +58,6 @@ public class Application {
 				winers.add(arr[i].getName());
 			}
 		}
-
 		return winers;
 
 	}

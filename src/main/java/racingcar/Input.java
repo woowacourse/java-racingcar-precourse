@@ -8,13 +8,14 @@ public class Input {
 		String[] CarNameArray = null;
 		boolean right = true;
 		while (right) {
-			System.out.println("°æÁÖÇÒ ÀÚµ¿Â÷ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.(ÀÌ¸§Àº ½°Ç¥(,) ±âÁØÀ¸·Î ±¸ºĞ)");
+			System.out.println("ê²½ì£¼í•  ìë™ì°¨ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.(ì´ë¦„ì€ ì‰¼í‘œ(,) ê¸°ì¤€ìœ¼ë¡œ êµ¬ë¶„)");
 			String Carstirng = Console.readLine();
 			CarNameArray = StringToArray(Carstirng);
 			try {
 				right = exception(CarNameArray);
 			} catch (IllegalArgumentException e) {
-				System.out.println("[ERROR] ÀÚµ¿Â÷ÀÌ¸§Àº 5ÀÚ ÀÌÇÏ¿©¾ßÇÑ´Ù.");
+				System.out.println("[ERROR] ìë™ì°¨ì´ë¦„ì€ 5ì ì´í•˜ì—¬ì•¼í•œë‹¤.");
+		
 			}
 
 		}
@@ -34,7 +35,7 @@ public class Input {
 	public static boolean exception(String[] arr) throws IllegalArgumentException {
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i].length() > 5 || arr[i].length() == 0) {
-				throw new IllegalArgumentException("[ERROR] ÀÚµ¿Â÷ÀÌ¸§Àº 5ÀÚ ÀÌÇÏ¿©¾ßÇÑ´Ù.");
+				throw new IllegalArgumentException("[ERROR] ìë™ì°¨ì´ë¦„ì€ 5ì ì´í•˜ì—¬ì•¼í•œë‹¤.");
 			}
 		}
 		return false;
@@ -45,14 +46,14 @@ public class Input {
 		String tryNumberString = null;
 		boolean check = false;
 
-		while (!check) { // check·Î ³ÖÀ¸¸é ¿Ö ¹İÈ¯ÀÌ ¿¡·¯°¡ ¶ã±î?
-			System.out.println("½ÃµµÇÒ È¸¼ö´Â ¸îÈ¸ÀÎ°¡¿ä?");
+		while (!check) { 
+			System.out.println("ì‹œë„í•  íšŒìˆ˜ëŠ” ëª‡íšŒì¸ê°€ìš”?");
 			tryNumberString = Console.readLine();
 
 			try {
 				check = numberCheck(tryNumberString);
 			} catch (IllegalArgumentException e) {
-				System.out.println("[ERROR] ½Ãµµ È½¼ö´Â ¼ıÀÚ¿©¾ß ÇÑ´Ù.");
+				System.out.println("[ERROR] ì‹œë„ íšŸìˆ˜ëŠ” ìˆ«ìì—¬ì•¼ í•œë‹¤.");
 			}
 
 		}
@@ -66,7 +67,7 @@ public class Input {
 			isNumber = true;
 			return isNumber;
 		}
-		throw new IllegalArgumentException("[ERROR] ½Ãµµ È½¼ö´Â ¼ıÀÚ¿©¾ß ÇÑ´Ù.");
+		throw new IllegalArgumentException("[ERROR] ì‹œë„ íšŸìˆ˜ëŠ” ìˆ«ìì—¬ì•¼ í•œë‹¤.");
 
 	}
 }

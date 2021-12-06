@@ -15,7 +15,6 @@ public class Car {
 
 	int randomNumber() {
 		int rand = Randoms.pickNumberInRange(startNum, endNum);
-		// System.out.println(rand); ·£´ı¼ö È®ÀÎ
 		return rand;
 	}
 

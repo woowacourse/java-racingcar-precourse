@@ -14,19 +14,21 @@ class ApplicationTest extends NsTest {
 	private static final String ERROR_MESSAGE = "[ERROR]";
 
 	@Test
-	void ÀüÁø_Á¤Áö() {
+	void ì „ì§„_ì •ì§€() {
 		assertRandomNumberInRangeTest(() -> {
 			run("pobi,woni", "1");
-			assertThat(output()).contains("pobi : -", "woni : ", "ÃÖÁ¾ ¿ì½ÂÀÚ : pobi");
+            assertThat(output()).contains("pobi : -", "woni : ", "ìµœì¢… ìš°ìŠ¹ìž : pobi");
 		}, MOVING_FORWARD, STOP);
 	}
 
 	@Test
-	void ÀÌ¸§¿¡_´ëÇÑ_¿¹¿Ü_Ã³¸®() {
-		assertSimpleTest(() -> {
-			runException("pobi,javaji");
-			assertThat(output()).contains(ERROR_MESSAGE);
-		});
+	void ì´ë¦„ì—_ëŒ€í•œ_ì˜ˆì™¸_ì²˜ë¦¬(){
+		assertSimpleTest(
+			() -> {
+				runException("pobi,javaji");
+				assertThat(output()).contains(ERROR_MESSAGE);
+			}
+		);
 	}
 
 	@Override
