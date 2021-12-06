@@ -6,11 +6,11 @@ import racingcar.Car;
 import racingcar.logic.RacingGamePlayer;
 
 public class OutputView {
-	private static final String RESULT_MSG = "실행 결과";
-	private static final String WINNER_MSG = "최종 우승자";
+	private static final String RESULT_MSG = "\n실행 결과";
+	private static final String WINNER_MSG = "최종 우승자 : ";
 
 	public static void displayResultMsg() {
-		System.out.println("\n" + RESULT_MSG);
+		System.out.println(RESULT_MSG);
 	}
 
 	public static void displayOneRoundResult() {
@@ -29,7 +29,7 @@ public class OutputView {
 	}
 
 	public static void displayWinners(List<String> winnerNames) {
-		System.out.print(WINNER_MSG + " : ");
+		System.out.print(WINNER_MSG);
 		for (int i = 0; i < winnerNames.size(); i++) {
 			System.out.print(winnerNames.get(i));
 

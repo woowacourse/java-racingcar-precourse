@@ -6,6 +6,7 @@ import racingcar.logic.InputExceptionHandling;
 public class InputFromUser {
 	private static final String INPUT_NAME_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String INPUT_COUNT_MSG = "시도할 회수는 몇회인가요?";
+	private static final String ERROR_MSG = "[ERROR] ";
 	private static final String DELIMITER = ",";
 
 	private final InputExceptionHandling inputExceptionHandling;
@@ -22,7 +23,7 @@ public class InputFromUser {
 		try {
 			return inputExceptionHandling.validNameInput(carNames);
 		} catch (IllegalArgumentException e) {
-			System.out.println("[ERROR] " + e);
+			System.out.println(ERROR_MSG + e);
 			return inputCarName();
 		}
 	}
@@ -34,7 +35,7 @@ public class InputFromUser {
 		try {
 			return inputExceptionHandling.validCountInput(count);
 		} catch (IllegalArgumentException e) {
-			System.out.println("[ERROR] " + e);
+			System.out.println(ERROR_MSG + e);
 			return inputGameCount();
 		}
 	}
