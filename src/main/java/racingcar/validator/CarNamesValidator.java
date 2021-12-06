@@ -1,10 +1,10 @@
-package racingcar.validation;
+package racingcar.validator;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static racingcar.validation.ErrorCode.*;
-import static racingcar.validation.ErrorCode.IS_DUPLICATED;
+import static racingcar.validator.ErrorCode.*;
+import static racingcar.validator.ErrorCode.IS_DUPLICATED;
 
 public class CarNamesValidator {
     private static final String BY = ",";

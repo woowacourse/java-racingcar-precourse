@@ -2,8 +2,8 @@ package racingcar.io;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.garage.Garage;
-import racingcar.validation.CarNamesValidator;
-import racingcar.validation.RoundCountValidator;
+import racingcar.validator.CarNamesValidator;
+import racingcar.validator.RoundCountValidator;
 
 import static racingcar.io.FixedString.*;
 

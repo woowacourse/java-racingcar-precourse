@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.validator;
 
 public enum ErrorCode {
     // common

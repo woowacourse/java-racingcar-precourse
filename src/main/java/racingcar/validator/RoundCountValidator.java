@@ -1,6 +1,6 @@
-package racingcar.validation;
+package racingcar.validator;
 
-import static racingcar.validation.ErrorCode.*;
+import static racingcar.validator.ErrorCode.*;
 
 public class RoundCountValidator {
     private static final int ONE = 1;
