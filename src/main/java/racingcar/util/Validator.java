@@ -9,24 +9,33 @@ public class Validator {
 	private final Parser parser = new Parser();
 
 	public void checkCarNamesInput(String input) throws IllegalArgumentException {
+		checkEmptyAndThrowException(input);
 		checkLastIndexAndThrowException(input);
 		List<String> carNameList = parser.parseCarNames(input);
-		checkCarNameListDuplication(carNameList);
+		checkCarNameListDuplicationAndThrowException(carNameList);
 		for (String carName : carNameList) {
 			checkLengthAndThrowException(carName);
-			checkSpace(carName);
+			checkSpaceAndThrowException(carName);
 		}
 	}
 
 	public void checkNumberOfTrialInput(String input) throws IllegalArgumentException {
+		checkEmptyAndThrowException(input);
 		try {
+			checkEmptyAndThrowException(input);
 			Integer.parseInt(input);
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자여야 합니다.");
 		}
 	}
 
-	private void checkCarNameListDuplication(List<String> carNameList) {
+	private void checkEmptyAndThrowException(String input) {
+		if (input.isEmpty()) {
+			throw new IllegalArgumentException("[ERROR] 값을 입력해주세요.");
+		}
+	}
+
+	private void checkCarNameListDuplicationAndThrowException(List<String> carNameList) {
 		for (int i = 0; i < carNameList.size(); i++) {
 			for (int j = i + 1; j < carNameList.size(); j++) {
 				checkEqualsAndThrowException(carNameList.get(i), carNameList.get(j));
@@ -40,13 +49,13 @@ public class Validator {
 		}
 	}
 
-	private void checkLastIndexAndThrowException(String input) throws IllegalArgumentException {
+	private void checkLastIndexAndThrowException(String input) {
 		if (input.lastIndexOf(",") == input.length() - 1) {
 			throwMinLengthException();
 		}
 	}
 
-	private void checkLengthAndThrowException(String carName) throws IllegalArgumentException {
+	private void checkLengthAndThrowException(String carName) {
 		if (CAR_NAME_RESTRICTIONS_MAX < carName.length()) {
 			throwMaxLengthException();
 		}
@@ -55,21 +64,21 @@ public class Validator {
 		}
 	}
 
-	private void throwMinLengthException() throws IllegalArgumentException {
+	private void throwMinLengthException() {
 		throw new IllegalArgumentException("[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MIN + "글자 이상이어야 합니다.");
 	}
 
-	private void throwMaxLengthException() throws IllegalArgumentException {
+	private void throwMaxLengthException() {
 		throw new IllegalArgumentException("[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MAX + "글자 이하여야 합니다.");
 	}
 
-	private void checkSpace(String carName) throws IllegalArgumentException {
+	private void checkSpaceAndThrowException(String carName) {
 		if (carName.contains(SPACE)) {
 			throwSpaceException();
 		}
 	}
 
-	private void throwSpaceException() throws IllegalArgumentException {
+	private void throwSpaceException() {
 		throw new IllegalArgumentException("[ERROR] 자동차 이름안에는 공백이 있어서는 안됩니다.");
 	}
 }
