@@ -56,6 +56,7 @@ public class RaceGame {
     }
 
     private void startRace() {
+        System.out.println();
         System.out.println(GameData.MESSAGE_GAME_BEGIN);
         for (int i = 0; i < tryNumber; i++) {
             tryRace();
@@ -73,7 +74,7 @@ public class RaceGame {
     private ArrayList<Car> getWinners() {
         ArrayList<Car> winnerCars = new ArrayList<>();
         if (tryNumber == 0) {
-            return winnerCars;
+            return raceCarList;
         }
         Collections.sort(raceCarList, Collections.reverseOrder());
         winnerCars.add(raceCarList.get(0));
