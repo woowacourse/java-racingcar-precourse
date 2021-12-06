@@ -9,14 +9,14 @@ public class Car {
     }
     public String getName() { return this.name; }
     public int getPosition() { return this.position; }
-    public void moveForwardCar() { this.position++; }
+    public void moveForward() { this.position++; }
 
     @Override
     public String toString() {
-        String result = this.name + " : ";
+        StringBuilder result = new StringBuilder(this.name + " : ");
         for (int i=0; i<this.position; i++) {
-            result += "-";
+            result.append("-");
         }
-        return result;
+        return result.toString();
     }
 }
