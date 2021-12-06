@@ -19,7 +19,15 @@ public class InputView {
 
 	public static int parseInt(String input) {
 		isInteger(input);
-		return Integer.parseInt(input);
+		int result = Integer.parseInt(input);
+		isPositive(result);
+		return result;
+	}
+
+	private static void isPositive(int input) {
+		if (input < 1) {
+			throw new IllegalArgumentException();
+		}
 	}
 
 	private static void isInteger(String input) {
