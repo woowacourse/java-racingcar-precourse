@@ -11,7 +11,7 @@ public class Car {
     // 추가 기능 구현
 
     public void goForward(){
-        if(/*GameProgressor.judge4*/){
+        if(GameTools.judgeMoreThan4(GameTools.getRandomNumber())){
             this.position += 1;
         }
     }
