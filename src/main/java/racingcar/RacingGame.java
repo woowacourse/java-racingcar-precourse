@@ -18,10 +18,6 @@ public class RacingGame {
 	private int totalTryNum;
 	private Car[] cars;
 
-	RacingGame() {
-		init();
-	}
-
 	private boolean checkNoNameException(String carsName) {
 		carsName = "," + carsName + ",";
 		for (int i = 0; i < carsName.length() - 1; ++i) {
@@ -164,5 +160,13 @@ public class RacingGame {
 	private void printWinners() {
 		ArrayList<Integer> winnersIndex = getWinnersIndex();
 		System.out.printf("%s%s%s%n", WINNER_OUTPUT_MESSAGE, SPACE_COLON_SPACE, getWinnersName(winnersIndex));
+	}
+
+	public void playRacingGame() {
+		init();
+		for (int cycle = 0; cycle < totalTryNum; ++cycle) {
+			playOneCycle();
+		}
+		printWinners();
 	}
 }
