@@ -24,6 +24,6 @@ public class Computer {
 	}
 
 	public static void printError(Exception e) {
-		System.out.printf("%s %s\n", ERROR_HEADER, e.getMessage());
+		System.out.printf("%s %s%n", ERROR_HEADER, e.getMessage());
 	}
 }

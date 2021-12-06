@@ -6,6 +6,7 @@ public class Car {
 	private static final int MIN_RANDOM_NUMBER = 0;
 	private static final int MAX_RANDOM_NUMBER = 9;
 	private static final int CRITERION = 4;
+	private static final char POSITION_CHAR = '-';
 
 	private final String name;
 	private int position = 0;
@@ -25,7 +26,7 @@ public class Car {
 	private void printPosition() {
 		StringBuilder strPosition = new StringBuilder();
 		for (int i = 0; i < position; i++) {
-			strPosition.append("-");
+			strPosition.append(POSITION_CHAR);
 		}
 		System.out.printf("%s : %s%n", name, strPosition);
 	}
