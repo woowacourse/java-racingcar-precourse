@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RacingCarGame {
-	private final int roundNumber;
+	private int leftRounds;
 	private Cars cars;
 
 	private static final String NUMBER_GT_ONE_FILTER = "[1-9][0-9]*";
@@ -12,7 +12,7 @@ public class RacingCarGame {
 	private static final String ROUND_NUMBER_ERROR_MESSAGE = "[ERROR] 1 이상의 수를 입력해주세요";
 
 	private RacingCarGame(int roundNumber, Cars cars) {
-		this.roundNumber = roundNumber;
+		this.leftRounds = roundNumber;
 		this.cars = cars;
 	}
 
@@ -31,18 +31,17 @@ public class RacingCarGame {
 		return roundNumber.matches(NUMBER_GT_ONE_FILTER);
 	}
 
-	public void startGame() {
-		iterateRound();
-	}
-
-	private void iterateRound() {
-		for (int i = 0; i < roundNumber; i++) {
-			startRound();
-		}
-	}
-
-	private void startRound() {
+	public void startRound() {
 		cars.moveCars();
+		endRound();
+	}
+
+	private void endRound() {
+		leftRounds--;
+	}
+
+	public boolean isGameEnd() {
+		return leftRounds == 0;
 	}
 
 	public GameStatus generateGameStatus() {

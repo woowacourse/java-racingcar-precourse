@@ -52,7 +52,7 @@
     - 입력값으로 Cars 인스턴스를 생성하라 to Cars
     - 라운드 수를 요청하라 to InputView
     - Cars 인스턴스로 게임을 초기화(생성)하라 to racingCarGame
-    - 게임을 시작하라 to racingCarGame
+    - 라운드를 시작하라 to racingCarGame
     - 게임 결과를 생성하라 to RacingCarGame
     - 게임 결과를 출력하라 to ResultView
     - 모델에서 발생한 에러를 핸들링
@@ -63,9 +63,10 @@
 
 - 역할 : 게임을 진행
 - 책임
-    - 라운드 수와 Cars를 입력받아 생성
-    - 라운드 수를 검증
+    - 여분 라운드 수와 Cars를 입력받아 생성
+    - 라운드 수 입력값을 검증
     - 게임을 시작(차들을 이동시켜라 to Cars)
+    - 게임이 끝났는지 판단
     - 게임 상태를 만듦(각 자동차의 이름과 위치를 포함하는 데이터)
 
 ### Cars
