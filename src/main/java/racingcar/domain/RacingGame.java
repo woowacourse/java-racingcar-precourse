@@ -6,16 +6,16 @@ import racingcar.util.RandomNumberGeneratePolicy;
 public class RacingGame {
 	private final Cars cars;
 	private final Round round;
-	private final NumberGeneratePolicy randomNumberGeneratePolicy;
+	private final NumberGeneratePolicy numberGeneratePolicy;
 
-	public RacingGame(Cars cars, Round round, NumberGeneratePolicy randomNumberGeneratePolicy) {
+	public RacingGame(Cars cars, Round round, NumberGeneratePolicy numberGeneratePolicy) {
 		this.cars = cars;
 		this.round = round;
-		this.randomNumberGeneratePolicy = randomNumberGeneratePolicy;
+		this.numberGeneratePolicy = numberGeneratePolicy;
 	}
 
-	public RacingGame(String carsName, int round, NumberGeneratePolicy randomNumberGeneratePolicy) {
-		this(Cars.fromString(carsName), Round.fromInt(round), randomNumberGeneratePolicy);
+	public RacingGame(String carsName, int round, NumberGeneratePolicy numberGeneratePolicy) {
+		this(Cars.fromString(carsName), Round.fromInt(round), numberGeneratePolicy);
 	}
 
 	public static RacingGame createRacingGame(String carsName, int round) {
@@ -23,7 +23,7 @@ public class RacingGame {
 	}
 
 	public RacingRecord race() {
-		cars.driveAll(randomNumberGeneratePolicy);
+		cars.driveAll(numberGeneratePolicy);
 		return new RacingRecord(cars.getDriveRecord());
 	}
 
