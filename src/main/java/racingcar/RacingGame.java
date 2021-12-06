@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import racingcar.domain.Player;
 import racingcar.validation.InputValidation;
 import racingcar.validation.RacingGameValidationImpl;
 
@@ -13,7 +14,6 @@ public class RacingGame {
     private static final String ERROR_INPUT_CAR_NAME_MESSAGE = "[ERROR] 이름은 ',' 단위로 입력해야 하며 공백 문자 및 특수문자가 포함되선 안된다.\n";
     private static final String ERROR_INPUT_NUMBER_OF_ATTEMPTS_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.\n";
 
-
     private String[] carNames;
     private int numberOfAttempts;
 
@@ -24,6 +24,7 @@ public class RacingGame {
     public void start() {
         inputTheCarName();
         inputTheNumberOfAttempts();
+        Player player = new Player(carNames, numberOfAttempts);
         //businessLogic
     }
 
@@ -33,6 +34,7 @@ public class RacingGame {
             String inputTheCarNames = Console.readLine();
             validation.validCarNames(inputTheCarNames);
             carNames = toStringArray(inputTheCarNames);
+
         } catch (IllegalArgumentException e) {
             System.out.println(ERROR_INPUT_CAR_NAME_MESSAGE);
             inputTheCarName();
