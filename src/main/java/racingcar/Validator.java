@@ -13,7 +13,7 @@ public class Validator {
 	}
 
 	private static void validateDuplicate(String[] everyCarName) {
-		HashSet set = new HashSet<>(Arrays.asList(everyCarName));
+		HashSet<String> set = new HashSet<>(Arrays.asList(everyCarName));
 		if (set.size() != everyCarName.length) {
 			throw new IllegalArgumentException("자동차의 이름은 중복되어서는 안됩니다.");
 		}
