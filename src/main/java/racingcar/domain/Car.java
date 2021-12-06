@@ -1,6 +1,7 @@
-package racingcar.model;
+package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -17,8 +18,8 @@ public class Car {
 		this.name = name;
 	}
 
-	public ArrayList<String> move() {
-		ArrayList<String> result = new ArrayList<>();
+	public List<String> move() {
+		List<String> result = new ArrayList<>();
 		if (canMove()) {
 			position += DISPLACEMENT;
 		}
@@ -28,14 +29,15 @@ public class Car {
 	}
 
 	private boolean canMove() {
-		return Randoms.pickNumberInRange(MIN_POWER, MAX_POWER) >= THRESHOLD;
+		int randNum = Randoms.pickNumberInRange(MIN_POWER, MAX_POWER);
+		return randNum >= THRESHOLD;
 	}
 
 	public int updateHighScore(int highScore) {
 		return Math.max(position, highScore);
 	}
 
-	public void isChampion(ArrayList<String> champion, int highScore) {
+	public void isChampion(List<String> champion, int highScore) {
 		if (position == highScore) {
 			champion.add(name);
 		}

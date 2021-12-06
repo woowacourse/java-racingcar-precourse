@@ -1,8 +1,9 @@
-package racingcar.model;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 public class Validation {
 	private static final String ERROR_MESSAGE = "[ERROR] ";
@@ -44,7 +45,7 @@ public class Validation {
 	}
 
 	private void isUnique(String[] carNames) {
-		ArrayList<String> names = new ArrayList<>(Arrays.asList(carNames));
+		List<String> names = new ArrayList<>(Arrays.asList(carNames));
 		HashSet<String> unique = new HashSet<>(names);
 		if (names.size() != unique.size()) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + DUPLICATE_NAME_ERROR);
