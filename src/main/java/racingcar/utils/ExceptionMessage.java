@@ -1,19 +1,15 @@
 package racingcar.utils;
 
 public class ExceptionMessage {
-	// LIMIT ABOUT NUMBER
-	public static final int CAR_NAME_LENGTH = 5;
-	public static final int RANDOM_RANGE_MINIMUM = 0;
-	public static final int RANDOM_RANGE_MAXIMUM = 9;
-	public static final int RANDOM_RANGE_STANDARD = 4;
+	public static final String ERROR_MESSAGE = "[ERROR] ";
 
-	public static final String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-	public static final String INPUT_TRY_NUM = "시도할 회수는 몇회인가요?";
-	public static final String EXECUTION_RESULT = "실행 결과";
-	public static final String LAST_WINNER_IS = "최종 우승자 : ";
+	// CAR_NAME
+	public static final String CAR_NAME_NULL = ERROR_MESSAGE + "자동차 이름으로 공백이 입력될 수 없습니다.";
+	public static final String CAR_OUTOF_RANGE = ERROR_MESSAGE + "자동차 이름은 " + Constant.CAR_NAME_LENGTH + "자 이하만 가능합니다.";
+	public static final String CAR_NAME_DUPLICATE = ERROR_MESSAGE + "자동차 이름이 중복되었습니다.";
 
-	public static final String DELIMITER_car_NAME = ",";
-	public static final String BETWEEN_NAME_RESULT = " : ";
-	public static final String EXECUTION_RESULT_MARKER = "-";
+	// TRY
+	public static final String TRY_TYPE_FAIL = ERROR_MESSAGE + "잘못된 형식 입니다. 0 이상의 정수를 입력해주세요.";
+	public static final String TRY_RANGE_FAIL = ERROR_MESSAGE + "범위를 벗어난 값입니다. 0 이상의 정수를 입력해주세요.";
 
 }
