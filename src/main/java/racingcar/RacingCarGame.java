@@ -28,6 +28,7 @@ public class RacingCarGame  implements Game {
             try{
                 temporaryRacingCars = isValidCarNameList(splitString);
             } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 입력 포멧을 맞춰 입력하세요.(','로 구분, 차 이름 5자 이하)");
                 temporaryRacingCars = null;
             }
 
@@ -46,6 +47,7 @@ public class RacingCarGame  implements Game {
             try {
                 checkNumber = checkValidTrialNumber(trial);
             } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
                 checkNumber = false;
             }
         } while(!checkNumber);
@@ -76,7 +78,7 @@ public class RacingCarGame  implements Game {
         while(splitString.hasMoreTokens()) {
 
             String carName = splitString.nextToken();
-            if (!checkMoreThanMaximumLength(carName)) throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력값: " + carName);
+            if (!checkMoreThanMaximumLength(carName)) throw new IllegalArgumentException();
 
             temporaryRacingCars.add(carName);
         }
@@ -107,7 +109,7 @@ public class RacingCarGame  implements Game {
 
     private boolean checkValidTrialNumber(String trial) {
         for (int index = 0; index < trial.length(); index++) {
-            if (!Character.isDigit(trial.charAt(index))) throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력값: " +trial);
+            if (!Character.isDigit(trial.charAt(index))) throw new IllegalArgumentException();
         }
         return true;
     }
