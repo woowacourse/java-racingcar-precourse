@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import communicate.Text;
+
 public class Car {
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
@@ -29,5 +31,23 @@ public class Car {
 
     public void move() {
         position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private String showPosition() {
+        String positionStatus = "";
+
+        for (int i = 0; i < position; i++) {
+            positionStatus += Text.MOVE_MARK;
+        }
+
+        return positionStatus;
+    }
+
+    public String provideInformation() {
+        return getName() + Text.COLON + showPosition();
     }
 }
