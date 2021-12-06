@@ -15,7 +15,7 @@ public class RacingCarGame {
 		String[] carNames = InputView.getCarNames();
 		int moveTimes = InputView.getMoveTimes();
 		List<Car> carList = carNamesToCarList(carNames);
-		System.out.println("\n실행 결과");
+		OutputView.printGameResultMessage();
 		for (int time = 0; time < moveTimes; time++) {
 			for (Car car : carList) {
 				int randomValue = car.generateRandomValue();
