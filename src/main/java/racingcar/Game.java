@@ -5,6 +5,21 @@ import java.util.ArrayList;
 public class Game {
 
     /**
+     * 우승자를 출력하는 메서드
+     * @param cars
+     */
+    public static void printWinner(ArrayList<Car> cars) {
+        System.out.print("최종 우승자 : ");
+
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.print(cars.get(i).getName());
+            if (i != cars.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
+
+    /**
      * 현재 상태를 출력하는 메서드
      * @param cars
      */

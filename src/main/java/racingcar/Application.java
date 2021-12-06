@@ -70,7 +70,6 @@ public class Application {
 
         cars = Game.startGame(cars, num);
         cars = Game.determineWinner(cars);
-
-        // TODO: printWinner
+        Game.printWinner(cars);
     }
 }
