@@ -4,13 +4,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 	private static final int MAX_CAR_NAME_LENGTH = 5;
+	private static final String NAME_DELIMITER = ",";
 
 	private InputView() {
 	}
 
 	public static String[] getCarNames() {
 		OutputView.printCarNamesInputMessage();
-		String[] carNames = Console.readLine().split(",");
+		String[] carNames = Console.readLine().split(NAME_DELIMITER);
 		try {
 			validateCarName(carNames);
 		} catch (Exception exception) {
