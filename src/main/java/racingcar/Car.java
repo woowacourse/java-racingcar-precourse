@@ -11,6 +11,20 @@ public class Car {
         validateNameLength(name);
         this.name = name;
     }
+    
+    public void moveForward(){
+        this.position++;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(name);
+        sb.append(" : ");
+        for(int i=0;i<position;i++){
+            sb.append("-");
+        }
+        return sb.toString();
+    }
 
     private void validateNameLength(String name){
         if(name.length()>NAME_MAX_LENGTH){
