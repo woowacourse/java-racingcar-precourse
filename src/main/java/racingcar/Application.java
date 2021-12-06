@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.service.Referee;
-import racingcar.domain.trycounter.Lab;
+import racingcar.domain.lab.Lab;
 import racingcar.io.ConsolePrinter;
 import racingcar.io.ConsoleReader;
 import racingcar.runner.RacingGame;

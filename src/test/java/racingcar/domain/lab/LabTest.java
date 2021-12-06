@@ -1,4 +1,4 @@
-package racingcar.domain.trycounter;
+package racingcar.domain.lab;
 
 import static org.junit.jupiter.api.Assertions.*;
 

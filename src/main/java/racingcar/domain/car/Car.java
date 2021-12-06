@@ -4,6 +4,10 @@ import java.util.Objects;
 
 public class Car {
 
+    public static final String STATE_FORMAT = "%s : %s";
+
+    public static final char POSITION_CHARACTER = '-';
+
     private static final int CAN_MOVE_INDICATOR = 4;
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
 
@@ -37,7 +41,7 @@ public class Car {
     }
 
     public String getState() {
-        return String.format("%s : %s", name, getPositionString());
+        return String.format(STATE_FORMAT, name, getPositionString());
     }
 
     private String getPositionString() {
@@ -45,7 +49,20 @@ public class Car {
             return positionString;
         }
 
-        positionString += '-';
+        positionString += POSITION_CHARACTER;
         return positionString;
+    }
+
+    public boolean isWinner(int bestRecord) {
+        return position == bestRecord;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+
+    public String getName() {
+        return name;
     }
 }

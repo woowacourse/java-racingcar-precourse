@@ -1,4 +1,4 @@
-package racingcar.domain.trycounter;
+package racingcar.domain.lab;
 
 public class Lab {
 
@@ -17,17 +17,21 @@ public class Lab {
 	}
 
 	private void isNumeric(String input) {
+
 		if (!input.matches(LIMIT_MUST_BE_NUMBER)) {
 			throw new LabMustBeNumberException();
 		}
+
 	}
 
 	private void isInteger(String input) {
+
 		try {
 			Integer.parseInt(input);
 		} catch (NumberFormatException e) {
 			throw new LabMustIntegerRangeException();
 		}
+
 	}
 
 	public int getLabCount() {

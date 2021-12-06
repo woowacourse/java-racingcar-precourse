@@ -1,4 +1,4 @@
-package racingcar.domain.trycounter;
+package racingcar.domain.lab;
 
 public class LabMustIntegerRangeException extends IllegalArgumentException {
 
