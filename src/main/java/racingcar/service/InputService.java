@@ -8,7 +8,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class InputService {
-	final static String DELIMITER = ",";
+	final static String CAR_NAME_DELIMITER = ",";
 
 	public static List<String> getCarNames() {
 		List<String> carNames;
@@ -39,8 +39,8 @@ public class InputService {
 	}
 
 	private static List<String> separateCarNames(String names) {
-		ValidationService.checkCarNames(names, DELIMITER);
-		return makeClearCarNames(names.split(DELIMITER));
+		ValidationService.checkCarNames(names, CAR_NAME_DELIMITER);
+		return makeClearCarNames(names.split(CAR_NAME_DELIMITER));
 	}
 
 	private static List<String> makeClearCarNames(String[] names) {

@@ -4,7 +4,7 @@ public class OutputView {
 	public static final String ERROR_MESSAGE = "[ERROR] %s";
 	public static final String RESULT_MESSAGE = "실행 결과";
 	public static final String WINNER_MESSAGE = "최종 우승자 : %s";
-	public static final String CAR_DISTANCE_MESSAGE = "%s : %s";
+	public static final String CAR_STATUS_MESSAGE = "%s : %s";
 
 	public static void printfMessage(String message, Object... args) {
 		System.out.printf(message, args);
@@ -26,7 +26,7 @@ public class OutputView {
 	}
 
 	public static void printCarNameAndPosition(String name, StringBuilder position) {
-		printfMessage(CAR_DISTANCE_MESSAGE, name, position);
+		printfMessage(CAR_STATUS_MESSAGE, name, position);
 	}
 
 	public static void printRacingResult() {
