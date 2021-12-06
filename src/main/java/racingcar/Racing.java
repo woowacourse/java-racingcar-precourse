@@ -22,7 +22,8 @@ public class Racing {
         for (Car car : car) {
             if (Utils.exceedMoveForwardScoreOrNot(Utils.getRandomNumber())) {
                 car.move();
-                //각 줄을 print하는 기능 추가
+                car.printCarName();
+                car.printPosition();
             }
         }
     }

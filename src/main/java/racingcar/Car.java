@@ -28,4 +28,15 @@ public class Car {
     public void move() {
         this.position += 1;
     }
+
+    public void printPosition() {
+        for (int i = 0; i < position ; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    public void printCarName() {
+        System.out.print(this.name + " : ");
+    }
 }
