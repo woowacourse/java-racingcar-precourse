@@ -92,6 +92,17 @@ public class Application {
         return winnerList;
     }
 
+    public void printWinner(String[] winnerList) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winnerList.length; i++) {
+            System.out.print(winnerList[i]);
+            if (i != winnerList.length-1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
+
     public void run() {
         Car[] carList = getCarList();
         int tryCount = getTryCount();
@@ -102,6 +113,7 @@ public class Application {
         }
 
         String[] winnerList = getWinnerList(carList);
+        printWinner(winnerList);
     }
 
     public static void main(String[] args) {
