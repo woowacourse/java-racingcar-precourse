@@ -28,4 +28,8 @@ public class Car {
 	public void move(RandomNumberGenerator generator) {
 		position.isMove(generator);
 	}
+
+	public boolean isWinner(int max) {
+		return position.isMax(max);
+	}
 }

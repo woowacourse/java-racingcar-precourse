@@ -18,4 +18,8 @@ public class Position {
 			this.value++;
 		}
 	}
+
+	public boolean isMax(int max) {
+		return value == max;
+	}
 }

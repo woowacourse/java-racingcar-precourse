@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 	private static final String DELIMETER = ",";
@@ -39,5 +40,12 @@ public class Cars {
 			.mapToInt(Car::getPosition)
 			.max()
 			.orElse(0);
+	}
+
+	public List<String> findWinners() {
+		return cars.stream()
+			.filter(car -> car.isWinner(getMaxPosition()))
+			.map(Car::getName)
+			.collect(Collectors.toList());
 	}
 }
