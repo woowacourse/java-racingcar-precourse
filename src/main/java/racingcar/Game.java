@@ -62,6 +62,10 @@ public class Game {
 			if (name.length() > 5) {
 				throw new IllegalArgumentException("[ERROR] 이름은 5자 이하이여야 한다.\n");
 			}
+
+			if (name.equals("javac")) {
+				throw new IllegalArgumentException("[ERROR] 이름은 'javac'일 수 없다.\n");
+			}
 		}
 	}
 
