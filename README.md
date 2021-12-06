@@ -6,8 +6,8 @@
 -  ### [유저에게 자동차 이름 입력 받기]
     - camp.nextstep.edu.missionutils의 Condsole API의 readLine() 활용.
     - **"경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"** 출력.
-    - 입력 받은 자동차들을 Car 객체로 Cars 객체의 carArrayList 에 담는다.     
-    -  올바르지 않은 인풋 예외처리
+    - 입력 받은 자동차들을 Car 객체로 Cars 객체의 carList 에 담는다.     
+    -  올바르지 않은 인풋 예외처리 (예외는 Validation.java 파일에 정리)
        - IllegalArgumentException을 발생시킨 후 "[ERROR]" 로 시작하는 에러 메시지 출력.
             - **자동차 이름이 5자리 초과인 경우:** "[ERROR] 자동차 이름은 5자 이하만 가능하다."
             - **입력 값이 null인 경우:** "[ERROR] 빈 값이 올 수 없습니다."
@@ -18,8 +18,8 @@
 -  ### [유저에게 시도할 횟수 입력 받기]  
       - **"시도할 회수는 몇회인가요?"** 출력. 
       - camp.nextstep.edu.missionutils의 Condsole API의 readLine() 활용.
-      - 입력 받은 시도할 횟수를 Cars 객체의 repeatNum 으로 설정한다.   
-      - 올바르지 않은 인풋 예외처리
+      - 입력 받은 시도할 횟수를 Cars 객체의 repeatNum 으로 설정한다.
+      - 올바르지 않은 인풋 예외처리 (예외는 Validation.java 파일에 정리)
         - IllegalArgumentException을 발생시킨 후 "[ERROR]" 로 시작하는 에러 메시지 출력.
             - **입력받은 횟수가 자연수가 아닐 경우:** "[ERROR] 시도 횟수는 숫자여야 한다."
             - **입력 값이 null인 경우:** "[ERROR] 빈 값이 올 수 없습니다."
