@@ -1,5 +1,11 @@
 # 2주차 미션 - 자동차 경주 게임
 
+## 📚 사전 학습
+> 사전 학습한 내용들 및 참고한 자료들을 정리하였습니다.
+- [MVC 패턴](https://programmer-ririhan.tistory.com/349)
+- [1주차 미션 피드백 적용해보기](https://programmer-ririhan.tistory.com/351)
+- [참고한 클린코드 관련 내용](https://github.com/Yooii-Studios/Clean-Code)
+
 ## 🔨 기능 목록
 
 ### 📃 입력
