@@ -5,10 +5,7 @@ public class Application {
         User user = new User();
         Game game = new Game();
 
-        user.informInputCar();
         String[] nameList = user.inputCarName();
-
-        user.informInputCount();
         int roundNumber = user.inputRoundNumber();
 
         game.startGame(nameList, roundNumber);

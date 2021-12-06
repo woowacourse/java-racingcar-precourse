@@ -9,6 +9,7 @@ public class User implements IUser{
 
     @Override
     public String[] inputCarName() {
+        informInputCar();
         while (true) {
             String result = Console.readLine();
             try {
@@ -23,6 +24,7 @@ public class User implements IUser{
 
     @Override
     public int inputRoundNumber() {
+        informInputCount();
         while (true) {
             String input = Console.readLine();
             try {
@@ -35,13 +37,11 @@ public class User implements IUser{
         }
     }
 
-    @Override
-    public void informInputCar() {
+    private void informInputCar() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 
-    @Override
-    public void informInputCount() {
+    private void informInputCount() {
         System.out.println(INPUT_ROUND_MESSAGE);
     }
 
