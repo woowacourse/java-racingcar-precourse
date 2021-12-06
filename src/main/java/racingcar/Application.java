@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.controller.Game;
+
 public class Application {
-    public static void main(String[] args) {
-        // TODO 구현 진행
-    }
+	public static void main(String[] args) {
+		Game game = new Game();
+		game.start();
+	}
 }
