@@ -8,5 +8,9 @@ public class Car {
 		this.name = name;
 	}
 
-	// 추가 기능 구현
+	public void moveCar(int randomNumber) {
+		if (randomNumber >= 4) {
+			position += 1;
+		}
+	}
 }

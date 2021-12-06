@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import utils.RandomNumberGenerator;
+
 public class RacingCars {
 	private List<Car> cars = new ArrayList<>();
 
@@ -16,5 +18,11 @@ public class RacingCars {
 		cars = Arrays.stream(carNames).
 			map(car -> new Car(car)).
 			collect(Collectors.toList());
+	}
+
+	public void moveCars() {
+		for (int index = 0; index < cars.size(); index++) {
+			cars.get(index).moveCar(RandomNumberGenerator.makeRandomNumber());
+		}
 	}
 }

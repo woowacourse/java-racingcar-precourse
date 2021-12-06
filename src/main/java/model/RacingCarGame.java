@@ -11,4 +11,9 @@ public class RacingCarGame {
 	public void passRaceCount(int count) {
 		raceCount = new RaceCount(count);
 	}
+
+	public void playRacingCarGame() {
+		racingCars.moveCars();
+		raceCount.decrementCount();
+	}
 }
