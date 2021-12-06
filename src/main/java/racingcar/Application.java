@@ -53,9 +53,19 @@ public class Application {
         }
     }
 
+    public void moveTotalCar(Car[] carList) {
+        for (Car car : carList) {
+            car.movement();
+        }
+    }
+
     public void run() {
         Car[] carList = getCarList();
         int tryCount = getTryCount();
+
+        for (int i = 0; i < tryCount; i++) {
+            moveTotalCar(carList);
+        }
 
     }
 
