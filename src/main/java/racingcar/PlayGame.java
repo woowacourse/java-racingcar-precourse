@@ -13,6 +13,7 @@ public class PlayGame {
         initSetting();
         CarName();
         PlayNum();
+        Race();
     }
 
     //초기 세팅 함수
@@ -36,10 +37,20 @@ public class PlayGame {
         }
     }
 
-
     // 시도 횟수 입력
     private void PlayNum(){
         computer.MSGPlayNum();
         playNum = user.InputPlayNum();
+        System.out.println();
     }
+
+    private void Race(){
+        System.out.println("실행 결과");
+        for(int i=0; i<playNum; i++){
+            for(Car car : cars){
+                car.CarPlay();
+            }
+        }
+    }
+
 }
