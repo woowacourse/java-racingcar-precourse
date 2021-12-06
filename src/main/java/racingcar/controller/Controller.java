@@ -17,7 +17,6 @@ public class Controller {
 
 		OutputView.printInputCountInstruction();
 		Count count = Count.of(InputView.getCount());
-		System.out.println(count.getCount());
 
 	}
 }

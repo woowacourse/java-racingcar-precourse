@@ -2,15 +2,15 @@
 
 ## 기능 구현 목록
 
-- [] 사용자가 잘못된 값을 입력 처리 하기 InputView
-    - [] `IllegalArgumentException`를 발생 InputView
-    - [] 그 부분부터 입력 다시 받기 InputView
-    - [x] "[ERROR]"로 시작하는 에러 메시지를 출력 OutputView#printError
+- [x] 사용자가 잘못된 값을 입력 처리 하기 InputView
+    - [x] `IllegalArgumentException`를 발생
+    - [x] 그 부분부터 입력 다시 받기
+- [x] "[ERROR]"로 시작하는 에러 메시지를 출력 OutputView#printError
 - [x] 각 자동차에 이름 받아오기 InputView#getNames
-    - [x] 개별 이름은 5자 이하만 가능
+    - [x] 개별 이름은 5자 이하만 가능 Util#checkNamesValidation
         - 그외 빈값 허용안함, 최소2명이상 입력, 중복 허용안함 등의 검증 로직 추가
 - [x] 몇 번의 이동을 할 것인지를 입력 받는 기능 InputView#getCount
-    - [x] 입력된 횟수에 대한 검증 기능
+    - [x] 입력된 횟수에 대한 검증 기능 Util#checkCountValidation
 - [ ] 입력받은 횟수 동안 자동차 경주를 시행하도록 하는 로직 구현 RacingGame
     - [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈추는 기능 Car
         - [ ] 무작위 값이 4 이상일 경우 position +1 올라가도록 구현
