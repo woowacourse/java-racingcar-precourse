@@ -12,7 +12,7 @@ public class Checker {
 
 	public boolean checkNames(String input) {
 		try {
-			checkNamesNumber(input);
+			checkNamesSize(input);
 			checkNamesContainSpace(input);
 			checkNamesContainTap(input);
 			checkNamesLength(input);
@@ -24,11 +24,11 @@ public class Checker {
 		return true;
 	}
 
-	private void checkNamesNumber(String input) {
+	private void checkNamesSize(String input) {
 		try {
 			List<String> test = Arrays.asList(input.split(DELIMITER, -1));
 		} catch (Exception e) {
-			throw new IllegalArgumentException(ERROR_MESSAGE_NAMES_NUMBER);
+			throw new IllegalArgumentException(ERROR_MESSAGE_NAMES_SIZE);
 		}
 	}
 
