@@ -63,7 +63,7 @@ public class Game {
      */
     public static Car moveCar(Car car) {
         int selected = camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
-        if (selected > 4) {
+        if (selected >= 4) {
             car.move();
         }
         return car;
