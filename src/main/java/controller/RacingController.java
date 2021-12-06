@@ -6,39 +6,37 @@ import model.attempt.LeftAttemptCount;
 import model.car.Car;
 import model.car.Cars;
 import model.movement.Movement;
-import model.movement.RandomMovement;
 import view.input.InputDisplayable;
-import view.input.InputView;
 import view.output.OutputDisplayable;
-import view.output.OutputView;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingController {
-    private final OutputDisplayable outputDisplayable = new OutputView();
+    private final OutputDisplayable outputDisplayable;
     private final Cars cars;
     private final LeftAttemptCount leftAttemptCount;
+    private final Movement movement;
 
-    public RacingController() {
-        InputDisplayable inputDisplayable = new InputView();
+    public RacingController(InputDisplayable inputDisplayable, OutputDisplayable outputDisplayable, Movement movement) {
+        this.outputDisplayable = outputDisplayable;
+        this.movement = movement;
         Creater creater = new Creater(inputDisplayable);
         cars = creater.createCars();
         leftAttemptCount = creater.createLeftAttemptCount();
     }
 
     public void run() {
-        Movement randomMovement = new RandomMovement();
         outputDisplayable.printOperationResultLetters();
         while (leftAttemptCount.isNotZero()) {
-            attemptOnce(randomMovement);
+            attemptOnce();
             leftAttemptCount.decrease();
         }
         showWinners();
     }
 
-    private void attemptOnce(final Movement randomMovement) {
-        cars.race(randomMovement);
+    private void attemptOnce() {
+        cars.race(movement);
         List<AttemptResult> result = cars.getAttemptResult().stream()
                 .map(AttemptResult::new)
                 .collect(Collectors.toList());
