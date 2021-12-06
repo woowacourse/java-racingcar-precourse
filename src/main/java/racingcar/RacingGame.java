@@ -7,8 +7,8 @@ import java.util.Set;
 public class RacingGame {
 
 	private static final String QUESTION_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
-	private static final String QUESTION_TRY_NUM = "시도할 회수는 몇회인가요?";
-	private static final String ERROR_MESSAGE_CHECK_STRING_IS_NUMBER = "[ERROR] 시도 횟수는 숫자여야 한다.";
+	private static final String QUESTION_TRY_NUM = "시도할 회수는 몇회인가요?\n";
+	private static final String ERROR_MESSAGE_CHECK_STRING_IS_NUMBER = "[ERROR] 시도 횟수는 숫자여야 한다.\n";
 	private static final String ERROR_MESSAGE_CHECK_NAME_RULE = "[ERROR] 자동차 이름의 길이는 1이상 5이하를 만족해야 한다. "
 		+ "그리고 중복되는 이름이 없어야 한다.\n";
 	private static final String WINNER_OUTPUT_MESSAGE = "최종 우승자";
@@ -81,16 +81,15 @@ public class RacingGame {
 		return true;
 	}
 
-	private int getTryNumInput() {
+	private int getTryNumInput(Player player) {
 		boolean endCondition = false;
 		String totalTryNumInput = "";
 		while (!endCondition) {
-			System.out.println(QUESTION_TRY_NUM);
-			totalTryNumInput = camp.nextstep.edu.missionutils.Console.readLine();
+			totalTryNumInput = player.askQuestionReturnAnswer(QUESTION_CARS_NAME);
 			try {
 				endCondition = checkStringIsNumber(totalTryNumInput);
 			} catch (IllegalArgumentException e) {
-				System.out.println(ERROR_MESSAGE_CHECK_STRING_IS_NUMBER);
+				player.sendMessage(ERROR_MESSAGE_CHECK_STRING_IS_NUMBER);
 			}
 		}
 		return Integer.parseInt(totalTryNumInput);
@@ -105,7 +104,7 @@ public class RacingGame {
 
 	private void init(Player player) {
 		String[] carNameBucket = getCarsNameInput(player);
-		totalTryNum = getTryNumInput();
+		totalTryNum = getTryNumInput(player);
 		makeCarInstance(carNameBucket);
 	}
 
