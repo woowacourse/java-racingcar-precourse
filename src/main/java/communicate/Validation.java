@@ -7,7 +7,9 @@ public class Validation {
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
     private static final int ZERO = 0;
+    private static final String REGEX_ONLY_NUMBER = "^[0-9]*$";
     private ArrayList<String> carNames;
+    private String attemptNumber;
     private String errorMessage;
 
     private void throwInputException() {
@@ -80,6 +82,15 @@ public class Validation {
 
     }
 
+    private void checkAttemptOnlyNumber() {
+
+        if (!attemptNumber.matches(REGEX_ONLY_NUMBER)) {
+            errorMessage = ErrorText.ERROR_ATTEMPT_NOT_NUMBER;
+            throwInputException();
+        }
+
+    }
+
     private void validateCarNames() {
         checkCarNumber();
         checkNameExists();
@@ -93,6 +104,19 @@ public class Validation {
         try {
             this.carNames = carNames;
             validateCarNames();
+        } catch (IllegalArgumentException e) {
+            System.out.println(errorMessage + Text.LINE_BREAK);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean isValidAttemptNumber(String attemptNumber) {
+
+        try {
+            this.attemptNumber = attemptNumber;
         } catch (IllegalArgumentException e) {
             System.out.println(errorMessage + Text.LINE_BREAK);
 
