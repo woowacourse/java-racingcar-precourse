@@ -1,4 +1,4 @@
-package racingcar;
+package service;
 
 public class StringInputValidatorImpl implements StringInputValidator {
     private final static String ERROR_NAME_LENGTH = "자동차 이름은 5자 이하여야 합니다.";

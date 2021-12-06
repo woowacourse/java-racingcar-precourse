@@ -1,4 +1,4 @@
-package racingcar;
+package service;
 
 public class IntInputValidatorImpl implements IntInputValidator {
     private static final String ERROR_NOT_IN_RANGE = "시도 회수는 자연수여야 합니다.";

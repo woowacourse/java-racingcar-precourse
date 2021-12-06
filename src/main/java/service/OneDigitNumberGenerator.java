@@ -1,4 +1,4 @@
-package racingcar;
+package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 public class OneDigitNumberGenerator implements RandomNumberGenerator {

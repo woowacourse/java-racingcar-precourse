@@ -1,4 +1,4 @@
-package racingcar;
+package service;
 
 public interface IntInputValidator {
     void isInRange(int number);
