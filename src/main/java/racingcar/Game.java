@@ -5,9 +5,6 @@ import java.util.Vector;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
-	private static final int LIMIT_CAR_NAME_SIZE = 5;
-	private static final int NO_NAME = 0;
-
 	private static final String ASK_TO_GET_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String ASK_TO_GET_GAME_TURN = "시도할 회수는 몇회인가요?";
 
