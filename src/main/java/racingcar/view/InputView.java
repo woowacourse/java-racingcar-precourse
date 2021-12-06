@@ -16,31 +16,29 @@ public class InputView {
 	private MoveCountValidator moveCountValidator = new MoveCountValidator();
 
 	public ArrayList<String> getProperNameList() {
-		ArrayList<String> nameList = new ArrayList<>();
 		try {
 			System.out.println(REQUEST_INPUT_NAMES);
 			String inputValues = enterInput();
-			nameList = convertToArrayList(inputValues);
+			ArrayList<String> nameList = convertToArrayList(inputValues);
 			inputValidator.validateNames(nameList);
+			return nameList;
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
-			getProperNameList();
+			return getProperNameList();
 		}
-		return nameList;
 	}
 
 	public int getProperMoveCount() {
-		int moveCount = 0;
 		try {
 			System.out.println(REQUEST_INPUT_MOVE);
 			String inputValues = enterInput();
 			moveCountValidator.validateMove(inputValues);
-			moveCount = Integer.parseInt(inputValues);
+			int moveCount = Integer.parseInt(inputValues);
+			return moveCount;
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
-			getProperMoveCount();
+			return getProperMoveCount();
 		}
-		return moveCount;
 	}
 
 	public String enterInput() {
