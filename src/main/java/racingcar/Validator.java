@@ -3,11 +3,20 @@ package racingcar;
 import static racingcar.view.InputView.*;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Validator {
 
 	public static void validateEveryCarName(String[] everyCarName) {
 		Arrays.stream(everyCarName).forEach(Validator::validateCarName);
+		validateDuplicate(everyCarName);
+	}
+
+	private static void validateDuplicate(String[] everyCarName) {
+		HashSet set = new HashSet<>(Arrays.asList(everyCarName));
+		if (set.size() != everyCarName.length) {
+			throw new IllegalArgumentException("자동차의 이름은 중복되어서는 안됩니다.");
+		}
 	}
 
 	private static void validateCarName(String eachCarName) {
