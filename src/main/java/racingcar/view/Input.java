@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.CarNameValidator;
+import racingcar.validator.TryNumberValidator;
 
 public class Input {
 	static final int CAR_NAME_LENGTH = 5;
@@ -10,6 +12,7 @@ public class Input {
 		do {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			carNames = Console.readLine().split(",");
+			// trimCarNames(carNames);
 		} while (!checkCarNames(carNames));
 
 		return carNames;
@@ -28,8 +31,8 @@ public class Input {
 	private static boolean checkCarNames(String[] carNames) {
 		try {
 			for (String carName : carNames) {
-				Validation.checkLength(carName, CAR_NAME_LENGTH);
-				Validation.IsEmpty(carName);
+				CarNameValidator.checkLength(carName, CAR_NAME_LENGTH);
+				CarNameValidator.IsEmpty(carName);
 			}
 			return true;
 		} catch (IllegalArgumentException exception) {
@@ -39,8 +42,8 @@ public class Input {
 
 	private static boolean checkTryNumber(String number) {
 		try {
-			Validation.IsInteger(number);
-			Validation.IsPositiveInteger(number);
+			TryNumberValidator.IsInteger(number);
+			TryNumberValidator.IsPositiveInteger(number);
 			return true;
 		} catch (IllegalArgumentException exception) {
 			return false;

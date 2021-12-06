@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.domain.CarList;
 
 public class Output {
 	public static void movementState(CarList cars) {
