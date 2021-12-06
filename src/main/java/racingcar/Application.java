@@ -2,6 +2,7 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
+        RaceGame raceGame = new RaceGame(new DefaultChecker());
+        raceGame.startGame();
     }
 }
