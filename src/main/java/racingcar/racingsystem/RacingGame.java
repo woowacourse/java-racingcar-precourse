@@ -35,13 +35,14 @@ public class RacingGame {
     }
 
     public void inputTheCarName() {
-        boolean isRetry = false;
+        boolean isRetry;
         do {
             try {
                 printConsoleMessage(SystemMessage.INPUT_CAR_NAME_MESSAGE.getMessage());
                 String inputTheCarNames = Console.readLine();
                 validation.validCarNames(inputTheCarNames);
                 carNames = splitCarName(inputTheCarNames);
+                isRetry=false;
             } catch (IllegalArgumentException e) {
                 System.out.println(SystemMessage.ERROR_INPUT_CAR_NAME_MESSAGE.getMessage());
                 isRetry = true;
@@ -50,13 +51,14 @@ public class RacingGame {
     }
 
     public void inputTheNumberOfAttempts() {
-        boolean isRetry = false;
+        boolean isRetry;
         do {
             try {
                 printConsoleMessage(SystemMessage.INPUT_NUMBER_OF_ATTEMPTS_MESSAGE.getMessage());
                 String inputTheNumberOfAttempt = Console.readLine();
                 validation.validNumberOfAttempts(inputTheNumberOfAttempt);
                 numberOfAttempts = toInteger(inputTheNumberOfAttempt);
+                isRetry=false;
             } catch (IllegalArgumentException e) {
                 printConsoleMessage(
                     SystemMessage.ERROR_INPUT_NUMBER_OF_ATTEMPTS_MESSAGE.getMessage());
