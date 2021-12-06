@@ -9,9 +9,6 @@ public class RacingCarGame {
     private Cars cars;
     private RepetitionNumber repetitionNumber;
 
-    public RacingCarGame() {
-    }
-
     public void run() {
         initialize();
         round();

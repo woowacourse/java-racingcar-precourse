@@ -1,6 +1,6 @@
 package racingcar.domain.exception;
 
-public interface CarNameValidator extends Validation {
+public interface CarNameValidator {
     boolean isBlank(String name);
 
     boolean isCars(String[] names);

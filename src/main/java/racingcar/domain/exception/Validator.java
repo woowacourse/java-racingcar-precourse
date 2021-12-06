@@ -8,6 +8,7 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
     private static final int MAX_LENGTH = 5;
     private static final int MIN_SIZE = 2;
     private static final int REPETITION_MIN_RANGE = 1;
+    private static final String ERROR = "[ERROR]";
     private static final String CAR_NAME_MIN_LENGTH_ERROR_MESSAGE = " 자동차 이름은 공백일 수 없습니다.";
     private static final String CAR_NAME_MAX_LENGTH_ERROR_MESSAGE = " 자동차 이름은 5글자 이하여야합니다. ";
     private static final String CARS_SIZE_ERROR_MESSAGE = " 경주에 참여할 자동차는 2대 이상이어야합니다. ";
@@ -15,14 +16,11 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
     private static final String REPETITION_NUMBER_INPUT_RANGE_ERROR_MESSAGE = " 최소 1이상의 값이 입력되어야합니다.";
     private static final String REPETITION_NUMBER_INPUT_TYPE_ERROR_MESSAGE = " 시도 횟수는 숫자여야 한다.";
 
-    public Validator() {
-    }
-
     @Override
     public boolean isAllValid(String[] cars) {
         if (!isCars(cars)) {
             printMessage(CARS_SIZE_ERROR_MESSAGE);
-            throw new IllegalArgumentException(CAR_NAME_MAX_LENGTH_ERROR_MESSAGE);
+            throw new IllegalArgumentException(CARS_SIZE_ERROR_MESSAGE);
         }
         if (isDuplication(cars)) {
             printMessage(CAR_NAME_DUPLICATION_ERROR_MESSAGE);
@@ -79,6 +77,7 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
         try {
             number = convertStringToInt(targetNumber);
         } catch (NumberFormatException e) {
+            printMessage(REPETITION_NUMBER_INPUT_TYPE_ERROR_MESSAGE);
             throw new IllegalArgumentException(REPETITION_NUMBER_INPUT_TYPE_ERROR_MESSAGE);
         }
         if (!validateRange(number)) {
@@ -93,7 +92,6 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
         return number >= REPETITION_MIN_RANGE;
     }
 
-    @Override
     public void printMessage(String errorMessage) {
         System.out.println(ERROR + errorMessage);
     }
