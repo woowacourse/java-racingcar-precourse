@@ -3,8 +3,8 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.domain.Car;
 import racingcar.constants.Message;
+import racingcar.domain.Car;
 import racingcar.service.CarService;
 import racingcar.service.UserInputService;
 import racingcar.utils.Viewer;

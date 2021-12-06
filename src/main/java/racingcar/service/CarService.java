@@ -1,10 +1,10 @@
 package racingcar.service;
 
-import racingcar.constants.Message;
-import racingcar.domain.Car;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import racingcar.constants.Message;
+import racingcar.domain.Car;
 
 public class CarService {
 	private static CarService instance = new CarService();
