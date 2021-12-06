@@ -20,7 +20,7 @@ public enum Delimiter {
     }
 
     public static String joinWithComma(List<String> strings) {
-        return String.join(COLON.value + SPACE.value, strings);
+        return String.join(COMMA.value + SPACE.value, strings);
     }
 
     public static String concatWithColon(String preString, String postString) {
