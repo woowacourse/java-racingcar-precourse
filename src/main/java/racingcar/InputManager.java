@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import static racingcar.Constant.*;
+
 public class InputManager {
 	private String[] carsList;
 	private int numberOfMove;
@@ -16,7 +18,7 @@ public class InputManager {
 
 	public void scanCarsList() {
 		boolean carsScan = true;
-		System.out.println(Constant.CAR_NAME_INPUT);
+		System.out.println(CAR_NAME_INPUT);
 		while (carsScan) {
 			try {
 				String carsInput = Console.readLine();
@@ -30,7 +32,7 @@ public class InputManager {
 
 	public void scanNumberOfMove() {
 		boolean numberScan = true;
-		System.out.println(Constant.TRY_NUMBER);
+		System.out.println(TRY_NUMBER);
 		while (numberScan) {
 			try {
 				String numberOfMove = Console.readLine();
@@ -45,11 +47,11 @@ public class InputManager {
 
 	public void isValidCars(String carsInput) throws IllegalArgumentException {
 		if (carsInput.length() == 0) {
-			throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
+			throw new IllegalArgumentException(CAR_NAME_ERROR);
 		}
 		carsList = carsInput.split(",");
 		if (!checkEmptyList(carsList) || !checkCarNameLength(carsList) || !checkCarsListLength(carsList)) {
-			throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
+			throw new IllegalArgumentException(CAR_NAME_ERROR);
 		}
 	}
 
@@ -62,7 +64,7 @@ public class InputManager {
 
 	public boolean checkCarNameLength(String[] carsList) {
 		for (String car : carsList) {
-			if (car.length() > Constant.MAXIMUM_NAME_LENGTH) {
+			if (car.length() > MAXIMUM_NAME_LENGTH) {
 				return false;
 			}
 		}
@@ -77,8 +79,8 @@ public class InputManager {
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
-		if (number.length() == 0 || !isNumber(number) || number.equals(Constant.TRY_NUMBER_ZERO)) {
-			throw new IllegalArgumentException(Constant.TRY_NUMBER_ERROR);
+		if (number.length() == 0 || !isNumber(number) || number.equals(TRY_NUMBER_ZERO)) {
+			throw new IllegalArgumentException(TRY_NUMBER_ERROR);
 		}
 	}
 
