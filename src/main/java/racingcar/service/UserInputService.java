@@ -3,7 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.constants.Constant;
 import racingcar.constants.Message;
-import racingcar.utils.Verifier;
+import racingcar.utils.Validator;
 
 public class UserInputService {
 	public String[] register() {
@@ -28,8 +28,8 @@ public class UserInputService {
 	private String[] getValidNames(String input) {
 		String[] names = input.split(Constant.SPLIT_STRING);
 
-		Verifier.checkLastIndex(input);
-		Verifier.checkValidNames(names);
+		Validator.checkLastIndex(input);
+		Validator.checkValidNames(names);
 
 		return names;
 	}
@@ -48,7 +48,7 @@ public class UserInputService {
 	private int getValidStage() {
 		try {
 			String input = Console.readLine();
-			return Verifier.checkValidStage(input);
+			return Validator.checkValidStage(input);
 		} catch (IllegalArgumentException e) {
 			System.out.println(Message.ERROR_INVALID_STAGE_VALUE);
 			return Constant.INVALID_STAGE_NUMBER;

@@ -5,9 +5,9 @@ import java.util.Set;
 
 import racingcar.constants.Constant;
 
-public class Verifier {
+public class Validator {
 
-	private Verifier() {
+	private Validator() {
 	}
 
 	public static void checkLastIndex(String userInput) {
