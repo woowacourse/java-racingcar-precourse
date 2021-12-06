@@ -46,11 +46,11 @@ public class InputView {
         return parsedNumber;
     }
 
-    String[] parseString(String string) {
+    private String[] parseString(String string) {
         return string.split(",");
     }
 
-    boolean validateStringLength(List<String> names) {
+    private boolean validateStringLength(List<String> names) {
         try {
             for (String name : names) {
                 stringValidator.checkLength(name);
@@ -62,7 +62,7 @@ public class InputView {
         return true;
     }
 
-    boolean validateNumberInRange(int number) {
+    private boolean validateNumberInRange(int number) {
         try {
             intValidator.isInRange(number);
         } catch (IllegalArgumentException e) {
@@ -72,7 +72,7 @@ public class InputView {
         return true;
     }
 
-    boolean checkParsable(String input) {
+    private boolean checkParsable(String input) {
         try {
             intValidator.isNumber(input);
         } catch (IllegalArgumentException e) {
@@ -81,6 +81,4 @@ public class InputView {
         }
         return true;
     }
-
-
 }
