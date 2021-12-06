@@ -2,12 +2,13 @@ package racingcar;
 
 public class Car {
     private static final int STANDARD_NUMBER = 4;
+    private static final int START_POSITION = 0;
 
     private final String name;
     private int position;
 
     public Car(String name) {
-        this(name, 0);
+        this(name, START_POSITION);
     }
 
     public Car(String name, int position) {
