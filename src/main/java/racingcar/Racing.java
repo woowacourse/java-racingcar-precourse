@@ -23,8 +23,15 @@ public class Racing {
     }
 
     public void getTimes() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        times = Integer.parseInt(Console.readLine());
+        boolean isTimesNumber = true;
+        while (isTimesNumber) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            String str = Console.readLine();
+            isTimesNumber = validateTime(str);
+            if(!isTimesNumber){
+                times = Integer.parseInt(str);
+            }
+        }
     }
 
     public void doGame() {
@@ -51,5 +58,15 @@ public class Racing {
 
     public void printWinners() {
         System.out.println(Utils.removeComma(winners));
+    }
+
+    private boolean validateTime (String str) {
+        try {
+            Integer.parseInt(str);
+        }catch (Exception e) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            return true;
+        }
+        return false;
     }
 }

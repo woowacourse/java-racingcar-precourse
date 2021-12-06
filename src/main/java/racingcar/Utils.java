@@ -34,7 +34,7 @@ public class Utils {
     public static void isEachStringOverLength(String strLine) {
         String[] eachString = strLine.split(",");
         for (String str : eachString) {
-            if(str.length() > MAX_LENGTH){
+            if (str.length() > MAX_LENGTH) {
                 throw new IllegalArgumentException("[ERROR] 이름은 5자 이하여야합니다.");
             }
         }
