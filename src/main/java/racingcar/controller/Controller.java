@@ -1,7 +1,10 @@
 package racingcar.controller;
 
+import java.util.List;
+
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Controller {
 	public void runRacing() {
@@ -9,7 +12,9 @@ public class Controller {
 		RacingGame racingGame = RacingGame.getInstance();
 		racingGame.init();
 
-		String input = InputView.getInput();
+		OutputView.printInputNamesInstruction();
+		List<String> names = InputView.getNames();
+		System.out.println(names);
 
 	}
 }

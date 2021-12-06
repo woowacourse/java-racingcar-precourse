@@ -2,12 +2,12 @@
 
 ## 기능 구현 목록
 
-- [ ] 사용자가 잘못된 값을 입력 처리 하기 InputView
-    - [ ] `IllegalArgumentException`를 발생 InputView
-    - [ ] 그 부분부터 입력 다시 받기 InputView
-    - [ ] "[ERROR]"로 시작하는 에러 메시지를 출력 OutputView
-- [ ] 각 자동차에 이름 받아오기 InputView
-    - [ ] 개별 이름은 5자 이하만 가능
+- [] 사용자가 잘못된 값을 입력 처리 하기 InputView
+    - [] `IllegalArgumentException`를 발생 InputView
+    - [] 그 부분부터 입력 다시 받기 InputView
+    - [x] "[ERROR]"로 시작하는 에러 메시지를 출력 OutputView#printError
+- [x] 각 자동차에 이름 받아오기 InputView#getNames
+    - [x] 개별 이름은 5자 이하만 가능
         - 그외 빈값 허용안함, 최소2명이상 입력, 중복 허용안함 등의 검증 로직 추가
 - [ ] 사용자는 몇 번의 이동을 할 것인지를 입력받는 기능 InputView
     - [ ] 입력 횟수에 대한 검증 기능
