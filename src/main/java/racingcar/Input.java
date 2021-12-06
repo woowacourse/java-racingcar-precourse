@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 
 public class Input {
-	
+	static String errorMassage;
 	public static String[] carNames() {
 		String[] CarNameArray = null;
 		boolean right = true;
@@ -15,7 +15,8 @@ public class Input {
 			try {
 				right = exception(CarNameArray);
 			} catch (IllegalArgumentException e) {
-				System.out.println("[ERROR] 자동차이름은 5자 이하여야한다.");
+				System.out.println(errorMassage);
+				
 			}
 		}
 		return CarNameArray;
@@ -35,6 +36,7 @@ public class Input {
 	private static boolean exception(String[] arr) throws IllegalArgumentException {
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i].length() > 5 || arr[i].length() == 0) {
+				errorMassage = "[ERROR] 자동차이름은 5자 이하여야한다.";
 				throw new IllegalArgumentException("[ERROR] 자동차이름은 5자 이하여야한다.");
 			}
 		}
@@ -44,22 +46,26 @@ public class Input {
 	
 	
 	public static int tryCount() {
-		int tryNumberInt;
+		int tryNumberInt = 0;
 		String tryNumberString = null;
-		boolean check = false;
+		boolean NotNumber = false, NotZero = false;
 
-		while (!check) { 
+		while (!NotNumber || !NotZero) { 
 			System.out.println("시도할 회수는 몇회인가요?");
 			tryNumberString = Console.readLine();
 
 			try {
-				check = numberCheck(tryNumberString);
+				NotNumber = numberCheck(tryNumberString);
 			} catch (IllegalArgumentException e) {
 				System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
 			}
-
+			try {
+				tryNumberInt = Integer.parseInt(tryNumberString);
+				NotZero= zeroCheck(tryNumberInt);
+			}catch (IllegalArgumentException e) {
+				System.out.println("[ERROR] 시도 횟수는 1이상이여야 한다.");
+			}
 		}
-		tryNumberInt = Integer.parseInt(tryNumberString);
 		return tryNumberInt;
 	}
 	
@@ -72,6 +78,13 @@ public class Input {
 		throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
 
 	}
-
+	private static boolean zeroCheck(int number) throws IllegalArgumentException {
+		boolean isNotZero;
+		if (number > 0){
+			isNotZero = true;
+			return isNotZero;
+		}
+		throw new IllegalArgumentException("[ERROR] 시도 횟수는 1이상이여야 한다.");
+	}
 
 }
