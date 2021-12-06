@@ -14,10 +14,8 @@ public class GameEngine {
 	}
 
 	public void start() {
-		System.out.println(GameData.CARNAME_INPUT_MESSAGE);
-		List<Car> carList = generateCars(readCarNames());
-		System.out.println(GameData.TRY_INPUT_MESSAGE);
-		int count = readCount();
+		List<Car> carList = generateCars(inputHandler.getValidCarNames());
+		int count = inputHandler.getValidTurnCount();
 		System.out.println(GameData.RESULT_MESSAGE);
 		while (!judgement.checkGameEnd(count--)) {
 			moveCars(carList);
@@ -28,32 +26,12 @@ public class GameEngine {
 		System.out.println(GameData.WINNER_MESSAGE + generateWinnerInformation(winnerList));
 	}
 
-	public List<String> readCarNames() {
-		while (true) {
-			try {
-				return inputHandler.readRacingCarNames();
-			} catch (IllegalArgumentException iae) {
-				System.out.println(iae.getMessage());
-			}
-		}
-	}
-
 	public List<Car> generateCars(List<String> carNames) {
 		List<Car> results = new ArrayList<Car>();
 		for (String carName : carNames) {
 			results.add(new Car(carName));
 		}
 		return results;
-	}
-
-	public int readCount() {
-		while (true) {
-			try {
-				return inputHandler.readCount();
-			} catch (IllegalArgumentException iae) {
-				System.out.println(iae.getMessage());
-			}
-		}
 	}
 
 	public void moveCars(List<Car> carList) {

@@ -7,6 +7,28 @@ package racingcar;
 
 public class InputHandler {
 
+	public List<String> getValidCarNames() {
+		System.out.println(GameData.CARNAME_INPUT_MESSAGE);
+		while(true) {
+			try {
+				return readRacingCarNames();
+			} catch (IllegalArgumentException iae) {
+				System.out.println(iae.getMessage());
+			}
+		}
+	}
+
+	public int getValidTurnCount() {
+		System.out.println(GameData.TRY_INPUT_MESSAGE);
+		while(true) {
+			try {
+				return readCount();
+			} catch (IllegalArgumentException iae) {
+				System.out.println(iae.getMessage());
+			}
+		}
+	}
+
 	public List<String> readRacingCarNames() {
 		String[] racingCarNames = parseRacingCarNames(Console.readLine());
 		List<String> results = new ArrayList<String>();
