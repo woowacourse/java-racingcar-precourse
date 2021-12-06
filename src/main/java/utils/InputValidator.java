@@ -22,12 +22,20 @@ public class InputValidator {
 	}
 
 	public static int isValideRaceCount(String raceCount) {
+		if (raceCount.length() < 1) {
+			throw new IllegalArgumentException("입력한 경주횟수가 없다");
+		}
+
+		if (raceCount.contains(" ")) {
+			throw new IllegalArgumentException("입력한 경주횟수에 공백이 있다.");
+		}
+
 		if (!Pattern.matches(NUMBER_PATTERN, raceCount)) {
-			throw new IllegalArgumentException("입력한 경주횟수가 숫자가 아닙니다.");
+			throw new IllegalArgumentException("입력한 경주횟수가 숫자가 아니다.");
 		}
 
 		if (raceCount.startsWith("0")) {
-			throw new IllegalArgumentException("입력한 경주횟수가 0으로 시작합니다.");
+			throw new IllegalArgumentException("입력한 경주횟수가 0으로 시작한다.");
 		}
 
 		return Integer.parseInt(raceCount);
