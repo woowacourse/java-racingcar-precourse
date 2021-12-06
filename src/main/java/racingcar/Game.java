@@ -6,12 +6,13 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
 	private static final int LIMIT_CAR_NAME_SIZE = 5;
+	private static final int NO_NAME = 0;
 
 	private static final String ASK_TO_GET_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String ASK_TO_GET_GAME_TURN = "시도할 회수는 몇회인가요?";
 
 	private static final String CAR_NAME_LENGTH_ERROR_MESSAGE_1 = "[ERROR] 자동차 이름은 ";
-	private static final String CAR_NAME_LENGTH_ERROR_MESSAGE_2 = "자 이하만 가능하다.";
+	private static final String CAR_NAME_LENGTH_ERROR_MESSAGE_2 = "자 이하, 0자 이상만 가능하다.";
 
 	private static final String GAME_TURN_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
 
@@ -75,7 +76,7 @@ public class Game {
 
 		for (int i = 0; i < seperatedCarNames.length; i++) {
 
-			if (!carNameException(seperatedCarNames[i])) {
+			if (!checkCarNameSizeException(seperatedCarNames[i])) {
 				return false;
 			}
 
@@ -84,11 +85,11 @@ public class Game {
 		return true;
 	}
 
-	private boolean carNameException(String carName) {
+	private boolean checkCarNameSizeException(String carName) {
 
 		try {
 
-			if (carName.length() > LIMIT_CAR_NAME_SIZE || carName.length() == 0) {
+			if (carName.length() > LIMIT_CAR_NAME_SIZE || carName.length() == NO_NAME) {
 				throw new IllegalArgumentException();
 			}
 
