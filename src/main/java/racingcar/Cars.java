@@ -1,23 +1,23 @@
 package racingcar;
 
 public class Cars implements ICars {
-    private Car[] carArray;
+    private Car[] carsArray;
     private int[] carsPosition;
 
     @Override
     public void createCar(String[] names){
         int nameCount = names.length;
-        carArray = new Car[nameCount];
+        carsArray = new Car[nameCount];
         carsPosition = new int[nameCount];
         for (int i = 0; i < nameCount; i++) {
-            carArray[i] = new Car(names[i]);
+            carsArray[i] = new Car(names[i]);
         }
     }
 
     @Override
     public void moveCar(){
-        for (int i = 0; i < carArray.length; i++) {
-            if (carArray[i].pickRandomNumber()) {
+        for (int i = 0; i < carsArray.length; i++) {
+            if (carsArray[i].pickRandomNumber()) {
                 carsPosition[i] ++;
             }
         }
@@ -29,7 +29,7 @@ public class Cars implements ICars {
         String result = "최종 우승자 : ";
         for (int i = 0; i < carsPosition.length; i++) {
             if (carsPosition[i] == maxPosition) {
-                result += carArray[i].getName() + ", ";
+                result += carsArray[i].getName() + ", ";
             }
         }
         System.out.println(result.substring(0, result.length() - 2));
@@ -37,8 +37,8 @@ public class Cars implements ICars {
 
     @Override
     public void printResult(int count) {
-        for (int i = 0; i < carArray.length; i++) {
-            System.out.println(carArray[i].getTrace().get(count));
+        for (int i = 0; i < carsArray.length; i++) {
+            System.out.println(carsArray[i].getTrace().get(count));
         }
         System.out.println();
     }
