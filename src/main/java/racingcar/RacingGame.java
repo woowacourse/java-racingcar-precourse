@@ -3,7 +3,9 @@ package racingcar;
 import static racingcar.utils.StringUtils.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.car.Car;
@@ -19,7 +21,9 @@ public class RacingGame {
     }
 
     public List<Car> getCarsReady(String[] carNames) {
-        carRepository.saveInOrder(createCars(carNames));
+        List<Car> cars = createCars(carNames);
+        checkDuplicateCars(cars);
+        carRepository.saveInOrder(cars);
         return findCarsInOrder();
     }
 
@@ -34,6 +38,13 @@ public class RacingGame {
             printRacingResults();
         }
         return determineWinners();
+    }
+
+    private void checkDuplicateCars(List<Car> cars) {
+        Set<Car> notDuplicatedCars = new HashSet<>(cars);
+        if (notDuplicatedCars.size() != cars.size()) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_DUPLICATED_CAR_NAMES_INPUT);
+        }
     }
 
     private List<Car> createCars(String[] carNames) {

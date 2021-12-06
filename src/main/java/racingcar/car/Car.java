@@ -68,7 +68,6 @@ public class Car {
         return false;
     }
 
-    // 본 코드에서 사용되지 않으면 삭제되어야 함
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,7 +76,6 @@ public class Car {
         return name.equals(car.name);
     }
 
-    // 본 코드에서 사용되지 않으면 삭제되어야 함
     @Override
     public int hashCode() {
         return Objects.hash(name);

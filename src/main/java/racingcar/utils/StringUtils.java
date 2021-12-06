@@ -27,6 +27,7 @@ public class StringUtils {
     public static final String ERROR_MASSAGE_ABOUT_EMPTY_CAR_NAMES_INPUT = "모든 자동차 이름을 한 글자 이상이어야 합니다";
     public static final String ERROR_MESSAGE_ABOUT_TOO_LONG_CAR_NAMES_INPUT = "자동차 이름은 5글자 이하여야 합니다";
     public static final String ERROR_MESSAGE_ABOUT_CONTAINING_SPACE_CAR_NAMES_INPUT = "자동차 이름에는 공백이 포함되면 안됩니다";
+    public static final String ERROR_MESSAGE_ABOUT_DUPLICATED_CAR_NAMES_INPUT = "중복된 자동차 이름이 있으면 안됩니다";
 
     public static final String NEW_LINE = System.lineSeparator();
 

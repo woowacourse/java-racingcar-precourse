@@ -6,6 +6,7 @@ import static racingcar.utils.StringUtils.MIN_VALUE_OF_ROUND_NUMBER;
 
 import java.util.List;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +35,11 @@ class RacingGameTest {
         int smallerInput = 0;
         assertThat(smallerInput).isLessThan(MIN_VALUE_OF_ROUND_NUMBER);
         assertThatThrownBy(() -> racingGame.setNumberOfRounds(smallerInput)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 중복된_이름의_자동차가_입력으로_들어올_경우_예외_발생() {
+        String[] duplicatedCarNames = {"hi", "hi", "bye"};
+        Assertions.assertThatThrownBy(() -> racingGame.getCarsReady(duplicatedCarNames)).isInstanceOf(IllegalArgumentException.class);
     }
 }
