@@ -1,10 +1,11 @@
-package racingcar.utils;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.constants.Constant;
 import racingcar.constants.Message;
+import racingcar.utils.Verifier;
 
-public class UserService {
+public class UserInputService {
 	public String[] register() {
 		String[] names = new String[]{};
 		while (names.length == 0) {
@@ -34,15 +35,17 @@ public class UserService {
 	}
 
 	public int howManyTimes() {
+		System.out.println(Message.ASK_STAGES);
+
 		int stage = Constant.INVALID_STAGE_NUMBER;
 		while (stage == Constant.INVALID_STAGE_NUMBER) {
-			stage = getStage();
+			stage = getValidStage();
 		}
 
 		return stage;
 	}
 
-	private int getStage() {
+	private int getValidStage() {
 		try {
 			String input = Console.readLine();
 			return Verifier.checkValidStage(input);

@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,14 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.constants.Constant;
 import racingcar.constants.Message;
+import racingcar.service.UserInputService;
 
 public class GameHandler {
-	private final UserService userService = new UserService();
+	private final UserInputService userInputService = new UserInputService();
 
 	public void run() {
 		List<Car> cars = createCars();
-		int times = userService.howManyTimes();
+		int times = userInputService.howManyTimes();
 		executeResult(times, cars);
 		showWinners(cars);
 	}
@@ -94,7 +95,7 @@ public class GameHandler {
 		System.out.println(Message.START);
 
 		List<Car> carList = new ArrayList<>();
-		String[] names = userService.register();
+		String[] names = userInputService.register();
 		for (String name : names) {
 			carList.add(new Car(name));
 		}
