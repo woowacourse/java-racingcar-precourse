@@ -9,9 +9,16 @@ public class Car {
 	}
 
 	public void moveCar(int randomNumber) {
-		if (randomNumber >= 4) {
+		if (possibleToMove(randomNumber)) {
 			position += 1;
 		}
+	}
+
+	private static boolean possibleToMove(int randomNumber) {
+		if (randomNumber >= 4) {
+			return true;
+		}
+		return false;
 	}
 
 	public String getName() {
