@@ -49,41 +49,41 @@ public class InputViewTest extends CustomNsTest {
 	@DisplayName("자동차 이름 중복 입력 예외 테스트")
 	@Test
 	public void readCarNamesDuplicateExceptionTest() {
-		command(INVALID_DUPLICATE_CAR_NAMES);
 		try {
+			command(INVALID_DUPLICATE_CAR_NAMES);
 			InputView.readCarNames();
+			assertThat(output()).contains(ERROR_MESSAGE);
 		} catch (NoSuchElementException ignored) {
 		}
-		assertThat(output()).contains(ERROR_MESSAGE);
 	}
 
 	@DisplayName("자동차 이름 길이 초과 예외 테스트")
 	@Test
 	public void readCarNamesLongLengthExceptionTest() {
-		command(INVALID_LONG_LENGTH_CAR_NAMES);
 		try {
+			command(INVALID_LONG_LENGTH_CAR_NAMES);
 			InputView.readCarNames();
+			assertThat(output()).contains(ERROR_MESSAGE);
 		} catch (NoSuchElementException ignored) {
 		}
-		assertThat(output()).contains(ERROR_MESSAGE);
 	}
 
 	@DisplayName("자동차 이름 빈칸 입력 예외 테스트")
 	@Test
 	public void readCarNamesExceptionTest() {
-		command(INVALID_EMPTY_LENGTH_CAR_NAMES);
 		try {
+			command(INVALID_EMPTY_LENGTH_CAR_NAMES);
 			InputView.readCarNames();
+			assertThat(output()).contains(ERROR_MESSAGE);
 		} catch (NoSuchElementException ignored) {
 		}
-		assertThat(output()).contains(ERROR_MESSAGE);
 	}
 
 	@DisplayName("잘못된 시도 횟수 입력시 예외 처리 후 재입력 테스트")
 	@Test
 	public void readRacingRoundReloadTest() {
-		command(INVALID_FORMAT_ROUND, CORRECT_RACING_ROUND);
 		try {
+			command(INVALID_FORMAT_ROUND, CORRECT_RACING_ROUND);
 			int input = InputView.readRacingRound();
 			assertThat(output()).contains(ERROR_MESSAGE);
 			assertEquals(input, Integer.parseInt(CORRECT_RACING_ROUND));
@@ -94,8 +94,8 @@ public class InputViewTest extends CustomNsTest {
 	@DisplayName("시도 횟수 입력 테스트")
 	@Test
 	public void readRacingRoundTest() {
-		command(CORRECT_RACING_ROUND);
 		try {
+			command(CORRECT_RACING_ROUND);
 			int input = InputView.readRacingRound();
 			assertEquals(input, Integer.parseInt(CORRECT_RACING_ROUND));
 		} catch (NoSuchElementException ignored) {
@@ -105,8 +105,8 @@ public class InputViewTest extends CustomNsTest {
 	@DisplayName("시도 횟수 형식 예외 테스트")
 	@Test
 	public void readRacingRoundFormatExceptionTest() {
-		command(INVALID_FORMAT_ROUND);
 		try {
+			command(INVALID_FORMAT_ROUND);
 			InputView.readRacingRound();
 			assertThat(output()).contains(ERROR_MESSAGE);
 		} catch (NoSuchElementException ignored) {
@@ -116,8 +116,8 @@ public class InputViewTest extends CustomNsTest {
 	@DisplayName("시도 횟수 0입력 예외 테스트")
 	@Test
 	public void readRacingRoundZeroExceptionTest() {
-		command(INVALID_ZERO_ROUND);
 		try {
+			command(INVALID_ZERO_ROUND);
 			InputView.readRacingRound();
 			assertThat(output()).contains(ERROR_MESSAGE);
 		} catch (NoSuchElementException ignored) {
@@ -127,8 +127,8 @@ public class InputViewTest extends CustomNsTest {
 	@DisplayName("시도 횟수 음수 입력 예외 테스트")
 	@Test
 	public void readRacingRoundNegativeNumberExceptionTest() {
-		command(INVALID_NEGATIVE_ROUND);
 		try {
+			command(INVALID_NEGATIVE_ROUND);
 			InputView.readRacingRound();
 			assertThat(output()).contains(ERROR_MESSAGE);
 		} catch (NoSuchElementException ignored) {
