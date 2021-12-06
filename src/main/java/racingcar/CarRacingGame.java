@@ -36,23 +36,31 @@ public class CarRacingGame {
     private String[] askCarName() throws IOException {
         String inputCars = InputView.getCarNameList();
         result = InputErrorCheck.isValidCar(inputCars);
-        try {
-            throwErrorMessage();
-        } catch (Exception exception) {
-            inputCars = InputView.getCarNameList();
+        while (true) {
+            try {
+                throwErrorMessage();
+                break;
+            } catch (Exception exception) {
+                inputCars = InputView.getCarNameList();
+                result = InputErrorCheck.isValidCar(inputCars);
+            }
         }
         String SEPARATOR = ",";
         return inputCars.split(SEPARATOR);
     }
 
+
     private int askNumberOfAttempts() throws IOException {
         String inputNumberOfAttempts = InputView.getNumberOfAttempts();
         result = InputErrorCheck.isValidNumber(inputNumberOfAttempts);
-        try {
-            throwErrorMessage();
-            return Integer.parseInt(inputNumberOfAttempts);
-        } catch (Exception exception) {
-            inputNumberOfAttempts = InputView.getNumberOfAttempts();
+        while (true) {
+            try {
+                throwErrorMessage();
+                break;
+            } catch (Exception exception) {
+                inputNumberOfAttempts = InputView.getNumberOfAttempts();
+                result = InputErrorCheck.isValidNumber(inputNumberOfAttempts);
+            }
         }
         return Integer.parseInt(inputNumberOfAttempts);
     }
