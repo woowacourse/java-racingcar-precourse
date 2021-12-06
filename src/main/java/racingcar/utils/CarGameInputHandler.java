@@ -33,7 +33,7 @@ public class CarGameInputHandler {
         while (true) {
             try {
                 return sup.get();
-            } catch (Exception e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
