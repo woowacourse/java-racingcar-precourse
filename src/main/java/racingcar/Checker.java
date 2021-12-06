@@ -58,8 +58,9 @@ public class Checker {
 
 	public boolean checkNumberOfTimes(String input) {
 		try {
-			checkInputIsNumber(input);
-			checkInputIsZero(input);
+			checkInputIsPositiveNumberOrZero(input);
+			checkInputExceedInteger(input);
+			checkInputIsNotZero(input);
 		} catch (Exception e) {
 			System.out.println(ERROR + e.getMessage());
 			return false;
@@ -67,22 +68,31 @@ public class Checker {
 		return true;
 	}
 
-	private void checkInputIsNumber(String input) {
+	private void checkInputIsPositiveNumberOrZero(String input) {
 
 		for (int i = 0; i < input.length(); i++) {
 
 			if (!(input.charAt(i) >= '0' && input.charAt(i) <= '9')) {
-				throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_IS_NOT_NUBMER);
+				throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_IS_NOT_POSITIVE_NUBMER_OR_ZERO);
 			}
 
 		}
 	}
 
-	private void checkInputIsZero(String input) {
+	private void checkInputExceedInteger(String input) {
+		try {
+			Integer.parseInt(input);
+		} catch (Exception e) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_EXCEED_INTEGER);
+		}
+	}
 
-		if (input.equals("0")) {
+	private void checkInputIsNotZero(String input) {
+
+		if (Integer.parseInt(input) == 0) {
 			throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_IS_ZERO);
 		}
 
 	}
+
 }
