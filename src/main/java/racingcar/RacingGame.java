@@ -45,11 +45,11 @@ public class RacingGame {
         judgeResults.stream().toArray(String[]::new);
         String winners = String.join(", ", judgeResults.stream().toArray(String[]::new));
         printConsoleMessage(JUDGMENT_RESULT_MESSAGE + winners + "\n");
-        //businessLogic
     }
 
     public void inputTheCarName() {
         boolean isRetry = false;
+        do {
             try {
                 printConsoleMessage(INPUT_CAR_NAME_MESSAGE);
                 String inputTheCarNames = Console.readLine();
@@ -57,11 +57,14 @@ public class RacingGame {
                 carNames = toStringArray(inputTheCarNames);
             } catch (IllegalArgumentException e) {
                 System.out.println(ERROR_INPUT_CAR_NAME_MESSAGE);
-                inputTheCarName();
+                isRetry = true;
             }
+        } while (isRetry);
     }
 
     public void inputTheNumberOfAttempts() {
+        boolean isRetry = false;
+        do {
             try {
                 printConsoleMessage(INPUT_NUMBER_OF_ATTEMPTS_MESSAGE);
                 String inputTheNumberOfAttempt = Console.readLine();
@@ -69,8 +72,9 @@ public class RacingGame {
                 numberOfAttempts = toInteger(inputTheNumberOfAttempt);
             } catch (IllegalArgumentException e) {
                 System.out.println(ERROR_INPUT_NUMBER_OF_ATTEMPTS_MESSAGE);
-                inputTheNumberOfAttempts();
+                isRetry = true;
             }
+        } while (isRetry);
     }
 
     private void startRacing(Player player) {
