@@ -1,12 +1,12 @@
 package racingcar;
 
-import static racingcar.utils.StringConstants.*;
+import static racingcar.utils.StringUtils.*;
 
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.Car;
-import racingcar.inputvalue.CarNameInputValue;
+import racingcar.inputvalue.CarNamesInputValue;
 import racingcar.inputvalue.InputValue;
 import racingcar.inputvalue.NumberOfRoundsInputValue;
 import racingcar.view.RacingWinnersView;
@@ -28,7 +28,7 @@ public class RacingGameController {
     }
 
     private void printCarNameRequestMessage() {
-        System.out.println(CAR_NAME_REQUEST_MESSAGE);
+        System.out.println(CAR_NAMES_REQUEST_MESSAGE);
     }
 
     private void createCars() {
@@ -45,12 +45,12 @@ public class RacingGameController {
     }
 
     private String[] inputCarNames() {
-        InputValue<String[]> carNameInput = new CarNameInputValue(Console.readLine());
-        return carNameInput.toRaceElement();
+        InputValue<String[]> carNamesInput = new CarNamesInputValue(Console.readLine());
+        return carNamesInput.toRacingElement();
     }
 
     private void createCars(String[] carNames) {
-        racingGame.createCars(carNames);
+        racingGame.getCarsReady(carNames);
     }
 
     private void printNumberOfRoundsRequestMessage() {
@@ -58,11 +58,11 @@ public class RacingGameController {
     }
 
     private void createNumberOfRounds() {
-        boolean isNumberOfRoundsCreates = false;
-        while(!isNumberOfRoundsCreates) {
+        boolean isNumberOfRoundsCreated = false;
+        while(!isNumberOfRoundsCreated) {
             try {
                 createNumberOfRounds(inputNumberOfRounds());
-                isNumberOfRoundsCreates = true;
+                isNumberOfRoundsCreated = true;
             } catch (IllegalArgumentException e) {
                 System.out.print(PREFIX_OF_ERROR_MESSAGE);
                 System.out.println(ERROR_MESSAGE_ABOUT_WRONG_NUMBER_OF_ROUNDS_INPUT);
@@ -72,11 +72,11 @@ public class RacingGameController {
 
     private int inputNumberOfRounds() {
         InputValue<Integer> NumberOfRoundsInput = new NumberOfRoundsInputValue(Console.readLine());
-        return NumberOfRoundsInput.toRaceElement();
+        return NumberOfRoundsInput.toRacingElement();
     }
 
     private void createNumberOfRounds(int numberOfRounds) {
-        racingGame.createNumberOfRounds(numberOfRounds);
+        racingGame.setNumberOfRounds(numberOfRounds);
     }
 
     private void printGameResultNoticePhrase() {

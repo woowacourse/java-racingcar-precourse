@@ -21,8 +21,7 @@ public class RacingResultsView {
 
     private void writeResults() {
         for (Car car : cars) {
-             RacingResultView racingResultView = new RacingResultView(car);
-             racingResultsView.add(racingResultView.writeResult());
+             racingResultsView.add(new RacingResultView(car).writeResult());
         }
     }
 

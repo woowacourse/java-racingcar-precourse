@@ -7,7 +7,7 @@ public abstract class InputValue<T> {
         this.inputString = input;
     }
 
-    public T toRaceElement() {
+    public T toRacingElement() {
         return convertTypeToRacingElement();
     }
 

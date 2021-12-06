@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import static racingcar.utils.StringConstants.DELIMITER_BETWEEN_WINNERS;
-import static racingcar.utils.StringConstants.PREFIX_OF_WINNER_NOTICE;
+import static racingcar.utils.StringUtils.DELIMITER_BETWEEN_WINNERS;
+import static racingcar.utils.StringUtils.PREFIX_OF_WINNER_NOTICE;
 
 import java.util.List;
 import java.util.stream.Collectors;

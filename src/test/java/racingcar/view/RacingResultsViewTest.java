@@ -1,7 +1,6 @@
 package racingcar.view;
 
-import static racingcar.utils.StringConstants.*;
-import static racingcar.utils.StringConstants.MARK_FOR_DISTANCE_RECORD;
+import static racingcar.utils.StringUtils.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -14,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import racingcar.car.Car;
-import racingcar.view.RacingResultsView;
 
 class RacingResultsViewTest {
     private final PrintStream standardOut = System.out;
@@ -26,7 +24,7 @@ class RacingResultsViewTest {
 
     private RacingResultsView racingResultsView;
 
-    RacingResultsViewTest () {
+    RacingResultsViewTest() {
         createCars();
     }
 
@@ -47,15 +45,15 @@ class RacingResultsViewTest {
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedInitialResult().toString());
     }
 
-    private StringBuilder createExceptedInitialResult() {
+    private String createExceptedInitialResult() {
         String ELIMINATED_TRAILING_SPACES_MARK_FOR_DISTANCE_RECORD = " :";
         StringBuilder expectedResult = new StringBuilder();
         expectedResult.append(car1Name);
-        expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD);
+        expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);
         expectedResult.append(NEW_LINE);
         expectedResult.append(car2Name);
         expectedResult.append(ELIMINATED_TRAILING_SPACES_MARK_FOR_DISTANCE_RECORD);
-        return expectedResult;
+        return expectedResult.toString();
     }
 
     @Test
@@ -72,12 +70,12 @@ class RacingResultsViewTest {
     private StringBuilder createExceptedAfterDrivingResult() {
         StringBuilder expectedResult = new StringBuilder();
         expectedResult.append(car1Name);
-        expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD);
-        expectedResult.append(MARK_FOR_DISTANCE_RECORD);
+        expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);
+        expectedResult.append(MARK_FOR_DISTANCE_COVERED);
         expectedResult.append(NEW_LINE);
         expectedResult.append(car2Name);
-        expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD);
-        expectedResult.append(MARK_FOR_DISTANCE_RECORD);
+        expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);
+        expectedResult.append(MARK_FOR_DISTANCE_COVERED);
         return expectedResult;
     }
 

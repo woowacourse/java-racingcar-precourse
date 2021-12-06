@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import static racingcar.utils.StringConstants.INITIAL_POSITION;
+import static racingcar.utils.StringUtils.INITIAL_POSITION;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,29 +18,26 @@ public class CarRepository {
     }
 
     public List<Car> findTopByOrderByPosition() {
-        int maxPosition = findMaxPosition();
-        return findByPosition(maxPosition);
+        return findByPosition(findMaxPosition());
     }
 
     private int findMaxPosition() {
         int maxPosition = INITIAL_POSITION;
         for (Car car : cars) {
-            int position = car.getPosition();
-            if(car.getPosition() > maxPosition) {
-                maxPosition = position;
-                continue;
+            if (car.hasFartherPosition(maxPosition)) {
+                maxPosition = car.getPosition();
             }
         }
         return maxPosition;
     }
-    
-    private List<Car> findByPosition(int distance) {
-        List<Car> carsWithCertainDistance = new ArrayList<>();
+
+    private List<Car> findByPosition(int position) {
+        List<Car> carsWithCertainPosition = new ArrayList<>();
         for (Car car : cars) {
-            if(car.getPosition() == distance) {
-                carsWithCertainDistance.add(car);
+            if (car.isSamePosition(position)) {
+                carsWithCertainPosition.add(car);
             }
         }
-        return carsWithCertainDistance;
+        return carsWithCertainPosition;
     }
 }

@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import static racingcar.utils.StringConstants.*;
+import static racingcar.utils.StringUtils.*;
 
 import java.util.Objects;
 
@@ -18,11 +18,19 @@ public class Car {
     }
 
     private static void validate(String name) {
-        if(!isRightLength(name.length())) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_TOO_LONG_CAR_NAME_INPUT);
+        checkRightLength(name);
+        checkNameContainsSpace(name);
+    }
+
+    private static void checkRightLength(String name) {
+        if (!isRightLength(name.length())) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_TOO_LONG_CAR_NAMES_INPUT);
         }
+    }
+
+    private static void checkNameContainsSpace(String name) {
         if (name.contains(SPACE)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_CONTAINING_SPACE_CAR_NAME_INPUT);
+            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_CONTAINING_SPACE_CAR_NAMES_INPUT);
         }
     }
 
@@ -47,6 +55,17 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isSamePosition(int position) {
+        return this.position == position;
+    }
+
+    public boolean hasFartherPosition(int otherPosition) {
+        if(this.position > otherPosition) {
+            return true;
+        }
+        return false;
     }
 
     // 본 코드에서 사용되지 않으면 삭제되어야 함

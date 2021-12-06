@@ -1,12 +1,11 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.utils.StringConstants.MIN_NUMBER_TO_CAR_TO_GO;
+import static racingcar.utils.StringUtils.MIN_NUMBER_TO_CAR_TO_GO;
 
 import org.junit.jupiter.api.Test;
 
 import racingcar.car.Car;
-import racingcar.view.RacingResultView;
 
 class RacingResultViewTest {
 

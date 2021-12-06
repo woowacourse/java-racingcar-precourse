@@ -23,7 +23,6 @@ class RacingWinnersViewTest {
 
     private RacingWinnersView racingWinnersView;
 
-
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));

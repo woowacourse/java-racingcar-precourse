@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.utils.StringConstants.*;
+import static racingcar.utils.StringUtils.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +18,12 @@ public class RacingGame {
         this.carRepository = carRepository;
     }
 
-    public List<Car> createCars(String[] carNames) {
-        List<Car> carsToSave = new ArrayList<>();
-        for (String carName : carNames) {
-            carsToSave.add(Car.create(carName));
-        }
-        carRepository.saveInOrder(carsToSave);
+    public List<Car> getCarsReady(String[] carNames) {
+        carRepository.saveInOrder(createCars(carNames));
         return findCarsInOrder();
     }
 
-    public void createNumberOfRounds(int number) {
+    public void setNumberOfRounds(int number) {
         validateRoundNumber(number);
         numberOfRounds = number;
     }
@@ -40,23 +36,22 @@ public class RacingGame {
         return determineWinners();
     }
 
-    private void printRacingResults() {
-        RacingResultsView racingResultsView = new RacingResultsView(findCarsInOrder());
-        racingResultsView.print();
-    }
-
-    private void validateRoundNumber(int number) {
-        if (number < MIN_VALUE_OF_ROUND_NUMBER) {
-            throw new IllegalArgumentException();
+    private List<Car> createCars(String[] carNames) {
+        List<Car> carsToSave = new ArrayList<>();
+        for (String carName : carNames) {
+            carsToSave.add(Car.create(carName));
         }
+        return carsToSave;
     }
 
     private List<Car> findCarsInOrder() {
         return carRepository.findAllInOrder();
     }
 
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_VALUE_OF_RANDOM_NUMBER, MAX_VALUE_OF_RANDOM_NUMBER);
+    private void validateRoundNumber(int number) {
+        if (number < MIN_VALUE_OF_ROUND_NUMBER) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void startEachRound() {
@@ -67,6 +62,15 @@ public class RacingGame {
 
     private List<Car> determineWinners() {
         return carRepository.findTopByOrderByPosition();
+    }
+
+    private void printRacingResults() {
+        RacingResultsView racingResultsView = new RacingResultsView(findCarsInOrder());
+        racingResultsView.print();
+    }
+
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_VALUE_OF_RANDOM_NUMBER, MAX_VALUE_OF_RANDOM_NUMBER);
     }
 }
 

@@ -1,9 +1,6 @@
 package racingcar.view;
 
-import static racingcar.utils.StringConstants.DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD;
-import static racingcar.utils.StringConstants.MARK_FOR_DISTANCE_RECORD;
-
-import java.util.stream.IntStream;
+import static racingcar.utils.StringUtils.*;
 
 import racingcar.car.Car;
 
@@ -27,10 +24,12 @@ public class RacingResultView {
     }
 
     private void writeDelimiter() {
-        result.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_RECORD);
+        result.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);
     }
 
     private void writeDistanceCovered() {
-        IntStream.range(0, car.getPosition()).forEach(i -> result.append(MARK_FOR_DISTANCE_RECORD));
+        for (int i = INITIAL_POSITION; i < car.getPosition(); i++) {
+            result.append(MARK_FOR_DISTANCE_COVERED);
+        }
     }
 }
