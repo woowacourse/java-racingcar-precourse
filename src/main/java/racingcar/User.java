@@ -33,16 +33,16 @@ public class User {
 	}
 
 	private boolean setNames(String input) {
-		List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
-		if (checkNames(inputList)) {
-			this.names = inputList;
+		if (checkNames(input)) {
+			this.names = Arrays.asList(input.split(DELIMITER, -1));
 			return true;
 		}
 		return false;
 	}
 
-	private boolean checkNames(List<String> inputList) {
+	private boolean checkNames(String input) {
 		try {
+			List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
 			checkNamesLength(inputList);
 			checkNamesDuplication(inputList);
 		} catch (Exception e) {
