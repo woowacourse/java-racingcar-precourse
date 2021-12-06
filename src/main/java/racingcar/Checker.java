@@ -12,17 +12,26 @@ public class Checker {
 
 	public boolean checkNames(String input) {
 		try {
-			List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
-			checkNamesLength(inputList);
-			checkNamesDuplication(inputList);
+			checkNamesNumber(input);
+			checkNamesLength(input);
+			checkNamesDuplication(input);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println(ERROR + e.getMessage());
 			return false;
 		}
 		return true;
 	}
 
-	private void checkNamesLength(List<String> inputList) {
+	private void checkNamesNumber(String input) {
+		try {
+			List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
+		} catch (Exception e) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_NAMES_NUMBER);
+		}
+	}
+
+	private void checkNamesLength(String input) {
+		List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
 		for (String name : inputList) {
 			if (name.length() > MAX_NAME_LENGTH || name.length() < MIN_NAME_LENGTH) {
 				throw new IllegalArgumentException(ERROR_MESSAGE_NAME_LENGTH);
@@ -30,7 +39,8 @@ public class Checker {
 		}
 	}
 
-	private void checkNamesDuplication(List<String> inputList) {
+	private void checkNamesDuplication(String input) {
+		List<String> inputList = Arrays.asList(input.split(DELIMITER, -1));
 		Set<String> namesSet = new HashSet<>();
 		for (String name : inputList) {
 			if (namesSet.contains(name)) {
@@ -44,7 +54,7 @@ public class Checker {
 		try {
 			checkInputIsNumber(input);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println(ERROR + e.getMessage());
 			return false;
 		}
 		return true;
