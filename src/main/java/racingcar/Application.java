@@ -6,7 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Application {
     public static void main(String[] args) {
         String[] arrayCar = Input.inputToArray();
-        Car[] arrayCarObject = Input.arrayCarObj(arrayCar);
+        Car[] arrayCarObject = Car.arrayCarObj(arrayCar);
         int count = Input.CountingGame();
 
         PlayGame(arrayCarObject, count);
@@ -50,17 +50,9 @@ public class Application {
     }
 
     private static void PrintCarPosition(Car car) {
-        car.Move(GoOrStop());
+        car.Move(Car.GoOrStop());
         car.PrintStatus();
     }
 
-    private static boolean GoOrStop() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 }

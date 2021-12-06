@@ -48,11 +48,4 @@ public class Input {
         throw new IllegalArgumentException("[ERROR] : 자동차 이름이 5글자를 넘어요!");
     }
 
-    public static Car[] arrayCarObj(String[] arrayCar) {
-        Car[] arrayCarObj = new Car[arrayCar.length];
-        for (int i = 0; i < arrayCar.length; i++) {
-            arrayCarObj[i] = new Car(arrayCar[i]);
-        }
-        return arrayCarObj;
-    }
 }

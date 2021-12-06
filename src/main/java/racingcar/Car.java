@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -28,5 +30,22 @@ public class Car {
 
     public String ReturnName() {
         return name;
+    }
+
+    public static Car[] arrayCarObj(String[] arrayCar) {
+        Car[] arrayCarObj = new Car[arrayCar.length];
+        for (int i = 0; i < arrayCar.length; i++) {
+            arrayCarObj[i] = new Car(arrayCar[i]);
+        }
+        return arrayCarObj;
+    }
+
+    public static boolean GoOrStop() {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        if (randomNum >= 4) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
