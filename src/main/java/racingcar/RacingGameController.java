@@ -14,30 +14,30 @@ import racingcar.view.RacingGameResultView;
 import racingcar.view.RacingWinnersView;
 
 public class RacingGameController {
-    private final RacingGame racingGame;
+    private final RacingGameService racingGameService;
 
-    public RacingGameController(RacingGame racingGame) {
-        this.racingGame = racingGame;
+    public RacingGameController(RacingGameService racingGameService) {
+        this.racingGameService = racingGameService;
     }
 
     public void start() {
         printCarNameRequestMessage();
-        createCars();
+        setCars();
         printNumberOfRoundsRequestMessage();
-        createNumberOfRounds();
-        printGameResult(racingGame.start());
-        printWinners(racingGame.determineWinners());
+        setRacingGame();
+        printGameResult();
+        printWinners();
     }
 
     private void printCarNameRequestMessage() {
         System.out.println(CAR_NAMES_REQUEST_MESSAGE);
     }
 
-    private void createCars() {
+    private void setCars() {
         boolean isAllCarsCreated = false;
         while(!isAllCarsCreated) {
             try {
-                createCars(inputCarNames());
+                setCars(inputCarNames());
                 isAllCarsCreated = true;
             } catch(IllegalArgumentException e) {
                 System.out.print(PREFIX_OF_ERROR_MESSAGE);
@@ -51,19 +51,19 @@ public class RacingGameController {
         return carNamesInput.toRacingElement();
     }
 
-    private void createCars(String[] carNames) {
-        racingGame.getCarsReady(carNames);
+    private void setCars(String[] carNames) {
+        racingGameService.getCarsReady(carNames);
     }
 
     private void printNumberOfRoundsRequestMessage() {
         System.out.println(NUMBER_OF_ROUNDS_REQUEST_MESSAGE);
     }
 
-    private void createNumberOfRounds() {
+    private void setRacingGame() {
         boolean isNumberOfRoundsCreated = false;
         while(!isNumberOfRoundsCreated) {
             try {
-                createNumberOfRounds(inputNumberOfRounds());
+                setRacingGame(inputNumberOfRounds());
                 isNumberOfRoundsCreated = true;
             } catch (IllegalArgumentException e) {
                 System.out.print(PREFIX_OF_ERROR_MESSAGE);
@@ -77,12 +77,20 @@ public class RacingGameController {
         return NumberOfRoundsInput.toRacingElement();
     }
 
-    private void createNumberOfRounds(int numberOfRounds) {
-        racingGame.setNumberOfRounds(numberOfRounds);
+    private void setRacingGame(int numberOfRounds) {
+        racingGameService.getRacingGameReady(numberOfRounds);
+    }
+
+    private void printGameResult() {
+        printGameResult(racingGameService.start());
     }
 
     private void printGameResult(RacingGameResult racingGameResult) {
         new RacingGameResultView(racingGameResult).print();
+    }
+
+    private void printWinners() {
+        printWinners(racingGameService.determineWinners());
     }
 
     private void printWinners(List<Car> winners) {

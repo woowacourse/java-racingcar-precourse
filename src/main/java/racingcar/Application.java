@@ -8,6 +8,6 @@ public class Application {
     }
 
     private static RacingGameController setUp() {
-        return new RacingGameController(new RacingGame(new CarRepository()));
+        return new RacingGameController(new RacingGameService(new CarRepository()));
     }
 }

@@ -2,44 +2,43 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.utils.StringUtils.MIN_VALUE_OF_ROUND_NUMBER;
 
-import java.util.List;
-
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import racingcar.car.Car;
-import racingcar.car.CarRepository;
-
 class RacingGameTest {
-    private RacingGame racingGame;
 
-    @BeforeEach
-    void setUp() {
-        racingGame = new RacingGame(new CarRepository());
+    @Test
+    void 총_회차만큼_게임을_하면_끝났음을_확인가능() {
+        int numberOfRounds = 3;
+        RacingGame racingGame = RacingGame.create(numberOfRounds);
+        for (int i = 0; i < numberOfRounds; i++) {
+             racingGame.completeOneRound();
+        }
+
+        Assertions.assertThat(racingGame.isOver()).isTrue();
     }
 
     @Test
-    void 입력된_배열에_저장된_순서가_repository의_저장_순서가_된다() {
-        String[] carNames = new String[]{"pobi", "woni", "jun"};
-        List<Car> savedCars = racingGame.getCarsReady(carNames);
-        for (int i = 0; i < savedCars.size(); i++) {
-            assertThat(savedCars.get(i).getName()).isEqualTo(carNames[i]);
+    void 총_회차만큼_게임을_하지_않았다면_경기가_끝나지_않았음을_확인_가능() {
+        int numberOfRounds = 3;
+        int smallerNumberThanNumOfRounds = 2;
+        RacingGame racingGame = RacingGame.create(numberOfRounds);
+        for (int i = 0; i < smallerNumberThanNumOfRounds; i++) {
+            racingGame.completeOneRound();
         }
+
+        Assertions.assertThat(racingGame.isOver()).isFalse();
     }
 
     @Test
     void 회차가_1보다_작을경우_예외_발생() {
-        int smallerInput = 0;
-        assertThat(smallerInput).isLessThan(MIN_VALUE_OF_ROUND_NUMBER);
-        assertThatThrownBy(() -> racingGame.setNumberOfRounds(smallerInput)).isInstanceOf(IllegalArgumentException.class);
+        int smallerThanOne = 0;
+        assertThat(smallerThanOne).isLessThan(MIN_VALUE_OF_ROUND_NUMBER);
+
+        assertThatThrownBy(() -> RacingGame.create(smallerThanOne)).isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    void 중복된_이름의_자동차가_입력으로_들어올_경우_예외_발생() {
-        String[] duplicatedCarNames = {"hi", "hi", "bye"};
-        Assertions.assertThatThrownBy(() -> racingGame.getCarsReady(duplicatedCarNames)).isInstanceOf(IllegalArgumentException.class);
-    }
 }

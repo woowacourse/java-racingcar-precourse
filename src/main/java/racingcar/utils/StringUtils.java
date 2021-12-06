@@ -11,6 +11,8 @@ public class StringUtils {
     public static final int MIN_VALUE_OF_RANDOM_NUMBER = 1;
     public static final int MAX_VALUE_OF_RANDOM_NUMBER = 9;
 
+    public static final int NUMBER_FOR_NO_ROUNDS_LEFT = 0;
+
     public static final String DELIMITER_TO_SEPARATE_CAR_NAME_INPUT = ",";
 
     public static final String CAR_NAMES_REQUEST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";

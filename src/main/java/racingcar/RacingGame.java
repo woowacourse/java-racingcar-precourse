@@ -1,93 +1,50 @@
 package racingcar;
 
-import static racingcar.utils.StringUtils.*;
+import static racingcar.utils.StringUtils.MIN_VALUE_OF_ROUND_NUMBER;
+import static racingcar.utils.StringUtils.NUMBER_FOR_NO_ROUNDS_LEFT;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.car.Car;
-import racingcar.car.CarRepository;
 import racingcar.gameresult.RacingGameResult;
 import racingcar.gameresult.RacingResults;
 
 public class RacingGame {
-    private final CarRepository carRepository;
-    private int numberOfRounds;
-    private RacingGameResult racingGameResult;
+    private final RacingGameResult racingGameResult;
+    private int leftNumberOfRounds;
 
-    public RacingGame(CarRepository carRepository) {
-        this.carRepository = carRepository;
+    private RacingGame(int leftNumberOfRounds) {
+        this.leftNumberOfRounds = leftNumberOfRounds;
+        racingGameResult = new RacingGameResult(leftNumberOfRounds);
     }
 
-    public List<Car> getCarsReady(String[] carNames) {
-        List<Car> cars = createCars(carNames);
-        checkDuplicateCars(cars);
-        carRepository.saveInOrder(cars);
-        return findCarsInOrder();
+    public static RacingGame create(int numberOfRounds) {
+        validateRoundNumber(numberOfRounds);
+        return new RacingGame(numberOfRounds);
     }
 
-    public void setNumberOfRounds(int number) {
-        validateRoundNumber(number);
-        numberOfRounds = number;
-        setRacingGameResult();
-    }
-
-    public RacingGameResult start() {
-        for (int roundNumber = MIN_VALUE_OF_ROUND_NUMBER; roundNumber <= numberOfRounds; roundNumber++) {
-            startEachRound();
-            recordRacingResults();
-        }
-        return racingGameResult;
-    }
-
-    public List<Car> determineWinners() {
-        return carRepository.findTopByOrderByPosition();
-    }
-
-    private void checkDuplicateCars(List<Car> cars) {
-        Set<Car> notDuplicatedCars = new HashSet<>(cars);
-        if (notDuplicatedCars.size() != cars.size()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_ABOUT_DUPLICATED_CAR_NAMES_INPUT);
-        }
-    }
-
-    private List<Car> createCars(String[] carNames) {
-        List<Car> carsToSave = new ArrayList<>();
-        for (String carName : carNames) {
-            carsToSave.add(Car.create(carName));
-        }
-        return carsToSave;
-    }
-
-    private List<Car> findCarsInOrder() {
-        return carRepository.findAllInOrder();
-    }
-
-    private void validateRoundNumber(int number) {
+    private static void validateRoundNumber(int number) {
         if (number < MIN_VALUE_OF_ROUND_NUMBER) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void setRacingGameResult() {
-        racingGameResult = new RacingGameResult(numberOfRounds);
+    public void completeOneRound() {
+        leftNumberOfRounds--;
     }
 
-    private void startEachRound() {
-        for (Car car : findCarsInOrder()) {
-            car.run(generateRandomNumber());
+    public boolean isOver() {
+        if (leftNumberOfRounds <= NUMBER_FOR_NO_ROUNDS_LEFT) {
+            return true;
         }
+        return false;
     }
 
-    private void recordRacingResults() {
-        racingGameResult.add(new RacingResults(findCarsInOrder()));
+    public void recordRacingResults(List<Car> carsAfterRacing) {
+        racingGameResult.add(new RacingResults(carsAfterRacing));
     }
 
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_VALUE_OF_RANDOM_NUMBER, MAX_VALUE_OF_RANDOM_NUMBER);
+    public RacingGameResult showGameResult() {
+        return racingGameResult;
     }
 }
-
