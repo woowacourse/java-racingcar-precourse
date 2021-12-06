@@ -61,10 +61,18 @@ public class Validation {
 
     }
 
+    private void validateCarNames() {
+        checkCarNumber();
+        checkSpacePosition();
+        checkNameLength();
+        checkNameOverlap();
+    }
+
     public boolean isValidCarNames(ArrayList<String> carNames) {
 
         try {
             this.carNames = carNames;
+            validateCarNames();
         } catch (IllegalArgumentException e) {
             System.out.println(errorMessage + Text.LINE_BREAK);
 
