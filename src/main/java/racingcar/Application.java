@@ -8,16 +8,16 @@ import static camp.nextstep.edu.missionutils.Console.*;
 public class Application {
     static List<Car> carList = new ArrayList<>();
     static int tryTimes;
-    static List<String> winnerNames = new ArrayList<>();
 
     static Message message = new Message();
     static StringManager stringManager = new StringManager();
+    static Winners winners = new Winners();
 
     public static void main(String[] args) {
         createCars();
         setTryTimes();
         playGames();
-        announceWinners();
+        winners.announceWinners(carList);
     }
 
     static void createCars() {
@@ -83,34 +83,4 @@ public class Application {
         System.out.println();
     }
 
-    static void announceWinners() {
-        selectWinners();
-        printWinners();
-    }
-
-    static void selectWinners() {
-        int maxPosition = 0;
-
-        for (Car c : carList) {
-            int thisPosition = c.getPosition();
-            if (maxPosition < thisPosition) {
-                maxPosition = thisPosition;
-                winnerNames.clear();
-                winnerNames.add(c.getName());
-                continue;
-            }
-            if (maxPosition == thisPosition) {
-                winnerNames.add(c.getName());
-            }
-        }
-    }
-
-    static void printWinners() {
-        int numberOfWinners = winnerNames.size();
-
-        System.out.print("최종 우승자 : " + winnerNames.get(0));
-        for (int i = 1; i < numberOfWinners; ++i) {
-            System.out.print(", " + winnerNames.get(i));
-        }
-    }
 }
