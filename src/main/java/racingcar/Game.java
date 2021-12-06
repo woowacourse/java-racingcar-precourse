@@ -26,7 +26,8 @@ public class Game {
 			System.out.println();
 		}
 
-		//List<Car>의 position 비교하여 최종 우승자 뽑는 로직 구현
+		List<Car> winnerCarList = carManager.getWinner(carList);
+		outputPrinter.printFinalWinner(winnerCarList);
 	}
 
 	public List<Car> updateCarListPosition(List<Car> carList) {
