@@ -20,8 +20,8 @@ public class CarRepository {
 		}
 	}
 
-	public List<String> getWinnerCarsName() {
-		return getWinnerCars().stream()
+	public List<String> getWinningCarNameList() {
+		return getWinningCarList().stream()
 			.map(Car::getName)
 			.collect(Collectors.toList());
 	}
@@ -32,8 +32,8 @@ public class CarRepository {
 			.collect(Collectors.toList());
 	}
 
-	private List<Car> getWinnerCars() {
-		List<Car> ascendingSortedCars = getAscendingSortedCars();
+	private List<Car> getWinningCarList() {
+		List<Car> ascendingSortedCars = getAscendingSortedCarList();
 		List<Car> winnerCars = new ArrayList<>();
 		Car winnerCar = ascendingSortedCars.get(FIRST_INDEX_OF_LIST);
 		for (Car car : ascendingSortedCars) {
@@ -44,7 +44,7 @@ public class CarRepository {
 		return winnerCars;
 	}
 
-	private List<Car> getAscendingSortedCars() {
+	private List<Car> getAscendingSortedCarList() {
 		return carList.stream()
 			.sorted()
 			.collect(Collectors.toList());

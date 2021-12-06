@@ -10,14 +10,14 @@ public class InputView {
 	private static final int MIN_SINGLE_NUMBER = 0;
 	private static final int MAX_SINGLE_NUMBER = 9;
 	private static final String ERROR_MESSAGE = "[ERROR] ";
-	private static final String DELIMITER_CAR_NAME = ",";
+	private static final String CAR_NAME_DELIMITER = ",";
 
 	public static String[] inputCarNames() {
 		try {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			String input = Console.readLine();
 			validateCarNames(input);
-			return input.split(DELIMITER_CAR_NAME);
+			return input.split(CAR_NAME_DELIMITER);
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
 			return inputCarNames();
@@ -38,8 +38,8 @@ public class InputView {
 
 	private static void validateCarNames(String input) {
 		validateIsEmpty(input);
-		String[] carNames = input.split(DELIMITER_CAR_NAME);
-		validateLengthOfCarName(carNames);
+		String[] carNames = input.split(CAR_NAME_DELIMITER);
+		validateLengthOfCarNames(carNames);
 		validateDuplicateCarNames(carNames);
 	}
 
@@ -56,9 +56,9 @@ public class InputView {
 		}
 	}
 
-	private static void validateLengthOfCarName(String[] names) {
-		for (String name : names) {
-			if (name.length() > MAX_CAR_NAME_LENGTH) {
+	private static void validateLengthOfCarNames(String[] carNames) {
+		for (String carName : carNames) {
+			if (carName.length() > MAX_CAR_NAME_LENGTH) {
 				throw new IllegalArgumentException(ERROR_MESSAGE + "입력한 이름이 5글자를 초과합니다.");
 			}
 		}

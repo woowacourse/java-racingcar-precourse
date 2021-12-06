@@ -13,7 +13,7 @@ public class Game {
 		int tryNumberOfCarMoving = inputTryNumberOfCarMoving();
 		printBlankLine();
 		playRacing(tryNumberOfCarMoving);
-		printFinalCarWinners(carRepository.getWinnerCarsName());
+		printFinalWinningCars(carRepository.getWinningCarNameList());
 	}
 
 	private void setCars() {

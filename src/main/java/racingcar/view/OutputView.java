@@ -10,8 +10,8 @@ public class OutputView {
 		printBlankLine();
 	}
 
-	public static void printFinalCarWinners(List<String> winnerCarNames) {
-		System.out.println("최종 우승자 : " + String.join(", ", winnerCarNames));
+	public static void printFinalWinningCars(List<String> winningCarNameList) {
+		System.out.println("최종 우승자 : " + String.join(", ", winningCarNameList));
 	}
 
 	public static void printBlankLine() {
