@@ -212,32 +212,31 @@ This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/bl
 
 ### 사용자 입력
   + 경주할 자동차 이름
-    * 쉼표로 구분해서 읽어오기  
+    * [X] 쉼표로 구분해서 읽어오기  
       idea1 : 구분자를 기준으로 split 하는 함수 찾아보고 없으면 만들기
-    * 이름의 길이가 5 이하인지 확인  
+    * [X] 이름의 길이가 5 이하인지 확인  
       if 6 이상 : 유효하지 않은 값   
     => ```IllegalArgumentException``` 발생, 에러 메세지 출력 후 다시 입력 받기
-    * 공백이나 중복된 이름은 어떻게 처리할지 생각해보기  
   + 시도할 횟수
-    * 숫자인지 확인  
-      if !(숫자) : 유효하지 않은 값  
-    => ```IllegalArgumentException``` 발생, 에러 메세지 출력 후 다시 입력 받기  
+    * [X] 양의 정수인지 확인  
+      if !(양의 정수) : 유효하지 않은 값  
+    => ```IllegalArgumentException``` 발생, 에러 메세지 출력 후 다시 입력 받기
 #### 🛠 에러 메세지 출력 후 다시 입력받기
   + idea1 : while 문 이용하기
   + idea2 : try-catch 에서 재귀 사용하기
 ### 자동차 정보
   + 주어진 Car 객체 활용해 구현
   + 우승자 반환을 위한 position 저장 필요
-    * ```setPosition(int position)``` 메소드 최대한 추가하지 않고 구현  
+    * [X] ```setPosition(int position)``` 메소드 최대한 추가하지 않고 구현  
       idea1 : 자동차 전진 조건 시 position update?  
     
 ### 자동차 전진 조건
   + 0부터 9사이의 무작위 값 구한 후 무작위 값이 4 이상일 경우 전진
-    * ```pickNumberInRange()``` 활용  
+    * [X] ```pickNumberInRange()``` 활용  
     
 ### 우승자 반환
   + 우승자 이름 출력
-    * 각 자동차 position 정보 비교하기  
+    * [X] 각 자동차 position 정보 비교하기  
       idea1 : ```getPosition()``` 메소드 사용?
   + 공동 우승 가능
-    * 이 경우 우승자 이름을 쉼표로 구분하여 출력
+    * [X] 이 경우 우승자 이름을 쉼표로 구분하여 출력
