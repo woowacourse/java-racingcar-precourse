@@ -1,6 +1,7 @@
 package racingcar.result;
 
 import racingcar.Cars;
+import racingcar.exception.ImpossibleRacingException;
 
 public class Racing {
 	private static final int MIN_COUNT = 0;
@@ -13,8 +14,19 @@ public class Racing {
 	}
 
 	public void start() {
-		cars.moveAll();
-		count--;
+		try {
+			validateEnd();
+			cars.moveAll();
+			count--;
+		} catch (ImpossibleRacingException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void validateEnd() {
+		if(isEnd()){
+			throw new ImpossibleRacingException("[ERROR] 시도 횟수가 소진되어 게임을 진행할 수 없습니다.");
+		}
 	}
 
 	public boolean isEnd() {
