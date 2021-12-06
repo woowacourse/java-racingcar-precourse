@@ -2,17 +2,18 @@ package racingcar.io;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.garage.Garage;
-import racingcar.validation.Validation;
+import racingcar.validation.CarNamesValidator;
+import racingcar.validation.RoundCountValidator;
 
 import static racingcar.io.FixedString.*;
 
 public class IOService {
     public static String readCarNames() {
-        return Validation.inputCarNames(Console.readLine());
+        return CarNamesValidator.checkNamesAndReturn(Console.readLine());
     }
 
     public static int readRoundCount() {
-        return Validation.inputRoundCount(Console.readLine());
+        return RoundCountValidator.checkRoundCountAndReturn(Console.readLine());
     }
 
     public static void printEachRoundResult(Garage garage) {

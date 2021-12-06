@@ -4,12 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static racingcar.validation.ErrorCode.*;
+import static racingcar.validation.ErrorCode.IS_DUPLICATED;
 
-public class Validation {
+public class CarNamesValidator {
     private static final String BY = ",";
-    private static final int ZERO = 0;
 
-    public static String inputCarNames(String input) {
+    public static String checkNamesAndReturn(String input) {
         isNull(input);
         isCommaOrAlphabet(input);
         isProperLength(input);
@@ -18,37 +18,30 @@ public class Validation {
         return input;
     }
 
-    public static int inputRoundCount(String input) {
-        isNull(input);
-        isNumber(input);
-        isZero(input);
-
-        return Integer.parseInt(input);
-    }
-
     private static void isNull(String input) {
         if (input.isEmpty())
             throw new IllegalArgumentException(IS_NULL.getDetail());
     }
 
+
     private static void isCommaOrAlphabet(String target) {
         for (char c : target.toCharArray()) {
-            validateChar(c);
+            validateEachChar(c);
         }
     }
 
-    private static void validateChar(char c) {
+    private static void validateEachChar(char c) {
         if (c != ',' && !Character.isAlphabetic(c))
             throw new IllegalArgumentException(NOT_ALLOW_CHAR.getDetail());
     }
 
     private static void isProperLength(String target) {
         for (String eachName : target.split(BY)) {
-            validateLength(eachName);
+            validateEachNameLength(eachName);
         }
     }
 
-    private static void validateLength(String target) {
+    private static void validateEachNameLength(String target) {
         if (target.length() < 1 || target.length() > 5)
             throw new IllegalArgumentException(NOT_ALLOW_LENGTH.getDetail());
     }
@@ -57,29 +50,13 @@ public class Validation {
         Set<String> nameSet = new HashSet<>();
 
         for (String eachName : target.split(BY)) {
-            validateDuplication(nameSet, eachName);
+            validateEachNameIsDuplicated(nameSet, eachName);
             nameSet.add(eachName);
         }
     }
 
-    private static void validateDuplication(Set<String> nameSet, String name) {
+    private static void validateEachNameIsDuplicated(Set<String> nameSet, String name) {
         if (nameSet.contains(name))
             throw new IllegalArgumentException(IS_DUPLICATED.getDetail());
-    }
-
-    private static void isNumber(String target) {
-        for (char each : target.toCharArray()) {
-            validateNumber(each);
-        }
-    }
-
-    private static void validateNumber(char each) {
-        if (!Character.isDigit(each))
-            throw new IllegalArgumentException(FOUND_NOT_NUMBER.getDetail());
-    }
-
-    private static void isZero(String target) {
-        if (Integer.parseInt(target) == ZERO)
-            throw new IllegalArgumentException(FOUND_ZERO_ONLY.getDetail());
     }
 }
