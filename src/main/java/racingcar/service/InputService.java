@@ -8,7 +8,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class InputService {
-	final static String CAR_NAME_DELIMITER = ",";
+	private final static String CAR_NAME_DELIMITER = ",";
 
 	public static List<String> getCarNames() {
 		List<String> carNames;
