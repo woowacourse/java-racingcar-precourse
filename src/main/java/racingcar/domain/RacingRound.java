@@ -3,7 +3,7 @@ package racingcar.domain;
 import racingcar.view.InputDisplay;
 import racingcar.view.OutputDisplay;
 
-public class GameRound {
+public class RacingRound {
 
     private static final String REGULAR_TRY_COUNT_EXPRESSION = "^[1-9]{1}$";
     private static final String ERROR_MESSAGE_TRY_COUNT = "[ERROR] 게임 시도 횟수는 1~9 범위의 숫자만 가능합니다.";
@@ -12,7 +12,7 @@ public class GameRound {
     private final OutputDisplay outputDisplay;
     private final RacingGame racingGame;
 
-    public GameRound(RacingGame racingGame, InputDisplay inputDisplay, OutputDisplay outputDisplay) {
+    public RacingRound(RacingGame racingGame, InputDisplay inputDisplay, OutputDisplay outputDisplay) {
         this.racingGame = racingGame;
         this.inputDisplay = inputDisplay;
         this.outputDisplay = outputDisplay;

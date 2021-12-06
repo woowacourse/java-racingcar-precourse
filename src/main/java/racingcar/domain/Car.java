@@ -4,43 +4,43 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-    private final String name;
-    private int position = 0;
-    private String speed = "";
-
     private static final int START_INCLUSIVE = 0;
     private static final int END_INCLUSIVE = 9;
     private static final String SPEED_SIGNAL = "-";
+
+    private final String name;
+    private int position = 0;
+    private String speed = "";
 
     public Car(String name) {
         this.name = name;
     }
 
-    public String getCarName() {
+    protected String getCarName() {
         return name;
     }
 
-    public int getPosition() {
+    protected int getPosition() {
         return position;
     }
 
-    public String getSpeed() {
+    protected String getSpeed() {
         return speed;
     }
 
-    public void moveForward() {
+    protected void moveForward() {
         position++;
     }
 
-    public boolean decideMoveCar(final int randomNumberToMove) {
+    protected boolean decideMoveCar(final int randomNumberToMove) {
         return randomNumberToMove > 3;
     }
 
-    public void addSpeed() {
+    protected void addSpeed() {
         speed = speed + SPEED_SIGNAL;
     }
 
-    public int inputMoveForwardNumber() {
+    protected int inputMoveForwardNumber() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 

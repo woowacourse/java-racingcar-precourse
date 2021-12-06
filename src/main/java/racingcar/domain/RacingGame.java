@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class RacingGameMain {
+
+public class RacingGame {
 
     private static final String NAME_SEPARATOR = ",";
     private static final String ERROR_MESSAGE_CAR_NAME = "[ERROR] 자동차 이름은 길이 5 이하의 영어 대소문자로 구성되어야 합니다.";
@@ -16,30 +17,31 @@ public class RacingGameMain {
     private static final String ERROR_MESSAGE_CAR_COUNT = "[ERROR] 자동차는 2대 이상 입력되어야 합니다.";
     private static final String SPACE = " ";
     private static final String PRINT_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String NEW_LINE = "\n";
+    private static final String COLON = " : ";
 
     private final InputDisplay inputDisplay;
     private final OutputDisplay outputDisplay;
 
-    public RacingGameMain(InputDisplay inputDisplay, OutputDisplay outputDisplay) {
+    public RacingGame(InputDisplay inputDisplay, OutputDisplay outputDisplay) {
         this.inputDisplay = inputDisplay;
         this.outputDisplay = outputDisplay;
     }
 
-
-    private String announceWinner(List<Car> cars) {
+    public String announceWinner(List<Car> cars) {
         List<String> winners = makeWinnerList(cars);
 
         return makeWinnerPrintFormat(winners);
     }
 
-    private String makeWinnerPrintFormat(List<String> winners) {
+    protected String makeWinnerPrintFormat(List<String> winners) {
         final StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(PRINT_WINNER_MESSAGE);
 
         for (int i = 0; i < winners.size(); i++) {
             stringBuilder.append(winners.get(i));
 
-            if (i != winners.size() - 1) {
+            if (i != (winners.size() - 1)) {
                 stringBuilder.append(NAME_SEPARATOR).append(SPACE);
             }
         }
@@ -47,7 +49,7 @@ public class RacingGameMain {
         return stringBuilder.toString();
     }
 
-    private List<String> makeWinnerList(final List<Car> cars) {
+    protected List<String> makeWinnerList(final List<Car> cars) {
         final List<String> winners = new ArrayList<>();
         final int topSpeed = findTopSpeed(cars);
 
@@ -60,11 +62,55 @@ public class RacingGameMain {
         return winners;
     }
 
-    private int findTopSpeed(final List<Car> cars) {
+    protected int findTopSpeed(final List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
+    }
+
+    public void playTotalRound(final List<Car> cars, final int rounds) {
+        outputDisplay.printEmptyLine();
+        outputDisplay.printExecutionResultMessage();
+
+        for (int i = 0; i < rounds; i++) {
+            String oneRoundResult = playOneRound(cars);
+
+            outputDisplay.printEachRoundResult(oneRoundResult);
+            outputDisplay.printEmptyLine();
+        }
+    }
+
+    protected String playOneRound(List<Car> cars) {
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        for (Car car : cars) {
+            int randomNumberToMove = car.inputMoveForwardNumber();
+
+            if (car.decideMoveCar(randomNumberToMove)) {
+                moveCar(car);
+            }
+
+            stringBuilder.append(connectEachCarOneRoundResult(car));
+        }
+
+        return stringBuilder.toString();
+    }
+
+    private void moveCar(Car car) {
+        car.moveForward();
+        car.addSpeed();
+    }
+
+    private StringBuilder connectEachCarOneRoundResult(Car car) {
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(car.getCarName())
+                .append(COLON)
+                .append(car.getSpeed())
+                .append(NEW_LINE);
+
+        return stringBuilder;
     }
 
     public List<Car> makeCarNameList() {
@@ -75,25 +121,25 @@ public class RacingGameMain {
                 inputCarNames = inputCarNames();
                 checkCarNamesError(inputCarNames);
                 checkCarCountError(inputCarNames);
-            } catch (IllegalArgumentException e) {
-                outputDisplay.printErrorMessage(e);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                outputDisplay.printErrorMessage(illegalArgumentException);
             }
         } while (!validateCarNames(inputCarNames));
 
         return splitInputCarNames(inputCarNames);
     }
 
-    private String inputCarNames() {
+    protected String inputCarNames() {
         inputDisplay.printInputCarNameMessage();
 
         return inputValue();
     }
 
-    private boolean checkCarNamesMatchFormat(final Car splitCarName) {
+    protected boolean checkCarNamesMatchFormat(final Car splitCarName) {
         return !(splitCarName.getCarName().matches(REGULAR_CAR_NAME_EXPRESSION));
     }
 
-    public void checkCarNamesError(final String inputCarNames) {
+    protected void checkCarNamesError(final String inputCarNames) {
         List<Car> splitInputCarNames = splitInputCarNames(inputCarNames);
 
         for (Car splitCarName : splitInputCarNames) {
@@ -104,7 +150,7 @@ public class RacingGameMain {
 
     }
 
-    public boolean validateCarNames(final String inputCarNames) {
+    protected boolean validateCarNames(final String inputCarNames) {
         List<Car> splitInputCarNames = splitInputCarNames(inputCarNames);
         boolean checkCarNamesRule = !checkCarCountRule(splitInputCarNames);
 
@@ -117,22 +163,22 @@ public class RacingGameMain {
         return checkCarNamesRule;
     }
 
-    private boolean checkCarCountRule(final List<Car> splitInputCarNames) {
+    protected boolean checkCarCountRule(final List<Car> splitInputCarNames) {
         return splitInputCarNames.size() < 2;
     }
 
-    public void checkCarCountError(final String inputCarNames) {
+    protected void checkCarCountError(final String inputCarNames) {
         List<Car> splitInputCarNames = splitInputCarNames(inputCarNames);
         if (checkCarCountRule(splitInputCarNames)) {
             throw new IllegalArgumentException(ERROR_MESSAGE_CAR_COUNT);
         }
     }
 
-    public String inputValue() {
+    protected String inputValue() {
         return Console.readLine();
     }
 
-    public List<Car> splitInputCarNames(final String inputCarNames) {
+    protected List<Car> splitInputCarNames(final String inputCarNames) {
         final StringTokenizer stringTokenizer = new StringTokenizer(inputCarNames, NAME_SEPARATOR);
         final List<Car> carNames = new ArrayList<>();
 
