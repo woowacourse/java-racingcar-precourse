@@ -38,9 +38,9 @@ public class CarRacingGame {
         result = InputErrorCheck.isValidCar(inputCars);
         while (true) {
             try {
-                throwErrorMessage();
+                checkError();
                 break;
-            } catch (Exception exception) {
+            } catch (IllegalArgumentException exception) {
                 inputCars = InputView.getCarNameList();
                 result = InputErrorCheck.isValidCar(inputCars);
             }
@@ -55,9 +55,9 @@ public class CarRacingGame {
         result = InputErrorCheck.isValidNumber(inputNumberOfAttempts);
         while (true) {
             try {
-                throwErrorMessage();
+                checkError();
                 break;
-            } catch (Exception exception) {
+            } catch (IllegalArgumentException exception) {
                 inputNumberOfAttempts = InputView.getNumberOfAttempts();
                 result = InputErrorCheck.isValidNumber(inputNumberOfAttempts);
             }
@@ -65,7 +65,7 @@ public class CarRacingGame {
         return Integer.parseInt(inputNumberOfAttempts);
     }
 
-    private void throwErrorMessage() {
+    private void checkError() {
         if (!result) {
             String RESTART_GAME_MESSAGE = "[ERROR] 잘못된 입력입니다.";
             throw new IllegalArgumentException(RESTART_GAME_MESSAGE);

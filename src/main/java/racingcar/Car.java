@@ -67,6 +67,5 @@ public class Car {
         }
         return maxPosition;
     }
-
     // 추가 기능 구현
 }
