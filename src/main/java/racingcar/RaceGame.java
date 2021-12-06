@@ -91,7 +91,7 @@ public class RaceGame {
 
     private void printWinners(ArrayList<Car> winnerCars) {
         System.out.print(GameData.MESSAGE_WINNERS);
-        for(int i = 0; i < winnerCars.size() - 1; i++) {
+        for (int i = 0; i < winnerCars.size() - 1; i++) {
             winnerCars.get(i).printName();
             System.out.print(", ");
         }
