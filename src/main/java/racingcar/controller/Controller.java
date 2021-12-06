@@ -19,8 +19,7 @@ public class Controller {
 	private final CarRepository carRepository = new CarRepository();
 
 	public void run() {
-		List<String> carNames = parser.parseCarNames(getCarNamesByUserInput());
-		saveCars(carNames);
+		saveCars(parser.parseCarNames(getCarNamesByUserInput()));
 		Game game = new Game(getCarList(), getNumberOfTrial());
 		gameService.save(game);
 		OutputView.printHead();
@@ -51,7 +50,10 @@ public class Controller {
 
 	private String getTrialByUserInput() {
 		InputView.requestNumberOfTrialMessage();
-		String input = Console.readLine();
+		return checkValidationNumberOfTrialInput(Console.readLine());
+	}
+
+	private String checkValidationNumberOfTrialInput(String input) {
 		try {
 			validator.checkNumberOfTrialInput(input);
 			return input;
@@ -64,6 +66,10 @@ public class Controller {
 	private String getCarNamesByUserInput() {
 		InputView.requestCarNamesMessage();
 		String input = Console.readLine();
+		return checkValidationCarNamesInput(input);
+	}
+
+	private String checkValidationCarNamesInput(String input) {
 		try {
 			validator.checkCarNamesInput(input);
 			return input;
