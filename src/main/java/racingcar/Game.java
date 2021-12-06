@@ -11,12 +11,7 @@ public class Game {
 	private static final String ASK_TO_GET_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String ASK_TO_GET_GAME_TURN = "시도할 회수는 몇회인가요?";
 
-	private static final String CAR_NAME_LENGTH_ERROR_MESSAGE_1 = "[ERROR] 자동차 이름은 ";
-	private static final String CAR_NAME_LENGTH_ERROR_MESSAGE_2 = "자 이하, 0자 이상만 가능하다.";
-
 	private static final String GAME_TURN_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
-
-	private static final String FINAL_WINNER = "최종 우승자 : ";
 
 	private Vector<Car> cars;
 	private int gameTurn;
@@ -40,7 +35,8 @@ public class Game {
 
 		}
 
-		printWinner();
+		Winner winner = new Winner(cars);
+		winner.print();
 	}
 
 	private void setCars() {
@@ -91,40 +87,4 @@ public class Game {
 
 	}
 
-	private void printWinner() {
-		Vector<String> winnerNames = getWinnerNames();
-
-		System.out.print(FINAL_WINNER);
-
-		for (int i = 0; i < winnerNames.size() - 1; i++) {
-			System.out.print(winnerNames.get(i) + ", ");
-		}
-
-		System.out.println(winnerNames.get(winnerNames.size() - 1));
-	}
-
-	private Vector<String> getWinnerNames() {
-		Vector<String> winnerNames = new Vector<String>();
-		int winnerPosition = getWinnerPosition();
-
-		for (int i = 0; i < cars.size(); i++) {
-
-			cars.get(i).insertNameIfIAmWinner(winnerPosition, winnerNames);
-
-		}
-
-		return winnerNames;
-	}
-
-	private int getWinnerPosition() {
-		int winnerPosition = 0;
-
-		for (int i = 0; i < cars.size(); i++) {
-
-			winnerPosition = cars.get(i).judgeWhoIsGoingAhead(winnerPosition);
-
-		}
-
-		return winnerPosition;
-	}
 }
