@@ -1,24 +1,22 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Car;
-import racingcar.utils.RandomGenerator;
 import racingcar.view.InputView;
-
-import static racingcar.utils.ConstantNum.*;
+import racingcar.view.OutputView;
 
 public class Game {
 
+	private ArrayList<Car> carsList = new ArrayList<Car>();
+	private int gameCount = 0;
+	private int maxPosition = 0;
+	private ArrayList<Car> winnerList = new ArrayList<Car>();
+
 	public void play(){
-		ArrayList<Car> carsList = InputView.carsList();
-		int gameCount = InputView.gameCount();
-
-		//랜덤 경기 진행
+		carsList = InputView.carsList();
+		gameCount = InputView.gameCount();
 		race(carsList, gameCount);
-		//우승자 선발
-
+		pickWinner();
 		//위너 출력
 	}
 
@@ -36,5 +34,29 @@ public class Game {
 		System.out.println();
 	}
 
+	public void pickWinner(){
+		maxPosition = getMaxPosition();
+		getWinnerList();
+	}
 
+	public int getMaxPosition(){
+		for (int i = 0; i < carsList.size(); i++){
+			if (maxPosition < carsList.get(i).getPosition()){
+				maxPosition = carsList.get(i).getPosition();
+			}
+		}
+		return maxPosition;
+	}
+
+	public void getWinnerList(){
+		for (int i = 0; i < carsList.size(); i++) {
+			if (maxPosition == carsList.get(i).getPosition()) {
+				winnerList.add(carsList.get(i));
+			}
+		}
+	}
+
+	public void printWinner(){
+		OutputView.printWinner(winnerList);
+	}
 }
