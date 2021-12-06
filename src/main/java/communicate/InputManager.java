@@ -12,6 +12,10 @@ public class InputManager {
         System.out.println(Text.REQUEST_CAR_NAMES);
     }
 
+    private void requestAttemptNumber() {
+        System.out.println(Text.REQUEST_ATTEMPT_NUMBER);
+    }
+
     private String receiveUserInput() {
         return Console.readLine();
     }
@@ -40,5 +44,12 @@ public class InputManager {
 
         }
 
+    }
+
+    public int provideAttemptNumber() {
+        requestAttemptNumber();
+        String attemptNumber = receiveUserInput();
+
+        return Integer.valueOf(attemptNumber);
     }
 }
