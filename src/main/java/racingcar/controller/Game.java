@@ -30,8 +30,12 @@ public class Game {
 		System.out.println();
 		System.out.println(RESULT_MASSAGE);
 		for (int round = INITIAL_ROUND_NUMBER; round < count; round++) {
-			racingCars.moveOrStopCars();
-			output.reportThisRoundResult(racingCars);
+			runThisRound();
 		}
+	}
+
+	private void runThisRound() {
+		racingCars.moveOrStopCars();
+		output.reportThisRoundResult(racingCars);
 	}
 }
