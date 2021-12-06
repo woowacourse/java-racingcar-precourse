@@ -18,7 +18,7 @@ public class Car {
 
     private void isCorrectLength(String name) {
         if (name.length() > CAR_NAME_LENGTH_LIMIT || name.isEmpty()) {
-            throw new CarNameLengthMustBetweenOneToFive();
+            throw new CarNameLengthMustBetweenOneToFiveException();
         }
     }
 }

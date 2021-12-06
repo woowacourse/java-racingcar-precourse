@@ -11,7 +11,7 @@ class CarTest {
 	@Test
 	void 자동차의_이름은_1글자_이상_5글자_이하여야_한다() {
 		for (String actual : new String[] { "", "너무긴이름이야" }) {
-			assertThrows(CarNameLengthMustBetweenOneToFive.class, () -> new Car(actual));
+			assertThrows(CarNameLengthMustBetweenOneToFiveException.class, () -> new Car(actual));
 		}
 	}
 

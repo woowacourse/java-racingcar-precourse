@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import racingcar.domain.car.Car;
+import racingcar.domain.trycounter.Lab;
 import racingcar.io.ConsolePrinter;
 import racingcar.io.ConsoleReader;
 
@@ -16,6 +17,7 @@ public class Application {
         ConsolePrinter printer = new ConsolePrinter();
         ConsoleReader writer = new ConsoleReader(printer);
         List<Car> racers = readRacers(writer, printer);
+        Lab lab = readLab(writer, printer);
     }
 
     private static List<Car> readRacers(ConsoleReader reader, ConsolePrinter printer) {
@@ -32,4 +34,14 @@ public class Application {
 
     }
 
+    private static Lab readLab(ConsoleReader reader, ConsolePrinter printer) {
+
+        try {
+            return new Lab(reader.readTryCount());
+        } catch (IllegalArgumentException e) {
+            printer.print(e.getMessage());
+            return readLab(reader, printer);
+        }
+
+    }
 }
