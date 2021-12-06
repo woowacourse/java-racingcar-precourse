@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.Set;
 
 public class Cars {
-	public static final String NAME_DELIMITER = ",";
-	public static final int MIN_PARTICIPANTS = 1;
-	public static final int NAME_LENGTH_LIMIT = 6;
+	private static final String NAME_DELIMITER = ",";
+	private static final int MIN_PARTICIPANTS = 1;
+	private static final int NAME_LENGTH_LIMIT = 6;
 
-	public static final String EMPTY_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 비어있을 수 없습니다.";
-	public static final String NAME_LENGTH_EXCEED_ERROR_MESSAGE = "[ERROR] 자동차 이름은 6자 미만입니다. ";
-	public static final String DUPLICATED_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복될 수 없습니다.";
-	public static final String ONLY_ONE_PARTICIPANT_ERROR_MESSAGE = "[ERROR] 둘 이상의 자동차 이름을 입력해주요.";
+	private static final String EMPTY_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 비어있을 수 없습니다.";
+	private static final String NAME_LENGTH_EXCEED_ERROR_MESSAGE = "[ERROR] 자동차 이름은 6자 미만입니다. ";
+	private static final String DUPLICATED_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복될 수 없습니다.";
+	private static final String ONLY_ONE_PARTICIPANT_ERROR_MESSAGE = "[ERROR] 둘 이상의 자동차 이름을 입력해주요.";
 
 	private final List<Car> cars;
 
