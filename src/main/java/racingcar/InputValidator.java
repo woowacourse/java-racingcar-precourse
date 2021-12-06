@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Arrays;
+
 public class InputValidator {
     private static final String NAME_LENGTH_EXCEPTION_MESSAGE = "[ERROR] 5자 이하만의 이름을 입력해주세요.";
     private static final String NUMBER_EXCEPTION_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
@@ -30,12 +32,8 @@ public class InputValidator {
     }
 
     private static final boolean validateNameSize(String[] carNameArray) {
-        for (String carNameArrayIndex : carNameArray) {
-            if (carNameArrayIndex.length() > MAX_LENGTH_CAR_NAME) {
-                return false;
-            }
-        }
-        return true;
+        return ! Arrays.stream(carNameArray)
+                .allMatch(carName -> carName.length() > MAX_LENGTH_CAR_NAME);
     }
 
     private static final boolean validateNumber(String numberOfAttempts) {
