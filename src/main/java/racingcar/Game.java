@@ -5,6 +5,21 @@ import java.util.ArrayList;
 public class Game {
 
     /**
+     * 현재 상태를 출력하는 메서드
+     * @param cars
+     */
+    public static void printCurrent(ArrayList<Car> cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.print(cars.get(i).getName() + " : ");
+            for (int j = 0; j < cars.get(i).getPosition(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    /**
      * 우승자들을 결정하는 메서드
      * @param cars
      * @return ArrayList<Car>
@@ -46,10 +61,12 @@ public class Game {
      * @return ArrayList<Car>
      */
     public static ArrayList<Car> startGame(ArrayList<Car> cars, int num) {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < num; i++) {
             for (int j = 0; j < cars.size(); j++) {
                 cars.set(j, moveCar(cars.get(j)));
             }
+            printCurrent(cars);
         }
         return cars;
     }
