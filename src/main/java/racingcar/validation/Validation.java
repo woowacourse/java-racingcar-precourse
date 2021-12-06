@@ -18,6 +18,8 @@ public class Validation {
 
 	//TODO: 자동차 이름 중 중복이 있을 경우
 
+
+
 	//TODO: 자동차 이름이 한개일 경우
 
 	public static void checkInputIsPositiveNumber(String inputStr) {

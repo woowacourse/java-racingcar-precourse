@@ -13,7 +13,7 @@ public class GameClient {
 	public void play() {
 		gameController.inputCars();
 		gameController.inputRepeatNumber();
-		gameController.postResult();
-		gameController.postWinner();
+		gameController.getResult();
+		gameController.getWinner();
 	}
 }

@@ -29,7 +29,7 @@ public class GameService {
 		cars.setRepeatNum(Integer.parseInt(inputStr));
 	}
 
-	public String postResult() {
+	public String getResult() {
 		result = new StringBuilder();
 		result.append(System.lineSeparator());
 
@@ -42,7 +42,7 @@ public class GameService {
 		return result.toString();
 	}
 
-	public String postWinner() {
+	public String getWinner() {
 		result = new StringBuilder();
 		int idx = checkNumberOfWinner();
 
@@ -63,11 +63,11 @@ public class GameService {
 
 	private void decideMoveOrStop() {
 		for (int i = 0; i < cars.getCarArrayList().size(); i++) {
-			compareRandomNum(i);
+			compareToRandomNumber(i);
 		}
 	}
 
-	private void compareRandomNum(int carIdx) {
+	private void compareToRandomNumber(int carIdx) {
 		if (Randoms.pickNumberInRange(0, 9) >= 4) {
 			cars.getCarArrayList().get(carIdx).addPosition();
 		}

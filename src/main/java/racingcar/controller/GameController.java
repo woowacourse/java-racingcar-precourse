@@ -3,7 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.exception.dto.ErrorResponse;
 import racingcar.message.Message;
-import racingcar.message.dto.MessageResponse;
+import racingcar.message.dto.ResponseMessage;
 import racingcar.service.GameService;
 
 public class GameController {
@@ -15,7 +15,7 @@ public class GameController {
 	}
 
 	public void inputCars() {
-		MessageResponse.of(Message.ENTER_CARS_NAME.getMessage());
+		ResponseMessage.of(Message.ENTER_CARS_NAME.getMessage());
 
 		try {
 			gameService.inputCars(Console.readLine());
@@ -26,7 +26,7 @@ public class GameController {
 	}
 
 	public void inputRepeatNumber() {
-		MessageResponse.of(Message.ASK_REPEAT_NUM.getMessage());
+		ResponseMessage.of(Message.ASK_REPEAT_NUM.getMessage());
 
 		try {
 			gameService.inputRepeatNumber(Console.readLine());
@@ -36,11 +36,11 @@ public class GameController {
 		}
 	}
 
-	public void postResult() {
-		MessageResponse.of(System.lineSeparator() + Message.PRINT_RESULT.getMessage() + gameService.postResult());
+	public void getResult() {
+		ResponseMessage.of(System.lineSeparator() + Message.PRINT_RESULT.getMessage() + gameService.getResult());
 	}
 
-	public void postWinner() {
-		MessageResponse.of(Message.ENTER_WINNER.getMessage() + gameService.postWinner());
+	public void getWinner() {
+		ResponseMessage.of(Message.ENTER_WINNER.getMessage() + gameService.getWinner());
 	}
 }
