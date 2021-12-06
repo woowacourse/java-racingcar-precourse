@@ -12,7 +12,7 @@ public class InputCarName {
     }
 
     // 입력받은 문자열 배열로 변경하기
-    private String[] carNameToArray(){
+    private String[] carNameToArray() {
         String carNameString = inputForm();
         String[] carArray = carNameString.split(",");
         return carArray;
@@ -30,13 +30,13 @@ public class InputCarName {
     }
 
     // 예외를 고려해서 올바른 문자열 배열 생성하기
-    public String[] inputCar(){
+    public String[] inputCar() {
         String[] carName = carNameToArray();
         try{
-            if(checkException(carName)){
+            if(checkException(carName)) {
                 throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 한다.");
             }
-        }catch (IllegalArgumentException e){
+        }catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 자동차 이름은 5글자 이하여야 한다.");
             carName = inputCar();
         }
