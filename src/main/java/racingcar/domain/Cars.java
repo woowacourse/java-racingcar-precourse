@@ -39,7 +39,7 @@ public class Cars {
         return Collections.unmodifiableList(new ArrayList<>(cars));
     }
 
-    public void move() {
+    public void moveAllCars() {
         cars.forEach(Car::move);
     }
 

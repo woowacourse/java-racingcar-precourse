@@ -15,7 +15,7 @@ public class RacingGame {
 
     public void race() {
         round.decreaseRound();
-        cars.move();
+        cars.moveAllCars();
     }
 
     public List<Car> cars() {
