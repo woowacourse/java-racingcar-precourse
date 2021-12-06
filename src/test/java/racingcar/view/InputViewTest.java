@@ -34,12 +34,13 @@ public class InputViewTest extends CustomNsTest {
 		}
 	}
 
-	@DisplayName("예외 처리 후 재입력 테스트")
+	@DisplayName("잘못된 자동차 이름 입력 시 예외 처리 후 재입력 테스트")
 	@Test
 	public void readCarNamesReloadTest() {
 		command(INVALID_LONG_LENGTH_CAR_NAMES, CORRECT_CAR_NAMES);
 		String[] testValues = CORRECT_CAR_NAMES.split(",");
 		String[] inputs = InputView.readCarNames();
+		assertThat(output()).contains(ERROR_MESSAGE);
 		for (int i = 0; i < testValues.length; i++) {
 			assertEquals(inputs[i], testValues[i]);
 		}
@@ -78,12 +79,13 @@ public class InputViewTest extends CustomNsTest {
 		assertThat(output()).contains(ERROR_MESSAGE);
 	}
 
-	@DisplayName("시도 횟수 입력 재입력 테스트")
+	@DisplayName("잘못된 시도 횟수 입력시 예외 처리 후 재입력 테스트")
 	@Test
 	public void readRacingRoundReloadTest() {
 		command(INVALID_FORMAT_ROUND, CORRECT_RACING_ROUND);
 		try {
 			int input = InputView.readRacingRound();
+			assertThat(output()).contains(ERROR_MESSAGE);
 			assertEquals(input, Integer.parseInt(CORRECT_RACING_ROUND));
 		} catch (NoSuchElementException ignored) {
 		}
