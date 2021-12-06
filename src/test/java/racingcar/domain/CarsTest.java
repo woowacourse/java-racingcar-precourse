@@ -3,7 +3,11 @@ package racingcar.domain;
 import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.util.SymbolicConstantUtil.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -12,15 +16,12 @@ import racingcar.util.NumberGeneratePolicy;
 class CarsTest {
 	private static final int MOVING_FORWARD = 5;
 	private NumberGeneratePolicy numberGeneratePolicy;
+	private List<Car> carList = new ArrayList<>();
 
 	@BeforeEach
 	void 테스트용_숫자_생성_정책() {
-		numberGeneratePolicy = new NumberGeneratePolicy() {
-			@Override
-			public int generateNumber() {
-				return MOVING_FORWARD;
-			}
-		};
+		setUpDriveAllTest();
+		setUpGetWinners();
 	}
 
 	@ParameterizedTest
@@ -40,20 +41,37 @@ class CarsTest {
 		}
 	}
 
-	@ParameterizedTest
-	@ValueSource(strings = "hoon,ji")
-	void 레이싱_게임_최종_라운드_후_우승자_판별(String value) {
+	@Test
+	void 레이싱_게임_최종_라운드_후_우승자_판별() {
 		// given
-		Cars cars = Cars.fromString(value);
+		Cars cars = new Cars(carList);
 
 		// when
-		cars.driveAll(numberGeneratePolicy);
+		List<Car> winnerCars = cars.getWinners();
 
 		// then
-		String[] carsName = value.split(COMMA);
-		for (int index = 0; index < carsName.length; index++) {
-			assertEquals(cars.getWinners().get(index).getPosition(), 1);
-			assertEquals(cars.getWinners().get(index).getName(), carsName[index]);
-		}
+		assertEquals(winnerCars.size(), 2);
+		assertEquals(winnerCars.get(0).getPosition(), 2);
+		assertEquals(winnerCars.get(0).getName(), "hoon");
+		assertEquals(winnerCars.get(1).getName(), "ji");
+	}
+
+	private void setUpDriveAllTest() {
+		numberGeneratePolicy = () -> MOVING_FORWARD;
+	}
+
+	private void setUpGetWinners() {
+		Car carA = new Car("hoon");
+		Car carB = new Car("ji");
+		Car carC = new Car("bab");
+
+		carA.drive(MOVING_FORWARD);
+		carA.drive(MOVING_FORWARD);
+		carB.drive(MOVING_FORWARD);
+		carB.drive(MOVING_FORWARD);
+
+		carList.add(carA);
+		carList.add(carB);
+		carList.add(carC);
 	}
 }
