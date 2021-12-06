@@ -11,8 +11,8 @@ public class GameClient {
 	}
 
 	public void play() {
-		gameController.inputCars();
-		gameController.inputRepeatNumber();
+		gameController.postCars();
+		gameController.postRepeatNumber();
 		gameController.getResult();
 		gameController.getWinner();
 	}

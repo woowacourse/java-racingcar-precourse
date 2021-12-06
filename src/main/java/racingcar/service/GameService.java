@@ -16,7 +16,7 @@ public class GameService {
 		cars = new Cars();
 	}
 
-	public void inputCars(String inputStr) {
+	public void postCars(String inputStr) {
 		gameServiceInit();
 
 		Validation.checkNull(inputStr);
@@ -25,7 +25,7 @@ public class GameService {
 		Validation.checkDistinctCarNames(cars.getCarList());
 	}
 
-	public void inputRepeatNumber(String inputStr) {
+	public void postRepeatNumber(String inputStr) {
 		Validation.checkNull(inputStr);
 		Validation.checkInputIsPositiveNumber(inputStr);
 		cars.setRepeatNum(Integer.parseInt(inputStr));

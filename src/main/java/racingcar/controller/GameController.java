@@ -14,25 +14,25 @@ public class GameController {
 		this.gameService = new GameService();
 	}
 
-	public void inputCars() {
+	public void postCars() {
 		ResponseMessage.of(Message.ENTER_CARS_NAME.getMessage());
 
 		try {
-			gameService.inputCars(Console.readLine());
+			gameService.postCars(Console.readLine());
 		} catch (IllegalArgumentException e) {
 			ErrorResponse.of(e.getMessage());
-			inputCars();
+			postCars();
 		}
 	}
 
-	public void inputRepeatNumber() {
+	public void postRepeatNumber() {
 		ResponseMessage.of(Message.ASK_REPEAT_NUM.getMessage());
 
 		try {
-			gameService.inputRepeatNumber(Console.readLine());
+			gameService.postRepeatNumber(Console.readLine());
 		} catch (IllegalArgumentException e) {
 			ErrorResponse.of(e.getMessage());
-			inputRepeatNumber();
+			postRepeatNumber();
 		}
 	}
 
