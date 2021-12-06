@@ -7,6 +7,8 @@ import view.InputView;
 import view.OutputView;
 
 public class RacingCarGame {
+	private static final int DEFAULT_CAR_POSITION = 0;
+
 	public RacingCarGame() {
 
 	}
@@ -23,7 +25,27 @@ public class RacingCarGame {
 			}
 			OutputView.printCarsPositionStatus(carList);
 		}
-		OutputView.printGameWinner(carList);
+		List<Car> winnerList = findGameWinners(carList);
+		OutputView.printGameWinner(winnerList);
+	}
+
+	private static List<Car> findGameWinners(List<Car> carList) {
+		int winningPosition = findWinningPosition(carList);
+		List<Car> winnerList = new ArrayList<>();
+		for (Car car : carList) {
+			if (car.getPosition() == winningPosition) {
+				winnerList.add(car);
+			}
+		}
+		return winnerList;
+	}
+
+	private static int findWinningPosition(List<Car> carList) {
+		int winningPosition = DEFAULT_CAR_POSITION;
+		for (Car car : carList) {
+			winningPosition = Math.max(winningPosition, car.getPosition());
+		}
+		return winningPosition;
 	}
 
 	private List<Car> carNamesToCarList(String[] carNames) {
@@ -33,5 +55,4 @@ public class RacingCarGame {
 		}
 		return carList;
 	}
-
 }

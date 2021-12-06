@@ -1,8 +1,6 @@
 package view;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import racingcar.Car;
 
@@ -27,28 +25,11 @@ public class OutputView {
 		return positionStringBuilder.toString();
 	}
 
-	public static void printGameWinner(List<Car> carList) {
-		Set<String> winnerNameSet = searchGameWinners(carList);
+	public static void printGameWinner(List<Car> winnerList) {
 		System.out.print("최종 우승자 : ");
-		System.out.println(winnerNameSet.toString()
+		System.out.println(winnerList.toString()
 			.replace("[", "")
 			.replace("]", ""));
-	}
-
-	private static Set<String> searchGameWinners(List<Car> carList) {
-		Set<String> winnerNameSet = new HashSet<>();
-		int winnerPosition = 0;
-		for (Car car : carList) {
-			if (car.getPosition() > winnerPosition) {
-				winnerPosition = car.getPosition();
-				winnerNameSet.clear();
-				winnerNameSet.add(car.getName());
-			}
-			if (car.getPosition() == winnerPosition) {
-				winnerNameSet.add(car.getName());
-			}
-		}
-		return winnerNameSet;
 	}
 
 	public static void printCarNamesInputMessage() {
