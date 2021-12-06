@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class RacingCar {
     private static final String RESULT_INPUT_MESSAGE = "\n 실행 결과";
     private static final String PRINT_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String SPACE = "";
     private Car[] carArray;
 
     protected void startGame() {
@@ -19,7 +20,7 @@ public class RacingCar {
                 carIndex.moveCar();
                 carIndex.printCarPosition();
             }
-            System.out.println("");
+            System.out.println(SPACE);
         }
         printWinners();
     }
