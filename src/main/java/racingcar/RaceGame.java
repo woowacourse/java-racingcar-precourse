@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static camp.nextstep.edu.missionutils.Console.*;
 
@@ -18,6 +19,7 @@ public class RaceGame {
         askCarNames();
         askTryNumber();
         startRace();
+        printWinners(getWinners());
     }
 
     private void askCarNames() {
@@ -54,7 +56,7 @@ public class RaceGame {
     }
 
     private void startRace() {
-        System.out.println(GameData.MESSAGE_GAME_RESULT);
+        System.out.println(GameData.MESSAGE_GAME_BEGIN);
         for (int i = 0; i < tryNumber; i++) {
             tryRace();
         }
@@ -65,6 +67,34 @@ public class RaceGame {
             raceCar.tryMove();
             raceCar.printStatus();
         }
+        System.out.println();
+    }
+
+    private ArrayList<Car> getWinners() {
+        ArrayList<Car> winnerCars = new ArrayList<>();
+        if (tryNumber == 0) {
+            return winnerCars;
+        }
+        Collections.sort(raceCarList, Collections.reverseOrder());
+        winnerCars.add(raceCarList.get(0));
+
+        for (int i = 1; i < raceCarList.size(); i++) {
+            if (winnerCars.get(0).compareTo(raceCarList.get(i)) != 0) {
+                break;
+            }
+            winnerCars.add(raceCarList.get(i));
+        }
+
+        return winnerCars;
+    }
+
+    private void printWinners(ArrayList<Car> winnerCars) {
+        System.out.print(GameData.MESSAGE_WINNERS);
+        for(int i = 0; i < winnerCars.size() - 1; i++) {
+            winnerCars.get(i).printName();
+            System.out.print(", ");
+        }
+        winnerCars.get(winnerCars.size() - 1).printName();
         System.out.println();
     }
 
