@@ -15,6 +15,21 @@ public class InputValidator {
         validateExistDuplicateName(nameList);
     }
 
+    public void validateTryNumber(String input) {
+        validateStringIsNumber(input);
+        validateNumberIsMoreThanZero(Integer.parseInt(input));
+    }
+
+    private void validateStringIsNumber(String input) {
+        if (!input.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException(ERROR_PREFIX_MESSAGE + "숫자여야 한다.");
+        }
+    }
+
+    private void validateNumberIsMoreThanZero(int number) {
+        if (number < 1) throw new IllegalArgumentException(ERROR_PREFIX_MESSAGE + "1 이상의 숫자여야 한다.");
+    }
+
     private void validateLength(String name) {
         if (name.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(ERROR_PREFIX_MESSAGE + "자동차의 이름은 " + CAR_NAME_MAX_LENGTH + "자 이하여야 한다.");
