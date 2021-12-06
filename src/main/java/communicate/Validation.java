@@ -6,6 +6,7 @@ public class Validation {
     private static final int MIN_CAR_NUMBER = 2;
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_ATTEMPT_NUMBER = 1;
     private static final int ZERO = 0;
     private static final String REGEX_ONLY_NUMBER = "^[0-9]*$";
     private ArrayList<String> carNames;
@@ -86,6 +87,15 @@ public class Validation {
 
         if (!attemptNumber.matches(REGEX_ONLY_NUMBER)) {
             errorMessage = ErrorText.ERROR_ATTEMPT_NOT_NUMBER;
+            throwInputException();
+        }
+
+    }
+
+    private void checkAttemptRange() {
+
+        if (Integer.valueOf(attemptNumber) < MIN_ATTEMPT_NUMBER) {
+            errorMessage = ErrorText.ERROR_ATTEMPT_NUMBER_RANGE;
             throwInputException();
         }
 
