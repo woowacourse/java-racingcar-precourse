@@ -28,15 +28,20 @@ public class Application {
     private static List<Car> readRacers(ConsoleReader reader, ConsolePrinter printer) {
 
         try {
-            String[] racerNames = reader.readRacer().split(READ_CARS_STRING_DELIMITER);
-            return Arrays.stream(racerNames)
-                    .map(Car::new)
-                    .collect(Collectors.toList());
+            String racerNames = reader.readRacer();
+            return createNewCars(racerNames);
         } catch (IllegalArgumentException e) {
             printer.print(e.getMessage());
             return readRacers(reader, printer);
         }
 
+    }
+
+    private static List<Car> createNewCars(String racerNames) {
+        String[] splitedRacerNames = racerNames.split(READ_CARS_STRING_DELIMITER);
+        return Arrays.stream(splitedRacerNames)
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     private static Lab readLab(ConsoleReader reader, ConsolePrinter printer) {
