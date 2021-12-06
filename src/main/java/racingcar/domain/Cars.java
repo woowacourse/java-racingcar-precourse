@@ -11,12 +11,12 @@ import racingcar.Car;
 public class Cars {
 	private final List<Car> cars;
 
-	Cars(String[] carNames) {
-		this.cars = Arrays.stream(carNames)
-			.map(Car::new)
-			.collect(Collectors.toList());
+	public Cars(List<Car> cars) {
+		this.cars = cars;
 	}
-	public List<Car> cars() {
+
+	public List<Car> getCars(){
 		return cars;
 	}
+
 }

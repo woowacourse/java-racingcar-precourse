@@ -9,10 +9,8 @@ public class Car {
 		this.name = name;
 	}
 
-	public void moveForward(boolean carMovable) {
-		if (carMovable) {
-			position++;
-		}
+	public void moveForward() {
+		position++;
 	}
 
 	public String getName() {
