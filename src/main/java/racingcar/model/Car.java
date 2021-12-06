@@ -37,7 +37,7 @@ public class Car {
 
 	public String convertPositionIntToSymbol() {
 		StringBuilder positionSymbol = new StringBuilder();
-		for (int currentPostion = INITIAL_POSITION; currentPostion < position; currentPostion++) {
+		for (int currentPosition = INITIAL_POSITION; currentPosition < position; currentPosition++) {
 			positionSymbol.append(POSITION_SYMBOL_STRING);
 		}
 		return positionSymbol.toString();

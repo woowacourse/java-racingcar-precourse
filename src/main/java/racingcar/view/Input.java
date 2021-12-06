@@ -14,7 +14,7 @@ public class Input {
 		System.out.println(CARS_NAME_INPUT_MASSAGE);
 		while (true) {
 			String carsName = readLine();
-			String[] carNameList = stringToArraysByComma(carsName);
+			String[] carNameList = convertStringToArraysByComma(carsName);
 			try {
 				checkCarNameException(carNameList);
 				return carNameList;
@@ -24,7 +24,7 @@ public class Input {
 		}
 	}
 
-	public String[] stringToArraysByComma(String carsName) {
+	public String[] convertStringToArraysByComma(String carsName) {
 		return carsName.split(CAR_NAME_DISTINGUISH_STRING);
 	}
 
@@ -39,7 +39,6 @@ public class Input {
 				System.out.println(exception.getMessage());
 			}
 		}
-
 	}
 
 }
