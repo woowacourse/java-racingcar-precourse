@@ -2,26 +2,26 @@ package racingcar.service;
 
 import java.util.stream.Stream;
 
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class NameService {
+public class InputService {
 	final static String DELIMITER = ",";
 
-	// 입력 받은 문자열에서 자동차들의 이름을 추출한다.
-	public static String[] getCarNames(String names) {
-		String[] result;
+	public static String[] getCarNames() {
+		String[] carNames;
 		while (true) {
 			try {
-				result = convertToArray(names);
+				carNames = separateCarNames(InputView.scanCarNames());
 				break;
 			} catch (IllegalArgumentException e) {
 				OutputView.printError(e.getMessage());
 			}
 		}
-		return result;
+		return carNames;
 	}
 
-	public static String[] convertToArray(String names) {
+	public static String[] separateCarNames(String names) {
 		ValidationService.checkCarNames(names, DELIMITER);
 		return makeClearCarNames(names.split(DELIMITER));
 	}
@@ -31,5 +31,20 @@ public class NameService {
 		ValidationService.checkDuplicatedCarName(result);
 		ValidationService.checkEachCarName(result);
 		return result;
+	}
+
+	public static int getTryNumber() {
+		int tryNumber;
+		while (true) {
+			try {
+				String number = InputView.scanTryNumber();
+				ValidationService.checkTryNumberIsValid(number);
+				tryNumber = Integer.parseInt(number);
+				break;
+			} catch (IllegalArgumentException e) {
+				OutputView.printError(e.getMessage());
+			}
+		}
+		return tryNumber;
 	}
 }
