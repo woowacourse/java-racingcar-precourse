@@ -75,4 +75,35 @@ public class InputView {
 				&& name.length() <= 5);
 	}
 
+	public static int getCount() {
+		try {
+			String inputValue = InputView.getInput();
+			checkCountValidation(inputValue);
+
+			return Integer.parseInt(inputValue);
+		} catch (IllegalArgumentException e) {
+			OutputView.printError(e.getMessage());
+			return getCount();
+		}
+	}
+
+	private static void checkCountValidation(String inputValue) {
+		checkNullOrEmpty(inputValue);
+		checkValidFormatOfCount(inputValue);
+		checkValidRangeCount(inputValue);
+
+	}
+
+	private static void checkValidFormatOfCount(String inputValue) {
+		if (!(inputValue.chars().allMatch(Character::isDigit))) {
+			throw new IllegalArgumentException("시도 횟수는 숫자여야 한다.");
+		}
+	}
+
+	private static void checkValidRangeCount(String inputValue) {
+		int number = Integer.parseInt(inputValue);
+		if (1 > number) {
+			throw new IllegalArgumentException("정상 범위(" + 1 + "이상)가 아닙니다");
+		}
+	}
 }
