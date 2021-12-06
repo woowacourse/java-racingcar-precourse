@@ -1,7 +1,11 @@
 package racingcar;
 
+import racingcar.io.ConsolePrinter;
+import racingcar.io.ConsoleReader;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
+        ConsolePrinter consolePrinter = new ConsolePrinter();
+        ConsoleReader consoleReader = new ConsoleReader(consolePrinter);
     }
 }
