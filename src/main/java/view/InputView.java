@@ -1,9 +1,10 @@
 package view;
 
 import camp.nextstep.edu.missionutils.Console;
+import util.CarNameValidator;
 
 public class InputView {
-	private static final int MAX_CAR_NAME_LENGTH = 5;
+
 	private static final String NAME_DELIMITER = ",";
 
 	private InputView() {
@@ -13,7 +14,7 @@ public class InputView {
 		OutputView.printCarNamesInputMessage();
 		String[] carNames = Console.readLine().split(NAME_DELIMITER);
 		try {
-			validateCarName(carNames);
+			CarNameValidator.validate(carNames);
 		} catch (Exception exception) {
 			OutputView.printCarNameLengthExceptionMessage();
 			getCarNames();
@@ -21,13 +22,7 @@ public class InputView {
 		return carNames;
 	}
 
-	private static void validateCarName(String[] carNames) {
-		for (String car : carNames) {
-			if (car.length() >= MAX_CAR_NAME_LENGTH) {
-				throw new IllegalArgumentException();
-			}
-		}
-	}
+
 
 	public static int getMoveTimes() {
 		OutputView.printMoveTimesInputMessage();
