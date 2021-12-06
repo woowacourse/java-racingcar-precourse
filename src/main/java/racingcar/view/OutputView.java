@@ -8,6 +8,8 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class OutputView {
+	private static final String RESULT_MESSAGE = "\n실행결과";
+
 	public static void printWinners(Cars carList) {
 		List<String> winnerList = carList.getWinner();
 		String winnerMessage = "최종 우승자 : ";
@@ -19,8 +21,8 @@ public class OutputView {
 		System.out.print(winnerMessage.substring(0, winnerMessage.length() - 1));
 	}
 
-	public static void printResultMessage() {
-		System.out.println("\n실행 결과");
+	public static void printFinalWinner(Cars carList) {
+		printWinners(carList);
 	}
 
 	public static String getScoreString(Car drivingCar) {
@@ -36,8 +38,19 @@ public class OutputView {
 		return finalResult;
 	}
 
+	public static void printScoreOfOneStep(List<Car> carList) {
+		for (Car car : carList) {
+			printScoreOfCar(car);
+		}
+		System.out.println();
+	}
+
 	public static void printScoreOfCar(Car drivingCar) {
 		System.out.println(drivingCar.getName() + " : " + OutputView.getScoreString(drivingCar));
 
+	}
+
+	public static void printResultMessage() {
+		System.out.println(RESULT_MESSAGE);
 	}
 }

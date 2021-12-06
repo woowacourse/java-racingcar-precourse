@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import racingcar.domain.Application;
+import racingcar.controller.Application;
 
 import org.junit.jupiter.api.Test;
 
