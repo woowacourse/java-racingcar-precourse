@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
 	public static final int MINIMUM_CAR_NAME_LENGTH = 1;
 	public static final int MAXIMUM_CAR_NAME_LENGTH = 5;
 	private static final int MINIMUM_DRIVE_CONDITION = 4;
@@ -18,8 +18,13 @@ public class Car {
 		}
 	}
 
-	public boolean isSamePosition(int value) {
-		return this.position == value;
+	public boolean isSamePosition(Car car) {
+		return this.position == car.position;
+	}
+
+	@Override
+	public int compareTo(Car car) {
+		return this.position - car.position;
 	}
 
 	public int getPosition() {

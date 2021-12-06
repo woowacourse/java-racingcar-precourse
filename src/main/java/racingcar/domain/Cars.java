@@ -3,7 +3,6 @@ package racingcar.domain;
 import static racingcar.util.SymbolicConstantUtil.*;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,17 +30,16 @@ public class Cars {
 	}
 
 	public List<Car> getWinners() {
-		final int maxPosition = getMaxPosition();
+		final Car maxPositionCar = findMaxPositionCar();
 		return cars.stream()
-			.filter(car -> car.isSamePosition(maxPosition))
+			.filter(car -> car.isSamePosition(maxPositionCar))
 			.collect(Collectors.toList());
 	}
 
-	private int getMaxPosition() {
+	private Car findMaxPositionCar() {
 		return cars.stream()
-			.max(Comparator.comparing(car -> car.getPosition()))
-			.orElseThrow(RuntimeException::new)
-			.getPosition();
+			.max(Car::compareTo)
+			.orElseThrow(() -> new IllegalArgumentException("[ERROR] 자동차가 존재하지 않습니다."));
 	}
 
 	public List<Car> getDriveRecord() {
