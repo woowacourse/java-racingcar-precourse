@@ -26,4 +26,8 @@ public class Car {
 
         return false;
     }
+
+    public void move() {
+        position++;
+    }
 }
