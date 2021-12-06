@@ -4,6 +4,7 @@ import model.RacingCarGame;
 import view.Display;
 
 public class GameController {
+	private static final int SOLO_WINNER_COUNT = 1;
 
 	private GameController() {
 	}
@@ -32,7 +33,7 @@ public class GameController {
 	}
 
 	private static void showRacingCarGameWinner(String[] racingCarGameWinner) {
-		if (racingCarGameWinner.length == 1) {
+		if (racingCarGameWinner.length == SOLO_WINNER_COUNT) {
 			Display.showSoloWinner(racingCarGameWinner);
 			return;
 		}

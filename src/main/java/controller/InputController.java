@@ -4,12 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 import utils.InputValidator;
 
 public class InputController {
+	private final static boolean INPUT_ERROR = true;
 
 	private InputController() {
 	}
 
 	public static String[] inputRacingCarNames() {
-		while (true) {
+		while (INPUT_ERROR) {
 			try {
 				String racingCarNames = Console.readLine();
 				return InputValidator.isValideRacingCarNames(racingCarNames);
@@ -20,7 +21,7 @@ public class InputController {
 	}
 
 	public static int inputNumberOfCarRaces() {
-		while (true) {
+		while (INPUT_ERROR) {
 			try {
 				String raceCount = Console.readLine();
 				return InputValidator.isValideRaceCount(raceCount);
