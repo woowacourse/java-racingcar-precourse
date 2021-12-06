@@ -22,6 +22,15 @@ public class ValidationUtils {
 		return true;
 	}
 
+	public static boolean validPositive(String input) {
+
+		if (Integer.parseInt(input) <= 0) {
+			System.out.println("[ERROR] 시도 횟수는 양수여야 한다.");
+			return false;
+		}
+		return true;
+	}
+
 	public static boolean validCarName(String testCarName) {
 		if (testCarName.length() > MAX_LENGTH_CAR_NAME) {
 			System.out.println("[ERROR] 자동차 이름은 5자 이하만 가능하다.");

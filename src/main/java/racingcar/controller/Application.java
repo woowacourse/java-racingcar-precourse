@@ -32,7 +32,7 @@ public class Application {
 		do {
 			printGetCountMessage();
 			input = generateUserInput();
-		} while (!ValidationUtils.validNumber(input));
+		} while (!ValidationUtils.validNumber(input) || !ValidationUtils.validPositive(input));
 		return Integer.parseInt(input);
 	}
 
