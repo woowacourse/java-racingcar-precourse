@@ -15,4 +15,5 @@ public class MessageResoruce {
 	public static final String OUTPUT_WINNER = "최종 우승자 : ";
 	public static final String OUTPUT_LINE = "-";
 	public static final String OUTPUT_COLON = " : ";
+	public static final String OUTPUT_DELIMETER = ",";
 }
