@@ -40,16 +40,16 @@ public class Game {
 
 	private int getNumberOfTrials() {
 		System.out.println("시도할 회수는 몇회인가요?");
-		String inputOfNumberOfTrials = Console.readLine();
+		String inputNumberOfTrials = Console.readLine();
 
 		try {
-			validateNumberOfTrials(inputOfNumberOfTrials);
+			validateNumberOfTrials(inputNumberOfTrials);
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
 			return getNumberOfTrials();
 		}
 
-		return Integer.parseInt(inputOfNumberOfTrials);
+		return Integer.parseInt(inputNumberOfTrials);
 	}
 
 	private void validateCarNames(List<String> names) throws IllegalArgumentException {
@@ -91,8 +91,8 @@ public class Game {
 	private void printWinner() {
 		List<Car> winners = findWinner();
 		System.out.print("최종 우승자 : ");
-		winners.get(0).printName();
 
+		winners.get(0).printName();
 		for (int i = 1; i < winners.size(); i++) {
 			System.out.print(", ");
 			winners.get(i).printName();
