@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.utils.RandomGenerator;
+import racingcar.view.OutputView;
 
 import static racingcar.utils.ConstantNum.*;
 
@@ -20,10 +21,6 @@ public class Car {
 	}
 
 	public void printPosition(){
-		System.out.println(this.carName + " : ");
-		for (int i = 0; i < position; i++){
-			System.out.print("-");
-		}
-		System.out.println();
+		OutputView.printPosition(carName, position);
 	}
 }
