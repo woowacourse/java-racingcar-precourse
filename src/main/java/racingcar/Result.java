@@ -1,23 +1,21 @@
 package racingcar;
 
-import java.util.ArrayList;
-
 public class Result {
     private static final String DASH = "-";
     private static final String COLON = " : ";
     private static final String NEW_LINE = "\n";
 
     private static int max;
-    private final ArrayList<Car> cars;
+    private final CarList carList;
 
-    public Result(ArrayList<Car> cars) {
-        this.cars = cars;
+    public Result(CarList carList) {
+        this.carList = carList;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Car car : cars) {
+        for (Car car : carList.getCarList()) {
             updateMax(car.getPosition());
             stringBuilder.append(car.getName()).append(COLON).append(makeDash(car.getPosition())).append(NEW_LINE);
         }

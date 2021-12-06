@@ -1,16 +1,14 @@
 package racingcar;
 
-import java.util.ArrayList;
-
 public class Winner {
     private static final String OUTPUT_WINNER_MESSAGE = "최종 우승자 : ";
     private static final String MORE_THAN_ONE_WINNER = ", ";
     private static final int NONE = 0;
 
-    private final ArrayList<Car> cars;
+    private final CarList carList;
 
-    public Winner(ArrayList<Car> cars) {
-        this.cars = cars;
+    public Winner(CarList carList) {
+        this.carList = carList;
     }
 
     @Override
@@ -20,7 +18,7 @@ public class Winner {
 
     public String decideWinner() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Car car : cars) {
+        for (Car car : carList.getCarList()) {
             appendIfRaceWinner(stringBuilder, car);
         }
 

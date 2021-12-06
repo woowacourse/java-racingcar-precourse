@@ -15,7 +15,7 @@ public class RacingGame {
 
     private int rounds;
     private Result result;
-    private final ArrayList<Car> carList = new ArrayList<>();
+    private CarList carList;
 
     public void run() {
         initGame();
@@ -34,7 +34,7 @@ public class RacingGame {
     private void playGame() {
         printExecutionMessage();
         for (int i = 0; i < rounds; i++) {
-            moveAllCar();
+            moveAllCars();
             printResult();
         }
     }
@@ -69,9 +69,12 @@ public class RacingGame {
     }
 
     private void createCars(LinkedHashSet<String> carNamesLinkedHashSet) {
+        ArrayList<Car> carList = new ArrayList<>();
         for (String carName : carNamesLinkedHashSet) {
             carList.add(new Car(carName));
         }
+
+        this.carList = new CarList(carList);
     }
 
     private void inputRounds() {
@@ -89,8 +92,8 @@ public class RacingGame {
         result = new Result(carList);
     }
 
-    private void moveAllCar() {
-        for (Car car : carList) {
+    private void moveAllCars() {
+        for (Car car : carList.getCarList()) {
             car.moveOrStopCar();
         }
     }

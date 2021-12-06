@@ -5,7 +5,7 @@ import racingcar.util.RandomNumberGenerator;
 public class Car {
     private static final int MOVE_FORWARD_CONDITION = 4;
     private static final int MOVE_FORWARD_ONCE = 1;
-    public static final int NONE = 0;
+    private static final int NONE = 0;
 
     private final String name;
     private int position = NONE;
