@@ -30,8 +30,8 @@ public class Input {
 	private static boolean checkCarNames(String[] carNames) {
 		try {
 			for (String carName : carNames) {
-				Validation.validateLength(carName, CAR_NAME_LENGTH);
-				Validation.validateEmpty(carName);
+				Validation.checkLength(carName, CAR_NAME_LENGTH);
+				Validation.IsEmpty(carName);
 			}
 			return true;
 		} catch (IllegalArgumentException exception) {
@@ -41,8 +41,8 @@ public class Input {
 
 	private static boolean checkTryNumber(String number) {
 		try {
-			Validation.validateIsInteger(number);
-			Validation.validateIsPositiveInteger(number);
+			Validation.IsInteger(number);
+			Validation.IsPositiveInteger(number);
 			return true;
 		} catch (IllegalArgumentException exception) {
 			return false;
