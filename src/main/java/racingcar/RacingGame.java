@@ -114,16 +114,16 @@ public class RacingGame {
 		}
 	}
 
-	private void printCurrentPositions() {
+	private void printCurrentPositions(Player player) {
 		for (int i = 0; i < cars.length; ++i) {
-			System.out.printf("%s%s%s\n", cars[i].getName(), SPACE_COLON_SPACE,
-				cars[i].getCurrentPositionVisualization());
+			player.sendMessage(
+				cars[i].getName() + SPACE_COLON_SPACE + cars[i].getCurrentPositionVisualization() + "\n");
 		}
 	}
 
-	private void playOneCycle() {
+	private void playOneCycle(Player player) {
 		moveAllCars();
-		printCurrentPositions();
+		printCurrentPositions(player);
 	}
 
 	private int getBestScore() {
@@ -164,7 +164,7 @@ public class RacingGame {
 	public void playRacingGame(Player player) {
 		init(player);
 		for (int cycle = 0; cycle < totalTryNum; ++cycle) {
-			playOneCycle();
+			playOneCycle(player);
 		}
 		printWinners();
 	}
