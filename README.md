@@ -44,5 +44,5 @@
 -스테이지 종료시 우승자 선정 Call
 ### 6-3 carMaker
 -UserInputGetter.parseCarName 에서 나온 갯수만큼 Car class 생성
-### 6-4 우승자 선정
+### 6-4 findChampion
 -GamePrinter 클래스에 전달
