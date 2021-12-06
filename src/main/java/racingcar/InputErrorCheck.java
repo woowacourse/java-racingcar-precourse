@@ -21,7 +21,7 @@ public class InputErrorCheck {
         return isValidListLength(carList) && isValidNameLength(carList) && hasNotContainSpace(carList) && checkDuplicate(carList);
     }
 
-    public static boolean isValidNum(String userInput) {
+    public static boolean isValidNumber(String userInput) {
         try {
             int parseNum = Integer.parseInt(userInput);
             if (parseNum <= 0) {

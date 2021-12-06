@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class CarRacingGame {
-
     private static final List<Car> carList = Car.carList;
     private boolean result;
 
@@ -16,9 +15,9 @@ public class CarRacingGame {
         Car.getWinner();
     }
 
-    public static void printDistance(List<Car> carList, int trialNum) {
+    public static void printDistance(List<Car> carList, int numberOfAttempts) {
         OutputView.printGameResult();
-        for (int i = 0; i < trialNum; i++) {
+        for (int i = 0; i < numberOfAttempts; i++) {
             for (Car car : carList) {
                 Car.canMove(car);
                 OutputView.printPlayerAndPosition(car);
@@ -39,9 +38,8 @@ public class CarRacingGame {
         result = InputErrorCheck.isValidCar(inputCars);
         try {
             throwErrorMessage();
-        } catch (Exception e) {
-            askCarName();
-            throw e;
+        } catch (Exception exception) {
+            inputCars = InputView.getCarNameList();
         }
         String SEPARATOR = ",";
         return inputCars.split(SEPARATOR);
@@ -49,12 +47,12 @@ public class CarRacingGame {
 
     private int askNumberOfAttempts() throws IOException {
         String inputNumberOfAttempts = InputView.getNumberOfAttempts();
-        result = InputErrorCheck.isValidNum(inputNumberOfAttempts);
+        result = InputErrorCheck.isValidNumber(inputNumberOfAttempts);
         try {
             throwErrorMessage();
-        } catch (Exception e) {
-            askNumberOfAttempts();
-            throw e;
+            return Integer.parseInt(inputNumberOfAttempts);
+        } catch (Exception exception) {
+            inputNumberOfAttempts = InputView.getNumberOfAttempts();
         }
         return Integer.parseInt(inputNumberOfAttempts);
     }
