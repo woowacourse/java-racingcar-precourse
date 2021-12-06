@@ -16,8 +16,8 @@ public class Game {
 	private final StringBuilder gameResultStringBuilder;
 	private int farthestPosition;
 
-	public Game(List<Car> carList) {
-		this.carList = carList;
+	public Game(List<String> carNameList) {
+		this.carList = getCarListFromNameList(carNameList);
 		this.winnerCandidateList = new ArrayList<>();
 		this.gameResultStringBuilder = new StringBuilder();
 		this.farthestPosition = 0;
@@ -40,6 +40,12 @@ public class Game {
 		});
 		gameResultStringBuilder.append(GAME_RESULT_POSTFIX.getString());
 		saveWinnerCandidateList();
+	}
+
+	private List<Car> getCarListFromNameList(List<String> carNameList) {
+		return carNameList.stream()
+			.map(Car::new)
+			.collect(Collectors.toList());
 	}
 
 	private void saveWinnerCandidateList() {

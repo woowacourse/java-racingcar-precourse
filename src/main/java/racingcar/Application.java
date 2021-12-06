@@ -1,9 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,19 +12,17 @@ public class Application {
 	}
 
 	public static void runGame() {
-		List<Car> userInputNameList = loopInputNameListUntilValid();
+		List<String> userInputNameList = loopInputNameListUntilValid();
 		Game game = new Game(userInputNameList);
 		game.runMultiple(loopInputIterationNumberUntilValid());
 
 		OutputView.printGameResult(game);
 	}
 
-	private static List<Car> loopInputNameListUntilValid() {
+	private static List<String> loopInputNameListUntilValid() {
 		while (true) {
 			try {
-				return InputView.inputNameList().stream()
-					.map(Car::new)
-					.collect(Collectors.toList());
+				return InputView.inputNameList();
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
