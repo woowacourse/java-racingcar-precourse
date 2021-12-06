@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.domain.Car;
-import racingcar.constants.Constant;
 import racingcar.constants.Message;
+import racingcar.service.CarService;
 import racingcar.service.UserInputService;
+import racingcar.utils.Viewer;
 
 public class GameHandler {
 	private final UserInputService userInputService = UserInputService.getInstance();
+	private final CarService carService = CarService.getInstance();
 
 	public void run() {
-		List<Car> cars = createCars();
+		List<Car> cars = carService.createCars();
 		int times = userInputService.howManyTimes();
 		executeResult(times, cars);
 		showWinners(cars);
@@ -27,34 +29,22 @@ public class GameHandler {
 	}
 
 	private void executeStage(List<Car> cars) {
-		List<Car> movedCars = moveAllCars(cars);
-		showEachStageResult(movedCars);
+		carService.moveAllCars(cars);
+		Viewer.showEachStageResult(cars);
 	}
 
 	private void showWinners(List<Car> cars) {
 		List<Car> winnerCars = findWinnerCars(cars);
 
-		System.out.print(Message.WINNERS);
-		StringBuilder winners = getWinners(winnerCars);
-		System.out.println(winners);
-	}
-
-	private StringBuilder getWinners(List<Car> winnerCars) {
-		StringBuilder winners = new StringBuilder();
-		for (int i = 0; i < winnerCars.size() - 1; i++) {
-			winners.append(winnerCars.get(i).name())
-					.append(Constant.SPLIT_STRING)
-					.append(Constant.SPACE);
-		}
-		winners.append(winnerCars.get(winnerCars.size() - 1).name());
-		return winners;
+		Viewer.showWinnerCars(winnerCars);
 	}
 
 	private List<Car> findWinnerCars(List<Car> cars) {
 		List<Car> winners = new ArrayList<>();
-		int max = maxCurrentPosition(cars);
+
+		int maxPositionValue = maxCurrentPosition(cars);
 		for (Car car : cars) {
-			if (car.currentPosition() == max) {
+			if (car.currentPosition() == maxPositionValue) {
 				winners.add(car);
 			}
 		}
@@ -66,40 +56,5 @@ public class GameHandler {
 		return cars.stream()
 				.mapToInt(Car::currentPosition)
 				.max().orElseThrow(IllegalArgumentException::new);
-	}
-
-	private List<Car> moveAllCars(List<Car> cars) {
-		for (Car car : cars) {
-			car.go();
-		}
-
-		return cars;
-	}
-
-	private void showEachStageResult(List<Car> cars) {
-		for (Car car : cars) {
-			showCurrentPosition(car);
-		}
-		System.out.println("");
-	}
-
-	private void showCurrentPosition(Car car) {
-		System.out.print(car.name() + " : ");
-		for (int i = 0; i < car.currentPosition(); i++) {
-			System.out.print("-");
-		}
-		System.out.println("");
-	}
-
-	private List<Car> createCars() {
-		System.out.println(Message.START);
-
-		List<Car> carList = new ArrayList<>();
-		String[] names = userInputService.register();
-		for (String name : names) {
-			carList.add(new Car(name));
-		}
-
-		return carList;
 	}
 }
