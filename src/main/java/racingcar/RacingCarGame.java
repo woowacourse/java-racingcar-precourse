@@ -37,7 +37,7 @@ public class RacingCarGame {
 		int winningPosition = findWinningPosition(carList);
 		List<Car> winnerList = new ArrayList<>();
 		for (Car car : carList) {
-			if (car.getPosition() == winningPosition) {
+			if (car.isWinningPosition(winningPosition)) {
 				winnerList.add(car);
 			}
 		}
