@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.Car;
 
@@ -17,5 +18,16 @@ public class RacingService {
 		if (RandomService.isCarMovable()) {
 			car.moveForward();
 		}
+	}
+
+	public static int getMaxMovedPosition(List<Car> cars){
+		int maxPosition = 0;
+		for (Car car: cars){
+			int position = car.getPosition();
+			if (maxPosition < position){
+				maxPosition = position;
+			}
+		}
+		return maxPosition;
 	}
 }
