@@ -21,7 +21,7 @@ public class OutputView {
 
 	public static void printCarPosition(final Cars cars) {
 		printlnMessage(OUTPUT_RESULT);
-		cars.getCars().stream().forEach(car -> {
+		cars.getCars().forEach(car -> {
 			printMessage(car.getName() + OUTPUT_COLON);
 
 			for (int i = 0; i < car.getPosition(); i++) {
