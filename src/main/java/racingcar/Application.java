@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.domain.Car;
 import racingcar.domain.Game;
@@ -23,7 +24,9 @@ public class Application {
 	private static List<Car> loopInputNameListUntilValid() {
 		while (true) {
 			try {
-				return InputView.inputNameList();
+				return InputView.inputNameList().stream()
+					.map(Car::new)
+					.collect(Collectors.toList());
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
