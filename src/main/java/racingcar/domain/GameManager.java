@@ -11,17 +11,17 @@ public class GameManager {
 	private static final int MAX_PICK_NUMBER = 9;
 	private static final int CONDITION_TO_MOVE_FORWARD = 4;
 
-	public Car[] createCars(List<String> carNameList) {
-		Car[] carName = new Car[carNameList.size()];
+	public Car[] createCars(List<String> inputCarNames) {
+		Car[] carNameList = new Car[inputCarNames.size()];
 
-		for (int i = 0; i < carNameList.size(); i++) {
-			carName[i] = new Car(carNameList.get(i));
+		for (int i = 0; i < inputCarNames.size(); i++) {
+			carNameList[i] = new Car(inputCarNames.get(i));
 		}
-		return carName;
+		return carNameList;
 	}
 
-	public void makeCarMoveForward(Car[] carName) {
-		for (Car car : carName) {
+	public void makeCarMoveForward(Car[] carNameList) {
+		for (Car car : carNameList) {
 			if (isSatisfiedRandomNumber()) {
 				car.moveForward();
 			}
