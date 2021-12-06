@@ -5,7 +5,6 @@ import static racingcar.view.InputView.*;
 
 import racingcar.StringUtil;
 import racingcar.Validator;
-import racingcar.domain.EveryCar;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,11 +18,15 @@ public class RacingGame {
 	}
 
 	private void playGame() {
+		moveCarGivenNumber(tryCntAboutCarMoving);
+		everyCar.showThisGameWinner();
+	}
+
+	private void moveCarGivenNumber(int repeatCnt) {
 		OutputView.showSentenceBeforeResult();
-		for (int i = 0; i < tryCntAboutCarMoving; i++) {
+		for (int i = 0; i < repeatCnt; i++) {
 			everyCar.moveEveryCarThisTiming();
 		}
-		everyCar.showThisGameWinner();
 	}
 
 	private void initializeRace() {
