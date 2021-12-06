@@ -57,7 +57,7 @@ public class GameService {
 	}
 
 	private void addCars(String inputStr) {
-		for (String car : inputStr.split(",")) {
+		for (String car : inputStr.replaceAll(" ","").split(",")) {
 			Validation.checkCarNameLength(car);
 			cars.addCarInList(car);
 		}

@@ -14,7 +14,7 @@ public class Validation {
 	}
 
 	public static void checkNull(String inputStr) {
-		if (inputStr.length() == 0) {
+		if (inputStr.length() == 0 || inputStr.isEmpty()) {
 			throw new IllegalArgumentException(ErrorMessage.NULL_ERROR.getErrorMessage());
 		}
 	}
