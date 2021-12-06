@@ -21,12 +21,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean isMovable() {
-
-        if (assignRandomNumber() >= MIN_MOVABLE_NUMBER) {
-            return true;
-        }
-
-        return false;
+        return assignRandomNumber() >= MIN_MOVABLE_NUMBER;
     }
 
     public void move() {
@@ -38,13 +33,13 @@ public class Car implements Comparable<Car> {
     }
 
     private String showPosition() {
-        String positionStatus = "";
+        StringBuilder positionStatus = new StringBuilder();
 
         for (int i = 0; i < position; i++) {
-            positionStatus += Text.MOVE_MARK;
+            positionStatus.append(Text.MOVE_MARK);
         }
 
-        return positionStatus;
+        return positionStatus.toString();
     }
 
     public String provideInformation() {

@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
-    private Validation validator = new Validation();
+    private final Validation validator = new Validation();
 
     private void requestCarNames() {
         System.out.println(Text.REQUEST_CAR_NAMES);
@@ -53,7 +53,7 @@ public class InputManager {
             String attemptNumber = receiveUserInput();
 
             if (validator.isValidAttemptNumber(attemptNumber)) {
-                return Integer.valueOf(attemptNumber);
+                return Integer.parseInt(attemptNumber);
             }
 
         }

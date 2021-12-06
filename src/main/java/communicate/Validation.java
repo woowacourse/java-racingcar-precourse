@@ -94,7 +94,7 @@ public class Validation {
 
     private void checkAttemptRange() {
 
-        if (Integer.valueOf(attemptNumber) < MIN_ATTEMPT_NUMBER) {
+        if (Integer.parseInt(attemptNumber) < MIN_ATTEMPT_NUMBER) {
             errorMessage = ErrorText.ERROR_ATTEMPT_NUMBER_RANGE;
             throwInputException();
         }
