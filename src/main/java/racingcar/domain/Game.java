@@ -18,7 +18,7 @@ public class Game {
             String userInput = InputView.getUserInput();
             String[] carNames = userInput.split(",");
             ArrayList<Car> cars = createCarList(carNames);
-            race = new Race(cars);
+            race = new Race(Cars.of(cars));
         } catch (IllegalArgumentException exception) {
             OutputView.printErrorMessage(exception);
             getCarByName();

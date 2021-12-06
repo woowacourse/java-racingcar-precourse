@@ -1,17 +1,13 @@
 package racingcar.domain;
 
-import racingcar.View.OutputView;
-import racingcar.domain.Car;
-
-import java.util.ArrayList;
 
 public class Race {
-    private final ArrayList<Car> cars;
-    private final ArrayList<Car> winnerCars = new ArrayList<>();
+    private final Cars cars;
+    private Cars winnerCars;
     private int maxDistance;
     private int moveCount;
 
-    public Race(ArrayList<Car> cars) {
+    public Race(Cars cars) {
         this.cars = cars;
     }
 
@@ -27,37 +23,19 @@ public class Race {
     }
 
     private void calculateMaxDistance() {
-        for (Car car : cars) {
-            maxDistance = Math.max(maxDistance, car.getPosition());
-        }
+        maxDistance = cars.calculateMaxDistance();
     }
 
     private void decideWinner() {
-        for (Car car : cars) {
-            if (car.getPosition() == maxDistance) {
-                winnerCars.add(car);
-            }
-        }
+        winnerCars = this.cars.decideWinner(maxDistance);
     }
 
     private void execute() {
-        while (moveCount > 0) {
-            for (Car car : cars) {
-                car.move();
-                car.showPosition();
-            }
-            OutputView.printNewLine();
-            moveCount--;
-        }
+        cars.executeRound(moveCount);
     }
 
     private void showWinner() {
-        int winnerCount = winnerCars.size();
-        String[] winnerCarNames = new String[winnerCount];
-        for (int i = 0; i < winnerCount; i++) {
-            winnerCarNames[i] = winnerCars.get(i).getName();
-        }
-        OutputView.printFinalWinnerBy(winnerCarNames);
+        winnerCars.showWinner();
     }
 
 }
