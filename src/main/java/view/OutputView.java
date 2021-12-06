@@ -20,7 +20,7 @@ public class OutputView {
 	private static String carPositionToString(Car car) {
 		int position = car.getPosition();
 		StringBuilder positionStringBuilder = new StringBuilder();
-		while (position >= ZERO) {
+		while (position > ZERO) {
 			positionStringBuilder.append(FORWARD_MARK);
 			position--;
 		}
