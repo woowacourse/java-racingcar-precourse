@@ -28,13 +28,13 @@
 
 ### ✅ 확인할 목록
 
-- [ ] 메소드의 길이가 `15라인`을 넘어가지 않도록 구현한다.
+- [x] 메소드의 길이가 `15라인`을 넘어가지 않도록 구현한다.
     - 메소드가 한 가지 일만 잘 하도록 구현한다.
-- [ ] `else`, `switch/case` 예약어를 사용하지 않는다.
+- [x] `else`, `switch/case` 예약어를 사용하지 않는다.
     - if 조건절에거 값을 return 하는 방식으로 구현하면 else 를 사용하지 않아도 된다.
-- [ ] Car `기본 생성자`를 추가할 수 없다.
-- [ ] Car 클래스의 접근 제어자인 `private`을 변경할 수 없다.
-- [ ] 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
-- [ ] `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms`, `Console` API 를 활용해 구현해야 한다.
-    - [ ] Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
-    - [ ] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+- [x] Car `기본 생성자`를 추가할 수 없다.
+- [x] Car 클래스의 접근 제어자인 `private`을 변경할 수 없다.
+- [x] 가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.
+- [x] `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms`, `Console` API 를 활용해 구현해야 한다.
+    - [x] Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+    - [x] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
