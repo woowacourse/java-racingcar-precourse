@@ -12,12 +12,12 @@ public class OutputView {
 	}
 
 	public static void showResultThisTiming(ArrayList<CarDTO> carsDTO) {
-		carsDTO.forEach(eachCarDTO -> System.out.printf("%s : %s%n", eachCarDTO.getName(), showMovingMark(eachCarDTO)));
+		carsDTO.forEach(eachCarDTO -> System.out.printf("%s : %s\n", eachCarDTO.getName(), showMovingMark(eachCarDTO)));
 		System.out.println();
 	}
 
 	private static String showMovingMark(CarDTO carDTO) {
-		StringBuilder movingMark = new StringBuilder();
+		StringBuffer movingMark = new StringBuffer();
 		for (int i = 0; i < carDTO.getMovingDistance(); i++) {
 			movingMark.append("-");
 		}
@@ -32,11 +32,11 @@ public class OutputView {
 	}
 
 	private static void makeFinalResultSentence(CarDTO[] winners) {
-		String result = "최종 우승자 : ";
+		StringBuffer result = new StringBuffer("최종 우승자 : ");
 		for (CarDTO winner : winners) {
-			result += winner.getName();
+			result.append(winner.getName());
 			if (winner != winners[winners.length - 1]) {
-				result += ", ";
+				result.append(", ");
 			}
 		}
 		System.out.println(result);
