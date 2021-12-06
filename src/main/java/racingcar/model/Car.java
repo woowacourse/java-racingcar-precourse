@@ -47,4 +47,11 @@ public class Car {
 		return positionSymbol.toString();
 	}
 
+	public boolean isSameMaxPosition(int maxPosition) {
+		return maxPosition == position;
+	}
+
+	public boolean isOverMaxPosition(int maxPosition) {
+		return maxPosition < position;
+	}
 }

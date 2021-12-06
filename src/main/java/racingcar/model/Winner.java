@@ -12,7 +12,7 @@ public class Winner {
 	public List<String> findWinner(List<Car> racingCars) {
 		int maxPosition = findMaxPosition(racingCars);
 		for (Car car : racingCars) {
-			if (car.getPosition() == maxPosition) {
+			if (car.isSameMaxPosition(maxPosition)) {
 				winner.add(car.getName());
 			}
 		}
@@ -22,7 +22,7 @@ public class Winner {
 	private int findMaxPosition(List<Car> racingCars) {
 		int maxPosition = INITIAL_MAX_POSITION;
 		for (Car car : racingCars) {
-			if (car.getPosition() > maxPosition) {
+			if (car.isOverMaxPosition(maxPosition)) {
 				maxPosition = car.getPosition();
 			}
 		}
