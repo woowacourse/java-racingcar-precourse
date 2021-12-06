@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import utils.RandomNumberGenerator;
 
 public class RacingCars {
+	private static final int FIRST_CAR = 0;
 	private List<Car> cars = new ArrayList<>();
 
 	public RacingCars(String[] carNames) {
@@ -21,16 +22,17 @@ public class RacingCars {
 	}
 
 	public void moveCars() {
-		for (int index = 0; index < cars.size(); index++) {
+		int lastCar = cars.size();
+		for (int index = FIRST_CAR; index < lastCar; index++) {
 			cars.get(index).moveCar(RandomNumberGenerator.makeRandomNumber());
 		}
 	}
 
-	public String[] findCarNames() {
+	public String[] bringCarNames() {
 		return cars.stream().map(car -> car.getName()).toArray(String[]::new);
 	}
 
-	public int[] findCarPositions() {
+	public int[] bringCarPositions() {
 		return cars.stream().mapToInt(car -> car.getPosition()).toArray();
 	}
 }

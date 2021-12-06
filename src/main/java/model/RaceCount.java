@@ -1,6 +1,7 @@
 package model;
 
 public class RaceCount {
+	private static final int ONE_RACE_COUNT = 1;
 	private int count;
 
 	public RaceCount(int count) {
@@ -12,6 +13,6 @@ public class RaceCount {
 	}
 
 	public void decrementCount() {
-		count -= 1;
+		count -= ONE_RACE_COUNT;
 	}
 }

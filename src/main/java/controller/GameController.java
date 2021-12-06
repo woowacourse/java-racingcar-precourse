@@ -19,12 +19,10 @@ public class GameController {
 
 	private static void playGame(RacingCarGame racingCarGame) {
 		Display.showExecutionResult();
-
 		while (racingCarGame.isRacingNotFinish()) {
 			racingCarGame.playRacingCarGame();
 			showRacingCarNowPositions(racingCarGame.giveRacingCarNames(), racingCarGame.giveRacingCarPositions());
 		}
-
 		showRacingCarGameWinner(racingCarGame.giveWinner());
 	}
 

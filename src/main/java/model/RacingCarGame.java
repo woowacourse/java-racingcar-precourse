@@ -1,6 +1,7 @@
 package model;
 
 public class RacingCarGame {
+	private static final int GAME_FINISH_COUNT = 0;
 	private RacingCars racingCars;
 	private RaceCount raceCount;
 	private Winner winner;
@@ -19,18 +20,18 @@ public class RacingCarGame {
 	}
 
 	public boolean isRacingNotFinish() {
-		if (raceCount.getCount() != 0) {
+		if (raceCount.getCount() != GAME_FINISH_COUNT) {
 			return true;
 		}
 		return false;
 	}
 
 	public String[] giveRacingCarNames() {
-		return racingCars.findCarNames();
+		return racingCars.bringCarNames();
 	}
 
 	public int[] giveRacingCarPositions() {
-		return racingCars.findCarPositions();
+		return racingCars.bringCarPositions();
 	}
 
 	public String[] giveWinner() {
