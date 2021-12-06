@@ -17,10 +17,6 @@ public class RacingSystem {
     public RacingSystem() {
     }
 
-    public Winners getWinners() {
-        return winners;
-    }
-
     public void input() {
         inputSystem.inputCarName(cars);
         cnt = inputSystem.inputTryCnt();
@@ -32,7 +28,7 @@ public class RacingSystem {
                 int random = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
                 car.go(random);
                 System.out.println(car.getCarStatus());
-                getWinner(car.getName(), car.getPosition());
+                putWinner(car.getName(), car.getPosition());
             }
             System.out.println();
         }
@@ -42,7 +38,7 @@ public class RacingSystem {
         System.out.println("최종 우승자 : " + winners.toString());
     }
 
-    private void getWinner(String name, int position) {
+    private void putWinner(String name, int position) {
         if (position == cnt) {
             winners.addWinner(name);
         }
