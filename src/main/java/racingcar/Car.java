@@ -1,8 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import static racingcar.Constant.*;
+
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 	private final String name;

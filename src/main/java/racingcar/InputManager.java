@@ -1,8 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import static racingcar.Constant.*;
+
+import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
 	private String[] carsList;

@@ -5,6 +5,8 @@ public class Constant {
 	public static final String TRY_NUMBER = "시도할 횟수는 몇회인가요?";
 	public static final String CAR_NAME_ERROR = "[ERROR] 자동차 이름을 5자리 이하로 정해주세요.";
 	public static final String TRY_NUMBER_ERROR = "[ERROR] 시도 횟수는 숫자여야 합니다.";
+	public static final String EXECUTION_RESULT = "실행결과";
+	public static final String FINAL_WINNER = "최종 우승자";
 	public static final String TRY_NUMBER_ZERO = "0";
 
 	public static final int MAXIMUM_NAME_LENGTH = 5;

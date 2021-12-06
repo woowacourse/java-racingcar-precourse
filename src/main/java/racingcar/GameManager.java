@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Constant.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -30,7 +32,7 @@ public class GameManager {
 
 	public void printExecutionResult() {
 		System.out.println();
-		System.out.println("실행결과");
+		System.out.println(EXECUTION_RESULT);
 		for (int i = 0; i < inputManager.getNumberOfMove(); i++) {
 			playRound();
 		}
@@ -55,7 +57,7 @@ public class GameManager {
 	}
 
 	public void printWinner() {
-		System.out.print("최종 우승자 : ");
+		System.out.print(FINAL_WINNER + " : ");
 		if (winner.size() == 1) {
 			System.out.print(winner.get(0));
 			return;
