@@ -23,7 +23,7 @@ public class InputView {
 	}
 
 	private static void validateInputCarsName(String inputCarsName) {
-		String[] carsName = inputCarsName.split(COMMA);
+		String[] carsName = inputCarsName.split(COMMA, SPLIT_LIMIT);
 		for (String carName : carsName) {
 			isValidateBlank(carName);
 			isValidateNotInput(carName);

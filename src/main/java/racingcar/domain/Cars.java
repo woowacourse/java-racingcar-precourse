@@ -23,7 +23,7 @@ public class Cars {
 	}
 
 	public static Cars fromString(String carsName) {
-		return new Cars(carsName.split(COMMA));
+		return new Cars(carsName.split(COMMA, SPLIT_LIMIT));
 	}
 
 	public void driveAll(NumberGeneratePolicy numberGeneratePolicy) {
