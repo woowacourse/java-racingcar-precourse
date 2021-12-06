@@ -38,7 +38,7 @@ public class RacingGame {
 		try {
 			String carNames = InputView.inputNames();
 			return new Cars(carNames);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			OutputView.printlnMessage(e.getMessage());
 			return initCarNames();
 		}
@@ -48,7 +48,7 @@ public class RacingGame {
 		try {
 			String numberOfRound = InputView.inputRound();
 			return new Round(numberOfRound);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			OutputView.printlnMessage(e.getMessage());
 			return initRoundNumber();
 		}
