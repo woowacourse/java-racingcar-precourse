@@ -5,6 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class GameController {
+
+    private static final int MAX_PICK_NUMBER = 9;
+    private static final int MIN_PICK_NUMBER = 0;
+    private static final int MOVE_FORWARD_CONTION_NUMBER = 0;
     private final ArrayList<Car> carList = new ArrayList<>();
     private final ArrayList<String> winnersList = new ArrayList<>();
 
@@ -21,8 +25,6 @@ public class GameController {
         }
         findWinner();
         outputRole.printWinner(winnersList);
-
-
     }
 
     private void changeInputToCar(InputRole inputRole) {
@@ -32,12 +34,12 @@ public class GameController {
     }
 
     private int getRandomNumber() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(MIN_PICK_NUMBER, MAX_PICK_NUMBER);
         return randomNumber;
     }
 
     private boolean checkMoveForward(int randomNumber) {
-        return randomNumber >= 4;
+        return randomNumber >= MOVE_FORWARD_CONTION_NUMBER;
     }
 
     private void tryGameOnce() {
@@ -67,6 +69,4 @@ public class GameController {
         }
         return maxValue;
     }
-
-
 }

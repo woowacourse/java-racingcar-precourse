@@ -48,5 +48,4 @@ public class OutputRole {
             System.out.print(PROGRESS_BAR_UNIT);
         }
     }
-
 }
