@@ -37,17 +37,17 @@ public class RacingController {
         showWinners();
     }
 
-    private void showWinners() {
-        List<Car> winnerCars = cars.getWinners();
-        Winners winners = new Winners(winnerCars);
-        outputDisplayable.showWinners(winners);
-    }
-
     private void attemptOnce(final Movement randomMovement) {
         cars.race(randomMovement);
         List<AttemptResult> result = cars.getAttemptResult().stream()
                 .map(AttemptResult::new)
                 .collect(Collectors.toList());
         outputDisplayable.showAttemptResult(result);
+    }
+
+    private void showWinners() {
+        List<Car> winnerCars = cars.getWinners();
+        Winners winners = new Winners(winnerCars);
+        outputDisplayable.showWinners(winners);
     }
 }
