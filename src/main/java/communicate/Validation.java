@@ -3,13 +3,14 @@ package communicate;
 import java.util.ArrayList;
 
 public class Validation {
-    private static final int MIN_CAR_NUMBER = 2;
+    private static final int ZERO = 0;
+    private static final int ONE = 1;
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MIN_ATTEMPT_NUMBER = 1;
-    private static final int ZERO = 0;
     private static final String REGEX_ONLY_NUMBER = "^[0-9]*$";
     private ArrayList<String> carNames;
+    private String inputCarNames;
     private String attemptNumber;
     private String errorMessage;
 
@@ -19,13 +20,8 @@ public class Validation {
 
     private void checkCarNumber() {
 
-        if (carNames.size() < MIN_CAR_NUMBER) {
+        if (!inputCarNames.contains(Text.SEPARATOR_COMMA)) {
             errorMessage = ErrorText.ERROR_CAR_NUMBER;
-
-            if (carNames.size() == ZERO) {
-                errorMessage = ErrorText.ERROR_NAME_NOT_EXISTS;
-            }
-
             throwInputException();
         }
 
@@ -36,10 +32,23 @@ public class Validation {
         for (String name : carNames) {
 
             if (name.trim().length() == ZERO) {
-                errorMessage = ErrorText.ERROR_NAME_NOT_EXISTS;
+                errorMessage = ErrorText.ERROR_NAME_ONLY_SPACE;
                 throwInputException();
             }
 
+        }
+
+    }
+
+    private int countSeparatorComma() {
+        return inputCarNames.length() - inputCarNames.replace(Text.SEPARATOR_COMMA, Text.EMPTY_STRING).length();
+    }
+
+    private void checkNameEmpty() {
+
+        if (countSeparatorComma() + ONE != carNames.size()) {
+            errorMessage = ErrorText.ERROR_NAME_LENGTH;
+            throwInputException();
         }
 
     }
@@ -104,6 +113,7 @@ public class Validation {
     private void validateCarNames() {
         checkCarNumber();
         checkNameExists();
+        checkNameEmpty();
         checkSpacePosition();
         checkNameLength();
         checkNameOverlap();
@@ -114,10 +124,11 @@ public class Validation {
         checkAttemptRange();
     }
 
-    public boolean isValidCarNames(ArrayList<String> carNames) {
+    public boolean isValidCarNames(String inputCarNames, ArrayList<String> carNames) {
 
         try {
             this.carNames = carNames;
+            this.inputCarNames = inputCarNames;
             validateCarNames();
         } catch (IllegalArgumentException e) {
             System.out.println(errorMessage + Text.LINE_BREAK);

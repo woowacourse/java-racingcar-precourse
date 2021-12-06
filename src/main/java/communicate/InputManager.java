@@ -38,7 +38,7 @@ public class InputManager {
             String inputCarNames = receiveUserInput();
             ArrayList<String> carNames = separateInputCarNames(inputCarNames);
 
-            if (validator.isValidCarNames(carNames)) {
+            if (validator.isValidCarNames(inputCarNames, carNames)) {
                 return carNames;
             }
 
