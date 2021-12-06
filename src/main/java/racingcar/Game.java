@@ -2,24 +2,22 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Game {
 	private Cars cars;
+	private Referee referee;
 	private int gameRound;
 
 	public void play() {
 		getCarsWithErrorHandling();
 		getGameRoundWithErrorHandling();
-		Referee referee = new Referee();
-
 		OutputView.showGameResultMessage();
+		referee = new Referee();
 		for (int i = 0; i < gameRound; i++) {
 			cars.playRound();
 			OutputView.showGameRoundResult(cars.showCarsPosition());
 		}
-		Collections.sort(cars.getCars(), new Referee());
 		OutputView.showWinner(referee.selectWinners(cars));
 	}
 

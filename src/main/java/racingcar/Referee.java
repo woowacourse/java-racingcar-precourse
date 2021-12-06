@@ -1,21 +1,29 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class Referee implements Comparator<Car> {
-	@Override
-	public int compare(Car car1, Car car2) {
-		return car2.getPosition() - car1.getPosition();
+public class Referee {
+	private List<Car> winnerCars;
+
+	public Car selectWinner(Cars cars){
+		List<Car> carList = cars.getCars();
+		Car winnerCar = carList.get(0);
+		int winnerCarPosition = winnerCar.getPosition();
+		for (int i = 1; i < carList.size(); i++) {
+			if (winnerCarPosition < carList.get(i).getPosition()) {
+				winnerCar = carList.get(i);
+			}
+		}
+		return winnerCar;
 	}
 
 	public List<Car> selectWinners(Cars cars) {
-		List<Car> carList = cars.getCars();
-		int winnerPosition = carList.get(0).getPosition();
-		List<Car> winnerCars = new ArrayList<>();
-		for (Car car : carList) {
-			if (car.getPosition() == winnerPosition) {
+		Car winnerCar = selectWinner(cars);
+		winnerCars = new ArrayList<>();
+		winnerCars.add(winnerCar);
+		for (Car car : cars.getCars()) {
+			if (winnerCar != car && winnerCar.getPosition() == car.getPosition()) {
 				winnerCars.add(car);
 			}
 		}
