@@ -1,5 +1,6 @@
 package racingcar;
 
+import static racingcar.Constant.*;
 import static racingcar.view.InputView.*;
 
 import racingcar.view.InputView;

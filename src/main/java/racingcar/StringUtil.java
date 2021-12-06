@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.view.InputView.*;
+import static racingcar.Constant.*;
 
 public class StringUtil {
 	public static String[] splitUsingComma(String inputEveryCarsName) {

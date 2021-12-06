@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.view.InputView.*;
+import static racingcar.Constant.*;
 
 import java.util.Arrays;
 import java.util.HashSet;
