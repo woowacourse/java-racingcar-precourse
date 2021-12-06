@@ -15,14 +15,14 @@ public class Cars {
 	}
 
 	public void move() {
-		for (int i = 0; i < cars.size(); i++) {
-			cars.get(i).move();
+		for (Car car : cars) {
+			car.move();
 		}
 	}
 
 	public void printAll() {
-		for (int i = 0; i < cars.size(); i++) {
-			cars.get(i).printTrace();
+		for (Car car : cars) {
+			car.printTrace();
 		}
 	}
 

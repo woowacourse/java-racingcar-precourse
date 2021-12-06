@@ -26,8 +26,8 @@ public class CarNamesValidator {
 	}
 
 	private void validateNameLengthInRange() {
-		for (int i = 0; i < names.length; i++) {
-			if (names[i].length() > CAR_NAME_MAX_LENGTH || names[i].length() < CAR_NAME_MIN_LENGTH) {
+		for (String name : names) {
+			if (name.length() > CAR_NAME_MAX_LENGTH || name.length() < CAR_NAME_MIN_LENGTH) {
 				throw new IllegalArgumentException(ERROR_MESSAGE + NAME_LENGTH_RANGE_MESSAGE);
 			}
 		}
@@ -35,8 +35,8 @@ public class CarNamesValidator {
 
 	private void validateNamesDistinct() {
 		HashSet<String> hashSet = new HashSet<>();
-		for (int i = 0; i < names.length; i++) {
-			hashSet.add(names[i]);
+		for (String name : names) {
+			hashSet.add(name);
 		}
 		if (hashSet.size() != names.length) {
 			throw new IllegalArgumentException(ERROR_MESSAGE + NAME_NOT_DISTINCT_MESSAGE);
@@ -50,8 +50,8 @@ public class CarNamesValidator {
 	}
 
 	private void validateBlankNames() {
-		for (int i = 0; i < names.length; i++) {
-			String name = names[i].replace(" ", "");
+		for (String name : names) {
+			name = name.replace(" ", "");
 			if (name.length() == 0) {
 				throw new IllegalArgumentException(ERROR_MESSAGE + NO_EXIST_NAME_MESSAGE);
 			}
