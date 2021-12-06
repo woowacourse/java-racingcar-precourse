@@ -1,15 +1,14 @@
 package racingcar;
 
+import static constant.RacingCarGameMessage.*;
+import static constant.RacingCarGameRule.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-
-	private final int START_NUMBER_OF_RANGE = 0;
-	private final int END_NUMBER_OF_RANGE = 9;
-	private final int START_NUMBER_OF_GO = 4;
 
 	private final String name;
 	private int position = 0;
@@ -30,7 +29,7 @@ public class Car {
 	}
 
 	public void printState() {
-		String state = name + " : ";
+		String state = name + COLON;
 		for (int i = 0; i < position; i++) {
 			state += "-";
 		}
