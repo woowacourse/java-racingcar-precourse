@@ -5,17 +5,12 @@ import racingcar.utils.CarGameInputHandler;
 
 public class RacingCarGameRunner {
 
-    final private DisplayHandler displayHandler;
-    final private RacingCarGame game;
-    final private int playCount;
-
-    public RacingCarGameRunner() {
-        this.displayHandler = new DisplayHandler();
-        this.game = new RacingCarGame(CarGameInputHandler.getValidCarNames());
-        this.playCount = CarGameInputHandler.getValidPlayCount();
-    }
+    private DisplayHandler displayHandler;
+    private RacingCarGame game;
+    private int playCount;
 
     public void run() {
+        initGame();
         for (int i = 0; i < playCount; i++) {
             game.moveCars();
             displayHandler.appendResultBlock(game.getGameStatus());
@@ -24,4 +19,9 @@ public class RacingCarGameRunner {
         displayHandler.displayResult();
     }
 
+    private void initGame() {
+        this.displayHandler = new DisplayHandler();
+        this.game = new RacingCarGame(CarGameInputHandler.getValidCarNames());
+        this.playCount = CarGameInputHandler.getValidPlayCount();
+    }
 }
