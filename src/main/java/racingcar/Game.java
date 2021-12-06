@@ -9,13 +9,13 @@ import racingcar.constant.Message;
 import racingcar.iomanagement.OutputPrinter;
 
 public class Game {
-	CarGenerator carGenerator = new CarGenerator();
+	CarManager carManager = new CarManager();
 	OutputPrinter outputPrinter = new OutputPrinter();
 
 	public void startGame() {
 		System.out.println(Message.CAR_INPUT);
 		String carNames = Console.readLine();
-		List<Car> carList = carGenerator.generateCar(carNames);
+		List<Car> carList = carManager.generate(carNames);
 
 		System.out.println(Message.NUMBER_OF_ATTEMPTS);
 		long count = Long.parseLong(Console.readLine());
