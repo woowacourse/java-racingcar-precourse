@@ -48,7 +48,7 @@ public class User {
 		try {
 			Validation.NON_NUMERIC_GAME_COUNT_ERROR(stringGameCount);
 			Validation.ZERO_GAME_COUNT_ERROR(stringGameCount);
-		} catch (NumberFormatException e){
+		} catch (NumberFormatException e) {
 			System.out.println(e.getMessage());
 			isRightNumeric = false;
 		}

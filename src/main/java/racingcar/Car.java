@@ -11,25 +11,26 @@ public class Car {
 		this.carName = carName;
 	}
 
-	public void playTurn(){
+	public void playTurn() {
 		RandomGenerator randomGenerator = new RandomGenerator();
 		if (randomGenerator.getRandomNum() >= Constant.MOVE_VALUE) {
 			this.position++;
 		}
 	}
 
-	public void printPosition(){
+	public void printPosition() {
 		System.out.print(this.carName + " : ");
-		for(int i = 0; i < position; i++) {
+		for (int i = 0; i < position; i++) {
 			System.out.print("-");
 		}
 		System.out.println();
 	}
 
-	public String getCarName(){
+	public String getCarName() {
 		return this.carName;
 	}
-	public int getPosition(){
+
+	public int getPosition() {
 		return this.position;
 	}
 }
