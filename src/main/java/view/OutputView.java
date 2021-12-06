@@ -14,7 +14,7 @@ public class OutputView {
 		for (Car car : carList) {
 			System.out.println(car.getName() + " : " + carPositionToString(car));
 		}
-		System.out.println();
+		printLineBreak();
 	}
 
 	private static String carPositionToString(Car car) {
@@ -60,7 +60,8 @@ public class OutputView {
 	}
 
 	public static void printGameResultMessage() {
-		System.out.println("\n실행 결과");
+		printLineBreak();
+		System.out.println("실행 결과");
 	}
 
 	public static void printCarNameLengthExceptionMessage() {
