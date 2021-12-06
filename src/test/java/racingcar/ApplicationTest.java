@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -33,105 +32,6 @@ class ApplicationTest extends NsTest {
                 runException("pobi,javaji");
                 assertThat(output()).contains(ERROR_MESSAGE);
             }
-        );
-    }
-
-    @Test
-    void 전진_정지_다수_우승자() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni,jun", "3");
-                assertThat(output()).contains("pobi : --", "woni : --", "jun : -",
-                    "최종 우승자 : pobi, woni");
-            },
-            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
-            MOVING_FORWARD, STOP, STOP,
-            STOP, MOVING_FORWARD, STOP
-        );
-    }
-
-    @Test
-    void 전진_정지_시도없음() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni,jun", "0");
-                assertThat(output()).contains("최종 우승자 : pobi, woni, jun");
-            },
-            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
-            MOVING_FORWARD, STOP, STOP,
-            STOP, MOVING_FORWARD, STOP,
-            STOP, STOP, MOVING_FORWARD,
-            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
-        );
-    }
-
-    @Test
-    void 전진_정지_참가자없음() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                run("", "5");
-                assertThat(output()).contains("최종 우승자 :");
-            },
-            MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD
-        );
-    }
-
-    @Test
-    void 자동차_전진_테스트() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                String name = "Test";
-                int tryNumber = 3;
-                Car car = createCarAndTry(name, tryNumber);
-
-                car.printStatus();
-                assertThat(output()).contains(name + " : --");
-            },
-            MOVING_FORWARD, STOP, MOVING_FORWARD
-        );
-    }
-
-    @Test
-    void 자동차_준비위치로_테스트() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                String name = "Test";
-                int tryNumber = 3;
-                Car car = createCarAndTry(name, tryNumber);
-                car.setReady();
-
-                car.printStatus();
-                assertThat(output()).contains(name + " :");
-            },
-            MOVING_FORWARD, STOP, MOVING_FORWARD
-        );
-    }
-
-    public Car createCarAndTry(String carName, int tryNumber) {
-        Car car = new Car(carName);
-        for (int i = 0; i < tryNumber; i++) {
-            car.tryMove();
-        }
-        return car;
-    }
-
-    @Test
-    void 자동차_비교기능_테스트() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                Car fastCar = new Car("fast");
-                Car slowCar = new Car("slow");
-
-                fastCar.tryMove();  //fast:1, slow:0
-                assertThat(fastCar.compareTo(slowCar)).isGreaterThan(0);
-
-                slowCar.tryMove();  //fast:1, slow:1
-                assertThat(fastCar.compareTo(slowCar)).isEqualTo(0);
-
-                slowCar.tryMove();  //fast:1, slow:2
-                assertThat(fastCar.compareTo(slowCar)).isLessThan(0);
-            },
-            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
