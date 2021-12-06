@@ -76,7 +76,6 @@ public class CarNameException {
 
 			if (tmpArray.length != 1) {
 				throw new IllegalArgumentException();
-
 			}
 
 		} catch (IllegalArgumentException e) {
