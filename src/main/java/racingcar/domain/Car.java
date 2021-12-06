@@ -2,10 +2,15 @@ package racingcar.domain;
 
 public class Car {
     private final CarName name;
-    private int position = 0;
+    private final Position position;
+
+    public Car(final CarName name, final int position) {
+        this.name = name;
+        this.position = new Position(position);
+    }
 
     public Car(final CarName name) {
-        this.name = name;
+        this(name, 0);
     }
 
     public Car(final String name) {
@@ -17,6 +22,10 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return position.getValue();
+    }
+
+    public void move(RandomNumberGenerator generator) {
+        position.isMove(generator);
     }
 }
