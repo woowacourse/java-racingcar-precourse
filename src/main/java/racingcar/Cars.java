@@ -12,6 +12,7 @@ public class Cars implements ICars {
         for (int i = 0; i < nameCount; i++) {
             carsArray[i] = new Car(names[i]);
         }
+        System.out.println("\n실행 결과");
     }
 
     @Override
