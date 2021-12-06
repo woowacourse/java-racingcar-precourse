@@ -6,6 +6,7 @@ public class Car {
     private static final int MIN_RANGE_NUMBER = 0;
     private static final int MAX_RANGE_NUMBER = 9;
     private static final int PROCEED_MIN_NUMBER = 4;
+    private static final String PROCEED_STATUS_INFO = "-";
 
     private final String name;
     private int position = 0;
@@ -35,7 +36,7 @@ public class Car {
     public void printInfo() {
         System.out.print(name + " : ");
         for (int i = 0; i < position; i++) {
-            System.out.print("-");
+            System.out.print(PROCEED_STATUS_INFO);
         }
         System.out.println();
     }
