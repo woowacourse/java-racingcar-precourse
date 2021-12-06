@@ -16,7 +16,7 @@ public class Car {
 
     public void goOrStop() {
         int number = rollTheDice();
-        if (number >= GO_STOP_STANDARD) {
+        if (overStandard(number)) {
             run();
         }
     }
@@ -31,6 +31,10 @@ public class Car {
 
     private int rollTheDice() {
         return Randoms.pickNumberInRange(DICE_MINIMUM, DICE_MAXIMUM);
+    }
+
+    private boolean overStandard(int number) {
+        return number >= GO_STOP_STANDARD;
     }
 
     private void run() {

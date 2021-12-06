@@ -22,7 +22,7 @@ public class Speaker {
     }
 
     public void sayPresentCarLocation(String carName, int position) {
-        System.out.println(carName + " : " + String.join("", Collections.nCopies(position, "-")));
+        System.out.println(carName + " : " + presentCarLocation(position));
     }
 
     public void newLine() {
@@ -31,5 +31,9 @@ public class Speaker {
 
     public void sayWinners(StringBuilder winnerList) {
         System.out.println(winnerList);
+    }
+
+    private String presentCarLocation(int position) {
+        return String.join("", Collections.nCopies(position, "-"));
     }
 }

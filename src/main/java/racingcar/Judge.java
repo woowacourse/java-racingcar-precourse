@@ -5,29 +5,45 @@ import java.util.List;
 
 public class Judge {
 
-    private static final int INITIAL_LEADER_POSITION = -1;
-
-    List<String> winners;
+    private List<String> winners;
+    private Integer leaderPosition = -1;
 
     public List<String> findWinners(List<Car> lineup) {
         winners = new ArrayList<>();
-        int leaderPosition = INITIAL_LEADER_POSITION;
         for (Car participantCar : lineup) {
             int position = participantCar.getPosition();
             String name = participantCar.getName();
-            leaderPosition = calculatePosition(leaderPosition, position, name);
+            leaderPosition = calculatePosition(position, name);
         }
         return winners;
     }
 
-    private int calculatePosition(int leaderPosition, int position, String name) {
-        if (leaderPosition < position) {
-            leaderPosition = position;
-            winners.clear();
-            winners.add(name);
-        } else if (leaderPosition == position) {
-            winners.add(name);
+    private int calculatePosition(int position, String name) {
+        if (isBiggerThanPresentLeaderPosition(position)) {
+            makeNewWinner(position, name);
+            return leaderPosition;
+        }
+        if (isEqualToPresentLeaderPosition(position)) {
+            makeJointWinner(name);
         }
         return leaderPosition;
+    }
+
+    private boolean isBiggerThanPresentLeaderPosition(int position) {
+        return leaderPosition < position;
+    }
+
+    private void makeNewWinner(int position, String name) {
+        leaderPosition = position;
+        winners.clear();
+        winners.add(name);
+    }
+
+    private boolean isEqualToPresentLeaderPosition(int position) {
+        return leaderPosition == position;
+    }
+
+    private void makeJointWinner(String name) {
+        winners.add(name);
     }
 }

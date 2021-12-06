@@ -32,8 +32,12 @@ public class Racing {
     private void enrollCars(String[] waitingCarNames) {
         for (String carName : waitingCarNames) {
             Car car = new Car(carName);
-            lineup.add(car);
+            participateInRacing(car);
         }
+    }
+
+    private void participateInRacing(Car car) {
+        lineup.add(car);
     }
 
     private void repeatRace(Integer repeatTimes) {

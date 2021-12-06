@@ -18,9 +18,9 @@ public class Staff {
 
     public String[] collectCarNames() {
         speaker.sayCarNames();
-        String[] waitingCarNames = Console.readLine().split(SEPARATOR);
+        String[] waitingCarNames = readCarNames();
         for (int i = 0; i < waitingCarNames.length; i++) {
-            waitingCarNames[i] = waitingCarNames[i].trim();
+            waitingCarNames[i] = removeBlank(waitingCarNames[i]);
             String carName = waitingCarNames[i];
             try {
                 validator.validateCarName(carName);
@@ -34,11 +34,9 @@ public class Staff {
 
     public Integer collectRepeatTimes() {
         speaker.sayRepeatTimes();
-        String rawRepeatTimes = Console.readLine();
+        String rawRepeatTimes = readRepeatTimes();
         try {
-            Integer repeatTimes = validator.convertToNumber(rawRepeatTimes);
-            validator.validateRepeatTimes(repeatTimes);
-            return repeatTimes;
+            return validator.validateRepeatTimes(rawRepeatTimes);
         } catch (IllegalArgumentException e) {
             speaker.sayErrorMessage(e.getMessage());
             return collectRepeatTimes();
@@ -59,9 +57,38 @@ public class Staff {
     public void awardWinners(List<String> winners) {
         StringBuilder winnerList = new StringBuilder(WINNER_PREFIX);
         for (String winner : winners) {
-            winnerList.append(winner).append(SEPARATOR);
+            buildWinnerList(winnerList, winner);
         }
-        winnerList.deleteCharAt(winnerList.length() - 1);
+        formatProperWinnerList(winnerList);
         speaker.sayWinners(winnerList);
+    }
+
+    private String[] readCarNames() {
+        String rawCarNames = readFromUser();
+        return rawCarNames.split(SEPARATOR);
+    }
+
+    private String readFromUser() {
+        return Console.readLine();
+    }
+
+    private String removeBlank(String waitingCarName) {
+        return waitingCarName.trim();
+    }
+
+    private String readRepeatTimes() {
+        return readFromUser();
+    }
+
+    private void buildWinnerList(StringBuilder winnerList, String winner) {
+        winnerList.append(winner).append(SEPARATOR).append(" ");
+    }
+
+    private void formatProperWinnerList(StringBuilder winnerList) {
+        winnerList.deleteCharAt(lastCommaAndBlank(winnerList));
+    }
+
+    private int lastCommaAndBlank(StringBuilder winnerList) {
+        return winnerList.length() - 2;
     }
 }
