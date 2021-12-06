@@ -26,7 +26,11 @@ public class RacingCarGame  implements Game {
             String carNames = getRacingCarsNameFromUser();
             StringTokenizer splitString = splitByMark(carNames);
 
-            temporaryRacingCars = isValidCarNameList(splitString);
+            try{
+                temporaryRacingCars = isValidCarNameList(splitString);
+            } catch (IllegalArgumentException e) {
+                temporaryRacingCars = null;
+            }
 
         } while (temporaryRacingCars == null);
 
@@ -37,9 +41,15 @@ public class RacingCarGame  implements Game {
         }
 
         // 사용자로부터 시도 횟수 입력 받기
+        boolean checkNumber;
         do {
             trial = getNumberOfTrialFromUser();
-        } while(!checkValidTrialNumber(trial));
+            try {
+                checkNumber = checkValidTrialNumber(trial);
+            } catch (IllegalArgumentException e) {
+                checkNumber = false;
+            }
+        } while(!checkNumber);
 
         setNumberOfTrial(Integer.parseInt(trial));
 
@@ -74,10 +84,8 @@ public class RacingCarGame  implements Game {
         while(splitString.hasMoreTokens()) {
 
             String carName = splitString.nextToken();
-            if (!checkMoreThanMaximumLength(carName)) {
-                // TODO: 예외 발생
-                return null;
-            }
+            if (!checkMoreThanMaximumLength(carName)) throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력값: " + carName);
+
             temporaryRacingCars.add(carName);
         }
         return temporaryRacingCars;
@@ -111,10 +119,7 @@ public class RacingCarGame  implements Game {
 
     private boolean checkValidTrialNumber(String trial) {
         for (int index = 0; index < trial.length(); index++) {
-            if (!Character.isDigit(trial.charAt(index))) {
-                // TODO: 예러 발생
-                return false;
-            }
+            if (!Character.isDigit(trial.charAt(index))) throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력값: " +trial);
         }
         return true;
     }
