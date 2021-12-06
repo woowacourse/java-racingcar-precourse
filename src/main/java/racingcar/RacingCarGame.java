@@ -14,7 +14,6 @@ public class RacingCarGame  implements Game {
 
         racingCars = new ArrayList<>();
         List<String> temporaryRacingCars;
-        boolean correctInput = true;
         String trial;
 
         /*
