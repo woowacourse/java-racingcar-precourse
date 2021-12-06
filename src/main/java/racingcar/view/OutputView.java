@@ -1,8 +1,6 @@
 package racingcar.view;
 
-import java.util.ArrayList;
-
-import racingcar.model.Car;
+import java.util.List;
 
 public class OutputView {
 	private static final String COLON = " : ";
@@ -14,20 +12,16 @@ public class OutputView {
 	private static final int CAR_NAME = 0;
 	private static final int CAR_POSITION = 1;
 
-	public void printRoundResult(String round, Car[] cars) {
+	public void printResultMessage() {
 		System.out.println();
 		System.out.println(ROUND_RESULT_MESSAGE);
-		for (int i = 0; i < Integer.parseInt(round); i++) {
-			move(cars);
-			System.out.println();
-		}
 	}
 
-	private void move(Car[] cars) {
-		for (Car car : cars) {
-			ArrayList<String> result = car.move();
+	public void printRoundResult(List<List<String>> totalResult) {
+		for (List<String> result : totalResult) {
 			printResult(result.get(CAR_NAME), result.get(CAR_POSITION));
 		}
+		System.out.println();
 	}
 
 	private void printResult(String name, String position) {
@@ -42,12 +36,12 @@ public class OutputView {
 		}
 	}
 
-	public void printChampionList(ArrayList<String> champion) {
+	public void printChampionList(List<String> champion) {
 		System.out.print(CHAMPION_MESSAGE + champion.get(SINGLE_CHAMPION));
 		printMultipleChampion(champion);
 	}
 
-	private void printMultipleChampion(ArrayList<String> champion) {
+	private void printMultipleChampion(List<String> champion) {
 		for (int i = 1; i < champion.size(); i++) {
 			System.out.print(SEPARATOR + champion.get(i));
 		}
