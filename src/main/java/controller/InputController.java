@@ -1,6 +1,7 @@
 package controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import utils.InputValidator;
 
 public class InputController {
 
@@ -8,7 +9,13 @@ public class InputController {
 	}
 
 	public static String[] inputRacingCarNames() {
-		String[] racingCarNames = Console.readLine().split(",");
-		return racingCarNames;
+		while (true) {
+			try {
+				String racingCarNames = Console.readLine();
+				return InputValidator.isValideRacingCarNames(racingCarNames);
+			} catch (IllegalArgumentException error) {
+				System.out.println(error.getMessage());
+			}
+		}
 	}
 }
