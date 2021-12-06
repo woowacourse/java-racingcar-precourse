@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -17,13 +18,13 @@ public class ValidationService {
 		}
 	}
 
-	public static void checkDuplicatedCarName(String[] carNames) {
+	public static void checkDuplicatedCarName(List<String> carNames) {
 		if (hasDuplicatedCarName(carNames)) {
 			throw new IllegalArgumentException("중복되는 자동차 이름을 입력할 수 없습니다.");
 		}
 	}
 
-	public static void checkEachCarName(String[] carNames) {
+	public static void checkEachCarName(List<String> carNames) {
 		for (String name : carNames) {
 			if (name.isEmpty()) {
 				throw new IllegalArgumentException("자동차의 이름은 빈 문자열이 될 수 없습니다.");
@@ -62,8 +63,8 @@ public class ValidationService {
 		return MAX_NAME_LENGTH < name.length();
 	}
 
-	private static boolean hasDuplicatedCarName(String[] names) {
-		return Stream.of(names).distinct().count() != names.length;
+	private static boolean hasDuplicatedCarName(List<String> names) {
+		return names.stream().distinct().count() != names.size();
 	}
 
 	private static boolean isNotDigit(String number) {

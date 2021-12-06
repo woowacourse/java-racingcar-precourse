@@ -1,6 +1,8 @@
 package racingcar.service;
 
-import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -8,8 +10,8 @@ import racingcar.view.OutputView;
 public class InputService {
 	final static String DELIMITER = ",";
 
-	public static String[] getCarNames() {
-		String[] carNames;
+	public static List<String> getCarNames() {
+		List<String> carNames;
 		while (true) {
 			try {
 				carNames = separateCarNames(InputView.scanCarNames());
@@ -36,13 +38,13 @@ public class InputService {
 		return tryNumber;
 	}
 
-	private static String[] separateCarNames(String names) {
+	private static List<String> separateCarNames(String names) {
 		ValidationService.checkCarNames(names, DELIMITER);
 		return makeClearCarNames(names.split(DELIMITER));
 	}
 
-	private static String[] makeClearCarNames(String[] names) {
-		String[] result = Stream.of(names).map(String::trim).toArray(String[]::new);
+	private static List<String> makeClearCarNames(String[] names) {
+		List<String> result = Arrays.stream(names).map(String::trim).collect(Collectors.toList());
 		ValidationService.checkDuplicatedCarName(result);
 		ValidationService.checkEachCarName(result);
 		return result;

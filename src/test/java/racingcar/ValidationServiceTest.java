@@ -7,7 +7,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import racingcar.service.NameService;
+import java.util.Arrays;
+
 import racingcar.service.ValidationService;
 
 public class ValidationServiceTest {
@@ -27,9 +28,9 @@ public class ValidationServiceTest {
 	void checkEachCarName(){
 		assertThrows(IllegalArgumentException.class, ()->{
 			// [예외처리]  구분된 자동차의 이름이 비어있을 때
-			ValidationService.checkEachCarName(new String[] {"Jane", "Karry", ""});
+			ValidationService.checkEachCarName(Arrays.asList("Jane", "Karry", ""));
 			// [예외처리]  구분 된 자동차의 이름의 길이가 6 이상일 때
-			ValidationService.checkEachCarName(new String[] {"aaaaa", "dumbledore", "poppai"});
+			ValidationService.checkEachCarName(Arrays.asList("aaaaa", "dumbledore", "poppai"));
 		});
 	}
 
@@ -37,7 +38,7 @@ public class ValidationServiceTest {
 	@Test
 	void checkDuplicatedCarName(){
 		assertThrows(IllegalArgumentException.class, ()->{
-			ValidationService.checkDuplicatedCarName(new String[] {"John", "Eddy", "Eddy"});
+			ValidationService.checkDuplicatedCarName(Arrays.asList("John", "Eddy", "Eddy"));
 		});
 	}
 

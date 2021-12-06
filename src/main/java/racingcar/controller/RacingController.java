@@ -16,7 +16,7 @@ public class RacingController {
 	private static int tryNumber;
 
 	public static void initialize() {
-		String[] carNames = InputService.getCarNames();
+		List<String> carNames = InputService.getCarNames();
 		Cars cars = getCarsFromNames(carNames);
 		tryNumber = InputService.getTryNumber();
 		startRacing(cars);
@@ -30,7 +30,7 @@ public class RacingController {
 		endRacing(cars);
 	}
 
-	public static Cars getCarsFromNames(String[] carNames) {
+	public static Cars getCarsFromNames(List<String> carNames) {
 		List<Car> cars = new ArrayList<>();
 		for (String name : carNames) {
 			cars.add(new Car(name));
