@@ -40,7 +40,7 @@ public class InputView {
 	public static int inputAttemptNumber() {
 		boolean isValidAttemptNumber;
 		while (true) {
-			String tempInput = Console.readLine();
+			String tempInput = Console.readLine().trim();
 			isValidAttemptNumber = Validator.isValidAttemptNumber(tempInput);
 			if (isValidAttemptNumber) {
 				return Integer.parseInt(tempInput);

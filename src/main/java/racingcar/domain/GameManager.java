@@ -55,7 +55,6 @@ public class GameManager {
 				winnerList.add(name.getName());
 			}
 		}
-
 		return winnerList;
 	}
 }
