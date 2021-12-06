@@ -21,9 +21,9 @@ public class Output {
 	}
 
 	public void reportFinalResult(List<String> winners) {
-		String finalResultMessage = FINAL_WINNER_MESSAGE;
+		StringBuilder finalResultMessage = new StringBuilder(FINAL_WINNER_MESSAGE);
 		for (String winner : winners) {
-			finalResultMessage += winner + WINNER_NAME_DISTINGUISH_STRING;
+			finalResultMessage.append(winner).append(WINNER_NAME_DISTINGUISH_STRING);
 		}
 		System.out.println(finalResultMessage.substring(STRING_START_INDEX, finalResultMessage.length() + STRING_FIND_LAST_INDEX));
 	}
