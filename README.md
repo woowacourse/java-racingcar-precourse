@@ -4,33 +4,24 @@
 
 ## Car
 
-1. 매직넘버를 피하기 위한 상수가 필요. → 무작위 값의 범위를 정해주는 `MIN_CONDITION = 0, MAX_CONDITION = 0` 을 상수로 생성.
-
-   → `Constant` 객체에 `static final` 선언하여 사용.
-
-2. 현재 위치 `postition` 에 대한 정보를 `GameHandler` 에게 전해줄 메서드 → `currentPostition()`
-
-3. 자동차가 전진하는 행위에 대한 method 생성. → `go()` 
-
+1. 현재 위치 `postition` 에 대한 정보를 반환해줄 메서드 필요.
+2. 자동차가 전진하는 행위에 대한 method 생성. → `go()` 
    - 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우
+3. 자동차 이름을 반환하는 기능 필요.
 
-4.  `GameHandler` 가 자동차의 이름을 알 수 있게 하기 위해서 `name()` method 필요.
-
-`domain` directory 에서 관리.
+`domain` package 에서 관리.
 
 <br>
 
 ## GameHandler
 
-1. 글자 수 최소, 최대 상수 필요  (`Constant` 객체에 추가)
-2. 자동차들을 생성해야 함 → `createCars()`
-3. 몇번의 이동을 할지 정해야 함. → `getStages()`
-4. 이동횟수만큼 자동차들이 `go` 하게 만든다.
-5. 매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult()`
-6. 이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners()`
-   1. 현재 위치가 가장 먼 자동차의 위치를 찾는 함수
-   2. 가장 먼 위치를 기준으로 같은 값을 가진 자동차가 있으면 우승자에 추가 후 출력형태로 만드는 함수
-7. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
+1. 몇번의 이동을 할지 정해야 함. → `getStages()`
+2. 이동횟수만큼 자동차들이 `go` 하게 만든다.
+3. ~~매 이동횟수 때마다 결과를 보여줘야 한다. → `showEachStageResult()`~~
+4. ~~이동이 모두 끝나면 각 자동차들의 현재위치 중 가장 큰 값을 가진 자동차들을 찾고 우승자로 나열한다. → `showWinners()`~~
+   1. ~~현재 위치가 가장 먼 자동차의 위치를 찾는 함수~~
+   2. ~~가장 먼 위치를 기준으로 같은 값을 가진 자동차가 있으면 우승자에 추가 후 출력형태로 만드는 함수~~
+5. 위 method들을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
    1. `createCars()` → 알맞은 자동차 생성
    2. `getStages()` → 얼마나 이동할 것인지
    3. `executeStage()` → 이동횟수 만큼 아래의 프로세스를 실행 
@@ -38,24 +29,11 @@
       2. 각 자동차들 현재 위치 출력. → `showEachStageResult()`
    4. 우승자 출력 →  `showWinners()`
 
-`utils` directory 에서 관리.
-
 <br>
 
-## UserService
+## UserInputService
 
 `GameHandler` 가 맡는 책임이 너무 많다고 판단. 일부분을 따로 Class로 분리시키기로 함.
-
-1. GameHandler 하는 일
-
-2. 1. 사용자 입력 받는 일
-   2. 적절한 입력인지 검사하는 일
-   3. 경주에 참여할 자동차 생성하는 일
-   4. 자동차들을 이동횟수만큼 움직이는 일
-   5. 각 stage마다 실행결과를 출력해주는 일
-   6. 우승자를 선별하고 출력하는 일
-
-1-1, 1-2 부분을 따로 분리시켜 `UserService` 라는 class 로 만들 것이다. `utils` directory 에서 관리.
 
 ### 생성할 기능 목록
 
@@ -64,11 +42,13 @@
    2. 이동 횟수 입력 받기 → `howManyTimes()` : 이동횟수를 입력받고 적절하면 int type return.
 2. 적절한 입력인지 검사하는 기능
 
+`service` package에서 관리.
+
 <br>
 
-## Verifier
+## Validator
 
-1주차의 목표는 method의 분리. 이번 2주차의 목표는 Class의 분리이다. 따라서 UserService의 책임 중, '검증하는 기능'을 따로 분리하여 class로 구현할 것이다.
+1주차의 목표는 method의 분리. 이번 2주차의 목표는 Class의 분리이다. 따라서 `UserInputService`의 책임 중, '검증하는 기능'을 따로 분리하여 class로 구현할 것이다.
 
 ### 생성할 기능 목록
 
@@ -79,7 +59,34 @@
    1. 숫자가 들어와야 함.
    2. 0이 아닌 양의 정수가 들어와야 함.
 
-`utils` directory 에서 관리.
+`utils` package 에서 관리.
+
+<br>
+
+## Viewer
+
+`GameHandler` 의 책임이 여전히 많다고 느껴진다. 따라서 화면에 '출력하는 부분'의 책임을 담당하는 `Viewer` class를 만들려고 한다.
+
+### 생성할 기능 목록
+
+1. 각각의 이동마다 자동차의 위치를 출력하는 기능.
+2. 우승자 출력하는 기능.
+
+`utils` package에서 관리.
+
+<br>
+
+## CarService
+
+`GameHandler` 의 책임을 분리하기 위한 클래스.
+
+### 생성할 기능 목록
+
+1. 경기에 참여할 자동차 리스트 생산.
+2. 모든 자동차 이동.
+3. 자동차 현재상태 출력
+
+`service` package 에서 관리.
 
 <br>
 
