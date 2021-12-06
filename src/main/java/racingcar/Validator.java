@@ -24,10 +24,11 @@ public class Validator {
 	}
 
 	public static void validateCarNameLength(String carName) {
-		if (carName.length() > CAR_NAME_MAX) {
+		if (carName.length() < CAR_NAME_MIN) {
 			throw new IllegalArgumentException("[ERROR] 최소 1글자 입니다.");
 		}
-		if (carName.length() < CAR_NAME_MIN) {
+
+		if (carName.length() > CAR_NAME_MAX) {
 			throw new IllegalArgumentException("[ERROR] 최대 5글자 입니다.");
 		}
 	}
@@ -41,7 +42,7 @@ public class Validator {
 	public static void validateCarNameOverlap(String[] carNames) {
 		List<String> carNameList = Arrays.asList(carNames);
 		Set<String> carNameSet = new HashSet<>(carNameList);
-		if(carNameSet.size() != carNameList.size()) {
+		if (carNameSet.size() != carNameList.size()) {
 			throw new IllegalArgumentException("[ERROR] 중복된 이름이 있습니다.");
 		}
 	}
