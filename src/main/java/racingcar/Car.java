@@ -30,8 +30,8 @@ public class Car {
 		System.out.printf("%s : %s%n", name, strPosition);
 	}
 
-	public String getName() {
-		return this.name;
+	public void printName() {
+		System.out.print(name);
 	}
 
 	public int getPosition() {
