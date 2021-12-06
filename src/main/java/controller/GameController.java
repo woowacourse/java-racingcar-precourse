@@ -9,5 +9,6 @@ public class GameController {
 
 	public static void runGame() {
 		Display.pleaseInputRacingCarNames();
+		InputController.inputRacingCarNames();
 	}
 }
