@@ -49,7 +49,7 @@ public class Application {
             try {
                 String input = camp.nextstep.edu.missionutils.Console.readLine();
 
-                // TODO: 입력값이 숫자인지 확인
+                InputChecker.checkNumber(input);
 
                 return Integer.parseInt(input);
             } catch (IllegalArgumentException exception) {

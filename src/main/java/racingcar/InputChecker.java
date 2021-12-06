@@ -20,4 +20,16 @@ public class InputChecker {
             }
         }
     }
+
+    /**
+     * 문자열이 숫자인지 확인하는 메서드
+     * @param inputNumber
+     */
+    public static void checkNumber(String inputNumber) {
+        for (int i = 0; i < inputNumber.length(); i++) {
+            if (!Character.isDigit(inputNumber.charAt(i))) {
+                throw new IllegalArgumentException("[ERROR] 숫자를 입력하세요.");
+            }
+        }
+    }
 }
