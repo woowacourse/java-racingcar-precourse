@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.domain.error.ErrorMessage.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,30 +23,45 @@ class CarTest {
         }).doesNotThrowAnyException();
     }
 
-    @DisplayName("이름의 길이가 5초과인 경우 예외를 던진다.")
-    @ParameterizedTest
-    @ValueSource(strings = {"pobiii", "woniii", "junnnn"})
-    void constructor_nameMoreThen5_ExceptionThrown(String name) {
+    @DisplayName("이름이 비어있는 경우 예외를 던진다.")
+    @Test
+    void constructor_NameThenEmpty_ExceptionThrown() {
         // given
         MovingPolicy randomMovingPolicy = new RandomMovingPolicy();
 
-        //  when & then
+        // when & then
         assertThatThrownBy(() -> {
-            new Car(name, randomMovingPolicy);
-        }).isInstanceOf(IllegalArgumentException.class);
+            new Car("", randomMovingPolicy);
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(CAR_NAME_EMPTY.getMessage());
     }
 
-    @DisplayName("이름이 공백이거나 비어있는 경우 예외를 던진다.")
+    @DisplayName("이름이 공백인 경우 예외를 던진다.")
     @ParameterizedTest
-    @ValueSource(strings = {" ", "    ", ""})
-    void constructor_NameThenEmptyOrBlank_ExceptionThrown(String name) {
+    @ValueSource(strings = {" ", "    "})
+    void constructor_NameThenBlank_ExceptionThrown(String name) {
         // given
         MovingPolicy randomMovingPolicy = new RandomMovingPolicy();
 
         // when & then
         assertThatThrownBy(() -> {
             new Car(name, randomMovingPolicy);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(CAR_NAME_BLANK.getMessage());
+    }
+
+    @DisplayName("이름의 길이가 5초과인 경우 예외를 던진다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"pobiii", "woniii", "junnnn"})
+    void constructor_NameMoreThen5_ExceptionThrown(String name) {
+        // given
+        MovingPolicy randomMovingPolicy = new RandomMovingPolicy();
+
+        //  when & then
+        assertThatThrownBy(() -> {
+            new Car(name, randomMovingPolicy);
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(CAR_NAME_OVER_LENGTH.getMessage());
     }
 
     @DisplayName("movingPolicy의 isMoving이 true이면 position이 1 증가한다.")

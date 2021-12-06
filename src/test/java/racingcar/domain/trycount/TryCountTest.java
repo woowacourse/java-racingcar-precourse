@@ -1,6 +1,7 @@
 package racingcar.domain.trycount;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.domain.error.ErrorMessage.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -25,7 +26,8 @@ class TryCountTest {
         // given & when & then
         assertThatThrownBy(() -> {
             new TryCount(inputTryCount);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(NUMBER_FORMAT_NOT_VALID.getMessage());
     }
 
     @DisplayName("문자열 시도 횟수가 음수이면 예외를 던진다.")
@@ -35,6 +37,7 @@ class TryCountTest {
         // given & when & then
         assertThatThrownBy(() -> {
             new TryCount(inputTryCount);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(NEGATIVE_NUMBER_NOT_VALID.getMessage());
     }
 }
