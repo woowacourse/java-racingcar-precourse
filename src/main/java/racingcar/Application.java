@@ -9,7 +9,8 @@ public class Application {
         String[] arrayCar = inputToArray();
         Car[] arrayCarObject = arrayCarObj(arrayCar);
         int count = CountingGame();
-        PlayGame(arrayCarObject,count);
+
+        PlayGame(arrayCarObject, count);
         GameSet(arrayCarObject);
     }
 
@@ -24,9 +25,9 @@ public class Application {
     }
 
     private static void GameSet(Car[] arrayCarObject) {
-        System.out.print("최종 우승자 : ");
         int winnerPosition = FindWinnerPosition(arrayCarObject);
         boolean flag = true;
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < arrayCarObject.length; i++) {
             int position = arrayCarObject[i].ReturnStatus();
             if (!flag && position == winnerPosition) {
@@ -55,11 +56,10 @@ public class Application {
     }
 
     private static boolean GoOrStop() {
-        int randomNum = Randoms.pickNumberInRange(0,9);
+        int randomNum = Randoms.pickNumberInRange(0, 9);
         if (randomNum >= 4) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -99,8 +99,8 @@ public class Application {
     private static boolean CheckFiveChar(String[] arrayCar) {
         boolean flag = true;
         for (int i = 0; i < arrayCar.length; i++) {
-            if (arrayCar[i].length() > 5){
-                flag =  false;
+            if (arrayCar[i].length() > 5) {
+                flag = false;
             }
         }
         if (flag) {

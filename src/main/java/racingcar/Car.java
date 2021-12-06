@@ -13,6 +13,7 @@ public class Car {
             position++;
         }
     }
+
     public void PrintStatus() {
         System.out.print(name + " : ");
         for (int i = 0; i < position; i++) {
@@ -20,9 +21,11 @@ public class Car {
         }
         System.out.println();
     }
+
     public int ReturnStatus() {
         return position;
     }
+
     public String ReturnName() {
         return name;
     }
