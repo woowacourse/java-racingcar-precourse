@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.view.InputView.*;
+
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -21,8 +23,18 @@ public class RacingGame {
 	}
 
 	private void initializeRace() {
-		String[] everyCarName = InputView.enterEveryCarName();
-		everyCar = new EveryCar(everyCarName);
+		participateEveryCar();
 		tryCntAboutCarMoving = InputView.enterTryCnt();
+	}
+
+	private void participateEveryCar() {
+		try {
+			String[] everyCarName = StringUtil.splitUsingComma(InputView.enterEveryCarName());
+			CarNameValidator.validateEveryCarName(everyCarName);
+			everyCar = new EveryCar(everyCarName);
+		} catch (IllegalArgumentException e) {
+			System.out.println(String.format(SHOW_ERROR_MESSAGE, e.getMessage()));
+			participateEveryCar();
+		}
 	}
 }
