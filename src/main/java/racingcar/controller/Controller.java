@@ -20,18 +20,22 @@ public class Controller {
 
 	public void run() {
 		saveCars(parser.parseCarNames(getCarNamesByUserInput()));
+		play(createGame());
+	}
+
+	private Game createGame() {
 		Game game = new Game(getCarList(), getNumberOfTrial());
 		gameService.save(game);
-		OutputView.printHead();
-		play(game);
-		OutputView.printWinners(gameService.getWinners(game));
+		return game;
 	}
 
 	private void play(Game game) {
+		OutputView.printHead();
 		while (!gameService.isEnd(game)) {
 			gameService.play(game);
 			OutputView.printScore(game.getCars());
 		}
+		OutputView.printWinners(gameService.getWinners(game));
 	}
 
 	private int getNumberOfTrial() {

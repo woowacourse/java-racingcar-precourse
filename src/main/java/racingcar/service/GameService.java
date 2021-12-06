@@ -23,13 +23,7 @@ public class GameService {
 	public List<String> getWinners(Game game) {
 		List<Car> cars = game.getCars();
 		int maxPosition = getMaxPosition(cars);
-		List<String> carNames = new ArrayList<>();
-		for (Car car : cars) {
-			if (car.getPosition() == maxPosition) {
-				carNames.add(car.getName());
-			}
-		}
-		return carNames;
+		return getMaxPositionCars(cars, maxPosition);
 	}
 
 	public Boolean isEnd(Game game) {
@@ -38,6 +32,16 @@ public class GameService {
 
 	public Long save(Game game) {
 		return gameRepository.save(game);
+	}
+
+	private List<String> getMaxPositionCars(List<Car> cars, int maxPosition) {
+		List<String> carNames = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getPosition() == maxPosition) {
+				carNames.add(car.getName());
+			}
+		}
+		return carNames;
 	}
 
 	private int getMaxPosition(List<Car> cars) {

@@ -14,9 +14,7 @@ public class OutputView {
 
 	public static void printScore(List<Car> cars) {
 		for (Car car : cars) {
-			System.out.print(car.getName() + " : ");
-			printPosition(car);
-			System.out.println();
+			printCarScore(car);
 		}
 		System.out.println();
 	}
@@ -37,6 +35,12 @@ public class OutputView {
 
 	public static void printException(String message) {
 		System.out.println(message);
+	}
+
+	private static void printCarScore(Car car) {
+		System.out.print(car.getName() + " : ");
+		printPosition(car);
+		System.out.println();
 	}
 
 	private static void printPosition(Car car) {
