@@ -12,11 +12,10 @@ public class GameSystem {
     }
 
     public void executeRace() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        int nOfRuns = Integer.parseInt(Console.readLine());
+        int numOfRuns = getNumOfRuns();
 
         System.out.println("\n실행 결과");
-        for (int i = 0; i < nOfRuns; i++) {
+        for (int i = 0; i < numOfRuns; i++) {
             runRaceOnce();
         }
         carEntry.printWinners();
@@ -50,6 +49,32 @@ public class GameSystem {
             return;
         }
         throw new IllegalArgumentException();
+    }
+
+    private int getNumOfRuns() {
+        boolean isValid;
+        String inputValue = "";
+        System.out.println("시도할 회수는 몇회인가요?");
+        do {
+            try {
+                inputValue = Console.readLine();
+                checkNumOfRunsValidity(inputValue);
+                isValid = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 시도할 회수는 0 이상의 정수이어야 합니다.");
+                isValid = false;
+            }
+        } while (!isValid);
+        return Integer.parseInt(inputValue);
+    }
+
+    void checkNumOfRunsValidity(String inputValue) {
+        if (inputValue.matches("[^0-9]+")) {
+            throw new IllegalArgumentException();
+        }
+        if (inputValue.matches("0+")) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void runRaceOnce() {
