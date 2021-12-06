@@ -10,7 +10,7 @@ public class Racing {
 
     private Car car [];
     private int times;
-    private String winners;
+    private String winners = "";
 
     public Racing() {
         car = Car.getCarName();
@@ -19,6 +19,7 @@ public class Racing {
             doGame();
         }
         findWinners();
+        printWinners();
     }
 
     public void getTimes() {
@@ -43,8 +44,12 @@ public class Racing {
         System.out.print("최종 우승자 : ");
         for (Car car : car) {
             if (car.getPosition() == max) {
-                winners += (car.getName() + ",");
+                winners += (car.getName() + ", ");
             }
         }
+    }
+
+    public void printWinners() {
+        System.out.println(Utils.removeComma(winners));
     }
 }
