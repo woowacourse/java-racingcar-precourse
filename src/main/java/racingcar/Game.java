@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.HashSet;
 import java.util.Vector;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -54,8 +53,9 @@ public class Game {
 			cars.clear();
 			String carNames = Console.readLine();
 			String[] seperatedCarNames = carNames.split(",");
+			CarNameException carNameException = new CarNameException(seperatedCarNames);
 
-			if (!canMakeCarsCompletely(seperatedCarNames)) {
+			if (!carNameException.canMakeCarsCompletely()) {
 				reset = true;
 			} else {
 				makeCars(seperatedCarNames);
@@ -63,36 +63,6 @@ public class Game {
 
 		}
 
-	}
-
-	private boolean canMakeCarsCompletely(String[] seperatedCarNames) {
-		HashSet<String> carNameSet;
-
-		for (int i = 0; i < seperatedCarNames.length; i++) {
-
-			if (!checkCarNameSizeException(seperatedCarNames[i])) {
-				return false;
-			}
-
-		}
-
-		return true;
-	}
-
-	private boolean checkCarNameSizeException(String carName) {
-
-		try {
-
-			if (carName.length() > LIMIT_CAR_NAME_SIZE || carName.length() == NO_NAME) {
-				throw new IllegalArgumentException();
-			}
-
-		} catch (IllegalArgumentException e) {
-			System.out.println(CAR_NAME_LENGTH_ERROR_MESSAGE_1 + LIMIT_CAR_NAME_SIZE + CAR_NAME_LENGTH_ERROR_MESSAGE_2);
-			return false;
-		}
-
-		return true;
 	}
 
 	private void makeCars(String[] seperatedCarNames) {
