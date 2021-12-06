@@ -12,6 +12,7 @@ public class Judgement {
 	}
 
 	public List<Car> judgeWinner(List<Car> carList) {
+		judgeRanking(carList);
 		List<Car> results = new ArrayList<Car>();
 		int max = carList.get(0).getPosition();
 		for (Car car : carList) {
@@ -21,10 +22,6 @@ public class Judgement {
 			results.add(car);
 		}
 		return results;
-	}
-
-	public boolean checkGameEnd(int count) {
-		return count == 0;
 	}
 
 	private class CarComparator implements Comparator<Car> {
