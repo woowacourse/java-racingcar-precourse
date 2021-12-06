@@ -12,7 +12,11 @@ public class Race {
             cars.add(new Car(name));
         }
 
-        int RaceCount = getRaceCount();
+        int raceCount = getRaceCount();
+
+        Game game = new Game(cars, raceCount);
+
+        game.play();
     }
 
     private String[] getRacePlayerNames() {
