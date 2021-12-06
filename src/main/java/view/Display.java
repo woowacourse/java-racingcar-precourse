@@ -1,8 +1,8 @@
 package view;
 
 public class Display {
+	private static final String COMMA = ", ";
 	private static final int FIRST_CAR = 0;
-	private static final int SOLO_WINNER_LOCATION = 0;
 	private static final int START_CAR_POSITION = 0;
 	private static final String CAR_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -44,20 +44,16 @@ public class Display {
 		System.out.println();
 	}
 
-	public static void showSoloWinner(String[] winner) {
-		System.out.println();
-		System.out.print(WINNER_MESSAGE + winner[SOLO_WINNER_LOCATION]);
-	}
-
-	public static void showJointWinner(String[] winners) {
+	public static void showWinnerMessage() {
 		System.out.println();
 		System.out.print(WINNER_MESSAGE);
-		for (String winner : winners) {
-			showWinner(winner);
-		}
 	}
 
-	private static void showWinner(String winner) {
-		System.out.print(winner + ", ");
+	public static void showWinner(String winner) {
+		System.out.print(winner);
+	}
+
+	public static void putComma() {
+		System.out.print(COMMA);
 	}
 }

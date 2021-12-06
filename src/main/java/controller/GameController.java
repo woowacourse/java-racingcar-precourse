@@ -4,7 +4,7 @@ import model.RacingCarGame;
 import view.Display;
 
 public class GameController {
-	private static final int SOLO_WINNER_COUNT = 1;
+	private static final int FIRST_WINNER_LOCATION = 0;
 
 	private GameController() {
 	}
@@ -31,10 +31,17 @@ public class GameController {
 	}
 
 	private static void showRacingCarGameWinner(String[] racingCarGameWinner) {
-		if (racingCarGameWinner.length == SOLO_WINNER_COUNT) {
-			Display.showSoloWinner(racingCarGameWinner);
-			return;
+		int lastWinnerLocation = racingCarGameWinner.length - 1;
+		for (int index = FIRST_WINNER_LOCATION; index <= lastWinnerLocation; index++) {
+			Display.showWinnerMessage();
+			Display.showWinner(racingCarGameWinner[index]);
+			isLastWinner(lastWinnerLocation, index);
 		}
-		Display.showJointWinner(racingCarGameWinner);
+	}
+
+	private static void isLastWinner(int lastWinnerLocation, int nowWinnerLocation) {
+		if (lastWinnerLocation != nowWinnerLocation) {
+			Display.putComma();
+		}
 	}
 }

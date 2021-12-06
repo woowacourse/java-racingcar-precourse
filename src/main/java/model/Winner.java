@@ -2,9 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Winner {
 	private static final int FIRST_CAR = 0;
