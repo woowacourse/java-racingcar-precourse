@@ -2,9 +2,13 @@ package racingcar.view;
 
 import static racingcar.resource.MessageResoruce.*;
 
+import java.util.List;
+
 import racingcar.domain.Cars;
 
 public class OutputView {
+	private static final String DELIMETER = ",";
+
 	private OutputView() {}
 
 	public static void printMessage(final String message) {
@@ -30,5 +34,10 @@ public class OutputView {
 
 			printNewLine();
 		});
+	}
+
+	public static void printWinners(final List<String> winners) {
+		printMessage(OUTPUT_WINNER);
+		printlnMessage(String.join(DELIMETER, winners));
 	}
 }
