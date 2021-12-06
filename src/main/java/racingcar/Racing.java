@@ -24,9 +24,10 @@ public class Racing {
         for (Car car : car) {
             if (Utils.exceedMoveForwardScoreOrNot(Utils.getRandomNumber())) {
                 car.move();
-                car.printCarName();
-                car.printPosition();
             }
+            car.printCarName();
+            car.printPosition();
         }
+        System.out.println();
     }
 }
