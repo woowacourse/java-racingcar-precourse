@@ -1,9 +1,12 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validation.CarNamesValidator;
+import racingcar.validation.RoundNumberValidator;
 
 public class CarRacingGame {
-	private static final InputValidator inputValidator = new InputValidator();
+	private static final CarNamesValidator namesValidator = new CarNamesValidator();
+	private static final RoundNumberValidator numberValidator = new RoundNumberValidator();
 	private int roundNumber;
 	private Cars cars;
 
@@ -31,7 +34,7 @@ public class CarRacingGame {
 		while (true) {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			String[] names = Console.readLine().split(",");
-			if (inputValidator.isValidNamesInput(names)) {
+			if (namesValidator.isValidNamesInput(names)) {
 				return names;
 			}
 		}
@@ -41,7 +44,7 @@ public class CarRacingGame {
 		while (true) {
 			System.out.println("시도할 회수는 몇회인가요?");
 			String roundNumber = Console.readLine();
-			if (inputValidator.isValidNumberInput(roundNumber)) {
+			if (numberValidator.isValidNumberInput(roundNumber)) {
 				this.roundNumber = Integer.parseInt(roundNumber);
 				return;
 			}

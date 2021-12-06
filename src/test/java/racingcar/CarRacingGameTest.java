@@ -2,26 +2,30 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import racingcar.validation.CarNamesValidator;
+import racingcar.validation.RoundNumberValidator;
+
 class CarRacingGameTest {
-	private InputValidator inputValidator = new InputValidator();
+	private static final CarNamesValidator namesValidator = new CarNamesValidator();
+	private static final RoundNumberValidator numberValidator = new RoundNumberValidator();
 
 	@Test
 	void isNameInputException() {
 		String[] namesTrue = {"ab", "abc", "abcde"};
-		assert inputValidator.isValidNamesInput(namesTrue) == true;
+		assert namesValidator.isValidNamesInput(namesTrue) == true;
 
 		String[] namesLengthFalse = {"ab", "abc", "abcdef"};
-		assert inputValidator.isValidNamesInput(namesLengthFalse) == false;
+		assert namesValidator.isValidNamesInput(namesLengthFalse) == false;
 
 		String[] namesDistinctFalse = {"ab", "abc", "abc"};
-		assert inputValidator.isValidNamesInput(namesDistinctFalse) == false;
+		assert namesValidator.isValidNamesInput(namesDistinctFalse) == false;
 	}
 
 	@Test
 	void isRoundNumberInputException() {
-		assert inputValidator.isValidNumberInput("2") == true;
-		assert inputValidator.isValidNumberInput("0") == false;
-		assert inputValidator.isValidNumberInput("two") == false;
+		assert numberValidator.isValidNumberInput("2") == true;
+		assert numberValidator.isValidNumberInput("0") == false;
+		assert numberValidator.isValidNumberInput("two") == false;
 	}
 
 }
