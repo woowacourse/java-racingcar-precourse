@@ -6,6 +6,8 @@ public class OutputRole {
     private static final String RESULT_INSTRUCTION = "실행 결과 ";
     private static final String MATCH_USER_AND_RESULT = " : ";
     private static final String PROGRESS_BAR_UNIT = "-";
+    private static final String FINAL_WINNER = "최종 우승자";
+    private static final String COMMA = ", ";
 
 
     public void pirntResultInstruction() {
@@ -22,6 +24,17 @@ public class OutputRole {
 
     }
 
+    public void printWinner(ArrayList<String> winnersList) {
+        System.out.print(FINAL_WINNER + MATCH_USER_AND_RESULT);
+        String winners = "";
+        for (String winner : winnersList) {
+            winners = winners.concat(winner+COMMA);
+        }
+        System.out.print(winners.substring(0, winners.length()-2));
+
+
+    }
+
     private void printFormattedResult(Car car) {
         String carName = car.getName();
         int position = car.getPosition();
@@ -35,4 +48,5 @@ public class OutputRole {
             System.out.print(PROGRESS_BAR_UNIT);
         }
     }
+
 }

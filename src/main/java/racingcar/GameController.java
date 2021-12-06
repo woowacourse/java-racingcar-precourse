@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class GameController {
     private final ArrayList<Car> carList = new ArrayList<>();
-    private final ArrayList<String> winnerList = new ArrayList<>();
+    private final ArrayList<String> winnersList = new ArrayList<>();
 
     public void gameStart() {
         InputRole inputRole = new InputRole();
@@ -20,6 +20,7 @@ public class GameController {
             outputRole.printOneGame(carList);
         }
         findWinner();
+        outputRole.printWinner(winnersList);
 
 
     }
@@ -55,7 +56,7 @@ public class GameController {
         int maxValue = findMaxInCarList(carList);
         for (Car car : carList) {
             if(car.getPosition() == maxValue) {
-                winnerList.add(car.getName());
+                winnersList.add(car.getName());
             }
         }
     }
