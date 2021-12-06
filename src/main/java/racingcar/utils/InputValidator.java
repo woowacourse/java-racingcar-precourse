@@ -9,7 +9,7 @@ public class InputValidator {
     final private static String ERR_INVALID_NAMES = ERROR_PREFIX + "잘못된 형식의 입력입니다!";
     final private static String ERR_INVALID_NUMBER = ERROR_PREFIX + "숫자만 입력해주세요.";
     final private static int NAME_MAX_LENGTH = 5;
-    final private static char DELIMITER_CHAR = ',';
+    final private static char DELIMITER_NAME_CHAR = ',';
     final private static String NUMERIC_REGEX = "[0-9]";
 
     public static void validateCarNames(String input, List<String> names)
@@ -39,7 +39,7 @@ public class InputValidator {
 
     private static boolean isValidFormat(String name, List<String> names) {
         return name.chars()
-            .filter(c -> c == DELIMITER_CHAR)
+            .filter(c -> c == DELIMITER_NAME_CHAR)
             .count() + 1 == names.size();
     }
 

@@ -7,13 +7,13 @@ import java.util.function.Supplier;
 
 public class CarGameInputHandler {
 
-    final private static String DELIMITER = ",";
+    final private static String DELIMITER_NAME = ",";
 
     public static List<String> getValidCarNames() {
         return getValidInput(
             () -> {
                 String input = Console.readLine();
-                List<String> names = Arrays.asList(input.split(DELIMITER));
+                List<String> names = Arrays.asList(input.split(DELIMITER_NAME));
                 InputValidator.validateCarNames(input, names);
                 return names;
             }
