@@ -6,6 +6,7 @@ public class Validation {
     private static final int MIN_CAR_NUMBER = 2;
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int ZERO = 0;
     private ArrayList<String> carNames;
     private String errorMessage;
 
@@ -17,7 +18,25 @@ public class Validation {
 
         if (carNames.size() < MIN_CAR_NUMBER) {
             errorMessage = ErrorText.ERROR_CAR_NUMBER;
+
+            if (carNames.size() == ZERO) {
+                errorMessage = ErrorText.ERROR_NAME_NOT_EXISTS;
+            }
+
             throwInputException();
+        }
+
+    }
+
+    private void checkNameExists() {
+
+        for (String name : carNames) {
+
+            if (name.trim().length() == ZERO) {
+                errorMessage = ErrorText.ERROR_NAME_NOT_EXISTS;
+                throwInputException();
+            }
+
         }
 
     }
@@ -63,6 +82,7 @@ public class Validation {
 
     private void validateCarNames() {
         checkCarNumber();
+        checkNameExists();
         checkSpacePosition();
         checkNameLength();
         checkNameOverlap();
