@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Validator;
 
 /*
 * 사용자로부터 입력받기

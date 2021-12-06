@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 /*
  * 값이 유효한지 검사하는 클래스
