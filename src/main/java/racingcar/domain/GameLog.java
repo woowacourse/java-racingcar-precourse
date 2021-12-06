@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class GameLog {
-	StringBuilder log;
+	private final StringBuilder log;
 
 	public GameLog() {
 		this.log = new StringBuilder(GAME_RESULT_HINT.getString());
