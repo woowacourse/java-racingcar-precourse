@@ -6,6 +6,8 @@ import java.util.StringTokenizer;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
+    private Validation validator = new Validation();
+
     private void requestCarNames() {
         System.out.println(Text.REQUEST_CAR_NAMES);
     }
@@ -26,10 +28,17 @@ public class InputManager {
     }
 
     public ArrayList<String> provideCarNames() {
-        requestCarNames();
-        String inputCarNames = receiveUserInput();
-        ArrayList<String> carNames = separateInputCarNames(inputCarNames);
 
-        return carNames;
+        while (true) {
+            requestCarNames();
+            String inputCarNames = receiveUserInput();
+            ArrayList<String> carNames = separateInputCarNames(inputCarNames);
+
+            if (validator.isValidCarNames(carNames)) {
+                return carNames;
+            }
+
+        }
+
     }
 }
