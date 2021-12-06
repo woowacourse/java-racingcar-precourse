@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import java.util.List;
+
 public class Validator {
 	private static final int CAR_NAME_RESTRICTIONS_MIN = 1;
 	private static final int CAR_NAME_RESTRICTIONS_MAX = 5;
@@ -7,9 +9,11 @@ public class Validator {
 	private final Parser parser = new Parser();
 
 	public void checkCarNamesInput(String input) throws IllegalArgumentException {
-		checkLastIndexOfMark(input);
-		for (String carName : parser.parseCarNames(input)) {
-			checkLength(carName);
+		checkLastIndexAndThrowException(input);
+		List<String> carNameList = parser.parseCarNames(input);
+		checkCarNameListDuplication(carNameList);
+		for (String carName : carNameList) {
+			checkLengthAndThrowException(carName);
 			checkSpace(carName);
 		}
 	}
@@ -22,13 +26,27 @@ public class Validator {
 		}
 	}
 
-	private void checkLastIndexOfMark(String input) throws IllegalArgumentException {
+	private void checkCarNameListDuplication(List<String> carNameList) {
+		for (int i = 0; i < carNameList.size(); i++) {
+			for (int j = i + 1; j < carNameList.size(); j++) {
+				checkEqualsAndThrowException(carNameList.get(i), carNameList.get(j));
+			}
+		}
+	}
+
+	private void checkEqualsAndThrowException(String carName1, String carName2) {
+		if (carName1.equals(carName2)) {
+			throw new IllegalArgumentException("[ERROR] 같은 이름을 가진 자동차가 있습니다.");
+		}
+	}
+
+	private void checkLastIndexAndThrowException(String input) throws IllegalArgumentException {
 		if (input.lastIndexOf(",") == input.length() - 1) {
 			throwMinLengthException();
 		}
 	}
 
-	private void checkLength(String carName) throws IllegalArgumentException {
+	private void checkLengthAndThrowException(String carName) throws IllegalArgumentException {
 		if (CAR_NAME_RESTRICTIONS_MAX < carName.length()) {
 			throwMaxLengthException();
 		}
