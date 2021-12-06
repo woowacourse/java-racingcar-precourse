@@ -1,8 +1,10 @@
 package racingcar;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Message;
 
 public class Game {
@@ -21,5 +23,21 @@ public class Game {
 		}
 
 		//List<Car>의 position 비교하여 최종 우승자 뽑는 로직 구현
+	}
+
+	public List<Car> updateCarListPosition(List<Car> carList) {
+		return carList.stream()
+			.map(this::updateCarRandom)
+			.collect(Collectors.toList());
+	}
+
+	private Car updateCarRandom(Car car) {
+		int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+		if (randomNumber > 4 || randomNumber == 4) {
+			car.updatePosition();
+		}
+
+		return car;
 	}
 }

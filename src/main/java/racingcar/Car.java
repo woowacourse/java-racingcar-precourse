@@ -8,5 +8,8 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public Car updatePosition() {
+        this.position += 1;
+        return this;
+    }
 }
