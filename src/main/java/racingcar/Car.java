@@ -17,7 +17,7 @@ public class Car {
 	}
 
 	private int convertRandomNumToForwardStep(int randomNum) {
-		if (randomNum > MINIMUM_CONDITION_MOVE_FORWARD) {
+		if (randomNum >= MINIMUM_CONDITION_MOVE_FORWARD) {
 			return 1;
 		}
 		return 0;
