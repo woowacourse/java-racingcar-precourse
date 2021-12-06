@@ -12,6 +12,16 @@ public class Game {
     }
 
     public void play() {
+        for (int i = 0; i < raceCount; i++) {
+            moveOneRound();
+        }
+    }
 
+    private void moveOneRound() {
+        for (Car car: cars) {
+            car.move();
+        }
+
+        System.out.println("");
     }
 }
