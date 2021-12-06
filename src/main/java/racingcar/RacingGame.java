@@ -2,6 +2,7 @@ package racingcar;
 
 import static racingcar.utils.StringConstants.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -18,9 +19,11 @@ public class RacingGame {
     }
 
     public List<Car> createCars(String[] carNames) {
+        List<Car> carsToSave = new ArrayList<>();
         for (String carName : carNames) {
-            carRepository.saveInOrder(Car.create(carName));
+            carsToSave.add(Car.create(carName));
         }
+        carRepository.saveInOrder(carsToSave);
         return findCarsInOrder();
     }
 

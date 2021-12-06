@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.utils.StringConstants.MIN_NUMBER_TO_CAR_TO_GO;
 
 import java.util.ArrayList;
@@ -8,9 +8,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import racingcar.car.Car;
-import racingcar.car.CarRepository;
 
 class CarRepositoryTest {
     private final List<Car> initialCarsToSave = new ArrayList<>();
@@ -23,10 +20,8 @@ class CarRepositoryTest {
         saveCarsInRepository();
     }
 
-    private void  saveCarsInRepository() {
-        for (Car car : initialCarsToSave) {
-            carRepository.saveInOrder(car);
-        }
+    private void saveCarsInRepository() {
+        carRepository.saveInOrder(initialCarsToSave);
     }
 
     private void addCarsToList() {
