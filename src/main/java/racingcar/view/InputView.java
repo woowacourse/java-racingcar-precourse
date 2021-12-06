@@ -23,8 +23,10 @@ public class InputView {
         String[] carNames = inputInit();
         cars = new ArrayList<>();
         Arrays.stream(carNames).forEach(name -> cars.add(new Car(name)));
+
         while (true) {
             try {
+                hasOnlyComma(cars);
                 validateCarName(cars);
                 hasSameCarName(cars);
                 return cars;
@@ -56,6 +58,17 @@ public class InputView {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(Input.OVERLAP_ERROR_MESSAGE);
+            validateInput();
+        }
+    }
+
+    private void hasOnlyComma(ArrayList<Car> cars) throws IllegalArgumentException {
+        try {
+            if (cars.size() == Condition.HAS_ONLY_COMMA) {
+                throw new IllegalArgumentException();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(Input.ONLY_COMMA_ERROR_MESSAGE);
             validateInput();
         }
     }

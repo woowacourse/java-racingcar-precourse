@@ -6,4 +6,5 @@ public class Condition {
     public static final int MINIMUM_CAR_MOVE_INPUT_LENGTH = 1;
     public static final int MINIMUM_CAR_MOVE_TIMES = 1;
     public static final int MINIMUM_NUMBER_FOR_FORWARD = 4;
+    public static final int HAS_ONLY_COMMA = 0;
 }
