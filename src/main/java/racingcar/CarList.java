@@ -1,6 +1,8 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -13,10 +15,23 @@ public class CarList {
 		}
 	}
 
-	private void moveCars() {
+	public void moveAll() {
 		for (Car car : this.cars) {
 			if (Randoms.pickNumberInRange(0, 9) >= 4)
 				car.moveForward();
 		}
+	}
+
+	private List<Car> getWinners() {
+		return this.cars.stream()
+			.filter(car -> car.getPosition() == getMaxPosition())
+			.collect(Collectors.toList());
+	}
+
+	private int getMaxPosition() {
+		return this.cars.stream()
+			.mapToInt(Car::getPosition)
+			.max()
+			.getAsInt();
 	}
 }
