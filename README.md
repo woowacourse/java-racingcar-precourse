@@ -5,7 +5,7 @@
 - 이름 (엔티티) [x]
 - 위치 (엔티티?) [x]
 - Car         [x]
-- Cars (List) [ ]
+- Cars (List) [x]
 
 ### 2. User Interface Package
 
