@@ -23,6 +23,8 @@ public class GameController {
 			racingCarGame.playRacingCarGame();
 			showRacingCarNowPositions(racingCarGame.giveRacingCarNames(), racingCarGame.giveRacingCarPositions());
 		}
+
+		System.out.println(racingCarGame.giveWinner());
 	}
 
 	private static void showRacingCarNowPositions(String[] racingCarNames, int[] racingCarPositions) {

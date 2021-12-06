@@ -3,6 +3,7 @@ package model;
 public class RacingCarGame {
 	private RacingCars racingCars;
 	private RaceCount raceCount;
+	private Winner winner;
 
 	public RacingCarGame(String[] racingCarNames) {
 		racingCars = new RacingCars(racingCarNames);
@@ -30,5 +31,10 @@ public class RacingCarGame {
 
 	public int[] giveRacingCarPositions() {
 		return racingCars.findCarPositions();
+	}
+
+	public String[] giveWinner() {
+		winner = new Winner(giveRacingCarNames(), giveRacingCarPositions());
+		return winner.getWinners().stream().toArray(String[]::new);
 	}
 }
