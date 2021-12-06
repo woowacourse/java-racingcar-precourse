@@ -3,8 +3,11 @@ package racingcar.domain;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.type.RangeType;
+import racingcar.view.OutputView;
 
 public class Cars {
 
@@ -16,10 +19,6 @@ public class Cars {
 	public Cars(List<Car> cars) {
 		validateLengthAndDuplicate(cars);
 		this.cars = cars;
-	}
-
-	public int getWinnerPosition() {
-		return winnerPosition;
 	}
 
 	private void validateLengthAndDuplicate(List<Car> cars) {
@@ -54,5 +53,27 @@ public class Cars {
 
 	public void updateWinnerPosition(int position) {
 		winnerPosition = Math.max(winnerPosition, position);
+	}
+
+	public void race() {
+		for (Car car : cars) {
+			int randomNumber = generateRandomNumber();
+			car.move(randomNumber);
+			updateWinnerPosition(car.getPosition());
+			OutputView.printRaceProgress(car);
+		}
+		OutputView.printNewline();
+	}
+
+	private int generateRandomNumber() {
+		return Randoms.pickNumberInRange(RangeType.ZERO.getValue(),
+			RangeType.MAX_RANDOM_NUMBER.getValue());
+	}
+
+	public List<String> getWinners() {
+		return cars.stream()
+			.filter(car -> car.getPosition() == winnerPosition)
+			.map(car -> car.getName())
+			.collect(Collectors.toList());
 	}
 }

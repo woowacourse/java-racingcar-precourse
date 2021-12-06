@@ -18,9 +18,8 @@ public class GameController {
 		RacingGame racingGame = new RacingGame(cars, gameRound);
 		while (!racingGame.isFinish()) {
 			racingGame.race();
-			OutputView.printRaceProgress(cars);
 		}
-		OutputView.printRaceResult(racingGame.findWinner());
+		OutputView.printRaceResult(racingGame.findWinners());
 	}
 
 	private Cars inputCars() {

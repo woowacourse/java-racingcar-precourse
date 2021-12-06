@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
-import racingcar.domain.Cars;
 
 public class OutputView {
 
@@ -29,12 +28,11 @@ public class OutputView {
 		System.out.println(message);
 	}
 
-	public static void printRaceProgress(Cars cars) {
+	public static void printRaceProgress(Car car) {
 		StringBuilder raceProgress = new StringBuilder();
-		for (Car car : cars.getCars()) {
-			raceProgress.append(car.getName() + COLON + getCarPositionMark(car.getPosition()) + NEWLINE);
-		}
-		raceProgress.append(NEWLINE);
+		raceProgress.append(car.getName())
+			.append(COLON)
+			.append(getCarPositionMark(car.getPosition()));
 		print(raceProgress.toString());
 	}
 
@@ -52,5 +50,9 @@ public class OutputView {
 
 	public static void printRaceResult(String winner) {
 		print(WINNER + COLON + winner);
+	}
+
+	public static void printNewline() {
+		System.out.println();
 	}
 }
