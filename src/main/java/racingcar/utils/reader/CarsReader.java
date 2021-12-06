@@ -3,6 +3,7 @@ package racingcar.utils.reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
@@ -27,12 +28,8 @@ public class CarsReader {
 	}
 
 	private static List<Car> generateCars(List<String> names) {
-		List<Car> result = new ArrayList<>();
-
-		for (String name : names) {
-			result.add(new Car(NameValidator.validate(name)));
-		}
-
-		return result;
+		return names.stream()
+			.map(name -> new Car(NameValidator.validate(name)))
+			.collect(Collectors.toList());
 	}
 }
