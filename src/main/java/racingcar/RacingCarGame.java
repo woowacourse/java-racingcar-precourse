@@ -12,6 +12,7 @@ public class RacingCarGame  implements Game {
     @Override
     public void play() {
 
+        racingCars = new ArrayList<>();
         List<String> temporaryRacingCars;
         boolean correctInput = true;
         String trial;
