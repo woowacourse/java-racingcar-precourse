@@ -16,7 +16,7 @@ public class RacingCars {
 
 	public void moveOrStopCars() {
 		racingCars.forEach(
-			car -> car.decideMoveOrStop()
+			Car::decideMoveOrStop
 		);
 	}
 }
