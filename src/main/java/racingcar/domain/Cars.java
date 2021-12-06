@@ -19,10 +19,13 @@ public class Cars {
 
     public static Cars createRandomCars(List<String> names) {
         checkDuplicateName(names);
-        List<Car> cars = names.stream()
+        return new Cars(createRandomMoveCars(names));
+    }
+
+    private static List<Car> createRandomMoveCars(List<String> names) {
+        return names.stream()
             .map(Car::createRandomMoveCar)
             .collect(Collectors.toList());
-        return new Cars(cars);
     }
 
     private static void checkDuplicateName(List<String> names) {
