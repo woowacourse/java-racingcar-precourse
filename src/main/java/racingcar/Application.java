@@ -106,10 +106,12 @@ public class Application {
     public void run() {
         Car[] carList = getCarList();
         int tryCount = getTryCount();
+        System.out.println();
 
         for (int i = 0; i < tryCount; i++) {
             moveTotalCar(carList);
             printTotalCar(carList);
+            System.out.println();
         }
 
         String[] winnerList = getWinnerList(carList);
