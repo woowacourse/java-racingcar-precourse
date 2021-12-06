@@ -83,6 +83,10 @@ public class RacingGame {
     }
 
     private void validateNameLength(List<String> names) throws IllegalArgumentException{
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        System.out.println(names);
         for (String name : names) {
             if (name.length() > MAX_NAME_LENGTH || name.length() < MIN_NAME_LENGTH) {
                 throw new IllegalArgumentException();
