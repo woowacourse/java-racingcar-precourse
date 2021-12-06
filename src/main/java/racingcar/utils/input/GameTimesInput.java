@@ -8,16 +8,16 @@ public class GameTimesInput {
 
 	private GameTimesValidator gameTimesValidator;
 
-	public GameTimesInput(){
+	public GameTimesInput() {
 		gameTimesValidator = new GameTimesValidator();
 	}
 
-	public int getGameTimes(){
+	public int getGameTimes() {
 		String times;
 		do {
 			System.out.println(InputMessages.TIMES_INPUT);
 			times = Console.readLine();
-		}while (gameTimesValidator.isInvalidTimes(times));
+		} while (gameTimesValidator.isInvalidTimes(times));
 		return Integer.parseInt(times);
 	}
 }

@@ -22,7 +22,7 @@ public class CarNameInput {
 			System.out.println(InputMessages.NAME_INPUT);
 			String readCars = Console.readLine();
 			carArray = readCars.split(",");
-		}while(carNameValidator.isInvalidName(carArray));
+		} while (carNameValidator.isInvalidName(carArray));
 
 		return Arrays.stream(carArray)
 			.map(name -> new Car(name))

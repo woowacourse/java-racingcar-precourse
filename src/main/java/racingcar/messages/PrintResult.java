@@ -7,7 +7,7 @@ import racingcar.domain.Car;
 
 public class PrintResult {
 	private static final String RESULT_DELIMITER = "-";
-	private static final String	WINNER_DELIMITER = ", ";
+	private static final String WINNER_DELIMITER = ", ";
 
 	public void printGameResult(Car car) {
 		int moveCount = car.getPosition();

@@ -25,8 +25,6 @@ public class GameTimesValidator {
 		return false;
 	}
 
-
-
 	private boolean isEmptyString(String[] timesArray) {
 		return Arrays.stream(timesArray)
 			.anyMatch(character -> character.isEmpty());
