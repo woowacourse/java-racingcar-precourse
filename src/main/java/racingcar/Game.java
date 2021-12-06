@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Message;
+import racingcar.iomanagement.OutputPrinter;
 
 public class Game {
 	CarGenerator carGenerator = new CarGenerator();
+	OutputPrinter outputPrinter = new OutputPrinter();
 
 	public void startGame() {
 		System.out.println(Message.CAR_INPUT);
@@ -19,7 +21,9 @@ public class Game {
 		long count = Long.parseLong(Console.readLine());
 
 		for (int i = 0; i < count; i++) {
-			//게임 진행 로직 구현
+			carList = updateCarListPosition(carList);
+			carList.forEach(car -> outputPrinter.printStepResult(car));
+			System.out.println();
 		}
 
 		//List<Car>의 position 비교하여 최종 우승자 뽑는 로직 구현
