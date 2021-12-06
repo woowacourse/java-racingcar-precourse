@@ -1,7 +1,7 @@
 package model;
 
 public class Car {
-	private static final int CAR_MOVE = 1;
+	private static final int MOVE_NUMBER = 1;
 	private static final int MIN_CONDITION_NUMBER = 4;
 	private final String name;
 	private int position = 0;
@@ -12,7 +12,7 @@ public class Car {
 
 	public void moveCar(int randomNumber) {
 		if (possibleToMove(randomNumber)) {
-			position += CAR_MOVE;
+			position += MOVE_NUMBER;
 		}
 	}
 

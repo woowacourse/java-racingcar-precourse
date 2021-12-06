@@ -2,13 +2,13 @@ package utils;
 
 import java.util.Arrays;
 
-public class CarNamesInputValidator {
+public class NameInputValidator {
 	private static final char CHAR_COMMA = ',';
 	private static final String STRING_COMMA = ",";
 	private static final String BLANK = " ";
 	private static final int MIN_CAR_COUNT = 2;
-	private static final int MAX_CAR_NAME_NUMBER = 5;
-	private static final int MIN_CAR_NAME_NUMBER = 1;
+	private static final int MAX_CAR_NAME_COUNT = 5;
+	private static final int MIN_CAR_NAME_COUNT = 1;
 	private static final String BLANK_ERROR_MESSAGE = "[ERROR] 입력한 자동차 이름에 공백이 있다.";
 	private static final String DUPLICATE_ERROR_MESSAGE = "[ERROR] 입력한 자동차 이름중 중복되는 이름이 있다.";
 	private static final String CAR_COUNT_ERROR_MESSAGE = "[ERROR] 입력한 자동차가 두대 미만 이다.";
@@ -16,7 +16,7 @@ public class CarNamesInputValidator {
 	private static final String MIN_CAR_NAME_ERROR_MESSAGE = "[ERROR] 입력한 자동차 이름중 이름이 없는 경우가 있다.";
 	private static final String LAST_INPUT_ERROR_MESSAGE = "[ERROR] 입력한 자동차 이름 마지막 ',' 다음에 입력된 자동차 이름이 없다.";
 
-	private CarNamesInputValidator() {
+	private NameInputValidator() {
 	}
 
 	public static String[] isValideRacingCarNames(String inputRacingCarNames) {
@@ -65,10 +65,10 @@ public class CarNamesInputValidator {
 	}
 
 	private static void isValideRacingCarNameLength(String racingCarName) {
-		if (racingCarName.length() > MAX_CAR_NAME_NUMBER) {
+		if (racingCarName.length() > MAX_CAR_NAME_COUNT) {
 			throw new IllegalArgumentException(MAX_CAR_NAME_ERROR_MESSAGE);
 		}
-		if (racingCarName.length() < MIN_CAR_NAME_NUMBER) {
+		if (racingCarName.length() < MIN_CAR_NAME_COUNT) {
 			throw new IllegalArgumentException(MIN_CAR_NAME_ERROR_MESSAGE);
 		}
 	}

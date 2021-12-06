@@ -1,8 +1,8 @@
 package controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import utils.CarNamesInputValidator;
-import utils.RaceInputValidator;
+import utils.NameInputValidator;
+import utils.CountInputValidator;
 
 public class InputController {
 	private final static boolean INPUT_ERROR = true;
@@ -14,7 +14,7 @@ public class InputController {
 		while (INPUT_ERROR) {
 			try {
 				String racingCarNames = Console.readLine();
-				return CarNamesInputValidator.isValideRacingCarNames(racingCarNames);
+				return NameInputValidator.isValideRacingCarNames(racingCarNames);
 			} catch (IllegalArgumentException error) {
 				System.out.println(error.getMessage());
 			}
@@ -25,7 +25,7 @@ public class InputController {
 		while (INPUT_ERROR) {
 			try {
 				String raceCount = Console.readLine();
-				return RaceInputValidator.isValideRaceCount(raceCount);
+				return CountInputValidator.isValideRaceCount(raceCount);
 			} catch (IllegalArgumentException error) {
 				System.out.println(error.getMessage());
 			}

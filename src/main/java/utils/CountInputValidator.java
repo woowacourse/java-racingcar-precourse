@@ -2,7 +2,7 @@ package utils;
 
 import java.util.regex.Pattern;
 
-public class RaceInputValidator {
+public class CountInputValidator {
 	private static final String NUMBER_PATTERN = "^[0-9]*$";
 	private static final String BLANK = " ";
 	private static final int MIN_RACE_COUNT = 1;
@@ -12,7 +12,7 @@ public class RaceInputValidator {
 	private static final String NOT_RIGHT_NUMBER_ERROR_MESSAGE = "[ERROR] 입력한 경주횟수가 올바른수(양수)가 아니다.";
 	private static final String START_NUMBER_ERROR_MESSAGE = "[ERROR] 입력한 경주횟수가 0으로 시작한다.";
 
-	private RaceInputValidator() {
+	private CountInputValidator() {
 	}
 
 	public static int isValideRaceCount(String raceCount) {
