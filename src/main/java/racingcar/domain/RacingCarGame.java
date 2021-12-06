@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -33,6 +34,7 @@ public class RacingCarGame {
         Arrays.stream(carNames)
                 .forEach(name -> cars.add(new Car(name)));
         validateCarName(cars);
+        hasSameCarName(cars);
     }
 
     private void validateCarName(ArrayList<Car> cars) {
@@ -43,6 +45,21 @@ public class RacingCarGame {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(Input.CAR_NAME_ERROR_MESSAGE);
+            inputCarName();
+        }
+    }
+
+    private void hasSameCarName(ArrayList<Car> cars) {
+        HashSet<String> carNameSet = new HashSet<>();
+        try {
+            for (Car car : cars) {
+                carNameSet.add(car.getName());
+            }
+            if (cars.size() != carNameSet.size()) {
+                throw new IllegalArgumentException();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(Input.OVERLAP_ERROR_MESSAGE);
             inputCarName();
         }
     }

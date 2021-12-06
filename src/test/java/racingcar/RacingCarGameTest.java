@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,16 @@ class RacingCarGameTest {
         }
     }
 
+    private void hasSameCarName(ArrayList<Car> cars) {
+        HashSet<String> carNameSet = new HashSet<>();
+        for (Car car : cars) {
+            carNameSet.add(car.getName());
+        }
+        if (cars.size() != carNameSet.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     @Test
     void 자동차_이름_입력_예외() {
         String[] carNames = {"Mike Wazowski", ""};
@@ -47,5 +58,14 @@ class RacingCarGameTest {
         assertDoesNotThrow(() -> validateTimes("10"));
         assertDoesNotThrow(() -> validateTimes("1"));
         assertDoesNotThrow(() -> validateTimes("999"));
+    }
+
+    @Test
+    void 자동차_이름_중복_예외() {
+        String[] carNames = {"Mike", "Mike", "James"};
+        ArrayList<Car> cars = new ArrayList<>();
+        Arrays.stream(carNames)
+                .forEach(name -> cars.add(new Car(name)));
+        assertThrows(IllegalArgumentException.class, () -> hasSameCarName(cars));
     }
 }
