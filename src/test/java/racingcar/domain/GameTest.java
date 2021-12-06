@@ -4,25 +4,31 @@ import static racingcar.constant.GameConstants.GameStringConversion.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GameTest {
-	List<Car> carList;
+	List<String> carNameList;
 	Game game;
 
 	@BeforeEach
 	void setUp() {
-		carList = Arrays.asList(new Car("자1동차"), new Car("자2동차"), new Car("자3동차"));
-		game = new Game(carList);
+		carNameList = Arrays.asList("자1동차", "자2동차", "자3동차");
+		game = new Game(carNameList);
 	}
 
 	@Test
 	void 자동차_리스트_삽입() {
-		// given, when, then
-		Assertions.assertThat(game.getCarList().containsAll(carList)).isTrue();
+		// given, when
+		List<String> carNameListFromGameClass = game.getCarList()
+			.stream()
+			.map(Car::getName)
+			.collect(Collectors.toList());
+		// then
+		Assertions.assertThat(carNameListFromGameClass.containsAll(carNameList)).isTrue();
 	}
 
 	@Test
@@ -73,7 +79,7 @@ public class GameTest {
 			expectedWinnerStringBuilder.length() - GAME_WINNER_DELIMITER.getString().length());
 
 		//then
-		carList.forEach(car -> Assertions.assertThat(game.toString()).contains(car.toString()));
+		carNameList.forEach(car -> Assertions.assertThat(game.toString()).contains(car.toString()));
 		Assertions.assertThat(game.toString()).contains(GAME_RESULT_HINT.getString());
 		Assertions.assertThat(game.toString()).contains(expectedWinnerString);
 	}

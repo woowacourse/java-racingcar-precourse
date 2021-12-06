@@ -11,18 +11,17 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import racingcar.domain.Car;
 import racingcar.domain.Game;
 
 class OutputViewTest {
-	List<Car> carList;
+	List<String> carList;
 	Game game;
 	ByteArrayOutputStream byteArrayOutputStream;
 	PrintStream printStream;
 
 	@BeforeEach
 	void setUp() {
-		carList = Arrays.asList(new Car("자1동차"), new Car("자2동차"), new Car("자3동차"));
+		carList = Arrays.asList("자1동차", "자2동차", "자3동차");
 		game = new Game(carList);
 		byteArrayOutputStream = new ByteArrayOutputStream();
 		printStream = new PrintStream(byteArrayOutputStream);
