@@ -38,7 +38,7 @@ public class RacingGame {
 		try {
 			tryCntAboutCarMoving = Validator.validateTryCnt(enterTryCnt());
 		} catch (IllegalArgumentException e) {
-			System.out.println(String.format(SHOW_ERROR_MESSAGE, e.getMessage()));
+			System.out.printf((SHOW_ERROR_MESSAGE) + "%n", e.getMessage());
 			determineTryCnt();
 		}
 	}
@@ -49,7 +49,7 @@ public class RacingGame {
 			Validator.validateEveryCarName(everyCarName);
 			everyCar = new EveryCar(everyCarName);
 		} catch (IllegalArgumentException e) {
-			System.out.println(String.format(SHOW_ERROR_MESSAGE, e.getMessage()));
+			System.out.printf((SHOW_ERROR_MESSAGE) + "%n", e.getMessage());
 			participateEveryCar();
 		}
 	}

@@ -1,10 +1,10 @@
 package racingcar.dto;
 
-public class CarDTO {
+public class CarDto {
 	private final String name;
 	private final int movingDistance;
 
-	public CarDTO(String name, int movingDistance) {
+	public CarDto(String name, int movingDistance) {
 		this.name = name;
 		this.movingDistance = movingDistance;
 	}

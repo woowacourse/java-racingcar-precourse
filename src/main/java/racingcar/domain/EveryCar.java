@@ -3,8 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import racingcar.domain.Car;
-import racingcar.dto.CarDTO;
+import racingcar.dto.CarDto;
 import racingcar.view.OutputView;
 
 public class EveryCar {
@@ -19,17 +18,17 @@ public class EveryCar {
 	}
 
 	public void moveEveryCarThisTiming() {
-		ArrayList<CarDTO> carsDTO = new ArrayList<>();
-		cars.stream().forEach(eachCar -> {
+		ArrayList<CarDto> carsDto = new ArrayList<>();
+		cars.forEach(eachCar -> {
 			eachCar.move();
-			carsDTO.add(new CarDTO(eachCar.getName(), eachCar.showMovingDistance()));
+			carsDto.add(new CarDto(eachCar.getName(), eachCar.showMovingDistance()));
 		});
-		OutputView.showResultThisTiming(carsDTO);
+		OutputView.showResultThisTiming(carsDto);
 	}
 
 	public void showThisGameWinner() {
-		ArrayList<CarDTO> carsDTO = new ArrayList<>();
-		cars.stream().forEach(eachCar -> carsDTO.add(new CarDTO(eachCar.getName(), eachCar.showMovingDistance())));
-		OutputView.showThisGameWinner(carsDTO);
+		ArrayList<CarDto> carsDto = new ArrayList<>();
+		cars.forEach(eachCar -> carsDto.add(new CarDto(eachCar.getName(), eachCar.showMovingDistance())));
+		OutputView.showThisGameWinner(carsDto);
 	}
 }

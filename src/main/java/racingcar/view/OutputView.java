@@ -2,38 +2,38 @@ package racingcar.view;
 
 import java.util.ArrayList;
 
-import racingcar.dto.CarDTO;
+import racingcar.dto.CarDto;
 
 public class OutputView {
-	public static ArrayList<CarDTO> carDTOArrayList;
+	public static ArrayList<CarDto> carDtoArrayList;
 
 	public static void showSentenceBeforeResult() {
 		System.out.println("\n실행 결과");
 	}
 
-	public static void showResultThisTiming(ArrayList<CarDTO> carsDTO) {
-		carsDTO.forEach(eachCarDTO -> System.out.printf("%s : %s\n", eachCarDTO.getName(), showMovingMark(eachCarDTO)));
+	public static void showResultThisTiming(ArrayList<CarDto> carsDtos) {
+		carsDtos.forEach(eachCarDto -> System.out.printf("%s : %s\n", eachCarDto.getName(), showMovingMark(eachCarDto)));
 		System.out.println();
 	}
 
-	private static String showMovingMark(CarDTO carDTO) {
+	private static String showMovingMark(CarDto carDto) {
 		StringBuffer movingMark = new StringBuffer();
-		for (int i = 0; i < carDTO.getMovingDistance(); i++) {
+		for (int i = 0; i < carDto.getMovingDistance(); i++) {
 			movingMark.append("-");
 		}
 		return movingMark.toString();
 	}
 
-	public static void showThisGameWinner(ArrayList<CarDTO> carDTOArrayList) {
-		OutputView.carDTOArrayList = carDTOArrayList;
-		int winnerMovingDistance = findWinnerMovingDistance(carDTOArrayList);
-		CarDTO[] winners = findAllWinners(winnerMovingDistance);
+	public static void showThisGameWinner(ArrayList<CarDto> carDtoArrayList) {
+		OutputView.carDtoArrayList = carDtoArrayList;
+		int winnerMovingDistance = findWinnerMovingDistance(carDtoArrayList);
+		CarDto[] winners = findAllWinners(winnerMovingDistance);
 		makeFinalResultSentence(winners);
 	}
 
-	private static void makeFinalResultSentence(CarDTO[] winners) {
+	private static void makeFinalResultSentence(CarDto[] winners) {
 		StringBuffer result = new StringBuffer("최종 우승자 : ");
-		for (CarDTO winner : winners) {
+		for (CarDto winner : winners) {
 			result.append(winner.getName());
 			if (winner != winners[winners.length - 1]) {
 				result.append(", ");
@@ -42,15 +42,15 @@ public class OutputView {
 		System.out.println(result);
 	}
 
-	private static CarDTO[] findAllWinners(int winnerMovingDistance) {
-		return carDTOArrayList.stream()
+	private static CarDto[] findAllWinners(int winnerMovingDistance) {
+		return carDtoArrayList.stream()
 			.filter(eachCar -> eachCar.getMovingDistance() == winnerMovingDistance)
-			.toArray(CarDTO[]::new);
+			.toArray(CarDto[]::new);
 	}
 
-	private static int findWinnerMovingDistance(ArrayList<CarDTO> carsDTO) {
-		return carsDTO.stream()
-			.mapToInt(carDTO -> carDTO.getMovingDistance())
+	private static int findWinnerMovingDistance(ArrayList<CarDto> carsDto) {
+		return carsDto.stream()
+			.mapToInt(CarDto::getMovingDistance)
 			.max()
 			.orElseThrow(() -> new IllegalArgumentException("자동차의 최댓값이 존재하지 않습니다. 로직이 잘못되었습니다."));
 	}
