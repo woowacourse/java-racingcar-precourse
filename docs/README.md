@@ -3,12 +3,12 @@
 ##📈데이터 스트럭처 구조
  ```
 racingcar
- ├─ Appliction.java
+ ├─ Application.java
  ┃    └─ Car.java
  ┃	   └─ Randoms_method
  ┃    └─ Input.java
  ┃           └─ console_method
- └─ ApplictionTest
+ └─ ApplicationTest
 ```
 
 ##✔️구현한 기능목록 
@@ -28,3 +28,10 @@ racingcar
  - 현재 position을 visual로 보여주는 함수
  - 현재 position의 값을 출력
  - 인스턴스에서 차이름을 출력
+
+### 메인 구현 
+####Application.java
+ - 자동차 갯수에 맞춰 car 인스턴스 생성 하고 배열에 보관 
+ - 시도할 횟수 만큼 모든 car 랜덤전진
+ - 모두 시도한 후, car의 전진한 위치를 비교하여 우승 자동차이름 출력 
+     - 우승 차가 두개 이상일 시 같이 출력
