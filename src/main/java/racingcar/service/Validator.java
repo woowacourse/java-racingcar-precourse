@@ -10,7 +10,7 @@ public class Validator {
 	public void checkCarNames(List<String> carNames) throws IllegalArgumentException {
 		for(String carName : carNames) {
 			checkCarNameSize(carName);
-			checkCarNameContainsBlank(carName);
+			checkCarNameEmpty(carName);
 		}
 	}
 
@@ -26,8 +26,8 @@ public class Validator {
 		}
 	}
 
-	private void checkCarNameContainsBlank(String carName) {
-		if(carName.equals(RaceConstants.EMPTY) || carName.contains(RaceConstants.BLANK)) {
+	private void checkCarNameEmpty(String carName) {
+		if(carName.equals(RaceConstants.EMPTY)) {
 			throw new IllegalArgumentException();
 		}
 	}

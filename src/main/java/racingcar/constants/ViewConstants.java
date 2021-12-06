@@ -8,7 +8,7 @@ public class ViewConstants {
 	public static final String NOTIFY_RACE_WINNERS = "최종 우승자 : ";
 	public static final String NOTIFY_CAR_NAME = "%s : ";
 
-	public static final String ERROR_CAR_NAMES = "[ERROR] 자동차 이름의 길이는 5이하이며 공백을 포함할 수 없다.";
+	public static final String ERROR_CAR_NAMES = "[ERROR] 자동차 이름의 길이는 5이하이며 비어있는 값일 수 없다.";
 	public static final String ERROR_NUMBER_OF_CARS = "[ERROR] 자동차 이름을 1개 이상 입력해야 한다.";
 
 	public static final String ERROR_NUMBER_OF_RACES = "[ERROR] 시도 횟수는 숫자여야 한다.";

@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import racingcar.constants.RaceConstants;
@@ -10,7 +9,15 @@ import racingcar.domain.Car;
 public class Converter {
 	public List<String> convertStringToList(String inputString) {
 		String [] splitedArray = inputString.split(RaceConstants.CUT_OFF_POINT);
-		return Arrays.asList(splitedArray);
+		return replaceBlank(splitedArray);
+	}
+
+	private List<String> replaceBlank(String [] carNames) {
+		List<String> replacedList = new ArrayList<>();
+		for(String carName : carNames) {
+			replacedList.add(carName.replace(" ", ""));
+		}
+		return replacedList;
 	}
 
 	public List<Car> convertStringListToCarList(List<String> carNames) {
@@ -23,6 +30,6 @@ public class Converter {
 	}
 
 	public int convertStringToInt(String numberString) {
-		return Integer.valueOf(numberString);
+		return Integer.parseInt(numberString);
 	}
 }
