@@ -5,10 +5,10 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public class ValidationService {
-	public static final int MAX_NAME_LENGTH = 5;
+	private static final int MAX_NAME_LENGTH = 5;
 
 	public static void checkCarNames(String names, String delimiter) {
-		if (isEmpty(names)) {
+		if (names.isEmpty()) {
 			throw new IllegalArgumentException("자동차의 이름은 빈 문자열이 될 수 없습니다.");
 		} else if (isEqualToDelimiter(names, delimiter)) {
 			throw new IllegalArgumentException("쉼표(,)만 입력할 수 없습니다.");
@@ -17,8 +17,37 @@ public class ValidationService {
 		}
 	}
 
-	public static boolean isEmpty(String target) {
-		return target.isEmpty();
+	public static void checkDuplicatedCarName(String[] carNames) {
+		if (hasDuplicatedCarName(carNames)) {
+			throw new IllegalArgumentException("중복되는 자동차 이름을 입력할 수 없습니다.");
+		}
+	}
+
+	public static void checkEachCarName(String[] carNames) {
+		for (String name : carNames) {
+			if (name.isEmpty()) {
+				throw new IllegalArgumentException("자동차의 이름은 빈 문자열이 될 수 없습니다.");
+			} else if (isInvalidCarNameLength(name)) {
+				throw new IllegalArgumentException(String.format("자동차의 이름은 %d글자 이하여야 합니다.",
+					MAX_NAME_LENGTH));
+			}
+		}
+	}
+
+	public static void checkTryNumberIsValid(String number) {
+		if (number.isEmpty()) {
+			throw new IllegalArgumentException("시도 횟수를 입력하지 않았습니다.");
+		} else if (isNotDigit(number)) {
+			// "1000000000000"과 같은 정수 범위 밖의 입력은 숫자로 취급하지 않는다.
+			throw new IllegalArgumentException("시도 횟수가 숫자가 아니거나 정수 범위 밖의 입력입니다.");
+		}
+		checkTryNumberIsValidDigit(Integer.parseInt(number));
+	}
+
+	private static void checkTryNumberIsValidDigit(int number) {
+		if (isNotPositive(number)) {
+			throw new IllegalArgumentException("시도 횟수는 0 또는 음수가 될 수 없습니다.");
+		}
 	}
 
 	private static boolean isEqualToDelimiter(String target, String delimiter) {
@@ -37,37 +66,6 @@ public class ValidationService {
 		return Stream.of(names).distinct().count() != names.length;
 	}
 
-	public static void checkDuplicatedCarName(String[] carNames) {
-		if (hasDuplicatedCarName(carNames)) {
-			throw new IllegalArgumentException("중복되는 자동차 이름을 입력할 수 없습니다.");
-		}
-	}
-
-	public static void checkEachCarName(String[] carNames) {
-		for (String name : carNames) {
-			if (isEmpty(name)) {
-				throw new IllegalArgumentException("자동차의 이름은 빈 문자열이 될 수 없습니다.");
-			} else if (isInvalidCarNameLength(name)) {
-				throw new IllegalArgumentException(String.format("자동차의 이름은 %d글자 이하여야 합니다.",
-					MAX_NAME_LENGTH));
-			}
-		}
-	}
-
-	public static void checkTryNumberIsValid(String tryNumber) {
-		if (tryNumber.isEmpty()) {
-			throw new IllegalArgumentException("시도 횟수를 입력하지 않았습니다.");
-		} else if (isNotDigit(tryNumber)) {
-			throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
-		}
-		int number = Integer.parseInt(tryNumber);
-		if (isNotPositive(number)) {
-			throw new IllegalArgumentException("시도 횟수는 0 또는 음수가 될 수 없습니다.");
-		} else if (isInvalidRangeNumber(number)) {
-			throw new IllegalArgumentException("시도 횟수가 정수 범위 밖의 입력입니다.");
-		}
-	}
-
 	private static boolean isNotDigit(String number) {
 		try {
 			Integer.parseInt(number);
@@ -79,10 +77,6 @@ public class ValidationService {
 
 	private static boolean isNotPositive(int number) {
 		return number < 1;
-	}
-
-	private static boolean isInvalidRangeNumber(int number) {
-		return Integer.MAX_VALUE < number;
 	}
 }
 
