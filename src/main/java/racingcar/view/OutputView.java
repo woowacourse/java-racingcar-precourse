@@ -18,13 +18,13 @@ public class OutputView {
 		System.out.println();
 	}
 
-	public static void printWinner(ArrayList<Car> winnerList){
+	public static void printWinner(ArrayList<Car> winnerList) {
 		stringWinnerNames = extractNames(winnerList);
 		System.out.print(FINAL_WINNER + String.join(", ", stringWinnerNames));
 	}
 
-	public static ArrayList<String> extractNames(ArrayList<Car> winnerList){
-		for(int i = 0; i < winnerList.size(); i++){
+	public static ArrayList<String> extractNames(ArrayList<Car> winnerList) {
+		for (int i = 0; i < winnerList.size(); i++) {
 			stringWinnerNames.add(winnerList.get(i).getCarName());
 		}
 		return stringWinnerNames;

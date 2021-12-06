@@ -8,12 +8,12 @@ import racingcar.utils.Message;
 
 public class InputView {
 
-	public static ArrayList<Car> carsList(){
+	public static ArrayList<Car> carsList() {
 		ArrayList<Car> carsList = new ArrayList<Car>();
 		String carNames = carNamesInput();
 
-		String [] carsArray = carNames.split(",");
-		for (int i = 0; i < carsArray.length; i++){
+		String[] carsArray = carNames.split(",");
+		for (int i = 0; i < carsArray.length; i++) {
 			carsList.add(new Car(carsArray[i]));
 		}
 		return carsList;
@@ -25,7 +25,7 @@ public class InputView {
 		return carNames;
 	}
 
-	public static int gameCount(){
+	public static int gameCount() {
 		System.out.println(Message.ASK_GAME_COUNT);
 		String stringGameCount = Console.readLine();
 		System.out.println();
@@ -33,7 +33,7 @@ public class InputView {
 		return gameCount;
 	}
 
-	public static int gameCountParser(String stringGameCount){
+	public static int gameCountParser(String stringGameCount) {
 		int gameCount = Integer.parseInt(stringGameCount);
 		return gameCount;
 	}

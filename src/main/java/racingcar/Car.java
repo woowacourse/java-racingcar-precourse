@@ -20,15 +20,15 @@ public class Car {
 		}
 	}
 
-	public void printPosition(){
+	public void printPosition() {
 		OutputView.printPosition(carName, position);
 	}
 
-	public String getCarName(){
+	public String getCarName() {
 		return this.carName;
 	}
 
-	public int getPosition(){
+	public int getPosition() {
 		return this.position;
 	}
 }
