@@ -15,7 +15,7 @@ public class Cars {
 	public static final String NAME_LENGTH_EXCEED_ERROR_MESSAGE = "[ERROR] 자동차 이름은 6자 미만입니다. ";
 	public static final String DUPLICATED_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복될 수 없습니다.";
 	public static final String ONLY_ONE_PARTICIPANT_ERROR_MESSAGE = "[ERROR] 둘 이상의 자동차 이름을 입력해주요.";
-	
+
 	private final List<Car> cars;
 
 	public Cars(List<Car> cars) {
@@ -43,7 +43,7 @@ public class Cars {
 
 	private static void validateEmptyName(String[] carNameList) {
 		for (String carName : carNameList) {
-			if (carName.length() <= MIN_PARTICIPANTS) {
+			if (carName.length() == 0) {
 				throw new IllegalArgumentException(EMPTY_NAME_ERROR_MESSAGE);
 			}
 		}
@@ -58,7 +58,7 @@ public class Cars {
 	}
 
 	private static void validateOnlyOneParticipant(String[] carNameList) {
-		if (carNameList.length == 1) {
+		if (carNameList.length <= MIN_PARTICIPANTS) {
 			throw new IllegalArgumentException(ONLY_ONE_PARTICIPANT_ERROR_MESSAGE);
 		}
 	}
