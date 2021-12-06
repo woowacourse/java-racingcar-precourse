@@ -44,9 +44,9 @@ class NameValidatorTest {
 
 	@Test
 	void 공백_이름이_있는_경우() {
-		names.add(" ");
-		names.add("  ");
-		names.add("pobi");
+		names.add("elsa");
+		names.add("");
+		System.out.println(names);
 		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
 			() -> inputValidator.validateNames(names));
 		assertEquals(exception.getMessage(), NameValidator.ERROR_EMPTY_NAME);
