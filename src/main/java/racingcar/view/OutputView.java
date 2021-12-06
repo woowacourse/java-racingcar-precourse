@@ -31,7 +31,7 @@ public class OutputView {
 	private static String appendComma(RacingResult racingResult) {
 		return racingResult.getWinners().stream()
 			.map(Car::getName)
-			.collect(Collectors.joining(COMMA));
+			.collect(Collectors.joining(COMMA + BLANK));
 	}
 
 	private static String printDash(int position) {
