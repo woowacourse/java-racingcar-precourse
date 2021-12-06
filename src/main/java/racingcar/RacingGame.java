@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
 
@@ -44,10 +45,22 @@ public class RacingGame {
         for (int i = 0; i < tryNumber; i++) {
             for (Car car: carList) {
                 car.move();
-                car.showProgress();
+                car.showPosition();
             }
             System.out.println();
         }
+    }
+
+    public List<String> findWinnerList() {
+        int maxPosition = carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        return carList.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
 }

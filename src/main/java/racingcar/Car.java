@@ -21,11 +21,19 @@ public class Car {
         }
     }
 
-    public void showProgress() {
+    public void showPosition() {
         System.out.print(name + " : ");
         for (int i = 0; i < position; i++) {
             System.out.print(MOVE_MARK);
         }
         System.out.println();
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
     }
 }
