@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class GameController {
     private final ArrayList<Car> carList = new ArrayList<>();
+    private final ArrayList<String> winnerList = new ArrayList<>();
 
     public void gameStart() {
         InputRole inputRole = new InputRole();
@@ -14,10 +15,11 @@ public class GameController {
         changeInputToCar(inputRole);
 
         outputRole.pirntResultInstruction();
-        for (int i=0; i<inputRole.getTrialNmber(); i++) {
+        for (int i = 0; i < inputRole.getTrialNmber(); i++) {
             tryGameOnce();
             outputRole.printOneGame(carList);
         }
+        findWinner();
 
 
     }
@@ -40,8 +42,8 @@ public class GameController {
         return false;
     }
 
-    private void tryGameOnce(){
-        for (Car car: carList) {
+    private void tryGameOnce() {
+        for (Car car : carList) {
             int randomNumber = getRandomNumber();
             if (checkMoveForward(randomNumber)) {
                 car.moveForward();
@@ -49,9 +51,23 @@ public class GameController {
         }
     }
 
-
-
-
+    private void findWinner() {
+        int maxValue = findMaxInCarList(carList);
+        for (Car car : carList) {
+            if(car.getPosition() == maxValue) {
+                winnerList.add(car.getName());
+            }
+        }
+    }
+    private int findMaxInCarList(ArrayList<Car> carList){
+        int maxValue = -1;
+        for (Car car : carList) {
+            if(maxValue < car.getPosition()) {
+                maxValue = car.getPosition();
+            }
+        }
+        return maxValue;
+    }
 
 
 }
