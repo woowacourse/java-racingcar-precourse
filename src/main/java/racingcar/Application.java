@@ -9,8 +9,8 @@ public class Application {
         String[] nameList = user.inputCarName();
 
         user.informInputCount();
-        int attemptCount = user.inputRepeatNumber();
+        int roundNumber = user.inputRoundNumber();
 
-        game.startGame(nameList, attemptCount);
+        game.startGame(nameList, roundNumber);
     }
 }
