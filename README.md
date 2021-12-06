@@ -90,7 +90,7 @@ jun : -----
     * message
         * dto
             * ResponseMessage.java
-        Message.java 
+        * Message.java 
     * service
         * GameService.java 
     * validation
@@ -99,13 +99,14 @@ jun : -----
     * Application.java
   
 
-
+    
 ## ✔️ Commit Conventions
 - [feat]: 기능 추가 관련 커밋
 - [fix]: 버그 수정 관련 커밋
 - [docs]: 문서 관련 커밋
 - [refactor]: 코드 수정 관련 커밋
 - [test]: 테스트 관련 커밋
+   
 
 ## 💻 Test
 
