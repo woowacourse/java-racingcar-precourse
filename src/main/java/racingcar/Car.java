@@ -36,7 +36,7 @@ public class Car {
 		System.out.println(state);
 	}
 
-	public static List<Car> fromString(List<String> names) {
+	public static List<Car> fromStringList(List<String> names) {
 		List<Car> carList = new ArrayList<>();
 		for (String name : names) {
 			Car car = new Car(name);

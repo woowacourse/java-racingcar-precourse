@@ -8,19 +8,37 @@ import java.util.List;
 public class RacingCarGame {
 
 	User user;
+	Checker checker;
 	List<Car> carList;
 
 	RacingCarGame() {
 		user = new User();
+		checker = new Checker();
 		carList = new ArrayList<>();
 	}
 
 	public void Play() {
-		user.askNamesUntilCorrect();
-		user.askNumberOfTimesUntilCorrect();
-		carList = Car.fromString(user.getNames());
+		askNamesUntilCorrect();
+		askNumberOfTimesUntilCorrect();
+		carList = Car.fromStringList(user.getNames());
 		printResult();
 		printWinner();
+	}
+
+	private void askNamesUntilCorrect() {
+		String input = user.inputNames();
+		while (!checker.checkNames(input)) {
+			input = user.inputNames();
+		}
+		user.setNames(input);
+	}
+
+	private void askNumberOfTimesUntilCorrect() {
+		String input = user.inputNumberOfTimes();
+		while (!checker.checkNumberOfTimes(input)) {
+			input = user.inputNumberOfTimes();
+		}
+		user.setNumberOfTimes(input);
 	}
 
 	private void printResult() {
