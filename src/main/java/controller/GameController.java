@@ -1,5 +1,6 @@
 package controller;
 
+import model.RacingCarGame;
 import view.Display;
 
 public class GameController {
@@ -9,6 +10,6 @@ public class GameController {
 
 	public static void runGame() {
 		Display.pleaseInputRacingCarNames();
-		System.out.println(InputController.inputRacingCarNames());
+		RacingCarGame racingCarGame = new RacingCarGame(InputController.inputRacingCarNames());
 	}
 }
