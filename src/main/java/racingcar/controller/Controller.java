@@ -1,7 +1,6 @@
 package racingcar.controller;
 
-import java.util.List;
-
+import racingcar.domain.Names;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -13,8 +12,9 @@ public class Controller {
 		racingGame.init();
 
 		OutputView.printInputNamesInstruction();
-		List<String> names = InputView.getNames();
-		System.out.println(names);
+		Names names = Names.from(InputView.getNames());
+
+
 
 	}
 }
