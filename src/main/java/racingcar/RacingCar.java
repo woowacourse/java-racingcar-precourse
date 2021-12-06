@@ -2,14 +2,27 @@ package racingcar;
 
 public class RacingCar {
 
+    private Car[] carArray;
+
     protected void startGame() {
-        String[] carNameArray = UserInput.inputCarName();
+        createCarArray(UserInput.inputCarName());
         int numberOfAttempt = UserInput.inputNumberOfAttempts();
 
-        for(String carName : carNameArray) {
-            System.out.println(carName);
+        for(int attempts = 0; attempts < numberOfAttempt; attempts++) {
+            for(Car carIndex : carArray) {
+                carIndex.moveCar();
+                carIndex.printCarPosition();
+            }
+            System.out.println("");
         }
-
-        System.out.println("시도 횟수 : " + numberOfAttempt);
     }
+
+    private void createCarArray(String[] carNameArray) {
+        carArray = new Car[carNameArray.length];
+
+        for(int i = 0; i < carNameArray.length; i++) {
+            carArray[i] = new Car(carNameArray[i]);
+        }
+    }
+
 }
