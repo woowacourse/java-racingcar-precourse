@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class CarList {
 	private final ArrayList<Car> cars = new ArrayList<>();
+	private int maxPosition = 0;
 
 	public CarList(String [] carNames){
 		for (String carName : carNames) {
@@ -16,19 +17,19 @@ public class CarList {
 	public void moveAll() {
 		for (Car car : this.cars) {
 			car.moveForward();
+			updateMaxPosition(car.getPosition());
 		}
 	}
 
 	private List<Car> getWinners() {
 		return this.cars.stream()
-			.filter(car -> car.getPosition() == getMaxPosition())
+			.filter(car -> car.getPosition() == maxPosition)
 			.collect(Collectors.toList());
 	}
 
-	private int getMaxPosition() {
-		return this.cars.stream()
-			.mapToInt(Car::getPosition)
-			.max()
-			.getAsInt();
+	private void updateMaxPosition(int nowPosition) {
+		if(nowPosition > maxPosition) {
+			maxPosition = nowPosition;
+		}
 	}
 }
