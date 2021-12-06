@@ -13,7 +13,7 @@ public class InputRole {
     private String[] nameList;
     private Integer trialNmber;
 
-    public void getInputValue() {
+    public void inputStart() {
         while (true) {
             try {
                 inputNames();
