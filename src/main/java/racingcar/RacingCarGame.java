@@ -17,7 +17,7 @@ public class RacingCarGame {
 		carList = new ArrayList<>();
 	}
 
-	public void Play() {
+	public void play() {
 		askNamesUntilCorrect();
 		askNumberOfTimesUntilCorrect();
 		carList = Car.fromStringList(user.getNames());
@@ -27,27 +27,34 @@ public class RacingCarGame {
 
 	private void askNamesUntilCorrect() {
 		String input;
+
 		do {
 			input = user.inputNames();
 		} while (!checker.checkNames(input));
+
 		user.setNames(input);
 	}
 
 	private void askNumberOfTimesUntilCorrect() {
 		String input;
+
 		do {
 			input = user.inputNumberOfTimes();
 		} while (!checker.checkNumberOfTimes(input));
+
 		user.setNumberOfTimes(input);
 	}
 
 	private void printResult() {
 		System.out.println(RESULT_MESSAGE);
+
 		for (int i = 0; i < user.getNumberOfTimes(); i++) {
+
 			for (Car car : carList) {
 				car.goOrStop();
 				car.printState();
 			}
+
 			System.out.println();
 		}
 	}
@@ -55,9 +62,11 @@ public class RacingCarGame {
 	private void printWinner() {
 		List<Car> winnerList = Car.pickTheWinner(carList);
 		String winnerNames = winnerList.get(0).getName();
+
 		for (int i = 1; i < winnerList.size(); i++) {
 			winnerNames += DELIMITER + SPACE + winnerList.get(i).getName();
 		}
+
 		System.out.println(WINNER_MESSAGE + COLON + winnerNames);
 	}
 }
