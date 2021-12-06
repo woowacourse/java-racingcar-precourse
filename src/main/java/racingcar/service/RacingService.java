@@ -10,6 +10,7 @@ public class RacingService {
 		for (Car car : cars) {
 			moveCar(car);
 		}
+		OutputService.getOneRoundRacingResult(cars);
 	}
 
 	public static void moveCar(Car car) {
