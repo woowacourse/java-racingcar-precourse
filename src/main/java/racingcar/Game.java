@@ -39,7 +39,7 @@ public class Game {
 
 		while (true) {
 			String carNames = Console.readLine();
-			String[] seperatedCarNames = carNames.split(",");
+			String[] seperatedCarNames = carNames.split(",", -1);
 			CarNameException carNameException = new CarNameException(seperatedCarNames);
 
 			if (carNameException.canMakeCarsCompletely()) {

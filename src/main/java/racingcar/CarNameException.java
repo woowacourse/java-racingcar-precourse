@@ -70,7 +70,7 @@ public class CarNameException {
 	}
 
 	private boolean checkSpaceInName(String carName) {
-		String[] tmpArray = carName.split(" ");
+		String[] tmpArray = carName.split(" ", -1);
 
 		try {
 
