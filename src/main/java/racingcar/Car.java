@@ -7,6 +7,15 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    public void moveForward() {
+        position += 1;
+    }
 
-    // 추가 기능 구현
+    public void moveResult() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print('-');
+        }
+        System.out.println();
+    }
 }
