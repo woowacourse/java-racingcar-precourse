@@ -14,8 +14,14 @@ public class Validation {
 	}
 
 	public static void checkNull(String inputStr) {
-		if (inputStr.length() == 0 || inputStr.isEmpty()) {
+		if (inputStr.length() == 0 || inputStr.replaceAll(" ","").isEmpty()) {
 			throw new IllegalArgumentException(ErrorMessage.NULL_ERROR.getErrorMessage());
+		}
+	}
+
+	public static void checkCarNameIsBlank(String car){
+		if (car.replaceAll(" ","").isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_BLANK_ERROR.getErrorMessage());
 		}
 	}
 
@@ -25,8 +31,8 @@ public class Validation {
 		}
 	}
 
-	public static void checkCarIsOne(String inputStr) {
-		if (inputStr.split(",").length == 1) {
+	public static void checkCarIsOne(String car) {
+		if (car.split(",").length == 1) {
 			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_ONE_ERROR.getErrorMessage());
 		}
 	}
