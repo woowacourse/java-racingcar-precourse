@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,10 +12,9 @@ import racingcar.view.OutputView;
 
 public class Cars {
 
-	private final String ERROR_INVALID_CAR_NAME_LENGTH = "[ERROR] 자동차 이름의 길이가 잘못되었습니다. 1 ~ 5 글자로 입력해주세요.";
-	private final String ERROR_DUPLICATE_CAR_NAME = "[ERROR] 중복된 자동차 이름이 존재합니다.";
+	private static final String ERROR_INVALID_CAR_NAME_LENGTH = "[ERROR] 자동차 이름의 길이가 잘못되었습니다. 1 ~ 5 글자로 입력해주세요.";
+	private static final String ERROR_DUPLICATE_CAR_NAME = "[ERROR] 중복된 자동차 이름이 존재합니다.";
 	private final List<Car> cars;
-	private int winnerPosition = 0;
 
 	public Cars(List<Car> cars) {
 		validateLengthAndDuplicate(cars);
@@ -51,15 +51,10 @@ public class Cars {
 		return true;
 	}
 
-	public void updateWinnerPosition(int position) {
-		winnerPosition = Math.max(winnerPosition, position);
-	}
-
 	public void race() {
 		for (Car car : cars) {
 			int randomNumber = generateRandomNumber();
 			car.move(randomNumber);
-			updateWinnerPosition(car.getPosition());
 			OutputView.printRaceProgress(car);
 		}
 		OutputView.printNewline();
@@ -72,8 +67,15 @@ public class Cars {
 
 	public List<String> getWinners() {
 		return cars.stream()
-			.filter(car -> car.getPosition() == winnerPosition)
+			.filter(car -> car.getPosition() == getMaxPosition())
 			.map(car -> car.getName())
 			.collect(Collectors.toList());
+	}
+
+	private int getMaxPosition() {
+		return cars.stream()
+			.max(Comparator.comparing(Car::getPosition))
+			.map(car -> car.getPosition())
+			.get();
 	}
 }
