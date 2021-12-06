@@ -68,5 +68,8 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         num = getNumber();
 
+        ArrayList<Car> result = Game.startGame(cars, num);
+        // TODO: determineWinner
+        // TODO: printWinner
     }
 }
