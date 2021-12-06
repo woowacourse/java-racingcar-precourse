@@ -86,7 +86,7 @@ public class RacingGame {
 		boolean endCondition = false;
 		String totalTryNumInput = "";
 		while (!endCondition) {
-			totalTryNumInput = player.askQuestionReturnAnswer(QUESTION_CARS_NAME);
+			totalTryNumInput = player.askQuestionReturnAnswer(QUESTION_TRY_NUM);
 			try {
 				endCondition = checkStringIsNumber(totalTryNumInput);
 			} catch (IllegalArgumentException e) {
