@@ -21,7 +21,7 @@ public class Race {
 
     private String[] getRacePlayerNames() {
         String input = Console.readLine();
-        String[] names = input.split(", ");
+        String[] names = input.split(",");
 
         return names;
     }
