@@ -26,18 +26,18 @@ public class RacingCarGame {
 	}
 
 	private void askNamesUntilCorrect() {
-		String input = user.inputNames();
-		while (!checker.checkNames(input)) {
+		String input;
+		do {
 			input = user.inputNames();
-		}
+		} while (!checker.checkNames(input));
 		user.setNames(input);
 	}
 
 	private void askNumberOfTimesUntilCorrect() {
-		String input = user.inputNumberOfTimes();
-		while (!checker.checkNumberOfTimes(input)) {
+		String input;
+		do {
 			input = user.inputNumberOfTimes();
-		}
+		} while (!checker.checkNumberOfTimes(input));
 		user.setNumberOfTimes(input);
 	}
 
