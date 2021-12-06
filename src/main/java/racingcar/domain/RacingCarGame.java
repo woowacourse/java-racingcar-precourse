@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.Condition;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -24,7 +25,7 @@ public class RacingCarGame {
 
     private void progress(ArrayList<Car> cars) {
         cars.stream()
-                .forEach(car -> car.forward(Randoms.pickNumberInRange(0, 9)));
+                .forEach(car -> car.forward(Randoms.pickNumberInRange(Condition.MIN_NUMBER, Condition.MAX_NUMBER)));
     }
 }
 
