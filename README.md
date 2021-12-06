@@ -20,6 +20,7 @@
     - 잘못된 값을 입력할 경우 ```IllegalArgumentException```을 발생시키고 "[ERROR]"로 시작하는 에러 메시지를 출력 후 입력을 다시 받는다.
         - 자동차이름 1글자 미만, 5글자 초과
         - 자동차이름 공백포함
+        - 자동차이름 중복
         - 시도횟수 문자 입력
         - 시도횟수 빈문자 입력
 - car객체의 포지션을 이동시킬 수 있어야 한다.
@@ -44,6 +45,7 @@ git checkout dongho
 ```
 
 3. Application Run
+
 ```java
 package racingcar;
 
