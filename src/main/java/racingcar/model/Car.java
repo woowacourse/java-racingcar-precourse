@@ -21,6 +21,10 @@ public class Car {
 		return name;
 	}
 
+	public int getPosition() {
+		return position;
+	}
+
 	public void decideMoveOrStop() {
 		if (makeRandomNumber() >= CAR_MOVE_DECISION_NUMBER) {
 			moveCar();
