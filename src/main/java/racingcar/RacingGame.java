@@ -3,6 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.sun.deploy.util.StringUtils;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -13,7 +14,9 @@ public class RacingGame {
 	public List<Car> cars = new ArrayList<>();
 
 	public void startGame() {
+		System.out.println(Constant.START_NAME_MESSAGE);
 		makeCarList();
+		System.out.println(Constant.START_NUMBER_MESSAGE);
 		Integer playRound = user.getGameNumber();
 		runGame(playRound);
 		printWinners();
@@ -27,6 +30,7 @@ public class RacingGame {
 	}
 
 	public void runGame(int playRound) {
+		System.out.println("\n"+Constant.RESULT_MESSAGE);
 		for (int i = 0; i < playRound; i++) {
 			moveCars();
 			printCurrentResult();
@@ -48,18 +52,16 @@ public class RacingGame {
 	}
 
 	public boolean isMovable(int randomNumber) {
-		if (randomNumber < 4) {
-			return false;
-		}
-		return true;
+		return randomNumber >= 4;
 	}
 
 	public void printCurrentResult() {
-		System.out.println();
 		for (Car car : cars) {
 			System.out.print(car.getName() + " : ");
 			printStatus(car.getPosition());
 		}
+		System.out.println();
+
 	}
 
 	public void printStatus(int num) {
@@ -81,6 +83,7 @@ public class RacingGame {
 	}
 
 	public void printWinners() {
+		System.out.print(Constant.WINNER_MESSAGE);
 		List<String> winners = findWinners();
 		System.out.println(StringUtils.join(winners, ", "));
 	}
