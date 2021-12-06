@@ -5,28 +5,34 @@ import java.util.ArrayList;
 public class Application {
 
     /**
+     * 차 객체들의 배열 생성하는 메서드
+     * @param carList
+     * @return ArrayList<Car>
+     */
+    public static ArrayList<Car> carGenerator(String[] carList) {
+        ArrayList<Car> cars = new ArrayList<>();
+
+        for (int i = 0; i < carList.length; i++) {
+            Car car = new Car(carList[i]);
+            cars.add(car);
+        }
+
+        return cars;
+    }
+
+    /**
      * 사용자에게 차 이름을 입력받는 메서드
      * @return ArrayList<Car>
      */
     public static ArrayList<Car> getCars() {
-        ArrayList<Car> cars = new ArrayList<>();
-
         while (true) {
             try {
                 String input = camp.nextstep.edu.missionutils.Console.readLine();
                 String[] carList = input.split(",");
 
-                for (int i = 0; i < carList.length; i++) {
-                    // TODO: 차 이름 유효성 체크
-                    System.out.println(carList[i]);
-                }
+                InputChecker.checkCarName(carList);
 
-                for (int i = 0; i < carList.length; i++) {
-                    Car car = new Car(carList[i]);
-                    cars.add(car);
-                }
-
-                return cars;
+                return carGenerator(carList);
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
                 continue;
