@@ -6,7 +6,7 @@ import racingcar.constants.RaceConstants;
 import racingcar.constants.ViewConstants;
 import racingcar.domain.Car;
 
-public class Commentator {
+public class OutputManager {
 
 	public void notifyRaceResult() {
 		System.out.println(ViewConstants.NOTIFY_RESULT);

@@ -34,7 +34,7 @@ public class InputManager {
 	}
 
 	private boolean checkErrorWithCarNames(List<String> carNames) {
-		if(validateCarNames(carNames) && validateCarsSize(carNames)) {
+		if(validateCarNames(carNames) && validateNumberOfCars(carNames)) {
 			return false;
 		}
 		return true;
@@ -50,9 +50,9 @@ public class InputManager {
 		return true;
 	}
 
-	private boolean validateCarsSize(List<String> carNames) {
+	private boolean validateNumberOfCars(List<String> carNames) {
 		try {
-			validator.checkCarsSize(carNames);
+			validator.checkNumberOfCars(carNames);
 		}catch (IllegalArgumentException e) {
 			printError(ViewConstants.ERROR_CAR_SIZE);
 			return false;
@@ -76,15 +76,9 @@ public class InputManager {
 	}
 
 	private boolean checkErrorWithNumberOfRaces(String numberString) {
-		if(!validateNumberOfRacesDigit(numberString)) {
+		if(!validateNumberOfRacesDigit(numberString) || !validateNumberOfRacesRange(numberString)) {
 			return true;
 		}
-
-		int numberOfRaces = converter.convertStringToInt(numberString);
-		if (!validateNumberOfRacesRange(numberOfRaces)) {
-			return true;
-		}
-
 		return false;
 	}
 
@@ -98,7 +92,7 @@ public class InputManager {
 		return true;
 	}
 
-	private boolean validateNumberOfRacesRange(int numberOfRaces) {
+	private boolean validateNumberOfRacesRange(String numberOfRaces) {
 		try {
 			validator.checkNumberOfRacesRange(numberOfRaces);
 		} catch (IllegalArgumentException e) {

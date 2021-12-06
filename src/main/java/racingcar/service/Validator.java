@@ -14,7 +14,7 @@ public class Validator {
 		}
 	}
 
-	public void checkCarsSize(List<String> carNames) throws IllegalArgumentException {
+	public void checkNumberOfCars(List<String> carNames) throws IllegalArgumentException {
 		if(carNames == null || carNames.size() == 0) {
 			throw new IllegalArgumentException(ViewConstants.ERROR_CAR_SIZE);
 		}
@@ -33,13 +33,13 @@ public class Validator {
 	}
 
 	public void checkNumberOfRacesDigit(String numberString) throws IllegalArgumentException {
-		if(!numberString.chars().allMatch( Character::isDigit )) {
+		if(numberString.length() == 0 || !numberString.chars().allMatch( Character::isDigit )) {
 			throw new IllegalArgumentException();
 		}
 	}
 
-	public void checkNumberOfRacesRange(int numberOfRange) throws IllegalArgumentException {
-		if(numberOfRange < RaceConstants.MIN_NUMBER_OF_RACES) {
+	public void checkNumberOfRacesRange(String numberOfRange) throws IllegalArgumentException {
+		if(numberOfRange.equals(String.valueOf(RaceConstants.NOT_ALLOWED_NUMBER))) {
 			throw new IllegalArgumentException();
 		}
 	}
