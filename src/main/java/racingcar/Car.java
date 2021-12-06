@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import communicate.Text;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
     private static final int MIN_MOVABLE_NUMBER = 4;
@@ -49,5 +49,10 @@ public class Car {
 
     public String provideInformation() {
         return getName() + Text.COLON + showPosition();
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.position - this.position;
     }
 }

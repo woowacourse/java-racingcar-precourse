@@ -7,11 +7,9 @@ import communicate.Text;
 import racingcar.Car;
 
 public class Race {
-    private RaceManager raceManager = new RaceManager();
-    private ArrayList<Car> cars;
-    private int attemptNumber;
+    private final RaceManager raceManager = new RaceManager();
 
-    private void oneSet() {
+    private void oneSet(ArrayList<Car> cars) {
 
         for (Car car : cars) {
 
@@ -24,15 +22,16 @@ public class Race {
     }
 
     public void startGame() {
-        cars = raceManager.registerCars();
-        attemptNumber = raceManager.assignAttemptNumber();
+        ArrayList<Car> cars = raceManager.registerCars();
+        int attemptNumber = raceManager.assignAttemptNumber();
 
         System.out.println(Text.LINE_BREAK + Text.RACE_RESULT);
 
         for (int i = 0; i < attemptNumber; i++) {
-            oneSet();
+            oneSet(cars);
             raceManager.showOneSetResult();
         }
 
+        raceManager.announceWinner();
     }
 }
