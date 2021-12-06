@@ -48,6 +48,19 @@ public class Validation {
 
     }
 
+    private void checkNameOverlap() {
+
+        for (int i = carNames.size() - 1; i >= 0; i--) {
+
+            if (carNames.indexOf(carNames.get(i)) != i) {
+                errorMessage = ErrorText.ERROR_NAME_OVERLAP;
+                throwInputException();
+            }
+
+        }
+
+    }
+
     public boolean isValidCarNames(ArrayList<String> carNames) {
 
         try {
