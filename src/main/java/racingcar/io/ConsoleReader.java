@@ -13,7 +13,7 @@ public class ConsoleReader {
 	}
 
 	public String readRacer() {
-		writer.writeLine(READ_RACER_SYSTEM_MESSAGE);
+		writer.print(READ_RACER_SYSTEM_MESSAGE);
 		return readLine();
 	}
 

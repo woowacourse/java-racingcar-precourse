@@ -2,7 +2,7 @@ package racingcar.io;
 
 public class ConsolePrinter {
 
-	public void writeLine(String message) {
+	public void print(String message) {
 		System.out.println(message);
 	}
 }
