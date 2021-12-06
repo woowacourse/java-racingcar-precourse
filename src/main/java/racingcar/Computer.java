@@ -10,14 +10,20 @@ import camp.nextstep.edu.missionutils.Console;
  * @since 1.0
  */
 public class Computer {
+	private static final String ERROR_HEADER = "[ERROR]";
+
 	public static String[] askCarNames() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String carNames = Console.readLine();
 		return carNames.split(",");
 	}
 
-	public static String askHowManyTimes() throws IllegalArgumentException {
+	public static String askHowManyTimes() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		return Console.readLine();
+	}
+
+	public static void printError(Exception e) {
+		System.out.printf("%s %s\n", ERROR_HEADER, e.getMessage());
 	}
 }

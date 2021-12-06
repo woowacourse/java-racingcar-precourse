@@ -34,6 +34,7 @@ public class RacingCarGame {
 				setCarList(Computer.askCarNames());
 				validated = true;
 			} catch (IllegalArgumentException e) {
+				Computer.printError(e);
 				validated = false;
 			}
 		} while (!validated);
@@ -46,6 +47,7 @@ public class RacingCarGame {
 				setNumberOfTimes(Computer.askHowManyTimes());
 				validated = true;
 			} catch (IllegalArgumentException e) {
+				Computer.printError(e);
 				validated = false;
 			}
 		} while (!validated);
@@ -101,8 +103,7 @@ public class RacingCarGame {
 			numberOfTimes = Integer.parseInt(strNumberOfTimes);
 			validateNumberOfTimes();
 		} catch (NumberFormatException e) {
-			System.out.println("[ERROR] 시도 회수는 숫자여야 합니다.");
-			throw new IllegalArgumentException("시도 회수는 숫자여야 한다");
+			throw new IllegalArgumentException("시도 회수는 숫자여야 합니다.");
 		}
 	}
 
@@ -110,15 +111,13 @@ public class RacingCarGame {
 		if (carName.length() <= MAX_CAR_NAME_LENGTH) {
 			return;
 		}
-		System.out.println("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
-		throw new IllegalArgumentException("자동차 이름은 5자 이하여야 한다");
+		throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
 	}
 
 	private void validateNumberOfTimes() throws IllegalArgumentException {
 		if (numberOfTimes > 0) {
 			return;
 		}
-		System.out.println("[ERROR] 시도 회수는 1 이상이어야 합니다.");
-		throw new IllegalArgumentException("시도 회수는 1 이상이어야 한다");
+		throw new IllegalArgumentException("시도 회수는 1 이상이어야 합니다.");
 	}
 }
