@@ -16,7 +16,7 @@ public class GameData {
 	public static final String CARNAME_DUPLICATED_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복되서는 안된다.";
 	public static final String CARNAME_EMPTY_ERROR_MESSAGE = "[ERROR] 자동차 이름엔 공백이 포함되서는 안된다.";
 	public static final String TURNCOUNT_TOO_SMALL_ERROR_MESSAGE = "[ERROR] 시도 횟수가 너무 작습니다.";
-	public static final String RESULT_MESSAGE = "\n실행결과";
-	public static final String RESULT_FORMAT = "%s : %s\n";
+	public static final String RESULT_MESSAGE = "실행결과";
+	public static final String RESULT_FORMAT = "%s : %s";
 
 }

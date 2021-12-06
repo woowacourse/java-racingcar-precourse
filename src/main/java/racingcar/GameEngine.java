@@ -18,14 +18,15 @@ public class GameEngine {
 	public void start() {
 		List<Car> carList = generateCars(inputHandler.getValidCarNames());
 		int count = inputHandler.getValidTurnCount();
-		System.out.println(GameData.RESULT_MESSAGE);
+		outputHandler.printBlankLine();
+		outputHandler.printMessage(GameData.RESULT_MESSAGE);
 		while (!judgement.checkGameEnd(count--)) {
 			moveCars(carList);
 			outputHandler.printTurnStatus(carList);
 		}
 		judgement.judgeRanking(carList);
 		List<Car> winnerList = judgement.judgeWinner(carList);
-		System.out.println(GameData.WINNER_MESSAGE + generateWinnerInformation(winnerList));
+		outputHandler.printWinner(winnerList);
 	}
 
 	public List<Car> generateCars(List<String> carNames) {
@@ -40,16 +41,5 @@ public class GameEngine {
 		for (Car car : carList) {
 			car.moveForward();
 		}
-	}
-
-	public String generateWinnerInformation(List<Car> winnerList) {
-		StringBuilder stringBuilder = new StringBuilder();
-		for (Car car : winnerList) {
-			if (stringBuilder.length() != 0) {
-				stringBuilder.append(", ");
-			}
-			stringBuilder.append(car.getName());
-		}
-		return stringBuilder.toString();
 	}
 }
