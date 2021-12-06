@@ -9,7 +9,7 @@ public class DefaultChecker implements RaceGame.InputChecker {
 
     public void checkTryNumber(String input) {
         for (char ch : input.toCharArray()) {
-            if (isNumeric(ch)) {
+            if (!isNumeric(ch)) {
                 throwIllegalArgumentException();
             }
         }
