@@ -25,6 +25,12 @@ public class Cars {
 		return new Cars(cars);
 	}
 
+	public void moveAll(){
+		for (Car car : cars) {
+			car.move();
+		}
+	}
+
 	private static void validateSize(List<String> names){
 		if(names==null||names.isEmpty()){
 			throw new IllegalArgumentException("[ERROR] 자동차의 이름을 입력해주세요.");
