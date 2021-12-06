@@ -21,18 +21,6 @@ public class InputService {
 		return carNames;
 	}
 
-	public static String[] separateCarNames(String names) {
-		ValidationService.checkCarNames(names, DELIMITER);
-		return makeClearCarNames(names.split(DELIMITER));
-	}
-
-	public static String[] makeClearCarNames(String[] names) {
-		String[] result = Stream.of(names).map(String::trim).toArray(String[]::new);
-		ValidationService.checkDuplicatedCarName(result);
-		ValidationService.checkEachCarName(result);
-		return result;
-	}
-
 	public static int getTryNumber() {
 		int tryNumber;
 		while (true) {
@@ -47,4 +35,17 @@ public class InputService {
 		}
 		return tryNumber;
 	}
+
+	private static String[] separateCarNames(String names) {
+		ValidationService.checkCarNames(names, DELIMITER);
+		return makeClearCarNames(names.split(DELIMITER));
+	}
+
+	private static String[] makeClearCarNames(String[] names) {
+		String[] result = Stream.of(names).map(String::trim).toArray(String[]::new);
+		ValidationService.checkDuplicatedCarName(result);
+		ValidationService.checkEachCarName(result);
+		return result;
+	}
+
 }

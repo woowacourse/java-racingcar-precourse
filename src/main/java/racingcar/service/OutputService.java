@@ -17,15 +17,15 @@ public class OutputService {
 		OutputView.printNewLine();
 	}
 
-	public static StringBuilder getCarMovedDistance(int position){
+	public static void getWinnerNameList(List<String> winner){
+		OutputView.printWinner(String.join(DELIMITER, winner));
+	}
+
+	private static StringBuilder getCarMovedDistance(int position){
 		StringBuilder movedDistance = new StringBuilder();
 		for (int i = 0; i < position; i++){
 			movedDistance.append(DISTANCE);
 		}
 		return movedDistance;
-	}
-
-	public static void getWinnerNameList(List<String> winner){
-		OutputView.printWinner(String.join(DELIMITER, winner));
 	}
 }

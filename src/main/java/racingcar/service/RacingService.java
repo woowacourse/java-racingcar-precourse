@@ -14,28 +14,29 @@ public class RacingService {
 		OutputService.getOneRoundRacingResult(cars);
 	}
 
-	public static void moveCar(Car car) {
-		if (RandomService.isCarMovable()) {
-			car.moveForward();
-		}
-	}
-
-	public static int getMaxMovedPosition(List<Car> cars){
-		int maxPosition = 0;
-		for (Car car: cars){
-			int position = car.getPosition();
-			if (maxPosition < position){
-				maxPosition = position;
-			}
-		}
-		return maxPosition;
-	}
-
-	public static List<String> getWinner(List<Car> cars){
+	public static List<String> getWinner(List<Car> cars) {
 		int maxPosition = getMaxMovedPosition(cars);
 		return cars.stream()
 			.filter((car) -> car.getPosition() == maxPosition)
 			.map(Car::getName)
 			.collect(Collectors.toList());
 	}
+
+	private static void moveCar(Car car) {
+		if (RandomService.isCarMovable()) {
+			car.moveForward();
+		}
+	}
+
+	private static int getMaxMovedPosition(List<Car> cars) {
+		int maxPosition = 0;
+		for (Car car : cars) {
+			int position = car.getPosition();
+			if (maxPosition < position) {
+				maxPosition = position;
+			}
+		}
+		return maxPosition;
+	}
+
 }
