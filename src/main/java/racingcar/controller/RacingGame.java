@@ -12,19 +12,18 @@ public class RacingGame {
 
 	public void run() {
 		printCarNameInputMessage();
-		Car[] carName = gameManager.createCarInstance(inputCarName());
+		Car[] carName = gameManager.createCars(inputCarName());
 
 		printAttemptInputMessage();
 		int attemptNumber = inputAttemptNumber();
 
 		printExecutionResult();
 		for (int i = 0; i < attemptNumber; i++) {
-			gameManager.makeCarMove(carName);
+			gameManager.makeCarMoveForward(carName);
 			printCarMovementStatus(carName);
 			System.out.println();
 		}
-
-		printRacingWinner(gameManager.getWinner(carName));
+		printRacingWinner(gameManager.getWinnerList(carName));
 	}
 
 }

@@ -1,8 +1,7 @@
 package racingcar.view;
 
 import java.util.ArrayList;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
+import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.utils.Message;
@@ -22,10 +21,12 @@ public class OutputView {
 	public static void printInvalidBlankInput() {
 		System.out.println(Message.ERROR_INPUT_IS_BLANK.getMessage());
 	}
+
 	public static void printInvalidCarNameLength() {
 		System.out.println(Message.ERROR_INVALID_CAR_NAME.getMessage());
 
 	}
+
 	public static void printInvalidAttemptNumber() {
 		System.out.println(Message.ERROR_INVALID_ATTEMPT_NUMBER.getMessage());
 	}
@@ -37,19 +38,15 @@ public class OutputView {
 	public static void printCarMovementStatus(Car[] carName) {
 		for (Car car : carName) {
 			System.out.print(car.getName() + COLON_SIGN);
-			for (int i = 0; i<car.getPosition(); i++) {
+			for (int i = 0; i < car.getPosition(); i++) {
 				System.out.print(MOVEMENT_SIGN);
 			}
 			System.out.println();
 		}
 	}
 
-	public static void printRacingWinner(ArrayList<Car> winnerList) {
+	public static void printRacingWinner(List<String> winnerList) {
 		System.out.print(Message.WINNER_RESULT.getMessage());
-		ArrayList<String> resultWinnerNames = new ArrayList<>();
-		for (Car car: winnerList) {
-			resultWinnerNames.add(car.getName());
-		}
-		System.out.print(String.join(", ", resultWinnerNames));
+		System.out.print(String.join(", ", winnerList));
 	}
 }
