@@ -9,7 +9,7 @@
 
 ### 2. User Interface Package
 
-- 입력 [ ]
+- 입력 [x]
 - 출력 [ ]
 - 메시지 텍스트 (Enum) [ ]
 
