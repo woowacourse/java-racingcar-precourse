@@ -53,19 +53,20 @@
     - 라운드 수를 요청하라 to InputView
     - Cars 인스턴스로 게임을 초기화(생성)하라 to racingCarGame
     - 게임을 시작하라 to racingCarGame
+    - 게임 결과를 생성하라 to RacingCarGame
     - 게임 결과를 출력하라 to ResultView
     - 모델에서 발생한 에러를 핸들링
 
 ---
 
-### racingCarGame
+### RacingCarGame
 
 - 역할 : 게임을 진행
 - 책임
     - 라운드 수와 Cars를 입력받아 생성
     - 라운드 수를 검증
     - 게임을 시작(차들을 이동시켜라 to Cars)
-    - 게임 결과를 만듦
+    - 게임 상태를 만듦(각 자동차의 이름과 위치를 포함하는 데이터)
 
 ### Cars
 
@@ -81,6 +82,11 @@
     - 이동하기
         - 랜덤 넘버를 생성
         - Threshold 값을 기준으로 이동 여부 판단
+
+### GameStatus
+
+- 책임
+    - 우승자 선정
 
 ## 🚀 기능 요구사항
 

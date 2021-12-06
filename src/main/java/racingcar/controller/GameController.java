@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.GameStatus;
 import racingcar.domain.RacingCarGame;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
@@ -21,6 +22,7 @@ public class GameController {
 			RacingCarGame racingCarGame = initRacingCarGame(cars);
 
 			racingCarGame.startGame();
+			GameStatus gameStatus = racingCarGame.generateGameStatus();
 		} catch (IllegalArgumentException e) {
 			ErrorView.printErrorMessage(e.getMessage());
 			init();

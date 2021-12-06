@@ -28,4 +28,12 @@ public class Car {
 	private void move() {
 		position++;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
 }

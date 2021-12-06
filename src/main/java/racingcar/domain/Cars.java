@@ -75,4 +75,8 @@ public class Cars {
 			car.moveAccordingToRule();
 		}
 	}
+
+	public List<Car> getCars() {
+		return cars;
+	}
 }

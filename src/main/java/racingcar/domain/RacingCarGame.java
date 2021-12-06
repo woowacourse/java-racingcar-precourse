@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RacingCarGame {
 	private final int roundNumber;
 	private Cars cars;
@@ -40,5 +43,13 @@ public class RacingCarGame {
 
 	private void startRound() {
 		cars.moveCars();
+	}
+
+	public GameStatus generateGameStatus() {
+		Map<String, Integer> hashMap = new HashMap<>();
+		for (Car car : cars.getCars()) {
+			hashMap.put(car.getName(), car.getPosition());
+		}
+		return new GameStatus(hashMap);
 	}
 }
