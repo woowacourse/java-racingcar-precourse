@@ -25,7 +25,7 @@ public class Printer {
 		return result.toString();
 	}
 
-	public static void printWinnersAt(Car[] cars, int position) {
+	public static void printCarsAt(Car[] cars, int position) {
 		String[] winners = Arrays.stream(cars)
 			.filter(c -> c.getPosition() == position)
 			.map(Car::getName)

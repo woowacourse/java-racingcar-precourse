@@ -52,6 +52,6 @@ public class RacingGame {
 	}
 
 	private void printWinners() {
-		Printer.printWinnersAt(cars, maxPosition);
+		Printer.printCarsAt(cars, maxPosition);
 	}
 }
