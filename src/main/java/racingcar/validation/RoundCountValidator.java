@@ -3,12 +3,12 @@ package racingcar.validation;
 import static racingcar.validation.ErrorCode.*;
 
 public class RoundCountValidator {
-    private static final int ZERO = 0;
+    private static final int ONE = 1;
 
     public static int checkRoundCountAndReturn(String input) {
         isNull(input);
         isNumber(input);
-        isZero(input);
+        isPositiveAndLessThanMaxInteger(input);
 
         return Integer.parseInt(input);
     }
@@ -29,8 +29,18 @@ public class RoundCountValidator {
             throw new IllegalArgumentException(FOUND_NOT_NUMBER.getDetail());
     }
 
-    private static void isZero(String target) {
-        if (Integer.parseInt(target) == ZERO)
-            throw new IllegalArgumentException(FOUND_ZERO_ONLY.getDetail());
+    private static void isPositiveAndLessThanMaxInteger(String target) {
+        if (isGreaterThanMaxInteger(target) || isLessThanOne(target))
+            throw new IllegalArgumentException(OUT_OF_INTEGER_RANGE.getDetail());
+    }
+
+    private static boolean isGreaterThanMaxInteger(String target) {
+        long value = Long.parseLong(target);
+
+        return value > Integer.MAX_VALUE;
+    }
+
+    private static boolean isLessThanOne(String target) {
+        return Integer.parseInt(target) < ONE;
     }
 }

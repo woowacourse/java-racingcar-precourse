@@ -8,7 +8,8 @@ public class Round {
     private static final int MAGINOT = 3;
 
     public static int draw() {
-        return Randoms.pickNumberInRange(RAN_MIN, RAN_MAX);
+        int num = Randoms.pickNumberInRange(RAN_MIN, RAN_MAX);
+        return num;
     }
 
     public static boolean canMove(int drawResult) {
