@@ -14,7 +14,7 @@ public class InputView {
 		System.out.println(NAME_INPUT_HINT.getString());
 
 		List<String> userInputNameList = Arrays.asList(
-			Console.readLine().split(USER_NAME_INPUT_DELIMITER.getString()));
+			Console.readLine().split(USER_NAME_INPUT_DELIMITER.getString(),-1));
 		UserInputValidator.validateUserInputNameListLength(userInputNameList);
 		userInputNameList.forEach(UserInputValidator::validateUserInputNameLength);
 		return userInputNameList;
