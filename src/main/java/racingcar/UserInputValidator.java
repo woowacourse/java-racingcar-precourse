@@ -2,9 +2,12 @@ package racingcar;
 
 public class UserInputValidator {
 
-	public boolean checkNameLength(String name){
-		if(name.length() > 6){
-			return false;
+	public boolean checkNameLength(String[] names){
+
+		for(String name : names){
+			if(name.length() > 6){
+				return false;
+			}
 		}
 
 		return true;
