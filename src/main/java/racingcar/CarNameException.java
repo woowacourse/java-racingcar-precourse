@@ -27,7 +27,7 @@ public class CarNameException {
 				return false;
 			}
 
-			if (!checkSpaceInName(seperatedCarNames[i])) {
+			if (!checkSpaceInName(seperatedCarNames[i]) || !checkTabInName(seperatedCarNames[i])) {
 				return false;
 			}
 
@@ -71,6 +71,23 @@ public class CarNameException {
 
 	private boolean checkSpaceInName(String carName) {
 		String[] tmpArray = carName.split(" ", -1);
+
+		try {
+
+			if (tmpArray.length != 1) {
+				throw new IllegalArgumentException();
+			}
+
+		} catch (IllegalArgumentException e) {
+			System.out.println(SPACE_IN_NAME_ERROR_MESSAGE);
+			return false;
+		}
+
+		return true;
+	}
+
+	private boolean checkTabInName(String carName) {
+		String[] tmpArray = carName.split("\t", -1);
 
 		try {
 
