@@ -12,7 +12,7 @@ public class RoundResult {
             return "";
 
         for (int i = 1; i < time; i++) {
-            result += result;
+            result += '-';
         }
         return result;
     }
