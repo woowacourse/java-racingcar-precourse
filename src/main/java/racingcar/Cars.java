@@ -2,11 +2,14 @@ package racingcar;
 
 public class Cars implements ICars {
     private Car[] carArray;
+    private int[] carsPosition;
 
     @Override
     public void createCar(String[] names){
-        carArray = new Car[names.length];
-        for (int i = 0; i < names.length; i++) {
+        int nameCount = names.length;
+        carArray = new Car[nameCount];
+        carsPosition = new int[nameCount];
+        for (int i = 0; i < nameCount; i++) {
             carArray[i] = new Car(names[i]);
         }
     }
@@ -14,7 +17,9 @@ public class Cars implements ICars {
     @Override
     public void moveCar(){
         for (int i = 0; i < carArray.length; i++) {
-            carArray[i].pickRandomNumber();
+            if (carArray[i].pickRandomNumber()) {
+                carsPosition[i] ++;
+            }
         }
     }
 
@@ -22,13 +27,11 @@ public class Cars implements ICars {
     public void getWinner(){
         int maxPosition = getMaxPosition();
         String result = "최종 우승자 : ";
-
-        for (int i = 0; i < carArray.length; i++) {
-            if (carArray[i].getPosition() == maxPosition) {
+        for (int i = 0; i < carsPosition.length; i++) {
+            if (carsPosition[i] == maxPosition) {
                 result += carArray[i].getName() + ", ";
             }
         }
-
         System.out.println(result.substring(0, result.length() - 2));
     }
 
@@ -42,8 +45,8 @@ public class Cars implements ICars {
 
     private int getMaxPosition() {
         int result = 0;
-        for (int i = 0; i < carArray.length; i++) {
-            result = Math.max(carArray[i].getPosition(), result);
+        for (int i = 0; i < carsPosition.length; i++) {
+            result = Math.max(carsPosition[i], result);
         }
         return result;
     }
