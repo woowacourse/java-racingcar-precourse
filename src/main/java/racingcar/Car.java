@@ -19,9 +19,10 @@ public class Car {
 		if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= CRITERION) {
 			position++;
 		}
+		printPosition();
 	}
 
-	public void printPosition() {
+	private void printPosition() {
 		StringBuilder strPosition = new StringBuilder();
 		for (int i = 0; i < position; i++) {
 			strPosition.append("-");

@@ -22,7 +22,6 @@ public class RacingCarGame {
 		System.out.printf("%n실행 결과%n");
 		for (int i = 0; i < (numberOfTimes - 1); i++) {
 			play();
-			System.out.println();
 		}
 		playLastTurn();
 		announceWinner();
@@ -55,8 +54,8 @@ public class RacingCarGame {
 	private void play() {
 		for (Car car : carList) {
 			car.tryToMove();
-			car.printPosition();
 		}
+		System.out.println();
 	}
 
 	/**
@@ -66,7 +65,6 @@ public class RacingCarGame {
 		int maxPosition = 0;
 		for (Car car : carList) {
 			car.tryToMove();
-			car.printPosition();
 			int position = car.getPosition();
 			if (position > maxPosition) {
 				maxPosition = position;
@@ -76,6 +74,7 @@ public class RacingCarGame {
 				winnerList.add(car);
 			}
 		}
+		System.out.println();
 	}
 
 	private void announceWinner() {
