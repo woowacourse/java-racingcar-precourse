@@ -22,7 +22,7 @@ public class Validator {
 		try {
 			Integer.parseInt(input);
 		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자여야 한다.");
+			throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자여야 합니다.");
 		}
 	}
 
@@ -56,11 +56,11 @@ public class Validator {
 	}
 
 	private void throwMinLengthException() throws IllegalArgumentException {
-		throw new IllegalArgumentException("[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MIN + "글자 이상이어야 한다.");
+		throw new IllegalArgumentException("[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MIN + "글자 이상이어야 합니다.");
 	}
 
 	private void throwMaxLengthException() throws IllegalArgumentException {
-		throw new IllegalArgumentException("[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MAX + "글자 이하여야 한다.");
+		throw new IllegalArgumentException("[ERROR] 자동차 이름은 " + CAR_NAME_RESTRICTIONS_MAX + "글자 이하여야 합니다.");
 	}
 
 	private void checkSpace(String carName) throws IllegalArgumentException {
