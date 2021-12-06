@@ -35,11 +35,6 @@ public class Car {
         return Randoms.pickNumberInRange(MOVABLE_RANGE_MIN, MOVABLE_RANGE_MAX) >= MOVABLE_MIN;
     }
 
-    @Override
-    public String toString() {
-        return name + " : " + getRoad();
-    }
-
     private String getRoad() {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < position; i++) {
@@ -48,15 +43,20 @@ public class Car {
         return stringBuffer.toString();
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public boolean isSamePosition(int maxPosition) {
         return position == maxPosition;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + getRoad();
     }
 }

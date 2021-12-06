@@ -45,6 +45,10 @@ public class PlayTime {
         return this.equals(playTime);
     }
 
+    public void increase() {
+        round += 1;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -58,9 +62,5 @@ public class PlayTime {
     @Override
     public int hashCode() {
         return Objects.hash(round);
-    }
-
-    public void increase() {
-        round += 1;
     }
 }
