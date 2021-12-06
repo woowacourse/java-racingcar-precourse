@@ -9,8 +9,10 @@ public class Racing {
 
     public Racing() {
         car = Car.getCarName();
-        doGame();
-        //Car 객체배열 리턴후 doGame 호출
+        getTimes();
+        for (int i = 0; i < times; i++) {
+            doGame();
+        }
     }
 
     public void getTimes() {
