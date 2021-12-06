@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private final String MARK = "-";
     private final int MOVE_CONDITION = 4;
 
@@ -22,6 +22,13 @@ public class Car {
         return randomValue >= MOVE_CONDITION;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
     public void updatePosition() {
         position++;
     }
@@ -38,5 +45,10 @@ public class Car {
     @Override
     public String toString() {
         return name + " : " + indicatePosition();
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.position - this.position;
     }
 }
