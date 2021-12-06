@@ -59,6 +59,7 @@ public class Checker {
 	public boolean checkNumberOfTimes(String input) {
 		try {
 			checkInputIsNumber(input);
+			checkInputIsZero(input);
 		} catch (Exception e) {
 			System.out.println(ERROR + e.getMessage());
 			return false;
@@ -75,5 +76,13 @@ public class Checker {
 			}
 
 		}
+	}
+
+	private void checkInputIsZero(String input) {
+
+		if (input.equals("0")) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_IS_ZERO);
+		}
+
 	}
 }

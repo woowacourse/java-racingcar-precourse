@@ -16,7 +16,8 @@ public class RacingCarGameMessage {
 	public static final String ERROR_MESSAGE_NAME_LENGTH =
 		"자동차 이름은 " + MIN_NAME_LENGTH + "자 이상 " + MAX_NAME_LENGTH + "자 이하만 가능합니다.";
 	public static final String ERROR_MESSAGE_NAME_DUPLICATION = "자동차 이름은 중복될 수 없습니다.";
-	public static final String ERROR_MESSAGE_INPUT_IS_NOT_NUBMER = "숫자를 입력해주세요.";
+	public static final String ERROR_MESSAGE_INPUT_IS_NOT_NUBMER = "1이상의 숫자를 입력해주세요.";
+	public static final String ERROR_MESSAGE_INPUT_IS_ZERO = "1이상의 숫자를 입력해주세요.";
 
 	public static final String RESULT_MESSAGE = "실행 결과";
 	public static final String WINNER_MESSAGE = "최종 우승자";
