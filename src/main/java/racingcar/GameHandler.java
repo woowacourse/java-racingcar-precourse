@@ -9,7 +9,7 @@ import racingcar.constants.Message;
 import racingcar.service.UserInputService;
 
 public class GameHandler {
-	private final UserInputService userInputService = new UserInputService();
+	private final UserInputService userInputService = UserInputService.getInstance();
 
 	public void run() {
 		List<Car> cars = createCars();

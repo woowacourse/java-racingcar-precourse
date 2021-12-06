@@ -6,6 +6,19 @@ import racingcar.constants.Message;
 import racingcar.utils.Validator;
 
 public class UserInputService {
+	private static UserInputService instance = new UserInputService();
+
+	private UserInputService() {
+	}
+
+	public static UserInputService getInstance() {
+		if (instance == null) {
+			instance = new UserInputService();
+		}
+
+		return instance;
+	}
+
 	public String[] register() {
 		String[] names = new String[]{};
 		while (names.length == 0) {
