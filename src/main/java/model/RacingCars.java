@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import utils.RandomNumberGenerator;
 
 public class RacingCars {
-	private static final int FIRST_CAR = 0;
+	private static final int FIRST_CAR_LOCATION = 0;
 	private List<Car> cars = new ArrayList<>();
 
 	public RacingCars(String[] carNames) {
@@ -22,8 +22,8 @@ public class RacingCars {
 	}
 
 	public void moveCars() {
-		int lastCar = cars.size();
-		for (int index = FIRST_CAR; index < lastCar; index++) {
+		int lastCarLocation = cars.size() - 1;
+		for (int index = FIRST_CAR_LOCATION; index <= lastCarLocation; index++) {
 			cars.get(index).moveCar(RandomNumberGenerator.makeRandomNumber());
 		}
 	}
