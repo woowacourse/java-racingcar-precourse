@@ -11,14 +11,17 @@ import racingcar.domain.Cars;
 public class ConsoleInputStrategy implements InputStrategy {
 	@Override
 	public Cars getCars() {
-		String carNamesInput = Console.readLine();
-		String[] names = carNamesInput.split(",");
-		List<Car> cars = new LinkedList<>();
-		Arrays.stream(names).forEach(name -> {
-			Car car = new Car(name);
-			cars.add(car);
-		});
-		return new Cars(cars);
+		while (true) {
+			String carNamesInput = Console.readLine();
+			List<Car> cars = new LinkedList<>();
+			String[] names = carNamesInput.split(",");
+			try {
+				Arrays.stream(names).forEach(name -> cars.add(new Car(name)));
+				return new Cars(cars);
+			} catch (Exception exception) {
+				System.out.println(exception.getMessage());
+			}
+		}
 	}
 
 	@Override
