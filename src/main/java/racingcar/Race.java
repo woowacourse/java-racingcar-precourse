@@ -9,7 +9,7 @@ public class Race {
 	int repeatNum;
 	List<Car> carList;
 
-	Race(List carList) {
+	Race(List<Car> carList) {
 		this.carList = carList;
 		System.out.println("시도할 회수는 몇회인가요?");
 		repeatNum = new NumberInitiator().getNumber();
@@ -20,7 +20,7 @@ public class Race {
 
 	class Round {
 		void play() {
-			carList.forEach(car -> rollDice(car));
+			carList.forEach(this::rollDice);
 			System.out.println();
 		}
 
@@ -36,7 +36,7 @@ public class Race {
 		}
 	}
 
-	private class NumberInitiator {
+	private static class NumberInitiator {
 		String input;
 
 		public int getNumber() {

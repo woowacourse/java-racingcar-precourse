@@ -17,7 +17,6 @@ public class Car {
 		throw new IllegalArgumentException("[ERROR] 자동차 이름은 최대 5글자 입니다.");
 	}
 
-	// 추가 기능 구현
 	String getName() {
 		return name;
 	}
