@@ -21,15 +21,27 @@ public class CarList {
 		}
 	}
 
-	private List<Car> getWinners() {
-		return this.cars.stream()
-			.filter(car -> car.getPosition() == maxPosition)
-			.collect(Collectors.toList());
+	public ArrayList<String> getMoveState() {
+		ArrayList<String> moveState = new ArrayList<>();
+		for (Car car : this.cars) {
+			moveState.add(car.toString());
+		}
+		return moveState;
+	}
+
+	public ArrayList<String> getWinners() {
+		ArrayList<String> winners = new ArrayList<>();
+		for (Car car : this.cars) {
+			if (car.getPosition() == this.maxPosition){
+				winners.add(car.getName());
+			}
+		}
+		return winners;
 	}
 
 	private void updateMaxPosition(int nowPosition) {
-		if(nowPosition > maxPosition) {
-			maxPosition = nowPosition;
+		if(nowPosition > this.maxPosition) {
+			this.maxPosition = nowPosition;
 		}
 	}
 }
