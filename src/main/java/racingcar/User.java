@@ -10,11 +10,11 @@ public class UserInput {
 
     private static final String NAME_SEPARATOR = ",";
 
-    public String inputNames() {
+    public String inputValue() {
         return Console.readLine();
     }
 
-    public List<Car> splitInputNames(final String inputCarNames) {
+    public List<Car> splitInputCarNames(final String inputCarNames) {
         final StringTokenizer stringTokenizer = new StringTokenizer(inputCarNames, NAME_SEPARATOR);
         final List<Car> carNames = new ArrayList<>();
 
@@ -23,10 +23,6 @@ public class UserInput {
         }
 
         return carNames;
-    }
-
-    public String inputRound() {
-        return Console.readLine();
     }
 
 }

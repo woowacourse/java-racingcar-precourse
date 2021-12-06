@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.Car;
 
 public class GameDisplay {
 
@@ -7,7 +9,7 @@ public class GameDisplay {
     private static final String INPUT_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String COLON = " : ";
 
-    public void printInputNameMessage() {
+    public void printInputPlayerNameMessage() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
     }
 

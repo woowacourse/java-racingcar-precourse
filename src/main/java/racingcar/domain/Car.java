@@ -32,16 +32,16 @@ public class Car {
         position++;
     }
 
-    public int inputMoveForwardNumber() {
-        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-    }
-
     public boolean decideMoveCar(final int randomNumberToMove) {
         return randomNumberToMove > 3;
     }
 
     public void addSpeed() {
         speed = speed + SPEED_SIGNAL;
+    }
+
+    public int inputMoveForwardNumber() {
+        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 
 }
