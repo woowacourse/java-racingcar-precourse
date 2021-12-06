@@ -1,6 +1,6 @@
 package racingcar.utils.validator;
 
-import racingcar.utils.Const;
+import racingcar.utils.SystemMessage;
 
 public class RoundValidator {
 	public static int validate(String numStr) {
@@ -8,11 +8,11 @@ public class RoundValidator {
 		try {
 			number = Integer.parseInt(numStr);
 		} catch (Exception e) {
-			throw new IllegalArgumentException(Const.ERROR_INPUT_ROUND_IS_NOT_NUMERIC);
+			throw new IllegalArgumentException(SystemMessage.ERROR_INPUT_ROUND_IS_NOT_NUMERIC);
 		}
 
 		if (!isPositiveNumber(number))
-			throw new IllegalArgumentException(Const.ERROR_INPUT_ROUND_IS_NOT_POSITIVE_NUMBER);
+			throw new IllegalArgumentException(SystemMessage.ERROR_INPUT_ROUND_IS_NOT_POSITIVE_NUMBER);
 
 		return number;
 	}

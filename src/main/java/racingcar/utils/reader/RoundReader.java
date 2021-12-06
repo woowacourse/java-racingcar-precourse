@@ -1,12 +1,12 @@
 package racingcar.utils.reader;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.utils.Const;
+import racingcar.utils.SystemMessage;
 import racingcar.utils.validator.RoundValidator;
 
 public class RoundReader {
 	public static int readRound() {
-		System.out.println(Const.ROUND_INPUT_MESSAGE);
+		System.out.println(SystemMessage.ROUND_INPUT_MESSAGE);
 		String userInput = Console.readLine();
 		int result;
 		try {

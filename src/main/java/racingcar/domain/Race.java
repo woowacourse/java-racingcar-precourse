@@ -4,9 +4,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import racingcar.utils.Const;
+import racingcar.utils.SystemMessage;
 
 public class Race {
+	private static final String WINNER_SEPARATOR = ", ";
 	private List<Car> cars;
 	private int round;
 
@@ -16,7 +17,7 @@ public class Race {
 	}
 
 	public void start() {
-		System.out.println(Const.RACE_RESULT_MESSAGE);
+		System.out.println(SystemMessage.RACE_RESULT_MESSAGE);
 		for (int i = 0; i < round; i++) {
 			cars.forEach(Car::moveOrStop);
 			printRoundResult();
@@ -28,8 +29,8 @@ public class Race {
 
 		List<String> winnerNames = getWinnerNames(maxPosition);
 
-		String winnersOutputMessage = Const.WINNER_MESSAGE
-			+ String.join(Const.WINNER_SEPARATOR, winnerNames);
+		String winnersOutputMessage = SystemMessage.WINNER_MESSAGE
+			+ String.join(WINNER_SEPARATOR, winnerNames);
 
 		System.out.println(winnersOutputMessage);
 	}
