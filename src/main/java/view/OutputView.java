@@ -29,7 +29,7 @@ public class OutputView {
 
 	public static void printGameWinner(List<Car> carList) {
 		Set<String> winnerNameSet = searchGameWinners(carList);
-		System.out.println("최종 우승자 : ");
+		System.out.print("최종 우승자 : ");
 		System.out.println(winnerNameSet.toString()
 			.replace("[", "")
 			.replace("]", ""));
