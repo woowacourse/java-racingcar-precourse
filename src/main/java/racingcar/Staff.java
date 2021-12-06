@@ -5,6 +5,9 @@ import java.util.List;
 
 public class Staff {
 
+    private static final String SEPARATOR = ",";
+    private static final String WINNER_PREFIX = "최종 우승자 : ";
+
     Speaker speaker;
     Validator validator;
 
@@ -15,7 +18,7 @@ public class Staff {
 
     public String[] collectCarNames() {
         speaker.sayCarNames();
-        String[] waitingCarNames = Console.readLine().split(",");
+        String[] waitingCarNames = Console.readLine().split(SEPARATOR);
         for (int i = 0; i < waitingCarNames.length; i++) {
             waitingCarNames[i] = waitingCarNames[i].trim();
             String carName = waitingCarNames[i];
@@ -54,9 +57,9 @@ public class Staff {
     }
 
     public void awardWinners(List<String> winners) {
-        StringBuilder winnerList = new StringBuilder("최종 우승자 : ");
+        StringBuilder winnerList = new StringBuilder(WINNER_PREFIX);
         for (String winner : winners) {
-            winnerList.append(winner).append(",");
+            winnerList.append(winner).append(SEPARATOR);
         }
         winnerList.deleteCharAt(winnerList.length() - 1);
         speaker.sayWinners(winnerList);

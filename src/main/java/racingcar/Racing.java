@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Racing {
 
+    private static final int FIRST_ROUND = 0;
+
     private List<Car> lineup;
     private List<String> winners;
     private Staff staff;
@@ -36,7 +38,7 @@ public class Racing {
 
     private void repeatRace(Integer repeatTimes) {
         staff.startRace();
-        int round = 0;
+        int round = FIRST_ROUND;
         while (round < repeatTimes) {
             for (Car car : lineup) {
                 car.goOrStop();

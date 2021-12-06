@@ -3,6 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final int GO_STOP_STANDARD = 4;
+    private static final int DICE_MINIMUM = 0;
+    private static final int DICE_MAXIMUM = 9;
+
     private final String name;
     private int position = 0;
 
@@ -12,7 +16,7 @@ public class Car {
 
     public void goOrStop() {
         int number = rollTheDice();
-        if (number >= 4) {
+        if (number >= GO_STOP_STANDARD) {
             run();
         }
     }
@@ -26,7 +30,7 @@ public class Car {
     }
 
     private int rollTheDice() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(DICE_MINIMUM, DICE_MAXIMUM);
     }
 
     private void run() {

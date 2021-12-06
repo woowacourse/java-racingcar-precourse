@@ -5,11 +5,13 @@ import java.util.List;
 
 public class Judge {
 
+    private static final int INITIAL_LEADER_POSITION = -1;
+
     List<String> winners;
 
     public List<String> findWinners(List<Car> lineup) {
         winners = new ArrayList<>();
-        int leaderPosition = -1;
+        int leaderPosition = INITIAL_LEADER_POSITION;
         for (Car participantCar : lineup) {
             int position = participantCar.getPosition();
             String name = participantCar.getName();
