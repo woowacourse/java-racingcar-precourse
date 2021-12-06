@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.RandomCondition;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -12,11 +15,17 @@ public class Car {
         return name;
     }
 
-    public void moveForward() {
-        // TODO: 위치 1만큼 이동
+    public void moveForwardOrStop() {
+        if (pickRandomNumber() >= RandomCondition.MOVABLE) {
+            position++;
+        }
     }
 
     public void getCurrentInfo() {
         // TODO: 자동차 이름과 위치 정보
+    }
+
+    private int pickRandomNumber() {
+        return Randoms.pickNumberInRange(RandomCondition.MIN, RandomCondition.MAX);
     }
 }
