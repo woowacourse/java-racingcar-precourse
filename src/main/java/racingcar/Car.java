@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car implements Comparable<Car> {
 	private static final int RANDOM_NUMBER_MAX = 9;
 	private static final int RANDOM_NUMBER_MIN = 0;
+	private static final int GO_NUMBER_MIN = 4;
 	private final String name;
 	private int position = 0;
 
@@ -14,7 +15,7 @@ public class Car implements Comparable<Car> {
 
 	public void move() {
 		int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
-		if (randomNumber >= 4) {
+		if (randomNumber >= GO_NUMBER_MIN) {
 			position++;
 		}
 	}
