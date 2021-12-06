@@ -1,16 +1,23 @@
 package racingcar.utils;
 
+
+import java.util.HashSet;
 import java.util.List;
 
 import racingcar.view.OutputView;
 
 public class Validator {
 	private static final int CAR_NAME_MAX_LENGTH = 5;
+	private static final int CAR_NAME_LIST_MIN_SIZE = 2;
 
 	public static boolean isValidCarName(List<String> carNameList) {
-		if (!checkCarNamesMoreThanTwo(carNameList)) {
+		if (!checkCarNameListSize(carNameList)) {
 			return false;
 		}
+		if (!checkDuplicateCarName(carNameList)) {
+			return false;
+		}
+
 		for (String name : carNameList) {
 			if (!checkInputIsBlank(name)) {
 				return false;
@@ -35,10 +42,23 @@ public class Validator {
 		}
 		return true;
 	}
+	public static boolean checkDuplicateCarName(List<String> carNameList) {
+		HashSet<String> carNameSet = new HashSet<>(carNameList);
 
-	public static boolean checkCarNamesMoreThanTwo(List<String> carNameList) {
 		try {
-			if (carNameList.size() >= 2) {
+			if (carNameSet.size() == carNameList.size()) {
+				return true;
+			}
+			throw new IllegalArgumentException();
+		} catch (Exception e) {
+			OutputView.printDuplicateCarName();
+			return false;
+		}
+	}
+
+	public static boolean checkCarNameListSize(List<String> carNameList) {
+		try {
+			if (carNameList.size() >= CAR_NAME_LIST_MIN_SIZE) {
 				return true;
 			}
 			throw new IllegalArgumentException();

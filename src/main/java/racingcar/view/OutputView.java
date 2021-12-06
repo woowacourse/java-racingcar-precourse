@@ -2,12 +2,18 @@ package racingcar.view;
 
 import java.util.ArrayList;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import racingcar.domain.Car;
 import racingcar.utils.Message;
 
 public class OutputView {
 	private static String COLON_SIGN = " : ";
 	private static String MOVEMENT_SIGN = "-";
+
+	public static void printDuplicateCarName() {
+		System.out.println(Message.ERROR_DUPLICATE_CAR_NAME.getMessage());
+	}
 
 	public static void printInvalidCarNameListSize() {
 		System.out.println(Message.ERROR_CAR_NAME_LIST_SIZE.getMessage());
