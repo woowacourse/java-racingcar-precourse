@@ -1,21 +1,25 @@
 package view;
 
 public class Display {
+	private static final String CAR_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+	private static final String TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
+	private static final String EXECUTION_MESSAGE = "실행 결과";
+	private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
 	private Display() {
 	}
 
 	public static void pleaseInputRacingCarNames() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+		System.out.println(CAR_INPUT_MESSAGE);
 	}
 
 	public static void pleaseInputNumberOfCarRaces() {
-		System.out.println("시도할 회수는 몇회인가요?");
+		System.out.println(TRY_COUNT_MESSAGE);
 	}
 
 	public static void showExecutionResult() {
 		System.out.println();
-		System.out.println("실행 결과");
+		System.out.println(EXECUTION_MESSAGE);
 	}
 
 	public static void showRacingCarNowPositions(String[] carNames, int[] carPositions) {
@@ -39,12 +43,12 @@ public class Display {
 
 	public static void showSoloWinner(String[] winner) {
 		System.out.println();
-		System.out.print("최종 우승자 : " + winner[0]);
+		System.out.print(WINNER_MESSAGE + winner[0]);
 	}
 
 	public static void showJointWinner(String[] winners) {
 		System.out.println();
-		System.out.print("최종 우승자 : ");
+		System.out.print(WINNER_MESSAGE);
 		for (String winner : winners) {
 			showWinner(winner);
 		}
