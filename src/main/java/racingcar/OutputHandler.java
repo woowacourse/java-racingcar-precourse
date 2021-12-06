@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public class OutputHandler {
+	
 	public void printMessage(String message) {
 		System.out.println(message);
 	}
@@ -18,10 +19,10 @@ public class OutputHandler {
 	}
 
 	public void printTurnStatus(List<Car> carList) {
-		for(Car car:carList) {
-			Optional<String> result = Stream.generate(()-> "-").limit(car.getPosition()).reduce((a, b) -> a + b);
+		for (Car car : carList) {
+			Optional<String> result = Stream.generate(() -> "-").limit(car.getPosition()).reduce((a, b) -> a + b);
 			String carPosition = "";
-			if(result.isPresent()) {
+			if (result.isPresent()) {
 				carPosition = result.get();
 			}
 			printMessage(String.format(GameData.RESULT_FORMAT, car.getName(), carPosition));
@@ -31,8 +32,8 @@ public class OutputHandler {
 
 	public void printWinner(List<Car> winnerList) {
 		StringBuilder stringBuilder = new StringBuilder();
-		for(Car winner:winnerList) {
-			if(stringBuilder.length() != 0) {
+		for (Car winner : winnerList) {
+			if (stringBuilder.length() != 0) {
 				stringBuilder.append(", ");
 			}
 			stringBuilder.append(winner.getName());

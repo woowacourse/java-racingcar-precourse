@@ -18,5 +18,4 @@ public class GameData {
 	public static final String TURNCOUNT_TOO_SMALL_ERROR_MESSAGE = "[ERROR] 시도 횟수가 너무 작습니다.";
 	public static final String RESULT_MESSAGE = "실행결과";
 	public static final String RESULT_FORMAT = "%s : %s";
-
 }

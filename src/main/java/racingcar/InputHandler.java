@@ -1,9 +1,9 @@
 package racingcar;
 
-	import java.util.ArrayList;
-	import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
-	import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {
 
@@ -15,7 +15,7 @@ public class InputHandler {
 
 	public List<String> getValidCarNames() {
 		outputHandler.printMessage(GameData.CARNAME_INPUT_MESSAGE);
-		while(true) {
+		while (true) {
 			try {
 				return readRacingCarNames();
 			} catch (IllegalArgumentException iae) {
@@ -26,7 +26,7 @@ public class InputHandler {
 
 	public int getValidTurnCount() {
 		outputHandler.printMessage(GameData.TRY_INPUT_MESSAGE);
-		while(true) {
+		while (true) {
 			try {
 				return readCount();
 			} catch (IllegalArgumentException iae) {
