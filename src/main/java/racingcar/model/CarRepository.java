@@ -9,14 +9,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class CarRepository {
 	static final int MIN_RANDOM_NUMBER = 0;
 	static final int MAX_RANDOM_NUMBER = 9;
-	private static final ArrayList<Car> cars = new ArrayList<>();
 
-	public static void addCar(Car car) {
-		cars.add(car);
-	}
+	private static final ArrayList<Car> cars = new ArrayList<>();
 
 	public static ArrayList<Car> getCars() {
 		return cars;
+	}
+
+	public static void addCar(Car car) {
+		cars.add(car);
 	}
 
 	public static void moveCars() {
@@ -26,15 +27,15 @@ public class CarRepository {
 		}
 	}
 
-	public static int getMaxPositionOfCars() {
+	public static int findMaxPositionOfCars() {
 		return cars.stream()
 			.mapToInt(Car::getPosition)
 			.max()
 			.getAsInt();
 	}
 
-	public static List<String> getWinnerNames() {
-		int maxPosition = getMaxPositionOfCars();
+	public static List<String> findCarNameListByWinner() {
+		int maxPosition = findMaxPositionOfCars();
 		return cars.stream()
 			.filter(car -> car.isMaxPosition(maxPosition))
 			.map(Car::getName)

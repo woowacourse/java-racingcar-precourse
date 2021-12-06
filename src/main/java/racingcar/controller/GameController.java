@@ -7,6 +7,8 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
+	private static final String CAR_NAME_SPLITTER = ",";
+
 	private int roundNumber;
 
 	public void start() {
@@ -25,38 +27,38 @@ public class GameController {
 	}
 
 	private void makeCars() {
-		String[] carNames = getCarNamesInput();
+		String[] carNames = getCarNameArrayFromInput();
 		for (String carName : carNames) {
 			CarRepository.addCar(new Car(carName));
 		}
 	}
 
-	private String[] getCarNamesInput() {
+	private String[] getCarNameArrayFromInput() {
 		OutputView.printCarNameRequestMessage();
-		String[] carNames = InputView.getCarNames().split(",");
+		String[] carNames = InputView.getCarNames().split(CAR_NAME_SPLITTER);
 		try {
 			InputValidator.checkIsValidCarNames(carNames);
 		} catch (Exception exception) {
 			OutputView.printErrorMessage(exception.getMessage());
-			return getCarNamesInput();
+			return getCarNameArrayFromInput();
 		}
 		return carNames;
 	}
 
 	private void makeRoundNumber() {
-		roundNumber = Integer.parseInt(getRoundNumberInput());
+		roundNumber = getRoundNumberFromInput();
 	}
 
-	private String getRoundNumberInput() {
+	private int getRoundNumberFromInput() {
 		OutputView.printRoundNumberRequestMessage();
 		String roundNumber = InputView.getRoundNumber();
 		try {
 			InputValidator.checkIsValidRoundNumber(roundNumber);
 		} catch (Exception exception) {
 			OutputView.printErrorMessage(exception.getMessage());
-			return getRoundNumberInput();
+			return getRoundNumberFromInput();
 		}
-		return roundNumber;
+		return Integer.parseInt(roundNumber);
 	}
 
 	private void showPlayResult() {
@@ -67,6 +69,6 @@ public class GameController {
 	}
 
 	private void showGameResult() {
-		OutputView.printWinners(CarRepository.getWinnerNames());
+		OutputView.printWinners(CarRepository.findCarNameListByWinner());
 	}
 }
