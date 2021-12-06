@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     private List<Car> cars;
@@ -15,6 +17,8 @@ public class Game {
         for (int i = 0; i < raceCount; i++) {
             moveOneRound();
         }
+
+        printWinnerNames();
     }
 
     private void moveOneRound() {
@@ -23,6 +27,11 @@ public class Game {
         }
 
         System.out.println("");
+    }
+
+    private void printWinnerNames() {
+        String winnerNames = String.join(", ", getWinnerNames());
+        System.out.printf("최종 우승자 : %s%n", winnerNames);
     }
 
     private List<String> getWinnerNames() {
