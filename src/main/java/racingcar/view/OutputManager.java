@@ -23,7 +23,7 @@ public class OutputManager {
 		printWinnerStart();
 		for(int i = 0; i < winners.size(); i++) {
 			System.out.print(winners.get(i));
-			checkMoreWinner(i, winners.size());
+			printCommaAndBlank(i, winners.size());
 		}
 	}
 
@@ -31,7 +31,7 @@ public class OutputManager {
 		System.out.print(ViewConstants.NOTIFY_RACE_WINNERS);
 	}
 
-	private void checkMoreWinner(int nowIndex, int size) {
+	private void printCommaAndBlank(int nowIndex, int size) {
 		if(nowIndex != size - 1) {
 			System.out.print(RaceConstants.CUT_OFF_POINT + RaceConstants.BLANK);
 		}
