@@ -28,7 +28,7 @@ public class Car {
 
     private void validateEmpty(String name) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException(CAR_NAME_NOT_VALID.getMessage());
+            throw new IllegalArgumentException(CAR_NAME_EMPTY.getMessage());
         }
     }
 
@@ -38,12 +38,12 @@ public class Car {
                 return;
             }
         }
-        throw new IllegalArgumentException(CAR_NAME_NOT_VALID.getMessage());
+        throw new IllegalArgumentException(CAR_NAME_BLANK.getMessage());
     }
 
     private void validateLength(String name) {
         if (name.length() > NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(CAR_NAME_NOT_VALID.getMessage());
+            throw new IllegalArgumentException(CAR_NAME_OVER_LENGTH.getMessage());
         }
     }
     
