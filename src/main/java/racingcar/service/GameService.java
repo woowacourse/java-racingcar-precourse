@@ -28,14 +28,14 @@ public class GameService {
 	public void postRepeatNumber(String inputStr) {
 		Validation.checkNull(inputStr);
 		Validation.checkInputIsPositiveNumber(inputStr);
-		cars.setRepeatNum(Integer.parseInt(inputStr));
+		cars.setRepeatNumber(Integer.parseInt(inputStr));
 	}
 
 	public String getResult() {
 		result = new StringBuilder();
 		result.append(System.lineSeparator());
 
-		for (int i = 0; i < cars.getRepeatNum(); i++) {
+		for (int i = 0; i < cars.getRepeatNumber(); i++) {
 			decideMoveOrStop();
 			checkSorting(i);
 			checkLineSeparate(i);
@@ -87,13 +87,13 @@ public class GameService {
 	}
 
 	private void checkLineSeparate(int num) {
-		if (num != cars.getRepeatNum() - 1) {
+		if (num != cars.getRepeatNumber() - 1) {
 			result.append(System.lineSeparator());
 		}
 	}
 
 	private void checkSorting(int idx) {
-		if (idx == cars.getRepeatNum() - 1) {
+		if (idx == cars.getRepeatNumber() - 1) {
 			Collections.sort(cars.getCarList());
 		}
 	}

@@ -6,26 +6,26 @@ import java.util.List;
 public class Cars {
 
 	private List<Car> carList;
-	private int repeatNum;
+	private int repeatNumber;
 
 	public Cars() {
 		this.carList = new ArrayList<>();
-		this.repeatNum = 0;
+		this.repeatNumber = 0;
 	}
 
 	public void addCarInList(String car) {
 		carList.add(new Car(car));
 	}
 
-	public void setRepeatNum(int repeatNum) {
-		this.repeatNum = repeatNum;
+	public void setRepeatNumber(int repeatNumber) {
+		this.repeatNumber = repeatNumber;
 	}
 
 	public List<Car> getCarList() {
 		return carList;
 	}
 
-	public int getRepeatNum() {
-		return repeatNum;
+	public int getRepeatNumber() {
+		return repeatNumber;
 	}
 }

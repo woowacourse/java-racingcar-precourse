@@ -1,5 +1,5 @@
 # 미션 - 자동차 경주 게임 🏎 
- : - [Java 8](https://www.oracle.com/java/technologies/java8.html) 환경에서 자동차의 이름과 횟수를 입력 받고 주어진 횟수 동안 가장 많이 이동한 자동차가 우승하는 초간단 자동차 경주 게임   
+ : [Java 8](https://www.oracle.com/java/technologies/java8.html) 환경에서 자동차의 이름과 횟수를 입력 받고 주어진 횟수 동안 가장 많이 이동한 자동차가 우승하는 초간단 자동차 경주 게임   
  
 ## ✍🏻 기능 목록
 
