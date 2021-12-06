@@ -51,25 +51,34 @@ public class Game {
 			reset = false;
 			cars.clear();
 			String carNames = Console.readLine();
-			Vector<String> seperatedCarNames = separateCarNames(carNames);
+			String[] seperatedCarNames = carNames.split(",");
 
-			if (!makeCarsCompletely(seperatedCarNames)) {
+			if (!canMakeCarsCompletely(seperatedCarNames)) {
 				reset = true;
+			} else {
+				makeCars(seperatedCarNames);
 			}
+
 		}
 
 	}
 
-	private boolean makeCarsCompletely(Vector<String> seperatedCarNames) {
+	private void makeCars(String[] seperatedCarNames) {
 
-		for (int i = 0; i < seperatedCarNames.size(); i++) {
+		for (int i = 0; i < seperatedCarNames.length; i++) {
+			cars.add(new Car(seperatedCarNames[i]));
+		}
 
-			if (!carNameException(seperatedCarNames.get(i))) {
+	}
+
+	private boolean canMakeCarsCompletely(String[] seperatedCarNames) {
+
+		for (int i = 0; i < seperatedCarNames.length; i++) {
+
+			if (!carNameException(seperatedCarNames[i])) {
 				return false;
 			}
 
-			Car car = new Car(seperatedCarNames.get(i));
-			cars.add(car);
 		}
 
 		return true;
@@ -89,23 +98,6 @@ public class Game {
 		}
 
 		return true;
-	}
-
-	private Vector<String> separateCarNames(String carNames) {
-		Vector<String> seperatedCarNames = new Vector<String>();
-		int newCarNameStartIdx = 0;
-
-		for (int i = 0; i < carNames.length(); i++) {
-
-			if (carNames.charAt(i) == ',') {
-				seperatedCarNames.add(carNames.substring(newCarNameStartIdx, i));
-				newCarNameStartIdx = i + 1;
-			}
-
-		}
-
-		seperatedCarNames.add(carNames.substring(newCarNameStartIdx, carNames.length()));
-		return seperatedCarNames;
 	}
 
 	private void setGameTurn() {
