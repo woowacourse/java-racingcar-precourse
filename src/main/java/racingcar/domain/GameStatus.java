@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class GameStatus {
@@ -9,6 +12,22 @@ public class GameStatus {
 		this.gameStatus = gameStatus;
 	}
 
-	public void getWinnerNames() {}
+	public Map<String, Integer> getRoundStatus() {
+		return gameStatus;
+	}
+
+	public List<String> getWinnerNames() {
+		List<String> winnerNameList = new ArrayList<>();
+		for (String name : gameStatus.keySet()) {
+			if (gameStatus.get(name) == getMaxPosition()) {
+				winnerNameList.add(name);
+			}
+		}
+		return winnerNameList;
+	}
+
+	private int getMaxPosition() {
+		return Collections.max(gameStatus.values());
+	}
 
 }
