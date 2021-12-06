@@ -20,6 +20,19 @@ public class Validation {
 
     }
 
+    private void checkSpacePosition() {
+
+        for (String name : carNames) {
+
+            if (name.length() != name.trim().length()) {
+                errorMessage = ErrorText.ERROR_NAME_SPACE_POSITION;
+                throwInputException();
+            }
+
+        }
+
+    }
+
     public boolean isValidCarNames(ArrayList<String> carNames) {
 
         try {
