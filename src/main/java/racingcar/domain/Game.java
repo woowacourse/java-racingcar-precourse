@@ -12,7 +12,7 @@ public class Game {
 	public int gameCount;
 	public Cars carList;
 
-	public static void runGameByCar(Car drivingCar) {
+	private void runGameByCar(Car drivingCar) {
 		int randomNo = new GenerateRandomNo().randomNo;
 		if (Car.isForward(randomNo)) {
 			drivingCar.forward();
@@ -20,7 +20,7 @@ public class Game {
 		OutputView.printScoreOfCar(drivingCar);
 	}
 
-	public static void runGameOneStep(Cars carList) {
+	private void runGameOneStep(Cars carList) {
 		for (Car car : carList.getCars()) {
 			runGameByCar(car);
 		}
@@ -33,9 +33,9 @@ public class Game {
 		newGame.getGameCount();
 		OutputView.printResultMessage();
 		for (int i = 0; i < newGame.gameCount; i++) {
-			runGameOneStep(newGame.carList);
+			runGameOneStep(newGame.getCarList());
 		}
-		this.carList = newGame.carList;
+		this.carList = newGame.getCarList();
 	}
 
 	public void generateCars() {
@@ -57,5 +57,9 @@ public class Game {
 			input = generateUserInput();
 		} while (!ValidationUtils.validNumber(input));
 		this.gameCount = Integer.parseInt(input);
+	}
+
+	public Cars getCarList() {
+		return this.carList;
 	}
 }
