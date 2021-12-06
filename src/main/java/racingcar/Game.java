@@ -20,6 +20,7 @@ public class Game {
 		System.out.println(Message.NUMBER_OF_ATTEMPTS);
 		long count = Long.parseLong(Console.readLine());
 
+		System.out.println(Message.EXECUTION_RESULT);
 		for (int i = 0; i < count; i++) {
 			carList = updateCarListPosition(carList);
 			carList.forEach(car -> outputPrinter.printStepResult(car));
