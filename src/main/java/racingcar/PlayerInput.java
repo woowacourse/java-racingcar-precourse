@@ -13,6 +13,7 @@ public class PlayerInput {
 	private static final String ERROR_MESSAGE_NAME_SIZE = "[ERROR] 이름은 최대 5자 입력 가능.";
 	private static final String ERROR_MESSAGE_NOT_INT = "[ERROR] 시도 회수는 숫자만 입력 가능.";
 	private static final String ERROR_MESSAGE_BLANK = "[ERROR] 입력이 비었습니다.";
+	private static final String ERROR_MESSAGE_ONLY_WHITE_SPACES = "[ERROR] 빈 이름은 쓸 수 없습니다.";
 
 	public List<String> getCarNames() {
 		String input = getInputByMessage(INPUT_MESSAGE_CAR_NAMES);
@@ -38,6 +39,7 @@ public class PlayerInput {
 		StringTokenizer stringTokenizer = new StringTokenizer(input, ",");
 		while (stringTokenizer.hasMoreTokens()) {
 			String newName = stringTokenizer.nextToken();
+			validateNotOnlyWhiteSpaces(newName);
 			validateNameSize(newName);
 			carNames.add(newName);
 		}
@@ -53,6 +55,12 @@ public class PlayerInput {
 	private void validateNameSize(String name) {
 		if (name.length() > MAX_NAME_SIZE) {
 			throw new IllegalArgumentException(ERROR_MESSAGE_NAME_SIZE);
+		}
+	}
+
+	private void validateNotOnlyWhiteSpaces(String input) {
+		if (input.trim().length() == 0) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_ONLY_WHITE_SPACES);
 		}
 	}
 
