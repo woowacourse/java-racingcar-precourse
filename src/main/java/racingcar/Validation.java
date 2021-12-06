@@ -9,7 +9,7 @@ public class Validation {
 	}
 
 	public static void IsEmpty(String input) {
-		if (input.equals("")){
+		if (input.equals("")) {
 			System.out.println("[ERROR] 자동차 이름은 공백일 수 없다.");
 			throw new IllegalArgumentException();
 		}
@@ -18,7 +18,7 @@ public class Validation {
 	public static void IsInteger(String input) {
 		try {
 			Integer.parseInt(input.trim());
-		} catch (NumberFormatException exception){
+		} catch (NumberFormatException exception) {
 			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
 			throw new IllegalArgumentException();
 		}

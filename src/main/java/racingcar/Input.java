@@ -7,7 +7,6 @@ public class Input {
 
 	public static String[] carName() {
 		String[] carNames;
-
 		do {
 			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 			carNames = Console.readLine().split(",");
@@ -18,11 +17,10 @@ public class Input {
 
 	public static int tryNumber() {
 		String number;
-
 		do {
 			System.out.println("시도할 회수는 몇회인가요?");
 			number = Console.readLine();
-		} while(!checkTryNumber(number));
+		} while (!checkTryNumber(number));
 
 		return Integer.parseInt(number);
 	}

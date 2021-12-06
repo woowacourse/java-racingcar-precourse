@@ -1,14 +1,12 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class CarList {
 	private final ArrayList<Car> cars = new ArrayList<>();
 	private int maxPosition = 0;
 
-	public CarList(String [] carNames){
+	public CarList(String[] carNames) {
 		for (String carName : carNames) {
 			this.cars.add(new Car(carName));
 		}
@@ -21,7 +19,7 @@ public class CarList {
 		}
 	}
 
-	public ArrayList<String> getMoveState() {
+	public ArrayList<String> getMovementState() {
 		ArrayList<String> moveState = new ArrayList<>();
 		for (Car car : this.cars) {
 			moveState.add(car.toString());
@@ -32,7 +30,7 @@ public class CarList {
 	public ArrayList<String> getWinners() {
 		ArrayList<String> winners = new ArrayList<>();
 		for (Car car : this.cars) {
-			if (car.getPosition() == this.maxPosition){
+			if (car.getPosition() == this.maxPosition) {
 				winners.add(car.getName());
 			}
 		}
@@ -40,7 +38,7 @@ public class CarList {
 	}
 
 	private void updateMaxPosition(int nowPosition) {
-		if(nowPosition > this.maxPosition) {
+		if (nowPosition > this.maxPosition) {
 			this.maxPosition = nowPosition;
 		}
 	}
