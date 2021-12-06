@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.domain.error.ErrorMessage.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +23,20 @@ class CarsTest {
         assertThatCode(() -> {
             new Cars(names, movingPolicy);
         }).doesNotThrowAnyException();
+    }
+
+    @DisplayName("차 이름이 중복되면 예외를 던진다.")
+    @Test
+    void constructor_NamesThenDuplicate_ExceptionThrown() {
+        // given
+        MovingPolicy movingPolicy = new RandomMovingPolicy();
+        List<String> names = new ArrayList<>(Arrays.asList("pobi", "pobi", "pobi"));
+
+        // when & then
+        assertThatThrownBy(() -> {
+            new Cars(names, movingPolicy);
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(CAR_NAME_NOT_DUPLICATE.getMessage());
     }
 
     @DisplayName("isMoving이 true이면 position이 일괄적으로 증가한다.")
