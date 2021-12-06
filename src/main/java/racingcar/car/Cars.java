@@ -9,23 +9,27 @@ public class Cars {
 		carList = new ArrayList<Car>();
 	}
 
-	void setWinnerNameList() {
-		carList.forEach(this::pickWinner);
+	void appendCar(String carName) {
+		carList.add(new Car(carName));
 	}
+
+	ArrayList<String> winnerNameList = new ArrayList<>();
 
 	ArrayList<String> getWinnerNameList() {
 		return winnerNameList;
 	}
 
-	ArrayList<String> winnerNameList = new ArrayList<>();
+	void setWinnerNameList() {
+		carList.forEach(this::pickWinner);
+	}
 
 	void pickWinner(Car car) {
-		if (car.isBiggerThan(maxPosition)) {
+		if (car.isSmallerThan(maxPosition)) {
+			return;
+		} else if (car.isBiggerThan(maxPosition)) {
 			initMaxPositionAndNameList(car);
-			winnerNameList.add(car.getName());
-		} else if (car.equals(maxPosition)) {
-			winnerNameList.add(car.getName());
 		}
+		winnerNameList.add(car.getName());
 	}
 
 	int maxPosition = 0;

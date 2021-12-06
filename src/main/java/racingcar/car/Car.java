@@ -16,4 +16,12 @@ public class Car {
 	public int getPosition() {
 		return position.get();
 	}
+
+	public boolean isBiggerThan(int otherPosition) {
+		return this.position.get() > otherPosition;
+	}
+
+	public boolean isSmallerThan(int otherPosition) {
+		return this.position.get() < otherPosition;
+	}
 }
