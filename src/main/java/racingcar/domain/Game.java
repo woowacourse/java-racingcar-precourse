@@ -14,8 +14,8 @@ public class Game {
 	private ArrayList<Car> winnerList = new ArrayList<Car>();
 
 	public void play() {
-		carsList = InputView.carsList();
-		gameCount = InputView.gameCount();
+		carsList = InputView.getCarsList();
+		gameCount = InputView.getGameCount();
 		race(carsList, gameCount);
 		pickWinner();
 		printWinner();
