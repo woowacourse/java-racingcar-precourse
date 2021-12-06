@@ -11,6 +11,7 @@ import model.car.Cars;
 import view.input.InputDisplayable;
 
 public class Creater {
+    private static final String NAME_DELIMITER = ",";
     private final InputDisplayable inputDisplayable;
     private Cars cars;
     private LeftAttemptCount leftAttemptCount;
@@ -30,7 +31,8 @@ public class Creater {
 
     private void inputAndCreateCars() {
         inputDisplayable.alertInputNames();
-        List<String> carNames = Arrays.stream(readLine().split(",")).collect(Collectors.toList());
+        List<String> carNames = Arrays.stream(readLine().split(NAME_DELIMITER))
+                .collect(Collectors.toList());
         try {
             cars = new Cars(carNames);
             wrongInput = false;
