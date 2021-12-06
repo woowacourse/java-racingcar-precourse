@@ -48,14 +48,25 @@ public class InputManager {
 			throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
 		}
 		carsList = carsInput.split(",");
-		if (carsList.length == 0) {
+		if (!checkEmptyList(carsList) || !checkCarNameLength(carsList)) {
 			throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
 		}
+	}
+
+	public boolean checkEmptyList(String[] carsList) {
+		if (carsList.length == 0) {
+			return false;
+		}
+		return true;
+	}
+
+	public boolean checkCarNameLength(String[] carsList) {
 		for (String car : carsList) {
 			if (car.length() > Constant.MAXIMUM_NAME_LENGTH) {
-				throw new IllegalArgumentException(Constant.CAR_NAME_ERROR);
+				return false;
 			}
 		}
+		return true;
 	}
 
 	public void isValidNumber(String number) throws IllegalArgumentException {
