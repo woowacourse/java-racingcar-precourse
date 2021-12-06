@@ -60,7 +60,7 @@ public class GameService {
 		for (String car : inputStr.split(",")) {
 			Validation.checkCarNameIsBlank(car);
 			Validation.checkCarNameLength(car);
-			cars.addCarInList(car);
+			cars.addCarInList(car.replaceAll(" ",""));
 		}
 	}
 

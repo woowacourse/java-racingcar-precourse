@@ -14,13 +14,13 @@ public class Validation {
 	}
 
 	public static void checkNull(String inputStr) {
-		if (inputStr.length() == 0 || inputStr.replaceAll(" ","").isEmpty()) {
+		if (inputStr.length() == 0 || inputStr.replaceAll(" ", "").isEmpty()) {
 			throw new IllegalArgumentException(ErrorMessage.NULL_ERROR.getErrorMessage());
 		}
 	}
 
-	public static void checkCarNameIsBlank(String car){
-		if (car.replaceAll(" ","").isEmpty()) {
+	public static void checkCarNameIsBlank(String car) {
+		if (car.replaceAll(" ", "").isEmpty()) {
 			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_BLANK_ERROR.getErrorMessage());
 		}
 	}
