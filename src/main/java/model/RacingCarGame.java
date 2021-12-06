@@ -16,4 +16,19 @@ public class RacingCarGame {
 		racingCars.moveCars();
 		raceCount.decrementCount();
 	}
+
+	public boolean isRacingNotFinish() {
+		if (raceCount.getCount() != 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public String[] giveRacingCarNames() {
+		return racingCars.findCarNames();
+	}
+
+	public int[] giveRacingCarPositions() {
+		return racingCars.findCarPositions();
+	}
 }

@@ -13,5 +13,19 @@ public class GameController {
 		RacingCarGame racingCarGame = new RacingCarGame(InputController.inputRacingCarNames());
 		Display.pleaseInputNumberOfCarRaces();
 		racingCarGame.passRaceCount(InputController.inputNumberOfCarRaces());
+		playGame(racingCarGame);
+	}
+
+	private static void playGame(RacingCarGame racingCarGame) {
+		Display.showExecutionResult();
+
+		while (racingCarGame.isRacingNotFinish()) {
+			racingCarGame.playRacingCarGame();
+			showRacingCarNowPositions(racingCarGame.giveRacingCarNames(), racingCarGame.giveRacingCarPositions());
+		}
+	}
+
+	private static void showRacingCarNowPositions(String[] racingCarNames, int[] racingCarPositions) {
+		Display.showRacingCarNowPositions(racingCarNames, racingCarPositions);
 	}
 }

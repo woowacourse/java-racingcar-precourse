@@ -25,4 +25,12 @@ public class RacingCars {
 			cars.get(index).moveCar(RandomNumberGenerator.makeRandomNumber());
 		}
 	}
+
+	public String[] findCarNames() {
+		return cars.stream().map(car -> car.getName()).toArray(String[]::new);
+	}
+
+	public int[] findCarPositions() {
+		return cars.stream().mapToInt(car -> car.getPosition()).toArray();
+	}
 }
