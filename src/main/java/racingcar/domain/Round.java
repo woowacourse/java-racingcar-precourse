@@ -17,6 +17,10 @@ public class Round {
 		this.round = Integer.parseInt(inputRound);
 	}
 
+	public int getRound() {
+		return round;
+	}
+
 	private boolean isNumeric(String str) {
 		return str.matches("-?\\d+(\\.\\d+)?");
 	}
