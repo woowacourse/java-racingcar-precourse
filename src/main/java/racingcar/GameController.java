@@ -37,10 +37,7 @@ public class GameController {
     }
 
     private boolean checkMoveForward(int randomNumber) {
-        if (randomNumber >= 4) {
-            return true;
-        }
-        return false;
+        return randomNumber >= 4;
     }
 
     private void tryGameOnce() {
@@ -55,15 +52,16 @@ public class GameController {
     private void findWinner() {
         int maxValue = findMaxInCarList(carList);
         for (Car car : carList) {
-            if(car.getPosition() == maxValue) {
+            if (car.getPosition() == maxValue) {
                 winnersList.add(car.getName());
             }
         }
     }
-    private int findMaxInCarList(ArrayList<Car> carList){
+
+    private int findMaxInCarList(ArrayList<Car> carList) {
         int maxValue = -1;
         for (Car car : carList) {
-            if(maxValue < car.getPosition()) {
+            if (maxValue < car.getPosition()) {
                 maxValue = car.getPosition();
             }
         }

@@ -28,9 +28,9 @@ public class OutputRole {
         System.out.print(FINAL_WINNER + MATCH_USER_AND_RESULT);
         String winners = "";
         for (String winner : winnersList) {
-            winners = winners.concat(winner+COMMA);
+            winners = winners.concat(winner + COMMA);
         }
-        System.out.print(winners.substring(0, winners.length()-2));
+        System.out.print(winners.substring(0, winners.length() - 2));
 
 
     }
