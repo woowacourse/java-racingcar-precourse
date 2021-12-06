@@ -23,11 +23,11 @@ public class CarNameException {
 
 		for (int i = 0; i < seperatedCarNames.length; i++) {
 
-			if (!checkCarNameSizeException(seperatedCarNames[i])) {
+			if (!checkSizeException(seperatedCarNames[i])) {
 				return false;
 			}
 
-			if (!checkCarNameReduplication(seperatedCarNames[i])) {
+			if (!checkReduplication(seperatedCarNames[i])) {
 				return false;
 			}
 
@@ -36,7 +36,7 @@ public class CarNameException {
 		return true;
 	}
 
-	private boolean checkCarNameSizeException(String carName) {
+	private boolean checkSizeException(String carName) {
 
 		try {
 
@@ -52,7 +52,7 @@ public class CarNameException {
 		return true;
 	}
 
-	private boolean checkCarNameReduplication(String carName) {
+	private boolean checkReduplication(String carName) {
 
 		try {
 
