@@ -51,14 +51,6 @@ class ValidationUtilTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {",,", ","})
-	void 자동차_이름_입력의_콤마_단독입력_예외_처리(String value) {
-		assertThrows(IllegalArgumentException.class, () -> {
-			isValidateOnlyComma(value);
-		});
-	}
-
-	@ParameterizedTest
 	@ValueSource(strings = {"1a", "a1", "o"})
 	void 시도횟수의_입력값이_숫자_형태가_아닌경우_예외_처리(String value) {
 		assertThrows(IllegalArgumentException.class, () -> {

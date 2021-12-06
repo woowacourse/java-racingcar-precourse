@@ -29,7 +29,6 @@ public class InputView {
 			isValidateNotInput(carName);
 			isValidateLength(carName);
 		}
-		isValidateOnlyComma(inputCarsName);
 		isValidateInputPattern(inputCarsName);
 		isValidateDuplicated(carsName);
 	}
