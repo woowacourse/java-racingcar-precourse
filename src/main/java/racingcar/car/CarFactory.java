@@ -61,7 +61,7 @@ public class CarFactory {
 		}
 	}
 
-	public List<Car> generateCars() {
-		return carNames.stream().map(Car::new).collect(Collectors.toList());
+	public CarCarrier generateCars() {
+		return new CarCarrier(carNames.stream().map(Car::new).collect(Collectors.toList()));
 	}
 }

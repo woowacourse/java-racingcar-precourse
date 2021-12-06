@@ -1,7 +1,6 @@
 package racingcar.car;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.game.RacingGame;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
 
@@ -12,10 +11,10 @@ public class CarController {
 		carFactory = new CarFactory();
 	}
 
-	public RacingGame createCars() {
+	public CarCarrier createCars() {
 		InputView.showCarNamesMessage();
 		requestCarNames();
-		return new RacingGame(carFactory.generateCars());
+		return carFactory.generateCars();
 	}
 
 	private void requestCarNames() {
