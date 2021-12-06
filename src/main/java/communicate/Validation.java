@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Validation {
     private static final int MIN_CAR_NUMBER = 2;
+    private static final int MIN_NAME_LENGTH = 1;
+    private static final int MAX_NAME_LENGTH = 5;
     private ArrayList<String> carNames;
     private String errorMessage;
 
@@ -26,6 +28,19 @@ public class Validation {
 
             if (name.length() != name.trim().length()) {
                 errorMessage = ErrorText.ERROR_NAME_SPACE_POSITION;
+                throwInputException();
+            }
+
+        }
+
+    }
+
+    private void checkNameLength() {
+
+        for (String name : carNames) {
+
+            if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
+                errorMessage = ErrorText.ERROR_NAME_LENGTH;
                 throwInputException();
             }
 
