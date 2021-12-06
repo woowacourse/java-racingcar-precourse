@@ -18,4 +18,10 @@ public class Car {
         }
         System.out.println();
     }
+
+    public String[] getResult() {
+        String[] result = {name, Integer.toString(position)};
+
+        return result;
+    }
 }
