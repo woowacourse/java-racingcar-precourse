@@ -2,7 +2,8 @@ package racingcar.logic;
 
 import java.util.Arrays;
 
-public class InputExceptionHandling {
+public class InputValidator {
+	private static final String ERROR_MSG = "[ERROR] ";
 	private static final String COUNT_ERROR_MSG = "하나 이상의 이름을 입력해야 한다.";
 	private static final String LENGTH_ERROR_MSG = "이름은 5글자 이하여야 한다.";
 	private static final String DUP_ERROR_MSG = "이름은 중복되지 않아야 한다.";
@@ -12,13 +13,17 @@ public class InputExceptionHandling {
 	private static final String GAME_COUNT_ERROR_MSG = "시도 횟수는 숫자여야 한다.";
 	private static final String COUNT_RANGE_ERROR_MSG = "시도 횟수는 1 이상이어야 한다.";
 
-	public String[] validNameInput(String[] names) throws IllegalArgumentException {
-		validCount(names);
-		validLength(names);
-		validDuplication(names);
-		validIsSpace(names);
-
-		return names;
+	public boolean validNameInput(String[] names) {
+		try {
+			validCount(names);
+			validLength(names);
+			validDuplication(names);
+			validIsSpace(names);
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(ERROR_MSG + e.getMessage());
+			return false;
+		}
 	}
 
 	private void validCount(String[] names) throws IllegalArgumentException {
@@ -50,10 +55,14 @@ public class InputExceptionHandling {
 	}
 
 	public int validCountInput(String count) {
-		int intCount = transferToInt(count);
-		validRange(intCount);
-
-		return intCount;
+		try {
+			int intCount = transferToInt(count);
+			validRange(intCount);
+			return intCount;
+		} catch (IllegalArgumentException e) {
+			System.out.println(ERROR_MSG + e.getMessage());
+			return 0;
+		}
 	}
 
 	private int transferToInt(String count) throws IllegalArgumentException {
