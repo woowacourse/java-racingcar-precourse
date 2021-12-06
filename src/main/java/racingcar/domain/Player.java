@@ -1,12 +1,12 @@
 package racingcar.domain;
 
-import racingcar.Car;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
+import racingcar.Car;
+
 public class Player {
+
     private final int numberOfAttempts;
     private final List<Car> cars;
 
@@ -21,5 +21,13 @@ public class Player {
             newList.add(new Car(carName));
         }
         return newList;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public int getNumberOfAttempts() {
+        return numberOfAttempts;
     }
 }
