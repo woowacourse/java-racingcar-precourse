@@ -7,7 +7,7 @@
         - 한 대당 5자 이하
         - 이름은 ,(쉼표)로 구분
         - ❗이름이 5글자 초과하거나 이름이 없는경우(,로 시작 혹은 ,, 혹은 ,로 끝) `IllegalArgumentException` 발생하고 예외처리
-        - 이름 중복 확인. 중복된 이름 입력 시 `IllegalArgumentException` 발생하고 해당 순서부터 다시 입력 받음
+        - 이름 중복 확인. 중복된 이름 입력 시 `IllegalArgumentException` 발생하고 다시 입력 받음
     2. 시도할 횟수를 입력받는다
         - 0~9로 이루어진 문자만 입력받는다</br>
           ❗️ 이 외의 문자는 `IllegalArgumentException` 발생하고 예외처리

@@ -1,6 +1,8 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RacingGame {
 
@@ -41,8 +43,20 @@ public class RacingGame {
 		return true;
 	}
 
+	private boolean checkNameDuplication(String carsName) {
+		String[] carNameBucket = carsName.split(",");
+		Set<String> existCarName = new HashSet<>();
+		for (int i = 0; i < carNameBucket.length; ++i) {
+			if (existCarName.contains(carNameBucket[i])) {
+				return false;
+			}
+			existCarName.add(carNameBucket[i]);
+		}
+		return true;
+	}
+
 	private boolean checkCarNameRule(String carsName) throws IllegalArgumentException {
-		if (checkNoNameException(carsName) && checkNameLengthException(carsName))
+		if (checkNoNameException(carsName) && checkNameLengthException(carsName) && checkNameDuplication(carsName))
 			return true;
 		throw new IllegalArgumentException();
 	}
