@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import racingcar.strategy.MoveStrategy;
 import racingcar.strategy.RandomNumberStrategy;

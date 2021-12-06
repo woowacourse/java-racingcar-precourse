@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import racingcar.Car;
+import racingcar.model.Car;
 
 public class ResultView {
 	private static final String EQUALS_MESSAGE = " : ";

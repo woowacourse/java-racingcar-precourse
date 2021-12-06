@@ -1,20 +1,21 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import racingcar.model.Car;
 import racingcar.view.ResultView;
 import racingcar.view.UserView;
 
 /*
  * 게임 구현
  * */
-public class Game {
+public class GameController {
 	private static final String PLAY_RESULT_MESSAGE = "실행 결과";
 
 	private static List<Car> carList;
 
-	public Game() {
+	public GameController() {
 		carList = new ArrayList<>();
 	}
 
