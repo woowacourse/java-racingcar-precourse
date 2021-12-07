@@ -13,18 +13,16 @@ public class RacingCarGame {
 	private static final int MAX_CAR_NAME_LENGTH = 5;
 
 	private final ArrayList<Car> carList = new ArrayList<>();
-	private final ArrayList<Car> winnerList = new ArrayList<>();
 	private int numberOfTimes;
 
 	public void start() {
 		prepareCarList();
 		prepareNumberOfTimes();
 		System.out.printf("%n실행 결과%n");
-		for (int i = 0; i < (numberOfTimes - 1); i++) {
+		for (int i = 0; i < numberOfTimes; i++) {
 			play();
 		}
-		playLastTurn();
-		Computer.printWinner(winnerList);
+		Computer.printWinner(findWinner());
 	}
 
 	private void prepareCarList() {
@@ -61,14 +59,10 @@ public class RacingCarGame {
 		System.out.println();
 	}
 
-	/**
-	 * 턴을 진행함과 동시에 최대 position 값과 우승자를 구하는 method
-	 */
-	private void playLastTurn() {
+	private ArrayList<Car> findWinner() {
+		ArrayList<Car> winnerList = new ArrayList<>();
 		int maxPosition = 0;
 		for (Car car : carList) {
-			car.tryToMove();
-			Computer.printCarPosition(car);
 			int position = car.getPosition();
 			if (position > maxPosition) {
 				maxPosition = position;
@@ -78,7 +72,7 @@ public class RacingCarGame {
 				winnerList.add(car);
 			}
 		}
-		System.out.println();
+		return winnerList;
 	}
 
 	private void setCarList(String[] carNames) throws IllegalArgumentException {
