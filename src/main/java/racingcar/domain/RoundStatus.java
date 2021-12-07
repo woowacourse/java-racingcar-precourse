@@ -19,11 +19,15 @@ public class RoundStatus {
 	public String[] getWinnerNames() {
 		List<String> winnerNameList = new ArrayList<>();
 		for (String name : roundStatus.keySet()) {
-			if (roundStatus.get(name) == getMaxPosition()) {
+			if (isWinner(name)) {
 				winnerNameList.add(name);
 			}
 		}
 		return winnerNameList.toArray(new String[0]);
+	}
+
+	private boolean isWinner(String name) {
+		return roundStatus.get(name) == getMaxPosition();
 	}
 
 	private int getMaxPosition() {
