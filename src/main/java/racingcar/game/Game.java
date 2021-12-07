@@ -58,12 +58,12 @@ public class Game {
 	private void printWinners() {
 		List<String> winnersNameList = umpire.getWinnersNameList();
 		System.out.print("최종 우승자 : ");
-		for (int i = 0; i < winnersNameList.size(); i++) {
-			if (i == 0) {
-				System.out.print(winnersNameList.get(i));
-				return;
-			}
-			System.out.print(winnersNameList.get(i) + ", ");
+		System.out.print(winnersNameList.get(0));
+		if (winnersNameList.size() == 1) {
+			return;
+		}
+		for (int i = 1; i < winnersNameList.size(); i++) {
+			System.out.print(", " + winnersNameList.get(i));
 		}
 	}
 
@@ -93,15 +93,17 @@ public class Game {
 
 	private int inputNum() {
 		System.out.println("시도할 회수는 몇회인가요?");
-		int num;
+		int num = 0;
+		int flg = 0;
 
-		try {
-			num = Integer.parseInt(readLine());
-		} catch (Exception e) {
-			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.\n");
-			num = inputNum();
+		while (flg == 0) {
+			try {
+				num = Integer.parseInt(readLine());
+				flg = 1;
+			} catch (Exception e) {
+				System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.\n");
+			}
 		}
-
 		return num;
 	}
 
