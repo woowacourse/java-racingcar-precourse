@@ -20,14 +20,14 @@ public class Car {
 		return this.name;
 	}
 
-	public int getPosition() {
-		return this.position;
-	}
-
 	public void moveForward() {
 		if (Randoms.pickNumberInRange(RANDOM_MIN_NUM, RANDOM_MAX_NUM) >= MOVE_FORWARD_MIN) {
 			this.position++;
 		}
+	}
+
+	public int positionComparator(int position) {
+		return Integer.compare(this.position, position);
 	}
 
 	@Override

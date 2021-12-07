@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.Arrays;
-
 import racingcar.controller.GameController;
 
 public class Application {

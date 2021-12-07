@@ -15,7 +15,7 @@ public class CarList {
 	public void moveAll() {
 		for (Car car : this.cars) {
 			car.moveForward();
-			updateMaxPosition(car.getPosition());
+			updateMaxPosition(car);
 		}
 	}
 
@@ -30,16 +30,16 @@ public class CarList {
 	public ArrayList<String> getWinners() {
 		ArrayList<String> winners = new ArrayList<>();
 		for (Car car : this.cars) {
-			if (car.getPosition() == this.maxPosition) {
+			if (car.positionComparator(this.maxPosition) == 0) {
 				winners.add(car.getName());
 			}
 		}
 		return winners;
 	}
 
-	private void updateMaxPosition(int nowPosition) {
-		if (nowPosition > this.maxPosition) {
-			this.maxPosition = nowPosition;
+	private void updateMaxPosition(Car car) {
+		if (car.positionComparator(this.maxPosition) > 0) {
+			this.maxPosition++;
 		}
 	}
 }
