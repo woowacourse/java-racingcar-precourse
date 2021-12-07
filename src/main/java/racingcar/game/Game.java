@@ -1,5 +1,7 @@
 package racingcar.game;
 
+import static racingcar.constant.Message.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class Game {
 	}
 
 	public void start() {
-		System.out.println("실행 결과");
+		System.out.println(RESULT);
 		for (int i = 0; i < num; i++) {
 			playGames();
 			System.out.println();

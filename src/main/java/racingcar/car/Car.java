@@ -1,6 +1,7 @@
 package racingcar.car;
 
 import static camp.nextstep.edu.missionutils.Randoms.*;
+import static racingcar.constant.Constant.*;
 
 public class Car {
 	private final String name;
@@ -11,7 +12,7 @@ public class Car {
 	}
 
 	private boolean canMove() {
-		if (pickNumberInRange(0, 9) >= 4) {
+		if (pickNumberInRange(MIN_MOVE, MAX_MOVE) >= MOVE) {
 			return true;
 		}
 		return false;
