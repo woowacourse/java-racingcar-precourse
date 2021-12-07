@@ -1,12 +1,19 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import constant.ConsoleMessage;
 
 public class GameSystem {
-    CarEntry carEntry;
+    private static final String NOT_A_NUMBER_REGEX = "[^0-9]+";
+    private static final String ZERO_REGEX = "0+";
+    private static final String COMMA_REGEX = ",";
+    private static final int MIN_CAR_NAME_LENGTH = 1;
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+
+    private final CarEntry carEntry;
 
     public GameSystem() {
-        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        System.out.print(ConsoleMessage.CAR_NAME_INPUT_MESSAGE);
         String carEntryInput = getCarEntryInput();
         carEntry = new CarEntry(carEntryInput);
     }
@@ -14,7 +21,7 @@ public class GameSystem {
     public void executeRace() {
         int numOfRuns = getNumOfRuns();
 
-        System.out.println("\n실행 결과");
+        System.out.println(ConsoleMessage.RESULT_MESSAGE);
         for (int i = 0; i < numOfRuns; i++) {
             runRaceOnce();
         }
@@ -30,7 +37,7 @@ public class GameSystem {
                 isValid = true;
                 checkCarNameEntryValidity(carEntryInput);
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] 이름의 길이는 1 이상 5 이하이어야 합니다.");
+                System.out.println(ConsoleMessage.CAR_NAME_ERROR_MESSAGE);
                 isValid = false;
             }
         } while (!isValid);
@@ -38,14 +45,14 @@ public class GameSystem {
     }
 
     private void checkCarNameEntryValidity(String carNames) {
-        String[] carNameArr = carNames.split(",");
+        String[] carNameArr = carNames.split(COMMA_REGEX);
         for (String carName : carNameArr) {
             checkCarNameValidity(carName.trim());
         }
     }
 
     private void checkCarNameValidity(String carName) {
-        if (carName.length() <= 5 && carName.length() >= 1) {
+        if (carName.length() <= MAX_CAR_NAME_LENGTH && carName.length() >= MIN_CAR_NAME_LENGTH) {
             return;
         }
         throw new IllegalArgumentException();
@@ -54,14 +61,14 @@ public class GameSystem {
     private int getNumOfRuns() {
         boolean isValid;
         String inputValue = "";
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(ConsoleMessage.NUN_OF_RUNS_INPUT_MESSAGE);
         do {
             try {
                 inputValue = Console.readLine();
                 checkNumOfRunsValidity(inputValue);
                 isValid = true;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] 시도할 회수는 0 이상의 정수이어야 합니다.");
+                System.out.println(ConsoleMessage.NUN_OF_RUNS_ERROR_MESSAGE);
                 isValid = false;
             }
         } while (!isValid);
@@ -69,10 +76,10 @@ public class GameSystem {
     }
 
     void checkNumOfRunsValidity(String inputValue) {
-        if (inputValue.matches("[^0-9]+")) {
+        if (inputValue.matches(NOT_A_NUMBER_REGEX)) {
             throw new IllegalArgumentException();
         }
-        if (inputValue.matches("0+")) {
+        if (inputValue.matches(ZERO_REGEX)) {
             throw new IllegalArgumentException();
         }
     }
@@ -80,6 +87,6 @@ public class GameSystem {
     private void runRaceOnce() {
         carEntry.letCarsMove();
         carEntry.printCurCarsPosition();
-        System.out.print("\n");
+        System.out.print(ConsoleMessage.NEW_LINE);
     }
 }
