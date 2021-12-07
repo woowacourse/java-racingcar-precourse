@@ -24,14 +24,14 @@ public class Game {
 		umpire = new Umpire(carList);
 	}
 
-	public void gameStart() {
+	public void start() {
 		System.out.println("실행 결과");
 		for (int i = 0; i < num; i++) {
 			playGames();
 		}
 	}
 
-	public void gameEnd() {
+	public void end() {
 		umpire.getWinner();
 		printWinners();
 	}
