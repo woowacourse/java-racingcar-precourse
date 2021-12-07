@@ -20,8 +20,7 @@ public class RacingCarGame {
 
     public String getGameStatus() {
         List<String> statusList = this.cars.stream()
-            .map(c -> OutputFormatter.converseCarStatus(
-                c.getPosition(), c.getName()))
+            .map(Car::getCarStatus)
             .collect(Collectors.toList());
         return OutputFormatter.converseGameStatus(statusList);
     }
@@ -29,7 +28,7 @@ public class RacingCarGame {
     public String getWinners() {
         final int leadPosition = getWinnerScore();
         List<String> winners = this.cars.stream()
-            .filter(car -> car.getPosition() == leadPosition)
+            .filter(car -> car.isLeadPosition(leadPosition))
             .map(Car::getName)
             .collect(Collectors.toList());
         return OutputFormatter.convertWinners(winners);
