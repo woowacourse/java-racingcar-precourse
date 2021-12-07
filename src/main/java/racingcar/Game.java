@@ -8,6 +8,8 @@ public class Game {
     private List<Car> cars;
     private int raceCount;
 
+    private final OutputManager outputManager = new OutputManager();
+
     public Game(List<Car> cars, int raceCount) {
         this.cars = cars;
         this.raceCount = raceCount;
@@ -18,21 +20,21 @@ public class Game {
             moveOneRound();
         }
 
-        printWinnerNames();
+        List<String> winnerNames = getWinnerNames();
+
+        outputManager.printWinnerNames(winnerNames);
     }
 
     private void moveOneRound() {
         for (Car car: cars) {
             car.move();
+            outputManager.printCurrentCarPosition(car);
         }
 
-        System.out.println("");
+        outputManager.printRoundSplitter();
     }
 
-    private void printWinnerNames() {
-        String winnerNames = String.join(", ", getWinnerNames());
-        System.out.printf("최종 우승자 : %s%n", winnerNames);
-    }
+
 
     private List<String> getWinnerNames() {
         int maxPosition = getMaxPosition();
