@@ -2,15 +2,16 @@ package racingcar;
 
 import static racingcar.utils.StringUtils.*;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.car.Car;
 import racingcar.car.CarRepository;
-import racingcar.gameresult.RacingGameResult;
+import racingcar.gameresult.GameResult;
 
 public class RacingGameService {
     private final CarRepository carRepository;
@@ -31,7 +32,7 @@ public class RacingGameService {
         racingGame = RacingGame.create(numberOfRounds);
     }
 
-    public RacingGameResult start() {
+    public GameResult start() {
         while (!racingGame.isOver()) {
             startEachRound();
             completeEachRound();
@@ -45,11 +46,9 @@ public class RacingGameService {
     }
 
     private List<Car> createCars(String[] carNames) {
-        List<Car> carsToSave = new ArrayList<>();
-        for (String carName : carNames) {
-            carsToSave.add(Car.create(carName));
-        }
-        return carsToSave;
+        return Arrays.stream(carNames)
+                .map(Car::create)
+                .collect(Collectors.toList());
     }
 
     private void checkDuplicateCars(List<Car> cars) {
@@ -68,9 +67,7 @@ public class RacingGameService {
     }
 
     private void startEachRound() {
-        for (Car car : findCarsInOrder()) {
-            car.run(generateRandomNumber());
-        }
+        findCarsInOrder().forEach(car -> car.run(generateRandomNumber()));
     }
 
     private void completeEachRound() {
@@ -78,10 +75,10 @@ public class RacingGameService {
     }
 
     private void recordEachRoundResult() {
-        racingGame.recordRacingResults(findCarsInOrder());
+        racingGame.recordRoundResult(findCarsInOrder());
     }
 
-    private RacingGameResult findGameResult() {
+    private GameResult findGameResult() {
         return racingGame.showGameResult();
     }
 

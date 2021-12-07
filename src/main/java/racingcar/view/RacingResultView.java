@@ -2,6 +2,8 @@ package racingcar.view;
 
 import static racingcar.utils.StringUtils.*;
 
+import java.util.stream.IntStream;
+
 import racingcar.gameresult.RacingResult;
 
 public class RacingResultView {
@@ -32,8 +34,7 @@ public class RacingResultView {
     }
 
     private void writeDistanceCovered() {
-        for (int i = INITIAL_POSITION; i < racingResult.getPosition(); i++) {
-            resultToPrint.append(MARK_FOR_DISTANCE_COVERED);
-        }
+        IntStream.range(INITIAL_POSITION, racingResult.getPosition())
+                .forEach(i -> resultToPrint.append(MARK_FOR_DISTANCE_COVERED));
     }
 }

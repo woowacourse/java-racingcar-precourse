@@ -61,13 +61,6 @@ public class Car {
         return this.position == position;
     }
 
-    public boolean hasFartherPosition(int otherPosition) {
-        if(this.position > otherPosition) {
-            return true;
-        }
-        return false;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

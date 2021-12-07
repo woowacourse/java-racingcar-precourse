@@ -14,10 +14,10 @@ public class RacingWinnersView {
 
     public RacingWinnersView(List<Car> winners) {
         this.winners = winners;
+        writeWinnerNotice();
     }
 
     public void print() {
-        writeWinnerNotice();
         System.out.println(winnerNotice);
     }
 

@@ -14,7 +14,9 @@ class CarTest {
         int biggerThanFour = 5;
         int numberToAddWhenCarGo = 1;
 
-        assertThat(car.run(biggerThanFour)).isEqualTo(INITIAL_POSITION + numberToAddWhenCarGo);
+        car.run(biggerThanFour);
+
+        assertThat(car.getPosition()).isEqualTo(INITIAL_POSITION + numberToAddWhenCarGo);
     }
 
     @Test
@@ -22,8 +24,10 @@ class CarTest {
         Car car = Car.create("car");
         int smallerNumber = 1;
 
+        car.run(smallerNumber);
+
         assertThat(smallerNumber).isLessThan(MIN_NUMBER_TO_CAR_TO_GO);
-        assertThat(car.run(smallerNumber)).isEqualTo(INITIAL_POSITION);
+        assertThat(car.getPosition()).isEqualTo(INITIAL_POSITION);
     }
 
     @Test

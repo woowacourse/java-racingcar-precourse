@@ -61,9 +61,7 @@ class CarRepositoryTest {
 
     @Test
     void 간_거리가_가장_많은_자동차들이_복수라면_해당_차를_모두_반환() {
-        for (Car savedCar : savedCars) {
-            savedCar.run(MIN_NUMBER_TO_CAR_TO_GO);
-        }
+        savedCars.forEach(car-> car.run(MIN_NUMBER_TO_CAR_TO_GO));
 
         assertThat(carRepository.findTopByOrderByPosition()).isEqualTo(initialCarsToSave);
     }

@@ -13,9 +13,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import racingcar.car.Car;
-import racingcar.gameresult.RacingResults;
+import racingcar.gameresult.RoundResult;
 
-class RacingResultsViewTest {
+class RoundResultViewTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
@@ -23,9 +23,9 @@ class RacingResultsViewTest {
     private final String car2Name = "car2";
     private final List<Car> cars = new ArrayList<>();
 
-    private RacingResultsView racingResultsView;
+    private RoundResultView roundResultView;
 
-    RacingResultsViewTest() {
+    RoundResultViewTest() {
         createCars();
     }
 
@@ -41,19 +41,20 @@ class RacingResultsViewTest {
 
     @Test
     void 전달된_차_리스트와_같은_순서로_board_생성() {
-        racingResultsView = new RacingResultsView(new RacingResults(cars));
-        racingResultsView.print();
+        roundResultView = new RoundResultView(new RoundResult(cars));
+        roundResultView.print();
+
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedInitialResult().toString());
     }
 
     private String createExceptedInitialResult() {
-        String ELIMINATED_TRAILING_SPACES_MARK_FOR_DISTANCE_RECORD = " :";
+        String ELIMINATED_TRAILING_SPACES_MARK_FOR_DELIMITER = " :";
         StringBuilder expectedResult = new StringBuilder();
         expectedResult.append(car1Name);
         expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);
         expectedResult.append(NEW_LINE);
         expectedResult.append(car2Name);
-        expectedResult.append(ELIMINATED_TRAILING_SPACES_MARK_FOR_DISTANCE_RECORD);
+        expectedResult.append(ELIMINATED_TRAILING_SPACES_MARK_FOR_DELIMITER);
         return expectedResult.toString();
     }
 
@@ -64,12 +65,14 @@ class RacingResultsViewTest {
             car.run(MIN_NUMBER_TO_CAR_TO_GO);
             carsAfterRacing.add(car);
         }
-        racingResultsView = new RacingResultsView(new RacingResults(carsAfterRacing));
-        racingResultsView.print();
-        Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedAfterDrivingResult().toString());
+
+        roundResultView = new RoundResultView(new RoundResult(carsAfterRacing));
+        roundResultView.print();
+
+        Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo(createExceptedResultAfterDriving().toString());
     }
 
-    private StringBuilder createExceptedAfterDrivingResult() {
+    private StringBuilder createExceptedResultAfterDriving() {
         StringBuilder expectedResult = new StringBuilder();
         expectedResult.append(car1Name);
         expectedResult.append(DELIMITER_BETWEEN_NAME_AND_DISTANCE_COVERED);

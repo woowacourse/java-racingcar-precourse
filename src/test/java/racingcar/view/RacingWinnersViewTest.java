@@ -44,8 +44,8 @@ class RacingWinnersViewTest {
     @Test
     void 승자가_여러_명일_때_콤마로_구분해서_출력한다() {
         String expectedNotice = "최종 우승자 : pobi, jun";
-        Car car = Car.create(car1Name);
-        winners.add(car);
+        Car car1 = Car.create(car1Name);
+        winners.add(car1);
         Car car2 = Car.create(car2Name);
         winners.add(car2);
 

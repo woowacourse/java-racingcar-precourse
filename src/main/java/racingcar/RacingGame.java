@@ -6,16 +6,15 @@ import static racingcar.utils.StringUtils.NUMBER_FOR_NO_ROUNDS_LEFT;
 import java.util.List;
 
 import racingcar.car.Car;
-import racingcar.gameresult.RacingGameResult;
-import racingcar.gameresult.RacingResults;
+import racingcar.gameresult.GameResult;
 
 public class RacingGame {
-    private final RacingGameResult racingGameResult;
+    private final GameResult gameResult;
     private int leftNumberOfRounds;
 
-    private RacingGame(int leftNumberOfRounds) {
-        this.leftNumberOfRounds = leftNumberOfRounds;
-        racingGameResult = new RacingGameResult(leftNumberOfRounds);
+    private RacingGame(int numberOfRounds) {
+        this.leftNumberOfRounds = numberOfRounds;
+        gameResult = new GameResult(numberOfRounds);
     }
 
     public static RacingGame create(int numberOfRounds) {
@@ -40,11 +39,11 @@ public class RacingGame {
         return false;
     }
 
-    public void recordRacingResults(List<Car> carsAfterRacing) {
-        racingGameResult.add(new RacingResults(carsAfterRacing));
+    public void recordRoundResult(List<Car> carsAfterRound) {
+        gameResult.record(carsAfterRound);
     }
 
-    public RacingGameResult showGameResult() {
-        return racingGameResult;
+    public GameResult showGameResult() {
+        return gameResult;
     }
 }

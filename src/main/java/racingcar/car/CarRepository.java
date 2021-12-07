@@ -4,6 +4,7 @@ import static racingcar.utils.StringUtils.INITIAL_POSITION;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarRepository {
     private final List<Car> cars = new ArrayList<>();
@@ -22,22 +23,15 @@ public class CarRepository {
     }
 
     private int findMaxPosition() {
-        int maxPosition = INITIAL_POSITION;
-        for (Car car : cars) {
-            if (car.hasFartherPosition(maxPosition)) {
-                maxPosition = car.getPosition();
-            }
-        }
-        return maxPosition;
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(INITIAL_POSITION);
     }
 
     private List<Car> findByPosition(int position) {
-        List<Car> carsWithCertainPosition = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.isSamePosition(position)) {
-                carsWithCertainPosition.add(car);
-            }
-        }
-        return carsWithCertainPosition;
+        return cars.stream()
+                .filter(car -> car.isSamePosition(findMaxPosition()))
+                .collect(Collectors.toList());
     }
 }

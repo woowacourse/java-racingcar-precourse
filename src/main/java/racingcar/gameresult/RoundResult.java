@@ -5,18 +5,16 @@ import java.util.List;
 
 import racingcar.car.Car;
 
-public class RacingResults {
+public class RoundResult {
     List<RacingResult> racingResults;
 
-    public RacingResults(List<Car> cars) {
+    public RoundResult(List<Car> cars) {
         this.racingResults = new ArrayList<>();
         addRacingResults(cars);
     }
 
     public void addRacingResults(List<Car> cars) {
-        for (Car car : cars) {
-            racingResults.add(new RacingResult(car));
-        }
+        cars.forEach(car -> racingResults.add(new RacingResult(car)));
     }
 
     public List<RacingResult> getRacingResults() {

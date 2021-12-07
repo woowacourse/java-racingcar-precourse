@@ -6,11 +6,11 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.Car;
+import racingcar.gameresult.GameResult;
 import racingcar.inputvalue.CarNamesInputValue;
 import racingcar.inputvalue.InputValue;
 import racingcar.inputvalue.NumberOfRoundsInputValue;
-import racingcar.gameresult.RacingGameResult;
-import racingcar.view.RacingGameResultView;
+import racingcar.view.GameResultView;
 import racingcar.view.RacingWinnersView;
 
 public class RacingGameController {
@@ -25,8 +25,8 @@ public class RacingGameController {
         setCars();
         printNumberOfRoundsRequestMessage();
         setRacingGame();
-        printGameResult();
-        printWinners();
+        printGameResult(startGame());
+        printWinners(findWinners());
     }
 
     private void printCarNameRequestMessage() {
@@ -40,8 +40,7 @@ public class RacingGameController {
                 setCars(inputCarNames());
                 isAllCarsCreated = true;
             } catch(IllegalArgumentException e) {
-                System.out.print(PREFIX_OF_ERROR_MESSAGE);
-                System.out.println(e.getMessage());
+                printErrorMessage(e.getMessage());
             }
         }
     }
@@ -66,8 +65,7 @@ public class RacingGameController {
                 setRacingGame(inputNumberOfRounds());
                 isNumberOfRoundsCreated = true;
             } catch (IllegalArgumentException e) {
-                System.out.print(PREFIX_OF_ERROR_MESSAGE);
-                System.out.println(ERROR_MESSAGE_ABOUT_WRONG_NUMBER_OF_ROUNDS_INPUT);
+                printErrorMessage(ERROR_MESSAGE_ABOUT_WRONG_NUMBER_OF_ROUNDS_INPUT);
             }
         }
     }
@@ -81,20 +79,24 @@ public class RacingGameController {
         racingGameService.getRacingGameReady(numberOfRounds);
     }
 
-    private void printGameResult() {
-        printGameResult(racingGameService.start());
+    private GameResult startGame() {
+        return racingGameService.start();
     }
 
-    private void printGameResult(RacingGameResult racingGameResult) {
-        new RacingGameResultView(racingGameResult).print();
+    private void printGameResult(GameResult gameResult) {
+        new GameResultView(gameResult).print();
     }
 
-    private void printWinners() {
-        printWinners(racingGameService.determineWinners());
+    private List<Car> findWinners() {
+        return racingGameService.determineWinners();
     }
 
     private void printWinners(List<Car> winners) {
-        RacingWinnersView racingWinnersView = new RacingWinnersView(winners);
-        racingWinnersView.print();
+        new RacingWinnersView(winners).print();
+    }
+
+    private void printErrorMessage(String errorMessage) {
+        System.out.print(PREFIX_OF_ERROR_MESSAGE);
+        System.out.println(errorMessage);
     }
 }

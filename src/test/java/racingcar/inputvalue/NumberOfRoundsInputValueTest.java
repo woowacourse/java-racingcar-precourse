@@ -1,6 +1,7 @@
 package racingcar.inputvalue;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +28,7 @@ class NumberOfRoundsInputValueTest {
     void 회차가_숫자가_아닐_경우_예외_발생() {
         String notDecimalInput = "!";
         InputValue<Integer> numberOfRoundsInputValue = new NumberOfRoundsInputValue(notDecimalInput);
+
         assertThatThrownBy(numberOfRoundsInputValue::toRacingElement).isInstanceOf(IllegalArgumentException.class);
     }
 }
