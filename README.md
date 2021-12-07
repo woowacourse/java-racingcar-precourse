@@ -48,3 +48,8 @@
 ### 6-3 gameProcess
 - init,endGame call
 - 각 stage 진행
+
+## 7. ChampionFinder
+-findChampion
+-findChampionPosition
+-findNumberOfChampion

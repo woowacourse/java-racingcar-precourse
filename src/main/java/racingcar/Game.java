@@ -88,53 +88,9 @@ public class Game {
 
 	public void endGame(){
 
-		String[] champions = findChampion();
+		String[] champions = ChampionFinder.findChampion(this.cars);
 		GamePrinter.printChampion(champions);
 	}
 
-	public String[] findChampion(){
 
-		int maxPosition = findChampionsPosition();
-		int numberOfChampion = findNumberOfChampion(maxPosition);
-
-
-		String[] champions = new String[numberOfChampion];
-
-		int tempChampion = 0;
-
-		for(int i = 0; i < this.numberOfCars; i++){
-			if(this.cars[i].getPosition() == maxPosition){
-				champions[tempChampion] = this.cars[i].getName();
-				tempChampion++;
-			}
-		}
-
-		return champions;
-	}
-
-	public int findChampionsPosition(){
-
-		int maxPosition = 0;
-
-		for(Car car : this.cars){
-			if(car.getPosition() > maxPosition){
-				maxPosition = car.getPosition();
-			}
-		}
-
-		return maxPosition;
-	}
-
-	public int findNumberOfChampion(int maxPosition){
-
-		int numberOfChampion = 0;
-
-		for(Car car : this.cars){
-			if(car.getPosition() == maxPosition){
-				numberOfChampion++;
-			}
-		}
-
-		return numberOfChampion;
-	}
 }
