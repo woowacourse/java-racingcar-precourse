@@ -5,7 +5,7 @@ import domain.Car;
 import java.util.List;
 
 public class OutputView {
-    private final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public void printResultForOneGame(Car[] cars) {
         for (Car car : cars) {
