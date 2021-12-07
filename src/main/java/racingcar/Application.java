@@ -5,6 +5,41 @@ import java.util.ArrayList;
 
 public class Application {
 
+    public String[] inputNames() {
+        boolean isCorrect = true;
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String[] names = Console.readLine().split(",");
+        try {
+            this.verifyNames(names);
+        }catch (IllegalArgumentException e) {
+            isCorrect = false;
+            System.out.println("[ERROR] 자동차 이름은 5자 이하여야 한다.");
+        }
+        while (isCorrect == false) {
+            isCorrect=true;
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            names = Console.readLine().split(",");
+            try {
+                this.verifyNames(names);
+            }catch (IllegalArgumentException e) {
+                isCorrect = false;
+                System.out.println("[ERROR] 자동차 이름은 5자 이하여야 한다.");
+            }
+        }
+        return names;
+    }
+
+    public String inputNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String numberOfAttempts = Console.readLine();
+        while (!this.isNumeric(numberOfAttempts)) {
+            System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
+            System.out.println("시도할 회수는 몇회인가요?");
+            numberOfAttempts = Console.readLine();
+        }
+        return numberOfAttempts;
+    }
+
     public Car[] makeCars(String[] names) {
         Car[] cars = new Car[names.length];
         for (int i=0; i< names.length; i++) {
@@ -49,13 +84,28 @@ public class Application {
         System.out.println(result);
     }
 
+    public void verifyNames(String[] names) {
+        for (int i=0; i<names.length; i++) {
+            if (names[i].length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         Application application = new Application();
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] names = Console.readLine().split(",");
-        System.out.println("시도할 회수는 몇회인가요?");
-        int numberOfAttempts = Integer.parseInt(Console.readLine());
+        String[] names = application.inputNames();
+        int numberOfAttempts = Integer.parseInt(application.inputNumber());
         System.out.println();
 
         Car[] cars = application.makeCars(names);
