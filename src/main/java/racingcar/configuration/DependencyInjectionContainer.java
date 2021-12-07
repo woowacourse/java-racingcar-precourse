@@ -7,7 +7,7 @@ import racingcar.racingsystem.RacingGame;
 import racingcar.service.JudgmentService;
 import racingcar.service.JudgmentServiceImplementation;
 import racingcar.validation.InputValidation;
-import racingcar.validation.RacingGameValidationImpl;
+import racingcar.validation.RacingGameValidationImplementation;
 
 public class DependencyInjectionContainer {
 
@@ -25,7 +25,7 @@ public class DependencyInjectionContainer {
     }
 
     public InputValidation racingGameInputValidation() {
-        return RacingGameValidationImpl.getInstance();
+        return RacingGameValidationImplementation.getInstance();
     }
 
     public JudgmentService judgmentService() {

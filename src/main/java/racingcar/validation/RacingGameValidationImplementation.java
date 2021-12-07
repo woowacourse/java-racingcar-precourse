@@ -2,7 +2,7 @@ package racingcar.validation;
 
 import java.util.regex.Pattern;
 
-public class RacingGameValidationImpl implements InputValidation {
+public class RacingGameValidationImplementation implements InputValidation {
 
     private static final int LIMITED_LENGTH = 5;
     private static final int ZERO_LENGTH = 0;
@@ -10,15 +10,15 @@ public class RacingGameValidationImpl implements InputValidation {
     private static final String INPUT_DELIMITER = ",";
     private static final Pattern hangulAndCharacterAndNumericPattern = Pattern.compile("^[a-zA-Z0-9ㄱ-ㅎ가-힣]*$");
 
-    private RacingGameValidationImpl() {
+    private RacingGameValidationImplementation() {
     }
 
     private static class LazyHolder {
 
-        public static final RacingGameValidationImpl INSTANCE = new RacingGameValidationImpl();
+        public static final RacingGameValidationImplementation INSTANCE = new RacingGameValidationImplementation();
     }
 
-    public static RacingGameValidationImpl getInstance() {
+    public static RacingGameValidationImplementation getInstance() {
         return LazyHolder.INSTANCE;
     }
 
