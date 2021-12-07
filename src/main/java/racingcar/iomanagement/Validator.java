@@ -14,9 +14,9 @@ public class Validator {
 	}
 
 	public static void validateCountType(String count) {
-		String regExp = "^[0-9]+$";
+		String numberOnly = "^[0-9]+$";
 
-		if (!Pattern.matches(regExp, count)) {
+		if (!Pattern.matches(numberOnly, count)) {
 			throw new IllegalArgumentException(Message.ERROR_COUNT_IS_INTEGER);
 		}
 	}

@@ -5,11 +5,12 @@ import java.util.stream.Collectors;
 
 import racingcar.car.Car;
 import racingcar.constant.Message;
+import racingcar.constant.Number;
 
 public class OutputPrinter {
 	public void printStepResult(Car car) {
 		StringBuilder positionBlock = new StringBuilder();
-		for (int i = 0; i < car.getPosition(); i++) {
+		for (int i = Number.ZERO; i < car.getPosition(); i++) {
 			positionBlock.append(Message.BLOCK);
 		}
 		String stepResultMessage = String.format(Message.RESULT_OF_STEP, car.getName(), positionBlock);

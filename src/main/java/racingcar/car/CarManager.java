@@ -59,7 +59,7 @@ public class CarManager {
 	}
 
 	private Car updateCarRandom(Car car) {
-		int randomNumber = Randoms.pickNumberInRange(0, 9);
+		int randomNumber = Randoms.pickNumberInRange(Number.MIN_RANGE, Number.MAX_RANGE);
 		if (randomNumber >= Number.MOVING_FORWARD) {
 			car.updatePosition();
 		}
