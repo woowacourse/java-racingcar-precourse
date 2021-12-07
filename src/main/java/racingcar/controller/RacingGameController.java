@@ -8,6 +8,7 @@ import java.util.List;
 
 import racingcar.domain.AttemptNumber;
 import racingcar.domain.RacingCars;
+import racingcar.service.AttemptNumberService;
 import racingcar.service.CarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -35,13 +36,12 @@ public class RacingGameController {
 	}
 
 	private int getAttemptNumber() {
-		try {
+		String inputNumber;
+		do {
 			OutputView.printAskingAttemptNumber();
-			return Integer.parseInt(InputView.getInput());
-		} catch (IllegalArgumentException exception) {
-			OutputView.printErrorMessage(ATTEMPT_NUMBER_RANGE_ERROR_MESSAGE);
-			return getAttemptNumber();
-		}
+			inputNumber = InputView.getInput();
+		} while (!AttemptNumberService.isValidInputNumber(inputNumber));
+		return Integer.parseInt(inputNumber);
 	}
 
 	public void startGame() {
