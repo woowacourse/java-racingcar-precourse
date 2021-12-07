@@ -24,65 +24,42 @@ public class InputErrorCheck {
 
     private static boolean isValidNameLength(String[] carList) {
         for (String carName : carList) {
-            try {
-                if (carName.length() > MAX_NAME_LENGTH || carName.length() == 0) {
-                    OutputView.printError(NAME_LENGTH_ERROR);
-                    throw new IllegalArgumentException(ERROR + NAME_LENGTH_ERROR);
-                }
-            } catch (IllegalArgumentException exception) {
-                return false;
+            if (carName.length() > MAX_NAME_LENGTH || carName.length() == 0) {
+                OutputView.printError(NAME_LENGTH_ERROR);
+                throw new IllegalArgumentException(ERROR + NAME_LENGTH_ERROR);
             }
         }
         return true;
     }
 
-    public static boolean isValidNumber(String userInput) {
-        try {
-            int parseNum = Integer.parseInt(userInput);
-            if (parseNum <= 0 || userInput.equals(" ")) {
-                OutputView.printError(ATTEMPT_ZERO_ERROR);
-                throw new IllegalArgumentException(ERROR + ATTEMPT_ZERO_ERROR);
-            }
-        } catch (NumberFormatException exception) {
-            OutputView.printError(ATTEMPT_NUMBER_ERROR);
-            return false;
+    public static void checkValidNumber(String userInput) {
+        int parseNum = Integer.parseInt(userInput);
+        if (parseNum <= 0) {
+            throw new IllegalArgumentException(ERROR + ATTEMPT_ZERO_ERROR);
         }
-        return true;
     }
 
     private static boolean checkDuplicate(String[] carList) {
-        try {
-            if (Arrays.stream(carList).distinct().count() != carList.length) {
-                OutputView.printError(DUPLICATED_NAME_ERROR);
-                throw new IllegalArgumentException(ERROR + DUPLICATED_NAME_ERROR);
-            }
-        } catch (IllegalArgumentException exception) {
-            return false;
+        if (Arrays.stream(carList).distinct().count() != carList.length) {
+            OutputView.printError(DUPLICATED_NAME_ERROR);
+            throw new IllegalArgumentException(ERROR + DUPLICATED_NAME_ERROR);
         }
         return true;
     }
 
     private static boolean isValidListLength(String[] carList) {
-        try {
-            if (carList.length <= MIN_CAR_LIST) {
-                OutputView.printError(LIST_LENGTH_ERROR);
-                throw new IllegalArgumentException(ERROR + LIST_LENGTH_ERROR);
-            }
-        } catch (IllegalArgumentException exception) {
-            return false;
+        if (carList.length <= MIN_CAR_LIST) {
+            OutputView.printError(LIST_LENGTH_ERROR);
+            throw new IllegalArgumentException(ERROR + LIST_LENGTH_ERROR);
         }
         return true;
     }
 
     private static boolean hasNotContainSpace(String[] carList) {
         for (String carName : carList) {
-            try {
-                if (carName.equals(NULL) || carName.contains(SPACE)) {
-                    OutputView.printError(NAME_NULL_ERROR);
-                    throw new IllegalArgumentException(ERROR + NAME_NULL_ERROR);
-                }
-            } catch (IllegalArgumentException exception) {
-                return false;
+            if (carName.equals(NULL) || carName.contains(SPACE)) {
+                OutputView.printError(NAME_NULL_ERROR);
+                throw new IllegalArgumentException(ERROR + NAME_NULL_ERROR);
             }
         }
         return true;

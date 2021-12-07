@@ -11,13 +11,20 @@ public class Car {
     private static final int CAN_MOVE_NUM = 4;
 
     private final String name;
-    private int position = 0;
+    private int position;
     public static int maxPosition = 0;
     public static List<Car> carList = new ArrayList<>();
 
-    public Car(String name, int position) {
+    public Car(String name) {
         this.name = name;
-        this.position = position;
+        this.position = 0;
+    }
+
+    public void moveForward() {
+        int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
+        if (randomNumber >= CAN_MOVE_NUM) {
+            position += 1;
+        }
     }
 
     public String getName() {
@@ -28,19 +35,12 @@ public class Car {
         return position;
     }
 
+    public boolean isWinner(int maxPosition) {
+        return position == maxPosition;
+    }
+
     public void addCarList(Car car) {
         carList.add(car);
-    }
-
-    public void move() {
-        position++;
-    }
-
-    public static void canMove(Car car) {
-        int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
-        if (randomNumber >= CAN_MOVE_NUM) {
-            car.move();
-        }
     }
 
     public static void getWinner() {
@@ -66,6 +66,12 @@ public class Car {
             }
         }
         return maxPosition;
+    }
+
+    public static void moveCar() {
+        for (Car car : carList) {
+            car.moveForward();
+        }
     }
     // 추가 기능 구현
 }

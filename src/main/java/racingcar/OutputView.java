@@ -14,15 +14,16 @@ public class OutputView {
         System.out.println(GAME_RESULT_MESSAGE);
     }
 
-    public static void printPlayer(String carName) {
+    public static void printCarName(String carName) {
         System.out.print(carName + COLON);
     }
 
     public static void printPosition(int distance) {
+        StringBuilder carPosition = new StringBuilder();
         for (int i = 0; i < distance; i++) {
-            System.out.print(DISTANCE);
+            carPosition.append(DISTANCE);
         }
-        System.out.println();
+        System.out.println(carPosition);
     }
 
     public static void printError(String message) {
@@ -30,11 +31,13 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winnerList) {
-        System.out.println(WINNER_CAR_NAME_PRINT + String.join(COMMA, winnerList));
-    }
-
-    public static void printPlayerAndPosition(Car car) {
-        OutputView.printPlayer(car.getName());
-        OutputView.printPosition(car.getPosition());
+        StringBuilder printWinnerMessage = new StringBuilder();
+        printWinnerMessage.append(WINNER_CAR_NAME_PRINT);
+        for (int idx = 0; idx < winnerList.size() - 1; idx++) {
+            printWinnerMessage.append(winnerList.get(idx));
+            printWinnerMessage.append(COMMA);
+        }
+        printWinnerMessage.append(winnerList.get(winnerList.size() - 1));
+        System.out.println(printWinnerMessage);
     }
 }
