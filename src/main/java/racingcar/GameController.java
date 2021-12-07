@@ -8,7 +8,7 @@ public class GameController {
 
     private static final int MAX_PICK_NUMBER = 9;
     private static final int MIN_PICK_NUMBER = 0;
-    private static final int MOVE_FORWARD_CONTION_NUMBER = 0;
+    private static final int MOVE_FORWARD_CONTION_NUMBER = 4;
     private final ArrayList<Car> carList = new ArrayList<>();
     private final ArrayList<String> winnersList = new ArrayList<>();
 
