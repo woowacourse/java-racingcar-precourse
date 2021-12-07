@@ -1,13 +1,15 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.rule.DefaultRule;
+import racingcar.domain.rule.MoveRule;
 
 public class Car {
 	private static final int START_INCLUSIVE = 0;
 	private static final int END_INCLUSIVE = 9;
 
 	private final String name;
-	private int position;
+	private int position = 0;
 	private MoveRule moveRule = new DefaultRule();
 
 	public Car(String name) {

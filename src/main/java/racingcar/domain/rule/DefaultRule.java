@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.rule;
 
 public class DefaultRule implements MoveRule {
 	private static final int MOVABLE_THRESHOLD = 4;

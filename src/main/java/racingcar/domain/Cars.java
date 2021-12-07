@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import racingcar.domain.rule.MoveRule;
+
 public class Cars {
 	private static final String NAME_DELIMITER = ",";
 	private static final int MIN_PARTICIPANTS = 1;

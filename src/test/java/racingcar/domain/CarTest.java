@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import racingcar.domain.rule.DefaultRule;
+import racingcar.domain.rule.MoveRule;
+
 class MustMoveRule implements MoveRule {
 	@Override
 	public boolean isMovable(int number) {
