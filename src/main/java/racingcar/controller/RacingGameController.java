@@ -6,6 +6,7 @@ import static racingcar.constant.GameMessage.*;
 import java.util.Arrays;
 import java.util.List;
 
+import racingcar.domain.AttemptNumber;
 import racingcar.domain.RacingCars;
 import racingcar.service.CarService;
 import racingcar.view.InputView;
@@ -13,11 +14,11 @@ import racingcar.view.OutputView;
 
 public class RacingGameController {
 	private final RacingCars racingCars;
-	private final int attemptNumber;
+	private final AttemptNumber attemptNumber;
 
 	public RacingGameController() {
 		racingCars = new RacingCars(getCarNames());
-		attemptNumber = getAttemptNumber();
+		attemptNumber = new AttemptNumber(getAttemptNumber());
 	}
 
 	private static List<String> getCarNames() {
@@ -50,9 +51,10 @@ public class RacingGameController {
 	}
 
 	private void playGame() {
-		for (int i = 0; i < attemptNumber; i++) {
+		while (attemptNumber.isAttemptRemained()) {
 			racingCars.move();
 			printExecutionForEachOrder();
+			attemptNumber.reduceAttemptNumber();
 		}
 	}
 
