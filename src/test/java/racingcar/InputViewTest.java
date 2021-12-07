@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class InputViewTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"exception", "3.5"})
-	void 시도할_횟수_숫자가_아닌_경우_TRUE_반환(String input) {
+	void 시도횟수에_문자를_입력하면_안된다(String input) {
 		InputView inputView = new InputView();
 		assertThat(inputView.isTimesNotInteger(input)).isTrue();
 	}
