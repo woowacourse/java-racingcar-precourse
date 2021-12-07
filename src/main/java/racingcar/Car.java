@@ -8,9 +8,8 @@ public class Car {
         this.name = name;
     }
 
-    public Car updatePosition() {
+    public void updatePosition() {
         this.position += 1;
-        return this;
     }
 
     public String getName() {

@@ -15,9 +15,9 @@ public class Game {
 	OutputPrinter outputPrinter = new OutputPrinter();
 
 	public void startGame() {
-		String  carNames = inputScanner.enterCarName();
+		String carNames = inputScanner.enterCarName();
 		List<Car> carList = carManager.generate(carNames);
-		long count = inputScanner.enterCount();
+		long count = Long.parseLong(inputScanner.enterCountWithException());
 
 		System.out.println(Message.EXECUTION_RESULT);
 		carList = getResultOfEachAttempt(carList, count);

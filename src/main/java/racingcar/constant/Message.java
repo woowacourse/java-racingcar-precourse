@@ -7,4 +7,9 @@ public class Message {
 	public static final String FINAL_WINNER = "최종 우승자 : %s";
 	public static final String RESULT_OF_STEP = "%s : %s";
 	public static final String BLOCK = "-";
+
+	public static final String ERROR_LONG_CAR_NAME = "[ERROR] 자동차의 이름은 5글자 미만이어야 합니다.";
+	public static final String ERROR_SEPARATE_WITH_COMMA = "[ERROR] 자동차의 이름은 쉼표로 구분지어야 합니다.";
+	public static final String ERROR_COUNT_IS_INTEGER = "[ERROR] 횟수 입력은 숫자만 가능합니다";
+	public static final String ERROR_COUNT_CANNOT_BE_ZERO = "[ERROR] 0 이상의 수를 입력해야합니다.";
 }

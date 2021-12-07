@@ -13,8 +13,20 @@ public class InputScanner {
 		return Console.readLine();
 	}
 
-	public long enterCount() {
+	public String enterCount() {
 		System.out.println(Message.NUMBER_OF_ATTEMPTS);
-		return Long.parseLong(Console.readLine());
+		return Console.readLine();
+	}
+
+	public String enterCountWithException() {
+		String count = enterCount();
+		try {
+			Validator.validateCountType(count);
+			Validator.validateCountZero(count);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			count = enterCountWithException();
+		}
+		return count;
 	}
 }
