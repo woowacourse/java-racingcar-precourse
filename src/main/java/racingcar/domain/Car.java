@@ -1,12 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.domain.constants.DomainConstants.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-	private static final Integer MIN_OUTPUT = 0;
-	private static final Integer MAX_OUTPUT = 9;
-	private static final Integer MOVABLE_OUTPUT = 4;
-
 	private static int maxPosition = 0;
 	private final String name;
 	private int position = 0;

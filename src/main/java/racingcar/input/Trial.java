@@ -1,11 +1,11 @@
 package racingcar.input;
 
+import static racingcar.input.constants.InputConstants.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.exception.ErrorMessage;
 
 public class Trial {
-
-	private static final String TRIAL_INPUT_ERROR_MESSAGE = "1 이상의 정수를 입력하세요.";
 
 	public static int input() {
 		while (true) {

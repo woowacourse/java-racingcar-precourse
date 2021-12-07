@@ -1,11 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.domain.constants.DomainConstants.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
-	private static final String THE_WINNER_IS = "최종 우승자 : ";
-
 	private static final List<String> winners = new ArrayList<>();
 
 	public static void setAmong(List<Car> cars) {

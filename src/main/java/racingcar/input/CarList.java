@@ -1,5 +1,7 @@
 package racingcar.input;
 
+import static racingcar.input.constants.InputConstants.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,14 +11,6 @@ import racingcar.domain.Car;
 import racingcar.exception.ErrorMessage;
 
 public class CarList {
-	private static final int NAME_LENGTH_LIMIT = 5;
-	private static final String INPUT_SPLITTER = ",";
-	private static final String INPUT_ERROR_MESSAGE_LENGTH = "각 자동차의 이름은 다섯글자 이하여야 합니다.";
-	private static final String INPUT_ERROR_MESSAGE_EMPTY = "자동차 이름을 하나 이상 입력해야 합니다.";
-	private static final String INPUT_ERROR_MESSAGE_DUPLICATE = "자동차 이름이 중복되지 않아야 합니다.";
-	private static final String INPUT_ERROR_MESSAGE_SPACE = "자동차 이름에 공백이 포함되지 않아야 합니다.";
-	private static final String BLANK = " ";
-
 	private static List<String> carNames = new ArrayList<>();
 
 	public static List<Car> input() {
