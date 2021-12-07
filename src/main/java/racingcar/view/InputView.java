@@ -10,15 +10,15 @@ import racingcar.utils.Message;
 import racingcar.utils.Validation;
 
 public class InputView {
-	private static ArrayList<Car> carsList = new ArrayList<Car>();
+	private ArrayList<Car> carsList = new ArrayList<Car>();
 
-	public static ArrayList<Car> getCarsList() {
+	public ArrayList<Car> getCarsList() {
 		List<String> carsNameList = carNamesInput();
 		createCarsList(carsNameList);
 		return carsList;
 	}
 
-	public static List<String> carNamesInput() {
+	public List<String> carNamesInput() {
 		List<String> carsNameList = new ArrayList<String>();
 		do {
 			System.out.println(Message.ASK_CAR_NAMES);
@@ -30,13 +30,13 @@ public class InputView {
 		return carsNameList;
 	}
 
-	public static void createCarsList(List<String> carsNameList) {
+	public void createCarsList(List<String> carsNameList) {
 		for (int i = 0; i < carsNameList.size(); i++) {
 			carsList.add(new Car(carsNameList.get(i)));
 		}
 	}
 
-	public static int getGameCount() {
+	public int getGameCount() {
 		String stringGameCount = "";
 		int gameCount = 0;
 
@@ -50,17 +50,19 @@ public class InputView {
 		return gameCount;
 	}
 
-	public static int gameCountParser(String stringGameCount) {
+	public int gameCountParser(String stringGameCount) {
 		int gameCount = Integer.parseInt(stringGameCount);
 		return gameCount;
 	}
 
-	public static boolean checkRightNames(List<String> carsNameList) {
+	public boolean checkRightNames(List<String> carsNameList) {
 		boolean isRightNames = true;
+		Validation validation = new Validation();
+
 		try {
-			Validation.LESS_MORE_NAME_ERROR(carsNameList);
-			Validation.CONTAIN_SAME_NAME_ERROR(carsNameList);
-			Validation.WHITE_SPACE_NAME_ERROR(carsNameList);
+			validation.LESS_MORE_NAME_ERROR(carsNameList);
+			validation.CONTAIN_SAME_NAME_ERROR(carsNameList);
+			validation.WHITE_SPACE_NAME_ERROR(carsNameList);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			isRightNames = false;
@@ -68,11 +70,13 @@ public class InputView {
 		return isRightNames;
 	}
 
-	public static boolean checkRightGameCount(String stringGameCount) {
+	public boolean checkRightGameCount(String stringGameCount) {
 		boolean isRightNumeric = true;
+		Validation validation = new Validation();
+
 		try {
-			Validation.NON_NUMERIC_GAME_COUNT_ERROR(stringGameCount);
-			Validation.ZERO_GAME_COUNT_ERROR(stringGameCount);
+			validation.NON_NUMERIC_GAME_COUNT_ERROR(stringGameCount);
+			validation.ZERO_GAME_COUNT_ERROR(stringGameCount);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			isRightNumeric = false;

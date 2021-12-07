@@ -14,9 +14,11 @@ public class Game {
 	private ArrayList<Car> winnerList = new ArrayList<Car>();
 	private ArrayList<String> stringWinnerList = new ArrayList<String>();
 
+
 	public void play() {
-		carsList = InputView.getCarsList();
-		gameCount = InputView.getGameCount();
+		InputView iV = new InputView();
+		carsList = iV.getCarsList();
+		gameCount = iV.getGameCount();
 		race(carsList, gameCount);
 		pickWinner();
 		printWinner();
@@ -30,9 +32,10 @@ public class Game {
 	}
 
 	private void playTurn(ArrayList<Car> carsList, int gameCount) {
+		OutputView outputView = new OutputView();
 		for (Car car : carsList) {
 			car.proceedOrPause();
-			OutputView.printPosition(car.getCarName(), car.getPosition());
+			outputView.printPosition(car.getCarName(), car.getPosition());
 		}
 	}
 
@@ -59,8 +62,9 @@ public class Game {
 	}
 
 	public void printWinner() {
+		OutputView outputView = new OutputView();
 		extractWinnersNames(winnerList);
-		OutputView.printWinner(stringWinnerList);
+		outputView.printWinner(stringWinnerList);
 	}
 
 	public void extractWinnersNames(ArrayList<Car> winnerList) {
