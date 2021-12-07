@@ -7,7 +7,7 @@ public class MessageResoruce {
 	public static final String INPUT_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
 
 	public static final String ERROR_CAR_NAME_SIZE_OVER = "[ERROR] 자동차 이름의 크기는 5자 이하여야 합니다.";
-	public static final String ERROR_CAR_NAME_SIZE_UNDER = "[ERROR] 자동차 이름의 크기는 1보다 커야 합니다.";
+	public static final String ERROR_CAR_NAME_NOT_EMPTY = "[ERROR] 자동차 이름은 공백일 수 없습니다.";
 	public static final String ERROR_ROUND_NUMBER_NOT_VALID = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	public static final String ERROR_ROUND_NUMBER_GREATER_THAN_ZERO = "[ERROR] 시도 횟수는 0보다 큰 정수여야 합니다.";
 
