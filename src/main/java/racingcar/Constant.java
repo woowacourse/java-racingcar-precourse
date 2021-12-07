@@ -9,7 +9,7 @@ public class Constant {
 	public static final String NAME_ERROR_MESSAGE = "[ERROR] 잘못된 입력입니다. (이름은 1자 이상 5자이하)";
 	public static final String NUMBER_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
 
-	public static final int START_RANDOM_NUMBER = 1;
+	public static final int START_RANDOM_NUMBER = 0;
 	public static final int END_RANDOM_NUMBER = 9;
 	public static final int MINIMUM_MOVABLE_NUMBER = 4;
 	public static final int MAXIMUM_NAME_NUMBER = 5;
