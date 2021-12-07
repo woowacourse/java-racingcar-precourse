@@ -1,8 +1,11 @@
 package racingcar.domain.car;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import racingcar.domain.movement.MovementStrategy;
 
 public class CarSet {
 	private static final String ERROR_EMPTY = "이름은 빈 문자열일 수 없습니다.";
@@ -31,5 +34,16 @@ public class CarSet {
 		if (nameSet.size() != cars.size()) {
 			throw new IllegalArgumentException(ERROR_DUPLICATION);
 		}
+	}
+
+	public void move(MovementStrategy strategy) {
+		cars.forEach(car -> car.move(strategy));
+	}
+
+	@Override
+	public String toString() {
+		return cars.stream()
+			.map(Car::toString)
+			.collect(Collectors.joining("\n"));
 	}
 }

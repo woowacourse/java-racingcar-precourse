@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.domain.movement.MovementStrategy;
+
 public class Car {
 
 	private final Name name;
@@ -16,5 +18,14 @@ public class Car {
 
 	public String getName() {
 		return name.toString();
+	}
+
+	public void move(MovementStrategy strategy) {
+		position.move(strategy);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s : %s", getName(), position.toString());
 	}
 }
