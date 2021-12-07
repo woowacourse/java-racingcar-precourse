@@ -69,10 +69,56 @@ public class Application {
 
     }
 
+    public static Car[] goOneRound(String[] names, Car[] Cars){
+
+        for (int j = 0; j < names.length; ++j){
+            int random = Randoms.pickNumberInRange(1, 9);
+            if (random >= 4) {
+                Cars[j].increment();
+            }
+
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int l = 0; l < names.length; ++l){
+            sb.append(names[l]).append(" : ");
+            int carPosition = Cars[l].getPosition();
+
+            for (int m = 0; m < carPosition; ++m){
+                sb.append("-");
+            }
+
+            sb.append('\n');
+        }
+
+        System.out.println(sb);
+
+        return Cars;
+    }
+
+    public static Car[] raceCars(String[] names, int times){
+        Car[] Cars = new Car[names.length];
+
+        for (int k = 0; k < names.length; ++k){
+            Cars[k] = new Car(names[k]);
+        }
+
+        System.out.println("실행 결과\n");
+
+        for (int i = 0; i < times; ++i){
+            Cars = goOneRound(names, Cars);
+        }
+
+        return Cars;
+    }
+
     public static void main(String[] args) {
         // TODO 구현 진행
         String[] names = getNames();
 
         int times = getTimes();
+
+        Car[] Cars = raceCars(names, times);
     }
 }
