@@ -14,11 +14,11 @@ public class Umpire {
 		carList = cars;
 	}
 
-	public List<String> getWinner(List<Car> carList) {
+	public List<Car> getWinner() {
 		int target = findMaxPosition();
 
 		List<Car> winners = findSamePosition(target);
-		return getWinnersNameList(winners);
+		return winners;
 	}
 
 	private int findMaxPosition() {
@@ -34,7 +34,7 @@ public class Umpire {
 			.collect(Collectors.toList());
 	}
 
-	private List<String> getWinnersNameList(List<Car> winners) {
+	public List<String> getWinnersNameList(List<Car> winners) {
 		List<String> winnersName = new ArrayList<>();
 
 		winners.stream()
