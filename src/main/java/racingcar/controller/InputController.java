@@ -11,7 +11,6 @@ import racingcar.view.InputView;
 import static racingcar.utils.InputValidation.*;
 
 public class InputController {
-
 	public static final String NAME_DELIMITER = ",";
 
 	public static List<Car> createCars() {

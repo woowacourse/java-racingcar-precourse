@@ -9,7 +9,6 @@ import java.util.function.Supplier;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
-
 	public static final Predicate<Integer> MOVE_CONDITION = i -> i >= 4;
 	public static final Supplier<Integer> MOVE_VALUE = () -> Randoms.pickNumberInRange(1, 9);
 
