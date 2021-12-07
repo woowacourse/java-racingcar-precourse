@@ -19,10 +19,9 @@ public class RacingGame {
     private String[] carNames;
     private StringBuilder racingRecord;
 
-    public RacingGame() {
-        DependencyInjectionContainer dependencyInjectionContainer = new DependencyInjectionContainer();
-        validation =dependencyInjectionContainer.racingGameInputValidation();
-        judgmentService = dependencyInjectionContainer.judgmentService();
+    public RacingGame(InputValidation validation, JudgmentService judgmentService) {
+        this.validation = validation;
+        this.judgmentService = judgmentService;
     }
 
     public void start() {

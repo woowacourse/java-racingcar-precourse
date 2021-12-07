@@ -3,6 +3,7 @@ package racingcar.configuration;
 import java.util.Comparator;
 
 import racingcar.domain.Car;
+import racingcar.racingsystem.RacingGame;
 import racingcar.service.JudgmentService;
 import racingcar.service.JudgmentServiceImplementation;
 import racingcar.validation.InputValidation;
@@ -17,6 +18,10 @@ public class DependencyInjectionContainer {
                 return o2.getPosition() - o1.getPosition();
             }
         };
+    }
+
+    public RacingGame racingGame() {
+        return new RacingGame(racingGameInputValidation(), judgmentService());
     }
 
     public InputValidation racingGameInputValidation() {
