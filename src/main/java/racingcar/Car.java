@@ -1,6 +1,9 @@
 package racingcar;
 
 public class Car {
+    private static final char FORWARD_SIGN = '-';
+    private static final String NAME_SEPARATOR = " : ";
+
     private final String name;
     private int position = 0;
 
@@ -12,9 +15,9 @@ public class Car {
     }
 
     public void moveResult() {
-        System.out.print(name + " : ");
+        System.out.print(name + NAME_SEPARATOR);
         for (int i = 0; i < position; i++) {
-            System.out.print('-');
+            System.out.print(FORWARD_SIGN);
         }
         System.out.println();
     }

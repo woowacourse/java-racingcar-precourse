@@ -3,6 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
+    private static final int FORWARD_LIMIT = 4;
+    private static final String WINNER = "최종 우승자 : ";
+    private static final String RESULT = "\n" + "실행결과";
+    private static final String SEPARATOR = ", ";
+
     private Car[] makeCar() {
         String[] carNames = InputData.getCarName();
         Car[] cars = new Car[carNames.length];
@@ -17,7 +22,7 @@ public class RacingGame {
     private void moveForward(Car[] cars) {
         for (int i = 0; i < cars.length; i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= 4) {
+            if (randomNumber >= FORWARD_LIMIT) {
                 cars[i].moveForward();
             }
             cars[i].moveResult();
@@ -38,13 +43,13 @@ public class RacingGame {
             }
         }
 
-        System.out.print("최종 우승자 : " + winner);
+        System.out.print(WINNER + winner);
         for (int j = 0; j < cars.length; j++) {
             if (j == winnerIndex) {
                 continue;
             }
             if (Integer.parseInt(cars[j].getResult()[1]) == max) {
-                System.out.print(", " + cars[j].getResult()[0]);
+                System.out.print(SEPARATOR + cars[j].getResult()[0]);
             }
         }
     }
@@ -53,7 +58,7 @@ public class RacingGame {
         Car[] cars = makeCar();
         int times = InputData.getNumberOfTimes();
 
-        System.out.println("\n" + "실행결과");
+        System.out.println(RESULT);
         for (int i = 0; i < times; i++) {
             moveForward(cars);
         }
