@@ -58,23 +58,20 @@ public class RacingGame {
 		player.sendMessage(AFTER_INIT_MESSAGE);
 	}
 
-	private void moveAllCars() {
-		for (int i = 0; i < cars.length; ++i) {
-			cars[i].moveCar();
+	private String getAllCarsCurrentPositionVisualizationData() {
+		StringStringPair[] allCarsCurrentPositionData = carManager.getAllCarsCurrentPositionData();
+		StringBuilder allCarsCurrentPositionVisualizationData = new StringBuilder();
+		for (int i = 0; i < allCarsCurrentPositionData.length; ++i) {
+			allCarsCurrentPositionVisualizationData.append(
+				allCarsCurrentPositionData[i].key + SPACE_COLON_SPACE + allCarsCurrentPositionData[i].value);
 		}
-	}
-
-	private void printCurrentPositions(Player player) {
-		for (int i = 0; i < cars.length; ++i) {
-			player.sendMessage(
-				cars[i].getName() + SPACE_COLON_SPACE + cars[i].getCurrentPositionVisualization() + "\n");
-		}
-		player.sendMessage("\n");
+		allCarsCurrentPositionVisualizationData.append("\n");
+		return allCarsCurrentPositionVisualizationData.toString();
 	}
 
 	private void playOneCycle(Player player) {
-		moveAllCars();
-		printCurrentPositions(player);
+		carManager.moveAllCars();
+		player.sendMessage(getAllCarsCurrentPositionVisualizationData());
 	}
 
 	private int getBestScore() {
