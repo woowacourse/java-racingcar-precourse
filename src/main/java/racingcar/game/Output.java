@@ -27,7 +27,7 @@ public class Output {
 			System.out.print(car.getName() + " : ");
 			// 차 position 출력
 			for (int i = 0; i < car.getPosition(); i++) {
-				System.out.print(PRINTOR);
+				System.out.print(SHOW_POSITION);
 			}
 			// 줄바꿈
 			System.out.println();

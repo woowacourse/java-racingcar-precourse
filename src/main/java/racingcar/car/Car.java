@@ -12,7 +12,7 @@ public class Car {
 	}
 
 	private boolean canMove() {
-		if (pickNumberInRange(MIN_MOVE, MAX_MOVE) >= MOVE) {
+		if (pickNumberInRange(MIN_RANDOM, MAX_RANDOM) >= TARGET_RANDOM) {
 			return true;
 		}
 		return false;

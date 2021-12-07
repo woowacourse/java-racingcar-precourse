@@ -14,7 +14,7 @@ public class Input {
 
 		while (true) {
 			System.out.println(INPUT_CAR_NAMES);
-			names = readLine().split(SPLITOR);
+			names = readLine().split(SPLITTER);
 			try {
 				checkNameException(names);
 				return names;
