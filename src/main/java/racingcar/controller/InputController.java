@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.CarNameValidator;
 import racingcar.model.RacingCars;
-import racingcar.model.RoundCountValidator;
+import racingcar.model.RoundNumValidator;
 import racingcar.view.InputView;
 
 public class InputController {
@@ -18,7 +18,7 @@ public class InputController {
 
 	public static int setRoundNum() {
 		try {
-			RoundCountValidator validation = new RoundCountValidator(InputView.roundInput());
+			RoundNumValidator validation = new RoundNumValidator(InputView.roundInput());
 			return Integer.parseInt(validation.ROUND_NUM_STRING);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
