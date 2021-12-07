@@ -12,15 +12,15 @@ import racingcar.domain.Car;
 public class InputView {
     private ArrayList<Car> cars;
 
-    private String[] inputInit () {
+    private String[] carNameInputInit () {
         System.out.println(Input.CAR_NAME_MESSAGE);
         String input = Console.readLine();
         String[] carNames = input.split(",");
         return carNames;
     }
 
-    public ArrayList<Car> validateInput() {
-        String[] carNames = inputInit();
+    public ArrayList<Car> carNameInput() {
+        String[] carNames = carNameInputInit();
         cars = new ArrayList<>();
         Arrays.stream(carNames).forEach(name -> cars.add(new Car(name)));
 
@@ -31,7 +31,7 @@ public class InputView {
                 hasSameCarName(cars);
                 return cars;
             } catch (IllegalArgumentException e) {
-                validateInput();
+                carNameInput();
             }
         }
     }
@@ -75,7 +75,7 @@ public class InputView {
         }
     }
 
-    public int inputTimes() {
+    public int timesInput() {
         while (true) {
             System.out.println(Input.TIMES_MESSAGE);
             String timesInput = Console.readLine();
@@ -94,12 +94,18 @@ public class InputView {
                 throw new IllegalArgumentException();
             }
         }
+        isTimesNull(timesInput.length());
+        isTimesZero(Integer.parseInt(timesInput));
+    }
 
-        if (timesInput.length() < Condition.MINIMUM_CAR_MOVE_INPUT_LENGTH) {
+    private void isTimesNull(int timesLength) throws IllegalArgumentException {
+        if (timesLength < Condition.MINIMUM_CAR_MOVE_INPUT_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
 
-        if (Integer.parseInt(timesInput) < Condition.MINIMUM_CAR_MOVE_TIMES) {
+    private void isTimesZero(int times) throws IllegalArgumentException {
+        if (times < Condition.MINIMUM_CAR_MOVE_TIMES) {
             throw new IllegalArgumentException();
         }
     }

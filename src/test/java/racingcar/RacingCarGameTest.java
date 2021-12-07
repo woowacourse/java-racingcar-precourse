@@ -19,17 +19,23 @@ class RacingCarGameTest {
                 throw new IllegalArgumentException();
             }
         }
+        isTimesNull(timesInput.length());
+        isTimesZero(Integer.parseInt(timesInput));
+    }
 
-        if (timesInput.length() < Condition.MINIMUM_CAR_MOVE_INPUT_LENGTH) {
-            throw new IllegalArgumentException();
-        }
-
-        if (Integer.parseInt(timesInput) < Condition.MINIMUM_CAR_MOVE_TIMES) {
+    private void isTimesNull(int timesLength) throws IllegalArgumentException {
+        if (timesLength < Condition.MINIMUM_CAR_MOVE_INPUT_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void hasSameCarName(ArrayList<Car> cars) {
+    private void isTimesZero(int times) throws IllegalArgumentException {
+        if (times < Condition.MINIMUM_CAR_MOVE_TIMES) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void hasSameCarName(ArrayList<Car> cars) throws IllegalArgumentException {
         HashSet<String> carNameSet = new HashSet<>();
         for (Car car : cars) {
             carNameSet.add(car.getName());
