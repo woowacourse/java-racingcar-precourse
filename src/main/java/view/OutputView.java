@@ -3,6 +3,8 @@ package view;
 import domain.Car;
 import domain.Cars;
 
+import java.util.List;
+
 public class OutputView {
 	private static final String RESULT_MESSAGE = "\n실행 결과";
 	private static String DISPLACEMENT_UNIT = "-";
@@ -22,5 +24,10 @@ public class OutputView {
 			System.out.println();
 		}
 		System.out.println();
+	}
+
+	public static void printWinners(List<String> winners) {
+		String winnerNames = "최종 우승자 : " + String.join(", ", winners);
+		System.out.println(winnerNames);
 	}
 }
