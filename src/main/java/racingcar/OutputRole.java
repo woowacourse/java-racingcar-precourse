@@ -30,7 +30,7 @@ public class OutputRole {
         for (String winner : winnersList) {
             winners = winners.concat(winner + COMMA);
         }
-        System.out.print(winners.substring(0, winners.length() - 2));
+        System.out.print(winners.substring(0, winners.length() - 2));  // remove last comma
 
 
     }

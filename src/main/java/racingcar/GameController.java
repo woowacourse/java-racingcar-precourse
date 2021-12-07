@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class GameController {
-
     private static final int MAX_PICK_NUMBER = 9;
     private static final int MIN_PICK_NUMBER = 0;
     private static final int MOVE_FORWARD_CONTION_NUMBER = 4;
