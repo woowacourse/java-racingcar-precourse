@@ -49,4 +49,12 @@ class CarsTest {
         assertThatIllegalArgumentException().isThrownBy(() -> new Cars(overlappedNames))
                 .withMessage("이름들 간에 중복이 있습니다.");
     }
+
+    @Test
+    @DisplayName("자동차가 1대라면 예외를 발생시킨다.")
+    void evokeExceptionByLowerThanTwoCars() {
+        List<String> oneCar = Arrays.asList("Chris");
+        assertThatIllegalArgumentException().isThrownBy(() -> new Cars(oneCar))
+                .withMessage("자동차는 최소 2개가 필요합니다.");
+    }
 }

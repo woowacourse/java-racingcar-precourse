@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 import model.movement.Movement;
 
 public class Cars {
+    private static final int MIN_NUMBER_OF_CARS = 2;
     private final List<Car> values;
 
     public Cars(final List<String> carNames) {
+        validateMinSize(carNames);
         validateOverlap(carNames);
         values = carNames.stream()
                 .map(Car::new)
@@ -18,6 +20,12 @@ public class Cars {
     private void validateOverlap(final List<String> carNames) {
         if (carNames.size() != carNames.stream().distinct().count()) {
             throw new IllegalArgumentException("이름들 간에 중복이 있습니다.");
+        }
+    }
+
+    private void validateMinSize(final List<String> carNames) {
+        if(carNames.size() < MIN_NUMBER_OF_CARS) {
+            throw new IllegalArgumentException("자동차는 최소 2개가 필요합니다.");
         }
     }
 
