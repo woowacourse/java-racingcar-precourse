@@ -14,6 +14,7 @@ public class CarNameException {
 	private static final String LIST_EMPTY_ERROR_MASSAGE = "[ERROR] 이름이 입력되지 않았습니다! 다시 입력해주세요.";
 	private static final int NAME_MAX_LENGTH = 5;
 	private static final int CAR_LIST_MIN_SIZE = 1;
+	private static final int CAR_LIST_EMPTY_SIZE = 0;
 
 	public static void checkCarNameException(String[] carNameList) {
 		checkEmptyList(carNameList);
@@ -27,7 +28,7 @@ public class CarNameException {
 	}
 
 	private static void checkEmptyList(String[] carNameList) {
-		if (carNameList.length == 0) {
+		if (carNameList.length == CAR_LIST_EMPTY_SIZE) {
 			throw new IllegalArgumentException(LIST_EMPTY_ERROR_MASSAGE);
 		}
 	}
