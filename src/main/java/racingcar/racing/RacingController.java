@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.racing.domain.Car;
 import racingcar.racing.domain.Cars;
 import racingcar.type.DelimiterType;
 import racingcar.type.RandomConditionType;
 import racingcar.view.OutputView;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingController {
 
@@ -35,21 +35,22 @@ public class RacingController {
 			OutputView.printCarStatus(car.getName(), getMovedDistance(car.getPosition()));
 		}
 	}
-	private StringBuilder getMovedDistance(int position){
-			StringBuilder distance = new StringBuilder();
-			for (int i = 0; i < position; i ++){
-			distance.append(DelimiterType.DISTANCE.getDelimiter());
-			}
-			return distance;
-		}
 
+	private StringBuilder getMovedDistance(int position) {
+		StringBuilder distance = new StringBuilder();
+		for (int i = 0; i < position; i++) {
+			distance.append(DelimiterType.DISTANCE.getDelimiter());
+		}
+		return distance;
+	}
 
 	private void tryMoveForward(Car car) {
-		if (checkMovableCondition()){
+		if (checkMovableCondition()) {
 			car.moveForward();
 		}
 
 	}
+
 	private Boolean checkMovableCondition() {
 		int randomNumber =
 			Randoms.pickNumberInRange(RandomConditionType.MIN_NUMBER_RANGE.getRandomCondition(),

@@ -5,14 +5,13 @@ public enum DelimiterType {
 	DISTANCE("-"),
 	COLON(":");
 
-
 	private final String delimiter;
 
-	DelimiterType(String delimiter){
+	DelimiterType(String delimiter) {
 		this.delimiter = delimiter;
 	}
 
-	public String getDelimiter(){
+	public String getDelimiter() {
 		return delimiter;
 	}
 }

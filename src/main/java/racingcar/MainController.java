@@ -12,7 +12,7 @@ import racingcar.view.OutputView;
 
 public class MainController {
 
-	public void run(){
+	public void run() {
 		List<String> carNames = getCarNames();
 		int tryNumber = getTryNumber();
 
