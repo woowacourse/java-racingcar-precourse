@@ -8,12 +8,8 @@ import java.util.List;
 public class Winner {
 	private static final List<String> winners = new ArrayList<>();
 
-	public static void setAmong(List<Car> cars) {
-		for (Car car : cars) {
-			if (car.isWinner()) {
-				winners.add(car.getName());
-			}
-		}
+	public static void add(String winner) {
+		winners.add(winner);
 	}
 
 	public static void print() {

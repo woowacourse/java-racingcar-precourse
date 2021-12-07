@@ -13,10 +13,6 @@ public class Car {
 		this.name = name;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	private void moveForward() {
 		position++;
 	}
@@ -45,5 +41,9 @@ public class Car {
 
 	public boolean isWinner() {
 		return (maxPosition == position);
+	}
+
+	public void joinWinner() {
+		Winner.add(name);
 	}
 }

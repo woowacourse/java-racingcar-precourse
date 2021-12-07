@@ -7,30 +7,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 import racingcar.exception.ErrorMessage;
 
-public class CarList {
+public class CarName {
 	private static List<String> carNames = new ArrayList<>();
 
-	public static List<Car> input() {
-		getValidCarNamesByUserInput();
-		return makeCarList();
-	}
-
-	private static void getValidCarNamesByUserInput() {
+	public static List<String> input() {
 		while (carNames.isEmpty() || isInvalid()) {
 			String input = Console.readLine();
 			carNames = Arrays.asList(input.split(INPUT_SPLITTER));
 		}
-	}
-
-	private static List<Car> makeCarList() {
-		List<Car> cars = new ArrayList<>();
-		for (String name : carNames) {
-			cars.add(new Car(name));
-		}
-		return cars;
+		return carNames;
 	}
 
 	private static boolean isInvalid() {

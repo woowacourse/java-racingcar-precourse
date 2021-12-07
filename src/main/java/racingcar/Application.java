@@ -1,45 +1,35 @@
 package racingcar;
 
-import java.util.List;
-
-import racingcar.domain.Car;
+import racingcar.domain.CarList;
 import racingcar.domain.Winner;
 import racingcar.input.InputController;
 
 public class Application {
 
-	private static List<Car> cars;
 	private static int trial;
+	private static CarList carList;
 
 	public static void main(String[] args) {
 		// TODO 구현 진행
-		setInputData();
+		setCarNameAndTrial();
 		playGame();
 		printResult();
 	}
 
 	private static void printResult() {
-		Winner.setAmong(cars);
+		carList.setWinner();
 		Winner.print();
 	}
 
 	private static void playGame() {
 		System.out.println("실행 결과");
 		while (--trial >= 0) {
-			iteratePerCar();
+			CarList.iteratePerCar();
 		}
 	}
 
-	private static void iteratePerCar() {
-		for (Car car : cars) {
-			car.moveOrStop();
-			car.printPosition();
-		}
-		System.out.println();
-	}
-
-	private static void setInputData() {
-		cars = InputController.getCarNameInput();
+	private static void setCarNameAndTrial() {
+		carList = new CarList(InputController.getCarNameInput());
 		trial = InputController.getTrialInput();
 	}
 }
