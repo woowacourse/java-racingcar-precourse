@@ -26,4 +26,14 @@ public class Car {
 		}
 	}
 
+	public void printState() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.name);
+		sb.append(Constant.BETWEEN_NAME_RESULT);
+		for (int i = 0; i < this.position; i++) {
+			sb.append(Constant.EXECUTION_RESULT_MARKER);
+		}
+		System.out.println(sb.toString());
+	}
+
 }
