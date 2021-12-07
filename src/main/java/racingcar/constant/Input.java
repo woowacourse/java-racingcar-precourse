@@ -8,5 +8,7 @@ public class Input {
     public static final String ONLY_COMMA_ERROR_MESSAGE = "[ERROR] 콤마(,)는 구분자이므로 자동차 이름으로 사용할 수 없습니다.";
 
     public static final String TIMES_MESSAGE = "시도할 회수는 몇회인가요?";
-    public static final String TIMES_ERROR_MESSAGE = "[ERROR] 시도 횟수는 1 이상의 숫자여야 합니다.";
+    public static final String TIMES_BELOW_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자를 1자 이상 작성해야 합니다.";
+    public static final String TIMES_ZERO_ERROR_MESSAGE = "[ERROR] 시도 횟수는 1 이상이어야 합니다.";
+    public static final String TIMES_UN_DIGIT_ERROR_MESSAGE = "[ERROR] 시도 횟수 입력은 숫자만 가능합니다.";
 }

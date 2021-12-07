@@ -83,7 +83,6 @@ public class InputView {
                 validateTimes(timesInput);
                 return Integer.parseInt(timesInput);
             } catch (IllegalArgumentException e) {
-                System.out.println(Input.TIMES_ERROR_MESSAGE);
             }
         }
     }
@@ -91,6 +90,7 @@ public class InputView {
     private void validateTimes(String timesInput) throws IllegalArgumentException {
         for (int i = 0; i < timesInput.length(); i++) {
             if (!Character.isDigit(timesInput.charAt(i))) {
+                System.out.println(Input.TIMES_UN_DIGIT_ERROR_MESSAGE);
                 throw new IllegalArgumentException();
             }
         }
@@ -100,12 +100,14 @@ public class InputView {
 
     private void isTimesNull(int timesLength) throws IllegalArgumentException {
         if (timesLength < Condition.MINIMUM_CAR_MOVE_INPUT_LENGTH) {
+            System.out.println(Input.TIMES_BELOW_ERROR_MESSAGE);
             throw new IllegalArgumentException();
         }
     }
 
     private void isTimesZero(int times) throws IllegalArgumentException {
         if (times < Condition.MINIMUM_CAR_MOVE_TIMES) {
+            System.out.println(Input.TIMES_ZERO_ERROR_MESSAGE);
             throw new IllegalArgumentException();
         }
     }
