@@ -4,16 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RacingCarGame {
-	private int leftRounds;
-	private Cars cars;
-
 	private static final String NUMBER_GT_ONE_FILTER = "[1-9][0-9]*";
-
 	private static final String ROUND_NUMBER_ERROR_MESSAGE = "[ERROR] 1 이상의 수를 입력해주세요";
 
+	private Cars cars;
+	private int leftRounds;
+
 	private RacingCarGame(int leftRounds, Cars cars) {
-		this.leftRounds = leftRounds;
 		this.cars = cars;
+		this.leftRounds = leftRounds;
 	}
 
 	public static RacingCarGame generateGame(String roundNumber, Cars cars) {
