@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Names {
-	private List<Name> names;
+	private final List<Name> names;
 
 	public Names(List<String> list) {
 		this.names = list.stream()

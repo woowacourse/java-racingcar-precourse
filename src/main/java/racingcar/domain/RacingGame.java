@@ -12,12 +12,12 @@ public class RacingGame {
 	private RacingGame() {
 	}
 
-	public void init() {
-		cars = null;
-	}
-
 	public static RacingGame getInstance() {
 		return racingGame;
+	}
+
+	public void init() {
+		cars = null;
 	}
 
 	public void insert(Cars cars) {

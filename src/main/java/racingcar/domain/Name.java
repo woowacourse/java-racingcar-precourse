@@ -6,11 +6,11 @@ public class Name {
 	private final String name;
 
 	public Name(String name) {
-	    this.name = name;
+		this.name = name;
 	}
 
 	public static Name of(String name) {
-	    return new Name(name);
+		return new Name(name);
 	}
 
 	@Override
