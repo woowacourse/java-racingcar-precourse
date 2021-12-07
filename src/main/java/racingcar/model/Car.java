@@ -1,6 +1,8 @@
 package racingcar.model;
 
 public class Car implements Comparable<Car> {
+	private static final String NAME_ERROR_MESSAGE = "자동차의 이름은 1~5자여야 한다.";
+
 	private final String name;
 	private int position = 0;
 
@@ -11,7 +13,7 @@ public class Car implements Comparable<Car> {
 
 	private static void validateName(String name) throws IllegalArgumentException {
 		if (name.isEmpty() || name.length() > 5) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
 		}
 	}
 
