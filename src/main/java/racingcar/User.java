@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class User {
+    public static final String NAMES_SPLIT_DELIMITER = ",";
+
     private String names;
     private String inputTimes;
     private int times;
@@ -22,7 +24,7 @@ public class User {
     }
 
     public void toNameArray() {
-        nameArray = this.names.split(",");
+        nameArray = this.names.split(NAMES_SPLIT_DELIMITER);
     }
 
     public String[] getCarName() {
