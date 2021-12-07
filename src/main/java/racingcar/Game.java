@@ -1,47 +1,92 @@
 package racingcar;
 
 public class Game {
-	private static int numberOfStages;
+	private int numberOfStage;
 
 	private Car[] cars;
 	private int numberOfCars;
 
-	public void carMaker(){
-		numberOfCars = 0;
-		String[] carsName = UserInputGetter.parseCarName(UserInputGetter.getUserInput());
+	public void carMaker(String[] carNames){
+		this.numberOfCars = 0;
 
-		for(String name : carsName){
-			cars[numberOfCars++] = new Car(name);
+		for(String name : carNames){
+			this.cars[this.numberOfCars++] = new Car(name);
 		}
 	}
 
 	public void stageProcess(){
-		for(Car car : cars){
+		for(Car car : this.cars){
 			car.goForward();
 		}
 
-		GamePrinter.stagePrint(cars);
+		GamePrinter.stagePrint(this.cars);
 	}
 
 	public void gameProcess(){
-		GamePrinter.getNamePrint();
-		carMaker();
-		GamePrinter.getNumberPrint();
 
-		String trialNumber = UserInputGetter.getUserInput();
+		initGame();
 
-		if(UserInputValidator.checkInt(trialNumber)){
-			numberOfStages = trialNumber.charAt(0) - '0';
-		}
-
-		for(int i = 0; i < numberOfStages; i++){
+		for(int i = 0; i < this.numberOfStage; i++){
 			stageProcess();
 		}
 
+		endGame();
+	}
+
+	public void initGame(){
+
+		String[] carNames = getCarNames();
+		carMaker(carNames);
+		getNumberOfStage();
+	}
+
+	public void getNumberOfStage(){
+
+
+		GamePrinter.getNumberPrint();
+
+		String trialNumber;
+
+		while(true){
+			try{
+				trialNumber = UserInputGetter.getUserInput();
+				if(UserInputValidator.checkInt(trialNumber)){
+					break;
+				}
+			}catch (IllegalArgumentException e){
+				System.out.println(e.getMessage());
+				GamePrinter.getNumberPrint();
+			}
+		}
+
+		this.numberOfStage = Integer.parseInt(trialNumber);
+	}
+
+	public String[] getCarNames(){
+
+		GamePrinter.getNamePrint();
+
+		String[] carNames;
+
+		while(true) {
+			try {
+				carNames = UserInputGetter.parseCarName(UserInputGetter.getUserInput());
+				if (UserInputValidator.checkNameLength(carNames)) {
+					break;
+				}
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+				GamePrinter.getNamePrint();
+			}
+		}
+
+		return carNames;
+	}
+
+	public void endGame(){
+
 		String[] champions = findChampion();
-
 		GamePrinter.printChampion(champions);
-
 	}
 
 	public String[] findChampion(){
@@ -54,9 +99,9 @@ public class Game {
 
 		int tempChampion = 0;
 
-		for(int i = 0; i <= numberOfCars; i++){
-			if(cars[i].getPosition() == maxPosition){
-				champions[tempChampion] = cars[i].getName();
+		for(int i = 0; i <= this.numberOfCars; i++){
+			if(this.cars[i].getPosition() == maxPosition){
+				champions[tempChampion] = this.cars[i].getName();
 				tempChampion++;
 			}
 		}
@@ -68,7 +113,7 @@ public class Game {
 
 		int maxPosition = 0;
 
-		for(Car car : cars){
+		for(Car car : this.cars){
 			if(car.getPosition() > maxPosition){
 				maxPosition = car.getPosition();
 			}
@@ -81,7 +126,7 @@ public class Game {
 
 		int numberOfChampion = 0;
 
-		for(Car car : cars){
+		for(Car car : this.cars){
 			if(car.getPosition() == maxPosition){
 				numberOfChampion++;
 			}
