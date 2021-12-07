@@ -1,5 +1,9 @@
 package racingcar.view.classes;
 
+import static racingcar.common.constants.PromptConstants.*;
+
+import java.util.stream.IntStream;
+
 import racingcar.common.classes.GameStatus;
 import racingcar.controller.GameDataHandlerInterface;
 import racingcar.controller.classes.GameDataHandler;
@@ -22,15 +26,43 @@ public class GameMachine implements Game {
 				proceedInputCount();
 			}
 			if (gameStatus == GameStatus.showResultsStatus) {
-				dataHandlerInterface.makeGameData(names, counts);
-				System.out.print(dataHandlerInterface.getFullTrackRecord());
-				break;
+				proceedShowResultsStatus();
 			}
 			if(gameStatus == GameStatus.showFinalStatus) {
-
+				proceedShowFinalStatus();
+				break;
 			}
 
 		}
+	}
+
+	private void proceedShowFinalStatus() {
+		printFinalWinners();
+	}
+
+	private void printFinalWinners() {
+		System.out.print(SHOWING_FINAL_WINNERS_MESSAGE);
+		dataHandlerInterface.getWinners().forEach(winner -> {
+			System.out.print(winner);
+			if (dataHandlerInterface.getWinners().indexOf(winner) != dataHandlerInterface.getWinners().size() - 1)  {
+				System.out.print(", ");
+			}
+		});
+	}
+
+	private void proceedShowResultsStatus() {
+		dataHandlerInterface.makeGameData(names, counts);
+		printFullTrackRecord();
+		takeToShowFinalStatus();
+	}
+
+	private void takeToShowFinalStatus() {
+		gameStatus = GameStatus.showFinalStatus;
+	}
+
+	private void printFullTrackRecord() {
+		System.out.println(SHOWING_RESULTS_MESSAGE);
+		System.out.print(dataHandlerInterface.getFullTrackRecord());
 	}
 
 	private void proceedInputCount() {

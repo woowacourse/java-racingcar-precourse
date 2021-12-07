@@ -2,7 +2,7 @@ package racingcar.controller.classes;
 
 import static camp.nextstep.edu.missionutils.Randoms.*;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.controller.CarMoverInterface;
@@ -38,10 +38,28 @@ public class CarMover implements CarMoverInterface {
 	}
 
 	@Override
-	public String[] getWinners(GameData gameData) {
-		HashMap<Integer, List<String>> findMaxMap;
+	public List getWinners(GameData gameData) {
+		List<String> winners = new ArrayList<>();
+		int maxPosition = figureOutMaxPosition(gameData);
+		return getWinnersList(gameData, winners, maxPosition);
+	}
+
+	private List<String> getWinnersList(GameData gameData, List<String> winners, int maxPosition) {
 		for (Car car : gameData.getCars()) {
+			if (car.getPosition() == maxPosition) {
+				winners.add(car.getName());
+			}
 		}
-		return new String[0];
+		return winners;
+	}
+
+	private int figureOutMaxPosition(GameData gameData) {
+		int maxPosition = -1;
+		for (Car car : gameData.getCars()) {
+			if (maxPosition < car.getPosition()) {
+				maxPosition = car.getPosition();
+			}
+		}
+		return maxPosition;
 	}
 }

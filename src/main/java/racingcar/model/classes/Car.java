@@ -27,6 +27,11 @@ public class Car implements CarInterface {
         return position;
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
     private String makeNamePrompt() {
         String line = "";
         line += this.name + " : ";
