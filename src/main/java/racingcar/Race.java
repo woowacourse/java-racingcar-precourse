@@ -33,4 +33,16 @@ public class Race {
         }
     }
 
+    public static void printRaceProcess(User user) {
+        System.out.println();
+        System.out.println(Constant.RACE_PROCESS);
+        List<Car> cars = game.makeCarObject(user.getCarName());
+
+        for (int i = 0; i < user.getTimes(); i++) {
+            game.runCarRacingOneRound(cars);
+            System.out.println();
+        }
+    }
+
+    
 }
