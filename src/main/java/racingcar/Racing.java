@@ -13,8 +13,8 @@ public class Racing {
     private String winners = "";
 
     public Racing() {
-        car = Car.getCarName();
-        getTimes();
+        car = Car.getNamesFromUser();
+        getTimesFromUser();
         for (int i = 0; i < times; i++) {
             doGame();
         }
@@ -22,21 +22,21 @@ public class Racing {
         printWinners();
     }
 
-    public void getTimes() {
-        boolean isTimesNumber = true;
-        while (isTimesNumber) {
+    public void getTimesFromUser() {
+        boolean isTimesNumber = false;
+        while (!isTimesNumber) {
             System.out.println("시도할 회수는 몇회인가요?");
-            String str = Console.readLine();
-            isTimesNumber = validateTime(str);
-            if (!isTimesNumber) {
-                times = Integer.parseInt(str);
+            String times = Console.readLine();
+            isTimesNumber = validateTime(times);
+            if (isTimesNumber) {
+                this.times = Integer.parseInt(times);
             }
         }
     }
 
     public void doGame() {
         for (Car car : car) {
-            if (Utils.exceedMoveForwardScoreOrNot(Utils.getRandomNumber())) {
+            if (Utils.isExceedMoveScore(Utils.getRandomNumber())) {
                 car.move();
             }
             car.printCarName();
@@ -47,10 +47,10 @@ public class Racing {
 
     public void findWinners() {
         Optional<Car> cars = Arrays.stream(car).max(Comparator.comparing(Car::getPosition));
-        int max = cars.get().getPosition();
+        int maxPosition = cars.get().getPosition();
         System.out.print("최종 우승자 : ");
         for (Car car : car) {
-            if (car.getPosition() == max) {
+            if (car.getPosition() == maxPosition) {
                 winners += (car.getName() + ", ");
             }
         }
@@ -65,8 +65,8 @@ public class Racing {
             Integer.parseInt(str);
         } catch (Exception e) {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 }

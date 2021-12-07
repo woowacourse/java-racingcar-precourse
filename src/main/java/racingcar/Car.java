@@ -18,22 +18,22 @@ public class Car {
         return this.name;
     }
 
-    public static Car[] getCarName() {
-        boolean isNameLengthValidate = true;
-        String carNames = "";
-        while (isNameLengthValidate) {
+    public static Car[] getNamesFromUser() {
+        boolean isNameValid = false;
+        String NamesInLine = "";
+        while (!isNameValid) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            carNames = Console.readLine();
-            isNameLengthValidate = validateNameLength(carNames);
+            NamesInLine = Console.readLine();
+            isNameValid = validateName(NamesInLine);
         }
-        return splitCars(carNames);
+        return makeCarInstance(NamesInLine);
     }
 
-    private static Car[] splitCars(String carNames) {
-        String[] cars = carNames.split(",");
-        Car[] car = new Car[cars.length];
-        for (int i = 0; i < cars.length; i++) {
-            car[i] = new Car(cars[i]);
+    private static Car[] makeCarInstance(String NamesInLine) {
+        String[] names = NamesInLine.split(",");
+        Car[] car = new Car[names.length];
+        for (int i = 0; i < names.length; i++) {
+            car[i] = new Car(names[i]);
         }
         return car;
     }
@@ -53,13 +53,13 @@ public class Car {
         System.out.print(this.name + " : ");
     }
 
-    private static boolean validateNameLength(String str) {
+    private static boolean validateName(String NamesInLine) {
         try {
-            Utils.isEachStringOverLength(str);
+            Utils.validateLength(NamesInLine);
         } catch (Exception e) {
             System.out.println("[ERROR] 이름은 1자 이상, 5자 이하여야합니다.");
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 }

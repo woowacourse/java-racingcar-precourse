@@ -8,7 +8,7 @@ public class Utils {
     private static final int END_RANDOM_NUMBER = 9;
     private static final int MOVE_FORWARD_SCORE = 4;
     private static final int BEGIN_INDEX = 0;
-    private static final int REMOVE_END_INDEX = 2;
+    private static final int END_INDEX = 2;
     private static final int MAX_LENGTH = 5;
     private static final int MIN_LENGTH = 1;
 
@@ -16,25 +16,22 @@ public class Utils {
         return Randoms.pickNumberInRange(START_RANDOM_NUMBER, END_RANDOM_NUMBER);
     }
 
-    public static boolean exceedMoveForwardScoreOrNot(int score) {
+    public static boolean isExceedMoveScore(int score) {
         if (score >= MOVE_FORWARD_SCORE) {
             return true;
-        }
-        if (score < MOVE_FORWARD_SCORE) {
-            return false;
         }
         return false;
     }
 
     public static String removeComma(String str) {
         if (str.endsWith(", ")) {
-            return str.substring(BEGIN_INDEX, str.length() - REMOVE_END_INDEX);
+            return str.substring(BEGIN_INDEX, str.length() - END_INDEX);
         }
         return str;
     }
 
-    public static void isEachStringOverLength(String strLine) {
-        if (strLine.charAt(strLine.length() - 1) == ',') {
+    public static void validateLength(String strLine) {
+        if (strLine.endsWith(",")) {
             throw new IllegalArgumentException();
         }
         String[] eachString = strLine.split(",");
