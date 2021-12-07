@@ -1,4 +1,4 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import racingcar.domain.Cars;
 
