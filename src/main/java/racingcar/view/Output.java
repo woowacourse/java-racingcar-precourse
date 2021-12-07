@@ -7,7 +7,7 @@ public class Output {
 	static final String MSG_WINNER_IS = "최종 우승자 : ";
 	static final String WINNERS_JOIN_DELIMITER = ", ";
 
-	public static void raceStartMsg() {
+	public static void startRaceMsg() {
 		System.out.println(MSG_RACE_START);
 	}
 

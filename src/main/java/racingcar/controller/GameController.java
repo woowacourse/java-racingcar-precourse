@@ -11,7 +11,7 @@ public class GameController {
 
 		CarList cars = new CarList(carNames);
 
-		Output.raceStartMsg();
+		Output.startRaceMsg();
 		for (int i = 0; i < tryNumber; i++) {
 			cars.moveAll();
 			Output.movementState(cars);
