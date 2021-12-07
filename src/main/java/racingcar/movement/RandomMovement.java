@@ -14,7 +14,7 @@ public class RandomMovement implements MovementWay {
 	}
 
 	private int getDistance(int value) {
-		if(value<MIN_MOVABLE_VALUE){
+		if (value < MIN_MOVABLE_VALUE) {
 			return 0;
 		}
 		return 1;

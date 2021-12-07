@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.List;
-
 import racingcar.processor.InputProcessor;
 import racingcar.processor.OutputProcessor;
 import racingcar.result.Racing;
@@ -29,7 +27,7 @@ public class RacingGame {
 
 	private void runRacing(Racing racing) {
 		outputProcessor.printResultBeginning();
-		while(!racing.isEnd()) {
+		while (!racing.isEnd()) {
 			racing.start();
 			outputProcessor.printResult(racing);
 		}

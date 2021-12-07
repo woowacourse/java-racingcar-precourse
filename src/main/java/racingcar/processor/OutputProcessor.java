@@ -4,15 +4,15 @@ import racingcar.result.Racing;
 
 public class OutputProcessor {
 
-	public void printResultBeginning(){
+	public void printResultBeginning() {
 		System.out.println("\n실행 결과");
 	}
 
 	public void printResult(Racing racing) {
-		System.out.println(racing.getPresentCarStatus()+"\n");
+		System.out.println(racing.getPresentCarStatus() + "\n");
 	}
 
 	public void printWinner(Racing racing) {
-		System.out.println("최종 우승자 : " +racing.getFinalWinnerName());
+		System.out.println("최종 우승자 : " + racing.getFinalWinnerName());
 	}
 }

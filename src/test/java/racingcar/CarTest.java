@@ -23,7 +23,7 @@ class CarTest {
 	@DisplayName("자동차는 랜덤한 확률로 이동할 수 있다.")
 	public void movePosition() {
 		Car car = new Car("test");
-		for(int i=0;i<5;i++){
+		for (int i = 0; i < 5; i++) {
 			car.move();
 		}
 		System.out.println(car);
