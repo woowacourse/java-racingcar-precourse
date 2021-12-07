@@ -3,11 +3,11 @@ package racingcar;
 import java.util.List;
 
 public class OutputView {
-    private static final String GAME_RESULT_MESSAGE = "\n실행 결과";
+    private static final String GAME_RESULT_MESSAGE = "\n실행결과";
     private static final String COLON = " : ";
     private static final String DISTANCE = "-";
     private static final String ERROR = "[ERROR]";
-    private static final String WINNER_CAR_NAME_PRINT = "최종 우승자: ";
+    private static final String WINNER_CAR_NAME_PRINT = "최종우승자: ";
     private static final String COMMA = ", ";
 
     public static void printGameResult() {

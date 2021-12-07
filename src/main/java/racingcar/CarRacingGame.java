@@ -27,19 +27,18 @@ public class CarRacingGame {
             String SEPARATOR = ",";
             return inputCars.split(SEPARATOR);
         } catch (IllegalArgumentException exception) {
-            OutputView.printError("잘못된 입력입니다.");
+            OutputView.printError("잘못된입력입니다.");
             return askCarName();
         }
     }
 
-    private int askNumberOfAttempts() { // 터미널에서 게임 시도 횟수(1이상의 정수)를 받아서 반환하는 기능
+    private int askNumberOfAttempts() {
         try {
-            String inputNumberOfAttempts = InputView.getNumberOfAttempts(); // 터미널에서 입력한 문자열을 String 변수 inputNumberOfAttepmts에 저장
-            InputErrorCheck.checkValidNumber(inputNumberOfAttempts); // 문자열 inputNumberOfAttempts가 1 이상의 정수인지 체크 -> 아니면 thorw IllegalArgumentException
-
-            return Integer.parseInt(inputNumberOfAttempts); // true면 문자열 inputNumberOfAttepmpts를 parsing한 정수를 반환한다.
+            String inputNumberOfAttempts = InputView.getNumberOfAttempts();
+            InputErrorCheck.checkValidNumber(inputNumberOfAttempts);
+            return Integer.parseInt(inputNumberOfAttempts);
         } catch (IllegalArgumentException exception) {
-            OutputView.printError("숫자를 입력하세요.");
+            OutputView.printError("숫자를입력하세요.");
             return askNumberOfAttempts();
         }
     }
