@@ -2,8 +2,11 @@
 
 ## 1. UserInputGetter
 
-### 1-1 getUserInput
-### 1-2 parseCarName
+### 1-1 parseCarName
+### 1-2 getCarNames
+- 예외처리
+### 1-3 getNumberOfStage
+- 예외처리
 
 ## 2. GameTools
 

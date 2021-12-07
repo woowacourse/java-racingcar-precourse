@@ -11,11 +11,44 @@ public class UserInputGetter {
 		return names;
 	}
 
-	public static String getUserInput(){
+	public static int getNumberOfStage(){
 
-		String userInput = Console.readLine();
 
-		return userInput;
+		GamePrinter.getNumberPrint();
+
+		String trialNumber;
+
+		while(true){
+			try{
+				trialNumber = Console.readLine();
+				UserInputValidator.checkInt(trialNumber);
+				return Integer.parseInt(trialNumber);
+			}catch (IllegalArgumentException e){
+				System.out.println(e.getMessage());
+				GamePrinter.getNumberPrint();
+			}
+		}
+
+
+	}
+
+	public static String[] getCarNames(){
+
+		GamePrinter.getNamePrint();
+
+		String[] carNames;
+
+		while(true) {
+			try {
+				carNames = UserInputGetter.parseCarName(Console.readLine());
+				UserInputValidator.checkNameLength(carNames);
+				return carNames;
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+				GamePrinter.getNamePrint();
+			}
+		}
+
 	}
 
 }

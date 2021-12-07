@@ -37,54 +37,15 @@ public class Game {
 
 	public void initGame(){
 
-		String[] carNames = getCarNames();
+		String[] carNames = UserInputGetter.getCarNames();
 		carMaker(carNames);
-		getNumberOfStage();
+		this.numberOfStage = UserInputGetter.getNumberOfStage();
 		GamePrinter.goToStagePrint();
 	}
 
-	public void getNumberOfStage(){
 
 
-		GamePrinter.getNumberPrint();
 
-		String trialNumber;
-
-		while(true){
-			try{
-				trialNumber = UserInputGetter.getUserInput();
-				if(UserInputValidator.checkInt(trialNumber)){
-					break;
-				}
-			}catch (IllegalArgumentException e){
-				System.out.println(e.getMessage());
-				GamePrinter.getNumberPrint();
-			}
-		}
-
-		this.numberOfStage = Integer.parseInt(trialNumber);
-	}
-
-	public String[] getCarNames(){
-
-		GamePrinter.getNamePrint();
-
-		String[] carNames;
-
-		while(true) {
-			try {
-				carNames = UserInputGetter.parseCarName(UserInputGetter.getUserInput());
-				if (UserInputValidator.checkNameLength(carNames)) {
-					break;
-				}
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-				GamePrinter.getNamePrint();
-			}
-		}
-
-		return carNames;
-	}
 
 	public void endGame(){
 
