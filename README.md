@@ -10,7 +10,7 @@
      이후 각각의 특성을 가진 사람이 여러명이 되거나, 자동차의 종류가 바뀔 수도 있고 
      통신하는 대상이 바뀔 수도 있다.
    - Car interface, abstract class, Player interface abstract class를 만들어 구현한다.
-   - 이외에 System Message를 작성해서 보수유지를 생각한다.
+   - System Message를 작성해서 보수유지를 생각한다.
 3. 게임 진행 (함수와 객체 작성, 예외처리 기록하기)
   - 시작, n 대의 차 이름 과 이동 횟수를 입력받는다.
     - run()
