@@ -20,16 +20,20 @@ public class Car {
         return name;
     }
 
-    protected int getPosition() {
-        return position;
-    }
-
     protected String getSpeed() {
         return speed;
     }
 
     protected void moveForward() {
         position++;
+    }
+
+    protected boolean isFaster(Car winnerCarPosition) {
+        return this.position > winnerCarPosition.position;
+    }
+
+    protected boolean isWinner(final Car winnerCarPosition) {
+        return this.position == winnerCarPosition.position ;
     }
 
     protected boolean decideMoveCar(final int randomNumberToMove) {
@@ -42,6 +46,11 @@ public class Car {
 
     protected int inputMoveForwardNumber() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+    }
+
+    protected void moveCar(Car car) {
+        car.moveForward();
+        car.addSpeed();
     }
 
 }

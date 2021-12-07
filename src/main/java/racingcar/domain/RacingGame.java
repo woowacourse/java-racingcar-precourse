@@ -28,8 +28,9 @@ public class RacingGame {
         this.outputDisplay = outputDisplay;
     }
 
-    public String announceWinner(List<Car> cars) {
-        List<String> winners = makeWinnerList(cars);
+    public String announceWinner(List<Car> carNames) {
+        Cars cars = new Cars(carNames);
+        List<String> winners = cars.makeWinnerList(carNames);
 
         return makeWinnerPrintFormat(winners);
     }
@@ -47,26 +48,6 @@ public class RacingGame {
         }
 
         return stringBuilder.toString();
-    }
-
-    protected List<String> makeWinnerList(final List<Car> cars) {
-        final List<String> winners = new ArrayList<>();
-        final int topSpeed = findTopSpeed(cars);
-
-        for (Car car : cars) {
-            if (topSpeed == car.getPosition()) {
-                winners.add(car.getCarName());
-            }
-        }
-
-        return winners;
-    }
-
-    protected int findTopSpeed(final List<Car> cars) {
-        return cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .getAsInt();
     }
 
     public void playTotalRound(final List<Car> cars, final int rounds) {
@@ -88,18 +69,13 @@ public class RacingGame {
             int randomNumberToMove = car.inputMoveForwardNumber();
 
             if (car.decideMoveCar(randomNumberToMove)) {
-                moveCar(car);
+                car.moveCar(car);
             }
 
             stringBuilder.append(connectEachCarOneRoundResult(car));
         }
 
         return stringBuilder.toString();
-    }
-
-    private void moveCar(Car car) {
-        car.moveForward();
-        car.addSpeed();
     }
 
     private StringBuilder connectEachCarOneRoundResult(Car car) {
