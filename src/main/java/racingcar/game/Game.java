@@ -24,7 +24,21 @@ public class Game {
 
 	private void setCarList() {
 		System.out.println(INPUT_CAR_NAMES);
-		input.getCarNameList().forEach(cars::appendCar);
+		boolean passed = false;
+		while (!passed) {
+			passed = tryCarListInput();
+		}
+	}
+
+	private boolean tryCarListInput() {
+		try {
+			input.getCarNameList().forEach(cars::appendCar);
+			return true;
+		} catch (IllegalArgumentException error) {
+			System.out.println(error.getMessage());
+			input = new Input();
+			return false;
+		}
 	}
 
 	public void printWinner() {
