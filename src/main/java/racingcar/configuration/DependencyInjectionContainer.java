@@ -10,7 +10,7 @@ import racingcar.validation.RacingGameValidationImpl;
 
 public class DependencyInjectionContainer {
 
-    public static Comparator<Car> winnerCriteriaPolicy() {
+    public Comparator<Car> winnerCriteriaPolicy() {
         return new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {
@@ -19,12 +19,12 @@ public class DependencyInjectionContainer {
         };
     }
 
-    public static InputValidation racingGameInputValidation() {
+    public InputValidation racingGameInputValidation() {
         return RacingGameValidationImpl.getInstance();
     }
 
-    public static JudgmentService judgmentService() {
-        return new JudgmentServiceImplementation(winnerCriteriaPolicy());
+    public JudgmentService judgmentService() {
+        return JudgmentServiceImplementation.getInstance();
     }
 
 }

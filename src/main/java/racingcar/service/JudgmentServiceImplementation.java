@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
+import racingcar.configuration.DependencyInjectionContainer;
 import racingcar.domain.Car;
 import racingcar.domain.Player;
 
@@ -12,8 +13,16 @@ public class JudgmentServiceImplementation implements JudgmentService {
 
     private final Comparator<Car> carDistanceDescending;
 
-    public JudgmentServiceImplementation(Comparator<Car> carDistanceDescending) {
+    private JudgmentServiceImplementation(Comparator<Car> carDistanceDescending) {
         this.carDistanceDescending = carDistanceDescending;
+    }
+    private static class LazyHolder {
+
+        public static final JudgmentServiceImplementation INSTANCE = new JudgmentServiceImplementation(new DependencyInjectionContainer().winnerCriteriaPolicy());
+    }
+
+    public static JudgmentServiceImplementation getInstance() {
+        return JudgmentServiceImplementation.LazyHolder.INSTANCE;
     }
 
     @Override

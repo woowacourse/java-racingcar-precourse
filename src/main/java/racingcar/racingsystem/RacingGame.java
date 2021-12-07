@@ -20,8 +20,9 @@ public class RacingGame {
     private StringBuilder racingRecord;
 
     public RacingGame() {
-        validation = DependencyInjectionContainer.racingGameInputValidation();
-        judgmentService = DependencyInjectionContainer.judgmentService();
+        DependencyInjectionContainer dependencyInjectionContainer = new DependencyInjectionContainer();
+        validation =dependencyInjectionContainer.racingGameInputValidation();
+        judgmentService = dependencyInjectionContainer.judgmentService();
     }
 
     public void start() {
@@ -44,7 +45,7 @@ public class RacingGame {
                 carNames = splitCarName(inputTheCarNames);
                 isRetry=false;
             } catch (IllegalArgumentException e) {
-                System.out.println(SystemMessage.ERROR_INPUT_CAR_NAME_MESSAGE.getMessage());
+                printConsoleMessage(SystemMessage.ERROR_INPUT_CAR_NAME_MESSAGE.getMessage());
                 isRetry = true;
             }
         } while (isRetry);
@@ -60,8 +61,7 @@ public class RacingGame {
                 numberOfAttempts = toInteger(inputTheNumberOfAttempt);
                 isRetry=false;
             } catch (IllegalArgumentException e) {
-                printConsoleMessage(
-                    SystemMessage.ERROR_INPUT_NUMBER_OF_ATTEMPTS_MESSAGE.getMessage());
+                printConsoleMessage(SystemMessage.ERROR_INPUT_NUMBER_OF_ATTEMPTS_MESSAGE.getMessage());
                 isRetry = true;
             }
         } while (isRetry);
