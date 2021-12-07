@@ -30,6 +30,11 @@ public class PlayGame {
             perGame();
             System.out.println();
         }
+        result();
+    }
+
+    // 결과 반환 함수
+    private void result() {
         Winner winner = new Winner(cars);
         System.out.println(winner.result());
     }
