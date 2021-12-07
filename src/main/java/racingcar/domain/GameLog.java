@@ -16,7 +16,6 @@ public class GameLog {
 	public void add(Game game) {
 		game.getCarList().forEach(car -> log.append(car).append(GAME_RESULT_POSTFIX.getString()));
 		log.append(GAME_RESULT_POSTFIX.getString());
-
 	}
 
 	public String get(Game game) {
