@@ -1,14 +1,14 @@
-package racingcar;
+package racingcar.model;
 
 import racingcar.util.RandomNumberGenerator;
 
 public class Car {
     private static final int MOVE_FORWARD_CONDITION = 4;
     private static final int MOVE_FORWARD_ONCE = 1;
-    private static final int NONE = 0;
+    public static final int MIN_POSITION = 0;
 
     private final String name;
-    private int position = NONE;
+    private int position = MIN_POSITION;
 
     public Car(String name) {
         this.name = name;

@@ -7,7 +7,7 @@ public class Validator {
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final String ALLOWED_CAR_NAME_INPUT_FORMAT = "^[a-zA-Z]+(,[a-zA-Z]+)+$";
     private static final String ALLOWED_ROUND_NUMBER_INPUT_FORMAT = "^[1-9][0-9]*$";
-    private static final String ERROR_MESSAGE = "[ERROR]";
+    private static final String ERROR_MESSAGE = "[ERROR] ";
     private static final String RETRY_MESSAGE = " 다시 입력해주세요.";
     private static final String DUPLICATE_CAR_NAME_MESSAGE = "중복된 자동차 이름이 있습니다";
     private static final String CAR_NAME_LENGTH_TOO_LONG_MESSAGE = "각 자동차 이름은 5 글자 이하로 제한됩니다.";
@@ -51,5 +51,9 @@ public class Validator {
         }
 
         return Integer.parseInt(input);
+    }
+
+    public static void clearHashSet() {
+        carNameLinkedHashSet.clear();
     }
 }
