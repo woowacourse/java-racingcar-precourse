@@ -13,7 +13,7 @@ public class GameController {
 		Display.pleaseInputRacingCarNames();
 		RacingCarGame racingCarGame = new RacingCarGame(InputController.inputRacingCarNames());
 		Display.pleaseInputNumberOfCarRaces();
-		racingCarGame.passRaceCount(InputController.inputNumberOfCarRaces());
+		racingCarGame.makeRaceCount(InputController.inputNumberOfCarRaces());
 		playGame(racingCarGame);
 	}
 

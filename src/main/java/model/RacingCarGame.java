@@ -1,7 +1,6 @@
 package model;
 
 public class RacingCarGame {
-	private static final int GAME_FINISH_COUNT = 0;
 	private RacingCars racingCars;
 	private RaceCount raceCount;
 	private Winner winner;
@@ -10,7 +9,7 @@ public class RacingCarGame {
 		racingCars = new RacingCars(racingCarNames);
 	}
 
-	public void passRaceCount(int count) {
+	public void makeRaceCount(int count) {
 		raceCount = new RaceCount(count);
 	}
 
@@ -20,7 +19,7 @@ public class RacingCarGame {
 	}
 
 	public boolean isRacingNotFinish() {
-		if (raceCount.getCount() != GAME_FINISH_COUNT) {
+		if (raceCount.isNotRaceEnd()) {
 			return true;
 		}
 		return false;
