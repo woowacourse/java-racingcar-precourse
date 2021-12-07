@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class CarNameValidator implements InputValidator {
-
     @Override
     public void validate(String input) {
         validateContainComma(input);
