@@ -9,11 +9,17 @@ import racingcar.domain.Result;
 import java.util.List;
 
 public class Application {
+
+    private static final int MIN_BOUND = 0;
+    private static final int MAX_BOUND = 9;
+
     public static void main(String[] args) {
         // TODO 구현 진행
         List<Car> cars = CarFactory.manufactureByUserInput();
         int trial = getTrial();
+
         Result<Car> result = race(cars, trial);
+
         System.out.println("최종 우승자 : " + result);
     }
 
@@ -27,7 +33,7 @@ public class Application {
 
     private static <T extends Raceable> void raceForEachTrial(List<T> competitors) {
         for (T runner : competitors) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(MIN_BOUND, MAX_BOUND);
             if (runner.isMovable(randomNumber)) {
                 runner.moveForward();
             }
