@@ -38,10 +38,15 @@ public class PlayGame {
     private void perGame() {
         for(int i = 0; i<cars.length;i++){
             int score = randomNumber();
-            if(score>=4) { // 4이상이면 직진 가능
-                cars[i].addPosition();
-            }
+            checkScore(cars[i], score);
             printPosition(cars[i]);
+        }
+    }
+
+    // 점수 파악한 후 4점이상이면 위치 1 증가시키는 메서드
+    private void checkScore(Car car, int score) {
+        if(score>=4) { // 4이상이면 직진 가능
+            car.addPosition();
         }
     }
 
