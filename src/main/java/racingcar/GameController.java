@@ -34,10 +34,10 @@ public class GameController {
         initCars(names);
         int gameCount = inputView.getCount();
 
+        System.out.println("실행 결과");
         processGame(gameCount);
 
         List<String> winners = checkWinners();
-
         outputView.printFinalResult(winners);
     }
 
