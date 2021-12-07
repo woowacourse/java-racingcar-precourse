@@ -189,7 +189,80 @@ public class Car {
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
 
+
+
+
+
 ---
+
+# 프로젝트 소개
+
+해당 프로젝트는 간단한 자동차 경주 게임을 구현한 프로젝트입니다.
+
+## 프로젝트 소스 폴더 구조
+
+```
+.
+├── main
+│   └── java
+│       └── racingcar
+│           ├── Application.java
+│           ├── Car.java
+│           └── Game.java
+└── test
+    └── java
+        └── racingcar
+            └── ApplicationTest.java
+
+```
+
+
+
+## 클래스 소개
+
+### 1. Application 
+
+main 함수가 위치한 클래스입니다. 구현한 `Game` 클래스를 활용하여 게임이 실행되도록 프로그래밍했습니다.
+
+```Java
+Game game = new Game();
+game.start();
+```
+
+### 2. Car
+
+- 생성자 : 자동차 이름을 파라미터로 주어야 합니다. 자동차 이름은 Car 객체 내의 `name` 인스턴스 변수에 저장됩니다.
+- `printName(public)`: `name `은 `private` 접근 제어자를 지니고 있기 때문에, 자동차 이름을 직접 얻을 수는 없습니다. 대신에, `printName`을 사용하여 자동차의 이름을 콘솔 창에서 확인할 수 있습니다.
+- `printPosition(public)`: `name` 과 동일하게 `position` 인스턴스 변수도 `private` 접근 제어자를 지니고 있어, 자동차의 현 위치를 알기 위해서는 이 함수를 사용하여 콘솔 창에서 확인해야 합니다.
+- `getMovement(private)`: 0~9 사이의 랜덤 숫자를 생성하여 그 숫자가 4 이상이면 1을 반환하고, 아니면 0을 반환합니다.
+- `move(public)`: `getMovement` 를 이용하여 자동차를 이동시킵니다. e.g) ` ferrari.move()` 
+
+### 3. Game
+
+- 생성자: 자동차 이름과 시도 횟수에 대한 입력을 사용자로부터 요구하고, 사용자가 입력했을 시 그 값을 인스턴스 변수에 저장합니다. 이때, 정의된 `getCarNamesFromUser`와 `getNumberOfTrials`를 이용합니다.
+
+- `getCarNamesFromUser(private)`: 사용자로부터 자동차 이름의 입력을 받습니다. 이름은 `,` 로 구분됩니다. 입력에는 제한 사항이 존재하는데, 제한 사항을 어기면 에러 메세지가 출력되고 함수가 재호출되어 입력을 다시 받습니다.
+  - 다음과 같은 제한 사항이 존재합니다.
+    - 이름은 5자 이하여야 합니다.
+    - 공백도 이름에 포함됩니다. e.g) `Nike, Pos`를 입력했을 시 이름은 Nike와 가장 앞에 공백이 있는 Pos입니다.
+    - 이름이 `javac`이면 안됩니다.
+    - 같은 이름을 여러번 입력할 수 없습니다.
+
+
+
+
+
+- `getNumberOfTrials(private)`: 사용자로부터 시도횟수에 대한 입력을 받습니다. 입력에는 제한 사항이 존재하는데, 제한 사항을 어기면 에러 메세지가 출력되고 함수가 재호출되어 입력을 다시 받습니다.
+  - 다음과 같은 제한 사항이 존재합니다.
+    - 시도 횟수는 숫자이여야만 합니다.
+
+- `validateCarNames(private)`: `getCarNamesFromUser`에서 입력받은 자동차 이름에 대한 검증을 합니다. 검증에 어긋나면, 에러 메세지 를 포함한 IllegalArgumentException을 일으킵니다.
+- `validateNumberOfTrials(private)`: `getNumberOfTrials`에서 입력받은 시도 횟수에 대한 검증을 합니다. 검증에 어긋나면, 에러 메세지 를 포함한 IllegalArgumentException을 일으킵니다.
+- `findWinner(private)`: 우승자를 찾아 우승한 Car 객체들을 리스트에 담아 반환합니다.
+- `printWinner(private)`: 자동차 이름을 직접 받는 방법이 없기 때문에 `Car` 객체의 `printName` 함수를 이용해 우승한 자동차들의 이름을 출력합니다.
+- `start(public)`: 입력받은 자동차 이름, 시도 횟수로 게임을 진행시킵니다.
+
+
 
 ## 기능 목록
 
