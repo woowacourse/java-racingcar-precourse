@@ -1,28 +1,41 @@
 package racingcar;
 
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
-    private List<Car> cars;
-    private int raceCount;
+    private final List<Car> cars;
+    private int tryCount;
 
+    private final InputManager inputManager = new InputManager();
     private final OutputManager outputManager = new OutputManager();
 
-    public Game(List<Car> cars, int raceCount) {
-        this.cars = cars;
-        this.raceCount = raceCount;
+    public Game() {
+        cars = new ArrayList<>();
+
+        initCars();
+        initTryCount();
     }
 
     public void play() {
-        for (int i = 0; i < raceCount; i++) {
+        for (int i = 0; i < tryCount; i++) {
             moveOneRound();
         }
 
         List<String> winnerNames = getWinnerNames();
 
         outputManager.printWinnerNames(winnerNames);
+    }
+
+    private void initCars() {
+        for (String name : inputManager.getCarNames()) {
+            cars.add(new Car(name));
+        }
+    }
+
+    private void initTryCount() {
+        tryCount = inputManager.getTryCount();
     }
 
     private void moveOneRound() {
@@ -33,8 +46,6 @@ public class Game {
 
         outputManager.printRoundSplitter();
     }
-
-
 
     private List<String> getWinnerNames() {
         int maxPosition = getMaxPosition();
