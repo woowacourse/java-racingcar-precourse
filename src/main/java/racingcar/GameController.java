@@ -9,7 +9,7 @@ import racingcar.service.CarService;
 import racingcar.service.UserInputService;
 import racingcar.utils.Viewer;
 
-public class GameHandler {
+public class GameController {
 	private final UserInputService userInputService = UserInputService.getInstance();
 	private final CarService carService = CarService.getInstance();
 

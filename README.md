@@ -13,7 +13,7 @@
 
 <br>
 
-## GameHandler
+## GameController
 
 1. 게임 진행 과정을 하나의 프로세스로써 묶어줘야 함. → `run()` method 생성.
    1. 자동차 받아오기
@@ -27,7 +27,7 @@
 
 ## UserInputService
 
-`GameHandler` 가 맡는 책임이 너무 많다고 판단. 일부분을 따로 Class로 분리시키기로 함.
+`GameController` 가 맡는 책임이 너무 많다고 판단. 일부분을 따로 Class로 분리시키기로 함.
 
 ### 생성할 기능 목록
 
@@ -59,7 +59,7 @@
 
 ## Viewer
 
-`GameHandler` 의 책임이 여전히 많다고 느껴진다. 따라서 화면에 '출력하는 부분'의 책임을 담당하는 `Viewer` class를 만들려고 한다.
+`GameController` 의 책임이 여전히 많다고 느껴진다. 따라서 화면에 '출력하는 부분'의 책임을 담당하는 `Viewer` class를 만들려고 한다.
 
 ### 생성할 기능 목록
 
@@ -72,7 +72,7 @@
 
 ## CarService
 
-`GameHandler` 의 책임을 분리하기 위한 클래스.
+`GameController` 의 책임을 분리하기 위한 클래스.
 
 ### 생성할 기능 목록
 
