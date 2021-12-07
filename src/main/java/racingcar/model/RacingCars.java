@@ -1,39 +1,42 @@
 package racingcar.model;
 
-import static racingcar.model.Util.findMax;
+import static racingcar.Util.getMax;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+import racingcar.view.OutputView;
 
 public class RacingCars {
 	private final ArrayList<Car> CARS = new ArrayList<>();
 
 	public RacingCars(ArrayList<String> cars) {
-		for (String car : cars) {
-			CARS.add(new Car(car));
-		}
+		cars.forEach(car -> CARS.add(new Car(car)));
 	}
 
-	public ArrayList<Car> getRoundResult() {
-		for (Car car : CARS) {
-			car.go();
-		}
-		return CARS;
+	public void playRound() {
+		go();
+		OutputView.printRoundResult(new ArrayList<>(CARS.stream()
+			.map(Car::getRoundResult)
+			.collect(Collectors.toList())
+		));
 	}
 
-	public String[] getWinners() {
-		int winPosition = findMax(getPositions());
-		return CARS
-			.stream()
-			.filter(car -> car.isWinner(winPosition))
+	public void showWinners() {
+		OutputView.printWinner(new ArrayList<>(CARS.stream()
+			.filter(car -> car.isWinner(getMax(getPositions())))
 			.map(Car::getName)
-			.toArray(String[]::new);
+			.collect(Collectors.toList())
+		));
 	}
 
-	public ArrayList<Integer> getPositions() {
+	private void go() {
+		CARS.forEach(Car::go);
+	}
+
+	private ArrayList<Integer> getPositions() {
 		ArrayList<Integer> positions = new ArrayList<>();
-		for (Car car : CARS) {
-			positions.add(car.getPosition());
-		}
+		CARS.forEach(car -> positions.add(car.getPosition()));
 		return positions;
 	}
 }
