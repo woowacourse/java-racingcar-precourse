@@ -7,13 +7,13 @@ public class Winner {
     private Car[] cars;
     private ArrayList<String> result;
 
-    public Winner(Car[] cars){
+    public Winner(Car[] cars) {
         this.cars = cars;
         result = new ArrayList<>();
     }
 
 
-    private void grading(){
+    private void grading() {
         int i = cars.length - 1;
         do{
             result.add(cars[i].getName());
@@ -24,7 +24,7 @@ public class Winner {
         }while (i>0);
     }
 
-    public String result(){
+    public String result() {
         Arrays.sort(cars);
         grading();
         String answer = arrayToString();
