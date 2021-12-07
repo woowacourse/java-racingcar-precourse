@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class Racing {
 
-    private Car car [];
+    private Car car[];
     private int times;
     private String winners = "";
 
@@ -28,7 +28,7 @@ public class Racing {
             System.out.println("시도할 회수는 몇회인가요?");
             String str = Console.readLine();
             isTimesNumber = validateTime(str);
-            if(!isTimesNumber){
+            if (!isTimesNumber) {
                 times = Integer.parseInt(str);
             }
         }
@@ -60,10 +60,10 @@ public class Racing {
         System.out.println(Utils.removeComma(winners));
     }
 
-    private boolean validateTime (String str) {
+    private boolean validateTime(String str) {
         try {
             Integer.parseInt(str);
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
             return true;
         }

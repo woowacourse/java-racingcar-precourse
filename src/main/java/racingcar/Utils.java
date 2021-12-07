@@ -25,15 +25,16 @@ public class Utils {
         }
         return false;
     }
+
     public static String removeComma(String str) {
-        if(str.endsWith(", ")) {
-            return str.substring(BEGIN_INDEX, str.length()-REMOVE_END_INDEX);
+        if (str.endsWith(", ")) {
+            return str.substring(BEGIN_INDEX, str.length() - REMOVE_END_INDEX);
         }
         return str;
     }
 
     public static void isEachStringOverLength(String strLine) {
-        if (strLine.charAt(strLine.length()-1) == ',') {
+        if (strLine.charAt(strLine.length() - 1) == ',') {
             throw new IllegalArgumentException();
         }
         String[] eachString = strLine.split(",");

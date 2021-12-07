@@ -13,9 +13,11 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
+
     public String getName() {
         return this.name;
     }
+
     public static Car[] getCarName() {
         boolean isNameLengthValidate = true;
         String carNames = "";
@@ -41,7 +43,7 @@ public class Car {
     }
 
     public void printPosition() {
-        for (int i = 0; i < position ; i++) {
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.println();
@@ -52,9 +54,9 @@ public class Car {
     }
 
     private static boolean validateNameLength(String str) {
-        try{
+        try {
             Utils.isEachStringOverLength(str);
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("[ERROR] 이름은 1자 이상, 5자 이하여야합니다.");
             return true;
         }
