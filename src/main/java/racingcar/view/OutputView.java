@@ -19,6 +19,7 @@ public class OutputView {
     }
 
     public void printGameTotalResult(GameTotalResultDto gameTotalResult) {
+        printBlankNewLine();
         printMessage(OutputMessage.OUTPUT_GAME_RESULT_INTRO_MESSAGE);
         printGameRoundResults(gameTotalResult.getRoundResults());
         printGameWinners(gameTotalResult.getWinners());
@@ -35,7 +36,6 @@ public class OutputView {
 
     private void printGameWinners(List<String> winners) {
         System.out.println(OutputMessage.OUTPUT_GAME_WINNER_FRONT_MESSAGE + Delimiter.joinWithComma(winners));
-        printBlankNewLine();
     }
 
     private void printBlankNewLine() {
