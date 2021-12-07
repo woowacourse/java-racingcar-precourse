@@ -11,9 +11,11 @@ public class Output {
 	public void printWinners(List<String> winnersNameList) {
 		System.out.print(WINNER_RESULT);
 		System.out.print(winnersNameList.get(0));
+		//승자가 1명이면 종료
 		if (winnersNameList.size() == 1) {
 			return;
 		}
+		// 1명 이상이면 , 로 구분하여 출력한다
 		for (int i = 1; i < winnersNameList.size(); i++) {
 			System.out.print(", " + winnersNameList.get(i));
 		}

@@ -21,6 +21,7 @@ public class Umpire {
 		winners = findSamePosition(target);
 	}
 
+	// 승자의 이름을 가져온다
 	public List<String> getWinnersNameList() {
 		List<String> winnersName = new ArrayList<>();
 
