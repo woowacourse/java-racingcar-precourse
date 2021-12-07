@@ -47,7 +47,7 @@ public class GameManager {
                 this.cars = parseCars();
                 break;
             } catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -93,7 +93,7 @@ public class GameManager {
                 this.totalRound = parseRound();
                 break;
             } catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
     }
