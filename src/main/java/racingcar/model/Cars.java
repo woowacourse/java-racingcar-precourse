@@ -18,12 +18,12 @@ public class Cars {
         }
     }
 
-    private void printResult() {
-        this.cars.forEach(car -> car.printResult());
-    }
-
     public String getWinners() {
         return getWinnersByMaxPosition(getMaxPosition());
+    }
+
+    private void printResult() {
+        this.cars.forEach(car -> car.printResult());
     }
 
     private String getWinnersByMaxPosition(int maxPosition) {
