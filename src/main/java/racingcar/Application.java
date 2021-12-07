@@ -1,10 +1,9 @@
 package racingcar;
 
 public class Application {
-    public static void main(String[] args) {
-        // TODO 구현 진행
-        Game newGame = new Game();
-
-        newGame.gameProcess();
-    }
+	public static void main(String[] args) {
+		// TODO 구현 진행
+		Game newGame = new Game();
+		newGame.gameProcess();
+	}
 }

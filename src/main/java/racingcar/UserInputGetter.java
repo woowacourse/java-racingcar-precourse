@@ -4,41 +4,33 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class UserInputGetter {
 
-	public static String[] parseCarName(String nameString){
-
-		String[] names = nameString.split(",");
-
-		return names;
+	public static String[] parseCarName(String nameString) {
+		return nameString.split(",");
 	}
 
-	public static int getNumberOfStage(){
-
+	public static int getNumberOfStage() {
+		String trialNumber;
 
 		GamePrinter.getNumberPrint();
 
-		String trialNumber;
-
-		while(true){
-			try{
+		while (true) {
+			try {
 				trialNumber = Console.readLine();
 				UserInputValidator.checkInt(trialNumber);
 				return Integer.parseInt(trialNumber);
-			}catch (IllegalArgumentException e){
+			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 				GamePrinter.getNumberPrint();
 			}
 		}
-
-
 	}
 
-	public static String[] getCarNames(){
+	public static String[] getCarNames() {
+		String[] carNames;
 
 		GamePrinter.getNamePrint();
 
-		String[] carNames;
-
-		while(true) {
+		while (true) {
 			try {
 				carNames = UserInputGetter.parseCarName(Console.readLine());
 				UserInputValidator.checkNameLength(carNames);
@@ -48,7 +40,5 @@ public class UserInputGetter {
 				GamePrinter.getNamePrint();
 			}
 		}
-
 	}
-
 }

@@ -6,52 +6,43 @@ public class Game {
 	private Car[] cars;
 	private int numberOfCars;
 
-	public void carMaker(String[] carNames){
-		this.numberOfCars = carNames.length;
-
+	public void carMaker(String[] carNames) {
 		cars = new Car[numberOfCars];
 
-		for(int i = 0; i < numberOfCars; i++){
+		this.numberOfCars = carNames.length;
+
+		for (int i = 0; i < numberOfCars; i++) {
 			this.cars[i] = new Car(carNames[i]);
 		}
 	}
 
-	public void stageProcess(){
-		for(Car car : this.cars){
+	public void stageProcess() {
+		for (Car car : this.cars) {
 			car.goForward();
 		}
 
 		GamePrinter.stagePrint(this.cars);
 	}
 
-	public void gameProcess(){
-
+	public void gameProcess() {
 		initGame();
 
-		for(int i = 0; i < this.numberOfStage; i++){
+		for (int i = 0; i < this.numberOfStage; i++) {
 			stageProcess();
 		}
 
 		endGame();
 	}
 
-	public void initGame(){
-
+	public void initGame() {
 		String[] carNames = UserInputGetter.getCarNames();
 		carMaker(carNames);
 		this.numberOfStage = UserInputGetter.getNumberOfStage();
 		GamePrinter.goToStagePrint();
 	}
 
-
-
-
-
-	public void endGame(){
-
+	public void endGame() {
 		String[] champions = ChampionFinder.findChampion(this.cars);
 		GamePrinter.printChampion(champions);
 	}
-
-
 }
