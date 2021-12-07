@@ -9,7 +9,8 @@ public class InputValidator {
     private static final String ERR_INVALID_FORMAT = ERROR_PREFIX + "잘못된 형식의 입력입니다!";
     private static final String ERR_INVALID_NUMBER = ERROR_PREFIX + "숫자만 입력해주세요.";
     private static final String ERR_DUPLICATED_NAME = ERROR_PREFIX + "중복된 이름이 있습니다.";
-    private static final String ERR_INVALID_NAMES = ERROR_PREFIX + "이름은 1자 이상 5자 이하로 입력해주세요.";
+    private static final String ERR_INVALID_LENGTH = ERROR_PREFIX + "이름은 1자 이상 5자 이하로 입력해주세요.";
+    private static final String ERR_INVALID_CHAR = ERROR_PREFIX + "적절하지 않은 문자가 있습니다.";
     private static final int NAME_MAX_LENGTH = 5;
     private static final char DELIMITER_NAME_CHAR = ',';
     private static final String NUMERIC_REGEX = "[0-9]";
@@ -17,8 +18,9 @@ public class InputValidator {
     public static void validateCarNames(String input)
         throws IllegalArgumentException {
         List<String> names = Arrays.asList(input.split(String.valueOf(DELIMITER_NAME_CHAR)));
+        validateLetters(input);
         validateFormat(input, names);
-        validateNames(names);
+        validateLength(names);
         validateDuplicate(names);
     }
 
@@ -29,10 +31,10 @@ public class InputValidator {
         }
     }
 
-    private static void validateNames(List<String> names) {
+    private static void validateLength(List<String> names) {
         if (names.stream().anyMatch(name ->
             name.isEmpty() || name.length() > NAME_MAX_LENGTH)) {
-            throw new IllegalArgumentException(ERR_INVALID_NAMES);
+            throw new IllegalArgumentException(ERR_INVALID_LENGTH);
         }
     }
 
@@ -48,6 +50,13 @@ public class InputValidator {
     private static void validateDuplicate(List<String> names) {
         if (names.size() != names.stream().distinct().count()) {
             throw new IllegalArgumentException(ERR_DUPLICATED_NAME);
+        }
+    }
+
+    private static void validateLetters(String name) {
+        if (!name.chars().allMatch(c ->
+            c == DELIMITER_NAME_CHAR || Character.isLetterOrDigit(c))) {
+            throw new IllegalArgumentException(ERR_INVALID_CHAR);
         }
     }
 }

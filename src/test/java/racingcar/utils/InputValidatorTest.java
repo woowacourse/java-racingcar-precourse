@@ -56,10 +56,27 @@ public class InputValidatorTest {
 
     @DisplayName("실행 횟수 입력 예외를 테스트한다.")
     @Test
-    void name() {
+    void checkNumeric() {
         assertThrows(
             IllegalArgumentException.class,
             () -> InputValidator.validatePlayCount("1o")
         );
+    }
+
+    @Test
+    void validateUnicode() {
+        assertDoesNotThrow(
+            () -> InputValidator.validateCarNames("한글이름이")
+        );
+    }
+
+    @Test
+    void validateSpace() {
+        testThrowException("이름 중간");
+    }
+
+    @Test
+    void validateLetter() {
+        testThrowException(".\n\b,1_!");
     }
 }
