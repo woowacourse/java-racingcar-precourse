@@ -11,10 +11,12 @@ public class CarNameException {
 	private static final String NAME_LENGTH_OVER_ERROR_MASSAGE = "[ERROR] 자동차의 이름은 5자 이하만 가능합니다! 다시 입력해주세요.";
 	private static final String NAME_EMPTY_ERROR_MASSAGE = "[ERROR] 자동차의 이름이 공백일 수 없습니다! 다시 입력해주세요.";
 	private static final String STRING_EMPTY_ERROR_MASSAGE = "[ERROR] 자동차의 이름이 빈칸입니다! 다시 입력해주세요.";
+	private static final String LIST_EMPTY_ERROR_MASSAGE = "[ERROR] 이름이 입력되지 않았습니다! 다시 입력해주세요.";
 	private static final int NAME_MAX_LENGTH = 5;
 	private static final int CAR_LIST_MIN_SIZE = 1;
 
 	public static void checkCarNameException(String[] carNameList) {
+		checkEmptyList(carNameList);
 		for (String carName : carNameList) {
 			checkEmptyString(carName);
 			checkEmptyName(carName);
@@ -24,7 +26,13 @@ public class CarNameException {
 		checkNameDuplication(carNameList);
 	}
 
-	public static void checkEmptyString(String carName) {
+	private static void checkEmptyList(String[] carNameList) {
+		if (carNameList.length == 0) {
+			throw new IllegalArgumentException(LIST_EMPTY_ERROR_MASSAGE);
+		}
+	}
+
+	private static void checkEmptyString(String carName) {
 		if (carName == null || carName.isEmpty()) {
 			throw new IllegalArgumentException(STRING_EMPTY_ERROR_MASSAGE);
 		}
