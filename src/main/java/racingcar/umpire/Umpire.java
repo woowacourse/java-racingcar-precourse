@@ -19,7 +19,7 @@ public class Umpire {
 		int target = findMaxPosition();
 		winners = findSamePosition(target);
 	}
-	
+
 	public List<String> getWinnersNameList() {
 		List<String> winnersName = new ArrayList<>();
 
