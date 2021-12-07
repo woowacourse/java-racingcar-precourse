@@ -17,7 +17,7 @@ public class InputView {
     private static final StringInputValidator stringValidator = new StringInputValidatorImpl();
     private static final IntInputValidator intValidator = new IntInputValidatorImpl();
 
-    List<String> getNames() {
+    public List<String> getNames() {
         String inputString;
         List<String> names;
 
@@ -30,7 +30,7 @@ public class InputView {
         return names;
     }
 
-    int getCount() {
+    public int getCount() {
         String inputString;
         int parsedNumber;
 
