@@ -101,7 +101,7 @@ public class Game {
 
 		int tempChampion = 0;
 
-		for(int i = 0; i <= this.numberOfCars; i++){
+		for(int i = 0; i < this.numberOfCars; i++){
 			if(this.cars[i].getPosition() == maxPosition){
 				champions[tempChampion] = this.cars[i].getName();
 				tempChampion++;
