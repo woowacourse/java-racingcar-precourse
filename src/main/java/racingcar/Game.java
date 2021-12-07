@@ -7,10 +7,12 @@ public class Game {
 	private int numberOfCars;
 
 	public void carMaker(String[] carNames){
-		this.numberOfCars = 0;
+		this.numberOfCars = carNames.length;
 
-		for(String name : carNames){
-			this.cars[this.numberOfCars++] = new Car(name);
+		cars = new Car[numberOfCars];
+
+		for(int i = 0; i < numberOfCars; i++){
+			this.cars[i] = new Car(carNames[i]);
 		}
 	}
 
