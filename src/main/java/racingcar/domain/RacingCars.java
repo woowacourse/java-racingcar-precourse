@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,13 +41,7 @@ public class RacingCars {
 
 	private int searchMaxStep() {
 		int[] positions = getPositions();
-		int max = 0;
-
-		for (int position : positions) {
-			if (position > max) {
-				max = position;
-			}
-		}
-		return max;
+		Arrays.sort(positions);
+		return positions[positions.length - 1];
 	}
 }
