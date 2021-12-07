@@ -6,19 +6,27 @@ import java.util.*;
 
 public class Race {
     private final InputValidator inputValidator = new InputValidator();
+    private final List<Car> cars = new ArrayList<>();
+    private int tryCount;
+
+    public Race() {
+        initCars();
+        setTryCount();
+    }
 
     public void play() {
-        List<Car> cars = new ArrayList<>();
+        Game game = new Game(cars, tryCount);
+        game.play();
+    }
 
+    private void initCars() {
         for (String name : getCarNames()) {
             cars.add(new Car(name));
         }
+    }
 
-        int raceCount = getTryCount();
-
-        Game game = new Game(cars, raceCount);
-
-        game.play();
+    private void setTryCount() {
+        tryCount = getTryCount();
     }
 
     private String[] getCarNames() {
