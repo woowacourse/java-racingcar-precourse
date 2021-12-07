@@ -17,12 +17,9 @@ public class RacingGame {
     private void moveForward(Car[] cars) {
         for (int i = 0; i < cars.length; i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-//            System.out.print(randomNumber);
             if (randomNumber >= 4) {
-//                System.out.print(" 전진");
                 cars[i].moveForward();
             }
-//            System.out.println();
             cars[i].moveResult();
         }
         System.out.println();
@@ -56,6 +53,7 @@ public class RacingGame {
         Car[] cars = makeCar();
         int times = InputData.getNumberOfTimes();
 
+        System.out.println("\n" + "실행결과");
         for (int i = 0; i < times; i++) {
             moveForward(cars);
         }
