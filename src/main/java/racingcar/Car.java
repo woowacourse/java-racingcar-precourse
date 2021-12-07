@@ -55,7 +55,7 @@ public class Car {
         try{
             Utils.isEachStringOverLength(str);
         }catch (Exception e) {
-            System.out.println("[ERROR] 이름은 5자 이하여야합니다.");
+            System.out.println("[ERROR] 이름은 1자 이상, 5자 이하여야합니다.");
             return true;
         }
         return false;
