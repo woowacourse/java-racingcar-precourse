@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Count implements Comparable<Count> {
+	public static final int LAST_COUNT = 0;
 	private Integer count;
 
 	public Count(Integer count) {
@@ -38,7 +39,7 @@ public class Count implements Comparable<Count> {
 	}
 
 	public boolean isRacingEnd() {
-		if (this.count > 0) {
+		if (this.count > LAST_COUNT) {
 			nextRacing();
 			return true;
 		}

@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
 	private static final RacingGame racingGame = new RacingGame();
+	public static final String DELIMITER_FOR_NAMES = ", ";
 	private Cars cars;
 
 	private RacingGame() {
@@ -34,6 +35,6 @@ public class RacingGame {
 		List<Car> CarOfWinners = this.cars.findWinners();
 		return CarOfWinners.stream()
 			.map(Car::toString)
-			.collect(Collectors.joining(", "));
+			.collect(Collectors.joining(DELIMITER_FOR_NAMES));
 	}
 }

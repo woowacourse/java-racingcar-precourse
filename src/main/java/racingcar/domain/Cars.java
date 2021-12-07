@@ -30,9 +30,8 @@ public class Cars {
 	}
 
 	public List<Car> findWinners() {
-		int maxPosition = getMaxPosition();
 		return this.cars.stream()
-			.filter(car -> car.isSamePosition(maxPosition))
+			.filter(car -> car.isSamePosition(getMaxPosition()))
 			.collect(Collectors.toList());
 
 	}
