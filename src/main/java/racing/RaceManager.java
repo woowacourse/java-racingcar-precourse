@@ -45,12 +45,11 @@ public class RaceManager {
 
     private void judgeWinner() {
         Collections.sort(cars);
-        winners.add(cars.get(ZERO));
 
-        for (int i = 1; i < cars.size(); i++) {
+        for (Car car : cars) {
 
-            if (winners.get(ZERO).compareTo(cars.get(i)) == ZERO) {
-                winners.add(cars.get(i));
+            if (cars.get(ZERO).compareTo(car) == ZERO) {
+                winners.add(car);
                 continue;
             }
 
