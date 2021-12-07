@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
+	private static final int LENGTH_MIN = 0;
+
 	private final List<Car> cars;
 
 	public Cars(final String names) {
@@ -19,7 +21,7 @@ public class Cars {
 
 	public List<Car> creatCars(final String names) {
 		List<Car> carList = new ArrayList<>();
-		String[] carNames = names.split(OUTPUT_DELIMETER);
+		String[] carNames = getStrings(names);
 
 		for (String carName : carNames) {
 			carList.add(new Car(carName));
@@ -33,6 +35,16 @@ public class Cars {
 			RandomNumberGenerator generator = new RandomNumberGenerator();
 			car.move(generator);
 		});
+	}
+
+	private String[] getStrings(final String names) {
+		String[] carNames = names.split(OUTPUT_DELIMETER);
+
+		if (carNames.length == LENGTH_MIN) {
+			throw new IllegalArgumentException(ERROR_CAR_NAME_NOT_ONLY_COMMA);
+		}
+		
+		return carNames;
 	}
 
 	private int getMaxPosition() {
