@@ -57,13 +57,15 @@
 ---
 
 ## TODO
-- 리팩토링 : 클래스 당 코드 길이 줄이기
+
 ---
 
 ## 🔍구현 로직
 
-```
++ ### Main diagram
+![img.png](main_diagram.png)
 
-```
++ ### Util diagram
+![img_1.png](util_diagram.png)
 
 ---
