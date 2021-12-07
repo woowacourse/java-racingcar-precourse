@@ -1,37 +1,54 @@
 package racingcar;
 
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
-    private List<Car> cars;
-    private int raceCount;
+    private final List<Car> cars;
+    private int tryCount;
 
-    public Game(List<Car> cars, int raceCount) {
-        this.cars = cars;
-        this.raceCount = raceCount;
+    private final InputManager inputManager = new InputManager();
+    private final OutputManager outputManager = new OutputManager();
+
+    public Game() {
+        cars = new ArrayList<>();
+
+        initCars();
+        initTryCount();
     }
 
     public void play() {
-        for (int i = 0; i < raceCount; i++) {
+        for (int i = 0; i < tryCount; i++) {
             moveOneRound();
         }
 
-        printWinnerNames();
+        List<String> winnerNames = getWinnerNames();
+
+        outputManager.printWinnerNames(winnerNames);
+    }
+
+    private void initCars() {
+        outputManager.printCarNamesInputComment();
+
+        for (String name : inputManager.getCarNames()) {
+            cars.add(new Car(name));
+        }
+    }
+
+    private void initTryCount() {
+        outputManager.printTryCountInputComment();
+
+        tryCount = inputManager.getTryCount();
     }
 
     private void moveOneRound() {
         for (Car car: cars) {
             car.move();
+            outputManager.printCurrentCarPosition(car);
         }
 
-        System.out.println("");
-    }
-
-    private void printWinnerNames() {
-        String winnerNames = String.join(", ", getWinnerNames());
-        System.out.printf("최종 우승자 : %s%n", winnerNames);
+        outputManager.printRoundSplitter();
     }
 
     private List<String> getWinnerNames() {

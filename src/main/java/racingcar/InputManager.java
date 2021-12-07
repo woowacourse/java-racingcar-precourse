@@ -2,26 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.*;
-
-public class Race {
+public class InputManager {
     private final InputValidator inputValidator = new InputValidator();
 
-    public void play() {
-        List<Car> cars = new ArrayList<>();
-
-        for (String name : getCarNames()) {
-            cars.add(new Car(name));
-        }
-
-        int raceCount = getTryCount();
-
-        Game game = new Game(cars, raceCount);
-
-        game.play();
-    }
-
-    private String[] getCarNames() {
+    public String[] getCarNames() {
         String input = Console.readLine();
         String[] names = input.split(",");
 
@@ -35,7 +19,7 @@ public class Race {
         return names;
     }
 
-    private int getTryCount() {
+    public int getTryCount() {
         String input = Console.readLine();
 
         try {
