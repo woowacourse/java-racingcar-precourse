@@ -12,6 +12,7 @@ public class Game {
 	private int gameCount = 0;
 	private int maxPosition = 0;
 	private ArrayList<Car> winnerList = new ArrayList<Car>();
+	private static ArrayList<String> stringWinnerList = new ArrayList<String>();
 
 	public void play() {
 		carsList = InputView.getCarsList();
@@ -58,6 +59,13 @@ public class Game {
 	}
 
 	public void printWinner() {
-		OutputView.printWinner(winnerList);
+		extractWinnersNames(winnerList);
+		OutputView.printWinner(stringWinnerList);
+	}
+
+	public static void extractWinnersNames(ArrayList<Car> winnerList) {
+		for (int i = 0; i < winnerList.size(); i++) {
+			stringWinnerList.add(winnerList.get(i).getCarName());
+		}
 	}
 }

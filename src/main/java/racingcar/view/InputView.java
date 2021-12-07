@@ -23,7 +23,7 @@ public class InputView {
 		do {
 			System.out.println(Message.ASK_CAR_NAMES);
 			String carNames = Console.readLine();
-			String [] carArray = carNames.split(",");
+			String[] carArray = carNames.split(",");
 			carsNameList = Arrays.asList(carArray);
 		} while (!checkRightNames(carsNameList));
 
@@ -55,25 +55,25 @@ public class InputView {
 		return gameCount;
 	}
 
-	public static boolean checkRightNames(List<String> carsNameList){
+	public static boolean checkRightNames(List<String> carsNameList) {
 		boolean isRightNames = true;
-		try{
+		try {
 			Validation.LESS_MORE_NAME_ERROR(carsNameList);
 			Validation.CONTAIN_SAME_NAME_ERROR(carsNameList);
 			Validation.WHITE_SPACE_NAME_ERROR(carsNameList);
-		} catch (IllegalArgumentException e){
+		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			isRightNames = false;
 		}
 		return isRightNames;
 	}
 
-	public static boolean checkRightGameCount(String stringGameCount){
+	public static boolean checkRightGameCount(String stringGameCount) {
 		boolean isRightNumeric = true;
-		try{
+		try {
 			Validation.NON_NUMERIC_GAME_COUNT_ERROR(stringGameCount);
 			Validation.ZERO_GAME_COUNT_ERROR(stringGameCount);
-		} catch (IllegalArgumentException e){
+		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			isRightNumeric = false;
 		}

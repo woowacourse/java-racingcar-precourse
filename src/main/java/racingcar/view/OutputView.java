@@ -1,12 +1,10 @@
 package racingcar.view;
 
 import java.util.ArrayList;
-import racingcar.domain.Car;
+
 import static racingcar.utils.Message.*;
 
 public class OutputView {
-
-	private static ArrayList<String> stringWinnerNames = new ArrayList<String>();
 
 	public static void printPosition(String carName, int position) {
 		System.out.print(carName + " : ");
@@ -16,15 +14,7 @@ public class OutputView {
 		System.out.println();
 	}
 
-	public static void printWinner(ArrayList<Car> winnerList) {
-		stringWinnerNames = extractNames(winnerList);
-		System.out.print(FINAL_WINNER + String.join(", ", stringWinnerNames));
-	}
-
-	public static ArrayList<String> extractNames(ArrayList<Car> winnerList) {
-		for (int i = 0; i < winnerList.size(); i++) {
-			stringWinnerNames.add(winnerList.get(i).getCarName());
-		}
-		return stringWinnerNames;
+	public static void printWinner(ArrayList<String> stringWinnerList) {
+		System.out.print(FINAL_WINNER + String.join(", ", stringWinnerList));
 	}
 }

@@ -3,6 +3,7 @@ package racingcar.utils;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import static racingcar.utils.ConstantNum.*;
 
 public class Validation {
