@@ -1,17 +1,31 @@
-# 미션 - 자동차 경주 게임
+<h1 align="center"> 🚗 자동차 경주 게임 </h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/dongho108/java-racingcar-precourse/tree/dh" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+</p>
 
-자동차 경주 게임을 구현하는 프로젝트 입니다.<br>
+> 자동차 경주 게임을 구현하는 프로젝트 입니다.
+
+### 🏠 [Homepage](https://github.com/dongho108/java-racingcar-precourse/tree/dh)
+
+## Skill
+
+> Java 1.8 <br>
+
+## Author
+
+👤 dongho
+
+* blog: https://ksabs.tistory.com
+* project review: https://ksabs.tistory.com/222
 
 ## 자동차 경주 게임이란?
 
 - Random Number(0~9)를 생성하고 Random Number가 4이상일 경우 자동차는 한 칸 전진합니다.
 - 사용자에게 ,(쉼표)로 구분된 자동차 이름을 입력받고, 시도할 횟수도 입력받은 뒤 게임은 시작됩니다.
 - 시도할 횟수가 지나면 최종 우승자 (여러 자동차일 수 있음)를 출력합니다.
-
-
-## 기술스택
-
-- Java 1.8
 
 ## 🚀 기능 목록
 
@@ -31,7 +45,7 @@
 - 시도 횟수가 끝난 후 우승자를 판단해야한다.
     - 우승자가 여러명일 경우 쉼표(,)를 이용하여 구분한다.
 
-## 사용법
+## 💡 사용법
 
 1. 프로젝트 클론
 
