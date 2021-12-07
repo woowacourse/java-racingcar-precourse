@@ -5,7 +5,6 @@ import util.CarNameValidator;
 import util.MoveTimesValidator;
 
 public class InputView {
-
 	private static final String NAME_DELIMITER = ",";
 
 	private InputView() {
