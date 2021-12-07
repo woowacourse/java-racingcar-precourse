@@ -39,10 +39,10 @@
 git clone https://github.com/dongho108/java-racingcar-precourse.git
 ```
 
-2. '<b>dongho</b>' branch로 이동
+2. '<b>dh</b>' branch로 이동
 
 ```
-git checkout dongho
+git checkout dh
 ```
 
 3. Application Run
