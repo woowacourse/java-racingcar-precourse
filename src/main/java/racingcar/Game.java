@@ -40,6 +40,7 @@ public class Game {
 		String[] carNames = getCarNames();
 		carMaker(carNames);
 		getNumberOfStage();
+		GamePrinter.goToStagePrint();
 	}
 
 	public void getNumberOfStage(){
