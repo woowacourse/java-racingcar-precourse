@@ -13,7 +13,7 @@ public class Input {
 		String[] carNames;
 		do {
 			System.out.println(MSG_GET_CAR_NAME);
-			carNames = Console.readLine().split(SPLIT_REGEX);
+			carNames = Console.readLine().split(SPLIT_REGEX, -1);
 			trimCarNames(carNames);
 		} while (!checkCarNames(carNames));
 
