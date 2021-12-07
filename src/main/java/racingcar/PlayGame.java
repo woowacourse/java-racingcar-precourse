@@ -15,11 +15,7 @@ public class PlayGame {
     }
 
     private void init() {
-        String[] carArray = inputCarName.inputCar();
-        cars = new Car[carArray.length];
-        for(int i = 0; i < cars.length; i++) {
-            cars[i] = new Car(carArray[i]);
-        }
+        cars = inputCarName.getCars();
         playCount = inputCount.stringToInteger();
     }
 

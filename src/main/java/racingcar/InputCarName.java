@@ -30,7 +30,7 @@ public class InputCarName {
     }
 
     // 예외를 고려해서 올바른 문자열 배열 생성하기
-    public String[] inputCar() {
+    private String[] inputCar() {
         String[] carName = carNameToArray();
         try{
             checkException(carName);
@@ -39,6 +39,20 @@ public class InputCarName {
             carName = inputCar();
         }
         return carName;
+    }
+
+    private Car[] carObjects() {
+        String[] carArray = inputCar();
+        cars = new Car[carArray.length];
+        for(int i = 0; i<cars.length; i++) {
+            cars[i] = new Car(carArray[i]);
+        }
+        return cars;
+    }
+
+    public Car[] getCars() {
+        carObjects();
+        return cars;
     }
 
 }
