@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarPosition;
 
 public class CarTest {
 	@Test
@@ -20,8 +21,8 @@ public class CarTest {
 	@DisplayName("전진 테스트")
 	void forward_test() {
 		Car testCar = new Car("testCar");
-		int testPosition = testCar.getPosition();
+		CarPosition testPosition = new CarPosition(1);
 		testCar.forward();
-		assertThat(testPosition + 1 == testCar.getPosition()).isTrue();
+		assertThat(testCar.getPosition().equals(testPosition)).isTrue();
 	}
 }

@@ -19,7 +19,7 @@ public class Cars {
 	public List<Integer> getScoreList() {
 		List<Integer> scoreList = new ArrayList<>();
 		for (Car car : cars) {
-			scoreList.add(car.getPosition());
+			scoreList.add(car.getPosition().getPosition());
 		}
 		return scoreList;
 	}
@@ -29,7 +29,7 @@ public class Cars {
 		List<Integer> scoreList = getScoreList();
 		int max = Collections.max(scoreList);
 		for (Car car : cars) {
-			if (max == car.getPosition()) {
+			if (car.isMaxPosition(max)) {
 				winnerList.add(car.getName());
 			}
 		}

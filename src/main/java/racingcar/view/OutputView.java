@@ -28,7 +28,7 @@ public class OutputView {
 	public static String getScoreString(Car drivingCar) {
 		String unit = "-";
 		Optional<String> result1 = Optional.empty();
-		for (int count = 0; count <= drivingCar.getPosition(); count++) {
+		for (int count = 0; count <= drivingCar.getPosition().getPosition(); count++) {
 			result1 = Stream.generate(() -> unit).limit(count).reduce((a, b) -> a + b);
 		}
 		String finalResult = "";
