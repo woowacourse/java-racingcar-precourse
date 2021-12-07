@@ -40,7 +40,7 @@ public class InputValidator {
 		try {
 			Integer.parseInt(turnCount);
 		} catch (NumberFormatException nfe) {
-			throw new TurnCountNotIntegerException(GameData.INPUT_ERROR_MESSAGE, nfe);
+			throw new TurnCountNotIntegerException(GameData.TURNCOUNT_NOT_INTEGER_ERROR_MESSAGE, nfe);
 		}
 	}
 

@@ -17,16 +17,16 @@ public class GameEngine {
 
 	public void start() {
 		List<Car> carList = generateCars(inputHandler.getValidCarNames());
-		int count = inputHandler.getValidTurnCount();
-		proceedGame(carList, count);
+		int turnCount = inputHandler.getValidTurnCount();
+		proceedGame(carList, turnCount);
 		List<Car> winnerList = judgement.judgeWinner(carList);
 		outputHandler.printWinner(winnerList);
 	}
 
-	public void proceedGame(List<Car> carList, int count) {
+	public void proceedGame(List<Car> carList, int turnCount) {
 		outputHandler.printBlankLine();
 		outputHandler.printMessage(GameData.RESULT_MESSAGE);
-		for (int i = 0; i < count; i++) {
+		for (int i = 0; i < turnCount; i++) {
 			tryMoveCars(carList);
 			outputHandler.printTurnStatus(carList);
 		}
