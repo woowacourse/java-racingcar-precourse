@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Optional;
+
 import racingcar.domain.car.Cars;
 import racingcar.processor.InputProcessor;
 import racingcar.processor.OutputProcessor;
@@ -15,14 +17,8 @@ public class RacingGame {
 	}
 
 	public void start() {
-		Cars cars = null;
-		while (cars == null) {
-			cars = generateCars();
-		}
-		RacingResult racingResult = null;
-		while (racingResult == null) {
-			racingResult = generateRacing(cars);
-		}
+		Cars cars = generateCars();
+		RacingResult racingResult = generateRacingResult(cars);
 		runRacing(racingResult);
 	}
 
@@ -35,23 +31,39 @@ public class RacingGame {
 		outputProcessor.printWinner(racingResult);
 	}
 
-	private RacingResult generateRacing(Cars cars) {
+	private RacingResult generateRacingResult(Cars cars) {
+		Optional<String> count = Optional.empty();
+		while (!count.isPresent()) {
+			count = readCount();
+		}
+		return RacingResult.of(count.get(), cars);
+	}
+
+	private Optional<String> readCount() {
 		try {
 			String count = inputProcessor.readCount();
-			return RacingResult.of(count, cars);
+			return Optional.of(count);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			return null;
+			return Optional.empty();
 		}
 	}
 
 	private Cars generateCars() {
+		Optional<Cars> cars = Optional.empty();
+		while (!cars.isPresent()) {
+			cars = readCars();
+		}
+		return cars.get();
+	}
+
+	private Optional<Cars> readCars() {
 		try {
 			String[] names = inputProcessor.readNames();
-			return Cars.of(names);
+			return Optional.of(Cars.of(names));
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			return null;
+			return Optional.empty();
 		}
 	}
 
