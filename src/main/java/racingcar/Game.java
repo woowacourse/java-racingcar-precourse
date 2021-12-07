@@ -7,9 +7,8 @@ public class Game {
 	private int numberOfCars;
 
 	public void carMaker(String[] carNames) {
-		cars = new Car[numberOfCars];
-
 		this.numberOfCars = carNames.length;
+		cars = new Car[numberOfCars];
 
 		for (int i = 0; i < numberOfCars; i++) {
 			this.cars[i] = new Car(carNames[i]);
