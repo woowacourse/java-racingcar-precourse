@@ -14,5 +14,4 @@ class Position {
 	public int get() {
 		return position;
 	}
-
 }
