@@ -43,7 +43,6 @@ public class RacingCar {
     private int getMaxPosition() {
         int maxPosition = 0;
         if (Arrays.stream(carArray).mapToInt(Car::getPosition).max().isPresent()) {
-
             maxPosition = Arrays.stream(carArray)
                     .mapToInt(Car::getPosition)
                     .max()
