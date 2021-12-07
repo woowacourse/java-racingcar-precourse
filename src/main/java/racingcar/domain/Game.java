@@ -5,8 +5,9 @@ import racingcar.View.OutputView;
 
 import java.util.ArrayList;
 
-import static racingcar.util.Constant.CAR_NAME_LENGTH_ERROR_MESSAGE;
-import static racingcar.util.Constant.NOT_DIGIT_ERROR_MESSAGE;
+import static racingcar.util.ErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
+import static racingcar.util.ErrorMessage.NOT_DIGIT_ERROR_MESSAGE;
+
 
 public class Game {
     private Race race;
@@ -29,7 +30,7 @@ public class Game {
         ArrayList<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             if (carName.length() > 5) {
-                throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
             }
             Car car = new Car(carName);
             cars.add(car);
@@ -42,7 +43,7 @@ public class Game {
             OutputView.printInputNumberGuideMessage();
             String userInput = InputView.getUserInput();
             if(!userInput.chars().allMatch(Character::isDigit)){
-                throw new IllegalArgumentException(NOT_DIGIT_ERROR_MESSAGE);
+                throw new IllegalArgumentException(NOT_DIGIT_ERROR_MESSAGE.getMessage());
             }
             race.setMoveCount(Integer.parseInt(userInput));
         } catch (IllegalArgumentException exception) {
