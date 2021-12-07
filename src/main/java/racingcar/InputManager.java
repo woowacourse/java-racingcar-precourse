@@ -18,7 +18,7 @@ public class InputManager {
 
 	public void scanCarsList() {
 		boolean carsScan = true;
-		System.out.println(Constant.CAR_NAME_INPUT);
+		System.out.println(CAR_NAME_INPUT);
 		while (carsScan) {
 			try {
 				String carsInput = Console.readLine();
