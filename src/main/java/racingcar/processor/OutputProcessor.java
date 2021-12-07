@@ -13,6 +13,6 @@ public class OutputProcessor {
 	}
 
 	public void printWinner(Racing racing) {
-		System.out.println(racing.getFinalWinnerName());
+		System.out.println("최종 우승자 : " +racing.getFinalWinnerName());
 	}
 }
