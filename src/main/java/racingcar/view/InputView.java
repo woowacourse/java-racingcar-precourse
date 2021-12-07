@@ -23,7 +23,6 @@ public class InputView {
         String[] carNames = carNameInputInit();
         cars = new ArrayList<>();
         Arrays.stream(carNames).forEach(name -> cars.add(new Car(name)));
-
         while (true) {
             try {
                 hasOnlyComma(cars);
@@ -79,6 +78,7 @@ public class InputView {
         while (true) {
             System.out.println(Input.TIMES_MESSAGE);
             String timesInput = Console.readLine();
+
             try {
                 validateTimes(timesInput);
                 return Integer.parseInt(timesInput);
