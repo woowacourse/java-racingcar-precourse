@@ -4,6 +4,27 @@
 - 본 과제에서는, 함수 분리, 클래스 분리에 주안점을 두고 코드를 작성하였습니다.
 - 가독성이 좋은 코드, 쉽게 이해할 수 있는 코드가 될 수 있도록 최선을 다하여 구현하였습니다.
 
+## 프로젝트 구조
+├── main
+│   └── java
+│       └── racingcar
+│           ├── Application.java
+│           ├── Game.java
+│           ├── domain
+│           │   └── Car.java
+│           ├── utils
+│           │   ├── ConstantNum.java
+│           │   ├── Message.java
+│           │   ├── RandomGenerator.java
+│           │   └── Validation.java
+│           └── view
+│               ├── InputView.java
+│               └── OutputView.java
+└── test
+└── java
+└── racingcar
+└── ApplicationTest.java
+
 ## 요구 명세 분석
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
