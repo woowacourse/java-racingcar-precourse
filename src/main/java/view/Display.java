@@ -30,10 +30,10 @@ public class Display {
 	}
 
 	public static void showRacingCarNowPositions(String[] carNames, int[] carPositions) {
-		System.out.println();
 		for (int index = FIRST_CAR_INDEX; index < carNames.length; index++) {
 			showRacingCarNameAndPosition(carNames[index], carPositions[index]);
 		}
+		System.out.println();
 	}
 
 	private static void showRacingCarNameAndPosition(String carName, int carPosition) {
@@ -46,7 +46,6 @@ public class Display {
 
 	public static void showWinnerMessage(String[] racingCarGameWinners) {
 		StringJoiner racingCarGameWinner = new StringJoiner(", ");
-		System.out.println();
 		System.out.print(WINNER_MESSAGE);
 		for (int index = FIRST_WINNER_INDEX; index < racingCarGameWinners.length; index++) {
 			racingCarGameWinner.add(racingCarGameWinners[index]);
