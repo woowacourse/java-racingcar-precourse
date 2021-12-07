@@ -113,6 +113,37 @@ public class Application {
         return Cars;
     }
 
+    public static boolean printBiggest(boolean exist, String[] names, int i){
+        if (exist == true){
+            System.out.print(", " + names[i]);
+            return true;
+        }
+
+        System.out.print(names[i]);
+
+        return true;
+    }
+
+    public static void printCars(Car[] Cars, String[] names){
+        int biggest = 0;
+
+        for (int i = 0; i < Cars.length; ++i){
+            if (Cars[i].getPosition() > biggest) {
+                biggest = Cars[i].getPosition();
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+
+        boolean exist = false;
+
+        for (int i = 0; i < Cars.length; ++i){
+            if (Cars[i].getPosition() == biggest) {
+                exist = printBiggest(exist, names, i);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // TODO 구현 진행
         String[] names = getNames();
@@ -120,5 +151,7 @@ public class Application {
         int times = getTimes();
 
         Car[] Cars = raceCars(names, times);
+
+        printCars(Cars, names);
     }
 }
