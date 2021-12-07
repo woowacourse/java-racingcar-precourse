@@ -43,7 +43,6 @@ public class Game {
 		output.printWinners(umpire.getWinnersNameList());
 	}
 
-	// 게임을 진행한다
 	private void playGames() {
 		moveCarList();
 		output.printCarInfo(carList);

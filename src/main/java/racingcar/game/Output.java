@@ -11,7 +11,7 @@ public class Output {
 	public void printWinners(List<String> winnersNameList) {
 		System.out.print(WINNER_RESULT);
 		System.out.print(winnersNameList.get(0));
-		//승자가 1명이면 종료
+		// 승자가 1명이면 출력하고 종료
 		if (winnersNameList.size() == 1) {
 			return;
 		}

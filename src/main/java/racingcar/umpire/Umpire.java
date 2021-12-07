@@ -17,18 +17,16 @@ public class Umpire {
 
 	public void getWinner() {
 		int target = findMaxPosition();
-
 		winners = findSamePosition(target);
 	}
-
-	// 승자의 이름을 가져온다
+	
 	public List<String> getWinnersNameList() {
 		List<String> winnersName = new ArrayList<>();
 
-		winners.stream()
-			.forEach(winner -> {
-				winnersName.add(winner.getName());
-			});
+		winners.forEach(winner -> {
+			winnersName.add(winner.getName());
+		});
+
 		return winnersName;
 	}
 

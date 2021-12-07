@@ -17,7 +17,6 @@ public class NameException {
 		if (Arrays.stream(names).count() == 0) {
 			throw new IllegalArgumentException(ERROR_NAME_MIN_LENGTH);
 		}
-
 	}
 
 	//이름의 길이 5이하 확인
@@ -28,7 +27,6 @@ public class NameException {
 		if (check > 0) {
 			throw new IllegalArgumentException(ERROR_NAME_MAX_LENGTH);
 		}
-
 	}
 
 	// 이름 최소 1자 이상
@@ -39,7 +37,6 @@ public class NameException {
 		if (check > 0) {
 			throw new IllegalArgumentException(ERROR_NAME_MIN_LENGTH);
 		}
-
 	}
 
 }
