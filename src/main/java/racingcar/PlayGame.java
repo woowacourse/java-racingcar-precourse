@@ -38,7 +38,11 @@ public class PlayGame {
             if(score>=4) { // 4이상이면 직진 가능
                 cars[i].addPosition();
             }
-            System.out.println(cars[i].toString()); // 메소드로 변경
+            printPosition(cars[i]);
         }
+    }
+
+    private void printPosition(Car car) {
+        System.out.println(car.toString());
     }
 }
