@@ -21,6 +21,21 @@ public class GameController {
 		}
 	}
 
+	public RacingCarGame initRacingCarGame(Cars cars) {
+		RacingCarGame racingCarGame;
+
+		String leftRounds = InputView.getRoundNumber();
+
+		try {
+			racingCarGame = RacingCarGame.generateGame(leftRounds, cars);
+		} catch (IllegalArgumentException e) {
+			ErrorView.printErrorMessage(e.getMessage());
+			racingCarGame = initRacingCarGame(cars);
+		}
+
+		return racingCarGame;
+	}
+
 	private void startGame(RacingCarGame racingCarGame) {
 		ResultView.showResultHeader();
 		while (!racingCarGame.isGameEnd()) {
@@ -32,20 +47,5 @@ public class GameController {
 				ResultView.showWinners(roundStatus.getWinnerNames());
 			}
 		}
-	}
-
-	public RacingCarGame initRacingCarGame(Cars cars) {
-		RacingCarGame racingCarGame;
-
-		String roundNumber = InputView.getRoundNumber();
-
-		try {
-			racingCarGame = RacingCarGame.generateGame(roundNumber, cars);
-		} catch (IllegalArgumentException e) {
-			ErrorView.printErrorMessage(e.getMessage());
-			racingCarGame = initRacingCarGame(cars);
-		}
-
-		return racingCarGame;
 	}
 }

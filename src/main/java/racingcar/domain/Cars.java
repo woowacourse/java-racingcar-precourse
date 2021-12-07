@@ -24,7 +24,7 @@ public class Cars {
 
 	public static Cars generateCars(String carNames) {
 		String[] carNameList = carNames.split(NAME_DELIMITER);
-		validate(carNameList);
+		validateCarNames(carNameList);
 
 		List<Car> carList = new ArrayList<>();
 		for (String carName : carNameList) {
@@ -34,7 +34,7 @@ public class Cars {
 		return new Cars(carList);
 	}
 
-	private static void validate(String[] carNameList) {
+	private static void validateCarNames(String[] carNameList) {
 		validateEmptyName(carNameList);
 		validateNameLengthExceed(carNameList);
 		validateOnlyOneParticipant(carNameList);

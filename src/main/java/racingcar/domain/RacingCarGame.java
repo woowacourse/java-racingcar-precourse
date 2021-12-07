@@ -11,17 +11,17 @@ public class RacingCarGame {
 
 	private static final String ROUND_NUMBER_ERROR_MESSAGE = "[ERROR] 1 이상의 수를 입력해주세요";
 
-	private RacingCarGame(int roundNumber, Cars cars) {
-		this.leftRounds = roundNumber;
+	private RacingCarGame(int leftRounds, Cars cars) {
+		this.leftRounds = leftRounds;
 		this.cars = cars;
 	}
 
 	public static RacingCarGame generateGame(String roundNumber, Cars cars) {
-		validate(roundNumber);
+		validateRoundNumber(roundNumber);
 		return new RacingCarGame(Integer.parseInt(roundNumber), cars);
 	}
 
-	private static void validate(String roundNumber) {
+	private static void validateRoundNumber(String roundNumber) {
 		if (!isNumberGreaterThanOne(roundNumber)) {
 			throw new IllegalArgumentException(ROUND_NUMBER_ERROR_MESSAGE);
 		}
