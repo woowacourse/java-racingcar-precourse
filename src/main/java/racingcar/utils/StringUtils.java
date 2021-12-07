@@ -5,6 +5,8 @@ import java.util.List;
 
 public class StringUtils {
 
+	private static final int ACCEPT_ZERO_LENGTH = -1;
+
 	public static boolean isBlank(String str) {
 		if (str == null) {
 			return true;
@@ -24,6 +26,6 @@ public class StringUtils {
 	}
 
 	public static List<String> toList(String str, String delimiter) {
-		return Arrays.asList(str.split(delimiter, -1));
+		return Arrays.asList(str.split(delimiter, ACCEPT_ZERO_LENGTH));
 	}
 }
