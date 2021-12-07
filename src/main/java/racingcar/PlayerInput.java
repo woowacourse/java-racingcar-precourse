@@ -37,6 +37,7 @@ public class PlayerInput {
 		validateNotBlank(input);
 		List<String> carNames = new ArrayList<>();
 		StringTokenizer stringTokenizer = new StringTokenizer(input, ",");
+		validateNotOnlyDelims(stringTokenizer);
 		while (stringTokenizer.hasMoreTokens()) {
 			String newName = stringTokenizer.nextToken();
 			validateNotOnlyWhiteSpaces(newName);
@@ -75,6 +76,12 @@ public class PlayerInput {
 	private void validateNotBlank(String input) {
 		if (input.length() == 0) {
 			throw new IllegalArgumentException(ERROR_MESSAGE_BLANK);
+		}
+	}
+
+	private void validateNotOnlyDelims(StringTokenizer stringTokenizer) {
+		if (stringTokenizer.countTokens() == 0) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_ONLY_WHITE_SPACES);
 		}
 	}
 }
