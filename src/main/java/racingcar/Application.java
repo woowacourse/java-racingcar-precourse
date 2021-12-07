@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 
 public class Application {
 
@@ -22,6 +23,22 @@ public class Application {
         }
     }
 
+    public ArrayList<String> getWinners(Car[] cars) {
+        int maxScore = 0;
+        ArrayList<String> winners = new ArrayList<String>();
+        for (int i=0; i<cars.length; i++) {
+            if (cars[i].getPosition() == maxScore) {
+                winners.add(cars[i].getName());
+            }
+            if (cars[i].getPosition() > maxScore) {
+                maxScore = cars[i].getPosition();
+                winners.clear();
+                winners.add(cars[i].getName());
+            }
+        }
+        return winners;
+    }
+
     public static void main(String[] args) {
         Application application = new Application();
 
@@ -33,5 +50,6 @@ public class Application {
 
         Car[] cars = application.makeCars(names);
         application.raceResult(cars, numberOfAttempts);
+        ArrayList<String> winners = application.getWinners(cars);
     }
 }
