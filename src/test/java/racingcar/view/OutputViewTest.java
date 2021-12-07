@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import racingcar.domain.Car;
 import racingcar.domain.Game;
@@ -46,13 +45,14 @@ class OutputViewTest {
 			.stream()
 			.filter(car -> car.getPosition() == farthestCar.getPosition())
 			.collect(Collectors.toList())
-			.forEach(winner -> expectedWinnerStringBuilder.append(winner.getName()).append(GAME_WINNER_DELIMITER.getString()));
+			.forEach(winner -> expectedWinnerStringBuilder.append(winner.getName())
+				.append(GAME_WINNER_DELIMITER.getString()));
 		String expectedWinnerString = expectedWinnerStringBuilder.substring(0,
 			expectedWinnerStringBuilder.length() - GAME_WINNER_DELIMITER.getString().length());
 
 		//then
 		OutputView.printGameResult(game);
-		carNameList.forEach(car -> Assertions.assertThat(byteArrayOutputStream.toString()).contains(car.toString()));
+		carNameList.forEach(car -> Assertions.assertThat(byteArrayOutputStream.toString()).contains(car));
 		Assertions.assertThat(byteArrayOutputStream.toString()).contains(GAME_RESULT_HINT.getString());
 		Assertions.assertThat(byteArrayOutputStream.toString()).contains(expectedWinnerString);
 	}

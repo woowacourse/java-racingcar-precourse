@@ -61,7 +61,7 @@ public class GameTest {
 			expectedWinnerStringBuilder.length() - GAME_WINNER_DELIMITER.getString().length());
 
 		//then
-		carNameList.forEach(car -> Assertions.assertThat(spyGame.toString()).contains(car.toString()));
+		carNameList.forEach(car -> Assertions.assertThat(spyGame.toString()).contains(car));
 		Assertions.assertThat(spyGame.toString()).contains(GAME_RESULT_HINT.getString());
 		Assertions.assertThat(spyGame.toString()).contains(expectedWinnerString);
 	}
