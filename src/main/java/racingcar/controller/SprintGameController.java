@@ -2,13 +2,13 @@ package racingcar.controller;
 
 import racingcar.domain.car.CarSet;
 import racingcar.domain.round.Round;
-import racingcar.service.SprintGameService;
+import racingcar.service.GameService;
 
 public class SprintGameController implements GameController {
 
-	private final SprintGameService gameService;
+	private final GameService gameService;
 
-	public SprintGameController(SprintGameService gameService) {
+	public SprintGameController(GameService gameService) {
 		this.gameService = gameService;
 	}
 
