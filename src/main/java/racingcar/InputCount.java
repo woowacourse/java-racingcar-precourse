@@ -11,23 +11,19 @@ public class InputCount {
         return count;
     }
 
-    // 예외 발생 유무 확인
-    // 예외가 발생하면 true, 발생하지 않았다면 false
-    private boolean checkException(String count) {
+    // 숫자가 아닌 다른 문자 포함 시 예외 발생
+    private void checkException(String count) {
         final String REGEX = "[0-9]+";
         if(!count.matches(REGEX)) {
-            return true;
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
         }
-        return false;
     }
 
     // 예외를 고려해서 조건에 맞는 문자열 반환 함수
     private String inputCount() {
         String count = inputForm();
         try {
-            if(checkException(count)) {
-                throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
-            }
+            checkException(count);
         }catch (IllegalArgumentException e){
             System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
             count = inputCount();
