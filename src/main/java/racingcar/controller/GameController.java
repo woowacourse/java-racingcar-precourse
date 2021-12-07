@@ -8,18 +8,8 @@ import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
 public class GameController {
-	InputView inputView;
-	ResultView resultView;
-	ErrorView ErrorView;
-
-	public GameController() {
-		this.inputView = new InputView();
-		this.resultView = new ResultView();
-		this.ErrorView = new ErrorView();
-	}
-
 	public void init() {
-		String inputCarNames = inputView.getCarNames();
+		String inputCarNames = InputView.getCarNames();
 		try {
 			Cars cars = Cars.generateCars(inputCarNames);
 			RacingCarGame racingCarGame = initRacingCarGame(cars);
@@ -32,14 +22,14 @@ public class GameController {
 	}
 
 	private void startGame(RacingCarGame racingCarGame) {
-		resultView.showResultHeader();
+		ResultView.showResultHeader();
 		while (!racingCarGame.isGameEnd()) {
 			racingCarGame.startRound();
 			GameStatus gameStatus = racingCarGame.generateGameStatus();
-			resultView.showRoundResult(gameStatus);
+			ResultView.showRoundResult(gameStatus);
 
 			if (racingCarGame.isGameEnd()) {
-				resultView.showWinners(gameStatus.getWinnerNames());
+				ResultView.showWinners(gameStatus.getWinnerNames());
 			}
 		}
 	}
@@ -47,7 +37,7 @@ public class GameController {
 	public RacingCarGame initRacingCarGame(Cars cars) {
 		RacingCarGame racingCarGame;
 
-		String roundNumber = inputView.getRoundNumber();
+		String roundNumber = InputView.getRoundNumber();
 
 		try {
 			racingCarGame = RacingCarGame.generateGame(roundNumber, cars);
