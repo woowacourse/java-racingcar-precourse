@@ -1,7 +1,6 @@
-package racingcar;
+package racingcar.domain;
 
 import racingcar.utils.RandomGenerator;
-import racingcar.view.OutputView;
 
 import static racingcar.utils.ConstantNum.*;
 
@@ -18,10 +17,6 @@ public class Car {
 		if (randomGenerator.getRandomNum() >= PROCEED_NUM_MIN) {
 			this.position++;
 		}
-	}
-
-	public void printPosition() {
-		OutputView.printPosition(carName, position);
 	}
 
 	public String getCarName() {

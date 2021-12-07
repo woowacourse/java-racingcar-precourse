@@ -1,12 +1,8 @@
 package racingcar.utils;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import racingcar.Car;
-
 import static racingcar.utils.ConstantNum.*;
 
 public class Validation {

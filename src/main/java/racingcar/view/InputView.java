@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.utils.Message;
 import racingcar.utils.Validation;
 

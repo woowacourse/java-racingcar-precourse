@@ -1,9 +1,7 @@
 package racingcar.view;
 
 import java.util.ArrayList;
-
-import racingcar.Car;
-
+import racingcar.domain.Car;
 import static racingcar.utils.Message.*;
 
 public class OutputView {

@@ -1,8 +1,8 @@
-package racingcar.domain;
+package racingcar;
 
 import java.util.ArrayList;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -31,7 +31,7 @@ public class Game {
 	private void playTurn(ArrayList<Car> carsList, int gameCount) {
 		for (Car car : carsList) {
 			car.proceedOrPause();
-			car.printPosition();
+			OutputView.printPosition(car.getCarName(), car.getPosition());
 		}
 	}
 
