@@ -8,10 +8,9 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Game {
-
-	private ArrayList<Car> carsList = new ArrayList<Car>();
 	private int gameCount = 0;
 	private int maxPosition = 0;
+	private ArrayList<Car> carsList = new ArrayList<Car>();
 	private ArrayList<Car> winnerList = new ArrayList<Car>();
 	private ArrayList<String> stringWinnerList = new ArrayList<String>();
 

@@ -3,12 +3,12 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-	private final String carName;
-	private int position = 0;
-
-	private final int PROCEED_NUM_MIN = 4;
+	private static final int PROCEED_NUM_MIN = 4;
 	private static final int RANDOM_NUM_MIN = 0;
 	private static final int RANDOM_NUM_MAX = 9;
+
+	private final String carName;
+	private int position = 0;
 
 	public Car(String carName) {
 		this.carName = carName;
