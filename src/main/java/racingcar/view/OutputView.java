@@ -3,7 +3,6 @@ package racingcar.view;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import racingcar.domain.Car;
 import racingcar.utils.Constant;
 
 public class OutputView {
@@ -19,10 +18,10 @@ public class OutputView {
 		System.out.println();
 	}
 
-	public static void showWinner(List<Car> winnerCars) {
+	public static void showWinner(List<String> winnerCarNames) {
 		StringBuilder sb = new StringBuilder();
-		for (Car winnerCar : winnerCars) {
-			sb.append(winnerCar.getName()).append(", ");
+		for (String winnerCarName : winnerCarNames) {
+			sb.append(winnerCarName).append(", ");
 		}
 		String winners = sb.substring(0, sb.length()-2);
 		System.out.println(Constant.WINNING_ANNOUNCEMENT_MESSAGE + winners);

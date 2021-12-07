@@ -25,7 +25,8 @@ public class CarController {
 			cars.playRound();
 			OutputView.showGameRoundResult(cars.showCarsPosition());
 		}
-		OutputView.showWinner(referee.selectWinners(cars));
+		referee.selectWinners(cars);
+		OutputView.showWinner(referee.winnerCarsGetNames());
 	}
 
 	public List<String> parsingCarNames(String noParsingCarNames) {

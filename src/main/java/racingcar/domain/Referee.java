@@ -29,4 +29,12 @@ public class Referee {
 		}
 		return winnerCars;
 	}
+
+	public List<String> winnerCarsGetNames () {
+		List<String> winnerCarNames = new ArrayList<>();
+		for (Car winnerCar : winnerCars) {
+			winnerCarNames.add(winnerCar.getName());
+		}
+		return winnerCarNames;
+	}
 }
