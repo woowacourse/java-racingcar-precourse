@@ -14,8 +14,13 @@ public class RacingCars {
         racingCars.forEach(Car::movePosition);
     }
 
-    public void getRacingCarsInfo() {
-        racingCars.forEach(Car::printCurrentInfo);
+    public String getRacingCarsInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Car car : racingCars) {
+            stringBuilder.append(car.getCurrentInfo());
+        }
+        return stringBuilder.toString();
     }
 
     public List<String> pickWinner() {

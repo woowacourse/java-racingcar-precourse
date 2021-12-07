@@ -30,8 +30,7 @@ public class RaceController {
     }
 
     public void startRace() {
-        raceOutputView.outputExecutionResult();
-        raceService.repeatRace();
+        raceOutputView.outputExecutionResult(raceService.repeatRace());
     }
 
     public void finishRace() {

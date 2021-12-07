@@ -21,13 +21,16 @@ public class RaceService {
         this.race = new Race(numberOfRaces, racingCars);
     }
 
-    public void repeatRace() {
-        for (int i=0; i<race.getNumberOfRaces(); i++) {
+    public String repeatRace() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < race.getNumberOfRaces(); i++) {
             RacingCars racingCars = race.getRacingCars();
             racingCars.moveForwardOrStop();
-            racingCars.getRacingCarsInfo();
-            System.out.println();
+            stringBuilder.append(racingCars.getRacingCarsInfo());
+            stringBuilder.append(Symbol.NEW_LINE);
         }
+        return stringBuilder.toString();
     }
 
     public String getRaceWinners() {

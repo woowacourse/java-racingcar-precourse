@@ -27,14 +27,15 @@ public class Car {
         }
     }
 
-    public void printCurrentInfo() {
+    public String getCurrentInfo() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(name).append(Symbol.COLON_SPACE);
 
         for (int i = 0; i < position; i++) {
             stringBuilder.append(Symbol.HYPHEN);
         }
-        System.out.println(stringBuilder);
+        stringBuilder.append(Symbol.NEW_LINE);
+        return stringBuilder.toString();
     }
 
     private int pickRandomNumber() {
