@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,6 +12,7 @@ public class GameManager {
 
     private ArrayList<Car> cars;
     private int totalRound;
+    private int currRound = 0;
 
     public static GameManager getInstance() {
         if (GameManager.instance == null) {
@@ -27,6 +29,15 @@ public class GameManager {
         initCars();
         setRound();
 
+        System.out.println("실행결과");
+        while (currRound < totalRound) {
+            playRound();
+            currRound++;
+
+            printCurrentRoundStatus();
+        }
+
+        printWinners();
     }
 
     private void initCars() {
@@ -103,5 +114,61 @@ public class GameManager {
         }
 
         return Integer.parseInt(buffer);
+    }
+
+    private void playRound() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+            if (randomNumber >= 4) {
+                car.increasePosition();
+            }
+        }
+    }
+
+    private void printCurrentRoundStatus() {
+        StringBuilder sb = new StringBuilder();
+
+        for (Car car : cars) {
+            sb.append(String.format("%s : ", car.getName()));
+            for (int i = 0; i < car.getPosition(); i++) {
+                sb.append('-');
+            }
+            sb.append(System.lineSeparator());
+        }
+
+        System.out.println(sb);
+    }
+
+    private void printWinners() {
+        ArrayList<Car> winners = getWinners();
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("최종 우승자 : ");
+
+        sb.append(winners.get(0).getName());
+
+        for (int i = 1; i < winners.size(); i++) {
+            sb.append(String.format(", %s", winners.get(i)));
+        }
+
+        System.out.println(sb);
+    }
+
+    private ArrayList<Car> getWinners() {
+        ArrayList<Car> ret = new ArrayList<>();
+        int maxPosition = 0;
+
+        for (Car car : cars) {
+            maxPosition = Integer.max(maxPosition, car.getPosition());
+        }
+
+        for (Car car : cars) {
+            if (maxPosition == car.getPosition()) {
+                ret.add(car);
+            }
+        }
+
+        return ret;
     }
 }
