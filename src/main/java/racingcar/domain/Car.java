@@ -36,4 +36,8 @@ public class Car {
 		System.out.println(sb.toString());
 	}
 
+	public int compareTo(Car anotherCar) {
+		return Integer.compare(this.position, anotherCar.getPosition());
+	}
+
 }
