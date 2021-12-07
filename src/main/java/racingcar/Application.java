@@ -9,7 +9,7 @@ public class Application {
 
         while (true) {
             try {
-                System.out.println("경주할 자동차 이름은 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+                System.out.println(Constant.INPUT_MESSAGE_CAR_NAME);
                 user.enterCarName();
                 user.toNameArray();
                 CarNameException.validateCarName(user.getCarName());
@@ -21,7 +21,7 @@ public class Application {
 
         while (true) {
             try {
-                System.out.println("시도할 회수는 몇회인가요?");
+                System.out.println(Constant.INPUT_MESSAGE_TRY_TIMES);
                 user.enterTimes();
                 RoundTimesException.validateRoundTimes(user.getInputTimes());
                 user.toIntegerTimes();
@@ -30,6 +30,8 @@ public class Application {
                 System.out.println(e.getMessage());
             }
         }
+        System.out.println();
+        System.out.println(Constant.RACE_PROCESS);
 
         Game game = new Game();
 
@@ -44,7 +46,7 @@ public class Application {
 
         List<String> winner = game.getWinner(cars, frontPosition);
 
-        System.out.print("최종 우승자 : " + String.join(", ", winner));
+        System.out.print(Constant.FINAL_WINNER + String.join(Constant.FINAL_WINNER_JOIN_DELIMITER, winner));
 
     }
 }
