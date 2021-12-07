@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Car {
+public class Car implements Comparable<Car> {
 	private final String name;
 	private int position = 0;
 
@@ -8,7 +8,7 @@ public class Car {
 		validateName(name);
 		this.name = name;
 	}
-	
+
 	private static void validateName(String name) throws IllegalArgumentException {
 		if (name.isEmpty() || name.length() > 5) {
 			throw new IllegalArgumentException();
@@ -25,5 +25,10 @@ public class Car {
 
 	public int getPosition() {
 		return position;
+	}
+
+	@Override
+	public int compareTo(Car car) {
+		return (position - car.getPosition()) * -1;
 	}
 }

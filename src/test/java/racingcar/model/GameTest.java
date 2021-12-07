@@ -2,8 +2,6 @@ package racingcar.model;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -37,11 +35,25 @@ public class GameTest {
 	@DisplayName("게임 실행")
 	@Test
 	void play() {
-		Supplier<Integer> value = () -> 5;
-		Predicate<Integer> condition = i -> i > 4;
-		game.play(condition, value);
+		game.play(() -> 5, i -> i >= 4);
 		for (Car car : game.getCars()) {
 			assertThat(car.getPosition()).isEqualTo(1);
 		}
+	}
+
+	@DisplayName("우승자들")
+	@Test
+	void winners() {
+		List<Car> cars = game.getCars();
+		List<Car> winners = Arrays.asList(
+			cars.get(0),
+			cars.get(1)
+		);
+		winners.get(0).move();
+		winners.get(1).move();
+
+		game.play(() -> 5, i -> i >= 4);
+
+		assertThat(game.winners().containsAll(winners)).isTrue();
 	}
 }
