@@ -36,22 +36,13 @@ public class RacingGame {
 		return carsName.split(",");
 	}
 
-	private boolean checkStringIsNumber(String targetString) throws IllegalArgumentException {
-		for (int i = 0; i < targetString.length(); ++i) {
-			if (targetString.charAt(i) < '0' || targetString.charAt(i) > '9') {
-				throw new IllegalArgumentException();
-			}
-		}
-		return true;
-	}
-
 	private int getTryNumInput(Player player) {
 		boolean endCondition = false;
 		String totalTryNumInput = "";
 		while (!endCondition) {
 			totalTryNumInput = player.askQuestionReturnAnswer(QUESTION_TRY_NUM);
 			try {
-				endCondition = checkStringIsNumber(totalTryNumInput);
+				endCondition = rule.checkTotalTryNum(totalTryNumInput);
 			} catch (IllegalArgumentException e) {
 				player.sendMessage(ERROR_MESSAGE_CHECK_STRING_IS_NUMBER);
 			}

@@ -40,8 +40,25 @@ public class RacingGameRule {
 	}
 
 	protected boolean checkCarName(String carsName) throws IllegalArgumentException {
-		if (checkNoNameException(carsName) && checkNameLengthException(carsName) && checkNameDuplication(carsName))
+		if (checkNoNameException(carsName) && checkNameLengthException(carsName) && checkNameDuplication(carsName)) {
 			return true;
+		}
+		throw new IllegalArgumentException();
+	}
+
+	private boolean checkStringIsNumber(String targetString) {
+		for (int i = 0; i < targetString.length(); ++i) {
+			if (targetString.charAt(i) < '0' || targetString.charAt(i) > '9') {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	protected boolean checkTotalTryNum(String totalTryNum) throws IllegalArgumentException {
+		if (checkStringIsNumber(totalTryNum)) {
+			return true;
+		}
 		throw new IllegalArgumentException();
 	}
 }
