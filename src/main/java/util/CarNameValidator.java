@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import view.OutputView;
+
 public class CarNameValidator {
 	private static final int MIN_CAR_NAME_LENGTH = 1;
 	private static final int MAX_CAR_NAME_LENGTH = 5;
@@ -19,6 +21,7 @@ public class CarNameValidator {
 	private static void validateCarNameLength(String[] carNames) {
 		for (String car : carNames) {
 			if (car.length() < MIN_CAR_NAME_LENGTH || car.length() > MAX_CAR_NAME_LENGTH) {
+				OutputView.printCarNameLengthExceptionMessage();
 				throw new IllegalArgumentException();
 			}
 		}
@@ -29,6 +32,7 @@ public class CarNameValidator {
 		Collections.addAll(uniqueCarNames, carNames);
 
 		if (uniqueCarNames.size() != carNames.length) {
+			OutputView.printCarNameDuplicationExceptionMessage();
 			throw new IllegalArgumentException();
 		}
 	}

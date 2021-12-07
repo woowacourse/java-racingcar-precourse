@@ -1,5 +1,7 @@
 package util;
 
+import view.OutputView;
+
 public class MoveTimesValidator {
 	private MoveTimesValidator() {
 	}
@@ -13,12 +15,14 @@ public class MoveTimesValidator {
 		try {
 			Integer.parseInt(moveTimes);
 		} catch (NumberFormatException e) {
+			OutputView.printMoveTimesTypeExceptionMessage();
 			throw new IllegalArgumentException();
 		}
 	}
 
 	private static void validatePositiveNumber(String moveTimes) {
 		if (Integer.parseInt(moveTimes) < 0) {
+			OutputView.printMoveTimesNegativeExceptionMessage();
 			throw new IllegalArgumentException();
 		}
 	}

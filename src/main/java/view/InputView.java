@@ -16,7 +16,6 @@ public class InputView {
 		try {
 			CarNameValidator.validate(carNames);
 		} catch (Exception exception) {
-			OutputView.printCarNameLengthExceptionMessage();
 			getCarNames();
 		}
 		return carNames;
@@ -28,7 +27,6 @@ public class InputView {
 		try {
 			MoveTimesValidator.validate(moveTimes);
 		} catch (Exception exception) {
-			OutputView.printMoveTimesExceptionMessage();
 			getMoveTimes();
 		}
 		return Integer.parseInt(moveTimes);
