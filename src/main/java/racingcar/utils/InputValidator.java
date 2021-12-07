@@ -30,16 +30,17 @@ public class InputValidator {
     }
 
     private static void validateNames(List<String> names) {
-        if (names.stream().allMatch(name ->
-            !name.isEmpty() && name.length() <= NAME_MAX_LENGTH)) {
+        if (names.stream().anyMatch(name ->
+            name.isEmpty() || name.length() > NAME_MAX_LENGTH)) {
             throw new IllegalArgumentException(ERR_INVALID_NAMES);
         }
     }
 
     private static void validateFormat(String name, List<String> names) {
-        if (name.chars()
-            .filter(c -> c == DELIMITER_NAME_CHAR)
-            .count() + 1 == names.size()) {
+        final int expected = (int) (name.chars()
+            .filter(chr -> chr == DELIMITER_NAME_CHAR)
+            .count() + 1);
+        if (expected != names.size()) {
             throw new IllegalArgumentException(ERR_INVALID_FORMAT);
         }
     }
