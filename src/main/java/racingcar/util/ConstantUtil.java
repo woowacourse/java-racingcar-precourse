@@ -9,4 +9,5 @@ public class ConstantUtil {
 	public static final String DASH = "-";
 	public static final String INPUT_PATTERN = "[a-zA-Z0-9 ㄱ-ㅎㅏ-ㅣ가-힣,]";
 	public static final int SPLIT_LIMIT = -1;
+	public static final String SPLIT_DIGIT_ONE = "";
 }

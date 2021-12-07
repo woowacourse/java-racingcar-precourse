@@ -1,8 +1,9 @@
 package racingcar.util;
 
 import static racingcar.domain.Car.*;
-import static racingcar.util.SymbolicConstantUtil.*;
+import static racingcar.util.ConstantUtil.*;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,10 +29,11 @@ public class ValidationUtil {
 	}
 
 	public static void isValidateInputPattern(String value) {
-		for (char alpha : value.toCharArray()) {
-			if (!String.valueOf(alpha).matches(INPUT_PATTERN)) {
-				throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
-			}
+		final boolean isPattern = Arrays.stream(value.split(SPLIT_DIGIT_ONE))
+			.allMatch(alpha -> alpha.matches(INPUT_PATTERN));
+
+		if (!isPattern) {
+			throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
 		}
 	}
 
