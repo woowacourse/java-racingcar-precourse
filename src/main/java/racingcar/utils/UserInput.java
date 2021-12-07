@@ -30,12 +30,11 @@ public class UserInput {
     }
 
     private static <T> T getValidInput(Supplier<T> supplier) {
-        while (true) {
-            try {
-                return supplier.get();
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
+        try {
+            return supplier.get();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getValidInput(supplier);
         }
     }
 }
