@@ -30,6 +30,9 @@ public class RacingResult {
 		}
 	}
 
+	/**
+	 * 시도 횟수를 차감하며 자동차들을 움직인다.
+	 */
 	public void run() {
 		try {
 			validateEnd();
@@ -40,6 +43,10 @@ public class RacingResult {
 		}
 	}
 
+	/**
+	 * 현재 시점에 자동차들의 상태를 문자열로 반환한다.
+	 * @return 자동차들의 이름과 위치로 이루어진 문자열
+	 */
 	public String getPresentCarsStatus() {
 		return cars.toString();
 	}
