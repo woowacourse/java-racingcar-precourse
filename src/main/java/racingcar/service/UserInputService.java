@@ -39,7 +39,7 @@ public class UserInputService {
 	}
 
 	private String[] getValidNames(String input) {
-		String[] names = input.split(Constant.SPLIT_STRING);
+		String[] names = input.trim().split(Constant.SPLIT_STRING);
 
 		Validator.checkLastIndex(input);
 		Validator.checkValidNames(names);

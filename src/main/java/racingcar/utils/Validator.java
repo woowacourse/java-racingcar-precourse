@@ -19,10 +19,14 @@ public class Validator {
 	public static void checkValidNames(String[] names) {
 		Set<String> namesSet = new HashSet<>();
 		for (String name : names) {
-			if (!isValidNameLength(name) || isDuplicated(namesSet, name)) {
+			if (!isValidNameLength(name) || isDuplicated(namesSet, name) || isBlanked(name)) {
 				throw new IllegalArgumentException();
 			}
 		}
+	}
+
+	private static boolean isBlanked(String name) {
+		return name.trim().length() == 0;
 	}
 
 	private static boolean isDuplicated(Set<String> names, String name) {
