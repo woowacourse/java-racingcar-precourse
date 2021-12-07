@@ -23,11 +23,34 @@
   - 가장 많이 이동한 자동차 이름 출력하기
   - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분하기
 
-<br>
+## 📁 프로젝트 구조
+```
+│  .editorconfig
+│  naver-checkstyle-rules.xml
+│  naver-intellij-formatter.xml
+│  README.md
+└─src
+    ├─main
+    │  └─java
+    │      ├─constant
+    │      │      RacingCarGameMessage.java
+    │      │      RacingCarGameRule.java
+    │      │
+    │      └─racingcar
+    │              Application.java
+    │              Car.java
+    │              Checker.java
+    │              RacingCarGame.java
+    │              Referee.java
+    │              User.java
+    │
+    └─test
+        └─java
+            └─racingcar
+                    ApplicationTest.java
+```
 
-
-
-## 📝 프로젝트 구조
+## 📋 클래스 역할
 
 - RacingCarGame
   - 게임 시작하기
@@ -49,8 +72,6 @@
   - RacingCarGame의 rule에 관련된 상수 모음
 - RacingCarGameMessage
   - RacingCarGame의 message에 관련된 상수 모음
-
-<br>
 
 ---
 
