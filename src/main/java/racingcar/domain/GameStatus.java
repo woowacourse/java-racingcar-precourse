@@ -16,14 +16,14 @@ public class GameStatus {
 		return gameStatus;
 	}
 
-	public List<String> getWinnerNames() {
+	public String[] getWinnerNames() {
 		List<String> winnerNameList = new ArrayList<>();
 		for (String name : gameStatus.keySet()) {
 			if (gameStatus.get(name) == getMaxPosition()) {
 				winnerNameList.add(name);
 			}
 		}
-		return winnerNameList;
+		return winnerNameList.toArray(new String[0]);
 	}
 
 	private int getMaxPosition() {

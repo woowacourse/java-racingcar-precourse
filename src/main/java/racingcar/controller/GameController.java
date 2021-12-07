@@ -24,14 +24,23 @@ public class GameController {
 			Cars cars = Cars.generateCars(inputCarNames);
 			RacingCarGame racingCarGame = initRacingCarGame(cars);
 
-			while (!racingCarGame.isGameEnd()) {
-				racingCarGame.startRound();
-				GameStatus gameStatus = racingCarGame.generateGameStatus();
-				resultView.showRoundResult(gameStatus);
-			}
+			startGame(racingCarGame);
 		} catch (IllegalArgumentException e) {
 			ErrorView.printErrorMessage(e.getMessage());
 			init();
+		}
+	}
+
+	private void startGame(RacingCarGame racingCarGame) {
+		resultView.showResultHeader();
+		while (!racingCarGame.isGameEnd()) {
+			racingCarGame.startRound();
+			GameStatus gameStatus = racingCarGame.generateGameStatus();
+			resultView.showRoundResult(gameStatus);
+
+			if (racingCarGame.isGameEnd()) {
+				resultView.showWinners(gameStatus.getWinnerNames());
+			}
 		}
 	}
 
@@ -49,4 +58,5 @@ public class GameController {
 
 		return racingCarGame;
 	}
+
 }
