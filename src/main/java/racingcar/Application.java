@@ -39,6 +39,16 @@ public class Application {
         return winners;
     }
 
+    public void printWinners(ArrayList<String> winners) {
+        String result = "최종 우승자 : "+winners.get(0);
+        if (winners.size() > 1) {
+            for (int i=1; i< winners.size(); i++) {
+                result += ", "+winners.get(i);
+            }
+        }
+        System.out.println(result);
+    }
+
     public static void main(String[] args) {
         Application application = new Application();
 
@@ -51,5 +61,6 @@ public class Application {
         Car[] cars = application.makeCars(names);
         application.raceResult(cars, numberOfAttempts);
         ArrayList<String> winners = application.getWinners(cars);
+        application.printWinners(winners);
     }
 }
