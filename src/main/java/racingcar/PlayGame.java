@@ -14,6 +14,7 @@ public class PlayGame {
         CarName();
         PlayNum();
         Race();
+        WinPerson();
     }
 
     //초기 세팅 함수
@@ -51,6 +52,33 @@ public class PlayGame {
                 car.CarPlay();
             }
             System.out.println();
+        }
+    }
+
+    private void WinPerson(){
+        int maxNum = 0;
+        for(Car car : cars) {
+            maxNum = Math.max(maxNum, car.getPosition());
+        }
+        isMaxPosition(maxNum);
+    }
+
+    private void isMaxPosition(int maxNum) {
+        boolean comma = false;
+        System.out.print("최종 우승자 : ");
+        for(Car car : cars){
+            if(car.getPosition() == maxNum){
+                PrintWinPerson(comma, car);
+                comma = true;
+            }
+        }
+    }
+
+    private void PrintWinPerson(boolean comma, Car car){
+        if(comma){
+            System.out.print(", " + car.getName());
+        }else if(!comma){
+            System.out.print(car.getName());
         }
     }
 
