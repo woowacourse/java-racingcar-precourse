@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.util.SymbolicConstantUtil.*;
+import static racingcar.util.ConstantUtil.*;
 
 import java.util.Arrays;
 import java.util.List;

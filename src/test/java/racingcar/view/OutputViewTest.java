@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.util.SymbolicConstantUtil.*;
+import static racingcar.util.ConstantUtil.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

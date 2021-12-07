@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static racingcar.util.SymbolicConstantUtil.*;
+import static racingcar.util.ConstantUtil.*;
 
 import java.util.stream.Collectors;
 

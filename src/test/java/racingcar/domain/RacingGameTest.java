@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static racingcar.util.SymbolicConstantUtil.*;
+import static racingcar.util.ConstantUtil.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;

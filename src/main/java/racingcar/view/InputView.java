@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static racingcar.util.SymbolicConstantUtil.*;
+import static racingcar.util.ConstantUtil.*;
 import static racingcar.util.ValidationUtil.*;
 
 import camp.nextstep.edu.missionutils.Console;
