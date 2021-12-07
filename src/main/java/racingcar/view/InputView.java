@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import static racingcar.utils.Constant.*;
+
+import racingcar.utils.Validator;
+
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -9,17 +13,22 @@ public class InputView {
     public static List<String> requestCarInput() {
         List<String> result;
         String input;
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(REQUEST_CAR_NAMES);
         input = Console.readLine();
-        result = input;
+        while ((result = Validator.isValidNameList(input)).isEmpty()){
+            input = Console.readLine();
+        }
 
         return result;
     }
 
     public static int requestTryCount() {
         String input;
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(REQUEST_TRY_COUNT);
         input = Console.readLine();
+        while (!Validator.isValidCount(input)) {
+            input = Console.readLine();
+        }
         return Integer.parseInt(input);
     }
 }
