@@ -3,6 +3,7 @@ package racingcar.game;
 import static camp.nextstep.edu.missionutils.Console.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import racingcar.car.Car;
@@ -14,20 +15,38 @@ public class Game {
 	public Umpire umpire;
 
 	public Game() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String[] names = readLine().split(",");
+		String[] names = inputNames();
 		carList = makeCarList(names);
-
-		System.out.println("시도할 회수는 몇회인가요?");
 		num = inputNum();
-
+		System.out.println();
 		umpire = new Umpire(carList);
+	}
+
+	private String[] inputNames() {
+		long check = 1;
+		String[] names;
+		do {
+			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+			names = readLine().split(",");
+			check = checkLen(names);
+			if (check > 0) {
+				System.out.println("[ERROR] 이름은 5자 이하만 가능합니다");
+			}
+		} while (check > 0);
+		return names;
+	}
+
+	private long checkLen(String[] names) {
+		return Arrays.stream(names)
+			.filter(name -> name.length() > 5)
+			.count();
 	}
 
 	public void start() {
 		System.out.println("실행 결과");
 		for (int i = 0; i < num; i++) {
 			playGames();
+			System.out.println();
 		}
 	}
 
@@ -41,7 +60,7 @@ public class Game {
 		System.out.print("최종 우승자 : ");
 		for (int i = 0; i < winnersNameList.size(); i++) {
 			if (i == 0) {
-				System.out.println(winnersNameList.get(i));
+				System.out.print(winnersNameList.get(i));
 				return;
 			}
 			System.out.print(winnersNameList.get(i) + ", ");
@@ -73,6 +92,7 @@ public class Game {
 	}
 
 	private int inputNum() {
+		System.out.println("시도할 회수는 몇회인가요?");
 		int num;
 
 		try {
