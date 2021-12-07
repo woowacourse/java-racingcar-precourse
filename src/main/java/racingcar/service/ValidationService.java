@@ -3,8 +3,9 @@ package racingcar.service;
 import java.util.List;
 import java.util.Objects;
 
+import racingcar.type.NameType;
+
 public class ValidationService {
-	private static final int MAX_NAME_LENGTH = 5;
 
 	public static void checkCarNames(String names, String delimiter) {
 		if (names.isEmpty()) {
@@ -28,7 +29,7 @@ public class ValidationService {
 				throw new IllegalArgumentException("자동차의 이름은 빈 문자열이 될 수 없습니다.");
 			} else if (isInvalidCarNameLength(name)) {
 				throw new IllegalArgumentException(String.format("자동차의 이름은 %d글자 이하여야 합니다.",
-					MAX_NAME_LENGTH));
+					NameType.MAX_NAME_LENGTH.getType()));
 			}
 		}
 	}
@@ -60,7 +61,7 @@ public class ValidationService {
 
 	private static boolean isInvalidCarNameLength(String name) {
 
-		return MAX_NAME_LENGTH < name.length();
+		return NameType.MAX_NAME_LENGTH.getType() < name.length();
 	}
 
 	private static boolean hasDuplicatedCarName(List<String> names) {
