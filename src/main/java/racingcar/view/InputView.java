@@ -9,12 +9,12 @@ public class InputView {
     private static final String MESSAGE_TO_GET_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String DEFAULT_DELIMITER_OF_CAR_NAMES = ",";
     private static final int MAXIMUM_LENGTH_OF_CAR_NAME = 5;
-    public static final String ERROR_MESSAGE_FOR_INVALID_CAR_NAME_LENGTH = "[ERROR] 이름은 5자 이하만 가능하다 : ";
-    public static final String MESSAGE_TO_GET_ATTEMPT = "시도할 회수는 몇회인가요?";
-    public static final int MINIMUM_VALID_ATTEMPT = 1;
-    public static final String ERROR_MESSAGE_FOR_INVALID_ATTEMPT = "[ERROR] 시도 횟수는 숫자여야 한다 : ";
-    public static final String ERROR_MESSAGE_FOR_TOO_SMALL_ATTEMPT = "[ERROR] 시도 횟수는 1 이상의 정수여야 한다 : ";
-    public static final String VALID_ATTEMPT_PATTERN = "[0-9]+";
+    private static final String ERROR_MESSAGE_FOR_INVALID_CAR_NAME_LENGTH = "[ERROR] 이름은 5자 이하만 가능하다 : ";
+    private static final String MESSAGE_TO_GET_ATTEMPT = "시도할 회수는 몇회인가요?";
+    private static final int MINIMUM_VALID_ATTEMPT = 1;
+    private static final String ERROR_MESSAGE_FOR_INVALID_ATTEMPT = "[ERROR] 시도 횟수는 숫자여야 한다 : ";
+    private static final String ERROR_MESSAGE_FOR_TOO_SMALL_ATTEMPT = "[ERROR] 시도 횟수는 1 이상의 정수여야 한다 : ";
+    private static final String VALID_ATTEMPT_PATTERN = "[0-9]+";
 
     public static String[] getCarNames() {
         System.out.println(MESSAGE_TO_GET_CAR_NAMES);
