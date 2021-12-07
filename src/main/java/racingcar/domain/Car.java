@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.constant.Condition;
-import racingcar.constant.Input;
 
 public class Car implements Comparable<Car> {
     private final String name;
@@ -17,20 +16,6 @@ public class Car implements Comparable<Car> {
 
     public int getPosition() {
         return position;
-    }
-
-    public void isNameOutOfRange(String carName) throws IllegalArgumentException {
-        if (carName.length() > Condition.MAXIMUM_CAR_NAME_INPUT_LENGTH) {
-            System.out.println(Input.CAR_NAME_ABOVE_ERROR_MESSAGE);
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public void isNameNull(String carName) throws IllegalArgumentException {
-        if (carName.length() < Condition.MINIMUM_CAR_NAME_INPUT_LENGTH) {
-            System.out.println(Input.CAR_NAME_BELOW_ERROR_MESSAGE);
-            throw new IllegalArgumentException();
-        }
     }
 
     public void forward(int randomNumber) {

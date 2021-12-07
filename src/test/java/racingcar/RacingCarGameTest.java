@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import racingcar.constant.Condition;
+import racingcar.constant.Input;
 import racingcar.domain.Car;
 
 class RacingCarGameTest {
@@ -38,6 +39,20 @@ class RacingCarGameTest {
         }
     }
 
+    public void isNameOutOfRange(String carName) throws IllegalArgumentException {
+        if (carName.length() > Condition.MAXIMUM_CAR_NAME_INPUT_LENGTH) {
+            System.out.println(Input.CAR_NAME_ABOVE_ERROR_MESSAGE);
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void isNameNull(String carName) throws IllegalArgumentException {
+        if (carName.length() < Condition.MINIMUM_CAR_NAME_INPUT_LENGTH) {
+            System.out.println(Input.CAR_NAME_BELOW_ERROR_MESSAGE);
+            throw new IllegalArgumentException();
+        }
+    }
+
     @Test
     void 자동차_이름_입력_예외() {
         String[] carNames = {"Mike Wazowski", ""};
@@ -45,8 +60,8 @@ class RacingCarGameTest {
         Arrays.stream(carNames)
                 .forEach(name -> cars.add(new Car(name)));
 
-        assertThrows(IllegalArgumentException.class, () -> cars.get(0).isNameOutOfRange(cars.get(0).getName()));
-        assertThrows(IllegalArgumentException.class, () -> cars.get(1).isNameNull(cars.get(1).getName()));
+        assertThrows(IllegalArgumentException.class, () -> isNameOutOfRange(cars.get(0).getName()));
+        assertThrows(IllegalArgumentException.class, () -> isNameNull(cars.get(1).getName()));
     }
 
     @Test

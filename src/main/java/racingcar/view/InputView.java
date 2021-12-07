@@ -38,8 +38,8 @@ public class InputView {
 
     private void validateCarName(ArrayList<Car> cars) throws IllegalArgumentException {
         for (Car car : cars) {
-            car.isNameNull(car.getName());
-            car.isNameOutOfRange(car.getName());
+            isNameNull(car.getName());
+            isNameOutOfRange(car.getName());
         }
     }
 
@@ -57,6 +57,20 @@ public class InputView {
     private void hasOnlyComma(ArrayList<Car> cars) throws IllegalArgumentException {
         if (cars.size() == Condition.HAS_ONLY_COMMA) {
             System.out.println(Input.ONLY_COMMA_ERROR_MESSAGE);
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void isNameOutOfRange(String carName) throws IllegalArgumentException {
+        if (carName.length() > Condition.MAXIMUM_CAR_NAME_INPUT_LENGTH) {
+            System.out.println(Input.CAR_NAME_ABOVE_ERROR_MESSAGE);
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void isNameNull(String carName) throws IllegalArgumentException {
+        if (carName.length() < Condition.MINIMUM_CAR_NAME_INPUT_LENGTH) {
+            System.out.println(Input.CAR_NAME_BELOW_ERROR_MESSAGE);
             throw new IllegalArgumentException();
         }
     }
