@@ -4,16 +4,19 @@ import service.OneDigitNumberGenerator;
 import service.RandomNumberGenerator;
 import view.InputView;
 import domain.Car;
+import view.OutputView;
 
 import java.util.List;
 
 public class GameController {
     private final InputView inputView;
+    private final OutputView outputView;
     private final RandomNumberGenerator numberGenerator;
     private Car[] cars;
 
     GameController() {
         inputView = new InputView();
+        outputView = new OutputView();
         numberGenerator = new OneDigitNumberGenerator();
     }
 
@@ -37,6 +40,7 @@ public class GameController {
         for (int i = 0; i < gameCount; i++) {
             int[] numbers = generateNumberPerCar();
             moveCars(numbers);
+            outputView.printResultForOneGame(cars);
         }
     }
 
