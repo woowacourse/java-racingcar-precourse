@@ -39,9 +39,9 @@ public class Game {
 	}
 
 	private void inputRunNumber() {
-		PrintHandler.printInputNumberMsg();
 		String input;
 		do {
+			PrintHandler.printInputNumberMsg();
 			input = InputHandler.getNumberInput();
 		} while (!validateRunNumber(input));
 		runNumber = Integer.parseInt(input);
