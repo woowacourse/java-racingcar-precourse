@@ -10,6 +10,7 @@ public class GameController {
 		int tryNumber = Input.tryNumber();
 
 		CarList cars = new CarList(carNames);
+
 		Output.raceStartMsg();
 		for (int i = 0; i < tryNumber; i++) {
 			cars.moveAll();

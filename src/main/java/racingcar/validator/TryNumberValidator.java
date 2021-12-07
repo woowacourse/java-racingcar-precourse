@@ -5,11 +5,11 @@ public class TryNumberValidator {
 	static final String MSG_NOT_POSITIVE_INTEGER_ERROR = "[ERROR] 시도 횟수는 양의 정수여야 한다.";
 
 	public static void checkAll(String tryNumber) {
-		IsInteger(tryNumber);
-		IsPositiveInteger(tryNumber);
+		isInteger(tryNumber);
+		isPositiveInteger(tryNumber);
 	}
 
-	private static void IsInteger(String tryNumber) {
+	private static void isInteger(String tryNumber) {
 		try {
 			Integer.parseInt(tryNumber);
 		} catch (NumberFormatException exception) {
@@ -17,7 +17,7 @@ public class TryNumberValidator {
 		}
 	}
 
-	private static void IsPositiveInteger(String tryNumber) {
+	private static void isPositiveInteger(String tryNumber) {
 		int tryNumberInt = Integer.parseInt(tryNumber);
 		if (tryNumberInt <= 0) {
 			throw new IllegalArgumentException(MSG_NOT_POSITIVE_INTEGER_ERROR);
