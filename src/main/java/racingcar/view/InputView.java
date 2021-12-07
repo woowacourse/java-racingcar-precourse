@@ -10,6 +10,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.Message;
 
 public class InputView {
+
 	private static final int CAR_NAME_LENGTH_MIN = 1;
 	private static final int CAR_NAME_LENGTH_MAX = 5;
 	private static final char STRING_GAME_COUNT_MIN = '0';
@@ -18,6 +19,7 @@ public class InputView {
 
 	public static List<String> carNamesInput() {
 		List<String> carsNameList = new ArrayList<String>();
+
 		do {
 			System.out.println(Message.ASK_CAR_NAMES);
 			String carNames = Console.readLine();

@@ -15,7 +15,6 @@ public class Game {
 	private ArrayList<Car> winnerList = new ArrayList<Car>();
 	private ArrayList<String> stringWinnerList = new ArrayList<String>();
 
-
 	public void play() {
 		carsList = getCarsList();
 		gameCount = getGameCount();
