@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.data.GameData;
 
 public class Car {
 	private final String name;
@@ -24,7 +25,7 @@ public class Car {
 		}
 	}
 
-	public boolean isMoveSuccess() {
+	private boolean isMoveSuccess() {
 		return Randoms.pickNumberInRange(GameData.START_NUMBER, GameData.END_NUMBER) >= GameData.CRITERIA_NUMBER;
 	}
 }

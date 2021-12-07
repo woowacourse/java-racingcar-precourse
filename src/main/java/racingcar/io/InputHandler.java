@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.GameData;
+import racingcar.data.GameData;
 import racingcar.io.validator.InputValidator;
 
 public class InputHandler {
@@ -19,7 +19,7 @@ public class InputHandler {
 		outputHandler.printMessage(GameData.CARNAME_INPUT_MESSAGE);
 		while (true) {
 			try {
-				return readRacingCarNames();
+				return readCarNames();
 			} catch (IllegalArgumentException iae) {
 				outputHandler.printErrorMessage(iae);
 			}
@@ -30,14 +30,14 @@ public class InputHandler {
 		outputHandler.printMessage(GameData.TRY_INPUT_MESSAGE);
 		while (true) {
 			try {
-				return readCount();
+				return readTurnCount();
 			} catch (IllegalArgumentException iae) {
 				outputHandler.printErrorMessage(iae);
 			}
 		}
 	}
 
-	public List<String> readRacingCarNames() {
+	private List<String> readCarNames() {
 		String[] racingCarNames = parseRacingCarNames(Console.readLine());
 		List<String> results = new ArrayList<String>();
 		for (String racingCarName : racingCarNames) {
@@ -49,7 +49,7 @@ public class InputHandler {
 		return results;
 	}
 
-	public int readCount() {
+	private int readTurnCount() {
 		String input = Console.readLine();
 		InputValidator.validateTurnCountIsInteger(input);
 		int turnCount = Integer.parseInt(input);

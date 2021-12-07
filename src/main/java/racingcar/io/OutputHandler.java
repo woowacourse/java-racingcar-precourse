@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import racingcar.Car;
-import racingcar.GameData;
+import racingcar.domain.Car;
+import racingcar.data.GameData;
 
 public class OutputHandler {
 

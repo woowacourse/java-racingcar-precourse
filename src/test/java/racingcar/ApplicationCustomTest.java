@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import racingcar.data.GameData;
 
 class ApplicationCustomTest extends NsTest {
 

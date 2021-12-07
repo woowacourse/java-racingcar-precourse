@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import racingcar.domain.Car;
+
 public class Judgement {
 
-	public void judgeRanking(List<Car> carList) {
+	private void judgeRanking(List<Car> carList) {
 		Collections.sort(carList, new CarComparator());
 	}
 

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.data;
 
 public class GameData {
 

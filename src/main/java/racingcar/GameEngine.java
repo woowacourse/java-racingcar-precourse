@@ -3,14 +3,16 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+import racingcar.data.GameData;
+import racingcar.domain.Car;
 import racingcar.io.InputHandler;
 import racingcar.io.OutputHandler;
 
 public class GameEngine {
 
-	InputHandler inputHandler;
-	OutputHandler outputHandler;
-	Judgement judgement;
+	private InputHandler inputHandler;
+	private OutputHandler outputHandler;
+	private Judgement judgement;
 
 	public GameEngine(InputHandler inputHandler, OutputHandler outputHandler, Judgement judgement) {
 		this.inputHandler = inputHandler;
@@ -26,7 +28,7 @@ public class GameEngine {
 		outputHandler.printWinner(winnerList);
 	}
 
-	public void proceedGame(List<Car> carList, int turnCount) {
+	private void proceedGame(List<Car> carList, int turnCount) {
 		outputHandler.printBlankLine();
 		outputHandler.printMessage(GameData.RESULT_MESSAGE);
 		for (int i = 0; i < turnCount; i++) {
@@ -35,7 +37,7 @@ public class GameEngine {
 		}
 	}
 
-	public List<Car> generateCars(List<String> carNames) {
+	private List<Car> generateCars(List<String> carNames) {
 		List<Car> results = new ArrayList<Car>();
 		for (String carName : carNames) {
 			results.add(new Car(carName));
@@ -43,7 +45,7 @@ public class GameEngine {
 		return results;
 	}
 
-	public void tryMoveCars(List<Car> carList) {
+	private void tryMoveCars(List<Car> carList) {
 		for (Car car : carList) {
 			car.moveForward();
 		}

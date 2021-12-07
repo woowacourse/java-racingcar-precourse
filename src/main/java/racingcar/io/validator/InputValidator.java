@@ -3,7 +3,7 @@ package racingcar.io.validator;
 import java.util.Collections;
 import java.util.List;
 
-import racingcar.GameData;
+import racingcar.data.GameData;
 import racingcar.exception.NameContainsEmptyStringException;
 import racingcar.exception.NameDuplicatedException;
 import racingcar.exception.NameLengthException;
