@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.model;
+
+import racingcar.utils.RandomForward;
 
 public class Car {
 	private final String name;

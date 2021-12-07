@@ -1,7 +1,13 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.utils.RandomForward;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarController {
 	private final Cars cars;

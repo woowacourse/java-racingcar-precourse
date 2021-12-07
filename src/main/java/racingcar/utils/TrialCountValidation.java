@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils;
 
 public class TrialCountValidation {
 	private static final int MIN_BOUND = 1;

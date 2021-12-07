@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import racingcar.utils.RandomForward;
 
 public class Cars {
 	private final List<Car> cars;
