@@ -12,9 +12,9 @@ public class OutputView {
 		System.out.println(Constant.GAME_RESULT_ALARM_MESSAGE);
 	}
 
-	public static void showGameRoundResult(LinkedHashMap<Car, String> gameRoundResult) {
-		for (Car car : gameRoundResult.keySet()) {
-			System.out.println(car.getName() + " : " + gameRoundResult.get(car));
+	public static void showGameRoundResult(LinkedHashMap<String, String> gameRoundResult) {
+		for (String carName : gameRoundResult.keySet()) {
+			System.out.println(carName + " : " + gameRoundResult.get(carName));
 		}
 		System.out.println();
 	}

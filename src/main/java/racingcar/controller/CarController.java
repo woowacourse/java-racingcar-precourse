@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import racingcar.utils.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class Game {
+public class CarController {
 	private Cars cars;
 	private int gameRound;
 

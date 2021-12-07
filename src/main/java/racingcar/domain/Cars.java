@@ -20,11 +20,12 @@ public class Cars {
 		return Collections.unmodifiableList(cars);
 	}
 
-	public LinkedHashMap<Car, String> showCarsPosition() {
-		LinkedHashMap<Car, String> roundResult = new LinkedHashMap<>();
+	public LinkedHashMap<String, String> showCarsPosition() {
+		LinkedHashMap<String, String> roundResult = new LinkedHashMap<>();
 		for (Car car : cars) {
 			String carPosition = car.makeCarProgressSign(car.getPosition());
-			roundResult.put(car, carPosition);
+			String carName = car.getName();
+			roundResult.put(carName, carPosition);
 		}
 		return roundResult;
 	}
