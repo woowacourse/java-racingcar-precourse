@@ -8,6 +8,8 @@ public class Car {
 	private final String carName;
 	private int position = 0;
 
+	private final int PROCEED_NUM_MIN = 4;
+
 	public Car(String carName) {
 		this.carName = carName;
 	}

@@ -7,6 +7,12 @@ import java.util.Set;
 import static racingcar.utils.ConstantNum.*;
 
 public class Validation {
+	private final int CAR_NAME_LENGTH_MIN = 1;
+	private final int CAR_NAME_LENGTH_MAX = 5;
+	private final char STRING_GAME_COUNT_MIN = '0';
+	private final char STRING_GAME_COUNT_MAX = '9';
+	private final int ZERO_GAME_COUNT = 0;
+
 	public void LESS_MORE_NAME_ERROR(List<String> carsList) {
 		for (int i = 0; i < carsList.size(); i++) {
 			if (carsList.get(i).length() < CAR_NAME_LENGTH_MIN || carsList.get(i).length() > CAR_NAME_LENGTH_MAX) {
