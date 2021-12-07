@@ -14,7 +14,7 @@ class CarsTest {
 
     @DisplayName("이름 리스트와 MovingPolicy이 주어지면 정상적으로 생성된다.")
     @Test
-    void constructor_movingConditionThenNotNull_success() {
+    void constructor_MovingConditionThenNotNull_Success() {
         // given
         MovingPolicy movingPolicy = new RandomMovingPolicy();
         List<String> names = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
@@ -41,7 +41,7 @@ class CarsTest {
 
     @DisplayName("isMoving이 true이면 position이 일괄적으로 증가한다.")
     @Test
-    void move_isMovingThenTrue_carsIncreasePosition() {
+    void move_IsMovingThenTrue_CarsIncreasePosition() {
         // given
         MovingPolicy movingPolicy = () -> true;
         List<String> names = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
@@ -57,7 +57,7 @@ class CarsTest {
 
     @DisplayName("isMoving이 false이면 position은 일괄적으로 정지한다.")
     @Test
-    void move_isMovingThenFalse_carsStopPosition() {
+    void move_IsMovingThenFalse_CarsStopPosition() {
         // given
         MovingPolicy movingPolicy = () -> false;
         List<String> names = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
@@ -72,7 +72,7 @@ class CarsTest {
 
     @DisplayName("최종 우승자 안내 문구를 생성한다.")
     @Test
-    void getWinnersNames_cars_create() {
+    void getWinnersNames_Cars_WinnerNamesReturn() {
         // given
         MovingPolicy movingPolicy = () -> true;
         List<String> names = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));

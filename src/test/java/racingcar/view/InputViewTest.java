@@ -39,7 +39,7 @@ class InputViewTest {
     @DisplayName("경주할 자동차 이름을 입력 받으면 쉼표를 기준으로 나눠 리스트를 반환한다.")
     @ParameterizedTest
     @MethodSource("getNamesMethodSourceProvider")
-    void getNames_inputNames_ListReturn(String inputNames, int size) {
+    void getNames_InputNames_ListReturn(String inputNames, int size) {
         // given
         System.setIn(generateStream(inputNames));
         InputView inputView = generateInputView();
@@ -56,7 +56,7 @@ class InputViewTest {
     @DisplayName("시도할 회수를 입력하면 검증을 거쳐 시도 회수를 반환한다.")
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "3", "4", "5"})
-    void getTryCount_inputTryCount_TryCountReturn(String inputTryCount) {
+    void getTryCount_StringTryCount_IntegerTryCountReturn(String inputTryCount) {
         // given
         System.setIn(generateStream(inputTryCount));
         InputView inputView = generateInputView();

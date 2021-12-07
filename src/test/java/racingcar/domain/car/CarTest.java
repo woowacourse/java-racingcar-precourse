@@ -13,7 +13,7 @@ class CarTest {
     @DisplayName("이름의 길이가 5이하인 경우 정상적으로 생성된다.")
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "woni", "jun"})
-    void constructor_nameLessThen5_create(String name) {
+    void constructor_NameLessThen5_Success(String name) {
         // given
         MovingPolicy randomMovingPolicy = new RandomMovingPolicy();
 
@@ -66,7 +66,7 @@ class CarTest {
 
     @DisplayName("movingPolicy의 isMoving이 true이면 position이 1 증가한다.")
     @Test
-    void move_isMovingThenTrue_increasePosition() {
+    void move_IsMovingThenTrue_IncreasePosition() {
         // given
         MovingPolicy movingPolicy = () -> true;
         Car car = new Car("pobi", movingPolicy);
@@ -80,7 +80,7 @@ class CarTest {
 
     @DisplayName("movingPolicy의 isMoving이 false이면 position은 정지한다.")
     @Test
-    void move_isMovingThenFalse_stopPosition() {
+    void move_IsMovingThenFalse_StopPosition() {
         // given
         MovingPolicy movingPolicy = () -> false;
         Car car = new Car("pobi", movingPolicy);
@@ -94,7 +94,7 @@ class CarTest {
 
     @DisplayName("name과 position을 활용하여 상태 메시지를 생성한다.")
     @Test
-    void getStateMessage_nameAndPosition_create() {
+    void getStateMessage_NameAndPosition_StateMessageReturn() {
         // given
         MovingPolicy movingPolicy = () -> true;
         Car car = new Car("pobi", movingPolicy);

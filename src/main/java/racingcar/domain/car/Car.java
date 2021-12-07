@@ -46,7 +46,7 @@ public class Car {
             throw new IllegalArgumentException(CAR_NAME_OVER_LENGTH.getMessage());
         }
     }
-    
+
     protected void move() {
         if (movingPolicy.isMoving()) {
             position++;
