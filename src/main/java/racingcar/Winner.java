@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Winner {
     private Car[] cars;
-    ArrayList<String> result;
+    private ArrayList<String> result;
 
     public Winner(Car[] cars){
         this.cars = cars;
@@ -13,7 +13,7 @@ public class Winner {
     }
 
 
-    public void grading(){
+    private void grading(){
         int i = cars.length - 1;
         do{
             result.add(cars[i].getName());
@@ -31,7 +31,7 @@ public class Winner {
         return "최종 우승자 : " + answer;
     }
 
-    public String arrayToString() {
+    private String arrayToString() {
         StringBuilder stringBuilder = new StringBuilder();
         for(String name : result) {
             stringBuilder.append(name).append(',');
