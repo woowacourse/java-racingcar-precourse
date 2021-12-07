@@ -5,7 +5,7 @@ public class UserInputValidator {
 	public static boolean checkNameLength(String[] names){
 
 		for(String name : names){
-			if(name.length() > 6){
+			if(name.length() > 5){
 				throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 가능하다.");
 			}
 		}
