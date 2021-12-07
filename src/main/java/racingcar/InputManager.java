@@ -34,7 +34,7 @@ public class InputManager {
 
 	public void scanNumberOfMove() {
 		boolean numberScan = true;
-		System.out.println(TRY_NUMBER);
+		System.out.println(TRY_NUMBER_INPUT);
 		while (numberScan) {
 			try {
 				String numberOfMove = Console.readLine();

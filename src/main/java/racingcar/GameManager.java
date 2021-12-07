@@ -47,9 +47,9 @@ public class GameManager {
 
 	public void printCarMoveResult() {
 		for (Car car : cars) {
-			System.out.print(car.getName() + " : ");
+			System.out.print(car.getName() + COLON_SIGN);
 			for (int i = 0; i < car.getPosition(); i++) {
-				System.out.print("-");
+				System.out.print(MOVE_SIGN);
 			}
 			System.out.println();
 		}
@@ -57,7 +57,7 @@ public class GameManager {
 	}
 
 	public void printWinner() {
-		System.out.print(FINAL_WINNER + " : ");
+		System.out.print(FINAL_WINNER + COLON_SIGN);
 		if (winner.size() == 1) {
 			System.out.print(winner.get(0));
 			return;
@@ -65,7 +65,7 @@ public class GameManager {
 		for (int i = 0; i < winner.size(); i++) {
 			System.out.print(winner.get(i));
 			if (i != winner.size() - 1) {
-				System.out.print(", ");
+				System.out.print(COMMA_SIGN);
 			}
 		}
 		System.out.println();
