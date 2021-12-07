@@ -3,9 +3,10 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Randoms.*;
 
 public class Car implements Comparable<Car> {
-    private final String name;
     private final int CONDITION_TO_MOVE = 4;
     private final int READY_POSITION = 0;
+    private final String name;
+
     private int position = READY_POSITION;
 
     public Car(String name) {
