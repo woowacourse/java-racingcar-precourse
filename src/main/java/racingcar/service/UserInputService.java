@@ -34,6 +34,7 @@ public class UserInputService {
 			return getValidNames(input);
 		} catch (IllegalArgumentException e) {
 			System.out.println(Message.ERROR_INVALID_NAME_FORMAT);
+			System.out.println(Message.START);
 			return new String[]{};
 		}
 	}
@@ -64,6 +65,7 @@ public class UserInputService {
 			return Validator.checkValidStage(input);
 		} catch (IllegalArgumentException e) {
 			System.out.println(Message.ERROR_INVALID_STAGE_VALUE);
+			System.out.println(Message.ASK_STAGES);
 			return Constant.INVALID_STAGE_NUMBER;
 		}
 	}
