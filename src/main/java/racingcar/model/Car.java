@@ -2,6 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.RandomCondition;
+import racingcar.util.Symbol;
 
 public class Car {
     private final String name;
@@ -15,14 +16,20 @@ public class Car {
         return name;
     }
 
-    public void moveForwardOrStop() {
+    public void movePosition() {
         if (pickRandomNumber() >= RandomCondition.MOVABLE) {
             position++;
         }
     }
 
-    public void getCurrentInfo() {
-        // TODO: 자동차 이름과 위치 정보
+    public void printCurrentInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(name).append(Symbol.COLON_SPACE);
+
+        for (int i = 0; i < position; i++) {
+            stringBuilder.append(Symbol.HYPHEN);
+        }
+        System.out.println(stringBuilder);
     }
 
     private int pickRandomNumber() {

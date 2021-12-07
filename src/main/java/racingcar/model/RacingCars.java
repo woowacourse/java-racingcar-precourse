@@ -3,10 +3,18 @@ package racingcar.model;
 import java.util.List;
 
 public class RacingCars {
-    private List<Car> racingCars;
+    private final List<Car> racingCars;
 
     public RacingCars(List<Car> racingCars) {
         this.racingCars = racingCars;
+    }
+
+    public void moveForwardOrStop() {
+        racingCars.forEach(Car::movePosition);
+    }
+
+    public void getRacingCarsInfo() {
+        racingCars.forEach(Car::printCurrentInfo);
     }
 
     public void pickWinner() {

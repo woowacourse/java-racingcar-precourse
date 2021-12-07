@@ -19,4 +19,13 @@ public class RaceService {
     public void createRace(int numberOfRaces, RacingCars racingCars) {
         this.race = new Race(numberOfRaces, racingCars);
     }
+
+    public void repeatRace() {
+        for (int i=0; i<race.getNumberOfRaces(); i++) {
+            RacingCars racingCars = race.getRacingCars();
+            racingCars.moveForwardOrStop();
+            racingCars.getRacingCarsInfo();
+            System.out.println();
+        }
+    }
 }
