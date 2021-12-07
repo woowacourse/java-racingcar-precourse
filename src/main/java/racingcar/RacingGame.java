@@ -15,11 +15,12 @@ public class RacingGame {
 	private static final String SPACE_COLON_SPACE = " : ";
 
 	private int totalTryNum;
-	private Car[] cars;
 	private RacingGameRule rule;
+	private RacingGameCarManager carManager;
 
 	RacingGame() {
 		rule = new RacingGameRule();
+		carManager = new RacingGameCarManager();
 	}
 
 	private String[] getCarsNameInput(Player player) {
@@ -50,17 +51,10 @@ public class RacingGame {
 		return Integer.parseInt(totalTryNumInput);
 	}
 
-	private void makeCarInstance(String[] carNameBucket) {
-		cars = new Car[carNameBucket.length];
-		for (int i = 0; i < carNameBucket.length; ++i) {
-			cars[i] = new Car(carNameBucket[i]);
-		}
-	}
-
 	private void init(Player player) {
 		String[] carNameBucket = getCarsNameInput(player);
 		totalTryNum = getTryNumInput(player);
-		makeCarInstance(carNameBucket);
+		carManager.makeCarInstance(carNameBucket);
 		player.sendMessage(AFTER_INIT_MESSAGE);
 	}
 
