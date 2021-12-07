@@ -58,6 +58,7 @@ public class Car {
 			}
 
 		}
+
 		return maxPosition;
 	}
 

@@ -58,6 +58,7 @@ public class Checker {
 			}
 
 		}
+
 	}
 
 	private void checkNamesDuplication(String input) {
@@ -72,6 +73,7 @@ public class Checker {
 
 			namesSet.add(name);
 		}
+
 	}
 
 	public boolean checkNumberOfTimes(String input) {
@@ -95,13 +97,14 @@ public class Checker {
 			}
 
 		}
+
 	}
 
 	private void checkInputExceedInteger(String input) {
 		try {
 			int test = Integer.parseInt(input);
 		} catch (Exception e) {
-			throw new IllegalArgumentException(ERROR_MESSAGE_EXCEED_INTEGER);
+			throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_EXCEED_INTEGER);
 		}
 	}
 

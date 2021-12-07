@@ -20,7 +20,7 @@ public class RacingCarGameMessage {
 	public static final String ERROR_MESSAGE_NAME_CONTAINS_TAP = "자동차 이름에 탭이 포함될 수 없습니다.";
 	public static final String ERROR_MESSAGE_NAME_DUPLICATION = "자동차 이름은 중복될 수 없습니다.";
 	public static final String ERROR_MESSAGE_INPUT_IS_NOT_POSITIVE_NUBMER_OR_ZERO = "1이상의 숫자를 입력해주세요.";
-	public static final String ERROR_MESSAGE_EXCEED_INTEGER = "시도할 회수는 최대 " + Integer.MAX_VALUE + "번까지 가능합니다.";
+	public static final String ERROR_MESSAGE_INPUT_EXCEED_INTEGER = "시도할 회수는 최대 " + Integer.MAX_VALUE + "번까지 가능합니다.";
 	public static final String ERROR_MESSAGE_INPUT_IS_ZERO = "1이상의 숫자를 입력해주세요.";
 
 	public static final String RESULT_MESSAGE = "실행 결과";
