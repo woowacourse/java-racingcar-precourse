@@ -11,16 +11,14 @@ public class Cars {
     }
 
     protected List<String> makeWinnerList(final List<Car> cars) {
-        final List<String> winners = new ArrayList<>();
         Car winnerCarPosition = cars.get(0);
+        winnerCarPosition = findWinnerPosition(cars, winnerCarPosition);
 
-        for (Car car : cars) {
-            if (car.isFaster(winnerCarPosition)) {
-                winnerCarPosition = car;
-            }
-        }
+        return addWinner(cars, winnerCarPosition);
+    }
 
-        System.out.println(winnerCarPosition.getCarName());
+    protected List<String> addWinner(List<Car> cars, Car winnerCarPosition) {
+        final List<String> winners = new ArrayList<>();
 
         for (Car car : cars) {
             if (car.isWinner(winnerCarPosition)) {
@@ -29,6 +27,16 @@ public class Cars {
         }
 
         return winners;
+    }
+
+    protected Car findWinnerPosition(List<Car> cars, Car winnerCarPosition) {
+        for (Car car : cars) {
+            if (car.isFaster(winnerCarPosition)) {
+                winnerCarPosition = car;
+            }
+        }
+
+        return winnerCarPosition;
     }
 
 }
