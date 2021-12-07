@@ -1,6 +1,13 @@
+### 2주차 미션　
+
 # 자동차 경주 게임
 
-## 기능 목록
+![Code: Java](https://img.shields.io/badge/code-java-orange)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+　
+
+## 🏎️ 기능 목록
 
 1. 경주에 참여할 자동차의 이름을 복수 단위로 이름을 입력받는다. (쉼표(,)로 구분)
 
@@ -46,18 +53,57 @@
 
 11. 최종 우승자 명단을 출력한다.
 
-## Requirement
+
+## 🏎️ 최종 디렉토리 구조
+```
+└─java-racingcar-precourse
+    │
+└─src
+    ├─main
+    │  └─java
+    │      └─racingcar
+    │          │  Application.java
+    │          │  MainController.java
+    │          │
+    │          ├─racing
+    │          │  │  RacingController.java
+    │          │  │
+    │          │  └─domain
+    │          │          Car.java
+    │          │          Cars.java
+    │          │
+    │          ├─service
+    │          │      ValidationService.java
+    │          │
+    │          ├─type
+    │          │      DelimiterType.java
+    │          │      RandomConditionType.java
+    │          │      TextType.java
+    │          │
+    │          └─view
+    │                  InputView.java
+    │                  OutputView.java
+    │
+    └─test
+        └─java
+            └─racingcar
+                    ApplicationTest.java
+                    ValidationServiceTest.java
+```
+
+
+## ✔️ Requirement
 
 - [Java 8](https://www.oracle.com/java/technologies/java8.html)
 - [Gradle](https://gradle.org/) (5.4.1 + )
 
-## Initialize
+## ✔️ Initialize
 
 ```bash
 $ git clone https://github.com/xfrnk2/java-racingcar-precourse.git
 ```
 
-## Test
+## ✔️ Test
 
 [Mac](https://www.apple.com/za/macos/what-is/) or [Linux](https://www.linux.org/)
 
@@ -71,9 +117,10 @@ $ ./gradlew clean test
 $ gradlew.bat clean test
 ```
 
-## License
+## ✔️ License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+
 
 
 
