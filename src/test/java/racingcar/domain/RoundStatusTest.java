@@ -22,11 +22,11 @@ class RoundStatusTest {
 		RoundStatus roundStatus = new RoundStatus(hashMap);
 
 		String[] winnerNames = roundStatus.getWinnerNames();
-		String[] expected = new String[] {"바흐"};
+		String[] actual = new String[] {"바흐"};
 
 		Set<String> winnerNamesSet = new HashSet<>(Arrays.asList(winnerNames));
-		Set<String> expectedSet = new HashSet<>(Arrays.asList(expected));
-		assertEquals(winnerNamesSet, expectedSet);
+		Set<String> actualSet = new HashSet<>(Arrays.asList(actual));
+		assertEquals(winnerNamesSet, actualSet);
 	}
 
 	@Test
@@ -39,11 +39,11 @@ class RoundStatusTest {
 		RoundStatus roundStatus = new RoundStatus(hashMap);
 
 		String[] winnerNames = roundStatus.getWinnerNames();
-		String[] expected = new String[] {"바흐", "쇼팽"};
+		String[] actual = new String[] {"바흐", "쇼팽"};
 
 		Set<String> winnerNamesSet = new HashSet<>(Arrays.asList(winnerNames));
-		Set<String> expectedSet = new HashSet<>(Arrays.asList(expected));
-		assertEquals(winnerNamesSet, expectedSet);
+		Set<String> actualSet = new HashSet<>(Arrays.asList(actual));
+		assertEquals(winnerNamesSet, actualSet);
 	}
 
 }
