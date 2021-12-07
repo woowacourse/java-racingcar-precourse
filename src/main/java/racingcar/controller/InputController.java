@@ -16,10 +16,22 @@ public class InputController {
 			InputView.carNameUI();
 			String input = Console.readLine();
 			validateContainDelimiter(input);
-			String[] names = Console.readLine().split(NAME_DELIMITER);
+			String[] names = input.split(NAME_DELIMITER);
 			return toCars(names);
 		} catch (IllegalArgumentException e) {
 			return createCars();
+		}
+	}
+
+	public static int createCount() {
+		try {
+			InputView.countUI();
+			String input = Console.readLine();
+			validateIsNumber(input);
+			validateIsZero(input);
+			return Integer.parseInt(input);
+		} catch (IllegalArgumentException e) {
+			return createCount();
 		}
 	}
 
@@ -29,6 +41,20 @@ public class InputController {
 			cars.add(new Car(name));
 		}
 		return cars;
+	}
+
+	private static void validateIsZero(String input) throws IllegalArgumentException {
+		if (Integer.parseInt(input) == 0) {
+			throw new IllegalArgumentException();
+		}
+	}
+
+	private static void validateIsNumber(String input) throws IllegalArgumentException {
+		for (int i = 0; i < input.length(); i++) {
+			if (!Character.isDigit(input.charAt(i))) {
+				throw new IllegalArgumentException();
+			}
+		}
 	}
 
 	public static void validateContainDelimiter(String input) throws IllegalArgumentException {
