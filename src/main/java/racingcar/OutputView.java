@@ -28,7 +28,7 @@ public class OutputView {
 	}
 
 	private void printResultByAttempt(Cars cars) {
-		for (Car car : cars.getCars()) {
+		for (Car car : cars.getList()) {
 			System.out.println(car.getName() + " : " + changePositionToDash(car.getPosition()));
 		}
 		System.out.println();

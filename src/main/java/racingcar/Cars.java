@@ -20,7 +20,7 @@ public class Cars {
 		addCarsToList(names);
 	}
 
-	public List<Car> getCars() {
+	public List<Car> getList() {
 		return cars;
 	}
 
