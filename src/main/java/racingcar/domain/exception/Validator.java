@@ -8,6 +8,7 @@ public class Validator implements CarNameValidator, RepetitionNumberValidator {
     private static final int MAX_LENGTH = 5;
     private static final int MIN_SIZE = 2;
     private static final int REPETITION_MIN_RANGE = 1;
+
     private static final String ERROR = "[ERROR]";
     private static final String CAR_NAME_MIN_LENGTH_ERROR_MESSAGE = " 자동차 이름은 공백일 수 없습니다.";
     private static final String CAR_NAME_MAX_LENGTH_ERROR_MESSAGE = " 자동차 이름은 5글자 이하여야합니다. ";

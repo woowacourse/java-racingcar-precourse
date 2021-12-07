@@ -8,7 +8,7 @@ import racingcar.view.Output;
 public class RacingCarGame {
     private Cars cars;
     private RepetitionNumber repetitionNumber;
-    private Input input;
+    private final Input input;
 
     public RacingCarGame(Input input) {
         this.input = input;

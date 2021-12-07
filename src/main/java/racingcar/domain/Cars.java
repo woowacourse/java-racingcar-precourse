@@ -15,6 +15,7 @@ public class Cars {
     public Cars(String names, CarNameValidator nameValidator) {
         cars = new ArrayList<>();
         String[] nameArr = names.split(DELIMITER);
+
         if (nameValidator.isAllValid(nameArr)) {
             for (String name : nameArr) {
                 cars.add(createCar(name));

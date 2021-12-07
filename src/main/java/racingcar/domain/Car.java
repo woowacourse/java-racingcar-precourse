@@ -6,7 +6,9 @@ public class Car implements Comparable<Car> {
     private static final int MIN_RANDOM_VALUE = 0;
     private static final int MAX_RANDOM_VALUE = 9;
     private static final int MOVE_STANDARD_VALUE = 4;
+
     private static final String STEP = "-";
+
     private final String name;
     private int position = 0;
 

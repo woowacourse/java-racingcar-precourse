@@ -22,7 +22,7 @@
 - [객체 지향적인 자동차 경주 설계](https://github.com/her0807/java-racingcar-precourse/wiki/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5%EC%A0%81%EC%9D%B8-%EC%9E%90%EB%8F%99%EC%B0%A8-%EA%B2%BD%EC%A3%BC-%EA%B2%8C%EC%9E%84-%EC%84%A4%EA%B3%84)
 - [Getter / Setter 를 쓰지 말아야하는 이유가 뭘까?](https://github.com/her0807/java-racingcar-precourse/wiki/Getter---Setter--%EB%A5%BC-%EC%93%B0%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0%EA%B0%80-%EB%AD%98%EA%B9%8C%3F)
 - [좋은 네이밍이란 무엇일까?](https://github.com/her0807/java-racingcar-precourse/wiki/%EC%A2%8B%EC%9D%80-%EB%84%A4%EC%9D%B4%EB%B0%8D%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%3F)
-- ["pobi, jun," 을 String.split(",") 으로 분할하면 배열의 크기는 3일까?](https://github.com/her0807/java-racingcar-precourse/wiki/%22pobi,-jun,%22-%EC%9D%84--String.split-%EC%9C%BC%EB%A1%9C-%EB%B6%84%ED%95%A0%ED%95%98%EB%A9%B4--%EB%B0%B0%EC%97%B4%EC%9D%98-%ED%81%AC%EA%B8%B0%EB%8A%94-3%EC%9D%BC%EA%B9%8C%3F)
+- ["pobi, jun," 을 String.split(",") 으로 분할하면 배열의 크기는 3일까?](https://github.com/her0807/java-racingcar-precourse/wiki/%22pobi,-jun,%22-%EC%9D%84--String.split(%22,%22)-%EC%9C%BC%EB%A1%9C-%EB%B6%84%ED%95%A0%ED%95%98%EB%A9%B4--%EB%B0%B0%EC%97%B4%EC%9D%98-%ED%81%AC%EA%B8%B0%EB%8A%94-3%EC%9D%BC%EA%B9%8C%3F)
 - [의존성 주입이란?](https://github.com/her0807/java-racingcar-precourse/wiki/%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85%EC%9D%B4-%EB%AD%98%EA%B9%8C%3F-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C%3F)
 - [스트림이 뭘까?](https://github.com/her0807/java-racingcar-precourse/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%BC%EC%9D%B4-%EB%AD%98%EA%B9%8C%3F)
 

@@ -13,6 +13,7 @@ public class Output {
     private static final String DELIMITER = ", ";
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String FINAL_WINNER_RESULT_MESSAGE = "최종 우승자";
+
     private static StringBuilder stringBuilder = new StringBuilder();
 
     private Output() {

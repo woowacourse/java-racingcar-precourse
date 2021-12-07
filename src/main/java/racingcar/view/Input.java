@@ -6,7 +6,7 @@ import racingcar.domain.RepetitionNumber;
 import racingcar.domain.exception.Validator;
 
 public class Input {
-    public Validator validator;
+    private Validator validator;
 
     public Input(Validator validator) {
         this.validator = validator;
