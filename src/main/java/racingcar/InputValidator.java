@@ -6,35 +6,35 @@ import java.util.Set;
 
 public class InputValidator {
 
-    public void validateCarNameListInput(String[] nameList) {
+    public static void validateCarNameListInput(String[] nameList) {
         for (String name : nameList) {
             validateLength(name);
         }
         validateExistDuplicateName(nameList);
     }
 
-    public void validateTryNumber(String input) {
+    public static void validateTryNumber(String input) {
         validateStringIsNumber(input);
         validateNumberIsMoreThanZero(Integer.parseInt(input));
     }
 
-    private void validateStringIsNumber(String input) {
+    private static void validateStringIsNumber(String input) {
         if (!input.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "1 이상의 숫자여야 한다.");
         }
     }
 
-    private void validateNumberIsMoreThanZero(int number) {
+    private static void validateNumberIsMoreThanZero(int number) {
         if (number < 1) throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "1 이상의 숫자여야 한다.");
     }
 
-    private void validateLength(String name) {
+    private static void validateLength(String name) {
         if (name.length() > RacingCarConstant.CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "자동차의 이름은 " + RacingCarConstant.CAR_NAME_MAX_LENGTH + "자 이하여야 한다.");
         }
     }
 
-    private void validateExistDuplicateName(String[] nameList) {
+    private static void validateExistDuplicateName(String[] nameList) {
         Set<String> set = new HashSet<>(Arrays.asList(nameList));
         if (set.size() != nameList.length)
             throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "중복된 자동차의 이름을 입력할 수 없다.");

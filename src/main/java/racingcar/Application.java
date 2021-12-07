@@ -2,8 +2,7 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        InputValidator inputValidator = new InputValidator();
-        RacingGame racingGame = new RacingGame(inputValidator);
+        RacingGame racingGame = new RacingGame();
         racingGame.play();
     }
 }
