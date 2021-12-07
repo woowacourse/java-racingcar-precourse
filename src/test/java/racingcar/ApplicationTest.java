@@ -27,10 +27,10 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(
-            () -> {
-                runException("pobi,javaji");
-                assertThat(output()).contains(ERROR_MESSAGE);
-            }
+                () -> {
+                    runException("pobi,javaji");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
         );
     }
 
