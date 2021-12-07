@@ -2,25 +2,19 @@ package model.car;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import model.movement.Movement;
-import model.movement.RandomMovement;
 
 class CarsTest {
     private final boolean[] movement = new boolean[]{true, false, true};
     private int movementIndex = 0;
-    private final Movement randomMovement = new RandomMovement() {
-        @Override
-        public boolean canMove() {
-            return movement[movementIndex++];
-        }
-    };
+    private final Movement randomMovement = () -> movement[movementIndex++];
     private final List<String> carNames = Arrays.asList("Chris", "Henry", "Paul");
     private final Cars cars = new Cars(carNames);
 
