@@ -33,11 +33,14 @@ public class GameExecutor {
 
     public int getCount() {
         String inputCount;
+        int count;
 
         System.out.println(INPUT_COUNT_MESSAGE);
         inputCount = Console.readLine().trim();
         Validator.validateCountInputFormat(inputCount);
+        count = Integer.parseInt(inputCount);
+        Validator.validateCount(count);
 
-        return Integer.parseInt(inputCount);
+        return count;
     }
 }
