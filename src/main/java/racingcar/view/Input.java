@@ -5,8 +5,6 @@ import racingcar.validator.CarNameValidator;
 import racingcar.validator.TryNumberValidator;
 
 public class Input {
-	static final int CAR_NAME_LENGTH = 5;
-
 	public static String[] carName() {
 		String[] carNames;
 		do {
@@ -36,20 +34,17 @@ public class Input {
 
 	private static boolean checkCarNames(String[] carNames) {
 		try {
-			for (String carName : carNames) {
-				CarNameValidator.checkLength(carName, CAR_NAME_LENGTH);
-				CarNameValidator.IsEmpty(carName);
-			}
+			CarNameValidator.checkAll(carNames);
 			return true;
 		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
 			return false;
 		}
 	}
 
 	private static boolean checkTryNumber(String tryNumber) {
 		try {
-			TryNumberValidator.IsInteger(tryNumber);
-			TryNumberValidator.IsPositiveInteger(tryNumber);
+			TryNumberValidator.checkAll(tryNumber);
 			return true;
 		} catch (IllegalArgumentException exception) {
 			System.out.println(exception.getMessage());
