@@ -30,7 +30,7 @@ class InputData {
 				throw new IllegalArgumentException(ERROR_MORE_THAN_FIVE);
 			}
 		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 		return MoreThanFive;
@@ -67,7 +67,7 @@ class InputData {
 				throw new IllegalArgumentException(ERROR_DIGIT_FALSE);
 			}
 		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 
 			return number;
 		}
@@ -78,7 +78,7 @@ class InputData {
 				throw new IllegalArgumentException(ERROR_LESS_THAN_ZERO);
 			}
 		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 		return number;
