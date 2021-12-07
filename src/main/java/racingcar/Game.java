@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.view.InputView;
@@ -16,9 +17,8 @@ public class Game {
 
 
 	public void play() {
-		InputView iV = new InputView();
-		carsList = iV.getCarsList();
-		gameCount = iV.getGameCount();
+		carsList = getCarsList();
+		gameCount = getGameCount();
 		race(carsList, gameCount);
 		pickWinner();
 		printWinner();
@@ -72,4 +72,25 @@ public class Game {
 			stringWinnerList.add(winnerList.get(i).getCarName());
 		}
 	}
+
+	public ArrayList<Car> getCarsList() {
+		List<String> carsNameList = InputView.carNamesInput();
+		createCarsList(carsNameList);
+		return carsList;
+	}
+
+	public void createCarsList(List<String> carsNameList) {
+		for (int i = 0; i < carsNameList.size(); i++) {
+			carsList.add(new Car(carsNameList.get(i)));
+		}
+	}
+
+	public int getGameCount() {
+		String stringGameCount = InputView.gameCountInput();
+		gameCount = Integer.parseInt(stringGameCount);
+		System.out.println(gameCount);
+		return gameCount;
+	}
 }
+
+

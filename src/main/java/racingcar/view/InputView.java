@@ -2,23 +2,21 @@ package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 import racingcar.utils.Message;
-import racingcar.utils.Validation;
 
 public class InputView {
-	private ArrayList<Car> carsList = new ArrayList<Car>();
+	private static final int CAR_NAME_LENGTH_MIN = 1;
+	private static final int CAR_NAME_LENGTH_MAX = 5;
+	private static final char STRING_GAME_COUNT_MIN = '0';
+	private static final char STRING_GAME_COUNT_MAX = '9';
+	private static final int ZERO_GAME_COUNT = 0;
 
-	public ArrayList<Car> getCarsList() {
-		List<String> carsNameList = carNamesInput();
-		createCarsList(carsNameList);
-		return carsList;
-	}
-
-	public List<String> carNamesInput() {
+	public static List<String> carNamesInput() {
 		List<String> carsNameList = new ArrayList<String>();
 		do {
 			System.out.println(Message.ASK_CAR_NAMES);
@@ -30,13 +28,7 @@ public class InputView {
 		return carsNameList;
 	}
 
-	public void createCarsList(List<String> carsNameList) {
-		for (int i = 0; i < carsNameList.size(); i++) {
-			carsList.add(new Car(carsNameList.get(i)));
-		}
-	}
-
-	public int getGameCount() {
+	public static String gameCountInput() {
 		String stringGameCount = "";
 		int gameCount = 0;
 
@@ -45,24 +37,16 @@ public class InputView {
 			stringGameCount = Console.readLine();
 		} while (!checkRightGameCount(stringGameCount));
 
-		gameCount = gameCountParser(stringGameCount);
-		System.out.println(gameCount);
-		return gameCount;
+		return stringGameCount;
 	}
 
-	public int gameCountParser(String stringGameCount) {
-		int gameCount = Integer.parseInt(stringGameCount);
-		return gameCount;
-	}
-
-	public boolean checkRightNames(List<String> carsNameList) {
+	public static boolean checkRightNames(List<String> carsNameList) {
 		boolean isRightNames = true;
-		Validation validation = new Validation();
 
 		try {
-			validation.LESS_MORE_NAME_ERROR(carsNameList);
-			validation.CONTAIN_SAME_NAME_ERROR(carsNameList);
-			validation.WHITE_SPACE_NAME_ERROR(carsNameList);
+			lessMoreNameError(carsNameList);
+			containSameNameError(carsNameList);
+			whiteSpaceNameError(carsNameList);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			isRightNames = false;
@@ -70,18 +54,59 @@ public class InputView {
 		return isRightNames;
 	}
 
-	public boolean checkRightGameCount(String stringGameCount) {
+	public static boolean checkRightGameCount(String stringGameCount) {
 		boolean isRightNumeric = true;
-		Validation validation = new Validation();
 
 		try {
-			validation.NON_NUMERIC_GAME_COUNT_ERROR(stringGameCount);
-			validation.ZERO_GAME_COUNT_ERROR(stringGameCount);
+			nonNumericGameCountError(stringGameCount);
+			zeroGameCountError(stringGameCount);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			isRightNumeric = false;
 		}
 		return isRightNumeric;
+	}
+
+	public static void lessMoreNameError(List<String> carsList) {
+		for (int i = 0; i < carsList.size(); i++) {
+			if (carsList.get(i).length() < CAR_NAME_LENGTH_MIN || carsList.get(i).length() > CAR_NAME_LENGTH_MAX) {
+				throw new IllegalArgumentException(Message.LESS_MORE_NAME_ERROR);
+			}
+		}
+	}
+
+	public static void containSameNameError(List<String> carsList) {
+		Set<String> carsSet = new HashSet<String>();
+		for (int i = 0; i < carsList.size(); i++) {
+			carsSet.add(carsList.get(i));
+		}
+
+		if (carsSet.size() < carsList.size()) {
+			throw new IllegalArgumentException(Message.CONTAIN_SAME_NAME_ERROR);
+		}
+	}
+
+	public static void whiteSpaceNameError(List<String> carsList) {
+		for (int i = 0; i < carsList.size(); i++) {
+			if (carsList.get(i).trim().isEmpty()) {
+				throw new IllegalArgumentException(Message.WHITE_SPACE_NAME_ERROR);
+			}
+		}
+	}
+
+	public static void nonNumericGameCountError(String stringGameCount) {
+		for (int i = 0; i < stringGameCount.length(); i++) {
+			if (stringGameCount.charAt(i) < STRING_GAME_COUNT_MIN || STRING_GAME_COUNT_MAX < stringGameCount.charAt(
+					i)) {
+				throw new IllegalArgumentException(Message.NON_NUMERIC_GAME_COUNT_ERROR);
+			}
+		}
+	}
+
+	public static void zeroGameCountError(String stringGameCount) {
+		if (stringGameCount.equals(ZERO_GAME_COUNT)) {
+			throw new IllegalArgumentException(Message.ZERO_GAME_COUNT_ERROR);
+		}
 	}
 
 }
