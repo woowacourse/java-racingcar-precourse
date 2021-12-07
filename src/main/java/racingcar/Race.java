@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Race {
     public static Game game = new Game();
+    public static List<Car> cars;
 
     public static void generateCarName(User user) {
         while (true) {
@@ -36,7 +37,7 @@ public class Race {
     public static void printRaceProcess(User user) {
         System.out.println();
         System.out.println(Constant.RACE_PROCESS);
-        List<Car> cars = game.makeCarObject(user.getCarName());
+        cars = game.makeCarObject(user.getCarName());
 
         for (int i = 0; i < user.getTimes(); i++) {
             game.runCarRacingOneRound(cars);
