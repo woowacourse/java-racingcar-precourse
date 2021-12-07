@@ -9,6 +9,7 @@ public class Car {
     public static final int MOVABLE_RANGE_MIN = 0;
     public static final int MOVABLE_RANGE_MAX = 9;
     public static final String ROAD = "-";
+    public static final String CAR_NAME_LENGTH_MESSAGE = "[ERROR] 자동차 이름은 1자 이상 5자 이하여야 한다.";
 
     private final String name;
     private int position = 0;
@@ -20,7 +21,7 @@ public class Car {
 
     private void validName(String name) {
         if (name.length() < CAR_NAME_MIN_LENGTH || name.length() > CAR_NAME_MAX_LENGTH) {
-            System.out.println("[ERROR] 자동차 이름은 1자 이상 5자 이하여야 한다.");
+            System.out.println(CAR_NAME_LENGTH_MESSAGE);
             throw new IllegalArgumentException();
         }
     }
