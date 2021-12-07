@@ -11,7 +11,6 @@ public class GameData {
 	private String trackStatus;
 	private int counts;
 
-
 	public void makeData(String[] names, int counts) {
 		for (String carName: names) {
 			Car car = new Car(carName);
@@ -26,10 +25,6 @@ public class GameData {
 		return trackStatus;
 	}
 
-	public void setTrackStatus(String trackStatus) {
-		this.trackStatus = trackStatus;
-	}
-
 	public List<Car> getCars() {
 		return cars;
 	}
@@ -38,19 +33,7 @@ public class GameData {
 		this.cars = cars;
 	}
 
-	public TrackInterface getTrack() {
-		return track;
-	}
-
-	public void setTrack(TrackInterface track) {
-		this.track = track;
-	}
-
 	public int getCounts() {
 		return counts;
-	}
-
-	public void setCounts(int counts) {
-		this.counts = counts;
 	}
 }
