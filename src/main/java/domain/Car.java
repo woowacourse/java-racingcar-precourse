@@ -1,12 +1,15 @@
-package racingcar.domain;
+package domain;
 
 public class Car {
-    private int position = 0;
-
     private final String name;
+    private int position = 0;
 
     public Car(String name) {
         this.name = name;
+    }
+
+    public void progress() {
+        this.position += 1;
     }
 
     public String getName() {
@@ -15,12 +18,6 @@ public class Car {
 
     public int getPosition() {
         return this.position;
-    }
-
-    public void move(Engine engine) {
-        if (engine.getDigit() >= GO_FORWARD_NUM) {
-            this.position += GO_FORWARD_DISTANCE;
-        }
     }
 }
 
