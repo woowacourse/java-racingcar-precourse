@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,13 +21,12 @@ class GameStatusTest {
 
 		GameStatus gameStatus = new GameStatus(hashMap);
 
-		List<String> winnerNames = gameStatus.getWinnerNames();
-		List<String> expected = Arrays.asList("바흐");
-		assertTrue(
-			winnerNames.size() == expected.size() &&
-				winnerNames.containsAll(expected) &&
-				expected.containsAll(winnerNames)
-		);
+		String[] winnerNames = gameStatus.getWinnerNames();
+		String[] expected = new String[] {"바흐"};
+
+		Set<String> winnerNamesSet = new HashSet<>(Arrays.asList(winnerNames));
+		Set<String> expectedSet = new HashSet<>(Arrays.asList(expected));
+		assertEquals(winnerNamesSet, expectedSet);
 	}
 
 	@Test
@@ -38,13 +38,12 @@ class GameStatusTest {
 
 		GameStatus gameStatus = new GameStatus(hashMap);
 
-		List<String> winnerNames = gameStatus.getWinnerNames();
-		List<String> expected = Arrays.asList("바흐", "쇼팽");
-		assertTrue(
-			winnerNames.size() == expected.size() &&
-				winnerNames.containsAll(expected) &&
-				expected.containsAll(winnerNames)
-		);
+		String[] winnerNames = gameStatus.getWinnerNames();
+		String[] expected = new String[] {"바흐", "쇼팽"};
+		
+		Set<String> winnerNamesSet = new HashSet<>(Arrays.asList(winnerNames));
+		Set<String> expectedSet = new HashSet<>(Arrays.asList(expected));
+		assertEquals(winnerNamesSet, expectedSet);
 	}
 
 }
