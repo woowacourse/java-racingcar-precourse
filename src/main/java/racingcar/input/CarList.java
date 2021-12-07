@@ -9,11 +9,13 @@ import racingcar.domain.Car;
 import racingcar.exception.ErrorMessage;
 
 public class CarList {
-
+	private static final int NAME_LENGTH_LIMIT = 5;
+	private static final String INPUT_SPLITTER = ",";
 	private static final String INPUT_ERROR_MESSAGE_LENGTH = "각 자동차의 이름은 다섯글자 이하여야 합니다.";
 	private static final String INPUT_ERROR_MESSAGE_EMPTY = "자동차 이름을 하나 이상 입력해야 합니다.";
 	private static final String INPUT_ERROR_MESSAGE_DUPLICATE = "자동차 이름이 중복되지 않아야 합니다.";
 	private static final String INPUT_ERROR_MESSAGE_SPACE = "자동차 이름에 공백이 포함되지 않아야 합니다.";
+	private static final String BLANK = " ";
 
 	private static List<String> carNames = new ArrayList<>();
 
@@ -25,7 +27,7 @@ public class CarList {
 	private static void getValidCarNamesByUserInput() {
 		while (carNames.isEmpty() || isInvalid()) {
 			String input = Console.readLine();
-			carNames = Arrays.asList(input.split(","));
+			carNames = Arrays.asList(input.split(INPUT_SPLITTER));
 		}
 	}
 
@@ -42,7 +44,7 @@ public class CarList {
 			isEmptyInput();
 			isLengthSixOrMore();
 			isNameDuplicate();
-			ContainSpaceOnName();
+			containBlankInName();
 			return false;
 		} catch (IllegalArgumentException e) {
 			ErrorMessage.print(e.getMessage());
@@ -58,7 +60,7 @@ public class CarList {
 
 	private static void isLengthSixOrMore() {
 		for (String name : carNames) {
-			if (name.length() > 5) {
+			if (name.length() > NAME_LENGTH_LIMIT) {
 				throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_LENGTH);
 			}
 		}
@@ -70,9 +72,9 @@ public class CarList {
 		}
 	}
 
-	private static void ContainSpaceOnName() {
+	private static void containBlankInName() {
 		for (String name : carNames) {
-			if (name.contains(" ")) {
+			if (name.contains(BLANK)) {
 				throw new IllegalArgumentException(INPUT_ERROR_MESSAGE_SPACE);
 			}
 		}

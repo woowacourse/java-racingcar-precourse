@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
+	private static final String THE_WINNER_IS = "최종 우승자 : ";
 
 	private static final List<String> winners = new ArrayList<>();
 
@@ -20,7 +21,7 @@ public class Winner {
 	}
 
 	private static String makeMessage() {
-		StringBuilder builder = new StringBuilder("최종 우승자 : " + winners.get(0));
+		StringBuilder builder = new StringBuilder(THE_WINNER_IS + winners.get(0));
 		for (int i = 1; i < winners.size(); i++) {
 			builder.append(", ").append(winners.get(i));
 		}
