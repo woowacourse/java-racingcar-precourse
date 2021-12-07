@@ -9,9 +9,13 @@ public class RandomMovingPolicy implements MovingPolicy {
 
     @Override
     public boolean isMoving() {
-        if (Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE) >= MOVE_CONDITION) {
+        if (getRandomNumber() >= MOVE_CONDITION) {
             return true;
         }
         return false;
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
     }
 }
