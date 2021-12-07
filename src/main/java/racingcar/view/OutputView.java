@@ -6,6 +6,7 @@ public class OutputView {
 	public static final String INPUT_COUNT_INSTRUCTION = "시도할 회수는 몇회인가요?";
 	public static final String ERROR = "[ERROR] ";
 	public static final String FINAL_WINNER_INSTRUCTION = "최종 우승자 : ";
+	public static final String RESULT_INSTRUCTION = "실행 결과";
 
 	public static void printInputNamesInstruction() {
 		System.out.println(INPUT_NAMES_INSTRUCTION);
@@ -30,5 +31,9 @@ public class OutputView {
 
 	public static void printNameOfFinalWinners(String nameOfWinners) {
 		System.out.println(nameOfWinners);
+	}
+
+	public static void printResultInstruction() {
+		System.out.println(RESULT_INSTRUCTION);
 	}
 }

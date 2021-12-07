@@ -26,6 +26,7 @@ public class Controller {
 	private void runRacing(RacingGame racingGame, Cars cars, Count count) {
 		racingGame.init();
 		racingGame.insert(cars);
+		OutputView.printResultInstruction();
 		while (count.isRacingEnd()) {
 			racingGame.start();
 			reportResultEveryRound(racingGame);
