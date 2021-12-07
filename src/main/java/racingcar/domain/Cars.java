@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import static java.util.stream.Collectors.*;
+import static racingcar.utils.Constant.*;
+import static racingcar.utils.Constant.ZERO_NUMBER;
 
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class Cars {
 
     public void playRound() {
         for (Car car : cars) {
-            car.moveOrStay(Randoms.pickNumberInRange(0, 9));
+            car.moveOrStay(Randoms.pickNumberInRange(ZERO_NUMBER, MAXIMUM_NUMBER));
         }
     }
 
@@ -32,13 +34,13 @@ public class Cars {
         return cars.stream()
                 .filter(car -> car.isMaxPosition(winnerPosition))
                 .map(Car::getName)
-                .collect(joining(", "));
+                .collect(joining(JOIN_WITH));
     }
 
     private int findMaxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(0);
+                .orElse(ZERO_NUMBER);
     }
 }
