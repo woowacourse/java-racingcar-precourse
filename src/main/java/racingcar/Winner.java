@@ -27,6 +27,6 @@ public class Winner {
         Arrays.sort(cars);
         grading();
         String answer = stringBuilder.toString();
-        return answer;
+        return "최종 우승자 : " + answer;
     }
 }
