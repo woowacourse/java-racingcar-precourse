@@ -63,11 +63,11 @@ public class RacingGame {
 	}
 
 	public int generateRandomNumber() {
-		return Randoms.pickNumberInRange(1, 9);
+		return Randoms.pickNumberInRange(Constant.START_RANDOM_NUMBER, Constant.END_RANDOM_NUMBER);
 	}
 
 	public boolean isMovable(int randomNumber) {
-		return randomNumber >= 4;
+		return randomNumber >= Constant.MINIMUM_MOVABLE_NUMBER;
 	}
 
 	public void printCurrentResult() {

@@ -18,10 +18,10 @@ public class User {
 	}
 
 	public boolean isValidateName(String name) {
-		if (name.length() > 5) {
+		if (name.length() > Constant.MAXIMUM_NAME_NUMBER) {
 			return false;
 		}
-		return name.length() != 0;
+		return name.length() != Constant.INVALID_NAME_LENGTH;
 	}
 
 	public Integer getGameNumber() {
