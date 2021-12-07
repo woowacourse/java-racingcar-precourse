@@ -6,16 +6,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingCarGameTest {
-	static MoveRule defaultRule = new DefaultRule();
 	private static Cars cars;
 
 	@BeforeAll
 	static void setupCars() {
-		cars = Cars.generateCars("바흐,모차르트,쇼팽", defaultRule);
+		cars = Cars.generateCars("바흐,모차르트,쇼팽");
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"0", "다섯", "04", "열3"})
+	@ValueSource(strings = {"0", "다섯", "04", "열3", "", "4 "})
 	void validateRoundNumberTest(String roundNumber) {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			RacingCarGame racingCarGame = RacingCarGame.generateGame(roundNumber, cars);
