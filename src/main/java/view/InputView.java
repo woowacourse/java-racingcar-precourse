@@ -2,6 +2,7 @@ package view;
 
 import camp.nextstep.edu.missionutils.Console;
 import util.CarNameValidator;
+import util.MoveTimesValidator;
 
 public class InputView {
 
@@ -26,7 +27,7 @@ public class InputView {
 		OutputView.printMoveTimesInputMessage();
 		String moveTimes = Console.readLine();
 		try {
-			validateMoveTimes(moveTimes);
+			MoveTimesValidator.validate(moveTimes);
 		} catch (Exception exception) {
 			OutputView.printMoveTimesExceptionMessage();
 			getMoveTimes();
@@ -34,12 +35,5 @@ public class InputView {
 		return Integer.parseInt(moveTimes);
 	}
 
-	private static void validateMoveTimes(String moveTimes) {
-		try {
-			Integer.parseInt(moveTimes);
-		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException();
-		}
 
-	}
 }
