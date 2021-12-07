@@ -3,9 +3,10 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import racingcar.utils.Constant;
+
 public class RacingGame {
 	private static final RacingGame racingGame = new RacingGame();
-	public static final String DELIMITER_FOR_NAMES = ", ";
 	private Cars cars;
 
 	private RacingGame() {
@@ -35,6 +36,6 @@ public class RacingGame {
 		List<Car> CarOfWinners = this.cars.findWinners();
 		return CarOfWinners.stream()
 			.map(Car::toString)
-			.collect(Collectors.joining(DELIMITER_FOR_NAMES));
+			.collect(Collectors.joining(Constant.DELIMITER_FOR_NAMES));
 	}
 }

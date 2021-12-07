@@ -3,14 +3,12 @@ package racingcar.domain;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
+import racingcar.utils.Constant;
 import racingcar.utils.Util;
 
 public class Car {
-	public static final int START_POSITION = 0;
-	public static final int MOVING_STANDARD_NUMBER = 4;
-	public static final int START_INCLUSIVE = 0;
 	private final String name;
-	private int position = START_POSITION;
+	private int position = Constant.START_POSITION;
 
 	public Car(String name) {
 		this.name = name;
@@ -36,7 +34,7 @@ public class Car {
 	}
 
 	public void move() {
-		if (Util.getRandomNumber() >= MOVING_STANDARD_NUMBER)
+		if (Util.getRandomNumber() >= Constant.MOVING_STANDARD_NUMBER)
 			this.position++;
 	}
 
@@ -44,7 +42,7 @@ public class Car {
 		StringBuilder result = new StringBuilder();
 		result.append(this.name);
 		result.append(" : ");
-		IntStream.range(START_INCLUSIVE, this.position)
+		IntStream.range(Constant.START_INCLUSIVE, this.position)
 			.forEach(i -> result.append("-"));
 		return result.toString();
 	}
