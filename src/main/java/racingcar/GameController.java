@@ -6,7 +6,7 @@ import view.InputView;
 import domain.Car;
 import view.OutputView;
 
-import java.util.List;
+import java.util.*;
 
 public class GameController {
     private final InputView inputView;
@@ -33,7 +33,12 @@ public class GameController {
         List<String> names = inputView.getNames();
         initCars(names);
         int gameCount = inputView.getCount();
+
         processGame(gameCount);
+
+        List<String> winners = checkWinners();
+
+        outputView.printFinalResult(winners);
     }
 
     private void processGame(int gameCount) {
@@ -56,5 +61,20 @@ public class GameController {
         for (int i = 0; i < cars.length; i++) {
             cars[i].moveOrStop(numbers[i]);
         }
+    }
+
+    private List<String> checkWinners() {
+        List<Car> sortedCars = new LinkedList<>(Arrays.asList(cars));
+        sortedCars.sort(Comparator.comparingInt(Car::getPosition).reversed());
+
+        List<String> winners = new LinkedList<>();
+
+        int max = sortedCars.get(0).getPosition();
+        for (Car car : sortedCars) {
+            if (car.getPosition() < max) break;
+            winners.add(car.getName());
+        }
+
+        return winners;
     }
 }
