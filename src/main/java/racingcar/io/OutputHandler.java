@@ -1,8 +1,11 @@
-package racingcar;
+package racingcar.io;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
+
+import racingcar.Car;
+import racingcar.GameData;
 
 public class OutputHandler {
 

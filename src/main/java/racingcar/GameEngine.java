@@ -3,6 +3,9 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+import racingcar.io.InputHandler;
+import racingcar.io.OutputHandler;
+
 public class GameEngine {
 
 	InputHandler inputHandler;

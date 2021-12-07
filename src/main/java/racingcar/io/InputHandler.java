@@ -1,9 +1,11 @@
-package racingcar;
+package racingcar.io;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.GameData;
+import racingcar.io.validator.InputValidator;
 
 public class InputHandler {
 
