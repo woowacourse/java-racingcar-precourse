@@ -19,6 +19,7 @@ public class RaceController {
     public void run() {
         setRace();
         startRace();
+        finishRace();
     }
 
     public void setRace() {
@@ -34,6 +35,6 @@ public class RaceController {
     }
 
     public void finishRace() {
-        // TODO: 최종 우승자 출력
+        raceOutputView.outputWinner(raceService.getRaceWinners());
     }
 }

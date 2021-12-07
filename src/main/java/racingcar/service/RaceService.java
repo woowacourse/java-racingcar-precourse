@@ -3,6 +3,7 @@ package racingcar.service;
 import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.model.RacingCars;
+import racingcar.util.Symbol;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,5 +28,19 @@ public class RaceService {
             racingCars.getRacingCarsInfo();
             System.out.println();
         }
+    }
+
+    public String getRaceWinners() {
+        StringBuilder stringBuilder = new StringBuilder();
+        List<String> winners = race.getRacingCars().pickWinner();
+
+        for (int i = 0; i < winners.size(); i++) {
+            stringBuilder.append(winners.get(i));
+
+            if (i < winners.size() - 1) {
+                stringBuilder.append(Symbol.COMMA_SPACE);
+            }
+        }
+        return stringBuilder.toString();
     }
 }

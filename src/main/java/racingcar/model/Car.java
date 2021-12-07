@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 import racingcar.util.RandomCondition;
 import racingcar.util.Symbol;
 
@@ -14,6 +15,10 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     public void movePosition() {

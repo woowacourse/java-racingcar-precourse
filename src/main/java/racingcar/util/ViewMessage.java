@@ -5,7 +5,7 @@ public enum ViewMessage {
     INPUT_NUMBER_OF_RACES("시도할 회수는 몇회인가요?"),
 
     OUTPUT_EXECUTION_RESULT("실행 결과"),
-    OUTPUT_WINNER("최종 우승자 : ");
+    OUTPUT_WINNER("최종 우승자");
 
     private final String message;
 
