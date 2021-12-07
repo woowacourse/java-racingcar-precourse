@@ -10,7 +10,7 @@ public class Cars {
 	}
 
 	public Cars() {
-		carList = new ArrayList<Car>();
+		carList = new ArrayList<>();
 	}
 
 	public void appendCar(String carName) {

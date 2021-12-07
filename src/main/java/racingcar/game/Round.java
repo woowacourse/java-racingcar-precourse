@@ -17,10 +17,9 @@ public class Round {
 		System.out.println();
 	}
 
-	private int MOVE_STANDARD = 4;
-	Dice dice = new Dice();
-
-	class CheckPoint {
+	private class CheckPoint {
+		final int CHECK_STANDARD = 4;
+		Dice dice = new Dice();
 		Car car;
 
 		CheckPoint(Car car) {
@@ -28,7 +27,7 @@ public class Round {
 		}
 
 		void checkIn() {
-			if (dice.roll() >= MOVE_STANDARD) {
+			if (dice.roll() >= CHECK_STANDARD) {
 				car.move();
 			}
 			printPosition();

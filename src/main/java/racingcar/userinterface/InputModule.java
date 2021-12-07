@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 class InputModule {
 	private String innerValue;
-	private String regularExpression;
-	private String errorMessage;
+	private final String regularExpression;
+	private final String errorMessage;
 
 	InputModule(String regularExpression, String errorMessage) {
 		this.regularExpression = regularExpression;

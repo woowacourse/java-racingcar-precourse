@@ -17,8 +17,7 @@ public class Input {
 	public int getRepeatNum() {
 		String regularExpression = "^[1-9][0-9]*";
 		InputModule repeatModule = new InputModule(regularExpression, REPEAT_NUM_INPUT_REGULAR);
-		int repeatNum = Integer.parseInt(repeatModule.getValue());
 
-		return repeatNum;
+		return Integer.parseInt(repeatModule.getValue());
 	}
 }
