@@ -15,4 +15,8 @@ public class Names {
 	public static Names from(List<String> list) {
 		return new Names(list);
 	}
+
+	public List<Name> getNames() {
+		return this.names;
+	}
 }
