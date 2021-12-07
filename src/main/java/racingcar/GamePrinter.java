@@ -36,7 +36,7 @@ public class GamePrinter {
 
 
 
-		System.out.print("최종우승자 : ");
+		System.out.print("최종 우승자 : ");
 		System.out.print(champions[0]);
 
 		for(int i = 1; i < champions.length; i++){
