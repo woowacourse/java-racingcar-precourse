@@ -29,12 +29,16 @@ public class Game {
     }
 
     private void initCars() {
+        outputManager.printCarNamesInputComment();
+
         for (String name : inputManager.getCarNames()) {
             cars.add(new Car(name));
         }
     }
 
     private void initTryCount() {
+        outputManager.printTryCountInputComment();
+
         tryCount = inputManager.getTryCount();
     }
 
