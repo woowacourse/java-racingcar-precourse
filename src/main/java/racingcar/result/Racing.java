@@ -1,5 +1,8 @@
 package racingcar.result;
 
+import java.util.List;
+
+import racingcar.Car;
 import racingcar.Cars;
 import racingcar.exception.ImpossibleRacingException;
 
@@ -8,9 +11,15 @@ public class Racing {
 	private int count;
 	private final Cars cars;
 
-	private Racing(int count, Cars cars) {
+	private Racing(int count, List<Car> cars) {
+		validateRange(count);
 		this.count = count;
-		this.cars = cars;
+		this.cars = Cars.of(cars);
+	}
+
+	public static Racing of(String count, Cars cars){
+		int countInt = intValue(count);
+		return new Racing(countInt, cars.getCars());
 	}
 
 	public void start() {
@@ -41,13 +50,7 @@ public class Racing {
 		return count == MIN_COUNT;
 	}
 
-	public static Racing of(String count, Cars cars){
-		int countInt = intValue(count);
-		validateRange(countInt);
-		return new Racing(countInt, cars);
-	}
-
-	private static void validateRange(int count) {
+	private void validateRange(int count) {
 		if(count <= MIN_COUNT){
 			throw new IllegalArgumentException("[ERROR] 시도 횟수는 int 범위 내 0보다 큰 양의 정수여야 한다.");
 		}

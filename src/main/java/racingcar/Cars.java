@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -12,17 +13,19 @@ public class Cars {
 	private final List<Car> cars;
 
 	private Cars(List<Car> cars) {
-		this.cars = cars;
+		validateSize(cars);
+		validateDuplication(cars);
+		this.cars = new ArrayList<>(cars);
 	}
 
-	public static Cars of(List<String> names){
-		validateSize(names);
-		validateDuplication(names);
-		List<Car> cars = new ArrayList<>();
-		for (String name : names) {
-			Car car = new Car(name);
-			cars.add(car);
-		}
+	public static Cars of(String[] names){
+		List<Car> cars = Arrays.stream(names)
+			.map(Car::new)
+			.collect(Collectors.toList());
+		return new Cars(cars);
+	}
+
+	public static Cars of(List<Car> cars){
 		return new Cars(cars);
 	}
 
@@ -47,15 +50,19 @@ public class Cars {
 			.orElse(-1);
 	}
 
-	private static void validateSize(List<String> names){
-		if(names==null||names.isEmpty()){
+	private void validateSize(List<Car> cars){
+		if(cars==null||cars.isEmpty()){
 			throw new IllegalArgumentException("[ERROR] 자동차의 이름을 입력해주세요.");
 		}
 	}
 
-	private static void validateDuplication(List<String> names){
-		Set<String> carSet = new HashSet<>(names);
-		if(carSet.size()!=names.size()){
+	private void validateDuplication(List<Car> cars){
+		List<String> nameList = cars.stream()
+			.map(Car::getName)
+			.collect(Collectors.toList());
+		Set<String> nameSet = new HashSet<>(nameList);
+
+		if(nameSet.size()!=nameList.size()) {
 			throw new IllegalArgumentException("[ERROR] 자동차의 이름은 중복될 수 없습니다.");
 		}
 	}
@@ -65,5 +72,9 @@ public class Cars {
 		return cars.stream()
 			.map(Car::toString)
 			.collect(Collectors.joining("\n"));
+	}
+
+	public List<Car> getCars() {
+		return new ArrayList<>(cars);
 	}
 }

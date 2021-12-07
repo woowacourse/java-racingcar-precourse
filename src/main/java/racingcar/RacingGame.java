@@ -48,7 +48,7 @@ public class RacingGame {
 
 	private Cars generateCars() {
 		try {
-			List<String> names = inputProcessor.readNames();
+			String[] names = inputProcessor.readNames();
 			return Cars.of(names);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
