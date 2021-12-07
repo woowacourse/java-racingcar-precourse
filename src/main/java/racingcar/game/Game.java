@@ -18,6 +18,28 @@ public class Game {
 
 		System.out.println("시도할 회수는 몇회인가요?");
 		num = inputNum();
+
+	}
+
+	public void gameStart() {
+		System.out.println("실행 결과");
+		for (int i = 0; i < num; i++) {
+			gamePlay();
+		}
+	}
+
+	private void gamePlay() {
+		carList.forEach(car -> {
+			printCarInfo(car);
+		});
+	}
+
+	private void printCarInfo(Car car) {
+		System.out.print(car.getName() + " : ");
+		for (int i = 0; i < car.getPosition(); i++) {
+			System.out.print("-");
+		}
+		System.out.println();
 	}
 
 	private int inputNum() {
@@ -29,7 +51,7 @@ public class Game {
 			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.\n");
 			num = inputNum();
 		}
-		
+
 		return num;
 	}
 
