@@ -72,20 +72,20 @@ public class GameManager {
 	}
 
 	public void calculateWinner() {
-		int[] positionList = calculateWinnerPosition();
+		int winnerPosition = calculateWinnerPosition();
 		for (Car car : cars) {
-			if (car.getPosition() == positionList[cars.length - 1]) {
+			if (car.getPosition() == winnerPosition) {
 				winner.add(car.getName());
 			}
 		}
 	}
 
-	public int[] calculateWinnerPosition() {
+	public int calculateWinnerPosition() {
 		int[] positionList = new int[cars.length];
 		for (int i = 0; i < positionList.length; i++) {
 			positionList[i] = cars[i].getPosition();
 		}
 		Arrays.sort(positionList);
-		return positionList;
+		return positionList[cars.length - 1];
 	}
 }

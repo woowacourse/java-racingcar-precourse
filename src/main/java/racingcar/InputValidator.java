@@ -10,16 +10,9 @@ public class InputValidator {
 	}
 
 	public static void isValidCarsList(String[] carsList) throws IllegalArgumentException {
-		if (!checkEmptyList(carsList) || !checkCarNameLength(carsList) || !checkCarsListLength(carsList)) {
+		if (!checkCarNameLength(carsList) || !checkCarsListLength(carsList)) {
 			throw new IllegalArgumentException(CAR_NAME_ERROR);
 		}
-	}
-
-	public static boolean checkEmptyList(String[] carsList) {
-		if (carsList.length == 0) {
-			return false;
-		}
-		return true;
 	}
 
 	public static boolean checkCarNameLength(String[] carsList) {
@@ -32,7 +25,7 @@ public class InputValidator {
 	}
 
 	public static boolean checkCarsListLength(String[] carsList) {
-		if (carsList.length == 1) {
+		if (carsList.length <= 1) {
 			return false;
 		}
 		return true;
