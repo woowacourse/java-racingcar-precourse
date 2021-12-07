@@ -1,8 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class RacingGame {
 
@@ -15,48 +13,13 @@ public class RacingGame {
 	private static final String AFTER_INIT_MESSAGE = "\n실행결과\n";
 	private static final String COMMA_SPACE = ", ";
 	private static final String SPACE_COLON_SPACE = " : ";
-	private static final int NAME_LENGTH_LIMIT = 5;
 
 	private int totalTryNum;
 	private Car[] cars;
+	private RacingGameRule rule;
 
-	private boolean checkNoNameException(String carsName) {
-		carsName = "," + carsName + ",";
-		for (int i = 0; i < carsName.length() - 1; ++i) {
-			String twoChar = carsName.substring(i, i + 2);
-			if (twoChar.equals(",,")) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	private boolean checkNameLengthException(String carsName) {
-		String[] carNameBucket = carsName.split(",");
-		for (int i = 0; i < carNameBucket.length; ++i) {
-			if (carNameBucket[i].length() > NAME_LENGTH_LIMIT) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	private boolean checkNameDuplication(String carsName) {
-		String[] carNameBucket = carsName.split(",");
-		Set<String> existCarName = new HashSet<>();
-		for (int i = 0; i < carNameBucket.length; ++i) {
-			if (existCarName.contains(carNameBucket[i])) {
-				return false;
-			}
-			existCarName.add(carNameBucket[i]);
-		}
-		return true;
-	}
-
-	private boolean checkCarNameRule(String carsName) throws IllegalArgumentException {
-		if (checkNoNameException(carsName) && checkNameLengthException(carsName) && checkNameDuplication(carsName))
-			return true;
-		throw new IllegalArgumentException();
+	RacingGame() {
+		rule = new RacingGameRule();
 	}
 
 	private String[] getCarsNameInput(Player player) {
@@ -65,7 +28,7 @@ public class RacingGame {
 		while (!endCondition) {
 			carsName = player.askQuestionReturnAnswer(QUESTION_CARS_NAME);
 			try {
-				endCondition = checkCarNameRule(carsName);
+				endCondition = rule.checkCarName(carsName);
 			} catch (IllegalArgumentException e) {
 				player.sendMessage(ERROR_MESSAGE_CHECK_NAME_RULE);
 			}
@@ -121,6 +84,7 @@ public class RacingGame {
 			player.sendMessage(
 				cars[i].getName() + SPACE_COLON_SPACE + cars[i].getCurrentPositionVisualization() + "\n");
 		}
+		player.sendMessage("\n");
 	}
 
 	private void playOneCycle(Player player) {
