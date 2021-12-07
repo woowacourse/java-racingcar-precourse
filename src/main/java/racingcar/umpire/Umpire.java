@@ -9,16 +9,26 @@ import racingcar.car.Car;
 
 public class Umpire {
 	public List<Car> carList;
+	public List<Car> winners;
 
 	public Umpire(List<Car> cars) {
 		carList = cars;
 	}
 
-	public List<Car> getWinner() {
+	public void getWinner() {
 		int target = findMaxPosition();
 
-		List<Car> winners = findSamePosition(target);
-		return winners;
+		winners = findSamePosition(target);
+	}
+
+	public List<String> getWinnersNameList() {
+		List<String> winnersName = new ArrayList<>();
+
+		winners.stream()
+			.forEach(winner -> {
+				winnersName.add(winner.getName());
+			});
+		return winnersName;
 	}
 
 	private int findMaxPosition() {
@@ -34,13 +44,4 @@ public class Umpire {
 			.collect(Collectors.toList());
 	}
 
-	public List<String> getWinnersNameList(List<Car> winners) {
-		List<String> winnersName = new ArrayList<>();
-
-		winners.stream()
-			.forEach(winner -> {
-				winnersName.add(winner.getName());
-			});
-		return winnersName;
-	}
 }

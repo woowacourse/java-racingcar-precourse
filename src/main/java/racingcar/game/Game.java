@@ -21,6 +21,7 @@ public class Game {
 		System.out.println("시도할 회수는 몇회인가요?");
 		num = inputNum();
 
+		umpire = new Umpire(carList);
 	}
 
 	public void gameStart() {
