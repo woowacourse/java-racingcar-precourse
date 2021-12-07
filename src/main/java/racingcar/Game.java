@@ -40,6 +40,8 @@ public class Game {
 
 		Car[] Champions = findChampion();
 
+		//GamePrinter.printChampion(Champions);
+
 	}
 
 	public Car[] findChampion(){
