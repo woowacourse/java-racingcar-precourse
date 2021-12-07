@@ -79,10 +79,10 @@ public class InputView {
 
 	public static void containSameNameError(List<String> carsList) {
 		Set<String> carsSet = new HashSet<String>();
+
 		for (int i = 0; i < carsList.size(); i++) {
 			carsSet.add(carsList.get(i));
 		}
-
 		if (carsSet.size() < carsList.size()) {
 			throw new IllegalArgumentException(Message.CONTAIN_SAME_NAME_ERROR);
 		}

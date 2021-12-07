@@ -6,7 +6,7 @@ import static racingcar.utils.Message.*;
 
 public class OutputView {
 
-	public void printPosition(String carName, int position) {
+	public static void printPosition(String carName, int position) {
 		System.out.print(carName + " : ");
 		for (int i = 0; i < position; i++) {
 			System.out.print("-");
@@ -14,7 +14,7 @@ public class OutputView {
 		System.out.println();
 	}
 
-	public void printWinner(ArrayList<String> stringWinnerList) {
+	public static void printWinner(ArrayList<String> stringWinnerList) {
 		System.out.print(FINAL_WINNER + String.join(", ", stringWinnerList));
 	}
 }
