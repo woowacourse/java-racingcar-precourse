@@ -40,20 +40,21 @@ public class RacingGameCarManager {
 
 	private ArrayList<Integer> getWinnersIndex() {
 		int bestScore = getBestScore();
-		ArrayList<Integer> winnersIndex = new ArrayList<>();
+		ArrayList<Integer> winnersIndexBucket = new ArrayList<>();
 		for (int i = 0; i < cars.length; ++i) {
 			if (bestScore == cars[i].getPosition()) {
-				winnersIndex.add(i);
+				winnersIndexBucket.add(i);
 			}
 		}
-		return winnersIndex;
+		return winnersIndexBucket;
 	}
 
 	protected String[] getWinnerNameBucket() {
-		ArrayList<Integer> winnerIndex = getWinnersIndex();
-		String[] winnerNameBucket = new String[winnerIndex.size()];
-		for (int i = 0; i < winnerIndex.size(); ++i) {
-			winnerNameBucket[i] = cars[i].getName();
+		ArrayList<Integer> winnerIndexBucket = getWinnersIndex();
+		String[] winnerNameBucket = new String[winnerIndexBucket.size()];
+		for (int i = 0; i < winnerIndexBucket.size(); ++i) {
+			int winnerIndex = winnerIndexBucket.get(i);
+			winnerNameBucket[i] = cars[winnerIndex].getName();
 		}
 		return winnerNameBucket;
 	}
