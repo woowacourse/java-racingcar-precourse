@@ -10,11 +10,13 @@ public class RacingCarGame {
 	User user;
 	Checker checker;
 	List<Car> carList;
+	Referee referee;
 
 	RacingCarGame() {
 		user = new User();
 		checker = new Checker();
 		carList = new ArrayList<>();
+		referee = new Referee();
 	}
 
 	public void play() {
@@ -60,7 +62,7 @@ public class RacingCarGame {
 	}
 
 	private void printWinner() {
-		String winnerNames = Car.getWinnerNames(carList);
+		String winnerNames = referee.sayWinnerNames(carList);
 		System.out.println(WINNER_MESSAGE + COLON + winnerNames);
 	}
 }

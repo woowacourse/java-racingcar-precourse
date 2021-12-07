@@ -17,6 +17,10 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void goOrStop() {
 		int randomNumber = Randoms.pickNumberInRange(START_NUMBER_OF_RANGE, END_NUMBER_OF_RANGE);
 
@@ -35,44 +39,16 @@ public class Car {
 		System.out.println(state);
 	}
 
-	public static List<Car> fromStringList(List<String> names) {
-		List<Car> carList = new ArrayList<>();
+	public boolean isSamePosition(int position) {
 
-		for (String name : names) {
-			Car car = new Car(name);
-			carList.add(car);
+		if (this.position == position) {
+			return true;
 		}
 
-		return carList;
+		return false;
 	}
 
-	public static String getWinnerNames(List<Car> carList) {
-		List<Car> winnerList = Car.pickTheWinner(carList);
-		String winnerNames = winnerList.get(0).name;
-
-		for (int i = 1; i < winnerList.size(); i++) {
-			winnerNames += DELIMITER + SPACE + winnerList.get(i).name;
-		}
-
-		return winnerNames;
-	}
-
-	public static List<Car> pickTheWinner(List<Car> carList) {
-		List<Car> winnerList = new ArrayList<>();
-		int winnerPosition = Car.maxPosition(carList);
-
-		for (Car car : carList) {
-
-			if (car.position == winnerPosition) {
-				winnerList.add(car);
-			}
-
-		}
-
-		return winnerList;
-	}
-
-	private static int maxPosition(List<Car> carList) {
+	public static int maxPosition(List<Car> carList) {
 		int maxPosition = 0;
 
 		for (Car car : carList) {
@@ -83,5 +59,16 @@ public class Car {
 
 		}
 		return maxPosition;
+	}
+
+	public static List<Car> fromStringList(List<String> names) {
+		List<Car> carList = new ArrayList<>();
+
+		for (String name : names) {
+			Car car = new Car(name);
+			carList.add(car);
+		}
+
+		return carList;
 	}
 }
