@@ -23,6 +23,8 @@ public class InputManager {
 			try {
 				String carsInput = Console.readLine();
 				isValidCars(carsInput);
+				carsList = carsInput.split(",");
+				isValidCarsList();
 				carsScan = false;
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
@@ -49,7 +51,9 @@ public class InputManager {
 		if (carsInput.length() == 0) {
 			throw new IllegalArgumentException(CAR_NAME_ERROR);
 		}
-		carsList = carsInput.split(",");
+	}
+
+	public void isValidCarsList() throws IllegalArgumentException {
 		if (!checkEmptyList(carsList) || !checkCarNameLength(carsList) || !checkCarsListLength(carsList)) {
 			throw new IllegalArgumentException(CAR_NAME_ERROR);
 		}
