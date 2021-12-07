@@ -3,7 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.sun.deploy.util.StringUtils;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -11,26 +10,48 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingGame {
 
 	public User user = new User();
+	public Integer playRound;
 	public List<Car> cars = new ArrayList<>();
 
 	public void startGame() {
 		System.out.println(Constant.START_NAME_MESSAGE);
 		makeCarList();
 		System.out.println(Constant.START_NUMBER_MESSAGE);
-		Integer playRound = user.getGameNumber();
+		getPlayRound();
 		runGame(playRound);
 		printWinners();
 	}
 
-	public void makeCarList() {
-		String[] carNames = user.getNames();
-		for (String carName : carNames) {
-			cars.add(new Car(carName));
+	public void getPlayRound() {
+		while (true) {
+			try {
+				playRound = user.getGameNumber();
+				break;
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+			}
+
 		}
+
+	}
+
+	public void makeCarList() {
+		while (true) {
+			try {
+				String[] carNames = user.getNames();
+				for (String carName : carNames) {
+					cars.add(new Car(carName));
+				}
+				break;
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
 	}
 
 	public void runGame(int playRound) {
-		System.out.println("\n"+Constant.RESULT_MESSAGE);
+		System.out.println("\n" + Constant.RESULT_MESSAGE);
 		for (int i = 0; i < playRound; i++) {
 			moveCars();
 			printCurrentResult();
@@ -79,7 +100,6 @@ public class RacingGame {
 			}
 		}
 		return maxPosition;
-
 	}
 
 	public void printWinners() {

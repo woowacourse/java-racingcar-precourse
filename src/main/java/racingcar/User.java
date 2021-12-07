@@ -8,15 +8,14 @@ public class User {
 
 	public String[] getNames() {
 
-		while (true) {
-			String[] names = Console.readLine().split("-");
-			for (String name : names) {
-				if (!isValidateName(name)) {
-					throw new IllegalArgumentException();
-				}
+		String[] names = Console.readLine().split(",");
+		for (String name : names) {
+			if (!isValidateName(name)) {
+				throw new IllegalArgumentException(Constant.NAME_ERROR_MESSAGE);
 			}
-			return names;
+
 		}
+		return names;
 	}
 
 	public boolean isValidateName(String name) {
@@ -24,22 +23,15 @@ public class User {
 		if (name.length() > 5) {
 			return false;
 		}
-
-		if (name.length() == 0) {
-			return false;
-		}
-
-		return true;
+		return name.length() != 0;
 	}
 
 	public Integer getGameNumber() {
-		while (true) {
-			String gameNumber = Console.readLine();
-			if (!isNumeric(gameNumber)) {
-				throw new IllegalArgumentException();
-			}
-			return Integer.parseInt(gameNumber);
+		String gameNumber = Console.readLine();
+		if (!isNumeric(gameNumber)) {
+			throw new IllegalArgumentException(Constant.NUMBER_ERROR_MESSAGE);
 		}
+		return Integer.parseInt(gameNumber);
 	}
 
 	public boolean isNumeric(String gameNumber) {
