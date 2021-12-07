@@ -185,3 +185,15 @@ public class Car {
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.
+
+## 기능 목록
+- 기능 목록 추가
+- Car object에 increment 메소드와 getPosition 게터 구현
+- 자동차 이름을 받기 위한 getNames 메소드 구현
+- getNames 메소드에서 자동차 이름 예외처리하는 checkNames 구현
+- 경주 횟수를 받기 위한 getTimes 메소드 구현
+- getTimes 메소드에서 경주 횟수 예외처리하는 checkTimes 구현
+- 자동차들을 경주 시키고 중간 결과들을 프린트하는 raceCars 구현
+- raceCars 메소드에서 경주 횟수별로 자동차를 경주시키고 프린트하는 goOneRound 구현
+- 우승자를 찾고 프린트하는 printCars 구현
+- printCars 메소드에서 우승자를 프린트하는 부분인 printBiggest 구현
