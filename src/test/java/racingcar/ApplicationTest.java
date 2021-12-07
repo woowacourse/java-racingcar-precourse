@@ -31,6 +31,7 @@ class ApplicationTest extends NsTest {
                     runException("pobi,javaji");
                     assertThat(output()).contains(ERROR_MESSAGE);
                 }
+
         );
     }
 
