@@ -27,7 +27,7 @@ public class RacingGame {
     }
 
     private void startRacing(int attempt) {
-        System.out.println(RacingCarConstant.RESULT_MESSAGE);
+        OutputView.printResultMessage();
         for (int i = 0; i < attempt; i++) {
             cars.race();
         }
@@ -35,11 +35,6 @@ public class RacingGame {
 
     private void finish() {
         List<String> winnerList = cars.getWinnerList();
-        showWinnerList(winnerList);
-    }
-
-    private void showWinnerList(List<String> winnerList) {
-        System.out.print(RacingCarConstant.WINNER_RESULT_MESSAGE);
-        System.out.print(String.join(RacingCarConstant.DELIMITER + " ", winnerList));
+        OutputView.printWinnerList(winnerList);
     }
 }

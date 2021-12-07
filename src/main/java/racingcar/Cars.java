@@ -13,7 +13,7 @@ public class Cars {
     public void race() {
         for (Car car : cars) {
             car.move();
-            car.showPosition();
+            OutputView.printPosition(car);
         }
         System.out.println();
     }

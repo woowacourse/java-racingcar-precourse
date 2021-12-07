@@ -14,5 +14,7 @@ public class RacingCarConstant {
     public static final int BOUNDARY_NUMBER = 4;
 
     public static final String MOVE_MARK = "-";
+    public static final String BLANK = " ";
+    public static final String COLON = " : ";
     public static final String DELIMITER = ",";
 }
