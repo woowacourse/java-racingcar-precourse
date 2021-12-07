@@ -3,7 +3,6 @@ package racingcar.domain;
 public class Car implements Raceable {
 
     private static final int MIN_MOVE_CONDITION = 4;
-
     private final String name;
     private int position = 0;
 

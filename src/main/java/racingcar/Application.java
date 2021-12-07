@@ -20,16 +20,24 @@ public class Application {
     private static <T extends Raceable> Result<T> race(List<T> competitors, int trial) {
         System.out.println("실행결과");
         for (int i = 0; i < trial; i++) {
-            for (T runner : competitors) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
-                if (runner.isMovable(randomNumber)) {
-                    runner.moveForward();
-                }
-                System.out.println(runner);
-            }
-            System.out.println();
+            raceForEachTrial(competitors);
         }
         return new Result<>(competitors);
+    }
+
+    private static <T extends Raceable> void raceForEachTrial(List<T> competitors) {
+        for (T runner : competitors) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            if (runner.isMovable(randomNumber)) {
+                runner.moveForward();
+            }
+            printRunnerPosition(runner);
+        }
+        System.out.println();
+    }
+
+    private static <T extends Raceable> void printRunnerPosition(T runner) {
+        System.out.println(runner);
     }
 
     private static int getTrial() {
@@ -38,7 +46,6 @@ public class Application {
             System.out.println("시도할 횟수는 몇회인가요?");
             trialInput = Console.readLine();
         } while (isIllegalTrial(trialInput));
-
         return Integer.parseInt(trialInput);
     }
 
@@ -66,7 +73,6 @@ public class Application {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 합니다.");
         }
-
     }
 
 }
