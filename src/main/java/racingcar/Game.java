@@ -1,10 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Message;
 import racingcar.iomanagement.InputScanner;
 import racingcar.iomanagement.OutputPrinter;
@@ -15,8 +12,7 @@ public class Game {
 	OutputPrinter outputPrinter = new OutputPrinter();
 
 	public void startGame() {
-		String carNames = inputScanner.enterCarName();
-		List<Car> carList = carManager.generate(carNames);
+		List<Car> carList = carManager.generateWithException();
 		long count = Long.parseLong(inputScanner.enterCountWithException());
 
 		System.out.println(Message.EXECUTION_RESULT);

@@ -5,16 +5,34 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.iomanagement.InputScanner;
+import racingcar.iomanagement.Validator;
 
 public class CarManager {
+	InputScanner inputScanner = new InputScanner();
+
 	public List<Car> generate(String carNames) {
-		//TODO 차 입력 예외처리 및 유효성 검사 필요
+
 		return Arrays.stream(carNames.split(","))
+			.map(Validator::isCarNameLengthUnderFive)
 			.map(Car::new)
 			.collect(Collectors.toList());
+	}
+
+	public List<Car> generateWithException() {
+		List<Car> carList;
+		try {
+			String carNames = inputScanner.enterCarName();
+			carList = generate(carNames);
+		} catch(IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			carList = generateWithException();
+		}
+		return carList;
 	}
 
 	public List<Car> getWinner(List<Car> carList) {

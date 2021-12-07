@@ -5,10 +5,11 @@ import java.util.regex.Pattern;
 import racingcar.constant.Message;
 
 public class Validator {
-	public static void isCarNameLengthUnderFive(String carName) {
+	public static String isCarNameLengthUnderFive(String carName) {
 		if (carName.length() > 5) {
 			throw new IllegalArgumentException(Message.ERROR_LONG_CAR_NAME);
 		}
+		return carName;
 	}
 
 	public static void validateCountType(String count) {
