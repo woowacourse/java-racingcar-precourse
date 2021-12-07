@@ -23,11 +23,7 @@ public class OutputView {
 		int[] positions = racingCars.getPositions();
 
 		for (int i = 0; i < names.length; i++) {
-			System.out.print(names[i] + " : ");
-			for (int j = 0; j < positions[i]; j++) {
-				System.out.print(RacingCarConst.ONE_STEP);
-			}
-			System.out.println();
+			printSteps(names[i], positions[i]);
 		}
 
 		System.out.println();
@@ -40,5 +36,13 @@ public class OutputView {
 
 	public static void printErrorMessage(Exception e) {
 		System.out.println(e.getMessage());
+	}
+
+	private static void printSteps(String name, int position) {
+		System.out.print(name + " : ");
+		for (int j = 0; j < position; j++) {
+			System.out.print(RacingCarConst.ONE_STEP);
+		}
+		System.out.println();
 	}
 }
