@@ -44,11 +44,11 @@ public class RacingCarGame {
 		return leftRounds == 0;
 	}
 
-	public GameStatus generateGameStatus() {
+	public RoundStatus generateRoundStatus() {
 		Map<String, Integer> hashMap = new HashMap<>();
 		for (Car car : cars.getCars()) {
 			hashMap.put(car.getName(), car.getPosition());
 		}
-		return new GameStatus(hashMap);
+		return new RoundStatus(hashMap);
 	}
 }

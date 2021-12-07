@@ -84,7 +84,7 @@
         - 랜덤 넘버를 생성
         - Threshold 값을 기준으로 이동 여부 판단
 
-### GameStatus
+### RoundStatus
 
 - 책임
     - 우승자 선정

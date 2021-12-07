@@ -10,7 +10,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-class GameStatusTest {
+class RoundStatusTest {
 
 	@Test
 	void getSingerWinnerNameTest() {
@@ -19,9 +19,9 @@ class GameStatusTest {
 		hashMap.put("쇼팽", 1);
 		hashMap.put("리스트", 2);
 
-		GameStatus gameStatus = new GameStatus(hashMap);
+		RoundStatus roundStatus = new RoundStatus(hashMap);
 
-		String[] winnerNames = gameStatus.getWinnerNames();
+		String[] winnerNames = roundStatus.getWinnerNames();
 		String[] expected = new String[] {"바흐"};
 
 		Set<String> winnerNamesSet = new HashSet<>(Arrays.asList(winnerNames));
@@ -36,11 +36,11 @@ class GameStatusTest {
 		hashMap.put("쇼팽", 5);
 		hashMap.put("리스트", 2);
 
-		GameStatus gameStatus = new GameStatus(hashMap);
+		RoundStatus roundStatus = new RoundStatus(hashMap);
 
-		String[] winnerNames = gameStatus.getWinnerNames();
+		String[] winnerNames = roundStatus.getWinnerNames();
 		String[] expected = new String[] {"바흐", "쇼팽"};
-		
+
 		Set<String> winnerNamesSet = new HashSet<>(Arrays.asList(winnerNames));
 		Set<String> expectedSet = new HashSet<>(Arrays.asList(expected));
 		assertEquals(winnerNamesSet, expectedSet);

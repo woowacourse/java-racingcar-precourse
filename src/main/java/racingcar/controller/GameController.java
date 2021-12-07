@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
-import racingcar.domain.GameStatus;
 import racingcar.domain.RacingCarGame;
+import racingcar.domain.RoundStatus;
 import racingcar.view.ErrorView;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
@@ -25,11 +25,11 @@ public class GameController {
 		ResultView.showResultHeader();
 		while (!racingCarGame.isGameEnd()) {
 			racingCarGame.startRound();
-			GameStatus gameStatus = racingCarGame.generateGameStatus();
-			ResultView.showRoundResult(gameStatus);
+			RoundStatus roundStatus = racingCarGame.generateRoundStatus();
+			ResultView.showRoundResult(roundStatus);
 
 			if (racingCarGame.isGameEnd()) {
-				ResultView.showWinners(gameStatus.getWinnerNames());
+				ResultView.showWinners(roundStatus.getWinnerNames());
 			}
 		}
 	}
@@ -48,5 +48,4 @@ public class GameController {
 
 		return racingCarGame;
 	}
-
 }

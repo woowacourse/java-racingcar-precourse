@@ -5,21 +5,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class GameStatus {
-	private final Map<String, Integer> gameStatus;
+public class RoundStatus {
+	private final Map<String, Integer> roundStatus;
 
-	public GameStatus(Map<String, Integer> gameStatus) {
-		this.gameStatus = gameStatus;
+	public RoundStatus(Map<String, Integer> roundStatus) {
+		this.roundStatus = roundStatus;
 	}
 
 	public Map<String, Integer> getRoundStatus() {
-		return gameStatus;
+		return roundStatus;
 	}
 
 	public String[] getWinnerNames() {
 		List<String> winnerNameList = new ArrayList<>();
-		for (String name : gameStatus.keySet()) {
-			if (gameStatus.get(name) == getMaxPosition()) {
+		for (String name : roundStatus.keySet()) {
+			if (roundStatus.get(name) == getMaxPosition()) {
 				winnerNameList.add(name);
 			}
 		}
@@ -27,7 +27,6 @@ public class GameStatus {
 	}
 
 	private int getMaxPosition() {
-		return Collections.max(gameStatus.values());
+		return Collections.max(roundStatus.values());
 	}
-
 }

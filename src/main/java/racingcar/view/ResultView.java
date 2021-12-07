@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.Map;
 
-import racingcar.domain.GameStatus;
+import racingcar.domain.RoundStatus;
 
 public class ResultView {
 	private static final String RESULT_HEADER = "실행 결과";
@@ -12,10 +12,10 @@ public class ResultView {
 		System.out.println(RESULT_HEADER);
 	}
 
-	public static void showRoundResult(GameStatus gameStatus) {
-		Map<String, Integer> roundStatus = gameStatus.getRoundStatus();
-		for (String name : roundStatus.keySet()) {
-			System.out.println(name + " : " + formatPositionToProgress(roundStatus.get(name)));
+	public static void showRoundResult(RoundStatus roundStatus) {
+		Map<String, Integer> roundStatusMap = roundStatus.getRoundStatus();
+		for (String name : roundStatusMap.keySet()) {
+			System.out.println(name + " : " + formatPositionToProgress(roundStatusMap.get(name)));
 		}
 		System.out.println();
 	}
