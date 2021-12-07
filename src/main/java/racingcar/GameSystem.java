@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import constant.ConsoleMessage;
 
 public class GameSystem {
-    private static final String NOT_A_NUMBER_REGEX = "[^0-9]+";
+    private static final String NUMBER_REGEX = "[0-9]+";
     private static final String ZERO_REGEX = "0+";
     private static final String COMMA_REGEX = ",";
     private static final int MIN_CAR_NAME_LENGTH = 1;
@@ -76,7 +76,7 @@ public class GameSystem {
     }
 
     void checkNumOfRunsValidity(String inputValue) {
-        if (inputValue.matches(NOT_A_NUMBER_REGEX)) {
+        if (!inputValue.matches(NUMBER_REGEX)) {
             throw new IllegalArgumentException();
         }
         if (inputValue.matches(ZERO_REGEX)) {
