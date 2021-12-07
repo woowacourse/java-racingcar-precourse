@@ -8,7 +8,7 @@ public enum ErrorMessage {
     ERROR_NO_RIVAL("[ERROR] 경주 상대가 없습니다. 다수의 자동차를 입력해야 합니다."),
 
     ERROR_NOT_NUMBER("[ERROR] 시도 횟수는 숫자여야 합니다."),
-    ERROR_OUT_OF_NUMBER("[ERROR] 시도 횟수는 1 이상이어야 합니다.");
+    ERROR_OUT_OF_RANGE_NUMBER("[ERROR] 시도 횟수는 1 이상이어야 합니다.");
 
     private final String message;
 
