@@ -56,6 +56,6 @@ public class InputHandler {
 	}
 
 	private String[] parseRacingCarNames(String carNames) {
-		return carNames.split(",");
+		return carNames.split(GameData.CARNAME_SEPARATOR);
 	}
 }

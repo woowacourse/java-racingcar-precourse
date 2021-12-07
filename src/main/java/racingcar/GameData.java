@@ -13,6 +13,11 @@ public class GameData {
 	public static final String RESULT_MESSAGE = "실행결과";
 	public static final String RESULT_FORMAT = "%s : %s";
 
+	public static final String CARNAME_SEPARATOR = ",";
+	public static final String POSITION_PROGRESS_BAR = "-";
+	public static final String CARNAME_CHECK_REGEX = ".*\\s.*";
+	public static final String WINNER_RESULT_SEPARATOR = ", ";
+
 	public static final String TURNCOUNT_TOO_SMALL_ERROR_MESSAGE = "[ERROR] 시도 횟수가 너무 작습니다.";
 	public static final String TURNCOUNT_NOT_INTEGER_ERROR_MESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
 	public static final String CARNAME_DUPLICATED_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복되서는 안된다.";

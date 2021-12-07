@@ -28,9 +28,8 @@ public class InputValidator {
 	}
 
 	public static void validateNameContatainsEmptyString(List<String> nameList) {
-		String pattern = ".*\\s.*";
 		for (String name : nameList) {
-			if (name.isEmpty() || name.matches(pattern)) {
+			if (name.isEmpty() || name.matches(GameData.CARNAME_CHECK_REGEX)) {
 				throw new NameContainsEmptyStringException(GameData.CARNAME_EMPTY_ERROR_MESSAGE);
 			}
 		}
