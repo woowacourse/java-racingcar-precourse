@@ -37,27 +37,25 @@ public class RacingCarController {
 	}
 
 	private int getStageNum() {
-		int stageNum = -1;
-		do {
-			try {
-				stageNum = enterStageNum();
-			} catch (IllegalArgumentException e) {
-				OutputView.printErrorMessage(e);
-			}
-		} while (stageNum == -1);
+		int stageNum;
+		try {
+			stageNum = enterStageNum();
+		} catch (IllegalArgumentException e) {
+			OutputView.printErrorMessage(e);
+			return getStageNum();
+		}
 
 		return stageNum;
 	}
 
 	private String[] getCarNames() {
-		String[] names = null;
-		do {
-			try {
-				names = enterCarName();
-			} catch (IllegalArgumentException e) {
-				OutputView.printErrorMessage(e);
-			}
-		} while (names == null);
+		String[] names;
+		try {
+			names = enterCarName();
+		} catch (IllegalArgumentException e) {
+			OutputView.printErrorMessage(e);
+			return getCarNames();
+		}
 
 		return names;
 	}
