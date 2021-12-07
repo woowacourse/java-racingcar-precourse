@@ -22,4 +22,8 @@ public class RacingGame {
 	public void start() {
 		this.cars.moveCars();
 	}
+
+	public String getResults() {
+		return this.cars.getResults();
+	}
 }

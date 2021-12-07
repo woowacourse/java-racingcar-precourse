@@ -17,9 +17,9 @@
     - [x] 0에서 9 사이에서 무작위 값을 구하는 기능 Util#getRandomNumber
     - [x] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈추는 기능 Car#move
         - [x] 무작위 값이 4 이상일 경우 position +1 올라가도록 구현
-- [ ] 매 경주당 결과 출력하는 기능 RacingGame
-    - [ ] 각 자동차별 결과(자동차 이름과 전진 거리)를 문자열 반환해주는 기능 Cars
-    - [ ] 경주당 결과를 출력하는 기능. OutputView
+- [x] 매 경주당 결과 출력하는 기능 Controller#reportResultEveryRound
+    - [x] 각 자동차별 결과(자동차 이름과 전진 거리)를 문자열 반환해주는 기능 racingGame#getResults
+    - [X] 경주당 결과를 출력하는 기능. OutputView#printEveryRound
 - [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지 알려주는 기능 RacingGame
     - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분하여 문자열 반환 기능 Cars
 

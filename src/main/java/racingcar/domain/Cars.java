@@ -20,4 +20,11 @@ public class Cars {
 		this.cars
 			.forEach(Car::move);
 	}
+
+	public String getResults() {
+		return this.cars.stream()
+			.map(Car::getTrackWithName)
+			.collect(Collectors.joining(System.lineSeparator()));
+
+	}
 }

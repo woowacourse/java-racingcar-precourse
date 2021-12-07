@@ -22,7 +22,12 @@ public class Controller {
 		racingGame.insert(cars);
 		while (count.isRacingEnd()) {
 			racingGame.start();
+			reportResultEveryRound(racingGame);
 		}
 
+	}
+
+	private void reportResultEveryRound(RacingGame racingGame) {
+		OutputView.printEveryRound(racingGame.getResults());
 	}
 }

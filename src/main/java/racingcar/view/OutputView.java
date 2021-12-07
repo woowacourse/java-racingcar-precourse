@@ -17,4 +17,9 @@ public class OutputView {
 	public static void printInputCountInstruction() {
 		System.out.println(INPUT_COUNT_INSTRUCTION);
 	}
+
+	public static void printEveryRound(String resultEveryRound) {
+		System.out.println(resultEveryRound);
+		System.out.println();
+	}
 }

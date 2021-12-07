@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 import racingcar.utils.Util;
 
@@ -36,4 +37,12 @@ public class Car {
 			this.position++;
 	}
 
+	public String getTrackWithName() {
+		StringBuilder result = new StringBuilder();
+		result.append(this.name);
+		result.append(" : ");
+		IntStream.range(0, this.position)
+			.forEach(i -> result.append("-"));
+		return result.toString();
+	}
 }
