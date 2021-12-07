@@ -27,7 +27,7 @@ public class Validation {
 
     }
 
-    private void checkNameExists() {
+    private void checkNameOnlySpace() {
 
         for (String name : carNames) {
 
@@ -112,7 +112,7 @@ public class Validation {
 
     private void validateCarNames() {
         checkCarNumber();
-        checkNameExists();
+        checkNameOnlySpace();
         checkNameEmpty();
         checkSpacePosition();
         checkNameLength();
