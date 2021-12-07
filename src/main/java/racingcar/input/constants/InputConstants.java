@@ -1,7 +1,7 @@
 package racingcar.input.constants;
 
 public class InputConstants {
-	//CarList.java
+	//CarName.java
 	public static final int NAME_LENGTH_LIMIT = 5;
 	public static final String INPUT_SPLITTER = ",";
 	public static final String BLANK = " ";
