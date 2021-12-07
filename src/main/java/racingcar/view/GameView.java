@@ -23,7 +23,7 @@ public class GameView {
 	private static String formatPosition(int position) {
 		return new String(new char[position]).replace("\0", "-");
 	}
-	
+
 	private static String formatWinners(List<Car> winners) {
 		String result = winners.remove(0).getName();
 		for (Car car : winners) {
