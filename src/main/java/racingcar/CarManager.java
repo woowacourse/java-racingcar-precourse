@@ -64,7 +64,7 @@ public class CarManager {
 	private Car updateCarRandom(Car car) {
 		int randomNumber = Randoms.pickNumberInRange(0, 9);
 
-		if (randomNumber > 4 || randomNumber == 4) {
+		if (randomNumber > 5 || randomNumber == 5) {
 			car.updatePosition();
 		}
 
