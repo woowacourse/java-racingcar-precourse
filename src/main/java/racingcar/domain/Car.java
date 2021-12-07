@@ -8,7 +8,11 @@ public class Car {
 
 	private final String name;
 	private int position;
-	private MoveRule moveRule;
+	private MoveRule moveRule = new DefaultRule();
+
+	public Car(String name) {
+		this.name = name;
+	}
 
 	public Car(String name, MoveRule moveRule) {
 		this.name = name;

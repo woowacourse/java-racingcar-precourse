@@ -26,12 +26,32 @@ public class Cars {
 		String[] carNameList = carNames.split(NAME_DELIMITER);
 		validateCarNames(carNameList);
 
+		List<Car> carList = createCarListWithCustomRule(carNameList, moveRule);
+		return new Cars(carList);
+	}
+
+	private static List<Car> createCarListWithCustomRule(String[] carNameList, MoveRule moveRule) {
 		List<Car> carList = new ArrayList<>();
 		for (String carName : carNameList) {
 			carList.add(new Car(carName, moveRule));
 		}
+		return carList;
+	}
 
+	public static Cars generateCars(String carNames) {
+		String[] carNameList = carNames.split(NAME_DELIMITER);
+		validateCarNames(carNameList);
+
+		List<Car> carList = createCarListWithDefaultRule(carNameList);
 		return new Cars(carList);
+	}
+
+	private static List<Car> createCarListWithDefaultRule(String[] carNameList) {
+		List<Car> carList = new ArrayList<>();
+		for (String carName : carNameList) {
+			carList.add(new Car(carName));
+		}
+		return carList;
 	}
 
 	private static void validateCarNames(String[] carNameList) {
