@@ -30,9 +30,7 @@ public class RacingGame {
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
 			}
-
 		}
-
 	}
 
 	public void makeCarList() {
@@ -47,7 +45,6 @@ public class RacingGame {
 				System.out.println(e.getMessage());
 			}
 		}
-
 	}
 
 	public void runGame(int playRound) {
@@ -59,7 +56,6 @@ public class RacingGame {
 	}
 
 	public void moveCars() {
-
 		for (Car car : cars) {
 			int randomNumber = generateRandomNumber();
 			if (isMovable(randomNumber)) {
@@ -82,7 +78,6 @@ public class RacingGame {
 			printStatus(car.getPosition());
 		}
 		System.out.println();
-
 	}
 
 	public void printStatus(int num) {

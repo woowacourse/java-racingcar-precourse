@@ -7,7 +7,6 @@ import camp.nextstep.edu.missionutils.Console;
 public class User {
 
 	public String[] getNames() {
-
 		String[] names = Console.readLine().split(",");
 		for (String name : names) {
 			if (!isValidateName(name)) {
@@ -19,7 +18,6 @@ public class User {
 	}
 
 	public boolean isValidateName(String name) {
-
 		if (name.length() > 5) {
 			return false;
 		}
@@ -35,7 +33,6 @@ public class User {
 	}
 
 	public boolean isNumeric(String gameNumber) {
-
 		for (int i = 0; i < gameNumber.length(); i++) {
 			if (!Character.isDigit(gameNumber.charAt(i))) {
 				return false;
