@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.car.Car;
 import racingcar.constant.Number;
 import racingcar.iomanagement.InputScanner;
 import racingcar.iomanagement.Validator;
