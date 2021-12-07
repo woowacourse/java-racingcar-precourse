@@ -3,7 +3,7 @@ package racingcar;
 import java.io.IOException;
 
 public class CarRacingGame {
-    private int numberOfAttempts; // 자동차 경주 게임의 시도 횟수는 numberOfAttempts다.
+    private int numberOfAttempts;
 
     public void startGame() throws IOException {
         String[] cars = askCarName();
