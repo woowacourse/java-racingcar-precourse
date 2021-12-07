@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 import racingcar.domain.Car;
-import racingcar.utils.Constant;
 
 public class Validator {
 	public static void validateNameLength(String name) {
@@ -14,7 +13,7 @@ public class Validator {
 		}
 	}
 
-	public static void validateBlankName(String name){
+	public static void validateBlankName(String name) {
 		if (name.isEmpty()) {
 			throw new IllegalArgumentException(Constant.NAME_MINIMUN_LENGTH_UNDER_ERROR_MESSAGE);
 		}

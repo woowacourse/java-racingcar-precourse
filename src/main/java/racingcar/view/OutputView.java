@@ -23,7 +23,7 @@ public class OutputView {
 		for (String winnerCarName : winnerCarNames) {
 			sb.append(winnerCarName).append(", ");
 		}
-		String winners = sb.substring(0, sb.length()-2);
+		String winners = sb.substring(0, sb.length() - 2);
 		System.out.println(Constant.WINNING_ANNOUNCEMENT_MESSAGE + winners);
 	}
 }

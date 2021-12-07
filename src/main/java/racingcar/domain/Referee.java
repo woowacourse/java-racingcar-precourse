@@ -6,7 +6,7 @@ import java.util.List;
 public class Referee {
 	private List<Car> winnerCars;
 
-	public Car selectWinner(Cars cars){
+	public Car selectWinner(Cars cars) {
 		List<Car> carList = cars.getCars();
 		Car winnerCar = carList.get(0);
 		int winnerCarPosition = winnerCar.getPosition();
@@ -30,7 +30,7 @@ public class Referee {
 		return winnerCars;
 	}
 
-	public List<String> winnerCarsGetNames () {
+	public List<String> winnerCarsGetNames() {
 		List<String> winnerCarNames = new ArrayList<>();
 		for (Car winnerCar : winnerCars) {
 			winnerCarNames.add(winnerCar.getName());
