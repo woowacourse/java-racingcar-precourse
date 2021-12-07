@@ -17,6 +17,7 @@
 ---
 
 ## 🔍 프로젝트를 하며 고민했던 부분 
+- [NsTest 클래스에 메서드를 파악해보자! ](https://github.com/her0807/java-racingcar-precourse/wiki/NsTest-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%97%90-%EB%A9%94%EC%84%9C%EB%93%9C%EB%A5%BC-%ED%8C%8C%EC%95%85%ED%95%B4%EB%B3%B4%EC%9E%90.)
 - [객체 지향적인 설계는 어떻게 할까?](https://github.com/her0807/java-racingcar-precourse/wiki/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5%EC%A0%81%EC%9D%B8-%EC%84%A4%EA%B3%84%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EA%B9%8C%3F)
 - [객체 지향적인 자동차 경주 설계](https://github.com/her0807/java-racingcar-precourse/wiki/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5%EC%A0%81%EC%9D%B8-%EC%9E%90%EB%8F%99%EC%B0%A8-%EA%B2%BD%EC%A3%BC-%EA%B2%8C%EC%9E%84-%EC%84%A4%EA%B3%84)
 - [Getter / Setter 를 쓰지 말아야하는 이유가 뭘까?](https://github.com/her0807/java-racingcar-precourse/wiki/Getter---Setter--%EB%A5%BC-%EC%93%B0%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0%EA%B0%80-%EB%AD%98%EA%B9%8C%3F)
