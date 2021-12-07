@@ -9,16 +9,19 @@ public class PlayGame {
     private Car[] cars;
     private int playCount;
 
+    // 위에서 쓸 객체들 생성
     public PlayGame() {
         inputCarName = new InputCarName();
         inputCount = new InputCount();
     }
 
+    // 외부 입력 값을 받아와서 초기화해주는 메소드
     private void init() {
         cars = inputCarName.getCars();
         playCount = inputCount.stringToInteger();
     }
 
+    // 실제 게임을 실행하는 메서드
     public void playGame() {
         init();
         System.out.println();
@@ -42,10 +45,12 @@ public class PlayGame {
         }
     }
 
+    // 0부터 9사이의 랜덤한 수 반환해주는 메서드
     private int randomNumber() {
         return Randoms.pickNumberInRange(0,9);
     }
 
+    // 현재 자동차의 이름과 위치를 출력해주는 메서드
     private void printPosition(Car car) {
         System.out.println(car.toString());
     }
