@@ -20,13 +20,13 @@ public class Game {
 			car.goForward();
 		}
 
-		//GamePrinter.stagePrinter();
+		GamePrinter.stagePrint(cars);
 	}
 
 	public void gameProcess(){
-		//GamePrinter.getNamePrint();
+		GamePrinter.getNamePrint();
 		carMaker();
-		//GamePrinter.getNumberPrint();
+		GamePrinter.getNumberPrint();
 
 		String trialNumber = UserInputGetter.getUserInput();
 
@@ -38,25 +38,25 @@ public class Game {
 			stageProcess();
 		}
 
-		Car[] Champions = findChampion();
+		String[] champions = findChampion();
 
-		//GamePrinter.printChampion(Champions);
+		GamePrinter.printChampion(champions);
 
 	}
 
-	public Car[] findChampion(){
+	public String[] findChampion(){
 
 		int maxPosition = findChampionsPosition();
 		int numberOfChampion = findNumberOfChampion(maxPosition);
 
 
-		Car[] champions = new Car[numberOfChampion];
+		String[] champions = new String[numberOfChampion];
 
 		int tempChampion = 0;
 
 		for(int i = 0; i <= numberOfCars; i++){
 			if(cars[i].getPosition() == maxPosition){
-				champions[tempChampion] = cars[i];
+				champions[tempChampion] = cars[i].getName();
 				tempChampion++;
 			}
 		}
