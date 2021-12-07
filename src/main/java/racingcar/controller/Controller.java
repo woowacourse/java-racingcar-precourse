@@ -10,25 +10,26 @@ import racingcar.view.OutputView;
 public class Controller {
 	public void runRacing() {
 		RacingGame racingGame = RacingGame.getInstance();
-		racingGame.init();
 
 		OutputView.printInputNamesInstruction();
-		Names names = Names.from(InputView.getNames());
-		Cars cars = Cars.from(names);
+		Cars cars = Cars.from(Names.from(InputView.getNames()));
 
 		OutputView.printInputCountInstruction();
 		Count count = Count.of(InputView.getCount());
 
+		runRacing(racingGame, cars, count);
+
+		OutputView.printFinalWinnerInstruction();
+		OutputView.printNameOfFinalWinners(racingGame.findNameOfWinners());
+	}
+
+	private void runRacing(RacingGame racingGame, Cars cars, Count count) {
+		racingGame.init();
 		racingGame.insert(cars);
 		while (count.isRacingEnd()) {
 			racingGame.start();
 			reportResultEveryRound(racingGame);
 		}
-
-		OutputView.printFinalWinnerInstruction();
-		String nameOfWinners = racingGame.findNameOfWinners();
-		OutputView.printNameOfFinalWinners(nameOfWinners);
-
 	}
 
 	private void reportResultEveryRound(RacingGame racingGame) {
