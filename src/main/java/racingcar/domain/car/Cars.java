@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,6 +13,7 @@ public class Cars {
 	private Cars(List<Car> cars) {
 		validateSize(cars);
 		validateDuplication(cars);
+
 		this.cars = new ArrayList<>(cars);
 	}
 
@@ -33,19 +34,19 @@ public class Cars {
 		}
 	}
 
-	public String getFinalWinnerName() {
-		int maxPosition = getMaxPosition();
+	public String findWinnerName() {
+		int maxPosition = findMaximumPosition();
 		return cars.stream()
 			.filter(car -> car.getPosition() == maxPosition)
 			.map(Car::getName)
 			.collect(Collectors.joining(", "));
 	}
 
-	private int getMaxPosition() {
+	private int findMaximumPosition() {
 		return cars.stream()
 			.map(Car::getPosition)
 			.max(Integer::compare)
-			.orElse(-1);
+			.orElse(Car.MINIMUM_POSITION);
 	}
 
 	private void validateSize(List<Car> cars) {

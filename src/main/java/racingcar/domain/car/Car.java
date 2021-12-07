@@ -1,10 +1,11 @@
-package racingcar;
+package racingcar.domain.car;
 
 import racingcar.movement.MovementWay;
 import racingcar.movement.RandomMovement;
 
 public class Car {
-	private static final int NAME_MAX_LENGTH = 5;
+	public static final int MINIMUM_POSITION = 0;
+	private static final int NAME_MAXIMUM_LENGTH = 5;
 
 	private final String name;
 	private final MovementWay movementWay;
@@ -13,6 +14,7 @@ public class Car {
 	public Car(String name) {
 		validateNameEmpty(name);
 		validateNameLength(name);
+
 		this.name = name;
 		this.movementWay = new RandomMovement();
 	}
@@ -25,6 +27,7 @@ public class Car {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(name);
+
 		sb.append(" : ");
 		for (int i = 0; i < position; i++) {
 			sb.append("-");
@@ -33,7 +36,7 @@ public class Car {
 	}
 
 	private void validateNameLength(String name) {
-		if (name.length() > NAME_MAX_LENGTH) {
+		if (name.length() > NAME_MAXIMUM_LENGTH) {
 			throw new IllegalArgumentException("[ERROR] 자동차의 이름이 5자를 초과했습니다.");
 		}
 	}

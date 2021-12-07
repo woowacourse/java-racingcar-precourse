@@ -1,8 +1,9 @@
 package racingcar;
 
+import racingcar.domain.car.Cars;
 import racingcar.processor.InputProcessor;
 import racingcar.processor.OutputProcessor;
-import racingcar.result.Racing;
+import racingcar.domain.result.RacingResult;
 
 public class RacingGame {
 	private final InputProcessor inputProcessor;
@@ -18,26 +19,26 @@ public class RacingGame {
 		while (cars == null) {
 			cars = generateCars();
 		}
-		Racing racing = null;
-		while (racing == null) {
-			racing = generateRacing(cars);
+		RacingResult racingResult = null;
+		while (racingResult == null) {
+			racingResult = generateRacing(cars);
 		}
-		runRacing(racing);
+		runRacing(racingResult);
 	}
 
-	private void runRacing(Racing racing) {
+	private void runRacing(RacingResult racingResult) {
 		outputProcessor.printResultBeginning();
-		while (!racing.isEnd()) {
-			racing.start();
-			outputProcessor.printResult(racing);
+		while (!racingResult.isEnd()) {
+			racingResult.run();
+			outputProcessor.printResult(racingResult);
 		}
-		outputProcessor.printWinner(racing);
+		outputProcessor.printWinner(racingResult);
 	}
 
-	private Racing generateRacing(Cars cars) {
+	private RacingResult generateRacing(Cars cars) {
 		try {
 			String count = inputProcessor.readCount();
-			return Racing.of(count, cars);
+			return RacingResult.of(count, cars);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			return null;

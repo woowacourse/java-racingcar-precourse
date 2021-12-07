@@ -1,6 +1,6 @@
 package racingcar.processor;
 
-import racingcar.result.Racing;
+import racingcar.domain.result.RacingResult;
 
 public class OutputProcessor {
 
@@ -8,11 +8,11 @@ public class OutputProcessor {
 		System.out.println("\n실행 결과");
 	}
 
-	public void printResult(Racing racing) {
-		System.out.println(racing.getPresentCarStatus() + "\n");
+	public void printResult(RacingResult racingResult) {
+		System.out.println(racingResult.getPresentCarsStatus() + "\n");
 	}
 
-	public void printWinner(Racing racing) {
-		System.out.println("최종 우승자 : " + racing.getFinalWinnerName());
+	public void printWinner(RacingResult racingResult) {
+		System.out.println("최종 우승자 : " + racingResult.findFinalWinnerName());
 	}
 }
