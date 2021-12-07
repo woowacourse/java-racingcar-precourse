@@ -137,7 +137,7 @@ woowa : ------
   - `Names` : 입력받은 모든 Name 을 담고있는 일급 컬렉션
   - `Position` : 자동차의 위치 정보를 담고있는 VO
   - `Winners` : Cars 중 가장 멀리 전진한 Car 를 담고있는 일급 컬렉션
-  - `WinnersDto` : 승자 정보를 View 레이어로 저달하기 위해 사용되는 DTO
+  - `WinnersDto` : 승자 정보를 View 레이어로 전달하기 위해 사용되는 DTO
 - `view`
   - `InputView` : 사용자로부터 데이터를 입력받을 때 사용되는 클래스
   - `OutputView` : 사용자에게 정보를 표시하기 위해 사용되는 클래스
