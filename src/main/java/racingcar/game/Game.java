@@ -7,7 +7,12 @@ public class Game {
 	public void run() {
 		Input input = new Input();
 		Cars cars = new Cars();
+
 		input.getCarNameList().forEach(cars::appendCar);
+		Round round = new Round(cars.getList());
+		for (int i = 0; i < input.getRepeatNum(); i++) {
+			round.play();
+		}
 	}
 	// 작업해야 하는 내용
 	// 1. 라운드 작성 : 리스트 내에 있는 모든 자동차에 대해 주사위굴려서 전진시키기 + 결과 출력

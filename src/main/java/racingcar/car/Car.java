@@ -1,6 +1,6 @@
 package racingcar.car;
 
-class Car {
+public class Car {
 	private final Name name;
 	private Position position;
 
@@ -23,5 +23,9 @@ class Car {
 
 	public boolean isSmallerThan(int otherPosition) {
 		return this.position.get() < otherPosition;
+	}
+
+	public void move() {
+		position.next();
 	}
 }

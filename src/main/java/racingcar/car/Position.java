@@ -7,7 +7,7 @@ class Position {
 		this.position = 0;
 	}
 
-	private void next() {
+	public void next() {
 		position++;
 	}
 
