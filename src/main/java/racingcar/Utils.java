@@ -11,8 +11,6 @@ import java.util.List;
 
 public class Utils {
 
-
-
     public static void getFinalResult(List<Car> carList){
         int maxCarPosiiton = getMaxCarPosition(carList);
         List<Car> winnerCar = getWinnerCar(carList, maxCarPosiiton);
