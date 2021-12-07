@@ -1,6 +1,8 @@
 package racingcar.view.classes;
 
 import racingcar.common.classes.GameStatus;
+import racingcar.controller.GameDataHandlerInterface;
+import racingcar.controller.classes.GameDataHandler;
 import racingcar.view.Game;
 
 public class GameMachine implements Game {
@@ -8,6 +10,7 @@ public class GameMachine implements Game {
 	private StandardInputHandler standardInputHandler = new StandardInputHandler();
 	private String[] names;
 	private int counts = 0;
+	private GameDataHandlerInterface dataHandlerInterface = new GameDataHandler();
 
 	@Override
 	public void start() {
@@ -19,7 +22,8 @@ public class GameMachine implements Game {
 				proceedInputCount();
 			}
 			if (gameStatus == GameStatus.showResultsStatus) {
-				System.out.println("show");
+				dataHandlerInterface.makeGameData(names, counts);
+				System.out.print(dataHandlerInterface.getFullTrackRecord());
 				break;
 			}
 			if(gameStatus == GameStatus.showFinalStatus) {

@@ -7,9 +7,9 @@ import racingcar.model.TrackInterface;
 public class Track implements TrackInterface {
 
 	@Override
-	public String makeTrack(List<Car> Cars) {
+	public String makeTrack(List<Car> cars) {
 		String track = "";
-		for (Car car: Cars) {
+		for (Car car: cars) {
 			track += car.getLine();
 			track += "\n";
 		}
