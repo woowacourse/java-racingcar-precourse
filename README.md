@@ -12,7 +12,7 @@
 - [x] 몇 번의 이동을 할 것인지를 입력 받는 기능 InputView#getCount
     - [x] 입력된 횟수에 대한 검증 기능 Util#checkCountValidation
 - [x] 입력받은 이름으로 자동차들 생성하는 로직 구현 Cars
-- [ ] 입력받은 횟수 동안 자동차 경주를 시행하도록 하는 로직 RacingGame
+- [x] 입력받은 횟수 동안 자동차 경주를 시행하도록 하는 로직 Count#isRacingEnd
     - [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈추는 기능 Car
         - [ ] 무작위 값이 4 이상일 경우 position +1 올라가도록 구현
     - [ ] 0에서 9 사이에서 무작위 값을 구하는 기능 Util

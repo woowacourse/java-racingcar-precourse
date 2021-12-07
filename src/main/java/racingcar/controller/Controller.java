@@ -15,9 +15,14 @@ public class Controller {
 		OutputView.printInputNamesInstruction();
 		Names names = Names.from(InputView.getNames());
 		Cars cars = Cars.from(names);
-		
+
 		OutputView.printInputCountInstruction();
 		Count count = Count.of(InputView.getCount());
+
+		int testCount = 1;
+		while (count.isRacingEnd()) {
+			// 주어진 횟수만큼 반복하여 레이싱 게임 시작
+		}
 
 	}
 }

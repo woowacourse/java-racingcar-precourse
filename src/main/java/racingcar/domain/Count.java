@@ -37,4 +37,15 @@ public class Count implements Comparable<Count> {
 		return this.count;
 	}
 
+	public boolean isRacingEnd() {
+		if (this.count > 0) {
+			nextRacing();
+			return true;
+		}
+		return false;
+	}
+
+	private void nextRacing() {
+		this.count--;
+	}
 }
