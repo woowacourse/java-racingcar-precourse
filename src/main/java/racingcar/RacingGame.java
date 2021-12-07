@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
-
 public class RacingGame {
 
 	private static final String QUESTION_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
@@ -74,39 +72,14 @@ public class RacingGame {
 		player.sendMessage(getAllCarsCurrentPositionVisualizationData());
 	}
 
-	private int getBestScore() {
-		int bestScore = 0;
-		for (int i = 0; i < cars.length; ++i) {
-			if (cars[i].getPosition() > bestScore) {
-				bestScore = cars[i].getPosition();
-			}
+	private void sendWinnerNames(Player player) {
+		String[] winnerNameBucket = carManager.getWinnerNameBucket();
+		StringBuilder winnerNamesData = new StringBuilder();
+		winnerNamesData.append(winnerNameBucket[0]);
+		for (int i = 1; i < winnerNameBucket.length; ++i) {
+			winnerNamesData.append(", " + winnerNameBucket[i]);
 		}
-		return bestScore;
-	}
-
-	private ArrayList<Integer> getWinnersIndex() {
-		int bestScore = getBestScore();
-		ArrayList<Integer> winnersIndex = new ArrayList<>();
-		for (int i = 0; i < cars.length; ++i) {
-			if (bestScore == cars[i].getPosition()) {
-				winnersIndex.add(i);
-			}
-		}
-		return winnersIndex;
-	}
-
-	private String getWinnersName(ArrayList<Integer> winnersIndex) {
-		StringBuilder winnersName = new StringBuilder();
-		winnersName.append(cars[winnersIndex.get(0)].getName());
-		for (int i = 1; i < winnersIndex.size(); ++i) {
-			winnersName.append(COMMA_SPACE + cars[winnersIndex.get(i)].getName());
-		}
-		return winnersName.toString();
-	}
-
-	private void printWinners(Player player) {
-		ArrayList<Integer> winnersIndex = getWinnersIndex();
-		player.sendMessage(WINNER_OUTPUT_MESSAGE + SPACE_COLON_SPACE + getWinnersName(winnersIndex));
+		player.sendMessage(winnerNamesData.toString());
 	}
 
 	public void playRacingGame(Player player) {
@@ -114,6 +87,6 @@ public class RacingGame {
 		for (int cycle = 0; cycle < totalTryNum; ++cycle) {
 			playOneCycle(player);
 		}
-		printWinners(player);
+		sendWinnerNames(player);
 	}
 }

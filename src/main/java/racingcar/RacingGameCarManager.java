@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class RacingGameCarManager {
 
 	private Car[] cars;
@@ -24,5 +26,35 @@ public class RacingGameCarManager {
 				cars[i].getCurrentPositionVisualization());
 		}
 		return allCarsCurrentPositionData;
+	}
+
+	private int getBestScore() {
+		int bestScore = 0;
+		for (int i = 0; i < cars.length; ++i) {
+			if (cars[i].getPosition() > bestScore) {
+				bestScore = cars[i].getPosition();
+			}
+		}
+		return bestScore;
+	}
+
+	private ArrayList<Integer> getWinnersIndex() {
+		int bestScore = getBestScore();
+		ArrayList<Integer> winnersIndex = new ArrayList<>();
+		for (int i = 0; i < cars.length; ++i) {
+			if (bestScore == cars[i].getPosition()) {
+				winnersIndex.add(i);
+			}
+		}
+		return winnersIndex;
+	}
+
+	protected String[] getWinnerNameBucket() {
+		ArrayList<Integer> winnerIndex = getWinnersIndex();
+		String[] winnerNameBucket = new String[winnerIndex.size()];
+		for (int i = 0; i < winnerIndex.size(); ++i) {
+			winnerNameBucket[i] = cars[i].getName();
+		}
+		return winnerNameBucket;
 	}
 }
