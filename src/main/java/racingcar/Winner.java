@@ -1,22 +1,23 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Winner {
     private Car[] cars;
-    StringBuilder stringBuilder; // 리스트로 변경할 것
+    ArrayList<String> result;
+
     public Winner(Car[] cars){
         this.cars = cars;
-        stringBuilder = new StringBuilder(); // 리스트로 변경할 것
+        result = new ArrayList<>();
     }
 
 
     public void grading(){
         int i = cars.length - 1;
         do{
-            stringBuilder.append(cars[i].getName()).append(',');
+            result.add(cars[i].getName());
             if(cars[i].getPosition() != cars[i-1].getPosition()) {
-                stringBuilder.deleteCharAt(stringBuilder.length()-1);
                 break;
             }
             i--;
@@ -26,7 +27,16 @@ public class Winner {
     public String result(){
         Arrays.sort(cars);
         grading();
-        String answer = stringBuilder.toString();
+        String answer = arrayToString();
         return "최종 우승자 : " + answer;
+    }
+
+    public String arrayToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(String name : result) {
+            stringBuilder.append(name).append(',');
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        return stringBuilder.toString();
     }
 }
