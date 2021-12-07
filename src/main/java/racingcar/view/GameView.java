@@ -16,7 +16,19 @@ public class GameView {
 		System.out.println();
 	}
 
+	public static void winnersUI(List<Car> winners) {
+		System.out.println("최종 우승자 : " + formatWinners(winners));
+	}
+
 	private static String formatPosition(int position) {
 		return new String(new char[position]).replace("\0", "-");
+	}
+	
+	private static String formatWinners(List<Car> winners) {
+		String result = winners.remove(0).getName();
+		for (Car car : winners) {
+			result += ", " + car.getName();
+		}
+		return result;
 	}
 }

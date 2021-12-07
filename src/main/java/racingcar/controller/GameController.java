@@ -22,4 +22,8 @@ public class GameController {
 			GameView.resultUI(game.getCars());
 		}
 	}
+
+	public void winners() {
+		GameView.winnersUI(game.winners());
+	}
 }

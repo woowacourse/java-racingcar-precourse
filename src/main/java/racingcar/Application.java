@@ -13,5 +13,6 @@ public class Application {
 		int count = InputController.createCount();
 		GameController gameController = new GameController(cars, count);
 		gameController.play();
+		gameController.winners();
 	}
 }
