@@ -10,7 +10,6 @@ public class RacingCarGame {
 	private static final int DEFAULT_CAR_POSITION = 0;
 
 	public RacingCarGame() {
-
 	}
 
 	public void race() {
