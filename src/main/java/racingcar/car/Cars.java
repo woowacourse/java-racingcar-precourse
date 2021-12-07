@@ -19,11 +19,12 @@ public class Cars {
 
 	ArrayList<String> winnerNameList = new ArrayList<>();
 
-	ArrayList<String> getWinnerNameList() {
+	public ArrayList<String> getWinnerNameList() {
+		initWinnerNameList();
 		return winnerNameList;
 	}
 
-	void setWinnerNameList() {
+	void initWinnerNameList() {
 		carList.forEach(this::pickWinner);
 	}
 

@@ -1,25 +1,36 @@
 package racingcar.game;
 
+import static racingcar.utils.Notice.*;
+
+import java.util.stream.IntStream;
+
 import racingcar.car.Cars;
 import racingcar.userinterface.Input;
 
 public class Game {
-	public void run() {
-		Input input = new Input();
-		Cars cars = new Cars();
-		String noticeMessage = "자동차 이름을 입력해 주세요.";
-		System.out.println(noticeMessage);
-		input.getCarNameList().forEach(cars::appendCar);
-		Round round = new Round(cars.getList());
-		noticeMessage = "반복 횟수 입력해 주세요.";
-		System.out.println(noticeMessage);
+	Input input = new Input();
+	Cars cars = new Cars();
+
+	public void play() {
+		setCarList();
+		System.out.println(INPUT_REPEAT_NUM);
 		int repeatNum = input.getRepeatNum();
-		for (int i = 0; i < repeatNum; i++) {
-			round.play();
-			System.out.println();
-		}
+		Round round = new Round(cars.getList());
+
+		IntStream.range(0, repeatNum).forEach(i -> round.run());
+
+		printWinner();
 	}
-	// 작업해야 하는 내용
-	// 1. 라운드 작성 : 리스트 내에 있는 모든 자동차에 대해 주사위굴려서 전진시키기 + 결과 출력
-	// 2. 우승자 출력 : 우승자 출력... 함수는... 이미 만들어두긴 했는데.
+
+	private void
+
+	private void setCarList() {
+		System.out.println(INPUT_CAR_NAMES);
+		input.getCarNameList().forEach(cars::appendCar);
+	}
+
+	private void printWinner() {
+		String winnerNames = String.join(", ", cars.getWinnerNameList());
+		System.out.printf("최종 우승자 : %s\n", winnerNames);
+	}
 }

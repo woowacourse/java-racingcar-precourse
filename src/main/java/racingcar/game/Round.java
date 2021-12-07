@@ -12,8 +12,9 @@ public class Round {
 		this.carList = carList;
 	}
 
-	void play() {
+	void run() {
 		carList.forEach(car -> new CheckPoint(car).checkIn());
+		System.out.println();
 	}
 
 	private int MOVE_STANDARD = 4;
