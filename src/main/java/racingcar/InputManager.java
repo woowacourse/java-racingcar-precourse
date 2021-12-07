@@ -22,7 +22,7 @@ public class InputManager {
 		while (carsScan) {
 			try {
 				String carsInput = Console.readLine();
-				isValidCars(carsInput);
+				isValidCarsInput(carsInput);
 				carsList = carsInput.split(",");
 				isValidCarsList();
 				carsScan = false;
@@ -47,7 +47,7 @@ public class InputManager {
 		}
 	}
 
-	public void isValidCars(String carsInput) throws IllegalArgumentException {
+	public void isValidCarsInput(String carsInput) throws IllegalArgumentException {
 		if (carsInput.length() == 0) {
 			throw new IllegalArgumentException(CAR_NAME_ERROR);
 		}
