@@ -32,11 +32,13 @@ class ValidatorTest {
 		// given
 		String notNumber = "notNumber";
 		String zero = "0";
+		String negative = "-1";
 		String rightNumber = "10";
 
 		// when, then
 		assertAll(
 			() -> assertThrows(IllegalArgumentException.class, () -> validateNumberInput(notNumber)),
+			() -> assertThrows(IllegalArgumentException.class, () -> validateNumberInput(negative)),
 			() -> assertThrows(IllegalArgumentException.class, () -> validateNumberInput(zero)),
 			() -> validateNumberInput(rightNumber)
 		);

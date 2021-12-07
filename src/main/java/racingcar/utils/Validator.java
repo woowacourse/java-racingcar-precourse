@@ -32,15 +32,16 @@ public class Validator {
 
 	public static void validateNumberInput(String input) throws IllegalArgumentException {
 		try {
-			validateZero(Integer.parseInt(input));
+			int number = Integer.parseInt(input);
+			validatePositive(number);
 		} catch (NumberFormatException e) {
 			// 숫자가 아니면 발생하는 NumberFormatException 처리
 			throw new IllegalArgumentException(ERROR_NUMBER_MSG);
 		}
 	}
 
-	private static void validateZero(int input) throws NumberFormatException {
-		if (input == ZERO) {
+	private static void validatePositive(int input) throws NumberFormatException {
+		if (input <= ZERO) {
 			throw new IllegalArgumentException(ERROR_ZERO_MSG);
 		}
 	}
