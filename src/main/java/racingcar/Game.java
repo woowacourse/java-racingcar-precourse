@@ -87,7 +87,7 @@ public class Game {
 	public int getGameCount() {
 		String stringGameCount = InputView.gameCountInput();
 		gameCount = Integer.parseInt(stringGameCount);
-		System.out.println(gameCount);
+
 		return gameCount;
 	}
 }

@@ -15,7 +15,7 @@ public class InputView {
 	private static final int CAR_NAME_LENGTH_MAX = 5;
 	private static final char STRING_GAME_COUNT_MIN = '0';
 	private static final char STRING_GAME_COUNT_MAX = '9';
-	private static final int ZERO_GAME_COUNT = 0;
+	private static final String ZERO_GAME_COUNT = "0";
 
 	public static List<String> carNamesInput() {
 		List<String> carsNameList = new ArrayList<String>();
