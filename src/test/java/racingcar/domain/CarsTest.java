@@ -7,12 +7,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarsTest {
+	MoveRule defaultRule = new DefaultRule();
 
 	@ParameterizedTest
 	@ValueSource(strings = {"", "바흐,,쇼팽"})
 	void validateEmptyNameTest(String inputCarNames) {
 		assertThrows(IllegalArgumentException.class, () -> {
-			Cars cars = Cars.generateCars(inputCarNames);
+			Cars cars = Cars.generateCars(inputCarNames, defaultRule);
 		});
 	}
 
@@ -20,21 +21,21 @@ class CarsTest {
 	@ValueSource(strings = {"바흐,쇼팽,라흐마니노프", "도레미파솔라시도,바흐"})
 	void validateNameLengthExceedTest(String inputCarNames) {
 		assertThrows(IllegalArgumentException.class, () -> {
-			Cars cars = Cars.generateCars(inputCarNames);
+			Cars cars = Cars.generateCars(inputCarNames, defaultRule);
 		});
 	}
 
 	@Test
 	void validateOnlyOneParticipant() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			Cars cars = Cars.generateCars("바흐");
+			Cars cars = Cars.generateCars("바흐", defaultRule);
 		});
 	}
 
 	@Test
 	void validateDuplicatedName() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			Cars cars = Cars.generateCars("바흐,바흐,드뷔시");
+			Cars cars = Cars.generateCars("바흐,바흐,드뷔시", defaultRule);
 		});
 	}
 

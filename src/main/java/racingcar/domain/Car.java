@@ -5,24 +5,21 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 	private static final int START_INCLUSIVE = 0;
 	private static final int END_INCLUSIVE = 9;
-	private static final int MOVABLE_THRESHOLD = 4;
 
 	private final String name;
-	private int position = 0;
+	private int position;
+	private MoveRule moveRule;
 
-	public Car(String name) {
+	public Car(String name, MoveRule moveRule) {
 		this.name = name;
+		this.moveRule = moveRule;
 	}
 
 	public void moveAccordingToRule() {
 		int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-		if (isMovable(randomNumber)) {
+		if (moveRule.isMovable(randomNumber)) {
 			move();
 		}
-	}
-
-	private boolean isMovable(int randomNumber) {
-		return randomNumber >= MOVABLE_THRESHOLD;
 	}
 
 	private void move() {

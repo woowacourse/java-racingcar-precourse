@@ -22,13 +22,13 @@ public class Cars {
 		this.cars = cars;
 	}
 
-	public static Cars generateCars(String carNames) {
+	public static Cars generateCars(String carNames, MoveRule moveRule) {
 		String[] carNameList = carNames.split(NAME_DELIMITER);
 		validateCarNames(carNameList);
 
 		List<Car> carList = new ArrayList<>();
 		for (String carName : carNameList) {
-			carList.add(new Car(carName));
+			carList.add(new Car(carName, moveRule));
 		}
 
 		return new Cars(carList);

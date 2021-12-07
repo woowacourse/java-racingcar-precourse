@@ -6,11 +6,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingCarGameTest {
+	static MoveRule defaultRule = new DefaultRule();
 	private static Cars cars;
 
 	@BeforeAll
 	static void setupCars() {
-		cars = Cars.generateCars("바흐,모차르트,쇼팽");
+		cars = Cars.generateCars("바흐,모차르트,쇼팽", defaultRule);
 	}
 
 	@ParameterizedTest

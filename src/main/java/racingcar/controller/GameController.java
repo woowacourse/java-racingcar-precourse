@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.DefaultRule;
 import racingcar.domain.RacingCarGame;
 import racingcar.domain.RoundStatus;
 import racingcar.view.ErrorView;
@@ -11,7 +12,7 @@ public class GameController {
 	public void init() {
 		String inputCarNames = InputView.getCarNames();
 		try {
-			Cars cars = Cars.generateCars(inputCarNames);
+			Cars cars = Cars.generateCars(inputCarNames, new DefaultRule());
 			RacingCarGame racingCarGame = initRacingCarGame(cars);
 
 			startGame(racingCarGame);
