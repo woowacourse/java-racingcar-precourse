@@ -31,6 +31,23 @@ public class Game {
 		}
 	}
 
+	public void gameEnd() {
+		umpire.getWinner();
+		printWinners();
+	}
+
+	private void printWinners() {
+		List<String> winnersNameList = umpire.getWinnersNameList();
+		System.out.print("최종 우승자 : ");
+		for (int i = 0; i < winnersNameList.size(); i++) {
+			if (i == 0) {
+				System.out.println(winnersNameList.get(i));
+				return;
+			}
+			System.out.print(winnersNameList.get(i) + ", ");
+		}
+	}
+
 	private void playGames() {
 		moveCarList();
 		printCarInfo();
