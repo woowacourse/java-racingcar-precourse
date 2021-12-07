@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.car.Car;
+import racingcar.umpire.Umpire;
 
 public class Game {
 	public int num;
 	public List<Car> carList;
+	public Umpire umpire;
 
 	public Game() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -24,22 +26,32 @@ public class Game {
 	public void gameStart() {
 		System.out.println("실행 결과");
 		for (int i = 0; i < num; i++) {
-			gamePlay();
+			playGames();
 		}
 	}
 
-	private void gamePlay() {
+	private void playGames() {
+		moveCarList();
+		printCarInfo();
+	}
+
+	private void moveCarList() {
 		carList.forEach(car -> {
-			printCarInfo(car);
+			car.move();
 		});
 	}
 
-	private void printCarInfo(Car car) {
-		System.out.print(car.getName() + " : ");
-		for (int i = 0; i < car.getPosition(); i++) {
-			System.out.print("-");
-		}
-		System.out.println();
+	private void printCarInfo() {
+		carList.forEach(car -> {
+			// 차 이름 출력
+			System.out.print(car.getName() + " : ");
+			// 차 position 출력
+			for (int i = 0; i < car.getPosition(); i++) {
+				System.out.print("-");
+			}
+			// 줄바꿈
+			System.out.println();
+		});
 	}
 
 	private int inputNum() {
