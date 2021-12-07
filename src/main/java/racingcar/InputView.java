@@ -3,14 +3,13 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-
-    public static String[] inputCarList() {
-        System.out.println(RacingCarConstant.INPUT_CAR_NAME_LIST_MESSAGE);
+    public static String[] inputCarNames() {
+        System.out.println(RacingCarConstant.INPUT_CAR_NAMES_MESSAGE);
         while (true) {
-            String[] carNameList = Console.readLine().split(RacingCarConstant.DELIMITER);
+            String[] carNames = Console.readLine().split(RacingCarConstant.DELIMITER);
             try {
-                InputValidator.validateCarNameListInput(carNameList);
-                return carNameList;
+                InputValidator.validateCarNamesInput(carNames);
+                return carNames;
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
             }

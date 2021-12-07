@@ -6,11 +6,11 @@ import java.util.Set;
 
 public class InputValidator {
 
-    public static void validateCarNameListInput(String[] nameList) {
-        for (String name : nameList) {
+    public static void validateCarNamesInput(String[] names) {
+        for (String name : names) {
             validateLength(name);
         }
-        validateExistDuplicateName(nameList);
+        validateExistDuplicateName(names);
     }
 
     public static void validateTryNumber(String input) {
@@ -20,7 +20,7 @@ public class InputValidator {
 
     private static void validateStringIsNumber(String input) {
         if (!input.chars().allMatch(Character::isDigit)) {
-            throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "1 이상의 숫자여야 한다.");
+            throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "숫자여야 한다.");
         }
     }
 

@@ -9,7 +9,7 @@ public class RacingGame {
     private final int attempt;
 
     public RacingGame() {
-        cars = createCars(InputView.inputCarList());
+        cars = createCars(InputView.inputCarNames());
         attempt = InputView.inputAttempt();
     }
 
@@ -18,8 +18,8 @@ public class RacingGame {
         finish();
     }
 
-    private Cars createCars(String[] carNameList) {
-        List<Car> cars = Arrays.stream(carNameList)
+    private Cars createCars(String[] carNames) {
+        List<Car> cars = Arrays.stream(carNames)
                 .map(Car::new)
                 .collect(Collectors.toList());
 
@@ -34,7 +34,7 @@ public class RacingGame {
     }
 
     private void finish() {
-        List<String> winnerList = cars.getWinnerList();
-        OutputView.printWinnerList(winnerList);
+        List<String> winners = cars.getWinners();
+        OutputView.printWinners(winners);
     }
 }

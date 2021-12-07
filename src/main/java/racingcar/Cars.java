@@ -18,7 +18,7 @@ public class Cars {
         System.out.println();
     }
 
-    public List<String> getWinnerList() {
+    public List<String> getWinners() {
         int maxPosition = cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()

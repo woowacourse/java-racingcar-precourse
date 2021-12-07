@@ -15,8 +15,8 @@ public class OutputView {
         System.out.println(RacingCarConstant.RESULT_MESSAGE);
     }
 
-    public static void printWinnerList(List<String> winnerList) {
+    public static void printWinners(List<String> winners) {
         System.out.print(RacingCarConstant.WINNER_RESULT_MESSAGE);
-        System.out.print(String.join(RacingCarConstant.DELIMITER + RacingCarConstant.BLANK, winnerList));
+        System.out.print(String.join(RacingCarConstant.DELIMITER + RacingCarConstant.BLANK, winners));
     }
 }
