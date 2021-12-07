@@ -11,7 +11,8 @@ public class StringUtil {
 	public static final String JOIN_DELIMITER = ", ";
 
 	public static List<String> split(final String carName) {
-		return Arrays.stream(carName.split(DELIMITER)).map(String::trim)
+		return Arrays.stream(carName.split(DELIMITER))
+			.map(String::trim)
 			.collect(Collectors.toList());
 	}
 
