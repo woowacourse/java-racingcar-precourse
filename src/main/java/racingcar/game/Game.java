@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.List;
 
+import racingcar.car.Car;
+import racingcar.car.CarManager;
 import racingcar.constant.Message;
 import racingcar.constant.Number;
 import racingcar.iomanagement.InputScanner;

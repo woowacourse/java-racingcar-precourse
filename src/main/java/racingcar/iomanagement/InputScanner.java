@@ -1,10 +1,6 @@
 package racingcar.iomanagement;
 
-import java.util.List;
-
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Car;
-import racingcar.CarManager;
 import racingcar.constant.Message;
 
 public class InputScanner {

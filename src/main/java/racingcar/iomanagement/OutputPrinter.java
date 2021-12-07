@@ -3,7 +3,7 @@ package racingcar.iomanagement;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import racingcar.Car;
+import racingcar.car.Car;
 import racingcar.constant.Message;
 
 public class OutputPrinter {
