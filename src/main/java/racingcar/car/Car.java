@@ -32,4 +32,10 @@ public class Car {
 		return name;
 	}
 
+	public boolean isSamePosition(int target) {
+		if (target == position) {
+			return true;
+		}
+		return false;
+	}
 }

@@ -39,7 +39,7 @@ public class Umpire {
 
 	private List<Car> findSamePosition(int target) {
 		return carList.stream()
-			.filter(car -> car.getPosition() == target)
+			.filter(car -> car.isSamePosition(target))
 			.collect(Collectors.toList());
 	}
 
