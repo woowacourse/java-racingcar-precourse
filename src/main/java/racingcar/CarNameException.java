@@ -13,7 +13,7 @@ public class CarNameException {
     public static void isEmptyName(String[] allCarName) {
         for (String name : allCarName) {
             if (name.contains(" ")) {
-                throw new IllegalArgumentException("[ERROR] 이름에 공백이 있을 수 없습니다.");
+                throw new IllegalArgumentException(Constant.ERROR_EMPTY_NAME);
             }
         }
     }
@@ -23,14 +23,14 @@ public class CarNameException {
         Set<String> set = new HashSet<>(list);
 
         if (list.size() != set.size()) {
-            throw new IllegalArgumentException("[ERROR] 이름은 중복될 수 없습니다.");
+            throw new IllegalArgumentException(Constant.ERROR_OVERLAP_NAME);
         }
     }
 
     public static void isRightLength(String[] allCarName) {
         for (String name : allCarName) {
             if (name.length() < 1 || name.length() > 5) {
-                throw new IllegalArgumentException("[ERROR] 이름은 한 글자 이상 다섯 글자 이하만 가능합니다.");
+                throw new IllegalArgumentException(Constant.ERROR_RIGHT_LENGTH_NAME);
             }
         }
     }
