@@ -21,6 +21,20 @@ public class InputController {
 		return carList;
 	}
 
+	public int getInput_try() {
+		int tryNum;
+		while (true) {
+			try {
+				tryNum = validateType_tryNum();
+				validateRange_tryNum(tryNum);
+				break;
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return tryNum;
+	}
+
 	public int validateType_tryNum() {
 		try {
 			int tryNum = Integer.parseInt(InputView.getTryNum());
