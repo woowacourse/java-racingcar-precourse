@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 import racingcar.Constants;
 import racingcar.Util;
@@ -17,14 +16,14 @@ public class CarNameValidator {
 	}
 
 	public void validate() {
-		isRightNameString();
+		isRightNamesString();
 		isNotDuplicate();
 		isRightNameSize();
 	}
 
-	public void isRightNameString() {
+	public void isRightNamesString() {
 		// String 형식 확인: 앞&뒤-문자, 중간-문자&구분자
-		if (!Pattern.matches("^[가-힣\\w]+[가-힣\\w" + Constants.DELIMITER + "]*[가-힣\\w]$", NAMES_STRING)) {
+		if (!Constants.namesStringPattern.matcher(NAMES_STRING).matches()) {
 			throw new IllegalArgumentException(Constants.CAR_NAME_WRONG_ERROR);
 		}
 	}
