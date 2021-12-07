@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import racingcar.utils.RandomGenerator;
 
-import static racingcar.utils.ConstantNum.*;
-
 public class Car {
 	private final String carName;
 	private int position = 0;
@@ -15,8 +13,7 @@ public class Car {
 	}
 
 	public void proceedOrPause() {
-		RandomGenerator randomGenerator = new RandomGenerator();
-		if (randomGenerator.getRandomNum() >= PROCEED_NUM_MIN) {
+		if (RandomGenerator.getRandomNum() >= PROCEED_NUM_MIN) {
 			this.position++;
 		}
 	}
