@@ -44,5 +44,11 @@ public class Race {
         }
     }
 
-    
+    public static void printFinalWinner(User user) {
+        int frontPosition = game.getFrontPosition(cars);
+
+        List<String> winner = game.getWinner(cars, frontPosition);
+
+        System.out.print(Constant.FINAL_WINNER + String.join(Constant.FINAL_WINNER_JOIN_DELIMITER, winner));
+    }
 }
