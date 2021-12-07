@@ -32,8 +32,8 @@ public class OutputView {
     }
 
     public void showWinnerCarName(ArrayList<Car> cars) {
-        List<Car> collect = cars.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
-        int winnerMoveNumber = collect.get(Output.MAX_MOVE).getPosition();
+        List<Car> sortCars = cars.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        int winnerMoveNumber = sortCars.get(Output.MAX_MOVE).getPosition();
 
         for (Car car : cars) {
             if (car.getPosition() == winnerMoveNumber && !firstWinner) {
