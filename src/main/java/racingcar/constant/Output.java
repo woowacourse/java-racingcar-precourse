@@ -5,4 +5,5 @@ public class Output {
     public static final String RESULT_COLON_FORMAT = " : ";
     public static final String FINAL_WINNER = "최종 우승자";
     public static final String RESULT_COMMA_FORMAT = ", ";
+    public static final int MAX_MOVE = 0;
 }
