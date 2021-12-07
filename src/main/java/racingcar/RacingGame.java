@@ -3,8 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.deploy.util.StringUtils;
-
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
@@ -100,7 +98,22 @@ public class RacingGame {
 	public void printWinners() {
 		System.out.print(Constant.WINNER_MESSAGE);
 		List<String> winners = findWinners();
-		System.out.println(StringUtils.join(winners, ", "));
+		if (winners.size() == 1) {
+			printSingleWinner(winners);
+			return;
+		}
+		printMultipleWinner(winners);
+	}
+
+	public void printSingleWinner(List<String> winners) {
+		System.out.println(winners.get(0));
+	}
+
+	public void printMultipleWinner(List<String> winners) {
+		for (int i = 0; i < winners.size() - 1; i++) {
+			System.out.print(winners.get(i) + ", ");
+		}
+		System.out.println(winners.get(winners.size() - 1));
 	}
 
 	public List<String> findWinners() {
