@@ -8,6 +8,9 @@ public class OutputView {
 	private static final String FORWARD_MARK = "-";
 	private static final int ZERO = 0;
 
+	private OutputView() {
+	}
+
 	public static void printCarsPositionStatus(List<Car> carList) {
 		for (Car car : carList) {
 			System.out.println(car.getName() + " : " + carPositionToString(car));
