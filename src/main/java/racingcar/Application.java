@@ -12,6 +12,16 @@ public class Application {
         return cars;
     }
 
+    public void raceResult(Car[] cars, int numberOfAttempts){
+        System.out.println("실행결과");
+        for (int i=0; i<numberOfAttempts; i++) {
+            for (int j=0; j< cars.length; j++) {
+                System.out.println(cars[j].race());
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         Application application = new Application();
 
@@ -22,5 +32,6 @@ public class Application {
         System.out.println();
 
         Car[] cars = application.makeCars(names);
+        application.raceResult(cars, numberOfAttempts);
     }
 }
