@@ -12,23 +12,17 @@ public class RacingGame {
 
     private final InputValidator inputValidator;
 
-    private static final String INPUT_CAR_NAME_LIST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String INPUT_ATTEMPT_MESSAGE = "시도할 회수는 몇회인가요?";
-    private static final String DELIMITER = ",";
-
-    private static final String RESULT_MESSAGE = "\n실행 결과";
-
     public RacingGame(InputValidator inputValidator) {
         this.inputValidator = inputValidator;
         carList = new ArrayList<>();
     }
 
     public void play() {
-        System.out.println(INPUT_CAR_NAME_LIST_MESSAGE);
+        System.out.println(RacingCarConstant.INPUT_CAR_NAME_LIST_MESSAGE);
         for (String carName : getCarList()) {
             carList.add(new Car(carName));
         }
-        System.out.println(INPUT_ATTEMPT_MESSAGE);
+        System.out.println(RacingCarConstant.INPUT_ATTEMPT_MESSAGE);
         int tryNumber = getTryNumber();
         startRacing(tryNumber);
 
@@ -37,7 +31,7 @@ public class RacingGame {
     }
 
     private void startRacing(int tryNumber) {
-        System.out.println(RESULT_MESSAGE);
+        System.out.println(RacingCarConstant.RESULT_MESSAGE);
 
         for (int i = 0; i < tryNumber; i++) {
             for (Car car : carList) {
@@ -50,7 +44,7 @@ public class RacingGame {
 
     private String[] getCarList() {
         while (true) {
-            String[] carNameList = Console.readLine().split(DELIMITER);
+            String[] carNameList = Console.readLine().split(RacingCarConstant.DELIMITER);
             try {
                 inputValidator.validateCarNameListInput(carNameList);
                 return carNameList;
@@ -74,7 +68,7 @@ public class RacingGame {
 
     private void showWinnerList(List<String> winnerList) {
         System.out.print("최종 우승자 : ");
-        System.out.print(String.join(DELIMITER + " ", winnerList));
+        System.out.print(String.join(RacingCarConstant.DELIMITER + " ", winnerList));
     }
 
     private List<String> findWinnerList() {
