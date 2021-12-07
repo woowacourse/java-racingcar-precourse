@@ -25,9 +25,9 @@ public class Game {
 	}
 
 	private void inputName() {
-		PrintHandler.printInputNameMsg();
 		String[] names;
 		do {
+			PrintHandler.printInputNameMsg();
 			names = InputHandler.getNameInput();
 		} while (!validateNames(names));
 		createCars(names);
