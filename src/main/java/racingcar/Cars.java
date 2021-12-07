@@ -23,4 +23,10 @@ public class Cars {
 			car.forward(randomForward);
 		});
 	}
+
+	public void printPosition() {
+		this.cars.stream().forEach(car -> {
+			car.printPosition();
+		});
+	}
 }
