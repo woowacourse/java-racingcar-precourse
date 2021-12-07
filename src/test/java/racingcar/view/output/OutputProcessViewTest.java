@@ -33,6 +33,6 @@ class OutputProcessViewTest {
 		// when
 	    view.showProcess(carSet);
 	    // then
-		assertEquals("A : ---\nB : ---\n", outputStream.toString());
+		assertEquals("A : ---\nB : ---\n\n", outputStream.toString());
 	}
 }
