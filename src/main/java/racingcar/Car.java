@@ -29,7 +29,4 @@ public class Car {
     public int getPosition() {
         return  this.position;
     }
-
-    public static void main(String[] args) {
-    }
 }
