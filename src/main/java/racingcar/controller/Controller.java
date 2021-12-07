@@ -25,6 +25,10 @@ public class Controller {
 			reportResultEveryRound(racingGame);
 		}
 
+		OutputView.printFinalWinnerInstruction();
+		String nameOfWinners = racingGame.findNameOfWinners();
+		OutputView.printNameOfFinalWinners(nameOfWinners);
+
 	}
 
 	private void reportResultEveryRound(RacingGame racingGame) {

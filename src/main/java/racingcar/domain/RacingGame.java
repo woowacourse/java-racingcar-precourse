@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class RacingGame {
 	private static final RacingGame racingGame = new RacingGame();
 	private Cars cars;
@@ -25,5 +28,12 @@ public class RacingGame {
 
 	public String getResults() {
 		return this.cars.getResults();
+	}
+
+	public String findNameOfWinners() {
+		List<Car> CarOfWinners = this.cars.findWinners();
+		return CarOfWinners.stream()
+			.map(Car::toString)
+			.collect(Collectors.joining(", "));
 	}
 }

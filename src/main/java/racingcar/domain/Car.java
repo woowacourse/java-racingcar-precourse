@@ -45,4 +45,17 @@ public class Car {
 			.forEach(i -> result.append("-"));
 		return result.toString();
 	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public boolean isSamePosition(int maxPosition) {
+		return this.position == maxPosition;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 }
