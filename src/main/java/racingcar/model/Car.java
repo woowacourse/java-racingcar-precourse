@@ -8,15 +8,22 @@ public class Car {
 		validateName(name);
 		this.name = name;
 	}
-
-	// 추가 기능 구현
+	
 	private static void validateName(String name) throws IllegalArgumentException {
 		if (name.isEmpty() || name.length() > 5) {
 			throw new IllegalArgumentException();
 		}
 	}
 
+	public void move() {
+		position++;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public int getPosition() {
+		return position;
 	}
 }

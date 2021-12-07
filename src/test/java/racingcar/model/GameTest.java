@@ -2,6 +2,8 @@ package racingcar.model;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -32,4 +34,14 @@ public class GameTest {
 		}
 	}
 
+	@DisplayName("게임 실행")
+	@Test
+	void play() {
+		Supplier<Integer> value = () -> 5;
+		Predicate<Integer> condition = i -> i > 4;
+		game.play(condition, value);
+		for (Car car : game.getCars()) {
+			assertThat(car.getPosition()).isEqualTo(1);
+		}
+	}
 }
