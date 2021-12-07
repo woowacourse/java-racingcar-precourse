@@ -44,14 +44,14 @@ public class GameSystem {
         return carEntryInput;
     }
 
-    private void checkCarNameEntryValidity(String carNames) {
+    private void checkCarNameEntryValidity(final String carNames) {
         String[] carNameArr = carNames.split(COMMA_REGEX);
         for (String carName : carNameArr) {
             checkCarNameValidity(carName.trim());
         }
     }
 
-    private void checkCarNameValidity(String carName) {
+    private void checkCarNameValidity(final String carName) {
         if (carName.length() <= MAX_CAR_NAME_LENGTH && carName.length() >= MIN_CAR_NAME_LENGTH) {
             return;
         }
@@ -75,7 +75,7 @@ public class GameSystem {
         return Integer.parseInt(inputValue);
     }
 
-    void checkNumOfRunsValidity(String inputValue) {
+    void checkNumOfRunsValidity(final String inputValue) {
         if (!inputValue.matches(NUMBER_REGEX)) {
             throw new IllegalArgumentException();
         }
