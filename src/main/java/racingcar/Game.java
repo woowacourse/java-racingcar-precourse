@@ -23,7 +23,7 @@ public class Game {
 		outputPrinter.printFinalWinner(winnerCarList);
 	}
 
-	public List<Car> getResultOfEachAttempt(List<Car> carList, long count) {
+	private List<Car> getResultOfEachAttempt(List<Car> carList, long count) {
 		for (int i = Number.ZERO; i < count; i++) {
 			carList = carManager.updateCarListPosition(carList);
 			carList.forEach(car -> outputPrinter.printStepResult(car));

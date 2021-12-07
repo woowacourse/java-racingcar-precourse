@@ -14,7 +14,7 @@ import racingcar.iomanagement.Validator;
 public class CarManager {
 	InputScanner inputScanner = new InputScanner();
 
-	public List<Car> generate(String carNames) {
+	private List<Car> generate(String carNames) {
 		return Arrays.stream(carNames.split(","))
 			.map(Validator::validateCarNameLengthUnderFive)
 			.map(Car::new)

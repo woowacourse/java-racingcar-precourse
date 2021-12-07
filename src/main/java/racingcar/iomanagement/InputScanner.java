@@ -13,7 +13,7 @@ public class InputScanner {
 		return Console.readLine();
 	}
 
-	public String enterCount() {
+	private String enterCount() {
 		System.out.println(Message.NUMBER_OF_ATTEMPTS);
 		return Console.readLine();
 	}
