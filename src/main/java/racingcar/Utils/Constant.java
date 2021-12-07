@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.Utils;
 
 public class Constant {
 
