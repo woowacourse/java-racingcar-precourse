@@ -24,78 +24,82 @@
     - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분하여 문자열 반환
     - [x] 우승에 해당되는 자동차 객체들을 반환 Cars#findWinners
 
-## ✍🏻 입출력 요구사항
+## 그외 요구사항 체크리스트(과제수행간 계속 추가예정)
 
-### ⌨️ 입력
+### 1주차
 
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
+- [x] 자바의 버전이 8버전인가
+- [x] 자바 코드 컨벤션을 지키는가
+- [x] `Randoms`의 `pickNumberInRange()`를 사용했는가
+- [x] `Console`의 `readLine()`을 사용했는가
+- [x] 3항 연산자를 쓰지 않는가
+- [x] **indent depth가 2이하인가**
+- [x] **하나의 함수가 한 가지 일만 하도록 하였는가**
+- [x] **(추가) 하드코딩 하진 않았는가**
+- [x] **(추가) style check 및 convention 적용 하였는가**
+- [x] **`gradlew.bat clean test`의 모든 테스트가 통과하는가**
 
-```
-pobi,woni,jun
-```
+### 2주차(피드백 및 과제에서 추가)
 
-- 시도할 회수
+- [x] **함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.**
+- [x] **else 예약어를 쓰지 않는다**
 
-```
-5
-```
+- [x] **기능 목록을 업데이트하고 재검토 한다**
+- [x] **Class 구현순서( 상수->멤버 변수->생성자->메서드) 지키기**
 
-### 🖥 출력
+### 2주차 프로그래밍 요구사항
 
-- 각 차수별 실행 결과
+- [x] Car 기본 생성자를 추가할 수 없다.
+- [x] name, position 변수의 접근 제어자인 private을 변경할 수 없다.
+- [x] **가능하면 setPosition(int position) 메소드를 추가하지 않고 구현한다.**
 
-```
-pobi : --
-woni : ----
-jun : ---
-```
+## 그외 추가 학습사항 및 과제수행시 키포인트
 
-- 단독 우승자 안내 문구
+- **[java 기본 문법 정리하기](https://github.com/is2js/exampleStudy01)**
+    - [x]  1코테~1주차 과제기간 자바의 정석 등 기본문법
+    - [x] **2주차 과제기간 Enum(day10), Interface(day11) 추가
+      학습** : [설명](https://github.com/is2js/exampleStudy01/blob/master/readme.md)
+      ,  [코드](https://github.com/is2js/exampleStudy01/tree/master/src/main/java)
+- **[백준 python 기본 구현 문제](https://github.com/is2js/python_algorithm) -> java 로 풀어보기(~ing)**
+    - [x] 1~2주차 [문제풀이](https://github.com/is2js/boj_java)
+      및 [개념정리](https://github.com/is2js/boj_java/blob/master/concept.md) 계속 진행중
+    - [x] **2주차 과제기간 [stream 코드를 통한 개념 정리](https://github.com/is2js/boj_java/blob/master/concept.md)**
+- **[java로 콘솔 게시판 만들어보기](https://github.com/is2js/exampleStudy01/blob/master/board.md) (~ing)**
+    - [x] 1주차 콘솔 게시판까지 완성
+    - [x] **2주차 콘솔 게시판 정렬기능 구현(~ing)**
+- **지난 과제**를 지원동기들 코드 참고하여 **다시 작성해보기**
+    - [x] [1주차과제 복습](https://github.com/is2js/MVC_practice/tree/master/src/main/java/baseball2Youngyooon) : 숫자야구게임 **MVC
+        + 일급콜렉션 적용** 위주로 코드 새로 짜기
+    - [x] [2주차과제 복습](https://github.com/is2js/MVC_practice/tree/master/src/main/java/racingCar3devhudiForWrap) : **최소단위
+      변수들도 Wrapping클래스** 만들어보기 & 인터페이스 적용해보기
+- **2주차 과제 수행시 키포인트**
+    - **Live template을 활용**함.
+        - 1주차와 반복되는 input코드 등을 미리 작성해둠.
+    - **fork한 repo를 clone후에 branch부터 바꾸자!**
+        - 실수로 main브랜치에 commit and push하여 새로 작성하는 경우가 발생했었음.
+    - **일급컬렉션 사용**하여 객체List에 대한 검증 및 관련 로직을 모음.
+        - 쪼개어지는 Input을 받을 때 ex> Names -> Name 미리 names에서 검증을 다 해버리는 전략을 세움
+        - 쪼개어놓고 내부에서 검증할 시, 다시 입력받으러 가기가 쉽지가 않음.
+    - 조건절에서 getter쓰지말고, 객체.부등호를메서드화() 시켜 메세지보낼 것. 비교시 필요한 값은 메서드의 파라미터로
+    - 입력 받은 **int 변수를 포장한 래핑클래스**를 만들고 countdown 메서드 구현해보기
+    - 학습했던 **stream위주로 코드** 짜보기
+        1. map( Comparator)를 쓰더라도 1번에 max값을 충족시키는 여러개의 객체를 구하기는 쉽지 않음.
+        2. mapToInt( ) 집계값 구한 뒤 -> 일치하는 객체 List(우승자들) 구하는 방식
+        3. 간단한 출력문은 toString()오버라이딩 해서 쉽게 출력되도록 이용 하기
+    - 상수들 및 에러 메세지들의 **리팩토링**
+        - **IDE를 이용하면 정말 간단하게 해결**할 수 있음을 깨닮음.
+- **1주차 과제 수행시 키포인트**
+    - 개발 시작전에 요구사항 충분히 파악하기
+    - 기본 프로젝트 구조 및 뼈대 코드 작성하고 시작하기
+    - 라이브러리 확인 및 컨벤션 포맷터 적용, 버전 확인 등 기본적인 협업환경 확인하기
+    - Application에 개발하지 않고 각 class에서 개발하여 구동하기
+    - scanner 등 input, outview은 static으로 작성해서 재활용하기
+    - 문자열type의 숫자입력시 검증 여러가지 해보기(길이-> 포맷-> 범위-> 중복여부 등 기타)
+    - else 안쓰고, 반복문안에 if는 method로 빼서 method내에서 하여 indent줄이기
+    - 무한반복시 조건변수를 결과로 업데이트 하면 됬으나, 재시작 등 추가분기가 필요한 경우, status변수 추가 도입하기
+    - 상수도 반복되니 따로 class로 빼기
+    - 중복확인은 list길이로 하는 데, stream으로 편하게 하기
+        - list 중복확인 : list.stream().distinct().count()
+        - 입력받은 문자열배열 -> 정수 list변환 :  Arrays.stream( ).mapToint(Integer::parseInt).boxed().collect(Collectors.toList());
 
-```
-최종 우승자 : pobi
-```
 
-- 공동 우승자 안내 문구
-
-```
-최종 우승자 : pobi, jun
-```
-
-- 예외 상황 시 에러 문구를 출력해야 한다. 단, 에러 문구는 [ERROR] 로 시작해야 한다.
-
-```
-[ERROR] 시도 횟수는 숫자여야 한다.
-```
-
-### 💻 프로그래밍 실행 결과 예시
-
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자 : pobi, jun
-```
