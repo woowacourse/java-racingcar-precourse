@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -12,6 +13,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     private static final String ERROR_MESSAGE = "[ERROR]";
+    private static final String FINAL_RESULT_MESSAGE = "최종 우승자";
 
     @Test
     void 전진_정지() {
@@ -34,8 +36,30 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_예외후_재입력() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi,javaji", "pobi,jvji", "3");
+                assertThat(output()).contains(ERROR_MESSAGE);
+                assertThat(output()).contains(FINAL_RESULT_MESSAGE);
+            }
+        );
+    }
+
+    @Test
+    void 반복_횟수_예외후_재입력() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi,jvji", "-5", "5");
+                assertThat(output()).contains(ERROR_MESSAGE);
+                assertThat(output()).contains(FINAL_RESULT_MESSAGE);
+            }
+        );
+    }
+
     @Override
     public void runMain() {
-        Application.main(new String[]{});
+        Application.main(new String[] {});
     }
 }
