@@ -19,10 +19,7 @@ public class InputController {
 	public static List<Car> createCars() {
 		try {
 			InputView.carNameUI();
-			String input = Console.readLine();
-			validateContainDelimiter(input);
-			String[] names = input.split(NAME_DELIMITER);
-			return toCars(names);
+			return toCars(toNames(Console.readLine()));
 		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR_MESSAGE + " " + e.getMessage());
 			return createCars();
@@ -32,14 +29,16 @@ public class InputController {
 	public static int createCount() {
 		try {
 			InputView.countUI();
-			String input = Console.readLine();
-			validateIsNumber(input);
-			validateIsZero(input);
-			return Integer.parseInt(input);
+			return toCount(Console.readLine());
 		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR_MESSAGE + " " + e.getMessage());
 			return createCount();
 		}
+	}
+
+	public static String[] toNames(String input) throws IllegalArgumentException {
+		validateContainDelimiter(input);
+		return input.split(NAME_DELIMITER);
 	}
 
 	public static List<Car> toCars(String[] names) throws IllegalArgumentException {
@@ -48,6 +47,12 @@ public class InputController {
 			cars.add(new Car(name));
 		}
 		return cars;
+	}
+
+	public static int toCount(String input) throws IllegalArgumentException {
+		validateIsNumber(input);
+		validateIsZero(input);
+		return Integer.parseInt(input);
 	}
 
 	private static void validateIsZero(String input) throws IllegalArgumentException {
