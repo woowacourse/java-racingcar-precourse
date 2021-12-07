@@ -6,9 +6,10 @@ public class Car {
 
 	private static final int DRIVE_THRESHOLD_NUMBER = 4;
 
+	private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
 	private final String name;
 	private int position = 0;
-	private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
 	public Car(String name) {
 		this.name = name;
