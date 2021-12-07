@@ -61,14 +61,17 @@ public class RacingGame {
 		StringBuilder allCarsCurrentPositionVisualizationData = new StringBuilder();
 		for (int i = 0; i < allCarsCurrentPositionData.length; ++i) {
 			allCarsCurrentPositionVisualizationData.append(
-				allCarsCurrentPositionData[i].key + SPACE_COLON_SPACE + allCarsCurrentPositionData[i].value);
+				allCarsCurrentPositionData[i].key + SPACE_COLON_SPACE + allCarsCurrentPositionData[i].value + "\n");
 		}
 		allCarsCurrentPositionVisualizationData.append("\n");
 		return allCarsCurrentPositionVisualizationData.toString();
 	}
 
-	private void playOneCycle(Player player) {
+	private void playOneCycle() {
 		carManager.moveAllCars();
+	}
+
+	private void sendAllCarsCurrentPosition(Player player) {
 		player.sendMessage(getAllCarsCurrentPositionVisualizationData());
 	}
 
@@ -79,13 +82,14 @@ public class RacingGame {
 		for (int i = 1; i < winnerNameBucket.length; ++i) {
 			winnerNamesData.append(", " + winnerNameBucket[i]);
 		}
-		player.sendMessage(winnerNamesData.toString());
+		player.sendMessage(WINNER_OUTPUT_MESSAGE + SPACE_COLON_SPACE + winnerNamesData.toString());
 	}
 
 	public void playRacingGame(Player player) {
 		init(player);
 		for (int cycle = 0; cycle < totalTryNum; ++cycle) {
-			playOneCycle(player);
+			playOneCycle();
+			sendAllCarsCurrentPosition(player);
 		}
 		sendWinnerNames(player);
 	}
