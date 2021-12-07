@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.ArrayList;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 /**
  * 자동차 경주 게임의 처리 흐름을 제어하는 Class
  *
@@ -10,6 +12,9 @@ import java.util.ArrayList;
  * @since 1.0
  */
 public class RacingCarGame {
+	private static final int MIN_RANDOM_NUMBER = 0;
+	private static final int MAX_RANDOM_NUMBER = 9;
+	private static final int CRITERION = 4;
 	private static final int MAX_CAR_NAME_LENGTH = 5;
 
 	private final ArrayList<Car> carList = new ArrayList<>();
@@ -53,7 +58,9 @@ public class RacingCarGame {
 
 	private void play() {
 		for (Car car : carList) {
-			car.tryToMove();
+			if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= CRITERION) {
+				car.move();
+			}
 			Computer.printCarPosition(car);
 		}
 		System.out.println();
