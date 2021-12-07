@@ -4,7 +4,7 @@ import model.RacingCarGame;
 import view.Display;
 
 public class GameController {
-	private static final int FIRST_WINNER_LOCATION = 0;
+	private static final int FIRST_WINNER_INDEX = 0;
 
 	private GameController() {
 	}
@@ -31,17 +31,20 @@ public class GameController {
 	}
 
 	private static void showRacingCarGameWinner(String[] racingCarGameWinner) {
-		int lastWinnerLocation = racingCarGameWinner.length - 1;
+		int lastWinnerIndex = racingCarGameWinner.length - 1;
 		Display.showWinnerMessage();
-		for (int index = FIRST_WINNER_LOCATION; index <= lastWinnerLocation; index++) {
+		for (int index = FIRST_WINNER_INDEX; index < racingCarGameWinner.length; index++) {
 			Display.showWinner(racingCarGameWinner[index]);
-			isLastWinner(lastWinnerLocation, index);
+			if (!isLastWinner(lastWinnerIndex, index)) {
+				Display.putComma();
+			}
 		}
 	}
 
-	private static void isLastWinner(int lastWinnerLocation, int nowWinnerLocation) {
-		if (lastWinnerLocation != nowWinnerLocation) {
-			Display.putComma();
+	private static boolean isLastWinner(int lastWinnerIndex, int nowWinnerIndex) {
+		if (lastWinnerIndex != nowWinnerIndex) {
+			return false;
 		}
+		return true;
 	}
 }
