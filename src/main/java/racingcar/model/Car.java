@@ -1,6 +1,7 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.Constants;
+import racingcar.Util;
 
 public class Car {
 	private final String NAME;
@@ -11,7 +12,7 @@ public class Car {
 	}
 
 	public void go() {
-		if (getRandomNum() >= Constants.GO_NUM) {
+		if (Util.getRandomNum() >= Constants.GO_NUM) {
 			position++;
 		}
 	}
@@ -24,11 +25,11 @@ public class Car {
 		return position == winDistance;
 	}
 
-	public String getName() {
-		return NAME;
+	public String getRoundResult() {
+		return NAME + Constants.ROUND_RESULT_DELIMITER + Util.dashRepeat(position);
 	}
 
-	private int getRandomNum() {
-		return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
+	public String getName() {
+		return NAME;
 	}
 }
