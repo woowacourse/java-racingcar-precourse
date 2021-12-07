@@ -11,8 +11,8 @@ public class RacingCarGame {
 
     public void start() {
         InputView inputView = new InputView();
-        ArrayList<Car> cars = inputView.carNameInput();
-        int times = inputView.timesInput();
+        ArrayList<Car> cars = inputView.validateCarNameInput();
+        int times = inputView.validateTimesInput();
 
         OutputView outputView = new OutputView();
         outputView.showOutputStartMessage();

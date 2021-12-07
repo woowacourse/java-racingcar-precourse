@@ -12,33 +12,28 @@ import racingcar.domain.Car;
 public class InputView {
     private ArrayList<Car> cars;
 
-    private String[] carNameInputInit () {
+    private ArrayList<Car> carNameInputInit () {
         System.out.println(Input.CAR_NAME_MESSAGE);
         String input = Console.readLine();
         String[] carNames = input.split(",");
-        return carNames;
-    }
 
-    public ArrayList<Car> carNameInput() {
-        String[] carNames = carNameInputInit();
         cars = new ArrayList<>();
         Arrays.stream(carNames).forEach(name -> cars.add(new Car(name)));
-        while (true) {
-            try {
-                hasOnlyComma(cars);
-                validateCarName(cars);
-                hasSameCarName(cars);
-                return cars;
-            } catch (IllegalArgumentException e) {
-                carNameInput();
-            }
-        }
+        return cars;
     }
 
-    private void validateCarName(ArrayList<Car> cars) throws IllegalArgumentException {
-        for (Car car : cars) {
-            isNameNull(car.getName());
-            isNameOutOfRange(car.getName());
+    public ArrayList<Car> validateCarNameInput() {
+        while (true) {
+            cars = carNameInputInit();
+
+            try {
+                hasOnlyComma(cars);
+                hasSameCarName(cars);
+                isNameOutOfRange(cars);
+                isNameNull(cars);
+                return cars;
+            } catch (IllegalArgumentException e) {
+            }
         }
     }
 
@@ -60,42 +55,51 @@ public class InputView {
         }
     }
 
-    private void isNameOutOfRange(String carName) throws IllegalArgumentException {
-        if (carName.length() > Condition.MAXIMUM_CAR_NAME_INPUT_LENGTH) {
-            System.out.println(Input.CAR_NAME_ABOVE_ERROR_MESSAGE);
-            throw new IllegalArgumentException();
+    private void isNameOutOfRange(ArrayList<Car> cars) throws IllegalArgumentException {
+        for (Car car : cars) {
+            if (car.getName().length() > Condition.MAXIMUM_CAR_NAME_INPUT_LENGTH) {
+                System.out.println(Input.CAR_NAME_ABOVE_ERROR_MESSAGE);
+                throw new IllegalArgumentException();
+            }
         }
     }
 
-    private void isNameNull(String carName) throws IllegalArgumentException {
-        if (carName.length() < Condition.MINIMUM_CAR_NAME_INPUT_LENGTH) {
-            System.out.println(Input.CAR_NAME_BELOW_ERROR_MESSAGE);
-            throw new IllegalArgumentException();
+    private void isNameNull(ArrayList<Car> cars) throws IllegalArgumentException {
+        for (Car car : cars) {
+            if (car.getName().length() < Condition.MINIMUM_CAR_NAME_INPUT_LENGTH) {
+                System.out.println(Input.CAR_NAME_BELOW_ERROR_MESSAGE);
+                throw new IllegalArgumentException();
+            }
         }
     }
 
-    public int timesInput() {
+    private String timesInputInit() {
+        System.out.println(Input.TIMES_MESSAGE);
+        String timesInput = Console.readLine();
+        return timesInput;
+    }
+
+    public int validateTimesInput() {
         while (true) {
-            System.out.println(Input.TIMES_MESSAGE);
-            String timesInput = Console.readLine();
+            String timesInput = timesInputInit();
 
             try {
-                validateTimes(timesInput);
+                isTimesDigit(timesInput);
+                isTimesNull(timesInput.length());
+                isTimesZero(Integer.parseInt(timesInput));
                 return Integer.parseInt(timesInput);
             } catch (IllegalArgumentException e) {
             }
         }
     }
 
-    private void validateTimes(String timesInput) throws IllegalArgumentException {
+    private void isTimesDigit(String timesInput) throws IllegalArgumentException {
         for (int i = 0; i < timesInput.length(); i++) {
             if (!Character.isDigit(timesInput.charAt(i))) {
                 System.out.println(Input.TIMES_UN_DIGIT_ERROR_MESSAGE);
                 throw new IllegalArgumentException();
             }
         }
-        isTimesNull(timesInput.length());
-        isTimesZero(Integer.parseInt(timesInput));
     }
 
     private void isTimesNull(int timesLength) throws IllegalArgumentException {
