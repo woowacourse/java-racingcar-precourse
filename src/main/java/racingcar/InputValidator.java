@@ -20,12 +20,12 @@ public class InputValidator {
 
     private static void validateStringIsNumber(String input) {
         if (!input.chars().allMatch(Character::isDigit)) {
-            throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "숫자여야 한다.");
+            throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "시도 횟수는 숫자여야 한다.");
         }
     }
 
     private static void validateNumberIsMoreThanZero(int number) {
-        if (number < 1) throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "1 이상의 숫자여야 한다.");
+        if (number < 1) throw new IllegalArgumentException(RacingCarConstant.ERROR_PREFIX_MESSAGE + "시도 횟수는 1 이상의 숫자여야 한다.");
     }
 
     private static void validateLength(String name) {
