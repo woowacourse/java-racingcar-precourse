@@ -1,9 +1,6 @@
 package racingcar.game;
 
-import static camp.nextstep.edu.missionutils.Console.*;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import racingcar.car.Car;
@@ -13,33 +10,18 @@ public class Game {
 	public int num;
 	public List<Car> carList;
 	public Umpire umpire;
+	public Input input;
+	public Output output;
 
 	public Game() {
-		String[] names = inputNames();
+		input = new Input();
+		String[] names = input.inputNames();
 		carList = makeCarList(names);
-		num = inputNum();
+		num = input.inputNum();
 		System.out.println();
+
 		umpire = new Umpire(carList);
-	}
-
-	private String[] inputNames() {
-		long check = 1;
-		String[] names;
-		do {
-			System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-			names = readLine().split(",");
-			check = checkLen(names);
-			if (check > 0) {
-				System.out.println("[ERROR] 이름은 5자 이하만 가능합니다");
-			}
-		} while (check > 0);
-		return names;
-	}
-
-	private long checkLen(String[] names) {
-		return Arrays.stream(names)
-			.filter(name -> name.length() > 5)
-			.count();
+		output = new Output();
 	}
 
 	public void start() {
@@ -52,59 +34,18 @@ public class Game {
 
 	public void end() {
 		umpire.getWinner();
-		printWinners();
-	}
-
-	private void printWinners() {
-		List<String> winnersNameList = umpire.getWinnersNameList();
-		System.out.print("최종 우승자 : ");
-		System.out.print(winnersNameList.get(0));
-		if (winnersNameList.size() == 1) {
-			return;
-		}
-		for (int i = 1; i < winnersNameList.size(); i++) {
-			System.out.print(", " + winnersNameList.get(i));
-		}
+		output.printWinners(umpire.getWinnersNameList());
 	}
 
 	private void playGames() {
 		moveCarList();
-		printCarInfo();
+		output.printCarInfo(carList);
 	}
 
 	private void moveCarList() {
 		carList.forEach(car -> {
 			car.move();
 		});
-	}
-
-	private void printCarInfo() {
-		carList.forEach(car -> {
-			// 차 이름 출력
-			System.out.print(car.getName() + " : ");
-			// 차 position 출력
-			for (int i = 0; i < car.getPosition(); i++) {
-				System.out.print("-");
-			}
-			// 줄바꿈
-			System.out.println();
-		});
-	}
-
-	private int inputNum() {
-		System.out.println("시도할 회수는 몇회인가요?");
-		int num = 0;
-		int flg = 0;
-
-		while (flg == 0) {
-			try {
-				num = Integer.parseInt(readLine());
-				flg = 1;
-			} catch (Exception e) {
-				System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.\n");
-			}
-		}
-		return num;
 	}
 
 	private List<Car> makeCarList(String[] names) {
@@ -114,4 +55,5 @@ public class Game {
 		}
 		return carList;
 	}
+
 }
