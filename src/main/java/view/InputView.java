@@ -22,8 +22,6 @@ public class InputView {
 		return carNames;
 	}
 
-
-
 	public static int getMoveTimes() {
 		OutputView.printMoveTimesInputMessage();
 		String moveTimes = Console.readLine();
