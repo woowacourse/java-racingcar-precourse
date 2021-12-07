@@ -19,17 +19,12 @@ public class Staff {
     public String[] collectCarNames() {
         speaker.sayCarNames();
         String[] waitingCarNames = readCarNames();
-        for (int i = 0; i < waitingCarNames.length; i++) {
-            waitingCarNames[i] = removeBlank(waitingCarNames[i]);
-            String carName = waitingCarNames[i];
-            try {
-                validator.validateCarName(carName);
-            } catch (IllegalArgumentException e) {
-                speaker.sayErrorMessage(e.getMessage());
-                return collectCarNames();
-            }
+        try {
+            return validator.validateAllCarNames(waitingCarNames);
+        } catch (IllegalArgumentException e) {
+            speaker.sayErrorMessage(e.getMessage());
+            return collectCarNames();
         }
-        return waitingCarNames;
     }
 
     public Integer collectRepeatTimes() {
@@ -70,10 +65,6 @@ public class Staff {
 
     private String readFromUser() {
         return Console.readLine();
-    }
-
-    private String removeBlank(String waitingCarName) {
-        return waitingCarName.trim();
     }
 
     private String readRepeatTimes() {
