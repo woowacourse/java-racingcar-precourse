@@ -63,6 +63,14 @@ public class InputValidatorTest {
         );
     }
 
+    @DisplayName("정상적인 입력을 테스트한다.")
+    @Test
+    void validateNormalCount() {
+        assertDoesNotThrow(
+            () -> InputValidator.validatePlayCount("123")
+        );
+    }
+
     @Test
     void validateUnicode() {
         assertDoesNotThrow(

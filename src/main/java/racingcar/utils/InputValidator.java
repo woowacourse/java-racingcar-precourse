@@ -26,7 +26,7 @@ public class InputValidator {
 
     public static void validatePlayCount(String playCount)
         throws IllegalArgumentException {
-        if (!playCount.matches(NUMERIC_REGEX)) {
+        if (!playCount.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException(ERR_INVALID_NUMBER);
         }
     }
