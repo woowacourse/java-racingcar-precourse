@@ -31,7 +31,7 @@ enum TurnIntEnums {
 	}
 }
 
-public class TurnInputView implements InputView{
+public class TurnInputView implements InputView {
 
 	public void checkConditions(String nowInput) throws IllegalArgumentException {
 		ArrayList<String> nowInputArray = new ArrayList<>(Arrays.asList(nowInput));

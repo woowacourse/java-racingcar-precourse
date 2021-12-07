@@ -11,6 +11,7 @@ import view.TurnInputView;
 
 public class GameController {
 	private static final String DELIMITER = ",";
+
 	public static void runGame() {
 		OutputView outputViewer = new OutputView();
 		NameInputView nameInputViewer = new NameInputView();
