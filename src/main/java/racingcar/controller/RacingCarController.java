@@ -16,11 +16,15 @@ public class RacingCarController {
 		RacingCars racingCars = makeRacingCars(carNames);
 
 		OutputView.printRacingStart();
+		playRacing(stageNum, racingCars);
+		OutputView.printWinners(racingCars.getWinners());
+	}
+
+	private void playRacing(int stageNum, RacingCars racingCars) {
 		for (int i = 0; i < stageNum; i++) {
 			racingCars.go();
 			OutputView.printResult(racingCars);
 		}
-		OutputView.printWinners(racingCars.getWinners());
 	}
 
 	private RacingCars makeRacingCars(String[] carNames) {
