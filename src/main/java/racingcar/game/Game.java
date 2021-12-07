@@ -7,11 +7,16 @@ public class Game {
 	public void run() {
 		Input input = new Input();
 		Cars cars = new Cars();
-
+		String noticeMessage = "자동차 이름을 입력해 주세요.";
+		System.out.println(noticeMessage);
 		input.getCarNameList().forEach(cars::appendCar);
 		Round round = new Round(cars.getList());
-		for (int i = 0; i < input.getRepeatNum(); i++) {
+		noticeMessage = "반복 횟수 입력해 주세요.";
+		System.out.println(noticeMessage);
+		int repeatNum = input.getRepeatNum();
+		for (int i = 0; i < repeatNum; i++) {
 			round.play();
+			System.out.println();
 		}
 	}
 	// 작업해야 하는 내용

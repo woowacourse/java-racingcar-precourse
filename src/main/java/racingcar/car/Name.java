@@ -9,10 +9,10 @@ class Name {
 	}
 
 	Name(String name) {
-		if (isLengthValid(name)) {
-			this.name = name;
+		if (!isLengthValid(name)) {
+			throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
 		}
-		throw new IllegalArgumentException();
+		this.name = name;
 	}
 
 	private boolean isLengthValid(String string) {

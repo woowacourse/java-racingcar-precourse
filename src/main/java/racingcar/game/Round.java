@@ -34,7 +34,7 @@ public class Round {
 		}
 
 		void printPosition() {
-			System.out.printf("%s : %s", car.getName(), builderPositionOutput());
+			System.out.printf("%s : %s\n", car.getName(), builderPositionOutput());
 		}
 
 		String CAR_MOVE_SIGNAL = "-";

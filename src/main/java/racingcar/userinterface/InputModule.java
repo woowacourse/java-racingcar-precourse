@@ -4,36 +4,37 @@ import camp.nextstep.edu.missionutils.Console;
 
 class InputModule {
 	private String innerValue;
-	private String noticeMessage;
 	private String regularExpression;
 	private String errorMessage;
 
-	InputModule(String noticeMessage, String regularExpression, String errorMessage) {
-		this.noticeMessage = noticeMessage;
+	InputModule(String regularExpression, String errorMessage) {
 		this.regularExpression = regularExpression;
 		this.errorMessage = errorMessage;
+		setValue();
 	}
 
-	String getValue() {
-		System.out.println(noticeMessage);
-		setValue();
+	public String getValue() {
 		return innerValue;
 	}
 
 	private void setValue() {
 		boolean passed = false;
 		while (!passed) {
-			initInner();
-			passed = true;
+			try {
+				initInner();
+				passed = true;
+			} catch (IllegalArgumentException Error) {
+				System.out.println(Error.getMessage());
+			}
 		}
 	}
 
 	private void initInner() {
 		String input = Console.readLine();
-		if (checkValid(input)) {
-			this.innerValue = input;
+		if (!checkValid(input)) {
+			throw new IllegalArgumentException(errorMessage);
 		}
-		throw new IllegalArgumentException(errorMessage);
+		this.innerValue = input;
 	}
 
 	private boolean checkValid(String string) {
