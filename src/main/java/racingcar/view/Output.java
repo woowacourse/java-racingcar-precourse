@@ -3,8 +3,12 @@ package racingcar.view;
 import racingcar.domain.CarList;
 
 public class Output {
-	public static void raceStartPhrase() {
-		System.out.println("\n실행 결과");
+	static final String MSG_RACE_START = "\n실행 결과";
+	static final String MSG_WINNER_IS = "최종 우승자 : ";
+	static final String WINNERS_JOIN_DELIMITER = ", ";
+
+	public static void raceStartMsg() {
+		System.out.println(MSG_RACE_START);
 	}
 
 	public static void movementState(CarList cars) {
@@ -15,7 +19,7 @@ public class Output {
 	}
 
 	public static void winners(CarList cars) {
-		System.out.println("최종 우승자 : "
-			+ String.join(", ", cars.getWinners()));
+		System.out.println(MSG_WINNER_IS
+			+ String.join(WINNERS_JOIN_DELIMITER, cars.getWinners()));
 	}
 }

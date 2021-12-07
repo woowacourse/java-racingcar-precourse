@@ -6,6 +6,8 @@ public class Car {
 	private static final int RANDOM_MIN_NUM = 0;
 	private static final int RANDOM_MAX_NUM = 9;
 	private static final int MOVE_FORWARD_MIN = 4;
+	private static final String STRING_JOIN_DELIMITER = " : ";
+	private static final String MOVE_EXPRESSION = "-";
 
 	private final String name;
 	private int position = 0;
@@ -30,9 +32,9 @@ public class Car {
 
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder(this.name + " : ");
+		StringBuilder result = new StringBuilder(this.name + STRING_JOIN_DELIMITER);
 		for (int i = 0; i < this.position; i++) {
-			result.append("-");
+			result.append(MOVE_EXPRESSION);
 		}
 		return result.toString();
 	}
