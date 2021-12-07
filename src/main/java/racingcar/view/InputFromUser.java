@@ -9,11 +9,7 @@ public class InputFromUser {
 	private static final String DELIMITER = ",";
 	private static final int INVALID_COUNT_VALUE = 0;
 
-	private final InputValidator inputValidator;
-
-	public InputFromUser() {
-		inputValidator = new InputValidator();
-	}
+	private InputValidator inputValidator = new InputValidator();
 
 	public String[] inputCarName() {
 		System.out.println(INPUT_NAME_MSG);

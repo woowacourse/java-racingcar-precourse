@@ -7,8 +7,8 @@ import racingcar.view.InputFromUser;
 import racingcar.view.OutputView;
 
 public class GameController {
-	private final InputFromUser inputFromUser = new InputFromUser();
-	private final RacingGamePlayer racingGamePlayer = new RacingGamePlayer();
+	private InputFromUser inputFromUser = new InputFromUser();
+	private RacingGamePlayer racingGamePlayer = new RacingGamePlayer();
 
 	public void startGame() {
 		String[] carNames = inputFromUser.inputCarName();
