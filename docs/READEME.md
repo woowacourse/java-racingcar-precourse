@@ -6,7 +6,7 @@
 
 ## 프로젝트 구조
 
-![img.png](img.png)
+![img_1.png](img_1.png)
 
 ## 요구 명세 분석
 
