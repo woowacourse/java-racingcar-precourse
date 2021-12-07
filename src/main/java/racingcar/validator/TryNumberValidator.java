@@ -1,20 +1,18 @@
 package racingcar.validator;
 
 public class TryNumberValidator {
-	public static void IsInteger(String input) {
+	public static void IsInteger(String tryNumber) {
 		try {
-			Integer.parseInt(input.trim());
+			Integer.parseInt(tryNumber);
 		} catch (NumberFormatException exception) {
-			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
 		}
 	}
 
-	public static void IsPositiveInteger(String input) {
-		int number = Integer.parseInt(input.trim());
-		if (number <= 0) {
-			System.out.println("[ERROR] 시도 횟수는 양의 정수여야 한다.");
-			throw new IllegalArgumentException();
+	public static void IsPositiveInteger(String tryNumber) {
+		int tryNumberInt = Integer.parseInt(tryNumber);
+		if (tryNumberInt <= 0) {
+			throw new IllegalArgumentException("[ERROR] 시도 횟수는 양의 정수여야 한다.");
 		}
 	}
 }

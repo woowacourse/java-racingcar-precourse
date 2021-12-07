@@ -19,13 +19,13 @@ public class Input {
 	}
 
 	public static int tryNumber() {
-		String number;
+		String tryNumber;
 		do {
 			System.out.println("시도할 회수는 몇회인가요?");
-			number = Console.readLine().trim();
-		} while (!checkTryNumber(number));
+			tryNumber = Console.readLine().trim();
+		} while (!checkTryNumber(tryNumber));
 
-		return Integer.parseInt(number);
+		return Integer.parseInt(tryNumber);
 	}
 
 	private static void trimCarNames(String[] carNames) {
@@ -46,12 +46,13 @@ public class Input {
 		}
 	}
 
-	private static boolean checkTryNumber(String number) {
+	private static boolean checkTryNumber(String tryNumber) {
 		try {
-			TryNumberValidator.IsInteger(number);
-			TryNumberValidator.IsPositiveInteger(number);
+			TryNumberValidator.IsInteger(tryNumber);
+			TryNumberValidator.IsPositiveInteger(tryNumber);
 			return true;
 		} catch (IllegalArgumentException exception) {
+			System.out.println(exception.getMessage());
 			return false;
 		}
 	}
