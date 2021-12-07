@@ -13,6 +13,10 @@ public class Validator {
 		checkLastIndexAndThrowException(input);
 		List<String> carNameList = parser.parseCarNames(input);
 		checkCarNameListDuplicationAndThrowException(carNameList);
+		checkEachCarNameLengthAndSpaceThrowException(carNameList);
+	}
+
+	private void checkEachCarNameLengthAndSpaceThrowException(List<String> carNameList) {
 		for (String carName : carNameList) {
 			checkLengthAndThrowException(carName);
 			checkSpaceAndThrowException(carName);
