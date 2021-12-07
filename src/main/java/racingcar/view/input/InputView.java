@@ -1,7 +1,7 @@
 package racingcar.view.input;
 
 import racingcar.domain.car.CarSet;
-import racingcar.domain.round.RacingRound;
+import racingcar.domain.round.Round;
 
 public class InputView {
 
@@ -17,7 +17,7 @@ public class InputView {
 		return inputNameView.inputNames();
 	}
 
-	public RacingRound inputRacingRound() {
+	public Round inputRound() {
 		return inputCountView.inputCount();
 	}
 }

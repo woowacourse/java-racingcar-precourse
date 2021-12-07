@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.car.CarSet;
-import racingcar.domain.round.RacingRound;
+import racingcar.domain.round.Round;
 
 public interface GameController {
-	boolean play(RacingRound round, CarSet carSet);
+	boolean play(Round round, CarSet carSet);
 }

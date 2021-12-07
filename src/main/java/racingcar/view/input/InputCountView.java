@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import racingcar.client.ErrorClient;
 import racingcar.client.InputClient;
-import racingcar.domain.round.RacingRound;
+import racingcar.domain.round.Round;
 
 public class InputCountView {
 	private static final String PROMPT = "시도할 회수는 몇회인가요?";
@@ -24,7 +24,7 @@ public class InputCountView {
 		this.errorClient = errorClient;
 	}
 
-	public RacingRound inputCount() {
+	public Round inputCount() {
 		try {
 			return tryInputCount();
 		} catch (IllegalArgumentException exception) {
@@ -33,8 +33,8 @@ public class InputCountView {
 		}
 	}
 
-	private RacingRound tryInputCount() throws IllegalArgumentException {
-		return new RacingRound(parseInt(inputClient.input(PROMPT)));
+	private Round tryInputCount() throws IllegalArgumentException {
+		return new Round(parseInt(inputClient.input(PROMPT)));
 	}
 
 	private int parseInt(String input) {

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class RacingRoundTest {
+class RoundTest {
 
 	@Test
 	@DisplayName("전진 시도 횟수는 0이면 안된다.")
@@ -13,7 +13,7 @@ class RacingRoundTest {
 		// given
 		int count = 0;
 		// then
-		assertThrows(IllegalArgumentException.class, () -> new RacingRound(count));
+		assertThrows(IllegalArgumentException.class, () -> new Round(count));
 	}
 
 	@Test
@@ -22,7 +22,7 @@ class RacingRoundTest {
 		// given
 		int count = -1;
 		// then
-		assertThrows(IllegalArgumentException.class, () -> new RacingRound(count));
+		assertThrows(IllegalArgumentException.class, () -> new Round(count));
 	}
 
 	@Test
@@ -30,7 +30,7 @@ class RacingRoundTest {
 	public void testIsCountZeroGameOver() {
 	    // given
 	    int count = 1;
-		RacingRound round = new RacingRound(count);
+		Round round = new Round(count);
 		// when
 		round.decrease();
 	    // then

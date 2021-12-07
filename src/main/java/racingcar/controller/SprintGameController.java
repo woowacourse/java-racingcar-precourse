@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.car.CarSet;
-import racingcar.domain.round.RacingRound;
+import racingcar.domain.round.Round;
 import racingcar.service.SprintGameService;
 
 public class SprintGameController implements GameController {
@@ -13,7 +13,7 @@ public class SprintGameController implements GameController {
 	}
 
 	@Override
-	public boolean play(RacingRound round, CarSet carSet) {
+	public boolean play(Round round, CarSet carSet) {
 		if (round.isOver()) {
 			return false;
 		}

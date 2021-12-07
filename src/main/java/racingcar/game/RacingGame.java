@@ -2,7 +2,7 @@ package racingcar.game;
 
 import racingcar.controller.GameController;
 import racingcar.domain.car.CarSet;
-import racingcar.domain.round.RacingRound;
+import racingcar.domain.round.Round;
 import racingcar.view.input.InputView;
 import racingcar.view.output.OutputView;
 
@@ -21,7 +21,7 @@ public class RacingGame implements Game {
 	@Override
 	public void play() {
 		CarSet carSet = inputView.inputCarSet();
-		RacingRound round = inputView.inputRacingRound();
+		Round round = inputView.inputRound();
 		outputView.showInit();
 		while (gameController.play(round, carSet)) {
 			outputView.showProcess(carSet);
