@@ -34,12 +34,16 @@ public class PlayGame {
     // 한번 게임이 실행될 때마다 각 자동차에게 랜덤 수 생성해서 전진/멈춤 유무 판단
     private void perGame() {
         for(int i = 0; i<cars.length;i++){
-            int score = Randoms.pickNumberInRange(0,9);
+            int score = randomNumber();
             if(score>=4) { // 4이상이면 직진 가능
                 cars[i].addPosition();
             }
             printPosition(cars[i]);
         }
+    }
+
+    private int randomNumber() {
+        return Randoms.pickNumberInRange(0,9);
     }
 
     private void printPosition(Car car) {
