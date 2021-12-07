@@ -9,11 +9,9 @@ import racingcar.constant.Message;
 public class OutputPrinter {
 	public void printStepResult(Car car) {
 		StringBuilder positionBlock = new StringBuilder();
-
 		for (int i = 0; i < car.getPosition(); i++) {
 			positionBlock.append(Message.BLOCK);
 		}
-
 		String stepResultMessage = String.format(Message.RESULT_OF_STEP, car.getName(), positionBlock);
 
 		System.out.println(stepResultMessage);
@@ -23,8 +21,7 @@ public class OutputPrinter {
 		String winners = winnerCarList
 			.stream()
 			.map(Car::getName)
-			.collect(Collectors.joining(","));
-
+			.collect(Collectors.joining(", "));
 		String finalWinnerMessage = String.format(Message.FINAL_WINNER, winners);
 
 		System.out.println(finalWinnerMessage);

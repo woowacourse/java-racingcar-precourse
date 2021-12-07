@@ -3,10 +3,11 @@ package racingcar.iomanagement;
 import java.util.regex.Pattern;
 
 import racingcar.constant.Message;
+import racingcar.constant.Number;
 
 public class Validator {
-	public static String isCarNameLengthUnderFive(String carName) {
-		if (carName.length() > 5) {
+	public static String validateCarNameLengthUnderFive(String carName) {
+		if (carName.length() > Number.NAME_LENGTH) {
 			throw new IllegalArgumentException(Message.ERROR_LONG_CAR_NAME);
 		}
 		return carName;
@@ -21,7 +22,7 @@ public class Validator {
 	}
 
 	public static void validateCountZero(String count) {
-		if ("0".equals(count)) {
+		if (Number.ZERO_STRING.equals(count)) {
 			throw new IllegalArgumentException(Message.ERROR_COUNT_CANNOT_BE_ZERO);
 		}
 	}

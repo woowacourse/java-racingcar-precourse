@@ -3,12 +3,11 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.Number;
 import racingcar.iomanagement.InputScanner;
 import racingcar.iomanagement.Validator;
 
@@ -16,9 +15,8 @@ public class CarManager {
 	InputScanner inputScanner = new InputScanner();
 
 	public List<Car> generate(String carNames) {
-
 		return Arrays.stream(carNames.split(","))
-			.map(Validator::isCarNameLengthUnderFive)
+			.map(Validator::validateCarNameLengthUnderFive)
 			.map(Car::new)
 			.collect(Collectors.toList());
 	}
@@ -28,7 +26,7 @@ public class CarManager {
 		try {
 			String carNames = inputScanner.enterCarName();
 			carList = generate(carNames);
-		} catch(IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			carList = generateWithException();
 		}
@@ -44,7 +42,6 @@ public class CarManager {
 				winnerCarList.add(car);
 			}
 		});
-
 		return winnerCarList;
 	}
 
@@ -63,11 +60,9 @@ public class CarManager {
 
 	private Car updateCarRandom(Car car) {
 		int randomNumber = Randoms.pickNumberInRange(0, 9);
-
-		if (randomNumber > 5 || randomNumber == 5) {
+		if (randomNumber >= Number.MOVING_FORWARD) {
 			car.updatePosition();
 		}
-
 		return car;
 	}
 }
