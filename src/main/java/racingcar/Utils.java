@@ -11,43 +11,7 @@ import java.util.List;
 
 public class Utils {
 
-    public static List<String> getCarName(){
-        System.out.println(SystemMessage.INPUT_CARNAME);
-        String carName = Console.readLine();
-        List<String> parsedCarName = parseCarName(carName);
-        return parsedCarName;
-    }
 
-    private static List<String> parseCarName(String carName) {
-        String[] parsedArrCarName = carName.split(",");
-        List<String> parsedListCarName = new ArrayList<>(Arrays.asList(parsedArrCarName));
-        checkCarName(parsedListCarName);
-        return parsedListCarName;
-    }
-
-    private static void checkCarName(List<String> parsedListCarName) {
-        for(String carName: parsedListCarName){
-            if(carName.length()>5){
-                throw new IllegalArgumentException();
-            }
-        }
-    }
-
-    public static int getTurnNumber(){
-        System.out.println(SystemMessage.INPUT_TURN_NUMBER);
-        String stringTurnNumber = Console.readLine();
-        checkCarTurn(stringTurnNumber);
-        int turnNumber = Integer.parseInt(stringTurnNumber);
-        return turnNumber;
-    }
-
-    private static void checkCarTurn(String stringTurnNumber) {
-        for(int i=0; i<stringTurnNumber.length(); i++){
-            if(!Character.isDigit(stringTurnNumber.charAt(i))){
-                throw new IllegalArgumentException();
-            }
-        }
-    }
 
     public static void getFinalResult(List<Car> carList){
         int maxCarPosiiton = getMaxCarPosition(carList);
