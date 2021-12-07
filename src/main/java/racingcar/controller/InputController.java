@@ -15,6 +15,7 @@ public class InputController {
 	private static final String IS_ZERO_ERROR_MESSAGE = "회수는 최소 한번 이상이여야 한다.";
 	private static final String IS_NUMBER_ERROR_MESSAGE = "회수는 숫자여야 한다.";
 	private static final String CONTAIN_DELIMITER_ERROR_MESSAGE = NAME_DELIMITER + "가 포함되어야 한다.";
+	private static final String SIZE_ERROR_MESSAGE = "자동차 이름은 최소 2개이상 입력해야 한다.";
 
 	public static List<Car> createCars() {
 		try {
@@ -38,7 +39,9 @@ public class InputController {
 
 	public static String[] toNames(String input) throws IllegalArgumentException {
 		validateContainDelimiter(input);
-		return input.split(NAME_DELIMITER);
+		String[] names = input.split(NAME_DELIMITER);
+		validateSize(names);
+		return names;
 	}
 
 	public static List<Car> toCars(String[] names) throws IllegalArgumentException {
@@ -72,6 +75,12 @@ public class InputController {
 	public static void validateContainDelimiter(String input) throws IllegalArgumentException {
 		if (!input.contains(NAME_DELIMITER)) {
 			throw new IllegalArgumentException(CONTAIN_DELIMITER_ERROR_MESSAGE);
+		}
+	}
+
+	private static void validateSize(String[] names) throws IllegalArgumentException {
+		if (names.length < 2) {
+			throw new IllegalArgumentException(SIZE_ERROR_MESSAGE);
 		}
 	}
 }
