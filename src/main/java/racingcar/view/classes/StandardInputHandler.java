@@ -37,7 +37,6 @@ public class StandardInputHandler {
 		return count;
 	}
 
-
 	private int readUserInputCounts() {
 		int result = 0;
 		result = getValidateCount(result);
@@ -59,7 +58,6 @@ public class StandardInputHandler {
 	private void printAskingCountsMessage() {
 		System.out.println(ASKING_COUNT_MESSAGE);
 	}
-
 
 	public String[] getNames() {
 		return names;

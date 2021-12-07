@@ -12,7 +12,7 @@ import racingcar.model.classes.GameData;
 public class CarMover implements CarMoverInterface {
 
 	private boolean goByRandom() {
-		int decider = pickNumberInRange(0,9);
+		int decider = pickNumberInRange(0, 9);
 		if (decider >= 4) {
 			return true;
 		}
@@ -24,17 +24,22 @@ public class CarMover implements CarMoverInterface {
 		int count = gameData.getCounts();
 		String fullTrackRecord = "";
 		for (int i = 0; i < count; i++) {
-			List<Car> tmpCars = gameData.getCars();
-			for (Car car : tmpCars) {
-				if(goByRandom()) {
-					car.go();
-				}
-			}
+			List<Car> tmpCars = getOneLineRecord(gameData);
 			gameData.setCars(tmpCars);
 			fullTrackRecord += gameData.getTrackStatus();
 			fullTrackRecord += "\n";
 		}
 		return fullTrackRecord;
+	}
+
+	private List<Car> getOneLineRecord(GameData gameData) {
+		List<Car> tmpCars = gameData.getCars();
+		for (Car car : tmpCars) {
+			if (goByRandom()) {
+				car.go();
+			}
+		}
+		return tmpCars;
 	}
 
 	@Override

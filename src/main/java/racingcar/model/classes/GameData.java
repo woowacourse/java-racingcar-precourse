@@ -12,7 +12,7 @@ public class GameData {
 	private int counts;
 
 	public void makeData(String[] names, int counts) {
-		for (String carName: names) {
+		for (String carName : names) {
 			Car car = new Car(carName);
 			cars.add(car);
 		}

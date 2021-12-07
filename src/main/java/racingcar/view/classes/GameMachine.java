@@ -28,7 +28,7 @@ public class GameMachine implements Game {
 			if (gameStatus == GameStatus.showResultsStatus) {
 				proceedShowResultsStatus();
 			}
-			if(gameStatus == GameStatus.showFinalStatus) {
+			if (gameStatus == GameStatus.showFinalStatus) {
 				proceedShowFinalStatus();
 				break;
 			}
@@ -42,9 +42,13 @@ public class GameMachine implements Game {
 
 	private void printFinalWinners() {
 		System.out.print(SHOWING_FINAL_WINNERS_MESSAGE);
+		printWinnerList();
+	}
+
+	private void printWinnerList() {
 		dataHandlerInterface.getWinners().forEach(winner -> {
 			System.out.print(winner);
-			if (dataHandlerInterface.getWinners().indexOf(winner) != dataHandlerInterface.getWinners().size() - 1)  {
+			if (dataHandlerInterface.getWinners().indexOf(winner) != dataHandlerInterface.getWinners().size() - 1) {
 				System.out.print(", ");
 			}
 		});
@@ -84,7 +88,7 @@ public class GameMachine implements Game {
 	}
 
 	private void takeToInputCountStatus() {
-		if(!names[0].equals("")) {
+		if (!names[0].equals("")) {
 			gameStatus = GameStatus.inputCountStatus;
 		}
 	}

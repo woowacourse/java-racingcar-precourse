@@ -9,7 +9,7 @@ public class Track implements TrackInterface {
 	@Override
 	public String makeTrack(List<Car> cars) {
 		String track = "";
-		for (Car car: cars) {
+		for (Car car : cars) {
 			track += car.getLine();
 			track += "\n";
 		}

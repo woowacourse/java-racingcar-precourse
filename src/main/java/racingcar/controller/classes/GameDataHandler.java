@@ -11,17 +11,32 @@ public class GameDataHandler implements GameDataHandlerInterface {
 	private String fullTrackRecord = "";
 	private List winners;
 	private CarMoverInterface carMoverInterface;
+
 	@Override
 	public void makeGameData(String[] names, int counts) {
 		gameData.makeData(names, counts);
 	}
+
 	@Override
 	public String getFullTrackRecord() {
 		carMoverInterface = new CarMover();
-		fullTrackRecord = carMoverInterface.getFullTrackRecord(gameData);
-		winners = carMoverInterface.getWinners(gameData);
+		setRecordsByData();
 		return fullTrackRecord;
 	}
+
+	private void setRecordsByData() {
+		setTrackRecordByData();
+		setWinnerRecordByData();
+	}
+
+	private void setWinnerRecordByData() {
+		winners = carMoverInterface.getWinners(gameData);
+	}
+
+	private void setTrackRecordByData() {
+		fullTrackRecord = carMoverInterface.getFullTrackRecord(gameData);
+	}
+
 	@Override
 	public List getWinners() {
 		return winners;
