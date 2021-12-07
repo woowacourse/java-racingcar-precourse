@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * 자동차 경주 게임의 처리 흐름을 제어하는 Class
  *
  * @author YJGwon
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 public class RacingCarGame {
@@ -24,7 +24,7 @@ public class RacingCarGame {
 			play();
 		}
 		playLastTurn();
-		announceWinner();
+		Computer.printWinner(winnerList);
 	}
 
 	private void prepareCarList() {
@@ -56,6 +56,7 @@ public class RacingCarGame {
 	private void play() {
 		for (Car car : carList) {
 			car.tryToMove();
+			Computer.printCarPosition(car);
 		}
 		System.out.println();
 	}
@@ -67,6 +68,7 @@ public class RacingCarGame {
 		int maxPosition = 0;
 		for (Car car : carList) {
 			car.tryToMove();
+			Computer.printCarPosition(car);
 			int position = car.getPosition();
 			if (position > maxPosition) {
 				maxPosition = position;
@@ -77,17 +79,6 @@ public class RacingCarGame {
 			}
 		}
 		System.out.println();
-	}
-
-	private void announceWinner() {
-		System.out.print("최종 우승자 : ");
-		int lastIndex = winnerList.size() - 1;
-		for (int i = 0; i < lastIndex; i++) {
-			Car car = winnerList.get(i);
-			car.printName();
-			System.out.print(", ");
-		}
-		winnerList.get(lastIndex).printName();
 	}
 
 	private void setCarList(String[] carNames) throws IllegalArgumentException {

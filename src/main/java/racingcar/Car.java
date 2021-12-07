@@ -6,7 +6,6 @@ public class Car {
 	private static final int MIN_RANDOM_NUMBER = 0;
 	private static final int MAX_RANDOM_NUMBER = 9;
 	private static final int CRITERION = 4;
-	private static final char POSITION_CHAR = '-';
 
 	private final String name;
 	private int position = 0;
@@ -20,22 +19,13 @@ public class Car {
 		if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= CRITERION) {
 			position++;
 		}
-		printPosition();
 	}
 
-	private void printPosition() {
-		StringBuilder strPosition = new StringBuilder();
-		for (int i = 0; i < position; i++) {
-			strPosition.append(POSITION_CHAR);
-		}
-		System.out.printf("%s : %s%n", name, strPosition);
-	}
-
-	public void printName() {
-		System.out.print(name);
+	public String getName() {
+		return name;
 	}
 
 	public int getPosition() {
-		return this.position;
+		return position;
 	}
 }
