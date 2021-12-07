@@ -74,10 +74,11 @@ public class PlayGame {
         }
     }
 
-    private void PrintWinPerson(boolean comma, Car car){
-        if(comma){
+    private void PrintWinPerson(boolean comma, Car car) {
+        if (comma) {
             System.out.print(", " + car.getName());
-        }else if(!comma){
+        }
+        if (!comma) {
             System.out.print(car.getName());
         }
     }
