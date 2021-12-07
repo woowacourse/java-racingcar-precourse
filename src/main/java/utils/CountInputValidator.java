@@ -15,14 +15,14 @@ public class CountInputValidator {
 	private CountInputValidator() {
 	}
 
-	public static int isValideRaceCount(String raceCount) {
-		if (!haveBlankInRaceCount(raceCount) && !isNullRaceCount(raceCount) && isRightNumber(raceCount)) {
+	public static int checkValidRaceCount(String raceCount) {
+		if (!hasBlankInRaceCount(raceCount) && !isNullRaceCount(raceCount) && isRightNumber(raceCount)) {
 			return Integer.parseInt(raceCount);
 		}
 		throw new IllegalArgumentException();
 	}
 
-	private static boolean haveBlankInRaceCount(String raceCount) {
+	private static boolean hasBlankInRaceCount(String raceCount) {
 		if (raceCount.contains(BLANK)) {
 			throw new IllegalArgumentException(BLANK_ERROR_MESSAGE);
 		}

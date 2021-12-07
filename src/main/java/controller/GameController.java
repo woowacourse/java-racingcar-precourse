@@ -1,18 +1,19 @@
 package controller;
 
+import java.util.StringJoiner;
+
 import model.RacingCarGame;
 import view.Display;
 
 public class GameController {
-	private static final int FIRST_WINNER_INDEX = 0;
 
 	private GameController() {
 	}
 
 	public static void runGame() {
-		Display.pleaseInputRacingCarNames();
+		Display.askInputRacingCarNames();
 		RacingCarGame racingCarGame = new RacingCarGame(InputController.inputRacingCarNames());
-		Display.pleaseInputNumberOfCarRaces();
+		Display.askInputNumberOfCarRaces();
 		racingCarGame.makeRaceCount(InputController.inputNumberOfCarRaces());
 		playGame(racingCarGame);
 	}
@@ -30,21 +31,7 @@ public class GameController {
 		Display.showRacingCarNowPositions(racingCarNames, racingCarPositions);
 	}
 
-	private static void showRacingCarGameWinner(String[] racingCarGameWinner) {
-		int lastWinnerIndex = racingCarGameWinner.length - 1;
-		Display.showWinnerMessage();
-		for (int index = FIRST_WINNER_INDEX; index < racingCarGameWinner.length; index++) {
-			Display.showWinner(racingCarGameWinner[index]);
-			if (!isLastWinner(lastWinnerIndex, index)) {
-				Display.putComma();
-			}
-		}
-	}
-
-	private static boolean isLastWinner(int lastWinnerIndex, int nowWinnerIndex) {
-		if (lastWinnerIndex != nowWinnerIndex) {
-			return false;
-		}
-		return true;
+	private static void showRacingCarGameWinner(String[] racingCarGameWinners) {
+		Display.showWinnerMessage(racingCarGameWinners);
 	}
 }

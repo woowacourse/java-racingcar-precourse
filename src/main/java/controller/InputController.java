@@ -14,7 +14,7 @@ public class InputController {
 		while (INPUT_ERROR) {
 			try {
 				String racingCarNames = Console.readLine();
-				return NameInputValidator.isValideRacingCarNames(racingCarNames);
+				return NameInputValidator.checkValidRacingCarNames(racingCarNames);
 			} catch (IllegalArgumentException error) {
 				System.out.println(error.getMessage());
 			}
@@ -25,7 +25,7 @@ public class InputController {
 		while (INPUT_ERROR) {
 			try {
 				String raceCount = Console.readLine();
-				return CountInputValidator.isValideRaceCount(raceCount);
+				return CountInputValidator.checkValidRaceCount(raceCount);
 			} catch (IllegalArgumentException error) {
 				System.out.println(error.getMessage());
 			}

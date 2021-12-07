@@ -2,7 +2,7 @@ package model;
 
 public class RaceCount {
 	private static final int ONE_RACE_COUNT = 1;
-	private static final int END_RACE_COUNT = 0;
+	private static final int RACE_END_COUNT = 0;
 	private int count;
 
 	public RaceCount(int count) {
@@ -14,7 +14,7 @@ public class RaceCount {
 	}
 
 	public boolean isNotRaceEnd() {
-		if (count != END_RACE_COUNT) {
+		if (count != RACE_END_COUNT) {
 			return true;
 		}
 		return false;

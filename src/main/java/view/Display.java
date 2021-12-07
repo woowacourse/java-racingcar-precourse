@@ -1,9 +1,13 @@
 package view;
 
+import java.util.StringJoiner;
+
 public class Display {
-	private static final String COMMA = ", ";
-	private static final int FIRST_CAR = 0;
+	private static final int FIRST_CAR_INDEX = 0;
 	private static final int START_CAR_POSITION = 0;
+	private static final int FIRST_WINNER_INDEX = 0;
+	private static final String COLON = " : ";
+	private static final String HYPHEN = "-";
 	private static final String CAR_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 	private static final String TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 	private static final String EXECUTION_MESSAGE = "실행 결과";
@@ -12,11 +16,11 @@ public class Display {
 	private Display() {
 	}
 
-	public static void pleaseInputRacingCarNames() {
+	public static void askInputRacingCarNames() {
 		System.out.println(CAR_INPUT_MESSAGE);
 	}
 
-	public static void pleaseInputNumberOfCarRaces() {
+	public static void askInputNumberOfCarRaces() {
 		System.out.println(TRY_COUNT_MESSAGE);
 	}
 
@@ -27,33 +31,26 @@ public class Display {
 
 	public static void showRacingCarNowPositions(String[] carNames, int[] carPositions) {
 		System.out.println();
-		for (int index = FIRST_CAR; index < carNames.length; index++) {
-			showRacingCarName(carNames[index]);
-			showRacingCarPosition(carPositions[index]);
+		for (int index = FIRST_CAR_INDEX; index < carNames.length; index++) {
+			showRacingCarNameAndPosition(carNames[index], carPositions[index]);
 		}
 	}
 
-	private static void showRacingCarName(String carName) {
-		System.out.print(carName + " : ");
-	}
-
-	private static void showRacingCarPosition(int carPosition) {
+	private static void showRacingCarNameAndPosition(String carName, int carPosition) {
+		System.out.print(carName + COLON);
 		for (int index = START_CAR_POSITION; index < carPosition; index++) {
-			System.out.print("-");
+			System.out.print(HYPHEN);
 		}
 		System.out.println();
 	}
 
-	public static void showWinnerMessage() {
+	public static void showWinnerMessage(String[] racingCarGameWinners) {
+		StringJoiner racingCarGameWinner = new StringJoiner(", ");
 		System.out.println();
 		System.out.print(WINNER_MESSAGE);
-	}
-
-	public static void showWinner(String winner) {
-		System.out.print(winner);
-	}
-
-	public static void putComma() {
-		System.out.print(COMMA);
+		for (int index = FIRST_WINNER_INDEX; index < racingCarGameWinners.length; index++) {
+			racingCarGameWinner.add(racingCarGameWinners[index]);
+		}
+		System.out.println(racingCarGameWinner);
 	}
 }
