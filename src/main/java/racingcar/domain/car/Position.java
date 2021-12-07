@@ -3,7 +3,7 @@ package racingcar.domain.car;
 import racingcar.domain.movement.MovementStrategy;
 import racingcar.utils.StringUtils;
 
-public class Position {
+public class Position implements Comparable<Position> {
 	private static final String ERROR_NON_POSITIVE = "위치는 0 미만이 될 수 없습니다.";
 	public static final String REPRESENT_LETTER = "-";
 	private int position;
@@ -30,5 +30,10 @@ public class Position {
 	@Override
 	public String toString() {
 		return StringUtils.repeat(REPRESENT_LETTER, position);
+	}
+
+	@Override
+	public int compareTo(Position other) {
+		return this.position - other.position;
 	}
 }

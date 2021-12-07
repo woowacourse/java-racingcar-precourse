@@ -46,4 +46,11 @@ public class CarSet {
 			.map(Car::toString)
 			.collect(Collectors.joining("\n"));
 	}
+
+	public List<Car> getWinners() {
+		Car max = Collections.max(cars);
+		return cars.stream()
+			.filter(car -> car.compareTo(max) == 0)
+			.collect(Collectors.toList());
+	}
 }
