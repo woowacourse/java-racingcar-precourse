@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Util {
 	public static void checkNamesValidation(String inputValue, String delimeter) {
 		checkNullOrEmpty(inputValue);
@@ -73,5 +75,9 @@ public class Util {
 		if (1 > number) {
 			throw new IllegalArgumentException("정상 범위(" + 1 + "이상)가 아닙니다");
 		}
+	}
+
+	public static int getRandomNumber() {
+		return Randoms.pickNumberInRange(0, 9);
 	}
 }

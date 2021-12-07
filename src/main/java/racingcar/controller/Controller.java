@@ -19,9 +19,9 @@ public class Controller {
 		OutputView.printInputCountInstruction();
 		Count count = Count.of(InputView.getCount());
 
-		int testCount = 1;
+		racingGame.insert(cars);
 		while (count.isRacingEnd()) {
-			// 주어진 횟수만큼 반복하여 레이싱 게임 시작
+			racingGame.start();
 		}
 
 	}

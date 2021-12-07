@@ -15,4 +15,9 @@ public class Cars {
 	public static Cars from(Names names) {
 		return new Cars(names);
 	}
+
+	public void moveCars() {
+		this.cars
+			.forEach(Car::move);
+	}
 }

@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.Objects;
 
+import racingcar.utils.Util;
+
 public class Car {
 	private final String name;
 	private int position = 0; // 생성자에서 따로 받지 않는 인스턴스변수는 선언시 초기화해줘야한다.
@@ -27,6 +29,11 @@ public class Car {
 	@Override
 	public int hashCode() {
 		return Objects.hash(name, position);
+	}
+
+	public void move() {
+		if (Util.getRandomNumber() >= 4)
+			this.position++;
 	}
 
 }
