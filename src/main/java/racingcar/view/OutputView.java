@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import racingcar.dto.CarDto;
 
 public class OutputView {
-	public static ArrayList<CarDto> carDtoArrayList;
 
 	public static void showSentenceBeforeResult() {
 		System.out.println("\n실행 결과");
@@ -25,9 +24,8 @@ public class OutputView {
 	}
 
 	public static void showThisGameWinner(ArrayList<CarDto> carDtoArrayList) {
-		OutputView.carDtoArrayList = carDtoArrayList;
 		int winnerMovingDistance = findWinnerMovingDistance(carDtoArrayList);
-		CarDto[] winners = findAllWinners(winnerMovingDistance);
+		CarDto[] winners = findAllWinners(carDtoArrayList, winnerMovingDistance);
 		makeFinalResultSentence(winners);
 	}
 
@@ -42,7 +40,7 @@ public class OutputView {
 		System.out.println(result);
 	}
 
-	private static CarDto[] findAllWinners(int winnerMovingDistance) {
+	private static CarDto[] findAllWinners(ArrayList<CarDto> carDtoArrayList, int winnerMovingDistance) {
 		return carDtoArrayList.stream()
 			.filter(eachCar -> eachCar.getMovingDistance() == winnerMovingDistance)
 			.toArray(CarDto[]::new);
