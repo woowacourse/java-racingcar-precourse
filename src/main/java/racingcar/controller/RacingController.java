@@ -13,8 +13,8 @@ public class RacingController {
     private final InputDisplay inputDisplay;
     private final OutputDisplay outputDisplay;
 
-    public RacingController(InputDisplay gameDisplay, OutputDisplay outputDisplay) {
-        this.inputDisplay = gameDisplay;
+    public RacingController(InputDisplay inputDisplay, OutputDisplay outputDisplay) {
+        this.inputDisplay = inputDisplay;
         this.outputDisplay = outputDisplay;
     }
 
