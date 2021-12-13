@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.view.OutputView;
 
@@ -21,9 +23,25 @@ public class EveryCar {
 		OutputView.showResultThisTiming(cars);
 	}
 
-	// public void showThisGameWinner() {
-	// 	// cars를 순회해 가장 멀리 움직인 거리를 찾음.
-	// 	// 해당 거리랑 똑같은 값들을 전부 찾음.
-	// 	OutputView.showThisGameWinner(cars);
-	// }
+	public void showThisGameWinner() {
+		Car winnerCar = findWinnerCar();
+		List<String> winningCarsName = findWinnerCarsName(winnerCar.showMovingDistance());
+		OutputView.showThisGameWinner(winningCarsName);
+	}
+
+	private List<String> findWinnerCarsName(int winnerCarsMovingDistance) {
+		return cars.stream()
+			.filter(eachCar -> winnerCarsMovingDistance == eachCar.showMovingDistance())
+			.map(eachCar -> eachCar.getName())
+			.collect(
+				Collectors.toList());
+	}
+
+	private Car findWinnerCar() {
+		Car winnerCar = cars.get(0); // TODO 차가 한 대 도 없는 경우 에러처리를 했나?
+		for (Car car : cars) {
+			winnerCar = car.findMovedMore(winnerCar);
+		}
+		return winnerCar;
+	}
 }

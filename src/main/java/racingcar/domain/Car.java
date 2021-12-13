@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+
 	public static int MIN_RANDOM = 0;
 	public static int MAX_RANDOM = 9;
 	public static int VALUE_MOVING_CAR = 4;
@@ -30,5 +31,12 @@ public class Car {
 
 	public String getName() {
 		return name;
+	}
+
+	public Car findMovedMore(Car winnerCar) {
+		if (winnerCar.showMovingDistance() > this.showMovingDistance()) {
+			return winnerCar;
+		}
+		return this;
 	}
 }
