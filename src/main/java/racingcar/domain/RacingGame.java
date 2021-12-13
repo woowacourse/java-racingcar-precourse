@@ -19,7 +19,7 @@ public class RacingGame {
 
 	private void playGame() {
 		moveCarGivenNumber(tryCntAboutCarMoving);
-		everyCar.showThisGameWinner();
+		// everyCar.showThisGameWinner();
 	}
 
 	private void moveCarGivenNumber(int repeatCnt) {

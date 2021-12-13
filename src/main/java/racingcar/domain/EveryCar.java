@@ -3,7 +3,6 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import racingcar.dto.CarDto;
 import racingcar.view.OutputView;
 
 public class EveryCar {
@@ -18,17 +17,13 @@ public class EveryCar {
 	}
 
 	public void moveEveryCarThisTiming() {
-		ArrayList<CarDto> carsDto = new ArrayList<>();
-		cars.forEach(eachCar -> {
-			eachCar.move();
-			carsDto.add(new CarDto(eachCar.getName(), eachCar.showMovingDistance()));
-		});
-		OutputView.showResultThisTiming(carsDto);
+		cars.forEach(eachCar -> eachCar.move());
+		OutputView.showResultThisTiming(cars);
 	}
 
-	public void showThisGameWinner() {
-		ArrayList<CarDto> carsDto = new ArrayList<>();
-		cars.forEach(eachCar -> carsDto.add(new CarDto(eachCar.getName(), eachCar.showMovingDistance())));
-		OutputView.showThisGameWinner(carsDto);
-	}
+	// public void showThisGameWinner() {
+	// 	// cars를 순회해 가장 멀리 움직인 거리를 찾음.
+	// 	// 해당 거리랑 똑같은 값들을 전부 찾음.
+	// 	OutputView.showThisGameWinner(cars);
+	// }
 }
