@@ -25,8 +25,8 @@ public class OutputView {
 	}
 
 	public static void showThisGameWinner(List<String> winningCarsName) {
-		StringBuffer result = new StringBuffer("최종 우승자 : ");
-		result.append(String.join(", ", winningCarsName));
+		String result = "최종 우승자 : ";
+		result += String.join(", ", winningCarsName);
 		System.out.println(result);
 	}
 }

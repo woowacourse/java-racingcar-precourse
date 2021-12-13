@@ -38,7 +38,7 @@ public class EveryCar {
 	}
 
 	private Car findWinnerCar() {
-		Car winnerCar = cars.get(0); // TODO 차가 한 대 도 없는 경우 에러처리를 했나?
+		Car winnerCar = cars.get(0);
 		for (Car car : cars) {
 			winnerCar = car.findMovedMore(winnerCar);
 		}
