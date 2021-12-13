@@ -29,12 +29,6 @@ public class Validator {
 		}
 	}
 
-	public static void hasNoCarNameAtLast(String inputValue) {
-		if (inputValue.endsWith(CAR_SPLIT_REGEX)) {
-			throw new IllegalArgumentException(CAR_NAME_NOT_NULL_ERROR_MESSAGE);
-		}
-	}
-
 	public static Integer validateTryCnt(String tryCntString) {
 		int tryCnt;
 		validateTryCntIsNumber(tryCntString);
