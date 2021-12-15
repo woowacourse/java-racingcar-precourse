@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
+import static racingcar.model.ModelConstants.*;
 
 public class Car {
     private final String name;
@@ -20,11 +22,9 @@ public class Car {
     }
 
     public void race() {
-        int startInclusive = Constants.RACE_DICE_START_INCLUSIVE;
-        int endInclusive = Constants.RACE_DICE_END_INCLUSIVE;
-        int diceEyes = Randoms.pickNumberInRange(startInclusive, endInclusive);
+        int diceEyes = Randoms.pickNumberInRange(DICE_START_INCLUSIVE, DICE_END_INCLUSIVE);
         if (diceEyes >= 4) {
-            position++;
+            this.position++;
         }
     }
 }
