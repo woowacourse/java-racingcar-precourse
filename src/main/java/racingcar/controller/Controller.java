@@ -23,7 +23,7 @@ public class Controller {
         setCarNames();
         setRaceTimes();
         race(cars);
-        OutputView.printFinalWinners(findFinalWinners());
+        printFinalWinners();
     }
 
     private void setCarNames(){
@@ -78,7 +78,7 @@ public class Controller {
         }
     }
 
-    private List<String> findFinalWinners() {
+    private void printFinalWinners() {
         List<String> finalWinners = new ArrayList<>();
         int winnerPosition = findWinnerPosition();
         for (Car car : cars) {
@@ -86,7 +86,7 @@ public class Controller {
                 finalWinners.add(car.getName());
             }
         }
-        return finalWinners;
+        OutputView.printFinalWinners(finalWinners);
     }
 
     private int findWinnerPosition() {
