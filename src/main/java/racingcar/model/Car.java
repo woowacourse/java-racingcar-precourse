@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import static racingcar.model.ModelConstants.*;
+import static racingcar.model.Constants.*;
 
 public class Car {
     private final String name;

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import racingcar.model.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import static racingcar.controller.ControllerConstants.*;
+import static racingcar.controller.Constants.*;
 
 public class Controller {
     List<Car> cars;

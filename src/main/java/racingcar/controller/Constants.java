@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-public class ControllerConstants {
+public class Constants {
     final static String SPLIT_DELIMETER = ",";
 
     final static String CAR_NAME_PATTERN = "^(\\w){1,5}$";

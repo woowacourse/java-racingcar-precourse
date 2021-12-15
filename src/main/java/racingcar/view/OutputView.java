@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static racingcar.view.ViewConstants.*;
+import static racingcar.view.Constants.*;
 
 public class OutputView {
 
