@@ -1,8 +1,15 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.function.IntFunction;
+import java.util.stream.IntStream;
 
 public class Application {
     private static final String SPLIT_REGEX = ",";
+    private static final String JOIN_REGEX = ", ";
+    private static final String CAR_MOVEMENT_MARK = "-";
+    private static final String CAR_INFORMATION_SUFFIX = " : ";
 
     public Car[] getInputCarList() {
         String inputData = InputView.getUserData();
@@ -62,48 +69,35 @@ public class Application {
         }
     }
 
+    public int getMaxPosition(Car[] carList) {
+        return Arrays.stream(carList)
+                .flatMapToInt((car) -> IntStream.of(car.getPosition()))
+                .max()
+                .getAsInt();
+    }
+
     public String[] getWinnerList(Car[] carList) {
-        int maxValue = -1;
+        int maxValue = getMaxPosition(carList);
         int WinnerCount = 0;
 
-        for (Car car : carList) {
-            if (car.getPosition() == maxValue) {
-                WinnerCount++;
-                continue;
-            }
-
-            if (car.getPosition() > maxValue) {
-                maxValue = car.getPosition();
-                WinnerCount = 1;
-            }
-        }
-
-        String[] winnerList = new String[WinnerCount];
-        int index = 0;
-        for (Car car : carList) {
-            if (car.getPosition() == maxValue) {
-                winnerList[index++] = car.getName();
-            }
-        }
+        String[] winnerList = Arrays.stream(carList)
+                .filter((car) -> car.getPosition() == maxValue)
+                .map(Car::getName)
+                .toArray((size) -> new String[size]);
 
         return winnerList;
     }
 
     public void printWinner(String[] winnerList) {
         OutputView.print(OutputView.INTRO_WINNER);
-        for (int i = 0; i < winnerList.length; i++) {
-            OutputView.print(winnerList[i]);
-            if (i != winnerList.length-1) {
-                OutputView.print(", ");
-            }
-        }
+        OutputView.println(String.join(JOIN_REGEX, winnerList));
         OutputView.printBlank();
     }
 
     public void printCarData(Car car) {
-        OutputView.print(car.getName() + " : ");
+        OutputView.print(car.getName() + CAR_INFORMATION_SUFFIX);
         for (int i = 0; i < car.getPosition(); i++) {
-            OutputView.print("-");
+            OutputView.print(CAR_MOVEMENT_MARK);
         }
         OutputView.printBlank();
     }
