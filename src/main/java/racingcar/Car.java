@@ -20,14 +20,6 @@ public class Car {
         }
     }
 
-    public void printCarData() {
-        System.out.print(name + " : ");
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-    }
-
     public int getPosition() {
         return this.position;
     }

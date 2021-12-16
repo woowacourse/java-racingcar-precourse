@@ -2,9 +2,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
+    private static final String SPLIT_REGEX = ",";
+
     public Car[] getInputCarList() {
-        String inputData = Console.readLine();
-        String[] carNameList = inputData.split(",");
+        String inputData = InputView.getUserData();
+        String[] carNameList = inputData.split(SPLIT_REGEX);
         Car[] carList = new Car[carNameList.length];
 
         for (int i = 0; i < carNameList.length; i++) {
@@ -17,19 +19,19 @@ public class Application {
     public Car[] getCarList() {
         Car[] carList = null;
         while (true) {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            OutputView.println(OutputView.INTRO_INPUT_CAR);
             try {
                 carList = getInputCarList();
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] 차의 이름은 5자 이내이어야 한다.");
+                OutputView.printError(e.getMessage());
             }
         }
         return carList;
     }
 
     public int getInputTryCount() {
-        String InputData = Console.readLine();
+        String InputData = InputView.getUserData();
         Validators.validateTryCount(InputData);
         int tryCount = Integer.parseInt(InputData);
         return tryCount;
@@ -38,12 +40,12 @@ public class Application {
     public int getTryCount() {
         int tryCount = -1;
         while (true) {
-            System.out.println("시도할 회수는 몇회인가요?");
+            OutputView.println(OutputView.INTRO_INPUT_TRY_COUNT);
             try {
                 tryCount = getInputTryCount();
                 return tryCount;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] 시도 회수는 숫자여야 한다.");
+                OutputView.printError(e.getMessage());
             }
         }
     }
@@ -56,7 +58,7 @@ public class Application {
 
     public void printTotalCar(Car[] carList) {
         for (Car car : carList) {
-            car.printCarData();
+            printCarData(car);
         }
     }
 
@@ -88,14 +90,22 @@ public class Application {
     }
 
     public void printWinner(String[] winnerList) {
-        System.out.print("최종 우승자 : ");
+        OutputView.print(OutputView.INTRO_WINNER);
         for (int i = 0; i < winnerList.length; i++) {
-            System.out.print(winnerList[i]);
+            OutputView.print(winnerList[i]);
             if (i != winnerList.length-1) {
-                System.out.print(", ");
+                OutputView.print(", ");
             }
         }
-        System.out.println();
+        OutputView.printBlank();
+    }
+
+    public void printCarData(Car car) {
+        OutputView.print(car.getName() + " : ");
+        for (int i = 0; i < car.getPosition(); i++) {
+            OutputView.print("-");
+        }
+        OutputView.printBlank();
     }
 
     public void run() {
