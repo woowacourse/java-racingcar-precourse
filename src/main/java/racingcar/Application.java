@@ -8,9 +8,7 @@ public class Application {
         Car[] carList = new Car[carNameList.length];
 
         for (int i = 0; i < carNameList.length; i++) {
-            if (carNameList[i].length() > 5) {
-                throw new IllegalArgumentException();
-            }
+            Validators.validateCarName(carNameList[i]);
             carList[i] = new Car(carNameList[i]);
         }
         return carList;
@@ -32,12 +30,9 @@ public class Application {
 
     public int getInputTryCount() {
         String InputData = Console.readLine();
-        try {
-            int tryCount = Integer.parseInt(InputData);
-            return tryCount;
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
+        Validators.validateTryCount(InputData);
+        int tryCount = Integer.parseInt(InputData);
+        return tryCount;
     }
 
     public int getTryCount() {
