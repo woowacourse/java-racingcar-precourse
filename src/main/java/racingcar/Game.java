@@ -26,6 +26,7 @@ public class Game {
             printProgress();
         }
         getWinners();
+        finishGame();
     }
 
     public void startRound() {
@@ -57,14 +58,19 @@ public class Game {
     }
 
     public void getWinners() {
-        int firstPositoin = 0;
+        int firstPosition = 0;
         for (int i = 0; i < cars.length; i++) {
             int tmp = cars[i].getPosition();
-            if (tmp < firstPositoin) {
+            if (tmp < firstPosition) {
                 continue;
             }
             winners.add(cars[i].getName());
-            firstPositoin = tmp;
+            firstPosition = tmp;
         }
+    }
+
+    public void finishGame() {
+        String result = String.join(", ", winners);
+        System.out.print("최종 우승자 : " + result);
     }
 }
