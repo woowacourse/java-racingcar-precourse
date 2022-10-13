@@ -2,16 +2,16 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 public class Game {
-    { playGame(); }
     Player player;
     Car[] cars;
     int rounds;
-    ArrayList<String> winners;
+    Vector<String> winners;
 
     Game() { // Game의 생성자, 게임 시작을 위한 초기 세팅
+        winners = new Vector();
         player = new Player();
         rounds = player.rounds;
         cars = new Car[player.cars.length]; // 자동차 n개의 배열을 위한 메모리 할당
@@ -55,6 +55,7 @@ public class Game {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void getWinners() {
