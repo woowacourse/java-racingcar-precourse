@@ -8,10 +8,12 @@ public class Game {
     Player player;
     Car[] cars;
     int rounds;
+    int firstPosition;
     Vector<String> winners;
 
     Game() { // Game의 생성자, 게임 시작을 위한 초기 세팅
         winners = new Vector();
+        firstPosition = 0;
         player = new Player();
         rounds = player.rounds;
         cars = new Car[player.cars.length]; // 자동차 n개의 배열을 위한 메모리 할당
@@ -58,15 +60,26 @@ public class Game {
         System.out.println();
     }
 
-    public void getWinners() {
+    public int getFirstPosition() {
         int firstPosition = 0;
         for (int i = 0; i < cars.length; i++) {
             int tmp = cars[i].getPosition();
             if (tmp < firstPosition) {
                 continue;
             }
-            winners.add(cars[i].getName());
             firstPosition = tmp;
+        }
+
+        return firstPosition;
+    }
+
+    public void getWinners() {
+        int firstPosition = getFirstPosition();
+        for (int i = 0; i < cars.length; i++) {
+            int tmp = cars[i].getPosition();
+            if (tmp == firstPosition) {
+                winners.add(cars[i].getName());
+            }
         }
     }
 
