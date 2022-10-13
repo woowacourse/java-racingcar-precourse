@@ -16,7 +16,16 @@ public class Player {
     public void getCarNames() {
         System.out.println(ASK_CAR_NAME);
         String names = Console.readLine();
-        cars = splitString(names);
+        try {
+            cars = splitString(names);
+            for (int i = 0; i < cars.length; i++) {
+                checkNames(cars[i]);
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            getCarNames();
+        }
+
     }
 
     public String[] splitString(String str) {
@@ -25,6 +34,26 @@ public class Player {
 
     public void getRounds() {
         System.out.println(GET_ROUNDS);
-        rounds = Integer.parseInt(Console.readLine());
+        String tmp = Console.readLine();
+        try {
+            checkRounds(tmp);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            getRounds();
+        }
+    }
+
+    public void checkNames(String name) throws IllegalArgumentException {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("[ERROR] 이름은 다섯 글자를 넘길 수 없다.");
+        }
+    }
+
+    public void checkRounds(String rounds) throws IllegalArgumentException {
+        try {
+            this.rounds = Integer.parseInt(rounds);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+        }
     }
 }
