@@ -1,3 +1,16 @@
+# 새로 알게된 것 & 부족한 것
+[문법 관련]<br>
+- 이터레이터 사용법
+- ArrayList 사용법
+- join, split 하는 방법
+- Integer.parseInt : primitive int형으로 반환, Integer.valueOf() : Integer 객체로 반환
+- Vector : 동적 추가
+
+[기타]
+- 프로젝트 시작 전 gradle, File Structure 버전8로 세팅 확인하기
+- git branch push 할 때 ```git push origin swonny``` (main과 혼동하지 말기)
+- unindent(들여쓰기 취소) : ⇧(shift) + ⇥(tab)
+
 # 기능 목록
 
 ## 1. 자동차 ✔️
