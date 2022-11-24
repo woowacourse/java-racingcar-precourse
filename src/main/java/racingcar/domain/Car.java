@@ -15,6 +15,14 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     private void validate(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
