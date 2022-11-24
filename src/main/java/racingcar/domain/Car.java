@@ -9,6 +9,12 @@ public class Car {
         this.name = name;
     }
 
+    public void move(int number) {
+        if (number >= 4) {
+            position++;
+        }
+    }
+
     private void validate(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
