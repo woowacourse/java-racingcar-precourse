@@ -63,13 +63,16 @@
       ```
 
 ## 도메인
-- [ ] 자동차 경주 게임을 한다.
-  - [ ] 자동차를 생성한다.
-  - [ ] 자동차가 경주한다.
-    - [ ] 자동차가 이동한다.
-    - [ ] 자동차의 이동 가능 여부를 결정한다.
+- [ ] 자동차를 생성한다. (MovableFactory - CarFactory)
+- [ ] n대의 자동차를 생성한다. (MovablesFactory - CarsFactory)
+
+- [ ] 자동차 경주 게임을 한다. (Movables - Cars)
+  - [ ] 자동차가 경주한다. (Movable - Car)
+    - [ ] 자동차가 이동한다. (Position)
+    - [ ] 자동차의 이동 가능 여부를 결정한다. (MoveStrategy - RandomBasedMoveStrategy)
       - [ ] 0~9 무작위 숫자 중 4이상인 경우 이동
-  - [ ] 우승자를 구한다. (1명 이상)
+      
+  - [ ] 우승자를 구한다. (1명 이상) (Movables - Cars)
 
 
 
