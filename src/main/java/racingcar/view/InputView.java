@@ -7,4 +7,8 @@ public class InputView {
     public String sendNamesOfParticipatingCars() {
         return Console.readLine();
     }
+
+    public String sendCountOfMoves() {
+        return Console.readLine();
+    }
 }
