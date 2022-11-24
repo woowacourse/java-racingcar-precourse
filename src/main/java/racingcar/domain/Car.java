@@ -24,6 +24,24 @@ public class Car {
     }
 
     private void validate(String name) {
+        validateIsEmpty(name);
+        validateContainBlank(name);
+        validateLength(name);
+    }
+
+    private void validateIsEmpty(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateContainBlank(String name) {
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
         }
