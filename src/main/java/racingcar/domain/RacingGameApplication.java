@@ -24,19 +24,21 @@ public class RacingGameApplication {
     }
 
     private RacingGame createRacingGame() {
-        Cars cars = createCars(inputView.sendNamesOfParticipatingCars());
-        CountOfMoves countOfMoves = createCount(inputView.sendCountOfMoves());
+        Cars cars = createCars();
+        CountOfMoves countOfMoves = createCount();
         return new RacingGame(cars, countOfMoves);
     }
 
-    private Cars createCars(String namesOfParticipatingCars) {
+    protected Cars createCars() {
+        String namesOfParticipatingCars = inputView.sendNamesOfParticipatingCars();
         List<Car> cars = Arrays.stream(namesOfParticipatingCars.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
         return new Cars(cars);
     }
 
-    private CountOfMoves createCount(String countOfMoves) {
+    protected CountOfMoves createCount() {
+        String countOfMoves = inputView.sendCountOfMoves();
         int count = convertInputToInt(countOfMoves);
         return new CountOfMoves(count);
     }
