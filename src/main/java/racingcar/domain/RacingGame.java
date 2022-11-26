@@ -19,7 +19,7 @@ public class RacingGame {
     public List<CarPositionDto> move() {
         cars.play(new RandomNumberGenerator());
         countOfMoves.upperCurrentRound();
-        return getCarPosition(cars);
+        return getCarPositionDtos(cars);
     }
 
     public boolean isOver() {
@@ -27,19 +27,16 @@ public class RacingGame {
     }
 
     public List<WinnerDto> getWinners() {
-        return getWinnerPositionDto(cars.getWinners());
-    }
-
-    private List<CarPositionDto> getCarPosition(Cars cars) {
-        return cars.getCars()
+        return cars.getWinners()
                 .stream()
-                .map(CarPositionDto::of)
+                .map(car -> new WinnerDto(car.getName()))
                 .collect(Collectors.toList());
     }
 
-    private List<WinnerDto> getWinnerPositionDto(List<Car> winners) {
-        return winners.stream()
-                .map(car -> new WinnerDto(car.getName()))
+    private List<CarPositionDto> getCarPositionDtos(Cars cars) {
+        return cars.getCars()
+                .stream()
+                .map(CarPositionDto::of)
                 .collect(Collectors.toList());
     }
 }
