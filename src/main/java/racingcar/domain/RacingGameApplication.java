@@ -1,18 +1,17 @@
 package racingcar.domain;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameApplication {
 
     private final InputView inputView;
+    private final InputParser inputParser;
     private final OutputView outputView;
 
-    public RacingGameApplication(InputView inputView, OutputView outputView) {
+    public RacingGameApplication(InputView inputView, InputParser inputParser, OutputView outputView) {
         this.inputView = inputView;
+        this.inputParser = inputParser;
         this.outputView = outputView;
     }
 
@@ -24,34 +23,9 @@ public class RacingGameApplication {
     }
 
     private RacingGame createRacingGame() {
-        Cars cars = createCars();
-        CountOfMoves countOfMoves = createCount();
+        Cars cars = inputParser.createCars(inputView);
+        CountOfMoves countOfMoves = inputParser.createCountOfMoves(inputView);
         return new RacingGame(cars, countOfMoves);
-    }
-
-    protected Cars createCars() {
-        String namesOfParticipatingCars = inputView.sendNamesOfParticipatingCars();
-        List<Car> cars = Arrays.stream(namesOfParticipatingCars.split(","))
-                .map(Car::new)
-                .collect(Collectors.toList());
-        return new Cars(cars);
-    }
-
-    protected CountOfMoves createCount() {
-        String countOfMoves = inputView.sendCountOfMoves();
-        int count = convertInputToInt(countOfMoves);
-        return new CountOfMoves(count);
-    }
-
-    private int convertInputToInt(String input) {
-        if (isNotNumber(input)) {
-            throw new IllegalArgumentException("숫자를 입력해주세요. 입력값 : " + input);
-        }
-        return Integer.parseInt(input);
-    }
-
-    private boolean isNotNumber(String input) {
-        return !input.chars().allMatch(Character::isDigit);
     }
 
     private void runningGame(RacingGame racingGame) {
