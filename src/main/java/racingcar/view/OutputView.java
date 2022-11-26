@@ -14,6 +14,7 @@ public class OutputView {
     public void printCarsPosition(List<CarPositionDto> carPositionDtos) {
         carPositionDtos.stream()
                 .forEach(this::printEachCarPosition);
+        System.out.println();
     }
 
     public void printWinnerNames(List<WinnerDto> winnerDtos) {
