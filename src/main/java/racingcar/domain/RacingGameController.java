@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.RandomNumberGenerator;
 import racingcar.dto.CarPositionDto;
 import racingcar.dto.WinnerDto;
 import racingcar.view.InputView;
@@ -25,7 +26,7 @@ public class RacingGameController {
         int count = createCount();
         outputView.printRunMessage();
         for (int i = 0; i < count; i++) {
-            racingGame.play(cars);
+            cars.play(new RandomNumberGenerator());
             outputView.printCarsPosition(getCarPosition(cars));
         }
         List<WinnerDto> winners = racingGame.getWinners(cars);

@@ -8,10 +8,6 @@ import racingcar.dto.WinnerDto;
 
 public class RacingGame {
 
-    public void play(Cars cars) {
-        cars.play(new RandomNumberGenerator());
-    }
-
     public List<WinnerDto> getWinners(Cars cars) {
         int maximum = cars.getCars()
                 .stream()
