@@ -31,19 +31,19 @@ public class Car {
 
     private void validateNameIsEmpty(String name) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("빈값은 포함될 수 없습니다. 입력값 : " + name);
         }
     }
 
     private void validateNameContainBlank(String name) {
         if (name.contains(" ")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("공백은 포함될 수 없습니다. 입력값 : " + name);
         }
     }
 
     private void validateNameLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차의 이름은 5자를 초과할 수 없습니다. 입력값 : " + name);
         }
     }
 }
