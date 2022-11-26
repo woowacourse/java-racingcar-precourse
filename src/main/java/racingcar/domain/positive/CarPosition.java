@@ -1,6 +1,6 @@
-package racingcar.domain.movables.cars;
+package racingcar.domain.positive;
 
-public class CarPosition {
+public class CarPosition implements Positive {
     private final int position;
     
     public CarPosition() {
@@ -11,11 +11,20 @@ public class CarPosition {
         this.position = position;
     }
     
+    @Override
     public CarPosition increase() {
         return new CarPosition(position + 1);
     }
     
-    public int position() {
+    @Override
+    public int number() {
         return position;
+    }
+    
+    @Override
+    public String toString() {
+        return "CarPosition{" +
+                "position=" + position +
+                '}';
     }
 }

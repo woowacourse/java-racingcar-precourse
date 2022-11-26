@@ -1,10 +1,10 @@
-package racingcar.domain.movables.cars;
+package racingcar.domain.positive;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.positive.CarPosition;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CarPositionTest {
     
@@ -14,6 +14,6 @@ class CarPositionTest {
         CarPosition carPosition = new CarPosition(1);
         carPosition = carPosition.increase();
         
-        assertThat(carPosition.position()).isEqualTo(2);
+        assertThat(carPosition.number()).isEqualTo(2);
     }
 }
