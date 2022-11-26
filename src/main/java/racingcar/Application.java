@@ -10,8 +10,7 @@ import racingcar.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         RacingGameApplication racingGameApplication = new RacingGameApplication(
-                new InputView(),
-                new InputParserProxy(new InputParserImpl()),
+                new InputParserProxy(new InputParserImpl(new InputView())),
                 new OutputView());
         racingGameApplication.run();
     }

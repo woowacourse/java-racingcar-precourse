@@ -1,12 +1,9 @@
 package racingcar.domain;
 
-
-import racingcar.view.InputView;
-
 public interface InputParser {
 
-    Cars createCars(InputView inputView);
+    Cars createCars();
 
-    CountOfMoves createCountOfMoves(InputView inputView);
+    CountOfMoves createCountOfMoves();
 
 }

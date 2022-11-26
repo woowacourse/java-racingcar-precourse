@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.view.InputView;
-
 public class InputParserProxy implements InputParser {
 
     private final InputParser inputParser;
@@ -11,22 +9,22 @@ public class InputParserProxy implements InputParser {
     }
 
     @Override
-    public Cars createCars(InputView inputView) {
+    public Cars createCars() {
         try {
-            return inputParser.createCars(inputView);
+            return inputParser.createCars();
         } catch (IllegalArgumentException e) {
             printErrorMessage(e.getMessage());
-            return createCars(inputView);
+            return createCars();
         }
     }
 
     @Override
-    public CountOfMoves createCountOfMoves(InputView inputView) {
+    public CountOfMoves createCountOfMoves() {
         try {
-            return inputParser.createCountOfMoves(inputView);
+            return inputParser.createCountOfMoves();
         } catch (IllegalArgumentException e) {
             printErrorMessage(e.getMessage());
-            return createCountOfMoves(inputView);
+            return createCountOfMoves();
         }
     }
 

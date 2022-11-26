@@ -7,7 +7,13 @@ import racingcar.view.InputView;
 
 public class InputParserImpl implements InputParser {
 
-    public Cars createCars(InputView inputView) {
+    private final InputView inputView;
+
+    public InputParserImpl(InputView inputView) {
+        this.inputView = inputView;
+    }
+
+    public Cars createCars() {
         String namesOfParticipatingCars = inputView.sendNamesOfParticipatingCars();
         List<Car> cars = Arrays.stream(namesOfParticipatingCars.split(","))
                 .map(Car::new)
@@ -15,7 +21,7 @@ public class InputParserImpl implements InputParser {
         return new Cars(cars);
     }
 
-    public CountOfMoves createCountOfMoves(InputView inputView) {
+    public CountOfMoves createCountOfMoves() {
         String countOfMoves = inputView.sendCountOfMoves();
         int count = convertInputToInt(countOfMoves);
         return new CountOfMoves(count);

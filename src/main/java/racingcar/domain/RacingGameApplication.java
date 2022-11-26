@@ -1,16 +1,13 @@
 package racingcar.domain;
 
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameApplication {
 
-    private final InputView inputView;
     private final InputParser inputParser;
     private final OutputView outputView;
 
-    public RacingGameApplication(InputView inputView, InputParser inputParser, OutputView outputView) {
-        this.inputView = inputView;
+    public RacingGameApplication(InputParser inputParser, OutputView outputView) {
         this.inputParser = inputParser;
         this.outputView = outputView;
     }
@@ -23,8 +20,8 @@ public class RacingGameApplication {
     }
 
     private RacingGame createRacingGame() {
-        Cars cars = inputParser.createCars(inputView);
-        CountOfMoves countOfMoves = inputParser.createCountOfMoves(inputView);
+        Cars cars = inputParser.createCars();
+        CountOfMoves countOfMoves = inputParser.createCountOfMoves();
         return new RacingGame(cars, countOfMoves);
     }
 
