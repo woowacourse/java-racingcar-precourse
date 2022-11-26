@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarPositionDto;
+import racingcar.dto.WinnerDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -22,10 +23,13 @@ public class RacingGameController {
     public void run() {
         Cars cars = createCars();
         int count = createCount();
+        outputView.printRunMessage();
         for (int i = 0; i < count; i++) {
             racingGame.play(cars);
             outputView.printCarsPosition(getCarPosition(cars));
         }
+        List<WinnerDto> winners = racingGame.getWinners(cars);
+        outputView.printWinnerNames(winners);
     }
 
     private Cars createCars() {
