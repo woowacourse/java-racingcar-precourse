@@ -7,6 +7,10 @@ import racingcar.dto.WinnerDto;
 
 public class OutputView {
 
+    public void printRunMessage() {
+        System.out.println("실행 결과");
+    }
+
     public void printCarsPosition(List<CarPositionDto> carPositionDtos) {
         carPositionDtos.stream()
                 .forEach(this::printEachCarPosition);
