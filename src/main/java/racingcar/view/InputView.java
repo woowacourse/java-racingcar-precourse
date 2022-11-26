@@ -18,8 +18,19 @@ public class InputView {
         return new Cars(cars);
     }
 
-    public String sendCountOfMoves() {
+    public int sendCountOfMoves() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Console.readLine();
+        return convertInputToInt(Console.readLine());
+    }
+
+    private int convertInputToInt(String input) {
+        if (isNotNumber(input)) {
+            throw new IllegalArgumentException("숫자를 입력해주세요. 입력값 : " + input);
+        }
+        return Integer.parseInt(input);
+    }
+
+    private boolean isNotNumber(String input) {
+        return !input.chars().allMatch(Character::isDigit);
     }
 }
