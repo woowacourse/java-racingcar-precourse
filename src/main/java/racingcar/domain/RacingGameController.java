@@ -27,7 +27,7 @@ public class RacingGameController {
             cars.play(new RandomNumberGenerator());
             outputView.printCarsPosition(getCarPosition(cars));
         }
-        Cars winners = cars.getWinners();
+        List<Car> winners = cars.getWinners();
         outputView.printWinnerNames(getWinnerPositionDto(winners));
     }
 
@@ -61,9 +61,8 @@ public class RacingGameController {
                 .collect(Collectors.toList());
     }
 
-    private List<WinnerDto> getWinnerPositionDto(Cars cars) {
-        return cars.getCars()
-                .stream()
+    private List<WinnerDto> getWinnerPositionDto(List<Car> winners) {
+        return winners.stream()
                 .map(car -> new WinnerDto(car.getName()))
                 .collect(Collectors.toList());
     }
