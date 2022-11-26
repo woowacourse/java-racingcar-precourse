@@ -11,8 +11,8 @@ class CarTest {
     @DisplayName("차 이동")
     void move() {
         Car car = new Car("jun");
-        car.move();
-        car.move();
+        car.move(() -> true);
+        car.move(() -> true);
         
         assertThat(car.position()).isEqualTo(2);
     }

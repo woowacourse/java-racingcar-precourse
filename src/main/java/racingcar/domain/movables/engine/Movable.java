@@ -1,7 +1,9 @@
 package racingcar.domain.movables.engine;
 
+import racingcar.domain.movestrategy.MoveStrategy;
+
 public interface Movable {
-    void move();
+    void move(MoveStrategy moveStrategy);
     
     String name();
     

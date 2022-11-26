@@ -1,6 +1,7 @@
 package racingcar.domain.movables.cars;
 
 import racingcar.domain.movables.engine.Movable;
+import racingcar.domain.movestrategy.MoveStrategy;
 
 public class Car implements Movable {
     private final CarName name;
@@ -12,8 +13,10 @@ public class Car implements Movable {
     }
     
     @Override
-    public void move() {
-        carPosition = carPosition.increase();
+    public void move(final MoveStrategy moveStrategy) {
+        if (moveStrategy.isMovable()) {
+            carPosition = carPosition.increase();
+        }
     }
     
     @Override

@@ -65,8 +65,8 @@
 - [ ] 자동차 경주 게임을 한다. (Movables - Cars)
   - [ ] 자동차가 경주한다. (Movable - Car)
     - [x] 자동차가 이동한다. (Position)
-    - [ ] 자동차의 이동 가능 여부를 결정한다. (MoveStrategy - RandomBasedMoveStrategy)
-      - [ ] 0~9 무작위 숫자 중 4이상인 경우 이동
+    - [x] 자동차의 이동 가능 여부를 결정한다. (MoveStrategy - RandomBasedMoveStrategy)
+      - [x] 0~9 무작위 숫자 중 4이상인 경우 이동
     - [ ] 이동 횟수가 0일때까지 반복한다.
       - [ ] 입력받은 이동 횟수부터 이동할 때마다 1씩 감소
       - [ ] 0이 되면 게임 종료
