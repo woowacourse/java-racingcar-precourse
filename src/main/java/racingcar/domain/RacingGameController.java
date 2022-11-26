@@ -13,12 +13,10 @@ public class RacingGameController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final RacingGame racingGame;
 
-    public RacingGameController(InputView inputView, OutputView outputView, RacingGame racingGame) {
+    public RacingGameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.racingGame = racingGame;
     }
 
     public void run() {
@@ -29,8 +27,8 @@ public class RacingGameController {
             cars.play(new RandomNumberGenerator());
             outputView.printCarsPosition(getCarPosition(cars));
         }
-        List<WinnerDto> winners = racingGame.getWinners(cars);
-        outputView.printWinnerNames(winners);
+        Cars winners = cars.getWinners();
+        outputView.printWinnerNames(getWinnerPositionDto(winners));
     }
 
     private Cars createCars() {
@@ -60,6 +58,13 @@ public class RacingGameController {
         return cars.getCars()
                 .stream()
                 .map(CarPositionDto::of)
+                .collect(Collectors.toList());
+    }
+
+    private List<WinnerDto> getWinnerPositionDto(Cars cars) {
+        return cars.getCars()
+                .stream()
+                .map(car -> new WinnerDto(car.getName()))
                 .collect(Collectors.toList());
     }
 }
