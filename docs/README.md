@@ -59,7 +59,7 @@
       ```
 
 ## 도메인
-- [ ] 자동차를 생성한다. (MovableFactory - CarFactory)
+- [x] 자동차를 생성한다. (MovableFactory - CarFactory)
 - [ ] n대의 자동차를 생성한다. (MovablesFactory - CarsFactory)
 
 - [ ] 자동차 경주 게임을 한다. (Movables - Cars)
