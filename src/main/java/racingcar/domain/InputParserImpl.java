@@ -15,9 +15,7 @@ public class InputParserImpl implements InputParser {
 
     public Cars createCars() {
         String namesOfParticipatingCars = inputView.sendNamesOfParticipatingCars();
-        List<Car> cars = Arrays.stream(namesOfParticipatingCars.split(","))
-                .map(Car::new)
-                .collect(Collectors.toList());
+        List<Car> cars = getCars(namesOfParticipatingCars);
         return new Cars(cars);
     }
 
@@ -25,6 +23,12 @@ public class InputParserImpl implements InputParser {
         String countOfMoves = inputView.sendCountOfMoves();
         int count = convertInputToInt(countOfMoves);
         return new CountOfMoves(count);
+    }
+
+    private List<Car> getCars(String namesOfParticipatingCars) {
+        return Arrays.stream(namesOfParticipatingCars.split(","))
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     private int convertInputToInt(String input) {
