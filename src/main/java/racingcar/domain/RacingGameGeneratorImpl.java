@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.view.InputView;
 
-public class InputParserImpl implements InputParser {
+public class RacingGameGeneratorImpl implements RacingGameGenerator {
 
     private final InputView inputView;
 
-    public InputParserImpl(InputView inputView) {
+    public RacingGameGeneratorImpl(InputView inputView) {
         this.inputView = inputView;
     }
 

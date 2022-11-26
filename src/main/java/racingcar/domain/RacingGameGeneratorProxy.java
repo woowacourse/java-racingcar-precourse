@@ -1,17 +1,17 @@
 package racingcar.domain;
 
-public class InputParserProxy implements InputParser {
+public class RacingGameGeneratorProxy implements RacingGameGenerator {
 
-    private final InputParser inputParser;
+    private final RacingGameGenerator RacingGameGenerator;
 
-    public InputParserProxy(InputParser inputParser) {
-        this.inputParser = inputParser;
+    public RacingGameGeneratorProxy(RacingGameGenerator racingGameGenerator) {
+        this.RacingGameGenerator = racingGameGenerator;
     }
 
     @Override
     public Cars createCars() {
         try {
-            return inputParser.createCars();
+            return RacingGameGenerator.createCars();
         } catch (IllegalArgumentException e) {
             printErrorMessage(e.getMessage());
             return createCars();
@@ -21,7 +21,7 @@ public class InputParserProxy implements InputParser {
     @Override
     public CountOfMoves createCountOfMoves() {
         try {
-            return inputParser.createCountOfMoves();
+            return RacingGameGenerator.createCountOfMoves();
         } catch (IllegalArgumentException e) {
             printErrorMessage(e.getMessage());
             return createCountOfMoves();

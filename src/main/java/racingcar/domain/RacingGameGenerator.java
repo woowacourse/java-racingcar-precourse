@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public interface InputParser {
+public interface RacingGameGenerator {
 
     Cars createCars();
 

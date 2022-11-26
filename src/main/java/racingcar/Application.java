@@ -1,8 +1,8 @@
 package racingcar;
 
 
-import racingcar.domain.InputParserImpl;
-import racingcar.domain.InputParserProxy;
+import racingcar.domain.RacingGameGeneratorImpl;
+import racingcar.domain.RacingGameGeneratorProxy;
 import racingcar.domain.RacingGameApplication;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -10,7 +10,7 @@ import racingcar.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         RacingGameApplication racingGameApplication = new RacingGameApplication(
-                new InputParserProxy(new InputParserImpl(new InputView())),
+                new RacingGameGeneratorProxy(new RacingGameGeneratorImpl(new InputView())),
                 new OutputView());
         racingGameApplication.run();
     }

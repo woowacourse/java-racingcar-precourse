@@ -4,11 +4,11 @@ import racingcar.view.OutputView;
 
 public class RacingGameApplication {
 
-    private final InputParser inputParser;
+    private final RacingGameGenerator racingGameGenerator;
     private final OutputView outputView;
 
-    public RacingGameApplication(InputParser inputParser, OutputView outputView) {
-        this.inputParser = inputParser;
+    public RacingGameApplication(RacingGameGenerator racingGameGenerator, OutputView outputView) {
+        this.racingGameGenerator = racingGameGenerator;
         this.outputView = outputView;
     }
 
@@ -20,8 +20,8 @@ public class RacingGameApplication {
     }
 
     private RacingGame createRacingGame() {
-        Cars cars = inputParser.createCars();
-        CountOfMoves countOfMoves = inputParser.createCountOfMoves();
+        Cars cars = racingGameGenerator.createCars();
+        CountOfMoves countOfMoves = racingGameGenerator.createCountOfMoves();
         return new RacingGame(cars, countOfMoves);
     }
 
