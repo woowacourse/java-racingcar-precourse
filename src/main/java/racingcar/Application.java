@@ -10,20 +10,15 @@ import racingcar.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         RacingGameApplication racingGameApplication = new RacingGameApplication(
-                initRacingGameGeneratorProxy(),
+                initRacingGameGenerator(),
                 initNumberGenerator(),
                 initOutputView());
         racingGameApplication.run();
     }
 
-    private static RacingGameGenerator initRacingGameGeneratorProxy() {
-        return new RacingGameGeneratorProxy(initRacingGameGenerator());
-    }
-
     private static RacingGameGenerator initRacingGameGenerator() {
-        return new RacingGameGeneratorImpl(initInputView());
+        return new RacingGameGeneratorProxy(new RacingGameGeneratorImpl(initInputView()));
     }
-
     private static InputView initInputView() {
         return new InputView();
     }

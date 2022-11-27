@@ -21,16 +21,9 @@ public class RacingGameApplication {
     }
 
     public void run() {
-        RacingGame racingGame = createRacingGame();
+        RacingGame racingGame = racingGameGenerator.generate();
         runningGame(racingGame);
-        List<Car> winners = racingGame.getWinners();
-        outputView.printWinnerNames(WinnerDto.of(winners));
-    }
-
-    private RacingGame createRacingGame() {
-        Cars cars = racingGameGenerator.createCars();
-        CountOfMoves countOfMoves = racingGameGenerator.createCountOfMoves();
-        return new RacingGame(cars, countOfMoves);
+        printResult(racingGame.getWinners());
     }
 
     private void runningGame(RacingGame racingGame) {
@@ -39,5 +32,9 @@ public class RacingGameApplication {
             List<Car> cars = racingGame.move(numberGenerator);
             outputView.printCarsPosition(CarPositionDto.of(cars));
         }
+    }
+
+    private void printResult(List<Car> winners) {
+        outputView.printWinnerNames(WinnerDto.of(winners));
     }
 }

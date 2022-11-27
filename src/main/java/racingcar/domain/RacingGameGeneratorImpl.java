@@ -13,13 +13,20 @@ public class RacingGameGeneratorImpl implements RacingGameGenerator {
         this.inputView = inputView;
     }
 
-    public Cars createCars() {
+    @Override
+    public RacingGame generate() {
+        Cars cars = createCars();
+        CountOfMoves countOfMoves = createCountOfMoves();
+        return new RacingGame(cars, countOfMoves);
+    }
+
+    protected Cars createCars() {
         String namesOfParticipatingCars = inputView.sendNamesOfParticipatingCars();
         List<Car> cars = getCars(namesOfParticipatingCars);
         return new Cars(cars);
     }
 
-    public CountOfMoves createCountOfMoves() {
+    protected CountOfMoves createCountOfMoves() {
         String countOfMoves = inputView.sendCountOfMoves();
         int count = convertInputToInt(countOfMoves);
         return new CountOfMoves(count);
