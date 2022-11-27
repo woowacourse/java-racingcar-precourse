@@ -2,7 +2,6 @@ package racingcar.domain.movables.cars;
 
 import racingcar.domain.movables.engine.Movable;
 import racingcar.domain.movestrategy.MoveStrategy;
-import racingcar.domain.positive.CarPosition;
 import racingcar.domain.positive.Positive;
 
 public class Car implements Movable {
@@ -11,7 +10,7 @@ public class Car implements Movable {
     
     public Car(String name) {
         this.name = new CarName(name);
-        this.carPosition = new CarPosition();
+        this.carPosition = new Positive();
     }
     
     @Override

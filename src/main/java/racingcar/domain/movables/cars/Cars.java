@@ -2,6 +2,7 @@ package racingcar.domain.movables.cars;
 
 import racingcar.domain.movables.engine.Movable;
 import racingcar.domain.movables.engine.Movables;
+import racingcar.domain.movestrategy.RandomBasedMoveStrategy;
 import racingcar.domain.winners.engine.Winners;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class Cars implements Movables {
     
     @Override
     public void race() {
-    
+        cars.forEach(car -> car.move(new RandomBasedMoveStrategy()));
     }
     
     @Override

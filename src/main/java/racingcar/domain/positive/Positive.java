@@ -1,9 +1,28 @@
 package racingcar.domain.positive;
 
-public interface Positive {
-    Positive increase();
+public class Positive {
+    private final int positiveNumber;
     
-    int number();
+    public Positive() {
+        this(0);
+    }
     
-    // same 추가 (position 다수 우승자, tryNumber 게임 종료 조건)
+    public Positive(final int positiveNumber) {
+        this.positiveNumber = positiveNumber;
+    }
+    
+    public Positive increase() {
+        return new Positive(positiveNumber + 1);
+    }
+    
+    public int number() {
+        return positiveNumber;
+    }
+    
+    @Override
+    public String toString() {
+        return "Positive{" +
+                "positiveNumber=" + positiveNumber +
+                '}';
+    }
 }
