@@ -1,7 +1,60 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
+plugins {
+    id 'java'
+    id 'jacoco'
+}
 
 version = '1.0.0'
+
+jacoco {
+    toolVersion = '0.8.7'
+}
+
+jacocoTestReport {
+    reports {
+        html.enabled(true)
+        xml.enabled(true)
+        csv.enabled(false)
+    }
+    dependsOn test
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    excludes: [] + ["**/mapper", "**/dto", "**/oauth2"])
+        }))
+    }
+
+    finalizedBy 'jacocoTestCoverageVerification'
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            enabled = false
+            element = 'CLASS' // 클래스 단위로 체크
+
+			// 라인 커버리지 제한을 70 % 설정.
+			limit {
+				counter = 'LINE'
+				value = 'COVEREDRATIO'
+				minimum = 0.7
+			}
+        }
+
+        rule {
+            enabled = true
+            element = 'METHOD'
+
+            // 빈 줄을 제외한 코드의 라인수를 최대 10 라인으로 제한합니다.
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 10
+            }
+        }
+    }
+}
+
 
 repositories {
     maven { url 'https://jitpack.io' }
@@ -10,14 +63,16 @@ repositories {
 
 dependencies {
     implementation('com.github.woowacourse-projects:mission-utils:1.0.0')
+    implementation('com.github.E1psycongr00:code-checker:1.0.0')
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(8)
+        languageVersion = JavaLanguageVersion.of(11)
     }
 }
 
 test {
     useJUnitPlatform()
+    finalizedBy 'jacocoTestReport'
 }
