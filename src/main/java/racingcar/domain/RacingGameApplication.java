@@ -19,7 +19,6 @@ public class RacingGameApplication {
 
     public void run() {
         RacingGame racingGame = createRacingGame();
-        outputView.printRunMessage();
         runningGame(racingGame);
         outputView.printWinnerNames(racingGame.getWinners());
     }
@@ -31,6 +30,7 @@ public class RacingGameApplication {
     }
 
     private void runningGame(RacingGame racingGame) {
+        outputView.printRunMessage();
         while (!racingGame.isOver()) {
             outputView.printCarsPosition(racingGame.move(numberGenerator));
         }
