@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.RandomNumberGenerator;
+import racingcar.NumberGenerator;
 
 public class Cars {
     List<Car> cars;
@@ -12,7 +12,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void play(RandomNumberGenerator generator) {
+    public void play(NumberGenerator generator) {
         cars.stream()
                 .forEach(car -> car.move(generator.generate()));
     }

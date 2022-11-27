@@ -1,17 +1,38 @@
 package racingcar;
 
-
+import racingcar.domain.RacingGameApplication;
+import racingcar.domain.RacingGameGenerator;
 import racingcar.domain.RacingGameGeneratorImpl;
 import racingcar.domain.RacingGameGeneratorProxy;
-import racingcar.domain.RacingGameApplication;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
         RacingGameApplication racingGameApplication = new RacingGameApplication(
-                new RacingGameGeneratorProxy(new RacingGameGeneratorImpl(new InputView())),
-                new OutputView());
+                initRacingGameGeneratorProxy(),
+                initNumberGenerator(),
+                initOutputView());
         racingGameApplication.run();
+    }
+
+    private static RacingGameGenerator initRacingGameGeneratorProxy() {
+        return new RacingGameGeneratorProxy(initRacingGameGenerator());
+    }
+
+    private static RacingGameGenerator initRacingGameGenerator() {
+        return new RacingGameGeneratorImpl(initInputView());
+    }
+
+    private static InputView initInputView() {
+        return new InputView();
+    }
+
+    private static NumberGenerator initNumberGenerator() {
+        return new RandomNumberGenerator();
+    }
+
+    private static OutputView initOutputView() {
+        return new OutputView();
     }
 }

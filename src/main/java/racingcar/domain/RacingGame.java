@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.RandomNumberGenerator;
+import racingcar.NumberGenerator;
 import racingcar.dto.CarPositionDto;
 import racingcar.dto.WinnerDto;
 
@@ -16,8 +16,8 @@ public class RacingGame {
         this.countOfMoves = countOfMoves;
     }
 
-    public List<CarPositionDto> move() {
-        cars.play(new RandomNumberGenerator());
+    public List<CarPositionDto> move(NumberGenerator numberGenerator) {
+        cars.play(numberGenerator);
         countOfMoves.upperCurrentRound();
         return getCarPositionDtos(cars);
     }

@@ -1,14 +1,19 @@
 package racingcar.domain;
 
+import racingcar.NumberGenerator;
 import racingcar.view.OutputView;
 
 public class RacingGameApplication {
 
     private final RacingGameGenerator racingGameGenerator;
+    private final NumberGenerator numberGenerator;
     private final OutputView outputView;
 
-    public RacingGameApplication(RacingGameGenerator racingGameGenerator, OutputView outputView) {
+    public RacingGameApplication(RacingGameGenerator racingGameGenerator,
+                                 NumberGenerator numberGenerator,
+                                 OutputView outputView) {
         this.racingGameGenerator = racingGameGenerator;
+        this.numberGenerator = numberGenerator;
         this.outputView = outputView;
     }
 
@@ -27,7 +32,7 @@ public class RacingGameApplication {
 
     private void runningGame(RacingGame racingGame) {
         while (!racingGame.isOver()) {
-            outputView.printCarsPosition(racingGame.move());
+            outputView.printCarsPosition(racingGame.move(numberGenerator));
         }
     }
 }
