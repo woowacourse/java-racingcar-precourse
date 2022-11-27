@@ -15,6 +15,10 @@ public class Positive {
         return new Positive(positiveNumber + 1);
     }
     
+    public boolean isSame(final int number) {
+        return positiveNumber == number;
+    }
+    
     public int number() {
         return positiveNumber;
     }

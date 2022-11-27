@@ -9,14 +9,18 @@ public class RacingCarGame {
     private final Movables cars;
     private Positive numberOfMoves;
     
-    public RacingCarGame(final String carsName, final int numberOfMoves) {
+    public RacingCarGame(final String carsName) {
         final MovablesCreator movablesCreator = new MovablesFactoryBean().createMovablesCreator();
         this.cars = movablesCreator.create(carsName);
-        this.numberOfMoves = new Positive(numberOfMoves);
+        this.numberOfMoves = new Positive();
     }
     
     public void racing() {
         cars.race();
         numberOfMoves = numberOfMoves.increase();
+    }
+    
+    public boolean isFinished(final int numberOfMoves) {
+        return this.numberOfMoves.isSame(numberOfMoves);
     }
 }
