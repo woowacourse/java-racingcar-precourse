@@ -2,16 +2,15 @@ package racingcar.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Cars;
+import racingcar.domain.Car;
 
 public class CarPositionDto {
 
     private final String name;
     private final int position;
 
-    public static List<CarPositionDto> of(Cars cars) {
-        return cars.getCars()
-                .stream()
+    public static List<CarPositionDto> of(List<Car> cars) {
+        return cars.stream()
                 .map(car -> new CarPositionDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
     }

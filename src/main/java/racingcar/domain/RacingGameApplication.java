@@ -1,6 +1,9 @@
 package racingcar.domain;
 
+import java.util.List;
 import racingcar.NumberGenerator;
+import racingcar.dto.CarPositionDto;
+import racingcar.dto.WinnerDto;
 import racingcar.view.OutputView;
 
 public class RacingGameApplication {
@@ -20,7 +23,8 @@ public class RacingGameApplication {
     public void run() {
         RacingGame racingGame = createRacingGame();
         runningGame(racingGame);
-        outputView.printWinnerNames(racingGame.getWinners());
+        List<Car> winners = racingGame.getWinners();
+        outputView.printWinnerNames(WinnerDto.of(winners));
     }
 
     private RacingGame createRacingGame() {
@@ -32,7 +36,8 @@ public class RacingGameApplication {
     private void runningGame(RacingGame racingGame) {
         outputView.printRunMessage();
         while (!racingGame.isOver()) {
-            outputView.printCarsPosition(racingGame.move(numberGenerator));
+            List<Car> cars = racingGame.move(numberGenerator);
+            outputView.printCarsPosition(CarPositionDto.of(cars));
         }
     }
 }
