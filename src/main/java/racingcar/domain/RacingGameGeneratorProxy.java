@@ -2,16 +2,16 @@ package racingcar.domain;
 
 public class RacingGameGeneratorProxy implements RacingGameGenerator {
 
-    private final RacingGameGenerator RacingGameGenerator;
+    private final RacingGameGenerator racingGameGenerator;
 
     public RacingGameGeneratorProxy(RacingGameGenerator racingGameGenerator) {
-        this.RacingGameGenerator = racingGameGenerator;
+        this.racingGameGenerator = racingGameGenerator;
     }
 
     @Override
     public Cars createCars() {
         try {
-            return RacingGameGenerator.createCars();
+            return racingGameGenerator.createCars();
         } catch (IllegalArgumentException e) {
             printErrorMessage(e.getMessage());
             return createCars();
@@ -21,7 +21,7 @@ public class RacingGameGeneratorProxy implements RacingGameGenerator {
     @Override
     public CountOfMoves createCountOfMoves() {
         try {
-            return RacingGameGenerator.createCountOfMoves();
+            return racingGameGenerator.createCountOfMoves();
         } catch (IllegalArgumentException e) {
             printErrorMessage(e.getMessage());
             return createCountOfMoves();

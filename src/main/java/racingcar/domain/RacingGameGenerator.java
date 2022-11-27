@@ -5,5 +5,4 @@ public interface RacingGameGenerator {
     Cars createCars();
 
     CountOfMoves createCountOfMoves();
-
 }
