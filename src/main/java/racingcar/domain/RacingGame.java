@@ -6,6 +6,7 @@ import racingcar.NumberGenerator;
 import racingcar.dto.CarPositionDto;
 import racingcar.dto.WinnerDto;
 
+//TODO 이 클래스가 DTO를 알아도될까?
 public class RacingGame {
 
     private final Cars cars;
@@ -23,7 +24,7 @@ public class RacingGame {
     }
 
     public boolean isOver() {
-        return countOfMoves.getGoalCount();
+        return countOfMoves.reachTargetNumber();
     }
 
     public List<WinnerDto> getWinners() {

@@ -2,26 +2,26 @@ package racingcar.domain;
 
 public class CountOfMoves {
 
-    private int goalCount;
-    private int currentCount;
+    private int targetNumber;
+    private int currentNumber;
 
-    public CountOfMoves(int finalRound) {
-        validate(finalRound);
-        this.goalCount = finalRound;
-        this.currentCount = 0;
+    public CountOfMoves(int targetNumber) {
+        validate(targetNumber);
+        this.targetNumber = targetNumber;
+        this.currentNumber = 0;
     }
 
     public void upperCurrentRound() {
-        currentCount++;
-    }
-    
-    public boolean getGoalCount() {
-        return goalCount == currentCount;
+        currentNumber++;
     }
 
-    private void validate(int finalRound) {
-        if (finalRound <= 0) {
-            throw new IllegalArgumentException("이동횟수 1 이상이여야합니다. 입력값 : " + finalRound);
+    public boolean reachTargetNumber() {
+        return targetNumber == currentNumber;
+    }
+
+    private void validate(int input) {
+        if (input <= 0) {
+            throw new IllegalArgumentException("이동횟수 1 이상이여야합니다. 입력값 : " + input);
         }
     }
 }

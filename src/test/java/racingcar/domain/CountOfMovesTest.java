@@ -32,13 +32,13 @@ class CountOfMovesTest {
     void test3() {
         CountOfMoves countOfMoves = new CountOfMoves(1);
         countOfMoves.upperCurrentRound();
-        assertThat(countOfMoves.getGoalCount()).isTrue();
+        assertThat(countOfMoves.reachTargetNumber()).isTrue();
     }
 
     @DisplayName("목표 이동횟수와 현재이동 횟수가 다르면 false를 반환한다.")
     @Test
     void test4() {
         CountOfMoves countOfMoves = new CountOfMoves(1);
-        assertThat(countOfMoves.getGoalCount()).isFalse();
+        assertThat(countOfMoves.reachTargetNumber()).isFalse();
     }
 }
