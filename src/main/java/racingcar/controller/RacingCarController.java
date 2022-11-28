@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.dto.CarsNameDTO;
+import racingcar.dto.NumberOfTryDTO;
 import racingcar.view.InputView;
 
 public class RacingCarController {
@@ -12,5 +13,6 @@ public class RacingCarController {
     
     public void run() {
         final CarsNameDTO carsNameDTO = inputView.inputCarsName();
+        final NumberOfTryDTO numberOfTryDTO = inputView.inputNumberOfTry();
     }
 }
