@@ -62,7 +62,7 @@
 - [x] 자동차를 생성한다.
 - [x] n대의 자동차를 생성한다.
 
-- [ ] 자동차 경주 게임을 한다. (Movables - Cars)
+- [x] 자동차 경주 게임을 한다. (Movables - Cars)
   - [x] 자동차가 경주한다. (Movable - Car)
     - [x] 자동차가 이동한다. (Position)
     - [x] 자동차의 이동 가능 여부를 결정한다. (MoveStrategy - RandomBasedMoveStrategy)
@@ -71,7 +71,7 @@
       - [x] 이동할 때마다 0부터 1씩 증가
       - [x] 이동 횟수가 입력 받은 이동횟수가 되면 게임 종료
       
-  - [ ] 우승자를 구한다. (1명 이상) (Movables - Cars)
+  - [x] 우승자를 구한다. (1명 이상) (Movables - Cars)
 
 - [ ] 도메인 예외 처리 (IllegalArgumentException) ("[ERROR]"로 시작하는 에러 메시지) (그 부분부터 입력을 다시 받는다.)
   - [ ] 자동차 이름

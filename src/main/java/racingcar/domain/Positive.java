@@ -1,4 +1,4 @@
-package racingcar.domain.positive;
+package racingcar.domain;
 
 public class Positive {
     private final int positiveNumber;

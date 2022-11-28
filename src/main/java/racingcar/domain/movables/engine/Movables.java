@@ -1,6 +1,6 @@
 package racingcar.domain.movables.engine;
 
-import racingcar.domain.winners.engine.Winners;
+import racingcar.domain.Winners;
 
 import java.util.List;
 
@@ -9,5 +9,7 @@ public interface Movables {
     
     Winners winners();
     
-    List<Movable> movables();
+    List<String> movablesName();
+    
+    List<Integer> movablesPosition();
 }

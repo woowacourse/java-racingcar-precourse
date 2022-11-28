@@ -1,8 +1,8 @@
 package racingcar.domain.movables.cars;
 
+import racingcar.domain.Positive;
 import racingcar.domain.movables.engine.Movable;
 import racingcar.domain.movestrategy.MoveStrategy;
-import racingcar.domain.positive.Positive;
 
 public class Car implements Movable {
     private final CarName name;
@@ -18,6 +18,11 @@ public class Car implements Movable {
         if (moveStrategy.isMovable()) {
             carPosition = carPosition.increase();
         }
+    }
+    
+    @Override
+    public boolean isPositionSame(final int maxPosition) {
+        return carPosition.isSame(maxPosition);
     }
     
     @Override

@@ -2,16 +2,17 @@ package racingcar.domain;
 
 import racingcar.domain.movables.engine.Movables;
 import racingcar.domain.movables.engine.MovablesCreator;
-import racingcar.domain.movables.factory.MovablesFactoryBean;
-import racingcar.domain.positive.Positive;
 
-public class RacingCarGame {
+public class RacingGame {
     private final Movables cars;
     private Positive numberOfMoves;
     
-    public RacingCarGame(final String carsName) {
-        final MovablesCreator movablesCreator = new MovablesFactoryBean().createMovablesCreator();
-        this.cars = movablesCreator.create(carsName);
+    public RacingGame(final String carsName, final MovablesCreator movablesCreator) {
+        this(movablesCreator.create(carsName));
+    }
+    
+    private RacingGame(final Movables cars) {
+        this.cars = cars;
         this.numberOfMoves = new Positive();
     }
     
@@ -22,5 +23,9 @@ public class RacingCarGame {
     
     public boolean isFinished(final int numberOfMoves) {
         return this.numberOfMoves.isSame(numberOfMoves);
+    }
+    
+    public Winners winners() {
+        return cars.winners();
     }
 }
