@@ -4,7 +4,7 @@
 - [ ] n대의 자동차 이름을 입력 받는다 (구분자는 쉼표)
   - [x] 정상 입력
   - [ ] 예외 처리 (IllegalArgumentException) ("[ERROR]"로 시작하는 에러 메시지) (그 부분부터 입력을 다시 받는다.)
-    - [ ] null or empty 입력 시
+    - [x] null or empty 입력 시
     - [ ] 공백 입력 시
     - [ ] 특수 문자 입력 시
     - [ ] 숫자 입력 시
