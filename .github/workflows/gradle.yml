@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "automation" ]
   pull_request:
-    branches: [ "automation" ]
+    branches: [ "main" ]
 
 permissions: write-all
 
