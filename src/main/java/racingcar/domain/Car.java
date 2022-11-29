@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car{
 
     private static final int POSITION_DEFAULT_VALUE = 0;
     private static final int MOVE_MINIMUM_CONDITION = 4;
@@ -20,6 +20,10 @@ public class Car {
         if (number >= MOVE_MINIMUM_CONDITION) {
             position++;
         }
+    }
+
+    public boolean isSameName(Car other) {
+        return name.equals(other.name);
     }
 
     public String getName() {
