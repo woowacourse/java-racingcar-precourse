@@ -9,14 +9,16 @@ public class inputView {
 
     public String[] getNames() {
         out(inputMessage.START_GAME);
-        String names = Console.readLine();
-        return names.split(",");
+        String inputname = Console.readLine();
+        String[] names = inputname.split(",");
+        return names;
     }
 
     public int getRound() {
         out(inputMessage.GET_GAME_ROUND);
-        String round = Console.readLine();
-        return Integer.parseInt(round);
+        String inputround = Console.readLine();
+        int round = Integer.parseInt(inputround);
+        return round;
     }
 
     private void out(String text) {
