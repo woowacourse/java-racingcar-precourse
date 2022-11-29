@@ -24,8 +24,7 @@ public class racingController {
         winningresult.winnigScore(cars);
         outputview.result(cars, winningresult.winningScore);
     }
-    public void roundResult(int round, List<Car> cars){
-        System.out.println();
+    private void roundResult(int round, List<Car> cars){
         System.out.println(outputMessage.GAME_ROUND);
         for(int i=0; i<round; i++) {
             racinggame.updatePhase(cars);

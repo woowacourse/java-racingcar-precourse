@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.message.outputMessage;
 import racingcar.model.Car;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class outputView {
@@ -18,18 +19,12 @@ public class outputView {
 
     public void result(List<Car> cars, int firstPrize) {
         System.out.print(outputMessage.GAME_RESULT);
-        int cnt = 0;
+        List<String> winner = new ArrayList<>();
         for(int n=0; n<cars.size(); n++){
             if(cars.get(n).getPosition() == firstPrize) {
-                if(cnt==0){
-                    System.out.print(cars.get(n).getName());
-                    cnt++;
-                } else {
-                    System.out.print(", ");
-                    System.out.print(cars.get(n).getName());
-                }
+                winner.add(cars.get(n).getName());
             }
         }
+        System.out.println(String.join(", ",winner));
     }
-
 }
