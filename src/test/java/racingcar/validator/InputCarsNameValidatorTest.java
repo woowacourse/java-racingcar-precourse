@@ -26,4 +26,13 @@ class InputCarsNameValidatorTest {
                 .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 공백 입력 시")
+    @ParameterizedTest(name = "{displayName} : carsName => {0}")
+    @CsvSource(value = {"jun, pobi", "ju n,pobi", "j un"}, delimiter = ':')
+    void spaceInput(final String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
