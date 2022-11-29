@@ -12,12 +12,17 @@ dependencies {
     implementation('com.github.woowacourse-projects:mission-utils:1.0.0')
 }
 
+/*
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(8)
     }
 }
+*/
+
 
 test {
     useJUnitPlatform()
 }
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
