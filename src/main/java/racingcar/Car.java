@@ -1,9 +1,16 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import static racingcar.ErrorCode.NOT_VALID_CAR_NAME;
 
 public class Car {
-    private static final int nameLength = 5;
+    private static final int NAME_LENGTH = 5;
+    private static final int MOVING_MIN = 0;
+    private static final int MOVING_MAX = 9;
+    private static final int MOVING_RULE = 4;
+    private static final String MOVING_SYMBOL = "-";
+
     private final String name;
     private int position = 0;
 
@@ -13,9 +20,18 @@ public class Car {
     }
 
     public void validateCarName(String name) {
-        if(name.length()> nameLength) {
+        if(name.length()> NAME_LENGTH) {
             NOT_VALID_CAR_NAME.throwError();
         }
     }
+
+    public void move() {
+        int randomNumber = Randoms.pickNumberInRange(MOVING_MIN, MOVING_MAX);
+
+        if(randomNumber >= MOVING_RULE) {
+            position++;
+        }
+    }
+
     // 추가 기능 구현
 }
