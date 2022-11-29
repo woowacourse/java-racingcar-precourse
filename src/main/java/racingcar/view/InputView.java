@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.ErrorCode.NOT_TRY_COUNT;
+import static racingcar.ErrorCode.NOT_VALID_TRY_COUNT;
+
 public class InputView {
     private static final String MESSAGE_INPUT_CARS = "경주할 자동차 이름을 입력하세요.";
     private static final String MESSAGE_INPUT_COUNT = "시도할 회수는 몇회인가요?";
@@ -29,7 +32,23 @@ public class InputView {
         System.out.println(MESSAGE_INPUT_COUNT);
 
         String input = Console.readLine();
+        validateMovingCount(input);
+        return Integer.parseInt(input);
+    }
 
-        return 0;
+    public void validateMovingCount(String input) {
+        isNumber(input);
+        int movingCount = Integer.parseInt(input);
+        if(movingCount < 1) {
+            NOT_VALID_TRY_COUNT.throwError();
+        }
+    }
+
+    public void isNumber(String input) {
+        try{
+            Integer.parseInt(input);
+        }catch (NumberFormatException e) {
+            NOT_TRY_COUNT.throwError();
+        }
     }
 }
