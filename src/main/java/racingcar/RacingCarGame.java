@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,6 +19,20 @@ public class RacingCarGame {
         cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+    }
+
+    public void raceCars() {
+        for(Car car : cars) {
+            car.move();
+        }
+    }
+
+    public List<String> getMovingResult() {
+        List<String> movingResult = new ArrayList<>();
+        for(Car car : cars) {
+            movingResult.add(car.getPosition());
+        }
+        return movingResult;
     }
 
 
