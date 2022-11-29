@@ -1,15 +1,16 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.NumberGenerator;
 
 public class Cars {
-    List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        this.cars = cars;
+        this.cars = new ArrayList<>(cars);
     }
 
     public void play(NumberGenerator generator) {
