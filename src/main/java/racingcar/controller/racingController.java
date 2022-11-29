@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.message.outputMessage;
 import racingcar.model.Car;
 import racingcar.model.racingGame;
 import racingcar.model.winningResult;
@@ -15,18 +16,20 @@ public class racingController {
     private final winningResult winningresult = new winningResult();
     private final inputView inputView = new inputView();
     private final outputView outputview = new outputView();
-
     public void start() {
         String[] names = inputView.getNames();
         int round = inputView.getRound();
-        List<Car> cars = racinggame.saveCars(names); //객체 저장
+        List<Car> cars = racinggame.saveCars(names);
+        roundResult(round, cars);
+        int firstPrize = winningresult.winnigScore(cars);
+        outputview.result(cars, firstPrize);
+    }
+    public void roundResult(int round, List<Car> cars){
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(outputMessage.GAME_ROUND);
         for(int i=0; i<round; i++) {
             racinggame.updatePhase(cars);
             outputview.round(cars);
         }
-        int firstPrize = winningresult.winnigScore(cars);
-        outputview.result(cars, firstPrize);
     }
 }
