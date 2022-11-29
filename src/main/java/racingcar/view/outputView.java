@@ -17,7 +17,7 @@ public class outputView {
     }
 
     public void result(List<Car> cars, int firstPrize) {
-        System.out.print("최종 우승자 : ");
+        System.out.print(outputMessage.GAME_RESULT);
         int cnt = 0;
         for(int n=0; n<cars.size(); n++){
             if(cars.get(n).getPosition() == firstPrize) {
