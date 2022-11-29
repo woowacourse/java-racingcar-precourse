@@ -33,5 +33,14 @@ public class Car {
         }
     }
 
+    public String getPosition() {
+        StringBuffer sb = new StringBuffer();
+
+        for(int i = 0; i<position; i++) {
+            sb.append(MOVING_SYMBOL);
+        }
+
+        return sb.toString();
+    }
     // 추가 기능 구현
 }
