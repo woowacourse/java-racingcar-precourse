@@ -1,16 +1,23 @@
 package racingcar.domain;
 
 public class Car {
+
+    private static final int POSITION_DEFAULT_VALUE = 0;
+    private static final int MOVE_MINIMUM_CONDITION = 4;
+    private static final String BLANK = " ";
+    private static final int NAME_MAX_LENGTH = 5;
+
     private final String name;
-    private int position = 0;
+    private int position;
 
     public Car(String name) {
         validate(name);
         this.name = name;
+        this.position = POSITION_DEFAULT_VALUE;
     }
 
     public void move(int number) {
-        if (number >= 4) {
+        if (number >= MOVE_MINIMUM_CONDITION) {
             position++;
         }
     }
@@ -36,13 +43,13 @@ public class Car {
     }
 
     private void validateNameContainBlank(String name) {
-        if (name.contains(" ")) {
+        if (name.contains(BLANK)) {
             throw new IllegalArgumentException("공백은 포함될 수 없습니다. 입력값 : " + name);
         }
     }
 
     private void validateNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5자를 초과할 수 없습니다. 입력값 : " + name);
         }
     }
