@@ -3,20 +3,17 @@ package racingcar.view;
 import racingcar.message.outputMessage;
 import racingcar.model.Car;
 
+import java.util.List;
+
 public class outputView {
 
-    public void round(Car dto) {
-        //out(outputMessage.GAME_ROUND);
-        out(dto.getName()+" : ");
-        out("-".repeat(dto.getPosition()));
-        blank();
-    }
-
-    private void out(String text) {
-        System.out.print(text);
-    }
-
-    private void blank() {
+    public void round(List<Car> cars) {
+        for(Car car : cars) {
+            //out(outputMessage.GAME_ROUND);
+            System.out.print(car.getName() + " : ");
+            System.out.print("-".repeat(car.getPosition()));
+            System.out.println();
+        }
         System.out.println();
     }
 

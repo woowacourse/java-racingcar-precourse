@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.racingGame;
 import racingcar.view.inputView;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.outputView;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class racingController {
-
+    private final racingGame racinggame = new racingGame();
     private final inputView inputView = new inputView();
     private final outputView outputview = new outputView();
 
@@ -17,25 +18,33 @@ public class racingController {
         String[] names = inputView.getNames();
         int round = inputView.getRound();
 
-        List<Car> hs = new ArrayList<>();
-        //이름 갯수 만큼 객체 저장
-        for(int i=0; i<names.length; i++) {
-            String name = names[i];
-            hs.add(new Car(name,0));
+        List<Car> cars = racinggame.saveCars(names); //객체 저장
+
+        System.out.println();
+        System.out.println("실행 결과");
+
+        for(int i=0; i<round; i++) {
+            racinggame.updatePhase(cars);
+            outputview.round(cars);
         }
 
-        //round만큼 포지션 업데이트
-        for(int j=0; j<round; j++){
-            for (int k=0; k<hs.size(); k++){
-                int randomNum = Randoms.pickNumberInRange(0,9);
-                if (randomNum >= 4) {
-                    hs.get(k).setPosition(hs.get(k).getPosition()+1);
-                }
+        //최고점 저장
+        int temp = 0;
+        for(int m=0; m<cars.size(); m++){
+            if (temp<cars.get(m).getPosition()){
+                temp = cars.get(m).getPosition();
+            };
+        }
+
+        //최종 결과 출력
+        String result = "최종 우승자 : ";
+        for(int n=0; n<cars.size(); n++){
+            if(cars.get(n).getPosition() == temp) {
+                result += cars.get(n).getName();
             }
         }
 
-        for(Car car : hs) {
-            outputview.round(car);
-        }
+        System.out.println(result);
+
     }
 }

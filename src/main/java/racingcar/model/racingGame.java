@@ -16,15 +16,12 @@ public class racingGame {
         return cars;
     }
 
-    public void updatePhase(int round, List<Car> cars){
-        for(int i=0; i<round; i++){
-            for (int j=0; j<cars.size(); j++){
-                int randomNum = Randoms.pickNumberInRange(0,9);
-                if (randomNum >= 4) {
-                    cars.get(j).setPosition(cars.get(j).getPosition()+1);
-                }
+    public void updatePhase(List<Car> cars){
+        for (int j=0; j<cars.size(); j++){
+            int randomNum = Randoms.pickNumberInRange(0,9);
+            if (randomNum >= 4) {
+                cars.get(j).setPosition(cars.get(j).getPosition()+1);
             }
         }
     }
-
 }
