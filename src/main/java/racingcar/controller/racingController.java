@@ -21,8 +21,8 @@ public class racingController {
         int round = inputView.getRound();
         List<Car> cars = racinggame.saveCars(names);
         roundResult(round, cars);
-        int firstPrize = winningresult.winnigScore(cars);
-        outputview.result(cars, firstPrize);
+        winningresult.winnigScore(cars);
+        outputview.result(cars, winningresult.winningScore);
     }
     public void roundResult(int round, List<Car> cars){
         System.out.println();

@@ -9,9 +9,9 @@ public class outputView {
 
     public void round(List<Car> cars) {
         for(Car car : cars) {
-            System.out.print(car.getName() + " : ");
-            System.out.print("-".repeat(car.getPosition()));
-            System.out.println();
+            System.out.print(car.getName());
+            System.out.print(" : ");
+            System.out.println("-".repeat(car.getPosition()));
         }
         System.out.println();
     }
@@ -23,8 +23,10 @@ public class outputView {
             if(cars.get(n).getPosition() == firstPrize) {
                 if(cnt==0){
                     System.out.print(cars.get(n).getName());
+                    cnt++;
                 } else {
-                    System.out.print(", "+cars.get(n).getName());
+                    System.out.print(", ");
+                    System.out.print(cars.get(n).getName());
                 }
             }
         }
