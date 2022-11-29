@@ -23,18 +23,14 @@ public class RacingGameApplication {
     public void run() {
         RacingGame racingGame = racingGameGenerator.generate();
         runningGame(racingGame);
-        printResult(racingGame.getWinners());
+        outputView.printWinnerNames(racingGame.getWinners());
     }
 
     private void runningGame(RacingGame racingGame) {
         outputView.printRunMessage();
         while (!racingGame.isOver()) {
-            List<Car> cars = racingGame.move(numberGenerator);
-            outputView.printCarsPosition(CarPositionDto.of(cars));
+            List<CarPositionDto> carPositionDtos = racingGame.move(numberGenerator);
+            outputView.printCarsPosition(carPositionDtos);
         }
-    }
-
-    private void printResult(List<Car> winners) {
-        outputView.printWinnerNames(WinnerDto.of(winners));
     }
 }

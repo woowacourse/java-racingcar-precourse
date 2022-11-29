@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.List;
 import racingcar.NumberGenerator;
+import racingcar.dto.CarPositionDto;
+import racingcar.dto.WinnerDto;
 
 public class RacingGame {
 
@@ -13,17 +15,17 @@ public class RacingGame {
         this.countOfMoves = countOfMoves;
     }
 
-    public List<Car> move(NumberGenerator numberGenerator) {
+    public List<CarPositionDto> move(NumberGenerator numberGenerator) {
         cars.play(numberGenerator);
         countOfMoves.upperCurrentRound();
-        return cars.getCars();
+        return CarPositionDto.of(cars);
     }
 
     public boolean isOver() {
         return countOfMoves.reachTargetNumber();
     }
 
-    public List<Car> getWinners() {
-        return cars.getWinners();
+    public List<WinnerDto> getWinners() {
+        return WinnerDto.of(cars.getWinners());
     }
 }
