@@ -7,6 +7,8 @@ name, position 변수의 접근 제어자인 private을 변경할 수 없다.
  */
 
 public class Car {
+
+    private static final int MOVING_CRITERIA = 4;
     private final String name;
     private int position = 0;
 
@@ -14,11 +16,13 @@ public class Car {
         this.name = name;
     }
 
-    public void moveOrStop() {
-
+    public void moveOrStop(NumberGenerator numberGenerator) {
+        if (numberGenerator.generate() >= MOVING_CRITERIA) {
+            position++;
+        }
     }
 
     public int getPosition() {
-        return 0;
+        return position;
     }
 }
