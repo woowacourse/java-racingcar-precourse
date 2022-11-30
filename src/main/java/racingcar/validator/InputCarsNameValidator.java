@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class InputCarsNameValidator {
     private static final String CARS_NAME_FORM_EXCEPTION_MESSAGE = "[ERROR] 차 이름 입력 형식이 올바르지 않습니다.";
+    private static final String CARS_NAME_FORM = "([a-z]+)(,[a-z]+)*";
     
     public static void validate(final String carsName) {
         validateNullOrEmpty(carsName);
@@ -16,7 +17,7 @@ public class InputCarsNameValidator {
     }
     
     private static void validateCarsNameForm(final String carsName) {
-        final Matcher matcher = Pattern.compile("([a-z]+)(,[a-z]+)*").matcher(carsName);
+        final Matcher matcher = Pattern.compile(CARS_NAME_FORM).matcher(carsName);
         if (!matcher.matches()) {
             throw new IllegalArgumentException(CARS_NAME_FORM_EXCEPTION_MESSAGE);
         }
