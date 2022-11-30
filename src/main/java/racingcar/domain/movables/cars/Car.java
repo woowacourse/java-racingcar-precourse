@@ -5,11 +5,11 @@ import racingcar.domain.movables.engine.Movable;
 import racingcar.domain.movestrategy.MoveStrategy;
 
 public class Car implements Movable {
-    private final CarName name;
+    private final CarName carName;
     private Positive carPosition;
     
-    public Car(String name) {
-        this.name = new CarName(name);
+    public Car(String carName) {
+        this.carName = new CarName(carName);
         this.carPosition = new Positive();
     }
     
@@ -27,7 +27,7 @@ public class Car implements Movable {
     
     @Override
     public String name() {
-        return name.name();
+        return carName.name();
     }
     
     @Override
@@ -38,7 +38,7 @@ public class Car implements Movable {
     @Override
     public String toString() {
         return "Car{" +
-                "name=" + name +
+                "name=" + carName +
                 ", carPosition=" + carPosition +
                 '}';
     }
