@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.constants.ErrorMessageConstant;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
@@ -22,6 +23,15 @@ class InputNumberOfTryValidatorTest {
     @ParameterizedTest(name = "{displayName} : carsName => {0}")
     @NullAndEmptySource
     void nullOrEmptyInput(final String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
+    
+    @DisplayName("예외 처리 : 첫번째 자리에 0이 오는 경우")
+    @ParameterizedTest(name = "{displayName} => {0}")
+    @ValueSource(strings = {"014000", "0014000", "00014000", "01", "001", "045", "0045", "00045"})
+    void zeroAtFirstPlaceExistException(String carsName) {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
