@@ -22,7 +22,7 @@ public class Controller {
             List<String> cars = inputView.inputCars();
             return new RacingCarGame(cars);
 
-        }catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             outputView.printError(e.getMessage());
         }
         return createRacingGame();
@@ -39,7 +39,7 @@ public class Controller {
     }
 
     public void playRacingGame(RacingCarGame racingCarGame, int racingCount) {
-        for(int i = 0; i<racingCount; i++) {
+        for (int i = 0; i < racingCount; i++) {
             racingCarGame.raceCars();
             outputView.printMovingResult(racingCarGame);
         }

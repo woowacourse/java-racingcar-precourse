@@ -61,7 +61,7 @@ public class RacingCarGame {
     }
 
     public void validateCarDuplication(List<String> cars) {
-        if(new HashSet<>(cars).size() != cars.size()) {
+        if (new HashSet<>(cars).size() != cars.size()) {
             NOT_VALID_CARS_DUPLICATED.throwError();
         }
     }

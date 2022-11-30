@@ -7,16 +7,15 @@ public enum ErrorCode {
     NOT_TRY_COUNT("숫자를 입력해야 합니다."),
     NOT_VALID_TRY_COUNT("시도 횟수는 1회 이상이어야 합니다.");
 
-
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
     private static final String ERROR_BEGIN = "[ERROR] ";
     private final String errorMessage;
 
     ErrorCode(String errorMessage) {
         this.errorMessage = ERROR_BEGIN + errorMessage;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
     public void throwError() {

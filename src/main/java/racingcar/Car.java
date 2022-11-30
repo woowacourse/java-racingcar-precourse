@@ -2,8 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Comparator;
-
 import static racingcar.ErrorCode.NOT_VALID_CAR_NAME;
 import static racingcar.MovingRule.MOVING_MAX;
 import static racingcar.MovingRule.MOVING_MIN;
