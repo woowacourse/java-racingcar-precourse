@@ -54,4 +54,13 @@ class InputNumberOfTryValidatorTest {
                 .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 한글 입력 시")
+    @ParameterizedTest(name = "{displayName} => {0}")
+    @ValueSource(strings = {"14ㄱ000", "ㅏ14000", "14가000"})
+    void koreanInputException(String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
