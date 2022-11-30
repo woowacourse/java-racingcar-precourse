@@ -21,6 +21,7 @@ public class InputView {
     }
     
     public NumberOfTryDTO inputNumberOfTry(final OutputView outputView) {
+        outputView.printNumberOfTryInputGuideMessage();
         try {
             final String numberOfTry = userInput();
             InputNumberOfTryValidator.validate(numberOfTry);
