@@ -14,5 +14,11 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void moveOrStop() {
+
+    }
+
+    public int getPosition() {
+        return 0;
+    }
 }
