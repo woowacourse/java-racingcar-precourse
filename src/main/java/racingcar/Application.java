@@ -1,7 +1,11 @@
 package racingcar;
 
+import racingcar.controller.racingController;
+
 public class Application {
+    private static final racingController racingcontroller = new racingController();
+
     public static void main(String[] args) {
-        // TODO 구현 진행
+        racingcontroller.start();
     }
 }
