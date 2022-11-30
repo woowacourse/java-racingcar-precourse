@@ -80,4 +80,13 @@ class InputCarsNameValidatorTest {
                 .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 5자를 초과한 경우")
+    @ParameterizedTest(name = "{displayName} : carsName => {0}")
+    @CsvSource(value = {"jun,pobiab", "pobiab"}, delimiter = ':')
+    void overFiveLengths(final String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
