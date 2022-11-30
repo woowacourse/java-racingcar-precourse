@@ -21,7 +21,7 @@ public class RacingCarController {
     
     public void run() {
         final RacingGame racingGame = initRacingGame(movablesCreator());
-    
+        
         race(numberOfTryDTO(), racingGame);
         printWinners(racingGame);
     }

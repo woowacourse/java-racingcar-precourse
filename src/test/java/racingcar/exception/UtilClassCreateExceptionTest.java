@@ -10,7 +10,9 @@ class UtilClassCreateExceptionTest {
     @Test
     @DisplayName("예외 발생")
     void exception() {
-        assertThatThrownBy(() -> {throw new UtilClassCreateException();})
+        assertThatThrownBy(() -> {
+            throw new UtilClassCreateException();
+        })
                 .isInstanceOf(UtilClassCreateException.class)
                 .hasMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }

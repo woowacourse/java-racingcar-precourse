@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class CarsTest {
     private Cars cars;
@@ -19,7 +19,7 @@ class CarsTest {
         final Car jun = initCar(new Car("jun"), 3);
         final Car pobi = initCar(new Car("pobi"), 1);
         final Car naru = initCar(new Car("naru"), 3);
-    
+        
         cars = new Cars(List.of(jun, pobi, naru));
     }
     
