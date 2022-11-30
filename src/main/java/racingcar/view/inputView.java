@@ -46,7 +46,13 @@ public class inputView {
     public int getRound() {
         out(inputMessage.GET_GAME_ROUND);
         String inputround = Console.readLine();
-        int round = Integer.parseInt(inputround);
+        int round = 0;
+        try{
+            round = Integer.parseInt(inputround);
+        } catch (IllegalArgumentException e) {
+            out(exceptionMessage.ROUND_STIRNG);
+            getRound();
+        }
         return round;
     }
 
