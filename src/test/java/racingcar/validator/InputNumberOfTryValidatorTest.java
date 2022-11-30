@@ -81,4 +81,13 @@ class InputNumberOfTryValidatorTest {
                 .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 양수가 아닌 숫자 입력 시")
+    @ParameterizedTest(name = "{displayName} => {0}")
+    @ValueSource(strings = {"-1", "0", "-10"})
+    void nonPositiveNumberException(String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
