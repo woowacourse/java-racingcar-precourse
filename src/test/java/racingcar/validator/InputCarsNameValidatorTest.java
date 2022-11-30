@@ -53,4 +53,13 @@ class InputCarsNameValidatorTest {
                 .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 한글 입력 시")
+    @ParameterizedTest(name = "{displayName} : carsName => {0}")
+    @CsvSource(value = {"ㄱ", "ㅏ", "가", "강"})
+    void koreanInput(final String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
