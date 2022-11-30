@@ -9,6 +9,17 @@ public class Controller {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
+    public void generate() {
+        RacingCarGame racingCarGame = createRacingGame();
+        int racingCount = getRacingCount();
+
+        for(int i = 0; i<racingCount; i++) {
+            racingCarGame.raceCars();
+            outputView.printMovingResult(racingCarGame);
+        }
+        outputView.printRacingResult(racingCarGame);
+    }
+
     public RacingCarGame createRacingGame() {
         try {
             List<String> cars = inputView.inputCars();
