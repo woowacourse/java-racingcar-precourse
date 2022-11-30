@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car{
+public class Car implements Comparable<Car>{
 
     private static final int POSITION_DEFAULT_VALUE = 0;
     private static final int MOVE_MINIMUM_CONDITION = 4;
@@ -56,5 +56,14 @@ public class Car{
         if (name.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5자를 초과할 수 없습니다. 입력값 : " + name);
         }
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.position - other.position;
+    }
+
+    public boolean isSamePosition(Car maxPositionCar) {
+        return position == maxPositionCar.position;
     }
 }

@@ -3,7 +3,6 @@ package racingcar.domain;
 import java.util.List;
 import racingcar.NumberGenerator;
 import racingcar.dto.CarPositionDto;
-import racingcar.dto.WinnerDto;
 import racingcar.view.OutputView;
 
 public class RacingGameApplication {

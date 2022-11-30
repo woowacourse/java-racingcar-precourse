@@ -26,6 +26,6 @@ public class RacingGame {
     }
 
     public List<WinnerDto> getWinners() {
-        return WinnerDto.of(cars.getWinners());
+        return WinnerDto.of(cars.findWinners());
     }
 }

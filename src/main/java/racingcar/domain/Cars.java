@@ -19,18 +19,25 @@ public class Cars {
         cars.forEach(car -> car.move(generator.generate()));
     }
 
-    public List<Car> getWinners() {
-        int maximum = cars.stream()
-                .map(Car::getPosition)
-                .max(Integer::compareTo)
-                .get();
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
+    public List<Car> findWinners() {
+        Car maxPositionCar = findMaxPositionCar();
+        return findSamePositionCar(maxPositionCar);
+    }
+
+    private List<Car> findSamePositionCar(Car maxPositionCar) {
         return cars.stream()
-                .filter(car -> car.getPosition() == maximum)
+                .filter(maxPositionCar::isSamePosition)
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+    private Car findMaxPositionCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .get();
     }
 
     private void validate(List<Car> cars) {
