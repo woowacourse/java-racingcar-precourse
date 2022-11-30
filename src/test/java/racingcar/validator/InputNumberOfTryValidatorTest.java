@@ -45,4 +45,13 @@ class InputNumberOfTryValidatorTest {
                 .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 특수 문자 입력 시")
+    @ParameterizedTest(name = "{displayName} => {0}")
+    @ValueSource(strings = {"14%000", "14$000"})
+    void specialCharactersInputException(String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
