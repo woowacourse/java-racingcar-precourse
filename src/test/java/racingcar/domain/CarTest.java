@@ -3,9 +3,12 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.NumberGenerator;
 
 class CarTest {
 
+    // TODO parameterized test 적용!
     @Test
     void 기준보다_작은_수_이동하지_않음_확인() {
         NumberGenerator numberGenerator = new TestNumberGenerator(3);
