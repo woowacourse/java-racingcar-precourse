@@ -63,4 +63,13 @@ class InputNumberOfTryValidatorTest {
                 .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 영어 입력 시")
+    @ParameterizedTest(name = "{displayName} => {0}")
+    @ValueSource(strings = {"a14000", "14A000"})
+    void englishInputException(String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputNumberOfTryValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
