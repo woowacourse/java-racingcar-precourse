@@ -15,8 +15,8 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
-    public void play(NumberGenerator generator) {
-        cars.forEach(car -> car.move(generator.generate()));
+    public void play(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.move(numberGenerator.generate()));
     }
 
     public List<Car> getCars() {

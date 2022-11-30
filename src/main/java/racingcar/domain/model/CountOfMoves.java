@@ -14,7 +14,7 @@ public class CountOfMoves {
         this.currentNumber = CURRENT_NUMBER_DEFAULT_VALUE;
     }
 
-    public void upperCurrentRound() {
+    public void increaseCurrentNumber() {
         currentNumber++;
     }
 

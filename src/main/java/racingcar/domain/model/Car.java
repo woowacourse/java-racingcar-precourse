@@ -1,6 +1,6 @@
 package racingcar.domain.model;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
 
     private static final int POSITION_DEFAULT_VALUE = 0;
     private static final int MOVE_MINIMUM_CONDITION = 4;

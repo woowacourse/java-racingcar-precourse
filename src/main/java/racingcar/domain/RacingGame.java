@@ -19,7 +19,7 @@ public class RacingGame {
 
     public List<CarPositionDto> move(NumberGenerator numberGenerator) {
         cars.play(numberGenerator);
-        countOfMoves.upperCurrentRound();
+        countOfMoves.increaseCurrentNumber();
         return CarPositionDto.of(cars);
     }
 

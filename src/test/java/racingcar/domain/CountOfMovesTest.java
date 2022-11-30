@@ -32,7 +32,7 @@ class CountOfMovesTest {
     @Test
     void test3() {
         CountOfMoves countOfMoves = new CountOfMoves(1);
-        countOfMoves.upperCurrentRound();
+        countOfMoves.increaseCurrentNumber();
         assertThat(countOfMoves.reachTargetNumber()).isTrue();
     }
 
