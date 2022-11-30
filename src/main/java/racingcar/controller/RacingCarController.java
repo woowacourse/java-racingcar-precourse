@@ -6,6 +6,7 @@ import racingcar.domain.movables.factory.MovablesFactoryBean;
 import racingcar.dto.CarsNameDTO;
 import racingcar.dto.GameResultDTO;
 import racingcar.dto.NumberOfTryDTO;
+import racingcar.dto.WinnersDTO;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,12 +20,33 @@ public class RacingCarController {
     }
     
     public void run() {
-        final CarsNameDTO carsNameDTO = inputView.inputCarsName(outputView);
-        final NumberOfTryDTO numberOfTryDTO = inputView.inputNumberOfTry(outputView);
+        final RacingGame racingGame = initRacingGame(movablesCreator());
     
-        final MovablesCreator movablesCreator = new MovablesFactoryBean().createMovablesCreator();
-        final RacingGame racingGame = new RacingGame(carsNameDTO.getCarsName(), movablesCreator);
+        race(numberOfTryDTO(), racingGame);
+        printWinners(racingGame);
+    }
     
+    private NumberOfTryDTO numberOfTryDTO() {
+        return inputView.inputNumberOfTry(outputView);
+    }
+    
+    private MovablesCreator movablesCreator() {
+        return new MovablesFactoryBean().createMovablesCreator();
+    }
+    
+    private RacingGame initRacingGame(final MovablesCreator movablesCreator) {
+        return new RacingGame(carsName(), movablesCreator);
+    }
+    
+    private String carsName() {
+        return carsNameDTO().getCarsName();
+    }
+    
+    private CarsNameDTO carsNameDTO() {
+        return inputView.inputCarsName(outputView);
+    }
+    
+    private void race(final NumberOfTryDTO numberOfTryDTO, final RacingGame racingGame) {
         while (!racingGame.isFinished(numberOfTryDTO.getNumberOfTry())) {
             racingGame.race();
             printMoveResult(racingGame);
@@ -34,5 +56,9 @@ public class RacingCarController {
     private void printMoveResult(final RacingGame racingGame) {
         outputView.printMoveResultGuideMessage();
         outputView.printMoveResult(new GameResultDTO(racingGame));
+    }
+    
+    private void printWinners(final RacingGame racingGame) {
+        outputView.printWinners(new WinnersDTO(racingGame.winners()));
     }
 }

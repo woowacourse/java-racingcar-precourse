@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.dto.GameResultDTO;
+import racingcar.dto.WinnersDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,6 +14,8 @@ public class OutputView {
     private static final String NEW_LINE_DELIMITER = "\n";
     private static final String MOVE_RESULT_FORM = "%s : %s";
     private static final String POSITION_DISPLAY_BAR = "-";
+    private static final String COMMA_SPACE_DELIMITER = ", ";
+    private static final String WINNERS_FORM = "\n최종 우승자 : %s";
     
     public void printCarNameInputGuideMessage() {
         println(CAR_NAME_INPUT_GUIDE_MESSAGE);
@@ -47,6 +50,15 @@ public class OutputView {
         return IntStream.range(0, movablePosition)
                 .mapToObj(count -> POSITION_DISPLAY_BAR)
                 .collect(Collectors.joining());
+    }
+    
+    public void printWinners(final WinnersDTO winnersDTO) {
+        println(String.format(WINNERS_FORM, parseWinnersDisplay(winnersDTO)));
+    }
+    
+    private String parseWinnersDisplay(final WinnersDTO winnersDTO) {
+        return winnersDTO.getWinnersName().stream()
+                .collect(Collectors.joining(COMMA_SPACE_DELIMITER));
     }
     
     private void println(final String message) {
