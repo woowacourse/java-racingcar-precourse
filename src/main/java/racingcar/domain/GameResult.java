@@ -16,15 +16,16 @@ public class GameResult {
         this.player = player;
     }
 
-    public void update() {
+    public Map<String, Integer> getPlayerPosition() {
+        updatePosition();
+        return playerPosition;
+    }
+
+    private void updatePosition() {
         List<Car> racingCars = player.getRacingCars();
         for (Car car : racingCars) {
             playerPosition.put(car.getName(), car.getPosition());
         }
-    }
-
-    public Map<String, Integer> getPlayerPosition() {
-        return playerPosition;
     }
 
     public List<String> getFinalWinner() {

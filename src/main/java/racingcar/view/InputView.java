@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.utils.InputValidator;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -13,7 +14,9 @@ public class InputView {
         String input = Console.readLine();
         InputValidator.notContainsComma(input);
         String[] inputList = InputValidator.moreThanLenFive(input);
-        return Arrays.asList(inputList);
+        return Arrays.stream(inputList)
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
     public int readGameRound() throws IllegalArgumentException {
