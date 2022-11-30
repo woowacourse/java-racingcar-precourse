@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.message.exceptionMessage;
 import racingcar.message.inputMessage;
 
 public class inputView {
@@ -21,7 +22,7 @@ public class inputView {
     private void nameRange(String[] names) {
         for(String name : names) {
             if(name.length()>5){
-                throw new IllegalArgumentException("[ERROR] 이름은 다섯 글자를 넘길 수 없다.");
+                throw new IllegalArgumentException(exceptionMessage.CAR_NAME_RANGE);
             }
         }
     }
