@@ -4,6 +4,8 @@ import racingcar.domain.RacingGameApplication;
 import racingcar.domain.RacingGameGenerator;
 import racingcar.domain.RacingGameGeneratorImpl;
 import racingcar.domain.RacingGameGeneratorProxy;
+import racingcar.utils.NumberGenerator;
+import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

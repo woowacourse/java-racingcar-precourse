@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
-import racingcar.NumberGenerator;
+import racingcar.utils.NumberGenerator;
 import racingcar.dto.CarPositionDto;
 import racingcar.view.OutputView;
 

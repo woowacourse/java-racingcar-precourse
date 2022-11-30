@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import racingcar.NumberGenerator;
+import racingcar.utils.NumberGenerator;
 
 public class Cars {
     private final List<Car> cars;
