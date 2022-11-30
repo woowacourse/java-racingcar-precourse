@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.config;
 
 import racingcar.domain.RacingGameApplication;
 import racingcar.domain.RacingGameGenerator;
