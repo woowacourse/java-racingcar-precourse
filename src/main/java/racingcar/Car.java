@@ -40,7 +40,11 @@ public class Car {
             sb.append(MOVING_SYMBOL);
         }
 
-        return sb.toString();
+        return name + " : " + sb.toString();
     }
-    // 추가 기능 구현
+
+    public String getName() {
+        return name;
+    }
+
 }
