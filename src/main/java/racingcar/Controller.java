@@ -20,4 +20,13 @@ public class Controller {
         return createRacingGame();
     }
 
+    public int getRacingCount() {
+        try {
+            return inputView.inputMovingCount();
+
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+        }
+        return getRacingCount();
+    }
 }
