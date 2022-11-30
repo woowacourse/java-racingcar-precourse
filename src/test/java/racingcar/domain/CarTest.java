@@ -82,4 +82,21 @@ class CarTest {
             assertThat(car.isSameName(differentNameCar)).isFalse();
         }
     }
+
+    @DisplayName("position이 같으면 true를 반환한다")
+    @Test
+    void isSamePosition() {
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        assertThat(car1.isSamePosition(car2)).isTrue();
+    }
+
+    @DisplayName("position이 같으면 true를 반환한다")
+    @Test
+    void isNotSamePosition() {
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        car2.move(5);
+        assertThat(car1.isSamePosition(car2)).isFalse();
+    }
 }
