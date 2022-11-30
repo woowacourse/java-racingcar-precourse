@@ -4,6 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.message.exceptionMessage;
 import racingcar.message.inputMessage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class inputView {
 
     public String[] getNames() {
@@ -12,8 +15,8 @@ public class inputView {
         String[] names = inputname.split(",");
         try{
             nameRange(names);
+            sameName(names);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
             getNames();
         }
         return names;
@@ -22,7 +25,20 @@ public class inputView {
     private void nameRange(String[] names) {
         for(String name : names) {
             if(name.length()>5){
-                throw new IllegalArgumentException(exceptionMessage.CAR_NAME_RANGE);
+                out(exceptionMessage.CAR_NAME_RANGE);
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    private void sameName(String[] names) {
+        List<String> check = new ArrayList<>();
+        for(String name : names) {
+            if(check.contains(name)){
+                out(exceptionMessage.SAME_NAME);
+                throw new IllegalArgumentException();
+            } else {
+                check.add(name);
             }
         }
     }
