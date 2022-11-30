@@ -20,5 +20,9 @@ public class OutputView {
         System.out.println(MESSAGE_WINNING_CARS + racingResult);
     }
 
+    public void printError(String errorMessage) {
+        System.out.println(errorMessage);
+    }
+
     }
 
