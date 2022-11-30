@@ -26,14 +26,6 @@ public class RacingCarController {
         printWinners(racingGame);
     }
     
-    private NumberOfTryDTO numberOfTryDTO() {
-        return inputView.inputNumberOfTry(outputView);
-    }
-    
-    private MovablesCreator movablesCreator() {
-        return new MovablesFactoryBean().createMovablesCreator();
-    }
-    
     private RacingGame initRacingGame(final MovablesCreator movablesCreator) {
         return new RacingGame(carsName(), movablesCreator);
     }
@@ -46,6 +38,10 @@ public class RacingCarController {
         return inputView.inputCarsName(outputView);
     }
     
+    private MovablesCreator movablesCreator() {
+        return new MovablesFactoryBean().createMovablesCreator();
+    }
+    
     private void race(final NumberOfTryDTO numberOfTryDTO, final RacingGame racingGame) {
         while (!racingGame.isFinished(numberOfTryDTO.getNumberOfTry())) {
             racingGame.race();
@@ -56,6 +52,10 @@ public class RacingCarController {
     private void printMoveResult(final RacingGame racingGame) {
         outputView.printMoveResultGuideMessage();
         outputView.printMoveResult(new GameResultDTO(racingGame));
+    }
+    
+    private NumberOfTryDTO numberOfTryDTO() {
+        return inputView.inputNumberOfTry(outputView);
     }
     
     private void printWinners(final RacingGame racingGame) {
