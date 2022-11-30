@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.constants;
 
 public class MovingRule {
     public static final int MOVING_MIN = 0;

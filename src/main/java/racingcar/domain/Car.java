@@ -1,12 +1,12 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 import static racingcar.ErrorCode.NOT_VALID_CAR_NAME;
-import static racingcar.MovingRule.MOVING_MAX;
-import static racingcar.MovingRule.MOVING_MIN;
-import static racingcar.MovingRule.MOVING_RULE;
-import static racingcar.MovingRule.MOVING_SYMBOL;
+import static racingcar.domain.constants.MovingRule.MOVING_MAX;
+import static racingcar.domain.constants.MovingRule.MOVING_MIN;
+import static racingcar.domain.constants.MovingRule.MOVING_RULE;
+import static racingcar.domain.constants.MovingRule.MOVING_SYMBOL;
 
 public class Car implements Comparable<Car> {
     private static final int NAME_LENGTH = 5;
