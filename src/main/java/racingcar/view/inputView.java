@@ -13,7 +13,7 @@ public class inputView {
         out(inputMessage.START_GAME);
         String inputname = Console.readLine();
         String[] names = inputname.split(",");
-        try{
+        try {
             nameRange(names);
             sameName(names);
         } catch (IllegalArgumentException e) {
@@ -23,8 +23,8 @@ public class inputView {
     }
 
     private void nameRange(String[] names) {
-        for(String name : names) {
-            if(name.length()>5){
+        for (String name : names) {
+            if (name.length() > 5) {
                 out(exceptionMessage.CAR_NAME_RANGE);
                 throw new IllegalArgumentException();
             }
@@ -33,8 +33,8 @@ public class inputView {
 
     private void sameName(String[] names) {
         List<String> check = new ArrayList<>();
-        for(String name : names) {
-            if(check.contains(name)){
+        for (String name : names) {
+            if (check.contains(name)) {
                 out(exceptionMessage.SAME_NAME);
                 throw new IllegalArgumentException();
             } else {
@@ -47,7 +47,7 @@ public class inputView {
         out(inputMessage.GET_GAME_ROUND);
         String inputround = Console.readLine();
         int round = 0;
-        try{
+        try {
             round = Integer.parseInt(inputround);
         } catch (IllegalArgumentException e) {
             out(exceptionMessage.ROUND_STIRNG);
