@@ -16,11 +16,16 @@ public class OutputView {
 
     public void printCarsPosition(List<CarPositionDto> carPositionDtos) {
         carPositionDtos.forEach(this::printEachCarPosition);
+        printBlank();
     }
 
     public void printWinnerNames(List<WinnerDto> winnerDtos) {
         List<String> winnerNames = getWinnerNames(winnerDtos);
-        System.out.printf("\n최종 우승자 : %s\n", String.join(WINNER_NAME_DELIMITER, winnerNames));
+        System.out.printf("최종 우승자 : %s\n", String.join(WINNER_NAME_DELIMITER, winnerNames));
+    }
+
+    private void printBlank() {
+        System.out.println();
     }
 
     private void printEachCarPosition(CarPositionDto carPositionDto) {
