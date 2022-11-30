@@ -44,4 +44,13 @@ class InputCarsNameValidatorTest {
                 .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
     }
+    
+    @DisplayName("예외 처리 : 숫자 입력 시")
+    @ParameterizedTest(name = "{displayName} : carsName => {0}")
+    @CsvSource(value = {"-1", "0", "1", "100"})
+    void numberInput(final String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
 }
