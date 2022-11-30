@@ -15,7 +15,7 @@ public class OutputView {
     }
 
     public void printRacingResult(RacingCarGame racingCarGame) {
-        String racingResult = String.join(",", racingCarGame.getRacingResult());
+        String racingResult = String.join(",", racingCarGame.getWinningCars());
 
         System.out.println(MESSAGE_WINNING_CARS + racingResult);
     }
