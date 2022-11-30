@@ -2,15 +2,16 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Comparator;
+
 import static racingcar.ErrorCode.NOT_VALID_CAR_NAME;
+import static racingcar.MovingRule.MOVING_MAX;
+import static racingcar.MovingRule.MOVING_MIN;
+import static racingcar.MovingRule.MOVING_RULE;
+import static racingcar.MovingRule.MOVING_SYMBOL;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int NAME_LENGTH = 5;
-    private static final int MOVING_MIN = 0;
-    private static final int MOVING_MAX = 9;
-    private static final int MOVING_RULE = 4;
-    private static final String MOVING_SYMBOL = "-";
-
     private final String name;
     private int position = 0;
 
@@ -20,7 +21,7 @@ public class Car {
     }
 
     public void validateCarName(String name) {
-        if(name.length()> NAME_LENGTH) {
+        if (name.length() > NAME_LENGTH) {
             NOT_VALID_CAR_NAME.throwError();
         }
     }
@@ -28,23 +29,28 @@ public class Car {
     public void move() {
         int randomNumber = Randoms.pickNumberInRange(MOVING_MIN, MOVING_MAX);
 
-        if(randomNumber >= MOVING_RULE) {
+        if (randomNumber >= MOVING_RULE) {
             position++;
         }
     }
 
-    public String getPosition() {
+    public String getNameAndPosition() {
         StringBuffer sb = new StringBuffer();
 
-        for(int i = 0; i<position; i++) {
+        for (int i = 0; i < position; i++) {
             sb.append(MOVING_SYMBOL);
         }
 
-        return name + " : " + sb.toString();
+        return name + " : " + sb;
     }
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.position - other.position;
     }
 
 }
