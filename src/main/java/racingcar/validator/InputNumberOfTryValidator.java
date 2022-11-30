@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import racingcar.exception.UtilClassCreateException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,6 +13,10 @@ public class InputNumberOfTryValidator {
     private static final String EXIST_ZERO_AT_FIRST_PLACE_FORM = "0\\d+";
     private static final String INPUT_NON_NUMBER_FORM = "\\D";
     private static final int MAX_LENGTH_OF_NUMBER_OF_TRY = 9;
+    
+    private InputNumberOfTryValidator() {
+        throw new UtilClassCreateException();
+    }
     
     public static void validate(final String numberOfTry) {
         validateNullOrEmpty(numberOfTry);

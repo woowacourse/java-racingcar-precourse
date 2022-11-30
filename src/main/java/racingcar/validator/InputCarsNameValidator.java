@@ -1,11 +1,17 @@
 package racingcar.validator;
 
+import racingcar.exception.UtilClassCreateException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputCarsNameValidator {
     private static final String CARS_NAME_FORM_EXCEPTION_MESSAGE = "[ERROR] 차 이름 입력 형식이 올바르지 않습니다.";
     private static final String CARS_NAME_FORM = "([a-z]{1,5})(,[a-z]{1,5})*";
+    
+    private InputCarsNameValidator() {
+        throw new UtilClassCreateException();
+    }
     
     public static void validate(final String carsName) {
         validateNullOrEmpty(carsName);
