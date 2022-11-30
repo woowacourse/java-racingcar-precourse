@@ -16,8 +16,8 @@ public class InputCarsNameValidator {
     }
     
     private static void validateCarsNameForm(final String carsName) {
-        final Matcher matcher = Pattern.compile("[^a-z,]").matcher(carsName);
-        if (matcher.find()) {
+        final Matcher matcher = Pattern.compile("([a-z]+)(,[a-z]+)*").matcher(carsName);
+        if (!matcher.matches()) {
             throw new IllegalArgumentException(CARS_NAME_FORM_EXCEPTION_MESSAGE);
         }
     }

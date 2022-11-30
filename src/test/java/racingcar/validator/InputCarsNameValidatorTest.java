@@ -29,7 +29,7 @@ class InputCarsNameValidatorTest {
     
     @DisplayName("예외 처리 : 공백 입력 시")
     @ParameterizedTest(name = "{displayName} : carsName => {0}")
-    @CsvSource(value = {"jun, pobi", "ju n,pobi", "j un"}, delimiter = ':')
+    @CsvSource(value = {"jun, pobi", "ju n,pobi", "j un", "jun, ,pobi"}, delimiter = ':')
     void spaceInput(final String carsName) {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
@@ -67,6 +67,15 @@ class InputCarsNameValidatorTest {
     @ParameterizedTest(name = "{displayName} : carsName => {0}")
     @CsvSource(value = {"A", "B", "Z"})
     void upperCaseInput(final String carsName) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
+                .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
+    }
+    
+    @DisplayName("예외 처리 : 구분자가 쉼표 하나가 아닐 시")
+    @ParameterizedTest(name = "{displayName} : carsName => {0}")
+    @CsvSource(value = {"jun.pobi", "jun;pobi", "jun\\pobi", "jun,,pobi"}, delimiter = ':')
+    void notCommaDelimiterInput(final String carsName) {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> InputCarsNameValidator.validate(carsName))
                 .withMessageStartingWith(ErrorMessageConstant.ERROR_MESSAGE);
