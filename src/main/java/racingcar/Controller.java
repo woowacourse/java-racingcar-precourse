@@ -12,11 +12,8 @@ public class Controller {
     public void generate() {
         RacingCarGame racingCarGame = createRacingGame();
         int racingCount = getRacingCount();
+        playRacingGame(racingCarGame, racingCount);
 
-        for(int i = 0; i<racingCount; i++) {
-            racingCarGame.raceCars();
-            outputView.printMovingResult(racingCarGame);
-        }
         outputView.printRacingResult(racingCarGame);
     }
 
@@ -39,5 +36,12 @@ public class Controller {
             outputView.printError(e.getMessage());
         }
         return getRacingCount();
+    }
+
+    public void playRacingGame(RacingCarGame racingCarGame, int racingCount) {
+        for(int i = 0; i<racingCount; i++) {
+            racingCarGame.raceCars();
+            outputView.printMovingResult(racingCarGame);
+        }
     }
 }
