@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import racingcar.domain.model.Cars;
+import racingcar.domain.model.CountOfMoves;
+
 public class RacingGameGeneratorProxy extends RacingGameGeneratorImpl {
 
     private final RacingGameGeneratorImpl racingGameGeneratorImpl;

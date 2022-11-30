@@ -2,7 +2,7 @@ package racingcar.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
+import racingcar.domain.model.Car;
 
 public class WinnerDto {
 

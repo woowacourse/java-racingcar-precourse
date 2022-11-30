@@ -3,6 +3,9 @@ package racingcar.domain;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.model.Car;
+import racingcar.domain.model.Cars;
+import racingcar.domain.model.CountOfMoves;
 import racingcar.view.InputView;
 
 public class RacingGameGeneratorImpl implements RacingGameGenerator {

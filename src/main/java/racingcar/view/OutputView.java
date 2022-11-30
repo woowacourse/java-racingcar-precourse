@@ -24,7 +24,8 @@ public class OutputView {
     }
 
     private void printEachCarPosition(CarPositionDto carPositionDto) {
-        System.out.printf("%s : %s\n", carPositionDto.getName(), getPositionMark(carPositionDto.getPosition()));
+        String positionMark = getPositionMark(carPositionDto.getPosition());
+        System.out.printf("%s : %s\n", carPositionDto.getName(), positionMark);
     }
 
     private String getPositionMark(int position) {

@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.List;
 import racingcar.NumberGenerator;
+import racingcar.domain.model.Cars;
+import racingcar.domain.model.CountOfMoves;
 import racingcar.dto.CarPositionDto;
 import racingcar.dto.WinnerDto;
 
