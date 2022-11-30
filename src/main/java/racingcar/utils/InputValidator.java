@@ -5,7 +5,7 @@ public final class InputValidator {
     private static final String COMMA = ",";
 
     private static final String NOT_IN_COMMA = "자동차 이름을 쉼표(,)로 구분해 적어주세요.";
-    private static final String INVALID_NAME_LENGTH = "자동차 5글자 이내로 입력해주세요.";
+    private static final String INVALID_NAME_LENGTH = "자동차 이름을 5글자 이내로 입력해주세요.";
     private static final String NOT_NUMBER = "시도할 횟수를 숫자로 입력해주세요.";
 
     private InputValidator() {
