@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 /*
 Car 기본 생성자를 추가할 수 없다.
