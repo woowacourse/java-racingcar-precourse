@@ -24,12 +24,12 @@ public class CarsCreator implements MovablesCreator {
     }
     
     private List<Movable> parseCars(final String movablesName) {
-        return Arrays.stream(getSplit(movablesName))
+        return Arrays.stream(split(movablesName))
                 .map(movableCreator::create)
                 .collect(Collectors.toUnmodifiableList());
     }
     
-    private String[] getSplit(final String movablesName) {
+    private String[] split(final String movablesName) {
         return movablesName.split(COMMA_DELIMITER);
     }
 }
