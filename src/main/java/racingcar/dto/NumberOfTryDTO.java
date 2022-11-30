@@ -6,4 +6,8 @@ public class NumberOfTryDTO {
     public NumberOfTryDTO(final String numberOfTry) {
         this.numberOfTry = Integer.parseInt(numberOfTry);
     }
+    
+    public int getNumberOfTry() {
+        return numberOfTry;
+    }
 }
