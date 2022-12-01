@@ -25,6 +25,25 @@ public class InputValidator {
         }
     }
 
+    public static void checkNames(List<String> names) {
+        names.forEach(name -> {
+            if (isNotAlpha(name)) {
+                throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
+            }
+            if (isWrongLength(name.length())) {
+                throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
+            }
+        });
+    }
+
+    private static boolean isNotAlpha(String name) {
+        return !name.matches(ALPHA_REGEX);
+    }
+
+    private static boolean isWrongLength(int length) {
+        return (length < NAME_MIN_LENGTH || length > NAME_MAX_LENGTH);
+    }
+
     private static boolean isNotNumber(String number) {
         return !number.matches(DIGIT_REGEX);
     }
