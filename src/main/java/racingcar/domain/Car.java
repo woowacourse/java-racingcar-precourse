@@ -22,4 +22,9 @@ public class Car {
     public void addPosition() {
         position++;
     }
+
+    public String getName() {
+        return name;
+    }
+
 }
