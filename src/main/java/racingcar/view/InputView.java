@@ -12,4 +12,18 @@ public class InputView {
         String names = Console.readLine();
         return Arrays.stream(names.split(",")).collect(Collectors.toList());
     }
+
+    public int readCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return inputNumber();
+    }
+
+    private int inputNumber() {
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 한다.");
+        }
+
+    }
 }
