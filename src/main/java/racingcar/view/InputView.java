@@ -1,10 +1,12 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import racingcar.Car;
+import racingcar.Message;
 
 public class InputView {
 
