@@ -35,4 +35,25 @@ class CarTest {
 
         assertThat(beforePosition).isEqualTo(afterPosition - 1);
     }
+
+    @Test
+    void 자동차가_선두에_있는_경우_true_반환한다() {
+        Car car = new Car("car");
+        int maxPosition = 2;
+
+        car.move();
+        car.move();
+
+        assertThat(car.isMaxPosition(maxPosition)).isEqualTo(true);
+    }
+
+    @Test
+    void 자동차가_선두가_아닌_경우_false_반환한다() {
+        Car car = new Car("car");
+        int maxPosition = 2;
+
+        car.move();
+
+        assertThat(car.isMaxPosition(maxPosition)).isEqualTo(false);
+    }
 }
