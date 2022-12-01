@@ -9,6 +9,7 @@ public class OutputView {
     public static final String MOVE_UNIT = "-";
     public static final String DELIMITER = ", ";
     public static final String RACE_START_MESSAGE = "실행 결과";
+    public static final String ERROR_SUFFIX = "[ERROR]";
 
     public void printCars(List<Car> cars) {
         for (Car car : cars) {
@@ -42,5 +43,9 @@ public class OutputView {
     public void printWinners(List<String> winners) {
         String winnersName = String.join(DELIMITER, winners);
         System.out.printf("최종 우승자 : %s", winnersName);
+    }
+
+    public void printError(String errorMessage) {
+        System.out.printf("%s %s\n", ERROR_SUFFIX, errorMessage);
     }
 }
