@@ -4,7 +4,7 @@ import java.util.List;
 
 public class OutputView {
 
-    public static final String CAR_FORMAT = "%s : %s";
+    public static final String CAR_FORMAT = "%s : %s\n";
     public static final String MOVE_UNIT = "-";
     public static final String DELIMITER = ", ";
     public static final String ERROR_SUFFIX = "[ERROR]";
@@ -23,13 +23,11 @@ public class OutputView {
     }
 
     public void printRaceStart() {
-        printNewLine();
         System.out.println(Message.OUTPUT_RACE_RESULT);
     }
 
     private void printCar(Car car) {
         System.out.printf(CAR_FORMAT, car.getName(), getMove(car.getCurrentPosition()));
-        printNewLine();
     }
 
     private String getMove(int currentPosition) {

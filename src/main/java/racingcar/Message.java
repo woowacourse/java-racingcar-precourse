@@ -12,6 +12,6 @@ public class Message {
     public static final String INPUT_MOVE_COUNTS_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String INPUT_NUMBER_ERROR = "숫자만 입력이 가능합니다.";
 
-    public static final String OUTPUT_RACE_RESULT = "실행 결과";
+    public static final String OUTPUT_RACE_RESULT = "\n실행 결과";
 
 }
