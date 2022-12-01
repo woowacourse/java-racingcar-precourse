@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.RandomNumberGenerator;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCars {
@@ -21,5 +22,9 @@ public class RacingCars {
                 racingCar.forward();
             }
         }
+    }
+
+    public List<Car> getRacingCars() {
+        return Collections.unmodifiableList(racingCars);
     }
 }
