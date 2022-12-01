@@ -48,7 +48,7 @@ class CarGameTest {
 
     @Test
     @DisplayName("이동횟수 등록 실패 테스트")
-    void CarGameTest() {
+    void 이동횟수_등록_실패_테스트() {
         int moveCounts = 0;
 
         assertThatThrownBy(() -> carGame.registerMoveCounts(moveCounts))
