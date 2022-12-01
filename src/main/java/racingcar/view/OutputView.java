@@ -9,6 +9,11 @@ public class OutputView {
     private static final String WINNER_DELIMITER = ", ";
     private static final String WINNER_MESSAGE_FORMAT = "최종 우승자 : %s";
     private static final String ERROR_MESSAGE_FORMAT = "[ERROR] %s";
+    private static final String RESULT_MESSAGE = "실행 결과";
+
+    public void printResult() {
+        System.out.println(RESULT_MESSAGE);
+    }
 
     public void printWay(RacingResult result) {
         List<String> carNames = result.getCarNames();

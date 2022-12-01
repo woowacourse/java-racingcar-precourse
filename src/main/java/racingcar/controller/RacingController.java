@@ -33,6 +33,7 @@ public class RacingController {
 
     private void race() {
         int count = readCount();
+        outputView.printResult();
         for (int i = 0; i < count; i++) {
             RacingResult result = racingGame.play();
             outputView.printWay(result);
