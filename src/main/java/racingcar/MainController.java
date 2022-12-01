@@ -24,28 +24,22 @@ public class MainController {
     }
 
     private void registerCars() {
-        while (true) {
-            try {
-                List<String> inputCars = inputView.inputCars();
-                carGame.registerCar(inputCars);
-            } catch (IllegalArgumentException e) {
-                outputView.printError(e.getMessage());
-                continue;
-            }
-            break;
+        try {
+            List<String> inputCars = inputView.inputCars();
+            carGame.registerCar(inputCars);
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            registerCars();
         }
     }
 
     private void registerMoveCounts() {
-        while (true) {
-            try {
-                int moveCounts = inputView.inputMoveCounts();
-                carGame.registerMoveCounts(moveCounts);
-            } catch (IllegalArgumentException e) {
-                outputView.printError(e.getMessage());
-                continue;
-            }
-            break;
+        try {
+            int moveCounts = inputView.inputMoveCounts();
+            carGame.registerMoveCounts(moveCounts);
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            registerMoveCounts();
         }
     }
 
