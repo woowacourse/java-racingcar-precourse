@@ -1,11 +1,11 @@
 package racingcar.domain;
 
 import java.util.Arrays;
-import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.RacingRandomNumberGenerator;
 
 class RacingGameTest {
     private Car han;
@@ -16,7 +16,7 @@ class RacingGameTest {
     void before() {
         han = new Car("han");
         kim = new Car("kim");
-        racingGame = new RacingGame(Arrays.asList(han, kim));
+        racingGame = new RacingGame(Arrays.asList(han, kim), new RacingRandomNumberGenerator());
     }
 
     @DisplayName("우승자를 반환한다.")

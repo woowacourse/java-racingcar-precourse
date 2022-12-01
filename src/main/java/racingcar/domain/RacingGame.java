@@ -6,13 +6,13 @@ import racingcar.util.RacingNumberGenerator;
 import racingcar.util.RacingRandomNumberGenerator;
 
 public class RacingGame {
-    private Road road;
-    private List<Car> cars;
-    private RacingNumberGenerator numberGenerator;
+    private final Road road;
+    private final List<Car> cars;
+    private final RacingNumberGenerator numberGenerator;
 
-    public RacingGame(List<Car> cars) {
+    public RacingGame(List<Car> cars,RacingNumberGenerator racingNumberGenerator) {
         this.road = new Road();
-        this.numberGenerator = new RacingRandomNumberGenerator();
+        this.numberGenerator = racingNumberGenerator;
         this.cars = cars;
     }
 

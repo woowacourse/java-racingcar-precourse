@@ -5,17 +5,23 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.domain.RacingResult;
+import racingcar.util.RacingNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-    private InputView inputView = new InputView();
-    private OutputView outputView = new OutputView();
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
     private RacingGame racingGame;
+    private RacingNumberGenerator racingNumberGenerator;
+
+    public RacingController(RacingNumberGenerator racingNumberGenerator) {
+        this.racingNumberGenerator = racingNumberGenerator;
+    }
 
     public void run() {
         List<Car> cars = generateCars();
-        racingGame = new RacingGame(cars);
+        racingGame = new RacingGame(cars, racingNumberGenerator);
         play();
     }
 
