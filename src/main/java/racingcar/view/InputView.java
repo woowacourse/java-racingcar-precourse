@@ -30,6 +30,23 @@ public class InputView {
         }
     }
 
+    public int readGameTrial() {
+        printMessage(TRIAL_INPUT_MESSAGE);
+        String trial = Console.readLine();
+
+        return checkGameTrial(trial);
+    }
+
+    private int checkGameTrial(String trial) {
+        try {
+            InputValidator.checkTrial(trial);
+            return Integer.valueOf(trial);
+        } catch (IllegalArgumentException e) {
+            Log.error(e.getMessage());
+            return readGameTrial();
+        }
+    }
+
     private void printMessage(String message) {
         System.out.println(message);
     }
