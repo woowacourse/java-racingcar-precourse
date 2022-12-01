@@ -2,8 +2,10 @@ package racingcar;
 
 public class Car {
 
-    public static final int MIN_FUEL = 4;
+    public static final int MIN_FUEL = 0;
     public static final int MAX_FUEL = 9;
+    public static final int MIN_MOVE_FUEL = 4;
+
     public static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
@@ -24,13 +26,13 @@ public class Car {
 
     public void moveOrStop(int fuel) {
         validateFuel(fuel);
-        if (fuel >= MIN_FUEL) {
+        if (fuel >= MIN_MOVE_FUEL) {
             move();
         }
     }
 
     private void validateFuel(int fuel) {
-        if (fuel < 0 || fuel > MAX_FUEL) {
+        if (fuel < MIN_FUEL || fuel > MAX_FUEL) {
             throw new IllegalArgumentException("연료는 0 이상 9 이하의 값이어야 합니다.");
         }
     }
