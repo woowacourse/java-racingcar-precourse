@@ -36,4 +36,8 @@ public class RacingCarGameService {
         }
         return racingCarsInfo;
     }
+
+    public List<String> getFinalWinner() {
+        return racingCars.decideWinners();
+    }
 }
