@@ -17,8 +17,22 @@ public class InputView {
     public List<String> inputCars() {
         System.out.println(INPUT_CAR_MESSAGE);
         String input = Console.readLine();
+        validateInputCars(input);
         String[] inputCars = input.split(CAR_REGEX);
         return Arrays.stream(inputCars).collect(Collectors.toList());
+    }
+
+    private void validateInputCars(String input) {
+        if (input.endsWith(CAR_REGEX)) {
+            throw new IllegalArgumentException("자동차의 이름은 1~5자여야 합니다.");
+        }
+
+        String[] inputCars = input.split(CAR_REGEX);
+        for (String inputCar : inputCars) {
+            if (inputCar.length() > Car.MAX_NAME_LENGTH) {
+                throw new IllegalArgumentException("자동차의 이름은 1~5자여야 합니다.");
+            }
+        }
     }
 
     public int inputMoveCounts() {
