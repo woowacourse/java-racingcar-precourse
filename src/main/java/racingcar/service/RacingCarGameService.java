@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.RandomNumberGenerator;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 
@@ -9,6 +10,7 @@ import java.util.List;
 public class RacingCarGameService {
 
     private static final String CAR_NAME_SPLIT_REGEX = ",";
+    private static final int MIN_FORWARD_NUMBER = 4;
 
     private RacingCars racingCars;
 
@@ -20,5 +22,14 @@ public class RacingCarGameService {
             cars.add(generatedCar);
         }
         racingCars = new RacingCars(cars);
+    }
+
+    public void forwardTry() {
+        for (Car car : cars) {
+            int randomNumber = RandomNumberGenerator.generate();
+            if (randomNumber >= MIN_FORWARD_NUMBER) {
+                car.forward();
+            }
+        }
     }
 }
