@@ -28,4 +28,24 @@ public class RacingGame {
     public boolean canContinue(int currentTrial) {
         return currentTrial <= trial;
     }
+
+    public String getWinners() {
+        int maxPosition = getMaxPosition();
+
+        return cars.stream()
+                .filter(car -> car.isMaxPosition(maxPosition))
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
