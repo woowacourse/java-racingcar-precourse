@@ -50,4 +50,16 @@ class RacingGameTest {
         Assertions.assertThat(racingGame.canContinue(4)).isEqualTo(false);
     }
 
+    @Test
+    void 자동차들_중에서_선두_위치를_반환한다() {
+        Car car1 = new Car("AAA");
+        Car car2 = new Car("BBB");
+
+        RacingGame racingGame = new RacingGame(Arrays.asList(car1, car2), 3);
+        car1.move();
+        car2.move();
+        car2.move();
+
+        Assertions.assertThat(racingGame.getMaxPosition()).isEqualTo(2);
+    }
 }
