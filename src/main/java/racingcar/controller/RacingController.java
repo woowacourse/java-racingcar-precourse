@@ -20,19 +20,37 @@ public class RacingController {
     }
 
     private void play() {
-        int count = inputView.readCount();
-        for (int i = 0; i < count; i++) {
-            RacingResult result = racingGame.play();
-            outputView.printWay(result);
-        }
+        race();
         RacingResult winner = racingGame.getWinner();
         outputView.printWinner(winner);
     }
 
+    private void race() {
+        int count = readCount();
+        for (int i = 0; i < count; i++) {
+            RacingResult result = racingGame.play();
+            outputView.printWay(result);
+        }
+    }
+
+    private int readCount() {
+        try {
+            return inputView.readCount();
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            return readCount();
+        }
+    }
+
     private List<Car> generateCars() {
-        List<String> names = inputView.readName();
-        return names.stream()
-                .map(Car::new)
-                .collect(Collectors.toList());
+        try {
+            List<String> names = inputView.readName();
+            return names.stream()
+                    .map(Car::new)
+                    .collect(Collectors.toList());
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            return generateCars();
+        }
     }
 }

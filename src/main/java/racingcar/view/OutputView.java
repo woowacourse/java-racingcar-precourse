@@ -26,4 +26,8 @@ public class OutputView {
         String collect = String.join(", ", winner.getCarNames());
         System.out.println("최종 우승자 : " + collect);
     }
+
+    public void printError(String message) {
+        System.out.println("[ERROR] " + message);
+    }
 }
