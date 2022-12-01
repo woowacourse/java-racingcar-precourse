@@ -23,4 +23,17 @@ class CarTest {
         assertThatThrownBy(() -> new Car("sixCar"))
             .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("들어온 값이 4이상이면 전진한다.")
+    void 자동차_전진_테스트() {
+        //given
+        Car pobi = new Car("pobi");
+        //when
+        int prePosition = pobi.getCurrentPosition();
+        pobi.moveOrStop(4);
+        //then
+        int currentPostion = pobi.getCurrentPosition();
+        assertThat(prePosition + 1).isEqualTo(currentPostion);
+    }
 }
