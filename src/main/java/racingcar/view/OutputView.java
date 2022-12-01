@@ -23,5 +23,11 @@ public class OutputView {
             String position = triedCarInfo.get("position");
             System.out.println(carName + " : " + position);
         }
+        System.out.println();
+    }
+
+    public void printFinalWinners(List<String> finalWinners) {
+        String winners = String.join(", ", finalWinners);
+        System.out.println("최종 우승자 : " + winners);
     }
 }
