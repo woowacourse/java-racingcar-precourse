@@ -6,6 +6,7 @@ import java.util.List;
 public class CarGame {
 
     private List<Car> cars;
+    private int moveCounts;
 
     public CarGame() {
         cars = new ArrayList<>();
@@ -26,5 +27,16 @@ public class CarGame {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public void registerMoveCounts(int moveCounts) {
+        validateMoveCounts(moveCounts);
+        this.moveCounts = moveCounts;
+    }
+
+    private void validateMoveCounts(int moveCounts) {
+        if (moveCounts <= 0) {
+            throw new IllegalArgumentException("이동횟수는 최소 1회 이상이어야 합니다.");
+        }
     }
 }
