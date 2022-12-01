@@ -1,7 +1,9 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarGame {
 
@@ -38,5 +40,17 @@ public class CarGame {
         if (moveCounts <= 0) {
             throw new IllegalArgumentException("이동횟수는 최소 1회 이상이어야 합니다.");
         }
+    }
+
+    public void startRacing() {
+        for (int i = 0; i < moveCounts; i++) {
+            for (Car car : cars) {
+                car.moveOrStop(getRandomFuel());
+            }
+        }
+    }
+
+    private int getRandomFuel() {
+        return Randoms.pickNumberInRange(Car.MIN_FUEL, Car.MAX_FUEL);
     }
 }
