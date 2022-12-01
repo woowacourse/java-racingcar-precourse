@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -24,4 +25,14 @@ class CarTest {
         assertThat(car.canMove(number)).isEqualTo(false);
     }
 
+    @Test
+    void 자동차가_전진하면_위치가_1씩_증가한다() {
+        Car car = new Car("car");
+        int beforePosition = car.getPosition();
+
+        car.move();
+        int afterPosition = car.getPosition();
+
+        assertThat(beforePosition).isEqualTo(afterPosition - 1);
+    }
 }
