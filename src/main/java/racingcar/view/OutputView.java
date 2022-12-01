@@ -15,6 +15,7 @@ public class OutputView {
 
     public void printGameResultMessage() {
         System.out.println("실행 결과");
+        System.out.println();
     }
 
     public void printForwardTryResult(List<Map<String, String>> triedCarsInfo) {
