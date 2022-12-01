@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import java.util.List;
+import java.util.Map;
+
 public class OutputView {
 
     public void printInputCarNameMessage() {
@@ -12,5 +15,13 @@ public class OutputView {
 
     public void printGameResultMessage() {
         System.out.println("실행 결과");
+    }
+
+    public void printForwardTryResult(List<Map<String, String>> triedCarsInfo) {
+        for (Map<String, String> triedCarInfo : triedCarsInfo) {
+            String carName = triedCarInfo.get("name");
+            String position = triedCarInfo.get("position");
+            System.out.println(carName + " : " + position);
+        }
     }
 }
