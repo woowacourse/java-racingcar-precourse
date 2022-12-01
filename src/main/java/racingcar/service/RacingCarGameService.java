@@ -1,11 +1,11 @@
 package racingcar.service;
 
-import racingcar.RandomNumberGenerator;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RacingCarGameService {
 
@@ -25,5 +25,15 @@ public class RacingCarGameService {
 
     public void forwardTry() {
         racingCars.forwardTry();
+    }
+
+    public List<Map<String, String>> getForwardTryResult() {
+        List<Map<String, String>> racingCarsInfo = new ArrayList<>();
+        List<Car> triedRacingCars = racingCars.getRacingCars();
+        for (Car triedRacingCar : triedRacingCars) {
+            Map<String, String> carInfos = triedRacingCar.getCarInfos();
+            racingCarsInfo.add(carInfos);
+        }
+        return racingCarsInfo;
     }
 }
