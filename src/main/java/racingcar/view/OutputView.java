@@ -4,6 +4,7 @@ import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -29,7 +30,9 @@ public class OutputView {
     }
 
     public void showWinners(RacingGame racingGame) {
-        printMessage(WINNER_SHOW_MESSAGE + racingGame.getWinners());
+        printMessage(WINNER_SHOW_MESSAGE + racingGame.getWinners()
+                .stream()
+                .collect(Collectors.joining(", ")));
     }
 
     private void printMessage(String message) {
