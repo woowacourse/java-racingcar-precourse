@@ -11,7 +11,7 @@ public class CarNamesTest {
 
     @Test
     @CsvSource({"'pobi,woni,jun'", "sk12"})
-    void readCarNames_자동차_이름을_입력받는다(String input) {
+    void CarNames_자동차_이름을_입력받는다(String input) {
         assertThat(carNames(input)).isEqualTo(input.split(","));
     }
 
@@ -21,7 +21,7 @@ public class CarNamesTest {
             "", ", , , ,",
             "'chooooovy, pobi'",
     })
-    void readCarNames_이름_길이가_해당_범위가_아니라면_에러를_발생시킨다(String input) {
+    void CarNames_이름_길이가_해당_범위가_아니라면_에러를_발생시킨다(String input) {
         Assertions.assertThatThrownBy(() -> carNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ERROR);
