@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class CarGame {
 
-    private List<Car> cars;
+    private final List<Car> cars;
     private int moveCounts;
 
     public CarGame() {
@@ -23,7 +23,7 @@ public class CarGame {
 
     private void validateCars(List<String> cars) {
         if (cars.isEmpty()) {
-            throw new IllegalArgumentException("등록할 자동차는 최소 1대여야 합니다.");
+            throw new IllegalArgumentException(Message.NUMBER_OF_CARS_VALIDATION);
         }
     }
 
@@ -38,13 +38,13 @@ public class CarGame {
 
     private void validateMoveCounts(int moveCounts) {
         if (moveCounts <= 0) {
-            throw new IllegalArgumentException("이동횟수는 최소 1회 이상이어야 합니다.");
+            throw new IllegalArgumentException(Message.MOVE_COUNTS_VALIDATION);
         }
     }
 
     public void startRacing() {
         if (checkIsOver()) {
-            throw new IllegalStateException("경기가 종료되었습니다.");
+            throw new IllegalStateException(Message.GAME_OVER);
         }
         for (Car car : cars) {
             car.moveOrStop(getRandomFuel());

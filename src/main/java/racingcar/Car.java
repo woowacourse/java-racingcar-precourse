@@ -19,7 +19,7 @@ public class Car {
     // 추가 기능 구현
     private void validateName(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
+            throw new IllegalArgumentException(Message.CAR_NAME_VALIDATION);
         }
     }
 
@@ -33,7 +33,7 @@ public class Car {
 
     private void validateFuel(int fuel) {
         if (fuel < MIN_FUEL || fuel > MAX_FUEL) {
-            throw new IllegalArgumentException("연료는 0 이상 9 이하의 값이어야 합니다.");
+            throw new IllegalArgumentException(Message.CAR_FUEL_VALIDATION);
         }
     }
 
