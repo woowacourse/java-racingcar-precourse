@@ -8,6 +8,7 @@ public class OutputView {
     public static final String CAR_FORMAT = "%s : %s";
     public static final String MOVE_UNIT = "-";
     public static final String DELIMITER = ", ";
+    public static final String RACE_START_MESSAGE = "실행 결과";
 
     public void printCars(List<Car> cars) {
         for (Car car : cars) {
@@ -18,6 +19,11 @@ public class OutputView {
 
     private void printNewLine() {
         System.out.println();
+    }
+
+    public void printRaceStart() {
+        printNewLine();
+        System.out.println(RACE_START_MESSAGE);
     }
 
     private void printCar(Car car) {
@@ -34,8 +40,7 @@ public class OutputView {
     }
 
     public void printWinners(List<String> winners) {
-        String winnersName = winners.stream()
-            .collect(Collectors.joining(DELIMITER));
+        String winnersName = String.join(DELIMITER, winners);
         System.out.printf("최종 우승자 : %s", winnersName);
     }
 }
