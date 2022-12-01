@@ -32,7 +32,7 @@ public class RacingGame {
                 .collect(Collectors.toList());
     }
 
-    private int getMaxPosition() {
+    public int getMaxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
