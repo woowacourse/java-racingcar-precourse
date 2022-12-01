@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 
 public class RacingCars {
 
+    private static final String CAR_POSITION_KEY = "position";
+    private static final String CAR_NAME_KEY = "name";
+
     private static final int MIN_FORWARD_NUMBER = 4;
 
     private int maxPosition = Integer.MIN_VALUE;
@@ -35,17 +38,17 @@ public class RacingCars {
         setMaxPosition();
         return racingCars.stream()
                 .filter(racingCar -> {
-                    int position = racingCar.getCarInfos().get("position").length();
+                    int position = racingCar.getCarInfos().get(CAR_POSITION_KEY).length();
                     return position == maxPosition;
                 })
-                .map(racingCar -> racingCar.getCarInfos().get("name"))
+                .map(racingCar -> racingCar.getCarInfos().get(CAR_NAME_KEY))
                 .collect(Collectors.toList());
     }
 
     private void setMaxPosition() {
         for (Car racingCar : racingCars) {
             Map<String, String> carInfos = racingCar.getCarInfos();
-            int position = carInfos.get("position").length();
+            int position = carInfos.get(CAR_POSITION_KEY).length();
             if (maxPosition < position) {
                 maxPosition = position;
             }
