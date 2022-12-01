@@ -19,8 +19,8 @@ DTO
 
 - [ ] 자동차 이름을 입력받는다 - `Gamamachine#getCarNames() => InputView#carNames()`
   - [ ] 자동차 이름은 ','를 기준으로 추출한다 - `InputView#extractCarNames()`
-  - [ ] 입력받은 자동차 이름을 검증한다 - `InputView#validateCarNames()`
-    - [ ] 이름이 0자 이하 6자 이상이라면 에러와 함께 `[ERROR] 자동차 이름은 1글자 이상 5글자 이하여야 합니다` 메시지를 출력하고 그 부분부터 입력을 다시 받는다 - `InputView#validateCarNameLength()`
+  - [ ] 입력받은 자동차 이름을 검증한다 - `CarNames#validateCarNames()`
+    - [ ] 이름이 0자 이하 6자 이상이라면 에러와 함께 `[ERROR] 자동차 이름은 1글자 이상 5글자 이하여야 합니다` 메시지를 출력하고 그 부분부터 입력을 다시 받는다 - `CarNames#validateCarNameLength()`
 - [ ] 추출한 자동차 수를 기준으로 `Car` 인스턴스를 N개 생성한다 - `GameMachine#createCars()`
 - [ ] 게임 실행할 횟수를 입력받는다 - `GameMachine#insertCoins => InputView#coins()`
     - [ ] 입력받은 값이 숫자가 아니라면 `[ERROR] 게임 실행할 횟수는 숫자만 입력받을 수 있습니다` 메시지를 출력하고 그 부분부터 입력을 다시 받는다 - `InputView#validateCoin()`
