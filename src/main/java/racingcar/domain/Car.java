@@ -14,4 +14,8 @@ public class Car {
     public boolean canMove(int number) {
         return number >= MOVE_MIN_NUMBER;
     }
+
+    public void move() {
+        position++;
+    }
 }
