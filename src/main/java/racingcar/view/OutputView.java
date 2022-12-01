@@ -11,6 +11,7 @@ public class OutputView {
             int position = result.getPosition(carName);
             System.out.println(carName + " : " + positionMap(position));
         }
+        System.out.println();
     }
 
     private String positionMap(int position) {
@@ -19,5 +20,10 @@ public class OutputView {
             sb.append("-");
         }
         return sb.toString();
+    }
+
+    public void printWinner(RacingResult winner) {
+        String collect = String.join(", ", winner.getCarNames());
+        System.out.println("최종 우승자 : " + collect);
     }
 }
