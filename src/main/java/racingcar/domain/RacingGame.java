@@ -17,12 +17,8 @@ public class RacingGame {
 
     public void run() {
         cars.stream()
-                .filter(car -> car.canMove(getRandomNumber()))
+                .filter(car -> car.canMove(RandomNumberGenerator.generate()))
                 .forEach(Car::move);
-    }
-
-    private int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 
     public boolean canContinue(int currentTrial) {
