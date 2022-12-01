@@ -43,11 +43,17 @@ public class CarGame {
     }
 
     public void startRacing() {
-        for (int i = 0; i < moveCounts; i++) {
-            for (Car car : cars) {
-                car.moveOrStop(getRandomFuel());
-            }
+        if (checkIsOver()) {
+            throw new IllegalStateException("경기가 종료되었습니다.");
         }
+        for (Car car : cars) {
+            car.moveOrStop(getRandomFuel());
+        }
+        moveCounts--;
+    }
+
+    public boolean checkIsOver() {
+        return moveCounts <= 0;
     }
 
     private int getRandomFuel() {
