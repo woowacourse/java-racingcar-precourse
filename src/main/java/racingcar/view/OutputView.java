@@ -28,6 +28,10 @@ public class OutputView {
         return moving;
     }
 
+    public void showWinners(RacingGame racingGame) {
+        printMessage(WINNER_SHOW_MESSAGE + racingGame.getWinners());
+    }
+
     private void printMessage(String message) {
         System.out.println(message);
     }
