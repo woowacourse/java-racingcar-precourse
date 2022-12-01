@@ -54,4 +54,18 @@ class CarGameTest {
         assertThatThrownBy(() -> carGame.registerMoveCounts(moveCounts))
             .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("자동차 경주 우승자 테스트")
+    void 경주_우승자_테스트() {
+    	//given
+        List<String> cars = Arrays.asList("pobi", "woni", "jun");
+        carGame.registerCar(cars);
+        carGame.registerMoveCounts(5);
+    	//when
+    	carGame.startRacing();
+    	//then
+        List<String> winners = carGame.announceWinners();
+        assertThat(winners).isSubsetOf(cars);
+    }
 }
