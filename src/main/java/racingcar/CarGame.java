@@ -53,4 +53,12 @@ public class CarGame {
     private int getRandomFuel() {
         return Randoms.pickNumberInRange(Car.MIN_FUEL, Car.MAX_FUEL);
     }
+
+    public List<String> announceWinners() {
+        return cars.stream()
+            .filter(car -> car.getCurrentPosition() == cars.stream().map(Car::getCurrentPosition)
+                .max(Integer::compareTo).orElse(0))
+            .map(Car::getName)
+            .collect(Collectors.toList());
+    }
 }
