@@ -42,4 +42,8 @@ public class Car {
     public int getCurrentPosition() {
         return position;
     }
+
+    public String getName() {
+        return name;
+    }
 }
