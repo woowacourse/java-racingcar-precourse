@@ -22,4 +22,12 @@ public class Car {
     public boolean isMaxPosition(int maxPosition) {
         return position == maxPosition;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }
