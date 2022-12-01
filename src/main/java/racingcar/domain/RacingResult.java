@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class RacingResult {
-    private Map<String, Integer> result;
+    private final Map<String, Integer> result;
 
     public RacingResult(List<Car> cars) {
         result = cars.stream()
