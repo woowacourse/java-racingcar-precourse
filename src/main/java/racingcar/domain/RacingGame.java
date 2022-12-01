@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
 
@@ -22,5 +23,9 @@ public class RacingGame {
 
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public boolean canContinue(int currentTrial) {
+        return currentTrial <= trial;
     }
 }
