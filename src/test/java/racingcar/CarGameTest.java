@@ -2,6 +2,7 @@ package racingcar;
 
 
 import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +43,15 @@ class CarGameTest {
         List<String> cars = new ArrayList<>();
         //then
         assertThatThrownBy(() -> carGame.registerCar(cars))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("이동횟수 등록 실패 테스트")
+    void CarGameTest() {
+        int moveCounts = 0;
+
+        assertThatThrownBy(() -> carGame.registerMoveCounts(moveCounts))
             .isInstanceOf(IllegalArgumentException.class);
     }
 }
