@@ -1,9 +1,11 @@
 ## 클래스 목록
 도메인
 - Car : 게임 진행의 주체인 자동차
-- CarNames : 자동차 이름들의 집합
-- Cars : 자동차들의 집합
+- Cars : 자동차들의 집합 일긐 컬렉션
 - Coin : 게임의 횟수를 기록하며 게임이 진행중인지 나타낸다
+
+DTO
+- CarNames : InputView에서 받은 CarNames를 전달하기 위한 DTO
 
 컨트롤러
 - GameMachine : 게임 진행상황을 기록하고 각 클래스들을 연결한다
