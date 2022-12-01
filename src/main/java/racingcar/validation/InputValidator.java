@@ -1,5 +1,7 @@
 package racingcar.validation;
 
+import java.util.List;
+
 public class InputValidator {
 
     private static final String DIGIT_REGEX = "^[0-9]+$";
@@ -12,4 +14,22 @@ public class InputValidator {
 
     private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 5;
+
+    public static void checkTrial(String trial) {
+        if (isNotNumber(trial)) {
+            throw new IllegalArgumentException(DIGIT_ERROR_MESSAGE);
+        }
+
+        if (isWrongRange(trial)) {
+            throw new IllegalArgumentException(TRIAL_ERROR_MESSAGE);
+        }
+    }
+
+    private static boolean isNotNumber(String number) {
+        return !number.matches(DIGIT_REGEX);
+    }
+
+    private static boolean isWrongRange(String number) {
+        return Integer.valueOf(number) < 1;
+    }
 }
