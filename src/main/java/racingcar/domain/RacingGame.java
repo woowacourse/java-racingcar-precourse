@@ -3,7 +3,6 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.RacingNumberGenerator;
-import racingcar.util.RacingRandomNumberGenerator;
 
 public class RacingGame {
     private final Road road;
