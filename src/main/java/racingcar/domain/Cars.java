@@ -1,12 +1,12 @@
 package racingcar.domain;
 
 import racingcar.util.RandomNumberGenerator;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
+    private final int MOVE_BOUNDARY = 4;
     private final List<Car> cars;
 
     public Cars(String[] names) {
@@ -21,7 +21,7 @@ public class Cars {
 
     public void move() {
         for (Car car : cars) {
-            if (RandomNumberGenerator.generate() >= 4) {
+            if (RandomNumberGenerator.generate() >= MOVE_BOUNDARY) {
                 car.move();
             }
         }

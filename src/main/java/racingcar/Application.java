@@ -2,12 +2,11 @@ package racingcar;
 
 import racingcar.controller.GameController;
 import racingcar.domain.Cars;
-import racingcar.domain.TryCount;
 
 public class Application {
     private final GameController gameController;
     private Cars cars;
-    private TryCount tryCount;
+    private Long tryCount;
 
     public Application() {
         gameController = new GameController();

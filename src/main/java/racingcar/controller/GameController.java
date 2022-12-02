@@ -1,10 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
-import racingcar.domain.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
 import java.util.List;
 
 public class GameController {
@@ -28,14 +26,14 @@ public class GameController {
         return inputView.readTryCount();
     }
 
-    public TryCount createTryCount(Long tryCount) {
-        return new TryCount(tryCount);
+    public Long createTryCount(Long tryCount) {
+        return tryCount;
     }
 
-    public void race(Cars cars, TryCount tryCount) {
+    public void race(Cars cars, Long tryCount) {
         outputView.printMessage("\n실행 결과");
 
-        for (int i = 0; i < tryCount.getTryCount(); i++) {
+        for (int i = 0; i < tryCount; i++) {
             cars.move();
             outputView.printCurrent(cars.toString());
         }
