@@ -8,15 +8,17 @@ public class GameMachine {
     private OutputView outputView = new OutputView();
 
     public void play() {
-        Cars cars = createCars(inputView.readCarNames());
-        Coin coin = inputView.readCoins();
+        Cars cars = createCars(
+                inputView.readCarNames(),
+                inputView.readCoins());
     }
 
-    private Cars createCars(CarNames carNames) {
+    private Cars createCars(CarNames carNames, Coin coin) {
         return new Cars(
                 IntStream.rangeClosed(1, carNames.amount())
                         .mapToObj(i -> new Car(carNames.next()))
-                        .collect(Collectors.toList())
+                        .collect(Collectors.toList()),
+                coin
         );
     }
 }
