@@ -2,9 +2,9 @@ package racingcar.domain;
 
 import racingcar.util.RandomNumberGenerator;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Cars {
     private final List<Car> cars;

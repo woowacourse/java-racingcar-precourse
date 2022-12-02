@@ -13,7 +13,7 @@ public class Application {
         gameController = new GameController();
     }
 
-    private void generateData() {
+    private void readData() {
         String[] names = gameController.readNames();
         this.cars = gameController.createCars(names);
         Long tryCount = gameController.readTryCount();
@@ -30,7 +30,7 @@ public class Application {
 
     public static void main(String[] args) {
         Application app = new Application();
-        app.generateData();
+        app.readData();
         app.race();
         app.finish();
     }
