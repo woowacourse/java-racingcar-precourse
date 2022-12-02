@@ -1,18 +1,30 @@
 package racingcar;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class CarNames {
     private String[] names;
+    private Iterator<String> iterator;
 
-    private CarNames(String[] input) {
+    public CarNames(String[] input) {
         validateRange(input);
         this.names = input;
+        iterator = Arrays.stream(names).iterator();
     }
 
-    public static CarNames from(String[] input) {
-        return new CarNames(input);
+    public int amount() {
+        return names.length;
     }
+
+    public String next() {
+        if (iterator.hasNext()) {
+            return iterator.next();
+        }
+
+        throw new IllegalArgumentException("[ERROR] CarName이 더이상 존재하지 않습니다");
+    }
+
 
     private void validateRange(String[] input) {
         boolean isOver = Arrays.stream(input)
