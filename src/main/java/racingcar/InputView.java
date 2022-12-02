@@ -20,7 +20,9 @@ public class InputView {
     public Coin readCoins() {
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return new Coin(parseInt(read()));
+        return new Coin(
+                parseInt(read())
+        );
     }
 
     private String read() {
