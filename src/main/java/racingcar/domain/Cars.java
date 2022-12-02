@@ -1,11 +1,10 @@
 package racingcar.domain;
 
-import racingcar.Car;
 import racingcar.util.RandomNumberGenerator;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Cars {
     private final List<Car> cars;
@@ -20,27 +19,32 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public void move(TryCount tryCount) {
-        for (int i = 0; i < tryCount.getTryCount(); i++) {
-            for (Car car : cars) {
-                moveOrNot(car);
+    public void move() {
+        for (Car car : cars) {
+            if (RandomNumberGenerator.generate() >= 4) {
+                car.move();
             }
         }
     }
 
-    private void moveOrNot(Car car) {
-        if (RandomNumberGenerator.generate() < 4) {
-            return;
-        }
-        car.move();
-    }
-
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         for (Car car : cars) {
-            stringBuilder.append(car).append("\n");
+            result.append(car).append("\n");
         }
-        return stringBuilder.toString();
+        return result.toString();
+    }
+
+    public List<String> winners() {
+        int highScore = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+
+        return cars.stream()
+                .filter(car -> car.getPosition() >= highScore)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }

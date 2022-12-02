@@ -24,9 +24,14 @@ public class Application {
         gameController.race(cars, tryCount);
     }
 
+    private void finish() {
+        gameController.finish(cars);
+    }
+
     public static void main(String[] args) {
         Application app = new Application();
         app.readData();
         app.race();
+        app.finish();
     }
 }
