@@ -17,18 +17,31 @@ public class InputView {
         return CarNames.from(carNames);
     }
 
+    public Coin readCoins() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        return new Coin(parseInt(read()));
+    }
+
     private String read() {
         String userInput = Console.readLine();
         validateEmpty(userInput);
         return userInput;
     }
 
-
     private String[] split(String input) {
         try {
             return input.split(SEPARATOR);
         } catch (PatternSyntaxException e) {
             throw new IllegalArgumentException("[ERROR] '?', '*', '+', '(', '{' 등 메타 문자는 이름으로 등록할 수 없습니다");
+        }
+    }
+
+    private int parseInt(String input) {
+        try {
+            return Integer.parseInt(read());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자가 입력돼야 합니다");
         }
     }
 
