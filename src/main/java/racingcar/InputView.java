@@ -14,7 +14,7 @@ public class InputView {
         String[] carNames = split(read());
         validateEmpties(carNames);
 
-        return CarNames.from(carNames);
+        return new CarNames(carNames);
     }
 
     public Coin readCoins() {
