@@ -41,7 +41,7 @@ public class InputView {
 
     private int parseInt(String input) {
         try {
-            return Integer.parseInt(read());
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("[ERROR] 게임 실행할 횟수는 숫자만 입력받을 수 있습니다");
         }
