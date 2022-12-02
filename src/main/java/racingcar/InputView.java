@@ -43,7 +43,7 @@ public class InputView {
         try {
             return Integer.parseInt(read());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자가 입력돼야 합니다");
+            throw new IllegalArgumentException("[ERROR] 게임 실행할 횟수는 숫자만 입력받을 수 있습니다");
         }
     }
 
