@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.stream.IntStream;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -11,11 +13,11 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public void move() {
-        if (isUnmovable()) {
-            return;
+    public String move() {
+        if (isMovable()) {
+            position += 1;
         }
-        position += 1;
+        return createProgressMessage();
     }
 
     public int getPosition() {
@@ -26,11 +28,17 @@ public class Car {
         return name;
     }
 
-    private boolean isUnmovable() {
+    private boolean isMovable() {
         if (numberGenerator.generate() < 4) {
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
+    }
+
+    private String createProgressMessage() {
+        StringBuilder message = new StringBuilder(name + " : ");
+        IntStream.rangeClosed(1, position).forEach(i -> message.append("-"));
+        return message.append("\n").toString();
     }
 }

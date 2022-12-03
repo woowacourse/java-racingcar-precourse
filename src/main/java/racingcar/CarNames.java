@@ -14,12 +14,12 @@ public class CarNames {
         iterator = Arrays.stream(names).iterator();
     }
 
-    public int amount() {
-        return names.length;
+    public boolean hasNext() {
+        return iterator.hasNext();
     }
 
     public String next() {
-        if (iterator.hasNext()) {
+        if (hasNext()) {
             return iterator.next();
         }
 

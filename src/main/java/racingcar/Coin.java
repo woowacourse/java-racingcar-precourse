@@ -9,12 +9,16 @@ public class Coin {
         this.amount = amount;
     }
 
-    public boolean use() {
-        if (amount == 0) {
-            return false;
+    public boolean isRemain() {
+        return amount > 0;
+    }
+
+    public void use() {
+        if (!isRemain()) {
+            throw new IllegalArgumentException("[ERROR] 입력하신 숫자 이상 게임을 진행하실 수 없습니다");
         }
+
         amount -= 1;
-        return true;
     }
 
     private void validate(int amount) {

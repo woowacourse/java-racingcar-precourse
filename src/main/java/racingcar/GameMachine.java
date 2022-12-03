@@ -1,8 +1,5 @@
 package racingcar;
 
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class GameMachine {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
@@ -10,24 +7,22 @@ public class GameMachine {
     private static final int LIMIT = 1_000_000;
     private int tolerance = 0;
 
-    public void play() {
-        Cars cars = createCars(
-                readCarNames(),
-                readCoins());
-        cars.move();
+    public void run() {
+        Cars cars = new Cars(readCarNames());
+        play(
+                cars,
+                readCoins()
+        );
         outputView.printWinners(cars.findWinners());
     }
 
-    private Cars createCars(CarNames carNames, Coin coin) {
-        return new Cars(
-                IntStream.rangeClosed(1, carNames.amount())
-                        .mapToObj(i -> new Car(
-                                carNames.next(),
-                                new RandomNumberGenerator()
-                        ))
-                        .collect(Collectors.toList()),
-                coin
-        );
+    private void play(Cars cars, Coin coin) {
+        outputView.printGameStart();
+        while (coin.isRemain()) {
+            coin.use();
+            String result = cars.move();
+            outputView.printProgress(result);
+        }
     }
 
     // todo: read 부분 추상화하기

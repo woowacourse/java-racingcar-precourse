@@ -1,21 +1,25 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    List<Car> cars;
-    Coin coin;
+    List<Car> cars = new ArrayList<>();
 
-    public Cars(List<Car> cars, Coin coin) {
-        this.cars = cars;
-        this.coin = coin;
+    public Cars(CarNames carNames) {
+        while (carNames.hasNext()) {
+            cars.add(
+                    new Car(
+                            carNames.next(),
+                            new RandomNumberGenerator()));
+        }
     }
 
-    public void move() {
-        while (coin.use()) {
-            cars.stream().forEach(c -> c.move());
-        }
+    public String move() {
+        return cars.stream()
+                .map(c -> c.move())
+                .collect(Collectors.joining());
     }
 
     public String findWinners() {
