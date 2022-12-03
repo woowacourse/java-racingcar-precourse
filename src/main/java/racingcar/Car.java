@@ -22,6 +22,10 @@ public class Car {
         return position;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private boolean isUnmovable() {
         if (numberGenerator.generate() < 4) {
             return true;

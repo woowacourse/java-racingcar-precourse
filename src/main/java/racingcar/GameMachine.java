@@ -14,12 +14,17 @@ public class GameMachine {
         Cars cars = createCars(
                 readCarNames(),
                 readCoins());
+        cars.move();
+        outputView.printWinners(cars.findWinners());
     }
 
     private Cars createCars(CarNames carNames, Coin coin) {
         return new Cars(
                 IntStream.rangeClosed(1, carNames.amount())
-                        .mapToObj(i -> new Car(carNames.next()))
+                        .mapToObj(i -> new Car(
+                                carNames.next(),
+                                new RandomNumberGenerator()
+                        ))
                         .collect(Collectors.toList()),
                 coin
         );

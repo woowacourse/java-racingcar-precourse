@@ -9,6 +9,14 @@ public class Coin {
         this.amount = amount;
     }
 
+    public boolean use() {
+        if (amount == 0) {
+            return false;
+        }
+        amount -= 1;
+        return true;
+    }
+
     private void validate(int amount) {
         if (amount > LIMIT) {
             throw new IllegalArgumentException("[ERROR] 게임 실행 횟수는 " + LIMIT + "번 이상 수행될 수 없습니다");
