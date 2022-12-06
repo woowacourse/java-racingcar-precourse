@@ -1,11 +1,10 @@
 package racingcar.domain;
 
 import racingcar.exception.CarsDuplicatedNameException;
+import racingcar.exception.CarsMaxScoreBlankException;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -46,9 +45,24 @@ public class Cars {
     }
 
     public void move(CarMoveNumberGenerator carMoveNumberGenerator) {
-        for(Car car : cars) {
+        for (Car car : cars) {
             car.move(carMoveNumberGenerator);
         }
+    }
+
+    public Winner findWinner() {
+        int maxScore = findMaxScore();
+        return new Winner(cars.stream()
+                .filter(car -> (car.getPosition() == maxScore))
+                .map(Car::getName)
+                .collect(Collectors.toList()));
+    }
+
+    private int findMaxScore() {
+        return cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .map(Car::getPosition)
+                .orElseThrow(CarsMaxScoreBlankException::new);
     }
 
     public List<Car> getCars() {

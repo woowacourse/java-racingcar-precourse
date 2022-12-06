@@ -16,6 +16,11 @@ public class RacingCarController {
     public void runGame() {
         makeRacingCarGame();
         playGame();
+        endGame();
+    }
+
+    private void endGame() {
+        outputView.printWinner(racingCarGame.findWinner());
     }
 
     private void playGame() {

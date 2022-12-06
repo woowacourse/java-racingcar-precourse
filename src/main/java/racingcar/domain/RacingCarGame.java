@@ -12,6 +12,10 @@ public class RacingCarGame {
         cars.move(new CarRandomMoveNumberGenerator());
     }
 
+    public Winner findWinner() {
+        return cars.findWinner();
+    }
+
     public Cars getCars() {
         return cars;
     }
