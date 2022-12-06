@@ -8,6 +8,7 @@ import racingcar.domain.Car;
 import racingcar.domain.CarMoveNumberGenerator;
 import racingcar.domain.Cars;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -52,5 +53,21 @@ public class CarsTest {
         assertThat(cars.getCars().get(0)).extracting("position").isEqualTo(3);
         assertThat(cars.getCars().get(1)).extracting("position").isEqualTo(1);
         assertThat(cars.getCars().get(2)).extracting("position").isEqualTo(2);
+    }
+
+    @DisplayName("우승자를 찾아서 반환한다")
+    @Test
+    void findWinnerSuccess() {
+        Cars cars = Cars.createCarNameByWord("pobi,randi,rudy");
+        CarMoveNumberGenerator carMoveNumberGenerator
+                = new CarTest.TestNumberGenerator(newArrayList(4, 2, 6, 9, 5, 6, 4, 0, 7));
+        cars.move(carMoveNumberGenerator);
+        cars.move(carMoveNumberGenerator);
+        cars.move(carMoveNumberGenerator);
+
+        List<String> result = new ArrayList<>();
+        result.add("pobi");
+        result.add("rudy");
+        assertThat(cars.findWinner().getWinner()).isEqualTo(result);
     }
 }
