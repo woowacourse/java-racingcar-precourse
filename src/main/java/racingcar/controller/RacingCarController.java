@@ -1,21 +1,38 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.RacingCarGame;
+import racingcar.domain.TryCommand;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
-import java.util.function.Supplier;
 
 public class RacingCarController {
 
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
+    private RacingCarGame racingCarGame;
 
     public void runGame() {
-        askCarName();
+        makeRacingCarGame();
+        playGame();
     }
 
-    private Cars askCarName() {
+    private void playGame() {
+        
+    }
+
+    private void makeRacingCarGame() {
+        racingCarGame = new RacingCarGame(askCar(), askTryCommand());
+        outputView.printBlank();
+    }
+
+    private TryCommand askTryCommand() {
+        outputView.printInputTry();
+        return new ReEnterProcessor<>(inputView::readTryCommand, outputView::printExceptionMessage).process();
+    }
+
+
+    private Cars askCar() {
         outputView.printInputCarName();
         return new ReEnterProcessor<>(inputView::readCarName, outputView::printExceptionMessage).process();
     }
