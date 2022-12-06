@@ -13,7 +13,7 @@ public class Cars {
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
-        this.cars = cars;
+        this.cars = Collections.unmodifiableList(cars);
     }
 
     public static Cars createCarNameByWord(String input) {
