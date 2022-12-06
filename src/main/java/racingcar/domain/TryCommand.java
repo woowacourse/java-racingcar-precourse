@@ -32,7 +32,7 @@ public class TryCommand {
     private static int convertInt(String input) {
         try{
             return Integer.parseInt(input);
-        }catch (IllegalArgumentException exception) {
+        }catch (NumberFormatException exception) {
             throw new TryCommandNumberException();
         }
     }

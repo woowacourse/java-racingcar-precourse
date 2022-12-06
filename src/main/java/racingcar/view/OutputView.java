@@ -23,7 +23,7 @@ public class OutputView {
     }
 
     public void printExceptionMessage(IllegalArgumentException exceptionMessage) {
-        exceptionMessage.printStackTrace();
+        System.out.println(exceptionMessage.getMessage());
     }
 
     public void printInputTry() {
