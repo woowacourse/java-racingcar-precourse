@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.function.Supplier;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -24,23 +25,22 @@ public class MainController {
     }
 
     private void registerCars() {
+        List<String> inputCars = repeat(inputView::inputCars);
+        carGame.registerCar(inputCars);
+    }
+
+    private <T> T repeat(Supplier<T> inputReader) {
         try {
-            List<String> inputCars = inputView.inputCars();
-            carGame.registerCar(inputCars);
+            return inputReader.get();
         } catch (IllegalArgumentException e) {
             outputView.printError(e.getMessage());
-            registerCars();
+            return repeat(inputReader);
         }
     }
 
     private void registerMoveCounts() {
-        try {
-            int moveCounts = inputView.inputMoveCounts();
-            carGame.registerMoveCounts(moveCounts);
-        } catch (IllegalArgumentException e) {
-            outputView.printError(e.getMessage());
-            registerMoveCounts();
-        }
+        int moveCounts = repeat(inputView::inputMoveCounts);
+        carGame.registerMoveCounts(moveCounts);
     }
 
     private void startRace() {
