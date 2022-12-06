@@ -36,4 +36,12 @@ public class TryCommand {
             throw new TryCommandNumberException();
         }
     }
+
+    public boolean tryMove() {
+        if(tryCount > 0) {
+            tryCount--;
+            return true;
+        }
+        return false;
+    }
 }

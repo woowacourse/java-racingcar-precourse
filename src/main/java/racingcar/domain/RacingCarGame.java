@@ -3,14 +3,16 @@ package racingcar.domain;
 public class RacingCarGame {
 
     private final Cars cars;
-    private final TryCommand tryCommand;
 
-    public RacingCarGame(Cars cars, TryCommand tryCommand) {
+    public RacingCarGame(Cars cars) {
         this.cars = cars;
-        this.tryCommand = tryCommand;
     }
 
-    public void moveCars() {
+    public void move() {
+        cars.move(new CarRandomMoveNumberGenerator());
+    }
 
+    public Cars getCars() {
+        return cars;
     }
 }

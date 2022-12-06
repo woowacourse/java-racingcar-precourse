@@ -44,4 +44,14 @@ public class Cars {
     private static String[] divideWord(String word) {
         return word.replaceAll(DUPLICATED_DELIMITER_REGEX, DELIMITER).split(DELIMITER);
     }
+
+    public void move(CarMoveNumberGenerator carMoveNumberGenerator) {
+        for(Car car : cars) {
+            car.move(carMoveNumberGenerator);
+        }
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }

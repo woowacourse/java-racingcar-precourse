@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.CarRandomMoveNumberGenerator;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingCarGame;
 import racingcar.domain.TryCommand;
@@ -18,11 +19,15 @@ public class RacingCarController {
     }
 
     private void playGame() {
-        
+        TryCommand tryCommand = askTryCommand();
+        while(tryCommand.tryMove()){
+            racingCarGame.move();
+            outputView.printResult(racingCarGame.getCars());
+        }
     }
 
     private void makeRacingCarGame() {
-        racingCarGame = new RacingCarGame(askCar(), askTryCommand());
+        racingCarGame = new RacingCarGame(askCar());
         outputView.printBlank();
     }
 
