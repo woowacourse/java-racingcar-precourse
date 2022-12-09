@@ -6,7 +6,9 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Number;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class CarRaceService {
@@ -42,5 +44,13 @@ public class CarRaceService {
         cars.race(number);
         trial -= RACE_TRY;
         return cars;
+    }
+
+    public List<String> winner() {
+        return cars.getCars().stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }

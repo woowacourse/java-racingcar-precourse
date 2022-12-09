@@ -1,7 +1,10 @@
 package racingcar.view;
 
 import racingcar.controller.CarRaceController;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
+
+import java.util.List;
 
 public class DefaultView {
 
@@ -40,5 +43,9 @@ public class DefaultView {
             Cars cars = controller.race();
             outputView.printRaceResult(cars);
         }
+    }
+
+    private void showWinner() {
+        List<String> winner = controller.getWinner();
     }
 }

@@ -2,8 +2,11 @@ package racingcar.controller;
 
 import racingcar.controller.dto.NameDto;
 import racingcar.controller.dto.TrialDto;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.service.CarRaceService;
+
+import java.util.List;
 
 public class CarRaceController {
 
@@ -35,5 +38,9 @@ public class CarRaceController {
 
     public Cars race() {
         return service.race();
+    }
+
+    public List<String> getWinner() {
+        return service.winner();
     }
 }
