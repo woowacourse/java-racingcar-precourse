@@ -42,12 +42,6 @@ public class OutputView {
     }
 
     private String getForward(int position) {
-        StringBuilder flag = new StringBuilder();
-
-        for (int i = 0; i < position; i++) {
-            flag.append(FORWARD_FLAG);
-        }
-
-        return flag.toString();
+        return FORWARD_FLAG.repeat(position);
     }
 }
