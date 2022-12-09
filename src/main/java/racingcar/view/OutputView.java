@@ -3,8 +3,8 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class OutputView {
 
@@ -13,6 +13,8 @@ public class OutputView {
     private static final String RACE_RESULT_HEADER = "실행 결과";
     private static final String FORWARD_FLAG = "-";
     private static final String CAR_RESULT_FORMAT = "%s : %s";
+    private static final String WINNER_FORMAT = "최종 우승자 : ";
+    private static final String WINNER_DELIMITER = ", ";
     private static final String DELIMITER = "\n";
 
     public void printInputCarNameMessage() {
@@ -43,5 +45,9 @@ public class OutputView {
 
     private String getForward(int position) {
         return FORWARD_FLAG.repeat(position);
+    }
+
+    public void printRaceWinner(List<String> winner) {
+        System.out.println(WINNER_FORMAT + String.join(WINNER_DELIMITER, winner));
     }
 }

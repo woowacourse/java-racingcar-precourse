@@ -22,6 +22,7 @@ public class DefaultView {
         getCarNames();
         getTrial();
         showResult();
+        showWinner();
     }
 
     private void getCarNames() {
@@ -47,5 +48,6 @@ public class DefaultView {
 
     private void showWinner() {
         List<String> winner = controller.getWinner();
+        outputView.printRaceWinner(winner);
     }
 }
