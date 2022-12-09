@@ -15,12 +15,12 @@ public class Car {
     // 추가 기능 구현
     private void validate(String name) {
         if (isOutOfBounds(name)) {
-            throw new IllegalArgumentException("[ERROR] 이름이 5자가 넘습니다.");
+            throw new IllegalArgumentException("[ERROR] 이름의 길이가 올바르지 않습니다.");
         }
     }
 
     private boolean isOutOfBounds(String name) {
-        return name.length() > LENGTH;
+        return name.length() > LENGTH || name.length() == 0;
     }
 
 }
