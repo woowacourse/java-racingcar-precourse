@@ -15,6 +15,10 @@ public class DefaultView {
     }
 
     public void render() {
+        getCarNames();
+    }
+
+    private void getCarNames() {
         outputView.printInputCarNameMessage();
         String carNames = inputView.readInput();
         controller.inputCarName(carNames);
