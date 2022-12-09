@@ -16,11 +16,16 @@ public class DefaultView {
 
     public void render() {
         getCarNames();
+        getTrial();
     }
 
     private void getCarNames() {
         outputView.printInputCarNameMessage();
         String carNames = inputView.readInput();
         controller.inputCarName(carNames);
+    }
+
+    private void getTrial() {
+        outputView.printInputTrialMessage();
     }
 }
