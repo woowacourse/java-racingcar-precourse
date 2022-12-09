@@ -24,4 +24,12 @@ public class CarRaceService {
     public void saveTrial(TrialDto dto) {
         this.trial = dto.getTrial();
     }
+
+    public boolean isEnd() {
+        return this.trial > 0;
+    }
+
+    public void race() {
+
+    }
 }

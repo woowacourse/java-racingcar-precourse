@@ -17,6 +17,9 @@ public class DefaultView {
     public void render() {
         getCarNames();
         getTrial();
+        while (controller.raceIsEnd()) {
+            showResult();
+        }
     }
 
     private void getCarNames() {
@@ -29,5 +32,9 @@ public class DefaultView {
         outputView.printInputTrialMessage();
         String trial = inputView.readInput();
         controller.inputTrial(trial);
+    }
+
+    private void showResult() {
+        controller.race();
     }
 }

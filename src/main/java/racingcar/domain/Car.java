@@ -13,6 +13,11 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    private void moveForward() {
+        this.position += 1;
+    }
+
     private void validate(String name) {
         if (isOutOfBounds(name)) {
             throw new IllegalArgumentException("[ERROR] 이름의 길이가 올바르지 않습니다.");
@@ -22,5 +27,4 @@ public class Car {
     private boolean isOutOfBounds(String name) {
         return name.length() > LENGTH || name.length() == 0;
     }
-
 }

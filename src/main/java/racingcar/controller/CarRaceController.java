@@ -27,4 +27,12 @@ public class CarRaceController {
 
         service.saveTrial(dto);
     }
+
+    public boolean raceIsEnd() {
+        return service.isEnd();
+    }
+
+    public void race() {
+        service.race();
+    }
 }
