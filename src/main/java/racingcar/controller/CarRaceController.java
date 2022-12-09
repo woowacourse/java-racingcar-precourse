@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.controller.dto.NameDto;
 import racingcar.controller.dto.TrialDto;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.service.CarRaceService;
 

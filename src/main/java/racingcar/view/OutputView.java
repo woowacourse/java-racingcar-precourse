@@ -50,4 +50,8 @@ public class OutputView {
     public void printRaceWinner(List<String> winner) {
         System.out.println(WINNER_FORMAT + String.join(WINNER_DELIMITER, winner));
     }
+
+    public void printErrorMessage(String message) {
+        System.out.println(message);
+    }
 }

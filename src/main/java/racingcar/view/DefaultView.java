@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.controller.CarRaceController;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 import java.util.List;
@@ -28,13 +27,13 @@ public class DefaultView {
     private void getCarNames() {
         outputView.printInputCarNameMessage();
         String carNames = inputView.readInput();
-        controller.inputCarName(carNames);
+        repeatIfExceptionOccur(() -> controller.inputCarName(carNames), this::getCarNames);
     }
 
     private void getTrial() {
         outputView.printInputTrialMessage();
         String trial = inputView.readInput();
-        controller.inputTrial(trial);
+        repeatIfExceptionOccur(() -> controller.inputTrial(trial), this::getTrial);
     }
 
     private void showResult() {
@@ -49,5 +48,14 @@ public class DefaultView {
     private void showWinner() {
         List<String> winner = controller.getWinner();
         outputView.printRaceWinner(winner);
+    }
+
+    private void repeatIfExceptionOccur(Runnable attempt, Runnable repeat) {
+        try {
+            attempt.run();
+        } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e.getMessage());
+            repeat.run();
+        }
     }
 }
