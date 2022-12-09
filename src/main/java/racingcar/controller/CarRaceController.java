@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.controller.dto.NameDto;
+import racingcar.controller.dto.TrialDto;
 import racingcar.service.CarRaceService;
 
 public class CarRaceController {
@@ -17,5 +18,13 @@ public class CarRaceController {
                 .build();
 
         service.saveCarName(dto);
+    }
+
+    public void inputTrial(String trial) {
+        TrialDto dto = TrialDto.builder()
+                .trial(trial)
+                .build();
+
+        service.saveTrial(dto);
     }
 }

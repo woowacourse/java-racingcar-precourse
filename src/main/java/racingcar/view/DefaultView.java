@@ -28,5 +28,6 @@ public class DefaultView {
     private void getTrial() {
         outputView.printInputTrialMessage();
         String trial = inputView.readInput();
+        controller.inputTrial(trial);
     }
 }
