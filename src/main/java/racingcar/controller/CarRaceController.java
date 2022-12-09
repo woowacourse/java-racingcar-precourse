@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.controller.dto.NameDto;
 import racingcar.controller.dto.TrialDto;
+import racingcar.domain.Cars;
 import racingcar.service.CarRaceService;
 
 public class CarRaceController {
@@ -32,7 +33,7 @@ public class CarRaceController {
         return service.isEnd();
     }
 
-    public void race() {
-        service.race();
+    public Cars race() {
+        return service.race();
     }
 }

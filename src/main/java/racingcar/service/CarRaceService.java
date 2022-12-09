@@ -38,8 +38,9 @@ public class CarRaceService {
         return this.trial > 0;
     }
 
-    public void race() {
+    public Cars race() {
         cars.race(number);
         trial -= RACE_TRY;
+        return cars;
     }
 }

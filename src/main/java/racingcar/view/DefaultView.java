@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.controller.CarRaceController;
+import racingcar.domain.Cars;
 
 public class DefaultView {
 
@@ -17,9 +18,7 @@ public class DefaultView {
     public void render() {
         getCarNames();
         getTrial();
-        while (controller.raceIsEnd()) {
-            showResult();
-        }
+        showResult();
     }
 
     private void getCarNames() {
@@ -35,6 +34,11 @@ public class DefaultView {
     }
 
     private void showResult() {
-        controller.race();
+        outputView.printRaceResultHeader();
+
+        while (controller.raceIsEnd()) {
+            Cars cars = controller.race();
+            outputView.printRaceResult(cars);
+        }
     }
 }

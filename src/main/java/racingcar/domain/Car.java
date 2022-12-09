@@ -25,6 +25,10 @@ public class Car {
         return number >= MOVE_STANDARD;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
