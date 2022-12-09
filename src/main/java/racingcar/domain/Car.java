@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class Car {
 
+    private static final int MOVE_STANDARD = 4;
     private static final int LENGTH = 5;
 
     private final String name;
@@ -13,6 +14,20 @@ public class Car {
     }
 
     // 추가 기능 구현
+
+    public void tryMoveForward(int number) {
+        if (canMove(number)) {
+            moveForward();
+        }
+    }
+
+    private boolean canMove(int number) {
+        return number >= MOVE_STANDARD;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 
     private void moveForward() {
         this.position += 1;

@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
@@ -27,5 +28,16 @@ class CarTest {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR);
+    }
+
+    @DisplayName("숫자가 4이상일 경우 자동차는 전진한다.")
+    @Test
+    void tryMoveForward() {
+        Car car = new Car("test");
+        int position = car.getPosition();
+
+        car.tryMoveForward(4);
+
+        assertThat(car.getPosition()).isEqualTo(position + 1);
     }
 }
