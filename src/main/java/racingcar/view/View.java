@@ -2,8 +2,6 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
-import racingcar.message.ErrorMessage;
-import racingcar.message.Message;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
 import static racingcar.message.ErrorMessage.*;
 import static racingcar.message.Message.*;
 
-public class InputView extends OutputView{
+public class View extends OutputView{
     public List<Car> inputCar(){
         printCarsName();
         String input = Console.readLine();
