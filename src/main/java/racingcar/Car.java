@@ -9,11 +9,19 @@ import java.util.stream.IntStream;
 import static racingcar.message.Message.*;
 
 public class Car {
+    private final int maxNameSize = 5;
     private final String name;
     private int position = 0;
 
     public Car(String name) {
+        validate(name);
         this.name = name;
+    }
+
+    private void validate(String name) {
+        if(name.length() > maxNameSize){
+            throw new IllegalArgumentException()
+        }
     }
 
     // 추가 기능 구현
