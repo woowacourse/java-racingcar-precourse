@@ -22,7 +22,7 @@ public class InputView {
         String[] split = input.split(",");
 
         List<Car> cars = Arrays.stream(split)
-                .map(name -> new Car(name.trim()))
+                .map(Car::new)
                 .collect(Collectors.toList());
 
         return new CarGroup(cars);

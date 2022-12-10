@@ -18,6 +18,12 @@ class CarTest {
     }
 
     @Test
+    void Car_객체의_이름은_앞_뒤_공백을_제거한_값이다() {
+        Car testCar = new Car(" 방방이 ");
+        Assertions.assertThat(testCar.getName()).isEqualTo("방방이");
+    }
+
+    @Test
     void Car_객체의_이름이_5자_이하가_아니면_예외() {
         Assertions.assertThatThrownBy(() -> {
                     new Car("over_5_length");

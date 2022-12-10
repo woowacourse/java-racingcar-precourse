@@ -12,8 +12,9 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        validateName(name);
-        this.name = name;
+        String refined = name.trim();
+        validateName(refined);
+        this.name = refined;
     }
 
     private void validateName(String name) {
