@@ -24,7 +24,6 @@ public class InputView {
         List<Car> cars = Arrays.stream(split)
                 .map(Car::new)
                 .collect(Collectors.toList());
-
         return new CarGroup(cars);
     }
 

@@ -47,4 +47,18 @@ public class Car {
         String movement = POSITION.repeat(position);
         return String.join(" : ", name, movement);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Car) {
+            Car other = (Car) obj;
+            return name.equals(other.getName());
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }
