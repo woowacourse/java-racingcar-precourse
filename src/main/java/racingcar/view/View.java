@@ -9,8 +9,8 @@ import java.util.List;
 import static racingcar.message.ErrorMessage.*;
 import static racingcar.message.Message.*;
 
-public class View extends OutputView{
-    public List<Car> inputCar(){
+public class View extends OutputView {
+    public List<Car> inputCar() {
         printCarsName();
         String input = Console.readLine();
         String[] splitInput = input.split(DELIMITER.getMessage());
@@ -20,22 +20,22 @@ public class View extends OutputView{
     }
 
     private void makeCars(String[] splitInput, List<Car> cars) {
-        try{
-            for(String car : splitInput){
+        try {
+            for (String car : splitInput) {
                 cars.add(new Car(car));
             }
-        }catch (IllegalArgumentException exception){
+        } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
             inputCar();
         }
     }
 
-    public int inputRound(){
+    public int inputRound() {
         printInputFinalRound();
         String inputRound = Console.readLine();
-        try{
+        try {
             validateRound(inputRound);
-        }catch (IllegalArgumentException exception){
+        } catch (IllegalArgumentException exception) {
             System.out.println(exception);
             inputRound();
         }
@@ -43,9 +43,9 @@ public class View extends OutputView{
     }
 
     private void validateRound(String inputRound) {
-        try{
+        try {
             Integer.parseInt(inputRound);
-        }catch (NumberFormatException exception){
+        } catch (NumberFormatException exception) {
             throw new IllegalArgumentException(ROUND_IS_DIGIT.getMessage());
         }
     }

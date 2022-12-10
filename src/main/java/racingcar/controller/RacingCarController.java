@@ -6,6 +6,8 @@ import racingcar.view.View;
 
 import java.util.List;
 
+import static racingcar.message.Message.ESCAPE_SEQUENCE;
+
 public class RacingCarController {
     private final View view = new View();
 
@@ -20,7 +22,7 @@ public class RacingCarController {
         StringBuilder print = new StringBuilder();
         while (!carVenue.isEnd()) {
             carVenue.moveTurn();
-            print.append(carVenue.printTurn() + "\n");
+            print.append(carVenue.printTurn() + ESCAPE_SEQUENCE.getMessage());
         }
         view.printResult(print.toString());
         whoIsWinner(carVenue);

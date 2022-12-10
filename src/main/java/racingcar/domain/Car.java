@@ -7,11 +7,14 @@ import java.util.stream.IntStream;
 
 import static racingcar.message.ErrorMessage.CAR_NAME_TOO_LONG;
 import static racingcar.message.Message.*;
+import static racingcar.util.Number.*;
 
 public class Car {
     private final int maxNameSize = 5;
     private final String name;
     private int position = 0;
+
+
 
     public Car(String name) {
         validate(name);
@@ -26,7 +29,11 @@ public class Car {
 
     // 추가 기능 구현
     public void move(int moveInput) {
-        if (moveInput >= Number.STANDARD_NUMBER.getNumber()) position++;
+        if (moveInput >= STANDARD_NUMBER.getNumber()) position++;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
@@ -41,8 +48,8 @@ public class Car {
         print.append(IntStream.range(0, position).mapToObj(i -> POSITION.getMessage()).collect(Collectors.joining()));
     }
 
-    public String getWinnerName(int finalPosition){
-        if(finalPosition == position)return name;
+    public String getWinnerName(int maxPosition){
+        if(maxPosition == position)return name;
         return LOSER.getMessage();
     }
 }
