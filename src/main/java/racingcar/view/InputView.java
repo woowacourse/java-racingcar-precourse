@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.utils.ErrorMessage.TRY_COUNT_MUST_BE_NUMBER;
+import static racingcar.message.ErrorMessage.TRY_COUNT_MUST_BE_NUMBER;
 
 public class InputView {
 

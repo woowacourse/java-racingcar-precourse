@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.message;
 
 public enum ErrorMessage {
     INVALID_CAR_NAME("자동차이름은 5자 이하만 가능합니다."),

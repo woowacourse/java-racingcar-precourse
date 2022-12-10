@@ -6,13 +6,13 @@ import racingcar.support.RandomNumberGenerator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.utils.ErrorMessage.GROUP_CANNOT_HAVE_DUPLICATED_CAR;
-import static racingcar.utils.ErrorMessage.INVALID_CAR_GROUP;
+import static racingcar.message.ErrorMessage.GROUP_CANNOT_HAVE_DUPLICATED_CAR;
+import static racingcar.message.ErrorMessage.INVALID_CAR_GROUP;
 
 public class CarGroup {
 
     private static final String WINNER_DELIMITER = ", ";
-    
+
     private final RandomNumberGenerator flagGenerator;
     private final List<Car> carGroup;
 

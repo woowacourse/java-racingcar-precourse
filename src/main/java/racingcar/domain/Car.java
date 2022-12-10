@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import org.junit.platform.commons.util.StringUtils;
 
-import static racingcar.utils.ErrorMessage.INVALID_CAR_NAME;
+import static racingcar.message.ErrorMessage.INVALID_CAR_NAME;
 
 public class Car {
 

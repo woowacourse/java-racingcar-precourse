@@ -2,7 +2,7 @@ package racingcar.view;
 
 import racingcar.domain.CarGroup;
 
-import static racingcar.utils.PrintMessage.*;
+import static racingcar.message.PrintMessage.*;
 
 public class OutputView {
 
