@@ -14,4 +14,10 @@ class CarTest {
                 car.move(1);
                 Assertions.assertEquals(car.toString(),"bebe : --");
         }
+
+        @Test
+        public void carNameTest() throws Exception{
+                org.assertj.core.api.Assertions.assertThatThrownBy(()->
+                        new Car("ffffff")).isInstanceOf(IllegalArgumentException.class);
+        }
 }

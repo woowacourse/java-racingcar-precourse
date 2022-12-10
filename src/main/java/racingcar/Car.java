@@ -1,11 +1,13 @@
 package racingcar;
 
+import racingcar.message.ErrorMessage;
 import racingcar.message.Message;
 import racingcar.util.Number;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static racingcar.message.ErrorMessage.*;
 import static racingcar.message.Message.*;
 
 public class Car {
@@ -20,7 +22,7 @@ public class Car {
 
     private void validate(String name) {
         if(name.length() > maxNameSize){
-            throw new IllegalArgumentException()
+            throw new IllegalArgumentException(CAR_NAME_TOO_LONG.getMessage());
         }
     }
 
