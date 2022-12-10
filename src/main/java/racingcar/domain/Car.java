@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static racingcar.message.ErrorMessage.CAR_NAME_TOO_LONG;
-import static racingcar.message.Message.INFIX;
-import static racingcar.message.Message.POSITION;
+import static racingcar.message.Message.*;
 
 public class Car {
     private final int maxNameSize = 5;
@@ -40,5 +39,10 @@ public class Car {
 
     private void appendPosition(StringBuilder print) {
         print.append(IntStream.range(0, position).mapToObj(i -> POSITION.getMessage()).collect(Collectors.joining()));
+    }
+
+    public String getWinnerName(int finalPosition){
+        if(finalPosition == position)return name;
+        return LOSER.getMessage();
     }
 }
