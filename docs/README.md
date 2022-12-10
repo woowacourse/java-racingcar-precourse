@@ -14,6 +14,8 @@
 
 ## CAR POSITION OPERATOR
 - [x] 대회에 참가하는 차들의 한 턴당 포지션 값들 관리
+## ROUND
+- [ ] 우승 라운드와 현재 라운드 관리
 
 ## RANDOM NUMBER GENERATE
 - [x] 0~9 사이의 값을 생성
