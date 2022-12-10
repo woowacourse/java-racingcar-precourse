@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
-import racingcar.domain.CarVenue;
+import racingcar.service.CarVenueService;
 import racingcar.view.View;
 
 import java.util.List;
@@ -14,20 +14,20 @@ public class RacingCarController {
     public void play() {
         List<Car> cars = view.inputCar();
         int round = view.inputRound();
-        CarVenue carVenue = new CarVenue(cars, round);
-        moveAndPrint(carVenue);
+        CarVenueService carVenueService = new CarVenueService(cars, round);
+        moveAndPrint(carVenueService);
     }
 
-    private void moveAndPrint(CarVenue carVenue) {
+    private void moveAndPrint(CarVenueService carVenueService) {
         StringBuilder print = new StringBuilder();
-        while (!carVenue.isEnd()) {
-            carVenue.moveTurn();
-            print.append(carVenue.printTurn() + ESCAPE_SEQUENCE.getMessage());
+        while (!carVenueService.isEnd()) {
+            carVenueService.moveTurn();
+            print.append(carVenueService.printTurn() + ESCAPE_SEQUENCE.getMessage());
         }
         view.printResult(print.toString());
-        whoIsWinner(carVenue);
+        whoIsWinner(carVenueService);
     }
-    private void whoIsWinner(CarVenue carVenue){
-        view.printWinner(carVenue.printWinner());
+    private void whoIsWinner(CarVenueService carVenueService){
+        view.printWinner(carVenueService.printWinner());
     }
 }

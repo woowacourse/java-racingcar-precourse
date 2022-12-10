@@ -39,12 +39,12 @@ public class Car {
     @Override
     public String toString() {
         StringBuilder print = new StringBuilder(name);
-        print.append(INFIX.getMessage());
         appendPosition(print);
         return print.toString();
     }
 
     private void appendPosition(StringBuilder print) {
+        print.append(INFIX.getMessage());
         print.append(IntStream.range(0, position).mapToObj(i -> POSITION.getMessage()).collect(Collectors.joining()));
     }
 

@@ -1,5 +1,7 @@
-package racingcar.domain;
+package racingcar.service;
 
+import racingcar.domain.Car;
+import racingcar.domain.Round;
 import racingcar.util.CarOperator;
 import racingcar.util.RandomNumberGenerate;
 
@@ -10,14 +12,14 @@ import java.util.stream.IntStream;
 
 import static racingcar.message.Message.*;
 
-public class CarVenue {
+public class CarVenueService {
     private final List<Car> cars;
     private final CarOperator carOperator;
     private final Round round;
     private int maxPosition = 0;
 
 
-    public CarVenue(List<Car> cars, int finalRound) {
+    public CarVenueService(List<Car> cars, int finalRound) {
         this.cars = cars;
         this.carOperator = new CarOperator(new RandomNumberGenerate(), cars.size());
         this.round = new Round(finalRound);

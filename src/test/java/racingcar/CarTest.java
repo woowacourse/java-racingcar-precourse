@@ -19,4 +19,13 @@ class CarTest {
                 org.assertj.core.api.Assertions.assertThatThrownBy(()->
                         new Car("ffffff")).isInstanceOf(IllegalArgumentException.class);
         }
+        @Test
+        public void $NAME() throws Exception{
+           String hello = ",,1";
+           String[] split = hello.split(",");
+           int count = 0;
+           for(String x : split){
+                   if(x.equals("")) System.out.println("blank");
+           }
+        }
 }
