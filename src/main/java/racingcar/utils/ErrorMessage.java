@@ -5,13 +5,13 @@ public enum ErrorMessage {
     INVALID_CAR_GROUP("잘못된 CarGroup을 참조하고있습니다.");
     public final String message;
 
-    private static final String prefix = "[ERROR] ";
+    private static final String prefix = "[ERROR]";
 
     ErrorMessage(String message) {
         this.message = message;
     }
 
     public String getMessage() {
-        return prefix + message;
+        return String.join(" ", prefix, message);
     }
 }
