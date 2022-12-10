@@ -1,14 +1,13 @@
-package racingcar;
+package racingcar.domain;
 
-import racingcar.message.ErrorMessage;
-import racingcar.message.Message;
 import racingcar.util.Number;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static racingcar.message.ErrorMessage.*;
-import static racingcar.message.Message.*;
+import static racingcar.message.ErrorMessage.CAR_NAME_TOO_LONG;
+import static racingcar.message.Message.INFIX;
+import static racingcar.message.Message.POSITION;
 
 public class Car {
     private final int maxNameSize = 5;
@@ -21,14 +20,14 @@ public class Car {
     }
 
     private void validate(String name) {
-        if(name.length() > maxNameSize){
+        if (name.length() > maxNameSize) {
             throw new IllegalArgumentException(CAR_NAME_TOO_LONG.getMessage());
         }
     }
 
     // 추가 기능 구현
-    public void move(int moveInput){
-        if(moveInput >= Number.STANDARD_NUMBER.getNumber())position++;
+    public void move(int moveInput) {
+        if (moveInput >= Number.STANDARD_NUMBER.getNumber()) position++;
     }
 
     @Override
