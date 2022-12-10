@@ -1,16 +1,16 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.platform.commons.util.StringUtils;
-import racingcar.utils.Consts;
+import racingcar.support.CarMoveFlagGenerator;
+import racingcar.support.RandomNumberGenerator;
 
-import static racingcar.utils.Consts.MAX_RANDOM_NUMBER;
-import static racingcar.utils.Consts.MIN_RANDOM_NUMBER;
+import static racingcar.utils.Consts.CAR_NAME_LENGTH;
 import static racingcar.utils.ErrorMessage.INVALID_CAR_NAME;
 
 public class Car {
     private final String name;
     private int position = 0;
+    private final RandomNumberGenerator flagGenerator = new CarMoveFlagGenerator();
 
     public Car(String name) {
         validateName(name);
@@ -22,7 +22,7 @@ public class Car {
     }
 
     private void validateLength(String name) {
-        if (name.length() > Consts.CAR_NAME_LENGTH) {
+        if (name.length() > CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(INVALID_CAR_NAME.getMessage());
         }
 
@@ -40,8 +40,7 @@ public class Car {
     }
 
     private boolean isMove() {
-        int moveFlag = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        return moveFlag >= 4;
+        return flagGenerator.generate();
     }
 
     public int getPosition() {
