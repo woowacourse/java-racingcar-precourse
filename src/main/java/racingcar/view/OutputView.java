@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import racingcar.message.Message;
-
 import static racingcar.message.Message.*;
 
 public class OutputView {

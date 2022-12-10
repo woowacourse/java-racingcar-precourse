@@ -16,8 +16,4 @@ public class Round {
         if (tempRound == finalRound) return true;
         return false;
     }
-
-    public int getFinalRound() {
-        return finalRound;
-    }
 }
