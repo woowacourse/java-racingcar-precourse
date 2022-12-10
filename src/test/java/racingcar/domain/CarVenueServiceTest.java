@@ -36,4 +36,20 @@ class CarVenueServiceTest {
         IntStream.range(0, round).forEach(i -> carVenueService.moveTurn());
         Assertions.assertEquals(carVenueService.isEnd(), true);
     }
+
+    @Test
+    @DisplayName("게임 진행 및 출력 확인")
+    public void carVenueServiceTest() throws Exception{
+        //given
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("hi1"));
+        cars.add(new Car("hi2"));
+        int round = 3;
+        CarVenueService carVenueService = new CarVenueService(cars, round);
+        carVenueService.moveTurn();
+        Assertions.assertEquals(carVenueService.printTurn().contains("hi1 : "),
+                true);
+        Assertions.assertEquals(carVenueService.printTurn().contains("hi2 : "),
+                true);
+    }
 }
