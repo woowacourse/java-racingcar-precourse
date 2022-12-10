@@ -2,7 +2,8 @@ package racingcar.message;
 
 public enum Message {
     DELIMITER(","),
-    INFIX(" : ");
+    INFIX(" : "),
+    POSITION("-");
     private String message;
 
     Message(String message) {

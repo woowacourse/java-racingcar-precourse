@@ -1,6 +1,12 @@
 package racingcar;
 
+import racingcar.message.Message;
 import racingcar.util.Number;
+
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static racingcar.message.Message.*;
 
 public class Car {
     private final String name;
@@ -18,9 +24,12 @@ public class Car {
     @Override
     public String toString() {
         StringBuilder print = new StringBuilder(name);
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
-                '}';
+        print.append(INFIX.getMessage());
+        appendPosition(print);
+        return print.toString();
+    }
+
+    private void appendPosition(StringBuilder print) {
+        print.append(IntStream.range(0, position).mapToObj(i -> POSITION.getMessage()).collect(Collectors.joining()));
     }
 }
