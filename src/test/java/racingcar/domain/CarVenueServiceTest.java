@@ -25,4 +25,15 @@ class CarVenueServiceTest {
         IntStream.range(0, round).map(i -> 5).forEach(hiCar::move);
         Assertions.assertEquals(carVenueService.printWinner(), "최종 우승자 : bye, hello");
     }
+
+    @Test
+    @DisplayName("게임 엔딩 확인 테스트")
+    public void endGameTest() throws Exception{
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("hi1"));
+        int round = 3;
+        CarVenueService carVenueService = new CarVenueService(cars, round);
+        IntStream.range(0, round).forEach(i -> carVenueService.moveTurn());
+        Assertions.assertEquals(carVenueService.isEnd(), true);
+    }
 }
