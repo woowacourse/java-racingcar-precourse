@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.domain.CarGroup;
+
 import static racingcar.utils.PrintMessage.*;
 
 public class OutputView {
@@ -12,16 +14,15 @@ public class OutputView {
         System.out.println(INPUT_TRY_COUNT.getMessage());
     }
 
-    // TODO : 실행결과 데이터를 받아서 출력
     public void printRacingStart() {
-        System.out.printf(PRINT_BEFORE_RACING_RESULT.getMessage());
+        System.out.println(PRINT_BEFORE_RACING_RESULT.getMessage());
     }
 
-    public void printRacingLog(String log) {
-        System.out.println(log);
+    public void printRacingLog(CarGroup group) {
+        System.out.println(group.toProgressMessage());
     }
 
-    public void printWinner(String winners) {
-        System.out.printf(PRINT_WINNER.getMessage(), winners);
+    public void printWinner(CarGroup group) {
+        System.out.printf(PRINT_WINNER.getMessage(), group.toWinnerMessage());
     }
 }

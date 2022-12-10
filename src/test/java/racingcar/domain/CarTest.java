@@ -5,10 +5,10 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
-import static racingcar.utils.Consts.ERROR_PREFIX;
-
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarTest {
+
+    public static final String ERROR_PREFIX = "[ERROR]";
 
     Car car = new Car("붕붕이");
 

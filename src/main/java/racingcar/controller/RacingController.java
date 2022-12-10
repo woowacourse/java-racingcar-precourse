@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.domain.CarGroup;
-import racingcar.domain.ScoreBoard;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,25 +11,23 @@ public class RacingController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final ScoreBoard scoreBoard;
 
     public RacingController() {
         outputView = new OutputView();
         inputView = new InputView(outputView);
-        scoreBoard = new ScoreBoard();
     }
 
     public void run() {
         CarGroup cars = repeat(inputView::inputCarName);
         Integer tryCount = repeat(inputView::inputTryCount);
-        outputView.printRacingStart();
 
+        outputView.printRacingStart();
         IntStream.range(0, tryCount).forEach(index -> {
             cars.moveAll();
-            String log = scoreBoard.toPositionMessage(cars);
-            outputView.printRacingLog(log);
+            outputView.printRacingLog(cars);
         });
-        outputView.printWinner(scoreBoard.getWinner(cars));
+
+        outputView.printWinner(cars);
     }
 
     private <T> T repeat(Supplier<T> inputReader) {

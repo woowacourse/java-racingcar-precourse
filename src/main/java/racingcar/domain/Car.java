@@ -2,11 +2,12 @@ package racingcar.domain;
 
 import org.junit.platform.commons.util.StringUtils;
 
-import static racingcar.utils.Consts.CAR_NAME_LENGTH;
 import static racingcar.utils.ErrorMessage.INVALID_CAR_NAME;
 
 public class Car {
 
+    public static final int CAR_NAME_LENGTH = 5;
+    private static final String POSITION = "-";
     private final String name;
     private int position = 0;
 
@@ -42,7 +43,7 @@ public class Car {
     }
 
     public String toMessage() {
-        String movement = "-".repeat(position);
-        return name + " : " + movement;
+        String movement = POSITION.repeat(position);
+        return String.join(" : ", name, movement);
     }
 }
