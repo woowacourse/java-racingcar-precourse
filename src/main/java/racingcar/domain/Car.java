@@ -51,4 +51,9 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public String toMessage() {
+        String movement = "-".repeat(position);
+        return name + " : " + movement;
+    }
 }
