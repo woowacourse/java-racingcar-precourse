@@ -51,5 +51,4 @@ public class InputView extends OutputView{
             throw new IllegalArgumentException(ROUND_IS_DIGIT.getMessage());
         }
     }
-
 }
