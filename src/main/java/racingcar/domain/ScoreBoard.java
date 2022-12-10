@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 import static racingcar.utils.ErrorMessage.INVALID_CAR_GROUP;
@@ -18,16 +18,17 @@ public class ScoreBoard {
                 .collect(Collectors.joining());
     }
 
-    public CarGroup getWinner(CarGroup group) {
+    public String getWinner(CarGroup group) {
         List<Car> cars = group.getCars();
-        List<Car> winners = new ArrayList<>();
+        StringJoiner winners = new StringJoiner(", ");
         int winnerScore = getWinnerScore(cars);
 
         cars.stream()
                 .filter(car -> car.getPosition() == winnerScore)
+                .map(Car::getName)
                 .forEach(winners::add);
 
-        return new CarGroup(winners);
+        return winners.toString();
     }
 
     private int getWinnerScore(List<Car> cars) {

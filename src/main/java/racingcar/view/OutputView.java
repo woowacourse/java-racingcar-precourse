@@ -13,12 +13,15 @@ public class OutputView {
     }
 
     // TODO : 실행결과 데이터를 받아서 출력
-    public void printRacingLog() {
-        String result = "";
-        System.out.printf(PRINT_RACING_RESULT.getMessage(), result);
+    public void printRacingStart() {
+        System.out.printf(PRINT_BEFORE_RACING_RESULT.getMessage());
     }
 
-    public void printWinner() {
-        System.out.println(PRINT_WINNER.getMessage());
+    public void printRacingLog(String log) {
+        System.out.println(log);
+    }
+
+    public void printWinner(String winners) {
+        System.out.printf(PRINT_WINNER.getMessage(), winners);
     }
 }
