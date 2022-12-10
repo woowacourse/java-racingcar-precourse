@@ -2,6 +2,14 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
+        try {
+            RaceController race = new RaceController();
+
+            race.racing();
+            race.awarding();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
