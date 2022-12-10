@@ -1,10 +1,13 @@
 package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarGroupTest {
 
     public static final String ERROR_PREFIX = "[ERROR]";
