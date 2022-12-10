@@ -26,9 +26,10 @@ class CarTest {
     }
 
     @Test
-    void Car_객체의_이름이_빈값이면_예외() {
+    void Car_객체의_이름이_빈값이거나_NULL이면_예외() {
         Assertions.assertThatThrownBy(() -> {
                     new Car("");
+                    new Car(null);
                 }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR_PREFIX);
     }
@@ -37,12 +38,12 @@ class CarTest {
     void move_메소드는_자동차가_이동하고난_뒤의_위치를_반환한다() {
         //given
         int position = car.getPosition();
+
         //when
-        if (car.move()) {
-            position++;
-        }
+        car.move();
+
         //then
         Assertions.assertThat(car.getPosition())
-                .isEqualTo(position);
+                .isEqualTo(position + 1);
     }
 }

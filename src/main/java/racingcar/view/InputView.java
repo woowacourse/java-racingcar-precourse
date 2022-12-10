@@ -18,11 +18,13 @@ public class InputView {
 
     public CarGroup inputCarName() {
         outputView.printInputRacing();
-
         String input = Console.readLine();
         String[] split = input.split(",");
 
-        List<Car> cars = Arrays.stream(split).map(Car::new).collect(Collectors.toList());
+        List<Car> cars = Arrays.stream(split)
+                .map(name -> new Car(name.trim()))
+                .collect(Collectors.toList());
+
         return new CarGroup(cars);
     }
 

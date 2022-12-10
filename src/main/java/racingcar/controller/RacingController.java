@@ -6,6 +6,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.function.Supplier;
+import java.util.stream.IntStream;
 
 public class RacingController {
 
@@ -24,11 +25,11 @@ public class RacingController {
         Integer tryCount = repeat(inputView::inputTryCount);
         outputView.printRacingStart();
 
-        for (int i = 0; i < tryCount; i++) {
+        IntStream.range(0, tryCount).forEach(index -> {
             cars.moveAll();
             String log = scoreBoard.toPositionMessage(cars);
             outputView.printRacingLog(log);
-        }
+        });
         outputView.printWinner(scoreBoard.getWinner(cars));
     }
 
