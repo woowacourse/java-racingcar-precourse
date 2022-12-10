@@ -8,6 +8,8 @@ public class Car {
 
     public static final int CAR_NAME_LENGTH = 5;
     private static final String POSITION = "-";
+    private static final String CAR_MESSAGE_DELIMITER = " : ";
+
     private final String name;
     private int position = 0;
 
@@ -45,7 +47,7 @@ public class Car {
 
     public String toMessage() {
         String movement = POSITION.repeat(position);
-        return String.join(" : ", name, movement);
+        return String.join(CAR_MESSAGE_DELIMITER, name, movement);
     }
 
     @Override

@@ -11,6 +11,8 @@ import static racingcar.utils.ErrorMessage.INVALID_CAR_GROUP;
 
 public class CarGroup {
 
+    private static final String WINNER_DELIMITER = ", ";
+    
     private final RandomNumberGenerator flagGenerator;
     private final List<Car> carGroup;
 
@@ -56,7 +58,7 @@ public class CarGroup {
         return carGroup.stream()
                 .filter(car -> car.getPosition() == winnerScore)
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(WINNER_DELIMITER));
     }
 
     private int getWinnerScore() {
