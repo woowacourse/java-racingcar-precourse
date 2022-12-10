@@ -2,7 +2,7 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import static racingcar.util.Number.*;
+import static racingcar.util.NumberManager.*;
 
 public class RandomNumberGenerate implements NumberGenerate {
 

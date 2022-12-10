@@ -2,8 +2,11 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.message.ErrorMessage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static racingcar.message.ErrorMessage.*;
@@ -19,8 +22,15 @@ public class View extends OutputView {
         return cars;
     }
 
+    private void validateDuplicate(String[] splitInput) {
+        if(splitInput.length != Arrays.stream(splitInput).distinct().count()){
+            throw new IllegalArgumentException(DUPLICATE_PARTICIPANT.getMessage());
+        }
+    }
+
     private void makeCars(String[] splitInput, List<Car> cars) {
         try {
+            validateDuplicate(splitInput);
             for (String car : splitInput) {
                 cars.add(new Car(car));
             }
