@@ -14,4 +14,13 @@ public class Car {
     private void move(int moveInput){
         if(moveInput >= Number.STANDARD_NUMBER.getNumber())position++;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder print = new StringBuilder(name);
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
+    }
 }
