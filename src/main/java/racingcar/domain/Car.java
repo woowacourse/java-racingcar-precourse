@@ -22,7 +22,7 @@ public class Car {
     }
 
     private void validate(String name) {
-        if (name.length() > maxNameSize) {
+        if (name.length() > maxNameSize || name.length() < NAME_MIN_LENGTH.getNumber()) {
             throw new IllegalArgumentException(CAR_NAME_TOO_LONG.getMessage());
         }
     }
