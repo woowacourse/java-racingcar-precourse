@@ -15,22 +15,19 @@ public class RacingGameController {
     private final OutputView outputView = new OutputView();
 
     public void run() {
-        try {
-            String carNames = inputView.readCarName();
-            CarGenerator carGenerator = new CarGenerator(carNames);
-            List<Car> cars = carGenerator.generateNamesToCars();
 
-            int gameCount = inputView.readGameCount();
-            outputView.printResultMessage();
-            // 게임 횟수만큼 게임 실행
-            playTheGame(cars, gameCount);
-            // 우승 car 구하기
-            String winner = getWinners(cars);
-            // 우승자 출력
-            outputView.printWinner(winner);
-        } catch (IllegalArgumentException e) {
-            outputView.printErrorMessage(e);
-        }
+        String carNames = inputView.readCarName();
+        CarGenerator carGenerator = new CarGenerator(carNames);
+        List<Car> cars = carGenerator.generateNamesToCars();
+
+        int gameCount = inputView.readGameCount();
+        outputView.printResultMessage();
+        // 게임 횟수만큼 게임 실행
+        playTheGame(cars, gameCount);
+        // 우승 car 구하기
+        String winner = getWinners(cars);
+        // 우승자 출력
+        outputView.printWinner(winner);
     }
 
     private String getWinners(List<Car> cars) {
@@ -56,7 +53,7 @@ public class RacingGameController {
 
     private List<Car> getWinnerCars(List<Car> cars) {
         Integer maxPosition = getMaxPosition(cars);
-       return calculateWinner(cars, maxPosition);
+        return calculateWinner(cars, maxPosition);
     }
 
     private Integer getMaxPosition(List<Car> cars) {
@@ -67,7 +64,7 @@ public class RacingGameController {
     }
 
     private List<Car> calculateWinner(List<Car> cars, int maxPosition) {
-       return cars.stream()
+        return cars.stream()
                 .filter(i -> i.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
