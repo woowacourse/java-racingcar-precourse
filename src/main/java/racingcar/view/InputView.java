@@ -15,6 +15,8 @@ public class InputView {
 
     public int readGameCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Util.convertStringToInt(Console.readLine());
+        int gameCount = Util.convertStringToInt(Console.readLine());
+        Validator.validateGameCount(gameCount);
+        return gameCount;
     }
 }
