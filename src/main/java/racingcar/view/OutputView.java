@@ -14,7 +14,7 @@ public class OutputView {
         System.out.println("최종 우승자 : " + winner);
     }
 
-    public void printErrorMessage(String message) {
-        System.out.println(message);
+    public void printErrorMessage(IllegalArgumentException exception) {
+        System.out.println(exception.getMessage());
     }
 }
