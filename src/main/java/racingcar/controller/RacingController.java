@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.CarGroup;
+import racingcar.domain.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,10 +20,10 @@ public class RacingController {
 
     public void run() {
         CarGroup cars = repeat(inputView::inputCarName);
-        Integer tryCount = repeat(inputView::inputTryCount);
+        TryCount tryCount = repeat(inputView::inputTryCount);
 
         outputView.printRacingStart();
-        IntStream.range(0, tryCount).forEach(index -> {
+        IntStream.range(0, tryCount.getCount()).forEach(index -> {
             cars.moveAll();
             outputView.printRacingLog(cars);
         });

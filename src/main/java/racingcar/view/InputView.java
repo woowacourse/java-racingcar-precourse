@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
+import racingcar.domain.TryCount;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,18 +31,9 @@ public class InputView {
         return new CarGroup(cars);
     }
 
-    public int inputTryCount() {
+    public TryCount inputTryCount() {
         outputView.printInputTryCount();
         String input = Console.readLine();
-        validateNumber(input);
-        return Integer.parseInt(input);
-    }
-
-    private void validateNumber(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(TRY_COUNT_MUST_BE_NUMBER.getMessage());
-        }
+        return new TryCount(input);
     }
 }
