@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import racingcar.support.CarMoveFlagGenerator;
 import racingcar.support.RandomNumberGenerator;
 
 import java.util.List;
