@@ -1,6 +1,6 @@
 package racingcar.support;
 
-public interface RandomNumberGenerator {
+public interface RandomNumberGenerator<T> {
 
-    boolean generate();
+    T generate();
 }

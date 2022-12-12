@@ -13,7 +13,7 @@ public class CarGroup {
 
     private static final String WINNER_DELIMITER = ", ";
 
-    private final RandomNumberGenerator flagGenerator;
+    private final RandomNumberGenerator<Boolean> flagGenerator;
     private final List<Car> carGroup;
 
     public CarGroup(List<Car> cars) {
@@ -43,7 +43,8 @@ public class CarGroup {
     }
 
     private boolean isMove() {
-        return flagGenerator.generate();
+        // Boolean NULL Safe equals
+        return Boolean.TRUE.equals(flagGenerator.generate());
     }
 
     public String toProgressMessage() {
