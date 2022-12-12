@@ -64,5 +64,15 @@ public class Validator {
             throw new IllegalArgumentException("[ERROR] 자동차 이름을 다시 입력해 주세요");
         }
     }
+    public static void validateNumberValue(long longValue) {
+        if (longValue >= Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("[ERROR] INT 범위 안의 숫자를 입력해 주세요");
+        }
+    }
 
+    public static void validateGameCount(int gameCount) {
+        if (gameCount <= 0) {
+            throw new IllegalArgumentException("[ERROR] 1 이상의 값을 입력해 주세요");
+        }
+    }
 }
