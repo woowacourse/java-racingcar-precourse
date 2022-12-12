@@ -13,4 +13,8 @@ public class OutputView {
     public void printWinner(String winner) {
         System.out.println("최종 우승자 : " + winner);
     }
+
+    public void printErrorMessage(String message) {
+        System.out.println(message);
+    }
 }
