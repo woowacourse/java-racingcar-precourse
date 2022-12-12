@@ -19,3 +19,8 @@ bin/
 *.iws
 *.iml
 *.ipr
+
+### personal gitignore setting
+/gradle
+gradle*
+settings.gradle
