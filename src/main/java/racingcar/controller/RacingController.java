@@ -22,12 +22,20 @@ public class RacingController {
         CarGroup cars = repeat(inputView::inputCarName);
         TryCount tryCount = repeat(inputView::inputTryCount);
 
+        moveAllCar(cars, tryCount);
+
+        printWinner(cars);
+    }
+
+    private void moveAllCar(CarGroup cars, TryCount tryCount) {
         outputView.printRacingStart();
         IntStream.range(0, tryCount.getCount()).forEach(index -> {
             cars.moveAll();
             outputView.printRacingLog(cars);
         });
+    }
 
+    private void printWinner(CarGroup cars) {
         outputView.printWinner(cars);
     }
 
