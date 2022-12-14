@@ -14,12 +14,12 @@ public class RacingController {
     private final RacingGame racingGame = new RacingGame(new RandomNumberGenerator());
 
     public void run() {
-        executeFunction(this::enrollCarToRace);
-        executeFunction(this::moveCarsByCount);
-        executeFunction(this::showWinners);
+        repeatUntilGetLegalAnswer(this::enrollCarToRace);
+        repeatUntilGetLegalAnswer(this::moveCarsByCount);
+        showWinners();
     }
 
-    private void executeFunction(Runnable runnable) {
+    private void repeatUntilGetLegalAnswer(Runnable runnable) {
         ExceptionHandler.retryForIllegalArgument(runnable, outputView::printErrorMessage);
     }
 
