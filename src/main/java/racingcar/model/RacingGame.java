@@ -46,4 +46,20 @@ public class RacingGame {
                 .map(Car::to)
                 .collect(Collectors.toList());
     }
+
+    public List<String> findWinners() {
+        List<String> winnerNames = new ArrayList<>();
+        int maxPosition = 0;
+        for (Car car : racingCars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        findCarsAtPosition(maxPosition).forEach(car -> winnerNames.add(car.getName()));
+        return winnerNames;
+    }
+
+    private List<Car> findCarsAtPosition(int position) {
+        return racingCars.stream()
+                .filter(car -> car.getPosition() == position)
+                .collect(Collectors.toList());
+    }
 }

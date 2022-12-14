@@ -15,6 +15,7 @@ public class RacingController {
     public void run() {
         enrollCarToRace();
         moveCarsByCount();
+        showWinner();
     }
 
     public void enrollCarToRace() {
@@ -26,5 +27,10 @@ public class RacingController {
         int moveCount = inputView.inputMoveCount();
         List<CarStatusDTO> carStatuses = racingGame.repeatMovingCars(moveCount);
         outputView.printGameResult(carStatuses);
+    }
+
+    public void showWinner() {
+        List<String> winnerNames = racingGame.findWinners();
+        System.out.println(winnerNames);
     }
 }
