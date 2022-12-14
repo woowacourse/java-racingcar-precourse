@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarDTO;
+import racingcar.dto.CarStatusDTO;
 import racingcar.model.constants.ErrorMessage;
 import racingcar.model.constants.GameRule;
 import racingcar.model.domain.Car;
@@ -31,7 +32,15 @@ public class RacingGame {
         }
     }
 
-    public List<CarDTO> moveCars() {
+    public List<CarStatusDTO> repeatMovingCars(int moveCount) {
+        List<CarStatusDTO> carStatuses = new ArrayList<>();
+        for (int count = 0; count < moveCount; count++) {
+            carStatuses.add(new CarStatusDTO(moveCars()));
+        }
+        return carStatuses;
+    }
+
+    private List<CarDTO> moveCars() {
         racingCars.forEach(car -> car.move(numberGenerator.make()));
         return racingCars.stream()
                 .map(Car::to)
