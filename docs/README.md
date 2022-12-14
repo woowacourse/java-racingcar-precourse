@@ -96,7 +96,38 @@
 
 ## 🖋 클래스 설계
 
-[작성 예정]
+```
+└── racingcar
+    ├── Application.java
+    ├── controller
+    │   ├── RacingController.java
+    │   └── util
+    │       └── ExceptionHandler.java
+    ├── dto
+    │   ├── CarDTO.java
+    │   └── CarStatusDTO.java
+    ├── model
+    │   ├── NumberGenerator.java
+    │   ├── RacingGame.java
+    │   ├── RandomNumberGenerator.java
+    │   ├── constants
+    │   │   ├── ErrorMessage.java
+    │   │   └── GameRule.java
+    │   └── domain
+    │       ├── Car.java
+    │       └── RacingCars.java
+    └── view
+        ├── InputView.java
+        ├── OutputView.java
+        ├── constants
+        │   ├── ErrorMessage.java
+        │   ├── Format.java
+        │   ├── InputMessage.java
+        │   └── OutputMessage.java
+        └── util
+            ├── FormatParser.java
+            └── NumberParser.java
+```
 
 ## ♻️ 리팩토링 검토 목록
 
