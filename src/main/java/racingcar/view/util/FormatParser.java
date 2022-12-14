@@ -1,5 +1,7 @@
 package racingcar.view.util;
 
+import static racingcar.view.constants.Format.INPUT_NAMES_DELIMITER;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
@@ -11,6 +13,7 @@ public class FormatParser {
     }
 
     public static List<String> split(String line, String delimiter) {
+        validateWrongFormat(line);
         String[] values = line.split(delimiter);
         List<String> parsedValue = Arrays.stream(values)
                 .map(String::trim)
@@ -19,14 +22,17 @@ public class FormatParser {
         return parsedValue;
     }
 
-    public static String join(List<String> values, String delimiter) {
-        StringJoiner joiner = new StringJoiner(delimiter);
-        values.forEach(joiner::add);
-        return joiner.toString();
+    private static void validateWrongFormat(String line) {
+        if (hasWrongFormat(line)) {
+            throw new IllegalArgumentException(ErrorMessage.FORMAT_INVALID);
+        }
     }
 
-    public static String make(int count, String unit) {
-        return unit.repeat(count);
+    private static boolean hasWrongFormat(String line) {
+        if (line.isEmpty()) {
+            return true;
+        }
+        return line.startsWith(INPUT_NAMES_DELIMITER) || line.endsWith(INPUT_NAMES_DELIMITER);
     }
 
     private static void validateEmpty(List<String> values) {
@@ -38,5 +44,15 @@ public class FormatParser {
     private static boolean hasEmptyValue(List<String> values) {
         return values.stream()
                 .anyMatch(String::isEmpty);
+    }
+
+    public static String join(List<String> values, String delimiter) {
+        StringJoiner joiner = new StringJoiner(delimiter);
+        values.forEach(joiner::add);
+        return joiner.toString();
+    }
+
+    public static String make(int count, String unit) {
+        return unit.repeat(count);
     }
 }
