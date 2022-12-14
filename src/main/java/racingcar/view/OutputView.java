@@ -27,4 +27,8 @@ public class OutputView {
     public void printWinners(List<String> winnerNames) {
         System.out.printf(Format.OUTPUT_WINNERS_FORMAT, FormatParser.join(winnerNames, Format.OUTPUT_NAMES_DELIMITER));
     }
+
+    public void printErrorMessage(String message) {
+        System.out.printf(Format.OUTPUT_ERROR_FORMAT, message);
+    }
 }
