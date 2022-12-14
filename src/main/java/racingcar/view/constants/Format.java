@@ -7,4 +7,7 @@ public class Format {
     public static final String OUTPUT_CAR_POSITION_UNIT = "-";
     public static final String OUTPUT_WINNERS_FORMAT = "최종 우승자 : %s" + System.lineSeparator();
     public static final String OUTPUT_ERROR_FORMAT = "[ERROR] %s" + System.lineSeparator();
+
+    private Format() {
+    }
 }
