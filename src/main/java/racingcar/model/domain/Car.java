@@ -20,7 +20,7 @@ public class Car {
     }
 
     public void move(int number) {
-        if (number > GameRule.CAR_FORWARD_LOWER_LIMIT) {
+        if (number >= GameRule.CAR_FORWARD_LOWER_LIMIT) {
             position++;
         }
     }
