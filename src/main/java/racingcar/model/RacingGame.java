@@ -1,17 +1,15 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarDTO;
 import racingcar.dto.CarStatusDTO;
-import racingcar.model.constants.ErrorMessage;
-import racingcar.model.constants.GameRule;
 import racingcar.model.domain.Car;
+import racingcar.model.domain.RacingCars;
 
 public class RacingGame {
-    private final List<Car> racingCars = new ArrayList<>();
+    private final RacingCars racingCars = new RacingCars();
     private final NumberGenerator numberGenerator;
 
     public RacingGame(NumberGenerator numberGenerator) {
@@ -19,17 +17,7 @@ public class RacingGame {
     }
 
     public void enrollCars(List<String> carNames) {
-        validateCarNames(carNames);
-        carNames.forEach(name -> racingCars.add(new Car(name)));
-    }
-
-    private void validateCarNames(List<String> carNames) {
-        if (carNames.size() < GameRule.CARS_COUNT_LOWER_LIMIT) {
-            throw new IllegalArgumentException(ErrorMessage.CARS_LACK_OF_COUNT);
-        }
-        if (carNames.size() != new HashSet<>(carNames).size()) {
-            throw new IllegalArgumentException(ErrorMessage.CARS_DUPLICATED_NAME);
-        }
+        racingCars.addCars(carNames);
     }
 
     public List<CarStatusDTO> repeatMovingCars(int moveCount) {
@@ -41,8 +29,9 @@ public class RacingGame {
     }
 
     private List<CarDTO> moveCars() {
-        racingCars.forEach(car -> car.move(numberGenerator.make()));
-        return racingCars.stream()
+        racingCars.race(numberGenerator);
+        List<Car> cars = racingCars.cars();
+        return cars.stream()
                 .map(Car::to)
                 .collect(Collectors.toList());
     }
@@ -50,16 +39,10 @@ public class RacingGame {
     public List<String> findWinners() {
         List<String> winnerNames = new ArrayList<>();
         int maxPosition = 0;
-        for (Car car : racingCars) {
+        for (Car car : racingCars.cars()) {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
-        findCarsAtPosition(maxPosition).forEach(car -> winnerNames.add(car.getName()));
+        racingCars.findCarsAtPosition(maxPosition).forEach(car -> winnerNames.add(car.getName()));
         return winnerNames;
-    }
-
-    private List<Car> findCarsAtPosition(int position) {
-        return racingCars.stream()
-                .filter(car -> car.getPosition() == position)
-                .collect(Collectors.toList());
     }
 }
