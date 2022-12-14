@@ -16,7 +16,7 @@ public class FormatParser {
                 .map(String::trim)
                 .collect(Collectors.toList());
         validateEmpty(parsedValue);
-        return null;
+        return parsedValue;
     }
 
     public static String join(List<String> values, String delimiter) {
