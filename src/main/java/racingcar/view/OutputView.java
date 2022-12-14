@@ -23,4 +23,8 @@ public class OutputView {
         System.out.printf(Format.OUTPUT_CAR_STATUS_FORMAT, carDTO.getName(),
                 FormatParser.make(carDTO.getPosition(), Format.OUTPUT_CAR_POSITION_UNIT));
     }
+
+    public void printWinners(List<String> winnerNames) {
+        System.out.printf(Format.OUTPUT_WINNERS_FORMAT, FormatParser.join(winnerNames, Format.OUTPUT_NAMES_DELIMITER));
+    }
 }

@@ -15,7 +15,7 @@ public class RacingController {
     public void run() {
         enrollCarToRace();
         moveCarsByCount();
-        showWinner();
+        showWinners();
     }
 
     public void enrollCarToRace() {
@@ -29,8 +29,8 @@ public class RacingController {
         outputView.printGameResult(carStatuses);
     }
 
-    public void showWinner() {
+    public void showWinners() {
         List<String> winnerNames = racingGame.findWinners();
-        System.out.println(winnerNames);
+        outputView.printWinners(winnerNames);
     }
 }
