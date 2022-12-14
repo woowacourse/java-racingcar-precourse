@@ -11,6 +11,7 @@ public class RacingController {
 
     public void run() {
         enrollCarToRace();
+        System.out.println(racingGame.moveCars());
     }
 
     public void enrollCarToRace() {

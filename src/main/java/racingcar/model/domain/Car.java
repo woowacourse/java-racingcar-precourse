@@ -1,11 +1,12 @@
 package racingcar.model.domain;
 
+import racingcar.dto.CarDTO;
 import racingcar.model.constants.ErrorMessage;
 import racingcar.model.constants.GameRule;
 
 public class Car {
     private final String name;
-    private final int position = 0;
+    private int position = 0;
 
     public Car(String name) {
         validateName(name);
@@ -18,11 +19,13 @@ public class Car {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
-                '}';
+    public void move(int number) {
+        if (number > GameRule.CAR_FORWARD_LOWER_LIMIT) {
+            position++;
+        }
+    }
+
+    public CarDTO to() {
+        return new CarDTO(name, position);
     }
 }
