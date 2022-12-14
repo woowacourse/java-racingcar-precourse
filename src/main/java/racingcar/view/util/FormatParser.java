@@ -25,6 +25,10 @@ public class FormatParser {
         return joiner.toString();
     }
 
+    public static String make(int count, String unit) {
+        return unit.repeat(count);
+    }
+
     private static void validateEmpty(List<String> values) {
         if (hasEmptyValue(values)) {
             throw new IllegalArgumentException(ErrorMessage.FORMAT_EMPTY);

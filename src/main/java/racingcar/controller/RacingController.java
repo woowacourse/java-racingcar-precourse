@@ -5,9 +5,11 @@ import racingcar.dto.CarStatusDTO;
 import racingcar.model.RacingGame;
 import racingcar.model.RandomNumberGenerator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingController {
     private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
     private final RacingGame racingGame = new RacingGame(new RandomNumberGenerator());
 
     public void run() {
@@ -23,5 +25,6 @@ public class RacingController {
     public void moveCarsByCount() {
         int moveCount = inputView.inputMoveCount();
         List<CarStatusDTO> carStatuses = racingGame.repeatMovingCars(moveCount);
+        outputView.printGameResult(carStatuses);
     }
 }
