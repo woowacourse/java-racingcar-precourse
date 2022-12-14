@@ -11,11 +11,16 @@ public class RacingController {
 
     public void run() {
         enrollCarToRace();
-        System.out.println(racingGame.moveCars());
+        moveCarsByCount();
     }
 
     public void enrollCarToRace() {
         List<String> carNames = inputView.inputCarNames();
         racingGame.enrollCars(carNames);
+    }
+
+    public void moveCarsByCount() {
+        int moveCount = inputView.inputMoveCount();
+        // TODO moveCount 만큼 반복 이동
     }
 }

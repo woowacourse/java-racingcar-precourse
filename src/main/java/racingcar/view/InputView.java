@@ -7,6 +7,7 @@ import java.util.List;
 import racingcar.view.constants.ErrorMessage;
 import racingcar.view.constants.InputMessage;
 import racingcar.view.util.FormatParser;
+import racingcar.view.util.NumberParser;
 
 public class InputView {
     public List<String> inputCarNames() {
@@ -27,5 +28,12 @@ public class InputView {
             return true;
         }
         return line.startsWith(INPUT_NAMES_DELIMITER) || line.endsWith(INPUT_NAMES_DELIMITER);
+    }
+
+    public int inputMoveCount() {
+        System.out.println(InputMessage.MOVE_COUNT);
+        String line = Console.readLine();
+        System.out.println();
+        return NumberParser.parseDigit(line);
     }
 }
