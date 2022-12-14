@@ -7,7 +7,12 @@ import racingcar.model.constants.GameRule;
 import racingcar.model.domain.Car;
 
 public class RacingGame {
-    private static final List<Car> racingCars = new ArrayList<>();
+    private final List<Car> racingCars = new ArrayList<>();
+    private final NumberGenerator numberGenerator;
+
+    public RacingGame(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+    }
 
     public void enrollCars(List<String> carNames) {
         validateCarCount(carNames.size());
