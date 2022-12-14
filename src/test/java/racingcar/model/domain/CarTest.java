@@ -1,8 +1,11 @@
 package racingcar.model.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
     @Test
@@ -19,5 +22,14 @@ class CarTest {
         car.move(3);
 
         assertThat(car.to().getPosition()).isEqualTo(0);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, 10})
+    void 이동_범위_밖_수_예외발생(int number) {
+        Car car = new Car("테스트");
+
+        assertThatThrownBy(() -> car.move(number))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }

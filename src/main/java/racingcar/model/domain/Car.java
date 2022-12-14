@@ -20,8 +20,15 @@ public class Car {
     }
 
     public void move(int number) {
+        validateNumber(number);
         if (number >= GameRule.CAR_FORWARD_LOWER_LIMIT) {
             position++;
+        }
+    }
+
+    private void validateNumber(int number) {
+        if (number < GameRule.NUMBER_RANGE_START || number > GameRule.NUMBER_RANGE_END) {
+            throw new IllegalArgumentException(ErrorMessage.MOVING_NUMBER_OUT_OF_BOUNDS);
         }
     }
 
