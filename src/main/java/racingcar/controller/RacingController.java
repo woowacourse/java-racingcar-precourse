@@ -14,9 +14,14 @@ public class RacingController {
     private final RacingGame racingGame = new RacingGame(new RandomNumberGenerator());
 
     public void run() {
-        repeatUntilGetLegalAnswer(this::enrollCarToRace);
-        repeatUntilGetLegalAnswer(this::moveCarsByCount);
-        showWinners();
+        try {
+            repeatUntilGetLegalAnswer(this::enrollCarToRace);
+            repeatUntilGetLegalAnswer(this::moveCarsByCount);
+            showWinners();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            outputView.printErrorMessage(exception.getMessage());
+        }
     }
 
     private void repeatUntilGetLegalAnswer(Runnable runnable) {
