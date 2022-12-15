@@ -37,12 +37,6 @@ public class RacingGame {
     }
 
     public List<String> findWinners() {
-        List<String> winnerNames = new ArrayList<>();
-        int maxPosition = 0;
-        for (Car car : racingCars.cars()) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
-        }
-        racingCars.findCarsAtPosition(maxPosition).forEach(car -> winnerNames.add(car.getName()));
-        return winnerNames;
+        return racingCars.findWinnerNames();
     }
 }

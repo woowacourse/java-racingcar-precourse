@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.NumberGenerator;
 import racingcar.model.constants.ErrorMessage;
 import racingcar.model.constants.GameRule;
@@ -34,9 +33,19 @@ public class RacingCars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<Car> findCarsAtPosition(int position) {
-        return cars.stream()
-                .filter(car -> car.getPosition() == position)
-                .collect(Collectors.toList());
+    public List<String> findWinnerNames() {
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (findAnyHeadCar().compareTo(car) == 0) {
+                winnerNames.add(car.getName());
+            }
+        }
+        return winnerNames;
+    }
+
+    private Car findAnyHeadCar() {
+        List<Car> carsToSort = new ArrayList<>(cars);
+        Collections.sort(carsToSort);
+        return carsToSort.get(0);
     }
 }

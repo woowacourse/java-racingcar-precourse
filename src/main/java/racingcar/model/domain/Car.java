@@ -4,7 +4,7 @@ import racingcar.dto.CarDTO;
 import racingcar.model.constants.ErrorMessage;
 import racingcar.model.constants.GameRule;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
 
@@ -36,11 +36,12 @@ public class Car {
         return name;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public CarDTO to() {
         return new CarDTO(name, position);
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.position - this.position;
     }
 }

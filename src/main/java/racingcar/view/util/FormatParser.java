@@ -4,7 +4,6 @@ import static racingcar.view.constants.Format.INPUT_NAMES_DELIMITER;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import racingcar.view.constants.ErrorMessage;
 
@@ -47,9 +46,7 @@ public class FormatParser {
     }
 
     public static String join(List<String> values, String delimiter) {
-        StringJoiner joiner = new StringJoiner(delimiter);
-        values.forEach(joiner::add);
-        return joiner.toString();
+        return String.join(delimiter, values);
     }
 
     public static String make(int count, String unit) {
