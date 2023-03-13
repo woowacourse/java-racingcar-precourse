@@ -11,14 +11,25 @@ public class GameController {
     private CarGame carGame;
     public void startGame(){
         makeCarGame();
+        playGame();
     }
 
     public void makeCarGame(){
-        carGame = CarGameGenerator.makeCarGame(askCars()); // 인자로 car을 넘겨줘야 하는데
+        this.carGame = CarGameGenerator.makeCarGame(askCars()); // 인자로 car을 넘겨줘야 하는데
     }
     public Cars askCars(){
         OutputView.printInputCarName();
         return new ReEnterProcessor<>(InputView::readCarName, OutputView::printExceptionMessage).process();
+    }
+    public void playGame(){
+        int tryNum = askTry();
+        System.out.println(tryNum);
+    }
+
+    public int askTry(){
+        OutputView.printInputTryCount();
+        return new ReEnterProcessor<>(InputView::readTryCount, OutputView::printExceptionMessage).process();
+
     }
 
 }
