@@ -23,7 +23,10 @@ public class GameController {
     }
     public void playGame(){
         int tryNum = askTry();
-        System.out.println(tryNum);
+        for(int i =0; i< tryNum; i++){
+            carGame.playRound();
+            OutputView.showRoundResult(carGame.getCars());
+        }
     }
 
     public int askTry(){

@@ -1,6 +1,8 @@
 package racingcar.Domain;
 
 import java.util.*;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Exceptions.CarsDuplicatedNameException;
 public class Cars {
 
@@ -28,6 +30,7 @@ public class Cars {
         return word.replaceAll(DUPLICATED_DELIMITER_REGEX, DELIMITER).split(DELIMITER);
     }
     private static void checkValidateName(String[] words){
+
         validateDuplicateName(words);
     }
     private static void validateDuplicateName(String[] names){
@@ -37,5 +40,14 @@ public class Cars {
                 throw new CarsDuplicatedNameException();
             }
         }
+    }
+
+    public  void move() {
+        for(Car car : cars){
+            car.move(Randoms.pickNumberInRange(0,9));
+        }
+    }
+    public List<Car> getCars(){
+        return this.cars;
     }
 }
