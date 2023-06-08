@@ -33,6 +33,15 @@ class ApplicationTest extends NsTest {
             }
         );
     }
+    @Test
+    void 라운드에_대한_예외_처리() {
+        assertSimpleTest(
+                () -> {
+                    runException("pobi,java","abd");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
+        );
+    }
 
     @Override
     public void runMain() {

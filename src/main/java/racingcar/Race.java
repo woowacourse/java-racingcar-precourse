@@ -10,15 +10,15 @@ public class Race
     private static final String INPUT_ROUND = "시도할 회수는 몇회인가요?";
     private static final String RESULT_HEAD = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자 : ";
+    private static final String ERRMASSAGE = "[ERROR] 이름은 5글자 이하여야 합니다.";
+    private static final String ERRROUNDMESSAGE = "[ERROR] 시도 횟수는 숫자여야 한다.";
 
-    private static String[] carnames;
     private static Car[] cars;
-    private static int numberOfCars;
 
     public void run()
     {
-        getCarsName();
-        makeCars();
+        String[] carnames = getCarsName();
+        makeCars(carnames);
 
         int round = getRound();
         startRace(round);
@@ -26,20 +26,49 @@ public class Race
         Car[] winners = calWinners();
         printWinnerName(winners);
     }
-    private void getCarsName()
+    private String[] getCarsName()
     {
-        System.out.println(INPUT_NAME);
-        carnames = readLine().split(",");
-        numberOfCars = carnames.length;
+        String[] carnames;
+        while(true)
+        {
+            try
+            {
+                System.out.println(INPUT_NAME);
+                carnames = readLine().split(",");
+                validateNames(carnames);
+                break;
+            } catch (IllegalArgumentException e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }
+        return carnames;
     }
-    private void makeCars()
+    private void makeCars(String[] carnames)
     {
         cars = Arrays.stream(carnames).map(Car::new).toArray(Car[]::new);
     }
     private int getRound()
     {
         System.out.println(INPUT_ROUND);
-        return Integer.parseInt(readLine());
+        String input;
+        while(true)
+        {
+            try{
+                input = readLine();
+                validateRoundInput(input);
+                break;
+            } catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
+        }
+        return Integer.parseInt(input);
+    }
+    private void validateRoundInput(String input)
+    {
+        if(input.chars().allMatch(Character::isDigit))
+            return;
+        throw new IllegalArgumentException(ERRROUNDMESSAGE);
     }
     private void startRace(int round)
     {
@@ -81,11 +110,24 @@ public class Race
     }
     private void printWinnerName(Car[] winners)
     {
-
-        System.out.println(FINAL_WINNER+);
+        System.out.println(FINAL_WINNER+getWinnerName(winners));
     }
     private String getWinnerName(Car[] winners)
     {
-        return Arrays.stream(winners).map(Car::getName).collect(String.join());
+        return Arrays.stream(winners).map(Car::getName).collect(Collectors.joining(", "));
+    }
+    private boolean validateNameLength(String name)
+    {
+        return name.length() > 5;
+    }
+    private void validateNames(String[] carnames)
+    {
+        for(String carname:carnames)
+        {
+            if(validateNameLength(carname))
+            {
+                throw new IllegalArgumentException(ERRMASSAGE);
+            }
+        }
     }
 }
