@@ -32,7 +32,7 @@ public class Application {
                 break;
             }
             catch (IllegalArgumentException e) {
-                System.out.println("올바른 형식의 자동차 이름을 입력하세요.");
+                System.out.println("[ERROR] 올바른 형식의 자동차 이름을 입력하세요.");
             }
         }
         return carNames;
@@ -65,7 +65,7 @@ public class Application {
                 break;
             }
             catch (IllegalArgumentException e) {
-                System.out.println("올바른 형식의 숫자를 입력하세요.");
+                System.out.println("[ERROR] 올바른 형식의 숫자를 입력하세요.");
             }
         }
         return tryCount;
@@ -82,6 +82,7 @@ public class Application {
 
     // 레이싱 게임 실행
     private static void runRacingGame(List<Car> cars, int tryCount) {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
             for (Car car : cars) {
                 car.moveForward();
@@ -122,6 +123,6 @@ public class Application {
 
     // 우승자 목록 출력
     private static void printWinners(List<String> winners) {
-        System.out.println("최종 우승자는 " + String.join(", ", winners) + " 입니다!");
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
