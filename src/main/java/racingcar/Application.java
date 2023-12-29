@@ -2,10 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -29,7 +26,7 @@ public class Application {
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
             String input = Console.readLine();
-            carNames = Arrays.stream(input.split("," , -1));
+            carNames = Arrays.asList(input.split(",", -1));
             try { // 예외가 발생한다면? -> catch
                 validateCarNames(carNames); // 유효성 검사
                 break;
@@ -76,7 +73,29 @@ public class Application {
 
     // 자동차 목록 생성.
     private static List<Car> createCars(List<String> carNames) {
+        List<Car> cars = new ArrayList<>(); // 리스트 생성 후 리스트의 원소가 Car 크랫스의 인스턴스가 되도록
+        for (String name : carNames) {
+            cars.add(new Car(name));
+        }
+        return cars;
+    }
 
+    // 레이싱 게임 실행
+    private static void runRacingGame(List<Car> cars, int tryCount) {
+        for (int = 0; i < tryCount; i++) {
+            for (Car car : cars) {
+                car.moveForward();
+            }
+            printRoundResult(cars);
+        }
+    }
+
+    // 한 라운드 결과 출력
+    private static void printRoundResult(List<Car> cars) {
+        for (Car car : cars) {
+//            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+            System.out.println(car.getName() + " : " + new String(new char[car.getPosition()]).replace('\0', '-'));
+        }
     }
 
 }
