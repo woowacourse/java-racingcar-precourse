@@ -82,7 +82,7 @@ public class Application {
 
     // 레이싱 게임 실행
     private static void runRacingGame(List<Car> cars, int tryCount) {
-        for (int = 0; i < tryCount; i++) {
+        for (int i = 0; i < tryCount; i++) {
             for (Car car : cars) {
                 car.moveForward();
             }
@@ -96,6 +96,32 @@ public class Application {
 //            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
             System.out.println(car.getName() + " : " + new String(new char[car.getPosition()]).replace('\0', '-'));
         }
+        System.out.println();
     }
 
+    // 우승자 목록 찾기
+    private static List<String> findWinners(List<Car> cars) {
+        int maxPosition = getMaxPosition(cars);
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    // 최대 위치 찾기
+    private static int getMaxPosition(List<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
+
+    // 우승자 목록 출력
+    private static void printWinners(List<String> winners) {
+        System.out.println("최종 우승자는 " + String.join(", ", winners) + " 입니다!");
+    }
 }
