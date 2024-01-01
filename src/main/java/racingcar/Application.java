@@ -6,22 +6,19 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
-        // 자동차 이름 입력 -> 유효성 검사
         List<String> carNames = getCarNames();
-        // 자동차 목록 생성
+
         List<Car> cars = createCars(carNames);
-        // 시도 횟수 입력
+
         int tryCount = getTryCount();
-        // 레이싱 게임 실행 -> 한 라운드 결과 출력
+
         runRacingGame(cars, tryCount);
-        // 우승자 목록 찾기 -> 우승자 목록 출력
+
         printWinners(findWinners(cars));
     }
 
-    // 자동차 이름 입력
+
     private static List<String> getCarNames() {
-//        Scanner scanner = new Scanner(System.in);
         List<String> carNames;
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
@@ -38,7 +35,6 @@ public class Application {
         return carNames;
     }
 
-    // 자동차 이름 유효성 검사
     private static void validateCarNames(List<String> carNames) {
         for (String str : carNames) {
             if (str.isEmpty() || str.length() > 5) {
@@ -51,7 +47,6 @@ public class Application {
         }
     }
 
-    // 시도 횟수 입력
     private static int getTryCount() {
         int tryCount;
         while (true) {
@@ -59,9 +54,7 @@ public class Application {
             String input = Console.readLine();
             try {
                 tryCount = Integer.parseInt(input); // 문자열을 정수로 변환하는 문법
-                if (tryCount <= 0) {
-                    throw new IllegalArgumentException();
-                }
+                validateTryCount(tryCount);
                 break;
             }
             catch (IllegalArgumentException e) {
@@ -71,16 +64,20 @@ public class Application {
         return tryCount;
     }
 
-    // 자동차 목록 생성.
+    private static void validateTryCount(int tryCount) {
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private static List<Car> createCars(List<String> carNames) {
-        List<Car> cars = new ArrayList<>(); // 리스트 생성 후 리스트의 원소가 Car 크랫스의 인스턴스가 되도록
+        List<Car> cars = new ArrayList<>(); // 리스트 생성 후 리스트의 원소가 Car 클래스의 인스턴스가 되도록
         for (String name : carNames) {
             cars.add(new Car(name));
         }
         return cars;
     }
 
-    // 레이싱 게임 실행
     private static void runRacingGame(List<Car> cars, int tryCount) {
         System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
@@ -91,16 +88,13 @@ public class Application {
         }
     }
 
-    // 한 라운드 결과 출력
     private static void printRoundResult(List<Car> cars) {
         for (Car car : cars) {
-//            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
             System.out.println(car.getName() + " : " + new String(new char[car.getPosition()]).replace('\0', '-'));
         }
         System.out.println();
     }
 
-    // 우승자 목록 찾기
     private static List<String> findWinners(List<Car> cars) {
         int maxPosition = getMaxPosition(cars);
         List<String> winners = new ArrayList<>();
@@ -112,7 +106,6 @@ public class Application {
         return winners;
     }
 
-    // 최대 위치 찾기
     private static int getMaxPosition(List<Car> cars) {
         int maxPosition = 0;
         for (Car car : cars) {
@@ -121,7 +114,6 @@ public class Application {
         return maxPosition;
     }
 
-    // 우승자 목록 출력
     private static void printWinners(List<String> winners) {
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
