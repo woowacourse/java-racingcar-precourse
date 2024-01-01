@@ -36,8 +36,8 @@ public class Application {
     }
 
     private static void validateCarNames(List<String> carNames) {
-        for (String str : carNames) {
-            if (str.isEmpty() || str.length() > 5) {
+        for (String inputName : carNames) {
+            if (inputName.isEmpty() || inputName.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
