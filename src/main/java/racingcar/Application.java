@@ -6,11 +6,11 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-        List<String> carNames = getCarNames();
+        List<String> carNames = receiveCarNames();
 
         List<Car> cars = createCars(carNames);
 
-        int tryCount = getTryCount();
+        int tryCount = receiveTryCount();
 
         runRacingGame(cars, tryCount);
 
@@ -18,7 +18,7 @@ public class Application {
     }
 
 
-    private static List<String> getCarNames() {
+    private static List<String> receiveCarNames() {
         List<String> carNames;
         while (true) {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
@@ -47,7 +47,7 @@ public class Application {
         }
     }
 
-    private static int getTryCount() {
+    private static int receiveTryCount() {
         int tryCount;
         while (true) {
             System.out.println("시도할 횟수는 몇 회인가요?");
