@@ -27,8 +27,7 @@ public class Application {
                 carNames = Arrays.asList(input.split(",", -1));
                 carNames.forEach(inputName -> cars.add(new Car(inputName))); // carNames 리스트의 각 요소를 inputName으로 받아서 객체를 생성하고 cars 리스트에 추가함.
                 break;
-            }
-            catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] 올바른 형식의 자동차 이름을 입력하세요.");
             }
         }
