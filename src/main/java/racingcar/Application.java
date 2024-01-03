@@ -6,9 +6,7 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-        List<String> carNames = receiveCarNames();
-
-        List<Car> cars = createCars(carNames);
+        List<Car> cars = createCars();
 
         int tryCount = receiveTryCount();
 
@@ -17,27 +15,27 @@ public class Application {
         printWinners(findWinners(cars));
     }
 
-
-    private static List<String> receiveCarNames() {
-        List<String> carNames;
-        while (true) {
+    private static List<Car> createCars() {
+        List<String> carNames = null;
+        List<Car> cars = new ArrayList<>();
+        while (carNames == null) {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
             String input = Console.readLine();
-            carNames = Arrays.asList(input.split(",", -1));
-            try { // 예외가 발생한다면? -> catch
-                Car.validateCarNames(carNames); // 유효성 검사
+            try {
+                carNames = Arrays.asList(input.split(",", -1));
+                carNames.forEach(inputName -> cars.add(new Car(inputName))); // carNames 리스트의 각 요소를 inputName으로 받아서 객체를 생성하고 cars 리스트에 추가함.
                 break;
             }
             catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] 올바른 형식의 자동차 이름을 입력하세요.");
             }
         }
-        return carNames;
+        return cars;
     }
 
     private static int receiveTryCount() {
-        int tryCount;
-        while (true) {
+        int tryCount = 0;
+        while (tryCount == 0) {
             System.out.println("시도할 횟수는 몇 회인가요?");
             String input = Console.readLine();
             try {
@@ -56,14 +54,6 @@ public class Application {
         if (tryCount <= 0) {
             throw new IllegalArgumentException();
         }
-    }
-
-    private static List<Car> createCars(List<String> carNames) {
-        List<Car> cars = new ArrayList<>(); // 리스트 생성 후 리스트의 원소가 Car 클래스의 인스턴스가 되도록
-        for (String name : carNames) {
-            cars.add(new Car(name));
-        }
-        return cars;
     }
 
     private static void runRacingGame(List<Car> cars, int tryCount) {
