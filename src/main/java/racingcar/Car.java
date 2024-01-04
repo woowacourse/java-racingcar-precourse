@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    static final int MAX_NAME_LENGTH = 5;
     private final String name;
     private int position;
 
@@ -28,7 +29,6 @@ public class Car {
     }
 
     private void validateCarNames(String inputName) {
-        int MAX_NAME_LENGTH = 5;
         if (inputName.isEmpty() || inputName.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }

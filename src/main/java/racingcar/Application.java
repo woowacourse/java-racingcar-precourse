@@ -24,7 +24,7 @@ public class Application {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
             String input = Console.readLine();
             try {
-                carNames = Arrays.asList(input.split(",", -1));
+                carNames = Arrays.asList(input.split(","));
                 carNames.forEach(inputName -> cars.add(new Car(inputName))); // carNames 리스트의 각 요소를 inputName으로 받아서 객체를 생성하고 cars 리스트에 추가함.
                 break;
             } catch (IllegalArgumentException e) {
