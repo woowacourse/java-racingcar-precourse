@@ -13,22 +13,23 @@ public class Car {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
-    public void attemptRace(){
-        if(Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE) >= 4){
+    public void attemptRace() {
+        if (Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE) >= 4) {
             position++;
         }
     }
-    public String currentPosition (){
+
+    public String currentPosition() {
         StringBuilder sb = new StringBuilder();
-        for(int i = 0;i<this.position;i++){
+        for (int i = 0; i < this.position; i++) {
             sb.append("-");
         }
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
 public class Util {
     private final String DELIMETER = ",";
 
@@ -33,7 +34,6 @@ public class Util {
     }
 
 
-
     public int changeCount(String input) throws IllegalArgumentException {
         int count = Integer.parseInt(input);
 
@@ -41,8 +41,9 @@ public class Util {
 
         return count;
     }
-    public void checkCountRange(int count){
-        if(count<0){
+
+    public void checkCountRange(int count) {
+        if (count < 0) {
             throw new IllegalArgumentException();
         }
     }
@@ -63,20 +64,15 @@ public class Util {
             }
         }
 
-
-
         return winners;
     }
 
-    public String makeWinnerFormat(List<Car> cars){
+    public String makeWinnerFormat(List<Car> cars) {
 
         return cars.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
     }
-
-
-
 
 
 }
